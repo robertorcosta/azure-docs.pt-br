@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 4169bfb5da5b1ad13bab0eb01397f7c1fb20b11b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f7253be2844f40ca52df2f9b3bc9cbba552fea2b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060315"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85480126"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Adicionar adaptadores de rede ou remover adaptadores de rede de máquinas virtuais
 
@@ -65,14 +65,14 @@ Para adicionar uma interface de rede à sua máquina virtual:
 
 3. Na barra de comandos da VM, selecione **parar**e, em seguida, **OK** na caixa de diálogo de confirmação. Em seguida, aguarde até que o **status** da VM seja alterado para **parado (desalocado)**.
 
-4. Na barra de menus da VM, escolha **rede** > **anexar interface de rede**. Em seguida, em **anexar a interface de rede existente**, escolha a interface de rede que você deseja anexar e selecione **OK**.
+4. Na barra de menus da VM, escolha **rede**  >  **anexar interface de rede**. Em seguida, em **anexar a interface de rede existente**, escolha a interface de rede que você deseja anexar e selecione **OK**.
 
     >[!NOTE]
     >A interface de rede que você selecionar não pode ter a rede acelerada habilitada, não pode ter um endereço IPv6 atribuído a ela e deve existir na mesma rede virtual com a interface de rede atualmente conectada à VM.
 
     Se você ainda não tem um adaptador de rede, deve primeiro criar um. Para isso, selecione **Criar interface de rede**. Para saber mais sobre como criar um adaptador de rede, consulte [Criar um adaptador de rede](virtual-network-network-interface.md#create-a-network-interface). Para saber mais sobre as restrições adicionais durante a adição de adaptadores de rede a máquinas virtuais, consulte [Restrições](#constraints).
 
-5. Na barra de menus da VM, escolha **visão geral** > **Iniciar** para reiniciar a máquina virtual.
+5. Na barra de menus da VM, escolha **visão geral**  >  **Iniciar** para reiniciar a máquina virtual.
 
 Agora você pode configurar o sistema operacional da VM para usar várias interfaces de rede corretamente. Aprenda como configurar [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) ou [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) para vários adaptadores de rede.
 
@@ -115,9 +115,9 @@ Para saber mais sobre as configurações de adaptador de rede e como alterá-las
 
 4. Aguarde até que o **Status** da VM seja alterado para **Parado (desalocado)**.
 
-5. Na barra de menus da VM, escolha **rede** > **desanexar interface de rede**.
+5. Na barra de menus da VM, escolha **rede**  >  **desanexar interface de rede**.
 
-6. Na caixa de diálogo **desanexar interface de rede** , selecione a interface de rede que você deseja desanexar. Em seguida, selecione **OK**.
+6. Na caixa de diálogo **desanexar interface de rede** , selecione a interface de rede que você deseja desanexar. Depois, selecione **OK**.
 
     >[!NOTE]
     >Se apenas uma interface de rede estiver listada, você não poderá desanexá-la, pois uma máquina virtual sempre deve ter pelo menos um adaptador de rede anexado a ela.
@@ -151,7 +151,7 @@ Para saber mais sobre as configurações de adaptador de rede e como alterá-las
 
 - A exclusão de uma VM não exclui as interfaces de rede que estão anexadas a ela. Quando você exclui uma VM, os adaptadores de rede são desanexados da VM. Você pode adicionar essas interfaces de rede a diferentes VMs ou excluí-las.
 
-- Assim como acontece com o IPv6, você não pode anexar um adaptador de rede com rede acelerada habilitada para uma VM depois de criá-la. Além disso, para tirar proveito da rede rápida, você também deve concluir as etapas dentro do sistema operacional da VM. Saiba mais sobre a rede acelerada e outras restrições ao usá-la, para máquinas virtuais do [Windows](create-vm-accelerated-networking-powershell.md) ou do [Linux](create-vm-accelerated-networking-cli.md).
+- Alcançar o desempenho ideal documentado requer rede acelerada. Em alguns casos, você deve habilitar explicitamente a rede acelerada para máquinas virtuais [Windows](create-vm-accelerated-networking-powershell.md) ou [Linux](create-vm-accelerated-networking-cli.md) .
 
 ## <a name="next-steps"></a>Próximas etapas
 

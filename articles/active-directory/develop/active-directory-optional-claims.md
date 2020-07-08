@@ -6,18 +6,18 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
-ms.date: 04/22/2020
+ms.date: 06/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 92b3e12cc078326e98df5f42e36fcaddd56bf0c6
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: HT
+ms.openlocfilehash: f751c45b12ec2c8f6f09080b01b24f59af1fc0d0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993688"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478324"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como fazer: Fornecer declarações opcionais ao aplicativo Azure AD
 
@@ -69,8 +69,9 @@ O conjunto de declarações opcionais disponíveis por padrão para uso pelos ap
 | `ztdid`                    | ID de implantação de zero toque | JWT | | A identidade do dispositivo usada para o [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | O email endereçável para este usuário, se o usuário tiver um.  | JWT, SAML | MSA, Azure AD | Esse valor é incluído por padrão, se o usuário é um convidado no locatário.  Para usuários gerenciados (os usuários dentro do locatário), ele deve ser solicitado por meio dessa declaração opcional ou, somente na versão 2.0, com o escopo do OpenID.  Para usuários gerenciados, o endereço de email deve ser definido [portal de administração do Office](https://portal.office.com/adminportal/home#/users).|
 | `groups`| Formatação opcional para declarações de grupo |JWT, SAML| |Usado em conjunto com a configuração GroupMembershipClaims no [manifesto do aplicativo](reference-app-manifest.md), que também deve ser definido. Para obter detalhes, confira [Declarações de grupo](#configuring-groups-optional-claims) abaixo. Para obter mais informações sobre declarações de grupo, confira [Como configurar declarações de grupo](../hybrid/how-to-connect-fed-group-claims.md)
-| `acct`                | Status da conta de usuários no locatário. | JWT, SAML | | Se o usuário for um membro do locatário, o valor será `0`. Se eles forem convidado, o valor é `1`. |
-| `upn`                      | Declaração UserPrincipalName. | JWT, SAML  |           | Embora essa declaração seja incluída automaticamente, você pode especificá-la como uma declaração opcional para anexar propriedades adicionais a fim de modificar seu comportamento, no caso do usuário convidado.  |
+| `acct`                | Status da conta de usuários no locatário | JWT, SAML | | Se o usuário for um membro do locatário, o valor será `0`. Se eles forem convidado, o valor é `1`. |
+| `upn`                      | UserPrincipalName | JWT, SAML  |           | Embora essa declaração seja incluída automaticamente, você pode especificá-la como uma declaração opcional para anexar propriedades adicionais a fim de modificar seu comportamento, no caso do usuário convidado.  |
+| `idtyp`                    | Tipo de token   | Tokens de acesso JWT | Especial: somente em tokens de acesso somente de aplicativo |  Valor é `app` quando o token é um token somente de aplicativo. Essa é a maneira mais precisa para uma API determinar se um token é um token de aplicativo ou um token de aplicativo + usuário.|
 
 ## <a name="v20-specific-optional-claims-set"></a>Conjunto de declarações opcionais específicas v2.0
 
@@ -78,7 +79,7 @@ Essas declarações são sempre incluídas em tokens do Azure AD v1.0, mas não 
 
 **Tabela 3: somente declarações V2.0 opcionais**
 
-| Declaração JWT     | Nome                            | Descrição                                | Observações |
+| Declaração JWT     | Name                            | Descrição                                | Observações |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Endereço IP                      | O endereço IP com o qual o cliente se conectou.   |       |
 | `onprem_sid`  | Identificador de Segurança Local |                                             |       |
@@ -184,7 +185,7 @@ Declara as declarações opcionais solicitadas por um aplicativo. Um aplicativo 
 
 **Tabela 5: Propriedades do tipo OptionalClaims**
 
-| Nome          | Type                       | Descrição                                           |
+| Nome          | Tipo                       | Descrição                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de ID JWT.     |
 | `accessToken` | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de acesso JWT. |
@@ -197,7 +198,7 @@ Caso haja suporte por uma declaração específica, você também poderá modifi
 
 **Tabela 6: Propriedades do tipo OptionalClaim**
 
-| Nome                   | Type                    | Descrição                                                                                                                                                                                                                                                                                                   |
+| Nome                   | Tipo                    | Descrição                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | O nome da declaração opcional.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | A origem (objeto de diretório) da declaração. Há declarações predefinidas e definidas pelo usuário de propriedades de extensão. Se o valor de origem for nulo, a declaração será uma declaração opcional predefinida. Se o valor de origem for um usuário, o valor na propriedade name será a propriedade de extensão do objeto de usuário. |

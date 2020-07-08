@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 82edee84317b5d542bf65e29514286f96c18bbcc
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: bf2dbf501b5cd3b6cd0ab6b0e9bbbc2208c98a58
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744233"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478443"
 ---
 # <a name="query-parquet-nested-types-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consultar tipos aninhados do Parquet usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics
 
@@ -41,7 +41,9 @@ FROM
 
 ## <a name="access-elements-from-nested-columns"></a>Elementos de acesso de colunas aninhadas
 
-A consulta a seguir lê o arquivo *structExample.parquet* e mostra como levantar elementos de uma coluna aninhada:
+A consulta a seguir lê o arquivo *structExample. parquet* e mostra como Surface elementos de uma coluna aninhada. Você tem duas maneiras de referenciar o valor aninhado:
+- Especificando a expressão de caminho de valor aninhado após especificação de tipo.
+- Formatando o nome da coluna como um caminho aninhado usando "." para fazer referência aos campos.
 
 ```sql
 SELECT
@@ -53,15 +55,15 @@ FROM
         FORMAT='PARQUET'
     )
     WITH (
-        -- you can see original n"sted columns values by uncommenting lines below
+        -- you can see original nested columns values by uncommenting lines below
         --DateStruct VARCHAR(8000),
-        [DateStruct.Date] DATE,
+        [DateValue] DATE '$.DateStruct.Date',
         --TimeStruct VARCHAR(8000),
         [TimeStruct.Time] TIME,
         --TimestampStruct VARCHAR(8000),
         [TimestampStruct.Timestamp] DATETIME2,
         --DecimalStruct VARCHAR(8000),
-        [DecimalStruct.Decimal] DECIMAL(18, 5),
+        DecimalValue DECIMAL(18, 5) '$.DecimalStruct.Decimal',
         --FloatStruct VARCHAR(8000),
         [FloatStruct.Float] FLOAT
     ) AS [r];
@@ -97,6 +99,39 @@ FROM
         DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='PARQUET'
     ) AS [r];
+```
+
+Você também pode referenciar explicitamente as colunas que deseja retornar na `WITH` cláusula:
+
+```sql
+SELECT DocId,
+    MapOfPersons,
+    JSON_QUERY(MapOfPersons, '$."John Doe"') AS [John]
+FROM
+    OPENROWSET(
+        BULK 'parquet/nested/mapExample.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT='PARQUET'
+    ) 
+    WITH (DocId bigint, MapOfPersons VARCHAR(max)) AS [r];
+```
+
+A estrutura `MakOfPersons` é retornada como `VARCHAR` coluna e formatada como cadeia de caracteres JSON.
+
+## <a name="projecting-values-from-repeated-columns"></a>Projetando valores de colunas repetidas
+
+Se você tiver uma matriz de valores escalares (por exemplo `[1,2,3]` ) em algumas colunas, poderá expandi-los facilmente e associá-los com a linha principal usando o seguinte script:
+
+```sql
+SELECT
+    SimpleArray, Element
+FROM
+    OPENROWSET(
+        BULK 'parquet/nested/justSimpleArray.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT='PARQUET'
+    ) AS arrays
+    CROSS APPLY OPENJSON (SimpleArray) WITH (Element int '$') as array_values
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

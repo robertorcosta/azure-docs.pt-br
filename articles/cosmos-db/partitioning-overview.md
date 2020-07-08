@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: a9368e67abf3c45981cf1f85fe46a2a2799a6877
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: aa7d67cd6bd1bd422bd257b75ac5bde3bd534d7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864327"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85481826"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Particionamento no BD Cosmos do Azure
 
@@ -35,6 +35,14 @@ Você pode saber mais sobre [como Azure Cosmos DB gerencia partições](partitio
 
 ## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Escolhendo uma chave de partição
 
+Uma chave de partição tem dois componentes: **caminho de chave de partição** e valor de chave de **partição**. Por exemplo, considere um item {"userId": "Andrew", "worksFor": "Microsoft"} se você escolher "userId" como a chave de partição, estes são os dois componentes de chave de partição:
+
+* O caminho da chave de partição (por exemplo: "/userid"). O caminho da chave de partição aceita caracteres alfanuméricos e sublinhados (_). Você também pode usar objetos aninhados usando a notação de caminho padrão (/).
+
+* O valor da chave de partição (por exemplo: "Andrew"). O valor da chave de partição pode ser de tipos de cadeia de caracteres ou numéricos.
+
+Para saber mais sobre os limites de taxa de transferência, armazenamento e comprimento da chave de partição, consulte o artigo [Azure Cosmos DB cotas de serviço](concepts-limits.md) .
+
 A seleção de sua chave de partição é uma opção de design simples, mas importante no Azure Cosmos DB. Depois de selecionar a chave de partição, não é possível alterá-la in-loco. Se você precisar alterar sua chave de partição, mova seus dados para um novo contêiner com a nova chave de partição desejada.
 
 Para **todos os** contêineres, sua chave de partição deve:
@@ -49,7 +57,7 @@ Se você precisar de [Transações ACID com vários itens](database-transactions
 
 Para a maioria dos contêineres, os critérios acima são tudo o que você precisa considerar ao escolher uma chave de partição. No entanto, para grandes contêineres pesados de leitura, convém escolher uma chave de partição que aparece com frequência como um filtro em suas consultas. As consultas podem ser [roteadas de forma eficiente para apenas as partições físicas relevantes](how-to-query-container.md#in-partition-query) , incluindo a chave de partição no predicado de filtro.
 
-Se a maioria das solicitações de carga de trabalho for consultas e a maioria das suas consultas tiver um filtro de igualdade na mesma propriedade, essa propriedade poderá ser uma boa opção de chave de partição. Por exemplo, se você executar com frequência uma consulta que filtra `UserID`em e, `UserID` em seguida, selecionar como a chave de partição reduziria o número de [consultas entre partições](how-to-query-container.md#avoiding-cross-partition-queries).
+Se a maioria das solicitações de carga de trabalho for consultas e a maioria das suas consultas tiver um filtro de igualdade na mesma propriedade, essa propriedade poderá ser uma boa opção de chave de partição. Por exemplo, se você executar com frequência uma consulta que filtra em `UserID` e, em seguida, selecionar `UserID` como a chave de partição reduziria o número de [consultas entre partições](how-to-query-container.md#avoiding-cross-partition-queries).
 
 No entanto, se o contêiner for pequeno, provavelmente você não terá partições físicas suficientes para precisar se preocupar com o impacto no desempenho de consultas entre partições. A maioria dos contêineres pequenos no Azure Cosmos DB requer apenas uma ou duas partições físicas.
 

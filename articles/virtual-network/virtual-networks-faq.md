@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: d59a2fe32742c2d1d50b9ed33ccace5d377c59c2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 19824e978af78e85f9e8c790517bd66b1f6c0113
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791979"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85481724"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure (FAQ)
 
@@ -55,7 +55,14 @@ Você pode usar as seguintes ferramentas para criar ou configurar uma rede virtu
 * Um arquivo de configuração de rede (netcfg - somente para Redes Virtuais clássicas). Consulte o artigo [Configurar uma VNet usando um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md).
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Quais intervalos de endereço posso usar em minhas redes virtuais?
-Qualquer intervalo de endereços IP definido na [RFC 1918](https://tools.ietf.org/html/rfc1918). Por exemplo, 10.0.0.0/16. Não é possível adicionar os seguintes intervalos de endereços:
+Recomendamos que você use os intervalos de endereços enumerados no [RFC 1918](https://tools.ietf.org/html/rfc1918), que foram definidos de lado pela IETF para espaços de endereço não roteáveis privados:
+* 10.0.0.0 - 10.255.255.255 (prefixo 10/8)
+* 172.16.0.0-172.31.255.255 (prefixo 172.16/12)
+* 192.168.0.0 - 192.168.255.255 (prefixo 192.168/16)
+
+Outros espaços de endereço podem funcionar, mas podem ter efeitos colaterais indesejáveis.
+
+Além disso, você não pode adicionar os seguintes intervalos de endereços:
 * 224.0.0.0/4 (Multicast)
 * 255.255.255.255/32 (Broadcast)
 * 127.0.0.0/8 (Loopback)
@@ -131,7 +138,7 @@ Sim. Você pode especificar endereços IP do servidor DNS nas configurações da
 Referência [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
 
 ### <a name="can-i-modify-my-dns-servers-after-i-have-created-the-network"></a>Posso modificar meus servidores DNS depois de ter criado a rede?
-Sim. Você pode alterar a lista de servidores DNS para sua rede virtual a qualquer momento. Se você alterar a lista de servidores DNS, será necessário executar uma renovação de concessão DHCP em todas as VMs afetadas na VNet para que as novas configurações de DNS entrem em vigor. Para VMs que executam o sistema operacional Windows, você `ipconfig /renew` pode fazer isso digitando diretamente na VM. Para outros tipos de sistema operacional, consulte a documentação de renovação de concessão de DHCP para o tipo de SO específico. 
+Sim. Você pode alterar a lista de servidores DNS para sua rede virtual a qualquer momento. Se você alterar a lista de servidores DNS, será necessário executar uma renovação de concessão DHCP em todas as VMs afetadas na VNet para que as novas configurações de DNS entrem em vigor. Para VMs que executam o sistema operacional Windows, você pode fazer isso digitando `ipconfig /renew` diretamente na VM. Para outros tipos de sistema operacional, consulte a documentação de renovação de concessão de DHCP para o tipo de SO específico. 
 
 ### <a name="what-is-azure-provided-dns-and-does-it-work-with-vnets"></a>O que é o DNS fornecido pelo Azure? Ele funciona com redes virtuais?
 O DNS fornecido pelo Azure é um serviço DNS multilocatário oferecido pela Microsoft. O Azure registra todas as VMs e instâncias de função do serviço de nuvem nesse serviço. Esse serviço fornece resolução de nome por nome de host para VMs e instâncias de função contidas no mesmo serviço de nuvem e por FQDN para VMs e instâncias de função na mesma rede virtual. Para saber mais sobre DNS, consulte [Resolução de nomes para instâncias da função dos Serviços de Nuvem e VMs](virtual-networks-name-resolution-for-vms-and-role-instances.md).
@@ -161,7 +168,7 @@ Sim. Todas as interfaces de rede (NIC) anexadas a uma VM implantada por meio do 
 Não. Não é possível reservar um endereço IP privado. Se um endereço IP privado estiver disponível, será atribuído a uma VM ou instância de função pelo servidor DHCP. A VM pode ou não ser aquela à qual você deseja que o endereço IP privado seja atribuído. No entanto, você pode alterar o endereço IP privado de uma VM já criada para qualquer endereço IP privado disponível.
 
 ### <a name="do-private-ip-addresses-change-for-vms-in-a-vnet"></a>Os endereços IP privado mudam para VMs em uma rede virtual?
-Isso depende. Se a VM foi implantada por meio do Resource Manager, não, independentemente se o endereço IP foi atribuído com o método de alocação estática ou dinâmica. Se a VM foi implantada através do modelo de implantação clássico, os endereços IP dinâmicos poderão alterar quando uma VM for iniciada após ter ficado no estado parado (desalocado). O endereço é liberado de uma VM implantada através de um modelo de implantação quando a VM é excluída.
+Depende. Se a VM foi implantada por meio do Resource Manager, não, independentemente se o endereço IP foi atribuído com o método de alocação estática ou dinâmica. Se a VM foi implantada através do modelo de implantação clássico, os endereços IP dinâmicos poderão alterar quando uma VM for iniciada após ter ficado no estado parado (desalocado). O endereço é liberado de uma VM implantada através de um modelo de implantação quando a VM é excluída.
 
 ### <a name="can-i-manually-assign-ip-addresses-to-nics-within-the-vm-operating-system"></a>Posso atribuir endereços IP a NICs manualmente dentro do sistema operacional da VM?
 Sim, mas não é recomendado, a menos que seja necessário, como quando atribuir vários endereços IP a uma máquina virtual. Para obter detalhes, consulte [Adicionar vários endereços IP a uma máquina virtual](virtual-network-multiple-ip-addresses-portal.md#os-config). Se o endereço IP atribuído a um NIC do Azure anexado a uma VM alterar, e o endereço IP dentro do sistema operacional da VM for diferente, você perderá conectividade com a VM.
@@ -188,7 +195,7 @@ Sim. Você pode implantar aplicativos Web dentro de uma VNet usando um ASE (Ambi
 
 * [Recursos de rede do serviço de aplicativo](../app-service/networking-features.md)
 * [Criando Aplicativos Web em um Ambiente do Serviço de Aplicativo](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Integrar seu aplicativo a uma Rede Virtual do Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Integrar seu aplicativo a uma rede virtual do Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Restrições de acesso do serviço de aplicativo](../app-service/app-service-ip-restrictions.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>Posso implantar Serviços de Nuvem com funções web e de trabalho (PaaS) em uma rede virtual?

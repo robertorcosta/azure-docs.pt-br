@@ -7,25 +7,25 @@ author: sangonzal
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 11/07/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: bcb34d83365112b97769186ad74dfd762b05c2e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 31b908eacd5f9f8610ad2c0a985fa7e0be8d1505
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76696156"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479327"
 ---
 # <a name="custom-token-cache-serialization-in-msal-for-java"></a>Serialização de cache de token personalizada em MSAL para Java
 
 Para persistir o cache de token entre instâncias do seu aplicativo, você precisará personalizar a serialização. As classes e interfaces Java envolvidas na serialização de cache de token são as seguintes:
 
 - [ITokenCache](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCache.html): interface que representa o cache de token de segurança.
-- [ITokenCacheAccessAspect](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessAspect.html): interface que representa a operação de execução de código antes e depois do acesso. @Override Você *beforeCacheAccess* e *afterCacheAccess* com a lógica responsável pela serialização e desserialização do cache.
+- [ITokenCacheAccessAspect](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessAspect.html): interface que representa a operação de execução de código antes e depois do acesso. Você @Override *BeforeCacheAccess* e *afterCacheAccess* com a lógica responsável pela serialização e desserialização do cache.
 - [ITokenCacheContext](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessContext.html): interface que representa o contexto no qual o cache de token é acessado. 
 
 Veja abaixo uma implementação ingênua da serialização personalizada da serialização/desserialização do cache de token. Não copie e cole isso em um ambiente de produção.

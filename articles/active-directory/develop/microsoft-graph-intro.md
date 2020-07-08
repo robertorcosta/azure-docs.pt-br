@@ -6,17 +6,17 @@ services: active-directory
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
-ms.openlocfilehash: 67dbf696903e7a930d75762deb00ad58ed1a4f69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0cdcb5287434c72bf54337611d67de8d6f65d8d9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886459"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479504"
 ---
 # <a name="microsoft-graph-api"></a>API do Microsoft Graph
 
@@ -55,6 +55,6 @@ Quando você concluir o início rápido, terá um aplicativo que está pronto pa
 
 ## <a name="tools"></a>Ferramentas
 
-O Microsoft Graph Explorer é uma ferramenta baseada na Web que você pode usar para compilar e testar solicitações usando APIs Microsoft Graph. Você pode acessar o Microsoft Graph Explorer em `https://developer.microsoft.com/graph/graph-explorer`:.
+O Microsoft Graph Explorer é uma ferramenta baseada na Web que você pode usar para compilar e testar solicitações usando APIs Microsoft Graph. Você pode acessar o Microsoft Graph Explorer em: `https://developer.microsoft.com/graph/graph-explorer` .
 
-O postmaster é uma ferramenta que você também pode usar para compilar e testar solicitações usando as APIs de Microsoft Graph. Você pode baixar o postmaster em: `https://www.getpostman.com/`. Para interagir com Microsoft Graph no postmaster, use a coleção Microsoft Graph no postmaster. Para obter mais informações, consulte [usar o postmaster com a API de Microsoft Graph](/graph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).
+O postmaster é uma ferramenta que você também pode usar para compilar e testar solicitações usando as APIs de Microsoft Graph. Você pode baixar o postmaster em: `https://www.getpostman.com/` . Para interagir com Microsoft Graph no postmaster, use a coleção Microsoft Graph no postmaster. Para obter mais informações, consulte [usar o postmaster com a API de Microsoft Graph](/graph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).

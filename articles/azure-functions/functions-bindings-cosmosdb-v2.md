@@ -1,35 +1,35 @@
 ---
-title: Associações do Azure Cosmos DB para Functions 2.x
+title: Azure Cosmos DB associações para as funções 2. xD e superior
 description: Entenda como usar gatilhos e associações do Azure Cosmos DB no Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2017
 ms.author: cshoe
-ms.openlocfilehash: f258a7aff52796a53540706bc8413575d63c9e7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c6efd14bd974de1b01b1725b9810f153df74bf8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77605763"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482166"
 ---
-# <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-overview"></a>Azure Cosmos DB gatilho e associações para a visão geral de Azure Functions 2. x
+# <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-and-higher-overview"></a>Azure Cosmos DB gatilho e associações para Azure Functions 2. x e visão geral mais alta
 
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Functions tempo de execução que você está usando: "]
 > * [Versão 1](functions-bindings-cosmosdb.md)
-> * [Versão 2](functions-bindings-cosmosdb-v2.md)
+> * [Versão 2 e superior](functions-bindings-cosmosdb-v2.md)
 
-Este conjunto de artigos explica como trabalhar com associações de [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) no Azure Functions 2. x. O Azure Functions dá suporte a associações de gatilho, entrada e saída para o Azure Cosmos DB.
+Este conjunto de artigos explica como trabalhar com associações de [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) no Azure Functions 2. x e superior. O Azure Functions dá suporte a associações de gatilho, entrada e saída para o Azure Cosmos DB.
 
-| Ação | Type |
+| Ação | Tipo |
 |---------|---------|
 | Executar uma função quando um documento Azure Cosmos DB for criado ou modificado | [Gatilho](./functions-bindings-cosmosdb-v2-trigger.md) |
 | Ler um documento de Azure Cosmos DB | [Associação de entrada](./functions-bindings-cosmosdb-v2-input.md) |
 | Salvar alterações em um documento Azure Cosmos DB  |[Associação de saída](./functions-bindings-cosmosdb-v2-output.md) |
 
 > [!NOTE]
-> Essa referência é para [Azure Functions versão 2. x](functions-versions.md).  Para obter informações sobre como usar essas associações em Functions 1. x, consulte [Associações do Azure Cosmos DB para Azure Functions 1. x](functions-bindings-cosmosdb.md).
+> Essa referência é para [Azure Functions versão 2. x e superior](functions-versions.md).  Para obter informações sobre como usar essas associações em Functions 1. x, consulte [Associações do Azure Cosmos DB para Azure Functions 1. x](functions-bindings-cosmosdb.md).
 >
-> Essa associação era originalmente denominada DocumentDB. No Functions versão 2.x, o gatilho, associações e pacote são chamados de Cosmos DB.
+> Essa associação era originalmente denominada DocumentDB. Nas funções versão 2. x e superior, o gatilho, as associações e o pacote são todos nomeados Cosmos DB.
 
 ## <a name="supported-apis"></a>APIs com suporte
 
@@ -37,7 +37,7 @@ Este conjunto de artigos explica como trabalhar com associações de [Azure Cosm
 
 ## <a name="add-to-your-functions-app"></a>Adicionar ao seu aplicativo de funções
 
-### <a name="functions-2x-and-higher"></a>Funções 2. x e posteriores
+### <a name="functions-2x-and-higher"></a>Funções 2.x e posteriores
 
 Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto o pacote de extensão é usado para todos os outros tipos de aplicativos.
 

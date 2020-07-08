@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 3a954167dc0698389680a92511621fb6acf4b12b
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 43ed0bfed1dbe48c4f66a820ecad6fedf11115fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82889990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478154"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>A nova experiência de registro de aplicativo portal do Azure
 
@@ -77,7 +77,7 @@ Na nova experiência, os **segredos do aplicativo** foram renomeados para **cert
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Plataformas/autenticação: URLs de resposta/URIs de redirecionamento
 Na antiga experiência, uma seção aplicativo tinha plataformas para Web, nativa e API Web para configurar URLs de redirecionamento, URL de logout e fluxo implícito.
 
-Na nova experiência, as URLs de resposta podem ser encontradas em uma\'seção de autenticação do aplicativo s. Além disso, eles são chamados de URIs de redirecionamento e o formato para URIs de redirecionamento foi alterado. Eles devem ser associados a um tipo de aplicativo (cliente Web ou público-celular e desktop). [Saiba mais](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+Na nova experiência, as URLs de resposta podem ser encontradas em uma \' seção de autenticação do aplicativo s. Além disso, eles são chamados de URIs de redirecionamento e o formato para URIs de redirecionamento foi alterado. Eles devem ser associados a um tipo de aplicativo (cliente Web ou público-celular e desktop). [Saiba mais](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
 
 As APIs da Web são configuradas em expor uma página de API.
 
@@ -106,7 +106,7 @@ Há uma nova interface do usuário para propriedades que, anteriormente, só pod
 
 -   Os escopos definidos por essa API (oauth2Permissions) e preAuthorizedApplications (aplicativos cliente autorizados) podem ser configurados por meio da página expor uma API. Para obter mais informações sobre como configurar um aplicativo para ser uma API da Web e expor permissões/escopos, consulte este guia de [início rápido](quickstart-configure-app-expose-web-apis.md).
 
--   O domínio do Publicador (que é exibido para os usuários no [prompt de consentimento do aplicativo\'s](application-consent-experience.md)) pode ser encontrado na página de identidade visual. Para obter mais informações sobre como configurar um domínio do Publicador, consulte [este "como](howto-configure-publisher-domain.md)".
+-   O domínio do Publicador (que é exibido para os usuários no [ \' prompt de consentimento do aplicativo s](application-consent-experience.md)) pode ser encontrado na página de identidade visual. Para obter mais informações sobre como configurar um domínio do Publicador, consulte [este "como](howto-configure-publisher-domain.md)".
 
 ## <a name="limitations"></a>Limitações
 
@@ -116,7 +116,7 @@ A nova experiência tem as seguintes limitações:
 
 -   A nova experiência ainda não dá suporte a aplicativos de SDK ao vivo criados com contas pessoais da Microsoft.
 
--   Não há suporte para a alteração do valor de contas com suporte na interface do usuário. Você precisa usar o manifesto do aplicativo, a\'menos que você alterne novamente entre o locatário único do Azure AD e o multilocatário.
+-   Não há suporte para a alteração do valor de contas com suporte na interface do usuário. Você precisa usar o manifesto do aplicativo, a menos que você \' alterne novamente entre o locatário único do Azure AD e o multilocatário.
 
    > [!NOTE]
    > Se você for um usuário de conta Microsoft pessoal no locatário do Azure AD e o administrador do locatário tiver restringido o acesso ao portal do Azure, você poderá obter um acesso negado. No entanto, se você vir o atalho digitando Registros de aplicativo na barra de pesquisa ou fixando-o, você poderá acessar a nova experiência.

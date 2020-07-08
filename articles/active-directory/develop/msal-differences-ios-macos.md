@@ -7,18 +7,18 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 62b79ee7398286b8e6c8ed8612bd001595e1f6ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41389bc5ed8580cd80dbc40e771c7f15241f5ae7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77084970"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479395"
 ---
 # <a name="microsoft-authentication-library-for-ios-and-macos-differences"></a>Diferenças da Biblioteca de Autenticação da Microsoft para iOS e macOS
 
@@ -33,7 +33,7 @@ O MSAL para macOS é um subconjunto da funcionalidade disponível para iOS.
 
 O MSAL para macOS não dá suporte a:
 
-- diferentes tipos de navegador, `ASWebAuthenticationSession`como `SFAuthenticationSession`, `SFSafariViewController`,.
+- diferentes tipos de navegador, como `ASWebAuthenticationSession` , `SFAuthenticationSession` , `SFSafariViewController` .
 - Não há suporte para a autenticação orientada por meio do aplicativo Microsoft Authenticator no macOS.
 
 O compartilhamento de conjunto de chaves entre aplicativos do mesmo editor é mais limitado no macOS 10,14 e anterior. Use [listas de controle de acesso](https://developer.apple.com/documentation/security/keychain_services/access_control_lists?language=objc) para especificar os caminhos para os aplicativos que devem compartilhar o conjunto de chaves. O usuário pode ver os prompts adicionais do conjunto de chaves.

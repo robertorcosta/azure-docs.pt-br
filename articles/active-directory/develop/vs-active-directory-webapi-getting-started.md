@@ -6,16 +6,16 @@ manager: jillfra
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: 9a9f8aaa9e3f90e78668d2294ea9959b480e3384
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee79333e1092cfcf2cd35e408f86dcfc9e1327cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886068"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479004"
 ---
 # <a name="get-started-with-azure-active-directory-webapi-projects"></a>Introdução ao Azure Active Directory (projetos WebApi)
 
@@ -33,5 +33,5 @@ Todos os controladores em seu projeto foram marcados com o `[Authorize]` atribut
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Cenários de autenticação para Azure Active Directory](authentication-scenarios.md)
-- [Adicionar a opção Entrar com uma Conta da Microsoft a um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md)
+- [Cenários de autenticação do Azure Active Directory](authentication-scenarios.md)
+- [Adicionar entrada com a Microsoft para um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md)

@@ -4,13 +4,13 @@ description: O Azure Monitor integra-se perfeitamente ao seu aplicativo em execu
 ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
-ms.date: 05/20/2020
-ms.openlocfilehash: a936c77abb9aed5886fae8b2ec4a10bb076b7cb5
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: HT
+ms.date: 06/26/2020
+ms.openlocfilehash: 093448ad0280ada039f1d4e5abd0e83e4be19b03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83776292"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482098"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-application-insights"></a>Monitoramento do Azure Functions com o Azure Monitor Application Insights
 
@@ -20,11 +20,10 @@ O Application Insights coleta dados de log, desempenho e erro e detecta automati
 
 A instrumentação do Application Insights necessária é incorporada ao Azure Functions. A única coisa de que você precisa é de uma chave de instrumentação válida para conectar seu aplicativo de funções a um recurso do Application Insights. A chave de instrumentação deve ser adicionada às configurações do aplicativo quando o recurso do aplicativo de funções é criado no Azure. Se seu aplicativo de funções ainda não tiver essa chave, você poderá defini-la manualmente. Para obter mais informações, leia mais sobre o [monitoramento do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring?tabs=cmd).
 
-## <a name="distributed-tracing-for-java-applications-public-preview"></a>Rastreamento distribuído para aplicativos Java (versão prévia pública)
-
+## <a name="distributed-tracing-for-java-applications-on-windows-public-preview"></a>Rastreamento distribuído para aplicativos Java no Windows (visualização pública)
 
 > [!IMPORTANT]
-> Este recurso está atualmente em versão prévia pública para Java Azure Functions. Para o plano de consumo, ele tem uma implicação de início frio de 8-9 segundos.
+> Este recurso está atualmente em visualização pública para Java Azure Functions no Windows, não há suporte para o rastreamento distribuído para Java Azure Functions no Linux. Para o plano de consumo, ele tem um início frio de 8-9 segundos.
 
 Se seus aplicativos forem escritos em Java, você poderá exibir dados mais ricos de seus aplicativos de funções, incluindo solicitações, dependências, logs e métricas. Os dados adicionais também permitem que você veja e diagnostique transações de ponta a ponta e veja o mapa do aplicativo, que agrega muitas transações para mostrar uma exibição topológica de como os sistemas interagem e quais são as taxas médias de desempenho e de erro.
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: a8b1c53a5c060f2124a36b69365bdd9b62896b56
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
-ms.translationtype: HT
+ms.openlocfilehash: b85aab2491f4186cf4d6ee73144bc235a40cdeac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220949"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478477"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para o Windows
 
@@ -66,6 +66,7 @@ Se o script estiver em um servidor local, ainda poderá ser necessário abrir po
 * A extensão de script personalizado não dá suporte nativo para servidores proxy. No entanto, é possível usar uma ferramenta de transferência de arquivos que dá suporte a servidores proxy no script, como a *Curl*
 * Esteja ciente dos locais de diretório não padrão nos quais os scripts ou comandos podem confiar e mantenha uma lógica para lidar com essa situação.
 * A extensão de script personalizado será executada na conta LocalSystem
+* Se você planeja usar as propriedades *storageAccountName* e *storageAccountKey* , essas propriedades deverão ser posicionadas no *protectedSettings*.
 
 ## <a name="extension-schema"></a>Esquema de extensão
 

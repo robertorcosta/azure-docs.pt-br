@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: cd2217046a725f0bb0a05f1eb0afc5434bf3b6fa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: HT
+ms.openlocfilehash: 838542bf4c3d566c76987754c8f336e00250d04a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662714"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482404"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Tutorial: Configurar o MediusFlow para provisionamento automático de usuário
 
@@ -52,15 +52,15 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 ## <a name="step-2-configure-mediusflow-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configure o MediusFlow para dar suporte ao provisionamento do Azure AD
 
-### <a name="activate-the-office-365-app-within-mediusflow"></a>Ativar o aplicativo do Office 365 no MediusFlow
+### <a name="activate-the-microsoft-365-app-within-mediusflow"></a>Ativar o aplicativo Microsoft 365 no MediusFlow
 Comece habilitando o acesso do logon do Azure AD e o recurso de configuração do Azure AD no MediusFlow executando as seguintes etapas:
 
 #### <a name="user-login"></a>Logon de usuário
-Para habilitar o fluxo de logon no Office 365/Azure AD consulte este artigo (https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup).
+Para habilitar o fluxo de logon para Microsoft 365/AD do Azure, consulte [este] ( https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) artigo.
 
 #### <a name="user-transfer-configuration"></a>Configuração de transferência de usuário
-Para habilitar o portal de configuração dos usuários para o provisionamento do Azure AD, consulte [este artigo](
-https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-sync-setup).
+Para habilitar o portal de configuração dos usuários para provisionamento do Azure AD, consulte [este](
+https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-sync-setup) artigo.
 
 #### <a name="configure-user-provisioning"></a>Configurar provisionamento do usuário
 

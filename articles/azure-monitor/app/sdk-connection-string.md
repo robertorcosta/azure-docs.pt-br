@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 92c4ccf7246c4e763cbf92aee3c48398d79e0ecc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d9906e43bad296cc850942c01c83c6bfee2651fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125699"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482115"
 ---
 # <a name="connection-strings"></a>Cadeias de conexão
 
@@ -31,7 +31,7 @@ Os cenários de clientes nos quais visualizamos isso tem o maior impacto:
 
 - Exceções de firewall ou redirecionamentos de proxy 
 
-    Nos casos em que o monitoramento do servidor Web da intranet é necessário, nossa solução anterior solicitou que os clientes adicionassem pontos de extremidade de serviço individuais à sua configuração. Para mais informações, consulte [aqui](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
+    Nos casos em que o monitoramento do servidor Web da intranet é necessário, nossa solução anterior solicitou que os clientes adicionassem pontos de extremidade de serviço individuais à sua configuração. Para saber mais, clique [aqui](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
     As cadeias de conexão oferecem uma alternativa melhor, reduzindo esse esforço para uma única configuração. Um prefixo simples, emenda de sufixo, permite preenchimento automático e redirecionamento de todos os pontos de extremidade para os serviços corretos. 
 
 - Ambientes de nuvem híbrida ou soberanas
@@ -57,7 +57,7 @@ A conexão tem um comprimento máximo com suporte de 4096 caracteres.
 
 A cadeia de conexão consiste em uma lista de configurações representadas como pares chave-valor separados por ponto e vírgula:`key1=value1;key2=value2;key3=value3`
 
-#### <a name="syntax"></a>Sintaxe
+#### <a name="syntax"></a>Syntax
 
 - `InstrumentationKey`(ex: 00000000-0000-0000-0000-000000000000)  A cadeia de conexão é um campo **obrigatório** .
 - `Authorization`(ex: iKey) (Essa configuração é opcional porque hoje só damos suporte à autorização iKey.)
@@ -165,7 +165,7 @@ Uma cadeia de conexão pode ser definida no código, na variável de ambiente ou
 
 TelemetryConfiguration. ConnectionString:https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
-.Net definido explicitamente:
+.NET definido explicitamente:
 ```csharp
 var configuration = new TelemetryConfiguration
 {
@@ -173,7 +173,7 @@ var configuration = new TelemetryConfiguration
 };
 ```
 
-Arquivo de configuração .net:
+Arquivo de configuração .NET:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -182,8 +182,16 @@ Arquivo de configuração .net:
 </ApplicationInsights>
 ```
 
+NetCore definido explicitamente:
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    var options = new ApplicationInsightsServiceOptions { ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;" };
+    services.AddApplicationInsightsTelemetry(options: options);
+}
+```
 
-Config. JSON do NetCore: 
+O NetCore config.jsem: 
 
 ```json
 {

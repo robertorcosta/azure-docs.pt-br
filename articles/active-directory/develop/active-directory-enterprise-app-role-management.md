@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 8db27819b7eef6cdf05ea3f6645ae930ebc4ef58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad66e0698cf0705c7a4db90a6dd515b71fed84e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884742"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478613"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como configurar a declaração de função emitida no token SAML para aplicativos empresariais
 
@@ -88,7 +88,7 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
 
       ![Consulta para obter a entidade de serviço que você precisa modificar](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-    g. Extraia a propriedade **appRoles** do objeto de entidade de serviço.
+    (por exemplo, Extraia a propriedade **appRoles** do objeto de entidade de serviço.
 
       ![Detalhes da propriedade appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
@@ -148,7 +148,7 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
 
 8. Atualize a tabela **Atributos** para definir um mapeamento personalizado da declaração de função.
 
-9. Na seção **declarações do usuário** , na caixa de diálogo **atributos de usuário** , execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
+9. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
 
     | Nome do atributo | Valor do atributo |
     | -------------- | ----------------|

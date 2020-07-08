@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 7c462f25703b581c0882582d57fa8e5d2902dc4f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: HT
+ms.openlocfilehash: d9c46368b42cac1d06f7d78d5e0d03ad2de0bada
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737496"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478392"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como fazer: personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
 
@@ -325,6 +325,7 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 | Usuário | jobtitle | Cargo |
 | Usuário | employeeid | ID do funcionário |
 | Usuário | facsimiletelephonenumber | Número de telefone de fax |
+| Usuário | assignedroles | lista de funções de aplicativo atribuídas ao usuário|
 | aplicativo, recurso, público-alvo | displayname | Nome de exibição |
 | aplicativo, recurso, público-alvo | objected | ObjectID |
 | aplicativo, recurso, público-alvo | marcas | Marcação da entidade de serviço |

@@ -1,19 +1,14 @@
 ---
 title: Configure sua própria chave para criptografar dados de hubs de eventos do Azure em repouso
 description: Este artigo fornece informações sobre como configurar sua própria chave para criptografar dados REST dos hubs de eventos do Azure.
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: spelluru
-ms.openlocfilehash: f515d3ad832db7f78f98111ab67628a2874033ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 2d82fc8c962496246196331c7d191c0fc057694f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459127"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479820"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados de hubs de eventos do Azure em repouso usando o portal do Azure
 Os hubs de eventos do Azure fornecem criptografia de dados em repouso com o Criptografia do Serviço de Armazenamento do Azure (Azure SSE). Os hubs de eventos dependem do armazenamento do Azure para armazenar os dados e, por padrão, todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. 
@@ -26,7 +21,7 @@ Habilitar o recurso BYOK é um processo de instalação única em seu namespace.
 > [!NOTE]
 > O recurso BYOK tem suporte dos clusters de [locatário único dedicados aos hubs de eventos](event-hubs-dedicated-overview.md) . Ele não pode ser habilitado para namespaces de hubs de eventos padrão.
 
-Você pode usar Azure Key Vault para gerenciar suas chaves e auditar o uso da chave. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs de Azure Key Vault para gerar chaves. Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](../key-vault/general/overview.md)
+Você pode usar Azure Key Vault para gerenciar suas chaves e auditar o uso da chave. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs do Azure Key Vault para gerar chaves. Para obter mais informações sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](../key-vault/general/overview.md)
 
 Este artigo mostra como configurar um cofre de chaves com chaves gerenciadas pelo cliente usando o portal do Azure. Para saber como criar um cofre de chaves usando o portal do Azure, consulte [início rápido: definir e recuperar um segredo de Azure Key Vault usando o portal do Azure](../key-vault/secrets/quick-create-portal.md).
 
@@ -71,7 +66,7 @@ Depois de habilitar as chaves gerenciadas pelo cliente, você precisa associar a
 
 
 ## <a name="rotate-your-encryption-keys"></a>Girar suas chaves de criptografia
-Você pode girar sua chave no cofre de chaves usando o mecanismo de rotação do Azure Key Vaults. Para obter mais informações, consulte [Configurar a rotação de chaves e a auditoria](../key-vault/secrets/key-rotation-log-monitoring.md). As datas de ativação e expiração também podem ser definidas para automatizar a rotação de chaves. O serviço de hubs de eventos detectará novas versões de chave e começará a usá-las automaticamente.
+Você pode girar sua chave no cofre de chaves usando o mecanismo de rotação do Azure Key Vaults. As datas de ativação e expiração também podem ser definidas para automatizar a rotação de chaves. O serviço de hubs de eventos detectará novas versões de chave e começará a usá-las automaticamente.
 
 ## <a name="revoke-access-to-keys"></a>Revogar o acesso às chaves
 Revogar o acesso às chaves de criptografia não limpará os dados dos hubs de eventos. No entanto, os dados não podem ser acessados no namespace de hubs de eventos. Você pode revogar a chave de criptografia por meio da política de acesso ou excluindo a chave. Saiba mais sobre as políticas de acesso e proteger o cofre de chaves de [acesso seguro a um cofre de chaves](../key-vault/general/secure-your-key-vault.md).
@@ -99,7 +94,7 @@ Siga estas etapas para habilitar logs para chaves gerenciadas pelo cliente.
 ## <a name="log-schema"></a>Esquema do log 
 Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cada entrada tem campos de cadeia de caracteres que usam o formato descrito na tabela a seguir. 
 
-| Name | Descrição |
+| Nome | Descrição |
 | ---- | ----------- | 
 | TaskName | Descrição da tarefa que falhou. |
 | ActivityId | ID interna que é usada para acompanhamento. |
@@ -107,10 +102,10 @@ Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cad
 | resourceId | ID de recurso do Azure Resource Manager |
 | keyVault | Nome completo do cofre de chaves. |
 | chave | O nome da chave que é usado para criptografar o namespace de hubs de eventos. |
-| Versão | A versão da chave que está sendo usada. |
+| version | A versão da chave que está sendo usada. |
 | operação | A operação executada na chave em seu cofre de chaves. Por exemplo, desabilitar/habilitar a chave, encapsular ou desencapsular |
 | code | O código associado à operação. Exemplo: código de erro 404 significa que a chave não foi encontrada. |
-| mensagem | Qualquer mensagem de erro associada à operação |
+| message | Qualquer mensagem de erro associada à operação |
 
 Aqui está um exemplo do log para uma chave gerenciada pelo cliente:
 
@@ -155,7 +150,7 @@ Esta seção mostra como realizar as tarefas a seguir usando **modelos de Azure 
 ### <a name="create-an-event-hubs-cluster-and-namespace-with-managed-service-identity"></a>Criar um cluster de hubs de eventos e um namespace com a identidade de serviço gerenciada
 Esta seção mostra como criar um namespace de hubs de eventos do Azure com a identidade de serviço gerenciada usando um modelo de Azure Resource Manager e o PowerShell. 
 
-1. Crie um modelo de Azure Resource Manager para criar um namespace de hubs de eventos com uma identidade de serviço gerenciada. Nomeie o arquivo: **CreateEventHubClusterAndNamespace. JSON**: 
+1. Crie um modelo de Azure Resource Manager para criar um namespace de hubs de eventos com uma identidade de serviço gerenciada. Nomeie o arquivo: **CreateEventHubClusterAndNamespace.jsem**: 
 
     ```json
     {
@@ -224,7 +219,7 @@ Esta seção mostra como criar um namespace de hubs de eventos do Azure com a id
        }
     }
     ```
-2. Crie um arquivo de parâmetro de modelo chamado: **CreateEventHubClusterAndNamespaceParams. JSON**. 
+2. Crie um arquivo de parâmetro de modelo chamado: **CreateEventHubClusterAndNamespaceParams.jsem**. 
 
     > [!NOTE]
     > Substitua os seguintes valores: 
@@ -289,7 +284,7 @@ Você concluiu as seguintes etapas até agora:
 
 Nesta etapa, você atualizará o namespace de hubs de eventos com informações do Key Vault. 
 
-1. Crie um arquivo JSON chamado **CreateEventHubClusterAndNamespace. JSON** com o seguinte conteúdo: 
+1. Crie um arquivo JSON chamado **CreateEventHubClusterAndNamespace.js** com o seguinte conteúdo: 
 
     ```json
     {
@@ -361,7 +356,7 @@ Nesta etapa, você atualizará o namespace de hubs de eventos com informações 
     }
     ``` 
 
-2. Crie um arquivo de parâmetro de modelo: **UpdateEventHubClusterAndNamespaceParams. JSON**. 
+2. Crie um arquivo de parâmetro de modelo: **UpdateEventHubClusterAndNamespaceParams.jsem**. 
 
     > [!NOTE]
     > Substitua os seguintes valores: 
@@ -422,8 +417,8 @@ Veja a seguir os códigos de erros comuns a serem procurados quando a criptograf
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja os artigos a seguir:
-- [Visão geral de Hubs de Evento](event-hubs-about.md)
-- [Visão geral do Key Vault](../key-vault/general/overview.md)
+- [Visão geral de Hubs de Eventos](event-hubs-about.md)
+- [Visão geral de Key Vault](../key-vault/general/overview.md)
 
 
 
