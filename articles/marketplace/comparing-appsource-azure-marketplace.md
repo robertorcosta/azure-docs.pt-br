@@ -1,18 +1,18 @@
 ---
 title: Comparando Microsoft AppSource e o Azure Marketplace
 description: Este artigo explica as diferenças entre as vitrines do Microsoft Commercial Marketplace – Microsoft AppSource e o Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: 78d77ce176c07aed22433f29365b2d338ea32c03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc0a03871ee3191f24a886cc1b9d7f90e8d54b62
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414565"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121802"
 ---
 # <a name="comparing-microsoft-appsource-and-azure-marketplace"></a>Comparando Microsoft AppSource e o Azure Marketplace
 
@@ -28,7 +28,7 @@ Para escolher uma vitrine, primeiro identifique o público-alvo para sua oferta.
 
 A tabela a seguir descreve os benefícios de usar uma vitrine:
 
-| Vantagens | Azure Marketplace | AppSource |
+| Benefícios | Azure Marketplace | AppSource |
 |:--- |:--- | :--- |
 | **Flexibilidade de cobrança** | O Azure Marketplace dá suporte a tipos de oferta gratuito, de avaliação, BYOL e Transact. As ofertas do Transact são baseadas em consumo ou em assinatura. As ofertas baseadas em consumo são cobradas pelo uso por hora e podem fornecer um período livre inicial. Os serviços baseados em assinatura são cobrados mensalmente ou anualmente em uma taxa por estação ou fixa.| O AppSource dá suporte aos tipos de oferta gratuito, de avaliação, BYOL e Transact. As ofertas do Transact são produtos SaaS baseados em assinatura que podem ser cobrados mensalmente ou anualmente em uma taxa por estação ou fixa. |
 |**Conexões com outros parceiros**  | No momento, não é possível vincular um provedor de serviços ou parceiros de entrega à oferta. | Fornecedores de software independentes, integradores de sistemas e provedores de serviços gerenciados são vinculados a cenários de implementação específicos. É possível vender para novos clientes de forma colaborativa. |

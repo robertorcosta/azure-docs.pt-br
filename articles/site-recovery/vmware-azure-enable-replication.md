@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 6547bcf2061213cd01550367171d432900693ea5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74870d10348421bf726b9bdc58504a74cf4105a9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80584139"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129932"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitar a replicação no Azure de VMs VMware
 
@@ -106,9 +106,9 @@ Em seguida, verifique as propriedades da máquina virtual de origem. Lembre-se d
    :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Janela Propriedades de computação e rede":::
 
    - **Nome da VM do Azure**: modifique o nome para atender aos requisitos do Azure, se necessário.
-   - **Tamanho da VM de destino ou tipo de VM**: o tamanho padrão da VM é escolhido com base em parâmetros que incluem contagem de disco, contagem de NIC, contagem de núcleo de CPU, memória e tamanhos de função VM disponíveis na região do Azure de destino. Azure Site Recovery escolhe o primeiro tamanho de VM disponível que satisfaz todos os critérios. Você pode selecionar um tamanho de VM diferente com base em suas necessidades a qualquer momento antes do failover. O tamanho do disco da VM também é baseado no tamanho do disco de origem e só pode ser alterado após o failover. Saiba mais sobre tamanhos de disco e taxas de IOPS em [escalabilidade e metas de desempenho para discos de VM no Windows](/azure/virtual-machines/windows/disk-scalability-targets).
-   - **Grupo de recursos**: você pode selecionar um [grupo de recursos](/azure/azure-resource-manager/management/overview#resource-groups), do qual uma máquina virtual se torna parte de um failover posterior. Você pode alterar essa configuração a qualquer momento antes do failover. Após o failover, se você migrar a máquina virtual para um grupo de recursos diferente, as configurações de proteção dessa quebra de máquina virtual.
-   - **Conjunto de disponibilidade**: você pode selecionar um [conjunto de disponibilidade](/azure/virtual-machines/windows/tutorial-availability-sets) se sua máquina virtual precisar fazer parte de um failover posterior. Ao selecionar um conjunto de disponibilidade, tenha em mente as seguintes informações:
+   - **Tamanho da VM de destino ou tipo de VM**: o tamanho padrão da VM é escolhido com base em parâmetros que incluem contagem de disco, contagem de NIC, contagem de núcleo de CPU, memória e tamanhos de função VM disponíveis na região do Azure de destino. Azure Site Recovery escolhe o primeiro tamanho de VM disponível que satisfaz todos os critérios. Você pode selecionar um tamanho de VM diferente com base em suas necessidades a qualquer momento antes do failover. O tamanho do disco da VM também é baseado no tamanho do disco de origem e só pode ser alterado após o failover. Saiba mais sobre tamanhos de disco e taxas de IOPS em [escalabilidade e metas de desempenho para discos de VM no Windows](../virtual-machines/windows/disk-scalability-targets.md).
+   - **Grupo de recursos**: você pode selecionar um [grupo de recursos](../azure-resource-manager/management/overview.md#resource-groups), do qual uma máquina virtual se torna parte de um failover posterior. Você pode alterar essa configuração a qualquer momento antes do failover. Após o failover, se você migrar a máquina virtual para um grupo de recursos diferente, as configurações de proteção dessa quebra de máquina virtual.
+   - **Conjunto de disponibilidade**: você pode selecionar um [conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) se sua máquina virtual precisar fazer parte de um failover posterior. Ao selecionar um conjunto de disponibilidade, tenha em mente as seguintes informações:
      - Somente os conjuntos de disponibilidade que pertencem ao grupo de recursos especificado são listados.
      - As VMs que estão em redes virtuais diferentes não podem fazer parte do mesmo conjunto de disponibilidade.
      - Somente máquinas virtuais do mesmo tamanho podem fazer parte de um mesmo conjunto de disponibilidade.

@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/20/2020
-ms.openlocfilehash: 84026a5a9ba63bf008eeb25df3d0c42cbd558fa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/08/2020
+ms.openlocfilehash: 4e6f8a115e996ac6862f2fb04e5050b94f9f823b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85118773"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132745"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Status dos cenários de migração com suporte pelo serviço de migração de banco de dados do Azure
 
@@ -74,17 +74,20 @@ A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dad
 |   | Oracle | X |  |
 | **SQL do Azure para MI do BD** | SQL Server | ✔ | GA |
 |   | SQL para RDS | ✔ | GA |
-|   | Oracle | ✔ | Visualização particular |
+|   | Oracle | X |  |
 | **VM do SQL do Azure** | SQL Server | X |   |
 |   | Oracle  | X |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
 | **BD do Azure para MySQL** | MySQL | ✔ | GA |
 |   | MySQL para RDS | ✔ | GA |
 | **BD do Azure para PostgreSQL-servidor único** | PostgreSQL | ✔ | GA |
+|   | BD do Azure para PostgreSQL-servidor único * | ✔ | GA |
 |   | PostgreSQL para RDS | ✔ | GA |
 |   | Oracle | ✔ | Versão prévia pública |
 | **BD do Azure para PostgreSQL-Citus (hiperescala)** | PostgreSQL | ✔ | GA |
 |   | PostgreSQL para RDS | ✔ | GA |
+
+* Com suporte para PostgreSQL versão 10 e posterior.
 
 ## <a name="next-steps"></a>Próximas etapas
 

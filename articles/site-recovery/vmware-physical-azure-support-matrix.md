@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres do VMware/físico no Az
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidor físico para o Azure usando Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 8e1fd7e839c50458ddcfc9f83d152d7b45cd6672
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ff99fd1dd1710cd96f6257096b97ae1912a61dc6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956246"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131887"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -50,8 +50,8 @@ Sistema operacional  | Windows Server 2012 R2 ou Windows Server 2016 com experi�
 Localidade do sistema operacional | Inglês (en-us)
 [PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | Não é necessário para o Configuration Server versão [9,14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) ou posterior.
 Funções do Windows Server | Não habilitar Active Directory Domain Services; Serviços de Informações da Internet (IIS) ou Hyper-V.
-Políticas de grupo| - Impedir o acesso ao prompt de comando. <br/> - Impedir o acesso às ferramentas de edição do registro. <br/> - Lógica de confiança para anexos de arquivo. <br/> - Ativar a execução do script. <br/> - [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-IIS | Verifique se você:<br/><br/> -Não tem um site padrão pré-existente <br/> - Habilitar [autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - Habilitar configuração [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br/> - Não tem site/aplicativo preexistente ouvindo na porta 443<br/>
+Políticas de grupo| - Impedir o acesso ao prompt de comando. <br/> - Impedir o acesso às ferramentas de edição do registro. <br/> - Lógica de confiança para anexos de arquivo. <br/> - Ativar a execução do script. <br/> - [Saiba mais](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
+IIS | Verifique se você:<br/><br/> -Não tem um site padrão pré-existente <br/> - Habilitar [autenticação anônima](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br/> - Habilitar configuração [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))  <br/> - Não tem site/aplicativo preexistente ouvindo na porta 443<br/>
 Tipo de NIC | VMXNET3 (quando implantado como uma VM VMware)
 Tipo de endereço IP | Estático
 Portas | 443 usado para orquestração de canal de controle<br/>9443 para o transporte de dados
@@ -67,7 +67,7 @@ O Site Recovery dá suporte para replicação de qualquer carga de trabalho em e
 --- | ---
 Configurações do computador | Os computadores que são replicados para o Azure precisam atender aos [requisitos do Azure](#azure-vm-requirements).
 Carga de trabalho do computador | O Site Recovery dá suporte para replicação de qualquer carga de trabalho em execução em um computador com suporte. [Saiba mais](https://aka.ms/asr_workload).
-Nome do computador | Verifique se o nome de exibição do computador não se enquadra nos [nomes de recursos reservados do Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-reserved-resource-name)<br/><br/> Os nomes de volumes lógicos não diferenciam maiúsculas de minúsculas. Certifique-se de que dois volumes em um dispositivo tenham o mesmo nome. Por exemplo: volumes com nomes "voLUME1", "voLUME1" não podem ser protegidos por meio de Azure Site Recovery.
+Nome do computador | Verifique se o nome de exibição do computador não se enquadra nos [nomes de recursos reservados do Azure](../azure-resource-manager/templates/error-reserved-resource-name.md)<br/><br/> Os nomes de volumes lógicos não diferenciam maiúsculas de minúsculas. Certifique-se de que dois volumes em um dispositivo tenham o mesmo nome. Por exemplo: volumes com nomes "voLUME1", "voLUME1" não podem ser protegidos por meio de Azure Site Recovery.
 
 ### <a name="for-windows"></a>Para Windows
 
@@ -224,7 +224,7 @@ Convidado/servidor - excluir disco | Sim
 MPIO (Múltiplos caminhos) de convidado/servidor | Não
 Partições do convidado/servidor GPT | Há suporte para cinco partições do [pacote cumulativo de atualizações 37](https://support.microsoft.com/help/4508614/) (versão 9,25 do serviço de mobilidade) em diante. Quatro eram suportados anteriormente.
 ReFS | O sistema de arquivos resiliente tem suporte com o serviço de mobilidade versão 9,23 ou superior
-Inicialização de EFI/servidor do convidado/UEFI | -Com suporte para Windows Server 2012 ou posterior, SLES 12 SP4 e RHEL 8,0 com agente de mobilidade versão 9,30 em diante<br/> -Não há suporte para o tipo de inicialização UEFI segura. [Saiba mais.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
+Inicialização de EFI/servidor do convidado/UEFI | -Com suporte para Windows Server 2012 ou posterior, SLES 12 SP4 e RHEL 8,0 com agente de mobilidade versão 9,30 em diante<br/> -Não há suporte para o tipo de inicialização UEFI segura. [Saiba mais.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Canais de replicação
 
@@ -280,7 +280,7 @@ Nome da VM | De 1 a 63 caracteres.<br/><br/> Restrito a letras, números e hifen
 
 ## <a name="resource-group-limits"></a>Limites de grupo de recursos
 
-Para entender o número de máquinas virtuais que podem ser protegidas em um único grupo de recursos, consulte o artigo sobre [limites e cotas de assinatura](/azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits).
+Para entender o número de máquinas virtuais que podem ser protegidas em um único grupo de recursos, consulte o artigo sobre [limites e cotas de assinatura](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).
 
 ## <a name="churn-limits"></a>Limites de rotatividade
 

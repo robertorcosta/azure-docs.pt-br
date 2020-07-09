@@ -4,12 +4,12 @@ description: Resume o suporte para a recuperação de desastre de VMs do Azure e
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: raynew
-ms.openlocfilehash: 5f9774dd65587c364c90d346f17ed508a263c954
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c729645eadc192dba4d7bb4f2c346d7b9d36434a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961264"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132682"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação de desastre de VM do Azure entre regiões do Azure
 
@@ -70,7 +70,7 @@ Esta tabela resume o suporte para a conta de armazenamento em cache usada pelo S
 --- | --- | ---
 Contas de armazenamento do uso geral V2 (quente e a camada fria) | Com suporte | O uso de GPv2 não é recomendado porque os custos de transação para V2 são substancialmente maiores do que para que as contas de armazenamento V1.
 Armazenamento Premium | Sem suporte | As contas de Armazenamento Standard são usadas para o armazenamento em cache, para ajudar a otimizar os custos.
-Firewalls de Armazenamento do Azure para redes virtuais  | Com suporte | Caso esteja usando a conta de armazenamento de destino ou a conta de armazenamento de cache habilitada para firewall, escolha ['Permitir serviços confiáveis da Microsoft'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).<br></br>Além disso, certifique-se de permitir o acesso a pelo menos uma sub-rede da VNet de origem.
+Firewalls de Armazenamento do Azure para redes virtuais  | Com suporte | Caso esteja usando a conta de armazenamento de destino ou a conta de armazenamento de cache habilitada para firewall, escolha ['Permitir serviços confiáveis da Microsoft'](../storage/common/storage-network-security.md#exceptions).<br></br>Além disso, certifique-se de permitir o acesso a pelo menos uma sub-rede da VNet de origem.
 
 
 ## <a name="replicated-machine-operating-systems"></a>Sistemas Operacionais Replicados de Máquinas
@@ -229,7 +229,7 @@ GRS | Com suporte |
 RA-GRS | Com suporte |
 ZRS | Sem suporte |
 Armazenamento Frio e Quente | Sem suporte | Não há suporte para discos de máquina virtual no armazenamento frio e quente
-Firewalls de Armazenamento do Azure para redes virtuais  | Com suporte | Se você estiver restringindo o acesso da rede virtual a contas de armazenamento, habilite [Permitir serviços Microsoft confiáveis](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+Firewalls de Armazenamento do Azure para redes virtuais  | Com suporte | Se você estiver restringindo o acesso da rede virtual a contas de armazenamento, habilite [Permitir serviços Microsoft confiáveis](../storage/common/storage-network-security.md#exceptions).
 Contas de armazenamento V2 de uso geral (camadas Hot e Cool) | Com suporte | Os custos das transações aumentam substancialmente em comparação com as contas de armazenamento V1 de uso geral
 Geração 2 (inicialização de UEFI) | Com suporte
 Discos NVMe | Sem suporte
@@ -270,10 +270,10 @@ Vários endereços IP | Sem suporte | Quando você faz failover de uma VM que te
 Gerenciador de Tráfego     | Com suporte | Você pode pré-configurar o Traffic Manager para que o tráfego seja roteado para o terminal na região de origem regularmente e para o terminal na região de destino em caso de failover.
 DNS do Azure | Com suporte |
 DNS Personalizado    | Com suporte |
-Proxy não autenticado | Com suporte | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)
+Proxy não autenticado | Com suporte | [Saiba mais](./azure-to-azure-about-networking.md)
 Proxy autenticado | Sem suporte | Se a VM estiver usando um proxy autenticado para a conectividade de saída, ela não poderá ser replicada com o Azure Site Recovery.
-Conexão VPN site a site para um destino local<br/><br/>(com ou sem o ExpressRoute)| Com suporte | Verifique se as UDRs e os NSGs são configurados de tal forma que o tráfego do Site Recovery não seja encaminhado para o local. [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)
-Conexão VNET a VNET    | Com suporte | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)
+Conexão VPN site a site para um destino local<br/><br/>(com ou sem o ExpressRoute)| Com suporte | Verifique se as UDRs e os NSGs são configurados de tal forma que o tráfego do Site Recovery não seja encaminhado para o local. [Saiba mais](./azure-to-azure-about-networking.md)
+Conexão VNET a VNET    | Com suporte | [Saiba mais](./azure-to-azure-about-networking.md)
 Pontos de extremidade de serviço de rede virtual | Com suporte | Se você estiver restringindo o acesso à rede virtual para contas de armazenamento, certifique-se de que os serviços Microsoft confiáveis tenham a permissão para acessar a conta de armazenamento.
 Redes aceleradas | Com suporte | A rede acelerada deve estar ativada na VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
 Dispositivo de Rede da Palo Alto | Sem suporte | Com dispositivos de terceiros, geralmente há restrições impostas pelo provedor dentro da máquina virtual. O Azure Site Recovery precisa que o agente, as extensões e a conectividade de saída estejam disponíveis. Mas o dispositivo não permite que nenhuma atividade de saída seja configurada dentro da máquina virtual.
@@ -282,5 +282,5 @@ IPv6  | Sem suporte | Também não há suporte para configurações mistas que i
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Leia as [diretrizes de rede](site-recovery-azure-to-azure-networking-guidance.md) para replicar VMs do Azure.
-- Implante a recuperação de desastres [replicando as VMs do Azure](site-recovery-azure-to-azure.md).
+- Leia as [diretrizes de rede](./azure-to-azure-about-networking.md) para replicar VMs do Azure.
+- Implante a recuperação de desastres [replicando as VMs do Azure](./azure-to-azure-quickstart.md).

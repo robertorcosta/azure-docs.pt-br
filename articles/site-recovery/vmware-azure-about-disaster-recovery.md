@@ -6,11 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 589dda80d68fba73a729da4b6e59270cc09c18cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6759b2c0f679a865d0bdcf8ea8cd39f258a9cf25
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73954387"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132125"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Sobre a recuperação de desastres de VMs do VMware para o Azure
 
@@ -20,7 +21,7 @@ Este artigo fornece uma visão geral da recuperação de desastres para VMs VMwa
 
 Uma estratégia de continuidade de negócios e recuperação de desastres (BCDR) ajuda a manter seus negócios em funcionamento. Durante o tempo de inatividade planejado e interrupções inesperadas, o BCDR mantém os dados seguros e disponíveis e garante que os aplicativos continuem em execução. Além dos recursos da plataforma BCDR, como o emparelhamento regional e o armazenamento de alta disponibilidade, o Azure fornece os Serviços de recuperação como parte integrante da sua solução BCDR. Serviços de recuperação incluem: 
 
-- [O Backup do Azure](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) faz o backup de seus dados locais e da VM do Azure. Você pode fazer backup de arquivos e pastas, cargas de trabalho específicas ou uma VM inteira. 
+- [O Backup do Azure](../backup/backup-overview.md) faz o backup de seus dados locais e da VM do Azure. Você pode fazer backup de arquivos e pastas, cargas de trabalho específicas ou uma VM inteira. 
 - [O Azure Site Recovery](site-recovery-overview.md) fornece resiliência e recuperação de desastre para aplicativos e cargas de trabalho em execução em máquinas locais ou VMs de IaaS do Azure. O Site Recovery orquestra a replicação e lida com o failover para o Azure quando ocorrem interrupções. Ele também lida com a recuperação do Azure para seu site principal. 
 
 ## <a name="how-does-site-recovery-do-disaster-recovery"></a>Como o Site Recovery fazer a recuperação de desastres?

@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d6b912229b1365dd7bd8d466af18d1e81b5aa8e
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704430"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132150"
 ---
 # <a name="deploy-a-configuration-server"></a>Implante um servidor de configuração
 
@@ -38,7 +39,7 @@ Você deve ter um usuário com uma das seguintes permissões definidas no Azure 
 1. O usuário deve ter uma função de desenvolvedor de aplicativo para criar um aplicativo.
     - Para verificar, entre no portal do Azure.</br>
     - Vá para **Azure Active Directory**  >  **funções e administradores**.</br>
-    - Verifique se a função de desenvolvedor de aplicativo está atribuída ao usuário. Caso contrário, use um usuário com essa permissão ou entre em contato com um [administrador para habilitar a permissão](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+    - Verifique se a função de desenvolvedor de aplicativo está atribuída ao usuário. Caso contrário, use um usuário com essa permissão ou entre em contato com um [administrador para habilitar a permissão](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md#assign-roles).
     
 2. Se a função de desenvolvedor de aplicativo não puder ser atribuída, verifique se o sinalizador **usuários podem registrar aplicativos** está definido como **true** para que o usuário crie uma identidade. Para habilitar essas permissões:
     - Entre no Portal do Azure.
@@ -48,7 +49,7 @@ Você deve ter um usuário com uma das seguintes permissões definidas no Azure 
       ![AD_application_permission do Azure](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
-> *Não há suporte para*serviços de Federação do Active Directory (AD FS). Use uma conta gerenciada por meio de [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
+> *Não há suporte para*serviços de Federação do Active Directory (AD FS). Use uma conta gerenciada por meio de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md).
 
 ## <a name="download-the-template"></a>Baixe o modelo
 
@@ -110,7 +111,7 @@ Se você deseja adicionar mais uma NIC ao servidor de configuração, adicione-o
 
 ### <a name="configure-settings"></a>Definir configurações
 
-1. No assistente de gerenciamento do servidor de configuração, selecione **Configurar conectividade**. Nas caixas suspensas, primeiro selecione a NIC que o servidor de processo interno usa para descoberta e instalação por push do serviço de mobilidade em computadores de origem. Em seguida, selecione a NIC que o servidor de configuração usa para conectividade com o Azure. Selecione **Salvar**. Não é possível alterar essa configuração depois de ela ter sido definida. Não altere o endereço IP de um servidor de configuração. Verifique se o IP atribuído ao servidor de configuração é um IP estático e não um IP DHCP.
+1. No assistente de gerenciamento do servidor de configuração, selecione **Configurar conectividade**. Nas caixas suspensas, primeiro selecione a NIC que o servidor de processo interno usa para descoberta e instalação por push do serviço de mobilidade em computadores de origem. Em seguida, selecione a NIC que o servidor de configuração usa para conectividade com o Azure. Clique em **Salvar**. Não é possível alterar essa configuração depois de ela ter sido definida. Não altere o endereço IP de um servidor de configuração. Verifique se o IP atribuído ao servidor de configuração é um IP estático e não um IP DHCP.
 2. Em **selecionar cofre dos serviços de recuperação**, entre no Microsoft Azure com as credenciais usadas na etapa 6 de [registrar o servidor de configuração com os serviços de Azure site Recovery](#register-the-configuration-server-with-azure-site-recovery-services).
 3. Depois de entrar, selecione sua assinatura do Azure e o grupo de recursos e o cofre relevantes.
 

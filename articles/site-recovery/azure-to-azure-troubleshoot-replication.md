@@ -5,15 +5,16 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: c27bf9a29bdb6e75e10fcafc597f40a88f995461
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196082"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130402"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Solucionar problemas de replicação na recuperação de desastre de VM do Azure
 
-Este artigo descreve problemas comuns no Azure Site Recovery quando você está replicando e recuperando máquinas virtuais (VM) do Azure de uma região para outra região. Ele também explica como solucionar os problemas comuns. Para obter mais informações sobre configurações com suporte, consulte a [matriz de suporte para replicar máquinas virtuais do Azure](site-recovery-support-matrix-azure-to-azure.md).
+Este artigo descreve problemas comuns no Azure Site Recovery quando você está replicando e recuperando máquinas virtuais (VM) do Azure de uma região para outra região. Ele também explica como solucionar os problemas comuns. Para obter mais informações sobre configurações com suporte, consulte a [matriz de suporte para replicar máquinas virtuais do Azure](./azure-to-azure-support-matrix.md).
 
 Azure Site Recovery Replica consistentemente os dados da região de origem para a região de recuperação de desastre. Ele também cria um ponto de recuperação consistente com falhas a cada 5 minutos. Se o Site Recovery não puder criar pontos de recuperação durante 60 minutos, ele alertará você com estas informações:
 
@@ -77,7 +78,7 @@ Um pico na taxa de alteração de dados pode vir de uma intermitência de dados 
 
 O Site Recovery envia dados replicados à conta de armazenamento em cache. Você poderá enfrentar a latência de rede se o carregamento dos dados de uma máquina virtual para a conta de armazenamento de cache for mais lento do que 4 MB em 3 segundos.
 
-Para verificar se há um problema relacionado à latência, use [AzCopy](/azure/storage/common/storage-use-azcopy). Você pode usar esse utilitário de linha de comando para carregar dados da máquina virtual para a conta de armazenamento de cache. Se a latência for alta, verifique se você está usando uma solução de virtualização de rede (NVA) para controlar o tráfego de rede de saída das VMs. O appliance pode ser acelerado se todo o tráfego de replicação passar pelo NVA.
+Para verificar se há um problema relacionado à latência, use [AzCopy](../storage/common/storage-use-azcopy-v10.md). Você pode usar esse utilitário de linha de comando para carregar dados da máquina virtual para a conta de armazenamento de cache. Se a latência for alta, verifique se você está usando uma solução de virtualização de rede (NVA) para controlar o tráfego de rede de saída das VMs. O appliance pode ser acelerado se todo o tráfego de replicação passar pelo NVA.
 
 Recomendamos criar um ponto de extremidade de serviço de rede em sua rede virtual para "Armazenamento", para que o tráfego da replicação não acesse a NVA. Para saber mais, confira [Network virtual appliance configuration](azure-to-azure-about-networking.md#network-virtual-appliance-configuration) (Configuração da solução de virtualização de rede).
 
@@ -107,7 +108,7 @@ A seguir estão alguns dos problemas mais comuns.
 
 ### <a name="app-consistency-not-enabled-on-linux-servers"></a>Consistência de aplicativo não habilitada em servidores Linux
 
-**Como corrigir: a** Azure site Recovery para o sistema operacional Linux dá suporte a scripts personalizados de aplicativo para consistência de aplicativo. O script personalizado com as opções pre e post será usado pelo agente de mobilidade Azure Site Recovery para consistência de aplicativo. [Aqui](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) estão as etapas para habilitá-lo.
+**Como corrigir: a** Azure site Recovery para o sistema operacional Linux dá suporte a scripts personalizados de aplicativo para consistência de aplicativo. O script personalizado com as opções pre e post será usado pelo agente de mobilidade Azure Site Recovery para consistência de aplicativo. [Aqui](./site-recovery-faq.md#replication) estão as etapas para habilitá-lo.
 
 ### <a name="more-causes-because-of-vss-related-issues"></a>Mais causas por causa de problemas relacionados ao VSS:
 

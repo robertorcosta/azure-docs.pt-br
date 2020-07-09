@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: dfed398124ca20771e169f6f9e7d08d4d799ee1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aece41329d6481b8ad15090a834c8758f86abdc2
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80478294"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131344"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurar a recuperação de desastre para um aplicativo Web baseado em IIS de várias camadas
 
@@ -31,7 +31,7 @@ Este artigo descreve como proteger um aplicativo Web baseado no IIS (Serviços d
 Antes de começar, certifique-se de que você sabe fazer as tarefas a seguir:
 
 * [Replicar uma máquina virtual no Azure](vmware-azure-tutorial.md)
-* [Criar uma rede de recuperação](site-recovery-network-design.md)
+* [Criar uma rede de recuperação](./concepts-on-premises-to-azure-networking.md)
 * [Executar um failover de teste para o Azure](site-recovery-test-failover-to-azure.md)
 * [Executar um failover para o Azure](site-recovery-failover.md)
 * [Replicar um controlador de domínio](site-recovery-active-directory.md)
@@ -92,7 +92,7 @@ Para obter mais informações, consulte [Personalizar o plano de recuperação](
 
 
 ### <a name="add-a-script-to-the-recovery-plan"></a>Adicionar um script ao plano de recuperação
-Para que o web farm do IIS funcione corretamente, será necessário fazer algumas operações nas máquinas virtuais do Azure pós-failover ou durante um failover de teste. É possível automatizar algumas operações pós-failover. Por exemplo, você pode atualizar a entrada DNS, alterar uma associação do site ou alterar uma cadeia de conexão, adicionando scripts correspondentes ao plano de recuperação. [Adicionar um script do VMM a um plano de recuperação](site-recovery-how-to-add-vmmscript.md) descreve como configurar tarefas automatizadas usando um script.
+Para que o web farm do IIS funcione corretamente, será necessário fazer algumas operações nas máquinas virtuais do Azure pós-failover ou durante um failover de teste. É possível automatizar algumas operações pós-failover. Por exemplo, você pode atualizar a entrada DNS, alterar uma associação do site ou alterar uma cadeia de conexão, adicionando scripts correspondentes ao plano de recuperação. [Adicionar um script do VMM a um plano de recuperação](./hyper-v-vmm-recovery-script.md) descreve como configurar tarefas automatizadas usando um script.
 
 #### <a name="dns-update"></a>Atualização de DNS
 Se o DNS estiver configurado para atualização dinâmica de DNS, as máquinas virtuais normalmente atualizarão o DNS com o novo endereço IP quando forem iniciadas. Se você quiser adicionar uma etapa explícita para atualizar o DNS com os novos endereços IP das máquinas virtuais, adicione um script [para atualizar o IP no DNS ](https://aka.ms/asr-dns-update) como uma ação pós-failover em grupos de planos de recuperação.  

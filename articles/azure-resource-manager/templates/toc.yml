@@ -222,12 +222,6 @@
         - name: Usar a verificação de integridade no Gerenciador de Implantação
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
-- name: Exemplos
-  items:
-    - name: Modelos de início rápido do Azure
-      href: 'https://azure.microsoft.com/resources/templates/'
-    - name: Amostras de modelo
-      href: template-samples.md
 - name: Conceitos
   items:
     - name: Práticas recomendadas de modelo
@@ -299,16 +293,6 @@
             - name: outputs
               displayName: 'iteration,copy'
               href: copy-outputs.md
-    - name: Usar ferramentas de criação
-      items:
-        - name: Código VS
-          href: use-vs-code-to-create-template.md
-        - name: Visual Studio
-          href: create-visual-studio-deployment-project.md
-        - name: Atualizar o script de implantação do VS para o módulo do Az
-          href: update-visual-studio-deployment-script.md
-        - name: IntelliJ IDEA
-          href: create-templates-use-intellij.md
     - name: Descobrir propriedades do modelo
       items:
         - name: Exportar modelo
@@ -344,6 +328,8 @@
           href: rollback-on-error.md
         - name: Proteger o modelo com o token SAS
           href: secure-template-with-sas-token.md
+        - name: Exibir histórico de implantação
+          href: deployment-history.md
     - name: Implantações com escopo
       items:
         - name: Subscription
@@ -367,8 +353,14 @@
           href: add-template-to-azure-pipelines.md
         - name: Implantar – GitHub Actions
           href: deploy-github-actions.md
-    - name: Exibir histórico de implantação
-      href: deployment-history.md
+    - name: Usar ferramentas de criação
+      items:
+        - name: Visual Studio
+          href: create-visual-studio-deployment-project.md
+        - name: Atualizar o script de implantação do VS para o módulo do Az
+          href: update-visual-studio-deployment-script.md
+        - name: IntelliJ IDEA
+          href: create-templates-use-intellij.md
     - name: Solucionar problemas das implantações
       items:
         - name: Solucionar problemas de erros de implantação
@@ -441,6 +433,8 @@
       href: /python/api/overview/azure/resources?view=azure-python
 - name: Recursos
   items:
+    - name: Modelos de início rápido do Azure
+      href: 'https://azure.microsoft.com/resources/templates/'
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
     - name: Calculadora de preço

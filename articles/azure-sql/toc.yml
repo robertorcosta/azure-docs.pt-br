@@ -57,7 +57,11 @@
             - name: Mascaramento de dados dinâmicos
               href: database/dynamic-data-masking-overview.md
             - name: Avaliação de Vulnerabilidades SQL
-              href: database/sql-vulnerability-assessment.md
+              items:
+                - name: Avaliação de Vulnerabilidades SQL
+                  href: database/sql-vulnerability-assessment.md
+                - name: Regras de avaliação de vulnerabilidade
+                  href: database/sql-database-vulnerability-assessment-rules.md
             - name: 'Logons, contas de usuário, funções e permissões'
               href: database/logins-create-manage.md
             - name: Autenticação do Azure AD
@@ -606,6 +610,9 @@
           href: database/powershell-script-content-guide.md?tabs=single-database
         - name: Azure Resource Manager
           href: database/arm-templates-content-guide.md?tabs=single-database
+        - name: Itens internos do Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ./database/policy-samples.md
         - name: Exemplos de código
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: Instância Gerenciada de SQL (MI de SQL)
@@ -833,6 +840,9 @@
           href: database/powershell-script-content-guide.md?tabs=managed-instance
         - name: Azure Resource Manager
           href: database/arm-templates-content-guide.md?tabs=managed-instance
+        - name: Itens internos do Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ./database/policy-samples.md
         - name: Exemplos de código
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: SQL Server na VM do Azure
@@ -974,8 +984,6 @@
                       items:
                         - name: Criar DNN para FCI
                           href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
-                        - name: Interoperabilidade de recursos com a DNN
-                          href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
                         - name: Recursos do SQL Server e da DNN do FCI
                           href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
                 - name: Configurar a conectividade

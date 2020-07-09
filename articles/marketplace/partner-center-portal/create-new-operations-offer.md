@@ -1,18 +1,18 @@
 ---
 title: Criar uma oferta do Dynamics 365 for Operations no marketplace comercial
 description: Como criar uma oferta do Dynamics 365 for Operations para listagem ou venda no Azure Marketplace, AppSource ou por meio do programa de CSP (provedor de soluções na nuvem) usando o portal do marketplace comercial no Microsoft Partner Center.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: navits09
+ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 0a2696da70a785fc1da6bfd2c7b0cabae1a89197
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 621d657f527e5307ed3a0b583e4c9171005d4f8c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85980684"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121821"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Criar uma oferta do Dynamics 365 for Operations
 

@@ -3,12 +3,12 @@ title: Replicar VMs do Azure Stack no Azure usando Azure Site Recovery | Microso
 description: Saiba como configurar a recuperação de desastre para VMs do Azure Stack com o serviço do Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: ab35463ca8c3b29e6b4ae8abc781a7081091b214
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 873b9c5efc2a89d3cda1bfe14a7518e6786a6870
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80478502"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131601"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar VMs do Azure Stack para Azure
 
@@ -262,7 +262,7 @@ Antes de executar um failover de teste, verifique as propriedades da máquina e 
 2. No painel **Item Replicado**, há um resumo das informações da VM, o status de integridade e os últimos pontos de recuperação disponíveis. Clique em **Propriedades** para exibir mais detalhes.
 3. Em **Computação e Rede**, modifique as configurações conforme necessário.
 
-    - É possível modificar o nome da VM do Azure, grupo de recursos, tamanho de destino, [conjunto de disponibilidade](/azure/virtual-machines/windows/tutorial-availability-sets) e as configurações de disco gerenciado.
+    - É possível modificar o nome da VM do Azure, grupo de recursos, tamanho de destino, [conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) e as configurações de disco gerenciado.
     - Também é possível exibir e modificar as configurações de rede. Isso inclui a rede/sub-rede à qual a VM do Azure é associada após o failover e o endereço IP que será atribuído à VM.
 1. Em **Discos**, exiba as informações sobre o sistema operacional e os discos de dados na VM.
 

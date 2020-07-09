@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 9ab4db53086046ff831fe91d003599841aa8148c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 281743268364b0e9d39c7bea28afc17d753db2f6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83829776"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130152"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino mestre Linux para failback
 Após o failover de suas máquinas virtuais para o Azure, você poderá executar failback das máquinas virtuais para o site local. Para realizar failback, você precisa proteger novamente a máquina virtual do Azure para o site local. Para este processo, é necessário um servidor de destino mestre para receber o tráfego. 
@@ -26,7 +27,7 @@ Se sua máquina virtual protegida for uma máquina virtual do Windows, será nec
 ## <a name="overview"></a>Visão geral
 Este artigo fornece instruções sobre como instalar um destino mestre do Linux.
 
-Publique comentários ou perguntas no final deste artigo ou na [página de perguntas dos Serviços de Recuperação do Microsoft Azure](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
+Publique comentários ou perguntas no final deste artigo ou na [página de perguntas dos Serviços de Recuperação do Microsoft Azure](/answers/topics/azure-site-recovery.html).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,6 +37,9 @@ Publique comentários ou perguntas no final deste artigo ou na [página de pergu
 * O destino mestre deve estar em uma rede que pode se comunicar com o servidor de processo e com o servidor de configuração.
 * A versão de destino mestre deve ser igual ou anterior às versões de servidor de processo e o servidor de configuração. Por exemplo, se a versão do servidor de configuração for a 9.4, a versão de destino mestre poderá ser 9.4 ou 9.3 mas não 9.5.
 * O destino mestre só pode ser uma máquina virtual VMware e não um servidor físico.
+
+> [!NOTE]
+> Não ative Storage vMotion em quaisquer componentes de gerenciamento como um destino mestre. Se o destino mestre se mover após um proteger novamente com êxito, os VMDKs (discos de máquina virtual) não poderão ser desanexados. Nesse caso, o failback falhará.
 
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>Diretrizes de dimensionamento para a criação do servidor de destino mestre
 
@@ -243,7 +247,7 @@ Use as etapas a seguir para criar um disco de retenção:
 
     ![ID de vários caminhos](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formate a unidade e, em seguida, crie um sistema de arquivos na nova unidade: **mkfs.ext4 dev/mapper/\<ID de vários caminhos do disco de retenção>** .
+3. Formate a unidade e, em seguida, crie um sistema de arquivos na nova unidade: **mkfs \<Retention disk's multipath id> . ext4/dev/mapper/**.
     
     ![Sistema de arquivos](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -260,7 +264,7 @@ Use as etapas a seguir para criar um disco de retenção:
     
     Selecione **Inserir** para começar a editar o arquivo. Crie uma nova linha e insira o texto a seguir. Edite a ID de vários caminhos de disco com base na ID de vários caminhos realçada no comando anterior.
 
-    **/dev/mapper/\<ID de vários caminhos do disco de retenção> /mnt/retention ext4 rw 0 0**
+    **/dev/mapper/\<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
 
     Selecione **Esc** e digite **:wq** (gravar e sair) para fechar a janela do editor.
 
@@ -273,16 +277,22 @@ Use as etapas a seguir para criar um disco de retenção:
 > [!NOTE]
 > Antes de instalar o servidor de destino mestre, verifique se o arquivo **/etc/hosts** na máquina virtual contém entradas que mapeiam o nome do host local para os endereços IP associados a todos os adaptadores de rede.
 
-1. Copie a frase secreta de **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** no servidor de configuração. Em seguida, salve-o como **passphrase.txt** no mesmo diretório local executando o seguinte comando:
+1. Execute o comando a seguir para instalar o destino mestre.
+
+    ```
+    ./install -q -d /usr/local/ASR -r MT -v VmWare
+    ```
+
+2. Copie a frase secreta de **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** no servidor de configuração. Em seguida, salve-o como **passphrase.txt** no mesmo diretório local executando o seguinte comando:
 
     `echo <passphrase> >passphrase.txt`
 
     Exemplo: 
 
-       `echo itUx70I47uxDuUVY >passphrase.txt`
+    `echo itUx70I47uxDuUVY >passphrase.txt`
     
 
-2. Anote o endereço IP do servidor de Configuração. Execute o comando a seguir para instalar o servidor de destino mestre e registrar o servidor no servidor de configuração.
+3. Anote o endereço IP do servidor de Configuração. Execute o comando a seguir para registrar o servidor no servidor de configuração.
 
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
@@ -313,16 +323,10 @@ Após a conclusão da instalação, registre o servidor de configuração por me
 
 1. Observe o endereço IP do servidor de configuração. Você precisará disso na próxima etapa.
 
-2. Execute o comando a seguir para instalar o servidor de destino mestre e registrar o servidor no servidor de configuração.
+2. Execute o comando a seguir para registrar o servidor no servidor de configuração.
 
     ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
-    ```
-    Exemplo: 
-
-    ```
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh
     ```
 
      Aguarde até que o script seja concluído. Se o destino mestre for registrado com êxito, ele será listado na página **Infraestrutura do Site Recovery** do portal.
@@ -347,9 +351,13 @@ Você verá que o campo **Versão** fornece o número de versão de destino mest
 
 * O destino mestre não deve ter todos os instantâneos na máquina virtual. Se houver instantâneos, o failback falhará.
 
-* Devido a algumas configurações de NIC personalizadas, a interface de rede é desabilitada durante a inicialização, e não é possível inicializar o destino mestre. Verifique se as propriedades a seguir foram definidas corretamente. Verifique essas propriedades em /etc/sysconfig/network-scripts/ifcfg-eth* do arquivo da placa Ethernet.
-    * BOOTPROTO=dhcp
-    * ONBOOT=yes
+* Devido a algumas configurações de NIC personalizadas, a interface de rede é desabilitada durante a inicialização, e não é possível inicializar o destino mestre. Verifique se as propriedades a seguir foram definidas corretamente. Verifique essas propriedades no/etc/network/interfaces. do arquivo do cartão Ethernet
+    * auto eth0
+    * iface eth0 inet dhcp <br>
+
+    Reinicie o serviço de rede usando o seguinte comando: <br>
+
+`sudo systemctl restart networking`
 
 
 ## <a name="next-steps"></a>Próximas etapas

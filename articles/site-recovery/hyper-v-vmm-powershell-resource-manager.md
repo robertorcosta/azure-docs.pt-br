@@ -7,11 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7a2d21dcd8c9474bdf068d7940e497333f35115
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77048611"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130218"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurar a recuperação de desastre de VMs Hyper-V para um site secundário usando PowerShell (Resource Manager)
 
@@ -22,9 +23,9 @@ Este artigo mostra como automatizar as etapas para a replicação de VMs do Hype
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Examine os [componentes e a arquitetura do cenário](hyper-v-vmm-architecture.md).
-- Examine os [requisitos de suporte](site-recovery-support-matrix-to-sec-site.md) para todos os componentes.
-- Verifique se os servidores do Virtual Machine Manager e os hosts do Hyper-V estão em conformidade com [os requisitos de suporte](site-recovery-support-matrix-to-sec-site.md).
-- Verifique se as VMs que você deseja replicar estão em conformidade com o [suporte ao computador replicado](site-recovery-support-matrix-to-sec-site.md).
+- Examine os [requisitos de suporte](./vmware-physical-secondary-support-matrix.md) para todos os componentes.
+- Verifique se os servidores do Virtual Machine Manager e os hosts do Hyper-V estão em conformidade com [os requisitos de suporte](./vmware-physical-secondary-support-matrix.md).
+- Verifique se as VMs que você deseja replicar estão em conformidade com o [suporte ao computador replicado](./vmware-physical-secondary-support-matrix.md).
 
 ## <a name="prepare-for-network-mapping"></a>Prepare-se para o mapeamento de rede
 
@@ -36,10 +37,10 @@ O [mapeamento de rede](hyper-v-vmm-network-mapping.md) mapeia entre as redes de 
 
 Prepare o Virtual Machine Manager da seguinte maneira:
 
-- Verifique se você tem [redes lógicas do Virtual Machine Manager](https://docs.microsoft.com/system-center/vmm/network-logical) nos servidores de origem e de destino do Virtual Machine Manager:
+- Verifique se você tem [redes lógicas do Virtual Machine Manager](/system-center/vmm/network-logical) nos servidores de origem e de destino do Virtual Machine Manager:
   - A rede lógica no servidor de origem deve ser associada à nuvem de origem na qual os hosts do Hyper-V estão localizados.
   - A rede lógica no servidor de destino deve ser associada com a nuvem de destino.
-- Verifique se você tem [redes de VM](https://docs.microsoft.com/system-center/vmm/network-virtual) nos servidores de origem e de destino do Virtual Machine Manager. As redes de VM devem ser vinculadas à rede lógica em cada local.
+- Verifique se você tem [redes de VM](/system-center/vmm/network-virtual) nos servidores de origem e de destino do Virtual Machine Manager. As redes de VM devem ser vinculadas à rede lógica em cada local.
 - Conecte as VMs nos hosts do Hyper-V de origem à rede de VM de origem.
 
 ## <a name="prepare-for-powershell"></a>Preparar para o PowerShell

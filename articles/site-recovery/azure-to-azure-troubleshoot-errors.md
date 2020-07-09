@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: bbb2ddaa1fb84590f9dec1c84ac4bc87a8e03022
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91aaedba13dfd9c0a3ea06b3460beaa8ead20233
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82738109"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130459"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solucionar erros de replicação de VM do Azure para o Azure
 
@@ -36,7 +36,7 @@ Replication couldn't be enabled for the virtual machine <VmName>.
 
 ### <a name="fix-the-problem"></a>Corrija o problema
 
-Contate o [suporte de cobrança do Azure](/azure/azure-portal/supportability/resource-manager-core-quotas-request) para habilitar sua assinatura para criar VMs dos tamanhos necessários no local de destino. Em seguida, repita a operação com falha.
+Contate o [suporte de cobrança do Azure](../azure-portal/supportability/resource-manager-core-quotas-request.md) para habilitar sua assinatura para criar VMs dos tamanhos necessários no local de destino. Em seguida, repita a operação com falha.
 
 Se o local de destino tiver uma restrição de capacidade, desabilite a replicação para esse local. Em seguida, habilite a replicação para um local diferente em que sua assinatura tem uma cota suficiente para criar VMs dos tamanhos necessários.
 
@@ -202,7 +202,7 @@ Não é possível estabelecer uma conexão com os pontos de extremidade IP4 de a
 #### <a name="fix-the-problem"></a>Corrija o problema
 
 Azure Site Recovery acesso necessário aos intervalos de IP do Office 365 para autenticação.
-Se você estiver usando regras de NSG (grupo de segurança de rede) do Azure/proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de usar a NSG da [marca de serviço do AAD (Azure Active Directory)](/azure/virtual-network/security-overview#service-tags) para permitir o acesso ao AAD. Não há mais suporte para regras NSG baseadas em endereço IP.
+Se você estiver usando regras de NSG (grupo de segurança de rede) do Azure/proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de usar a NSG da [marca de serviço do AAD (Azure Active Directory)](../virtual-network/security-overview.md#service-tags) para permitir o acesso ao AAD. Não há mais suporte para regras NSG baseadas em endereço IP.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: falha na configuração do Site Recovery (151197)
 
@@ -260,8 +260,8 @@ Azure data disk <DiskName> <DiskURI> with logical unit number <LUN> <LUNValue> w
 
 Verifique se os discos de dados foram inicializados e repita a operação.
 
-- **Windows**: [anexe e inicialize um novo disco](/azure/virtual-machines/windows/attach-managed-disk-portal).
-- **Linux**: [inicializar um novo disco de dados no Linux](/azure/virtual-machines/linux/add-disk).
+- **Windows**: [anexe e inicialize um novo disco](../virtual-machines/windows/attach-managed-disk-portal.md).
+- **Linux**: [inicializar um novo disco de dados no Linux](../virtual-machines/linux/add-disk.md).
 
 Se o problema persistir, contate o Suporte.
 

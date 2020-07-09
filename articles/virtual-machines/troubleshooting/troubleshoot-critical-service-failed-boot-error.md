@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 54ba87b681a055bb46b81ca81d2bcdd103491f27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c3e76f1a7edffefc8773dfa548773ec0932fae6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77921446"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129854"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>O Windows mostra "SERVIÇO CRÍTICO COM FALHA" na tela azul durante a inicialização de uma VM do Azure
 Este artigo descreve o erro "SERVIÇO CRÍTICO COM FALHA" que pode ocorrer quando você inicializa uma VM (máquina virtual) do Windows no Microsoft Azure. Ele fornece etapas de solução de problemas que ajudam a resolvê-los. 
@@ -83,11 +84,15 @@ Para habilitar logs de despejo e o console serial, execute o script a seguir.
 
 1. Na VM de recuperação, execute o seguinte comando em um prompt de comandos com privilégios elevados. Esse comando define o disco do sistema operacional afetado para se iniciado no modo de segurança na próxima inicialização:
 
-        bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```
 
     Por exemplo, se o disco do sistema operacional que você anexou for a unidade F, execute o seguinte comando:
 
-        bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```
 
 2. [Desanexe o disco do sistema operacional e, em seguida, anexe-o novamente na VM afetada](troubleshoot-recovery-disks-portal-windows.md). A VM será inicializada no modo de segurança. Se o erro persistir, acesse a etapa opcional.
 3. Abra a caixa **Executar** e execute o **verificador** para iniciar a ferramenta Gerenciador de Verificação de Driver.
@@ -97,7 +102,10 @@ Para habilitar logs de despejo e o console serial, execute o script a seguir.
 
 7. Remova as configurações de inicialização segura:
 
-        bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```console
+    bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```
+
 8.  Reinicie a VM. 
 
 ### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Opcional: analisar os logs de despejo no modo de despejo de memória

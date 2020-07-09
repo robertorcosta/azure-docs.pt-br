@@ -1,31 +1,32 @@
 ---
 title: Exibir atividade do provedor de serviços
 description: Os clientes podem exibir a atividade registrada para ver as ações executadas pelos provedores de serviço por meio do gerenciamento de recursos delegado do Azure.
-ms.date: 01/15/2020
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 42af2aa7fca5031eb50bd421a5207320858b70cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c92fc9b45d17e37fb3721d9cf087c5e7a62f6d7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636437"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131473"
 ---
 # <a name="view-service-provider-activity"></a>Exibir atividade do provedor de serviços
 
-Os clientes que têm assinaturas delegadas para o gerenciamento de recursos delegado do Azure podem exibir os dados [do log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md) para ver todas as ações executadas. Isso dá aos clientes visibilidade total das operações que os provedores de serviços estão realizando por meio do gerenciamento de recursos delegado do Azure, juntamente com as operações realizadas por usuários no locatário do próprio Azure Active Directory (Azure AD) do cliente.
+Os clientes que tiverem assinaturas delegadas para o [Azure Lighthouse](../overview.md) podem [exibir os dados do log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md) para ver todas as ações executadas. Isso dá aos clientes visibilidade total das operações que os provedores de serviços estão realizando por meio do [Gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md), juntamente com as operações realizadas por usuários no locatário do próprio Azure Active Directory (Azure AD) do cliente.
 
 > [!TIP]
 > Também fornecemos uma definição de política interna Azure Policy para auditar a delegação de escopos para um locatário de gerenciamento. Para obter mais informações, consulte [delegações de auditoria em seu ambiente](view-manage-service-providers.md#audit-delegations-in-your-environment).
 
 ## <a name="view-activity-log-data"></a>Exibir dados do log de atividades
 
-Você pode [Exibir o log de atividades](../../azure-monitor/platform/activity-log-view.md) no menu **monitorar** na portal do Azure. Para limitar os resultados a uma assinatura específica, use os filtros para selecionar uma assinatura específica. Você também pode [Exibir e recuperar eventos do log de atividades](../../azure-monitor/platform/activity-log-view.md) programaticamente.
+Você pode [Exibir o log de atividades](../../azure-monitor/platform/activity-log.md#view-the-activity-log) no menu **monitorar** na portal do Azure. Para limitar os resultados a uma assinatura específica, use os filtros para selecionar uma assinatura específica. Você também pode [Exibir e recuperar eventos do log de atividades](../../azure-monitor/platform/activity-log.md#view-the-activity-log) programaticamente.
 
 > [!NOTE]
-> Os usuários no locatário de um provedor de serviços podem exibir os resultados do log de atividades para uma assinatura delegada em um locatário do cliente se eles tiverem recebido a função [leitor](../../role-based-access-control/built-in-roles.md#reader) (ou outra função interna que inclui acesso de leitor) quando essa assinatura foi integrada ao gerenciamento de recursos delegados do Azure.
+> Os usuários no locatário de um provedor de serviços podem exibir os resultados do log de atividades para uma assinatura delegada em um locatário do cliente se eles tiverem recebido a função [leitor](../../role-based-access-control/built-in-roles.md#reader) (ou outra função interna que inclui acesso de leitor) quando essa assinatura foi integrada ao Azure Lighthouse.
 
-No log de atividades, você verá o nome da operação e seu status, juntamente com a data e a hora em que ele foi executado. O **evento iniciado por** coluna mostra qual usuário realizou a operação, se ele foi um usuário em um locatário do provedor de serviços agindo por meio do gerenciamento de recursos delegado do Azure ou um usuário no próprio locatário do cliente. Observe que o nome do usuário é mostrado, em vez do locatário, ou da função que o usuário foi atribuído para essa assinatura.
+No log de atividades, você verá o nome da operação e seu status, juntamente com a data e a hora em que ele foi executado. O **evento iniciado por** coluna mostra qual usuário realizou a operação, se ele foi um usuário em um locatário de um provedor de serviços agindo por meio do Azure Lighthouse ou um usuário no próprio locatário do cliente. Observe que o nome do usuário é mostrado, em vez do locatário, ou da função que o usuário foi atribuído para essa assinatura.
 
-A atividade registrada está disponível no portal do Azure nos últimos 90 dias. Para saber como armazenar esses dados por mais de 90 dias, consulte [coletar e analisar os logs de atividades do Azure no espaço de trabalho log Analytics](../../azure-monitor/platform/activity-log-collect.md).
+A atividade registrada está disponível no portal do Azure nos últimos 90 dias. Para saber como armazenar esses dados por mais de 90 dias, consulte [coletar e analisar os logs de atividades do Azure no espaço de trabalho log Analytics](../../azure-monitor/platform/activity-log.md).
 
 > [!NOTE]
 > Os usuários do provedor de serviços aparecem no log de atividades, mas esses usuários e suas atribuições de função não são mostrados no **controle de acesso (iam)** ou ao recuperar informações de atribuição de função por meio de APIs.
