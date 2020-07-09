@@ -12,11 +12,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 66f80c79219090c27da37dfc1d9149df5604961f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83f7f16d8406744a10451e8d488b7719845c525d
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68841378"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135950"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Configurar uma ADCD (distribuição controlada por desenvolvedores de aplicativos) no IBM zD&T v1
 
@@ -75,7 +76,7 @@ Agora que você tem os pacotes, você deve carregá-los em sua VM no Azure.
 
 4. Quando conectado, crie um diretório para carregar os pacotes IBM. Tenha em mente que o Linux diferencia maiúsculas de minúsculas. Por exemplo, esta demonstração pressupõe que os pacotes sejam carregados para:
 
-        /home/MyUserID/ZDT/adcd/nov2017/volumes
+    `/home/MyUserID/ZDT/adcd/nov2017/volumes`
 
 5. Carregue os arquivos usando um cliente SSH, como[WinSCP](https://winscp.net/eng/index.php). Como o SCP faz parte do SSH, ele usa a porta 22, que é usada pelo SSH. Se o computador local não for Windows, você poderá digitar o [comando scp](http://man7.org/linux/man-pages/man1/scp.1.html) em sua sessão SSH.
 
@@ -88,8 +89,8 @@ Agora que você tem os pacotes, você deve carregá-los em sua VM no Azure.
 
 8. Quando os carregamentos forem concluídos, navegue até o diretório volumes e descompacte todos os volumes **gz** :
 
-    ```
-        gunzip \*.gz
+    ```console
+    gunzip \*.gz
     ```
     
 ![Explorador de arquivos mostrando volumes gz descompactados](media/01-gunzip.png)
@@ -99,9 +100,9 @@ Agora que você tem os pacotes, você deve carregá-los em sua VM no Azure.
 A próxima etapa é configurar zD&T para usar os pacotes carregados. O processo de armazenamento de imagens no zD&T permite que você monte e use as imagens. Ele pode usar SSH ou FTP.
 
 1. Inicie o **zDTServer**. Para fazer isso, você deve estar no nível raiz. Insira os dois comandos a seguir na ordem:
-    ```
-        sudo su -
-        /opt/ibm/zDT/bin/startServer
+    ```console
+    sudo su -
+    /opt/ibm/zDT/bin/startServer
     ```
 2. Observe a saída da URL pelo comando e use essa URL para acessar o servidor Web. Ele é semelhante a:
      > https://(seu nome de VM ou endereço IP): 9443/ZDTMC/index.html
