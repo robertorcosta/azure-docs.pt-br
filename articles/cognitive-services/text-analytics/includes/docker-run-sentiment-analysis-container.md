@@ -9,14 +9,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 253c391b222c757a367bd5cd39939052cc697b00
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 459ab7a254994929174e4f81ad25f0729f43fa0b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588356"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108886"
 ---
-Para executar o contêiner *análise de sentimento v3* , execute o comando a seguir `docker run` .
+Para executar o contêiner *análise de sentimento v3* , execute o comando a seguir `docker run` . Substitua os espaços reservados abaixo pelos seus próprios valores:
+
+| Espaço reservado | Valor | Formato ou exemplo |
+|-------------|-------|---|
+| **{API_KEY}** | A chave para o recurso de Análise de Texto. Você pode encontrá-lo na página de **ponto de extremidade e chave** do recurso, na portal do Azure. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | O ponto de extremidade para acessar o API de Análise de Texto. Você pode encontrá-lo na página de **ponto de extremidade e chave** do recurso, na portal do Azure. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 1 \

@@ -1,17 +1,16 @@
 ---
 title: Serviço de Aplicativo do Azure como origem da Grade de Eventos
 description: Este artigo descreve como usar o Serviço de Aplicativo do Azure como uma origem do evento da Grade de Eventos. Ele fornece o esquema e os links para os artigos do tutorial e de instruções.
-services: event-grid
 author: jasonfreeberg
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 07/07/2020
 ms.author: jafreebe
-ms.openlocfilehash: 0a24e8ba84739dbc1b5de5e0546a8fe0d2e826f1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2465b2f260ed6c174b762fcf64a71100a148254d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650700"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106704"
 ---
 # <a name="azure-app-service-as-an-event-grid-source"></a>Serviço de Aplicativo do Azure como uma origem da Grade de Eventos
 

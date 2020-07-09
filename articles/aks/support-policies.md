@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: 775992d090b951c8de6fce36377dc91d6e017399
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec58f8df5507fd9c52950e880c062e6cad964b7a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85558090"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106978"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Políticas de suporte para o Serviço de Kubernetes do Azure
 
@@ -52,7 +52,7 @@ Como os nós de trabalho são confidenciais, a Microsoft toma muito cuidado para
 A Microsoft oferece suporte técnico para o seguinte:
 
 > [!NOTE]
-> Todas as ações de cluster tomadas pelo suporte da Microsoft são feitas com o consentimento do usuário em uma função interna kubernetes ["Edit"](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) do nome `aks-support-rolebinding` . Com essa função, o suporte a AKS está habilitado para editar a configuração e os recursos do cluster para solucionar problemas e diagnosticar os problema de cluster, mas a função não pode modificar permissões nem criar funções ou associações de função. O acesso à função só é habilitado em Tíquetes de suporte ativos com acesso JIT (just-in-time).
+> Todas as ações de cluster tomadas pela Microsoft/AKS são feitas com consentimento do usuário em uma função interna kubernetes `aks-service` e Associação de função interna `aks-service-rolebinding` . Essa função permite que o AKS solucione problemas e diagnostique problemas de cluster, mas não pode modificar permissões nem criar funções ou associações de função nem outras ações de alto privilégio. O acesso à função só é habilitado em Tíquetes de suporte ativos com acesso JIT (just-in-time).
 
 * Conectividade com todos os componentes do Kubernetes que o serviço de Kubernetes oferece e dá suporte, como o servidor de API.
 * Gerenciamento, tempo de atividade, QoS e operações dos serviços do painel de controle do Kubernetes (nós mestre do Kubernetes, servidor de API, etcd e kube-dns, por exemplo).

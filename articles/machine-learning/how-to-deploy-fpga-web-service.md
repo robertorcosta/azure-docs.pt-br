@@ -11,11 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/03/2020
 ms.custom: seodec18, contperfq4, tracking-python
-ms.openlocfilehash: fabdbfbb90a14aa0f66e3d8a4eb5f6a428c6a0a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 636d16c4fbbd662d6fccb811fb4a88b2d862b533
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557373"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107318"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>O que são FPGA (matrizes de portão programável por campo) e como implantar
 
@@ -25,7 +26,7 @@ Este artigo fornece uma introdução às FPGA (matrizes de portão programável 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura do Azure.  Se você não tiver uma, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
+- Uma assinatura do Azure. Se você não tiver uma, precisará criar uma conta [paga conforme o uso](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) (contas gratuitas do Azure não são elegíveis para a cota FPGA).
 - [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - Cota de FPGA. Use o CLI do Azure para verificar se você tem cota:
 
@@ -394,7 +395,7 @@ for top in sorted_results[:5]:
     print(classes_entries[top[0]], 'confidence:', top[1])
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Exclua o serviço Web, a imagem e o modelo (deve ser feito nesta ordem, pois há dependências).
 

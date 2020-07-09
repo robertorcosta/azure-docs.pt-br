@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: a7d22a6a2f7100826c865beec0d1cff09fc39660
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e80ec71bef8c34331fac076b7b08be48a9571c2e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043233"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107692"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Criar um plano de migração com as Migrações para Azure
 
@@ -24,7 +24,7 @@ Este artigo fornece um guia rápido para ajudar a criar seu plano de migração 
 
 ## <a name="define-the-goals-of-cloud-migration"></a>Definir as metas de migração na nuvem
 
-Antes de criar um plano de migração, é importante entender e avaliar a [motivação](https://docs.microsoft.com/azure/cloud-adoption-framework/strategy/motivations) para migrar para a nuvem que pode ajudar a produzir resultados de negócios mais bem-sucedidos. Como a [estrutura de adoção de nuvem para o Azure](https://docs.microsoft.com/azure/cloud-adoption-framework) explica, pode haver diferentes gatilhos e abordagens de migração adequados para sua empresa:  
+Antes de criar um plano de migração, é importante entender e avaliar a [motivação](/azure/cloud-adoption-framework/strategy/motivations) para migrar para a nuvem que pode ajudar a produzir resultados de negócios mais bem-sucedidos. Como a [estrutura de adoção de nuvem para o Azure](/azure/cloud-adoption-framework) explica, pode haver diferentes gatilhos e abordagens de migração adequados para sua empresa:  
 
 **Eventos comerciais críticos** | **Resultado da migração**
 --- | ---
@@ -147,7 +147,7 @@ Antes de finalizar seu plano de migração, certifique-se de que essas considera
 
 - Examine as permissões do Azure recomendadas e suas funções de acesso de servidor/banco de dados e o modelo de permissões necessários para a migração.
 
-- Prepare sua organização e garanta o alinhamento da força de obra com a transformação digital. Uma base sólida de treinamento é importante para uma mudança organizacional bem-sucedida. Confira o treinamento gratuito disponível em [Microsoft Learn](https://docs.microsoft.com/learn/azure/?ocid=CM_Discovery_Checklist_PDF), incluindo cursos sobre conceitos básicos do Azure, arquitetura da solução e segurança. Incentive sua equipe a explorar a [certificação do Azure](https://www.microsoft.com/learning/certification-overview.aspx?ocid=CM_Discovery_Checklist_PDF)   também.  
+- Prepare sua organização e garanta o alinhamento da força de obra com a transformação digital. Uma base sólida de treinamento é importante para uma mudança organizacional bem-sucedida. Confira o treinamento gratuito disponível em [Microsoft Learn](/learn/azure/?ocid=CM_Discovery_Checklist_PDF), incluindo cursos sobre conceitos básicos do Azure, arquitetura da solução e segurança. Incentive sua equipe a explorar a [certificação do Azure](https://www.microsoft.com/learning/certification-overview.aspx?ocid=CM_Discovery_Checklist_PDF)   também.  
 
 - Obtenha suporte para sua implementação, se necessário. Muitas organizações optam por uma ajuda externa para dar suporte à migração na nuvem. Para migrar para o Azure de forma rápida e confiável com assistência personalizada, considere um [provedor de serviços gerenciado pelo especialista do Azure](https://www.microsoft.com/solution-providers/search?cacheId=9c2fed4f-f9e2-42fb-8966-4c565f08f11e&ocid=CM_Discovery_Checklist_PDF)   ou [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/?ocid=CM_Discovery_Checklist_PDF).  
 
@@ -164,6 +164,6 @@ Quando você estiver pronto para migrar, use a *ferramenta de migração de serv
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Investigue a [jornada de migração na nuvem](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate)   na estrutura de adoção de nuvem do Azure.
+- Investigue a [jornada de migração na nuvem](/azure/architecture/cloud-adoption/getting-started/migrate)   na estrutura de adoção de nuvem do Azure.
 - [Introdução](https://youtu.be/wFfq3YPxYHE) às migrações para Azure.
 - Crie uma avaliação para VMs [VMware](tutorial-assess-vmware.md) ou [VMs do Hyper-V](tutorial-assess-hyper-v.md).

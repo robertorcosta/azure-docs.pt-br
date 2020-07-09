@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
-ms.openlocfilehash: de526da255d0ffb2d4c8f13d87d9b9e230c8bbd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bcc6f41d7cc08764266ffb6705d1b8937d355199
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561815"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109715"
 ---
 # <a name="customize-an-assessment"></a>Personalizar uma avaliação
 
@@ -28,7 +28,7 @@ As avaliações criadas com a avaliação do servidor são um instantâneo de da
 **Tipo de avaliação** | **Detalhes**
 --- | --- 
 **VM do Azure** | Avaliações para migrar seus servidores locais para máquinas virtuais do Azure. <br/><br/> Você pode avaliar suas [VMs VMware](how-to-set-up-appliance-vmware.md)locais, VMS do [Hyper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para o Azure usando esse tipo de avaliação. (concepts-assessment-calculation.md)
-**AVS (Solução VMware no Azure)** | Avaliações para migrar seus servidores locais para a [solução VMware do Azure (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Você pode avaliar suas [VMs do VMware](how-to-set-up-appliance-vmware.md) locais para migração para a solução VMware do Azure (AVS) usando esse tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+**AVS (Solução VMware no Azure)** | Avaliações para migrar seus servidores locais para a [solução VMware do Azure (AVS)](../azure-vmware/introduction.md). <br/><br/> Você pode avaliar suas [VMs do VMware](how-to-set-up-appliance-vmware.md) locais para migração para a solução VMware do Azure (AVS) usando esse tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Uma avaliação de VM do Azure na avaliação do servidor fornece duas opções de critérios de dimensionamento:
 
@@ -40,7 +40,7 @@ Uma avaliação de VM do Azure na avaliação do servidor fornece duas opções 
 
 ## <a name="how-is-an-assessment-done"></a>Como é feita uma avaliação?
 
-Uma avaliação feita na avaliação do servidor de migrações para Azure tem três estágios. A avaliação começa com uma análise de adequação, seguida de dimensionamento, e por fim, uma estimativa de custo mensal. Uma máquina só passa para um estágio posterior se passar pelo anterior. Por exemplo, se um computador falhar na verificação de adequação do Azure, será marcado como não adequado para o Azure, e o dimensionamento e o custo não serão calculados. [Saiba mais.](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation)
+Uma avaliação feita na avaliação do servidor de migrações para Azure tem três estágios. A avaliação começa com uma análise de adequação, seguida de dimensionamento, e por fim, uma estimativa de custo mensal. Uma máquina só passa para um estágio posterior se passar pelo anterior. Por exemplo, se um computador falhar na verificação de adequação do Azure, será marcado como não adequado para o Azure, e o dimensionamento e o custo não serão calculados. [Saiba mais.](./concepts-assessment-calculation.md)
 
 ## <a name="whats-in-an-azure-vm-assessment"></a>O que há em uma avaliação de VM do Azure?
 
@@ -70,7 +70,7 @@ Aqui estão as novidades incluídas em uma avaliação de AVS na avaliação do 
 | **Local de destino** | Especifica o local da nuvem privada AVS para o qual você deseja migrar.<br/><br/> A avaliação da AVS na avaliação do servidor atualmente dá suporte a estas regiões de destino: leste dos EUA, Europa Ocidental, oeste dos EUA. |
 | **Tipo de armazenamento** | Especifica o mecanismo de armazenamento a ser usado na AVS.<br/><br/> Observe que as avaliações de AVS só dão suporte ao vSAN como um tipo de armazenamento padrão. |
 **Instâncias reservadas (RIs)** | Essa propriedade ajuda a especificar instâncias reservadas no AVS. Atualmente, não há suporte para RIs em nós de AVS. |
-**Tipo de nó** | Especifica o [tipo de nó AVS](https://docs.microsoft.com/azure/azure-vmware/concepts-private-clouds-clusters) usado para mapear as VMs locais. Observe que o tipo de nó padrão é AV36. <br/><br/> As migrações para Azure recomendarão um número necessário de nós para que as VMs sejam migradas para a AVS. |
+**Tipo de nó** | Especifica o [tipo de nó AVS](../azure-vmware/concepts-private-clouds-clusters.md) usado para mapear as VMs locais. Observe que o tipo de nó padrão é AV36. <br/><br/> As migrações para Azure recomendarão um número necessário de nós para que as VMs sejam migradas para a AVS. |
 **Configuração de FTT, nível de RAID** | Especifica a falha aplicável a tolerar e combinações de RAID. A opção FTT selecionada combinada com o requisito de disco de VM local determinará o armazenamento total do vSAN necessário na AVS. |
 **Critério de dimensionamento** | Define os critérios a serem usados para as VMs de _tamanho correto_ para a AVS. Você pode optar pelo dimensionamento _baseado em desempenho_ ou _como local_ sem considerar o histórico de desempenho. |
 **Histórico de desempenho** | Define a duração a ser considerada na avaliação dos dados de desempenho dos computadores. Essa propriedade é aplicável somente quando os critérios de dimensionamento são _baseados em desempenho_. |

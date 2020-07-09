@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/21/2020
 ms.author: aahi
-ms.openlocfilehash: 9431ff862dd987a1a806087053014e7c880bf801
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: c9c598d385768e604d9b42e3ea055629e6ae2866
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84143299"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108542"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Controle de versão de modelo no API de Análise de Texto
 
@@ -26,7 +26,7 @@ A versão 3 do API de Análise de Texto permite que você escolha a versão do m
 Use a tabela abaixo para localizar quais versões de modelo têm suporte em cada ponto de extremidade.
 
 
-| Ponto de Extremidade                        | Versões compatíveis                       | última versão |
+| Ponto de extremidade                        | Versões compatíveis                       | última versão |
 |---------------------------------|------------------------------------------|----------------|
 | `/sentiment`                    | `2019-10-01`, `2020-04-01`               | `2020-04-01`   |
 | `/languages`                    | `2019-10-01`                             | `2019-10-01`   |
@@ -37,6 +37,19 @@ Use a tabela abaixo para localizar quais versões de modelo têm suporte em cada
 
 
 Você pode encontrar detalhes sobre as atualizações para esses modelos no [que há de novo](../whats-new.md).
+
+## <a name="text-analytics-for-health"></a>Análise de Texto para integridade
+
+O [análise de texto para o contêiner de integridade](../how-tos/text-analytics-for-health.md) usa o controle de versão de modelo separado do que os pontos de extremidade de API acima.  Observe que apenas uma versão de modelo está disponível por imagem de contêiner.
+
+| Ponto de extremidade                        | Marca de imagem de contêiner                     | Versão do modelo |
+|---------------------------------|-----------------------------------------|---------------|
+| `/domains/health`               | `1.1.012640001-amd64-preview`ou mais recente | `2020-05-08`  |
+| `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |
+| `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-04-16`  |
+
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -3,15 +3,16 @@ title: Configurar um dispositivo de migrações para Azure no Azure governamenta
 description: Saiba como configurar um dispositivo de migrações para Azure no Azure governamental
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: c8bcecd7cca78a24d9dbf18e185c9362ed712b43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ebc882646b5ff3f62ddddf91cffc85cb5e0da6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85052473"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109970"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configurar um dispositivo no Azure governamental 
 
-Siga este artigo para implantar um [dispositivo de migração do Azure](deploy-appliance.md) para VMs VMware, VMS do Hyper-V e servidores físicos em uma nuvem do Azure governamental. Você executa um script para criar o dispositivo e verifica se ele pode se conectar ao Azure. Se você quiser configurar um dispositivo na nuvem pública, siga [Este artigo](deploy-appliance-script.md).
+Siga este artigo para implantar um [dispositivo de migração do Azure](./migrate-appliance-architecture.md) para VMs VMware, VMS do Hyper-V e servidores físicos em uma nuvem do Azure governamental. Você executa um script para criar o dispositivo e verifica se ele pode se conectar ao Azure. Se você quiser configurar um dispositivo na nuvem pública, siga [Este artigo](deploy-appliance-script.md).
 
 
 > [!NOTE]

@@ -9,14 +9,20 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 41b926e3c44da85e7cb2c2e62405bd8f14488fbd
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e39f9b537b2b57b455d2e0ab40ba09f1a6a890ba
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588354"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108885"
 ---
-Para executar o contêiner de *detecção de idioma* , execute o `docker run` comando a seguir.
+Para executar o contêiner de *detecção de idioma* , execute o `docker run` comando a seguir. Substitua os espaços reservados abaixo pelos seus próprios valores:
+
+| Espaço reservado | Valor | Formato ou exemplo |
+|-------------|-------|---|
+| **{API_KEY}** | A chave para o recurso de Análise de Texto. Você pode encontrá-lo na página de **ponto de extremidade e chave** do recurso, na portal do Azure. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | O ponto de extremidade para acessar o API de Análise de Texto. Você pode encontrá-lo na página de **ponto de extremidade e chave** do recurso, na portal do Azure. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

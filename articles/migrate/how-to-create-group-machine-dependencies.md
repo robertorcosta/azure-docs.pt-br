@@ -3,11 +3,12 @@ title: Configurar a análise de dependência baseada em agente na avaliação do
 description: Este artigo descreve como configurar a análise de dependência baseada em agente na avaliação do servidor de migrações para Azure.
 ms.topic: how-to
 ms.date: 6/09/2020
-ms.openlocfilehash: 1271a45843a3775d4e1444321faad194edad2f23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a656ec734ff098dd5835f653010c7f298c13b38
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770570"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109987"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurar a visualização de dependência
 
@@ -16,7 +17,7 @@ Este artigo descreve como configurar a análise de dependência sem agente em mi
 ## <a name="before-you-start"></a>Antes de começar
 
 - Examine os requisitos de suporte e implantação para a análise de dependência baseada em agente para:
-    - [VMs do VMware](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based)
+    - [VMs VMware](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based)
     - [Servidores físicos](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
     - [VMs do Hyper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
 - Verifique se você:
@@ -56,7 +57,7 @@ Este artigo descreve como configurar a análise de dependência sem agente em mi
 Em cada computador que você deseja analisar, instale os agentes.
 
 > [!NOTE]
-> Para computadores monitorados pelo System Center Operations Manager 2012 R2 ou posterior, você não precisa instalar o agente do MMA. Mapa do Serviço integra-se com Operations Manager. [Siga](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites) as diretrizes de integração.
+> Para computadores monitorados pelo System Center Operations Manager 2012 R2 ou posterior, você não precisa instalar o agente do MMA. Mapa do Serviço integra-se com Operations Manager. [Siga](../azure-monitor/insights/service-map-scom.md#prerequisites) as diretrizes de integração.
 
 1. Em **migrações para Azure: avaliação de servidor**, clique em **servidores descobertos**.
 2. Para cada computador que você deseja analisar com a visualização de dependência, na coluna **dependências** , clique em **requer instalação do agente**.
@@ -83,7 +84,7 @@ Para instalar o agente em uma máquina com Windows:
 Você pode instalar o agente da linha de comando ou usando um método automatizado, como Configuration Manager ou [Intigua](https://www.intigua.com/intigua-for-azure-migration).
 - [Saiba mais](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) sobre como usar esses métodos para instalar o agente do MMA.
 - O agente MMA também pode ser instalado usando esse [script](https://go.microsoft.com/fwlink/?linkid=2104394).
-- [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) sobre os sistemas operacionais Windows com suporte do MMA.
+- [Saiba mais](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) sobre os sistemas operacionais Windows com suporte do MMA.
 
 ### <a name="install-mma-on-a-linux-machine"></a>Instalar o MMA em um computador Linux
 
@@ -94,7 +95,7 @@ Para instalar o MMA em um computador Linux:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-linux-operating-systems) sobre a lista de sistemas de operacionais Linux com suporte no MMA. 
+[Saiba mais](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) sobre a lista de sistemas de operacionais Linux com suporte no MMA. 
 
 ## <a name="install-the-dependency-agent"></a>Instalar o Agente de dependência
 
@@ -103,8 +104,8 @@ Para instalar o MMA em um computador Linux:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-hybrid-cloud#installation-script-examples) sobre como você pode usar scripts para instalar o Dependency agent.
-- [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#supported-operating-systems) sobre os sistemas operacionais com suporte do Dependency Agent.
+- [Saiba mais](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) sobre como você pode usar scripts para instalar o Dependency agent.
+- [Saiba mais](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) sobre os sistemas operacionais com suporte do Dependency Agent.
 
 
 ## <a name="create-a-group-using-dependency-visualization"></a>Criar um grupo usando a visualização de dependência
@@ -161,8 +162,8 @@ Execute uma consulta para dados de dependência da seguinte maneira:
 Aqui estão algumas consultas de exemplo que você pode usar para extrair dados de dependência.
 
 - Você pode modificar as consultas para extrair seus pontos de dados preferenciais.
-- [Examine](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) uma lista completa de registros de dados de dependência.
-- [Examine](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches) as consultas de exemplo adicionais.
+- [Examine](../azure-monitor/insights/service-map.md#log-analytics-records) uma lista completa de registros de dados de dependência.
+- [Examine](../azure-monitor/insights/service-map.md#sample-log-searches) as consultas de exemplo adicionais.
 
 #### <a name="sample-review-inbound-connections"></a>Exemplo: revisar conexões de entrada
 
@@ -170,7 +171,7 @@ Examine as conexões de entrada para um conjunto de VMs.
 
 - Os registros na tabela para métricas de conexão (VMConnection) não representam conexões de rede física individuais.
 - Várias conexões de rede física são agrupadas em uma conexão lógica.
-- [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) sobre como os dados de conexão de rede física são agregados no VMConnection.
+- [Saiba mais](../azure-monitor/insights/service-map.md#connections) sobre como os dados de conexão de rede física são agregados no VMConnection.
 
 ```
 // the machines of interest

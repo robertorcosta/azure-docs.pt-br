@@ -1,17 +1,14 @@
 ---
 title: Mapas do Azure como origem da grade de eventos
 description: Descreve as propriedades e o esquema fornecidos para eventos do Azure Mapas com a Grade de Eventos do Azure
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: femila
-ms.openlocfilehash: f015bf682d7ce3475aba5baa73ab72b1426691fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 8aa29d003483536ef33a32616af1553e1bbe8204
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560682"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106681"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>O Azure mapeia como uma fonte de grade de eventos
 
@@ -103,7 +100,7 @@ O exemplo a seguir mostra o esquema para **GeofenceResult**
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
 | subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
@@ -116,7 +113,7 @@ Um evento tem os seguintes dados de nível superior:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
 | apiCategory | string | Categoria da API do evento. |
 | apiName | string | Nome da API do evento. |
@@ -126,13 +123,13 @@ O objeto de dados tem as seguintes propriedades:
 
 O objeto de erro é retornado quando ocorre um erro na API de Mapas. O objeto de erro tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
 | erro | ErrorDetails |Esse objeto é retornado quando ocorre um erro na API de Mapas  |
 
 O objeto ErrorDetails é retornado quando ocorre um erro na API de Mapas. O ErrorDetails ou objeto tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
 | code | string | O código de status do HTTP. |
 | message | string | Se disponível, uma descrição do erro em formato legível por humanos. |
@@ -140,13 +137,13 @@ O objeto ErrorDetails é retornado quando ocorre um erro na API de Mapas. O Erro
 
 O InnerError é um objeto que contém informações específicas do serviço sobre o erro. O objeto InnerError tem as seguintes propriedades: 
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | code | string | A mensagem de erro. |
 
 O objeto de geometrias lista as IDs de geometria das cercas geográficas que expiraram em relação ao tempo do usuário na solicitação. O objeto de geometrias contém itens de geometria com as seguintes propriedades: 
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | Description |
 |:-------- |:---- |:----------- |
 | deviceid | string | ID do dispositivo. |
 | distância | string | <p>Distância da coordenada até a borda mais próxima da cerca geográfica. Positivo significa que a coordenada está fora da cerca geográfica. Se a coordenada estiver fora da cerca geográfica, mas for maior que o valor de searchBuffer distante da borda da cerca geográfica mais próxima, o valor será 999. Negativo significa que a coordenada está dentro da cerca geográfica. Se a coordenada estiver dentro do polígono, mas for maior que o valor de searchBuffer distante da borda de delimitação geográfica mais próxima, o valor será -999. Um valor de 999 significa que há grande confiança de que a coordenada esteja bem fora da cerca geográfica. Um valor de -999 significa que há uma grande confiança de que a coordenada esteja bem dentro da cerca geográfica.<p> |
@@ -157,7 +154,7 @@ O objeto de geometrias lista as IDs de geometria das cercas geográficas que exp
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
 | expiredGeofenceGeometryId | string[] | Listas da ID de geometria da cerca geográfica que é expirada em relação ao tempo do usuário na solicitação. |
 | geometries | geometries[] |Lista as geometrias de delimitação que contêm a posição da coordenada ou sobrepõem o searchBuffer em torno da posição. |

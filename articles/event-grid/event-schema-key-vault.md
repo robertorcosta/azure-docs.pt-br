@@ -1,18 +1,14 @@
 ---
 title: Azure Key Vault como fonte da grade de eventos
 description: Descreve as propriedades e o esquema fornecido para eventos de Azure Key Vault com a grade de eventos do Azure
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: 40bff9585e64163039a8847ff868c982ffb20414
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 1f9cbe85de9423484343e4054be8d2d58c6c5e7e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81458242"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109426"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault como fonte da grade de eventos
 
@@ -78,7 +74,7 @@ Um evento tem os seguintes dados de nível superior:
 | exp | número | A data de validade em segundos desde 1970-01-01T00:00:00Z do objeto que disparou este evento |
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
-|Title  |Descrição  |
+|Título  |Descrição  |
 |---------|---------|
 | [Monitorando Key Vault eventos com a grade de eventos do Azure](../key-vault/general/event-grid-overview.md) | Visão geral da integração de Key Vault com a grade de eventos. |
 | [Tutorial: criar e monitorar eventos de Key Vault com a grade de eventos](../key-vault/general/event-grid-tutorial.md) | Saiba como configurar notificações de grade de eventos para Key Vault. |

@@ -4,15 +4,16 @@ description: Fornece um resumo de configurações compatíveis e limitações do
 ms.topic: conceptual
 ms.date: 04/19/2020
 ms.author: raynew
-ms.openlocfilehash: 51f797ad80886669a8734af6898164737d16971a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8350f557efd9224d92388835f55871cb861eda25
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770179"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108746"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte das Migrações para Azure
 
-Você pode usar o [serviço de Migrações para Azure](migrate-overview.md) para avaliar e migrar computadores para a nuvem do Microsoft Azure. Este artigo resume as configurações e limitações de suporte geral para cenários e implantações das Migrações para Azure.
+Você pode usar o [serviço de Migrações para Azure](./migrate-services-overview.md) para avaliar e migrar computadores para a nuvem do Microsoft Azure. Este artigo resume as configurações e limitações de suporte geral para cenários e implantações das Migrações para Azure.
 
 ## <a name="supported-assessmentmigration-scenarios"></a>Cenários de avaliação/migração com suporte
 
@@ -39,8 +40,8 @@ Migração de Servidor das Migrações para Azure | NA | Migre [VMs do VMware](t
 [Cloudamize](https://www.cloudamize.com/platform#tab-0)| Acessar VMs do VMware, VMs do Hyper-V, servidores físicos e cargas de trabalho de nuvem pública. | NA
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Avaliar e migrar VMs do VMware, VMs do Hyper-V, servidores físicos e cargas de trabalho de nuvem pública. |  Migrar VMs do VMware, VMs do Hyper-V, servidores físicos e cargas de trabalho de nuvem pública.
 [Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Acessar VMs do VMware, VMs do Hyper-V, servidores físicos e cargas de trabalho de nuvem pública.| NA
-[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Avaliar SQL Server bancos de dados. | NA
-[DMS](https://docs.microsoft.com/azure/dms/dms-overview) | NA | Migrar SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
+[DMA](/sql/dma/dma-overview?view=sql-server-2017) | Avaliar SQL Server bancos de dados. | NA
+[DMS](../dms/dms-overview.md) | NA | Migrar SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Avaliar a infraestrutura de área de trabalho virtual (VDI) | NA
 [Movere](https://www.movere.io/) | Avaliar VMs do VMWare, VMs do Hyper-V, VMs do Xen, computadores físicos, estações de trabalho (incluindo VDI), cargas de trabalho de nuvem pública | NA
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | NA | Migrar VMs do VMware, VMs do Hyper-V, VMs do Xen, VMs do KVM, computadores físicos, cargas de trabalho de nuvem pública 
@@ -119,4 +120,3 @@ Há duas versões do serviço de Migrações para Azure:
 
 - [Avaliar VMs do VMware](tutorial-assess-vmware.md) para migração.
 - [Avaliar VMs do Hyper-V](tutorial-assess-hyper-v.md) para migração.
-

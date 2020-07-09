@@ -3,11 +3,12 @@ title: Modelo de Dados do Azure Application Insights | Microsoft Docs
 description: Descreve as propriedades exportadas de exportação contínua em JSON e usados como filtros.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 9891bea1d52c61197fa32fa5c0764df5450b563c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1577e56960edcb1941c5d7b73ef44c514706d4e3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536838"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110242"
 ---
 # <a name="application-insights-export-data-model"></a>Modelo de dados de exportação do Application Insights
 Esta tabela lista as propriedades de telemetria enviadas dos SDKs do [Application Insights](../../azure-monitor/app/app-insights-overview.md) para o portal.
@@ -20,86 +21,88 @@ Pontos a serem observados:
 * A duração é em décimos de microssegundo, portanto, 10000000 = = 1 segundo.
 * Datas e horas estão em UTC e são fornecidas no formato ISO `yyyy-MM-DDThh:mm:ss.sssZ`
 
-
 ## <a name="example"></a>Exemplo
-    // A server report about an HTTP request
+
+```json
+// A server report about an HTTP request
+{
+  "request": [
     {
-    "request": [
-      {
-        "urlData": { // derived from 'url'
-          "host": "contoso.org",
-          "base": "/",
-          "hashTag": ""
-        },
-        "responseCode": 200, // Sent to client
-        "success": true, // Default == responseCode<400
-        // Request id becomes the operation id of child events
-        "id": "fCOhCdCnZ9I=",  
-        "name": "GET Home/Index",
-        "count": 1, // 100% / sampling rate
-        "durationMetric": {
-          "value": 1046804.0, // 10000000 == 1 second
-          // Currently the following fields are redundant:
-          "count": 1.0,
-          "min": 1046804.0,
-          "max": 1046804.0,
-          "stdDev": 0.0,
-          "sampledValue": 1046804.0
-        },
-        "url": "/"
-      }
-    ],
-    "internal": {
-      "data": {
-        "id": "7f156650-ef4c-11e5-8453-3f984b167d05",
-        "documentVersion": "1.61"
-      }
+      "urlData": { // derived from 'url'
+        "host": "contoso.org",
+        "base": "/",
+        "hashTag": ""
+      },
+      "responseCode": 200, // Sent to client
+      "success": true, // Default == responseCode<400
+      // Request id becomes the operation id of child events
+      "id": "fCOhCdCnZ9I=",  
+      "name": "GET Home/Index",
+      "count": 1, // 100% / sampling rate
+      "durationMetric": {
+        "value": 1046804.0, // 10000000 == 1 second
+        // Currently the following fields are redundant:
+        "count": 1.0,
+        "min": 1046804.0,
+        "max": 1046804.0,
+        "stdDev": 0.0,
+        "sampledValue": 1046804.0
+      },
+      "url": "/"
+    }
+  ],
+  "internal": {
+    "data": {
+      "id": "7f156650-ef4c-11e5-8453-3f984b167d05",
+      "documentVersion": "1.61"
+    }
+  },
+  "context": {
+    "device": { // client browser
+      "type": "PC",
+      "screenResolution": { },
+      "roleInstance": "WFWEB14B.fabrikam.net"
     },
-    "context": {
-      "device": { // client browser
-        "type": "PC",
-        "screenResolution": { },
-        "roleInstance": "WFWEB14B.fabrikam.net"
-      },
-      "application": { },
-      "location": { // derived from client ip
-        "continent": "North America",
-        "country": "United States",
-        // last octagon is anonymized to 0 at portal:
-        "clientip": "168.62.177.0",
-        "province": "",
-        "city": ""
-      },
-      "data": {
-        "isSynthetic": true, // we identified source as a bot
-        // percentage of generated data sent to portal:
-        "samplingRate": 100.0,
-        "eventTime": "2016-03-21T10:05:45.7334717Z" // UTC
-      },
-      "user": {
-        "isAuthenticated": false,
-        "anonId": "us-tx-sn1-azr", // bot agent id
-        "anonAcquisitionDate": "0001-01-01T00:00:00Z",
-        "authAcquisitionDate": "0001-01-01T00:00:00Z",
-        "accountAcquisitionDate": "0001-01-01T00:00:00Z"
-      },
-      "operation": {
-        "id": "fCOhCdCnZ9I=",
-        "parentId": "fCOhCdCnZ9I=",
-        "name": "GET Home/Index"
-      },
-      "cloud": { },
-      "serverDevice": { },
-      "custom": { // set by custom fields of track calls
-        "dimensions": [ ],
-        "metrics": [ ]
-      },
-      "session": {
-        "id": "65504c10-44a6-489e-b9dc-94184eb00d86",
-        "isFirst": true
-      }
+    "application": { },
+    "location": { // derived from client ip
+      "continent": "North America",
+      "country": "United States",
+      // last octagon is anonymized to 0 at portal:
+      "clientip": "168.62.177.0",
+      "province": "",
+      "city": ""
+    },
+    "data": {
+      "isSynthetic": true, // we identified source as a bot
+      // percentage of generated data sent to portal:
+      "samplingRate": 100.0,
+      "eventTime": "2016-03-21T10:05:45.7334717Z" // UTC
+    },
+    "user": {
+      "isAuthenticated": false,
+      "anonId": "us-tx-sn1-azr", // bot agent id
+      "anonAcquisitionDate": "0001-01-01T00:00:00Z",
+      "authAcquisitionDate": "0001-01-01T00:00:00Z",
+      "accountAcquisitionDate": "0001-01-01T00:00:00Z"
+    },
+    "operation": {
+      "id": "fCOhCdCnZ9I=",
+      "parentId": "fCOhCdCnZ9I=",
+      "name": "GET Home/Index"
+    },
+    "cloud": { },
+    "serverDevice": { },
+    "custom": { // set by custom fields of track calls
+      "dimensions": [ ],
+      "metrics": [ ]
+    },
+    "session": {
+      "id": "65504c10-44a6-489e-b9dc-94184eb00d86",
+      "isFirst": true
     }
   }
+}
+```
 
 ## <a name="context"></a>Contexto
 Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem todos esses campos são transmitidos com cada ponto de dados.
@@ -293,55 +296,61 @@ O valor da métrica é encontrado em context.custom.metrics[0]
 
 Por exemplo:
 
-    {
-     "metric": [ ],
-     "context": {
-     ...
-     "custom": {
-        "dimensions": [
-          { "ProcessId": "4068" }
-        ],
-        "metrics": [
-          {
-            "dispatchRate": {
-              "value": 0.001295,
-              "count": 1.0,
-              "min": 0.001295,
-              "max": 0.001295,
-              "stdDev": 0.0,
-              "sampledValue": 0.001295,
-              "sum": 0.001295
-            }
+```json
+{
+  "metric": [ ],
+  "context": {
+  ...
+    "custom": {
+      "dimensions": [
+        { "ProcessId": "4068" }
+      ],
+      "metrics": [
+        {
+          "dispatchRate": {
+            "value": 0.001295,
+            "count": 1.0,
+            "min": 0.001295,
+            "max": 0.001295,
+            "stdDev": 0.0,
+            "sampledValue": 0.001295,
+            "sum": 0.001295
           }
-         } ] }
+        }
+      ]  
     }
+  }
+}
+```
 
 ## <a name="about-metric-values"></a>Sobre valores de métricas
 Valores de métricas, tanto em relatórios de métrica quanto em outros locais, são relatados com uma estrutura de objeto padrão. Por exemplo:
 
-      "durationMetric": {
-        "name": "contoso.org",
-        "type": "Aggregation",
-        "value": 468.71603053650279,
-        "count": 1.0,
-        "min": 468.71603053650279,
-        "max": 468.71603053650279,
-        "stdDev": 0.0,
-        "sampledValue": 468.71603053650279
-      }
+```json
+"durationMetric": {
+  "name": "contoso.org",
+  "type": "Aggregation",
+  "value": 468.71603053650279,
+  "count": 1.0,
+  "min": 468.71603053650279,
+  "max": 468.71603053650279,
+  "stdDev": 0.0,
+  "sampledValue": 468.71603053650279
+}
+```
 
 Atualmente, embora isso possa mudar no futuro, em todos os valores relatados pelos módulos padrão do SDK, `count==1` e apenas os campos `name` e `value` são úteis. O único caso em que eles poderiam ser diferentes seria se você escrevesse suas próprias chamadas TrackMetric, nas quais definiria os outros parâmetros.
 
 A finalidade dos outros campos é permitir que as métricas sejam agregadas ao SDK, a fim de reduzir o tráfego no portal. Por exemplo, você pode realizar várias leituras sucessivas antes de enviar cada relatório de métricas. Depois, você deve calcular o desvio mín., máx. e padrão e o valor agregado (soma ou média), e definir a contagem como o número de leituras representado pelo relatório.
 
-Nas tabelas acima, omitimos os campos min, max, stdDev e sampledValue, que são usados raramente.
+Nas tabelas acima, omitimos o número de campos raramente usados, min, Max, stdDev e sampledValue.
 
 Em vez de agregar previamente as métricas, você pode usar a [amostragem](../../azure-monitor/app/sampling.md) se precisar reduzir o volume de telemetria.
 
 ### <a name="durations"></a>Durações
 Exceto quando indicado o contrário, as durações são representadas em décimos de microssegundo, de modo que 10000000.0 significa 1 segundo.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 * [Exportação contínua](export-telemetry.md)
 * [Exemplos de código](export-telemetry.md#code-samples)

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 4c7eb5e4f22cb432a9d17e6eafa653e62e1f9129
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3b65558a12fb6b20f449f5386c0ce7e598433b6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79529893"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110293"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Escolha a opção de servidor MariaDB correta no Azure
 
@@ -31,7 +31,7 @@ Ao tomar sua decisão, considere as duas opções a seguir:
 
 As diferenças principais entre essas opções estão listadas na tabela a seguir:
 
-|            | Banco de Dados do Azure para MariaDB | MariaDB em VMs do Azure    |
+| Atributo          | Banco de Dados do Azure para MariaDB | MariaDB em VMs do Azure    |
 |:-------------------|:-----------------------------|:--------------------|
 | SLA (contrato de nível de serviço)                | Oferece SLA de 99,99% de disponibilidade| Até 99,95% de disponibilidade com duas ou mais instâncias no mesmo conjunto de disponibilidade.<br/><br/>99,9% de disponibilidade com uma única VM de instância usando o armazenamento Premium.<br/><br/>99,99% usando Zonas de Disponibilidade com várias instâncias em vários conjuntos de disponibilidade.<br/><br/>Consulte o [SLA de máquinas virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
 | Aplicação de patch do sistema operacional        | Automática  | Gerenciado por clientes |

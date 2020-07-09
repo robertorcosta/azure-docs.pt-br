@@ -1,18 +1,16 @@
 ---
 title: Perguntas frequentes sobre a API de preenchimento de SaaS-Microsoft Commercial Marketplace
 description: Saiba mais sobre vários dos requisitos de integração do Microsoft Commercial Marketplace para permitir que os clientes do Azure assinem as ofertas de SaaS.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: ba746710227cba95dc4c73a910c22bb6cdaae0ed
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 97359083698e92f39ca854972c864ef769bda730
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963743"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109239"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Perguntas comuns sobre APIs de cumprimento de SaaS
 

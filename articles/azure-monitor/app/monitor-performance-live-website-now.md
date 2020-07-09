@@ -3,12 +3,12 @@ title: Monitorar um aplicativo Web ASP.NET dinâmico com o Azure Application Ins
 description: Monitore o desempenho do site sem implantá-lo novamente. Funciona com aplicativos Web ASP.NET hospedado localmente ou em máquinas virtuais.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 2892cb40f0b00b468ef0b8a4ffe60c1158ad068a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e30700deaa0121fbe473580d868a79d75a899a1d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807257"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107471"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentar aplicativos Web em tempo de execução com Application Insights anexação sem código
 
@@ -84,7 +84,7 @@ Se você deseja publicar novamente sem adicionar Application Insights no código
 4. Reaplique as edições realizadas no arquivo .config.
 
 
-## <a name="troubleshooting"></a><a name="troubleshoot"></a>Solução
+## <a name="troubleshooting"></a><a name="troubleshoot"></a>Solução de problemas
 
 ### <a name="confirm-a-valid-installation"></a>Confirmar uma instalação válida 
 
@@ -98,7 +98,8 @@ Estas são algumas etapas que você pode executar para confirmar se a instalaç�
   ```
 
 - Se você precisar confirmar se o Application Insights foi anexado com êxito, poderá executar o [identificador do Sysinternals](https://docs.microsoft.com/sysinternals/downloads/handle) em uma janela de comando para confirmar que applicationinsights.dll foi carregado pelo IIS.
-  ```cmd
+
+  ```console
   handle.exe /p w3wp.exe
   ```
 
@@ -109,7 +110,7 @@ Estas são algumas etapas que você pode executar para confirmar se a instalaç�
 
 ### <a name="unable-to-login"></a>Não é possível efetuar logon
 
-* Se o Status Monitor não conseguir efetuar logon, faça uma instalação de linha de comando em vez disso. O Status Monitor tenta fazer logon para coletar sua ikey, mas você pode fornecê-la manualmente usando o comando:
+Se o Status Monitor não conseguir efetuar logon, faça uma instalação de linha de comando em vez disso. O Status Monitor tenta fazer logon para coletar sua ikey, mas você pode fornecê-la manualmente usando o comando:
 
 ```powershell
 Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
@@ -192,7 +193,9 @@ Você pode iniciar e interromper o monitoramento usando o PowerShell no servidor
 
 Primeiro, importe o módulo do Application Insights:
 
-`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+```powershell
+Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
+```
 
 Saiba quais aplicativos estão sendo monitorados:
 
@@ -221,12 +224,14 @@ Saiba quais aplicativos estão sendo monitorados:
     Para baixar a versão mais recente, use Update-ApplicationInsightsVersion.
 * Retorna `ApplicationInsightsApplication` se há êxito. Se ele falhar, registrará em log um rastreamento para stderr.
 
-          Name                      : Default Web Site/WebApp1
-          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
-          ProfilerState             : ApplicationInsights
-          SdkState                  : EnabledAfterDeployment
-          SdkVersion                : 1.2.1
-          LatestAvailableSdkVersion : 1.2.3
+   ```output
+   Name                      : Default Web Site/WebApp1
+   InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+   ProfilerState             : ApplicationInsights
+   SdkState                  : EnabledAfterDeployment
+   SdkVersion                : 1.2.1
+   LatestAvailableSdkVersion : 1.2.3
+   ```
 
 `Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
 

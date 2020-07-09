@@ -6,23 +6,24 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
-ms.openlocfilehash: 317b6e8aa799b7982e9897c6a504d6092491c7ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c354c1c9dfacfcb6bf84f1140b58deca60c1874e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74196355"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109834"
 ---
 # <a name="scale-migration-of-vms"></a>Dimensionar a migração de VMs 
 
 Este artigo ajuda você a entender como usar scripts para migrar um grande número de VMs (máquinas virtuais). Para dimensionar a migração, use [Azure site Recovery](../site-recovery/site-recovery-overview.md). 
 
-Site Recovery scripts estão disponíveis para download em Azure PowerShell repositório de [exemplos](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) no github. Os scripts podem ser usados para migrar VMs VMware, AWS, GCP e servidores físicos para Managed disks no Azure. Também é possível usar esses scripts para migrar VMs Hyper-V, se você migrar as VMs como servidores físicos. Os scripts que aproveitam Azure Site Recovery PowerShell estão documentados [aqui](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
+Site Recovery scripts estão disponíveis para download em Azure PowerShell repositório de [exemplos](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) no github. Os scripts podem ser usados para migrar VMs VMware, AWS, GCP e servidores físicos para Managed disks no Azure. Também é possível usar esses scripts para migrar VMs Hyper-V, se você migrar as VMs como servidores físicos. Os scripts que aproveitam Azure Site Recovery PowerShell estão documentados [aqui](../site-recovery/vmware-azure-disaster-recovery-powershell.md).
 
 ## <a name="current-limitations"></a>Limitações atuais
 - Compatível com especificação do endereço IP estático somente para o NIC principal da VM de destino
 - Os scripts não terão o Benefício Híbrido do Azure relacionados às entradas, você precisará atualizar manualmente as propriedades da VM replicada no portal
 
-## <a name="how-does-it-work"></a>Como ele funciona?
+## <a name="how-does-it-work"></a>Como isso funciona?
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, você precisa realizar as seguintes etapas:
@@ -68,4 +69,4 @@ O script, por padrão, migra as VMs para os Managed disks no Azure. Se a conta d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba mais](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) sobre como migrar os servidores no Azure usando o Azure Site Recovery
+[Saiba mais](../site-recovery/migrate-tutorial-on-premises-azure.md) sobre como migrar os servidores no Azure usando o Azure Site Recovery
