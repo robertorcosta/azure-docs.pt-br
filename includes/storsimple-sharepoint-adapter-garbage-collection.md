@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 00d292b3ba2d1b6c7c425d4c9f89188e660ac80d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9c734ff03b1cf277c7e0967d8b76b1941434f414
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73182170"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050474"
 ---
 Neste procedimento, você vai:
 
@@ -31,20 +31,21 @@ Neste procedimento, você vai:
 
 #### <a name="to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs"></a>Para preparar o banco de dados de conteúdo e a Lixeira para excluir imediatamente BLOBs órfãos
 1. No SQL Server, no SQL Management Studio, execute as seguintes consultas de atualização para o banco de dados de conteúdo de destino: 
-   
-       `use WSS_Content`
-   
-       `exec mssqlrbs.rbs_sp_set_config_value ‘garbage_collection_time_window’ , ’time 00:00:00’`
-   
-       `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’time 00:00:00’`
-2. No servidor Web front-end, em **Administração Central**, edite as **Configurações Gerais do Aplicativo Web** para o banco de dados de conteúdo desejado a fim de desabilitar temporariamente a Lixeira. Essa ação também esvaziará a Lixeira para qualquer coleção de site relacionada. Para fazer isso, clique **em administração** -> **Gerenciamento** -> **de aplicativos aplicativos Web (gerenciar aplicativos Web)** -> **SharePoint-80** -> **configurações gerais do aplicativo**. Defina o **Status da Lixeira** como **DESATIVADO**.
+
+    `use WSS_Content`
+
+    `exec mssqlrbs.rbs_sp_set_config_value ‘garbage_collection_time_window’ , ’time 00:00:00’`
+
+    `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’time 00:00:00’`
+
+2. No servidor Web front-end, em **Administração Central**, edite as **Configurações Gerais do Aplicativo Web** para o banco de dados de conteúdo desejado a fim de desabilitar temporariamente a Lixeira. Essa ação também esvaziará a Lixeira para qualquer coleção de site relacionada. Para fazer isso, clique em **Administração Central**  ->  **Gerenciamento**  ->  **de aplicativos aplicativos Web (gerenciar aplicativos Web)**  ->  **SharePoint-80**  ->  **configurações gerais do aplicativo**. Defina o **Status da Lixeira** como **DESATIVADO**.
    
     ![Configurações Gerais do Aplicativo Web](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
 
 #### <a name="to-run-the-maintainer"></a>Para executar o Maintainer
 * No servidor Web front-end, no Shell de Gerenciamento do SharePoint 2013, execute o Maintainer como se segue:
   
-      `Microsoft.Data.SqlRemoteBlobs.Maintainer.exe -ConnectionStringName RBSMaintainerConnectionWSSContent -Operation GarbageCollection -GarbageCollectionPhases rdo`
+    `Microsoft.Data.SqlRemoteBlobs.Maintainer.exe -ConnectionStringName RBSMaintainerConnectionWSSContent -Operation GarbageCollection -GarbageCollectionPhases rdo`
   
   > [!NOTE]
   > Somente a operação `GarbageCollection` tem suporte para o StorSimple neste momento. Observe também que os parâmetros emitidos para Microsoft.Data.SqlRemoteBlobs.Maintainer.exe diferenciam maiúsculas de minúsculas. 
@@ -61,5 +62,5 @@ Neste procedimento, você vai:
       `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’days 30’`
    
       `exec mssqlrbs.rbs_sp_set_config_value ‘orphan_scan_period’ , ’days 30’`
-2. No servidor Web front-end, na **Administração Central**, edite as **Configurações Gerais do Aplicativo Web** para o banco de dados de conteúdo desejado a fim de reabilitar a Lixeira. Para fazer isso, clique **em administração** -> **Gerenciamento** -> **de aplicativos aplicativos Web (gerenciar aplicativos Web)** -> **SharePoint-80** -> **configurações gerais do aplicativo**. Defina o Status da Lixeira para **ATIVADO**.
+2. No servidor Web front-end, na **Administração Central**, edite as **Configurações Gerais do Aplicativo Web** para o banco de dados de conteúdo desejado a fim de reabilitar a Lixeira. Para fazer isso, clique em **Administração Central**  ->  **Gerenciamento**  ->  **de aplicativos aplicativos Web (gerenciar aplicativos Web)**  ->  **SharePoint-80**  ->  **configurações gerais do aplicativo**. Defina o Status da Lixeira para **ATIVADO**.
 

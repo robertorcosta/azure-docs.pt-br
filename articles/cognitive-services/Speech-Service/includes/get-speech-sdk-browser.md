@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 5545b10a4228448d49849e7cd52728febf14ce2d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2a4f0cfbdc6a88c2f32b60e8ac3178ef5bd4f8dd
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399890"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035934"
 ---
 :::row:::
     :::column span="3":::
-        O JavaScript Speech SDK está disponível como um pacote NPM, consulte <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Microsoft-cognitivaservices-Speech-SDK <span class="docon docon-navigate-external x-hidden-focus"></span> </a> e ele complementa o repositório GitHub <a href="https://github.com/Microsoft/cognitive-services-speech-sdk-js" target="_blank">cognitiva-Services-Speech-SDK-js <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+        O SDK de fala para JavaScript está disponível como um pacote NPM, consulte <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Microsoft-cognitivaservices-Speech- <span class="docon docon-navigate-external x-hidden-focus"></span> SDK</a> e ele complementa o repositório GitHub <a href="https://github.com/Microsoft/cognitive-services-speech-sdk-js" target="_blank">cognitiva-Services-Speech-SDK- <span class="docon docon-navigate-external x-hidden-focus"></span> js </a>.
     :::column-end:::
     :::column:::
         <br>
@@ -24,11 +24,11 @@ ms.locfileid: "81399890"
 :::row-end:::
 
 > [!TIP]
-> Embora o JavaScript Speech SDK esteja disponível como um pacote NPM, portanto ambos os navegadores da Web do cliente e o Node. js podem consumir isso, considere as várias implicações de arquitetura de cada ambiente. Por exemplo, o <a href="https://en.wikipedia.org/wiki/Document_Object_Model" target="_blank">modelo de objeto de documento ( <span class="docon docon-navigate-external x-hidden-focus"></span> dom)</a> não está disponível para aplicativos do lado do servidor, assim como o <a href="https://nodejs.org/api/fs.html" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> sistema de arquivos</a> não está disponível para aplicativos do lado do cliente.
+> Embora o SDK de fala para JavaScript esteja disponível como um pacote NPM, portanto, tanto os navegadores da Web do cliente quanto os Node.js podem consumi-lo-considere as várias implicações de arquitetura de cada ambiente. Por exemplo, o <a href="https://en.wikipedia.org/wiki/Document_Object_Model" target="_blank">modelo de objeto de documento ( <span class="docon docon-navigate-external x-hidden-focus"></span> dom)</a> não está disponível para aplicativos do lado do servidor, assim como o <a href="https://nodejs.org/api/fs.html" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> sistema de arquivos</a> não está disponível para aplicativos do lado do cliente.
 
-### <a name="nodejs-package-manager-npm"></a>Gerenciador de pacotes do node. js (NPM)
+### <a name="nodejs-package-manager-npm"></a>Gerenciador de pacotes do Node.js (NPM)
 
-Para instalar o SDK de fala do JavaScript, execute `npm install` o seguinte comando abaixo.
+Para instalar o SDK de fala para JavaScript, execute o seguinte `npm install` comando abaixo.
 
 ```nodejs
 npm install microsoft-cognitiveservices-speech-sdk
@@ -36,11 +36,11 @@ npm install microsoft-cognitiveservices-speech-sdk
 
 ### <a name="html-script-tag"></a>Marca de script HTML
 
-Como alternativa, você poderia incluir diretamente uma `<script>` marca no `<head>` elemento HTMLs, contando com o <a href="https://www.jsdelivr.com/package/npm/microsoft-cognitiveservices-speech-sdk" target="_blank"> **JSDelivr** NPM sindicate <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+Como alternativa, você poderia incluir diretamente uma `<script>` marca no elemento HTMLs `<head>` , contando com o <a href="https://www.jsdelivr.com/package/npm/microsoft-cognitiveservices-speech-sdk" target="_blank"> **JSDelivr** NPM sindicate <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@1.10.1/distrib/lib/microsoft.cognitiveservices.speech.sdk.min.js">
+<script src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/lib/microsoft.cognitiveservices.speech.sdk.min.js">
 </script>
 ```
 
-Para obter mais informações, consulte o guia de <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser" target="_blank">início rápido <span class="docon docon-navigate-external x-hidden-focus"> </span>do SDK de fala do navegador da Web </a>.
+Para obter mais informações, consulte o guia de <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser" target="_blank">início rápido <span class="docon docon-navigate-external x-hidden-focus"></span> do SDK de fala do navegador da Web </a>.
