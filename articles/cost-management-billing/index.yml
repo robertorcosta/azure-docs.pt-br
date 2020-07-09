@@ -1,152 +1,161 @@
-### YamlMime:Hub
+### YamlMime:Landing
 title: Documentação de Gerenciamento de Custos + Cobrança do Azure
-summary: A Cobrança e o Gerenciamento de Custos do Azure ajudam você a entender a cobrança do Azure, gerenciar sua conta e suas assinaturas, monitorar e controlar os gastos do Azure e otimizar o uso de recursos. Saiba como analisar custos, criar e gerenciar orçamentos, exportar dados e examinar recomendações e agir com base nelas.
+summary: O Gerenciamento de Custos + Cobrança do Azure ajuda você a entender a cobrança do Azure, gerenciar sua conta e suas assinaturas, monitorar e controlar os gastos do Azure e otimizar o uso de recursos. Saiba como analisar custos, criar e gerenciar orçamentos, exportar dados e examinar recomendações e agir com base nelas.
 metadata:
+  title: Gerenciamento de Custos + Cobrança do Azure
+  description: O Gerenciamento de Custos + Cobrança do Azure ajuda você a entender a cobrança do Azure, gerenciar sua conta e suas assinaturas, monitorar e controlar os gastos do Azure e otimizar o uso de recursos. Saiba como analisar custos, criar e gerenciar orçamentos, exportar dados e examinar recomendações e agir com base nelas.
   ms.service: cost-management-billing
-  description: A Cobrança e o Gerenciamento de Custos do Azure ajudam você a entender a cobrança do Azure, gerenciar sua conta e suas assinaturas, monitorar e controlar os gastos do Azure e otimizar o uso de recursos. Saiba como analisar custos, criar e gerenciar orçamentos, exportar dados e examinar recomendações e agir com base nelas.
-  ms.topic: hub-page
+  ms.topic: landing-page
+  ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 01/24/2019
-  ms.openlocfilehash: c1fbce7ba94ad097f948a36f93b1f997225c7086
-  ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+  ms.date: 06/01/2020
+  ms.openlocfilehash: 04b52a6aff1a8a24f2aa9988afec60c69c88c138
+  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 05/25/2020
-  ms.locfileid: "83833595"
-highlightedContent:
-  items:
-  - title: O que é o gerenciamento de custos + cobrança?
-    itemType: overview
-    url: cost-management-billing-overview.md
-  - title: Analisar custos e criar orçamentos
-    itemType: learn
-    url: https://docs.microsoft.com/learn/modules/analyze-costs-create-budgets-azure-cost-management/?WT.mc_id=costmanagementcontent_docsazurebilling_-inproduct-learn
-  - title: Melhores práticas de gerenciamento de custos
-    itemType: concept
-    url: ./costs/cost-mgt-best-practices.md
-conceptualContent:
-  items:
-  - title: Introdução à Cobrança do Azure
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86113387"
+landingContent:
+- title: Analisar seus custos
+  linkLists:
+  - linkListType: overview
     links:
-    - url: ./understand/review-individual-bill.md
-      itemType: tutorial
-      text: Examinar sua fatura individual
-    - url: ./understand/review-customer-agreement-bill.md
-      itemType: tutorial
-      text: Examinar sua fatura do Contrato de Cliente
-    - url: ./understand/review-partner-agreement-bill.md
-      itemType: tutorial
-      text: Examinar sua fatura do Contrato de Parceiro
-    - url: ./understand/review-enterprise-agreement-bill.md
-      itemType: tutorial
-      text: Examinar sua fatura do Contrato Enterprise
-    footerLink:
-      text: Ver mais
-      url: ./understand/index.yml
-  - title: Conta gratuita
+    - text: O que é Gerenciamento de Custos e Cobrança?
+      url: cost-management-billing-overview.md
+  - linkListType: get-started
     links:
-    - url: ./manage/create-free-services.md
-      itemType: concept
-      text: Criar serviços gratuitos
-    - url: ./manage/avoid-charges-free-account.md
-      itemType: concept
-      text: Evitar encargos
-    - url: ./manage/check-free-service-usage.md
-      itemType: concept
-      text: Verificar o uso
-    - url: ./manage/upgrade-azure-subscription.md
-      itemType: concept
-      text: Atualizar assinatura
-  - title: Gerenciar os custos e o uso do Azure
+    - text: Aprenda no seu ritmo
+      url: https://aka.ms/costmgmt/learn
+    - text: Vídeos do Gerenciamento de Custos do Azure
+      url: https://www.youtube.com/c/AzureCostManagement
+    - text: Começar a analisar os custos
+      url: costs/quick-acm-cost-analysis.md
+  - linkListType: how-to-guide
     links:
-    - url: ./costs/quick-acm-cost-analysis.md
-      itemType: quickstart
-      text: Começar a analisar os custos
-    - url: ./costs/tutorial-acm-create-budgets.md
-      itemType: tutorial
-      text: Criar e gerenciar orçamentos
-    - url: ./costs/tutorial-export-acm-data.md
-      itemType: tutorial
-      text: Exportar dados de custo e uso
-    - url: ./costs/tutorial-acm-opt-recommendations.md
-      itemType: tutorial
-      text: Agir com base nas recomendações de redução de custos
-    - url: ./costs/cost-analysis-common-uses.md
-      itemType: how-to-guide
-      text: Usar análise de custo para tarefas comuns
-    footerLink:
-      text: Ver mais
-      url: ./costs/index.yml
-  - title: Gerenciar assinaturas e contas do Azure
+    - text: Usar análise de custo para tarefas comuns
+      url: costs/cost-analysis-common-uses.md
+    - text: Analisar os custos com o aplicativo de modelo do Power BI
+      url: https://docs.microsoft/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app
+    - text: Conectar-se com o Power BI Desktop
+      url: /power-bi/desktop-connect-azure-cost-management
+  - linkListType: tutorial
     links:
-    - url: ./manage/manage-billing-access.md
-      itemType: how-to-guide
-      text: Conceder acesso à cobrança
-    - url: ./manage/change-azure-account-profile.md
-      itemType: how-to-guide
-      text: Editar perfil
-    - url: ./manage/resolve-past-due-balance.md
-      itemType: how-to-guide
-      text: Resolver saldo vencido
-    - url: ./manage/subscription-disabled.md
-      itemType: how-to-guide
-      text: Reativar a assinatura
-    - url: ./manage/billing-subscription-transfer.md
-      itemType: how-to-guide
-      text: Transferir propriedade
-    - url: ./manage/cancel-azure-subscription.md
-      itemType: how-to-guide
-      text: Cancelar assinatura
-    - url: ./manage/change-credit-card.md
-      itemType: how-to-guide
-      text: Mudar cartão de crédito
-    - url: ./manage/add-change-subscription-administrator.md
-      itemType: how-to-guide
-      text: Mudar administrador
-    - url: ./manage/create-subscription.md
-      itemType: how-to-guide
-      text: Criar assinaturas adicionais
-    footerLink:
-      text: Ver mais
-      url: ./manage/index.yml
-  - title: Poupar com as reservas do Azure
+    - text: Examinar a fatura da sua conta individual
+      url: understand/review-individual-bill.md
+    - text: Examinar sua fatura do Contrato de Cliente da Microsoft
+      url: understand/review-customer-agreement-bill.md
+    - text: Examinar sua fatura do Contrato Enterprise
+      url: understand/review-enterprise-agreement-bill.md
+- title: Gerenciar seus custos
+  linkLists:
+  - linkListType: tutorial
     links:
-    - url: ./reservations/save-compute-costs-reservations.md
-      itemType: concept
-      text: O que são as reservas do Azure?
-    - url: ./reservations/manage-reserved-vm-instance.md
-      itemType: how-to-guide
-      text: Gerenciar reservas do Azure
-    - url: ./reservations/monthly-payments-reservations.md
-      itemType: how-to-guide
-      text: Comprar uma reserva com pagamentos mensais
-    - url: ./reservations/reservation-renew.md
-      itemType: how-to-guide
-      text: Renovar as reservas
-    - url: ./reservations/exchange-and-refund-azure-reservations.md
-      itemType: how-to-guide
-      text: Trocas e reembolsos de reserva
-    footerLink:
-      text: Ver mais
-      url: ./reservations/index.yml
-  - title: Participar
+    - text: Criar e gerenciar orçamentos
+      url: costs/tutorial-acm-create-budgets.md
+    - text: Exportar dados de custo e uso
+      url: costs/tutorial-export-acm-data.md
+  - linkListType: concept
     links:
-    - url: https://feedback.azure.com/forums/906772-cost-management
-      itemType: how-to-guide
-      text: Comentários do Gerenciamento de Custos
-    - url: https://twitter.com/azurecostmgmt
-      itemType: how-to-guide
-      text: Gerenciamento de Custos no Twitter
-    - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22cost%20management%22&location=category:Azure&collapse_discussion=true
-      itemType: how-to-guide
-      text: Azure Tech Community de Gerenciamento de Custos
-    - url: https://feedback.azure.com/forums/170030-signup-and-billing
-      itemType: how-to-guide
-      text: Solicitar um recurso de serviço de cobrança
-    - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22billing%22&noSynonym=false&location=category:Azure&collapse_discussion=true
-      itemType: how-to-guide
-      text: Azure Tech Community de Cobrança
-    - url: https://docs.microsoft.com/answers/topics/azure-cost-management.html
-      itemType: how-to-guide
-      text: Faça uma pergunta sobre o fórum de cobrança e gerenciamento de custos
+    - text: Gerenciar os custos com a automação
+      url: https://docs.microsoft/azure/cost-management-billing/costs/manage-automation
+    - text: Termos de uso explicados
+      url: understand/understand-usage.md
+    - text: Termos da fatura explicados
+      url: understand/understand-invoice.md
+    - text: Termos de uso do Contrato de Cliente da Microsoft
+      url: understand/mca-understand-your-usage.md
+    - text: Termos da fatura do Contrato de Cliente da Microsoft
+      url: understand/mca-understand-your-invoice.md
+  - linkListType: how-to-guide
+    links:
+    - text: Usar alertas de custo
+      url: costs/cost-mgt-alerts-monitor-usage-spending.md
+    - text: Exibir e baixar sua fatura do Azure
+      url: understand/download-azure-invoice.md
+    - text: Exibir e baixar uso e encargos do Azure
+      url: understand/download-azure-daily-usage.md
+    - text: Exibir encargos de serviço externos
+      url: understand/understand-azure-marketplace-charges.md
+- title: Otimizar seus custos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Práticas recomendadas de Gerenciamento de Custos do Azure
+      url: costs/cost-mgt-best-practices.md
+    - text: Economizar dinheiro com as Reservas do Azure
+      url: reservations/save-compute-costs-reservations.md
+  - linkListType: tutorial
+    links:
+    - text: Agir com base nas recomendações
+      url: costs/tutorial-acm-opt-recommendations.md
+  - linkListType: how-to-guide
+    links:
+    - text: Evitar encargos inesperados
+      url: manage/getting-started.md
+  - linkListType: learn
+    links:
+    - text: Comece a otimizar seus custos hoje mesmo
+      url: https://azure.microsoft/overview/cost-optimization/
+    - text: Prever custos e otimizar gastos do Azure
+      url: https://docs.microsoft/learn/modules/predict-costs-and-optimize-spending/
+    - text: Estrutura bem projetada do Microsoft Azure – Otimização de custos
+      url: https://docs.microsoft/learn/modules/azure-well-architected-cost-optimization/
+- title: Configurar Gerenciamento de Custos + Cobrança
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Entender e trabalhar com escopos
+      url: costs/understand-work-scopes.md
+    - text: Entender os dados de Gerenciamento de Custos
+      url: costs/understand-cost-mgt-data.md
+    - text: Funções de EA no Azure
+      url: manage/understand-ea-roles.md
+    - text: Funções do Contrato de Cliente da Microsoft no Azure
+      url: manage/understand-mca-roles.md
+  - linkListType: how-to-guide
+    links:
+    - text: Atribuir acesso aos dados de gerenciamento de custos
+      url: costs/assign-access-acm-data.md
+    - text: Exibir contas de cobrança
+      url: manage/view-all-accounts.md
+    - text: Criar uma assinatura adicional
+      url: manage/create-subscription.md
+    - text: Mudar cartão de crédito
+      url: manage/change-credit-card.md
+    - text: Mudar administrador
+      url: manage/add-change-subscription-administrator.md
+    - text: Pagar por fatura
+      url: manage/pay-by-invoice.md
+- title: Examinar contas do Contrato de Cliente da Microsoft
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Contas de cobrança para o Contrato de Cliente Microsoft
+      url: understand/mca-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Exibir e baixar documentos de imposto
+      url: understand/mca-download-tax-document.md
+    - text: Pagar sua fatura do Contrato de Cliente da Microsoft
+      url: understand/pay-bill.md
+- title: Comprar reservas
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Escolher uma reserva para comprar
+      url: reservations/determine-reservation-purchase.md
+    - text: Trocas e reembolsos de reserva
+      url: reservations/exchange-and-refund-azure-reservations.md
+  - linkListType: how-to-guide
+    links:
+    - text: Comprar uma reserva
+      url: reservations/prepare-buy-reservation.md
+    - text: Gerenciar reservas
+      url: reservations/manage-reserved-vm-instance.md
+    - text: Exibir compras de reserva
+      url: reservations/view-purchase-refunds.md
+    - text: Estornar reservas
+      url: reservations/charge-back-usage.md
+    - text: Renovar as reservas
+      url: reservations/reservation-renew.md

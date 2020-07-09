@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 77cf98cae943b8652e20ed48fd41ed717d1e4fc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba90bb89d731c343dfcb3778433d444f2d9a617a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262116"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025855"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline de CI/CD com a tarefa de build do emulador do Azure Cosmos DB no Azure DevOps
 
@@ -26,14 +26,14 @@ Este artigo demonstra como configurar um pipeline de CI no Azure DevOps para um 
 
 Para usar a tarefa de build, primeiro precisamos instalá-la em nossa organização do Azure DevOps. Localize a extensão **Emulador do Azure Cosmos DB** no [Marketplace](https://marketplace.visualstudio.com/items?itemName=azure-cosmosdb.emulator-public-preview) e clique em **Obter gratuitamente.**
 
-![Localizar e instalar a tarefa de build do Emulador do Azure Cosmos DB no Marketplace do Azure DevOps](./media/tutorial-setup-ci-cd/addExtension_1.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_1.png" alt-text="Localizar e instalar a tarefa de build do Emulador do Azure Cosmos DB no Marketplace do Azure DevOps":::
 
 Em seguida, escolha a organização na qual instalar a extensão. 
 
 > [!NOTE]
 > Para instalar uma extensão para uma organização do Azure DevOps, você deve ser um proprietário da conta ou administrador de coleção de projeto. Se você não tiver permissões, mas for um membro da conta, poderá solicitar as extensões em vez disso. [Saiba mais.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts)
 
-![Escolha uma organização do DevOps do Azure na qual instalar uma extensão](./media/tutorial-setup-ci-cd/addExtension_2.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_2.png" alt-text="Escolha uma organização do Azure DevOps na qual instalar uma extensão":::
 
 ## <a name="create-a-build-definition"></a>Criar a definição de build
 
@@ -41,11 +41,11 @@ Agora que a extensão está instalada, entre em sua conta do Azure DevOps e enco
 
 1. Para criar uma nova definição de build, navegue até a guia **Builds** no Azure DevOps. Selecione **+Novo.** \> **Novo pipeline de build**
 
-   ![Criar um novo pipeline de build](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
+   :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png" alt-text="Criar um pipeline de build":::
 
 2. Selecione a **fonte**, o **projeto de equipe**, o **repositório**e o **branch Padrão desejados para builds manuais e agendados**. Depois de escolher as opções necessárias, selecione **Continuar**
 
-   ![Selecionar o projeto de equipe, o repositório e o branch para o pipeline de build](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
+   :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png" alt-text="Selecionar o projeto de equipe, o repositório e o branch para o pipeline de build":::
 
 3. Por fim, selecione o modelo desejado para o pipeline de build. Vamos selecionar o modelo do **ASP.NET** neste tutorial. Agora, você tem um pipeline de build que pode configurar para usar a tarefa de build do emulador do Azure Cosmos DB. 
 
@@ -65,7 +65,7 @@ Start-CosmosDbEmulator
 
 1. Em seguida, selecione o símbolo **+** ao lado do trabalho de agente para adicionar a tarefa de build do emulador. Pesquise **cosmos** na caixa de pesquisa, selecione **Emulador do Azure Cosmos DB** e adicione-o ao trabalho de agente. A tarefa de build iniciará um contêiner com uma instância do emulador do Cosmos DB já em execução. A tarefa do emulador do Azure Cosmos DB deve ser colocada antes de outras tarefas que estejam esperando o emulador ficar em execução.
 
-   ![Adicionar a tarefa de build do Emulador à definição de build](./media/tutorial-setup-ci-cd/addExtension_3.png)
+   :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_3.png" alt-text="Adicionar a tarefa de build do Emulador à definição de build":::
 
 Neste tutorial, você adicionará a tarefa ao início para fazer com que o emulador esteja disponível antes da execução de nossos testes.
 
@@ -140,21 +140,21 @@ namespace todo.Tests
 
 Navegue até as Opções de Execução na tarefa de Teste do Visual Studio. Na opção **Arquivo de configurações**, especifique que os testes são configurados usando o arquivo **.RunSettings**. Na opção **Substituir parâmetros de execução de teste**, adicione `-endpoint $(CosmosDbEmulator.Endpoint)`. Fazer isso configurará a tarefa de Teste para referir-se ao ponto de extremidade da tarefa de build do emulador, em vez daquele definido no arquivo **.RunSettings**.  
 
-![Substituir a variável de ponto de extremidade com o ponto de extremidade de tarefa de build do Emulador](./media/tutorial-setup-ci-cd/addExtension_5.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_5.png" alt-text="Substituir a variável de ponto de extremidade pelo ponto de extremidade da tarefa de build do Emulador":::
 
 ## <a name="run-the-build"></a>Executar a compilação
 
 Agora, **salve e coloque o build na fila**. 
 
-![Salvar e executar o build](./media/tutorial-setup-ci-cd/runBuild_1.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_1.png" alt-text="Salvar e executar o build":::
 
 Depois que o build tiver sido iniciado, observe que a tarefa do emulador do Cosmos DB começou a obter a imagem do Docker com o emulador instalado. 
 
-![Salvar e executar o build](./media/tutorial-setup-ci-cd/runBuild_4.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_4.png" alt-text="Salvar e executar o build":::
 
 Depois que o build for concluído, observe que seus testes são aprovados, todos em execução no emulador do Cosmos DB da tarefa de build!
 
-![Salvar e executar o build](./media/tutorial-setup-ci-cd/buildComplete_1.png)
+:::image type="content" source="./media/tutorial-setup-ci-cd/buildComplete_1.png" alt-text="Salvar e executar o build":::
 
 ## <a name="set-up-using-yaml"></a>Configurar usando YAML
 

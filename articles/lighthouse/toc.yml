@@ -41,7 +41,7 @@
       href: ./concepts/managed-applications.md
 - name: Guias de instruções
   items:
-    - name: Integrar um cliente no gerenciamento de recursos delegados do Azure
+    - name: Integrar um cliente ao Azure Lighthouse
       displayName: resource management
       href: ./how-to/onboard-customer.md
     - name: Publicar ofertas de serviço gerenciado no Azure Marketplace

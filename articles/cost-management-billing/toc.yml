@@ -1,0 +1,468 @@
+- name: Documentação de Gerenciamento de Custos + Cobrança do Azure
+  href: index.yml
+  items:
+    - name: Visão geral
+      items:
+        - name: O que é Gerenciamento de Custos e Cobrança?
+          href: cost-management-billing-overview.md
+    - name: Inícios rápidos
+      items:
+        - name: Começar a analisar os custos
+          href: costs/quick-acm-cost-analysis.md
+        - name: Criar um orçamento – modelo do ARM
+          href: costs/quick-create-budget-template.md
+          displayName: 'ARM template, resource manager template'
+    - name: Tutoriais
+      items:
+        - name: Examinar a fatura da sua conta individual
+          href: understand/review-individual-bill.md
+        - name: Examinar sua fatura do Contrato Enterprise
+          href: understand/review-enterprise-agreement-bill.md
+        - name: Examinar sua fatura do Contrato de Cliente da Microsoft
+          href: understand/review-customer-agreement-bill.md
+        - name: Examinar sua fatura do Contrato de Parceiro da Microsoft
+          href: understand/review-partner-agreement-bill.md
+        - name: Criar e gerenciar orçamentos
+          href: costs/tutorial-acm-create-budgets.md
+        - name: Exportar dados
+          href: costs/tutorial-export-acm-data.md
+        - name: Agir com base nas recomendações
+          href: costs/tutorial-acm-opt-recommendations.md
+    - name: Conceitos
+      items:
+        - name: Gerenciamento de Custos
+          items:
+            - name: Práticas recomendadas de Gerenciamento de Custos do Azure
+              href: costs/cost-mgt-best-practices.md
+            - name: Entender os dados de Gerenciamento de Custos
+              href: costs/understand-cost-mgt-data.md
+            - name: Entender e trabalhar com escopos
+              href: costs/understand-work-scopes.md
+            - name: Agrupar e filtrar opções
+              href: costs/group-filter.md
+            - name: Gerenciar os custos com a automação
+              href: costs/manage-automation.md
+            - name: Gerenciamento de Custos para parceiros
+              href: costs/get-started-partners.md
+            - name: Escolher entre o Gerenciamento de Custos e o Cloudyn
+              href: costs/choose-between-azure-cost-management-cloudyn.md
+        - name: Reservas
+          items:
+            - name: O que são Reservas do Azure?
+              href: reservations/save-compute-costs-reservations.md
+            - name: Como as recomendações de reserva são criadas
+              href: reservations/reserved-instance-purchase-recommendations.md
+            - name: Como o desconto é aplicado
+              items:
+                - name: Como um desconto de reserva do Azure é aplicado
+                  href: reservations/reservation-discount-application.md
+                - name: Serviço de Aplicativo
+                  href: reservations/reservation-discount-app-service-isolated-stamp.md
+                - name: Cache Redis do Azure
+                  href: reservations/understand-azure-cache-for-redis-reservation-charges.md
+                - name: Cosmos DB
+                  href: reservations/understand-cosmosdb-reservation-charges.md
+                - name: Banco de Dados para MariaDB
+                  href: reservations/understand-reservation-charges-mariadb.md
+                - name: Banco de Dados para MySQL
+                  href: reservations/understand-reservation-charges-mysql.md
+                - name: Banco de Dados para PostgreSQL
+                  href: reservations/understand-reservation-charges-postgresql.md
+                - name: Databricks
+                  href: reservations/reservation-discount-databricks.md
+                - name: Data Explorer
+                  href: reservations/understand-azure-data-explorer-reservation-charges.md
+                - name: Hosts dedicados
+                  href: reservations/billing-understand-dedicated-hosts-reservation-charges.md
+                - name: Armazenamento em disco
+                  href: reservations/understand-disk-reservations.md
+                - name: Red Hat Enterprise Linux
+                  href: reservations/understand-rhel-reservation-charges.md
+                - name: Planos de software
+                  href: reservations/understand-suse-reservation-charges.md
+                - name: Armazenamento
+                  href: reservations/understand-storage-charges.md
+                - name: Banco de Dados SQL
+                  href: reservations/understand-reservation-charges.md
+                - name: Azure Synapse Analytics
+                  href: reservations/reservation-discount-azure-sql-dw.md
+                - name: Máquinas virtuais
+                  href: manage/understand-vm-reservation-charges.md
+            - name: Custos do Windows e do SQL não incluídos
+              href: reservations/reserved-instance-windows-software-costs.md
+            - name: Dados de uso para assinaturas individuais
+              href: reservations/understand-reserved-instance-usage.md
+            - name: Dados de uso para clientes Enterprise
+              href: reservations/understand-reserved-instance-usage-ea.md
+        - name: Terminologia de cobrança
+          items:
+            - name: Termos de uso da assinatura individual
+              href: understand/understand-usage.md
+            - name: Termos de fatura da assinatura individual
+              href: understand/understand-invoice.md
+            - name: Termos de uso do Contrato de Cliente da Microsoft
+              href: understand/mca-understand-your-usage.md
+            - name: Termos da fatura do Contrato de Cliente da Microsoft
+              href: understand/mca-understand-your-invoice.md
+            - name: Termos da planilha de preços do Contrato de Cliente da Microsoft
+              href: manage/mca-understand-pricesheet.md
+            - name: Termos da fatura do Contrato de Parceiro da Microsoft
+              href: understand/mpa-invoice-terms.md
+            - name: Contas de cobrança para o Contrato de Cliente Microsoft
+              href: understand/mca-overview.md
+            - name: Contas de cobrança do Contrato de Parceiro da Microsoft
+              href: understand/mpa-overview.md
+    - name: Guias de instruções
+      items:
+        - name: Configurar Gerenciamento de Custos + Cobrança
+          items:
+            - name: Administrar contas
+              items:
+                - name: Tarefas do administrador de conta
+                  href: manage/account-admin-tasks.md
+                - name: Editar perfil
+                  href: manage/change-azure-account-profile.md
+                - name: Resolver saldo vencido
+                  href: manage/resolve-past-due-balance.md
+                - name: Conceder acesso à cobrança
+                  href: manage/manage-billing-access.md
+                - name: Funções dos Contratos de Cliente Microsoft no Azure
+                  href: manage/understand-mca-roles.md
+                - name: Vincular ID do parceiro
+                  href: manage/link-partner-id.md
+            - name: Administrar assinaturas
+              items:
+                - name: Atribuir acesso aos dados de gerenciamento de custos
+                  href: costs/assign-access-acm-data.md
+                - name: Estados de assinatura
+                  href: manage/subscription-states.md
+                - name: Reativar a assinatura
+                  href: manage/subscription-disabled.md
+                - name: Reativar a assinatura de Aluno do Azure
+                  href: manage/azurestudents-subscription-disabled.md
+                - name: Transferir propriedade
+                  href: manage/billing-subscription-transfer.md
+                - name: Solicitar propriedade do Contrato de Cliente da Microsoft
+                  href: manage/mca-request-billing-ownership.md
+                - name: Solicitar propriedade do Contrato de Parceiro da Microsoft
+                  href: manage/mpa-request-ownership.md
+                - name: Instalar e configurar a integração do AWS
+                  href: costs/aws-integration-set-up-configure.md
+        - name: Executar as tarefas principais de administração de cobrança
+          items:
+            - name: Gerenciar Contas
+              items:
+                - name: Exibir contas de cobrança
+                  href: manage/view-all-accounts.md
+                - name: Organizar os custos com seções da fatura
+                  href: manage/mca-section-invoice.md
+                - name: Configurar conta de cobrança do Contrato de Cliente da Microsoft
+                  href: manage/mca-setup-account.md
+                - name: Inscrever-se com a conta Microsoft 365
+                  href: manage/microsoft-365-account-for-azure-subscription.md
+                - name: Inscrever-se no Microsoft 365 com a conta do Azure
+                  href: manage/azure-account-for-microsoft-365-subscription.md
+                - name: Pagar usando a autenticação forte de cliente
+                  href: manage/open-banking-strong-customer-authentication.md
+            - name: Gerenciar Assinaturas
+              items:
+                - name: Pagar por fatura
+                  href: manage/pay-by-invoice.md
+                - name: Criar assinaturas adicionais
+                  href: manage/create-subscription.md
+                - name: Exportar informações da assinatura
+                  href: manage/export-subscriptions.md
+                - name: Mudar cartão de crédito
+                  href: manage/change-credit-card.md
+                - name: Mudar administrador
+                  href: manage/add-change-subscription-administrator.md
+                - name: Alternar oferta de assinatura
+                  href: manage/switch-azure-offer.md
+                - name: Transferir assinaturas do CSP
+                  href: manage/transfer-subscriptions-subscribers-csp.md
+                - name: Cancelar assinatura
+                  href: manage/cancel-azure-subscription.md
+            - name: Gerenciar assinaturas do Contrato Enterprise
+              items:
+                - name: Introdução ao portal de EA do Azure
+                  href: manage/ea-portal-get-started.md
+                - name: Funções de EA no Azure
+                  href: manage/understand-ea-roles.md
+                - name: Administração do Portal do EA do Azure
+                  href: manage/ea-portal-administration.md
+                - name: Administração do portal do EA do Azure para parceiros
+                  href: manage/ea-partner-portal-administration.md
+                - name: Transferências do Azure Enterprise
+                  href: manage/ea-transfers.md
+                - name: Tarefas de EA no Contrato de Cliente Microsoft
+                  href: manage/mca-enterprise-operations.md
+                - name: Contratos e aditamentos de EA do Azure
+                  href: manage/ea-portal-agreements.md
+                - name: Faturas do Registro Enterprise
+                  href: manage/ea-portal-enrollment-invoices.md
+                - name: Preço do EA do Azure
+                  href: manage/ea-pricing-overview.md
+                - name: APIs REST do Azure Enterprise
+                  href: manage/ea-portal-rest-apis.md
+                - name: Instâncias reservadas de VM de EA do Azure
+                  href: manage/ea-portal-vm-reservations.md
+                - name: Azure Marketplace
+                  href: manage/ea-azure-marketplace.md
+            - name: Baixar informações sobre preço e cobrança
+              items:
+                - name: Pagar sua fatura
+                  href: understand/pay-bill.md
+                - name: Exibir e baixar sua fatura do Azure
+                  href: understand/download-azure-invoice.md
+                - name: Exibir e baixar uso e encargos do Azure
+                  href: understand/download-azure-daily-usage.md
+                - name: Baixar a fatura e os dados de uso diário
+                  href: manage/download-azure-invoice-daily-usage-date.md
+                - name: Exibir e baixar documentos de imposto
+                  href: understand/mca-download-tax-document.md
+                - name: Exibir encargos de serviço externos do Azure
+                  href: understand/understand-azure-marketplace-charges.md
+                - name: Exibir e baixar o preço da sua organização
+                  href: manage/ea-pricing.md
+            - name: Conta gratuita
+              items:
+                - name: Criar serviços gratuitos
+                  href: manage/create-free-services.md
+                - name: Evitar encargos
+                  href: manage/avoid-charges-free-account.md
+                - name: Verificar o uso
+                  href: manage/check-free-service-usage.md
+                - name: Fazer upgrade de conta gratuita
+                  href: manage/upgrade-azure-subscription.md
+        - name: Executar as tarefas principais de gerenciamento de custos
+          items:
+            - name: Evitar custos inesperados
+              href: manage/getting-started.md
+            - name: Calcular preços
+              href: 'https://azure.microsoft.com/pricing/calculator/'
+            - name: Usar análise de custo para tarefas comuns
+              href: costs/cost-analysis-common-uses.md
+            - name: Automatizar ações com orçamentos
+              href: manage/cost-management-budget-scenario.md
+            - name: Usar alertas de custo
+              href: costs/cost-mgt-alerts-monitor-usage-spending.md
+            - name: Conectar-se com o Power BI Desktop
+              href: /power-bi/desktop-connect-azure-cost-management
+            - name: Analisar os custos do Azure com o aplicativo de modelo do Power BI
+              href: costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md
+            - name: Gerenciar o uso e o custo do AWS
+              href: costs/aws-integration-manage.md
+            - name: Compreender limite de gastos
+              href: manage/spending-limit.md
+            - name: Acompanhar créditos para o Contrato de Cliente Microsoft
+              href: manage/mca-check-azure-credits-balance.md
+            - name: Migrar do EA para APIs MCA
+              href: costs/migrate-cost-management-api.md
+        - name: Comprar e administrar reservas
+          items:
+            - name: Determinar o que comprar
+              items:
+                - name: Escolher uma reserva para comprar
+                  href: reservations/determine-reservation-purchase.md
+            - name: Comprar reservas
+              items:
+                - name: Comprar uma reserva do Azure
+                  href: reservations/prepare-buy-reservation.md
+                - name: Serviço de Aplicativo
+                  href: reservations/prepay-app-service-isolated-stamp.md
+                - name: Reserva de Cache do Azure para Redis
+                  href: ../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
+                - name: Cosmos DB
+                  href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+                - name: Databricks
+                  href: reservations/prepay-databricks-reserved-capacity.md
+                - name: Data Explorer
+                  href: /dataexplorer-docs/data-explorer/pricing-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+                - name: Armazenamento em disco
+                  href: ../virtual-machines/linux/disks-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+                - name: Host dedicado
+                  href: ../virtual-machines/prepay-dedicated-hosts-reserved-instances.md?toc=/azure/cost-management-billing/toc.json
+                - name: Planos de software
+                  href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/toc.json
+                - name: Armazenamento do Azure
+                  href: ../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+                - name: Banco de Dados do Azure para PostgreSQL
+                  href: ../postgresql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
+                - name: Banco de Dados do Azure para MySQL
+                  href: ../mysql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
+                - name: Banco de Dados do Azure para MariaDB
+                  href: ../mariadb/concept-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
+                - name: Banco de Dados SQL
+                  href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+                - name: Azure Synapse Analytics
+                  href: reservations/prepay-sql-data-warehouse-charges.md
+                - name: Máquinas virtuais
+                  href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/toc.json
+            - name: 'Exibir, gerenciar e otimizar após a compra'
+              items:
+                - name: Exibir reservas e utilização
+                  href: reservations/view-reservations.md
+                - name: Gerenciar reservas
+                  href: reservations/manage-reserved-vm-instance.md
+                - name: Trocar e reembolsar reservas
+                  href: reservations/exchange-and-refund-azure-reservations.md
+            - name: Relatar custos
+              items:
+                - name: Exibir transações de reserva
+                  href: reservations/view-purchase-refunds.md
+                - name: Estornar custos de reserva
+                  href: reservations/charge-back-usage.md
+            - name: Renovar as reservas
+              items:
+                - name: Renovar uma reserva
+                  href: reservations/reservation-renew.md
+        - name: Solucionar problemas
+          items:
+            - name: Nenhuma assinatura encontrada
+              href: manage/no-subscriptions-found.md
+            - name: Problemas no pagamento
+              href: manage/billing-troubleshoot-azure-payment-issues.md
+            - name: Cartão recusado
+              href: manage/troubleshoot-declined-card.md
+            - name: Problemas de inscrição da conta do Azure
+              href: manage/troubleshoot-azure-sign-up.md
+            - name: Problemas na entrada da assinatura
+              href: manage/troubleshoot-sign-in-issue.md
+            - name: Exibição do custo da empresa desabilitado
+              href: manage/enterprise-mgmt-grp-troubleshoot-cost-view.md
+            - name: Solucionar problemas de acesso ao Portal do EA do Azure
+              href: manage/ea-portal-troubleshoot.md
+            - name: Contate o suporte
+              href: ../azure-portal/supportability/how-to-create-azure-support-request.md
+    - name: Referência
+      items:
+        - name: API REST de Gerenciamento de Custos do Azure
+          href: 'https://docs.microsoft.com/rest/api/cost-management'
+        - name: API REST de Consumo do Azure
+          href: 'https://docs.microsoft.com/rest/api/consumption'
+        - name: Modelo do Resource Manager
+          href: /azure/templates/microsoft.consumption/budgets
+        - name: Exemplos da API REST do Gerenciamento de Custos
+          href: 'https://github.com/Azure-Samples/Cost-Management-Samples'
+        - name: Cenários para Automação de Cobrança
+          href: manage/cost-management-automation-scenarios.md
+        - name: Visão Geral da API de Cobrança do Azure
+          href: manage/usage-rate-card-overview.md
+        - name: API REST de Cobrança do Azure
+          href: 'https://docs.microsoft.com/rest/api/billing'
+        - name: Visão Geral da API de Consumo do Azure
+          href: manage/consumption-api-overview.md
+        - name: API REST de Consumo do Azure
+          href: 'https://docs.microsoft.com/rest/api/consumption'
+        - name: API REST do RateCard
+          href: 'https://msdn.microsoft.com/library/azure/mt219005.aspx'
+        - name: API REST do Uso
+          href: 'https://msdn.microsoft.com/library/azure/mt219003.aspx'
+        - name: Visão geral dos relatórios do Enterprise
+          href: manage/enterprise-api.md
+        - name: API REST dos relatórios do Enterprise
+          href: 'https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary'
+        - name: Reservas
+          items:
+            - name: API REST de reservas
+              href: reservations/reservation-apis.md
+            - name: Reservas – Azure PowerShell
+              href: /powershell/module/azurerm.reservations
+            - name: Reservas – CLI
+              href: /cli/azure/reservations/reservation
+            - name: Gerenciamento de Custos – API REST de detalhes de uso do consumo
+              href: /rest/api/consumption/usagedetails
+            - name: Gerenciamento de Custos – API REST detalhes de reservas de consumo
+              href: /rest/api/consumption/reservationsdetails
+    - name: Recursos
+      items:
+        - name: Desenvolva suas habilidades com o Microsoft Learn
+          href: /learn/browse/?products=azure-cost-management
+        - name: Fórum de comentários do Gerenciamento de Custos
+          href: 'https://feedback.azure.com/forums/906772-cost-management'
+        - name: Roteiro do Azure
+          href: 'https://azure.microsoft.com/roadmap/'
+        - name: Preços
+          href: 'https://azure.microsoft.com/pricing/details/cost-management'
+        - name: Disponibilidade regional
+          href: 'https://azure.microsoft.com/regions/services/'
+    - name: Exemplos
+      items:
+        - name: API REST
+          items:
+            - name: Analisar os custos da empresa
+              href: manage/review-enterprise-billing.md
+            - name: Analisar o uso de assinaturas
+              href: manage/review-subscription-billing.md
+            - name: Revisar uso de recursos
+              href: manage/review-service-usage-api.md
+        - name: Amostras do .NET
+          items:
+            - name: Exemplo de código da API da Fatura
+              href: 'https://github.com/Azure-Samples/billing-dotnet-core-invoice-download'
+            - name: Exemplo de código da API do Uso
+              href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
+            - name: Exemplo de código da API do RateCard
+              href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
+    - name: Cloudyn
+      items:
+        - name: Visão geral
+          items:
+            - name: O que é o Cloudyn?
+              href: cloudyn/overview.md
+        - name: Inícios rápidos
+          items:
+            - name: Exibir dados de custo
+              href: cloudyn/quick-register-azure-sub.md
+            - name: Exibir dados de custo – EA
+              href: cloudyn/quick-register-ea.md
+            - name: Exibir dados de custo – CSP
+              href: cloudyn/quick-register-csp.md
+        - name: Tutoriais
+          items:
+            - name: Examinar o uso e os custos
+              href: cloudyn/tutorial-review-usage.md
+            - name: Prever gastos
+              href: cloudyn/tutorial-forecast-spending.md
+            - name: Gerenciar os custos
+              href: cloudyn/tutorial-manage-costs.md
+            - name: Otimizar instâncias reservadas
+              href: cloudyn/tutorial-optimize-reserved-instances.md
+            - name: Controlar o acesso a dados
+              href: cloudyn/tutorial-user-access.md
+        - name: Conceitos
+          items:
+            - name: Compreendendo os relatórios de custos
+              href: cloudyn/understanding-cost-reports.md
+        - name: Guias de instruções
+          items:
+            - name: Ativar assinaturas e contas do Azure
+              href: cloudyn/activate-subs-accounts.md
+            - name: Adicionar métricas estendidas para VMs
+              href: cloudyn/azure-vm-extended-metrics.md
+            - name: Conectar conta do Google
+              href: cloudyn/connect-google-account.md
+            - name: Conectar conta do AWS
+              href: cloudyn/connect-aws-account.md
+            - name: Configurar contas de armazenamento
+              href: cloudyn/storage-accounts.md
+            - name: Usar relatórios do Cloudyn
+              href: cloudyn/use-reports.md
+            - name: Usar painéis
+              href: cloudyn/dashboards.md
+            - name: Gerenciar orçamentos
+              href: cloudyn/manage-budgets.md
+        - name: Recursos
+          items:
+            - name: Vídeos do Cloudyn
+              href: cloudyn/ref-videos.md
+            - name: Roteiro do Azure
+              href: 'https://azure.microsoft.com/roadmap/'
+            - name: Preços do Cloudyn
+              href: 'https://azure.microsoft.com/pricing/details/cost-management'
+            - name: Disponibilidade Regional do Cloudyn
+              href: 'https://azure.microsoft.com/regions/services/'
+            - name: Perguntas frequentes sobre o Cloudyn
+              href: cloudyn/cost-mgt-faq.md
+            - name: Entre em contato com o suporte do Cloudyn
+              href: /cloudyn/open-support-request.md

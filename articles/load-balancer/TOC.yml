@@ -12,18 +12,21 @@
       href: quickstart-load-balancer-standard-public-portal.md
     - name: Criar balanceador de carga – CLI do Azure
       href: quickstart-load-balancer-standard-public-cli.md
-    - name: Criar balanceador de carga – PowerShell
+    - name: Criar Load Balancer – Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
     - name: Criar balanceador de carga – Modelo ARM
-      displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
+    - name: Criar um Load Balancer interno – Portal
+      href: tutorial-load-balancer-standard-internal-portal.md
+    - name: Criar um Load Balancer interno – CLI do Azure
+      href: load-balancer-get-started-ilb-arm-cli.md
+    - name: Criar um Load Balancer interno – Azure PowerShell
+      href: load-balancer-get-started-ilb-arm-ps.md
+    - name: Criar um Load Balancer interno – Modelo do Resource Manager
+      href: load-balancer-get-started-ilb-arm-template.md
   expanded: true
 - name: Tutoriais
   items:
-    - name: Balancear tráfego de carga da internet para VMs
-      href: tutorial-load-balancer-standard-manage-portal.md
-    - name: Balancear tráfego interno de carga para VMs
-      href: tutorial-load-balancer-standard-internal-portal.md
     - name: VMs com balanceamento de carga entre zonas de disponibilidade
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: VM de balanceamento de carga dentro de uma zona específica de disponibilidade
@@ -78,17 +81,17 @@
           href: configure-vm-scale-set-powershell.md
         - name: Usar com um Azure Load Balancer existente – CLI
           href: configure-vm-scale-set-cli.md
-    - name: Fazer upgrade de um Basic Load Balancer para um Standard Load Balancer
+    - name: Atualizar do Load Balancer Básico para o Standard Load Balancer
       items:
         - name: Atualizar um Basic Load Balancer público
           href: upgrade-basic-standard.md
-        - name: Atualizar um Basic Load Balancer interno sem necessidade de conexão de saída
+        - name: Atualizar um Load Balancer interno sem necessidade de conexão de saída
           href: upgrade-basicInternal-standard.md
-        - name: Atualizar um Basic Load Balancer interno com necessidade de conexão de saída
+        - name: Atualizar um Load Balancer interno com necessidade de conexão de saída
           href: upgrade-InternalBasic-To-PublicStandard.md
     - name: Configurar regras de saída
       items:
-        - name: Portal do Azure
+        - name: Portal
           href: configure-load-balancer-outbound-portal.md
         - name: CLI do Azure
           href: configure-load-balancer-outbound-cli.md
@@ -103,35 +106,25 @@
         - name: Modelo do Azure Resource Manager
           href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
           displayName: ARM
-    - name: Configurar Load Balancer interno
-      items:
-        - name: Portal do Azure
-          href: tutorial-load-balancer-standard-internal-portal.md
-        - name: CLI do Azure
-          href: load-balancer-get-started-ilb-arm-cli.md
-        - name: Azure PowerShell
-          href: load-balancer-get-started-ilb-arm-ps.md
-        - name: Modelo do Azure Resource Manager
-          href: load-balancer-get-started-ilb-arm-template.md
-          displayName: ARM
     - name: Configurar tempo limite de ociosidade TCP para Balanceador de Carga
       href: load-balancer-tcp-idle-timeout.md
     - name: Configurar o modo de distribuição para o Load Balancer
       href: load-balancer-distribution-mode.md
     - name: Configurações para usar vários endereços IP
-      href: load-balancer-multiple-ip.md
       items:
+        - name: Portal
+          href: load-balancer-multiple-ip.md
         - name: CLI do Azure
           href: load-balancer-multiple-ip-cli.md
         - name: Azure PowerShell
           href: load-balancer-multiple-ip-powershell.md
     - name: Mover entre regiões
       items:
-        - name: Balanceador de carga externo – Portal
+        - name: Load Balancer público – Portal
           href: move-across-regions-external-load-balancer-portal.md
-        - name: Balanceador de carga externo – PowerShell
+        - name: Load Balancer público – PowerShell
           href: move-across-regions-external-load-balancer-powershell.md
-        - name: Balanceador de carga interno – Portal
+        - name: Load Balancer público – Portal
           href: move-across-regions-internal-load-balancer-portal.md
         - name: Balanceador de carga interno – PowerShell
           href: move-across-regions-internal-load-balancer-powershell.md
