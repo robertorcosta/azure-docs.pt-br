@@ -1,7 +1,5 @@
 - name: Documentação da Análise de Vídeo ao vivo no IoT Edge (versão prévia)
   href: index.yml
-- name: Alternar para a documentação dos Serviços de Mídia do Azure v3
-  href: ../latest/index.yml
 - name: Visão geral
   items:
     - name: Sobre a Análise de Vídeo ao vivo no IoT Edge
@@ -34,7 +32,7 @@
       href: playback-multi-day-recordings-tutorial.md
 - name: Exemplos
   items:
-    - name: 'Exemplos em C# da Análise de Vídeo ao vivo no IoT Edge'
+    - name: Exemplos em C# da Análise de Vídeo ao vivo no IoT Edge
       href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp'
 - name: Conceitos
   items:
