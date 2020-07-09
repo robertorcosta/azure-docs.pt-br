@@ -1,18 +1,18 @@
 ---
 title: Melhores práticas de listagem de ofertas - Marketplace comercial da Microsoft
 description: Conheça as melhores práticas de listagem de entrada no mercado para suas ofertas de Microsoft AppSource e do Azure Marketplace.
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 07/06/2020
-ms.author: dsindona
-ms.openlocfilehash: 60f9630b58250bdae4c382e61697f7abd53e036d
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8adffcc6c7ae4af2e33587f75c83430473180203
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027062"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118385"
 ---
 # <a name="offer-listing-best-practices"></a>Práticas recomendadas de listagem de ofertas
 
@@ -31,7 +31,7 @@ As tabelas nesta seção fornecem sugestões para a criação de ofertas de mark
 
 As categorias e os setores para uma vitrine diferente serão aplicáveis a diferentes tipos de oferta.
 
-|  | **Categorias <br> por vitrine** |  | **Setores <br> para AppSource** |
+| Vitrine | Categorias <br>por vitrine | Categorias <br>por vitrine | Indústrias <br> para AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
 | **Tipo de oferta**   |  **Azure Marketplace**  | **AppSource**  |
 | Aplicativo do Azure | X | |
@@ -144,7 +144,7 @@ Selecione categorias e subcategorias que melhor se alinhem com sua oferta e seu 
 
 Consulte o [guia por tipo de oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) para obter detalhes específicos sobre como os recursos de transação podem afetar como sua oferta pode ser exibida e adquirida por clientes do Marketplace. Para ofertas de SaaS, a capacidade de transação da oferta, bem como a seleção de categoria, determinará a vitrine onde sua oferta será publicada:
 
-| Oferta de SaaS    |     |          |           |    |    |     | Vitrine aplicável |              |
+| Oferta de SaaS    | Oferta de SaaS   | Oferta de SaaS  | Oferta de SaaS   | Oferta de SaaS   | Oferta de SaaS   | Oferta de SaaS    | Vitrine aplicável | Vitrine aplicável |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
 | Cobrança limitada | Suplementos de Microsoft 365 | Entrar em contato comigo | Transact (pelo menos 1 plano) | Plano somente particular | Plano somente público | Planos públicos & privados | AppSource | Azure Marketplace |
 |  | X |  |  |  |  |  | X |  |

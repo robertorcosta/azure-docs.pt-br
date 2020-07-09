@@ -1,17 +1,14 @@
 ---
 title: Configuração de Azure App como fonte de grade de eventos
 description: Este artigo descreve como usar a configuração de Azure App como uma origem de evento de grade de eventos. Ele fornece o esquema e os links para os artigos do tutorial e de instruções.
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: femila
-ms.openlocfilehash: e233b5d27df3e25c2d7c1464aea9a1e80dfbffb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: bdd077c291bd1e1c441217740daf39c8bcaad732
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84553163"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116991"
 ---
 # <a name="azure-app-configuration-as-an-event-grid-source"></a>Configuração de Azure App como uma fonte de grade de eventos
 Este artigo fornece as propriedades e o esquema para Azure App eventos de configuração. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md). Ele também fornece uma lista de inícios rápidos e tutoriais para usar Azure App configuração como uma fonte de eventos.
@@ -71,7 +68,7 @@ O esquema para um evento de chave-valor excluído é semelhante:
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
 | subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
@@ -84,7 +81,7 @@ Um evento tem os seguintes dados de nível superior:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
 | chave | string | A chave do valor de chave que foi modificado ou excluído. |
 | label | string | O rótulo, se houver, do valor de chave que foi modificado ou excluído. |

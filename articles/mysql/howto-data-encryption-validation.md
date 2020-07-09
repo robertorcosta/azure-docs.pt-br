@@ -4,14 +4,14 @@ description: Saiba como validar a criptografia do banco de dados do Azure para o
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: ee80f50e925bf4545f885d701e70bc21208f1d1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cd1db0365cdc4f834516fd4efb0d80dacc75eca
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82515398"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118521"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Validando a criptografia de dados para o Azure Database para MySQL
 

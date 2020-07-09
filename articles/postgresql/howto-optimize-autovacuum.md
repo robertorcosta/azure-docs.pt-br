@@ -4,14 +4,14 @@ description: Este artigo descreve como você pode otimizar a vácuo autoaspira e
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 7dcc6f9ece407bee20ed344d91ee95e34f8f4c0a
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 9b0e263d3b8bce9e04548f5e8433ff90d2bda274
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848190"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116345"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Otimizar o vácuo autoaspirar em um banco de dados do Azure para PostgreSQL-servidor único
 Este artigo descreve como otimizar de maneira eficaz o vácuo automático em um Banco de Dados do Azure para PostgreSQL.
@@ -22,20 +22,25 @@ O PostgreSQL usa o MVCC (controle de simultaneidade multiversão) para permitir 
 Um trabalho de vácuo pode ser disparado manualmente ou automaticamente. Quando o banco de dados passa por operações com alta frequência de atualização ou exclusão, o número de tuplas inativas é maior. Quando o banco de dados está ocioso, esse número é menor. Você precisará executar trabalhos de vácuo com mais frequência quando a carga do banco de dados for pesada, o que dificulta a execução *manual* desses trabalhos.
 
 O vácuo automático pode ser configurado e se beneficia do ajuste. Os valores padrão com que o PostgreSQL é fornecido tentam garantir que o produto funcione em todos os tipos de dispositivos. Esses dispositivos incluem o Raspberry Pis. Os valores de configuração ideais dependem:
+
 - Do total de recursos disponíveis, como o tamanho do armazenamento e da SKU.
 - Uso de recursos.
 - Características de objetos individuais.
 
 ## <a name="autovacuum-benefits"></a>Benefícios do vácuo automático
+
 Se você não executar o vácuo periodicamente, as tuplas inativas acumuladas poderão levar a:
+
 - Sobrecarga de dados, como bancos de dados e tabelas maiores.
 - Maiores índices de qualidade inferior.
 - Aumento de E/S.
 
 ## <a name="monitor-bloat-with-autovacuum-queries"></a>Monitorar a sobrecarga com consultas de vácuo automático
 O exemplo de consulta a seguir foi criado para identificar o número de tuplas ativas e inativas em uma tabela chamada XYZ:
- 
-    'SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;'
+
+```sql
+SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;
+```
 
 ## <a name="autovacuum-configurations"></a>Configurações de vácuo automático
 Os parâmetros de configuração que controlam o vácuo automático são baseados nas respostas de duas perguntas importantes:
@@ -56,6 +61,7 @@ autovacuum_max_workers|Especifica o número máximo de processos de vácuo autom
 Para substituir as configurações de tabelas individuais, altere os parâmetros de armazenamento da tabela. 
 
 ## <a name="autovacuum-cost"></a>Custo do vácuo automático
+
 A seguir, estão os "custos" de executar uma operação de vácuo:
 
 - As páginas de dados em que o vácuo é executado são bloqueadas.
@@ -64,6 +70,7 @@ A seguir, estão os "custos" de executar uma operação de vácuo:
 Sendo assim, não execute trabalhos de vácuo com frequência excessiva ou insuficiente. Um trabalho de vácuo precisa se adaptar à carga de trabalho. Teste todas as alterações de parâmetro do vácuo automático devido às vantagens e desvantagens de cada um deles.
 
 ## <a name="autovacuum-start-trigger"></a>Gatilho de início do vácuo automático
+
 O vácuo automático é disparado quando o número de tuplas inativas ultrapassa autovacuum_vacuum_threshold + autovacuum_vacuum_scale_factor * reltuples. Aqui, reltuples é uma constante.
 
 A limpeza promovida pelo vácuo automático deve acompanhar o ritmo do banco de dados. Caso contrário, você poderá ficar sem armazenamento e poderá ocorrer uma lentidão das consultas em geral. Amortizada ao longo do tempo, a frequência com que uma operação de vácuo limpa tuplas inativas deve ser igual à frequência com que as tuplas inativas são criadas.
@@ -91,7 +98,9 @@ O parâmetro autovacuum_max_workers determina o número máximo de processos de 
 Com o PostgreSQL, você pode definir esses parâmetros no nível de tabela ou no nível de instância. Atualmente, é possível definir esses parâmetros no nível da tabela apenas no Banco de Dados do Azure para PostgreSQL.
 
 ## <a name="optimize-autovacuum-per-table"></a>Otimizar o vácuo automático por tabela
+
 Você pode configurar todos os parâmetros de configuração anteriores por tabela. Aqui está um exemplo:
+
 ```sql
 ALTER TABLE t SET (autovacuum_vacuum_threshold = 1000);
 ALTER TABLE t SET (autovacuum_vacuum_scale_factor = 0.1);
@@ -102,7 +111,8 @@ ALTER TABLE t SET (autovacuum_vacuum_cost_delay = 10);
 O vácuo automático é um processo síncrono por tabela. Quanto maior o percentual de tuplas inativas de uma tabela, maior o "custo" do vácuo automático. Você pode dividir tabelas com alta taxa de atualizações e exclusões em várias tabelas. Dividir tabelas ajuda a paralelizar o vácuo automático e a reduzir o "custo" de concluir o vácuo automático em uma tabela. Você também pode aumentar o número de funções de trabalho de vácuo automático paralelas para garantir que os trabalhos sejam agendados livremente.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Para saber mais sobre como usar e ajustar o vácuo automático, revise a seguinte documentação do PostgreSQL:
 
- - [Capítulo 18, Configuração do servidor](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
- - [Capítulo 24, Tarefas rotineiras de manutenção de banco de dados](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)
+- [Capítulo 18, Configuração do servidor](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
+- [Capítulo 24, Tarefas rotineiras de manutenção de banco de dados](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)

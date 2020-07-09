@@ -3,11 +3,12 @@ title: Análise de dependência na avaliação do servidor de migrações para A
 description: Descreve como usar a análise de dependência para avaliação usando a avaliação de servidor de migrações para Azure.
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: ff563668666207f35fa2ea796d6c909a59df245f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 386a8cefce722c4bff09e2a7fe6d25957630ff61
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771335"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118793"
 ---
 # <a name="dependency-analysis"></a>Análise de dependência
 
@@ -74,7 +75,7 @@ As diferenças entre a visualização sem agente e a visualização baseada em a
 --- | --- | ---
 **Suporte** | Somente em visualização para VMs VMware. [Examine](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) os sistemas operacionais com suporte. | Em disponibilidade geral (GA).
 **Agente** | Nenhum agente é necessário nos computadores que você deseja analisar. | Agentes necessários em cada computador local que você deseja analisar.
-**Log Analytics** | Não necessário. | As migrações para Azure usam a solução [mapa do serviço](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) em [logs de Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para análise de dependência. 
+**Log Analytics** | Não necessário. | As migrações para Azure usam a solução [mapa do serviço](../azure-monitor/insights/service-map.md) em [logs de Azure monitor](../azure-monitor/log-query/log-query-overview.md) para análise de dependência. 
 **Processo** | Captura dados de conexão TCP. Após a descoberta, ele coleta dados em intervalos de cinco minutos. | Mapa do Serviço agentes instalados em um computador coletam dados sobre processos TCP e conexões de entrada/saída para cada processo.
 **Dados** | Nome do servidor do computador de origem, processo, nome do aplicativo.<br/><br/> Nome do servidor do computador de destino, processo, nome do aplicativo e porta. | Nome do servidor do computador de origem, processo, nome do aplicativo.<br/><br/> Nome do servidor do computador de destino, processo, nome do aplicativo e porta.<br/><br/> Número de conexões, latência e informações de transferência de dados são coletadas e disponibilizadas para consultas de Log Analytics. 
 **Visualização** | O mapa de dependências de um único servidor pode ser exibido durante uma duração de uma hora a 30 dias. | Mapa de dependências de um único servidor.<br/><br/> Mapa de dependências de um grupo de servidores.<br/><br/>  O mapa pode ser exibido somente em uma hora.<br/><br/> Adicionar e remover servidores de um grupo da exibição de mapa.
@@ -87,5 +88,3 @@ Exportação de dados | Os últimos 30 dias de dados podem ser baixados em um fo
 - [Configure](how-to-create-group-machine-dependencies.md) a visualização de dependência baseada em agente.
 - [Experimente](how-to-create-group-machine-dependencies-agentless.md) a visualização de dependência sem agente para VMs VMware.
 - Examine as [perguntas comuns](common-questions-discovery-assessment.md#what-is-dependency-visualization) sobre a visualização de dependência.
-
-

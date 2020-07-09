@@ -3,12 +3,12 @@ title: Criptografia no backup do Azure
 description: Saiba mais sobre como os recursos de criptografia no backup do Azure ajudam a proteger seus dados de backup e atender às necessidades de segurança de sua empresa.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 0a3f4db4d248d2534cfebd617be0f3ccc9647f15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca570cfdc6e78e712715ba075168f4b06c55e4af
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807727"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116549"
 ---
 # <a name="encryption-in-azure-backup"></a>Criptografia no backup do Azure
 
@@ -32,6 +32,13 @@ Ao fazer backup de suas máquinas virtuais do Azure, agora você pode criptograf
 ## <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>Backup de VMs de disco gerenciado criptografadas usando chaves gerenciadas pelo cliente
 
 O backup do Azure também permite fazer backup de suas VMs do Azure que usam sua chave para a [criptografia do serviço de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). A chave usada para criptografar os discos é armazenada no Azure Key Vault e gerenciada por você. Criptografia do Serviço de Armazenamento (SSE) usando chaves gerenciadas pelo cliente difere de Azure Disk Encryption, já que o ADE aproveita o BitLocker (para Windows) e o DM-cript (para Linux) para executar a criptografia no convidado, a SSE criptografa os dados no serviço de armazenamento, permitindo que você use qualquer sistema operacional ou imagens para suas VMs. Consulte [criptografia de discos gerenciados com chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) para obter mais detalhes.
+
+## <a name="infrastructure-level-encryption-for-backup-data"></a>Criptografia no nível de infraestrutura para dados de backup
+
+Além de criptografar seus dados no cofre dos serviços de recuperação usando chaves gerenciadas pelo cliente, você também pode optar por ter uma camada adicional de criptografia configurada na infraestrutura de armazenamento. Essa criptografia de infraestrutura é gerenciada pela plataforma e, juntamente com a criptografia em repouso usando chaves gerenciadas pelo cliente, ela permite a criptografia de duas camadas de seus dados de backup. Deve-se observar que a criptografia de infraestrutura pode ser configurada apenas se você optar por usar suas próprias chaves para criptografia em repouso. A criptografia de infraestrutura usa chaves gerenciadas por plataforma para criptografar dados.
+
+>[!NOTE]
+>A criptografia de infraestrutura está atualmente em visualização limitada e está disponível apenas nas regiões leste dos EUA, US West2 e centro-sul dos EUA. Se você quiser usar o recurso em qualquer uma dessas regiões, preencha [este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) e envie-nos um email para [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 ## <a name="backup-of-vms-encrypted-using-ade"></a>Backup de VMs criptografadas usando ADE
 

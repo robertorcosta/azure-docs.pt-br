@@ -1,18 +1,14 @@
 ---
 title: Grade de eventos do Azure-logs de diagnóstico para tópicos ou domínios
 description: Este artigo fornece informações conceituais sobre os logs de diagnóstico para um tópico ou um domínio da grade de eventos do Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.author: spelluru
-ms.openlocfilehash: 93e7e47cbcc1ab9542ba333b89f7dd655a412489
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: c8f6734d9d43887d0eb0bb90bb08f727732feac3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82630246"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116736"
 ---
 #  <a name="diagnostic-logs-for-azure-event-grid-topicsdomains"></a>Logs de diagnóstico para tópicos/domínios da grade de eventos do Azure
 As configurações de diagnóstico permitem que os usuários da grade de eventos capturem e exibam logs de **falha de publicação e entrega** em uma conta de armazenamento, em um hub de eventos ou em um espaço de trabalho log Analytics. Este artigo fornece o esquema para os logs e um exemplo de entrada de log.

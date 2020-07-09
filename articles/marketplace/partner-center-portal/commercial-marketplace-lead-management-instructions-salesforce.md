@@ -1,17 +1,18 @@
 ---
 title: Gerenciamento de clientes potenciais no Salesforce – marketplace comercial da Microsoft
 description: Saiba como usar o Salesforce para configurar clientes potenciais para o Microsoft AppSource e o Azure Marketplace
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: 7fbe27845164eb7711d3531173fb440c5a3570f4
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: c3667de6a9bf85109a94201aa8e144869e4b033f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849121"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117108"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configurar o gerenciamento de clientes potenciais para o Salesforce
 

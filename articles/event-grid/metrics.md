@@ -1,18 +1,14 @@
 ---
 title: Métricas com suporte na grade de eventos do Azure
 description: Este artigo fornece Azure Monitor métricas com suporte no serviço de grade de eventos do Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.author: spelluru
-ms.openlocfilehash: 643df2f4cc6347e0fd56f9124b68f1888ab85e26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 3b22beafc9f88d2d95b25fd7ad2f2308a4df9097
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82630129"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116413"
 ---
 # <a name="metrics-supported-by-azure-event-grid"></a>Métricas com suporte na grade de eventos do Azure
 Este artigo fornece listas de métricas de grade de eventos que são categorizadas por namespaces. 
@@ -23,7 +19,7 @@ Este artigo fornece listas de métricas de grade de eventos que são categorizad
 |---|---|---|---|---|---|
 |PublishSuccessCount|Eventos publicados|Contagem|Total|Total de eventos publicados neste tópico|Tópico|
 |PublishFailCount|Publicar Eventos com Falha|Contagem|Total|Total de eventos com falha ao publicar neste tópico|Tópico, ErrorType, erro|
-|PublishSuccessLatencyInMs|Publicar Latência de Êxito|Milissegundos|Total|Latência de êxito de publicação em milissegundos|Não|
+|PublishSuccessLatencyInMs|Publicar Latência de Êxito|Milissegundos|Total|Latência de êxito de publicação em milissegundos|Nenhum|
 |MatchedEventCount|Eventos correspondentes|Contagem|Total|Total de eventos correspondentes a essa assinatura de evento|Tópico, EventSubscriptionName, DomainEventSubscriptionName|
 |DeliveryAttemptFailCount|Eventos com falha de entrega|Contagem|Total|Total de eventos não entregues a essa assinatura de evento|Tópico, EventSubscriptionName, DomainEventSubscriptionName, erro, ErrorType|
 |DeliverySuccessCount|Eventos entregues|Contagem|Total|Total de eventos entregues a essa assinatura de evento|Tópico, EventSubscriptionName, DomainEventSubscriptionName|
@@ -35,10 +31,10 @@ Este artigo fornece listas de métricas de grade de eventos que são categorizad
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|PublishSuccessCount|Eventos publicados|Contagem|Total|Total de eventos publicados neste tópico|Não|
+|PublishSuccessCount|Eventos publicados|Contagem|Total|Total de eventos publicados neste tópico|Nenhum|
 |PublishFailCount|Publicar Eventos com Falha|Contagem|Total|Total de eventos com falha ao publicar neste tópico|ErrorType, erro|
-|UnmatchedEventCount|Eventos sem correspondência|Contagem|Total|Total de eventos sem correspondência com nenhuma das assinaturas de evento para este tópico|Não|
-|PublishSuccessLatencyInMs|Publicar Latência de Êxito|Milissegundos|Total|Latência de êxito de publicação em milissegundos|Não|
+|UnmatchedEventCount|Eventos sem correspondência|Contagem|Total|Total de eventos sem correspondência com nenhuma das assinaturas de evento para este tópico|Nenhum|
+|PublishSuccessLatencyInMs|Publicar Latência de Êxito|Milissegundos|Total|Latência de êxito de publicação em milissegundos|Nenhum|
 |MatchedEventCount|Eventos correspondentes|Contagem|Total|Total de eventos correspondentes a essa assinatura de evento|EventSubscriptionName|
 |DeliveryAttemptFailCount|Eventos com falha de entrega|Contagem|Total|Total de eventos não entregues a essa assinatura de evento|Erro, ErrorType, EventSubscriptionName|
 |DeliverySuccessCount|Eventos entregues|Contagem|Total|Total de eventos entregues a essa assinatura de evento|EventSubscriptionName|
@@ -50,10 +46,10 @@ Este artigo fornece listas de métricas de grade de eventos que são categorizad
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|PublishSuccessCount|Eventos publicados|Contagem|Total|Total de eventos publicados neste tópico|Não|
+|PublishSuccessCount|Eventos publicados|Contagem|Total|Total de eventos publicados neste tópico|Nenhum|
 |PublishFailCount|Publicar Eventos com Falha|Contagem|Total|Total de eventos com falha ao publicar neste tópico|ErrorType, Error|
-|UnmatchedEventCount|Eventos sem correspondência|Contagem|Total|Total de eventos sem correspondência com nenhuma das assinaturas de evento para este tópico|Não|
-|PublishSuccessLatencyInMs|Publicar Latência de Êxito|Milissegundos|Total|Latência de êxito de publicação em milissegundos|Não|
+|UnmatchedEventCount|Eventos sem correspondência|Contagem|Total|Total de eventos sem correspondência com nenhuma das assinaturas de evento para este tópico|Nenhum|
+|PublishSuccessLatencyInMs|Publicar Latência de Êxito|Milissegundos|Total|Latência de êxito de publicação em milissegundos|Nenhum|
 |MatchedEventCount|Eventos correspondentes|Contagem|Total|Total de eventos correspondentes a essa assinatura de evento|EventSubscriptionName|
 |DeliveryAttemptFailCount|Eventos com falha de entrega|Contagem|Total|Total de eventos não entregues a essa assinatura de evento|Erro, ErrorType, EventSubscriptionName|
 |DeliverySuccessCount|Eventos entregues|Contagem|Total|Total de eventos entregues a essa assinatura de evento|EventSubscriptionName|
@@ -65,10 +61,10 @@ Este artigo fornece listas de métricas de grade de eventos que são categorizad
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|MatchedEventCount|Eventos correspondentes|Contagem|Total|Total de eventos correspondentes a essa assinatura de evento|Não|
+|MatchedEventCount|Eventos correspondentes|Contagem|Total|Total de eventos correspondentes a essa assinatura de evento|Nenhum|
 |DeliveryAttemptFailCount|Eventos com falha de entrega|Contagem|Total|Total de eventos não entregues a essa assinatura de evento|Error, ErrorType|
-|DeliverySuccessCount|Eventos entregues|Contagem|Total|Total de eventos entregues a essa assinatura de evento|Não|
-|DestinationProcessingDurationInMs|Duração do processamento de destino|Milissegundos|Média|Duração do processamento de destino em milissegundos|Não|
+|DeliverySuccessCount|Eventos entregues|Contagem|Total|Total de eventos entregues a essa assinatura de evento|Nenhum|
+|DestinationProcessingDurationInMs|Duração do processamento de destino|Milissegundos|Média|Duração do processamento de destino em milissegundos|Nenhum|
 |DroppedEventCount|Eventos removidos|Contagem|Total|Total de eventos removidos correspondentes a essa assinatura de evento|DropReason|
 |DeadLetteredCount|Eventos de mensagens mortas|Contagem|Total|Total de eventos de mensagens mortas correspondentes a essa assinatura de evento|DeadLetterReason|
 
@@ -76,10 +72,10 @@ Este artigo fornece listas de métricas de grade de eventos que são categorizad
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|PublishSuccessCount|Eventos publicados|Contagem|Total|Total de eventos publicados neste tópico|Não|
+|PublishSuccessCount|Eventos publicados|Contagem|Total|Total de eventos publicados neste tópico|Nenhum|
 |PublishFailCount|Publicar Eventos com Falha|Contagem|Total|Total de eventos com falha ao publicar neste tópico|ErrorType, Error|
-|UnmatchedEventCount|Eventos sem correspondência|Contagem|Total|Total de eventos sem correspondência com nenhuma das assinaturas de evento para este tópico|Não|
-|PublishSuccessLatencyInMs|Publicar Latência de Êxito|Milissegundos|Total|Latência de êxito de publicação em milissegundos|Não|
+|UnmatchedEventCount|Eventos sem correspondência|Contagem|Total|Total de eventos sem correspondência com nenhuma das assinaturas de evento para este tópico|Nenhum|
+|PublishSuccessLatencyInMs|Publicar Latência de Êxito|Milissegundos|Total|Latência de êxito de publicação em milissegundos|Nenhum|
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte o seguinte artigo: [logs de diagnóstico](diagnostic-logs.md)

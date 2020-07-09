@@ -1,17 +1,14 @@
 ---
 title: Integração como um parceiro de Grade de Eventos do Azure
 description: Integração como um tipo de tópico de parceiro de grade de eventos do Azure. Entenda o modelo de recurso e o fluxo de publicação para tópicos de parceiros.
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.author: femila
-ms.openlocfilehash: 47576feb7f3e4f2794aa06d52b4f5504c633ce96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 8003e3e6a28b0e6a05d553be01c171029e244d74
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560321"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116107"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner"></a>Integração como um parceiro de Grade de Eventos do Azure
 

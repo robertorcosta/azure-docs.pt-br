@@ -4,12 +4,12 @@ description: Como criar um pool de lotes em uma rede virtual do Azure para que o
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3ff8995217521199436e0924acc691dab7c4baef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22344b5466b0388921a481b1adf41495d66dbfe0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506577"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115404"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar um pool do Lote do Azure em uma rede virtual
 
@@ -62,7 +62,7 @@ Quando você adicionar uma UDR, defina a rota para cada prefixo de endereço IP 
 ![Rota definida pelo usuário](./media/batch-virtual-network/user-defined-route.png)
 
 > [!WARNING]
-> Os endereços IP do serviço de lote podem mudar ao longo do tempo. Para evitar interrupções devido a uma alteração de endereço IP, crie um processo para atualizar os endereços IP do serviço de lote automaticamente e mantenha-os atualizados na tabela de rotas. Como alternativa, você pode [criar um pool com os endereços IP especificados que você controla](create-pool-public-ip.md).
+> Os endereços IP do serviço de lote podem mudar ao longo do tempo. Para evitar interrupções devido a uma alteração de endereço IP, crie um processo para atualizar os endereços IP do serviço de lote automaticamente e mantenha-os atualizados na tabela de rotas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

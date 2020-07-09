@@ -3,11 +3,12 @@ title: Descobrir aplicativos, funções e recursos em servidores locais com as m
 description: Saiba como descobrir aplicativos, funções e recursos em servidores locais com a avaliação de servidor de migrações para Azure.
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: ae00e390bb49f3a54f7f7ce7d6491cf7ee882491
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 535c8ae8c2d6e5d9d175e663a58d47dc76aa0529
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770502"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118640"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Descobrir aplicativos, funções e recursos de computador
 
@@ -79,4 +80,4 @@ O inventário de aplicativos é exportado e baixado no formato do Excel. A folha
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Crie uma avaliação](how-to-create-assessment.md) para servidores descobertos.
-- Avaliar SQL Server bancos de dados usando as [migrações para Azure: avaliação de banco de dados](https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017).
+- Avaliar SQL Server bancos de dados usando as [migrações para Azure: avaliação de banco de dados](/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017).
