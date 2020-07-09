@@ -1,18 +1,18 @@
 ---
 title: Políticas e termos do Marketplace comercial | Azure
 description: As políticas e os termos do Microsoft Commercial Marketplace se aplicam a todos os Publicadores e ofertas no Microsoft Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 06/26/2020
-ms.author: dsindona
-ms.openlocfilehash: 093348d8eeb5d83831ec0bedd8c542f1a2d5a064
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ffa6762d03b0ef189edf9887cfdf0fdd8788ef2d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482591"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121037"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Políticas e termos do marketplace comercial
 

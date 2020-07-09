@@ -1,17 +1,18 @@
 ---
 title: Publicar uma solução integrada - marketplace comercial da Microsoft
 description: Saiba mais sobre os requisitos e as etapas de publicação de soluções integradas para Microsoft AppSource e o Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 04/16/2020
-ms.author: dsindona
-ms.openlocfilehash: a2bce05288d0085306a59f3ff5ee62939941bbaf
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: a1fcaced7783d09f1733fbee8744ba725b639a02
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800609"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119524"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicar uma solução integrada
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-ms.openlocfilehash: bb23484903ac3ce129c6e7a7a27e0765c227fb1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc77f3267813bd049274f44e43c4d64b0eb3801e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68297780"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120272"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Ajuste de desempenho de TCP/IP para VMs do Azure
 
@@ -136,7 +136,7 @@ Esta tabela mostra a distância de linha reta entre dois locais. Em redes, a dis
 
 `minimum RTT = 2 * (Distance in kilometers / Speed of propagation)`
 
-Você pode usar 200 para a velocidade de propagação. Essa é a distância, em metros, que a luz viaja em 1 milissegundo.
+Você pode usar 200 para a velocidade de propagação. Essa é a distância, em quilômetros, que a luz viaja em 1 milissegundo.
 
 Vamos pegar uma Nova York a San Francisco como exemplo. A distância de linha reta é de 4.148 km. Ao conectar esse valor à equação, obtemos o seguinte:
 
@@ -359,7 +359,7 @@ NTttcp é uma ferramenta para testar o desempenho de TCP de uma VM Linux ou Wind
 
 Você pode testar o desempenho de diferentes tipos de VM, rede acelerada e assim por diante, usando uma ferramenta chamada iPerf. o iPerf também está disponível no Linux e no Windows. iPerf pode usar TCP ou UDP para testar a taxa de transferência geral da rede. os testes de taxa de transferência TCP do iPerf são influenciados pelos fatores discutidos neste artigo (como latência e RTT). Portanto, o UDP poderá produzir resultados melhores se você quiser apenas testar a taxa de transferência máxima.
 
-Para obter mais informações, consulte estes artigos:
+Para obter mais informações, confira estes tópicos:
 
 - [Solucionando problemas de desempenho de rede do Expressroute](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
 

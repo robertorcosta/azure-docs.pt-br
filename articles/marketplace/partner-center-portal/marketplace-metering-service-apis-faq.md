@@ -1,18 +1,16 @@
 ---
 title: Perguntas frequentes sobre APIs de serviço de medição-Microsoft Commercial Marketplace
 description: Perguntas frequentes sobre as APIs de serviço de medição para ofertas de SaaS no Microsoft AppSource e no Azure Marketplace.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 361e35aea90a9817e365d66014faf5f23433c1dc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: bdd540ad6c7ef1954936e4fb74bade2458e50927
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964780"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120782"
 ---
 # <a name="marketplace-metered-billing-apis---faq"></a>APIs de cobrança limitada do Marketplace-perguntas frequentes
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
-ms.openlocfilehash: 200a6ba333d283b6a82f1eb228a0fc586b5b1fab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4d2e810144e7c3d36545cb1e965aec40980c1d2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85566951"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118810"
 ---
 # <a name="avs-assessments-in-azure-migrate-server-assessment"></a>Avaliações da AVS nas migrações para Azure: avaliação do servidor
 
@@ -29,7 +29,7 @@ As avaliações criadas com a avaliação do servidor são um instantâneo de da
 **Tipo de avaliação** | **Detalhes**
 --- | --- 
 **VM do Azure** | Avaliações para migrar seus servidores locais para máquinas virtuais do Azure. <br/><br/> Você pode avaliar suas [VMs VMware](how-to-set-up-appliance-vmware.md)locais, VMS do [Hyper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para o Azure usando esse tipo de avaliação. [Saiba mais](concepts-assessment-calculation.md)
-**AVS (Solução VMware no Azure)** | Avaliações para migrar seus servidores locais para a [solução VMware do Azure (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Você pode avaliar suas [VMs do VMware](how-to-set-up-appliance-vmware.md) locais para migração para a solução VMware do Azure (AVS) usando esse tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+**AVS (Solução VMware no Azure)** | Avaliações para migrar seus servidores locais para a [solução VMware do Azure (AVS)](../azure-vmware/introduction.md). <br/><br/> Você pode avaliar suas [VMs do VMware](how-to-set-up-appliance-vmware.md) locais para migração para a solução VMware do Azure (AVS) usando esse tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
 A avaliação da solução de VMware Azure (AVS) na avaliação do servidor fornece duas opções de critérios de dimensionamento:
 
@@ -121,7 +121,7 @@ Aqui estão as novidades incluídas em uma avaliação de AVS na avaliação do 
 | **Local de destino** | Especifica o local da nuvem privada AVS para o qual você deseja migrar.<br/><br/> A avaliação da AVS na avaliação do servidor atualmente dá suporte a estas regiões de destino: leste dos EUA, Europa Ocidental, oeste dos EUA. 
 | **Tipo de armazenamento** | Especifica o mecanismo de armazenamento a ser usado na AVS.<br/><br/> As avaliações da AVS dão suporte apenas a vSAN como um tipo de armazenamento padrão. 
 **Instâncias reservadas (RIs)** | Essa propriedade ajuda a especificar instâncias reservadas no AVS. Atualmente, não há suporte para RIs em nós de AVS. 
-**Tipo de nó** | Especifica o [tipo de nó AVS](https://docs.microsoft.com/azure/azure-vmware/concepts-private-clouds-clusters) usado para mapear as VMs locais. O tipo de nó padrão é AV36. <br/><br/> As migrações para Azure recomendarão um número necessário de nós para que as VMs sejam migradas para a AVS. 
+**Tipo de nó** | Especifica o [tipo de nó AVS](../azure-vmware/concepts-private-clouds-clusters.md) usado para mapear as VMs locais. O tipo de nó padrão é AV36. <br/><br/> As migrações para Azure recomendarão um número necessário de nós para que as VMs sejam migradas para a AVS. 
 **Configuração de FTT, nível de RAID** | Especifica a falha aplicável a tolerar e combinações de RAID. A opção FTT selecionada combinada com o requisito de disco de VM local determinará o armazenamento total do vSAN necessário na AVS. 
 **Critério de dimensionamento** | Define os critérios a serem usados para as VMs de *tamanho correto* para a AVS. Você pode optar pelo dimensionamento *baseado em desempenho* ou *como local* sem considerar o histórico de desempenho. 
 **Histórico de desempenho** | Define a duração a ser considerada na avaliação dos dados de desempenho dos computadores. Essa propriedade é aplicável somente quando os critérios de dimensionamento são *baseados em desempenho*. 
@@ -249,14 +249,14 @@ Depois que as recomendações de dimensionamento forem concluídas, as migraçõ
 - Ele agrega o custo em todos os nós para calcular o custo mensal total.
 - Os custos são exibidos na moeda especificada nas configurações de avaliação.
 
-Como o preço da solução do Azure VMware (AVS) é por nó, o custo total não tem custo de computação e distribuição de custo de armazenamento. [Saiba mais](https://docs.microsoft.com/azure/azure-vmware/introduction)
+Como o preço da solução do Azure VMware (AVS) é por nó, o custo total não tem custo de computação e distribuição de custo de armazenamento. [Saiba mais](../azure-vmware/introduction.md)
 
 Observe que, como a solução do Azure VMware (AVS) está em versão prévia, os preços do nó na avaliação são os preços da versão prévia. Entre em contato com sua equipe local do MSFT AVS GBB para obter diretrizes.
 
 ## <a name="migration-tool-guidance"></a>Diretrizes da ferramenta de migração
 
 No relatório de preparação do Azure para a avaliação da solução VMware do Azure (AVS), você pode ver as seguintes ferramentas sugeridas: 
-- **VMware HCX ou Enterprise**: para máquinas VMware, a solução de HCX (extensão de nuvem híbrida) do VMware é a ferramenta de migração sugerida para migrar sua carga de trabalho local para sua nuvem privada da AVS (solução VMware) do Azure. [Saiba mais](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+- **VMware HCX ou Enterprise**: para máquinas VMware, a solução de HCX (extensão de nuvem híbrida) do VMware é a ferramenta de migração sugerida para migrar sua carga de trabalho local para sua nuvem privada da AVS (solução VMware) do Azure. [Saiba mais](../azure-vmware/hybrid-cloud-extension-installation.md).
 - **Desconhecido**: para computadores importados por meio de um arquivo CSV, a ferramenta de migração padrão é desconhecida. No entanto, para máquinas VMware, é recomendável usar a solução de HCX (extensão de nuvem híbrida) do VMWare.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -5,14 +5,14 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2018
-ms.openlocfilehash: ba0311da88f1fe0cbc0bf885197785db10b1bac2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d389c433cb8a049671668cb58b3d80691ff0d16
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564845"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121428"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acessando os logs de diagnóstico do Azure Data Lake Analytics
 
@@ -128,7 +128,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 
 #### <a name="request-log-schema"></a>Esquema do log de solicitação
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | time |String |O carimbo de data/hora (em UTC) do log |
 | resourceId |String |O identificador do recurso em que a operação ocorreu |
@@ -142,7 +142,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades do log de solicitação
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | HttpMethod |String |O método HTTP usado para a operação. Por exemplo, GET. |
 | Caminho |String |O caminho em que a operação foi executada |
@@ -178,7 +178,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### <a name="audit-log-schema"></a>Esquema do log de auditoria
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | time |String |O carimbo de data/hora (em UTC) do log |
 | resourceId |String |O identificador do recurso em que a operação ocorreu |
@@ -196,7 +196,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades do log de auditoria
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | JobId |String |A ID atribuída ao trabalho |
 | JobName |String |O nome fornecido para o trabalho |

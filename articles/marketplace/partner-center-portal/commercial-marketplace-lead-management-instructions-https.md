@@ -1,17 +1,18 @@
 ---
 title: Gerenciamento de clientes potenciais com um ponto de extremidade HTTPS - marketplace comercial da Microsoft
 description: Saiba como usar o Power Automate e um ponto de extremidade HTTPS para gerenciar clientes potenciais no Microsoft AppSource e no Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: a2be74f6c9178577f86e5522e37e7c210643dd07
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 3cdbe1f3428418f082d53febca950a6a443fe5ff
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847799"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120357"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Use um ponto de extremidade HTTPS para gerenciar clientes potenciais do marketplace comercial
 

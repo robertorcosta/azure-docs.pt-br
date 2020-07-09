@@ -1,18 +1,18 @@
 ---
 title: Requisitos de listagem de serviço e oferta do Azure Marketplace
 description: Este artigo explica os requisitos e as diretrizes para listar novas ofertas e serviços no Azure Marketplace.
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 06/22/2020
-ms.author: dsindona
-ms.openlocfilehash: 6c95f510ce83f924a58b0844285f4142131db3eb
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 2b0954941ba6b6b7ce3697889305dc5bbd299590
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027130"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119371"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Diretrizes de listagem do Azure Marketplace
 
@@ -28,7 +28,7 @@ Requisitos e listas de verificação adicionais são fornecidos para tipos de li
 
 ## <a name="listing-requirements-for-all-offers"></a>Requisitos de listagem para todas as ofertas
 
-|  | Elemento de listagem | Requisito base | Requisitos ideais |
+| Número | Elemento de listagem | Requisito base | Requisito ideal |
 |:--- |:--- |:--- |:--- |
 | 1 | Destino do cliente potencial | Tem um destino do cliente potencial configurado.| O catálogo OCP (único parceiro comercial) tem as informações do CRM de destino do lead que também estão listadas na guia solução de parceiro. | 
 | 2 | Título da oferta | Descreve brevemente a oferta da solução. Corresponde à promoção online da solução no site do parceiro. | Contém palavras-chave de pesquisa. |
@@ -47,15 +47,15 @@ Requisitos e listas de verificação adicionais são fornecidos para tipos de li
 
 ## <a name="trial-offer-requirements"></a>Requisitos da oferta de avaliação gratuita
 
-|  | Elemento de listagem | Requisito base | Requisitos ideais | 
+| Número | Elemento de listagem | Requisito base | Requisitos ideais | 
 |:--- |:--- |:--- |:--- |
-|  | Listar status (chamada para ação) | O link deve levar à experiência de *avaliação gratuita* conduzida pelo cliente. | Outras chamadas para ação (por exemplo, *Compre agora*) também estão disponíveis. | 
+| 1 | Listar status (chamada para ação) | O link deve levar à experiência de *avaliação gratuita* conduzida pelo cliente. | Outras chamadas para ação (por exemplo, *Compre agora*) também estão disponíveis. | 
 
 ---
 
 ## <a name="saas-application-requirements"></a>Requisitos do aplicativo SaaS
 
-|  | Elemento de listagem | Requisito base | Requisito ideal | 
+| Número | Elemento de listagem | Requisito base | Requisito ideal | 
 |:--- |:--- |:--- |:--- |
 | 1 | Título da oferta |<ul><li>Precisa conter somente letras minúsculas, caracteres alfanuméricos, traços ou sublinhados. O título não pode ser modificado depois de ser publicado.</li><li>Descreve a oferta da solução.</li><li>Corresponde à promoção online da solução no site do parceiro. | Contém palavras-chave de pesquisa. |
 | 2 | Informações técnicas: Configuração |<ul><li>Para um aplicativo SaaS (software como serviço), escolha se você quer apenas listar seu aplicativo ou se deseja permitir que os clientes comprem seu aplicativo por meio do Azure.</li><li>Selecione o texto que você deseja no botão de aquisição da oferta: *gratuito*, *avaliação gratuita* ou *entre em contato comigo*.</li><li>Na janela pop-up, selecione apenas um produto aplicável se seu aplicativo utiliza a tecnologia: Cortana Intelligence, Power BI Solution Templates ou Power Apps. |  |
@@ -73,7 +73,7 @@ Requisitos e listas de verificação adicionais são fornecidos para tipos de li
 
 ## <a name="container-offer-requirements"></a>Requisitos da oferta de contêiner
 
-|  | Elemento de listagem | Requisito base | Requisito ideal | 
+| Número | Elemento de listagem | Requisito base | Requisito ideal | 
 |:--- |:--- |:--- |:--- |
 |1 |Configurações da oferta | <ul><li>ID da Oferta: Máx. 50 caracteres.</li><li>ID do Editor: Selecione na lista suspensa.</li><li>Nome: Máx. 50 caracteres. | Espelha o estilo de título já disponível na descrição. Evite usar títulos longos. | 
 | 2 | SKUs | O parceiro seleciona novas SKUs.| O título espelha o estilo de título já disponível na descrição. Evite usar títulos longos.  |
@@ -84,7 +84,7 @@ Requisitos e listas de verificação adicionais são fornecidos para tipos de li
 
 ## <a name="consulting-offer-requirements"></a>Requisitos da oferta de consultoria
 
-|  | Elemento de listagem | Requisito base | Requisito ideal |
+| Número | Elemento de listagem | Requisito base | Requisito ideal |
 |:--- |:--- |:--- |:--- |
 | 1 | Título da oferta  |  Precisa listar claramente o tipo e a duração do serviço no formato *Nome: Tipo de duração* (por exemplo, "envolvimento da oferta: Prova de conceito de 1 semana”).  | <ul><li>Não repete o nome do editor.</li><li>O título espelha o estilo de título já disponível na descrição. Evite usar títulos longos. | 
 | 2 | Descrição da oferta  |<ul><li>Garanta o uso adequado dos [nomes de produtos da Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx).</li><li>Ofertas marcadas como *Preço: Estimado* devem ter uma anotação na parte superior ou inferior para explicar a variabilidade (viagem até o cliente, número de servidores que estão sendo migrados e assim por diante).</li><li>Cada tipo de oferta tem os requisitos de descrição a seguir: <ul><li>Os resumos precisam de pelo menos quatro ou cinco marcadores, com informações sobre tópicos a serem abordados.</li><li>Todos os workshops precisam de uma agenda.</li><li>Todas as agendas precisam ser divididas por dia ou semana, dependendo da duração do workshop.</li><li>As ofertas de implementação de avaliação, prova de conceito, workshops sem treinamento precisam de produtos finais.</li><li>Os workshops de treinamento não precisam de produtos finais, mas necessitam de uma agenda detalhada com os tópicos que serão abordados.</li></ul></ul> | <ul><li>Toda oferta tem agenda e produtos finais.</li><li>Na seção superior, a oferta inclui um parágrafo com contexto sobre a empresa que presta o serviço.</li><li>A oferta inclui um parágrafo sobre o valor do próprio serviço como uma seção superior. |
@@ -94,7 +94,7 @@ Requisitos e listas de verificação adicionais são fornecidos para tipos de li
 | 6 | Suporte e ajuda da solução  | Suporte e ajuda não são necessários.  | | 
 | 7 | Política de privacidade e termos de uso disponíveis  |  As políticas ou termos não são necessários.  | | 
 | 8 | Tipos de serviços | Verifique se o tipo de serviço corresponde ao título. | |
-| 9 | Competências | Você deve ter competência em pelo menos um dos seguintes itens:<ul><li>Desenvolvimento de aplicativo</li><li>Integração de Aplicativo</li><li>Gerenciamento do ciclo de vida de aplicativos</li><li>Plataforma de Nuvem<li>Análise de Dados</li><li>Data Center</li><li>Plataforma de dados</li><li>DevOps |
+| 9 | Competências | Você deve ter competência em pelo menos um dos seguintes itens:<ul><li>Desenvolvimento de aplicativo</li><li>Integração de Aplicativo</li><li>Gerenciamento do Ciclo de Vida do Aplicativo</li><li>Plataforma de Nuvem<li>Análise de Dados</li><li>Data Center</li><li>Plataforma de dados</li><li>DevOps |
 | 10 | Produtos | Devem ser produtos do Azure. | |
 | 11 | País/Região | Verifique se o país/região corresponde à moeda selecionada. | |
 | 12 | Saiba mais  | <ul><li>Os links na parte inferior (na descrição, não os links do Azure Marketplace à esquerda) conduzem a mais informações sobre a solução, estão disponíveis ao público e estão sendo exibidos corretamente.</li><li>Os links precisam ter um “nome amigável” e não estão sendo exibidos como o nome do arquivo de qualquer um dos downloads. | |

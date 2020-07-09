@@ -1,18 +1,14 @@
 ---
 title: Tópicos do sistema na grade de eventos do Azure
 description: Descreve os tópicos do sistema na grade de eventos do Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.author: spelluru
-ms.openlocfilehash: 190c6ccb13a0853913c96ac5d2d3f5faf4594433
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 655ec5f0ad23b3902c1c99ba75eef2ef428911eb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887906"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119915"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Tópicos do sistema na grade de eventos do Azure
 Um tópico do sistema na grade de eventos representa um ou mais eventos publicados pelos serviços do Azure, como o armazenamento do Azure e os hubs de eventos do Azure. Por exemplo, um tópico do sistema pode representar **todos os eventos de blob** ou apenas **BLOBs criados** e eventos **excluídos de blob** publicados para uma **conta de armazenamento específica**. Neste exemplo, quando um blob é carregado na conta de armazenamento, o serviço de armazenamento do Azure publica um evento de **blob criado** no tópico sistema na grade de eventos, que, em seguida, encaminha o evento para os [assinantes](event-handlers.md) do tópico que recebem e processam o evento. 

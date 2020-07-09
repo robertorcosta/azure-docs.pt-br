@@ -1,18 +1,16 @@
 ---
 title: APIs de serviço de medição – Marketplace comercial da Microsoft
 description: A API de evento de uso permite emitir eventos de uso para ofertas de SaaS no Microsoft AppSource e no Azure Marketplace.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 7bc5dc0e21bc9218c0e67b4e8e96299d73628e97
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 8a6636b0fc6c3e67ec171d738efb3fd8a93de30c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963165"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120765"
 ---
 # <a name="marketplace-metered-billing-apis"></a>APIs de cobrança limitada do Marketplace
 

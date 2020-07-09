@@ -1,17 +1,18 @@
 ---
 title: Gerenciamento de clientes potenciais com o armazenamento de tabela do Azure - Marketplace comercial do Azure
 description: Saiba como usar o armazenamento de tabela do Azure para configurar clientes potenciais para o Microsoft AppSource e o Azure Marketplace
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: fb53b0fe28f48f5f240e470aa5256ac1c277686e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 485da8549175af8813a9d0c3052d1e77f336e619
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957334"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120833"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Usar o armazenamento de tabela do Azure para gerenciar clientes potenciais do Marketplace comercial
 

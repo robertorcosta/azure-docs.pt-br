@@ -1,17 +1,14 @@
 ---
 title: Definir alertas para as métricas da grade de eventos do Azure e operações de log de atividades
 description: Este artigo descreve como criar alertas em operações de log de atividades e métricas da grade de eventos do Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.author: spelluru
-ms.openlocfilehash: 1a2eacb5fa03ea2a5a8ba2d38d9b3e7dea315890
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 615ebef749be49822a09470eb0d47d8eb31b9a5a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412831"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119133"
 ---
 # <a name="set-alerts-on-azure-event-grid-metrics-and-activity-logs"></a>Definir alertas em logs de atividades e métricas da grade de eventos do Azure
 Este artigo descreve como criar alertas em operações de log de atividades e métricas da grade de eventos do Azure. Você pode criar alertas em métricas de publicação e de entrega para recursos da grade de eventos do Azure (tópicos e domínios). Para tópicos do sistema, [crie alertas usando a página **métricas** ](#create-alerts-using-the-metrics-page).

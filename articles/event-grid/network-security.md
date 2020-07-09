@@ -1,18 +1,16 @@
 ---
 title: Segurança de rede para recursos da grade de eventos do Azure
 description: Este artigo descreve como configurar o acesso de pontos de extremidade privados
-services: event-grid
 author: VidyaKukke
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: f3b3877ae3278e12eec43843dbed6ac686227860
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1887b6b5919a8b0f6e8f570b2471d74d9541df31
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414242"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119235"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Segurança de rede para recursos da grade de eventos do Azure
 Este artigo descreve como usar os seguintes recursos de segurança com a grade de eventos do Azure: 
@@ -59,7 +57,7 @@ Quando você cria um ponto de extremidade privado, o registro DNS CNAME do recur
 
 Quando você resolve o tópico ou a URL do ponto de extremidade do domínio de fora da VNet com o ponto de extremidade privado, ele é resolvido para o ponto de extremidade público do serviço. Os registros de recurso DNS para ' Topica ', quando resolvidos de **fora da VNet** que hospeda o ponto de extremidade privado, serão:
 
-| Nome                                          | Tipo      | Valor                                         |
+| Nome                                          | Type      | Valor                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager profile\>
@@ -68,7 +66,7 @@ Você pode negar ou controlar o acesso de um cliente fora da VNet por meio do po
 
 Quando resolvido da VNet que hospeda o ponto de extremidade privado, o tópico ou a URL do ponto de extremidade do domínio é resolvido para o endereço IP do ponto de extremidade privado. Os registros de recurso DNS para o tópico ' Topica ', quando resolvidos de **dentro da VNet** que hospeda o ponto de extremidade privado, serão:
 
-| Nome                                          | Tipo      | Valor                                         |
+| Nome                                          | Type      | Valor                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | Um         | 10.0.0.5

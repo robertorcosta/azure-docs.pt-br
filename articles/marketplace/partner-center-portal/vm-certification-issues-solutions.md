@@ -1,18 +1,18 @@
 ---
 title: Certificação de máquina virtual – problemas e soluções
 description: Este artigo explica mensagens de erro comuns para imagens de VM. Ele também aborda soluções relacionadas
-author: v-miegge
-ms.author: v-krmall
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
+author: v-miegge
+ms.author: v-krmall
 ms.date: 06/16/2020
-ms.openlocfilehash: 71577a52ed1b528bc330d4c8e1f4c34ab6e1d81f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e73ff612aa07016f69c717a74678d5d1923e87b8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087037"
+ms.locfileid: "86120646"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemas e soluções durante a certificação de máquina virtual 
 
@@ -43,7 +43,7 @@ Para habilitar as extensões de VM, faça o seguinte:
 1. Selecione sua VM do Linux.
 1. Vá para **configurações de diagnóstico**.
 1. Habilite matrizes base atualizando a **conta de armazenamento**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
    ![Habilitar o monitoramento no nível do convidado](./media/vm-certification-issues-solutions-1.png)
 

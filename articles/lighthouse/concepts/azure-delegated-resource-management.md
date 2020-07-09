@@ -1,17 +1,18 @@
 ---
 title: Gerenciamento de recursos delegados do Azure
-description: As ofertas de serviços gerenciados permitem que os provedores de serviços vendam ofertas de gerenciamento de recursos a clientes no Azure Marketplace.
+description: O gerenciamento de recursos delegado do Azure é uma parte fundamental do Azure Lighthouse, permitindo que os provedores de serviços gerenciem recursos delegados em escala com agilidade e precisão.
 ms.date: 05/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: e6f741ccbf0d52e0859722aa304aa6c273fb5acf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbe3c28cdcd252755b8350eaa5d2e72044981174
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84219083"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120884"
 ---
 # <a name="azure-delegated-resource-management"></a>Gerenciamento de recursos delegados do Azure
 
-O gerenciamento de recursos delegados do Azure é um dos principais componentes do Azure Lighthouse. Com o gerenciamento de recursos delegados do Azure, os provedores de serviços podem simplificar as experiências de envolvimento e de integração do cliente e gerenciar recursos delegados em escala com agilidade e precisão.
+O gerenciamento de recursos delegado do Azure é um dos principais componentes do [Azure Lighthouse](../overview.md). Com o gerenciamento de recursos delegados do Azure, os provedores de serviços podem simplificar as experiências de envolvimento e de integração do cliente e gerenciar recursos delegados em escala com agilidade e precisão.
 
 ## <a name="what-is-azure-delegated-resource-management"></a>O que é gerenciamento de recursos delegados do Azure?
 
@@ -24,7 +25,7 @@ Com o gerenciamento de recursos delegados do Azure, os usuários autorizados pod
 
 A [experiência de gerenciamento entre locatários](cross-tenant-management-experience.md) ajuda você a trabalhar de maneira mais eficiente com os serviços de gerenciamento do Azure, como o Azure Policy, a Central de Segurança do Azure e muito mais. Todas as atividades do provedor de serviços são controladas no log de atividades, que é armazenado no locatário do cliente (e pode ser exibido por usuários no locatário de gerenciamento). Isso significa que o cliente e o provedor de serviços podem identificar facilmente o usuário associado a alterações.
 
-Quando você integrar um cliente ao gerenciamento de recursos delegado do Azure, ele terá acesso à nova página **provedores de serviços** na portal do Azure, onde poderá [confirmar e gerenciar suas ofertas, provedores de serviços e recursos delegados](../how-to/view-manage-service-providers.md). Se o cliente desejar revogar o acesso para um provedor de serviços, ele poderá fazer isso aqui a qualquer momento.
+Quando você integra um cliente ao gerenciamento de recursos delegado do Azure, ele terá acesso à página **provedores de serviços** na portal do Azure, onde poderá [confirmar e gerenciar suas ofertas, provedores de serviços e recursos delegados](../how-to/view-manage-service-providers.md). Se o cliente desejar revogar o acesso para um provedor de serviços, ele poderá fazer isso aqui a qualquer momento.
 
 Você pode [publicar o novo tipo de oferta de serviço gerenciado no Azure Marketplace](../how-to/publish-managed-services-offers.md) para integrar facilmente os clientes ao gerenciamento de recursos delegado do Azure. Ou será possível [concluir o processo de integração implantando modelos do Azure Resource Manager](../how-to/onboard-customer.md).
 

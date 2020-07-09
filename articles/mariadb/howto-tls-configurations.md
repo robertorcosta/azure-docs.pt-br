@@ -4,14 +4,14 @@ description: Saiba como definir a configuração de TLS usando portal do Azure p
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: 9ebaca8720eb923c2373c45ac605146bbcdbc4a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fac719daf05e8b319db7c86d0dbc61c2814b0a0c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847995"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120340"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-mariadb-using-azure-portal"></a>Definindo configurações de TLS no banco de dados do Azure para MariaDB usando portal do Azure
 

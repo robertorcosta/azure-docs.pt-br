@@ -1,17 +1,18 @@
 ---
 title: Gerenciamento de clientes potenciais no Marketo – Marketplace comercial da Microsoft
 description: Saiba como usar o sistema de CRM Marketo para gerenciar clientes potenciais do Microsoft AppSource e do Azure Marketplace.
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.openlocfilehash: f1db7cc34a77c342a3d11e4b509d45a745a200db
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: be1f21f927b01d66e19dc5e97b38e5c35e6664cb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849163"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120255"
 ---
 # <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Use o Marketo para gerenciar clientes potenciais do marketplace comercial
 

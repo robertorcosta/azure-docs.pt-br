@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: e5e55e3bfa5d30c74041b834483bc78875e7ce05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61afc3ec0f37f5d8b1030818d21b7daabb7fce40
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611366"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121666"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Solucionar problemas de visualização de avaliação/dependência
 
@@ -36,10 +36,10 @@ Requer uma assinatura Microsoft Visual Studio | O computador está executando um
 VM não encontrada para o desempenho de armazenamento necessário | O desempenho de armazenamento (operações de entrada/saída por segundo [IOPS] e taxa de transferência) necessários para o computador excede o suporte à VM do Azure. Reduza os requisitos de armazenamento para a máquina antes da migração.
 VM não encontrada para o desempenho de rede necessário | O desempenho de rede (entrada/saída) necessário para a máquina excede o suporte de VM do Azure. Reduza os requisitos de rede para a máquina.
 VM não encontrada no local especificado | Use um local de destino diferente antes da migração.
-Um ou mais discos inadequados | Um ou mais discos anexados à VM não atendem aos requisitos do Azure. Um<br/><br/> Migrações para Azure: a avaliação do servidor atualmente não dá suporte a discos SSD Ultra e avalia os discos com base nos limites de disco para discos gerenciados Premium (32 TB).<br/><br/> Para cada disco anexado à VM, verifique se o tamanho do disco é < 64 TB (com suporte de discos SSD Ultra).<br/><br/> Se não estiver, reduza o tamanho do disco antes de migrar para o Azure, ou use vários discos no Azure e distribua [-os juntos](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) para obter limites de armazenamento maiores. Certifique-se de que o desempenho (IOPS e taxa de transferência) necessário para cada disco tem suporte dos [discos de máquina virtual gerenciada](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#storage-limits)pelo Azure.
+Um ou mais discos inadequados | Um ou mais discos anexados à VM não atendem aos requisitos do Azure. Um<br/><br/> Migrações para Azure: a avaliação do servidor atualmente não dá suporte a discos SSD Ultra e avalia os discos com base nos limites de disco para discos gerenciados Premium (32 TB).<br/><br/> Para cada disco anexado à VM, verifique se o tamanho do disco é < 64 TB (com suporte de discos SSD Ultra).<br/><br/> Se não estiver, reduza o tamanho do disco antes de migrar para o Azure, ou use vários discos no Azure e distribua [-os juntos](../virtual-machines/windows/premium-storage-performance.md#disk-striping) para obter limites de armazenamento maiores. Certifique-se de que o desempenho (IOPS e taxa de transferência) necessário para cada disco tem suporte dos [discos de máquina virtual gerenciada](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)pelo Azure.
 Um ou mais adaptadores de rede inadequados. | Remova os adaptadores de rede não utilizados do computador antes da migração.
 A contagem de disco excede o limite | Remova os discos não utilizados do computador antes da migração.
-O tamanho do disco excede o limite | Migrações para Azure: a avaliação do servidor atualmente não dá suporte a discos SSD Ultra e avalia os discos com base nos limites de disco Premium (32 TB).<br/><br/> No entanto, o Azure dá suporte a discos com tamanho de até 64 TB (com suporte de discos SSD Ultra). Reduza os discos para menos de 64 TB antes da migração ou use vários discos no Azure e distribua [-os juntos](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) para obter limites de armazenamento mais altos.
+O tamanho do disco excede o limite | Migrações para Azure: a avaliação do servidor atualmente não dá suporte a discos SSD Ultra e avalia os discos com base nos limites de disco Premium (32 TB).<br/><br/> No entanto, o Azure dá suporte a discos com tamanho de até 64 TB (com suporte de discos SSD Ultra). Reduza os discos para menos de 64 TB antes da migração ou use vários discos no Azure e distribua [-os juntos](../virtual-machines/windows/premium-storage-performance.md#disk-striping) para obter limites de armazenamento mais altos.
 O disco não está disponível no local especificado | Verifique se o disco está em seu local de destino antes de migrar.
 O disco não está disponível para a redundância especificada | O disco deve usar o tipo de armazenamento de redundância definido nas configurações de avaliação (LRS por padrão).
 Não foi possível determinar a adequação do disco devido a um erro interno | Tente criar uma nova avaliação para o grupo.
@@ -52,7 +52,7 @@ Protocolo de Internet condicionalmente pronto | Aplicável somente a avaliaçõe
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Ferramenta de migração sugerida na avaliação de AVS baseada em importação marcada como desconhecida
 
-Para computadores importados por meio de um arquivo CSV, a ferramenta de migração padrão no e a avaliação AVS são desconhecidas. No entanto, para máquinas VMware, é recomendável usar a solução de HCX (extensão de nuvem híbrida) do VMWare. [Saiba mais](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+Para computadores importados por meio de um arquivo CSV, a ferramenta de migração padrão no e a avaliação AVS são desconhecidas. No entanto, para máquinas VMware, é recomendável usar a solução de HCX (extensão de nuvem híbrida) do VMWare. [Saiba mais](../azure-vmware/hybrid-cloud-extension-installation.md).
 
 ## <a name="linux-vms-are-conditionally-ready-in-an-azure-vm-assessment"></a>VMs do Linux são "prontamente prontas" em uma avaliação de VM do Azure
 
@@ -64,7 +64,7 @@ No caso de VMs do VMware e do Hyper-V, a avaliação do servidor marca as VMs do
 - Você pode determinar se o SO Linux em execução na VM local é endossado no Azure examinando o [suporte do Azure Linux](https://aka.ms/migrate/selfhost/azureendorseddistros).
 -  Depois de verificar a distribuição endossada, você pode ignorar este aviso.
 
-Essa lacuna pode ser resolvida habilitando a [descoberta de aplicativos](https://docs.microsoft.com/azure/migrate/how-to-discover-applications) nas VMs VMware. A avaliação do servidor usa o sistema operacional detectado da VM usando as credenciais de convidado fornecidas. Esses dados do sistema operacional identificam as informações corretas do so no caso de VMs Windows e Linux.
+Essa lacuna pode ser resolvida habilitando a [descoberta de aplicativos](./how-to-discover-applications.md) nas VMs VMware. A avaliação do servidor usa o sistema operacional detectado da VM usando as credenciais de convidado fornecidas. Esses dados do sistema operacional identificam as informações corretas do so no caso de VMs Windows e Linux.
 
 
 ## <a name="azure-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>SKUs do Azure maiores do que localmente em uma avaliação de VM do Azure
@@ -101,7 +101,7 @@ A avaliação do servidor relata "PercentageOfCoresUtilizedMissing" ou "Percenta
 - Isso pode ocorrer se as VMs estiverem desativadas durante a duração da avaliação. O dispositivo não pode coletar dados de desempenho para uma VM quando ela está desativada.
 - Se apenas os contadores de memória estiverem ausentes e você estiver tentando avaliar as VMs do Hyper-V, verifique se você tem memória dinâmica habilitada nessas VMs. Há um problema conhecido apenas para VMs do Hyper-V, em que um dispositivo de migrações para Azure não pode coletar dados de utilização de memória para VMs que não têm memória dinâmica habilitada.
 - Se algum dos contadores de desempenho estiver ausente, a avaliação do servidor de migrações para Azure voltará para os núcleos e a memória alocados e recomendará um tamanho de VM correspondente.
-- Se todos os contadores de desempenho estiverem ausentes, verifique se os requisitos de acesso à porta para avaliação foram atendidos. Saiba mais sobre os requisitos de acesso de porta para [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access), [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) e avaliação de servidor [físico](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access) .
+- Se todos os contadores de desempenho estiverem ausentes, verifique se os requisitos de acesso à porta para avaliação foram atendidos. Saiba mais sobre os requisitos de acesso de porta para [VMware](./migrate-support-matrix-vmware.md#port-access-requirements), [Hyper-V](./migrate-support-matrix-hyper-v.md#port-access) e avaliação de servidor [físico](./migrate-support-matrix-physical.md#port-access) .
 
 ## <a name="is-the-operating-system-license-included-in-an-azure-vm-assessment"></a>A licença do sistema operacional está incluída em uma avaliação de VM do Azure?
 
@@ -120,11 +120,11 @@ Isso pode acontecer se o servidor físico tiver a virtualização do Hyper-V hab
 
 ## <a name="recommended-azure-vm-sku-for-my-physical-server-is-oversized"></a>O SKU de VM do Azure recomendado para meu servidor físico está superdimensionado
 
-Isso pode acontecer se o servidor físico tiver a virtualização do Hyper-V habilitada. Nesses servidores, migrações para Azure atualmente descobre os adaptadores de rede física e virtual. Portanto, o não. de adaptadores de rede descobertos é maior do que o real. Como a avaliação do servidor escolhe uma VM do Azure que pode dar suporte ao número necessário de adaptadores de rede, isso pode potencialmente resultar em uma VM superdimensionada. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) sobre o impacto de não. de adaptadores de rede em dimensionamento. Esta é uma lacuna do produto que será abordada no futuro.
+Isso pode acontecer se o servidor físico tiver a virtualização do Hyper-V habilitada. Nesses servidores, migrações para Azure atualmente descobre os adaptadores de rede física e virtual. Portanto, o não. de adaptadores de rede descobertos é maior do que o real. Como a avaliação do servidor escolhe uma VM do Azure que pode dar suporte ao número necessário de adaptadores de rede, isso pode potencialmente resultar em uma VM superdimensionada. [Saiba mais](./concepts-assessment-calculation.md#calculating-sizing) sobre o impacto de não. de adaptadores de rede em dimensionamento. Esta é uma lacuna do produto que será abordada no futuro.
 
 ## <a name="readiness-category-not-ready-for-my-physical-server"></a>Categoria de preparação "não está pronta" para meu servidor físico
 
-A categoria de preparação pode estar marcada incorretamente como "não está pronta" no caso de um servidor físico que tenha a virtualização do Hyper-V habilitada. Nesses servidores, devido a uma lacuna de produtos, a migração do Azure atualmente descobre os adaptadores físicos e virtuais. Portanto, o não. de adaptadores de rede descobertos é maior do que o real. Em avaliações locais e baseadas em desempenho, a avaliação do servidor escolhe uma VM do Azure que pode dar suporte ao número necessário de adaptadores de rede. Se for descoberto que o número de adaptadores de rede está sendo maior que 32, n º máximo de NICs com suporte em VMs do Azure, o computador será marcado como "não pronto".  [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) sobre o impacto de não. de NICs no dimensionamento.
+A categoria de preparação pode estar marcada incorretamente como "não está pronta" no caso de um servidor físico que tenha a virtualização do Hyper-V habilitada. Nesses servidores, devido a uma lacuna de produtos, a migração do Azure atualmente descobre os adaptadores físicos e virtuais. Portanto, o não. de adaptadores de rede descobertos é maior do que o real. Em avaliações locais e baseadas em desempenho, a avaliação do servidor escolhe uma VM do Azure que pode dar suporte ao número necessário de adaptadores de rede. Se for descoberto que o número de adaptadores de rede está sendo maior que 32, n º máximo de NICs com suporte em VMs do Azure, o computador será marcado como "não pronto".  [Saiba mais](./concepts-assessment-calculation.md#calculating-sizing) sobre o impacto de não. de NICs no dimensionamento.
 
 
 ## <a name="number-of-discovered-nics-higher-than-actual-for-physical-servers"></a>Número de NICs descobertos acima do real para servidores físicos
@@ -154,18 +154,18 @@ Para VMs do Linux, certifique-se de que os comandos de instalação para MMA e o
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
-- **Agente MMS**: examine os sistemas operacionais [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems)e [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) com suporte.
+- **Agente MMS**: examine os sistemas operacionais [Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)e [Linux](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) com suporte.
 - **Agente de dependência**: os sistemas operacionais [Windows e Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) com suporte.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualizar dependências por > hora
 
 Com a análise de dependência sem agente, você pode visualizar dependências ou exportá-las em um mapa por uma duração de até 30 dias.
 
-Com a análise de dependência baseada em agente, embora as migrações para Azure permitam que você volte a uma data específica no último mês, a duração máxima para a qual você pode visualizar as dependências é de uma hora. Por exemplo, você pode usar a funcionalidade duração de tempo no mapa de dependências para exibir dependências de ontem, mas você pode exibi-las somente para um período de uma hora. No entanto, você pode usar os logs de Azure Monitor para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) por uma duração maior.
+Com a análise de dependência baseada em agente, embora as migrações para Azure permitam que você volte a uma data específica no último mês, a duração máxima para a qual você pode visualizar as dependências é de uma hora. Por exemplo, você pode usar a funcionalidade duração de tempo no mapa de dependências para exibir dependências de ontem, mas você pode exibi-las somente para um período de uma hora. No entanto, você pode usar os logs de Azure Monitor para [consultar os dados de dependência](./how-to-create-group-machine-dependencies.md) por uma duração maior.
 
 ## <a name="visualized-dependencies-for--10-machines"></a>Dependências visualizadas para computadores > 10
 
-Na avaliação do servidor de migrações para Azure, com a análise de dependência baseada em agente, você pode [Visualizar dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) com até 10 VMS. Para grupos maiores, recomendamos que você divida as VMs em grupos menores para visualizar as dependências.
+Na avaliação do servidor de migrações para Azure, com a análise de dependência baseada em agente, você pode [Visualizar dependências para grupos](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) com até 10 VMS. Para grupos maiores, recomendamos que você divida as VMs em grupos menores para visualizar as dependências.
 
 
 ## <a name="machines-show-install-agent"></a>Computadores mostram "instalar agente"

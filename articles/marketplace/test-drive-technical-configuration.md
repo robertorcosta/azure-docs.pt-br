@@ -1,18 +1,16 @@
 ---
 title: Testar a configuração técnica, Microsoft Commercial Marketplace
 description: Saiba mais sobre as unidades de teste. As unidades de teste permitem que novos clientes test drive sua oferta antes de confirmar a compra.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/13/2019
-ms.openlocfilehash: 4750c167ff236b535aaa1ed1dc3c2aa3918e6dad
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9c4bd4fb5fc6a25027c2f01466a0d5afc1694b03
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964950"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121479"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuração técnica de test drive
 

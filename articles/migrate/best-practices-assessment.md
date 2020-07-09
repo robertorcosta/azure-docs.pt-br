@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 1a3735180d72496d58cdd22d0aa34c8a6f88a6a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 648ec2d9fea3e4e112e65cec44a0518b653ddbea
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559857"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119966"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Práticas recomendadas para a criação de avaliações
 
-As [Migrações para Azure](migrate-overview.md) fornecem um hub de ferramentas que ajudam você a descobrir, avaliar e migrar aplicativos, a infraestrutura e cargas de trabalho para o Microsoft Azure. O hub inclui ferramentas das Migrações para Azure e ofertas de ISV (fornecedor independente de software) de terceiros.
+As [Migrações para Azure](./migrate-services-overview.md) fornecem um hub de ferramentas que ajudam você a descobrir, avaliar e migrar aplicativos, a infraestrutura e cargas de trabalho para o Microsoft Azure. O hub inclui ferramentas das Migrações para Azure e ofertas de ISV (fornecedor independente de software) de terceiros.
 
 Este artigo resume as práticas recomendadas ao criar avaliações usando a ferramenta de avaliação do servidor de migrações para Azure.
 
@@ -26,7 +26,7 @@ As avaliações criadas com a avaliação do servidor de migrações para Azure 
 **Tipo de avaliação** | **Detalhes**
 --- | --- 
 **VM do Azure** | Avaliações para migrar seus servidores locais para máquinas virtuais do Azure. <br/><br/> Você pode avaliar suas [VMs VMware](how-to-set-up-appliance-vmware.md)locais, VMS do [Hyper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para o Azure usando esse tipo de avaliação. [Saiba mais](concepts-assessment-calculation.md)
-**AVS (Solução VMware no Azure)** | Avaliações para migrar seus servidores locais para a [solução VMware do Azure (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Você pode avaliar suas [VMs do VMware](how-to-set-up-appliance-vmware.md) locais para migração para a solução VMware do Azure (AVS) usando esse tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+**AVS (Solução VMware no Azure)** | Avaliações para migrar seus servidores locais para a [solução VMware do Azure (AVS)](../azure-vmware/introduction.md). <br/><br/> Você pode avaliar suas [VMs do VMware](how-to-set-up-appliance-vmware.md) locais para migração para a solução VMware do Azure (AVS) usando esse tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
 
 ### <a name="sizing-criteria"></a>Critérios de dimensionamento
@@ -132,7 +132,7 @@ Uma avaliação pode não ter todos os pontos de dados por vários motivos:
 ### <a name="migration-tool-guidance-for-avs-assessments"></a>Diretrizes da ferramenta de migração para avaliações da AVS
 
 No relatório de preparação do Azure para a avaliação da solução VMware do Azure (AVS), você pode ver as seguintes ferramentas sugeridas: 
-- **VMware HCX ou Enterprise**: para máquinas VMware, a solução de HCX (extensão de nuvem híbrida) do VMware é a ferramenta de migração sugerida para migrar sua carga de trabalho local para sua nuvem privada da AVS (solução VMware) do Azure. [Saiba mais](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+- **VMware HCX ou Enterprise**: para máquinas VMware, a solução de HCX (extensão de nuvem híbrida) do VMware é a ferramenta de migração sugerida para migrar sua carga de trabalho local para sua nuvem privada da AVS (solução VMware) do Azure. [Saiba mais](../azure-vmware/hybrid-cloud-extension-installation.md).
 - **Desconhecido**: para computadores importados por meio de um arquivo CSV, a ferramenta de migração padrão é desconhecida. No entanto, para máquinas VMware, é recomendável usar a solução de HCX (extensão de nuvem híbrida) do VMWare.
 
 
