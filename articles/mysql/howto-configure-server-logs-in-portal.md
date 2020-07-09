@@ -4,13 +4,14 @@ description: Este artigo descreve como configurar e acessar os logs lentos no ba
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/13/2020
-ms.openlocfilehash: 59faf63312bd7cc657f8b96ca3110707ea997c02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51b05ea016880d04fd6a2123962afefbdb229be1
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81273590"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101776"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configurar e acessar logs de consulta lentos no portal do Azure
 
@@ -37,7 +38,7 @@ Configure o acesso aos logs de consulta lenta do MySQL.
 
 7. Altere quaisquer outros parâmetros necessários. 
 
-8. Selecione **Salvar**. 
+8. Clique em **Salvar**. 
 
    :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Captura de tela de parâmetros de log de consulta lentos e salvar.":::
 

@@ -1,21 +1,14 @@
 ---
 title: Serviços de mídia do Azure como origem da grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos dos Serviços de Mídia com a Grade de Eventos do Azure
-services: media-services
-documentationcenter: ''
-author: spelluru
-editor: ''
-ms.service: event-grid
-ms.workload: ''
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.author: spelluru
-ms.openlocfilehash: d5d50bbde927efd4aee0cedd69486a52ab8c328b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: c1c5953cae7364131eefcec97d3375404c85e963
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81394326"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105924"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Serviços de mídia do Azure como uma fonte de grade de eventos
 

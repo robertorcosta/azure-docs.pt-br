@@ -8,11 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: fc2013a3875c74a1371196cacb0096356cf3ffdf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bf21b8714554dcdc52ab6e34041c738ec2653f6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466112"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105057"
 ---
 # <a name="use-net-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o .NET para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2
 
@@ -200,6 +201,8 @@ public async Task ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient)
 
 ```
 
+Você também pode obter e definir a ACL do diretório raiz de um sistema de arquivos. Para obter o diretório raiz, passe uma cadeia de caracteres vazia ( `""` ) para o método [DataLakeFileSystemClient. GetDirectoryClient](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.getdirectoryclient) .
+
 ## <a name="upload-a-file-to-a-directory"></a>Carregar um arquivo em um diretório
 
 Primeiro, crie uma referência de arquivo no diretório de destino criando uma instância da classe [DataLakeFileClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient) . Carregue um arquivo chamando o método [DataLakeFileClient. AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) . Certifique-se de concluir o carregamento chamando o método [DataLakeFileClient. FlushAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.flushasync) .
@@ -353,7 +356,7 @@ public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Documentação de referência da API](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake)
 * [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake)

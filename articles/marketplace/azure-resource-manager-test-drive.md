@@ -1,18 +1,16 @@
 ---
 title: Tipos de unidades de teste, Marketplace comercial da Microsoft
 description: Tipos de unidades de teste no Marketplace comercial
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/19/2020
-ms.author: dsindona
-ms.openlocfilehash: a2d12a372f773a4a389ea7e7f2b3d2811ba889d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 401ffaaa0fa8c8e298a3a1891d93f2c9039d7820
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801216"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102932"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager test drive
 
@@ -237,7 +235,7 @@ E, em seguida, usar esse local para todos os recursos para uma instância de lab
 
 Verifique se sua assinatura tem permissão para implantar todos os recursos desejados em cada uma das regiões que você selecionar. Verifique também se suas imagens de máquina virtual estão disponíveis em todas as regiões que você habilitará, caso contrário, seu modelo de implantação não funcionará para algumas regiões.
 
-### <a name="outputs"></a>Saídas
+### <a name="outputs"></a>outputs
 
 Normalmente, com modelos do Resource Manager, você pode implantar sem produzir nenhuma saída. Isso acontece porque você conhece todos os valores que usa para preencher parâmetros do modelo e pode sempre inspecionar manualmente as propriedades de qualquer recurso.
 
@@ -313,7 +311,7 @@ A seção final a ser concluída é poder implantar as unidades de teste automat
    6. Selecione **Criar**.
    7. Depois que o aplicativo tiver sido criado, selecione **Propriedades**  >  **definir o aplicativo como multilocatário** e, em seguida, **salvar**.
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 5. Copie a ID do aplicativo para este aplicativo registrado e cole-a no campo test drive.
 
@@ -331,7 +329,7 @@ A seção final a ser concluída é poder implantar as unidades de teste automat
 
       ![Adicionar as permissões](media/test-drive/access-control-permissions.jpg)
 
-   1. Selecione **Salvar**.
+   1. Clique em **Salvar**.
 
 7. Gere uma chave de autenticação de **aplicativo Azure ad** . Em **chaves**, adicione uma **Descrição da chave**, defina a duração para **nunca expirar** (uma chave expirada interromperá o Test Drive em produção) e selecione **salvar**. Copie e cole esse valor em seu campo de test drive obrigatório.
 

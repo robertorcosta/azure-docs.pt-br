@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Implantar cargas de trabalho do Azure IoT Edge
 keywords: Kubernetes, Arc, Azure, K8s, contêineres
-ms.openlocfilehash: 2a688a221b2f4865d51bca2ebf4aaa0b1f714290
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfaa43a03ddd98616b22fc3fc7b4dccb4c38f44c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193780"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103969"
 ---
 # <a name="deploy-azure-iot-edge-workloads-preview"></a>Implantar cargas de trabalho do Azure IoT Edge (versão preliminar)
 
@@ -25,7 +25,7 @@ O Azure Arc e o Azure IoT Edge complementam muito os recursos uns dos outros. O 
 
 ## <a name="pre-requisites"></a>Pré-requisitos
 
-* [Registrar um dispositivo IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#register-an-iot-edge-device) e [implantar o módulo sensor de temperatura simulado](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#deploy-a-module). Anote a cadeia de conexão do dispositivo.
+* [Registrar um dispositivo IoT Edge](../../iot-edge/quickstart-linux.md#register-an-iot-edge-device) e [implantar o módulo sensor de temperatura simulado](../../iot-edge/quickstart-linux.md#deploy-a-module). Anote a cadeia de conexão do dispositivo.
 
 * Use o [suporte do IoT Edge para Kubernetes](https://aka.ms/edgek8sdoc) para implantá-lo por meio do operador de fluxo do Azure Arc.
 

@@ -3,15 +3,16 @@ title: Adicionar uma ferramenta de avaliação/migração em migrações para Az
 description: Descreve como criar um projeto de migrações para Azure e adicionar uma ferramenta de avaliação/migração.
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 1294831162df973e1f87052c1520d5d95990cf8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a94e3cc18f46c457d6ed54ef88c62adefb07c5b9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82901178"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102524"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Adicionar uma ferramenta de avaliação/migração pela primeira vez
 
-Este artigo descreve como adicionar uma ferramenta de avaliação ou migração a um projeto de [migrações para Azure](migrate-overview.md) pela primeira vez.  
+Este artigo descreve como adicionar uma ferramenta de avaliação ou migração a um projeto de [migrações para Azure](./migrate-services-overview.md) pela primeira vez.  
 As migrações para Azure fornecem um hub central para acompanhar a descoberta, avaliação e migração de seus aplicativos e cargas de trabalho locais e VMs de nuvem privada/pública, para o Azure. O Hub fornece as ferramentas de migração do Azure para avaliação e migração, bem como outras ferramentas e [ofertas](migrate-services-overview.md#isv-integration) de fornecedores independentes de software (ISV). 
 
 ## <a name="check-permissions-to-create-project"></a>Verificar permissões para criar projeto

@@ -1,18 +1,14 @@
 ---
 title: Mensagens mortas e políticas de repetição – grade de eventos do Azure
 description: Descreve como personalizar opções de entrega de eventos para a Grade de Eventos. Definir um destino de inatividade e especificar o tempo de entrega novamente.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.author: spelluru
-ms.openlocfilehash: caed3c077b4df5da5fd8541b2f7e85ef119604b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 88e782eb7dafc10956120bdae870aa2eb58778a5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72794030"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105482"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Mensagens mortas e tentar novas políticas
 

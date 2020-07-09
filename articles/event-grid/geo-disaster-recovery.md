@@ -1,18 +1,14 @@
 ---
 title: Recuperação de desastre geográfica na grade de eventos do Azure | Microsoft Docs
 description: Descreve como a grade de eventos do Azure dá suporte à GeoDR (recuperação de desastre geográfica) automaticamente.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/24/2019
-ms.author: spelluru
-ms.openlocfilehash: 5b5c973a8daa8776efb0909092c569ea46902265
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: ccb16971020a65932daa8f9adf4b7cd9008a9253
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "66307311"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105839"
 ---
 # <a name="server-side-geo-disaster-recovery-in-azure-event-grid"></a>Recuperação de desastre geográfica no lado do servidor na grade de eventos do Azure
 A grade de eventos agora tem uma GeoDR (recuperação de desastre geográfica) automática de metadados não apenas para novos, mas todos os domínios, tópicos e assinaturas de evento existentes. Se uma região inteira do Azure falhar, a grade de eventos já terá todos os seus metadados de infraestrutura relacionados a eventos sincronizados com uma região emparelhada. Seus novos eventos começarão a fluir novamente sem nenhuma intervenção por você. 

@@ -1,18 +1,18 @@
 ---
 title: Monitorar alterações de delegação no seu locatário de gerenciamento
 description: Saiba como monitorar a atividade de delegação de locatários do cliente para seu locatário de gerenciamento.
-ms.date: 03/30/2020
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 9a772cc577392558f050211b7f767928ecbb707b
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: b30cbc025f97ab76be55f0f83e15603b40092ce3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919136"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105159"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorar alterações de delegação no seu locatário de gerenciamento
 
-Como um provedor de serviços, talvez você queira estar ciente quando as assinaturas de clientes ou grupos de recursos são delegados para seu locatário por meio [do gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md)ou quando recursos previamente delegados são removidos.
+Como um provedor de serviços, talvez você queira estar atento quando os grupos de recursos ou assinaturas de clientes são delegados para seu locatário por meio [do Azure Lighthouse](../overview.md)ou quando os recursos previamente delegados são removidos.
 
 No locatário de gerenciamento, o [log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md) rastreia a atividade de delegação no nível do locatário. Essa atividade registrada inclui todas as delegações adicionadas ou removidas de todos os locatários do cliente.
 
@@ -158,5 +158,5 @@ else
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como integrar clientes ao gerenciamento de [recursos delegado do Azure](../concepts/azure-delegated-resource-management.md).
+- Saiba como integrar clientes ao [Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
 - Saiba mais sobre [Azure monitor](../../azure-monitor/index.yml) e o [log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md).

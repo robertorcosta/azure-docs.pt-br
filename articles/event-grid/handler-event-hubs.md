@@ -1,17 +1,14 @@
 ---
 title: Hub de eventos como um manipulador de eventos para os eventos da Grade de Eventos do Azure
 description: Descreve como você pode usar os hubs de eventos como manipuladores de eventos para os eventos da Grade de Eventos do Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: spelluru
-ms.openlocfilehash: f46b17fdffc870e6afc5f3b0711169db8270a540
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.date: 07/07/2020
+ms.openlocfilehash: fa8fdd66eb153f6a972753eb359261100f19cd15
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800435"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105822"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Hub de eventos como um manipulador de eventos para os eventos da Grade de Eventos do Azure
 Um manipulador de eventos é o local para o qual o evento é enviado. O manipulador usa uma ação para processar o evento. Vários serviços do Azure são automaticamente configurados para lidar com os eventos, e o **Hubs de Eventos do Azure** é um deles. 

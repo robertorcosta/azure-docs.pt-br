@@ -1,17 +1,14 @@
 ---
 title: Azure Machine Learning como fonte da grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos de Workspace do Machine Learning com a grade de eventos do Azure
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: f77a76d6acb67c739e0adf186d23e9b16ff7e2ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 11d8c38ee041ac9278e08166c4c060cdad87655f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82928866"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102490"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning como uma fonte de grade de eventos
 
@@ -189,7 +186,7 @@ Esta seção mostra um exemplo de como os dados seriam para cada evento.
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
 | subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
@@ -204,7 +201,7 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 ### <a name="microsoftmachinelearningservicesmodelregistered"></a>Microsoft. MachineLearningServices. ModelRegistered
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
 | ModelName | string | O nome do modelo que foi registrado. |
 | ModelVersion | string | A versão do modelo que foi registrado. |
@@ -213,7 +210,7 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 ### <a name="microsoftmachinelearningservicesmodeldeployed"></a>Microsoft. MachineLearningServices. ModelDeployed
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
 | ServiceName | string | O nome do serviço implantado. |
 | Filecomputetype | string | O tipo de computação (por exemplo, ACI, AKS) do serviço implantado. |
@@ -223,7 +220,7 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 ### <a name="microsoftmachinelearningservicesruncompleted"></a>Microsoft. MachineLearningServices. RunCompleted
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
 | Experimentoid | string | A ID do experimento ao qual a execução pertence. |
 | Experimentoname | string | O nome do experimento ao qual a execução pertence. |
@@ -234,7 +231,7 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 ### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>Microsoft. MachineLearningServices. DatasetDriftDetected
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
 | Onficaid | string | A ID do monitor de descompasso de dados que disparou o evento. |
 | Datalogoffname | string | O nome do monitor de descompasso de dados que disparou o evento. |
@@ -247,7 +244,7 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 ### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>Microsoft. MachineLearningServices. RunStatusChanged
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
 | Experimentoid | string | A ID do experimento ao qual a execução pertence. |
 | Experimentoname | string | O nome do experimento ao qual a execução pertence. |

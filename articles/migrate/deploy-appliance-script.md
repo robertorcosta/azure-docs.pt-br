@@ -3,15 +3,16 @@ title: Configurar um dispositivo de migrações para Azure com um script
 description: Saiba como configurar um dispositivo de migrações para Azure com um script
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: d5603aaef0a1c3e784f455777302c23e6724fbe7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47b6b35e62d484b4d7a33f6a53796c59e01817fe
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85052456"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102439"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurar um dispositivo com um script
 
-Siga este artigo para criar um [dispositivo de migrações para Azure](deploy-appliance.md) para a avaliação/migração de VMs VMware e VMs do Hyper-V. Você executa um script para criar um dispositivo e verifica se ele pode se conectar ao Azure. 
+Siga este artigo para criar um [dispositivo de migrações para Azure](./migrate-appliance-architecture.md) para a avaliação/migração de VMs VMware e VMs do Hyper-V. Você executa um script para criar um dispositivo e verifica se ele pode se conectar ao Azure. 
 
 Você pode implantar o dispositivo para VMs do VMware e do Hyper-V usando um script ou usando um modelo que você baixa do portal do Azure. Usar um script será útil se você não conseguir criar uma VM usando o modelo baixado.
 

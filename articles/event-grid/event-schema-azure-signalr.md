@@ -1,17 +1,14 @@
 ---
 title: Sinalizador do Azure como origem da grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos do Signalr do Azure com a grade de eventos do Azure
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/23/2020
-ms.author: femila
-ms.openlocfilehash: 8fbae3fad4aeb85022c804e1ac648060360c6531
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 2ac391f366c4b9a82741a1b6b3135f5d7b5fe331
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560624"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106644"
 ---
 # <a name="azure-event-grid-event-schema-for-signalr-service"></a>Esquema de evento da grade de eventos do Azure para o serviço Signalr
 
@@ -75,7 +72,7 @@ O esquema para um evento de conexão de cliente desconectado é semelhante:
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
 | subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
@@ -88,7 +85,7 @@ Um evento tem os seguintes dados de nível superior:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
 | timestamp | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | hubName | string | O Hub ao qual a conexão do cliente pertence. |

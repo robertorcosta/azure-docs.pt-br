@@ -1,18 +1,18 @@
 ---
 title: Práticas de segurança recomendadas
-description: Ao usar o gerenciamento de recursos delegado do Azure, é importante considerar a segurança e o controle de acesso.
-ms.date: 03/24/2020
+description: Ao usar o Azure Lighthouse, é importante considerar a segurança e o controle de acesso.
+ms.date: 07/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: d9b806aaf988fedfde6ce468f3eff948aa8ce344
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c620feabf5bcedc35a36104c3ba305ac9337ff0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80246901"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105414"
 ---
 # <a name="recommended-security-practices"></a>Práticas de segurança recomendadas
 
-Ao usar o [Gerenciamento de recursos delegado do Azure](azure-delegated-resource-management.md), é importante considerar a segurança e o controle de acesso. Os usuários em seu locatário terão acesso direto a grupos de recursos e assinaturas de cliente, portanto, você desejará tomar medidas para manter a segurança do seu locatário. Você também desejará certificar-se de permitir apenas o acesso necessário para gerenciar os recursos de seus clientes com eficiência. Esse tópico fornece recomendações para ajudá-lo a fazer isso.
+Ao usar o [Azure Lighthouse](../overview.md), é importante considerar a segurança e o controle de acesso. Os usuários em seu locatário terão acesso direto a grupos de recursos e assinaturas de cliente, portanto, você desejará tomar medidas para manter a segurança do seu locatário. Você também desejará certificar-se de permitir apenas o acesso necessário para gerenciar os recursos de seus clientes com eficiência. Esse tópico fornece recomendações para ajudá-lo a fazer isso.
 
 ## <a name="require-azure-multi-factor-authentication"></a>Exigir autenticação multifator do Azure
 
@@ -31,7 +31,7 @@ Ao criar a estrutura de permissões, siga o princípio de privilégios mínimos 
 
 Por exemplo, convém usar uma estrutura como esta:
 
-|Nome do grupo  |Tipo  |principalId  |Definição de função  |ID de definição de função  |
+|Nome do grupo  |Type  |principalId  |Definição de função  |ID de definição de função  |
 |---------|---------|---------|---------|---------|
 |Arquitetos     |Grupo de usuários         |\<principalId\>         |Colaborador         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |Avaliação     |Grupo de usuários         |\<principalId\>         |Leitor         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |

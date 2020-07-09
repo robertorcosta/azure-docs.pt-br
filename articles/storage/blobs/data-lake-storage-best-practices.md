@@ -8,17 +8,18 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 79c4f051318113ebe0c7e0085539d2f24405b4f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e008bad2043d8cd633f0849aefc62c4ed7a7e89d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857890"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104870"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Melhores práticas para utilizar o Microsoft Azure Data Lake Storage Gen2
 
 Neste artigo, você aprenderá sobre as melhores práticas e considerações para trabalhar com o Azure Data Lake Storage Gen2. Este artigo fornece informações sobre segurança, desempenho, resiliência e monitoramento do Data Lake Storage Gen2. Antes do Data Lake Storage Gen2, trabalhar com Big Data em serviços como o Microsoft Azure HDInsight era realmente complexo. Era necessário fragmentar dados em várias contas de Armazenamento de Blobs para que o armazenamento de petabyte e o desempenho ideal nessa escala pudessem ser alcançados. O Data Lake Storage Gen2 dá suporte a tamanhos de arquivo individuais tão altos quanto 5 TB e a maioria dos limites rígidos de desempenho foram removidos. No entanto, ainda há algumas considerações que este artigo aborda para que seja possível obter o melhor desempenho com o Data Lake Storage Gen2.
 
-## <a name="security-considerations"></a>Considerações de segurança
+## <a name="security-considerations"></a>Considerações sobre segurança
 
 O Azure Data Lake Storage Gen2 oferece controles de acesso POSIX para grupos e entidades de serviço do Microsoft Azure AD (Azure Active Directory). Esses controles de acesso podem ser configurados para arquivos e diretórios existentes. Os controles de acesso também podem ser utilizados para criar permissões padrão que podem ser aplicadas automaticamente a novos arquivos ou diretórios. Mais detalhes sobre ACLs do Data Lake Storage Gen2 estão disponíveis em [Controle de acesso no Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
 
@@ -76,11 +77,11 @@ Ao descarregar dados em um Data Lake, é importante planejar previamente a estru
 
 Nas cargas de trabalho de IoT, pode haver uma grande quantidade de dados sendo descarregados no armazenamento de dados que abrange diversos produtos, dispositivos, organizações e clientes. É importante planejar previamente o layout do diretório para organização, segurança e processamento eficiente dos dados para consumidores de downstream. Um modelo geral a considerar pode ser o layout a seguir:
 
-    {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+*{Region}/{SubjectMatter (s)}/{yyyy}/{mm}/{dd}/{hh}/*
 
 Por exemplo, a telemetria de descarregamento para um motor de avião no Reino Unido pode parecer com a seguinte estrutura:
 
-    UK/Planes/BA1293/Engine1/2017/08/11/12/
+*RU/aviões/BA1293/Engine1/2017/08/11/12/*
 
 Há uma razão importante para colocar a data no final da estrutura de diretórios. Se você quiser bloquear certas regiões ou assunto para usuários/grupos, então, você poderá fazê-lo com as permissões POSIX. Caso contrário, se houvesse necessidade de restringir um determinado grupo de segurança para exibição apenas dos dados do Reino Unido ou certos planos, com a estrutura da data na frente, seria necessária uma permissão separada para vários diretórios em cada diretório de hora. Além disso, ter a estrutura de data na frente aumentaria exponencialmente o número de diretórios com o passar do tempo.
 
@@ -90,13 +91,13 @@ De um alto nível, uma abordagem comumente usada no processamento em lotes é de
 
 Às vezes, o processamento de arquivos não tem êxito devido dados corrompidos ou formatos inesperados. Nesses casos, a estrutura de diretório pode beneficiar-se de uma pasta **/bad** para mover os arquivos para uma inspeção adicional. O trabalho em lotes também pode manipular o relatório ou a notificação desses arquivos *incorretos* para intervenção manual. Considere a estrutura de modelo a seguir:
 
-    {Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+*{Region}/{SubjectMatter (s)}/in/{yyyy}/{mm}/{dd}/{hh}/*\
+*{Region}/{SubjectMatter (s)}/out/{yyyy}/{mm}/{dd}/{hh}/*\
+*{Region}/{SubjectMatter (s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/*
 
 Por exemplo, uma empresa de marketing que recebe extratos de dados diários de atualizações de cliente dos seus clientes na América do Norte. Ele pode parecer com o seguinte snippet de código antes e depois de ser processado:
 
-    NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
-    NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+*NA/extrais/ACMEPaperCo/in/2017/08/14/updates_08142017.csv*\
+*NA/extrais/ACMEPaperCo/out/2017/08/14/processed_updates_08142017.csv*
 
 No caso comum de dados em lotes que estão sendo processados diretamente em bancos de dados, como Hive ou Bancos de Dados SQL tradicionais, não há necessidade de uma pasta **/in** ou **/out**, uma vez que a saída já entra em uma pasta separada para a tabela de Hive ou banco de dados externo. Por exemplo, os extratos diários dos clientes descarregariam em suas respectivas pastas e a orquestração tanto pelo Azure Data Factory, Apache Oozie ou pelo Apache Airflow dispararia um trabalho do Hive ou Spark diário para processar e gravar os dados em uma tabela de Hive.

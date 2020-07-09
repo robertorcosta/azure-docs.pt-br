@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 9a54565f320ae45a4a8297a40027c5e6b3b25202
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 522f9215a0b66c5e6bec5abf41e45489efec19ac
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465959"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106304"
 ---
 # <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>Ajustar o desempenho: Hive, & HDInsight Azure Data Lake Storage Gen2
 
@@ -56,17 +57,18 @@ As cargas de trabalho que usam muita E/S podem se beneficiar de mais paralelismo
 
 O número simultâneo de tarefas em execução ou de paralelismo será limitado pela memória YARN total.  O número de contêineres YARN ditará quantas tarefas simultâneas podem ser executadas.  Para localizar a memória YARN por nó, você pode ir para o Ambari.  Navegue até YARN e exiba a guia Configurações.  A memória YARN é exibida nesta janela.  
 
-        Total YARN memory = nodes * YARN memory per node
-        # of YARN containers = Total YARN memory / Tez container size
+- Memória total YARN = Nodes * YARN de memória por nó
+- \#de contêineres YARN = tamanho total do contêiner YARN de memória/tez
+
 A chave para melhorar o desempenho usando o Data Lake Storage Gen2 é aumentar a simultaneidade o máximo possível.  O Tez calcula automaticamente o número de tarefas que devem ser criadas, de modo que você não precisa defini-lo.   
 
 ## <a name="example-calculation"></a>Exemplo de cálculo
 
 Digamos que você tenha um cluster D14 de 8 nós.  
 
-    Total YARN memory = nodes * YARN memory per node
-    Total YARN memory = 8 nodes * 96GB = 768GB
-    # of YARN containers = 768GB / 3072MB = 256
+- Memória total YARN = Nodes * YARN de memória por nó
+- Memória total do YARN = 8 nós * 96 GB = 768GB
+- \#de contêineres YARN = 768GB/3072MB = 256
 
 ## <a name="further-information-on-hive-tuning"></a>Mais informações sobre o ajuste do Hive
 

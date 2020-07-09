@@ -1,18 +1,18 @@
 ---
 title: Atribuição de uso de parceiros e clientes do Marketplace comercial
 description: Obtenha uma visão geral de como acompanhar o uso do cliente para soluções do Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: 7a48da25c60eb2db3b918ebe9523440c49ed9693
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 6997c1aaab8cbe635ccef21967a0fce1f735c1ab
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963794"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103017"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atribuição de uso de parceiros e clientes do Marketplace comercial
 

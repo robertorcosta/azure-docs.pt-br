@@ -1,18 +1,14 @@
 ---
 title: Assinatura do Azure como origem da grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos de assinatura com a Grade de Eventos do Azure
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: reference
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: fa88fe4e05ac968588a65d67a2f075bcae48ba7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 72b1a73bf418b417cd29f88063781e7b45979998
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81393219"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105890"
 ---
 # <a name="azure-subscription-as-an-event-grid-source"></a>Assinatura do Azure como uma fonte de grade de eventos
 
@@ -262,7 +258,7 @@ O objeto de dados tem as seguintes propriedades:
 | tenantId | string | A ID do locatário do recurso. |
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
-|Title |Descrição  |
+|Título |Descrição  |
 |---------|---------|
 | [Tutorial: Automação do Azure com Grade de Eventos e Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Crie uma máquina virtual, que envia um evento. O evento dispara um runbook de Automação que marca a máquina virtual e dispara uma mensagem que é enviada para um canal do Microsoft Teams. |
 | [Como: assinar eventos por meio do portal](subscribe-through-portal.md) | Use o portal para assinar eventos de uma assinatura do Azure. |

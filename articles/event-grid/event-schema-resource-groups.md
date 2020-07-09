@@ -1,18 +1,14 @@
 ---
 title: Grupo de recursos do Azure como uma fonte de grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos de grupos de recursos com a Grade de Eventos do Azure
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: fb52b54eb32a119a463b59e4d4f2ab30096886fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: ed01bfdb67d9b8a3dd5875ec3fd8c6edf8922520
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81393258"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105907"
 ---
 # <a name="azure-resource-group-as-an-event-grid-source"></a>Grupo de recursos do Azure como uma fonte de grade de eventos
 
@@ -235,7 +231,7 @@ O exemplo a seguir mostra o esquema para um **ResourceActionSuccess** eventos. O
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
 | subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
@@ -248,7 +244,7 @@ Um evento tem os seguintes dados de nível superior:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
 | autorização | objeto | A autorização solicitada para a operação. |
 | declarações | objeto | As propriedades da declaração. Para obter mais informações, consulte [especificação JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
@@ -262,7 +258,7 @@ O objeto de dados tem as seguintes propriedades:
 | tenantId | string | A ID do locatário do recurso. |
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
-|Title  |Descrição  |
+|Título  |Descrição  |
 |---------|---------|
 | [Tutorial: monitorar alterações de máquina virtual com a grade de eventos do Azure e aplicativos lógicos](monitor-virtual-machine-changes-event-grid-logic-app.md) | Um aplicativo lógico monitora as alterações feitas em uma máquina virtual e envia emails sobre essas alterações. |
 | [CLI do Azure: assinar eventos para um grupo de recursos com a CLI do Azure](./scripts/event-grid-cli-resource-group.md)| Script de exemplo que assina eventos para um grupo de recursos. Envia eventos para um WebHook. |

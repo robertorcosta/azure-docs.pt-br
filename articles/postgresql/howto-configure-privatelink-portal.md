@@ -4,14 +4,14 @@ description: Saiba como configurar o link privado para o banco de dados do Azure
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 40e30d4011a52342c6fb610b19f70c8523a0331f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6986d5882e4d62ffc2e25b7ea998f46f41c67330
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736706"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102456"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Criar e gerenciar um link privado para o banco de dados do Azure para PostgreSQL-servidor único usando o portal
 
@@ -53,7 +53,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
 
 2. Em **Criar uma máquina virtual – Noções básicas**, insira ou selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
@@ -80,7 +80,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
 
 1. Em **Criar uma máquina virtual – Rede**, selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Rede virtual | Deixe o padrão **MyVirtualNetwork**.  |
     | Espaço de endereço | Deixar o padrão **10.1.0.0/24**.|
@@ -107,7 +107,7 @@ Nesta seção, você criará um servidor de banco de dados do Azure para Postgre
 
 1. Na **opção de implantação banco de dados do Azure para PostgreSQL**, selecione **servidor único** e forneça estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | **Detalhes do projeto** | |
     | Subscription | Selecione sua assinatura. |
@@ -137,7 +137,7 @@ Nesta seção, você criará um servidor PostgreSQL e adicionará um ponto de ex
 
 1. Em **criar um ponto de extremidade privado-noções básicas**, insira ou selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | **Detalhes do projeto** | |
     | Subscription | Selecione sua assinatura. |
@@ -149,7 +149,7 @@ Nesta seção, você criará um servidor PostgreSQL e adicionará um ponto de ex
 5. Selecione **Avançar: Recurso**.
 6. Em **Criar um ponto de extremidade privado – Recurso**, insira ou selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     |Método de conexão  | Selecione conectar-se a um recurso do Azure em meu diretório.|
     | Subscription| Selecione sua assinatura. |
@@ -226,7 +226,7 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
 
 4. Em **nova conexão**, insira ou selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Tipo de servidor| Selecione **PostgreSQL**.|
     | Nome do servidor| Selecionar *mydemopostgresserver.privatelink.Postgres.Database.Azure.com* |
@@ -243,7 +243,7 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
 
 8. Feche a conexão de área de trabalho remota para myVm.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando você terminar de usar o ponto de extremidade privado, o servidor PostgreSQL e a VM, exclua o grupo de recursos e todos os recursos que ele contém:
 
 1. Insira *MyResource*   The na caixa de **pesquisa** na parte superior do portal e selecione *MyResource*   Bedos resultados da pesquisa.

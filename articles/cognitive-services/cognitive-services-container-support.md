@@ -10,19 +10,19 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: aahi
-ms.openlocfilehash: f751aa947988544977f9baf2746191921c1aa9d4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 69984f9dbd94bcdca2e272a5bdebbb7fc1464dae
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590648"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104394"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Suporte de contêiner nos Serviços Cognitivos do Azure
 
 O suporte a contêineres nos serviços cognitivas do Azure permite que os desenvolvedores usem as mesmas APIs avançadas disponíveis no Azure, além de permitir flexibilidade em onde implantar e hospedar os serviços que acompanham os [contêineres do Docker](https://www.docker.com/what-container). Atualmente, o suporte a contêineres está disponível para um subconjunto de serviços cognitivas do Azure, incluindo partes do:
 
 > [!div class="checklist"]
-> * [Detector de Anomalias][ad-containers]
+> * [Detector de anomalias][ad-containers]
 > * [Pesquisa Visual Computacional][cv-containers]
 > * [Detecção Facial][fa-containers]
 > * [Reconhecimento de Formulários][fr-containers]
@@ -51,7 +51,7 @@ Os contêineres dos Serviços Cognitivos do Azure fornecem o seguinte conjunto d
 
 | Serviço | Tipo de preço com suporte | Contêiner | Descrição |
 |--|--|--|--|
-| [Detector de anomalias][ad-containers] | F0, S0 | **Detector de anomalias** | A API do Detector de Anomalias permite monitorar e detectar anormalidades em seus dados de série temporal com aprendizado de máquina.<br>[Solicitar acesso][request-access] |
+| [Detector de Anomalias][ad-containers] | F0, S0 | **Detector de anomalias** | A API do Detector de Anomalias permite monitorar e detectar anormalidades em seus dados de série temporal com aprendizado de máquina.<br>[Solicitar acesso][request-access] |
 | [Pesquisa Visual Computacional][cv-containers] | F0, S1 | **Ler** | Extrai texto impresso de imagens de vários objetos com diferentes superfícies e planos de fundo como recibos, pôsters e cartões de visita. O contêiner de leitura também detecta *texto manuscrito* em imagens e fornece suporte a PDF/TIFF/várias páginas.<br/><br/>**Importante:** O contêiner de leitura atualmente funciona apenas com o inglês. |
 | [Detecção Facial][fa-containers] | F0, S0 | **Detecção Facial** | Detecta rostos humanos em imagens e identifica atributos, incluindo referências faciais (como narizes e olhos), sexo, idade e outras características faciais previstas pelo computador. Além de detectar, a Detecção Facial pode verificar se duas faces na mesma imagem ou imagens diferentes são iguais usando uma pontuação de confiança, ou comparar faces em relação a um banco de dados para ver se uma face semelhante ou idêntica já existe. Além disso, também pode organizar rostos semelhantes em grupos, usando traços visuais compartilhados.<br>[Solicitar acesso][request-access] |
 | [Reconhecedor de formulário][fr-containers] | F0, S0 | **Reconhecimento de Formulários** | A compreensão de formulário aplica a tecnologia de aprendizado de máquina para identificar e extrair pares de chave-valor e tabelas de formulários.<br>[Solicitar acesso][request-access] |
@@ -63,6 +63,7 @@ Os contêineres dos Serviços Cognitivos do Azure fornecem o seguinte conjunto d
 | [Análise de Texto][ta-containers-keyphrase] | F0, S | **Extração de Frases-Chave** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Extrai frases-chave para identificar os principais pontos. Por exemplo, para o texto de entrada "A comida estava deliciosa e a equipe era maravilhosa", a API retorna os principais pontos de discussão: "comida" e "equipe maravilhosa". |
 | [Análise de Texto][ta-containers-language] | F0, S | **Detecção de Idioma** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Para até 120 idiomas, detecta em qual idioma o texto de entrada está escrito e informa um código de idioma único para cada documento enviado na solicitação. O código de idioma é emparelhado com uma pontuação que indica a intensidade da pontuação. |
 | [Análise de Texto][ta-containers-sentiment] | F0, S | **Análise de sentimento v3** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analisa o texto bruto em busca de pistas sobre sentimentos positivos ou negativos. Esta versão da análise de sentimentos retorna rótulos de sentimentos (por exemplo, *positivos* ou *negativos*) para cada documento e frase dentro dele. |
+| [Análise de Texto][ta-containers-health] | F0, S | **Análise de Texto para integridade** | Extraia e rotule informações médicas de texto clínico não estruturado. |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -73,7 +74,7 @@ Além disso, alguns contêineres têm suporte em chaves de recurso de oferta de 
 * Pesquisa Visual Computacional
 * Detecção Facial
 * LUIS
-* Análise de Texto
+* Análise de texto
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Disponibilidade de contêiner nos Serviços Cognitivos do Azure
 
@@ -130,4 +131,5 @@ Instale e explore a funcionalidade fornecida pelos contêineres nos Serviços Co
 [ta-containers-keyphrase]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
 [ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
 [ta-containers-sentiment]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
+[ta-containers-health]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health
 [request-access]: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u

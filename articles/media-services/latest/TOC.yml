@@ -1,7 +1,5 @@
 - name: Documentação de Serviços de Mídia
   href: ./index.yml
-- name: Alternar para documentação da Análise de Vídeo ao vivo no IoT Edge
-  href: ../live-video-analytics-edge/overview.md
 - name: Visão geral
   items:
     - name: Sobre os Serviços de Mídia

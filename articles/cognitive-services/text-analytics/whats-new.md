@@ -8,18 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 7ab886b65e665bdd38e2461e49fa051213602f0e
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 3d9fb7f3fa01c06cc778e4062dd1d136e9c6e342
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462780"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103391"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
 O API de Análise de Texto é atualizado em uma base contínua. Para se manter atualizado com os recentes desenvolvimentos, este artigo fornece informações sobre novas versões e recursos.
+
+## <a name="july-2020"></a>Julho de 2020
+
+### <a name="text-analytics-for-health-container-public-gated-preview"></a>Análise de Texto para visualização de portão público do contêiner de integridade
+
+O Análise de Texto para o contêiner de integridade agora está em uma visualização de entrada pública, que permite extrair informações de textos não estruturados em idiomas em inglês em documentos clínicos, como: formulários de ingestão de pacientes, notas do médico, documentos de pesquisa e resumos de descarga. No momento, você não será cobrado por Análise de Texto para uso do contêiner de integridade. 
+
+O contêiner oferece os seguintes recursos:
+
+* Reconhecimento de Entidade Nomeada
+* Extração de relações
+* Vinculação de entidade
+* Negação
+
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre o Análise de Texto para o contêiner de integridade](how-tos/text-analytics-for-health.md)
 
 ## <a name="may-2020"></a>Maio de 2020
 
@@ -61,9 +78,6 @@ Os nomes das seguintes propriedades na resposta JSON foram alterados, quando apl
 ### <a name="text-analytics-api-v31-public-preview"></a>Visualização pública do API de Análise de Texto v 3.1
    * Nova Análise de Sentimento recurso – [mineração de opinião](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
    * Novo [filtro de `PII` domínio pessoal ()](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) para informações de integridade protegidas ( `PHI` ).
-   * Novas categorias pessoais ( `PII` ):
-      * Classificação internacional de doenças (ICD-9-CM)
-      * Classificação internacional de doenças (ICD-10-CM)
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre a versão prévia do API de Análise de Texto v 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
@@ -75,7 +89,7 @@ Os nomes das seguintes propriedades na resposta JSON foram alterados, quando apl
 Como parte da [versão unificada do SDK do Azure](https://techcommunity.microsoft.com/t5/azure-sdk/january-2020-unified-azure-sdk-release/ba-p/1097290), o sdk do API de análise de texto v3 agora está disponível como uma visualização pública para as seguintes linguagens de programação:
    * [C#](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-csharp)
    * [Python](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-python)
-   * [JavaScript (Node. js)](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-javascript)
+   * [JavaScript (Node.js)](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-javascript)
    * [Java](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-java)
    
    > [!div class="nextstepaction"]
@@ -116,7 +130,7 @@ Tipos de entidade adicionais agora estão disponíveis no serviço de visualiza�
 * [Versão do modelo](concepts/model-versioning.md) `2019-10-01` , que inclui:
     * Detecção expandida e categorização de entidades encontradas no texto. 
     * Reconhecimento dos seguintes novos tipos de entidade:
-        * Número do telefone
+        * Número de telefone
         * Endereço IP
 
 A vinculação de entidades dá suporte a inglês e espanhol. O suporte ao idioma NER varia de acordo com o tipo de entidade.
@@ -137,7 +151,7 @@ Ele dá suporte a Inglês ( `en` ), japonês (), `ja` chinês simplificado ( `zh
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [O que é o API de Análise de Texto?](overview.md)  
+* [O que é a API de Análise de Texto?](overview.md)  
 * [Cenários de usuário de exemplo](text-analytics-user-scenarios.md)
 * [Análise de sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Detecção de idioma](how-tos/text-analytics-how-to-language-detection.md)

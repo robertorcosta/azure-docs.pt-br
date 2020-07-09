@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: e3cb45ee2cfa299a482391d59359b40baea0feb5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd4f57350e97ad38c2c78aec29b1e51d775e8a02
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85517330"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104105"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicionar uma API a aplicativos Web Estáticos do Azure com o Azure Functions
 
@@ -72,20 +72,20 @@ Visual Studio Code gera um projeto de Azure Functions com uma função disparada
 
 Seu aplicativo agora tem uma estrutura de projeto semelhante ao exemplo a seguir.
 
-    ```files
-    ├── api
-    │   ├── GetMessage
-    │   │   ├── function.json
-    │   │   ├── index.js
-    │   │   └── sample.dat
-    │   ├── host.json
-    │   ├── local.settings.json
-    │   ├── package.json
-    │   └── proxies.json
-    ├── index.html
-    ├── readme.md
-    └── styles.css
-    ```
+```files
+├── api
+│   ├── GetMessage
+│   │   ├── function.json
+│   │   ├── index.js
+│   │   └── sample.dat
+│   ├── host.json
+│   ├── local.settings.json
+│   ├── package.json
+│   └── proxies.json
+├── index.html
+├── readme.md
+└── styles.css
+```
 
 Em seguida, você alterará a `GetMessage` função para retornar uma mensagem para o front-end.
 

@@ -1,17 +1,14 @@
 ---
 title: Conexão híbrida de retransmissão como um manipulador de eventos para eventos da Grade de Eventos do Azure
 description: Descreve como você pode usar as conexões híbridas da Retransmissão do Azure como manipuladores de eventos para os eventos da Grade de Eventos do Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: spelluru
-ms.openlocfilehash: 04fbc7b739fa8ea7b08a3341c2f78244c445e721
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.date: 07/07/2020
+ms.openlocfilehash: 38233a2e103600f07837ce9a1ad8d63fe7e4fb99
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800876"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105703"
 ---
 # <a name="relay-hybrid-connection-as-an-event-handler-for-azure-event-grid-events"></a>Conexão híbrida de retransmissão como um manipulador de eventos para eventos da Grade de Eventos do Azure
 Um manipulador de eventos é o local para o qual o evento é enviado. O manipulador usa alguma ação adicional para processar o evento. Vários serviços do Azure são automaticamente configurados para lidar com os eventos, e a **Retransmissão do Azure** é um deles. 

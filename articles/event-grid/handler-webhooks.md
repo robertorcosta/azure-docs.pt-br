@@ -1,17 +1,14 @@
 ---
 title: Webhooks como manipuladores de eventos para eventos da Grade de Eventos do Azure
 description: Descreve como você pode usar os webhooks como manipuladores de eventos para os eventos da Grade de Eventos do Azure. Os runbooks e os aplicativos lógicos da Automação do Azure têm suporte como manipuladores de eventos por meio de webhooks.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: spelluru
-ms.openlocfilehash: d29cf1819d844a8ba5446feeeb725307523fce1b
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.date: 07/07/2020
+ms.openlocfilehash: 3dc75b15c55c82b6164e77f0ac93a87bced94a64
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800535"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105601"
 ---
 # <a name="webhooks-automation-runbooks-logic-apps-as-event-handlers-for-azure-event-grid-events"></a>WebHooks, runbooks de Automação, Aplicativos Lógicos como manipuladores de eventos para eventos da Grade de Eventos do Azure
 Um manipulador de eventos é o local para o qual o evento é enviado. O manipulador usa alguma ação adicional para processar o evento. Vários serviços do Azure são automaticamente configurados para manipular eventos. Você também pode usar qualquer WebHook para manipular eventos. O WebHook não precisa ser hospedado no Azure para manipular eventos. A Grade de Eventos dá suporte apenas a pontos de extremidade do Webhook HTTPS.

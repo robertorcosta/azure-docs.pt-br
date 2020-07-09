@@ -4,14 +4,14 @@ description: Saiba como configurar e gerenciar a criptografia dupla de infraestr
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 2eb1c196e73644eeefa77d66562dc2a55d6f221a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 6612fe38adcd3c8002dd4a11122b5bb2e797a4dd
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034772"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102167"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-postgresql"></a>Criptografia dupla de infraestrutura para o banco de dados do Azure para PostgreSQL
 

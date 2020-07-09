@@ -8,11 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 05/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 965e59f9c51cc41d4e5a8e8931b5c2f62c260599
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 086491484592c8015bdb519bb498e73da3836f6f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648097"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103901"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gerenciando e mantendo o agente do Connected Machine
 
@@ -45,7 +46,7 @@ O agente pode ser atualizado de acordo com uma variedade de métodos para dar su
 > * Para atualizar o agente, você deve ter permissões de *Administrador*.
 > * Para fazer upgrade manualmente, você precisará primeiro baixar e copiar o pacote do instalador para uma pasta no servidor de destino ou de uma pasta de rede compartilhada. 
 
-Se você não estiver familiarizado com as opções de linha de comando para pacotes do Windows Installer, examine [Opções de linha de comando msiexec](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) e [Opções de linha de comando msiexec](https://docs.microsoft.com/windows/win32/msi/command-line-options).
+Se você não estiver familiarizado com as opções de linha de comando para pacotes do Windows Installer, examine [Opções de linha de comando msiexec](/windows/win32/msi/standard-installer-command-line-options) e [Opções de linha de comando msiexec](/windows/win32/msi/command-line-options).
 
 #### <a name="to-upgrade-using-the-setup-wizard"></a>Para atualizar com o assistente de instalação
 

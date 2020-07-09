@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f6cf551b95de8fc7fae83941e5109dfa823213af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf22ce87ed3d535a7c1bd03a8d7f747bee3ab13a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465976"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106383"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Otimizar Azure Data Lake Storage Gen2 para desempenho
 
@@ -64,13 +65,13 @@ Para cargas de trabalho de Hive, a remoção de partições de dados de série t
 
 Esses pipelines que ingerem dados de série temporal muitas vezes colocam seus arquivos com uma nomenclatura muito estruturada para arquivos e pastas. Abaixo está um exemplo muito comum para dados estruturados por data:
 
-    \DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
+*\DataSet\YYYY\MM\DD\ datafile_YYYY_MM_DD. tsv*
 
 Observe que as informações de data e hora são exibidas tanto como pastas quanto no nome de arquivo.
 
 Para data e hora, o padrão a seguir é comum
 
-    \DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
+*\DataSet\YYYY\MM\DD\HH\mm\ datafile_YYYY_MM_DD_HH_mm. tsv*
 
 Novamente, a escolha que você fizer com a pasta e organização do arquivo deverá otimizar para os maiores tamanhos de arquivo e um número razoável de arquivos em cada pasta.
 
@@ -137,5 +138,5 @@ Além das diretrizes gerais acima, cada aplicativo tem diferentes parâmetros di
 | [MapReduce no HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm no HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Número de processos de trabalho</li><li>Número de instâncias de spout executor</li><li>Número de instâncias de bolt executor </li><li>Número de tarefas de spout</li><li>Número de tarefas de bolt</li></ul>|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 * [Visão geral do Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

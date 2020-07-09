@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f5cf9487f6f10ce661009e5e504be51a098b7e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1aca245592bef98bc5d0cff3268d5b6496d2220
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357385"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103544"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: agendador
 Este tópico descreve o Agendador interno no Azure AD Connect sincronização (mecanismo de sincronização).
@@ -39,6 +39,10 @@ O agendador é responsável por duas tarefas:
 * **Tarefas de manutenção**. Renove as chaves e certificados para a redefinição de Senha e o DRS (Serviço de Registro de Dispositivo). Limpe as entradas antigas no log de operações.
 
 O agendador em si está sempre em execução, mas ele pode ser configurado para executar apenas uma ou nenhuma dessas tarefas. Por exemplo, se você precisar ter seu próprio processo de ciclo de sincronização, poderá desabilitar essa tarefa no agendador, mas ainda executar a tarefa de manutenção.
+
+>[!IMPORTANT]
+>Você precisará certificar-se de que um ciclo de sincronização seja executado pelo menos uma vez a cada 7 dias. A falha em fazer isso pode causar problemas de sincronização que exigirão a execução de uma sincronização completa para resolver.
+
 
 ## <a name="scheduler-configuration"></a>Configuração do agendador
 Para ver as configurações atuais, acesse o PowerShell e execute `Get-ADSyncScheduler`. Ele mostra algo parecido com esta imagem:

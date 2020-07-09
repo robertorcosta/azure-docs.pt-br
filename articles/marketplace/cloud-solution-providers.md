@@ -1,18 +1,18 @@
 ---
 title: Provedor de soluções integradas - Microsoft Commercial Marketplace
 description: Saiba como vender suas ofertas por meio do canal de parceiros do programa CSP (Provedor de Soluções de Nuvem) da Microsoft no marketplace comercial.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/16/2020
-ms.author: dsindona
-ms.openlocfilehash: 633656af72790c7dfebeee567713875ce0d609b4
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d6c3af312717627a1719c5f1029ae638e7d4f827
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964202"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104428"
 ---
 # <a name="cloud-solution-provider-program"></a>Programa do provedor de soluções de nuvem
 

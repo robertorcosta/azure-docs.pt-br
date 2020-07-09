@@ -5,11 +5,12 @@ description: Saiba como usar Azure Active Directory Associação de grupo para r
 services: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.openlocfilehash: ad195085c049776bf0db418c57f2c72830f1adff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb48e4f72506a69969cae39810640d23d771bde3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80803562"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106077"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Controlar o acesso a recursos de cluster usando o controle de acesso baseado em função e identidades de Azure Active Directory no serviço kubernetes do Azure
 
@@ -366,7 +367,7 @@ $ kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace dev
 Error from server (Forbidden): pods is forbidden: User "akssre@contoso.com" cannot create pods in the namespace "dev"
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Neste artigo, você criou recursos no cluster AKS e usuários e grupos no Azure AD. Para limpar todos esses recursos, execute os seguintes comandos:
 
@@ -409,5 +410,5 @@ Para obter as práticas recomendadas sobre identidade e controle de recursos, co
 [az-ad-user-create]: /cli/azure/ad/user#az-ad-user-create
 [az-ad-group-member-add]: /cli/azure/ad/group/member#az-ad-group-member-add
 [az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show
-[rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
+[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
