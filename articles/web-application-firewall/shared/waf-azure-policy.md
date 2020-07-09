@@ -5,14 +5,14 @@ author: tremansdoerfer
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: 4c1fd53eb6ebf1f1aebdfba99b736e26bd6cff2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12ad18edbb434bdfaec2ae817ea079a843661ef6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85306680"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111330"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Firewall e Azure Policy do aplicativo Web do Azure
 
@@ -22,9 +22,13 @@ O WAF (firewall do aplicativo Web) do Azure combinado com Azure Policy pode ajud
 
 Há várias políticas internas do Azure para gerenciar recursos do WAF. Uma análise das políticas e suas funcionalidades são as seguintes:
 
-1. O **Firewall do aplicativo Web deve ser habilitado para o serviço de porta frontal do Azure ou gateway de aplicativo**: os serviços de porta frontal do Azure e gateways de aplicativo serão avaliados se houver um WAF presente na criação de recursos. A política tem três efeitos: auditoria, negar e desabilitar. Trilhas de auditoria quando um serviço de porta frontal do Azure ou gateway de aplicativo não tem um WAF e permite que os usuários vejam qual serviço de porta frontal do Azure ou gateway de aplicativo não está em conformidade no momento. Deny impede que qualquer serviço de porta frontal do Azure ou gateway de aplicativo seja criado se um WAF não estiver anexado. Desabilitado desativa esta política.
+1. O **WAF (firewall do aplicativo Web) deve ser habilitado para o serviço de porta frontal do Azure**: os serviços de porta frontal do Azure são avaliados se houver um WAF presente na criação de recursos. A política tem três efeitos: auditoria, negar e desabilitar. Trilhas de auditoria quando um serviço de porta frontal do Azure não tem um WAF e permite que os usuários vejam o que o serviço de porta frontal do Azure não está em conformidade. Deny impede que qualquer serviço de porta frontal do Azure seja criado se um WAF não estiver anexado. Desabilitado desativa esta política.
 
-2. O **Firewall do aplicativo Web deve ser um modo definido para o gateway de aplicativo e o serviço de porta frontal do Azure**: o Firewall do aplicativo Web é avaliado em qual modo ele se encontra, prevenção ou detecção. A política garante a consistência do modo entre os firewalls do aplicativo Web. A política tem três efeitos: auditoria, negar e desabilitar. Trilhas de auditoria quando um WAF não se ajusta ao modo especificado. Deny impede que qualquer WAF seja criada se não estiver no modo correto. Desabilitado desativa esta política.
+2. O **Firewall do aplicativo Web (WAF) deve ser habilitado para o gateway de aplicativo**: os gateways de aplicativo serão avaliados se houver um WAF presente na criação de recursos. A política tem três efeitos: auditoria, negar e desabilitar. Trilhas de auditoria quando um gateway de aplicativo não tem um WAF e permite que os usuários vejam qual gateway de aplicativo não está em conformidade. Deny impede que qualquer gateway de aplicativo seja criado se um WAF não estiver anexado. Desabilitado desativa esta política.
+
+3. **O WAF (firewall do aplicativo Web) deve usar o modo especificado para o serviço de porta frontal do Azure**: exige que o uso do modo ' detecção ' ou ' prevenção ' esteja ativo em todas as políticas de firewall do aplicativo Web para o serviço de porta de recepção do Azure. A política tem três efeitos: auditoria, negar e desabilitar. Trilhas de auditoria quando um WAF não se ajusta ao modo especificado. Deny impede que qualquer WAF seja criada se não estiver no modo correto. Desabilitado desativa esta política.
+
+4. **O WAF (firewall do aplicativo Web) deve usar o modo especificado para o gateway de aplicativo**: exige que o uso do modo ' detecção ' ou ' prevenção ' esteja ativo em todas as políticas de firewall do aplicativo Web para o gateway de aplicativo. A política tem três efeitos: auditoria, negar e desabilitar. Trilhas de auditoria quando um WAF não se ajusta ao modo especificado. Deny impede que qualquer WAF seja criada se não estiver no modo correto. Desabilitado desativa esta política.
 
 
 ## <a name="launch-an-azure-policy"></a>Iniciar um Azure Policy
@@ -45,7 +49,7 @@ Há várias políticas internas do Azure para gerenciar recursos do WAF. Uma an�
     2.  **Exclusões**: selecione todos os recursos do escopo a serem excluídos da política 
     3.  **Definição de política**: selecione o Azure Policy a ser aplicado ao escopo com exclusões. Digite "Firewall do aplicativo Web" na barra de pesquisa para escolher o Azure Policy de firewall do aplicativo Web relevante.
 
-![Firewall do aplicativo Web do Azure](../media/waf-azure-policy/policy-listings.png)
+![Firewall do aplicativo Web do Azure](../media/waf-azure-policy/policy-listing.png)
 
 
 5.  Selecione a guia **parâmetros** e atualize os parâmetros de políticas. Para esclarecer ainda mais o que o parâmetro faz, passe o mouse sobre o ícone de informações ao lado do nome do parâmetro para obter mais esclarecimentos.

@@ -1,17 +1,18 @@
 ---
 title: Implantar o Azure Policy em assinaturas delegadas em escala
-description: Saiba como o gerenciamento de recursos delegado do Azure permite implantar uma definição de política e uma atribuição de política em vários locatários.
-ms.date: 11/8/2019
+description: Saiba como o Azure Lighthouse permite implantar uma definição de política e uma atribuição de política em vários locatários.
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 0e3af1728b4927874fa599bad256798f39721e22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d7c6206916f87072f68cc0fe953c8049896cd0b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636522"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111789"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implantar o Azure Policy em assinaturas delegadas em escala
 
-Como provedor de serviços, é provável que você tenha integrado vários locatários de clientes no gerenciamento de recursos delegados do Azure. O [Azure Lighthouse](../overview.md) permite que os provedores de serviços realizem operações em escala em vários locatários ao mesmo tempo, tornando as tarefas de gerenciamento mais eficientes.
+Como um provedor de serviços, você pode ter integrado vários locatários de clientes ao [Azure Lighthouse](../overview.md). O Azure Lighthouse permite que os provedores de serviços realizem operações em escala em vários locatários ao mesmo tempo, tornando as tarefas de gerenciamento mais eficientes.
 
 Esse tópico mostra como usar o [Azure Policy](../../governance/policy/index.yml) para implantar uma definição de política e uma atribuição de política em vários locatários por meio de comandos do PowerShell. Neste exemplo, a definição de política garante que as contas de armazenamento estejam protegidas permitindo apenas o tráfego HTTPS.
 
@@ -60,7 +61,7 @@ New-AzStorageAccount -ResourceGroupName (New-AzResourceGroup -name policy-test -
                      -Verbose                  
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando tiver terminado, remova a definição de política e a atribuição criada pela implantação.
 

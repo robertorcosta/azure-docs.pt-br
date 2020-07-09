@@ -4,13 +4,14 @@ description: Saiba como configurar o link privado para o banco de dados do Azure
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: d99cb634278e141bc156357feb686198f713b198
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78634ee7236c8bc0d256bac7eea521e699c0c39d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84673542"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113240"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Criar e gerenciar um link privado para o banco de dados do Azure para MySQL usando a CLI
 
@@ -167,7 +168,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 4. Em **nova conexão**, insira ou selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Nome da Conexão| Selecione o nome de conexão de sua escolha.|
     | Nome do host | Selecionar *mydemoserver.privatelink.mysql.Database.Azure.com* |

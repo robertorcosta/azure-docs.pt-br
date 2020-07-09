@@ -1,19 +1,14 @@
 ---
 title: Registro de contêiner do Azure como origem da grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos de registro de contêiner com a grade de eventos do Azure
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: 7e33feb04edf42f1e2a32b9b8c8e2fd214692f31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: d216fe88ee6aaad33fbbe3b93b8c4f8a6e952a71
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81393357"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113710"
 ---
 # <a name="azure-container-registry-as-an-event-grid-source"></a>Registro de contêiner do Azure como uma fonte de grade de eventos
 
@@ -202,7 +197,7 @@ O objeto solicitado tem as seguintes propriedades:
 | useragent | string | O cabeçalho do agente de usuário da solicitação. |
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
-|Title |Descrição  |
+|Título |Descrição  |
 |---------|---------|
 | [Início Rápido: enviar eventos de registro de contêiner](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar a CLI do Azure para enviar eventos de Registro de Contêiner. |
 

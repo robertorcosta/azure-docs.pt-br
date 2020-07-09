@@ -1,18 +1,14 @@
 ---
 title: Armazenamento de BLOBs do Azure como fonte de grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos de armazenamento de blob com a Grade de Eventos do Azure
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: ec31d8b0b2cc672b65d0c25a4a902befd8693d41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: a226a46dcc85e2bb4940364d2802397edb2c2397
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84780997"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113744"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Armazenamento de BLOBs do Azure como uma fonte de grade de eventos
 
@@ -292,7 +288,7 @@ Se a conta de armazenamento de BLOBs tiver um namespace hierárquico, os dados s
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
 | subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
@@ -305,7 +301,7 @@ Um evento tem os seguintes dados de nível superior:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
 | api | string | A operação que disparou o evento. |
 | clientRequestId | string | uma ID de solicitação fornecida pelo cliente para a operação da API de armazenamento. Essa ID pode ser usada para correlacionar os logs de diagnóstico do armazenamento do Azure usando o campo "Client-Request-ID" nos logs e pode ser fornecida em solicitações de cliente usando o cabeçalho "x-MS-Client-Request-ID". Consulte [Formato de Log](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |

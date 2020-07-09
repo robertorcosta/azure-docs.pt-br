@@ -4,14 +4,14 @@ description: Este artigo descreve como você pode habilitar o armazenamento de c
 author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: ddbcb0143a4f84d9e0f3dc2fedf780fca6637692
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c028bff80856f7edcb34688ffa5c3320a66ccc9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80062514"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112605"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-using-the-azure-portal"></a>Crescimento automático do armazenamento no banco de dados do Azure para MySQL usando o portal do Azure
 Este artigo descreve como você pode configurar um armazenamento de banco de dados do Azure para servidor MySQL para crescer sem afetar a carga de trabalho.

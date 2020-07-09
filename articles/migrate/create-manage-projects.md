@@ -3,11 +3,12 @@ title: Criar e gerenciar projetos de Migrações para Azure
 description: Localize, crie, gerencie e exclua projetos em migrações para Azure.
 ms.topic: how-to
 ms.date: 04/19/2020
-ms.openlocfilehash: f5079ed979d98f2c6f0c654c860c6f176f366497
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 644ac5ecab9f5384b446c3b1ebe762a5d06aaf12
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81676385"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113421"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Criar e gerenciar projetos de Migrações para Azure
 
@@ -82,7 +83,7 @@ Observe que:
        
     - Se você já tiver excluído o projeto de migrações para Azure, selecione **grupos de recursos** no painel esquerdo da portal do Azure e localize o espaço de trabalho.
        
-2. [Siga as instruções](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) para excluir o espaço de trabalho.
+2. [Siga as instruções](../azure-monitor/platform/delete-workspace.md) para excluir o espaço de trabalho.
 
 ## <a name="next-steps"></a>Próximas etapas
 

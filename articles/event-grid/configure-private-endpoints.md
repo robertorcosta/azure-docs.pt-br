@@ -1,18 +1,14 @@
 ---
 title: Configurar pontos de extremidade privados para os tópicos ou domínios da grade de eventos do Azure
 description: Este artigo descreve como configurar pontos de extremidade privados para o domínio ou tópicos da grade de eventos do Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/22/2020
-ms.author: spelluru
-ms.openlocfilehash: 816d1f762698deeed38afe01899916b491809db2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: ace3f7f59e4f26388652d7bda1a5ee28800a414b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390458"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115328"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurar pontos de extremidade privados para os tópicos ou domínios da grade de eventos do Azure
 Você pode usar [pontos de extremidade privados](../private-link/private-endpoint-overview.md) para permitir a entrada de eventos diretamente de sua rede virtual para seus tópicos e domínios com segurança por meio de um [link privado](../private-link/private-link-overview.md) sem passar pela Internet pública. O ponto de extremidade privado usa um endereço IP do espaço de endereço de VNet para seu tópico ou domínio. Para obter mais informações conceituais, consulte [segurança de rede](network-security.md).

@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 07/06/2020
-ms.openlocfilehash: 1c63568418f21da0556ced0d004e04e7909118fb
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 9f420b37bd44a46d4149e89cf5876d8e8b712581
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042621"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114373"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de desempenho e ajuste de fluxos de dados de mapeamento
 
@@ -35,7 +35,7 @@ Ao criar fluxos de dados de mapeamento, você testar a unidade de cada transform
 
 ![Monitoramento de fluxo de dados](media/data-flow/mon003.png "Monitor de Fluxo de Dados 3")
 
- Para execuções de depuração de pipeline, é necessário cerca de um minuto de tempo de configuração de cluster em seus cálculos de desempenho geral para um cluster aquecido. Se estiver inicializando o Azure Integration Runtime padrão, a criação poderá levar cerca de 5 minutos.
+ Para execuções de depuração de pipeline, é necessário cerca de um minuto de tempo de configuração de cluster em seus cálculos de desempenho geral para um cluster aquecido. Se você estiver inicializando o Azure Integration Runtime padrão, o tempo de rotação poderá levar cerca de 4 minutos.
 
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Aumentar o tamanho da computação no Azure Integration Runtime
 
@@ -55,7 +55,7 @@ Por padrão, a ativação da depuração usará Azure IR padrão criado automati
 
 ### <a name="decrease-cluster-compute-start-up-time-with-ttl"></a>Diminuir o tempo de inicialização de computação do cluster com TTL
 
-Há uma propriedade no Azure IR em Propriedades de Fluxo de Dados que permitirá preparar um pool de recursos de computação de cluster para seu alocador. Com esse pool, você pode enviar sequencialmente atividades de fluxo de dados para execução. Depois que o pool for estabelecido, cada trabalho subsequente levará de 1 a 2 minutos até que o cluster do Spark sob demanda execute seu trabalho. A configuração inicial do pool de recursos levará cerca de 6 minutos. Especifique a quantidade de tempo que você deseja manter o pool de recursos na configuração de vida útil (TTL).
+Há uma propriedade no Azure IR em Propriedades de Fluxo de Dados que permitirá preparar um pool de recursos de computação de cluster para seu alocador. Com esse pool, você pode enviar sequencialmente atividades de fluxo de dados para execução. Depois que o pool for estabelecido, cada trabalho subsequente levará de 1 a 2 minutos até que o cluster do Spark sob demanda execute seu trabalho. A configuração inicial do pool de recursos levará cerca de 4 minutos. Especifique a quantidade de tempo que você deseja manter o pool de recursos na configuração de vida útil (TTL).
 
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse-synapse"></a>Otimização para o Banco de Dados SQL do Azure e o Azure SQL Data Warehouse Synapse
 
@@ -145,7 +145,7 @@ Ao usra o curinga, seu pipeline conterá apenas uma atividade de Fluxo de Dados.
 
 O pipeline For Each em modo paralelo gera vários clusters ao criar clusters de trabalho para cada atividade de fluxo de dados executada. Isso pode causar a limitação de serviço do Azure com um grande número de execuções simultâneas. No entanto, o uso de Executar Fluxo de Dados dentro de um For Each com conjunto Sequencial no pipeline evitará a limitação e o esgotamento de recursos. Isso forçará o Data Factory a executar cada um de seus arquivos em um fluxo de dados sequencialmente.
 
-Se você usar For Each um com um fluxo de dados em sequência, recomendamos a configuração TTL no Azure Integration Runtime. Isso porque cada arquivo incorrerá em um tempo de inicialização de cluster completo de 5 minutos dentro do iterador.
+Se você usar For Each um com um fluxo de dados em sequência, recomendamos a configuração TTL no Azure Integration Runtime. Isso ocorre porque cada arquivo incorrerá em um tempo de inicialização de cluster completo de 4 minutos dentro do iterador.
 
 ### <a name="optimizing-for-cosmosdb"></a>Otimização para CosmosDB
 

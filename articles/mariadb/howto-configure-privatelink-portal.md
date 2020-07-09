@@ -4,14 +4,14 @@ description: Saiba como configurar o link privado para o banco de dados do Azure
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: b8c649a232baeafeaf1f53753af6653bf9edd9c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db2fa377cc10759fc57c3e4a27bd7815a5724bd7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736179"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114730"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Criar e gerenciar o link privado para o banco de dados do Azure para MariaDB usando o portal
 
@@ -53,7 +53,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
 
 2. Em **Criar uma máquina virtual – Noções básicas**, insira ou selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
@@ -80,7 +80,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
 
 1. Em **Criar uma máquina virtual – Rede**, selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Rede virtual | Deixe o padrão **MyVirtualNetwork**.  |
     | Espaço de endereço | Deixar o padrão **10.1.0.0/24**.|
@@ -103,7 +103,7 @@ Nesta seção, você criará um banco de dados do Azure para o servidor MariaDB 
 
 1. No **banco de dados do Azure para MariaDB** , forneça estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | **Detalhes do projeto** | |
     | Subscription | Selecione sua assinatura. |
@@ -137,7 +137,7 @@ Nesta seção, você criará um ponto de extremidade privado para o servidor Mar
 
 1. Em **criar um ponto de extremidade privado-noções básicas**, insira ou selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | **Detalhes do projeto** | |
     | Subscription | Selecione sua assinatura. |
@@ -149,7 +149,7 @@ Nesta seção, você criará um ponto de extremidade privado para o servidor Mar
 5. Selecione **Avançar: Recurso**.
 6. Em **Criar um ponto de extremidade privado – Recurso**, insira ou selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     |Método de conexão  | Selecione conectar-se a um recurso do Azure em meu diretório.|
     | Subscription| Selecione sua assinatura. |
@@ -227,7 +227,7 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
 
 4. Em **nova conexão**, insira ou selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Tipo de servidor| Selecione **MariaDB**.|
     | Nome do servidor| Selecionar *mydemoserver.privatelink.MariaDB.Database.Azure.com* |
@@ -242,7 +242,7 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
 
 7. Feche a conexão de área de trabalho remota para myVm.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando você terminar de usar o ponto de extremidade privado, o servidor MariaDB e a VM, exclua o grupo de recursos e todos os recursos que ele contém:
 
 1. Insira *MyResource*   The na caixa de **pesquisa** na parte superior do portal e selecione *MyResource*   Bedos resultados da pesquisa.

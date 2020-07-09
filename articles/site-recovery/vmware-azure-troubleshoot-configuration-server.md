@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 26376c6b20816d2e7302403c8391195e16092fa3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b60a53b05c0d2c80c36c94e27e4d00952b5af954
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504313"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113064"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Solucionar problemas do servidor de configuração
 
@@ -97,7 +97,7 @@ Execute o comando a seguir no computador de origem:
   UnifiedAgentConfigurator.exe  /CSEndPoint <configuration server IP address> /PassphraseFilePath <passphrase file path>
 ```
 
-Setting | Detalhes
+Configuração | Detalhes
 --- | ---
 Uso | UnifiedAgentConfigurator.exe  /CSEndPoint <endereço IP do servidor de configuração\> /PassphraseFilePath <caminho do arquivo de frase secreta\>
 Logs de configuração do agente | Localizado em %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
@@ -112,7 +112,7 @@ Execute o comando a seguir no computador de origem:
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <configuration server IP address> -P /var/passphrase.txt
   ```
 
-Setting | Detalhes
+Configuração | Detalhes
 --- | ---
 Uso | cd /usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh -i <endereço IP do servidor de configuração\> -P <caminho do arquivo de frase secreta\>
 -i | Parâmetro obrigatório. Especifica o endereço de IP do servidor de configuração. Use qualquer endereço de IP válido.
@@ -162,16 +162,18 @@ A atualização do servidor de configuração falha quando determinados serviço
 
 Para identificar o problema, navegue até C:\ProgramData\ASRSetupLogs\CX_TP_InstallLogFile no servidor de configuração. Se você encontrar os seguintes erros, siga as etapas abaixo para resolver o problema: 
 
-    2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
-    2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
-    2018-06-28 14:28:12.944   Stopping svagents service.
-    2018-06-28 14:31:32.949   Unable to stop svagents service.
-    2018-06-28 14:31:32.949   Stopping svagents service.
-    2018-06-28 14:34:52.960   Unable to stop svagents service.
-    2018-06-28 14:34:52.960   Stopping svagents service.
-    2018-06-28 14:38:12.971   Unable to stop svagents service.
-    2018-06-28 14:38:12.971   Rolling back the install changes.
-    2018-06-28 14:38:12.971   Upgrade has failed.
+```output
+2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
+2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
+2018-06-28 14:28:12.944   Stopping svagents service.
+2018-06-28 14:31:32.949   Unable to stop svagents service.
+2018-06-28 14:31:32.949   Stopping svagents service.
+2018-06-28 14:34:52.960   Unable to stop svagents service.
+2018-06-28 14:34:52.960   Stopping svagents service.
+2018-06-28 14:38:12.971   Unable to stop svagents service.
+2018-06-28 14:38:12.971   Rolling back the install changes.
+2018-06-28 14:38:12.971   Upgrade has failed.
+```
 
 Como resolver o problema:
 
@@ -211,8 +213,10 @@ TCP    192.168.1.40:52739     192.168.1.40:443      SYN_SENT  // Substitua o IP 
 
 Se você encontrar rastreamentos semelhantes aos seguintes nos logs do agente de destino mestre, ele está relatando erros na porta 443:
 
-    #~> (11-20-2018 20:31:51):   ERROR  2508 8408 313 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
-    #~> (11-20-2018 20:31:54):   ERROR  2508 8408 314 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+```output
+#~> (11-20-2018 20:31:51):   ERROR  2508 8408 313 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+#~> (11-20-2018 20:31:54):   ERROR  2508 8408 314 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+```
  
 Esse erro pode ser encontrado quando outros aplicativos também estão usando a porta 443 ou devido a uma configuração de firewall que bloqueia a porta.
 

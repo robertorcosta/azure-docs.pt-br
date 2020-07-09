@@ -1,17 +1,18 @@
 ---
 title: Remover o acesso a uma delegação
-description: Saiba como remover o acesso a recursos que foram delegados a um provedor de serviços para o gerenciamento de recursos delegado do Azure.
-ms.date: 04/24/2020
+description: Saiba como remover o acesso a recursos que foram delegados a um provedor de serviços para o Azure Lighthouse.
+ms.date: 07/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 2a8024a47b3f7ea461e4ea7648db7003889552cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be1547056bc3ec387ba4cba52f6b6d6fbcaad23c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636488"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111721"
 ---
 # <a name="remove-access-to-a-delegation"></a>Remover o acesso a uma delegação
 
-Depois que a assinatura ou o grupo de recursos de um cliente tiver sido delegado a um provedor de serviços para o [Gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md), a delegação poderá ser removida se necessário. Depois que uma delegação for removida, o acesso concedido anteriormente aos usuários no locatário do provedor de serviço não será mais aplicado.
+Depois que a assinatura ou o grupo de recursos de um cliente tiver sido delegado a um provedor de serviços para o [Azure Lighthouse](../overview.md), a delegação poderá ser removida se necessário. Depois que uma delegação é removida, o acesso de [Gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md) que foi concedido anteriormente aos usuários no locatário do provedor de serviços não será mais aplicado.
 
 A remoção de uma delegação pode ser feita por um usuário no locatário do cliente ou no locatário do provedor de serviços, desde que o usuário tenha as permissões apropriadas.
 

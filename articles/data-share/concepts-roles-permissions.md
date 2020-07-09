@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 85b680aafd822b80edf543ca39787848129f1930
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 229d4fd6647a8a1b756fedee2a864d00b9c7de62
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322050"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110990"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Funções e requisitos do Azure Data Share 
 
@@ -30,9 +30,8 @@ Para compartilhar ou receber dados de um armazenamento de dados do Azure, o usu�
 
 Veja abaixo um resumo das funções atribuídas à identidade gerenciada do recurso de compartilhamento de dados:
 
-| |  |  |
-|---|---|---|
 |**Tipo de repositório de dados**|**Armazenamento de dados de origem Provedor de Dados**|**Armazenamento de dados de destino de consumidor de dados**|
+|---|---|---|
 |Armazenamento do Blobs do Azure| Leitor de Dados do Blob de Armazenamento | Colaborador de dados de blob de armazenamento
 |Azure Data Lake Gen1 | Proprietário | Sem suporte
 |Azure Data Lake Gen2 | Leitor de Dados do Blob de Armazenamento | Colaborador de dados de blob de armazenamento
@@ -42,9 +41,8 @@ Veja abaixo um resumo das funções atribuídas à identidade gerenciada do recu
 
 Para o compartilhamento baseado em SQL, um usuário do SQL precisa ser criado a partir de um provedor externo no banco de dados SQL do Azure com o mesmo nome que o recurso de compartilhamento do Azure data share. Veja abaixo um resumo da permissão exigida pelo usuário do SQL.
 
-| |  |  |
-|---|---|---|
 |**Tipo de banco de dados SQL**|**Permissão de usuário do Provedor de Dados SQL**|**Permissão de usuário SQL de consumidor de dados**|
+|---|---|---|
 |Banco de Dados SQL do Azure | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |Azure Synapse Analytics (antigo SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
@@ -103,4 +101,3 @@ Para exibir o convite de compartilhamento de dados do Azure pela primeira vez em
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre as funções no Azure – [Entender as definições de função](../role-based-access-control/role-definitions.md)
-

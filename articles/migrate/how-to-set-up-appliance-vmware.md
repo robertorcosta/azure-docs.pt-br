@@ -3,11 +3,12 @@ title: Configurar um dispositivo de migrações para Azure para VMware
 description: Saiba como configurar um dispositivo de migrações para Azure para avaliar e migrar VMs VMware.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: b32c6a9b703e4d341fe353d6b472ea7a18adadf3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 272481640db739a458a19a2c9383ff45b54974b5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81538249"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112809"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurar um dispositivo para VMs VMware
 
@@ -46,7 +47,7 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo.
 2. Execute o comando a seguir para gerar o hash para o OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Para a versão mais recente do dispositivo, o hash gerado deve corresponder a essas [configurações](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#verify-security).
+3. Para a versão mais recente do dispositivo, o hash gerado deve corresponder a essas [configurações](./tutorial-assess-vmware.md#verify-security).
 
 
 
@@ -114,7 +115,7 @@ O dispositivo precisa se conectar ao vCenter Server para descobrir a configuraç
 3. Clique em **Validar conexão** para garantir que o dispositivo possa se conectar ao vCenter Server.
 
 ### <a name="specify-vm-credentials"></a>Especificar credenciais de VM
-Para a descoberta de aplicativos, funções e recursos e visualização de dependências das VMs, você pode fornecer uma credencial de VM que tenha acesso às VMs VMware. Você pode adicionar uma credencial para VMs do Windows e uma credencial para VMs do Linux. [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) sobre os privilégios de acesso necessários.
+Para a descoberta de aplicativos, funções e recursos e visualização de dependências das VMs, você pode fornecer uma credencial de VM que tenha acesso às VMs VMware. Você pode adicionar uma credencial para VMs do Windows e uma credencial para VMs do Linux. [Saiba mais](./migrate-support-matrix-vmware.md) sobre os privilégios de acesso necessários.
 
 > [!NOTE]
 > Essa entrada é opcional e é necessária para habilitar a descoberta de aplicativos e a visualização de dependência sem agente.

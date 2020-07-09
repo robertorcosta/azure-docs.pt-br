@@ -6,11 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 50bcd42189b1bcc945d726277975892f07f1baa1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 827c1954456ee7943c48525919ed411836f610aa
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255544"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114016"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Escolha a opção de servidor MySQL correta no Azure
 
@@ -30,7 +31,7 @@ Ao tomar sua decisão, considere as duas opções a seguir:
 
 As diferenças principais entre essas opções estão listadas na tabela a seguir:
 
-|            | Banco de Dados do Azure para MySQL | MySQL em VMs do Azure    |
+| Atributo          | Banco de Dados do Azure para MySQL | MySQL em VMs do Azure    |
 |:-------------------|:-----------------------------|:--------------------|
 | SLA (contrato de nível de serviço)                | Oferece SLA de 99,99% de disponibilidade| Até 99,95% de disponibilidade com duas ou mais instâncias no mesmo conjunto de disponibilidade.<br/><br/>99,9% de disponibilidade com uma única VM de instância usando o armazenamento Premium.<br/><br/>99,99% usando Zonas de Disponibilidade com várias instâncias em vários conjuntos de disponibilidade.<br/><br/>Consulte o [SLA de máquinas virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
 | Aplicação de patch do sistema operacional        | Automática  | Gerenciado por clientes |

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 1d8275d11b845df43238dce82beabe89d6464799
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0272d53c5fc4c565baf5d7105bd6e1b4a0ef535
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84944688"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114594"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas frequentes sobre a migração do Armazenamento do Azure
 
@@ -26,9 +26,11 @@ Este artigo responde perguntas frequentes sobre a migração do Armazenamento do
 
 Para copiar arquivos entre contêineres, use o AzCopy. Consulte o seguinte exemplo:
 
-    AzCopy /Source:https://xxx.blob.core.windows.net/xxx
-    /Dest:https://xxx.blob.core.windows.net/xxx /SourceKey:xxx /DestKey:xxx
-    /S
+```azurepowershell-interactive
+AzCopy /Source:https://xxx.blob.core.windows.net/xxx
+/Dest:https://xxx.blob.core.windows.net/xxx /SourceKey:xxx /DestKey:xxx
+/S
+```
 
 O AzCopy usa a [API do Blob de Cópia](https://docs.microsoft.com/rest/api/storageservices/copy-blob) para realizar a cópia de cada arquivo no contêiner.  
 
@@ -54,11 +56,15 @@ Use a CLI do Azure.
 
 - Baixar um blob individual:
 
-      azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
+    ```azurecli-interactive
+    azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
+    ```
 
 - Carregar um blob individual:
 
-      azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
+    ```azurecli-interactive
+    azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
+    ```
 
 **Como fazer para migrar Blobs de uma conta de armazenamento para outra?**
 
@@ -160,15 +166,19 @@ Siga estas etapas:
 
     Para copiar os discos inteiros na conta de armazenamento:
 
-        AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
-        /Dest:https://destaccount.blob.core.windows.net/mycontainer2
-        /SourceKey:key1 /DestKey:key2 /S
+    ```azurepowershell-interactive
+    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
+    /Dest:https://destaccount.blob.core.windows.net/mycontainer2
+    /SourceKey:key1 /DestKey:key2 /S
+    ```
 
     Para copiar somente um disco, forneça o nome do disco em **Padrão**:
 
-        AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
-        /Dest:https://destaccount.blob.core.windows.net/mycontainer2
-        /SourceKey:key1 /DestKey:key2 /Pattern:abc.vhd
+    ```azurepowershell-interactive
+    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
+    /Dest:https://destaccount.blob.core.windows.net/mycontainer2
+    /SourceKey:key1 /DestKey:key2 /Pattern:abc.vhd
+    ```
 
 A operação pode levar várias horas para ser concluída.
 
@@ -190,9 +200,11 @@ Não há opção para fazer backup direto de uma conta de armazenamento inteira.
 
 3.  Execute o comando a seguir para mover o contêiner. Substitua o texto pelos valores reais.   
 
-            AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
-            /Dest:https://destaccount.blob.core.windows.net/mycontainer2
-            /SourceKey:key1 /DestKey:key2 /S
+    ```azurepowershell-interactive
+    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
+    /Dest:https://destaccount.blob.core.windows.net/mycontainer2
+    /SourceKey:key1 /DestKey:key2 /S
+    ```
 
     - `/Source`: Fornece o URI para a conta de armazenamento de origem (até o contêiner).  
     - `/Dest`: Fornece o URI para a conta de armazenamento de destino (até o contêiner).  

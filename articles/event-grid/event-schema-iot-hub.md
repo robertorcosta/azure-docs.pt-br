@@ -1,20 +1,14 @@
 ---
 title: Hub IoT do Azure como origem da grade de eventos
 description: Este artigo fornece as propriedades e o esquema para eventos do Hub IoT do Azure. Ele lista os tipos de evento disponíveis, um evento de exemplo e propriedades de evento.
-services: iot-hub
-documentationcenter: ''
-author: spelluru
-editor: ''
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: f9bf807884ab5592fa320532f3ca10a223081263
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 02ecf8d4df55aa6b4319e40892778f85f94e29a7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81393318"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113642"
 ---
 # <a name="azure-iot-hub-as-an-event-grid-source"></a>Hub IoT do Azure como uma fonte de grade de eventos
 Este artigo fornece as propriedades e o esquema para eventos do Hub IoT do Azure. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md). 
@@ -205,7 +199,7 @@ Para os eventos de Hub IoT **Dispositivo Criado** e **Dispositivo Excluído**, o
 | lastUpdated | string | Atualizar o carimbo de data/hora ISO 8601 da ultima atualização de propriedade dos dispositivos gêmeos. | 
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
-|Title  |Descrição  |
+|Título  |Descrição  |
 |---------|---------|
 | [Enviar notificações por email sobre os eventos do Hub IoT usando Aplicativos Lógicos](publish-iot-hub-events-to-logic-apps.md) | Um aplicativo lógico envia um email de notificação sempre que um dispositivo é adicionado ao seu Hub IoT. |
 | [Reagir aos eventos do Hub IoT usando a Grade de Eventos para disparar ações](../iot-hub/iot-hub-event-grid.md) | Visão geral da integração do Hub IoT com a Grade de Eventos. |

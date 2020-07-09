@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
-ms.openlocfilehash: 7f3b928e657b5c061e624281e1d5a8805283a657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 488f273336da05738609333f911fe3a90ba59496
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186417"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111976"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Coletar dados do CollectD em agentes do Linux no Azure Monitor
 O [CollectD](https://collectd.org/) é um daemon do Linux de software livre que coleta periodicamente métricas de desempenho de aplicativos e informações de nível de sistema. Exemplos de aplicativos incluem a Máquina Virtual Java (JVM), o MySQL Server e o Nginx. Este artigo fornece informações sobre como coletar dados de desempenho do CollectD no Azure Monitor.
@@ -24,26 +24,30 @@ A configuração do CollectD a seguir é incluída no agente do Log Analytics pa
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-    LoadPlugin write_http
+```xml
+LoadPlugin write_http
 
-    <Plugin write_http>
-         <Node "oms">
-         URL "127.0.0.1:26000/oms.collectd"
-         Format "JSON"
-         StoreRates true
-         </Node>
-    </Plugin>
+<Plugin write_http>
+   <Node "oms">
+      URL "127.0.0.1:26000/oms.collectd"
+      Format "JSON"
+      StoreRates true
+   </Node>
+</Plugin>
+```
 
 Além disso, se você estiver usando uma versão do CollectD anterior à 5.5, use a configuração a seguir em vez disso.
 
-    LoadPlugin write_http
+```xml
+LoadPlugin write_http
 
-    <Plugin write_http>
-       <URL "127.0.0.1:26000/oms.collectd">
-        Format "JSON"
-         StoreRates true
-       </URL>
-    </Plugin>
+<Plugin write_http>
+   <URL "127.0.0.1:26000/oms.collectd">
+      Format "JSON"
+      StoreRates true
+   </URL>
+</Plugin>
+```
 
 A configuração do CollectD usa o plug-in padrão`write_http` para enviar dados de métrica de desempenho pela porta 26000 para o agente do Log Analytics para Linux. 
 
@@ -52,15 +56,17 @@ A configuração do CollectD usa o plug-in padrão`write_http` para enviar dados
 
 O agente do Log Analytics para Linux também escuta métricas do CollectD na porta 26000 e, em seguida, converte-as em métricas de esquema do Azure Monitor. A seguir, a configuração do agente do Log Analytics para Linux `collectd.conf`.
 
-    <source>
-      type http
-      port 26000
-      bind 127.0.0.1
-    </source>
+```xml
+<source>
+   type http
+   port 26000
+   bind 127.0.0.1
+</source>
 
-    <filter oms.collectd>
-      type filter_collectd
-    </filter>
+<filter oms.collectd>
+   type filter_collectd
+</filter>
+```
 
 > [!NOTE]
 > Coletado por padrão é definido para ler valores em um [intervalo](https://collectd.org/wiki/index.php/Interval)de 10 segundos. Como isso afeta diretamente o volume de dados enviados aos logs de Azure Monitor, talvez seja necessário ajustar esse intervalo dentro da configuração coletada para um bom equilíbrio entre os requisitos de monitoramento e os custos associados e o uso dos logs de Azure Monitor.
@@ -83,11 +89,15 @@ Veja a seguir as etapas básicas para configurar a coleta de dados do CollectD n
 
     Se o diretório de configuração CollectD está localizado em /etc/collectd.d/:
 
-        sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd.d/oms.conf
+    ```console
+    sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd.d/oms.conf
+    ```
 
     Se o diretório de configuração CollectD está localizado em /etc/collectd/collectd.conf.d/:
 
-        sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd/collectd.conf.d/oms.conf
+    ```console
+    sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd/collectd.conf.d/oms.conf
+    ```
 
     >[!NOTE]
     >Para versões do CollectD anteriores à 5.5, você precisará modificar as marcas em `oms.conf` conforme mostrado acima.
@@ -95,13 +105,17 @@ Veja a seguir as etapas básicas para configurar a coleta de dados do CollectD n
 
 2. Copie collectd.conf para diretório de configuração omsagent do workspace desejado.
 
-        sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/collectd.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/
-        sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/collectd.conf
+    ```console
+    sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/collectd.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/
+    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/collectd.conf
+    ```
 
 3. Reinicie o CollectD e o agente do Log Analytics para Linux com os comandos a seguir.
 
-        sudo service collectd restart
-        sudo /opt/microsoft/omsagent/bin/service_control restart
+    ```console
+    sudo service collectd restart
+    sudo /opt/microsoft/omsagent/bin/service_control restart
+    ```
 
 ## <a name="collectd-metrics-to-azure-monitor-schema-conversion"></a>Métricas do CollectD para conversão de esquema do Azure Monitor
 Para manter um modelo familiar entre as métricas de infraestrutura já coletadas pelo agente do Log Analytics para Linux e as novas métricas coletadas pelo CollectD, o mapeamento de esquema a seguir é usado:
@@ -109,12 +123,12 @@ Para manter um modelo familiar entre as métricas de infraestrutura já coletada
 | Campo Métrica do CollectD | Campo do Azure Monitor |
 |:--|:--|
 | `host` | Computador |
-| `plugin` | Não |
+| `plugin` | Nenhum |
 | `plugin_instance` | Nome da Instância<br>Se **plugin_instance** é *null*, então InstanceName="*_Total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>Se **type_instance** é *null*, então CounterName=**blank** |
 | `dsnames[]` | CounterName |
-| `dstypes` | Não |
+| `dstypes` | Nenhum |
 | `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>Próximas etapas

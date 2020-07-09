@@ -6,17 +6,18 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 44e4114b328701d5de363e91f5562f1daad351c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46660a0c8d20ab82c994a62b1c781108ea1070c1
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697163"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111194"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associações do Barramento de Serviço para o Azure Functions
 
 O Azure Functions integra-se com o [barramento de serviço do Azure](https://azure.microsoft.com/services/service-bus) por meio [de gatilhos e associações](./functions-triggers-bindings.md). A integração com o barramento de serviço permite que você crie funções que reajam e enviem mensagens de tópico ou de fila.
 
-| Ação | Tipo |
+| Ação | Type |
 |---------|---------|
 | Executar uma função quando uma fila ou mensagem de tópico do barramento de serviço for criada | [Gatilho](./functions-bindings-service-bus-trigger.md) |
 | Enviar mensagens do barramento de serviço do Azure |[Associação de saída](./functions-bindings-service-bus-output.md) |

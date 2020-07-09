@@ -4,12 +4,12 @@ description: Noções básicas sobre as regras de ação no Azure Monitor são e
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 6585890395d7656f239ac3098cd374ecd4757842
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 573567386ba9cbaf8b36440fda5073f899fcdfc7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80618982"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112333"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (visualização)
 
@@ -196,23 +196,26 @@ A supressão sempre tem precedência no mesmo escopo.
 
 ### <a name="what-happens-if-i-have-a-resource-thats-monitored-in-two-separate-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>O que acontece se eu tiver um recurso que é monitorado em duas regras de ação separadas? Obtenho uma ou duas notificações? Por exemplo, **VM2** no cenário a seguir:
 
-      action rule AR1 defined for VM1 and VM2 with action group AG1
-      action rule AR2 defined for VM2 and VM3 with action group AG1
+   `action rule AR1 defined for VM1 and VM2 with action group AG1`
+
+   `action rule AR2 defined for VM2 and VM3 with action group AG1`
 
 Para cada alerta em VM1 e VM3, o grupo de ações AG1 seria disparado uma vez. Para cada alerta no **VM2**, o grupo de ações AG1 seria disparado duas vezes, porque as regras de ação não eliminam a duplicação de ações. 
 
 ### <a name="what-happens-if-i-have-a-resource-monitored-in-two-separate-action-rules-and-one-calls-for-action-while-another-for-suppression-for-example-vm2-in-the-following-scenario"></a>O que acontece se eu tiver um recurso monitorado em duas regras de ação separadas e uma chamada para ação enquanto outra para supressão? Por exemplo, **VM2** no cenário a seguir:
 
-      action rule AR1 defined for VM1 and VM2 with action group AG1 
-      action rule AR2 defined for VM2 and VM3 with suppression
+   `action rule AR1 defined for VM1 and VM2 with action group AG1`
+
+   `action rule AR2 defined for VM2 and VM3 with suppression`
 
 Para cada alerta no VM1, o grupo de ações AG1 seria disparado uma vez. As ações e notificações para cada alerta em VM2 e VM3 serão suprimidas. 
 
 ### <a name="what-happens-if-i-have-an-alert-rule-and-an-action-rule-defined-for-the-same-resource-calling-different-action-groups-for-example-vm1-in-the-following-scenario"></a>O que acontece se eu tiver uma regra de alerta e uma regra de ação definida para o mesmo recurso chamando grupos de ação diferentes? Por exemplo, **VM1** no cenário a seguir:
 
-      alert rule rule1 on VM1 with action group AG2
-      action rule AR1 defined for VM1 with action group AG1 
- 
+   `alert rule rule1 on VM1 with action group AG2`
+
+   `action rule AR1 defined for VM1 with action group AG1`
+
 Para cada alerta no VM1, o grupo de ações AG1 seria disparado uma vez. Sempre que a regra de alerta "rule1" for disparada, ela também disparará o AG2 adicionalmente. Grupos de ação definidos em regras de ação e regras de alerta operam de forma independente, sem eliminação de duplicação. 
 
 ## <a name="next-steps"></a>Próximas etapas

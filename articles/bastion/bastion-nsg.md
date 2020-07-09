@@ -5,14 +5,14 @@ services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 07/07/2020
 ms.author: charwen
-ms.openlocfilehash: e4782213b38ad9e265cc66c3073dc5f357c50561
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fc261c31a1190536f3128ed6472d9ca76dfce7e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321643"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112180"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabalhando com acesso NSG e bastiões do Azure
 
@@ -41,10 +41,16 @@ A bastiões do Azure é implantada especificamente para ***AzureBastionSubnet***
    * **Tráfego de entrada da Internet pública:** A bastiões do Azure criará um IP público que precisa da porta 443 habilitada no IP público para o tráfego de entrada. A porta 3389/22 não precisa ser aberta no AzureBastionSubnet.
    * **Tráfego de entrada do plano de controle de bastiões do Azure:** Para conectividade do plano de controle, habilite a porta 443 de entrada da marca de serviço do **gatewaymanager** . Isso permite que o plano de controle, ou seja, o Gerenciador de gateway seja capaz de se comunicar com a bastiões do Azure.
 
+
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Entrada":::
+
 * **Tráfego de saída:**
 
    * **Tráfego de saída para VMs de destino:** A bastiões do Azure alcançará as VMs de destino sobre o IP privado. O NSGs precisa permitir o tráfego de saída para outras sub-redes de VM de destino para a porta 3389 e 22.
    * **Tráfego de saída para outros pontos de extremidade públicos no Azure:** A bastiões do Azure precisa ser capaz de se conectar a vários pontos de extremidade públicos no Azure (por exemplo, para armazenar logs de diagnóstico e logs de medição). Por esse motivo, a bastiões do Azure precisa de saída para 443 para a marca de serviço **AzureCloud** .
+
+
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Saída":::
 
 ### <a name="target-vm-subnet"></a>Sub-rede VM de destino
 Essa é a sub-rede que contém a máquina virtual de destino para a qual você deseja RDP/SSH.

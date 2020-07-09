@@ -1,18 +1,14 @@
 ---
 title: Tópicos personalizados na grade de eventos do Azure
 description: Descreve os tópicos personalizados na grade de eventos do Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 166a48d74d32c8b0a3a59310e693ea96ada29116
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 8f48824989c8ec51b766385188ad99e9e59cf621
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81394352"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113778"
 ---
 # <a name="custom-topics-in-azure-event-grid"></a>Tópicos personalizados na grade de eventos do Azure
 Um tópico da grade de eventos fornece um ponto de extremidade onde a origem envia eventos. O editor cria o tópico de grade de eventos e decide se uma origem do evento precisa de um tópico ou mais de um tópico. Um tópico é usado para uma coleção de eventos relacionados. Para reagir a determinados tipos de evento, os assinantes decidem quais tópicos assinar.
@@ -45,7 +41,7 @@ As seções a seguir fornecem links para tutoriais para criar tópicos personali
 
 
 ## <a name="azure-portal-tutorials"></a>Tutoriais de portal do Azure
-|Title  |Descrição  |
+|Título  |Descrição  |
 |---------|---------|
 | [Início Rápido: como criar e encaminhar eventos personalizados com o portal do Azure](custom-event-quickstart-portal.md) | Mostra como usar o portal para enviar eventos personalizados. |
 | [Início Rápido: como encaminhar eventos personalizados para o Armazenamento de Filas do Azure](custom-event-to-queue-storage.md) | Descreve como enviar eventos personalizados para um Armazenamento de filas. |
@@ -53,21 +49,21 @@ As seções a seguir fornecem links para tutoriais para criar tópicos personali
 
 
 ## <a name="azure-cli-tutorials"></a>Tutoriais de CLI do Azure
-|Title  |Descrição  |
+|Título  |Descrição  |
 |---------|---------|
 | [Início Rápido: como criar e encaminhar eventos personalizados com a CLI do Azure](custom-event-quickstart.md) | Mostra como usar a CLI do Azure para enviar eventos personalizados. |
 | [CLI do Azure: criar um tópico personalizado da Grade de Eventos](./scripts/event-grid-cli-create-custom-topic.md)|Script de exemplo que cria um tópico personalizado. O script recupera o ponto de extremidade e uma chave.|
 | [CLI do Azure: assinar eventos para um tópico personalizado](./scripts/event-grid-cli-subscribe-custom-topic.md)|Script de exemplo que cria uma assinatura para um tópico personalizado. Envia eventos para um WebHook.|
 
 ## <a name="azure-powershell-tutorials"></a>Tutoriais de Azure PowerShell
-|Title  |Descrição  |
+|Título  |Descrição  |
 |---------|---------|
 | [Início Rápido: como criar e encaminhar eventos personalizados com o Azure PowerShell](custom-event-quickstart-powershell.md) | Mostra como usar o Azure PowerShell para enviar eventos personalizados. |
 | [PowerShell: criar um tópico de Grade de Eventos personalizado](./scripts/event-grid-powershell-create-custom-topic.md)|Script de exemplo que cria um tópico personalizado. O script recupera o ponto de extremidade e uma chave.|
 | [PowerShell: assinar eventos para um tópico personalizado](./scripts/event-grid-powershell-subscribe-custom-topic.md)|Script de exemplo que cria uma assinatura para um tópico personalizado. Envia eventos para um WebHook.|
 
 ## <a name="arm-template-tutorials"></a>Tutoriais do modelo ARM
-|Title  |Descrição  |
+|Título  |Descrição  |
 |---------|---------|
 | [Modelo do Gerenciador de Recursos: tópico personalizado e ponto de extremidade de WebHook](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid) | Um modelo do Gerenciador de Recursos que cria um tópico personalizado e uma assinatura para esse tópico personalizado. Envia eventos para um WebHook. |
 | [Modelo do Gerenciador de Recursos: tópico personalizado e ponto de extremidade de Hubs de Eventos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Um modelo do Gerenciador de Recursos que cria uma assinatura para um tópico personalizado. Envia eventos para os Hubs de Eventos do Azure. |

@@ -1,17 +1,14 @@
 ---
 title: Domínios de Eventos na Grade de Eventos do Azure
 description: Este artigo descreve como usar domínios de eventos para gerenciar o fluxo de eventos personalizados para várias organizações comerciais, clientes ou aplicativos.
-services: event-grid
-author: femila
-ms.service: event-grid
-ms.author: femila
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.openlocfilehash: 11ecf5c2a7bea8a9ef2047bdabcbfd4d844c5a3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 02529ba770e636021cf9cec4ed555247e1c63d8c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559501"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114356"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Entenda os domínios de eventos para gerenciar tópicos do Event Grid
 

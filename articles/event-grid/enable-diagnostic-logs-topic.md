@@ -1,17 +1,14 @@
 ---
 title: Grade de eventos do Azure – Habilitar logs de diagnóstico para tópicos ou domínios
 description: Este artigo fornece instruções passo a passo sobre como habilitar os logs de diagnóstico para um tópico da grade de eventos do Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 06/10/2020
-ms.author: spelluru
-ms.openlocfilehash: 253d1fb933c32735f68cf6a2d471a7687caf5301
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 7811c2eef4379b7e3d5ed07dbd0df8e2a52dba85
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84670082"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114696"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Habilitar os logs de diagnóstico para os tópicos ou domínios da grade de eventos do Azure
 As configurações de diagnóstico permitem que os usuários da grade de eventos capturem e exibam logs de **falha de publicação e entrega** em uma conta de armazenamento, em um hub de eventos ou em um espaço de trabalho log Analytics. Este artigo fornece instruções passo a passo para habilitar essas configurações em um tópico da grade de eventos.
@@ -50,7 +47,7 @@ As configurações de diagnóstico permitem que os usuários da grade de eventos
         ![Transmitir por streaming para um hub de eventos](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
     - Se você selecionar **Enviar para log Analytics**, selecione o espaço de trabalho log Analytics.
         ![Enviar para o Log Analytics](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
-8. Selecione **Salvar**. Em seguida, selecione **X** no canto direito para fechar a página. 
+8. Clique em **Salvar**. Em seguida, selecione **X** no canto direito para fechar a página. 
 9. Agora, de volta à página **configurações de diagnóstico** , confirme se você vê uma nova entrada na tabela configurações de **diagnóstico** . 
     ![Configuração de diagnóstico na lista](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
 
@@ -80,7 +77,7 @@ As configurações de diagnóstico permitem que os usuários da grade de eventos
         ![Arquivar em uma conta de armazenamento do Azure](./media/enable-diagnostic-logs-topic/system-topic-select-storage-account.png)
     - Se você selecionar **fluxo para um hub de eventos**, selecione **Hub de eventos-configurar**e, em seguida, selecione o namespace de hubs de eventos, o Hub de eventos e a política de acesso. 
         ![Transmitir por streaming para um hub de eventos](./media/enable-diagnostic-logs-topic/system-topic-select-event-hub.png)
-8. Selecione **Salvar**. Em seguida, selecione **X** no canto direito para fechar a página. 
+8. Clique em **Salvar**. Em seguida, selecione **X** no canto direito para fechar a página. 
 9. Agora, de volta à página **configurações de diagnóstico** , confirme se você vê uma nova entrada na tabela configurações de **diagnóstico** . 
     ![Configuração de diagnóstico na lista](./media/enable-diagnostic-logs-topic/system-topic-diagnostic-settings-targets.png)
 

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 217be627f81406f671118d5290cd5f67f52c01d2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689003"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112105"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de computadores em consultas Azure Monitor log
 Os grupos de computadores no Azure Monitor permitem que você defina o escopo de [consultas de log](../log-query/log-query-overview.md) para um determinado conjunto de computadores.  Cada grupo é preenchido com computadores usando uma consulta que você define ou importando grupos de fontes diferentes.  Quando o grupo é incluído em uma consulta de log, os resultados são limitados aos registros que correspondem aos computadores no grupo.
@@ -33,7 +34,9 @@ Grupos de computadores criados por meio de uma consulta de log contêm todos os 
 
 Você pode usar qualquer consulta de um grupo de computadores, mas ela deve retornar um conjunto distinto de computadores usando `distinct Computer`.  A seguir, uma consulta de exemplo típica que poderia ser usada como um grupo de computadores.
 
-    Heartbeat | where Computer contains "srv" | distinct Computer
+```kusto
+Heartbeat | where Computer contains "srv" | distinct Computer
+```
 
 Use o procedimento a seguir para criar um grupo de computadores de uma pesquisa de logs no portal do Azure.
 
@@ -45,7 +48,7 @@ Use o procedimento a seguir para criar um grupo de computadores de uma pesquisa 
 
 A tabela a seguir descreve as propriedades que definem um grupo de computadores.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:---|:---|
 | Nome   | Nome da consulta a ser exibida no portal. |
 | Alias da função | Um alias exclusivo usado para identificar o grupo de computadores em uma consulta. |
@@ -93,31 +96,33 @@ Clique no **x** na coluna **Remover** para excluir o grupo de computadores.  Cli
 ## <a name="using-a-computer-group-in-a-log-query"></a>Usar um grupo de computadores em uma consulta de log
 Você usa um grupo de computadores criado a partir de uma consulta de log em uma consulta, tratando o alias como uma função, geralmente com a seguinte sintaxe:
 
-  `Table | where Computer in (ComputerGroup)`
+```kusto
+Table | where Computer in (ComputerGroup)`
+```
 
 Por exemplo, você pode usar o seguinte para retornar registros de UpdateSummary somente para os computadores em um grupo de computadores chamado mycomputergroup.
- 
-  `UpdateSummary | where Computer in (mycomputergroup)`
 
+```kusto
+UpdateSummary | where Computer in (mycomputergroup)`
+```
 
 Os grupos de computadores importados e seus computadores incluídos estão armazenados na tabela **ComputerGroup**.  Por exemplo, a seguinte consulta retornaria uma lista de computadores no grupo de Computadores do domínio do Active Directory. 
 
-  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+```kusto
+ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer
+```
 
 A consulta a seguir retornaria registros UpdateSummary apenas para computadores em Computadores de domínio.
 
-  ```
-  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+```kusto
+let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
   UpdateSummary | where Computer in (ADComputers)
-  ```
-
-
-
+```
 
 ## <a name="computer-group-records"></a>Registros de grupo de computadores
 Um registro é criado no espaço de trabalho do Log Analytics para cada associação do grupo do computadores criada no Active Directory ou no WSUS.  Esses registros de desempenho têm um tipo de **ComputerGroup** e têm as propriedades na tabela a seguir.  Os registros não são criados para grupos de computadores com base em consultas de log.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | `Type` |*ComputerGroup* |
 | `SourceSystem` |*SourceSystem* |

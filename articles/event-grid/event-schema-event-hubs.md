@@ -1,18 +1,14 @@
 ---
 title: Hubs de eventos do Azure como origem da grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos de hubs de evento com a Grade de Eventos do Azure
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: fd65c20f07a091fa1fc8a6cbf003986e1096ebe3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 960aa1fe7184e1d02d28fdc135907119fee8f123
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81393348"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113676"
 ---
 # <a name="azure-event-hubs-as-an-event-grid-source"></a>Hubs de eventos do Azure como uma fonte de grade de eventos
 
@@ -84,7 +80,7 @@ O objeto de dados tem as seguintes propriedades:
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
 
-|Title  |Descrição  |
+|Título  |Descrição  |
 |---------|---------|
 | [Tutorial: transmitir Big Data para um data warehouse](event-grid-event-hubs-integration.md) | Quando os Hubs de Eventos criam um arquivo de Captura, a Grade de Eventos envia um evento para um aplicativo de função. O aplicativo recupera o arquivo de Captura e migra dados para um data warehouse. |
 

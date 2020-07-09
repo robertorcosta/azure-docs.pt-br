@@ -1,17 +1,14 @@
 ---
 title: Criar, exibir e gerenciar tópicos do sistema na grade de eventos do Azure (Portal)
 description: Este artigo mostra como exibir o tópico do sistema existente, criar tópicos do sistema de grade de eventos do Azure usando o portal do Azure.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.author: spelluru
-ms.openlocfilehash: 23b87812492485fc2336b8d2d35bf0426ede4772
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 2dbb0893668d72cfebf2d64e6515ff6ab6fed9bc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84457228"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115104"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-in-the-azure-portal"></a>Criar, exibir e gerenciar tópicos do sistema de grade de eventos no portal do Azure
 Este artigo mostra como criar e gerenciar tópicos do sistema usando o portal do Azure. Para obter uma visão geral dos tópicos do sistema, consulte [Tópicos do sistema](system-topics.md).
