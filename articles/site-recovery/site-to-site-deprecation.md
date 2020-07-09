@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/25/2020
 ms.author: rajanaki
-ms.openlocfilehash: 208177d10e9002fafe2495710da229541a11a43e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 501cf161a22aaa1ec37abda2b750106b6eaf3dc4
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77661663"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135219"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Substituição da recuperação de desastre entre sites gerenciados pelo cliente (com o VMM) usando Azure Site Recovery
 
@@ -38,7 +39,7 @@ Abaixo estão as alternativas que o cliente pode escolher para garantir que sua 
 - Opção 1 (recomendado): escolha [começar a usar o Azure como o destino de Dr](hyper-v-vmm-azure-tutorial.md).
 
 
-- Opção 2: escolha continuar com a replicação site a site usando a [solução de réplica do Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica)subjacente, mas você não poderá gerenciar as configurações de DR usando Azure Site Recovery no portal do Azure. 
+- Opção 2: escolha continuar com a replicação site a site usando a [solução de réplica do Hyper-V](/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica)subjacente, mas você não poderá gerenciar as configurações de DR usando Azure Site Recovery no portal do Azure. 
 
 
 ## <a name="remediation-steps"></a>Etapas de correção

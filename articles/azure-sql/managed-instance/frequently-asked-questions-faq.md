@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes
+title: Perguntas frequentes (FAQ)
 titleSuffix: Azure SQL Managed Instance
 description: Perguntas frequentes sobre o Azure SQL Instância Gerenciada
 services: sql-database
@@ -12,11 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 9295c6e1daaad6346581b959a9b94a7ab74da44c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88f92117dc07fc241ca714851956e386cd10d617
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708851"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135025"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -118,35 +119,104 @@ Se sua carga de trabalho consistir em muitas transações pequenas, considere al
 
 O tamanho do armazenamento para o SQL Instância Gerenciada depende da camada de serviço selecionada (Uso Geral ou Comercialmente Crítico). Para limitações de armazenamento dessas camadas de serviço, consulte [características da camada de serviço](../database/service-tiers-general-purpose-business-critical.md).
 
-## <a name="backup-storage-cost"></a>Custo do armazenamento de backup 
-
-**O armazenamento de backup foi deduzido do meu armazenamento do SQL Instância Gerenciada?**
-
-Não, o armazenamento de backup não é deduzido do espaço de armazenamento do SQL Instância Gerenciada. O armazenamento de backup é independente do espaço de armazenamento da instância e não é limitado em tamanho. O armazenamento de backup é limitado pelo período de tempo para reter o backup dos bancos de dados de instância, configuráveis de 7 a 35 dias. Para mais detalhes, consulte [Backups automatizados](../database/automated-backups-overview.md).
-
-## <a name="track-billing"></a>Rastrear cobrança
-
-**Há uma maneira de acompanhar meu custo de cobrança para o SQL Instância Gerenciada?**
-
-Você pode fazer isso usando a [Solução de Gerenciamento de Custos do Azure](/azure/cost-management/). Navegue até **Assinaturas** no [portal do Azure](https://portal.azure.com) e selecione **Análise de Custo**. 
-
-Use a opção **Custos acumulados** e, em seguida, filtre pelo **Tipo de recurso** como `microsoft.sql/managedinstances`. 
   
-## <a name="inbound-nsg-rules"></a>Regras de NSG de entrada
+## <a name="networking-requirements"></a>Requisitos de rede 
+
+**Quais são as restrições atuais de NSG de entrada/saída na sub-rede Instância Gerenciada?**
+
+As regras necessárias de NSG e UDR são documentadas [aqui](connectivity-architecture-overview.md#mandatory-inbound-security-rules-with-service-aided-subnet-configuration)e definidas automaticamente pelo serviço.
+Tenha em mente que essas regras são apenas aquelas que precisamos para manter o serviço. Para se conectar à instância gerenciada e usar recursos diferentes, você precisará definir regras adicionais específicas do recurso, que você precisa manter.
 
 **Como posso definir regras de NSG de entrada em portas de gerenciamento?**
 
-O plano de controle do SQL Instância Gerenciada mantém as regras NSG que protegem as portas de gerenciamento.
+O SQL Instância Gerenciada é responsável por definir regras em portas de gerenciamento. Isso é obtido por meio da funcionalidade chamada [configuração de sub-rede auxiliada por serviço](connectivity-architecture-overview.md#service-aided-subnet-configuration).
+Isso é para garantir o fluxo ininterrupto do tráfego de gerenciamento a fim de atender a um SLA.
 
-Veja quais portas de gerenciamento são usadas para:
+**Posso obter os intervalos de IP de origem que são usados para o tráfego de gerenciamento de entrada?**
 
-As portas 9000 e 9003 são usadas pela infraestrutura de Service Fabric do Azure. A Service Fabric função primária é manter o cluster virtual íntegro e manter o estado da meta em termos do número de réplicas do componente.
+Sim. Você pode analisar o tráfego proveniente do grupo de segurança de suas redes [Configurando logs de fluxo do observador de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#analyze-traffic-to-or-from-a-network-security-group).
 
-As portas 1438, 1440 e 1452 são usadas pelo agente de nó. O agente de nó é um aplicativo que é executado dentro do cluster e é usado pelo plano de controle para executar comandos de gerenciamento.
+**Posso definir NSG para controlar o acesso ao ponto de extremidade de dados (porta 1433)?**
 
-Além das regras NSG, o firewall interno protege a instância na camada de rede. Na camada de aplicativo, a comunicação é protegida com os certificados.
+Sim. Depois que um Instância Gerenciada for provisionado, você poderá definir NSG que controla o acesso de entrada à porta 1433. É aconselhável restringir seu intervalo de IP o máximo possível.
 
-Para obter mais informações e saber como verificar o firewall interno, consulte [Azure SQL instância gerenciada firewall interno](management-endpoint-verify-built-in-firewall.md).
+**Posso definir o firewall local ou NVA para filtrar o tráfego de gerenciamento de saída com base em FQDNs?**
+
+Não. Isso não é suportado por vários motivos:
+-   O tráfego de roteamento que representa a resposta à solicitação de gerenciamento de entrada seria assimétrico e não pode funcionar.
+-   O tráfego de roteamento que vai para o armazenamento seria afetado por restrições de taxa de transferência e latência, de modo que não será possível fornecer a qualidade de serviço esperada e a disponibilidade.
+-   Com base na experiência, essas configurações são propensas a erros e não podem ser suportadas.
+
+**Posso definir o NVA ou o firewall para o tráfego de não gerenciamento de saída?**
+
+Sim. A maneira mais simples de conseguir isso é adicionar a regra 0/0 a um UDR associado à sub-rede da instância gerenciada para rotear o tráfego por meio do NVA.
+ 
+**Quantos endereços IP preciso para um Instância Gerenciada?**
+
+A sub-rede deve ter um número suficiente de [endereços IP](connectivity-architecture-overview.md#network-requirements)disponíveis. Para determinar o tamanho da sub-rede VNet para o SQL Instância Gerenciada, consulte [determinar o tamanho e o intervalo de sub-rede necessários para instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-determine-size-vnet-subnet). 
+
+**E se não houver endereços IP suficientes para executar a operação de atualização de instância?**
+
+Caso não haja [endereços IP](connectivity-architecture-overview.md#network-requirements) suficientes na sub-rede em que sua instância gerenciada é provisionada, você precisará criar uma nova sub-rede e uma nova instância gerenciada dentro dela. Também sugerimos que a nova sub-rede seja criada com mais endereços IP alocados para que operações de atualização futuras evitem situações semelhantes. Depois que a nova instância for provisionada, você poderá fazer backup e restaurar dados manualmente entre as instâncias novas e antigas ou executar a [restauração pontual](point-in-time-restore.md?tabs=azure-powershell)entre instâncias.
+
+**Preciso de uma sub-rede vazia para criar uma Instância Gerenciada?**
+
+Não. Você pode usar uma sub-rede vazia ou uma sub-rede que já contenha Instância Gerenciada (s). 
+
+**Posso alterar o intervalo de endereços de sub-rede?**
+
+Não se houver instâncias gerenciadas dentro do. Esta é uma limitação da infraestrutura de rede do Azure. Você só tem permissão para [adicionar mais espaço de endereço a uma sub-rede vazia](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet#change-subnet-settings). 
+
+**Posso mover minha instância gerenciada para outra sub-rede?**
+
+Não. Essa é uma limitação de design de Instância Gerenciada atual. No entanto, você pode provisionar uma nova instância em outra sub-rede e fazer backup e restaurar dados manualmente entre a instância antiga e a nova ou executar a [restauração pontual](point-in-time-restore.md?tabs=azure-powershell)entre instâncias.
+
+**Preciso de uma rede virtual vazia para criar uma Instância Gerenciada?**
+
+Isso não é necessário. Você pode [criar uma rede virtual para o Azure sql instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-vnet-subnet) ou [Configurar uma rede virtual existente para o SQL instância gerenciada do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vnet-subnet).
+
+**Posso inserir um Instância Gerenciada com outros serviços em uma sub-rede?**
+
+Não. No momento, não há suporte para colocar Instância Gerenciada em uma sub-rede que já contenha outros tipos de recursos.
+
+## <a name="connectivity"></a>Conectividade 
+
+**Posso me conectar à minha instância gerenciada usando o endereço IP?**
+
+Não, isso não tem suporte. O nome de host de um Instância Gerenciada é mapeado para o balanceador de carga na frente do cluster virtual do Instância Gerenciada. Como um cluster virtual pode hospedar várias instâncias gerenciadas, uma conexão não pode ser roteada para o Instância Gerenciada apropriado sem especificar seu nome.
+Para obter mais informações sobre a arquitetura de cluster virtual do SQL Instância Gerenciada, consulte [arquitetura de conectividade do cluster virtual](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
+
+**Uma instância gerenciada pode ter um endereço IP estático?**
+
+Não há suporte para esse recurso no momento.
+
+Em situações raras, mas necessárias, talvez seja preciso fazer uma migração online de uma instância gerenciada para um novo cluster virtual. Se necessário, essa migração ocorre devido a alterações em nossa pilha de tecnologia destinadas a melhorar a segurança e a confiabilidade do serviço. Migrar para um novo cluster virtual resulta na alteração do endereço IP que é mapeado para o nome do host da instância gerenciada. O serviço de instância gerenciada não alega suporte a endereços IP estáticos e reserva o direito de alterá-lo sem aviso como parte dos ciclos de manutenção regulares.
+
+Por esse motivo, é altamente recomendável depender da imutabilidade do endereço IP, pois isso poderia causar um tempo de inatividade desnecessário.
+
+**Instância Gerenciada tem um ponto de extremidade público?**
+
+Sim. Instância Gerenciada tem um ponto de extremidade público que é usado por padrão apenas para o gerenciamento de serviços, mas um cliente também pode habilitá-lo para acesso a dados. Para obter mais detalhes, consulte [usar o SQL instância gerenciada com pontos de extremidade públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Para configurar o ponto de extremidade público, vá para [Configurar ponto de extremidade público no SQL instância gerenciada](public-endpoint-configure.md).
+
+**Como o Instância Gerenciada controlar o acesso ao ponto de extremidade público?**
+
+Instância Gerenciada controla o acesso ao ponto de extremidade público no nível de rede e de aplicativo.
+
+Os serviços de gerenciamento e implantação se conectam a uma instância gerenciada usando um [ponto de extremidade de gerenciamento](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint) que é mapeado para um balanceador de carga externo. O tráfego será roteado para os nós somente se ele for recebido em um conjunto predefinido de portas que apenas os componentes de gerenciamento da instância gerenciada usam. Um firewall interno nos nós é configurado para permitir o tráfego somente de intervalos de IP da Microsoft. Os certificados autenticam mutuamente toda a comunicação entre os componentes de gerenciamento e o plano de gerenciamento. Para obter mais detalhes, consulte [arquitetura de conectividade para o SQL instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture).
+
+**Eu poderia usar o ponto de extremidade público para acessar os dados em bancos de Instância Gerenciada?**
+
+Sim. O cliente precisará habilitar o acesso a dados de ponto de extremidade público no [portal do Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM e configurar o NSG para bloquear o acesso à porta de dados (número da porta 3342). Para obter mais informações, consulte [Configurar o ponto de extremidade público no Azure sql instância gerenciada](public-endpoint-configure.md) e [usar o sql do Azure instância gerenciada com segurança com o ponto de extremidade público](public-endpoint-overview.md). 
+
+**Posso especificar uma porta personalizada para os pontos de extremidade de dados SQL?**
+
+Não, essa opção não está disponível.  Para o ponto de extremidade de dados privado, Instância Gerenciada usa o número de porta padrão 1433 e para o ponto de extremidade de dados públicos, Instância Gerenciada usa o número de porta padrão 3342.
+
+**Qual é a maneira recomendada para conectar as instâncias gerenciadas colocadas em regiões diferentes?**
+
+O emparelhamento de circuito de rota expressa é a maneira preferida de fazer isso. Isso não deve ser misturado com o emparelhamento de rede virtual entre regiões que não tem suporte devido à [restrição](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)relacionada ao balanceador de carga interno.
+
+Se o emparelhamento de circuito de rota expressa não for possível, a única outra opção é criar uma conexão VPN site a site ([portal do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell) [CLI do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
 
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Reduzir riscos de vazamento de dados  
@@ -178,7 +248,11 @@ Estudos de caso do SQL Instância Gerenciada:
 Para entender melhor os benefícios, os custos e os riscos associados à implantação do Azure SQL Instância Gerenciada, há também um estudo da Forrester: [o impacto econômico total de Banco de Dados SQL do Microsoft Azure instância gerenciada](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 
 
-## <a name="dns-refresh"></a>Atualização de DNS 
+## <a name="dns"></a>DNS
+
+**Posso configurar um DNS personalizado para o SQL Instância Gerenciada?**
+
+Sim. Consulte [como configurar um DNS personalizado para o Azure SQL instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 
 **Posso fazer a atualização de DNS?**
 
@@ -191,20 +265,6 @@ A configuração de DNS é, por fim, atualizada:
 
 Como alternativa, faça downgrade do SQL Instância Gerenciada para 4 vCores e atualize-o novamente depois. Isso tem um efeito colateral de atualizar a configuração de DNS.
 
-
-## <a name="ip-address"></a>Endereço IP
-
-**Posso me conectar ao SQL Instância Gerenciada usando um endereço IP?**
-
-Não há suporte para a conexão com o SQL Instância Gerenciada usando um endereço IP. O nome do host do SQL Instância Gerenciada é mapeado para um balanceador de carga na frente do cluster virtual do SQL Instância Gerenciada. Como um cluster virtual pode hospedar várias instâncias gerenciadas, as conexões não podem ser roteadas para a instância gerenciada apropriada sem especificar o nome explicitamente.
-
-Para obter mais informações sobre a arquitetura de cluster virtual do SQL Instância Gerenciada, consulte [arquitetura de conectividade do cluster virtual](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
-
-**O SQL Instância Gerenciada pode ter um endereço IP estático?**
-
-Em situações raras, mas necessárias, talvez seja necessário fazer uma migração online do SQL Instância Gerenciada para um novo cluster virtual. Se necessário, essa migração ocorre devido a alterações em nossa pilha de tecnologia destinadas a melhorar a segurança e a confiabilidade do serviço. A migração para um novo cluster virtual resulta na alteração do endereço IP que é mapeado para o nome de host do SQL Instância Gerenciada. O serviço SQL Instância Gerenciada não alega suporte a endereço IP estático e reserva o direito de alterá-lo sem aviso como parte dos ciclos de manutenção regulares.
-
-Por esse motivo, é altamente recomendável depender da imutabilidade do endereço IP, pois isso poderia causar um tempo de inatividade desnecessário.
 
 ## <a name="change-time-zone"></a>Alterar fuso horário
 
@@ -235,11 +295,50 @@ Sim, você não precisa descriptografar seu banco de dados para restaurá-lo par
 
 Depois de disponibilizar o protetor de criptografia para o SQL Instância Gerenciada, você pode prosseguir com o procedimento de restauração do banco de dados padrão.
 
-## <a name="migrate-from-sql-database"></a>Migrar do banco de dados SQL 
+## <a name="purchasing-models-and-benefits"></a>Modelos e benefícios de compra
 
-**Como posso migrar do banco de dados SQL do Azure para o SQL Instância Gerenciada?**
+**Quais modelos de compra estão disponíveis para o SQL Instância Gerenciada?**
 
-O SQL Instância Gerenciada oferece os mesmos níveis de desempenho por computação e tamanho de armazenamento que o banco de dados SQL do Azure. Se você quiser consolidar dados em uma única instância ou simplesmente precisar de um recurso com suporte exclusivo no SQL Instância Gerenciada, poderá migrar seus dados usando a funcionalidade de exportação/importação (BACPAC).
+O SQL Instância Gerenciada oferece um [modelo de compra baseado em vCore](sql-managed-instance-paas-overview.md#vcore-based-purchasing-model).
+
+**Quais benefícios de custo estão disponíveis para o SQL Instância Gerenciada?**
+
+Você pode economizar custos com os benefícios do SQL Azure das seguintes maneiras:
+-   Maximize os investimentos existentes em licenças locais e economize até 55 por cento com [benefício híbrido do Azure](https://docs.microsoft.com/azure/azure-sql/azure-hybrid-benefit?tabs=azure-powershell). 
+-   Confirme a uma reserva de recursos de computação e economize até 33 por cento com [benefício de instância reservada](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity). Combine isso com o benefício híbrido do Azure para economizar até 82%. 
+-   Economize até 55 por cento versus preços de lista com o benefício de preço de desenvolvimento [/teste do Azure](https://azure.microsoft.com/pricing/dev-test/) que oferece tarifas com desconto para suas cargas de trabalho de desenvolvimento e teste em andamento.
+
+**Quem está qualificado para o benefício da instância reservada?**
+
+Para se qualificar para o benefício da instância reservada, o tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um contrato individual com preço pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para obter mais informações sobre reservas, consulte [benefício da instância reservada](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity). 
+
+**É possível cancelar, trocar ou reembolsar reservas?**
+
+Você pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+
+## <a name="billing-for-managed-instance-and-backup-storage"></a>Cobrança para armazenamento de Instância Gerenciada e backup
+
+**Quais são as opções de preços do SQL Instância Gerenciada?**
+
+Para explorar Instância Gerenciada opções de preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+
+**Como rastrear o custo de cobrança da minha instância gerenciada?**
+
+Você pode fazer isso usando a [Solução de Gerenciamento de Custos do Azure](https://docs.microsoft.com/azure/cost-management-billing/). Navegue até **Assinaturas** no [portal do Azure](https://portal.azure.com) e selecione **Análise de Custo**. 
+
+Use a opção **Custos acumulados** e, em seguida, filtre pelo **Tipo de recurso** como `microsoft.sql/managedinstances`.
+
+**Quanto custa os backups automatizados?**
+
+Você Obtém a quantidade igual de espaço de armazenamento de backup livre que o espaço de armazenamento de dados reservado adquirido, independentemente do período de retenção de backup definido. Se o consumo de armazenamento de backup estiver dentro do espaço de armazenamento de backup livre alocado, os backups automatizados na instância gerenciada não terão nenhum custo adicional para você, portanto, serão gratuitos. Exceder o uso do armazenamento de backup acima do espaço livre resultará em custos de cerca de $0.20 a $0.24 por GB/mês em regiões dos EUA, ou consulte a página de preços para obter detalhes de sua região. Para obter mais detalhes, confira [consumo de armazenamento de backup explicado](https://techcommunity.microsoft.com/t5/azure-sql-database/backup-storage-consumption-on-managed-instance-explained/ba-p/1390923).
+
+**Como posso monitorar o custo de cobrança do meu consumo de armazenamento de backup?**
+
+Você pode monitorar o custo de armazenamento de backup por meio do portal do Azure. Para obter instruções, consulte [monitorar custos para backups automatizados](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
+
+**Como posso otimizar meus custos de armazenamento de backup na instância gerenciada?**
+
+Para otimizar os custos de armazenamento de backup, consulte [ajuste de backup fino no SQL instância gerenciada](https://techcommunity.microsoft.com/t5/azure-sql-database/fine-tuning-backup-storage-costs-on-managed-instance/ba-p/1390935).
 
 ## <a name="password-policy"></a>Política de senha 
 
@@ -278,3 +377,14 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 ```
 
 (substitua ' test ' pelo nome de logon desejado e ajuste a política e os valores de expiração)
+
+## <a name="azure-feedback-and-support"></a>Comentários e suporte do Azure
+
+**Onde posso deixar minhas ideias para melhorias do SQL Instância Gerenciada?**
+
+Você pode votar em um novo recurso de Instância Gerenciada ou em uma nova ideia de aperfeiçoamento sobre a votação no fórum de comentários sobre o [SQL instância gerenciada](https://feedback.azure.com/forums/915676-sql-managed-instance). Dessa forma, você pode contribuir para o desenvolvimento do produto e nos ajudar a priorizar nossas possíveis melhorias.
+
+**Como posso criar uma solicitação de suporte do Azure?**
+
+Para saber como criar uma solicitação de suporte do Azure, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+

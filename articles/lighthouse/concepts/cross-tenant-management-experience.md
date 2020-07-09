@@ -3,15 +3,16 @@ title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
 ms.date: 05/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ef2fe2ecd72234312a750e206b8920f4ea7eaa02
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 5e8a678530d9cf334d89091e7f23191ae8613737
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920597"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135477"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
-Como provedor de serviços, você pode usar o [Gerenciamento de recursos delegados do Azure](../concepts/azure-delegated-resource-management.md) para gerenciar recursos do Azure para vários clientes de dentro de seu próprio locatário no [portal do Azure](https://portal.azure.com). A maioria das tarefas e serviços pode ser realizada em recursos delegados do Azure em locatários gerenciados. Este artigo descreve alguns dos cenários otimizados em que o gerenciamento do recurso delegado do Azure pode ser efetivo.
+Como um provedor de serviços, você pode usar o [Azure Lighthouse](../overview.md) para gerenciar recursos para vários clientes de dentro de seu próprio locatário no [portal do Azure](https://portal.azure.com). Muitas tarefas e serviços podem ser executados em recursos do Azure delegados entre locatários gerenciados usando o [Gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md).
 
 > [!NOTE]
 > O gerenciamento de recursos delegados do Azure também pode ser usado [dentro de uma empresa que tem vários locatários do Azure AD próprios](enterprise.md) para simplificar a administração entre locatários.
@@ -22,9 +23,9 @@ Um locatário do Azure AD (Active Directory) é uma representação de uma organ
 
 Normalmente, para gerenciar recursos do Azure para um cliente, os provedores de serviço teriam que entrar no portal do Azure usando uma conta associada ao locatário desse cliente, que requer um administrador no locatário do cliente para criar e gerenciar contas de usuário para o provedor de serviços.
 
-Com o gerenciamento de recursos delegados do Azure, o processo de integração especifica usuários dentro do locatário do provedor de serviços que poderão acessar e gerenciar assinaturas, grupos de recursos e recursos no locatário do cliente. Esses usuários podem entrar no portal do Azure usando suas próprias credenciais. Dentro do portal do Azure, eles podem gerenciar recursos que pertencem a todos os clientes aos quais eles têm acesso. Isso pode ser feito acessando a página [Meus clientes](../how-to/view-manage-customers.md) no portal do Azure ou trabalhando diretamente no contexto da assinatura do cliente, seja no portal do Azure ou por meio de APIs.
+Com o Azure Lighthouse, o processo de integração especifica os usuários no locatário do provedor de serviços que poderão acessar e gerenciar assinaturas, grupos de recursos e recursos no locatário do cliente. Esses usuários podem entrar no portal do Azure usando suas próprias credenciais. Dentro do portal do Azure, eles podem gerenciar recursos que pertencem a todos os clientes aos quais eles têm acesso. Isso pode ser feito acessando a página [Meus clientes](../how-to/view-manage-customers.md) no portal do Azure ou trabalhando diretamente no contexto da assinatura do cliente, seja no portal do Azure ou por meio de APIs.
 
-O gerenciamento de recursos delegados do Azure permite maior flexibilidade para gerenciar recursos para vários clientes sem precisar entrar em diferentes contas em diferentes locatários. Por exemplo, um provedor de serviços pode ter dois clientes com responsabilidades e níveis de acesso diferentes. Usando o gerenciamento de recursos delegados do Azure, os usuários autorizados podem entrar no locatário do provedor de serviços para acessar esses recursos.
+O Azure Lighthouse permite maior flexibilidade para gerenciar recursos para vários clientes sem precisar entrar em contas diferentes em locatários diferentes. Por exemplo, um provedor de serviços pode ter dois clientes com responsabilidades e níveis de acesso diferentes. Usando o Azure Lighthouse, os usuários autorizados podem entrar no locatário do provedor de serviços para acessar esses recursos.
 
 ![Recursos do cliente gerenciados por meio de um locatário do provedor de serviços](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
@@ -39,15 +40,15 @@ Da mesma forma, os comandos da CLI do Azure como [az account list](/cli/azure/ac
 > [!TIP]
 > Se você não vir esses valores ao usar a CLI do Azure, tente limpar o cache executando `az account clear` seguido por `az login --identity`.
 
-Fornecemos também APIs específicas para executar as tarefas de gerenciamento de recursos delegados do Azure. Para saber mais, confira a seção **Referência**.
+Também fornecemos APIs que são específicas para executar tarefas do Azure Lighthouse. Para saber mais, confira a seção **Referência**.
 
 ## <a name="enhanced-services-and-scenarios"></a>Serviços e cenários com aprimorados
 
-A maioria das tarefas e serviços pode ser realizada em recursos delegados em locatários gerenciados. Abaixo estão alguns dos principais cenários em que o gerenciamento entre diferentes locatários pode ser eficaz.
+A maioria das tarefas e serviços pode ser realizada em recursos delegados em locatários gerenciados. Abaixo estão alguns dos principais cenários em que o gerenciamento entre locatários pode ser especialmente eficaz.
 
 [Azure Arc para servidores (versão prévia)](../../azure-arc/servers/overview.md):
 
-- [Conecte os computadores ao Windows Server ou ao Linux fora do Azure](../../azure-arc/servers/quickstart-onboard-portal.md) para delegar assinaturas e/ou grupos de recursos no Azure
+- [Conecte os computadores ao Windows Server ou ao Linux fora do Azure](../../azure-arc/servers/onboard-portal.md) para delegar assinaturas e/ou grupos de recursos no Azure
 - Gerenciar computadores conectados usando constructos do Azure, como o Azure Policy e a marcação
 
 [Automação do Azure](../../automation/index.yml):

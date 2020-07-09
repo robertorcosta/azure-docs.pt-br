@@ -1,17 +1,18 @@
 ---
 title: Publicar uma oferta de serviço gerenciado no Azure Marketplace
-description: Saiba como publicar uma oferta de serviço gerenciado que integra os clientes ao gerenciamento de recursos delegado do Azure.
+description: Saiba como publicar uma oferta de serviço gerenciado que integra os clientes ao Azure Lighthouse.
 ms.date: 05/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 214a71faca59072660f1e1f413cb107d8e8f6fc9
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 19364164617a32a561140e985c8723f8deafe1a7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920896"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133305"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicar uma oferta de serviço gerenciado no Azure Marketplace
 
-Neste artigo, você aprenderá a publicar uma oferta de serviço gerenciado pública ou privada para o [Azure Marketplace](https://azuremarketplace.microsoft.com) usando o programa do [Marketplace comercial](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) no Partner Center. Os clientes que comprarem a oferta serão capazes de carregar assinaturas e grupos de recursos para o [Gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md).
+Neste artigo, você aprenderá a publicar uma oferta de serviço gerenciado pública ou privada para o [Azure Marketplace](https://azuremarketplace.microsoft.com) usando o programa do [Marketplace comercial](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) no Partner Center. Os clientes que comprarem a oferta delegarão assinaturas ou grupos de recursos, permitindo que você os gerencie por meio [do Azure Lighthouse](../overview.md).
 
 ## <a name="publishing-requirements"></a>Publicação de requisitos
 
@@ -19,10 +20,10 @@ Você precisa ter uma conta válida [no Partner Center](../../marketplace/partne
 
 De acordo com os [requisitos de certificação da oferta de serviço gerenciado](/legal/marketplace/certification-policies#7004-business-requirements), você deve ter um [nível de competência de plataforma de nuvem prata ou ouro](/partner-center/learn-about-competencies) ou ser um [Azure expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) para publicar uma oferta de serviço gerenciado.
 
-Sua ID do MPN (Microsoft Partner Network) será [associada automaticamente](../../billing/billing-partner-admin-link-started.md) às ofertas que você publicar para controlar seu impacto na participação dos clientes.
+Sua ID do MPN (Microsoft Partner Network) será [associada automaticamente](../../cost-management-billing/manage/link-partner-id.md) às ofertas que você publicar para controlar seu impacto na participação dos clientes.
 
 > [!NOTE]
-> Se não quiser publicar uma oferta no Azure Marketplace, você poderá integrar os clientes manualmente usando modelos do Azure Resource Manager. Para saber mais, confira [Integrar um cliente no gerenciamento de recursos delegados do Azure](onboard-customer.md).
+> Se não quiser publicar uma oferta no Azure Marketplace, você poderá integrar os clientes manualmente usando modelos do Azure Resource Manager. Para obter mais informações, consulte integrar [um cliente ao Azure Lighthouse](onboard-customer.md).
 
 ## <a name="create-your-offer"></a>Criar sua oferta
 
@@ -30,7 +31,7 @@ Para obter instruções detalhadas sobre como criar sua oferta, incluindo todas 
 
 Para saber mais sobre o processo de publicação geral, consulte o [Guia de publicação do Azure Marketplace e do AppSource](../../marketplace/marketplace-publishers-guide.md). Você também deve examinar as [políticas de certificação do mercado comercial](/legal/marketplace/certification-policies), especialmente a seção [Serviços Gerenciados](/legal/marketplace/certification-policies#700-managed-services).
 
-Depois que um cliente adiciona sua oferta, ele poderá delegar uma ou mais assinaturas ou grupos de recursos, que serão [integrados ao gerenciamento de recursos delegado do Azure](#the-customer-onboarding-process).
+Depois que um cliente adiciona sua oferta, ele poderá delegar uma ou mais assinaturas ou grupos de recursos, que serão [integrados ao Azure Lighthouse](#the-customer-onboarding-process).
 
 > [!IMPORTANT]
 > Cada plano em uma oferta de serviço gerenciado inclui uma seção **detalhes do manifesto** , em que você define as entidades Azure Active Directory (Azure AD) em seu locatário que terão acesso aos grupos de recursos delegados e/ou assinaturas para clientes que compram esse plano. É importante estar ciente de que qualquer grupo (ou entidade de serviço ou usuário) que você incluir terá as mesmas permissões para cada cliente que comprar o plano. Para atribuir grupos diferentes para trabalhar com cada cliente, você precisará publicar um [plano privado](../../marketplace/private-offers.md) separado que seja exclusivo para cada cliente.
@@ -43,7 +44,7 @@ Você pode [publicar uma versão atualizada de sua oferta](../..//marketplace/pa
 
 ## <a name="the-customer-onboarding-process"></a>O processo de integração do cliente
 
-Após o cliente adicionar a oferta, ele poderá [delegar uma ou mais assinaturas ou grupos de recursos específicos](view-manage-service-providers.md#delegate-resources), que serão integrados para gerenciamento de recursos delegados do Azure. Se um cliente tiver aceitado uma oferta, mas ainda não tiver delegado nenhum recurso, ele verá uma observação na parte superior da seção **Ofertas de provedores** da página [**Provedores de serviço**](view-manage-service-providers.md) no portal do Azure.
+Depois que um cliente adiciona sua oferta, ele poderá [delegar uma ou mais assinaturas ou grupos de recursos específicos](view-manage-service-providers.md#delegate-resources), que serão integrados ao Azure Lighthouse. Se um cliente tiver aceitado uma oferta, mas ainda não tiver delegado nenhum recurso, ele verá uma observação na parte superior da seção **Ofertas de provedores** da página [**Provedores de serviço**](view-manage-service-providers.md) no portal do Azure.
 
 > [!IMPORTANT]
 > A delegação deve ser feita por uma conta que não seja de convidado no locatário do cliente que tem a [função interna de proprietário](../../role-based-access-control/built-in-roles.md#owner) para a assinatura que está sendo integrada (ou que contém os grupos de recursos que estão sendo integrados). Para ver todos os usuários que podem delegar a assinatura, um usuário do locatário do cliente poderá selecionar a assinatura no portal do Azure, abrir o **IAM (Controle de acesso)** e [exibir todos os usuários com a função Proprietário](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).

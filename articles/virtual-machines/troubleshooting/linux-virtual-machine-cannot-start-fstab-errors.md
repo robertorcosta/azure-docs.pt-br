@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: f68221666f370f87af7539d9302aaa3ed472d5e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: daf3e3aaa95734c79e513c16e5d41aeb0bf894dc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82883134"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135271"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Solucionar problemas de inicialização de VM Linux devido a erros de fstab
 
@@ -191,16 +192,16 @@ Para resolver esse problema, inicie a VM no modo de emergência usando o console
 
 2. Depois de montar o disco do sistema como um disco de dados na VM de recuperação, faça backup do arquivo fstab antes de fazer alterações e siga as próximas etapas para corrigir o arquivo fstab.
 
-3.    Procure o erro que indica que o disco não estava montado. No exemplo a seguir, o sistema estava tentando anexar um disco que não estava mais presente:
+3. Procure o erro que indica que o disco não estava montado. No exemplo a seguir, o sistema estava tentando anexar um disco que não estava mais presente:
 
-    ```
-    [DEPEND] Dependency failed for /datadisk1.
-    [DEPEND] Dependency failed for Local File Systems.
-    [DEPEND] Dependency failed for Relabel all filesystems, if necessary.
-    [DEPEND] Dependency failed for Migrate local... structure to the new structure.
-    Welcome to emergency mode! After logging in, type "journalctl -xb" to view system logs, "systemctl reboot" to reboot, "systemctl default" or ^D to try again to boot into default mode.
-    Give root password for maintenance (or type Control-D to continue):
-    ```
+   ```output
+   [DEPEND] Dependency failed for /datadisk1.
+   [DEPEND] Dependency failed for Local File Systems.
+   [DEPEND] Dependency failed for Relabel all filesystems, if necessary.
+   [DEPEND] Dependency failed for Migrate local... structure to the new structure.
+   Welcome to emergency mode! After logging in, type "journalctl -xb" to view system logs, "systemctl reboot" to reboot, "systemctl default" or ^D to try again to boot into default mode.
+   Give root password for maintenance (or type Control-D to continue):
+   ```
 
 4. Conecte-se à VM usando a senha raiz (VMs baseadas em Red Hat).
 

@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 07/08/2020
 ms.author: jgao
-ms.openlocfilehash: b3de286bbf4513d252b42304cdc667877c72f6da
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 8906ac7a00a349e2312eb80f5e25e32292a089ab
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057408"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134573"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usar scripts de implantação em modelos (versão prévia)
 
@@ -161,7 +161,7 @@ Detalhes do valor da propriedade:
 - **supportingScriptUris**: Especifique uma matriz de URLs acessíveis publicamente para dar suporte a arquivos que são chamados em `ScriptContent` ou `PrimaryScriptUri`.
 - **timeout**: especifique o tempo de execução máximo permitido do script especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor padrão é **P1D**.
 - **cleanupPreference**. Especifique a preferência de limpeza dos recursos de implantação quando a execução do script chegar a um estado terminal. A configuração padrão é **Sempre**, o que significa excluir os recursos, apesar do estado terminal (Êxito, Falha, Cancelado). Para saber mais, confira [Limpar recursos do script de implantação](#clean-up-deployment-script-resources).
-- **retentionInterval**: Especifique o intervalo para o qual o serviço retém os recursos de script de implantação depois que a execução do script de implantação atingir um estado terminal. Os recursos do script de implantação serão excluídos quando esse prazo expirar. A duração é baseada na [norma ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor padrão é **P1D**, o que significa sete dias. Essa propriedade é usada quando cleanupPreference é definido como *OnExpiration*. A propriedade *OnExpiration* não está habilitada no momento. Para saber mais, confira [Limpar recursos do script de implantação](#clean-up-deployment-script-resources).
+- **retentionInterval**: Especifique o intervalo para o qual o serviço retém os recursos de script de implantação depois que a execução do script de implantação atingir um estado terminal. Os recursos do script de implantação serão excluídos quando esse prazo expirar. A duração é baseada na [norma ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor padrão é **P1D**, que significa um dia. Essa propriedade é usada quando cleanupPreference é definido como *OnExpiration*. A propriedade *OnExpiration* não está habilitada no momento. Para saber mais, confira [Limpar recursos do script de implantação](#clean-up-deployment-script-resources).
 
 ### <a name="additional-samples"></a>Outros exemplos
 

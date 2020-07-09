@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: d74e28ce470c23bbc8ee2081532a198c260ccea5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08e971e52f994ec5fa5663708fa9f173daf33d80
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74706373"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135406"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurar a recuperação de desastre para um aplicativo do SharePoint de várias camadas para recuperação de desastres usando o Azure Site Recovery
 
@@ -37,8 +38,8 @@ Você pode assistir ao vídeo abaixo sobre como recuperar um aplicativo de vári
 
 Antes de começar, você precisa entender o seguinte:
 
-1. [Replicar uma máquina virtual no Azure](site-recovery-vmware-to-azure.md)
-2. Como [criar uma rede de recuperação](site-recovery-network-design.md)
+1. [Replicar uma máquina virtual no Azure](./vmware-azure-tutorial.md)
+2. Como [criar uma rede de recuperação](./concepts-on-premises-to-azure-networking.md)
 3. [Executar um failover de teste no Azure](site-recovery-test-failover-to-azure.md)
 4. [Executar um failover no Azure](site-recovery-failover.md)
 5. Como [replicar um controlador de domínio](site-recovery-active-directory.md)
@@ -46,7 +47,7 @@ Antes de começar, você precisa entender o seguinte:
 
 ## <a name="sharepoint-architecture"></a>Arquitetura do SharePoint
 
-O SharePoint pode ser implantado em um ou mais servidores usando topologias em camadas e funções de servidor para implementar um design de farm que cumpra metas e objetivos específicos. Um farm grande e de alta demanda típico do SharePoint Server, que dá suporte a um grande número de usuários simultâneos e um grande número de itens de conteúdo usam o agrupamento de serviços como parte de sua estratégia de escalabilidade. Essa abordagem envolve a execução de serviços em servidores dedicados, agrupando esses serviços e depois expandindo os servidores como um grupo. A topologia a seguir ilustra o serviço agrupamento de serviços e servidores para um farm do SharePoint Server de três camadas. Consulte a documentação do SharePoint e arquiteturas de linha de produto para obter diretrizes detalhadas sobre diferentes topologias do SharePoint. Você pode encontrar mais detalhes sobre a implantação do SharePoint 2013 [neste documento](https://technet.microsoft.com/library/cc303422.aspx).
+O SharePoint pode ser implantado em um ou mais servidores usando topologias em camadas e funções de servidor para implementar um design de farm que cumpra metas e objetivos específicos. Um farm grande e de alta demanda típico do SharePoint Server, que dá suporte a um grande número de usuários simultâneos e um grande número de itens de conteúdo usam o agrupamento de serviços como parte de sua estratégia de escalabilidade. Essa abordagem envolve a execução de serviços em servidores dedicados, agrupando esses serviços e depois expandindo os servidores como um grupo. A topologia a seguir ilustra o serviço agrupamento de serviços e servidores para um farm do SharePoint Server de três camadas. Consulte a documentação do SharePoint e arquiteturas de linha de produto para obter diretrizes detalhadas sobre diferentes topologias do SharePoint. Você pode encontrar mais detalhes sobre a implantação do SharePoint 2013 [neste documento](/SharePoint/sharepoint-server).
 
 
 
@@ -73,7 +74,7 @@ Se você estiver usando um cluster baseado em disco compartilhado como qualquer 
 
 ## <a name="replicating-virtual-machines"></a>Replicação de máquinas virtuais
 
-Siga [estas diretrizes](site-recovery-vmware-to-azure.md) para começar a replicar a máquina virtual para o Azure.
+Siga [estas diretrizes](./vmware-azure-tutorial.md) para começar a replicar a máquina virtual para o Azure.
 
 * Depois que a replicação for concluída, certifique-se de ir para cada máquina virtual de cada camada e selecionar o mesmo conjunto de disponibilidade em 'Item replicado > Configurações > Propriedades > Computação e Rede'. Por exemplo, se sua camada Web tem 3 VMs, certifique-se de que todas as 3 VMs estejam configuradas para fazer parte do mesmo conjunto de disponibilidade no Azure.
 
@@ -98,10 +99,10 @@ Siga [estas diretrizes](site-recovery-vmware-to-azure.md) para começar a replic
 
 ### <a name="dns-and-traffic-routing"></a>Roteamento de Tráfego e de DNS
 
-Para sites voltados para a Internet, [crie um perfil do Gerenciador de Tráfego do tipo 'Prioridade'](../traffic-manager/traffic-manager-create-profile.md) na assinatura do Azure. Em seguida, configure seu perfil do Gerenciador de Tráfego e de DNS da maneira descrita a seguir.
+Para sites voltados para a Internet, [crie um perfil do Gerenciador de Tráfego do tipo 'Prioridade'](../traffic-manager/quickstart-create-traffic-manager-profile.md) na assinatura do Azure. Em seguida, configure seu perfil do Gerenciador de Tráfego e de DNS da maneira descrita a seguir.
 
 
-| **Posição** | **Origem** | **Destino**|
+| **Where** | **Origem** | **Destino**|
 | --- | --- | --- |
 | DNS público | DNS público para sites do SharePoint <br/><br/> Por exemplo: sharepoint.contoso.com | Gerenciador de Tráfego <br/><br/> contososharepoint.trafficmanager.net |
 | DNS local | sharepointonprem.contoso.com | IP público no farm local |
@@ -162,7 +163,7 @@ Você pode implantar os scripts do Azure Site Recovery mais comumente usados em 
     * Este método presume que um backup do Aplicativo de Serviço de Pesquisa foi executado antes do evento catastrófico e que o backup está disponível no site de DR.
     * Isso pode ser conseguido facilmente agendando o backup (por exemplo, uma vez por dia) e usando um procedimento de cópia para colocar o backup no site de DR. Os procedimentos de cópia podem incluir programas em script, como o AzCopy (Cópia do Azure) ou a configuração de DFSR (Serviços de Replicação de Arquivos Distribuído).
     * Agora que o farm do SharePoint está em execução, navegue para a Administração Central, clique em 'Backup e Restauração' e selecione Restaurar. A restauração pergunta o local de backup especificado (talvez seja necessário atualizar o valor). Selecione o backup do Aplicativo de Serviço Search que você deseja restaurar.
-    * A pesquisa é restaurada. Tenha em mente que a restauração espera encontrar a mesma topologia (mesmo número de servidores) e as mesmas letras de unidades de disco rígido atribuídas a esses servidores. Para obter mais informações, consulte o documento ['Restaurar aplicativo de serviço Search no SharePoint 2013'](https://technet.microsoft.com/library/ee748654.aspx).
+    * A pesquisa é restaurada. Tenha em mente que a restauração espera encontrar a mesma topologia (mesmo número de servidores) e as mesmas letras de unidades de disco rígido atribuídas a esses servidores. Para obter mais informações, consulte o documento ['Restaurar aplicativo de serviço Search no SharePoint 2013'](/SharePoint/administration/restore-a-search-service-application).
 
 
 6. Para iniciar com um novo aplicativo de serviço Search, execute as etapas a seguir.

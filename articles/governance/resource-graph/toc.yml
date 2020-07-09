@@ -65,6 +65,10 @@
     - name: Diretrizes para solicitações limitadas
       displayName: 'pagination, batching, throttling, parallel'
       href: ./concepts/guidance-for-throttled-requests.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança para o Azure Security Benchmark
+          href: ./concepts/azure-security-benchmark-baseline.md
 - name: Guias de instruções
   items:
     - name: Obter alterações de recurso

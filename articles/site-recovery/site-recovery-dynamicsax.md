@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 0b32f00374aa8ce6c41415e28f319e3e7d5abddb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfa3c108d00aeba9c7d42e96e7a40736a087a508
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75941582"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133818"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurar a recuperação de desastre para um aplicativo do Dynamics AX de várias camadas   
 
@@ -68,7 +69,7 @@ O cliente tem um grande número de aplicativos e executa uma floresta do Active 
 Para obter diretrizes técnicas sobre a opção recomendada para proteger a camada do SQL, consulte [Replicar aplicativos com o SQL Server e o Azure Site Recovery](site-recovery-sql.md).
 
 ### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. habilitar a proteção para as VMs do cliente do Dynamics AX e do servidor de objetos de aplicativo
-Execute a configuração relevante do Site Recovery de acordo com se as VMs são implantadas no [Hyper-V](site-recovery-hyper-v-site-to-azure.md) ou no [VMware](site-recovery-vmware-to-azure.md).
+Execute a configuração relevante do Site Recovery de acordo com se as VMs são implantadas no [Hyper-V](./hyper-v-azure-tutorial.md) ou no [VMware](./vmware-azure-tutorial.md).
 
 > [!TIP]
 > Recomendamos configurar a frequência consistente com falha para 15 minutos.
@@ -175,7 +176,7 @@ Para obter considerações específicas ao SQL Server durante o failback, consul
 6. Selecione **✓** para iniciar o processo de failback.
 
 
-Para obter mais informações sobre como fazer um failback, consulte [Failback de VMs do VMware do Azure para o local](site-recovery-failback-azure-to-vmware.md).
+Para obter mais informações sobre como fazer um failback, consulte [Failback de VMs do VMware do Azure para o local](./vmware-azure-failback.md).
 
 ## <a name="summary"></a>Resumo
 Usando o Site Recovery, você pode criar um plano totalmente automatizado de recuperação de desastre para seu aplicativo Dynamics AX. Caso haja uma interrupção, você poderá iniciar o failover em alguns segundos em qualquer lugar e fazer com que o aplicativo funcione em questão de minutos.

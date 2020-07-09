@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 29acd1b00d23e4f1c2f241027dadbbb406e5e049
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b4a622de142fd44b64015c8238f44dafc34ce72
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77190788"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133698"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurar a recuperação de desastre para uma implantação de aplicativo do SAP NetWeaver de várias camadas
 
@@ -27,9 +28,9 @@ Você pode proteger implantações de aplicativo do SAP NetWeaver usando [Azure 
 
 Antes de começar, certifique-se de que você sabe fazer as tarefas a seguir:
 
-* [Replicar uma máquina virtual no Azure](azure-to-azure-walkthrough-enable-replication.md)
-* [Criar uma rede de recuperação](site-recovery-azure-to-azure-networking-guidance.md)
-* [Executar um failover de teste para o Azure](azure-to-azure-walkthrough-test-failover.md)
+* [Replicar uma máquina virtual no Azure](./azure-to-azure-tutorial-enable-replication.md)
+* [Criar uma rede de recuperação](./azure-to-azure-about-networking.md)
+* [Executar um failover de teste para o Azure](./azure-to-azure-tutorial-dr-drill.md)
 * [Executar um failover para o Azure](site-recovery-failover.md)
 * [Replicar um controlador de domínio](site-recovery-active-directory.md)
 * [Replicar uma instância de SQL Server](site-recovery-sql.md)
@@ -110,7 +111,7 @@ A seguir, a recomendação para a recuperação de desastre de cada camada usada
 
 ## <a name="replicate-virtual-machines"></a>Replicar máquinas virtuais
 
-Para iniciar a replicação de todas as máquinas virtuais do aplicativo SAP para o datacenter de recuperação de desastre do Azure, siga as orientações em [Replicar uma máquina virtual no Azure](azure-to-azure-walkthrough-enable-replication.md).
+Para iniciar a replicação de todas as máquinas virtuais do aplicativo SAP para o datacenter de recuperação de desastre do Azure, siga as orientações em [Replicar uma máquina virtual no Azure](./azure-to-azure-tutorial-enable-replication.md).
 
 * Para obter orientação sobre como proteger Active Directory e DNS, saiba [como proteger Active Directory e DNS](site-recovery-active-directory.md).
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 6ecf0f047fe353d94ca901118d1f434e33e9c8d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e50601ac2c10861f63995af37fe8a98f9caa211b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100559"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135134"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Como marcar uma máquina virtual do Windows no Azure
 Este artigo descreve as diferentes maneiras de marcar uma máquina virtual do Windows no Azure por meio do modelo de implantação do Resource Manager. As marcas são pares de chave/valor definidos pelo usuário que podem ser colocados diretamente em um recurso ou grupo de recursos. Atualmente, o Azure dá suporte a até 50 marcas por recurso e grupo de recursos. As marcas podem ser colocadas em um recurso no momento da criação ou adicionadas a um recurso existente. Observe que as marcas tem suporte apenas para recursos criados por meio do modelo de implantação do Resource Manager. Se quiser marcar uma máquina virtual Linux, consulte [Como marcar uma máquina virtual Linux no Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -26,56 +26,66 @@ Para criar, adicionar e excluir marcas pelo PowerShell, primeiramente, você pre
 
 Primeiramente, navegue para uma Máquina Virtual usando o cmdlet `Get-AzVM` .
 
-        PS C:\> Get-AzVM -ResourceGroupName "MyResourceGroup" -Name "MyTestVM"
+```azurepowershell
+PS C:\> Get-AzVM -ResourceGroupName "MyResourceGroup" -Name "MyTestVM"
+```
 
 Se sua Máquina Virtual já contiver marcas, você verá todas elas no seu recurso:
 
-        Tags : {
-                "Application": "MyApp1",
-                "Created By": "MyName",
-                "Department": "MyDepartment",
-                "Environment": "Production"
-               }
+```json
+Tags : {
+        "Application": "MyApp1",
+        "Created By": "MyName",
+        "Department": "MyDepartment",
+        "Environment": "Production"
+        }
+```
 
 Se desejar adicionar marcas por meio do PowerShell, você poderá usar o comando `Set-AzResource` . Observe que, ao atualizar marcas pelo PowerShell, as marcas são atualizadas como um todo. Desse modo, se estiver adicionando uma marca a um recurso que já tenha marcas, você precisará incluir todas as marcas que deseja que sejam colocadas no recurso. Veja abaixo um exemplo de como adicionar mais marcas a um recurso usando cmdlets do PowerShell.
 
 Este primeiro cmdlet define todas as marcações colocadas em *MyTestVM* para a variável *$tags* usando as propriedades `Get-AzResource` e `Tags`.
 
-        PS C:\> $tags = (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
+```azurepowershell
+PS C:\> $tags = (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
+```
 
 O segundo comando exibe as marcas para a variável fornecida.
 
-```
-    PS C:\> $tags
-    
-    Key           Value
-    ----          -----
-    Department    MyDepartment
-    Application   MyApp1
-    Created By    MyName
-    Environment   Production
+```azurepowershell
+PS C:\> $tags
+
+Key           Value
+----          -----
+Department    MyDepartment
+Application   MyApp1
+Created By    MyName
+Environment   Production
 ```
 
 O terceiro comando adiciona uma marca adicional à variável *$Tags* . Observe o uso do **+=** para acrescentar o novo par de chave/valor à lista de *$Tags* .
 
-        PS C:\> $tags += @{Location="MyLocation"}
+```azurepowershell
+PS C:\> $tags += @{Location="MyLocation"}
+```
 
 O quarto comando define todas as marcas definidas na variável *$Tags* para o recurso fornecido. Nesse caso, é MyTestVM.
 
-        PS C:\> Set-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
+```azurepowershell
+PS C:\> Set-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
+```
 
 O quinto comando exibe todas as marcas no recurso. Como você pode ver, *Location* agora está definido como uma marcação com *MyLocation* como valor.
 
-```
-    PS C:\> (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
+```azurepowershell
+PS C:\> (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
-    Key           Value
-    ----          -----
-    Department    MyDepartment
-    Application   MyApp1
-    Created By    MyName
-    Environment   Production
-    Location      MyLocation
+Key           Value
+----          -----
+Department    MyDepartment
+Application   MyApp1
+Created By    MyName
+Environment   Production
+Location      MyLocation
 ```
 
 Para saber mais sobre marcação usando o PowerShell, confira [Cmdlets de recursos do Azure][Azure Resource Cmdlets].

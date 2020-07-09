@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: rajanaki
-ms.openlocfilehash: b2f5faea3df695500ea245d1dc71cb96a84c3643
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: b57ce89979225015dc87bbfb17f9603897ef6d6b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985594"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135848"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do serviço de mobilidade na replicação do Azure para o Azure
 
@@ -61,7 +61,7 @@ Ao habilitar a replicação para uma VM iniciada [na exibição da VM](azure-to-
 
    Para gerenciar a extensão manualmente, selecione **desativado**.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 :::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Configurações de atualização de extensão":::
 
@@ -90,7 +90,7 @@ Se você não puder habilitar as atualizações automáticas, consulte os seguin
 
 - **Erro**: você não tem permissões para criar uma conta Executar como do Azure (entidade de serviço) e conceder a função Colaborador à entidade de serviço.
 
-  **Ação recomendada**: Verifique se a conta conectada está atribuída como colaborador e tente novamente. Para obter mais informações sobre como atribuir permissões, consulte a seção permissões necessárias de [como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions).
+  **Ação recomendada**: Verifique se a conta conectada está atribuída como colaborador e tente novamente. Para obter mais informações sobre como atribuir permissões, consulte a seção permissões necessárias de [como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
   Para corrigir a maioria dos problemas depois de habilitar as atualizações automáticas, selecione **reparar**. Se o botão reparar não estiver disponível, consulte a mensagem de erro exibida no painel configurações de atualização de extensão.
 
@@ -98,11 +98,11 @@ Se você não puder habilitar as atualizações automáticas, consulte os seguin
 
 - **Erro**: a conta Executar como não tem permissão para acessar o recurso de serviços de recuperação.
 
-  **Ação recomendada**: exclua e [recrie a conta Executar como](/azure/automation/automation-create-runas-account). Ou então, certifique-se de que o aplicativo de Azure Active Directory da conta Executar como da automação possa acessar o recurso dos serviços de recuperação.
+  **Ação recomendada**: exclua e [recrie a conta Executar como](../automation/manage-runas-account.md). Ou então, certifique-se de que o aplicativo de Azure Active Directory da conta Executar como da automação possa acessar o recurso dos serviços de recuperação.
 
 - **Erro**: a conta Executar como não foi encontrada. Um deles foi excluído ou não criado - o aplicativo do Azure Active Directory, a entidade de serviço, a função, o ativo do certificado de automação, o ativo de conexão de automação - ou a impressão digital não é idêntica entre o certificado e a conexão.
 
-  **Ação recomendada**: exclua e [recrie a conta Executar como](/azure/automation/automation-create-runas-account).
+  **Ação recomendada**: exclua e [recrie a conta Executar como](../automation/manage-runas-account.md).
 
 - **Erro**: o certificado executar como do Azure usado pela conta de automação está prestes a expirar.
 

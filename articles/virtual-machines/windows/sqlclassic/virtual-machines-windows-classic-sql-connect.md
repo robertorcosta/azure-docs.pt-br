@@ -16,11 +16,12 @@ ms.author: mathoma
 ms.reviewer: jroth
 experimental: true
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 0717f6f75b6bd8bb7ba4d53f8240414b5169540d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 52f25d89691a2a721025848e28d119a0fbe5e322
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014751"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135980"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Conectar-se a uma máquina virtual do SQL Server no Azure (implantação clássica)
 > [!div class="op_single_selector"]
@@ -52,7 +53,7 @@ Várias máquinas virtuais podem ser criadas no mesmo serviço de nuvem. Para co
 
 Nesse cenário, você pode se conectar usando o **Nome** da VM (também mostrado como **Nome do Computador** ou **hostname** no portal). Esse é o nome fornecido para a VM durante a criação. Por exemplo, se você nomeou a VM do SQL **mysqlvm**, uma VM cliente no mesmo serviço de nuvem pode usar a seguinte cadeia de conexão para se conectar:
 
-    "Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+`Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>`
 
 ### <a name="connect-to-sql-server-over-the-internet"></a>Conectar-se ao SQL Server pela Internet
 Se quiser se conectar ao seu mecanismo de banco de dados do SQL Server pela Internet, você deve criar um ponto de extremidade de máquina virtual para a comunicação TCP de entrada. Essa etapa de configuração do Azure, direciona o tráfego da porta TCP de entrada para uma porta TCP que está acessível para a máquina virtual.
@@ -61,7 +62,7 @@ Para se conectar pela Internet, é necessário usar o nome DNS da VM e o número
 
 Por exemplo, considere uma máquina virtual clássica chamada **mysqlvm** com o nome DNS **mysqlvm7777.cloudapp.net** e um ponto de extremidade da VM de **57500**. Supondo uma conectividade configurada corretamente, a seguinte cadeia de conexão poderia ser usada para acessar a máquina virtual em qualquer lugar na Internet:
 
-    "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+`Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>`
 
 Embora isso habilite a conectividade para clientes pela Internet, não significa que qualquer pessoa possa se conectar ao seu SQL Server. Clientes externos precisam ter o nome de usuário e a senha corretos. Para aumentar a segurança, não use a conhecida porta 1433 para o ponto de extremidade de máquina virtual público. Se possível, considere a ideia de adicionar uma ACL ao ponto de extremidade para restringir o tráfego apenas aos clientes permitidos. Para obter instruções sobre como usar ACLs com pontos de extremidade, consulte [Gerenciar a ACL em um ponto de extremidade](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
@@ -77,7 +78,7 @@ Redes virtuais também permitem que você adicione suas VMs do Azure a um domín
 
 Se você for configurar um ambiente de domínio e a Autenticação do Windows, não será necessário seguir as etapas descritas neste artigo para configurar o ponto de extremidade público ou a Autenticação e os logons do SQL. Nesse cenário, você pode se conectar à instância do SQL Server especificando o nome da VM do SQL Server na cadeia de conexão. O exemplo a seguir pressupõe que a autenticação do Windows também foi configurada e que o usuário recebeu acesso à instância do SQL Server.
 
-    "Server=mysqlvm;Integrated Security=true"
+`Server=mysqlvm;Integrated Security=true`
 
 ## <a name="steps-for-configuring-sql-server-connectivity-in-an-azure-vm"></a>Etapas para configurar a conectividade com o SQL Server em uma VM do Azure
 As etapas a seguir demonstram como se conectar à instância do SQL Server pela Internet usando o SSMS (SQL Server Management Studio). No entanto, as mesmas etapas se aplicam para tornar sua máquina virtual de SQL Server acessível para seu aplicativos, em execução local e no Azure.

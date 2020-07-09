@@ -4,12 +4,12 @@ description: Saiba como o agente MARS dá suporte aos cenários de backup
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 5656c113a6823a1708854a547b199bd16c521b04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64f43f42fc23b1ca9591b6a49c3acce6c52c09d6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611476"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134974"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Sobre o agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -53,7 +53,7 @@ O agente MARS dá suporte aos seguintes cenários de restauração:
 
 - Os **backups incrementais** (backups subsequentes) são executados de acordo com o agendamento especificado. Durante backups incrementais, os arquivos alterados são identificados e um novo VHD é criado. O VHD é compactado e criptografado e é enviado para o cofre. Após a conclusão do backup incremental, o novo VHD é mesclado com o VHD criado após a replicação inicial. Esse VHD mesclado fornece o estado mais recente a ser usado para comparação para o backup em andamento.
 
-- O agente MARS pode executar o trabalho de backup no **modo otimizado** usando o diário de alterações USN (número de sequência de atualização) ou, no **modo não otimizado** , verificando alterações em diretórios ou arquivos por meio da verificação de todo o volume. O modo não otimizado é mais lento porque o agente precisa verificar cada arquivo no volume e compará-lo com os metadados para determinar os arquivos alterados.  O **backup inicial** sempre será executado no modo não otimizado. Se o backup anterior tiver falhado, o próximo trabalho de backup agendado será executado no modo não otimizado.
+- O agente MARS pode executar o trabalho de backup no **modo otimizado** usando o diário de alterações USN (número de sequência de atualização) ou, no **modo não otimizado** , verificando alterações em diretórios ou arquivos por meio da verificação de todo o volume. O modo não otimizado é mais lento porque o agente precisa verificar cada arquivo no volume e compará-lo com os metadados para determinar os arquivos alterados.  O **backup inicial** sempre será executado no modo não otimizado. Se o backup anterior tiver falhado, o próximo trabalho de backup agendado será executado no modo não otimizado. Para saber mais sobre esses modos e como verificá-los, consulte [Este artigo](backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-job-running-in-unoptimized-mode).
 
 ### <a name="additional-scenarios"></a>Cenários adicionais
 

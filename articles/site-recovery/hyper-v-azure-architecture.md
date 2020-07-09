@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 022d6edad1e907173dfde3481e60d2523be087a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0fd3a6bc62feeb3728fa88b4aad56c8713bce11
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74082658"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134921"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Hyper-V para o Azure
 
@@ -30,7 +31,7 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 --- | --- | ---
 **Azure** | Uma assinatura do Azure, uma conta de armazenamento do Azure e uma rede do Azure. | Os dados replicados de cargas de trabalho de VMs locais são colocados na conta de armazenamento. As VMs do Azure são criadas com os dados de carga de trabalho replicados quando ocorre failover do site local.<br/><br/> As VMs do Azure se conectam à rede virtual do Azure quando são criadas.
 **Hyper-V** | Durante a implantação do Site Recovery, você reúne hosts Hyper-V e clusters em sites do Hyper-V. Você instala o Provedor do Azure Site Recovery e o agente dos Serviços de Recuperação em cada host autônomo do Hyper-V em cada nó de cluster do Hyper-V. | O Provedor coordena a replicação com o Site Recovery pela internet. O agente dos Serviços de Recuperação trata da replicação de dados.<br/><br/> As comunicações do provedor e do agente são protegidas e criptografadas. Os dados replicados no armazenamento do Azure também são criptografados.
-**VMs do Hyper-V** | Uma ou mais VMs em execução no Hyper-V. | Nada precisa ser explicitamente instalado em VMs.
+**VMs Hyper-V** | Uma ou mais VMs em execução no Hyper-V. | Nada precisa ser explicitamente instalado em VMs.
 
 
 **Arquitetura do Hyper-V para o Azure (sem VMM)**
@@ -47,7 +48,7 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 **Azure** | Uma assinatura do Azure, uma conta de armazenamento do Azure e uma rede do Azure. | Os dados replicados de cargas de trabalho de VMs locais são colocados na conta de armazenamento. As VMs do Azure são criadas com os dados replicados quando ocorre failover do site local.<br/><br/> As VMs do Azure se conectam à rede virtual do Azure quando são criadas.
 **Servidor VMM** | O servidor VMM tem uma ou mais nuvens que contém hosts Hyper-V. | Você instala o Provedor do Site Recovery no servidor VMM para orquestrar a replicação com o Site Recovery e registre o servidor no cofre dos Serviços de Recuperação.
 **Host do Hyper-V** | Um ou mais hosts/clusters Hyper-V gerenciados pelo VMM. |  Você pode instalar o agente dos Serviços de Recuperação em cada host ou nó do cluster do Hyper-V.
-**VMs do Hyper-V** | Uma ou mais VMs em execução em um servidor host do Hyper-V. | Nada precisa ser explicitamente instalado em VMs.
+**VMs Hyper-V** | Uma ou mais VMs em execução em um servidor host do Hyper-V. | Nada precisa ser explicitamente instalado em VMs.
 **Rede** | Redes lógicas e de VM configuradas no servidor VMM. A rede de VMs deve ser vinculada a uma rede lógica associada à nuvem. | Redes de VMs são mapeadas para redes virtuais do Azure. Quando as VMs do Azure são criadas após o failover, elas são adicionadas à rede do Azure que é mapeada para a rede de VMs.
 
 **Arquitetura do Hyper-V para o Azure (com VMM)**
@@ -66,14 +67,14 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 ### <a name="enable-protection"></a>Habilitar proteção
 
 1. Depois de habilitar a proteção para uma máquina virtual do Hyper-V, no portal do Azure ou no local, a opção **Habilitar proteção** é iniciada.
-2. O trabalho verifica se o computador está em conformidade com os pré-requisitos antes de invocar [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) para configurar a replicação com as configurações definidas por você.
-3. O trabalho é iniciado com a replicação inicial, invocando o método [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), para inicializar uma replicação completa de VM e enviar os discos virtuais da VM no Azure.
+2. O trabalho verifica se o computador está em conformidade com os pré-requisitos antes de invocar [CreateReplicationRelationship](/windows/win32/hyperv_v2/createreplicationrelationship-msvm-replicationservice) para configurar a replicação com as configurações definidas por você.
+3. O trabalho é iniciado com a replicação inicial, invocando o método [StartReplication](/windows/win32/hyperv_v2/startreplication-msvm-replicationservice), para inicializar uma replicação completa de VM e enviar os discos virtuais da VM no Azure.
 4. Você pode monitorar o trabalho na guia **trabalhos** .      ![ ](media/hyper-v-azure-architecture/image1.png) Lista ![ de trabalhos Habilitar busca detalhada de proteção](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Replicação de dados inicial
 
-1. Um [Instantâneo da VM do Hyper-V](https://technet.microsoft.com/library/dd560637.aspx) é tirado quando a replicação inicial é disparada.
+1. Um [Instantâneo da VM do Hyper-V](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560637(v=ws.10)) é tirado quando a replicação inicial é disparada.
 2. Discos rígidos virtuais na VM são replicados individualmente até serem todos copiados para o Azure. Isso pode demorar um pouco, dependendo do tamanho da VM e largura de banda de rede. [Saiba como](https://support.microsoft.com/kb/3056159) aumentar a largura de banda de rede.
 3. Se houver alterações no disco durante a replicação inicial, o Rastreador de Replicação de Réplica do Hyper-V mostrará essas alterações como logs de replicação do Hyper-V (.hrl). Esses arquivos de log estão localizados na mesma pasta que os discos. Cada disco tem um arquivo .hrl associado que é enviado ao armazenamento secundário. O instantâneo e os arquivos de log consomem recursos de disco durante a replicação inicial.
 4. Quando a replicação inicial termina, o instantâneo de VM é excluído.

@@ -1,15 +1,14 @@
 ---
 title: Solucionar problemas de backup lento de arquivos e pastas
 description: Fornece orientação para solução de problemas para ajudá-lo a diagnosticar a causa dos problemas de desempenho de Backup do Azure
-ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: d65eca685748499f52a990c7ac588bf44cbbba31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f596f0900fbd92391a383678ade99df30592f1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194018"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135043"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solução de problemas de lentidão de backup de arquivos e pastas no Backup do Azure
 
@@ -50,13 +49,13 @@ Veja alguns contadores de desempenho e intervalos que podem ser úteis para diag
 
 | Contador | Status |
 | --- | --- |
-| Disco Lógico(Disco Físico) – %ocioso |* 100% a 50% ociosos = Íntegro</br>* 49% a 20% ocioso = Aviso ou Monitor</br>* 19% a 0% ocioso = Crítico ou Fora de Especificação |
-| Disco Lógico(Disco Físico) -- %média Leitura ou Gravação do Disco por S |* 0,001 ms a 0,015 ms = Íntegro</br>* 0,015 ms a 0,025 ms = Aviso ou Monitor</br>* 0,026 ms ou mais = Crítico ou Fora de Especificação |
+| Disco Lógico(Disco Físico) – %ocioso |<li> 100% de ociosidade a 50% ocioso = íntegro</br><li> 49% de ociosidade a 20% ociosos = aviso ou monitor</br><li> 19% ociosos a 0% ocioso = crítico ou fora de especificação |
+| Disco Lógico(Disco Físico) -- %média Leitura ou Gravação do Disco por S |<li> 0, 1 ms a 0, 15 ms = íntegro</br><li> 0, 15 ms a 0, 25 MS = aviso ou monitor</br><li> 0, 26 MS ou maior = crítico ou fora de especificação |
 | Disco Lógico(Disco Físico) -- Comprimento da Fila do Disco Atual (para todas as instâncias) |80 solicitações por mais de seis minutos |
-| Memória--Bytes de Pool não Pagináveis |* Menos de 60% do pool consumidos = Íntegro<br>* 61% a 80% de pool consumido = Aviso ou Monitor</br>* Mais de 80% do pool consumidos = Crítico ou Fora de Especificação |
-| Memória--Bytes de Pool Pagináveis |* Menos de 60% do pool consumidos = Íntegro</br>* 61% a 80% de pool consumido = Aviso ou Monitor</br>* Mais de 80% do pool consumidos = Crítico ou Fora de Especificação |
-| Memória--Megabytes disponíveis |* 50% de memória livre disponíveis ou mais = Íntegro</br>* 25% de memória livre disponível = Monitor</br>* 10% de memória livre disponível = Aviso</br>* Menos de 100 MB ou 5% de memória livre disponíveis = Crítico ou Fora de Especificação |
-| Processor--\%Tempo do Processor (todas as instâncias) |* Menos de 60% consumido = Íntegro</br>* 61% a 90% consumido = Monitor ou Cuidado</br>* 91% a 100% consumido = Crítico |
+| Memória--Bytes de Pool não Pagináveis |<li> Menos de 60% do pool consumido = íntegro<br><li> 61% a 80% do pool consumido = aviso ou monitor</br><li> Mais de 80% de pool consumidos = crítico ou fora de especificação |
+| Memória--Bytes de Pool Pagináveis |<li> Menos de 60% do pool consumido = íntegro</br><li> 61% a 80% do pool consumido = aviso ou monitor</br><li> Mais de 80% de pool consumidos = crítico ou fora de especificação |
+| Memória--Megabytes disponíveis |<li> 50% de memória livre disponível ou mais = íntegro</br><li> 25% de memória livre disponível = monitor</br><li>10% de memória livre disponível = aviso</br><li> Menos de 100 MB ou 5% de memória livre disponível = crítico ou fora de especificação |
+| Processor--\%Tempo do Processor (todas as instâncias) |<li> Menos de 60% consumidas = íntegro</br><li> 61% a 90% consumidas = monitor ou cuidado</br><li> 91% a 100% consumido = crítico |
 
 > [!NOTE]
 > Se você determinar que a infraestrutura é o motivo, é recomendável desfragmentar os discos regularmente para melhorar o desempenho.

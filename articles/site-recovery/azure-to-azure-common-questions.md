@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: b4b92b907d9cd6d469163bc7bf457da42e9b673c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22848d84896989b1872c55e687c4a5e73da31de8
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299775"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134035"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas comuns: Recuperação de desastre do Azure para o Azure
 
@@ -88,7 +89,7 @@ O Site Recovery não é compatível com a "remoção a quente" de um disco de um
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Com que frequência é possível replicar para o Azure?
 
-A replicação é contínua quando você está replicando VMs do Azure para outra região do Azure. Para saber mais, veja [Arquitetura de replicação do Azure para o Azure](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process).
+A replicação é contínua quando você está replicando VMs do Azure para outra região do Azure. Para saber mais, veja [Arquitetura de replicação do Azure para o Azure](./azure-to-azure-architecture.md#replication-process).
 
 ### <a name="can-i-replicate-virtual-machines-within-a-region-i-need-this-functionality-to-migrate-vms"></a>Posso replicar máquinas virtuais dentro de uma região? Preciso dessa funcionalidade para migrar VMs.
 
@@ -96,17 +97,17 @@ Você não pode usar uma solução de recuperação de disco de Azure para Azure
 
 ### <a name="can-i-replicate-vm-instances-to-any-azure-region"></a>É possível replicar instâncias de VM em qualquer região do Azure?
 
-Com o Site Recovery, é possível replicar e recuperar VMs entre duas regiões dentro do mesmo cluster geográfico. Clusters geográficos são definidos pensando em latência de dados e soberania. Para obter mais informações, veja [Matriz de suporte regional](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) do Site Recovery.
+Com o Site Recovery, é possível replicar e recuperar VMs entre duas regiões dentro do mesmo cluster geográfico. Clusters geográficos são definidos pensando em latência de dados e soberania. Para obter mais informações, veja [Matriz de suporte regional](./azure-to-azure-support-matrix.md#region-support) do Site Recovery.
 
 ### <a name="does-site-recovery-require-internet-connectivity"></a>O Site Recovery requer conectividade com a Internet?
 
-Não, o Site Recovery não requer conectividade com a Internet. Porém, ele requer acesso aos intervalos de IP e URLs do Site Recovery, conforme mencionado [Rede na recuperação de site de VM do Azure](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls).
+Não, o Site Recovery não requer conectividade com a Internet. Porém, ele requer acesso aos intervalos de IP e URLs do Site Recovery, conforme mencionado [Rede na recuperação de site de VM do Azure](./azure-to-azure-about-networking.md#outbound-connectivity-for-urls).
 
 ### <a name="can-i-replicate-an-application-that-has-a-separate-resource-group-for-separate-tiers"></a>É possível replicar o aplicativo que tem um grupo de recursos separado para camadas diferentes?
 
 Sim, é possível replicar o aplicativo e manter a configuração de recuperação de desastre em um grupo de recursos separado também.
 
-Por exemplo, se você tiver um aplicativo com aplicativo, banco de dados e Web de cada camada no grupo de recursos separado, será necessário clicar no [assistente de replicação](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) três vezes para proteger todas as camadas. O Site Recovery replicará essas três camadas em três grupos de recursos diferentes.
+Por exemplo, se você tiver um aplicativo com aplicativo, banco de dados e Web de cada camada no grupo de recursos separado, será necessário clicar no [assistente de replicação](./azure-to-azure-how-to-enable-replication.md#enable-replication) três vezes para proteger todas as camadas. O Site Recovery replicará essas três camadas em três grupos de recursos diferentes.
 
 ### <a name="can-i-move-storage-accounts-across-resource-groups"></a>É possível mover contas de armazenamento entre grupos de recursos?
 
@@ -121,7 +122,7 @@ Uma política de replicação define as configurações para o histórico de ret
 - 24 horas para o histórico de retenção dos pontos de recuperação.
 - 60 minutos para a frequência dos instantâneos consistentes em termos de aplicativo.
 
-[Saiba mais sobre as configurações de replicação](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings).
+[Saiba mais sobre as configurações de replicação](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>O que é ponto de recuperação consistente em termos de falha?
 
@@ -182,7 +183,7 @@ Sim, se você aumentar o período de retenção de 24 horas para 72 horas, o Sit
 
 ### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Posso habilitar a replicação com consistência de aplicativo em servidores Linux?
 
-Sim. O Azure Site Recovery para o sistema operacional Linux dá suporte a scripts personalizados de aplicativo para consistência de aplicativo. O script personalizado com pré e pós-opções será usado pelo agente de mobilidade Azure Site Recovery durante a consistência do aplicativo. [Saiba mais](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#can-i-enable-replication-with-app-consistency-in-linux-servers)
+Sim. O Azure Site Recovery para o sistema operacional Linux dá suporte a scripts personalizados de aplicativo para consistência de aplicativo. O script personalizado com pré e pós-opções será usado pelo agente de mobilidade Azure Site Recovery durante a consistência do aplicativo. [Saiba mais](./site-recovery-faq.md#can-i-enable-replication-with-app-consistency-in-linux-servers)
 
 ## <a name="multi-vm-consistency"></a>Consistência de várias VMs
 
@@ -194,7 +195,7 @@ O Site Recovery fornece uma opção de **consistência de várias VMs**, que cri
 
 Quando você faz failover das máquinas virtuais, elas terão pontos de recuperação consistentes com o aplicativo e com falhas.
 
-Veja o tutorial para [habilitar a consistência de várias VMs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm).
+Veja o tutorial para [habilitar a consistência de várias VMs](./azure-to-azure-tutorial-enable-replication.md#enable-replication-for-a-vm).
 
 ### <a name="can-i-fail-over-a-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>É possível fazer failover de uma máquina virtual dentro de um grupo de replicação de consistência de várias VMs?
 
@@ -290,11 +291,11 @@ Sim, é possível integrar runbooks de Automação do Azure ao plano de recupera
 
 ### <a name="i-failed-over-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>Fiz failover da região primária para uma região de recuperação de desastre. As VMs em uma região de DR são protegidas automaticamente?
 
-Não. Ao fazer [failover](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) das VMs do Azure de uma região para outra, as VMs iniciam na região de DR em um estado desprotegido. Para fazer failback das VMs na região primária, é necessário [proteger novamente](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) as VMs na região secundária.
+Não. Ao fazer [failover](./azure-to-azure-tutorial-failover-failback.md) das VMs do Azure de uma região para outra, as VMs iniciam na região de DR em um estado desprotegido. Para fazer failback das VMs na região primária, é necessário [proteger novamente](./azure-to-azure-how-to-reprotect.md) as VMs na região secundária.
 
 ### <a name="at-the-time-of-reprotection-does-site-recovery-replicate-complete-data-from-the-secondary-region-to-the-primary-region"></a>No momento da nova proteção, o Site Recovery replica dados completos da região secundária para a região primária?
 
-Depende da situação. Se a região de origem da VM existir, apenas as alterações entre o disco de origem e o disco de destino serão sincronizadas. O Site Recovery calcula os diferenciais comparando os discos e, em seguida, transfere os dados. Esse processo normalmente leva algumas horas. Para saber mais sobre o que acontece durante a nova proteção, veja [Nova proteção de VMs do Azure com failover para a região primária](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
+Depende da situação. Se a região de origem da VM existir, apenas as alterações entre o disco de origem e o disco de destino serão sincronizadas. O Site Recovery calcula os diferenciais comparando os discos e, em seguida, transfere os dados. Esse processo normalmente leva algumas horas. Para saber mais sobre o que acontece durante a nova proteção, veja [Nova proteção de VMs do Azure com failover para a região primária](./azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Quanto tempo demora para fazer failback?
 
@@ -320,10 +321,10 @@ O Site Recovery tem os certificados ISO 27001:2013, 27018, HIPAA e DPA. O servi�
 
 ### <a name="does-site-recovery-encrypt-replication"></a>O Site Recovery criptografa a replicação?
 
-Sim, a criptografia em trânsito e a [em repouso](https://docs.microsoft.com/azure/storage/storage-service-encryption) são compatíveis com o Azure.
+Sim, a criptografia em trânsito e a [em repouso](../storage/common/storage-service-encryption.md) são compatíveis com o Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Examine os requisitos de compatibilidade de Azure para Azure](azure-to-azure-support-matrix.md).
 - [Configurar a replicação de Azure para Azure](azure-to-azure-tutorial-enable-replication.md).
-- Se você tiver dúvidas após a leitura deste artigo, publique-as na [página de perguntas P e R da Microsoft dos Serviços de Recuperação do Azure](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
+- Se você tiver dúvidas após a leitura deste artigo, publique-as na [página de perguntas P e R da Microsoft dos Serviços de Recuperação do Azure](/answers/topics/azure-site-recovery.html).

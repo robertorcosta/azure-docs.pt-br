@@ -15,11 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fe899eebb0139dffabef96da32ab1641c983f726
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd913b597e52f81c19b9c6bb20e83be23e5b35bd
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84338400"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134699"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatizar tarefas de gerenciamento em máquinas virtuais do Azure com a Extensão do Agente do SQL Server (Clássica)
 > [!div class="op_single_selector"]
@@ -60,20 +61,28 @@ Requisitos para uso da extensão SQL Server IaaS Agent em sua VM:
 
 Em seguida, conecte o Windows PowerShell à sua assinatura do Azure usando o comando **Add-AzureAccount** .
 
-    Add-AzureAccount
+```azurepowershell
+Add-AzureAccount
+```
 
 Se você tiver várias assinaturas, deverá usar **Select-AzureSubscription** para selecionar a assinatura contendo o destino de VM clássico.
 
-    Select-AzureSubscription -SubscriptionName <subscriptionname>
+```azurepowershell
+Select-AzureSubscription -SubscriptionName <subscriptionname>
+```
 
 Neste ponto você pode, por meio do comando **Get-AzureVM** , obter uma lista de máquinas virtuais clássicas e seus nomes de serviço associados.
 
-    Get-AzureVM
+```azurepowershell
+Get-AzureVM
+```
 
 ## <a name="installation"></a>Instalação
 Para VMs clássicas, você deve usar o PowerShell para instalar a extensão do agente do SQL Server IaaS e configurar seus serviços associados. Use o cmdlet **Set-AzureVMSqlServerExtension** do PowerShell para instalar a extensão. Por exemplo, o comando a seguir instala a extensão em uma VM do Windows Server (clássico) e fornece o nome "SQLIaaSExtension".
 
-    Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -ReferenceName "SQLIaasExtension" -Version "1.2" | Update-AzureVM
+```azurepowershell
+Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -ReferenceName "SQLIaasExtension" -Version "1.2" | Update-AzureVM
+```
 
 Se você atualizar para a versão mais recente da Extensão do Agente IaaS SQL, deverá reiniciar a máquina virtual depois de atualizar a extensão.
 
@@ -90,7 +99,9 @@ Uma maneira de verificar se a extensão está instalada é exibir o status do ag
 
 Você também pode usar o cmdlet **Get-AzureVMSqlServerExtension** do Azure PowerShell.
 
-    Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
+```azurepowershell
+Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
+```
 
 ## <a name="removal"></a>Remoção
 No Portal do Azure, você pode desinstalar a extensão clicando nas reticências na folha **Extensões** das propriedades de sua máquina virtual. Em seguida, clique em **Desinstalar**.
@@ -99,7 +110,9 @@ No Portal do Azure, você pode desinstalar a extensão clicando nas reticências
 
 Você também pode usar o cmdlet **Remove-AzureVMSqlServerExtension** do Powershell.
 
-    Get-AzureVM –ServiceName "service" –Name "vmname" | Remove-AzureVMSqlServerExtension | Update-AzureVM
+```azurepowershell
+Get-AzureVM –ServiceName "service" –Name "vmname" | Remove-AzureVMSqlServerExtension | Update-AzureVM
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 Comece a usar um dos serviços com suporte da extensão. Para obter mais detalhes, confira os tópicos citados na seção [Serviços com suporte](#supported-services) deste artigo.

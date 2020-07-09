@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: rajanaki
-ms.openlocfilehash: ce3bfd85656972cb93b74a85a1bd6d469837ce22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 848234417099c0a31bd0c9e84722b6221aec3aa9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84236312"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135824"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personalizar as configurações de rede da VM do Azure de destino
 
@@ -26,9 +27,9 @@ Saiba como o Site Recovery fornece recuperação de desastre para [esse cenário
 
 Você pode fornecer as seguintes configurações de recurso-chave para a VM de failover ao replicar VMs do Azure:
 
-- [Balanceador de carga interno](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+- [Balanceador de carga interno](../load-balancer/load-balancer-overview.md)
 - [IP público](../virtual-network/public-ip-addresses.md)
-- [Grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) para a sub-rede e para a NIC
+- [Grupo de segurança de rede](../virtual-network/manage-network-security-group.md) para a sub-rede e para a NIC
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

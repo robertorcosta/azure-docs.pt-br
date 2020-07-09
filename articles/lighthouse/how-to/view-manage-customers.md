@@ -3,22 +3,22 @@ title: Exibir e gerenciar clientes e recursos delegados
 description: Como um provedor de serviços usando o Azure Lighthouse, você pode exibir todos os recursos e assinaturas do cliente delegado Acessando meus clientes na portal do Azure.
 ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: a850dc8cfe7667a75ced64ef0bd0afc352b20daa
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: f509a91d71caa3ab1ec8282f4151556f7c10d52c
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026263"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133281"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Exibir e gerenciar clientes e recursos delegados
 
-Provedores de serviço usando o Azure Lighthouse podem usar a página **meus clientes** no [portal do Azure](https://portal.azure.com) para exibir recursos e assinaturas de clientes delegados. Embora nos refiramos aqui aos provedores de serviços e clientes, as empresas que gerenciam vários locatários podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
+Provedores de serviço usando o [Azure Lighthouse](../overview.md) podem usar a página **meus clientes** no [portal do Azure](https://portal.azure.com) para exibir recursos e assinaturas de clientes delegados. Embora nos refiramos aqui aos provedores de serviços e clientes, as empresas que gerenciam vários locatários podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
 
 Para acessar a página **Meus clientes** no portal do Azure, selecione **Todos os serviços**, pesquise **Meus clientes** e selecione-o. Também é possível encontrá-lo inserindo "Meus clientes" na caixa de pesquisa próxima à parte superior do portal do Azure.
 
-Tenha em mente que a seção principais **clientes** da página **meus clientes** mostra apenas informações sobre os clientes que delegaram assinaturas ou grupos de recursos. Se você trabalhar com outros clientes (por exemplo, por meio do [programa provedor de soluções na nuvem](/partner-center/csp-overview)), não verá informações sobre esses clientes na seção **clientes** , a menos que tenha integrado seus recursos para o [Gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md).
+Tenha em mente que a seção principais **clientes** da página **meus clientes** mostra apenas informações sobre os clientes que delegaram assinaturas ou grupos de recursos. Se você trabalhar com outros clientes (por exemplo, por meio do [programa provedor de soluções na nuvem](/partner-center/csp-overview)), não verá informações sobre esses clientes na seção **clientes** , a menos que tenha [integrado seus recursos ao Lighthouse do Azure](onboard-customer.md).
 
-Inferior na página, uma seção separada chamada **provedor de soluções de nuvem (versão prévia)** mostra informações de cobrança e recursos para seus clientes CSP que [assinaram o Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) e estão [no plano do Azure](/partner-center/azure-plan-get-started). Para saber mais, confira [Introdução à conta de cobrança do Contrato de Parceiro da Microsoft](../../billing/mpa-overview.md). Observe que esses clientes do CSP aparecem nesta seção se você também os tiver integrado para o gerenciamento de recursos delegado do Azure. Da mesma forma, um cliente CSP não precisa aparecer na seção **provedor de soluções na nuvem (versão prévia)** de **meus clientes** para que você possa integrá-los para o gerenciamento de recursos delegado do Azure.
+Inferior na página, uma seção separada chamada **provedor de soluções de nuvem (versão prévia)** mostra informações de cobrança e recursos para seus clientes CSP que [assinaram o Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) e estão [no plano do Azure](/partner-center/azure-plan-get-started). Para saber mais, confira [Introdução à conta de cobrança do Contrato de Parceiro da Microsoft](../../cost-management-billing/understand/mpa-overview.md). Observe que esses clientes do CSP aparecem nesta seção se você também os tiver integrado ao Azure Lighthouse. Da mesma forma, um cliente CSP não precisa aparecer na seção **provedor de soluções na nuvem (versão prévia)** de **meus clientes** para que você possa integrá-los ao Azure Lighthouse.
 
 > [!NOTE]
 > Seus clientes podem exibir informações sobre provedores de serviços navegando até **Provedores de serviços** no portal do Azure. Para saber mais, confira [Exibir e gerenciar provedores de serviços](view-manage-service-providers.md).
@@ -52,7 +52,7 @@ Os usuários e as permissões associados a cada delegação aparecem na coluna *
 
 ### <a name="remove-delegations"></a>Remover delegações
 
-Se você tiver incluído usuários com a [atribuição de registro de serviços gerenciados excluir função](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao integrar um cliente para o gerenciamento de recursos delegado do Azure, esses usuários poderão remover uma delegação selecionando o ícone de lixeira que aparece na linha para essa delegação. Quando eles fizerem isso, nenhum usuário no locatário do provedor de serviços poderá acessar os recursos que foram previamente delegados.
+Se você tiver incluído usuários com a [função de exclusão de registro de serviços gerenciados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao integrar um cliente ao Azure Lighthouse, esses usuários poderão remover uma delegação selecionando o ícone de lixeira que aparece na linha para essa delegação. Quando eles fizerem isso, nenhum usuário no locatário do provedor de serviços poderá acessar os recursos que foram previamente delegados.
 
 ## <a name="work-in-the-context-of-a-delegated-subscription"></a>Trabalhar no contexto de uma assinatura delegada
 

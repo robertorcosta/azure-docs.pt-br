@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 58ddb7363ece5ebdb06df29c27ff76b27da627a4
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 3a1ac6dd940ea5d31adae45a435c5425497362b1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851176"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135768"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replicar VMs do Azure para outra região do Azure
 
@@ -50,7 +50,7 @@ Habilitar a replicação. Este procedimento pressupõe que a região do Azure pr
        - Se o grupo de recursos criado pelo Site Recovery já existir, ele será reutilizado.
        - Você pode personalizar as configurações do grupo de recursos.
        - O local do grupo de recursos de destino pode ser qualquer região do Azure, exceto a região em que as VMs de origem estão hospedadas.
-   - **Rede virtual de destino**: por padrão, site Recovery cria uma nova rede virtual na região de destino com um sufixo "ASR" no nome. Isso é mapeado para sua rede de origem e usado para qualquer proteção futura. [Saiba mais](site-recovery-network-mapping-azure-to-azure.md) sobre o mapeamento de rede.
+   - **Rede virtual de destino**: por padrão, site Recovery cria uma nova rede virtual na região de destino com um sufixo "ASR" no nome. Isso é mapeado para sua rede de origem e usado para qualquer proteção futura. [Saiba mais](./azure-to-azure-network-mapping.md) sobre o mapeamento de rede.
    - **Contas de armazenamento de destino (a VM de origem não usa discos gerenciados)**: por padrão, site Recovery cria uma nova conta de armazenamento de destino imitando sua configuração de armazenamento de VM de origem. Caso a conta de armazenamento já exista, ela é reutilizada.
    - **Discos gerenciados por réplica (a VM de origem usa discos gerenciados)**: Site Recovery cria novos discos gerenciados por réplica na região de destino para espelhar os discos gerenciados da VM de origem com o mesmo tipo de armazenamento (Standard ou Premium) que o disco gerenciado da VM de origem.
    - **Contas de armazenamento em cache**: o Site Recovery precisa de uma conta de armazenamento extra, chamada armazenamento em cache na região de origem. Todas as alterações ocorrendo nas máquinas virtuais de origem são controladas e enviadas para a conta de armazenamento do cache antes de replicar para o local de destino. Essa conta de armazenamento deve ser padrão.

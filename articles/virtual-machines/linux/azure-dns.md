@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 0910b31685aa408c319b40ea23782b11724b6237
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e53a6a5c024fe58eae00dcda785ff9622061654
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81641722"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135313"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opções de resolução de nomes DNS para máquinas virtuais Linux no Azure
 O Azure fornece resolução de nomes DNS por padrão para todas as máquinas virtuais que estão em uma única rede virtual. Você pode implementar sua própria solução de resolução de nomes DNS configurando seus próprios serviços DNS em suas máquinas virtuais que o Azure hospeda. Os cenários a seguir devem ajudá-lo a escolher a que funciona para sua situação.
@@ -91,7 +92,9 @@ O DNS é principalmente um protocolo UDP. Como o protocolo UDP não garante a en
 
 Para verificar as configurações atuais em uma máquina virtual do Linux, 'cat /etc/resolv.conf' e examine a linha 'options', por exemplo:
 
-    options timeout:1 attempts:5
+```config-conf
+options timeout:1 attempts:5
+```
 
 O arquivo resolv.conf é gerado automaticamente e não deve ser editado. As etapas específicas que adicionam a linha 'options' variam de acordo com a distribuição:
 

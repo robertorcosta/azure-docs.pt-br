@@ -1,5 +1,5 @@
 ---
-title: Disparar eventos em fluxos de trabalho de ML
+title: Eventos de gatilho em fluxos de trabalho am (visualização)
 titleSuffix: Azure Machine Learning
 description: Configure aplicativos, processos ou fluxos de trabalho de machine learning de CI/CD controlados por eventos no Azure Machine Learning.
 services: machine-learning
@@ -10,13 +10,14 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 5aeec1c2dae1d8a8cc11b5e8b3181d9b22069a43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c4eae49b849b7dc5dbf7c27d50e241b2a4f36e4
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338312"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135955"
 ---
-# <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Disparar aplicativos, processos ou fluxos de trabalho de CI/CD com base em eventos do Azure Machine Learning (versão prévia)
+# <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Disparar aplicativos, processos ou fluxos de trabalho de CI/CD com base em eventos de Azure Machine Learning (versão prévia)
 
 Neste artigo, você aprenderá a configurar aplicativos, processos ou fluxos de trabalho de CI/CD controlados por eventos com base em eventos do Azure Machine Learning, como emails de notificação de falha ou execuções de pipeline de ML, quando determinadas condições são detectadas pela [Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/). 
 

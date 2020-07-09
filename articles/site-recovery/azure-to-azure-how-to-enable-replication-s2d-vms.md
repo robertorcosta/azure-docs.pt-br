@@ -5,11 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 9f394fa8d618c97d74a47ff6e42a002f177cf7d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b4f18c32639ceb2084febe210a8cfd4c423a0cf
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75973661"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135757"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replicar VMs do Azure em execução Espaços de Armazenamento Diretos para outra região
 
@@ -19,7 +20,7 @@ Este artigo descreve como habilitar a recuperação de desastre de VMs do Azure 
 >Somente os pontos de recuperação com controle de falhas são compatíveis com clusters de espaços de armazenamento diretos.
 >
 
-Os [espaços de armazenamento diretos (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) são o armazenamento definido pelo software, que fornece uma maneira de criar [clusters convidados](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) no Azure.  Um cluster de convidado no Microsoft Azure é um cluster de failover composto por VMs de IaaS. Ele permite que as cargas de trabalho de VM hospedadas entrem em clusters de convidado, alcançando um SLA de maior disponibilidade para aplicativos, do que uma única VM do Azure pode fornecer. Ele é útil em cenários em que uma VM hospeda um aplicativo crítico como SQL ou servidor de arquivos de escalabilidade horizontal.
+Os [espaços de armazenamento diretos (S2D)](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) são o armazenamento definido pelo software, que fornece uma maneira de criar [clusters convidados](https://techcommunity.microsoft.com/t5/failover-clustering/bg-p/FailoverClustering) no Azure.  Um cluster de convidado no Microsoft Azure é um cluster de failover composto por VMs de IaaS. Ele permite que as cargas de trabalho de VM hospedadas entrem em clusters de convidado, alcançando um SLA de maior disponibilidade para aplicativos, do que uma única VM do Azure pode fornecer. Ele é útil em cenários em que uma VM hospeda um aplicativo crítico como SQL ou servidor de arquivos de escalabilidade horizontal.
 
 ## <a name="disaster-recovery-with-storage-spaces-direct"></a>Recuperação de desastres com espaços de armazenamento diretos
 
@@ -37,14 +38,14 @@ O diagrama abaixo mostra um cluster de failover de VM do Azure de dois nós usan
 
 **Considerações sobre recuperação de desastre**
 
-1. Quando você estiver configurando uma [testemunha de nuvem](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp) para o cluster, mantenha a testemunha na região da Recuperação de Desastre.
-2. Se você pretende fazer failover das máquinas virtuais para a sub-rede na região de Recuperação de Desastre, que é diferente da região de origem, o endereço IP do cluster precisa ser alterado após o failover.  Para alterar o IP do cluster, você precisa usar o [script de plano de recuperação site Recovery.](https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)</br>
+1. Quando você estiver configurando uma [testemunha de nuvem](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp) para o cluster, mantenha a testemunha na região da Recuperação de Desastre.
+2. Se você pretende fazer failover das máquinas virtuais para a sub-rede na região de Recuperação de Desastre, que é diferente da região de origem, o endereço IP do cluster precisa ser alterado após o failover.  Para alterar o IP do cluster, você precisa usar o [script de plano de recuperação site Recovery.](./site-recovery-runbook-automation.md)</br>
 [Exemplo de script](https://github.com/krnese/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts/ASR-Wordpress-ChangeMysqlConfig.ps1) para executar o comando dentro da VM usando a extensão de script personalizado 
 
 ### <a name="enabling-site-recovery-for-s2d-cluster"></a>Habilitar o Site Recovery para o cluster S2D:
 
 1. Dentro do cofre dos serviços de recuperação, clique em "+replicar"
-1. Selecione todos os nós no cluster e torne-os parte de um [Grupo de consistência de várias VMs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-common-questions#multi-vm-consistency)
+1. Selecione todos os nós no cluster e torne-os parte de um [Grupo de consistência de várias VMs](./azure-to-azure-common-questions.md#multi-vm-consistency)
 1. Selecione a política de replicação com a consistência do aplicativo desativada* (apenas o suporte a controle de falhas está disponível)
 1. Habilitar a replicação
 
@@ -69,7 +70,7 @@ Talvez seja necessário fazer algumas operações nas máquinas virtuais do Azur
 
 
 ### <a name="failover-of-the-virtual-machines"></a>Failover das máquinas virtuais 
-Ambos os nós das VMs precisam fazer failover usando o [plano de recuperação](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) site Recovery 
+Ambos os nós das VMs precisam fazer failover usando o [plano de recuperação](./site-recovery-create-recovery-plans.md) site Recovery 
 
 ![proteção storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG)
 
@@ -93,4 +94,4 @@ Para obter mais informações, consulte [Failover de teste para Azure no Site Re
 Para obter mais informações, consulte [Failover no Site Recovery](site-recovery-failover.md).
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) sobre como executar o failback.
+[Saiba mais](./azure-to-azure-tutorial-failover-failback.md) sobre como executar o failback.

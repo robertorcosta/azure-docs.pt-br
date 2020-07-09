@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: 607f622bc484883ecbeae0552eecc9561cf4c3ef
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: aab0de11972f7d1abaaa0140da002f838e319fdf
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969595"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134624"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave do Azure Monitor gerenciada pelo cliente 
 
@@ -461,26 +461,27 @@ A rotação da CMK requer atualização explícita para o recurso de *cluster* c
 
 Todos os seus dados continuam acessíveis após a operação de revezamento de chaves, já que os dados são sempre criptografados com a AEK (Chave de Criptografia de Conta), embora a AEK seja agora criptografada com sua nova versão de KEK (Chave de Criptografia de Chave) no Key Vault.
 
-## <a name="saving-queries-protected-with-cmk"></a>Salvando consultas protegidas com CMK
+## <a name="cmk-for-queries"></a>CMK para consultas
 
-A linguagem de consulta usada em Log Analytics é expressiva e pode conter informações confidenciais em comentários que você adiciona a consultas ou na sintaxe de consulta. Algumas organizações exigem que essas informações sejam mantidas protegidas como parte da política de CMK e você precisa salvar suas consultas criptografadas com sua chave. Azure Monitor permite armazenar *pesquisas salvas* e consultas de *alertas de log* em sua própria conta de armazenamento que você conecta ao seu espaço de trabalho. 
+A linguagem de consulta usada em Log Analytics é expressiva e pode conter informações confidenciais em comentários que você adiciona a consultas ou na sintaxe de consulta. Algumas organizações exigem que essas informações sejam mantidas protegidas como parte da política de CMK e você precisa salvar suas consultas criptografadas com sua chave. Azure Monitor permite armazenar *pesquisas salvas* e consultas *de alertas de log* criptografadas com sua chave em sua própria conta de armazenamento quando conectada ao seu espaço de trabalho. 
 
-> Observação o CMK para consultas usadas em pastas de trabalho e painéis do Azure ainda não tem suporte. Essas consultas permanecem criptografadas com a chave da Microsoft.  
+> [!NOTE]
+> O CMK para consultas usadas em pastas de trabalho e painéis do Azure ainda não tem suporte. Essas consultas permanecem criptografadas com a chave da Microsoft.  
 
-Com o BYOS (Traga seu próprio armazenamento), o serviço carrega consultas na conta de armazenamento que você controla. Isso significa que você controla a [política de criptografia em repouso](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) usando a mesma chave usada para criptografar dados no cluster log Analytics ou em uma chave diferente. No entanto, você será responsável pelos custos associados a essa conta de armazenamento. 
+Quando você [coloca seu próprio armazenamento](https://docs.microsoft.com/azure/azure-monitor/platform/private-storage) (BYOS) e o associa ao seu espaço de trabalho, o serviço carrega as consultas *salvas* e *alertas de log* para sua conta de armazenamento. Isso significa que você controla a conta de armazenamento e a [política de criptografia em repouso](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) usando a mesma chave usada para criptografar dados no cluster log Analytics ou em uma chave diferente. No entanto, você será responsável pelos custos associados a essa conta de armazenamento. 
 
 **Considerações antes de definir CMK para consultas**
 * Você precisa ter permissões de ' gravação ' no espaço de trabalho e na conta de armazenamento
 * Certifique-se de criar sua conta de armazenamento na mesma região que o espaço de trabalho Log Analytics está localizado
 * As *pesquisas salvas* no armazenamento são consideradas como artefatos de serviço e seu formato pode ser alterado
-* As *pesquisas de gravações* existentes são removidas do seu espaço de trabalho. Copie e *salve as pesquisas* necessárias antes da configuração. Você pode exibir suas *pesquisas salvas* usando este [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch?view=azps-4.2.0)
+* As *pesquisas de gravações* existentes são removidas do seu espaço de trabalho. Copie e *salve as pesquisas* necessárias antes da configuração. Você pode exibir as *pesquisas salvas* usando o [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch)
 * Não há suporte para o histórico de consulta e você não poderá ver as consultas que executou
-* Você pode associar uma única conta de armazenamento ao espaço de trabalho com a finalidade de salvar consultas, mas pode ser usado partir as *pesquisas salvas* e as consultas *de alertas de log*
+* Você pode associar uma única conta de armazenamento ao espaço de trabalho com a finalidade de salvar consultas, mas pode ser usado partir as *pesquisas salvas* e consultas de *alertas de log*
 * Não há suporte para fixar no painel
 
-**Configuração de BYOS para consultas**
+**Configurar BYOS para consultas de pesquisas salvas**
 
-Associe uma conta de armazenamento a um DataSourceType de *consulta* ao seu espaço de trabalho. 
+Associar a conta de armazenamento para *consulta* ao seu espaço de trabalho – as consultas *salvas de pesquisas* são salvas em sua conta de armazenamento. 
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
@@ -505,9 +506,9 @@ Content-type: application/json
 
 Após a configuração, qualquer nova consulta de *pesquisa salva* será salva no armazenamento.
 
-**Configuração de BYOS para alertas de log**
+**Configurar o BYOS para consultas de alertas de log**
 
-Associe uma conta de armazenamento com *alertas* DataSourceType ao seu espaço de trabalho. 
+Associar a conta de armazenamento para *alertas* ao seu espaço de trabalho-as consultas de *alertas de log* são salvas em sua conta de armazenamento. 
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"

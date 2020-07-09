@@ -3,11 +3,12 @@ title: Perguntas comuns sobre a recuperação de desastres do VMware com o Azure
 description: Obtenha respostas para perguntas comuns sobre a recuperação de desastre de VMs VMware locais para o Azure usando Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: d551cef7037c0b6d7286cbb4b70d8f7a8f7f5cae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a523df21caca2a6def4274542979e9963345384b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259503"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135168"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns sobre a replicação do VMware para Azure
 
@@ -121,7 +122,7 @@ A replicação de novas VMs para uma conta de armazenamento está disponível so
 
 ### <a name="can-i-change-the-managed-disk-type-after-a-machine-is-protected"></a>Posso alterar o tipo de disco gerenciado depois que um computador é protegido?
 
-Sim, você pode [alterar facilmente o tipo de disco gerenciado](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) para replicações em andamento. Antes de alterar o tipo, certifique-se de que nenhuma URL de assinatura de acesso compartilhado seja gerada no disco gerenciado:
+Sim, você pode [alterar facilmente o tipo de disco gerenciado](../virtual-machines/windows/convert-disk-storage.md) para replicações em andamento. Antes de alterar o tipo, certifique-se de que nenhuma URL de assinatura de acesso compartilhado seja gerada no disco gerenciado:
 
 1. Vá para o recurso de **disco gerenciado** no portal do Azure e verifique se você tem uma faixa de URL de assinatura de acesso compartilhado na folha **visão geral** .
 1. Se a faixa estiver presente, selecione-a para cancelar a exportação em andamento.

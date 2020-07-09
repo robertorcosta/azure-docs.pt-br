@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 543be2b408d9442c61ae2c052776e63c33206188
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a522193e9e704dce967daeeef70f82a6c0b1378
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488929"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135723"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Habilitar a recuperação de desastre de zona para zona para máquinas virtuais do Azure
 
@@ -97,7 +98,7 @@ Faça logon no portal do Azure.
 
 5. Se você quiser fazer alterações nas configurações de replicação, clique em ' Avançar: configurações avançadas '.
 
-6. Altere as configurações para longe do padrão, sempre que apropriado. Para usuários do Azure para a recuperação de desastre do Azure, essa página pode parecer familiar. Mais detalhes sobre as opções apresentadas nesta folha podem ser encontrados [aqui](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)
+6. Altere as configurações para longe do padrão, sempre que apropriado. Para usuários do Azure para a recuperação de desastre do Azure, essa página pode parecer familiar. Mais detalhes sobre as opções apresentadas nesta folha podem ser encontrados [aqui](./azure-to-azure-tutorial-enable-replication.md)
 
     ![Página Configurações avançadas](./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-advanced-settings-blade.png)
 
@@ -115,7 +116,7 @@ O SLA do RTO é o mesmo que para Site Recovery geral. Prometemos o RTO de até 2
 A equipe do Site Recovery e equipe de gerenciamento de capacidade do Azure planejam a capacidade de infraestrutura suficiente. Quando você inicia um failover, as equipes também ajudam a garantir que as instâncias de VM protegidas pelo Site Recovery serão implantadas na zona de destino.
 
 **4. quais sistemas operacionais têm suporte?**
-A recuperação de desastre de zona para zona dá suporte aos mesmos sistemas operacionais que a recuperação de desastre do Azure para o Azure. Consulte a matriz de suporte [aqui](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
+A recuperação de desastre de zona para zona dá suporte aos mesmos sistemas operacionais que a recuperação de desastre do Azure para o Azure. Consulte a matriz de suporte [aqui](./azure-to-azure-support-matrix.md).
 
 **5. os grupos de recursos de origem e de destino podem ser iguais?**
 Não, você deve fazer o failover para um grupo de recursos diferente.
@@ -124,8 +125,8 @@ Não, você deve fazer o failover para um grupo de recursos diferente.
 
 As etapas que precisam ser seguidas para executar uma análise de recuperação de desastre, failover, proteger novamente e failback são as mesmas que as etapas no cenário de recuperação de desastre do Azure para o Azure.
 
-Para executar uma análise de recuperação de desastre, siga as etapas descritas [aqui](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-dr-drill).
+Para executar uma análise de recuperação de desastre, siga as etapas descritas [aqui](./azure-to-azure-tutorial-dr-drill.md).
 
-Para executar um failover e proteger novamente as VMs na zona secundária, siga as etapas descritas [aqui](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback).
+Para executar um failover e proteger novamente as VMs na zona secundária, siga as etapas descritas [aqui](./azure-to-azure-tutorial-failover-failback.md).
 
-Para fazer failback para a zona primária, siga as etapas descritas [aqui](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failback).
+Para fazer failback para a zona primária, siga as etapas descritas [aqui](./azure-to-azure-tutorial-failback.md).

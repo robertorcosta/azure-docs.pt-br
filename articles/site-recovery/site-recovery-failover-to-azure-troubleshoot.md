@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 7b43105d23de516b994521ad46bb45737798717c
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 09a4700ce794458ee4dcad2291a93e0b13ca5feb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971072"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133767"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solucionar erros ao fazer failover de VM VMWare ou de computador físico para o Azure
 
@@ -90,7 +90,7 @@ Se o botão **Conectar** da VM com failover no Azure estiver esmaecido e você n
 
 ## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>Não é possível conectar/RDP/SSH – Botão Conectar da VM disponível
 
-Se o botão **Conectar** da VM com failover no Azure estiver disponível (não esmaecido), verifique o **Diagnóstico de inicialização** em sua máquina virtual e verifique se há erros conforme listado [neste artigo](../virtual-machines/windows/boot-diagnostics.md).
+Se o botão **Conectar** da VM com failover no Azure estiver disponível (não esmaecido), verifique o **Diagnóstico de inicialização** em sua máquina virtual e verifique se há erros conforme listado [neste artigo](../virtual-machines/troubleshooting/boot-diagnostics.md).
 
 1. Se a máquina virtual não foi iniciada, tente fazer o failover para um ponto de recuperação mais antigo.
 2. Se o aplicativo na máquina virtual não responder, tente o failover para um ponto de recuperação consistente do aplicativo.
@@ -174,7 +174,7 @@ Como resolver o problema:
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Solucionar problemas da [conexão de RDP para a VM Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md)
-- Solucionar problemas da [conexão de SSH para VM Linux](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
+- Solucionar problemas da [conexão de RDP para a VM Windows](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)
+- Solucionar problemas da [conexão de SSH para VM Linux](../virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md)
 
-Se precisar de mais ajuda, poste sua consulta na [página de perguntas de P e R da Microsoft para o Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html) ou deixe um comentário ao final deste documento. Temos uma comunidade ativa que deve conseguir ajudá-lo.
+Se precisar de mais ajuda, poste sua consulta na [página de perguntas de P e R da Microsoft para o Site Recovery](/answers/topics/azure-site-recovery.html) ou deixe um comentário ao final deste documento. Temos uma comunidade ativa que deve conseguir ajudá-lo.

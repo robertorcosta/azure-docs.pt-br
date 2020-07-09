@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9bc2116120f05db9cad63cc945df0ea4367fc3a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cbfe03c48c6d971c140dc332c38a47bc9234173
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207202"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135117"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalizar propriedades de protocolo RDP para um pool de hosts
 
@@ -53,7 +53,7 @@ Para configurar as propriedades de RDP no portal do Azure:
 4. Na página área de trabalho virtual do Windows, selecione **pools de host** no menu no lado esquerdo da tela.
 5. Selecione **o nome do pool de hosts** que você deseja atualizar.
 6. Selecione **Propriedades** no menu no lado esquerdo da tela.
-7. Na guia **Propriedades** , vá para **configurações de RDP** para começar a editar as propriedades de RDP. As propriedades devem estar em um formato separado por vírgulas, como os exemplos do PowerShell.
+7. Na guia **Propriedades** , vá para **configurações de RDP** para começar a editar as propriedades de RDP. As propriedades devem estar em um formato separado por ponto-e-vírgula, como os exemplos do PowerShell.
 8. Quando terminar, selecione **salvar** para salvar as alterações.
 
 As seções a seguir lhe dirão como editar manualmente as propriedades de RDP personalizadas no PowerShell.

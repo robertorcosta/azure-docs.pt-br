@@ -1,54 +1,58 @@
 ---
 title: Ler consultas em réplicas
-description: O banco de dados SQL do Azure fornece a capacidade de balancear a carga de cargas de trabalho somente leitura usando a capacidade de réplicas somente leitura, chamada escala horizontal de leitura.
+description: O SQL do Azure fornece a capacidade de usar a capacidade de réplicas somente leitura para cargas de trabalho de leitura, chamada escala horizontal de leitura.
 services: sql-database
-ms.service: sql-db-mi
-ms.subservice: high-availability
-titleSuffix: Azure SQL Database & SQL Managed Instance
+ms.service: sql-database
+ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-ms.date: 06/03/2019
-ms.openlocfilehash: a043eb5eed8f5554e42a113a3d7963be94da8a49
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 06/26/2020
+ms.openlocfilehash: cf9f48b0907d3bfe1d07dcffcc0d0b9534f74c83
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985560"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135899"
 ---
-# <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Usar réplicas somente leitura para balancear a carga de cargas de trabalho de consulta somente leitura
+# <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Usar réplicas somente leitura para descarregar cargas de trabalho de consulta somente leitura
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+Como parte da [arquitetura de alta disponibilidade](high-availability-sla.md#premium-and-business-critical-service-tier-availability), cada banco de dados e instância gerenciada na camada de serviço Premium e comercialmente crítico é automaticamente provisionado com uma réplica de leitura-gravação primária e várias réplicas somente leitura secundárias. As réplicas secundárias são provisionadas com o mesmo tamanho de computação que a réplica primária. O recurso de *expansão de leitura* permite descarregar cargas de trabalho somente leitura usando a capacidade de computação de uma das réplicas somente leitura, em vez de executá-las na réplica de leitura/gravação. Dessa forma, algumas cargas de trabalho somente leitura podem ser isoladas das cargas de trabalho de leitura/gravação e não afetarão seu desempenho. O recurso destina-se aos aplicativos que incluem cargas de trabalho somente leitura logicamente separadas, como análise. Nas camadas de serviço Premium e Comercialmente Crítico, os aplicativos podem obter benefícios de desempenho usando essa capacidade adicional sem custo adicional.
 
-Como parte da [arquitetura de alta disponibilidade](high-availability-sla.md#premium-and-business-critical-service-tier-availability), cada banco de dados nas camadas de serviço Premium e comercialmente crítico é automaticamente provisionado com uma réplica primária e várias réplicas secundárias. As réplicas secundárias são provisionadas com o mesmo tamanho de computação que a réplica primária. O recurso de *expansão de leitura* permite balancear a carga de cargas de trabalho somente leitura do banco de dados SQL usando a capacidade de uma das réplicas somente leitura em vez de compartilhar a réplica de leitura-gravação. Dessa forma, a carga de trabalho somente leitura será isolada da carga de trabalho principal de leitura/gravação e não afetará seu desempenho. O recurso destina-se aos aplicativos que incluem cargas de trabalho somente leitura logicamente separadas, como análise. Nas camadas de serviço Premium e Comercialmente Crítico, os aplicativos podem obter benefícios de desempenho usando essa capacidade adicional sem custo adicional.
+O recurso de *expansão de leitura* também está disponível na camada de serviço de hiperescala quando pelo menos uma réplica secundária é criada. Várias réplicas secundárias podem ser usadas para cargas de trabalho somente leitura de balanceamento de carga que exigem mais recursos do que o disponível em uma réplica secundária.
 
-O recurso de expansão de leitura também está disponível na camada de serviço de hiperescala quando pelo menos uma réplica secundária é criada. Várias réplicas secundárias podem ser usadas se as cargas de trabalho somente leitura exigirem mais recursos do que estão disponíveis em uma réplica secundária. A arquitetura de alta disponibilidade das camadas de serviço Basic, Standard e Uso Geral não inclui nenhuma réplica. O recurso de expansão de leitura não está disponível nessas camadas de serviço.
+A arquitetura de alta disponibilidade das camadas de serviço Basic, Standard e Uso Geral não inclui nenhuma réplica. O recurso de *expansão de leitura* não está disponível nessas camadas de serviço.
 
-O diagrama a seguir ilustra isso usando um banco de dados Comercialmente Crítico.
+O diagrama a seguir ilustra o recurso.
 
 ![Réplicas somente leitura](./media/read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-O recurso de expansão de leitura é habilitado por padrão nos novos bancos de dados Premium, Comercialmente Crítico e hiperescala. Para o hiperescala, uma réplica secundária é criada por padrão para novos bancos de dados. Se a cadeia de conexão SQL estiver configurada com `ApplicationIntent=ReadOnly` , o aplicativo será redirecionado pelo gateway para uma réplica somente leitura desse banco de dados. Para obter informações sobre como usar a `ApplicationIntent` propriedade, consulte [especificando a intenção do aplicativo](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
-
-Se você quiser garantir que o aplicativo se conecte à réplica primária, independentemente da `ApplicationIntent` configuração na cadeia de conexão SQL, você deve desabilitar explicitamente a expansão de leitura ao criar o banco de dados ou ao alterar sua configuração. Por exemplo, se você atualizar seu banco de dados da camada Standard ou Uso Geral para a camada Premium, Comercialmente Crítico ou de hiperescala e quiser ter certeza de que todas as suas conexões continuam a ir para a réplica primária, desabilite a expansão de leitura. Para obter detalhes sobre como desabilitá-lo, consulte [habilitar e desabilitar a expansão de leitura](#enable-and-disable-read-scale-out).
+O recurso de *expansão de leitura* é habilitado por padrão nos novos bancos de dados Premium, comercialmente crítico e hiperescala. Para o hiperescala, uma réplica secundária é criada por padrão para novos bancos de dados. 
 
 > [!NOTE]
-> Não há suporte para Repositório de Dados de Consultas, eventos estendidos e recursos do SQL Profiler nas réplicas somente leitura.
+> A expansão de leitura é sempre habilitada na camada de serviço Comercialmente Crítico de Instância Gerenciada.
+
+Se a cadeia de conexão SQL estiver configurada com `ApplicationIntent=ReadOnly` , o aplicativo será redirecionado para uma réplica somente leitura desse banco de dados ou instância gerenciada. Para obter informações sobre como usar a `ApplicationIntent` propriedade, consulte [especificando a intenção do aplicativo](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+
+Se você quiser garantir que o aplicativo se conecte à réplica primária, independentemente da `ApplicationIntent` configuração na cadeia de conexão SQL, você deve desabilitar explicitamente a expansão de leitura ao criar o banco de dados ou ao alterar sua configuração. Por exemplo, se você atualizar seu banco de dados da camada Standard ou Uso Geral para a camada Premium, Comercialmente Crítico ou hiperscale e quiser ter certeza de que todas as suas conexões continuam a ir para a réplica primária, desabilite a expansão de leitura. Para obter detalhes sobre como desabilitá-lo, consulte [habilitar e desabilitar a expansão de leitura](#enable-and-disable-read-scale-out).
+
+> [!NOTE]
+> Não há suporte para os recursos Repositório de Consultas e SQL Profiler em réplicas somente leitura. 
 
 ## <a name="data-consistency"></a>Consistência de dados
 
 Um dos benefícios das réplicas é que as réplicas estão sempre no estado transacionalmente consistente, mas em diferentes momentos, pode haver uma pequena latência entre diferentes réplicas. A expansão de leitura dá suporte à consistência no nível da sessão. Isso significa que, se a sessão somente leitura se reconectar após um erro de conexão causado pela indisponibilidade de réplica, ela poderá ser redirecionada para uma réplica que não seja 100% atualizada com a réplica de leitura/gravação. Da mesma forma, se um aplicativo gravar dados usando uma sessão de leitura/gravação e lê-lo imediatamente usando uma sessão somente leitura, é possível que as atualizações mais recentes não fiquem visíveis imediatamente na réplica. A latência é causada por uma operação de refazer do log de transações assíncronas.
 
 > [!NOTE]
-> As latências de replicação dentro da região são baixas e essa situação é rara.
+> As latências de replicação dentro da região são baixas e essa situação é rara. Para monitorar a latência de replicação, consulte [monitorando e Solucionando problemas de réplica somente leitura](#monitoring-and-troubleshooting-read-only-replicas).
 
 ## <a name="connect-to-a-read-only-replica"></a>Conectar-se a uma réplica somente leitura
 
-Quando você habilita a expansão de leitura para um banco de dados, a `ApplicationIntent` opção na cadeia de conexão fornecida pelo cliente determina se a conexão é roteada para a réplica de gravação ou para uma réplica somente leitura. Especificamente, se o `ApplicationIntent` valor for `ReadWrite` (o valor padrão), a conexão será direcionada para a réplica de leitura/gravação do banco de dados. Isso é idêntico ao comportamento existente. Se o valor de `ApplicationIntent` é `ReadOnly`, a conexão é roteada para uma réplica somente leitura.
+Quando você habilita a expansão de leitura para um banco de dados, a `ApplicationIntent` opção na cadeia de conexão fornecida pelo cliente determina se a conexão é roteada para a réplica de gravação ou para uma réplica somente leitura. Especificamente, se o `ApplicationIntent` valor for `ReadWrite` (o valor padrão), a conexão será direcionada para a réplica de leitura-gravação. Isso é idêntico ao comportamento quando `ApplicationIntent` não está incluído na cadeia de conexão. Se o valor de `ApplicationIntent` é `ReadOnly`, a conexão é roteada para uma réplica somente leitura.
 
 Por exemplo, a seguinte cadeia de conexão conecta o cliente a uma réplica somente leitura (substituindo os itens nos chevrons pelos valores corretos para o seu ambiente e descartando os chevrons):
 
@@ -66,30 +70,70 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>
 
 ## <a name="verify-that-a-connection-is-to-a-read-only-replica"></a>Verifique se uma conexão está pronta para réplica somente leitura
 
-Você pode verificar se você está conectado a uma réplica somente leitura ao executar a consulta a seguir. Isso retornará READ_ONLY quando você estiver conectado a uma réplica somente leitura.
+Você pode verificar se você está conectado a uma réplica somente leitura executando a consulta a seguir no contexto do banco de dados. Isso retornará READ_ONLY quando você estiver conectado a uma réplica somente leitura.
 
 ```sql
-SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
+SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
 ```
 
 > [!NOTE]
-> A qualquer momento, apenas uma das réplicas AlwaysON pode ser acessada pelas sessões ReadOnly.
+> Nas camadas de serviço Premium e Comercialmente Crítico, somente uma das réplicas somente leitura pode ser acessada em um determinado momento. O hiperscale dá suporte a várias réplicas somente leitura.
 
-## <a name="monitor-and-troubleshoot-a-read-only-replica"></a>Monitorar e solucionar problemas de uma réplica somente leitura
+## <a name="monitoring-and-troubleshooting-read-only-replicas"></a>Monitorando e Solucionando problemas de réplicas somente leitura
 
-Quando conectado a uma réplica somente leitura, você pode acessar as métricas de desempenho usando a `sys.dm_db_resource_stats` DMV. Para acessar as estatísticas do plano de consulta, use as `sys.dm_exec_query_stats` `sys.dm_exec_query_plan` `sys.dm_exec_sql_text` DMVs e.
+Quando conectado a uma réplica somente leitura, as DMVs (exibições de gerenciamento dinâmico) refletem o estado da réplica e podem ser consultadas para fins de monitoramento e solução de problemas. O mecanismo de banco de dados fornece várias exibições para expor uma ampla variedade de dados de monitoramento. 
+
+As exibições comumente usadas são:
+
+| Nome | Finalidade |
+|:---|:---|
+|[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Fornece métricas de utilização de recursos para a última hora, incluindo CPU, e/s de dados e utilização de gravação de log em relação aos limites de objetivo de serviço.|
+|[sys.dm_os_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Fornece estatísticas de espera agregada para a instância do mecanismo de banco de dados. |
+|[sys. dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Fornece estatísticas de sincronização e estado de integridade da réplica. O tamanho da fila de restauração e a taxa de restauração funcionam como indicadores de latência de dados na réplica somente leitura. |
+|[sys.dm_os_performance_counters](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Fornece contadores de desempenho do mecanismo de banco de dados.|
+|[sys.dm_exec_query_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Fornece estatísticas de execução por consulta, como o número de execuções, o tempo de CPU usado, etc.|
+|[sys. dm_exec_query_plan ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Fornece planos de consulta em cache. |
+|[sys. dm_exec_sql_text ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Fornece o texto de consulta para um plano de consulta em cache.|
+|[sys.dm_exec_query_profiles](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Fornece o progresso de consulta em tempo real enquanto as consultas estão em execução.|
+|[sys. dm_exec_query_plan_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Fornece o último plano de execução real conhecido, incluindo estatísticas de tempo de execução para uma consulta.|
+|[sys. dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Fornece IOPS de armazenamento, taxa de transferência e estatísticas de latência para todos os arquivos de banco de dados. |
 
 > [!NOTE]
-> A DMV `sys.resource_stats` no banco de dados mestre lógico retorna o uso da CPU e os dados de armazenamento da réplica primária.
+> As `sys.resource_stats` `sys.elastic_pool_resource_stats` DMVs e no banco de dados mestre lógico retornam os dados de utilização de recursos da réplica primária.
+
+### <a name="monitoring-read-only-replicas-with-extended-events"></a>Monitorando réplicas somente leitura com eventos estendidos
+
+Uma sessão de evento estendido não pode ser criada quando conectada a uma réplica somente leitura. No entanto, no banco de dados SQL do Azure, as definições de sessões de [eventos estendidas](xevent-db-diff-from-svr.md) no escopo do banco de dados criadas e alteradas na réplica primária são replicadas para réplicas somente leitura, incluindo réplicas geográficas e eventos de captura em réplicas somente leitura.
+
+Uma sessão de evento estendido em uma réplica somente leitura baseada em uma definição de sessão da réplica primária pode ser iniciada e interrompida independentemente da réplica primária. Quando uma sessão de evento estendido é descartada na réplica primária, ela também é descartada em todas as réplicas somente leitura.
+
+### <a name="transaction-isolation-level-on-read-only-replicas"></a>Nível de isolamento da transação em réplicas somente leitura
+
+As consultas que são executadas em réplicas somente leitura são sempre mapeadas para o nível de isolamento da transação de [instantâneo](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server) . O isolamento de instantâneo usa o controle de versão de linha para evitar cenários de bloqueio onde os leitores bloqueiam gravadores.
+
+Em casos raros, se uma transação de isolamento de instantâneo acessar os metadados de objeto que foram modificados em outra transação simultânea, ele poderá receber o erro [3961](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-3961-database-engine-error), "a transação de isolamento de instantâneo falhou no banco de dados '%. * ls ' porque o objeto acessado pela instrução foi modificado por uma instrução DDL em outra transação simultânea desde o início desta transação. Ela não é permitida porque os metadados não têm controle de versão. Uma atualização simultânea para metadados pode levar à inconsistência se combinada com isolamento de instantâneo. "
+
+### <a name="long-running-queries-on-read-only-replicas"></a>Consultas de execução longa em réplicas somente leitura
+
+As consultas em execução em réplicas somente leitura precisam acessar metadados para os objetos referenciados na consulta (tabelas, índices, estatísticas, etc.) Em casos raros, se um objeto de metadados for modificado na réplica primária enquanto uma consulta mantém um bloqueio no mesmo objeto na réplica somente leitura, a consulta pode [Bloquear](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) o processo que aplica as alterações da réplica primária à réplica somente leitura. Se essa consulta fosse executada por um longo tempo, isso faria com que a réplica somente leitura fosse significativamente dessincronizada com a réplica primária. 
+
+Se uma consulta de execução longa em uma réplica somente leitura causar esse tipo de bloqueio, ela será encerrada automaticamente e a sessão receberá o erro 1219, "sua sessão foi desconectada devido a uma operação DDL de alta prioridade".
+
+> [!NOTE]
+> Se você receber o erro 3961 ou o erro 1219 ao executar consultas em uma réplica somente leitura, repita a consulta.
+
+> [!TIP]
+> Nas camadas de serviço Premium e Comercialmente Crítico, quando conectado a uma réplica somente leitura, as `redo_queue_size` colunas e `redo_rate` na DMV [Sys. dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) podem ser usadas para monitorar o processo de sincronização de dados, servindo como indicadores de latência de dados na réplica somente leitura.
+> 
 
 ## <a name="enable-and-disable-read-scale-out"></a>Habilitar e desabilitar a expansão de leitura
 
 A expansão de leitura é habilitada por padrão nas camadas de serviço Premium, Comercialmente Crítico e hiperescala. A expansão de leitura não pode ser habilitada nas camadas de serviço Basic, Standard ou Uso Geral. A expansão de leitura é desabilitada automaticamente em bancos de dados de hiperescala configurados com zero réplicas.
 
-Você pode desabilitar e reabilitar a expansão de leitura em bancos de dados individuais e bancos de dados de pool elástico na camada de serviço Premium ou Comercialmente Crítico usando os métodos a seguir.
+Você pode desabilitar e reabilitar a expansão de leitura em bancos de dados individuais e bancos de dados de pool elástico nas camadas de serviço Premium ou Comercialmente Crítico usando os métodos a seguir.
 
 > [!NOTE]
-> A capacidade de desabilitar a expansão de leitura é fornecida para compatibilidade com versões anteriores.
+> Para bancos de dados individuais e bancos de dados de pool elástico, a capacidade de desabilitar a expansão de leitura é fornecida para compatibilidade com versões anteriores. A expansão de leitura não pode ser desabilitada em instâncias gerenciadas Comercialmente Crítico.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -138,19 +182,19 @@ Body: {
 
 Para obter mais informações, consulte [bancos de dados – criar ou atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
 
-## <a name="using-tempdb-on-a-read-only-replica"></a>Usando TempDB em uma réplica somente leitura
+## <a name="using-the-tempdb-database-on-a-read-only-replica"></a>Usando o `tempdb` banco de dados em uma réplica somente leitura
 
-O banco de dados TempDB não é replicado para as réplicas somente leitura. Cada réplica tem sua própria versão do banco de dados TempDB que é criada quando a réplica é criada. Ele garante que o TempDB pode ser atualizado e modificado durante a execução da consulta. Se sua carga de trabalho somente leitura depender do uso de objetos TempDB, você deverá criar esses objetos como parte do script de consulta.
+O `tempdb` banco de dados na réplica primária não é replicado para as réplicas somente leitura. Cada réplica tem seu próprio `tempdb` banco de dados que é criado quando a réplica é criada. Isso garante que `tempdb` é atualizável e pode ser modificado durante a execução da consulta. Se sua carga de trabalho somente leitura depender do uso de `tempdb` objetos, você deverá criar esses objetos como parte do script de consulta.
 
 ## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Usando a expansão de leitura com bancos de dados replicados geograficamente
 
-Se você estiver usando a expansão de leitura para balancear a carga de cargas de trabalho somente leitura em um banco de dados que é replicado geograficamente (por exemplo, como um membro de um grupo de failover), verifique se a expansão de leitura está habilitada nos bancos de dados primário e secundário replicado geograficamente. Essa configuração garantirá que a mesma experiência de balanceamento de carga continue quando o aplicativo se conectar ao novo primário após o failover. 
+Os bancos de dados secundários replicados geograficamente têm a mesma arquitetura de alta disponibilidade que os bancos de dados primários. Se você estiver se conectando ao banco de dados secundário replicado geograficamente com expansão de leitura habilitada, suas sessões com `ApplicationIntent=ReadOnly` serão roteadas para uma das réplicas de alta disponibilidade da mesma maneira que são roteadas no banco de dados gravável primário. As sessões sem `ApplicationIntent=ReadOnly` serão roteadas para a réplica primária do secundário replicado geograficamente, que também é somente leitura. 
 
-Se você estiver se conectando ao banco de dados secundário replicado geograficamente com a escala de leitura habilitada, suas sessões com `ApplicationIntent=ReadOnly` serão roteadas para uma das réplicas da mesma forma que direcionamos as conexões no banco de dados primário.  As sessões sem `ApplicationIntent=ReadOnly` serão roteadas para a réplica primária do secundário replicado geograficamente, que também é somente leitura. Como o banco de dados secundário com replicação geográfica tem um ponto de extremidade diferente do banco de dados primário, historicamente, para acessar o secundário, não era necessário defini-lo `ApplicationIntent=ReadOnly` . Para garantir a compatibilidade com versões anteriores, o `sys.geo_replication_links` DMV mostra `secondary_allow_connections=2` (qualquer conexão de cliente é permitida).
+Dessa maneira, a criação de uma réplica geográfica fornece duas réplicas somente leitura para um banco de dados primário de leitura/gravação, para um total de três réplicas somente leitura. Cada réplica geográfica adicional fornece outro par de réplicas somente leitura. As réplicas geográficas podem ser criadas em qualquer região do Azure, incluindo a região do banco de dados primário.
 
 > [!NOTE]
-> Não há suporte para Round Robin ou qualquer outro roteamento com balanceamento de carga entre as réplicas locais do banco de dados secundário.
+> Não há nenhum rodízio automático ou qualquer outro roteamento com balanceamento de carga entre as réplicas de um banco de dados secundário replicado geograficamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter informações sobre a oferta de hiperescala do banco de dados SQL, consulte [camada de serviço de hiperescala](service-tier-hyperscale.md).
+- Para obter informações sobre a oferta de hiperescala do banco de dados SQL, consulte [camada de serviço de hiperescala](service-tier-hyperscale.md).

@@ -6,11 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 56c53b9e2388cc0594076a5ef35b072216aec20d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83535fde7f577c4cd5d0b3866afcc0a916c16337
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80672753"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134816"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gerenciar o servidor de configuração para a recuperação de desastre do servidor físico/VM do VMware
 
@@ -21,7 +22,7 @@ Você configura um servidor de configuração local quando você usa o [Azure Si
 
 ## <a name="update-windows-license"></a>Atualizar a licença do Windows
 
-A licença fornecida com o modelo OVF é uma licença de avaliação válida por 180 dias. Para uso ininterrupto, você deve ativar o Windows com uma licença adquirida. A atualização de licença pode ser feita por meio de uma chave autônoma ou chave padrão KMS. A orientação está disponível na [linha de comando do DISM do Windows para executar o sistema operacional](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). Para obter chaves, consulte [configuração do cliente KMS](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys).
+A licença fornecida com o modelo OVF é uma licença de avaliação válida por 180 dias. Para uso ininterrupto, você deve ativar o Windows com uma licença adquirida. A atualização de licença pode ser feita por meio de uma chave autônoma ou chave padrão KMS. A orientação está disponível na [linha de comando do DISM do Windows para executar o sistema operacional](/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). Para obter chaves, consulte [configuração do cliente KMS](/windows-server/get-started/kmsclientkeys).
 
 ## <a name="access-configuration-server"></a>Acessar servidor de configuração
 
@@ -211,7 +212,7 @@ Execute o arquivo de instalação da seguinte maneira:
 
 ### <a name="parameters"></a>Parâmetros
 
-|Nome do Parâmetro| Tipo | Descrição| Valores|
+|Nome do Parâmetro| Type | Descrição| Valores|
 |-|-|-|-|
 | /ServerMode|Obrigatório|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
 |/InstallLocation|Obrigatório|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|
@@ -265,7 +266,7 @@ ProxyPassword="Password"
 
 Opcionalmente, você pode excluir o servidor de configuração usando o PowerShell.
 
-1. [Instale](https://docs.microsoft.com/powershell/azure/install-Az-ps) o módulo Azure PowerShell.
+1. [Instale](/powershell/azure/install-Az-ps) o módulo Azure PowerShell.
 2. Conecte à sua conta do Azure usando este comando:
 
     `Connect-AzAccount`

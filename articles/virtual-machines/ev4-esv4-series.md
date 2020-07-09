@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 967df2022166936df71b30fbe9d49798663ce962
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccb6bbcddaa5ce76e9dbb04d737830fbaf5c2d9f
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783525"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134326"
 ---
 # <a name="ev4-and-esv4-series"></a>Séries Ev4 e Esv4
 
@@ -30,7 +30,7 @@ Os tamanhos da série Ev4 são executados no Intel Xeon &reg; Platinum 8272CL (c
 O armazenamento em disco de dados remotos é cobrado separadamente das máquinas virtuais. Para usar discos de armazenamento Premium, use os tamanhos de Esv4. Os medidores de cobrança e preço para os tamanhos de Esv4 são os mesmos que os da série Ev4.
 
 > [!IMPORTANT]
-> Esses novos tamanhos estão atualmente em visualização pública apenas. Você pode inscrever-se para essas dv4 e a série Dsv4 [aqui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 
+> Esses novos tamanhos estão atualmente em visualização pública apenas. Você pode inscrever-se para essas Ev4 e a série Esv4 [aqui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 
 
 ACU: 195 - 210
 
@@ -59,7 +59,7 @@ Atualizações de preservação de memória: Com suporte
 Os tamanhos da série Esv4 são executados no Intel &reg; Xeon &reg; Platinum 8272CL (cascadey Lake). As instâncias da série Esv4 são ideais para aplicativos empresariais com uso intensivo de memória. As VMs da série Evs4 apresentam &reg; a tecnologia Intel Hyper-Threading. O armazenamento em disco de dados remotos é cobrado separadamente das máquinas virtuais.
 
 > [!IMPORTANT]
-> Esses novos tamanhos estão atualmente em visualização pública apenas. Você pode inscrever-se para essas dv4 e a série Dsv4 [aqui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 
+> Esses novos tamanhos estão atualmente em visualização pública apenas. Você pode inscrever-se para essas Ev4 e a série Esv4 [aqui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 
 
 ACU: 195 a 210
 

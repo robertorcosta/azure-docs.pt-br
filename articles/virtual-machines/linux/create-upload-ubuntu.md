@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: danis
-ms.openlocfilehash: abd357808cd0213e92eaba478fb861110bcf9f39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c70a6049596aa38e9ae6118517fc471becbc1676
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84666716"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134634"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Preparar uma máquina virtual do Ubuntu para o Azure
 
@@ -42,31 +43,36 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 2. Clique em **Conectar** para abrir a janela da máquina virtual.
 
 3. Substitua os repositórios atuais na imagem para usar o repositório do Azure do Ubuntu.
-   
+
     Antes de editar `/etc/apt/sources.list`, é recomendável fazer um backup:
-   
-        # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+
+    ```console
+    # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+    ```
 
     Ubuntu 16, 4 e Ubuntu 18, 4:
-   
-        # sudo sed -i 's/http:\/\/archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
-        # sudo sed -i 's/http:\/\/[a-z][a-z]\.archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
-        # sudo apt-get update
 
+    ```console
+    # sudo sed -i 's/http:\/\/archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
+    # sudo sed -i 's/http:\/\/[a-z][a-z]\.archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
+    # sudo apt-get update
+    ```
 
 4. As imagens do Ubuntu Azure agora estão usando o [kernel personalizado pelo Azure](https://ubuntu.com/blog/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel). Atualize o sistema operacional para o kernel mais recente personalizado do Azure e instale as ferramentas Linux do Azure (incluindo as dependências do Hyper-V) executando os seguintes comandos:
 
     Ubuntu 16, 4 e Ubuntu 18, 4:
 
-        # sudo apt update
-        # sudo apt install linux-azure linux-image-azure linux-headers-azure linux-tools-common linux-cloud-tools-common linux-tools-azure linux-cloud-tools-azure
-        (recommended) # sudo apt full-upgrade
+    ```console
+    # sudo apt update
+    # sudo apt install linux-azure linux-image-azure linux-headers-azure linux-tools-common linux-cloud-tools-common linux-tools-azure linux-cloud-tools-azure
+    (recommended) # sudo apt full-upgrade
 
-        # sudo reboot
+    # sudo reboot
+    ```
 
 5. Modifique a linha de inicialização para o Grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra `/etc/default/grub` em um editor de texto, localize a variável chamada `GRUB_CMDLINE_LINUX_DEFAULT` (ou adicione-a, se necessário) e edite-a para incluir os seguintes parâmetros:
-   
-    ```
+
+    ```text
     GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300 quiet splash"
     ```
 
@@ -76,21 +82,25 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
 7. Instale o Cloud-init (o agente de provisionamento) e o agente Linux do Azure (o manipulador de extensões de convidado). Cloud-init usa o netplan para configurar a configuração de rede do sistema durante o provisionamento e cada inicialização subsequente.
 
-        # sudo apt update
-        # sudo apt install cloud-init netplan.io walinuxagent && systemctl stop walinuxagent
+    ```console
+    # sudo apt update
+    # sudo apt install cloud-init netplan.io walinuxagent && systemctl stop walinuxagent
+    ```
 
    > [!Note]
    >  O `walinuxagent` pacote pode remover o `NetworkManager` e `NetworkManager-gnome` pacotes, se estiverem instalados.
 
 8. Remova as configurações padrão de Cloud-init e os artefatos restantes do netplan que podem entrar em conflito com o provisionamento de inicialização de nuvem no Azure:
 
-        # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg
-        # rm -f /etc/cloud/ds-identify.cfg
-        # rm -f /etc/netplan/*.yaml
+    ```console
+    # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg
+    # rm -f /etc/cloud/ds-identify.cfg
+    # rm -f /etc/netplan/*.yaml
+    ```
 
 9. Configure Cloud-init para provisionar o sistema usando a fonte de origem do Azure:
 
-    ```
+    ```console
     # cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
     datasource_list: [ Azure ]
     EOF
@@ -123,27 +133,31 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
 10. Configure o agente Linux do Azure para contar com a inicialização de nuvem para executar o provisionamento. Confira o [projeto WALinuxAgent](https://github.com/Azure/WALinuxAgent) para obter mais informações sobre essas opções.
 
-        sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
-        sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
-        sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
-        sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+    ```console
+    sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
+    sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
+    sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+    sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
 
-        cat >> /etc/waagent.conf << EOF
-        # For Azure Linux agent version >= 2.2.45, this is the option to configure,
-        # enable, or disable the provisioning behavior of the Linux agent.
-        # Accepted values are auto (default), waagent, cloud-init, or disabled.
-        # A value of auto means that the agent will rely on cloud-init to handle
-        # provisioning if it is installed and enabled, which in this case it will.
-        Provisioning.Agent=auto
-        EOF
+    cat >> /etc/waagent.conf << EOF
+    # For Azure Linux agent version >= 2.2.45, this is the option to configure,
+    # enable, or disable the provisioning behavior of the Linux agent.
+    # Accepted values are auto (default), waagent, cloud-init, or disabled.
+    # A value of auto means that the agent will rely on cloud-init to handle
+    # provisioning if it is installed and enabled, which in this case it will.
+    Provisioning.Agent=auto
+    EOF
+    ```
 
 11. Limpar artefatos e logs de tempo de execução do agente do Azure e do Cloud-init:
 
-        # sudo cloud-init clean --logs --seed
-        # sudo rm -rf /var/lib/cloud/
-        # sudo systemctl stop walinuxagent.service
-        # sudo rm -rf /var/lib/waagent/
-        # sudo rm -f /var/log/waagent.log
+    ```console
+    # sudo cloud-init clean --logs --seed
+    # sudo rm -rf /var/lib/cloud/
+    # sudo systemctl stop walinuxagent.service
+    # sudo rm -rf /var/lib/waagent/
+    # sudo rm -f /var/log/waagent.log
+    ```
 
 12. Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
 
@@ -153,10 +167,12 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
     > [!WARNING]
     > O desprovisionamento usando o comando acima não garante que a imagem seja desmarcada de todas as informações confidenciais e seja adequada para redistribuição.
 
-        # sudo waagent -force -deprovision+user
-        # rm -f ~/.bash_history
-        # export HISTSIZE=0
-        # logout
+    ```console
+    # sudo waagent -force -deprovision+user
+    # rm -f ~/.bash_history
+    # export HISTSIZE=0
+    # logout
+    ```
 
 13. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V.
 

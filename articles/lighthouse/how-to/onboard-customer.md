@@ -1,27 +1,30 @@
 ---
-title: Integrar um cliente no gerenciamento de recursos delegados do Azure
-description: Saiba como integrar um cliente ao gerenciamento de recursos delegado do Azure, permitindo que seus recursos sejam acessados e gerenciados por meio de seu próprio locatário.
+title: Integrar um cliente ao Azure Lighthouse
+description: Saiba como integrar um cliente ao Azure Lighthouse, permitindo que seus recursos sejam acessados e gerenciados por meio de seu próprio locatário usando o gerenciamento de recursos delegado do Azure.
 ms.date: 05/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 149398a822d5aa21335be4122e92c96800d94255
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 3cc754dba124c5f647cd4b51246ced19360c82c3
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920927"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133455"
 ---
-# <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente no gerenciamento de recursos delegados do Azure
+# <a name="onboard-a-customer-to-azure-lighthouse"></a>Integrar um cliente ao Azure Lighthouse
 
-Este artigo explica como você, como um provedor de serviços, pode integrar um cliente ao gerenciamento de recursos delegado do Azure, permitindo que seus recursos delegados (assinaturas e/ou grupos de recursos) sejam acessados e gerenciados por meio de seu próprio locatário do Azure Active Directory (Azure AD). Embora nos refiramos aqui aos provedores de serviços e clientes, as [empresas que gerenciam vários locatários](../concepts/enterprise.md) podem usar o mesmo processo para configurar o Azure Lighthouse e consolidar sua experiência de gerenciamento.
+Este artigo explica como você, como um provedor de serviços, pode integrar um cliente ao Azure Lighthouse. Quando você faz isso, os recursos delegados do cliente (assinaturas e/ou grupos de recursos) podem ser acessados e gerenciados por meio de seu próprio locatário do Azure Active Directory (Azure AD) usando o [Gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md).
 
-Você pode repetir esse processo se estiver gerenciando recursos para vários clientes. Assim, quando um usuário autorizado entra no seu locatário, pode receber autorizado em vários escopos de locatários do cliente para executar operações de gerenciamento sem precisar entrar em cada locatário individual do cliente.
+Você pode repetir esse processo se estiver gerenciando recursos para vários clientes. Em seguida, quando um usuário autorizado entra no seu locatário, esse usuário pode ser autorizado entre escopos de aluguel do cliente para executar operações de gerenciamento, sem precisar entrar em cada locatário individual do cliente.
 
-Para acompanhar o impacto nas participações do cliente e receber reconhecimento, associe a ID do MPN (Microsoft Partner Network) a pelo menos uma conta de usuário que tenha acesso a cada uma das assinaturas integradas. Observe que você precisará executar essa associação em seu locatário do provedor de serviços. Para simplificar, recomendamos criar uma conta da entidade de serviço no seu locatário que esteja associada à ID do MPN e permitindo a ela acesso de Leitor em todos os clientes integrados. Para saber mais, confira [Vincular uma ID de parceiro a suas contas do Azure](../../billing/billing-partner-admin-link-started.md). 
+Para acompanhar o impacto nas participações do cliente e receber reconhecimento, associe a ID do MPN (Microsoft Partner Network) a pelo menos uma conta de usuário que tenha acesso a cada uma das assinaturas integradas. Observe que você precisará executar essa associação em seu locatário do provedor de serviços. Para simplificar, recomendamos criar uma conta da entidade de serviço no seu locatário que esteja associada à ID do MPN e permitindo a ela acesso de Leitor em todos os clientes integrados. Para saber mais, confira [Vincular uma ID de parceiro a suas contas do Azure](../../cost-management-billing/manage/link-partner-id.md). 
 
 > [!NOTE]
-> Os clientes também podem ser integrados quando comprarem uma oferta de serviços gerenciados (pública ou privada) que você publicou no Azure Marketplace. Para mais informações, veja [Publicar ofertas de Serviços Gerenciados no Azure Marketplace](publish-managed-services-offers.md). Você também pode usar o processo de integração descrito aqui juntamente com uma oferta publicada no Azure Marketplace.
+> Os clientes também podem ser integrados ao Azure Lighthouse quando compram uma oferta de serviços gerenciados (público ou privado) que você publicou no Azure Marketplace. Para mais informações, veja [Publicar ofertas de Serviços Gerenciados no Azure Marketplace](publish-managed-services-offers.md). Você também pode usar o processo de integração descrito aqui juntamente com uma oferta publicada no Azure Marketplace.
 
 O processo de integração requer que as ações sejam executadas dentro do locatário do provedor de serviços e do locatário do cliente. Todas essas etapas são descritas neste artigo.
+
+> [!TIP]
+> Embora possamos nos referimos a provedores de serviços e clientes neste tópico, as [empresas que gerenciam vários locatários](../concepts/enterprise.md) podem usar o mesmo processo para configurar o Azure Lighthouse e consolidar sua experiência de gerenciamento.
 
 ## <a name="gather-tenant-and-subscription-details"></a>Reunir detalhes do locatário e da assinatura
 
@@ -193,7 +196,7 @@ A última autorização no exemplo acima adiciona **principalId** com a função
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Implantar os modelos do Azure Resource Manager
 
-Depois de atualizar o arquivo de parâmetros, um usuário no locatário do cliente deve implantar o modelo do Azure Resource Manager no locatário como uma implantação em nível de assinatura. Uma implantação separada é necessária para cada assinatura que você deseja integrar ao gerenciamento de recursos delegados do Azure (ou para cada assinatura que contenha grupos de recursos que você deseja integrar).
+Depois de atualizar o arquivo de parâmetros, um usuário no locatário do cliente deve implantar o modelo do Azure Resource Manager no locatário como uma implantação em nível de assinatura. Uma implantação separada é necessária para cada assinatura que você deseja integrar (ou para cada assinatura que contém os grupos de recursos que você deseja carregar).
 
 Como essa é uma implantação em nível de assinatura, ela não pode ser iniciada no portal do Azure. A implantação pode ser feita usando a CLI do PowerShell ou do Azure, como mostrado abaixo.
 
@@ -244,7 +247,7 @@ az deployment create --name <deploymentName> \
 
 ## <a name="confirm-successful-onboarding"></a>Confirmar integração bem-sucedida
 
-Quando uma assinatura de cliente estiver integrada com êxito ao gerenciamento de recursos delegados do Azure, os usuários no locatário do provedor de serviços poderão ver a assinatura e seus recursos (se tiverem recebido acesso a eles por meio do processo acima, seja individualmente ou como um membro de um grupo do Azure AD com as permissões apropriadas). Para confirmar, verifique se a assinatura é exibida de uma das maneiras a seguir.  
+Quando uma assinatura de cliente tiver sido integrada com êxito ao Lighthouse do Azure, os usuários no locatário do provedor de serviços poderão ver a assinatura e seus recursos (se tiverem recebido acesso a ele por meio do processo acima, seja individualmente ou como membro de um grupo do Azure AD com as permissões apropriadas). Para confirmar, verifique se a assinatura é exibida de uma das maneiras a seguir.  
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -255,7 +258,7 @@ No locatário do provedor de serviços:
 3. Confirme que você consegue ver as assinaturas com o nome da oferta fornecido no modelo do Resource Manager.
 
 > [!IMPORTANT]
-> Para ver a assinatura delegada em [Meus clientes](view-manage-customers.md), é necessário que a função [Leitor](../../role-based-access-control/built-in-roles.md#reader) (ou outra função interna que inclua acesso de Leitor) seja concedida aos usuários no locatário do provedor de serviços quando a assinatura for integrada ao gerenciamento de recursos delegados do Azure.
+> Para ver a assinatura delegada em [meus clientes](view-manage-customers.md), os usuários no locatário do provedor de serviços devem ter recebido a função [leitor](../../role-based-access-control/built-in-roles.md#reader) (ou outra função interna que inclua acesso de leitor) quando a assinatura foi integrada.
 
 No locatário do cliente:
 

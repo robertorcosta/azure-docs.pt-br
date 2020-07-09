@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 6c77cd43231d4596535c11564313a0fe90633cdb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb112e0b2d1c64e65ecaf6749a25707d8632c0cb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60947697"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134957"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Traffic Manager com o Azure Site Recovery
 
@@ -30,7 +30,7 @@ Para o primeiro cenário, considere a **Empresa A** que tem toda a infraestrutur
 A **Empresa A** está executando aplicativos com pontos de extremidade públicos e quer a capacidade de redirecionar diretamente o tráfego para o Azure em um evento de desastre. O método de roteamento de tráfego [Prioridade](../traffic-manager/traffic-manager-configure-priority-routing-method.md) no Gerenciador de Tráfego do Microsoft Azure permite que a Empresa A implemente facilmente esse padrão de failover.
 
 A configuração é a seguinte:
-- A **Empresa A** cria um [perfil do Gerenciador de Tráfego](../traffic-manager/traffic-manager-create-profile.md).
+- A **Empresa A** cria um [perfil do Gerenciador de Tráfego](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Utilizando o método de roteamento **Prioridade**, a **Empresa A** cria dois pontos de extremidade – **Primário** para locais e **Failover** para Azure. Para o **Primário** é atribuída a Prioridade 1 e para **Failover** é atribuída a Prioridade 2.
 - Como o ponto de extremidade **Primário** está hospedado fora do Azure, o ponto de extremidade é criado como um ponto de extremidade [Externo](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints).
 - Com o Azure Site Recovery, o site do Azure não possui máquinas virtuais ou aplicativos em execução antes do failover. Portanto, o ponto de extremidade do **Failover** também é criado como um ponto de extremidade **Externo**.
@@ -65,7 +65,7 @@ Para esse exemplo, considere a **Empresa C** que possui toda sua infraestrutura 
 A **Empresa C** está executando aplicativos com pontos de extremidade públicos e quer a capacidade de redirecionar diretamente o tráfego para uma região do Azure diferente em um evento de desastre. O método de roteamento de tráfego [Prioridade](../traffic-manager/traffic-manager-configure-priority-routing-method.md) permite que a **Empresa C** implemente facilmente esse padrão de failover.
 
 A configuração é a seguinte:
-- A **Empresa C** cria um perfil do [Gerenciador de Tráfego](../traffic-manager/traffic-manager-create-profile.md).
+- A **Empresa C** cria um perfil do [Gerenciador de Tráfego](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Utilizando o método de roteamento **Prioridade**, a **Empresa C** cria dois pontos de extremidade – **Primário** para a região de origem (Leste da Ásia do Azure) e **Failover** para a região de recuperação (Sudeste Asiático do Azure). Para o **Primário** é atribuída a Prioridade 1 e para **Failover** é atribuída a Prioridade 2.
 - Como o ponto de extremidade **Primário** é hospedado no Azure, o ponto de extremidade pode ser como um ponto de extremidade do [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints).
 - Com o Azure Site Recovery, o site do Azure de recuperação não possui máquinas virtuais ou aplicativos em execução antes do failover. Portanto, o ponto de extremidade do **Failover** pode ser criado como um ponto de extremidade [Externo](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints).

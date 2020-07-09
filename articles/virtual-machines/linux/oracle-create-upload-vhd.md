@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: guybo
-ms.openlocfilehash: fd6d17709cc3e5e9f6bb89ed7480fcd9ee80fd97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e144f63358275292ec224a63ed3ca61f809297a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759395"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135299"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Preparar uma máquina virtual Oracle Linux para o Azure
 
@@ -34,66 +35,95 @@ Você deve concluir as etapas de configuração específicas do sistema operacio
 1. No painel central do Gerenciador do Hyper-V, selecione a máquina virtual.
 2. Clique em **Conectar** para abrir a janela da máquina virtual.
 3. Desinstale o NetworkManager executando o seguinte comando:
-   
-        # sudo rpm -e --nodeps NetworkManager
-   
+
+    ```console
+    # sudo rpm -e --nodeps NetworkManager
+    ```
+
     **Observação:** Se o pacote ainda não foi instalado, esse comando falhará com uma mensagem de erro. Isso é esperado.
 4. Crie um arquivo chamado **network** in the `/etc/sysconfig/` que contém o seguinte texto:
-   
-        NETWORKING=yes
-        HOSTNAME=localhost.localdomain
+
+    ```config   
+    NETWORKING=yes
+    HOSTNAME=localhost.localdomain
+    ```
+
 5. Crie um arquivo chamado **ifcfg-eth0** in the `/etc/sysconfig/network-scripts/` que contém o seguinte texto:
-   
-        DEVICE=eth0
-        ONBOOT=yes
-        BOOTPROTO=dhcp
-        TYPE=Ethernet
-        USERCTL=no
-        PEERDNS=yes
-        IPV6INIT=no
+
+    ```config
+    DEVICE=eth0
+    ONBOOT=yes
+    BOOTPROTO=dhcp
+    TYPE=Ethernet
+    USERCTL=no
+    PEERDNS=yes
+    IPV6INIT=no
+    ```
+
 6. Modifique as regras de udev para evitar a geração de regras estáticas das interfaces Ethernet. Essas regras podem provocar problemas ao clonar uma máquina virtual no Microsoft Azure ou no Hyper-V:
-   
-        # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
-        # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
+
+    ```console
+    # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+    # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
+    ```
+
 7. Certifique-se de que o serviço de rede será iniciado na inicialização executando o seguinte comando:
-   
-        # chkconfig network on
+
+    ```console
+    # chkconfig network on
+    ```
+
 8. Instale o python-pyasn1 executando o seguinte comando:
-   
-        # sudo yum install python-pyasn1
+
+    ```console
+    # sudo yum install python-pyasn1
+    ```
+
 9. Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra "/boot/grub/menu.lst" em um editor de texto e verifique se o kernel inclui os seguintes parâmetros:
-   
-        console=ttyS0 earlyprintk=ttyS0 rootdelay=300
-   
+
+    ```config-grub
+    console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+    ```
+
    Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte do Azure com problemas de depuração.
    
    Além disso, recomendamos que você *remova* os seguintes parâmetros:
-   
-        rhgb quiet crashkernel=auto
-   
+
+    ```config-grub
+    rhgb quiet crashkernel=auto
+    ```
+
    As inicializações gráfica e silenciosa não são úteis em ambientes de rede, quando queremos que todos os logs sejam enviados para a porta serial.
    
    Você pode deixar configurada a opção `crashkernel` , mas esse parâmetro reduz a memória disponível na máquina virtual em 128 MB ou mais, o que pode ser um problema em máquinas virtuais menores.
 10. Confira se o servidor SSH está instalado e configurado para iniciar no tempo de inicialização.  Geralmente, esse é o padrão.
 11. Instale o Agente Linux do Azure executando o comando a seguir. A versão mais recente é 2.0.15.
-    
-        # sudo yum install WALinuxAgent
-    
+
+    ```console
+    # sudo yum install WALinuxAgent
+    ```
+
     Observe que a instalação do pacote WALinuxAgent removerá o NetworkManager e os pacotes NetworkManager-gnome se eles já não tiverem sido removidos conforme descrito na etapa 2.
 12. Não crie espaço de permuta no disco do SO.
     
     O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
-    
-        ResourceDisk.Format=y
-        ResourceDisk.Filesystem=ext4
-        ResourceDisk.MountPoint=/mnt/resource
-        ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
+    ```config-conf
+    ResourceDisk.Format=y
+    ResourceDisk.Filesystem=ext4
+    ResourceDisk.MountPoint=/mnt/resource
+    ResourceDisk.EnableSwap=y
+    ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+    ```
+
 13. Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
-    
-        # sudo waagent -force -deprovision
-        # export HISTSIZE=0
-        # logout
+
+    ```console
+    # sudo waagent -force -deprovision
+    # export HISTSIZE=0
+    # logout
+    ```
+
 14. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
 ---
@@ -112,64 +142,98 @@ A preparação de uma máquina virtual Oracle Linux 7 para o Azure é muito pare
 1. No Gerenciador do Hyper-V, selecione a máquina virtual.
 2. Clique em **Conectar** para abrir a janela do console para a máquina virtual.
 3. Crie um arquivo chamado **network** in the `/etc/sysconfig/` que contém o seguinte texto:
-   
-        NETWORKING=yes
-        HOSTNAME=localhost.localdomain
+
+    ```config
+    NETWORKING=yes
+    HOSTNAME=localhost.localdomain
+    ```
+
 4. Crie um arquivo chamado **ifcfg-eth0** in the `/etc/sysconfig/network-scripts/` que contém o seguinte texto:
-   
-        DEVICE=eth0
-        ONBOOT=yes
-        BOOTPROTO=dhcp
-        TYPE=Ethernet
-        USERCTL=no
-        PEERDNS=yes
-        IPV6INIT=no
+
+    ```config
+    DEVICE=eth0
+    ONBOOT=yes
+    BOOTPROTO=dhcp
+    TYPE=Ethernet
+    USERCTL=no
+    PEERDNS=yes
+    IPV6INIT=no
+    ```
+
 5. Modifique as regras de udev para evitar a geração de regras estáticas das interfaces Ethernet. Essas regras podem provocar problemas ao clonar uma máquina virtual no Microsoft Azure ou no Hyper-V:
-   
-        # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+
+    ```console
+    # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+    ```
+
 6. Certifique-se de que o serviço de rede será iniciado na inicialização executando o seguinte comando:
-   
-        # sudo chkconfig network on
+
+    ```console
+    # sudo chkconfig network on
+    ```
+
 7. Execute o comando a seguir para instalar o pacote python-pyasn1:
-   
-        # sudo yum install python-pyasn1
+
+    ```console
+    # sudo yum install python-pyasn1
+    ```
+
 8. Execute o comando a seguir para limpar os metadados atuais do yum e instalar atualizações:
-   
-        # sudo yum clean all
-        # sudo yum -y update
+
+    ```console 
+    # sudo yum clean all
+    # sudo yum -y update
+    ```
+
 9. Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra "/etc/default/grub" em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo:
-   
-        GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
-   
+
+    ```config-grub
+    GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+    ```
+
    Isso também garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte do Azure com problemas de depuração. Ele também desativa as convenções de nomenclatura para NICs no Oracle Linux 7 com o Unbreakable Enterprise Kernel. Além disso, recomendamos que você *remova* os seguintes parâmetros:
-   
+
+    ```config-grub
        rhgb quiet crashkernel=auto
-   
+    ```
+ 
    As inicializações gráfica e silenciosa não são úteis em ambientes de rede, quando queremos que todos os logs sejam enviados para a porta serial.
    
    Você pode deixar configurada a opção `crashkernel` , mas esse parâmetro reduz a memória disponível na máquina virtual em 128 MB ou mais, o que pode ser um problema em máquinas virtuais menores.
 10. Depois de editar "/etc/default/grub" como mostramos acimo, execute o comando a seguir para recompilar a configuração do grub:
-    
-        # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
+    ```console
+    # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```
+
 11. Confira se o servidor SSH está instalado e configurado para iniciar no tempo de inicialização.  Geralmente, esse é o padrão.
 12. Instale o Agente Linux do Azure executando o seguinte comando:
-    
-        # sudo yum install WALinuxAgent
-        # sudo systemctl enable waagent
+
+    ```console
+    # sudo yum install WALinuxAgent
+    # sudo systemctl enable waagent
+    ```
+
 13. Não crie espaço de permuta no disco do SO.
     
     O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (veja a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
-    
-        ResourceDisk.Format=y
-        ResourceDisk.Filesystem=ext4
-        ResourceDisk.MountPoint=/mnt/resource
-        ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
+    ```config-conf
+    ResourceDisk.Format=y
+    ResourceDisk.Filesystem=ext4
+    ResourceDisk.MountPoint=/mnt/resource
+    ResourceDisk.EnableSwap=y
+    ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+    ```
+
 14. Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
     
-        # sudo waagent -force -deprovision
-        # export HISTSIZE=0
-        # logout
+    ```console
+    # sudo waagent -force -deprovision
+    # export HISTSIZE=0
+    # logout
+    ```
+
 15. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: d941f3e13e99accadc59c5836d88a824182329b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d0808b93d0c9c7b49d1fd394d2b776c008bc594
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629666"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135851"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Azure para o Azure
 
@@ -166,11 +167,11 @@ Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao co
 
 #### <a name="control-access-with-nsg-rules"></a>Controlar o acesso com regras do NSG
 
-Se você controlar a conectividade de VM pela filtragem do tráfego de rede bidirecionalmente em redes/sub-redes do Azure usando [regras do NSG](https://docs.microsoft.com/azure/virtual-network/security-overview), observe os seguintes requisitos:
+Se você controlar a conectividade de VM pela filtragem do tráfego de rede bidirecionalmente em redes/sub-redes do Azure usando [regras do NSG](../virtual-network/security-overview.md), observe os seguintes requisitos:
 
 - As regras do NSG para a região de origem do Azure devem permitir o acesso de saída para o tráfego de replicação.
 - Recomendamos que você crie regras em um ambiente de teste antes de colocá-las em produção.
-- Use [marcas de serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) em vez de permitir endereços IP individuais.
+- Use [marcas de serviço](../virtual-network/security-overview.md#service-tags) em vez de permitir endereços IP individuais.
     - As marcas de serviço representam um grupo de prefixos de endereços IP usado para minimizar a complexidade durante a criação de regras de segurança.
     - A Microsoft atualiza automaticamente as marcas de serviço ao longo do tempo. 
  

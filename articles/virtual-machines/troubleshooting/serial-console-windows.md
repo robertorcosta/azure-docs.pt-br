@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: c555b058e6d0b8c110a3273525b5a8c58baaff61
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 0fd2bcfb32524c6911a70157f58cea1e48b7bea9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309774"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135243"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console serial do Azure para Windows
 
@@ -101,15 +102,15 @@ Se você precisar ativar os prompts do carregador de inicialização do Windows 
 
     ![Conectar ao SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
-1.    Digite `cmd` para criar um canal que tenha uma instância do CMD.
+1. Digite `cmd` para criar um canal que tenha uma instância do CMD.
 
-1.    Insira `ch -si 1` ou selecione as teclas de atalho `<esc>+<tab>` para alternar para o canal que está executando a instância do CMD.
+1. Insira `ch -si 1` ou selecione as teclas de atalho `<esc>+<tab>` para alternar para o canal que está executando a instância do CMD.
 
-1.    Pressione **Enter** e insira as credenciais de login com permissões administrativas.
+1. Pressione **Enter** e insira as credenciais de login com permissões administrativas.
 
-1.    Depois de inserir credenciais válidas, a instância do CMD é aberta.
+1. Depois de inserir credenciais válidas, a instância do CMD é aberta.
 
-1.    Para iniciar uma instância do PowerShell, digite `PowerShell` na instância CMD e pressione **Enter**.
+1. Para iniciar uma instância do PowerShell, digite `PowerShell` na instância CMD e pressione **Enter**.
 
     ![Abra o PowerShell e execute](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
