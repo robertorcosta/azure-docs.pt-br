@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 744b186b32927f81be21ff067c9195bddb33c416
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4c7f82b729355e59ff05d5513e22fa143d53a5e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362084"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206861"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurar e personalizar as tarefas de compilação
 
@@ -64,9 +64,11 @@ Os detalhes da configuração de tarefa são mostrados na seguinte captura de te
     - As especificações de diretório sempre devem terminar com \\ *.
     - Exemplos:
 
+```binskim-targets
            *.dll;*.exe
            $(BUILD_STAGINGDIRECTORY)\*
            $(BUILD_STAGINGDIRECTORY)\*.dll;$(BUILD_STAGINGDIRECTORY)\*.exe;
+```
 
 - Se você selecionar **linha de comando** na lista **tipo** , precisará executar binskim.exe:
      - Certifique-se de que os primeiros argumentos para binskim.exe são a **análise** de verbo seguida por uma ou mais especificações de caminho. Cada caminho pode ser um caminho completo ou um caminho relativo ao diretório de origem.
@@ -74,11 +76,13 @@ Os detalhes da configuração de tarefa são mostrados na seguinte captura de te
      - Você pode omitir a opção **/o** ou **/output** . O valor de saída é adicionado ou substituído.
      - As configurações de linha de comando padrão são mostradas a seguir.
 
+```binskim-line-args
            analyze $(Build.StagingDirectory)\* --recurse --verbose
            analyze *.dll *.exe --recurse --verbose
+```
 
-          > [!NOTE]
-          > A trilha \\ * é importante se você especificar os diretórios para o destino.
+> [!NOTE]
+> A trilha \\ * é importante se você especificar os diretórios para o destino.
 
 Para obter mais informações sobre argumentos de linha de comando BinSkim, regras por ID ou códigos de saída, consulte o [Guia do usuário do BinSkim](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 

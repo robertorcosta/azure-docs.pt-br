@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 6edb639cacc48e8b59c458bcf0ac9c9c5e07b030
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93c686fb2688a7a8ae71d8156e6e5c7915d6c604
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82203550"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205757"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Fazer upgrade e dimensionar uma instância de Gerenciamento de API do Azure  
 
@@ -74,7 +74,7 @@ Você pode atualizar e fazer downgrade de e para qualquer camada. A atualizaçã
 1. Navegue até o serviço de gerenciamento de API no [portal do Azure](https://portal.azure.com/).
 2. Clique no **tipo de preço** no menu.
 3. Selecione a camada de serviço desejada na lista suspensa. Use o controle deslizante para especificar a escala do serviço de gerenciamento de API após a alteração.
-4. Clique em **Save** (Salvar).
+4. Clique em **Salvar**.
 
 ## <a name="downtime-during-scaling-up-and-down"></a>Tempo de inatividade durante a expansão e a redução
 Se você estiver dimensionando de ou para a camada de desenvolvedor, haverá tempo de inatividade. Caso contrário, não há nenhum tempo de inatividade. 
@@ -84,3 +84,4 @@ Se você estiver dimensionando de ou para a camada de desenvolvedor, haverá tem
 
 - [Como implantar uma instância do serviço de Gerenciamento de API do Azure em múltiplas regiões do Azure](api-management-howto-deploy-multi-region.md)
 - [Como dimensionar automaticamente uma instância do serviço de gerenciamento de API do Azure](api-management-howto-autoscale.md)
+- [Otimize e economize em seus gastos com a nuvem](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

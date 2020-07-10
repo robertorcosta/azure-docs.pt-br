@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 7/6/2020
-ms.openlocfilehash: 130b19f280c69bfbe4ca49abe1bcba5db7f23caa
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 7/9/2020
+ms.openlocfilehash: 38ca6528b77d9f36c84f5aacaa34a64d113b5978
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045953"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206932"
 ---
 # <a name="azure-sql-database-serverless"></a>Banco de Dados SQL do Azure sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -176,7 +176,7 @@ Criar um novo banco de dados ou mover um banco de dados existente para uma camad
 
 Os exemplos seguintes criam um novo banco de dados na camada de computação sem servidor.
 
-#### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+#### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 Confira [Início Rápido: Criar um banco de dados individual no Banco de Dados SQL do Azure usando o portal do Azure](single-database-create-quickstart.md).
 
@@ -324,6 +324,19 @@ A quantidade de computação cobrada é exposta pela métrica a seguir:
 - **Frequência de relatórios**: Por minuto
 
 Essa quantidade é calculada a cada segundo e agregada a cada 1 minuto.
+
+### <a name="minimum-compute-bill"></a>Fatura de computação mínima
+
+Se um banco de dados sem servidor for pausado, a fatura de computação será zero.  Se um banco de dados sem servidor não estiver em pausa, a conta de computação mínima não será menor do que a quantidade de vCores com base no Max (min vCores, min memory GB * 1/3).
+
+Exemplos:
+
+- Suponha que um banco de dados sem servidor não seja pausado e configurado com 8 vCores Max e um mínimo de vCore correspondente a 3,0 GB de memória mín.  Em seguida, a fatura de computação mínima é baseada no máximo (1 vCore, 3,0 GB * 1 vCore/3 GB) = 1 vCore.
+- Suponha que um banco de dados sem servidor não seja pausado e configurado com quatro vCores Max e 0,5 min vCores correspondentes à memória mínima de 2,1 GB.  Em seguida, a fatura de computação mínima é baseada em Max (0,5 vCores, 2,1 GB * 1 vCore/3 GB) = 0,7 vCores.
+
+A [calculadora de preços do banco de dados SQL do Azure](https://azure.microsoft.com/pricing/calculator/?service=sql-database) para servidor pode ser usada para determinar a memória mínima configurável com base no número de vCores Max e min configurado.  Como regra, se a quantidade mínima de vCores configurada for maior que 0,5 vCores, a conta de computação mínima será independente da memória mínima configurada e com base apenas no número de vCores mínimas configurados.
+
+### <a name="example-scenario"></a>Cenário de exemplo
 
 Considere um banco de dados sem servidor configurado com um vCore mínimo de 1 e 4 vCores máximos.  Isso corresponde a cerca de 3 GB de memória e 12 GB de memória máxima.  Suponha que o atraso de pausa automática seja definido como 6 horas, e que a carga de trabalho do banco de dados esteja ativa durante as 2 primeiras horas de um período de 24 horas e, de outra forma, inativa.    
 

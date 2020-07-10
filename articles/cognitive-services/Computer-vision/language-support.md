@@ -1,7 +1,7 @@
 ---
 title: Suporte ao idioma-Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Este artigo fornece uma lista de idiomas naturais com suporte pelos recursos do Pesquisa Visual Computacional; OCR, Reconhecimento de Texto e ler.
+description: Este artigo fornece uma lista de idiomas naturais com suporte pelos recursos do Pesquisa Visual Computacional; OCR, análise de imagem.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 680e3647e7a5847e132a53986e2cf17150bceac3
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 81d0183b6dde1a5fe6bd9cd36910fd3dfc1cc5b1
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560175"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205288"
 ---
 # <a name="language-support-for-computer-vision"></a>Suporte a idiomas para Pesquisa Visual Computacional
 
 Alguns recursos do Pesquisa Visual Computacional dão suporte a vários idiomas; todos os recursos não mencionados aqui só dão suporte ao inglês.
 
-## <a name="text-detection-ocr"></a>Detecção de texto (OCR)
+## <a name="optical-character-recognition-ocr"></a>OCR (reconhecimento óptico de caracteres)
 
-Pesquisa Visual Computacional pode detectar texto em vários idiomas. As APIs de leitura e OCR não exigem que você especifique um código de idioma. Consulte [ler texto de imagens e documentos](concept-recognizing-text.md) para obter mais informações sobre essa funcionalidade e as vantagens de cada API.
+As APIs de OCR do Pesquisa Visual Computacional dão suporte a vários idiomas. Eles não exigem que você especifique um código de idioma. Consulte [OCR (reconhecimento óptico de caracteres)](concept-recognizing-text.md) para obter mais informações.
 
 |Linguagem| Código de idioma | API DE OCR | API de leitura |
 |:-----|:----:|:-----:|:---:|

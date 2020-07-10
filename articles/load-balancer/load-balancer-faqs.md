@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 205a4bd119a7324c4e6524a0e29d432aa57bf315
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 2b547dbc8671481275952f4c3eae5683e9e3a06c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848211"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207537"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Load Balancer perguntas frequentes
 
@@ -49,5 +49,9 @@ Usando o comando nslookup, você pode enviar uma consulta DNS para o nome myip.o
 ## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>Como funcionam as conexões com o armazenamento do Azure na mesma região?
 Não é necessário ter conectividade de saída por meio dos cenários acima para se conectar ao Armazenamento na mesma região que a VM. Se você não quiser isso, use NSGs (grupos de segurança de rede), conforme explicado acima. Para a conectividade com o armazenamento em outras regiões, a conectividade de saída é necessária. Observe que, ao se conectar ao Armazenamento de uma VM na mesma região, o endereço IP de origem nos logs de diagnóstico de Armazenamento será um endereço de provedor interno e não o endereço IP público da VM. Se você quiser restringir o acesso à sua conta de armazenamento a VMs em uma ou mais sub-redes de rede virtual na mesma região, use [pontos de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md) (e não seu endereço IP público) ao configurar o firewall da conta de armazenamento. Depois que os pontos de extremidade de serviço forem configurados, você verá seu endereço IP privado da rede virtual nos logs de diagnóstico de armazenamento e não no endereço do provedor interno.
 
+## <a name="what-are-best-practises-with-respect-to-outbound-connectivity"></a>Quais são as melhores práticas em relação à conectividade de saída?
+Standard Load Balancer e IP público padrão introduz recursos e comportamentos diferentes para a conectividade de saída. Eles não são o mesmo que SKUs Básicos. Se quiser ter conectividade de saída ao trabalhar com SKUs Standard, você precisará defini-la explicitamente com endereços IP públicos Standard ou com o Load Balancer Standard público. Isso inclui a criação da conectividade de saída ao usar um Standard Load Balancer interno. É recomendável que você sempre use regras de saída em um Load Balancer Standard público. Isso significa que, quando um Standard Load Balancer for usado, você precisará executar etapas para criar a conectividade de saída para as VMs no pool de back-end se a conectividade de saída for desejada. No contexto de conectividade de saída, uma única VM autônoma, todas as VMs em um conjunto de disponibilidade, todas as instâncias em um VMSS se comportam como um grupo. Isso significa que, se uma única VM em um conjunto de disponibilidade estiver associada a um SKU Standard, todas as instâncias de VM neste conjunto de disponibilidade agora se comportarão de acordo com as mesmas regras que se aplicariam se elas estivessem associados ao SKU Standard, mesmo se uma instância individual não estivesse diretamente associada a ele. Esse comportamento também é observado no caso de uma VM autônoma com várias placas adaptadoras de rede anexadas a um balanceador de carga. Se uma NIC for adicionada como autônoma, ela terá o mesmo comportamento. Revise atentamente todo este documento para entender os conceitos gerais, revise [Standard Load Balancer](load-balancer-standard-overview.md) para ver as diferenças entre as SKUs e revise [regras de saída](load-balancer-outbound-connections.md#outboundrules).
+Usar regras de saída permite ter um controle refinado sobre todos os aspectos da conectividade de saída.
+ 
 ## <a name="next-steps"></a>Próximas etapas
 Se sua pergunta não estiver listada acima, envie comentários sobre esta página com sua pergunta. Isso criará um problema do GitHub para a equipe de produto, a fim de garantir que todas as perguntas importantes do cliente sejam respondidas.

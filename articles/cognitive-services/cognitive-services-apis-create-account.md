@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
-ms.openlocfilehash: 4a73ff517347baa2cf589432be025bd922597ed3
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: f76b444f737c4deb0fc61953c839c8826f379d5e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611383"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207257"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Criar um recurso de serviços cognitivas usando o portal do Azure
 
@@ -29,7 +29,7 @@ Use este guia de início rápido para começar a usar os serviços cognitivas do
 
 ## <a name="create-a-new-azure-cognitive-services-resource"></a>Criar um novo recurso de serviços cognitivas do Azure
 
-1. Cria um recurso.
+1. Criar um recurso.
 
     #### <a name="multi-service-resource"></a>[Recurso de vários serviços](#tab/multiservice)
 
@@ -37,11 +37,17 @@ Use este guia de início rápido para começar a usar os serviços cognitivas do
 
     Neste momento, o recurso de vários serviços permite o acesso aos seguintes serviços cognitivas:
 
-    |                  |                                                      |                    |                               |                  |
-    |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
-    | Pesquisa Visual Computacional  | Content Moderator                                    | Detecção Facial               | Reconhecimento Vocal (LUIS) | Análise de texto   |
-    | Tradutor  | Pesquisa do Bing v7 <br>(Web, imagem, notícias, vídeo, Visual) | Pesquisa Personalizada do Bing | Pesquisa de Entidade do Bing            | Sugestão Automática do Bing |
-    | Verificação Ortográfica do Bing |                                                      |                    |                               |                  |
+    - Pesquisa Visual Computacional
+    - Content Moderator
+    - Detecção Facial
+    - Reconhecimento Vocal (LUIS)
+    - Análise de texto
+    - Tradutor
+    - Pesquisa do Bing v7 <br>(Web, imagem, notícias, vídeo, Visual)
+    - Pesquisa Personalizada do Bing
+    - Pesquisa de Entidade do Bing
+    - Sugestão Automática do Bing
+    - Verificação Ortográfica do Bing
 
     #### <a name="single-service-resource"></a>[Recurso de serviço único](#tab/singleservice)
 
@@ -109,7 +115,7 @@ Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poder�
 2. Localize o grupo de recursos que contém o recurso a ser excluído
 3. Clique com o botão direito do mouse na listagem do grupo de recursos. Selecione **Excluir grupo de recursos** e confirme.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Autenticar solicitações para os Serviços Cognitivos do Azure](authentication.md)
 * [O que são os Serviços Cognitivos do Azure?](Welcome.md)

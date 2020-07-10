@@ -8,11 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: e55dfc692bdd625de8873f6e61c9969ed7fbf2df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27fb165c36c17cee83cd9f90eba3bdcb9e32d517
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466163"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206912"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Criar um ponto de extremidade privado para uma conexão segura com o Azure Pesquisa Cognitiva
 
@@ -43,8 +44,8 @@ Nesta seção, você criará uma rede virtual e uma sub-rede para hospedar a VM 
 
     | Configuração | Valor |
     | ------- | ----- |
-    | Subscription | Selecionar sua assinatura|
-    | Resource group | Selecione **criar novo**, insira *MyResource*e, em seguida, selecione **OK** |
+    | Assinatura | Selecionar sua assinatura|
+    | Grupo de recursos | Selecione **criar novo**, insira *MyResource*e, em seguida, selecione **OK** |
     | Nome | Insira *MyVirtualNetwork* |
     | Região | Selecione a região desejada |
     |||
@@ -59,14 +60,14 @@ Nesta seção, você criará um novo serviço de Pesquisa Cognitiva do Azure com
 
 1. Em **novos serviço de pesquisa-noções básicas**, insira ou selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
     | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
     | **DETALHES DA INSTÂNCIA** |  |
     | URL | Insira um nome exclusivo. |
-    | Location | Selecione a região desejada. |
+    | Localização | Selecione a região desejada. |
     | Tipo de preço | Selecione **alterar tipo de preço** e escolha a camada de serviço desejada. (Sem suporte na camada **gratuita** . Deve ser **básico** ou superior.) |
     |||
   
@@ -80,16 +81,16 @@ Nesta seção, você criará um novo serviço de Pesquisa Cognitiva do Azure com
 
 1. Em **criar ponto de extremidade privado**, insira ou selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Subscription | Selecione sua assinatura. |
     | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
-    | Location | Selecione **Oeste dos EUA**.|
-    | Nome | Insira *myPrivateEndpoint*.  |
+    | Localização | Selecione **Oeste dos EUA**.|
+    | Nome | Insira *myPrivateEndpoint*.  |
     | Sub-recurso de destino | Deixe o **searchService**padrão. |
     | **REDE** |  |
-    | Rede virtual  | Selecione *MyVirtualNetwork* no grupo de recursos *MyResource*Group. |
-    | Sub-rede | Selecione  *mySubnet*. |
+    | Rede virtual  | Selecione *MyVirtualNetwork* no grupo de recursos *MyResource*Group. |
+    | Sub-rede | Selecione *mySubnet*. |
     | **INTEGRAÇÃO DE DNS PRIVADO** |  |
     | Integrar com a zona DNS privado  | Deixe o padrão **Sim**. |
     | Zona DNS privada  | Deixe o padrão * * (New) privatelink.search.windows.net * *. |
@@ -113,7 +114,7 @@ Nesta seção, você criará um novo serviço de Pesquisa Cognitiva do Azure com
 
 1. Em **Criar uma máquina virtual – Noções básicas**, insira ou selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
@@ -188,7 +189,7 @@ Nesta seção, você verificará o acesso à rede privada ao serviço de pesquis
 
 Quando o ponto de extremidade do serviço de pesquisa é privado, alguns recursos do portal são desabilitados. Você poderá exibir e gerenciar as configurações de nível de serviço, mas o acesso ao portal para indexar dados e vários outros componentes no serviço, como o índice, o indexador e as definições de qualificações, é restrito por motivos de segurança.
 
-1. Na Área de Trabalho Remota de  *myVM*, abra o PowerShell.
+1. Na Área de Trabalho Remota do *myVM*, abra o PowerShell.
 
 1. Insira ' nslookup [nome do serviço de pesquisa]. Search. Windows. net '
 
@@ -206,7 +207,7 @@ Quando o ponto de extremidade do serviço de pesquisa é privado, alguns recurso
 
 1. A conclusão do início rápido da VM é sua confirmação de que o serviço está totalmente operacional.
 
-1. Feche a conexão de área de trabalho remota para *myVM*. 
+1. Feche a conexão de área de trabalho remota para *myVM*. 
 
 1. Para verificar se o serviço não está acessível em um ponto de extremidade público, abra o postmaster em sua estação de trabalho local e tente as várias tarefas no início rápido. Se você receber um erro informando que o servidor remoto não existe, você configurou com êxito um ponto de extremidade privado para o serviço de pesquisa.
 

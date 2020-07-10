@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: e8917a0a5678c4c6b72352a0d4c1523bfea3c96d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3cf2603dec7e921159824f565336cd91a575731
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79537203"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205663"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Drivers MySQL e as ferramentas de gerenciamento compatíveis com o Banco de Dados do Azure para MySQL
 Esse artigo descreve os drivers e as ferramentas de gerenciamento compatíveis com o Banco de Dados do Azure para MySQL.
@@ -45,14 +45,14 @@ A vantagem de compatibilidade se estende para as ferramentas de gerenciamento de
 
 |                                     | **MySQL Workbench 6.x e superior** | **Navicat 12** | **PHPMyAdmin 4.x e superior** |
 | :---------------------------------- | :----------------------------- | :------------- | :-------------------------|
-| Criar, atualizar, ler, gravar, excluir | X | X | X |
-| Conexão SSL | X | X | X |
-| Preenchimento automático da consulta SQL | X | X |  |
-| Importação e exportação de dados | X | X | X | 
-| Exportar para vários formatos | X | X | X |
-| Backup e restauração |  | X |  |
-| Exibir parâmetros do servidor | X | X | X |
-| Exibir conexões de cliente | X | X | X |
+| **Criar, atualizar, ler, gravar, excluir** | X | X | X |
+| **Conexão SSL** | X | X | X |
+| **Preenchimento automático da consulta SQL** | X | X |  |
+| **Importação e exportação de dados** | X | X | X |
+| **Exportar para vários formatos** | X | X | X |
+| **Backup e restauração** |  | X |  |
+| **Exibir parâmetros do servidor** | X | X | X |
+| **Exibir conexões de cliente** | X | X | X |
 
 ## <a name="next-steps"></a>Próximas etapas
 

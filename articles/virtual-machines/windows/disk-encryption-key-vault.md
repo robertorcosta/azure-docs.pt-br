@@ -8,11 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0348461e2a58bd8e71b8dff10667c512125d7b03
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9160ab530037da1f24a2f07903b949b42ecbb34b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656693"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207081"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Criar e configurar um cofre de chaves para Azure Disk Encryption
 
@@ -22,6 +23,9 @@ O Azure Disk Encryption usa o Azure Key Vault para ajudar você a controlar e ge
 > - Se você já tiver usado o Azure Disk Encryption com o Azure AD anteriormente para criptografar uma VM, deverá continuar usando essa opção para criptografar a VM. Veja [Criação e configuração de um cofre de chaves para Azure Disk Encryption com o Azure AD (versão anterior)](disk-encryption-key-vault-aad.md) para saber detalhes.
 
 Criar e configurar um cofre de chaves para usar com Azure Disk Encryption envolve três etapas:
+
+> [!Note]
+> Você deve selecionar a opção nas configurações da política de acesso Azure Key Vault para habilitar o acesso a Azure Disk Encryption para criptografia de volume.
 
 1. Criar um grupo de recursos, se necessário.
 2. Criando um cofre de chaves. 

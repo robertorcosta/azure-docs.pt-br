@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f6e8ed5baef9b8594bb1fe03942e831fd8264a56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 861e011c4bd368a274998859170e78cf444400a8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113059"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206178"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Noções básicas sobre filtros de coleção OData no Azure Pesquisa Cognitiva
 
@@ -49,13 +50,17 @@ A primeira razão é apenas uma conseqüência de como o sistema de tipos de lin
 
 Ao aplicar vários critérios de filtro em uma coleção de objetos complexos, os critérios são **correlacionados** , pois se aplicam a *cada objeto na coleção*. Por exemplo, o filtro a seguir retornará hotéis que têm pelo menos uma sala de luxo com uma taxa menor que 100:
 
+```odata-filter-expr
     Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 100)
+```
 
 Se a filtragem não estiver *correlacionada*, o filtro acima poderá retornar Hotéis em que uma sala é Deluxe e uma sala diferente tem uma taxa base menor que 100. Isso não faria sentido, pois ambas as cláusulas da expressão lambda se aplicam à mesma variável de intervalo, ou seja, `room` É por isso que esses filtros estão correlacionados.
 
 No entanto, para pesquisa de texto completo, não há como fazer referência a uma variável de intervalo específica. Se você usar a pesquisa de campo para emitir uma [consulta Lucene completa](query-lucene-syntax.md) como esta:
 
+```odata-filter-expr
     Rooms/Type:deluxe AND Rooms/Description:"city view"
+```
 
 Você pode obter Hotéis de volta onde uma sala é Deluxe e uma sala diferente menciona "exibição de cidade" na descrição. Por exemplo, o documento abaixo `Id` do `1` deve corresponder à consulta:
 
@@ -148,19 +153,27 @@ Essa estrutura de dados foi projetada para responder a uma pergunta com grande v
 
 Criando a partir de igualdade, vamos examinar como é possível combinar várias verificações de igualdade na mesma variável de intervalo com `or` . Ele funciona graças a Algebra e [à propriedade distributivo de quantificadores](https://en.wikipedia.org/wiki/Existential_quantification#Negation). Esta expressão:
 
+```odata-filter-expr
     seasons/any(s: s eq 'winter' or s eq 'fall')
+```
 
 é equivalente a:
 
+```odata-filter-expr
     seasons/any(s: s eq 'winter') or seasons/any(s: s eq 'fall')
+```
 
 e cada uma das duas `any` subexpressãos pode ser executada com eficiência usando o índice invertido. Além disso, graças à [lei de negação de quantificadores](https://en.wikipedia.org/wiki/Existential_quantification#Negation), esta expressão:
 
+```odata-filter-expr
     seasons/all(s: s ne 'winter' and s ne 'fall')
+```
 
 é equivalente a:
 
+```odata-filter-expr
     not seasons/any(s: s eq 'winter' or s eq 'fall')
+```
 
 é por isso que é possível usar `all` com `ne` e `and` .
 

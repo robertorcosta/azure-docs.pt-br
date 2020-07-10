@@ -14,15 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: mimckitt
-ms.openlocfilehash: f226e240a59b33c2913919495410b1a4923b4902
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e78a18055d85e2105ea604d568c154c889ab0655
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81261662"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206025"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Agente do Observador de Rede para Windows
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 O [Observador de Rede do Azure](../../network-watcher/network-watcher-monitoring-overview.md) é um serviço de monitoramento de desempenho, diagnóstico e análise de rede que permite o monitoramento de redes do Azure. A extensão de máquina virtual do Agente do Observador de Rede é um requisito para capturar o tráfego de rede sob demanda e outras funcionalidades avançadas em máquinas virtuais do Azure.
 
@@ -33,7 +34,7 @@ Este documento detalha as opções com suporte de plataformas e implantação pa
 
 ### <a name="operating-system"></a>Sistema operacional
 
-A extensão do Agente do Observador de Rede para Windows pode ser executada nas versões 2008 R2, 2012, 2012 R2 e 2016 do Windows Server. O Servidor Nano não é suportado neste momento.
+A extensão do agente do observador de rede para Windows pode ser executada em versões do Windows Server 2008 R2, 2012, 2012 R2, 2016 e 2019. O Servidor Nano não é suportado neste momento.
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 

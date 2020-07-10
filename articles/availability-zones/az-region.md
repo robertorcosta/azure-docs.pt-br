@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: eec92672801d33290df1690d8cb17e79d4626192
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2e337628542475c081a59bffd25368de313011f8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042043"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206213"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Regiões que dão suporte a Zonas de Disponibilidade no Azure
 
@@ -24,16 +24,15 @@ Esta seção lista os serviços e regiões do Azure que dão suporte a Zonas de 
 
 Os serviços que estão disponíveis em cada região, juntamente com o próximo roteiro para disponibilidade, podem ser encontrados em [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/).
 
-|                                 |Américas |              |           |           | Europa |              |          |              | Pacífico Asiático |                 |                |
+| Serviço |Américas: EUA Central|Américas: leste dos EUA|Américas: leste dos EUA 2|Américas: oeste dos EUA 2|Europa: França central|Europa: Europa Setentrional|Europa: Sul do Reino Unido|Europa: Europa Ocidental|Pacífico Asiático: leste do Japão|Pacífico Asiático: Sudeste Asiático|Pacífico Asiático: leste da Austrália|
 |----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|-------------|
-|          |Centro dos EUA|Leste dos EUA|Leste dos EUA 2|Oeste dos EUA 2|França Central|Norte da Europa|Sul do Reino Unido|Europa Ocidental|Leste do Japão|Sudeste Asiático|Leste da Austrália|
 | **Computação**                         |            |              |           |           |                |              |          |             |            |                |                |
 | Máquinas Virtuais do Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | Máquinas Virtuais do Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | Conjuntos de Dimensionamento de Máquinas Virtuais      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | ILB ambientes de serviço de Azure App | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | Serviço de Kubernetes do Azure        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| **Storage**   |            |              |           |           |                |              |          |             |            |                |                |
+| **Armazenamento**   |            |              |           |           |                |              |          |             |            |                |                |
 | Managed Disks                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | Armazenamento com redundância de zona          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | **Rede**                     |            |              |           |           |                |              |          |             |            |                |                |
@@ -61,11 +60,11 @@ O Azure também oferece suporte Zonas de Disponibilidade nas seguintes regiões:
 - Gov. dos EUA – Virgínia
 - Leste da Austrália
 - Norte da África do Sul
-- Centro-Sul dos Estados Unidos
+- South Central US
 - Canadá Central
 
 Para saber mais sobre o suporte a Zonas de Disponibilidade nessas cinco regiões, entre em contato com seu representante de vendas ou cliente da Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Regiões e Zonas de Disponibilidade no Azure](az-overview.md)
+- [Regiões e zonas de disponibilidade no Azure](az-overview.md)

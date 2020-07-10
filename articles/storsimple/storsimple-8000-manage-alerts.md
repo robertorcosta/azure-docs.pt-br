@@ -6,16 +6,16 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 36f416183bd44180bee59142714e924e0ac8fefe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf41232026fcb51e63cb68d6f42b7b66d14022e1
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830036"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207791"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Usar o serviço StorSimple Device Manager para exibir e gerenciar alertas do StorSimple
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 A folha **Alertas** do serviço StorSimple Device Manager fornece uma maneira de examinar e limpar os alertas relacionados ao dispositivo StorSimple em tempo real. Nessa folha, você pode monitorar de forma centralizada os problemas de integridade dos dispositivos StorSimple e a solução geral Microsoft Azure StorSimple.
 
@@ -199,8 +199,8 @@ Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimpl
 
 ### <a name="performance-alerts"></a>Alertas de desempenho
 
-| Texto de alerta | Evento | Mais informações / ações recomendadas | |
-|:--- |:--- |:--- | --- |
+| Texto de alerta | Evento | Mais informações / ações recomendadas |
+|:--- |:--- |:--- |
 | A carga do dispositivo excedeu o <*limite*>. |Mais lento do que os tempos de resposta esperados. |O dispositivo está relatando a utilização sob uma pesada carga de entrada/saída. Isso pode fazer com que o dispositivo não funcione tão bem quanto deveria. Examine as cargas de trabalho que você atribuiu ao dispositivo e determine se há alguma que possa ser movida para outro dispositivo ou que não são mais necessárias.|
 | Não foi possível iniciar os serviços do StorSimple. |Erro de caminho de dados |Se o problema persistir, contate o Suporte da Microsoft. |
 

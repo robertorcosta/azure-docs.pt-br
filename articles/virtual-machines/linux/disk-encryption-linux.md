@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3fbbeaeafd8de5a38489034a13738ca3a9b934d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b55707612c34cb3c95eafd95780955bf991c409c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601371"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206154"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs Linux
 
@@ -413,6 +413,8 @@ O Azure Disk Encryption não funciona para os seguintes cenários, recursos e te
 - Uma VM com "pontos de montagem aninhados"; ou seja, vários pontos de montagem em um só caminho (como "/1stmountpoint/data/2stmountpoint").
 - Uma VM com uma unidade de dados montada na parte superior de uma pasta do sistema operacional.
 - VMs da série M com discos Acelerador de Gravação.
+- Aplicar a [criptografia do lado do servidor com chaves gerenciadas pelo cliente](disk-encryption.md) a uma VM criptografada pelo Ade e vice-versa.
+- Migrando uma VM criptografada com ADE para [criptografia do lado do servidor com chaves gerenciadas pelo cliente](disk-encryption.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

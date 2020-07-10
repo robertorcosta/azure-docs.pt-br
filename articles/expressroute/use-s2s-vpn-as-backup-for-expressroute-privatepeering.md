@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: rambala
-ms.openlocfilehash: cb6ebdcae837216efac5b9333789dee032219251
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df4108604c656cd6383bd57b462c0f12f31bdd7b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738083"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206869"
 ---
 # <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Usando a VPN S2S como um backup para o emparelhamento privado do ExpressRoute
 
@@ -71,19 +71,23 @@ A tabela a seguir lista o ASNs da topologia:
 
 O anúncio de rota local do roteador CE primário por meio da conexão primária do circuito do ExpressRoute é mostrado abaixo (comandos Junos):
 
-    user@SEA-MX03-01> show route advertising-protocol bgp 192.168.11.18 
+```console
+user@SEA-MX03-01> show route advertising-protocol bgp 192.168.11.18 
 
-    Cust11.inet.0: 8 destinations, 8 routes (7 active, 0 holddown, 1 hidden)
-      Prefix                  Nexthop              MED     Lclpref    AS path
-    * 10.1.11.0/25            Self                                    I
+Cust11.inet.0: 8 destinations, 8 routes (7 active, 0 holddown, 1 hidden)
+  Prefix                  Nexthop              MED     Lclpref    AS path
+* 10.1.11.0/25            Self                                    I
+```
 
 O anúncio de rota local do roteador CE secundário por meio da conexão secundária do circuito do ExpressRoute é mostrado abaixo (comandos Junos):
 
-    user@SEA-MX03-02> show route advertising-protocol bgp 192.168.11.22 
+```console
+user@SEA-MX03-02> show route advertising-protocol bgp 192.168.11.22 
 
-    Cust11.inet.0: 8 destinations, 8 routes (7 active, 0 holddown, 1 hidden)
-      Prefix                  Nexthop              MED     Lclpref    AS path
-    * 10.1.11.0/25            Self                                    I
+Cust11.inet.0: 8 destinations, 8 routes (7 active, 0 holddown, 1 hidden)
+  Prefix                  Nexthop              MED     Lclpref    AS path
+* 10.1.11.0/25            Self                                    I
+```
 
 Para melhorar a alta disponibilidade da conexão de backup, a VPN S2S também é configurada no modo ativo-ativo. A configuração do gateway de VPN do Azure é mostrada abaixo. Observação como parte da VPN de configuração de VPN, os endereços IP do par de BGP do gateway--10.17.11.76 e 10.17.11.77--também estão listados.
 
@@ -91,18 +95,20 @@ Para melhorar a alta disponibilidade da conexão de backup, a VPN S2S também é
 
 A rota local é anunciada pelos firewalls para os pares de BGP primários e secundários do gateway de VPN. Os anúncios de rota são mostrados abaixo (Junos):
 
-    user@SEA-SRX42-01> show route advertising-protocol bgp 10.17.11.76 
+```console
+user@SEA-SRX42-01> show route advertising-protocol bgp 10.17.11.76 
 
-    Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
-      Prefix                  Nexthop              MED     Lclpref    AS path
-    * 10.1.11.0/25            Self                                    I
+Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
+  Prefix                  Nexthop              MED     Lclpref    AS path
+* 10.1.11.0/25            Self                                    I
 
-    {primary:node0}
-    user@SEA-SRX42-01> show route advertising-protocol bgp 10.17.11.77    
+{primary:node0}
+user@SEA-SRX42-01> show route advertising-protocol bgp 10.17.11.77    
 
-    Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
-      Prefix                  Nexthop              MED     Lclpref    AS path
-    * 10.1.11.0/25            Self                                    I
+Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
+  Prefix                  Nexthop              MED     Lclpref    AS path
+* 10.1.11.0/25            Self                                    I
+```
 
 >[!NOTE] 
 >Configurar a VPN S2S no modo ativo-ativo não apenas fornece alta disponibilidade para a conectividade de rede de backup de recuperação de desastre, mas também fornece maior taxa de transferência para a conectividade de backup. Em outras palavras, é recomendável configurar a VPN S2S no modo ativo-ativo, pois ela força a criação de vários túneis subjacentes.
@@ -116,66 +122,70 @@ Observamos que, quando uma determinada rota local é anunciada por meio de Expre
 
 A configuração de BGP do roteador CE primário que encerra a conexão primária do circuito do ExpressRoute é mostrada abaixo. Observe que o valor da preferência local das rotas anunciadas pela sessão iBGP está configurado para ser 150. Da mesma forma, precisamos garantir que a preferência local do roteador secundário do CE que termina a conexão secundária do circuito de ExpressRoute também esteja configurada para ser 150.
 
-    user@SEA-MX03-01> show configuration routing-instances Cust11 
-    description "Customer 11 VRF";
-    instance-type virtual-router;
-    interface xe-0/0/0:0.110;
-    interface ae0.11;
-    protocols {
-      bgp {
-        group ibgp {
-            type internal;
-            local-preference 150;
-            neighbor 192.168.11.1;
-        }
-        group ebgp {
-            peer-as 12076;
-            bfd-liveness-detection {
-                minimum-interval 300;
-                multiplier 3;
-            }
-            neighbor 192.168.11.18;
-        }
-      }
+```console
+user@SEA-MX03-01> show configuration routing-instances Cust11
+description "Customer 11 VRF";
+instance-type virtual-router;
+interface xe-0/0/0:0.110;
+interface ae0.11;
+protocols {
+  bgp {
+    group ibgp {
+        type internal;
+        local-preference 150;
+        neighbor 192.168.11.1;
     }
+    group ebgp {
+        peer-as 12076;
+        bfd-liveness-detection {
+            minimum-interval 300;
+            multiplier 3;
+        }
+        neighbor 192.168.11.18;
+    }
+  }
+}
+```
 
 A tabela de roteamento dos firewalls locais confirma (mostrado abaixo) que, para o tráfego local destinado ao Azure, o caminho preferencial está acima do ExpressRoute no estado Steady.
 
-    user@SEA-SRX42-01> show route table Cust11.inet.0 10.17.11.0/24    
+```console
+user@SEA-SRX42-01> show route table Cust11.inet.0 10.17.11.0/24
 
-    Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
-    + = Active Route, - = Last Active, * = Both
+Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
++ = Active Route, - = Last Active, * = Both
 
-    10.17.11.0/25      *[BGP/170] 2d 00:34:04, localpref 150
-                          AS path: 12076 I, validation-state: unverified
-                        > to 192.168.11.0 via reth1.11
-                          to 192.168.11.2 via reth2.11
-                        [BGP/170] 2d 00:34:01, localpref 150
-                          AS path: 12076 I, validation-state: unverified
-                        > to 192.168.11.2 via reth2.11
-                        [BGP/170] 2d 21:12:13, localpref 100, from 10.17.11.76
-                          AS path: 65515 I, validation-state: unverified
-                        > via st0.118
-                        [BGP/170] 2d 00:41:51, localpref 100, from 10.17.11.77
-                          AS path: 65515 I, validation-state: unverified
-                        > via st0.119
-    10.17.11.76/32     *[Static/5] 2d 21:12:16
-                        > via st0.118
-    10.17.11.77/32     *[Static/5] 2d 00:41:56
-                        > via st0.119
-    10.17.11.128/26    *[BGP/170] 2d 00:34:04, localpref 150
-                          AS path: 12076 I, validation-state: unverified
-                        > to 192.168.11.0 via reth1.11
-                          to 192.168.11.2 via reth2.11
-                        [BGP/170] 2d 00:34:01, localpref 150
-                          AS path: 12076 I, validation-state: unverified
-                        > to 192.168.11.2 via reth2.11
-                        [BGP/170] 2d 21:12:13, localpref 100, from 10.17.11.76
-                          AS path: 65515 I, validation-state: unverified
-                        > via st0.118
-                        [BGP/170] 2d 00:41:51, localpref 100, from 10.17.11.77
-                          AS path: 65515 I, validation-state: unverified
-                        > via st0.119
+10.17.11.0/25      *[BGP/170] 2d 00:34:04, localpref 150
+                      AS path: 12076 I, validation-state: unverified
+                    > to 192.168.11.0 via reth1.11
+                      to 192.168.11.2 via reth2.11
+                    [BGP/170] 2d 00:34:01, localpref 150
+                      AS path: 12076 I, validation-state: unverified
+                     > to 192.168.11.2 via reth2.11
+                    [BGP/170] 2d 21:12:13, localpref 100, from 10.17.11.76
+                       AS path: 65515 I, validation-state: unverified
+                    > via st0.118
+                    [BGP/170] 2d 00:41:51, localpref 100, from 10.17.11.77
+                       AS path: 65515 I, validation-state: unverified
+                     > via st0.119
+10.17.11.76/32     *[Static/5] 2d 21:12:16
+                     > via st0.118
+10.17.11.77/32     *[Static/5] 2d 00:41:56
+                    > via st0.119
+10.17.11.128/26    *[BGP/170] 2d 00:34:04, localpref 150
+                       AS path: 12076 I, validation-state: unverified
+                     > to 192.168.11.0 via reth1.11
+                       to 192.168.11.2 via reth2.11
+                    [BGP/170] 2d 00:34:01, localpref 150
+                      AS path: 12076 I, validation-state: unverified
+                     > to 192.168.11.2 via reth2.11
+                    [BGP/170] 2d 21:12:13, localpref 100, from 10.17.11.76
+                       AS path: 65515 I, validation-state: unverified
+                    > via st0.118
+                     [BGP/170] 2d 00:41:51, localpref 100, from 10.17.11.77
+                       AS path: 65515 I, validation-state: unverified
+                     > via st0.119
+```
 
 Na tabela de rotas acima, para as rotas de VNet Hub e spoke--10.17.11.0/25 e 10.17.11.128/26--vemos que o circuito do ExpressRoute é preferencial em conexões VPN. O 192.168.11.0 e o 192.168.11.2 são IPs na interface de firewall em direção aos roteadores CE.
 
@@ -183,49 +193,54 @@ Na tabela de rotas acima, para as rotas de VNet Hub e spoke--10.17.11.0/25 e 10.
 
 Anteriormente neste artigo, verificamos o anúncio de rota local dos firewalls para os pares de BGP primários e secundários do gateway de VPN. Além disso, vamos confirmar as rotas do Azure recebidas pelos firewalls dos pares de BGP primários e secundários do gateway de VPN.
 
-    user@SEA-SRX42-01> show route receive-protocol bgp 10.17.11.76 table Cust11.inet.0 
+```console
+user@SEA-SRX42-01> show route receive-protocol bgp 10.17.11.76 table Cust11.inet.0 
 
-    Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
-      Prefix                  Nexthop              MED     Lclpref    AS path
-      10.17.11.0/25           10.17.11.76                             65515 I
-      10.17.11.128/26         10.17.11.76                             65515 I
+Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
+  Prefix                  Nexthop              MED     Lclpref    AS path
+  10.17.11.0/25           10.17.11.76                             65515 I
+  10.17.11.128/26         10.17.11.76                             65515 I
 
-    {primary:node0}
-    user@SEA-SRX42-01> show route receive-protocol bgp 10.17.11.77 table Cust11.inet.0    
+{primary:node0}
+user@SEA-SRX42-01> show route receive-protocol bgp 10.17.11.77 table Cust11.inet.0    
 
-    Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
-      Prefix                  Nexthop              MED     Lclpref    AS path
-      10.17.11.0/25           10.17.11.77                             65515 I
-      10.17.11.128/26         10.17.11.77                             65515 I
+Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
+  Prefix                  Nexthop              MED     Lclpref    AS path
+  10.17.11.0/25           10.17.11.77                             65515 I
+  10.17.11.128/26         10.17.11.77                             65515 I
+```
 
 Da mesma forma, vamos verificar prefixos de rota de rede local recebidos pelo gateway de VPN do Azure. 
 
-    PS C:\Users\user> Get-AzVirtualNetworkGatewayLearnedRoute -ResourceGroupName SEA-Cust11 -VirtualNetworkGatewayName SEA-Cust11-VNet01-gw-vpn | where {$_.Network -eq "10.1.11.0/25"} | select Network, NextHop, AsPath, Weight
+```powershell
+PS C:\Users\user> Get-AzVirtualNetworkGatewayLearnedRoute -ResourceGroupName SEA-Cust11 -VirtualNetworkGatewayName SEA-Cust11-VNet01-gw-vpn | where {$_.Network -eq "10.1.11.0/25"} | select Network, NextHop, AsPath, Weight
 
-    Network      NextHop       AsPath      Weight
-    -------      -------       ------      ------
-    10.1.11.0/25 192.168.11.88 65020        32768
-    10.1.11.0/25 10.17.11.76   65020        32768
-    10.1.11.0/25 10.17.11.69   12076-65020  32769
-    10.1.11.0/25 10.17.11.69   12076-65020  32769
-    10.1.11.0/25 192.168.11.88 65020        32768
-    10.1.11.0/25 10.17.11.77   65020        32768
-    10.1.11.0/25 10.17.11.69   12076-65020  32769
-    10.1.11.0/25 10.17.11.69   12076-65020  32769
+Network      NextHop       AsPath      Weight
+-------      -------       ------      ------
+10.1.11.0/25 192.168.11.88 65020        32768
+10.1.11.0/25 10.17.11.76   65020        32768
+10.1.11.0/25 10.17.11.69   12076-65020  32769
+10.1.11.0/25 10.17.11.69   12076-65020  32769
+10.1.11.0/25 192.168.11.88 65020        32768
+10.1.11.0/25 10.17.11.77   65020        32768
+10.1.11.0/25 10.17.11.69   12076-65020  32769
+10.1.11.0/25 10.17.11.69   12076-65020  32769
+```
 
 Como visto acima, o gateway de VPN tem rotas recebidas pelos pares de BGP primário e secundário do gateway de VPN. Ele também tem visibilidade sobre as rotas recebidas por meio de conexões primárias e secundárias do ExpressRoute (aquelas com AS-Path precedidas com 12076). Para confirmar as rotas recebidas por meio de conexões VPN, precisamos saber o IP do par de BGP local das conexões. Em nossa configuração em questão, é 192.168.11.88 e vemos as rotas recebidas dele.
 
 Em seguida, vamos verificar as rotas anunciadas pelo gateway de VPN do Azure para o ponto de BGP do firewall local (192.168.11.88).
 
-    PS C:\Users\user> Get-AzVirtualNetworkGatewayAdvertisedRoute -Peer 192.168.11.88 -ResourceGroupName SEA-Cust11 -VirtualNetworkGatewayName SEA-Cust11-VNet01-gw-vpn |  select Network, NextHop, AsPath, Weight
+```powershell
+PS C:\Users\user> Get-AzVirtualNetworkGatewayAdvertisedRoute -Peer 192.168.11.88 -ResourceGroupName SEA-Cust11 -VirtualNetworkGatewayName SEA-Cust11-VNet01-gw-vpn |  select Network, NextHop, AsPath, Weight
 
-    Network         NextHop     AsPath Weight
-    -------         -------     ------ ------
-    10.17.11.0/25   10.17.11.76 65515       0
-    10.17.11.128/26 10.17.11.76 65515       0
-    10.17.11.0/25   10.17.11.77 65515       0
-    10.17.11.128/26 10.17.11.77 65515       0
-
+Network         NextHop     AsPath Weight
+-------         -------     ------ ------
+10.17.11.0/25   10.17.11.76 65515       0
+10.17.11.128/26 10.17.11.76 65515       0
+10.17.11.0/25   10.17.11.77 65515       0
+10.17.11.128/26 10.17.11.77 65515       0
+```
 
 Falha ao ver as trocas de rota indicam falha de conexão. Consulte [solução de problemas: uma conexão VPN site a site do Azure não pode se conectar e parar de funcionar][VPN Troubleshoot] para obter ajuda com a solução de problemas de conexão VPN.
 
@@ -239,43 +254,51 @@ Agora que confirmamos as trocas de rota bem-sucedidas na conexão VPN (plano de 
 
 Antes de fazer a alternância de tráfego, vamos rastrear a rota do caminho atual em nossa configuração do servidor de teste local para a VM de teste na VNet do spoke.
 
-    C:\Users\PathLabUser>tracert 10.17.11.132
+```console
+C:\Users\PathLabUser>tracert 10.17.11.132
 
-    Tracing route to 10.17.11.132 over a maximum of 30 hops
+Tracing route to 10.17.11.132 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.1.11.1
-      2    <1 ms    <1 ms    11 ms  192.168.11.0
-      3    <1 ms    <1 ms    <1 ms  192.168.11.18
-      4     *        *        *     Request timed out.
-      5     6 ms     6 ms     5 ms  10.17.11.132
+  1    <1 ms    <1 ms    <1 ms  10.1.11.1
+  2    <1 ms    <1 ms    11 ms  192.168.11.0
+  3    <1 ms    <1 ms    <1 ms  192.168.11.18
+  4     *        *        *     Request timed out.
+  5     6 ms     6 ms     5 ms  10.17.11.132
 
-    Trace complete.
+Trace complete.
+```
 
 As sub-redes de conexão ponto a ponto primária e secundária do ExpressRoute de nossa configuração são, respectivamente, 192.168.11.16/30 e 192.168.11.20/30. Na rota de rastreamento acima, na etapa 3 vemos que estamos atingindo 192.168.11.18, que é o IP da interface do MSEE primário. A presença da interface MSEE confirma que, conforme o esperado, o caminho atual está acima do ExpressRoute.
 
 Conforme relatado nos [emparelhamentos de circuito do expressroute][RST], vamos usar os seguintes comandos do PowerShell para desabilitar o emparelhamento primário e o secundário do circuito do ExpressRoute.
 
-    $ckt = Get-AzExpressRouteCircuit -Name "expressroute name" -ResourceGroupName "SEA-Cust11"
-    $ckt.Peerings[0].State = "Disabled"
-    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+```powershell
+$ckt = Get-AzExpressRouteCircuit -Name "expressroute name" -ResourceGroupName "SEA-Cust11"
+$ckt.Peerings[0].State = "Disabled"
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
 
 O tempo de alternância de failover depende do tempo de convergência de BGP. Em nossa configuração, a opção de failover leva alguns segundos (menos de 10). Após a mudança, a repetição dos traceroute mostra o seguinte caminho:
 
-    C:\Users\PathLabUser>tracert 10.17.11.132
+```console
+C:\Users\PathLabUser>tracert 10.17.11.132
 
-    Tracing route to 10.17.11.132 over a maximum of 30 hops
+Tracing route to 10.17.11.132 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.1.11.1
-      2     *        *        *     Request timed out.
-      3     6 ms     7 ms     9 ms  10.17.11.132
+  1    <1 ms    <1 ms    <1 ms  10.1.11.1
+  2     *        *        *     Request timed out.
+  3     6 ms     7 ms     9 ms  10.17.11.132
 
-    Trace complete.
+Trace complete.
+```
 
 O resultado de traceroute confirma que a conexão de backup via VPN S2S está ativa e pode fornecer continuidade de serviço se as conexões primárias e secundárias do ExpressRoute falharem. Para concluir o teste de failover, vamos habilitar as conexões de ExpressRoute de volta e normalizar o fluxo de tráfego usando o seguinte conjunto de comandos.
 
-    $ckt = Get-AzExpressRouteCircuit -Name "expressroute name" -ResourceGroupName "SEA-Cust11"
-    $ckt.Peerings[0].State = "Enabled"
-    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+```powershell
+$ckt = Get-AzExpressRouteCircuit -Name "expressroute name" -ResourceGroupName "SEA-Cust11"
+$ckt.Peerings[0].State = "Enabled"
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
 
 Para confirmar se o tráfego é revertido para o ExpressRoute, repita os traceroute e verifique se ele está passando pelo emparelhamento privado do ExpressRoute.
 

@@ -1,22 +1,23 @@
 ---
-title: Implantar um serviço de inferência criptografado
+title: Implantar um serviço inferência criptografado (visualização)
 titleSuffix: Azure Machine Learning
 description: Saiba como usar o Microsoft SEAL para implantar um serviço de previsão criptografado para classificação de imagens
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 05/18/2020
+ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: tracking-python
-ms.openlocfilehash: b92293973ac9b5027a9f1a10c2d19fd164c41e3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c67ddf2d82a1cebaaa43a90111f4a42edb20058e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560191"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206789"
 ---
-# <a name="how-to-deploy-an-encrypted-inferencing-web-service"></a>Como implantar um serviço Web de inferência criptografado
+# <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Como implantar um serviço Web inferência criptografado (versão prévia)
 
 Saiba como implantar um modelo de classificação de imagem como um serviço Web de inferência criptografado nas [Instâncias de Contêiner do Azure](https://docs.microsoft.com/azure/container-instances/) (ACI). O serviço Web é uma imagem de contêiner do Docker que contém o modelo e a lógica de pontuação.
 

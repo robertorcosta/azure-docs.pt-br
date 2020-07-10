@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4cac7a3f663d9ede966b8d6e5753c48629049dcd
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: fecacbd2c7c6549a1321367157bb179321779ca9
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057476"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206520"
 ---
 # <a name="set-up-an-azure-digital-twins-instance"></a>Configurar uma instância dos Gêmeos Digitais do Azure
 
 Este artigo explicará as etapas básicas para configurar uma nova instância de gêmeos digital do Azure. Isso inclui a criação da instância e a atribuição de permissões [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) à instância para você mesmo.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
 
@@ -57,15 +57,15 @@ Para usar o gêmeos digital do Azure com um aplicativo cliente, você também pr
 
 Crie uma atribuição de função para você mesmo na instância do gêmeos digital do Azure, usando seu email associado ao locatário do AAD em sua assinatura do Azure. 
 
-Para poder fazer isso, você precisa ser classificado como um proprietário em sua assinatura do Azure. Você pode verificar isso executando o `az role assignment list --assignee <your-Azure-email>` comando e verificando na saída que o valor de *RoleDefinitionName* é *proprietário*. Se você achar que o valor é *colaborador* ou algo diferente do *proprietário*, entre em contato com o administrador da assinatura com a capacidade de conceder permissões em sua assinatura para elevar sua função.
+Para poder fazer isso, você precisa ser classificado como um proprietário em sua assinatura do Azure. Você pode verificar isso executando o `az role assignment list --assignee <your-Azure-email>` comando e verificando na saída que o valor de *RoleDefinitionName* é *proprietário*. Se você achar que o valor é *colaborador* ou algo diferente do *proprietário*, entre em contato com o administrador da assinatura com a capacidade de conceder permissões em sua assinatura. Eles podem elevar sua função em toda a assinatura para que você possa executar o comando a seguir, ou um proprietário pode executar o comando a seguir em seu nome para configurar suas permissões de gêmeos digital do Azure para você.
 
-Como proprietário da assinatura, você pode usar o seguinte comando para atribuir o usuário a uma função de proprietário para sua instância de gêmeos digital do Azure:
+Para atribuir as permissões de "proprietário" do usuário em sua instância do gêmeos digital do Azure, use o seguinte comando (deve ser executado por um proprietário da assinatura do Azure):
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-O resultado desse comando são informações de saída sobre a atribuição de função que você criou.
+O resultado desse comando são informações de saída sobre a atribuição de função que foi criada.
 
 > [!TIP]
 > Se você receber um erro *400: BadRequest* , execute o seguinte comando para obter o *ObjectID* para seu usuário:
@@ -74,7 +74,7 @@ O resultado desse comando são informações de saída sobre a atribuição de f
 > ```
 > Em seguida, repita o comando de atribuição de função usando a *ID de objeto* do usuário no lugar do seu email.
 
-Agora você tem uma instância de gêmeos digital do Azure pronta para uso.
+Agora você tem uma instância do gêmeos digital do Azure pronta para uso e permissões para gerenciá-la.
 
 ## <a name="next-steps"></a>Próximas etapas
 

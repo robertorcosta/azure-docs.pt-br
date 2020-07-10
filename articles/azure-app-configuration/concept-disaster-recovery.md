@@ -6,11 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 96ef09ac081aa328014217592a7fcd3ed6314c0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c62f10d67345d68cde27af7d0a7663b22d978a0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77523757"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207190"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resiliência e recuperação de desastre
 
@@ -63,7 +64,11 @@ Observe o parâmetro `optional` passado para a função `AddAzureAppConfiguratio
 
 ## <a name="synchronization-between-configuration-stores"></a>Sincronização entre os repositórios de configuração
 
-É importante que os repositórios de configurações com redundância geográfica tenham todos o mesmo conjunto de dados. Use a função **Exportar** da Configuração de Aplicativos para copiar os dados do repositório primário para o secundário sob demanda. Essa função está disponível no portal e na CLI do Azure.
+É importante que os repositórios de configurações com redundância geográfica tenham todos o mesmo conjunto de dados. Há duas maneiras de fazer isso:
+
+### <a name="backup-manually-using-the-export-function"></a>Fazer backup manualmente usando a função exportar
+
+Use a função **Exportar** da Configuração de Aplicativos para copiar os dados do repositório primário para o secundário sob demanda. Essa função está disponível no portal e na CLI do Azure.
 
 No portal do Azure, efetue push de uma alteração para outro repositório de configurações seguindo estas etapas.
 
@@ -71,15 +76,19 @@ No portal do Azure, efetue push de uma alteração para outro repositório de co
 
 1. Na nova folha que é aberta, especifique a assinatura, o grupo de recursos e o nome do recurso do armazenamento secundário e, em seguida, selecione **aplicar**.
 
-1. A interface do usuário será atualizada para que você possa escolher quais dados de configuração deseja exportar para o repositório secundário. Você pode deixar o valor de hora padrão como está e definir ambos **de rótulo** e **para rotular** para o mesmo valor. Escolha **Aplicar**.
+1. A interface do usuário será atualizada para que você possa escolher quais dados de configuração deseja exportar para o repositório secundário. Você pode deixar o valor de hora padrão como está e definir ambos **de rótulo** e **rótulo** com o mesmo valor. Escolha **Aplicar**. Repita isso para todos os rótulos em seu repositório primário.
 
-1. Repita as etapas anteriores para todas as alterações de configuração.
+1. Repita as etapas anteriores sempre que a configuração for alterada.
 
-Para automatizar esse processo de exportação, use a CLI do Azure. O seguinte comando mostra como exportar uma única alteração de configuração do repositório primário para o secundário:
+O processo de exportação também pode ser obtido usando o CLI do Azure. O comando a seguir mostra como exportar todas as configurações do repositório primário para o secundário:
 
 ```azurecli
-    az appconfig kv export --destination appconfig --name {PrimaryStore} --label {Label} --dest-name {SecondaryStore} --dest-label {Label}
+    az appconfig kv export --destination appconfig --name {PrimaryStore} --dest-name {SecondaryStore} --label * --preserve-labels -y
 ```
+
+### <a name="backup-automatically-using-azure-functions"></a>Fazer backup automaticamente usando Azure Functions
+
+O processo de backup pode ser automatizado usando Azure Functions. Ele aproveita a integração com a grade de eventos do Azure na configuração do aplicativo. Uma vez configurado, a configuração do aplicativo publicará eventos na grade de eventos para quaisquer alterações feitas nos valores de chave em um repositório de configuração. Assim, um aplicativo Azure Functions pode escutar esses eventos e fazer backup dos dados de acordo. Para obter detalhes, consulte o tutorial sobre [como fazer backup de repositórios de configuração de aplicativo automaticamente](./howto-backup-config-store.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

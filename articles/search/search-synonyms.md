@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 23c7913fbe9b3943559d36f5cbf2a21d7ed63dbe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a53122b324c0a6dc43619eb2e9c704873f87b69
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563451"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207307"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinônimos no Azure Pesquisa Cognitiva
 
@@ -51,6 +51,7 @@ Os mapas de sinônimos devem estar no formato Apache Solr explicado abaixo. Se v
 
 Crie um novo mapa de sinônimos usando HTTP POST, como no exemplo a seguir:
 
+```synonym-map
     POST https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
     api-key: [admin key]
 
@@ -61,9 +62,11 @@ Crie um novo mapa de sinônimos usando HTTP POST, como no exemplo a seguir:
           USA, United States, United States of America\n
           Washington, Wash., WA => WA\n"
     }
+```
 
 Como alternativa, use PUT e especifique o nome do mapa de sinônimos no URI. Se o mapa de sinônimos não existir, ele será criado.
 
+```synonym-map
     PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
     api-key: [admin key]
 
@@ -73,10 +76,12 @@ Como alternativa, use PUT e especifique o nome do mapa de sinônimos no URI. Se 
           USA, United States, United States of America\n
           Washington, Wash., WA => WA\n"
     }
+```
 
 ##### <a name="apache-solr-synonym-format"></a>Formato de sinônimo Apache Solr
 
 O formato Solr dá suporte a mapeamentos de sinônimo equivalentes e explícitos. As regras de mapeamento aderem à especificação de filtro de sinônimos de software livre do Apache Solr, descritas neste documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Abaixo está um exemplo de regra de sinônimos equivalentes.
+
 ```
 USA, United States, United States of America
 ```
@@ -84,29 +89,37 @@ USA, United States, United States of America
 Com a regra acima, uma consulta de pesquisa "EUA" será expandida para "EUA" OR "Estados Unidos" OR "Estados Unidos da América".
 
 Mapeamento explícito é indicado por uma seta "=>". Quando especificado, uma sequência de termo de uma consulta de pesquisa que corresponde ao lado esquerdo de "=>" será substituída pelas alternativas no lado direito. Dada a regra abaixo, consultas de pesquisa "Washington", "Wash." ou "WA" serão regravadas como "WA". Mapeamento explícito só é aplicável na direção especificada e não regrava a consulta "WA" para "Washington" nesse caso.
+
 ```
 Washington, Wash., WA => WA
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>Liste os mapas de sinônimos em seu serviço.
 
+```synonym-map
     GET https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
     api-key: [admin key]
+```
 
 #### <a name="get-a-synonym-map-under-your-service"></a>Obtenha um mapa de sinônimos em seu serviço.
 
+```synonym-map
     GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
     api-key: [admin key]
+```
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>Exclua um mapa de sinônimos em seu serviço.
 
+```synonym-map
     DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
     api-key: [admin key]
+```
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Configure um campo de pesquisa para usar o mapa de sinônimos na definição do índice.
 
 Uma nova propriedade de campo **synonymMaps** pode ser usada a fim de especificar um mapa de sinônimos para usar em um campo pesquisável. Mapas de sinônimos são recursos de nível de serviço e podem ser consultados por qualquer campo de um índice no serviço.
 
+```synonym-map
     POST https://[servicename].search.windows.net/indexes?api-version=2020-06-30
     api-key: [admin key]
 
@@ -138,6 +151,7 @@ Uma nova propriedade de campo **synonymMaps** pode ser usada a fim de especifica
           }
        ]
     }
+```
 
 **synonymMaps** pode ser especificado para campos de pesquisa do tipo “Edm.String” ou “Collection(Edm.String)”.
 

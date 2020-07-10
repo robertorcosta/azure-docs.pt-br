@@ -6,18 +6,18 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 6986d5882e4d62ffc2e25b7ea998f46f41c67330
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f05b70c8197283d9fa576d6ea464aa08554dd773
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102456"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206768"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Criar e gerenciar um link privado para o banco de dados do Azure para PostgreSQL-servidor único usando o portal
 
 Um ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado.  Neste artigo, você aprenderá a usar o portal do Azure para criar uma VM em uma rede virtual do Azure e um servidor único do banco de dados do Azure para PostgreSQL com um ponto de extremidade privado do Azure.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!NOTE]
 > Esse recurso está disponível em todas as regiões do Azure em que o banco de dados do Azure para PostgreSQL oferece suporte a tipos de preço Uso Geral e com otimização de memória.
@@ -41,7 +41,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
     | Espaço de endereço | Insira *10.1.0.0/16*. |
     | Subscription | Selecione sua assinatura.|
     | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
-    | Location | Selecione **Europa Ocidental**.|
+    | Localização | Selecione **Europa Ocidental**.|
     | Sub-rede – Nome | Insira *mySubnet*. |
     | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
     |||
@@ -164,7 +164,7 @@ Nesta seção, você criará um servidor PostgreSQL e adicionará um ponto de ex
     | ------- | ----- |
     |**REDE**| |
     | Rede virtual| Selecione *MyVirtualNetwork*. |
-    | Sub-rede | Selecione  *mySubnet*. |
+    | Sub-rede | Selecione *mySubnet*. |
     |**INTEGRAÇÃO DE DNS PRIVADO**||
     |Integrar com a zona DNS privado |Selecione **Sim** na barra superior. |
     |Zona DNS privado |Selecione *(novo) privatelink. Postgres. Database. Azure. com* |
@@ -209,7 +209,7 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
 
 ## <a name="access-the-postgresql-server-privately-from-the-vm"></a>Acessar o servidor PostgreSQL de forma privada da VM
 
-1. Na Área de Trabalho Remota de  *myVM*, abra o PowerShell.
+1. Na Área de Trabalho Remota do *myVM*, abra o PowerShell.
 
 2. Insira  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 
@@ -230,7 +230,7 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
     | ------- | ----- |
     | Tipo de servidor| Selecione **PostgreSQL**.|
     | Nome do servidor| Selecionar *mydemopostgresserver.privatelink.Postgres.Database.Azure.com* |
-    | Nome de usuário | Insira o nome de usuário como username@servername fornecido durante a criação do servidor PostgreSQL. |
+    | Nome do usuário | Insira o nome de usuário como username@servername fornecido durante a criação do servidor PostgreSQL. |
     |Senha |Insira uma senha fornecida durante a criação do servidor PostgreSQL. |
     |SSL|Selecione **obrigatório**.|
     ||
@@ -243,10 +243,10 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
 
 8. Feche a conexão de área de trabalho remota para myVm.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Quando você terminar de usar o ponto de extremidade privado, o servidor PostgreSQL e a VM, exclua o grupo de recursos e todos os recursos que ele contém:
 
-1. Insira *MyResource*   The na caixa de **pesquisa** na parte superior do portal e selecione *MyResource*   Bedos resultados da pesquisa.
+1. Insira *MyResource* The na caixa de **pesquisa** na parte superior do portal e selecione *MyResource*   Bedos resultados da pesquisa.
 2. Selecione **Excluir grupo de recursos**.
 3. Insira MyResource GROUP para **digite o nome do grupo de recursos** e selecione **excluir**.
 

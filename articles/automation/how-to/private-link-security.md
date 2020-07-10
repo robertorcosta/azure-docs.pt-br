@@ -4,24 +4,27 @@ description: Usar o link privado do Azure para conectar redes com segurança à 
 author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: fa473591355ef9e1ee582dd9c9b820dfa2f93f36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7ff659eb6fc204208c84146a2fc33c8278f7154
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85268581"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207279"
 ---
-# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Usar o link privado do Azure para conectar redes com segurança à automação do Azure
+# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Usar o link privado do Azure para conectar redes com segurança à automação do Azure (versão prévia)
 
 O ponto de extremidade privado do Azure é uma interface de rede que conecta você de forma privada e segura a um serviço com tecnologia do Link Privado do Azure. O ponto de extremidade privado usa um endereço IP privado de sua VNet, colocando efetivamente o serviço de automação em sua VNet. O tráfego de rede entre os computadores na VNet e a conta de automação atravessa a VNet e um link privado na rede de backbone da Microsoft, eliminando a exposição da Internet pública.
 
-Por exemplo, você tem uma VNet na qual desabilitou o acesso à Internet de saída. No entanto, você deseja acessar sua conta de automação de forma privada e usar recursos de automação como WebHooks, configuração de estado e trabalhos de runbook em Hybrid runbook Workers. Além disso, você deseja que os usuários tenham acesso à conta de automação somente por meio da VNET. Isso pode ser obtido com a implantação de pontos de extremidade privados.
+Por exemplo, você tem uma VNet na qual desabilitou o acesso à Internet de saída. No entanto, você deseja acessar sua conta de automação de forma privada e usar recursos de automação como WebHooks, configuração de estado e trabalhos de runbook em Hybrid runbook Workers. Além disso, você deseja que os usuários tenham acesso à conta de automação somente por meio da VNET.  A implantação de um ponto de extremidade privado atinge essas metas.
 
-Este artigo aborda quando usar e como configurar um ponto de extremidade privado com sua conta de automação.
+Este artigo aborda quando usar e como configurar um ponto de extremidade privado com sua conta de automação (versão prévia).
 
 ![Visão geral conceitual do link privado para a automação do Azure](./media/private-link-security/private-endpoints-automation.png)
+
+>[!NOTE]
+> O suporte ao link privado com a automação do Azure (versão prévia) está disponível somente nas nuvens do Azure comercial e do Azure no governo dos EUA.
 
 ## <a name="advantages"></a>Vantagens
 
@@ -46,25 +49,27 @@ O link privado da automação do Azure conecta um ou mais pontos de extremidade 
 
 Depois de criar pontos de extremidade privados para automação, cada uma das URLs de automação voltadas para o público, que você ou um computador pode contatar diretamente, é mapeada para um ponto de extremidade privado em sua VNet.
 
+Como parte da versão de visualização, uma conta de automação não pode acessar os recursos do Azure que são protegidos usando o ponto de extremidade privado. Por exemplo, Azure Key Vault, SQL do Azure, conta de armazenamento do Azure, etc.
+
 ### <a name="webhook-scenario"></a>Cenário de webhook
 
-Você pode iniciar runbooks fazendo uma POSTAgem na URL do webhook. Por exemplo, a URL tem esta aparência:`https://<automationAccountId>.webhooks. <region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
+Você pode iniciar runbooks fazendo uma POSTAgem na URL do webhook. Por exemplo, a URL é semelhante a:`https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
 
 ### <a name="state-configuration-agentsvc-scenario"></a>Cenário de configuração de estado (AgentSvc)
 
 A configuração de estado fornece o serviço de gerenciamento de configuração do Azure que permite que você grave, gerencie e compile configurações de DSC (configuração de estado desejado) do PowerShell para nós em qualquer datacenter local ou na nuvem.
 
-O agente no computador é registrado com o serviço DSC e, em seguida, usa o ponto de extremidade de serviço para efetuar pull da configuração de DSC. O ponto de extremidade do serviço de agente tem esta aparência: `https://<automationAccountId>.agentsvc.<region>.azure-automation.net` .
+O agente no computador é registrado com o serviço DSC e, em seguida, usa o ponto de extremidade de serviço para efetuar pull da configuração de DSC. O ponto de extremidade do serviço de agente é semelhante a: `https://<automationAccountId>.agentsvc.<region>.azure-automation.net` .
 
 A URL para o ponto de extremidade público & privado seria a mesma, no entanto, ela seria mapeada para um endereço IP privado quando o link privado estiver habilitado.
 
 ## <a name="planning-based-on-your-network"></a>Planejamento com base na sua rede
 
-Antes de configurar o recurso de conta de automação, considere os requisitos de isolamento de rede. Avalie o acesso de suas redes virtuais à Internet pública e as restrições de acesso à sua conta de automação (incluindo a configuração de um escopo de grupo de link privado para Azure Monitor logs, se integrados à sua conta de automação).
+Antes de configurar o recurso de conta de automação, considere os requisitos de isolamento de rede. Avalie o acesso de suas redes virtuais à Internet pública e as restrições de acesso à sua conta de automação (incluindo a configuração de um escopo de grupo de link privado para Azure Monitor logs, se integrados à sua conta de automação). Além disso, inclua uma revisão dos [registros DNS](./automation-region-dns-records.md) do serviço de automação como parte do seu plano para garantir que os recursos com suporte funcionem sem problemas.
 
 ### <a name="connect-to-a-private-endpoint"></a>Conectar-se a um ponto de extremidade privado
 
-Crie um ponto de extremidade privado para conectar nossa rede. Você pode executar essa tarefa no [centro de Link portal do Azure privado](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Depois que as alterações no publicNetworkAccess e no link privado forem aplicadas, pode levar até 35 minutos para que elas entrem em vigor.
+Crie um ponto de extremidade privado para conectar nossa rede. Você pode criá-lo no [centro de Link portal do Azure privado](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Depois que as alterações no publicNetworkAccess e no link privado forem aplicadas, pode levar até 35 minutos para que elas entrem em vigor.
 
 Nesta seção, você criará um ponto de extremidade privado para sua conta de automação.
 
@@ -72,9 +77,9 @@ Nesta seção, você criará um ponto de extremidade privado para sua conta de a
 
 2. Em **Central de Link Privado – Visão Geral**, na opção **Criar uma conexão privada com um serviço**, selecione **Iniciar**.
 
-3. Em **Criar uma máquina virtual – Noções básicas**, insira ou selecione estas informações:
+3. Em **criar uma máquina virtual-noções básicas**, insira ou selecione as seguintes informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
@@ -86,9 +91,9 @@ Nesta seção, você criará um ponto de extremidade privado para sua conta de a
 
 4. Selecione **Avançar: Recurso**.
 
-5. Em **Criar um ponto de extremidade privado – Recurso**, insira ou selecione estas informações:
+5. Em **criar um ponto de extremidade privado-recurso**, insira ou selecione as seguintes informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     |Método de conexão  | Selecione conectar-se a um recurso do Azure em meu diretório.|
     | Subscription| Selecione sua assinatura. |
@@ -99,7 +104,7 @@ Nesta seção, você criará um ponto de extremidade privado para sua conta de a
 
 6. Selecione **Avançar: configuração**.
 
-7. Em **Criar um ponto de extremidade privado – configuração**, insira ou selecione estas informações:
+7. Em **criar um ponto de extremidade privado-configuração**, insira ou selecione as seguintes informações:
 
     | Configuração | Valor |
     | ------- | ----- |
@@ -141,7 +146,7 @@ $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 
 ## <a name="dns-configuration"></a>Configuração de DNS
 
-Ao se conectar a um recurso de link privado usando um FQDN como parte da cadeia de conexão, é importante definir corretamente as configurações de DNS para resolver para o endereço IP privado alocado. Os serviços do Azure existentes já podem ter uma configuração de DNS para usar ao se conectar por meio de um ponto de extremidade público. Ela precisa ser substituída para se conectar usando o ponto de extremidade privado.
+Ao se conectar a um recurso do link privado usando um FQDN (nome de domínio totalmente qualificado) como parte da cadeia de conexão, é importante definir corretamente as configurações de DNS para resolver o endereço IP privado alocado. Os serviços do Azure existentes já podem ter uma configuração de DNS para usar ao se conectar por meio de um ponto de extremidade público. Sua configuração de DNS deve ser revisada e atualizada para se conectar usando seu ponto de extremidade privado.
 
 O adaptador de rede associado ao ponto de extremidade privado contém o conjunto completo de informações necessárias para configurar o DNS, incluindo endereços IP privados e FQDN alocados para um determinado recurso de link privado.
 

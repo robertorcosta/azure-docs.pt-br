@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: e918740c884f377048febfe2177e2fe956b1d552
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: de2a8e6377ababadc7d42f873a816a01a8f3b77e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085048"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207468"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introdução a uma área restrita do Apache Hadoop, um emulador em uma máquina virtual
 
@@ -57,7 +57,9 @@ Para baixar uma área restrita da versão mais antiga do HDP, consulte os links 
 
 2. Depois de conectado, digite o seguinte comando:
 
-        ambari-admin-password-reset
+    ```bash
+    ambari-admin-password-reset
+    ```
 
     Quando receber uma solicitação, forneça uma senha para a conta de administrador do Ambari. Isso é usado quando você acessa a interface do usuário da Web do Ambari.
 
@@ -65,13 +67,21 @@ Para baixar uma área restrita da versão mais antiga do HDP, consulte os links 
 
 1. De uma conexão SSH com a área restrita, use o seguinte comando para iniciar o shell do Hive:
 
-        hive
+    ```bash
+    hive
+    ```
+
 2. Quando o shell for iniciado, use o seguinte para exibir as tabelas que são fornecidas com a área restrita:
 
-        show tables;
+    ```hiveql
+    show tables;
+    ```
+
 3. Use o seguinte para recuperar 10 linhas da tabela `sample_07` :
 
-        select * from sample_07 limit 10;
+    ```hiveql
+    select * from sample_07 limit 10;
+    ```
 
 ## <a name="next-steps"></a>Próximas etapas
 

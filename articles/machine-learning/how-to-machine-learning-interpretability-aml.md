@@ -1,5 +1,5 @@
 ---
-title: Interpretar & explicar os modelos de ML no Python
+title: Interpretar & explicar os modelos de ML no Python (versão prévia)
 titleSuffix: Azure Machine Learning
 description: Saiba como obter explicações sobre como seu modelo de aprendizado de máquina determina a importância do recurso e faz previsões ao usar o SDK do Azure Machine Learning.
 services: machine-learning
@@ -9,15 +9,16 @@ ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/12/2020
+ms.date: 07/09/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 32b33eed6b4dba303993f4c16fbd2ad42b3902f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3830f65a3435c1db0291811c6306ea579bf1d896
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560199"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207137"
 ---
-# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Use o pacote de interpretação para explicar os modelos de ML & previsões no Python
+# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Usar o pacote de interpretação para explicar os modelos de ML & previsões no Python (versão prévia)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -334,7 +335,7 @@ Você pode carregar o gráfico de importância de recurso individual para qualqu
 > [!NOTE]
 > Antes de iniciar o kernel Jupyter, certifique-se de habilitar as extensões de widget para o painel de visualização.
 
-* Notebooks Jupyter
+* Jupyter notebooks
 
     ```shell
     jupyter nbextension install --py --sys-prefix azureml.contrib.interpret.visualize

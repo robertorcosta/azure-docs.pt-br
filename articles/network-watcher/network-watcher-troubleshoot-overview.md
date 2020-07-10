@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: acb7ff5c0862ceff8c73eaca92cc7000220eca41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 675038189fdc9c9626fee409a90e17341cf9b6cd
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738644"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207359"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à solução de problemas do recurso no Observador de Rede do Azure
 
@@ -47,7 +47,7 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 
 ### <a name="gateway"></a>Gateway
 
-| Tipo de Falha | Motivo | Log|
+| Tipo de Falha | Motivo | Registro|
 |---|---|---|
 | NoFault | Quando nenhum erro é detectado |Sim|
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado |Não|
@@ -62,7 +62,7 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 
 ### <a name="connection"></a>Conexão
 
-| Tipo de Falha | Motivo | Log|
+| Tipo de Falha | Motivo | Registro|
 |---|---|---|
 | NoFault | Quando nenhum erro é detectado |Sim|
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado |Não|
@@ -82,7 +82,7 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 
 A tabela a seguir lista quais gateways e conexões têm suporte com a solução de problemas do Observador de Rede:
 
-|  |  |
+| Gateway ou conexão | Com suporte  |
 |---------|---------|
 |**Tipos de gateway**   |         |
 |VPN      | Com suporte        |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 22ec4058d9485858489162af223bb6d6c381797e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fb136b6c37c8ef14f85455431fea80099088936
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887658"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206709"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Otimização de download de arquivos grandes com a CDN do Azure
 
@@ -107,8 +107,7 @@ A CDN armazena em cache todas as partes, conforme são recebidas. O arquivo inte
 ### <a name="caching"></a>Cache
 A otimização de arquivos grandes usa tempos de expiração de cache padrão diferentes da distribuição na Web geral. Ele faz distinção entre cache positivo e negativo cache com base em códigos de resposta HTTP. Se o servidor de origem especificar um tempo de expiração por meio de um controle de cache ou um cabeçalho de expirações na resposta, a CDN respeitará esse valor. Quando a origem não especifica e o arquivo corresponde às condições de tipo e tamanho para esse tipo de otimização, a CDN usa os valores padrão para a otimização de arquivo grande. Caso contrário, a CDN usará padrões para a distribuição na Web geral.
 
-
-|    | Web geral | Otimização de arquivos grandes 
+| Cache  | Web geral | Otimização de arquivos grandes 
 --- | --- | --- 
 Cache: Positivo <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 dias |1 dia  
 Cache: Negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhum | 1 segundo 

@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 345b4950e25f48eb1a48c5e583908d0f771771ba
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79244089"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206239"
 ---
 # <a name="access-and-customize-developer-portal"></a>Acessar e personalizar o portal do desenvolvedor
 
@@ -130,6 +131,7 @@ Depois de publicar o portal, você pode acessá-lo na mesma URL do painel admini
 Você precisa habilitar o CORS (compartilhamento de recursos entre origens) em suas APIs para permitir que os visitantes do seu portal testem as APIs por meio do console interativo interno. Consulte [Este artigo de documentação](api-management-howto-developer-portal.md#cors) para obter mais detalhes.
 
 ## <a name="next-steps"></a>Próximas etapas
+- [Otimize e economize em seus gastos com a nuvem](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 Saiba mais sobre o portal do desenvolvedor:
 

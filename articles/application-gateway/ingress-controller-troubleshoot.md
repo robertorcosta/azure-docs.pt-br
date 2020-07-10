@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: 29f8a7823207f5571acc345bc6234a318342b173
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207848"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207152"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Solucionar problemas ou perguntas comuns com controlador de entrada
 
@@ -26,7 +26,7 @@ ms.locfileid: "85207848"
 As etapas a seguir pressupõem que:
   - Você tem um cluster AKS, com a rede avançada habilitada
   - O AGIC foi instalado no cluster AKS
-  - Você já corre um gateway de aplicativo em uma VNET compartilhada com seu cluster AKS
+  - Você já tem um gateway de aplicativo em uma VNET compartilhada com o cluster AKS
 
 Para verificar se a instalação do gateway de aplicativo + AKS + AGIC está configurada corretamente, implante o aplicativo mais simples possível:
 
@@ -118,7 +118,7 @@ O gateway de aplicativo terá a seguinte configuração aplicada:
 Por fim, podemos usar o `cURL` comando de dentro de [Cloud Shell](https://shell.azure.com/) para estabelecer uma conexão HTTP com o aplicativo implantado recentemente:
 
 1. Use `kubectl get ingress` para obter o endereço IP público do gateway de aplicativo
-2. Use `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`.
+2. Usar `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
 
 ![Pods](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
@@ -228,7 +228,7 @@ O seguinte deve estar em vigor para que o AGIC funcione conforme o esperado:
   - em seu navegador usando a [interface do usuário da Web do amKubernetes (Dashboard)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
 
 
-## <a name="logging-levels"></a>Níveis de log
+## <a name="logging-levels"></a>Níveis de registro de log
 
 O AGIC tem 3 níveis de log. O nível 1 é o padrão e mostra o número mínimo de linhas de log.
 O nível 5, por outro lado, exibiria todos os logs, incluindo o conteúdo corrigido da configuração aplicada ao ARM.

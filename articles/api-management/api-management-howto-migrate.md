@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 3294a7b2112e9527041ef343f4452aedb7a2a272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39803ab88e5b252ef119d22a697e135c83f87780
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70073474"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205652"
 ---
 # <a name="how-to-migrate-azure-api-management-across-regions"></a>Como migrar o gerenciamento de API do Azure entre regiões
 Para migrar instâncias de gerenciamento de API de uma região do Azure para outra, você pode usar o recurso de [backup e restauração](api-management-howto-disaster-recovery-backup-restore.md) . Você deve escolher o mesmo tipo de preço de gerenciamento de API nas regiões de origem e de destino. 
@@ -47,3 +47,4 @@ Para migrar instâncias de gerenciamento de API de uma região do Azure para out
 ## <a name="next-steps"></a><a name="next-steps"> </a>Próximas etapas
 * Para obter mais informações sobre o recurso de backup e restauração, consulte [como implementar a recuperação de desastres](api-management-howto-disaster-recovery-backup-restore.md).
 * Para obter informações sobre a migração de recursos do Azure, consulte [diretrizes de migração entre regiões do Azure](https://github.com/Azure/Azure-Migration-Guidance).
+* [Otimize e economize em seus gastos com a nuvem](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

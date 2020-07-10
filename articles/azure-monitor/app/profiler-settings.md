@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 52391ffc8eb6b6879e5fd90df26d9ccacbfacebb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b6f98f3c7f540e00743ae27b532b24d2310453e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188919"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205721"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurar o Profiler do Application Insights
 
@@ -32,7 +32,7 @@ Isso abre uma página parecida com esta:
 
 A página **configurar Application insights Profiler** tem estes recursos:
 
-| | |
+| Recurso | Descrição |
 |-|-|
 Perfil agora | Inicia a criação de perfil de sessões para todos os aplicativos que estão vinculados a esta instância do Application Insights.
 Gatilhos | Permite configurar gatilhos que fazem com que o criador de perfil seja executado. 
@@ -48,22 +48,22 @@ Para que um usuário acione manualmente uma sessão de criador de perfil, ele pr
 
 Clicar no botão gatilhos na barra de menus abre a caixa configurações do gatilho. Você pode configurar o gatilho para iniciar a criação de perfil quando a porcentagem de utilização de CPU ou memória atingir o nível definido.
 
-| | |
+| Configuração | Descrição |
 |-|-|
 Botão ligar/desligar | Em: o profiler pode ser iniciado por este gatilho; Desativada: o criador de perfil não será iniciado por este gatilho.
 Limite de memória | Quando esse percentual de memória estiver em uso, o criador de perfil será iniciado.
-Duration | Define o período de tempo que o profiler executará quando for disparado.
+Duração | Define o período de tempo que o profiler executará quando for disparado.
 Resfriamento | Define o período de tempo que o profiler aguardará antes de verificar a memória ou o uso da CPU novamente depois que ele for disparado.
 
 ## <a name="recent-profiling-sessions"></a>Sessões de criação de perfil recentes
 Esta seção da página mostra informações sobre as sessões de criação de perfil recentes. Uma sessão de criação de perfil representa o período de tempo em que o agente do criador de perfil estava usando um perfil em um dos computadores que hospedam seu aplicativo. Você pode abrir os perfis de uma sessão clicando em uma das linhas. Para cada sessão, mostramos:
 
-| | |
+| Configuração | Descrição |
 |-|-|
 Disparado por | Como a sessão foi iniciada por um gatilho, perfil agora ou amostragem padrão. 
 Nome do Aplicativo | Nome do aplicativo cujo perfil foi criado.
 Instância do computador | Nome do computador no qual o agente do criador de perfil foi executado.
-Timestamp | Hora em que o perfil foi capturado.
+Carimbo de data/hora | Hora em que o perfil foi capturado.
 Rastrear | Número de rastreamentos que foram anexados a solicitações individuais.
 CPU (%) | Porcentagem da CPU que estava sendo usada enquanto o criador de perfil estava em execução.
 Memória | Porcentagem de memória que estava sendo usada enquanto o criador de perfil estava em execução.
