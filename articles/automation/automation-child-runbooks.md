@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: c15ed6e9409bee71a778986d8f38ae1ab126c180
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 95e156c17b723c679772293401c730cbdff2220b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828637"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169877"
 ---
 # <a name="create-modular-runbooks"></a>Criar runbooks modulares
 
@@ -19,12 +20,12 @@ Há duas maneiras de chamar um runbook filho, e há diferenças que você deve e
 
 |  | Embutido | Cmdlet |
 |:--- |:--- |:--- |
-| Trabalho |Os runbooks filhos são executados no mesmo trabalho que o pai. |Um trabalho separado é criado para o runbook filho. |
-| Execução |O runbook pai aguarda a conclusão do runbook filho antes de continuar. |O runbook pai continua imediatamente após o runbook filho ser iniciado *ou* o runbook pai aguarda a conclusão do trabalho filho. |
-| Saída |O runbook pai pode obter saída diretamente do runbook filho. |O runbook pai deve recuperar a saída do trabalho do runbook filho *ou* o runbook pai pode obter a saída diretamente do runbook filho. |
-| Parâmetros |Os valores para os parâmetros de runbook filho são especificados separadamente e podem usar qualquer tipo de dados. |Os valores para os parâmetros do runbook filho devem ser combinados em uma única tabela de hash. Essa tabela de hash pode apenas incluir tipos de dados simples, de matriz e de objeto que usam a serialização JSON. |
-| Conta de Automação |O runbook pai pode usar o runbook filho somente na mesma conta de Automação. |Os runbooks pai podem usar um runbook filho de qualquer conta de Automação da mesma assinatura do Azure e, até mesmo, de uma assinatura diferente com a qual você tenha uma conexão. |
-| Publicação |O runbook filho deve ser publicado antes da publicação do runbook pai. |O runbook filho deve ser publicado antes da inicialização do runbook pai. |
+| **Trabalho** |Os runbooks filhos são executados no mesmo trabalho que o pai. |Um trabalho separado é criado para o runbook filho. |
+| **Execução** |O runbook pai aguarda a conclusão do runbook filho antes de continuar. |O runbook pai continua imediatamente após o runbook filho ser iniciado *ou* o runbook pai aguarda a conclusão do trabalho filho. |
+| **Saída** |O runbook pai pode obter saída diretamente do runbook filho. |O runbook pai deve recuperar a saída do trabalho do runbook filho *ou* o runbook pai pode obter a saída diretamente do runbook filho. |
+| **Parâmetros** |Os valores para os parâmetros de runbook filho são especificados separadamente e podem usar qualquer tipo de dados. |Os valores para os parâmetros do runbook filho devem ser combinados em uma única tabela de hash. Essa tabela de hash pode apenas incluir tipos de dados simples, de matriz e de objeto que usam a serialização JSON. |
+| **Conta de Automação** |O runbook pai pode usar o runbook filho somente na mesma conta de Automação. |Os runbooks pai podem usar um runbook filho de qualquer conta de Automação da mesma assinatura do Azure e, até mesmo, de uma assinatura diferente com a qual você tenha uma conexão. |
+| **Publicação** |O runbook filho deve ser publicado antes da publicação do runbook pai. |O runbook filho deve ser publicado antes da inicialização do runbook pai. |
 
 ## <a name="invoke-a-child-runbook-using-inline-execution"></a>Invocar um runbook filho usando a execução integrada
 

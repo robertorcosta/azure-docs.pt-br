@@ -3,11 +3,12 @@ title: Referência de YAML – tarefas de ACR
 description: Referência para definir tarefas na YAML para tarefas do ACR, incluindo propriedades da tarefa, tipos de etapas, propriedades das etapas e variáveis internas.
 ms.topic: article
 ms.date: 10/23/2019
-ms.openlocfilehash: 9558f698b4a9dbca46431fc02ced6ae30de29121
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11771c32db3b3d7c975c0262bda228903a58978f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79246975"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171050"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referência das Tarefas do ACR: YAML
 
@@ -140,7 +141,7 @@ O tipo de etapa `build` suporta os parâmetros na tabela a seguir. O tipo de eta
 
 O tipo de etapa `build` dá suporte às propriedades a seguir. Encontre detalhes dessas propriedades na seção [Propriedades da etapa da tarefa](#task-step-properties) deste artigo.
 
-| | | |
+| Propriedades | Tipo | Obrigatório |
 | -------- | ---- | -------- |
 | `detach` | bool | Opcional |
 | `disableWorkingDirectoryOverride` | bool | Opcional |
@@ -154,8 +155,8 @@ O tipo de etapa `build` dá suporte às propriedades a seguir. Encontre detalhes
 | `network` | objeto | Opcional |
 | `ports` | [string, string, ...] | Opcional |
 | `pull` | bool | Opcional |
-| `repeat` | INT | Opcional |
-| `retries` | INT | Opcional |
+| `repeat` | int | Opcional |
+| `retries` | int | Opcional |
 | `retryDelay` | int (segundos) | Opcional |
 | `secret` | objeto | Opcional |
 | `startDelay` | int (segundos) | Opcional |
@@ -212,7 +213,7 @@ steps:
 
 O tipo de etapa `push` dá suporte às propriedades a seguir. Encontre detalhes dessas propriedades na seção [Propriedades da etapa da tarefa](#task-step-properties) deste artigo.
 
-| | | |
+| Propriedade | Tipo | Obrigatório |
 | -------- | ---- | -------- |
 | `env` | [string, string, ...] | Opcional |
 | `id` | string | Opcional |
@@ -257,7 +258,7 @@ steps:
 
 O tipo de etapa `cmd` dá suporte às propriedades a seguir:
 
-| | | |
+| Propriedade | Tipo | Obrigatório |
 | -------- | ---- | -------- |
 | `detach` | bool | Opcional |
 | `disableWorkingDirectoryOverride` | bool | Opcional |
@@ -271,8 +272,8 @@ O tipo de etapa `cmd` dá suporte às propriedades a seguir:
 | `network` | objeto | Opcional |
 | `ports` | [string, string, ...] | Opcional |
 | `pull` | bool | Opcional |
-| `repeat` | INT | Opcional |
-| `retries` | INT | Opcional |
+| `repeat` | int | Opcional |
+| `retries` | int | Opcional |
 | `retryDelay` | int (segundos) | Opcional |
 | `secret` | objeto | Opcional |
 | `startDelay` | int (segundos) | Opcional |
@@ -370,8 +371,8 @@ Cada tipo de etapa dá suporte a várias propriedades apropriadas para seu tipo.
 | `ports` | [string, string, ...] | Sim | Matriz de portas que são publicadas do contêiner para o host. |  Nenhum |
 | `pull` | bool | Sim | Se deve forçar um pull do contêiner antes de executá-lo para evitar qualquer comportamento de cache. | `false` |
 | `privileged` | bool | Sim | Se o contêiner deve ser executado no modo privilegiado. | `false` |
-| `repeat` | INT | Sim | O número de tentativas para repetir a execução de um contêiner. | 0 |
-| `retries` | INT | Sim | O número de tentativas para tentar se um contêiner falhar na sua execução. Uma nova tentativa só será tentada se o código de saída de um contêiner for diferente de zero. | 0 |
+| `repeat` | int | Sim | O número de tentativas para repetir a execução de um contêiner. | 0 |
+| `retries` | int | Sim | O número de tentativas para tentar se um contêiner falhar na sua execução. Uma nova tentativa só será tentada se o código de saída de um contêiner for diferente de zero. | 0 |
 | `retryDelay` | int (segundos) | Sim | O atraso em segundos entre as tentativas da execução de um contêiner. | 0 |
 | `secret` | objeto | Sim | Identifica um segredo Azure Key Vault ou [identidade gerenciada para recursos do Azure](container-registry-tasks-authentication-managed-identity.md). | Nenhum |
 | `startDelay` | int (segundos) | Sim | Número de segundos para atrasar a execução de um contêiner. | 0 |
@@ -537,7 +538,7 @@ steps:
 
 Cada um dos aliases a seguir aponta para uma imagem estável no registro de contêiner da Microsoft (MCR). Você pode fazer referência a cada um deles na `cmd` seção de um arquivo de tarefa sem usar uma diretiva.
 
-| Alias | Image |
+| Alias | Imagem |
 | ----- | ----- |
 | `acr` | `mcr.microsoft.com/acr/acr-cli:0.1` |
 | `az` | `mcr.microsoft.com/acr/azure-cli:a80af84` |

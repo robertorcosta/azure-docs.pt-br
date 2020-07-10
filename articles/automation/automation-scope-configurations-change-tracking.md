@@ -5,15 +5,16 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 49655d11858086b16099a1864fd4d2dc5988f02a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 353f29d9b4c6599226619d40e4378e21618bcad4
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117438"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185901"
 ---
 # <a name="limit-change-tracking-and-inventory-deployment-scope"></a>Limitar Controle de Alterações e escopo de implantação de estoque
 
-Este artigo descreve como trabalhar com configurações de escopo ao usar o [controle de alterações e](change-tracking.md) o recurso de inventário para implantar alterações em suas VMs. Para obter mais informações, consulte [direcionando soluções de monitoramento em Azure monitor (versão prévia)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting). 
+Este artigo descreve como trabalhar com configurações de escopo ao usar o [controle de alterações e](change-tracking.md) o recurso de inventário para implantar alterações em suas VMs. Para obter mais informações, consulte [direcionando soluções de monitoramento em Azure monitor (versão prévia)](../azure-monitor/insights/solution-targeting.md). 
 
 ## <a name="about-scope-configurations"></a>Sobre configurações de escopo
 

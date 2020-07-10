@@ -5,17 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3b4358651b811ba5c1e7644333a1e9f5a8da2990
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbfb50b40b4705cae55ba6e4f1ef950b586b5fb5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424067"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185867"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Visão geral do recurso Iniciar/Parar VMs fora do horário comercial
 
 O recurso Iniciar/Parar VMs fora do horário comercial inicia ou para as VMs do Azure habilitadas. Ele inicia ou interrompe computadores conforme agendamentos definidos pelo usuário, fornece informações por meio de logs de Azure Monitor e envia emails opcionais usando [grupos de ações](../azure-monitor/platform/action-groups.md). O recurso pode ser habilitado em VMs clássicas e do Azure Resource Manager na maioria dos cenários. 
 
-Esse recurso usa o cmdlet [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) para iniciar as VMs. Ele usa [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) para parar as VMs.
+Esse recurso usa o cmdlet [Start-AzVm](/powershell/module/az.compute/start-azvm) para iniciar as VMs. Ele usa [Stop-AzVM](/powershell/module/az.compute/stop-azvm) para parar as VMs.
 
 > [!NOTE]
 > Embora os runbooks tenham sido atualizados para usar os novos cmdlets do módulo AZ do Azure, eles usam o alias de prefixo AzureRM.
@@ -36,7 +37,7 @@ A seguir estão as limitações do recurso atual:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os runbooks para o recurso Iniciar/Parar VMs fora do horário comercial funcionam com uma [conta Executar como do Azure](automation-create-runas-account.md). A conta Executar como é o método de autenticação preferencial, pois ela usa a autenticação de certificado em vez de uma senha que poderá expirar ou ser alterada com frequência.
+Os runbooks para o recurso Iniciar/Parar VMs fora do horário comercial funcionam com uma [conta Executar como do Azure](./manage-runas-account.md). A conta Executar como é o método de autenticação preferencial, pois ela usa a autenticação de certificado em vez de uma senha que poderá expirar ou ser alterada com frequência.
 
 Recomendamos que você use uma conta de Automação separada para trabalhar com VMs habilitadas para o recurso Iniciar/Parar VMs fora do horário comercial. As versões de módulo do Azure são atualizadas com frequência, e seus parâmetros podem ser alterados. O recurso não é atualizado na mesma cadência e pode não funcionar com as versões mais recentes dos cmdlets que ele usa. É recomendável testar as atualizações do módulo em uma conta de Automação de teste antes de importá-las para suas contas de Automação de produção.
 
@@ -81,10 +82,10 @@ Você pode habilitar VMs para o recurso Iniciar/Parar VMs fora do horário comer
 
 | Permissão |Escopo|
 | --- | --- |
-| Microsoft.Authorization/Operations/read | Subscription|
-| Microsoft.Authorization/permissions/read |Subscription|
-| Microsoft.Authorization/roleAssignments/read | Subscription |
-| Microsoft.Authorization/roleAssignments/write | Subscription |
+| Microsoft.Authorization/Operations/read | Assinatura|
+| Microsoft.Authorization/permissions/read |Assinatura|
+| Microsoft.Authorization/roleAssignments/read | Assinatura |
+| Microsoft.Authorization/roleAssignments/write | Assinatura |
 | Microsoft.Authorization/roleAssignments/delete | Subscription || Microsoft.Automation/automationAccounts/connections/read | Grupo de recursos |
 | Microsoft.Automation/automationAccounts/certificates/read | Grupo de recursos |
 | Microsoft.Automation/automationAccounts/write | Grupo de recursos |
@@ -121,7 +122,7 @@ Todos os runbooks pai incluem o parâmetro `WhatIf`. Quando definido como True, 
 A tabela a seguir lista as variáveis criadas na sua conta da Automação. Modifique apenas as variáveis com prefixo `External`. Modificar variáveis prefixadas com `Internal` causará efeitos indesejáveis.
 
 > [!NOTE]
-> As limitações no nome da VM e no grupo de recursos são principalmente um resultado do tamanho da variável. Confira [Ativos variáveis na Automação do Azure](https://docs.microsoft.com/azure/automation/shared-resources/variables).
+> As limitações no nome da VM e no grupo de recursos são principalmente um resultado do tamanho da variável. Confira [Ativos variáveis na Automação do Azure](./shared-resources/variables.md).
 
 |Variável | Descrição|
 |---------|------------|
@@ -176,7 +177,7 @@ Se você tiver mais de 20 VMs por serviço de nuvem, confira algumas recomendaç
 
 Caso contrário, se o trabalho de Automação para esse recurso for executado por mais de três horas, ele será temporariamente descarregado ou interrompido de acordo com o limite de [compartilhamento justo](automation-runbook-execution.md#fair-share).
 
-As assinaturas do CSP do Azure dão suporte apenas ao modelo do Azure Resource Manager. Serviços que não pertencem ao Azure Resource Manager não estão disponíveis no programa. Quando o recurso de Iniciar/Parar VMs fora do horário comercial é executado, você pode receber erros, já que ele tem cmdlets para gerenciar recursos clássicos. Para saber mais sobre CSP, confira [Serviços disponíveis em assinaturas do CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services). Se você usar uma assinatura do CSP, defina a variável [External_EnableClassicVMs](#variables) como False após a implantação.
+As assinaturas do CSP do Azure dão suporte apenas ao modelo do Azure Resource Manager. Serviços que não pertencem ao Azure Resource Manager não estão disponíveis no programa. Quando o recurso de Iniciar/Parar VMs fora do horário comercial é executado, você pode receber erros, já que ele tem cmdlets para gerenciar recursos clássicos. Para saber mais sobre CSP, confira [Serviços disponíveis em assinaturas do CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services). Se você usar uma assinatura do CSP, defina a variável [External_EnableClassicVMs](#variables) como False após a implantação.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

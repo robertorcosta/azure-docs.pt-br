@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: aab0de11972f7d1abaaa0140da002f838e319fdf
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4fb593f303eea0f4866dc248412af2f261993e92
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134624"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170336"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave do Azure Monitor gerenciada pelo cliente 
 
@@ -23,7 +23,7 @@ Recomendamos revisar [Limitações e restrições](#limitationsandconstraints) a
 
 [Criptografia em Repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) é um requisito comum de privacidade e segurança em organizações. Você pode permitir que o Azure gerencie completamente a Criptografia em Repouso, enquanto você tem várias opções para gerenciar de forma rigorosa a criptografia ou as chaves de criptografia.
 
-O Azure Monitor garante que todos os dados sejam criptografados em repouso usando chaves gerenciadas pelo Azure. O Azure Monitor também fornece uma opção para a criptografia de dados usando sua própria chave armazenada em seu [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) e acessada pelo armazenamento usando a autenticação de [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) pelo sistema. Essa chave pode ser de [software ou de hardware protegido por HSM](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Azure Monitor garante que todos os dados e consultas salvas sejam criptografadas em repouso usando chaves gerenciadas pela Microsoft (MMK). O Azure Monitor também fornece uma opção de criptografia usando sua própria chave armazenada em seu [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) e acessada pelo armazenamento usando a autenticação de [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) atribuída pelo sistema. Essa chave (CMK) pode ser um [software ou hardware-HSM protegido](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 O Azure Monitor usa a criptografia de modo idêntico à [operação da criptografia de Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption) .
 

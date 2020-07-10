@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8328750849f5466c8754499694a41615776ff3da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 036cb15cf16b5f90dc17ccdce378a073a398d403
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201694"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181328"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Diretrizes de design para usar tabelas replicadas no pool de SQL do Synapse
 
@@ -149,9 +149,9 @@ Ao carregar dados em tabelas replicadas, tente minimizar as recompilações ao e
 
 Por exemplo, esse padrão de carga carrega dados de quatro fontes e invoca quatro recompilações.
 
-        Load from source 1.
+- Carregar da fonte de dados 1.
 - A instrução SELECT aciona a recompilação 1.
-        Carregar da fonte de dados 2.
+- Carregar da fonte de dados 2.
 - A instrução SELECT aciona a recompilação 2.
 - Carregar da fonte de dados 3.
 - A instrução SELECT aciona a recompilação 3.
