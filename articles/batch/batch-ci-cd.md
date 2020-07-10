@@ -5,11 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: d6b68a8448d8b644500b62e54ab763838d707c66
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3569e5cc25491fd408f7aec57a51d11f56dbd1fe
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956654"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145264"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usar Azure Pipelines para compilar e implantar soluções de HPC
 
@@ -188,7 +189,7 @@ O próximo modelo mostra um exemplo de criação de um pool do Lote do Azure (os
 
 Por fim, temos um modelo que age de forma semelhante a um orquestrador. Este modelo é responsável por implantar os modelos de funcionalidade.
 
-Você também pode saber mais sobre [como criar modelos vinculados do Azure Resource Manager](../azure-resource-manager/templates/template-tutorial-create-linked-templates.md) em um artigo separado.
+Você também pode saber mais sobre [como criar modelos vinculados do Azure Resource Manager](../azure-resource-manager/templates/deployment-tutorial-linked-template.md) em um artigo separado.
 
 ```json
 {

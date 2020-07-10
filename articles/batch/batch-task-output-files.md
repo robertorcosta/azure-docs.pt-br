@@ -4,12 +4,12 @@ description: Saiba como usar a API do serviço de Lote para persistir dados de s
 ms.topic: how-to
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c9d8eab5b4f4b89a613f5ffc3a7f9c9d9d53dcfc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 24e9f242b3c71965984534ac986031757bbc8420
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965120"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143513"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Manter os dados de tarefa para o Armazenamento do Azure com a API de serviço de lote
 
@@ -43,7 +43,7 @@ await container.CreateIfNotExists();
 
 ## <a name="get-a-shared-access-signature-for-the-container"></a>Obtenha uma assinatura de acesso compartilhado para o contêiner
 
-Depois de criar o contêiner, obtenha uma assinatura de acesso compartilhado (SAS) com acesso de gravação ao contêiner. Uma SAS fornece acesso delegado para o contêiner. A SAS concede acesso com um conjunto especificado de permissões e em um intervalo de tempo especificado. O serviço de lote precisa de uma SAS com permissões de gravação para gravar a saída da tarefa no contêiner. Para saber mais sobre SAS, confira [Uso de assinaturas de acesso compartilhado \(SAS\) no Armazenamento do Azure](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Depois de criar o contêiner, obtenha uma assinatura de acesso compartilhado (SAS) com acesso de gravação ao contêiner. Uma SAS fornece acesso delegado para o contêiner. A SAS concede acesso com um conjunto especificado de permissões e em um intervalo de tempo especificado. O serviço de lote precisa de uma SAS com permissões de gravação para gravar a saída da tarefa no contêiner. Para saber mais sobre SAS, confira [Uso de assinaturas de acesso compartilhado \(SAS\) no Armazenamento do Azure](../storage/common/storage-sas-overview.md).
 
 Quando você receber uma SAS usando as APIs de Armazenamento do Azure, a API retorna uma cadeia de caracteres de token SAS. Essa cadeia de caracteres de token inclui todos os parâmetros de SAS, incluindo as permissões e o intervalo no qual a SAS é válida. Para usar a SAS para acessar um contêiner no Armazenamento do Azure, você precisa anexar a cadeia de caracteres de token SAS para o URI do recurso. O URI de recurso, junto com o token SAS anexado, fornece acesso autenticado ao Armazenamento do Azure.
 

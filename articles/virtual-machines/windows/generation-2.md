@@ -8,11 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 9c16cd4143bc07bf5f3b1d00b890dc54bd5ea318
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: fef582048d1e1093a4a4d69229185e8a3d8dc229
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659886"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144855"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para VMs de geração 2 no Azure
 
@@ -191,6 +192,9 @@ Você também pode criar VMs de geração 2 usando conjuntos de dimensionamento 
 * **As VMs de geração 2 oferecem suporte à rede acelerada?**  
     Sim. Para obter mais informações, consulte [Criar uma VM com rede acelerada](../../virtual-network/create-vm-accelerated-networking-cli.md).
 
+* **As VMs de geração 2 dão suporte à inicialização segura ou vTPM no Azure?**
+    As VMs de geração 1 e de geração 2 no Azure não oferecem suporte à inicialização segura ou vTPM. 
+    
 * **Há suporte para VHDX na geração 2?**  
     Não, as VMs de geração 2 dão suporte apenas a VHD.
 

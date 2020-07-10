@@ -4,12 +4,12 @@ description: Como criar um pool de lotes em uma rede virtual do Azure para que o
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: 22344b5466b0388921a481b1adf41495d66dbfe0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: cb5cda16cd9405f0cbe91a3f88be7dc3f582d21b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115404"
+ms.locfileid: "86142758"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar um pool do Lote do Azure em uma rede virtual
 
@@ -27,7 +27,7 @@ Para permitir que os nós de computação se comuniquem com segurança com outra
 
 - **Uma rede virtual do Azure**. Consulte a seção a seguir para requisitos de rede virtual e a configuração. Para preparar uma rede virtual com uma ou mais sub-redes com antecedência, você pode usar o portal do Azure, o Azure PowerShell, a interface de linha de comando (CLI) do Azure ou outros métodos.
   - Para criar uma VNET baseada no Azure Resource Manager, consulte [Criar uma rede virtual](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Uma VNet baseada no Resource Manager é recomendada para novas implantações e tem suporte apenas em pools que usam a configuração de máquina virtual.
-  - Para criar uma rede virtual clássica, consulte [Criar uma rede virtual (clássica) com várias sub-redes](../virtual-network/create-virtual-network-classic.md). Há suporte para uma VNet clássica apenas em pools que usam a configuração de serviços de nuvem.
+  - Para criar uma rede virtual clássica, consulte [Criar uma rede virtual (clássica) com várias sub-redes](/previous-versions/azure/virtual-network/create-virtual-network-classic). Há suporte para uma VNet clássica apenas em pools que usam a configuração de serviços de nuvem.
 
 ## <a name="vnet-requirements"></a>Requisitos de rede virtual
 

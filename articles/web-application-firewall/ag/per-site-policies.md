@@ -8,11 +8,12 @@ ms.service: web-application-firewall
 ms.date: 01/24/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 1301db56cab36ae623bb94cfac97b8e4bdb934e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e40370421214ebe026090007122a641a216c256
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81682492"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143937"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Configurar políticas do WAF por site usando o Azure PowerShell
 
@@ -28,7 +29,7 @@ Neste artigo, você aprenderá como:
 > * Configurar a rede
 > * Criar uma política de WAF
 > * Criar um gateway de aplicativo com o WAF habilitado
-> * Aplicar a política do WAF globalmente, por site e por URI
+> * Aplicar a política WAF globalmente, por site e por URI (visualização)
 > * Criar um conjunto de dimensionamento de máquinas virtuais
 > * Criar uma conta de armazenamento e configurar diagnósticos
 > * Testar o gateway de aplicativo
@@ -249,7 +250,7 @@ $appgw = New-AzApplicationGateway `
   -FirewallPolicy $wafPolicyGlobal
 ```
 
-### <a name="apply-a-per-uri-policy"></a>Aplicar uma política por URI
+### <a name="apply-a-per-uri-policy-preview"></a>Aplicar uma política por URI (versão prévia)
 
 Para aplicar uma política por URI, basta criar uma política e aplicá-la à configuração de regra de caminho. 
 

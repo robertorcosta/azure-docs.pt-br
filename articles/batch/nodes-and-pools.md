@@ -3,12 +3,12 @@ title: Nós e pools no Lote do Azure
 description: Saiba mais sobre nós e pools de computação e como eles são usados em um fluxo de trabalho do Lote do Azure do ponto de vista de desenvolvimento.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: f71be75c0358dbc7f76a61680df2c54f44bc4173
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 5707d834a7d99e147a81ee2b39952863a63ed695
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964035"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144930"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nós e pools no Lote do Azure
 
@@ -111,7 +111,7 @@ Para informações sobre preços de ambos os nós de baixa prioridade e dedicado
 
 ## <a name="node-size"></a>Tamanho do nó
 
-Ao criar um pool de Lote do Azure, você pode escolher dentre quase todas as famílias de VMs e os tamanhos disponíveis no Azure. O Azure oferece vários tamanhos de VM para diferentes cargas de trabalho, incluindo tamanhos de VM especializados para [HPC](../virtual-machines/linux/sizes-hpc.md) ou [habilitados para GPU](../virtual-machines/linux/sizes-gpu.md). 
+Ao criar um pool de Lote do Azure, você pode escolher dentre quase todas as famílias de VMs e os tamanhos disponíveis no Azure. O Azure oferece vários tamanhos de VM para diferentes cargas de trabalho, incluindo tamanhos de VM especializados para [HPC](../virtual-machines/sizes-hpc.md) ou [habilitados para GPU](../virtual-machines/sizes-gpu.md). 
 
 Para obter mais informações, confira [Escolha um tamanho de VM para nós de computação em um pool do Lote do Azure](batch-pool-vm-sizes.md).
 

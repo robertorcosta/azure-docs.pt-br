@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 07/08/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: e2540bceab17e6f37fd94b28df3814ccffa1c81e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 509568b143c9fbbf236139ca83cb55b0ef39beb0
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466896"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145944"
 ---
 A tabela a seguir descreve os limites padrão das contas de armazenamento de uso geral v1 e v2, de Armazenamento de Blobs e de Armazenamento de Blobs de Blocos do Azure. O limite de *entrada* refere-se a todos os dados enviados a uma conta de armazenamento. O limite de *saída* refere-se a todos os dados recebidos de uma conta de armazenamento.
 
@@ -33,11 +33,7 @@ A tabela a seguir descreve os limites padrão das contas de armazenamento de uso
 
 <sup>1</sup> As contas padrão do Armazenamento do Azure dão suporte a limites mais altos de capacidade e de entrada por solicitação. Para solicitar um aumento nos limites de conta, contate o [Suporte do Azure](https://azure.microsoft.com/support/faq/).
 
-<sup>2</sup> Se sua conta de armazenamento tiver acesso de leitura habilitado com RA-GRS (armazenamento com redundância geográfica) ou RA-GZRS (armazenamento com redundância de zona geográfica), os destinos de saída do local secundário serão idênticos aos do local principal. As opções de [replicação do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) incluem:
-
-[!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
-
-<sup>3</sup> O [Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) é um conjunto de funcionalidades dedicadas à análise de Big Data, criado sobre o Armazenamento de Blobs do Azure.
+<sup>2</sup> Se sua conta de armazenamento tiver acesso de leitura habilitado com RA-GRS (armazenamento com redundância geográfica) ou RA-GZRS (armazenamento com redundância de zona geográfica), os destinos de saída do local secundário serão idênticos aos do local principal. Para obter mais informações, consulte [Replicação do Armazenamento do Azure](../articles/storage/common/storage-redundancy.md).
 
 > [!NOTE]
 > A Microsoft recomenda o uso de contas de armazenamento de uso geral v2 na maioria dos cenários. É possível atualizar facilmente uma conta do Armazenamento de Blobs do Azure ou de uso geral v1 para uma conta de uso geral v2 sem tempo de inatividade e sem precisar copiar dados. Para obter mais informações, confira [Atualizar para uma conta de armazenamento de uso geral v2](../articles/storage/common/storage-account-upgrade.md).
