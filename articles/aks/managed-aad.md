@@ -3,16 +3,16 @@ title: Use o Azure Active Directory no Serviço de Kubernetes do Azure
 description: Saiba como usar o Azure Active Directory no Serviço de Kubernetes do Azure (AKS)
 services: container-service
 manager: gwallace
-author: mlearned
+author: TomGeske
 ms.topic: article
-ms.date: 06/25/2020
-ms.author: mlearned
-ms.openlocfilehash: f22b79cb8a730fb9c28dd1a208ab672473218b79
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/08/2020
+ms.author: thomasge
+ms.openlocfilehash: 9cacd2454dc987f7d507bb4b677e742f0be0d391
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105941"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166494"
 ---
 # <a name="aks-managed-azure-active-directory-integration-preview"></a>Integração de Azure Active Directory gerenciados pelo AKS (versão prévia)
 
@@ -26,10 +26,6 @@ A integração do Azure AD gerenciada pelo AKS foi projetada para simplificar a 
 Os administradores de cluster podem configurar o RBAC (controle de acesso baseado em função) kubernetes com base na identidade de um usuário ou no grupo de diretórios. A autenticação do Azure AD é fornecida aos clusters do AKS com OpenID Connect. O OpenID Connect é uma camada de identidade compilada sobre o protocolo OAuth 2.0. Para obter mais informações sobre o OpenID Connect, consulte a [documentação do Open ID Connect][open-id-connect].
 
 Saiba mais sobre o fluxo de integração do AAD na [documentação de conceitos de integração do Azure Active Directory](concepts-identity.md#azure-active-directory-integration).
-
-## <a name="limitations"></a>Limitações
-
-* Atualmente, não é possível atualizar um cluster integrado do Azure AD AKS existente para a nova experiência do Azure AD gerenciada pelo AKS.
 
 > [!IMPORTANT]
 > As versões prévias do recurso AKS estão disponíveis em uma base de autoatendimento e aceitação. As versões prévias são fornecidas "no estado em que se encontram" e "conforme disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As versões prévias do AKS são parcialmente cobertas pelo suporte ao cliente em uma base de melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter mais informações, consulte os seguintes artigos:

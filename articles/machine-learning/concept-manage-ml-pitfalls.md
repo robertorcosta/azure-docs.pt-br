@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: e9e809eb805e891fdf70a85d42eebc3e17da8902
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 171b355f40939efb31e96a4bf8b2d77e97d19f25
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210177"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147096"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Evitar dados de sobreajuste e desequilibrados com o machine learning automatizado
 
@@ -71,7 +71,7 @@ O machine learning automatizado também implementa **limitações de complexidad
 A **CV (validação cruzada)** é o processo de pegar muitos subconjuntos de seus dados de treinamento completos e treinar um modelo em cada subconjunto. A ideia é que um modelo poderia ter "sorte" e ter grande precisão com um subconjunto, mas usando muitos subconjuntos o modelo não atingirá essa alta precisão sempre. Ao fazer a CV, você fornece um conjunto de um conjunto de dados de controle de validação, especifica as dobras de CV (número de subconjuntos), e o machine learning automatizado treinará seu modelo e ajustará os hiperparâmetros para minimizar o erro em seu conjunto de validação. Uma dobra de CV pode ser sobreajustada, mas usar muitas delas reduz a probabilidade de que o modelo final seja sobreadequado. A desvantagem é que a CV resulta em tempos de treinamento maiores. Portanto, um custo maior, porque em vez de treinar um modelo uma vez, você o treina uma vez para cada *n* subconjuntos de CV. 
 
 > [!NOTE]
-> A validação cruzada não está habilitada por padrão; ela deve ser configurada nas configurações de machine learning automatizado. No entanto, depois que a validação cruzada estiver configurada, e um conjunto de dados de validação tiver sido fornecido, o processo será automatizado para você. Consulte 
+> A validação cruzada não está habilitada por padrão; ela deve ser configurada nas configurações de machine learning automatizado. No entanto, depois que a validação cruzada estiver configurada, e um conjunto de dados de validação tiver sido fornecido, o processo será automatizado para você. Saiba mais sobre a [configuração de validação cruzada no ml automático](how-to-configure-cross-validation-data-splits.md)
 
 <a name="imbalance"></a>
 
@@ -93,7 +93,7 @@ Como parte de seu objetivo de simplificar o fluxo de trabalho do Machine Learnin
 
 - Uma **coluna de peso**: o ml automatizado dá suporte a uma coluna de pesos como entrada, fazendo com que as linhas nos dados sejam ponderadas ou reduzidas, o que pode ser usado para tornar uma classe mais ou menos "importante".
 
-- Os algoritmos usados pelo machine learning automatizado podem lidar corretamente com o desequilíbrio de até 20:1, o que significa que a classe mais comum pode ter 20 vezes mais linhas nos dados do que a classe menos comum.
+- Os algoritmos usados pelo desequilíbrio de detecção de ML automatizado quando o número de amostras na classe minoritária são iguais ou menores que 20% do número de amostras na classe principal, em que a classe minoritária refere-se a um com menos amostras e classe de maioria refere-se a uma com a maioria dos exemplos. Posteriormente, o AutoML executará um experimento com dados de subamostrados para verificar se o uso de pesos de classe corrigiria esse problema e melhorará o desempenho. Se ele garantir um desempenho melhor por meio desse experimento, essa solução será aplicada.
 
 - Use uma métrica de desempenho que lide melhor com dados desequilibrados. Por exemplo, a AUC_weighted é uma métrica primária que calcula a contribuição de cada classe com base no número relativo de amostras que representam essa classe, portanto, é mais robusta em relação ao desequilíbrio.
 

@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 253d2c80f5a6ff96ba9249eddd127abb74f79a33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c87812e665617f3ccfe48db3a0cca2ceac67f0bc
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515819"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147441"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e usar destinos de computação para treinamento de modelo 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -389,7 +389,7 @@ Para obter mais informações, veja [Gerenciamento de recursos](reference-azure-
 
 ## <a name="set-up-with-vs-code"></a>Configurar com o VS Code
 
-Você pode acessar, criar e gerenciar os destinos de computação associados ao seu workspace usando a [extensão do VS Code](tutorial-train-deploy-image-classification-model-vscode.md#configure-compute-targets) do Azure Machine Learning.
+Você pode acessar, criar e gerenciar os destinos de computação associados ao seu workspace usando a [extensão do VS Code](how-to-manage-resources-vscode.md#compute-clusters) do Azure Machine Learning.
 
 ## <a name="submit-training-run-using-azure-machine-learning-sdk"></a><a id="submit"></a>Enviar a execução de treinamento usando o SDK do Azure Machine Learning
 

@@ -2,12 +2,13 @@
 title: Tutorial – implantar grupo com vários contêineres – YAML
 description: Neste tutorial, saiba como implantar um grupo de contêiner com vários contêineres nas Instâncias de Contêiner do Azure usando um arquivo YAML com a CLI do Azure.
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: c029a9c605548b828c96fa741e12a43930ec4b01
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 07/01/2020
+ms.openlocfilehash: f101d19814687082ab02955a3a860486d3988211
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653509"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169673"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Tutorial: Implantar um grupo com vários contêineres usando um arquivo YAML
 
@@ -45,7 +46,7 @@ code deploy-aci.yaml
 Esse arquivo YAML define um grupo de contêineres nomeado "myContainerGroup" com dois contêineres, um endereço IP público e duas portas expostas. Os contêineres são implantados de imagens públicas da Microsoft. O primeiro contêiner no grupo executa um aplicativo Web voltado para a Internet. O segundo contêiner, o secundário, faz periodicamente solicitações HTTP para o aplicativo Web em execução no primeiro contêiner por meio da rede local do grupo de contêiner.
 
 ```YAML
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: myContainerGroup
 properties:
@@ -132,9 +133,9 @@ Saída:
 
 ```console
 listening on port 80
-::1 - - [21/Mar/2019:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [21/Mar/2019:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
 Para ver os logs do contêiner secundário, execute um comando similar, especificando o contêiner `aci-tutorial-sidecar`.
@@ -146,7 +147,7 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 Saída:
 
 ```console
-Every 3s: curl -I http://localhost                          2019-03-21 20:36:41
+Every 3s: curl -I http://localhost                          2020-07-02 20:36:41
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -159,7 +160,7 @@ Last-Modified: Wed, 29 Nov 2017 06:40:40 GMT
 ETag: W/"67f-16006818640"
 Content-Type: text/html; charset=UTF-8
 Content-Length: 1663
-Date: Thu, 21 Mar 2019 20:36:41 GMT
+Date: Thu, 02 Jul 2020 20:36:41 GMT
 Connection: keep-alive
 ```
 

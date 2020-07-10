@@ -4,12 +4,12 @@ description: Saiba como usar a biblioteca de Convenções de Arquivo em Lote do 
 ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba1b35bd8f2a4cc58558607581d10b598d23058c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2e06bc90c95f9951895e0434ec8a8a7defaa6156
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965188"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147175"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Persistir dados de tarefa e trabalho no Armazenamento do Microsoft Azure com a biblioteca de Convenções de Arquivo em Lotes para .NET
 
@@ -55,7 +55,7 @@ Para manter os dados de saída no Armazenamento do Azure usando a biblioteca Con
 
 Para manter os dados de saída de trabalho e tarefa com a biblioteca Convenções de Arquivo, crie um contêiner no Armazenamento do Azure e salve a saída no contêiner. Use a [biblioteca de cliente do Armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage) em seu código de tarefa para carregar a saída da tarefa para o contêiner.
 
-Para obter mais informações sobre como trabalhar com contêineres e blobs no Armazenamento do Azure, consulte [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+Para obter mais informações sobre como trabalhar com contêineres e blobs no Armazenamento do Azure, consulte [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 > [!WARNING]
 > Todas as saídas de trabalho e tarefa mantidas com a biblioteca Convenções de Arquivo são armazenadas no mesmo contêiner. Se um grande número de tarefas tentar manter arquivos ao mesmo tempo, poderão ser impostos limites de limitação de Armazenamento do Azure. Para obter mais informações sobre limitação da largura de banda, confira a [Lista de verificação de desempenho e escalabilidade para Armazenamento de Blobs](../storage/blobs/storage-performance-checklist.md).

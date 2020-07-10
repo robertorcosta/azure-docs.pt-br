@@ -4,12 +4,12 @@ description: Os pools de imagens personalizadas são uma maneira eficiente de co
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 962b3c84e7f3cecc5f4d64febbfca635733a0bae
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 38233bc5d279c1c0ae7789dd06acff78ea26fb89
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851716"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147289"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Usar a Galeria de imagens compartilhadas para criar um pool de imagens personalizado
 
@@ -83,7 +83,7 @@ Para criar uma imagem gerenciada de um instantâneo, use ferramentas de linha de
 
 ### <a name="create-a-shared-image-gallery"></a>Criar uma Galeria de Imagens Compartilhadas
 
-Após criar a imagem gerenciada com êxito, você precisará criar uma Galeria de Imagens Compartilhadas para disponibilizar sua imagem personalizada. Para saber como criar uma Galeria de Imagens Compartilhadas para suas imagens, confira [Criar uma Galeria de Imagens Compartilhadas com a CLI do Azure](../virtual-machines/linux/shared-images.md) ou [Criar uma Galeria de Imagens Compartilhadas usando o portal do Azure](../virtual-machines/linux/shared-images-portal.md).
+Após criar a imagem gerenciada com êxito, você precisará criar uma Galeria de Imagens Compartilhadas para disponibilizar sua imagem personalizada. Para saber como criar uma Galeria de Imagens Compartilhadas para suas imagens, confira [Criar uma Galeria de Imagens Compartilhadas com a CLI do Azure](../virtual-machines/shared-images-cli.md) ou [Criar uma Galeria de Imagens Compartilhadas usando o portal do Azure](../virtual-machines/linux/shared-images-portal.md).
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Criar um pool de uma imagem compartilhada usando a CLI do Azure
 

@@ -3,12 +3,12 @@ title: Perguntas frequentes – Fazer backup dos bancos de dados do SAP HANA em 
 description: Neste artigo, descubra respostas a perguntas comuns sobre como fazer backup dos bancos de dados SAP HANA usando o serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: ddc4af9a164de3a822e8aebd6c0a4db769ec62a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 512075a24cf9400415f2367ead16b57f8b31c038
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262575"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170319"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Perguntas frequentes – Fazer backup de bancos de dados SAP HANA em VMs do Azure
 
@@ -59,15 +59,19 @@ No momento, não temos a capacidade de configurar a solução apenas em um IP vi
 
 ### <a name="how-can-i-move-an-on-demand-backup-to-the-local-file-system-instead-of-the-azure-vault"></a>Como posso migrar um backup sob demanda para o sistema de arquivos local em vez do cofre do Azure?
 
-1. Aguarde até que o backup em execução no momento seja concluído no banco de dados desejado (verifique o estúdio para conclusão)
+1. Aguarde até que o backup em execução no momento seja concluído no banco de dados desejado (verifique o estúdio para conclusão).
 1. Desabilite os backups de log e defina o backup do catálogo como **Filesystem** para o BD desejado usando as seguintes etapas:
 1. Clique duas vezes em **SYSTEMDB** -> **configuração** -> **Selecionar Banco de Dados** -> **Filtrar (log)**
     1. Defina enable_auto_log_backup como **não**
-    1. Defina log_backup_using_backint como **falso**
-1. Faça um backup sob demanda no banco de dados desejado e aguarde a conclusão do backup e do backup do catálogo.
+    1. Definir catalog_backup_using_backint como **false**
+1. Faça um backup sob demanda (completo/diferencial/incremental) no banco de dados desejado e aguarde a conclusão do backup e do catálogo.
+1. Se você também quiser mover os backups de log para o sistema de arquivos, defina enable_auto_log_backup como **Sim**
 1. Reverta para as configurações anteriores para permitir que os backups fluam para o cofre do Azure:
     1. Defina enable_auto_log_backup como **sim**
-    1. Defina log_backup_using_backint como **verdadeiro**
+    1. Definir catalog_backup_using_backint como **true**
+
+>[!NOTE]
+>Mover os backups para o sistema de arquivos local e alternar novamente para o cofre do Azure pode causar uma interrupção da cadeia de logs dos backups de log no cofre. Isso irá disparar um backup completo, que, depois de concluído com êxito, iniciará o backup dos logs.
 
 ### <a name="how-can-i-use-sap-hana-backup-with-my-hana-replication-set-up"></a>Como posso usar SAP HANA backup com minha configuração de replicação do HANA?
 

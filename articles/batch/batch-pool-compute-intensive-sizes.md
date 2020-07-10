@@ -3,12 +3,12 @@ title: Usar VMs do Azure de computação intensiva com o Lote
 description: Como aproveitar os tamanhos de máquina virtual de GPU e HPC nos pools do Lote do Azure. Saiba mais sobre as dependências do sistema operacional e veja vários exemplos de cenário.
 ms.topic: how-to
 ms.date: 12/17/2018
-ms.openlocfilehash: acc56679d8be157541b0d7c056e57659584645be
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 016da7669c9e6a6586a53d379f9665c9ea048b64
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962502"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147336"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Usar instâncias de GPU ou RDMA em pools do Lote
 
@@ -20,9 +20,9 @@ Para executar determinados trabalhos do Lote, é possível aproveitar os tamanho
 
 Este artigo fornece diretrizes e exemplos para usar alguns dos tamanhos especializados do Azure nos pools do Lote. Para obter especificações e contexto, consulte:
 
-* Tamanhos de VM de computação de alto desempenho ([Linux](../virtual-machines/linux/sizes-hpc.md), [Windows](../virtual-machines/windows/sizes-hpc.md)) 
+* Tamanhos de VM de computação de alto desempenho ([Linux](../virtual-machines/sizes-hpc.md), [Windows](../virtual-machines/sizes-hpc.md)) 
 
-* Tamanhos de VM habilitados para GPU ([Linux](../virtual-machines/linux/sizes-gpu.md), [Windows](../virtual-machines/windows/sizes-gpu.md)) 
+* Tamanhos de VM habilitados para GPU ([Linux](../virtual-machines/sizes-gpu.md), [Windows](../virtual-machines/sizes-gpu.md)) 
 
 > [!NOTE]
 > Determinados tamanhos de VM podem não estar disponíveis nas regiões em que você cria as contas do Lote. Para verificar se um tamanho está disponível, consulte [Produtos disponíveis por região](https://azure.microsoft.com/regions/services/) e [Escolher um tamanho de VM para um pool do Lote](batch-pool-vm-sizes.md).
@@ -35,7 +35,7 @@ Os recursos de GPU ou RDMA de tamanhos de computação intensiva no Lote têm su
 
 | Tamanho | Recurso | Sistemas operacionais | Software necessário | Configurações do pool |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS, ou<br/>HPC baseado em CentOS<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Drivers de RDMA do Linux | Habilitar a comunicação entre nós, desabilitar a execução de tarefas simultâneas |
+| [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS, ou<br/>HPC baseado em CentOS<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Drivers de RDMA do Linux | Habilitar a comunicação entre nós, desabilitar a execução de tarefas simultâneas |
 | [Séries NC, NCv2, NCv3, NDv2](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varia de acordo com a série) | Ubuntu 16.04 LTS, ou<br/>CentOS 7.3 ou 7.4<br/>(Azure Marketplace) | Drivers CUDA Toolkit ou NVIDIA CUDA | N/D | 
 | [Séries NV, NVv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS, ou<br/>CentOS 7.3<br/>(Azure Marketplace) | Drivers NVIDIA GRID | N/D |
 

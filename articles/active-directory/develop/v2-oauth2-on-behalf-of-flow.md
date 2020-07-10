@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 07/8/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9e653469eb5bffbf81a0e09982edcbd1e937ba61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a0d4d205e82f377d6ea02c91fbd6db7820c3868
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553540"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165865"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e o fluxo On-Behalf-Of de OAuth 2.0
 
@@ -47,7 +47,7 @@ As etapas abaixo constituem o fluxo OBO e são explicadas com a ajuda do diagram
 > [!NOTE]
 > Nesse cenário, o serviço de camada intermediária não tem nenhuma interação do usuário para obter o consentimento do usuário para acessar a API downstream. Portanto, a opção de conceder acesso à API downstream é apresentada antecipadamente como parte da etapa de consentimento durante a autenticação. Para saber como realizar essa configuração em seu aplicativo, confira o artigo sobre como [obter consentimento para o aplicativo de camada intermediária](#gaining-consent-for-the-middle-tier-application).
 
-## <a name="service-to-service-access-token-request"></a>Solicitação de token de acesso de serviço para serviço
+## <a name="middle-tier-access-token-request"></a>Solicitação de token de acesso de camada intermediária
 
 Para solicitar um token de acesso, use um HTTP POST para o ponto de extremidade do token da plataforma de identidade da Microsoft específico ao locatário com os parâmetros a seguir.
 
@@ -66,7 +66,7 @@ Ao usar um segredo compartilhado, uma solicitação de token de acesso de servi�
 | `grant_type` | Necessária | O tipo da solicitação do token. Para uma solicitação usando um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | `client_id` | Obrigatório | A ID do aplicativo (cliente) que a página [Portal do Azure - Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu ao seu aplicativo. |
 | `client_secret` | Obrigatório | O segredo do cliente que você gerou para seu aplicativo no portal do Azure, página Registros de aplicativo. |
-| `assertion` | Obrigatório | O valor do token usado na solicitação.  Esse token precisa que um público-alvo do aplicativo faça essa solicitação OBO (o aplicativo indicado pelo campo `client-id`). |
+| `assertion` | Obrigatório | O token de acesso que foi enviado para a API de camada intermediária.  Esse token deve ter uma `aud` declaração de Audience () do aplicativo que faz essa solicitação obo (o aplicativo indicado pelo `client-id` campo). Os aplicativos não podem resgatar um token para um aplicativo diferente (por exemplo, se um cliente enviar uma API um token destinado ao MS Graph, a API não poderá resgatar usando OBO.  Em vez disso, ele deve rejeitar o token).  |
 | `scope` | Obrigatório | Lista de escopos separados por espaço para a solicitação de token. Para obter mais informações, consulte [escopos](v2-permissions-and-consent.md). |
 | `requested_token_use` | Obrigatório | Especifica como a solicitação deve ser processada. No fluxo OBO, o valor precisa ser definido como `on_behalf_of`. |
 
@@ -99,7 +99,7 @@ Uma solicitação de token de acesso de serviço a serviço com um certificado c
 | `client_id` | Obrigatório |  A ID do aplicativo (cliente) que a página [Portal do Azure - Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu ao seu aplicativo. |
 | `client_assertion_type` | Obrigatório | O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | Obrigatório | Uma asserção (um token Web JSON) que você precisa para criar e assinar com o certificado registrado como credenciais do seu aplicativo. Para saber mais sobre como registrar seu certificado e o formato da asserção, confira [credenciais de certificado](active-directory-certificate-credentials.md). |
-| `assertion` | Obrigatório | O valor do token usado na solicitação. |
+| `assertion` | Obrigatório |  O token de acesso que foi enviado para a API de camada intermediária.  Esse token deve ter uma `aud` declaração de Audience () do aplicativo que faz essa solicitação obo (o aplicativo indicado pelo `client-id` campo). Os aplicativos não podem resgatar um token para um aplicativo diferente (por exemplo, se um cliente enviar uma API um token destinado ao MS Graph, a API não poderá resgatar usando OBO.  Em vez disso, ele deve rejeitar o token).  |
 | `requested_token_use` | Obrigatório | Especifica como a solicitação deve ser processada. No fluxo OBO, o valor precisa ser definido como `on_behalf_of`. |
 | `scope` | Obrigatório | Lista de escopos separados por espaço para a solicitação de token. Para obter mais informações, consulte [escopos](v2-permissions-and-consent.md).|
 
@@ -125,7 +125,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=https://graph.microsoft.com/user.read+offline_access
 ```
 
-## <a name="service-to-service-access-token-response"></a>Resposta de token de acesso de serviço para serviço
+## <a name="middle-tier-access-token-response"></a>Resposta de token de acesso de camada intermediária
 
 Uma resposta de êxito é uma resposta JSON OAuth 2.0 com os parâmetros a seguir.
 

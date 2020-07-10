@@ -4,11 +4,12 @@ description: Saiba como processar suas cargas de trabalho de computação parale
 ms.topic: how-to
 ms.date: 06/01/2018
 ms.custom: H1Hack27Feb2017, tracking-python
-ms.openlocfilehash: 1a87b72b16c1d41e5569c4ce9e5e1a6e2c51a2e0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 05e23093a00eab70db683c10eae59ef27152d2f7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960071"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145047"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Provisionar os nós de computação do Linux em pools do Lote
 
@@ -28,7 +29,7 @@ Ao criar um pool de nós de computação no Lote, você tem duas opções das qu
 
 ### <a name="virtual-machine-image-reference"></a>Referência da imagem da máquina virtual
 
-O serviço de Lote usa [Conjuntos de Dimensionamento de Máquinas Virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para fornecer nós de computação na Configuração de máquina virtual. Você pode especificar uma imagem desde o [Azure Marketplace][vm_marketplace] ou fornecer uma imagem personalizada que preparou. Para mais informações sobre imagens personalizadas, consulte [Criar um pool com a Galeria de Imagens Compartilhadas](batch-sig-images.md).
+O serviço de Lote usa [Conjuntos de Dimensionamento de Máquinas Virtuais](../virtual-machine-scale-sets/overview.md) para fornecer nós de computação na Configuração de máquina virtual. Você pode especificar uma imagem desde o [Azure Marketplace][vm_marketplace] ou fornecer uma imagem personalizada que preparou. Para mais informações sobre imagens personalizadas, consulte [Criar um pool com a Galeria de Imagens Compartilhadas](batch-sig-images.md).
 
 Quando você configura uma referência de imagem de máquina virtual, especifica as propriedades de uma imagem de máquina virtual. As propriedades a seguir são necessárias ao criar uma referência de imagem de máquina virtual:
 

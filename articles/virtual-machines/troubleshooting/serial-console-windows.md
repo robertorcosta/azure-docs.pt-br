@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 0fd2bcfb32524c6911a70157f58cea1e48b7bea9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4f02d92e6264a05ed2cb4021adb5ae6312f58a85
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135243"
+ms.locfileid: "86146640"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console serial do Azure para Windows
 
@@ -100,11 +100,10 @@ Se você precisar ativar os prompts do carregador de inicialização do Windows 
 
 1. Conecte-se ao console serial. Se você se conectar com sucesso, o prompt será **SAC>** :
 
-    ![Conectar ao SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
-
+   ![Conectar ao SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 1. Digite `cmd` para criar um canal que tenha uma instância do CMD.
 
-1. Insira `ch -si 1` ou selecione as teclas de atalho `<esc>+<tab>` para alternar para o canal que está executando a instância do CMD.
+1. Insira `ch -si 1` ou pressione as `<esc>+<tab>` teclas de atalho para alternar para o canal que está executando a instância cmd.
 
 1. Pressione **Enter** e insira as credenciais de login com permissões administrativas.
 
@@ -112,7 +111,7 @@ Se você precisar ativar os prompts do carregador de inicialização do Windows 
 
 1. Para iniciar uma instância do PowerShell, digite `PowerShell` na instância CMD e pressione **Enter**.
 
-    ![Abra o PowerShell e execute](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+   ![Abra o PowerShell e execute](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
 ### <a name="use-the-serial-console-for-nmi-calls"></a>Use o console serial para chamadas NMI
 Uma interrupção não-mascarável (NMI) é projetada para criar um sinal que o software em uma máquina virtual não irá ignorar. Historicamente, as NMIs são usadas para monitorar os problemas de hardware em sistemas que necessitam de tempos de resposta específicos. Hoje, os programadores e os administradores do sistema geralmente usam a NMI como um mecanismo para depurar ou solucionar problemas de sistemas que não respondem.

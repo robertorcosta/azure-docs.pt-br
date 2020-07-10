@@ -3,12 +3,12 @@ title: O Lote do Azure executa grandes trabalhos paralelos na nuvem
 description: Saiba mais sobre o uso do serviço Lote do Azure para cargas de trabalho paralelas e HPC em larga escala.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 134706622655029c6673aea5dd04a9284155be6f
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 03c958f44f707e7c5b6ac5c4414bdb5fd4963635
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965069"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142795"
 ---
 # <a name="what-is-azure-batch"></a>O que é o Lote do Azure?
 
@@ -34,7 +34,7 @@ Alguns exemplos de cargas de trabalho intrinsecamente paralelas que você pode c
 * Ingestão de dados, processamento e operações de ETL
 * Execução de teste de software
 
-Você também pode usar o Lote para [executar cargas de trabalho firmemente acopladas](batch-mpi.md); essas são cargas de trabalho em que os aplicativos que você executa precisam se comunicar entre si, ou seja, não são executadas independentemente. Aplicativos firmemente acoplados normalmente usam a API MPI (Message Passing Interface). Você pode executar suas cargas de trabalho firmemente acopladas no Lote usando [MPI Microsoft](/message-passing-interface/microsoft-mpi) ou MPI Intel. Melhore o desempenho de aplicativos com tamanhos de VM [HPC](../virtual-machines/linux/sizes-hpc.md) e [otimizado para GPU](../virtual-machines/linux/sizes-gpu.md) especializados.
+Você também pode usar o Lote para [executar cargas de trabalho firmemente acopladas](batch-mpi.md); essas são cargas de trabalho em que os aplicativos que você executa precisam se comunicar entre si, ou seja, não são executadas independentemente. Aplicativos firmemente acoplados normalmente usam a API MPI (Message Passing Interface). Você pode executar suas cargas de trabalho firmemente acopladas no Lote usando [MPI Microsoft](/message-passing-interface/microsoft-mpi) ou MPI Intel. Melhore o desempenho de aplicativos com tamanhos de VM [HPC](../virtual-machines/sizes-hpc.md) e [otimizado para GPU](../virtual-machines/sizes-gpu.md) especializados.
 
 Alguns exemplos de cargas de trabalho firmemente acopladas:
 * Análise de elemento finito
@@ -83,4 +83,3 @@ Introdução ao Lote do Azure com um desses guias de início rápido:
 * [Executar o primeiro trabalho do Lote com o portal do Azure](quick-create-portal.md)
 * [Executar o primeiro trabalho do Lote usando a API do .NET](quick-run-dotnet.md)
 * [Executar o primeiro trabalho do Lote usando a API do Python](quick-run-python.md)
-

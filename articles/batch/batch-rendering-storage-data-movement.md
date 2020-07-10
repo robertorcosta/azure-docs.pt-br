@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 6fff0e224aaa6bb247543282ac16fbb33fe7e904
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 55ec04df2a107dabfc72298bc8849c13f3a926e0
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965256"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147309"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opções de armazenamento e movimentação de dados para ativo de renderização e arquivos de saída
 
@@ -87,7 +87,7 @@ Como os arquivos são simplesmente blobs no armazenamento do Azure, APIs de BLOb
 
 Os [Arquivos do Azure](../storage/files/storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do protocolo SMB.  Os arquivos que são baseados no armazenamento de Blobs do Azure são [econômicos](https://azure.microsoft.com/pricing/details/storage/files/) e podem ser configurados com replicação de dados para outra região, então são redundantes globalmente.  [Dimensionar destinos](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets) devem ser analisados para determinar se os arquivos do Azure devem ser usados devido ao tamanho de pool de previsão e o número de arquivos de ativo.
 
-Há um [postagem de blog](https://blogs.msdn.microsoft.com/windowsazurestorage/2014/05/26/persisting-connections-to-microsoft-azure-files/) e [documentação](../storage/files/storage-how-to-use-files-windows.md) abordando como montar um compartilhamento de arquivos do Azure.
+Há [documentação](../storage/files/storage-how-to-use-files-windows.md) que aborda como montar um compartilhamento de arquivos do Azure.
 
 ### <a name="mounting-an-azure-files-share"></a>Montagem de um compartilhamento de arquivos do Azure
 
