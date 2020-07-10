@@ -7,11 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: b138d93b400c16837c250ede1e264b54a851327c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50d6bebd1e38149096b865ad3654a9604d685f5d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488742"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86141941"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integrar o Azure Stream Analytics com o Azure Machine Learning (versão prévia)
 
@@ -27,7 +28,7 @@ Conclua as etapas a seguir antes de adicionar um modelo de machine learning como
 
 3. Verifique se o serviço Web aceita e retorna dados serializados JSON.
 
-4. Implante seu modelo no [Serviço de Kubernetes do Azure](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) para implantações de produção em grande escala. Se o serviço Web não puder lidar com o número de solicitações provenientes de seu trabalho, o desempenho do seu trabalho do Stream Analytics será degradado, o que afeta a latência. Modelos implantados em Instâncias de Contêiner do Azure têm suporte apenas quando você usa o portal do Azure.
+4. Implante seu modelo no [Serviço de Kubernetes do Azure](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) para implantações de produção em grande escala. Se o serviço Web não puder lidar com o número de solicitações provenientes de seu trabalho, o desempenho do seu trabalho do Stream Analytics será degradado, o que afeta a latência. Modelos implantados em Instâncias de Contêiner do Azure têm suporte apenas quando você usa o portal do Azure. Os modelos criados usando o [Designer de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer) ainda não têm suporte no Stream Analytics.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Adicionar um modelo de machine learning ao seu trabalho
 
