@@ -3,12 +3,12 @@ title: Configurar seu ambiente de desenvolvimento no Linux
 description: Instale o runtime, o SDK e crie um cluster de desenvolvimento local no Linux. Depois de concluir a instalação, você estará pronto para criar aplicativos.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: cfc97a540ed8c4c17ca4030c45b16021b926d7c5
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 8610feb68e16646c73c132c0577fd3ff198d74b8
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854784"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186887"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar seu ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
@@ -161,8 +161,8 @@ O runtime do Service Fabric que vem com a instalação anterior do SDK inclui os
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implícito do npm | mais recente |
-RHEL | - | OpenJDK 1.8 | Implícito do npm | mais recente |
+**Ubuntu** | 2.0.0 | AzulJDK 1.8 | Implícito do npm | mais recente |
+**RHEL** | - | OpenJDK 1.8 | Implícito do npm | mais recente |
 
 ## <a name="set-up-a-local-cluster"></a>Configurar um cluster local
 Inicie um cluster local após a conclusão da instalação.

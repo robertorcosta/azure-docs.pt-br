@@ -5,11 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 13f17ed9d165e368d2e9d9cde694408b600006cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 302e0cc9b77605afd4012e95fc7c0ab8a22fef3e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84171116"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186309"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Habilitar Controle de Alterações e Inventário de uma conta de Automação
 
@@ -21,7 +22,7 @@ Este artigo descreve como você pode usar uma conta de Automação para habilita
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Conta de automação](automation-offering-get-started.md) para gerenciar máquinas.
+* [Conta de automação](./index.yml) para gerenciar máquinas.
 * Uma [máquina virtual](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure

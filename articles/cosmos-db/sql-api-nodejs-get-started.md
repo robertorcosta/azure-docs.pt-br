@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: dech
-ms.openlocfilehash: ef493b6b21eb0ba0ad6d22a21e4e205a9fecacb6
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 5d41f467efafa42bd73fce258ca97e4412a7cf48
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858076"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026841"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Compilar um aplicativo de console do Node.js com o SDK do JavaScript para gerenciar dados da API de SQL do Azure Cosmos DB
 
@@ -90,7 +90,7 @@ Agora que seu aplicativo existe, você precisa verificar se ele pode se comunica
 
    Você pode encontrar os detalhes do ponto de extremidade e da chave no painel **Chaves** do [portal do Azure](https://portal.azure.com).
 
-   ![Obter da de captura de tela do portal do Azure][keys]
+   :::image type="content" source="media/sql-api-nodejs-get-started/node-js-tutorial-keys.png" alt-text="Captura de tela de Obter chaves do portal do Azure":::
 
 O SDK do JavaScript usa os termos genéricos *contêiner* e *item*. Um contêiner pode ser uma coleção, um gráfico ou uma tabela. Um item pode ser um documento, borda/vértice ou linha e descreve o conteúdo do contêiner. No snippet de código anterior, o código de `module.exports = config;` é usado para exportar o objeto de configuração para que você possa referenciá-lo dentro do arquivo *app.js*.
 
@@ -223,4 +223,3 @@ Quando esses recursos já não forem necessários, você poderá excluir o grupo
 > [Monitorar uma conta do Azure Cosmos DB](monitor-accounts.md)
 
 [create-account]: create-sql-api-dotnet.md#create-account
-[keys]: media/sql-api-nodejs-get-started/node-js-tutorial-keys.png

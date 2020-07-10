@@ -7,20 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: f0b6e66a0d3a78a62fe105a175a7a519d0b37ccd
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: afeac24a5d3c21fce120512813d68c49a505c6c1
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733408"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024597"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Criar uma VM de gerenciamento para configurar e administrar um domínio gerenciado do Azure Active Directory Domain Services
 
 O Azure AD DS (Azure Active Directory Domain Services) fornece serviços de domínio gerenciado, como ingresso no domínio, política de grupo, LDAP e autenticação Kerberos/NTLM, que são totalmente compatíveis com o Active Directory do Windows Server. Você administra esse domínio gerenciado usando as mesmas RSAT (Ferramentas de Administração de Servidor Remoto) que um domínio local do Active Directory Domain Services. Como o Azure AD DS é um serviço gerenciado, há algumas tarefas administrativas que você não pode executar, como usar o protocolo RDP para se conectar aos controladores de domínio.
 
-Este tutorial mostra como criar uma VM do Windows Server no Azure e instalar as ferramentas necessárias para administrar um domínio gerenciado do Azure AD DS.
+Este tutorial mostra como configurar uma VM do Windows Server no Azure e instalar as ferramentas necessárias para administrar um domínio gerenciado do Azure AD DS.
 
 Neste tutorial, você aprenderá como:
 
@@ -75,7 +75,7 @@ O domínio gerenciado está bloqueado e, portanto, você não tem privilégios p
 
 ## <a name="sign-in-to-the-windows-server-vm"></a>Entrar na VM do Windows Server
 
-No tutorial anterior, uma VM do Windows Server foi criada e unida ao domínio gerenciado. Vamos usar essa VM para instalar as ferramentas de gerenciamento. Se necessário, [siga as etapas do tutorial para criar e unir uma VM do Windows Server a um domínio gerenciado][create-join-windows-vm].
+No tutorial anterior, uma VM do Windows Server foi criada e unida ao domínio gerenciado. Use essa VM para instalar as ferramentas de gerenciamento. Se necessário, [siga as etapas do tutorial para criar e unir uma VM do Windows Server a um domínio gerenciado][create-join-windows-vm].
 
 > [!NOTE]
 > Neste tutorial, você usa uma VM do Windows Server no Azure que está unida ao domínio gerenciado. Você também poderá usar um cliente do Windows, como o Windows 10, que estiver unido ao domínio gerenciado.
@@ -97,7 +97,7 @@ Se necessário, permita que o navegador da Web abra pop-ups para que a conexão 
 
 ## <a name="install-active-directory-administrative-tools"></a>Instale as ferramentas administrativas do Active Directory
 
-Os domínios gerenciados são gerenciados usando as mesmas ferramentas administrativas dos ambientes locais do AD DS, como o ADAC (Centro Administrativo do Active Directory) ou o AD PowerShell. Essas ferramentas podem ser instaladas como parte do recurso RSAT (Ferramentas de Administração de Servidor Remoto) no Windows Server e em computadores cliente. Então, os membros do grupo *Administradores do AAD DC* podem administrar domínios gerenciados remotamente usando essas ferramentas administrativas do AD por meio de um computador unido ao domínio gerenciado.
+Use as mesmas ferramentas administrativas em um domínio gerenciado como ambientes locais do AD DS, como o ADAC (Centro Administrativo do Active Directory) ou o AD PowerShell. Essas ferramentas podem ser instaladas como parte do recurso RSAT (Ferramentas de Administração de Servidor Remoto) no Windows Server e em computadores cliente. Então, os membros do grupo *Administradores do AAD DC* podem administrar domínios gerenciados remotamente usando essas ferramentas administrativas do AD por meio de um computador unido ao domínio gerenciado.
 
 Para instalar as Ferramentas de Administração do Active Directory em uma máquina virtual unida ao domínio, conclua as seguintes etapas:
 
@@ -106,7 +106,7 @@ Para instalar as Ferramentas de Administração do Active Directory em uma máqu
 1. Na página **Antes de Você Começar** do *Assistente de Adição de Funções e Recursos*, selecione **Avançar**.
 1. Para o *Tipo de Instalação*, deixe a opção **Instalação baseada em função ou recurso** marcada e selecione **Avançar**.
 1. Na página **Seleção de Servidor**, escolha a VM atual no pool de servidores, como *myvm.aaddscontoso.com* e, em seguida, selecione **Avançar**.
-1. Na página **Funções do Servidor**, clique em **Próximo**.
+1. Na página **Funções do Servidor**, clique em **Avançar**.
 1. Na página **Recursos**, expanda o nó **Ferramentas de Administração de Servidor Remoto** e, em seguida, expanda o nó **Ferramentas de Administração de Funções**.
 
     Escolha o recurso **Ferramentas do AD DS e do AD LDS** na lista de ferramentas de administração de funções e, em seguida, selecione **Avançar**.
@@ -125,7 +125,7 @@ Com as ferramentas administrativas instaladas, vejamos como é possível usá-la
     ![Lista de Ferramentas Administrativas instaladas no servidor](./media/tutorial-create-management-vm/list-admin-tools.png)
 
 1. Selecione **Centro Administrativo do Active Directory**.
-1. Para explorar o domínio gerenciado, escolha o nome de domínio no painel esquerdo, como *aaddscontoso.com*. Dois contêineres denominados *Computadores do AADDC* e *Usuário do AADDC* estão na parte superior da lista.
+1. Para explorar o domínio gerenciado, escolha o nome de domínio no painel esquerdo, como *aaddscontoso*. Dois contêineres denominados *Computadores do AADDC* e *Usuário do AADDC* estão na parte superior da lista.
 
     ![Listar os contêineres disponíveis do domínio gerenciado](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 
@@ -135,7 +135,7 @@ Com as ferramentas administrativas instaladas, vejamos como é possível usá-la
 
     ![Exiba a lista de usuários de domínio do Azure AD DS no Centro Administrativo do Active Directory](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
-1. Para ver os computadores que estão unidos ao domínio gerenciado, selecione o contêiner **Computadores do AADDC**. Uma entrada para a máquina virtual atual, como *myVM*, é listada. As contas de computador de todos os computadores que se uniram a um domínio gerenciado serão armazenadas no contêiner *Computadores do AADDC*.
+1. Para ver os computadores que estão unidos ao domínio gerenciado, selecione o contêiner **Computadores do AADDC**. Uma entrada para a máquina virtual atual, como *myVM*, é listada. As contas de computador de todos os dispositivos que ingressaram no domínio gerenciado serão armazenadas no contêiner *Computadores do AADDC*.
 
 Ações comuns do Centro Administrativo do Active Directory – como a redefinição de senha de uma conta de usuário ou o gerenciamento da associação a grupos – estão disponíveis. Essas ações só funcionam para usuários e grupos criados diretamente no domínio gerenciado. As informações de identidade só são sincronizadas *do* Azure AD para o Azure AD DS. Não há nenhum write-back do Azure AD DS para o Azure AD. Você não pode alterar as senhas nem a associação de grupo gerenciado para usuários sincronizados do Azure AD e fazer com que essas alterações sejam sincronizadas de volta.
 
@@ -150,7 +150,7 @@ Neste tutorial, você aprendeu a:
 > * Instalar as ferramentas administrativas do Active Directory em uma VM do Windows Server
 > * Usar o Centro Administrativo do Active Directory para executar tarefas comuns
 
-Interagir de maneira segura com seu domínio gerenciado, habilitando o LDAPS (Protocolo Leve de Acesso a Diretórios) seguro.
+Para interagir de maneira segura com o domínio gerenciado por meio de outros aplicativos, habilite o protocolo LDAPS.
 
 > [!div class="nextstepaction"]
 > [Configurar o LDAP seguro para um domínio gerenciado](tutorial-configure-ldaps.md)

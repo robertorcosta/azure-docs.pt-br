@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 854bf2d1ed2155290c2ecebd17695049fdd0c8bb
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: d630a41f9b83a852605ffad2a85ad6dd14bbac73
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314279"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079642"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Rotear tráfego com uma tabela de rotas utilizando o Portal do Azure
 
@@ -131,7 +131,7 @@ NVAs (soluções de virtualização de rede) são máquinas virtuais que ajudam 
     | Nome | *myRouteTablePublic* |
     | Subscription | Sua assinatura |
     | Resource group | **myResourceGroup** |
-    | Location | **EUA (Leste dos EUA)** |
+    | Location | **(EUA) Leste dos EUA** |
     | Propagação de rota do gateway de rede virtual | **Enabled** |
 
     ![Criar tabela de rotas, portal do Azure](./media/tutorial-create-route-table-portal/create-route-table.png)
@@ -359,3 +359,6 @@ Embora seja possível implantar muitos recursos do Azure dentro de uma rede virt
 
 > [!div class="nextstepaction"]
 > [Restringir o acesso à rede para recursos PaaS](tutorial-restrict-network-access-to-resources.md)
+
+> [!NOTE] 
+> Os serviços do Azure custam dinheiro. O Gerenciamento de Custos do Azure ajuda você a definir orçamentos e configurar alertas para manter os gastos sob controle. Analise, gerencie e otimize seus custos do Azure com o Gerenciamento de Custos. Para saber mais, confira o [guia de início rápido sobre como analisar seus custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

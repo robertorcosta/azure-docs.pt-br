@@ -5,11 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0eebd626013614bb6240fc0e6530a358a2b86d1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eab509e389c074232526aa93fcebb72f3bc986c0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781184"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185595"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gerenciar Controle de Alterações e Inventário
 
@@ -78,10 +79,10 @@ Use as etapas a seguir para configurar o acompanhamento de arquivo em computador
 
 ## <a name="track-file-contents"></a>Controlar o conteúdo do arquivo
 
-O controle de conteúdo de arquivo permite que você exiba o conteúdo de um arquivo antes e depois de uma alteração controlada. O recurso salva o conteúdo do arquivo em uma [conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-account-overview) após a ocorrência de cada alteração. Aqui estão algumas regras a serem seguidas para controlar o conteúdo do arquivo:
+O controle de conteúdo de arquivo permite que você exiba o conteúdo de um arquivo antes e depois de uma alteração controlada. O recurso salva o conteúdo do arquivo em uma [conta de armazenamento](../storage/common/storage-account-overview.md) após a ocorrência de cada alteração. Aqui estão algumas regras a serem seguidas para controlar o conteúdo do arquivo:
 
 * Uma conta de armazenamento Standard usando o modelo de implantação do Resource Manager é necessária para armazenar o conteúdo do arquivo. 
-* Não use contas de armazenamento do modelo de implantação Premium e Clássico. Consulte [Sobre as contas de Armazenamento do Azure](../storage/common/storage-create-storage-account.md).
+* Não use contas de armazenamento do modelo de implantação Premium e Clássico. Consulte [Sobre as contas de Armazenamento do Azure](../storage/common/storage-account-create.md).
 * Você pode conectar a conta de armazenamento a apenas uma conta de automação.
 * [Controle de alterações e inventário](change-tracking.md) devem ser habilitados em sua conta de automação.
 
@@ -169,7 +170,7 @@ Vamos usar este exemplo para discutir as etapas para criar alertas em uma altera
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter informações sobre configurações de escopo, consulte [limitar controle de alterações e escopo de implantação de estoque](automation-scope-configurations-change-tracking.md).
-* Se você precisar pesquisar logs armazenados em seu workspace do Log Analytics, confira [Pesquisas de logs em logs do Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+* Se você precisar pesquisar logs armazenados em seu workspace do Log Analytics, confira [Pesquisas de logs em logs do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 * Se terminar com implantações, consulte [desvincular o espaço de trabalho da conta de automação para controle de alterações e inventário](automation-unlink-workspace-change-tracking.md).
 * Para excluir suas VMs de Controle de Alterações e inventário, consulte [remover VMs de controle de alterações e inventário](automation-remove-vms-from-change-tracking.md).
 * Para solucionar problemas de erros de recurso, confira [Solucionar problemas do Controle de Alterações e Inventário](troubleshoot/change-tracking.md).

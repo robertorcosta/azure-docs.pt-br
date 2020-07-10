@@ -5,11 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: f84a609ea2821546c4001b98ad11495305ac101a
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 0d657dc38cd5b4149bcf7d1dbf1ad73afa75a5e6
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171065"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186292"
 ---
 # <a name="enable-change-tracking-and-inventory-from-azure-portal"></a>Habilitação dos recursos de Controle de Alterações e Inventário no portal do Azure
 
@@ -23,7 +24,7 @@ O número de grupos de recursos que você pode usar para gerenciar suas VMs é l
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Conta de automação](automation-offering-get-started.md) para gerenciar máquinas.
+* [Conta de automação](./index.yml) para gerenciar máquinas.
 * Uma [máquina virtual](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure

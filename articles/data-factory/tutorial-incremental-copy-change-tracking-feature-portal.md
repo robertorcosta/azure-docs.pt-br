@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: cb8d03b853e4e0f4f5f60a144e7a05ef19de1071
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: c28489c2fa502f0ba1283abdea19219ed7438a99
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85251813"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085779"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Carregar dados de maneira incremental do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando informações de controle de alterações usando o portal do Azure
 
@@ -166,7 +166,7 @@ Instale os módulos mais recentes do Azure PowerShell seguindo as instruções e
 
    O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se você receber o seguinte erro, altere o nome de data factory (por exemplo, yournameADFTutorialDataFactory) e tente criar novamente. Confira o artigo [Data Factory - regras de nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
 
-       `Data factory name “ADFTutorialDataFactory” is not available`
+   *O nome do data factory “ADFTutorialDataFactory” não está disponível*
 3. Selecione a **assinatura** do Azure na qual você deseja criar o data factory.
 4. Para o **Grupo de Recursos**, execute uma das seguintes etapas:
 

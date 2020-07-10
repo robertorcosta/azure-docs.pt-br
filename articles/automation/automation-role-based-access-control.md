@@ -6,11 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: ac05d5b4eb8dd9d7a39f56ec6efae4831f00c623
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e997f80ceee54a1454128c1308032fefa603f5d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100001"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186139"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gerenciar permissões e segurança de funções
 
@@ -310,7 +311,7 @@ Você pode remover a permissão de acesso de um usuário que não está gerencia
 
 Você também pode configurar o acesso baseado em função para uma conta de Automação usando os seguintes [cmdlets do Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
-[Get-AzureRmRoleDefinition](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) lista todas as funções RBAC disponíveis no Azure Active Directory. Você pode usar o cmdlet com o parâmetro `Name` para listar todas as ações que uma função específica pode executar.
+[Get-AzureRmRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) lista todas as funções RBAC disponíveis no Azure Active Directory. Você pode usar o cmdlet com o parâmetro `Name` para listar todas as ações que uma função específica pode executar.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'
@@ -329,7 +330,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) lista as atribuições de função do RBAC do Azure AD no escopo especificado. Sem nenhum parâmetro, o cmdlet retorna todas as atribuições de função feitas na assinatura. Use o parâmetro `ExpandPrincipalGroups` para listar as atribuições de acesso para o usuário especificado, bem como os grupos aos quais o usuário pertence.
+[Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) lista as atribuições de função do RBAC do Azure AD no escopo especificado. Sem nenhum parâmetro, o cmdlet retorna todas as atribuições de função feitas na assinatura. Use o parâmetro `ExpandPrincipalGroups` para listar as atribuições de acesso para o usuário especificado, bem como os grupos aos quais o usuário pertence.
 
 **Exemplo:** Use o cmdlet a seguir para listar todos os usuários e suas funções em uma conta de Automação.
 
@@ -351,7 +352,7 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-Use [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) para atribuir o acesso de usuários, grupos e aplicativos a um escopo específico.
+Use [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) para atribuir o acesso de usuários, grupos e aplicativos a um escopo específico.
     
 **Exemplo:** Use o comando a seguir para atribuir a função "Operador de Automação" para um usuário no escopo da Conta de Automação.
 
@@ -373,7 +374,7 @@ ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
 ObjectType         : User
 ```
 
-Use [Remove-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Remove-AzRoleAssignment?view=azps-3.7.0) para remover o acesso de um usuário, grupo ou aplicativo especificado a determinado escopo.
+Use [Remove-AzureRmRoleAssignment](/powershell/module/Az.Resources/Remove-AzRoleAssignment?view=azps-3.7.0) para remover o acesso de um usuário, grupo ou aplicativo especificado a determinado escopo.
 
 **Exemplo:** Use o comando a seguir para remover o usuário da função de Operador de Automação no escopo da conta de Automação.
 

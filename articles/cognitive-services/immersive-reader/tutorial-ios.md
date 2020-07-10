@@ -1,0 +1,62 @@
+---
+title: 'Tutorial: Iniciar a Leitura Avançada usando o exemplo de código do Swift para o iOS'
+titleSuffix: Azure Cognitive Services
+description: Neste tutorial, você vai configurar e executar um aplicativo de exemplo do Swift que inicia a Leitura Avançada.
+services: cognitive-services
+author: dylankil
+manager: guillasi
+ms.service: cognitive-services
+ms.subservice: immersive-reader
+ms.topic: tutorial
+ms.date: 06/10/2020
+ms.author: dylankil
+ms.openlocfilehash: a9259026747102dd65be3bb8da853735098667db
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86049299"
+---
+# <a name="tutorial-launch-the-immersive-reader-using-the-swift-ios-code-sample"></a>Tutorial: Iniciar a Leitura Avançada usando o exemplo de código do Swift para o iOS
+
+Na [visão geral](./overview.md), você aprendeu sobre o que é a Leitura Avançada e como ela implementa técnicas comprovadas para melhorar a compreensão de leitura para aprendizes do idioma, leitores emergentes e estudantes com diferenças de aprendizado. Este tutorial aborda a criação de um aplicativo do iOS que inicia a Leitura Avançada. Neste tutorial, você aprenderá como:
+
+> [!div class="checklist"]
+> * Configurar e executar um aplicativo do Swift para o iOS usando um projeto de exemplo
+> * Adquirir um token de acesso
+> * Iniciar a Leitura Avançada com o conteúdo de exemplo
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Um recurso de Leitura Avançada configurado para autenticação do Azure Active Directory. Siga [estas instruções](./how-to-create-immersive-reader.md) para a configuração. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do ambiente. Salve a saída da sessão em um arquivo de texto para referência futura.
+* [macOS](https://www.apple.com/macos)
+* [Git](https://git-scm.com/)
+* [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk)
+* [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
+
+## <a name="configure-authentication-credentials"></a>Configurar as credenciais de autenticação
+
+1. Abra o Xcode e **immersive-reader-sdk/js/samples/ios/quickstart-swift/quickstart-swift.xcodeproj**.
+2. No menu superior, clique em **Produto > Esquema > Editar Esquema...**
+3. Na exibição **Executar**, clique na guia **Argumentos**.
+4. Na seção **Variáveis de Ambiente**, adicione os seguintes nomes e valores, fornecendo os valores fornecidos quando você criou o recurso de Leitura Avançada.
+
+```text
+TENANT_ID=<YOUR_TENANT_ID>
+CLIENT_ID=<YOUR_CLIENT_ID>
+CLIENT_SECRET<YOUR_CLIENT_SECRET>
+SUBDOMAIN=<YOUR_SUBDOMAIN>
+```
+
+Lembre-se de não fazer commit da alteração acima no controle do código-fonte, pois ela contém segredos que não devem disponibilizados publicamente.
+
+## <a name="launch-the-immersive-reader-with-sample-content"></a>Iniciar a Leitura Avançada com o conteúdo de exemplo
+
+1. No Xcode, selecione **CTRL-R** para executar o projeto.
+
+## <a name="next-steps"></a>Próximas etapas
+
+* Explore o [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk) e a [Referência de SDK da Leitura Avançada](./reference.md)
+* Visualize exemplos de código no [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/)

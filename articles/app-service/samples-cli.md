@@ -4,14 +4,14 @@ description: Encontre amostras da CLI do Azure para alguns dos cenários comuns 
 tags: azure-service-management
 ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
-ms.date: 12/12/2017
+ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: 857d6cdc26e41f5ea7b1d66aaff6efb4056c47c4
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: ce10c0e95d77103f386174c7bd0ffd56adff871b
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254490"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054535"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Exemplos de CLI para o Serviço de Aplicativo do Azure
 
@@ -25,7 +25,8 @@ A tabela a seguir inclui links para bash scripts criados usando a CLI do Azure.
 | [Criar um aplicativo com a implantação contínua do GitHub](./scripts/cli-continuous-deployment-github.md?toc=%2fcli%2fazure%2ftoc.json)| Cria um aplicativo de Serviço de Aplicativo com a publicação contínua de um repositório do GitHub que você tem. |
 | [Criar um aplicativo e implantar o código de um repositório Git local](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json) | Cria um aplicativo do Serviço de Aplicativo e configura o push de código de um repositório Git local. |
 | [Criar um aplicativo e implantar o código em um ambiente de preparo](./scripts/cli-deploy-staging-environment.md?toc=%2fcli%2fazure%2ftoc.json) | Cria um aplicativo do Serviço de Aplicativo com um slot de implantação para alterações de código de preparo. |
-| [Criar um aplicativo do ASP.NET Core em um contêiner do Docker](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json)| Cria um aplicativo de Serviço de Aplicativo no Linux e carrega uma imagem do Docker do Docker Hub. |
+| [Criar um aplicativo do ASP.NET Core em um contêiner do Docker](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json) | Cria um aplicativo de Serviço de Aplicativo no Linux e carrega uma imagem do Docker do Docker Hub. |
+| [Criar um aplicativo e expô-lo com um ponto de extremidade privado](./scripts/cli-deploy-privateendpoint.md?toc=%2fcli%2fazure%2ftoc.json) | Cria um aplicativo do Serviço de Aplicativo e um ponto de extremidade privado |
 |**Como configurar o aplicativo**||
 | [Mapear um domínio personalizado para um aplicativo](./scripts/cli-configure-custom-domain.md?toc=%2fcli%2fazure%2ftoc.json)| Cria um aplicativo do Serviço de Aplicativo e mapeia um nome de domínio personalizado para ele. |
 | [Associar um certificado TLS/SSL personalizado a um aplicativo](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Cria um aplicativo do Serviço de Aplicativo e associa o certificado TLS/SSL de um nome de domínio personalizado a ele. |

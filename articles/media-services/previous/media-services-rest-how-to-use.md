@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 288b7302b12d607c9090f699af83691b832256a3
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76773671"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170812"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Visão geral da API REST das operações dos Serviços de Mídia 
 
@@ -38,26 +39,28 @@ As seguintes considerações se aplicam ao usar REST.
 
 * Ao consultar entidades, um limite de 1.000 entidades podem ser retornadas ao mesmo tempo porque a REST v2 pública limita os resultados da consulta a 1.000 resultados. Você precisa usar **Skip** e **Take** (.NET)/ **top** (REST), conforme descrito [neste exemplo de .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo de API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 * Ao usar o JSON e especificar para usar a palavra-chave **__metadata** na solicitação (por exemplo, para fazer referência a um objeto vinculado), é NECESSÁRIO definir o cabeçalho **Accept** para o [formato JSON Detalhado](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (veja o exemplo a seguir). O Odata não entende a propriedade **__metadata** na solicitação, a menos que você a defina como detalhado.  
-  
-        POST https://media.windows.net/API/Jobs HTTP/1.1
-        Content-Type: application/json;odata=verbose
-        Accept: application/json;odata=verbose
-        DataServiceVersion: 3.0
-        MaxDataServiceVersion: 3.0
-        x-ms-version: 2.19
-        Authorization: Bearer <ENCODED JWT TOKEN> 
-        Host: media.windows.net
-  
-        {
-            "Name" : "NewTestJob", 
-            "InputMediaAssets" : 
-                [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
-        . . . 
+
+    ```console
+    POST https://media.windows.net/API/Jobs HTTP/1.1
+    Content-Type: application/json;odata=verbose
+    Accept: application/json;odata=verbose
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    x-ms-version: 2.19
+    Authorization: Bearer <ENCODED JWT TOKEN> 
+    Host: media.windows.net
+
+    {
+        "Name" : "NewTestJob", 
+        "InputMediaAssets" : 
+            [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
+    . . . 
+   ```
 
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Os cabeçalhos de solicitação HTTP padrão suportados pelos serviços de mídia
 Para todas as chamadas feitas nos serviços de mídia, há um conjunto de cabeçalhos necessários que você deve incluir na solicitação e também um conjunto de cabeçalhos opcionais você talvez queira incluir. A tabela abaixo lista os cabeçalhos necessários:
 
-| parâmetro | Tipo | Valor |
+| Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
 | Autorização |Portador |Portador é o único mecanismo de autorização aceito. O valor também deve incluir o token de acesso fornecido pelo Microsoft Azure Active Directory. |
 | x-ms-version |Decimal |2.17 (ou versão mais recente)|
@@ -71,7 +74,7 @@ Para todas as chamadas feitas nos serviços de mídia, há um conjunto de cabeç
 
 Este é um conjunto de cabeçalhos opcional:
 
-| parâmetro | Tipo | Valor |
+| Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
 | Data |Data do RFC 1123 |Carimbo de hora da solicitação |
 | Aceitar |Tipo de conteúdo |O conteúdo solicitado para a resposta, como o seguinte:<p> -application/json;odata=verbose<p> - application/atom+xml<p> As respostas podem ter tipos de conteúdo diferentes como uma busca de blob, em que uma resposta bem-sucedida contém o fluxo de blob como carga. |
@@ -80,15 +83,15 @@ Este é um conjunto de cabeçalhos opcional:
 | Conjunto de caracteres aceito |Tipo de conjunto de caracteres como "UTF-8" |Padrão é UTF-8. |
 | Método X-HTTP |Método HTTP |Permite que os clientes ou firewalls que não suportam métodos HTTP como PUT ou DELETE usem esses métodos, desviados via uma chamada GET. |
 | Tipo de conteúdo |Tipo de conteúdo |Tipo de conteúdo do corpo da solicitação em solicitações PUT ou POST. |
-| ID da solicitação de cliente |String |Um valor definido pelo chamador que identifica a solicitação em questão. Se especificado, esse valor será incluído na mensagem de resposta como uma maneira de mapear a solicitação. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2K). |
+| ID da solicitação de cliente |Cadeia de caracteres |Um valor definido pelo chamador que identifica a solicitação em questão. Se especificado, esse valor será incluído na mensagem de resposta como uma maneira de mapear a solicitação. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2K). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Cabeçalhos de resposta HTTP padrão suportados pelos serviços de mídia
 Este é um conjunto de cabeçalhos que podem ser retornados para você, dependendo do recurso que você solicitou e da ação que você pretende executar.
 
-| parâmetro | Tipo | Valor |
+| Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
-| ID da solicitação |String |Um identificador exclusivo para a operação atual, serviço gerado. |
-| ID da solicitação de cliente |String |Um identificador especificado pelo chamador na solicitação original, se presente. |
+| ID da solicitação |Cadeia de caracteres |Um identificador exclusivo para a operação atual, serviço gerado. |
+| ID da solicitação de cliente |Cadeia de caracteres |Um identificador especificado pelo chamador na solicitação original, se presente. |
 | Data |Data do RFC 1123 |A data/hora em que a solicitação foi processada. |
 | Tipo de conteúdo |Varia |O tipo de conteúdo do corpo da resposta. |
 | Codificação de conteúdo |Varia |Gzip ou deflate, conforme apropriado. |
@@ -101,7 +104,7 @@ A seguir está uma lista completa de verbos HTTP que podem ser usados quando faz
 | GET |Retorna o valor atual de um objeto. |
 | POST |Cria um objeto com base nos dados fornecidos ou envia um comando. |
 | PUT |Substitui um objeto ou cria um objeto nomeado (quando aplicável). |
-| Delete (excluir) |Exclui um objeto. |
+| DELETE |Exclui um objeto. |
 | MESCLAR |Atualiza um objeto existente com alterações de propriedade nomeada. |
 | HEAD |Retorna metadados de um objeto para uma resposta GET. |
 

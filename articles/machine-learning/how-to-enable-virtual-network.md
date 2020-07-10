@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 06/30/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 94a2f77326487aa4bb180dd62ec05f4e23ca6218
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 35938ca3b9d8f3aedd0892740a3dbfa0fb5b036a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057782"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186853"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento de rede durante o treinamento & inferência com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -67,6 +67,9 @@ Você também pode [habilitar o Link Privado do Azure](how-to-configure-private-
 
 Se os dados estiverem armazenados em uma rede virtual, você deverá usar uma [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) do espaço de trabalho para conceder ao estúdio acesso aos seus dados.
 
+> [!IMPORTANT]
+> Embora a maioria do estúdio funcione com dados armazenados em uma rede virtual, os notebooks integrados __não__. Os blocos de anotações integrados não dão suporte ao uso do armazenamento que está em uma rede virtual. Em vez disso, você pode usar blocos de anotações do Jupyter de uma instância de computação. Para obter mais informações, consulte a seção [acessar dados em um notebook da instância de computação](#access-data-in-a-compute-instance-notebook) .
+
 Se você não conceder acesso ao estúdio, receberá esse erro `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` e desabilitará as seguintes operações:
 
 * Visualizar dados no estúdio.
@@ -85,7 +88,7 @@ O estúdio dá suporte à leitura de dados dos seguintes tipos de repositório d
 
 Adicione seu espaço de trabalho e a conta de armazenamento à mesma rede virtual para que eles possam acessar um ao outro.
 
-1. Para conectar seu espaço de trabalho à rede virtual, [habilite o link privado do Azure](how-to-configure-private-link.md).
+1. Para conectar seu espaço de trabalho à rede virtual, [habilite o link privado do Azure](how-to-configure-private-link.md). Esse recurso está atualmente em visualização e está disponível nas regiões do leste dos EUA, oeste dos EUA 2, centro-sul dos EUA.
 
 1. Para conectar sua conta de armazenamento à rede virtual, [defina as configurações de firewalls e redes virtuais](#use-a-storage-account-for-your-workspace).
 

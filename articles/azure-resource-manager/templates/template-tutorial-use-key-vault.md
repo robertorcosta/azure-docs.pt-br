@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 7fd84fc2e98578772c806f358cb8d6c400e0d994
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 73a50c282eee023bff525bc737bd2170938de1dc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82185006"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119269"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integrar o Azure Key Vault em sua implantação de modelo do ARM
 
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do ARM](use-vs-code-to-create-template.md).
+* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Para aumentar a segurança, use uma senha gerada para a conta Administrador da VM. Veja um exemplo de geração de senha:
 
     ```console
@@ -192,7 +192,7 @@ Depois de implantar a máquina virtual com êxito, teste as credenciais de entra
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
 
-1. Selecione **Grupos de recursos** >  **\<*NomedoSeuGrupodeRecursos*>**  > **simpleWinVM** .
+1. Selecione **Grupos de recursos** >  **\<*YourResourceGroupName*>**  > **simpleWinVM**.
 1. Selecione **conectar** na parte superior.
 1. Selecione **Baixar arquivo RDP** e siga as instruções para entrar na máquina virtual usando a senha que está armazenada no cofre de chaves.
 

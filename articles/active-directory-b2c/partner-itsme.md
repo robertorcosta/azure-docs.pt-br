@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d8229864acc80a27994ae3c795213dc2a65d22db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85dd58398021ef61e425eb58797e818b233c491b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385562"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170115"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Configurar o itsme OpenID Connect (OIDC) com Azure Active Directory B2C
 
@@ -40,7 +40,7 @@ Para começar, você precisará de:
 Please clarify step 1 in the description below - we don't have steps in this tutorial for "adapting in the Azure AD B2C Custom Policy- User Journeys" - should this be added somewhere?
 -->
 
-|   |   |
+| Etapa | Descrição |
 |------|------|
 |1     | No seu site ou aplicativo, inclua o botão **fazer logon com o ITSM** adaptando o fluxo de usuário do Azure ad B2C. O fluxo de interação é iniciado quando o usuário clica nesse botão.  |
 |2     | Azure AD B2C inicia o fluxo do OpenID Connect enviando uma solicitação de autorização para a API de segredo do cliente de ITSM. Um ponto de extremidade bem conhecido/OpenID-Configuration está disponível contendo informações sobre os pontos de extremidade.  |

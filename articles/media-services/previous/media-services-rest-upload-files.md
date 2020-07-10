@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d5b84a9d216457720e9bd4e17b002d6ab9490f9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa7dca62ed51c52b704c199ca04eadb6306be4df
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73888594"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170778"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o REST  
 > [!div class="op_single_selector"]
@@ -68,7 +69,7 @@ Para obter etapas sobre como configurar o Postman para este tutorial, consulte [
 
     Para obter valores para as primeiras cinco variáveis, consulte [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
-    ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-import-env.png)
+    ![Fazer upload de um arquivo](./media/media-services-rest-upload-files/postman-import-env.png)
 2. Especifique o valor para a variável de ambiente **NomeDoArquivoDeMídia**.
 
     Especifique o nome do arquivo de mídia que você pretende carregar. Neste exemplo, vamos carregar o arquivo BigBuckBunny.mp4. 
@@ -90,7 +91,7 @@ Para obter etapas sobre como configurar o Postman para este tutorial, consulte [
 
     A parte da URL é preenchida com a variável de ambiente **AzureADSTSEndpoint** (anteriormente no tutorial, você define os valores das variáveis de ambiente que oferecem suporte à coleção).
 
-    ![Carregar um arquivo](./media/media-services-rest-upload-files/postment-get-token.png)
+    ![Fazer upload de um arquivo](./media/media-services-rest-upload-files/postment-get-token.png)
 
 5. Pressione **Enviar**.
 
@@ -112,7 +113,7 @@ Antes de carregar todos os arquivos no armazenamento de blobs, defina os direito
 1. Selecione **AccessPolicy**  ->  **criar AccessPolicy para carregar**.
 2. Pressione **Enviar**.
 
-    ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-access-policy.png)
+    ![Fazer upload de um arquivo](./media/media-services-rest-upload-files/postman-access-policy.png)
 
     O script de "teste" obtém a Id de AccessPolicy e define a variável de ambiente apropriada.
 
@@ -133,7 +134,7 @@ Neste exemplo, estamos criando um ativo não criptografado.
 1. Selecione **ativos**  ->  **criar ativo**.
 2. Pressione **Enviar**.
 
-    ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-create-asset.png)
+    ![Fazer upload de um arquivo](./media/media-services-rest-upload-files/postman-create-asset.png)
 
     O script de "teste" obtém a Id do ativo e define a variável de ambiente apropriada.
 
@@ -149,7 +150,7 @@ Para receber a URL de carregamento real, crie um localizador de SAS (mostrado ab
 
 Uma URL SAS tem o seguinte formato:
 
-    {https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}
+`{https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}`
 
 ### <a name="considerations"></a>Considerações
 
@@ -166,13 +167,13 @@ Algumas considerações se aplicam:
 
     O script de "teste" cria a "URL de carregamento" com base no nome do arquivo de mídia especificado as informações de localizador SAS e define a variável de ambiente apropriada.
 
-    ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
+    ![Fazer upload de um arquivo](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Carregar um arquivo para o armazenamento de blob usando a URL de carregamento
 
 ### <a name="overview"></a>Visão geral
 
-Agora que você tem a URL de carregamento, você precisa gravar um código usando as APIs de blob do Azure diretamente para carregar seu arquivo para o contêiner SAS. Para obter mais informações, consulte os seguintes artigos:
+Agora que você tem a URL de carregamento, você precisa gravar um código usando as APIs de blob do Azure diretamente para carregar seu arquivo para o contêiner SAS. Para obter mais informações, confira os seguintes artigos:
 
 - [Usando a API REST de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [COLOCAR blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)
@@ -193,7 +194,7 @@ Criar e configurar uma nova solicitação:
 4. Escolha o arquivo com o nome que você especificou na variável de ambiente **NomeDoArquivoDeMídia**.
 5. Pressione **Enviar**.
 
-    ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-upload-file.png)
+    ![Fazer upload de um arquivo](./media/media-services-rest-upload-files/postman-upload-file.png)
 
 ##  <a name="create-a-metadata-in-the-asset"></a>Criar um metadados no ativo
 
@@ -202,7 +203,7 @@ Depois que o arquivo foi carregado, você precisa criar um metadados no ativo pa
 1. Selecione **AssetFiles**  ->  **createfileinfos**.
 2. Pressione **Enviar**.
 
-    ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-create-file-info.png)
+    ![Fazer upload de um arquivo](./media/media-services-rest-upload-files/postman-create-file-info.png)
 
 O arquivo deve ser carregado e seus metadados definidos.
 
@@ -212,15 +213,17 @@ Para validar que o arquivo foi carregado com êxito, convém consultar o [Arquiv
 
 Por exemplo, a seguinte operação**OBTER** coloca os dados de arquivo para o arquivo de ativo (no nosso caso, o arquivo BigBuckBunny.mp4). A consulta está usando as [variáveis de ambiente](postman-environment.md) que você definiu anteriormente.
 
-    {{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files
+`{{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files`
 
 A resposta conterá o tamanho, o nome e outras informações.
 
-    "Id": "nb:cid:UUID:69e72ede-2886-4f2a-8d36-80a59da09913",
-    "Name": "BigBuckBunny.mp4",
-    "ContentFileSize": "3186542",
-    "ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
-            
+```console
+"Id": "nb:cid:UUID:69e72ede-2886-4f2a-8d36-80a59da09913",
+"Name": "BigBuckBunny.mp4",
+"ContentFileSize": "3186542",
+"ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
+```
+  
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora você pode codificar seus ativos carregados. Para saber mais, veja [Codificar ativos](media-services-portal-encode.md).

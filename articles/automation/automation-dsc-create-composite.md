@@ -10,11 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b3a49fac5600e6338d5fb56281a3360f0abaa39a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 8c834caa2285135b7d39c440489b42c366418042
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836967"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186462"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>Converter configurações em recursos de composição
 
@@ -42,14 +43,14 @@ Criar recursos compostos pela primeira vez pode ser complicado.
 Uma solução mantida pela comunidade chamada [CompositeResource](https://github.com/microsoft/compositeresource) foi criada para resolver esse desafio.
 
 O CompositeResource automatiza o processo de criação de um novo módulo a partir de sua configuração.
-Você começa usando [fontes de pontos](https://blogs.technet.microsoft.com/heyscriptingguy/2010/08/10/how-to-reuse-windows-powershell-functions-in-scripts/) no script de configuração na sua estação de trabalho (ou servidor de build) para que ele seja carregado na memória.
+Você começa usando [fontes de pontos](https://devblogs.microsoft.com/scripting/how-to-reuse-windows-powershell-functions-in-scripts/) no script de configuração na sua estação de trabalho (ou servidor de build) para que ele seja carregado na memória.
 Em seguida, em vez de executar a configuração para gerar um arquivo MOF, use a função fornecida pelo módulo CompositeResource para automatizar uma conversão.
 O cmdlet vai carregar o conteúdo de sua configuração, obter a lista de parâmetros e gerar um novo módulo com tudo o que você precisa.
 
 Depois de gerar um módulo, você pode incrementar a versão e adicionar notas de versão cada vez que fizer alterações e publicá-las em seu próprio [repositório PowerShellGet](https://powershellexplained.com/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo).
 
-Depois de criar um módulo de recurso de composição contendo sua configuração (ou várias configurações), você pode usá-las na [Experiência de criação combinável](/azure/automation/compose-configurationwithcompositeresources) no Azure ou adicioná-las aos [Scripts de configuração de DSC](/powershell/scripting/dsc/configurations/configurations) para gerar arquivos MOF e [carregar os arquivos MOF na Automação do Azure](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Em seguida, registre os servidores do [local](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) ou [no Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) para efetuar o pull das configurações.
+Depois de criar um módulo de recurso de composição contendo sua configuração (ou várias configurações), você pode usá-las na [Experiência de criação combinável](./compose-configurationwithcompositeresources.md) no Azure ou adicioná-las aos [Scripts de configuração de DSC](/powershell/scripting/dsc/configurations/configurations) para gerar arquivos MOF e [carregar os arquivos MOF na Automação do Azure](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation).
+Em seguida, registre os servidores do [local](./automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines) ou [no Azure](./automation-dsc-onboarding.md#enable-azure-vms) para efetuar o pull das configurações.
 A atualização mais recente do projeto também publicou [runbooks](https://www.powershellgallery.com/packages?q=DscGallerySamples) para a Automação do Azure a fim de automatizar o processo de importação de configurações da Galeria do PowerShell.
 
 Para experimentar a automação da criação de recursos compostos do DSC, visite a [Galeria do PowerShell](https://www.powershellgallery.com/packages/compositeresource/) e baixe a solução ou clique em "Site do projeto" para exibir a [documentação](https://github.com/microsoft/compositeresource).

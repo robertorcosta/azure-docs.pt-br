@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ba498fe9f70664a801172a6ff3705ac41a6371ef
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 0c8863615446f8b14043cd7bd13e529b7efa1e46
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835233"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186190"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Encaminhar os dados de trabalho da Automação do Azure para os logs do Azure Monitor
 
@@ -27,8 +28,8 @@ A Automação do Azure pode enviar fluxos de trabalho e status de trabalho de ru
 
 Para começar a enviar seus logs de Automação para os logs do Azure Monitor, você precisa:
 
-* Da última versão do [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
-* Um workspace do Log Analytics. Para obter mais informações, confira [Introdução aos logs do Azure Monitor](../log-analytics/log-analytics-get-started.md).
+* Da última versão do [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+* Um workspace do Log Analytics. Para obter mais informações, confira [Introdução aos logs do Azure Monitor](../azure-monitor/overview.md).
 * A ID do recurso para sua conta de Automação do Azure.
 
 Use o seguinte comando para localizar a ID de recurso da sua conta de Automação do Azure:
@@ -185,8 +186,8 @@ Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber como construir consultas de pesquisa e examinar os logs de trabalho de Automação com os logs do Azure Monitor, confira [Pesquisas de logs em logs do Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+* Para saber como construir consultas de pesquisa e examinar os logs de trabalho de Automação com os logs do Azure Monitor, confira [Pesquisas de logs em logs do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 * Para entender como criar e recuperar mensagens de erro e de saída de runbooks, confira [Monitorar a saída do runbook](automation-runbook-output-and-messages.md).
 * Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, confira [Execução de runbook na Automação do Azure](automation-runbook-execution.md).
-* Para saber mais sobre os logs do Azure Monitor e as fontes de coleta de dados, confira a [Visão geral sobre a coleta de dados do armazenamento do Azure nos logs do Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md).
+* Para saber mais sobre os logs do Azure Monitor e as fontes de coleta de dados, confira a [Visão geral sobre a coleta de dados do armazenamento do Azure nos logs do Azure Monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 * Para obter ajuda na solução de problemas do Log Analytics, confira [Solucionar problemas se o Log Analytics não está mais coletando dados](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).

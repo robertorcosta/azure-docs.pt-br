@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 79cffa7aedd0fc04dd4a747ef28bc67cacf37905
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: a701a5a9fd77bd801bb535fe1f26bfa17c97757b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204881"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185782"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gerenciar atualizações e patches para as VMs do Azure
 
@@ -206,7 +206,7 @@ Quando a implantação da atualização for concluída, você receberá o alerta
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter informações sobre as configurações de escopo, confira [Limitar o escopo de implantação do Gerenciamento de Atualizações](automation-scope-configurations-update-management.md).
-* Se você precisar pesquisar logs armazenados em seu workspace do Log Analytics, confira [Pesquisas de logs em logs do Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+* Se você precisar pesquisar logs armazenados em seu workspace do Log Analytics, confira [Pesquisas de logs em logs do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 * Se tiver terminado com as implantações, confira [Desvincular o workspace da conta de Automação para o Gerenciamento de Atualizações](automation-unlink-workspace-update-management.md).
 * Para excluir suas VMs do Gerenciamento de Atualizações, confira [Remover VMs do Gerenciamento de Atualizações](automation-remove-vms-from-update-management.md).
 * Para solucionar problemas gerais do Gerenciamento de Atualizações, consulte [Solucionar problemas do Gerenciamento de Atualizações](troubleshoot/update-management.md).

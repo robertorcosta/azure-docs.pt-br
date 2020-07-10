@@ -5,12 +5,12 @@ author: mumian
 ms.date: 06/10/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e2419e8ee9f8648ae8f929638ac2c85ea8b67a0f
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 1e286a3b59279ed9658a373210f1425ece05eff4
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676141"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102098"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Criar e implantar seu primeiro modelo do ARM
 
@@ -28,13 +28,13 @@ Vamos começar verificando se você tem as ferramentas necessárias para criar e
 
 ### <a name="editor"></a>Editor
 
-Modelos são arquivos JSON. Para criar modelos, você precisa de um bom editor de JSON. Recomendamos o Visual Studio Code com a extensão Ferramentas do Resource Manager. Se você precisar instalar essas ferramentas, confira [Usar o Visual Studio Code para criar modelos do ARM](use-vs-code-to-create-template.md).
+Modelos são arquivos JSON. Para criar modelos, você precisa de um bom editor de JSON. Recomendamos o Visual Studio Code com a extensão Ferramentas do Resource Manager. Se precisar instalar essas ferramentas, confira [Guia de Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ### <a name="command-line-deployment"></a>Implantação de linha de comando
 
 Você também precisa do Azure PowerShell ou da CLI do Azure para implantar o modelo. Se você usar CLI do Azure, precisará ter a versão mais recente. Para obter as instruções de instalação, confira:
 
-- [Instalar o Azure PowerShell](/powershell/azure/install-az-ps)
+- [Instale o Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows)
 - [Instalar a CLI do Azure no Linux](/cli/azure/install-azure-cli-linux)
 - [Instalar a CLI do Azure no macOS](/cli/azure/install-azure-cli-macos)

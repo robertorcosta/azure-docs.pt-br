@@ -9,11 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: ff785bf3ace7c65f83fe8e505f0544edd24776d8
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4430b8cdfe9414ddbfd7aad3c3fe7827adbc8705
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836848"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186360"
 ---
 # <a name="remediate-noncompliant-azure-automation-state-configuration-servers"></a>Corrigir servidores do State Configuration da Automação do Azure sem conformidade
 
@@ -24,7 +25,7 @@ Este documento fornece scripts de exemplo para esse recurso ao corrigir manualme
 
 ## <a name="correct-drift-of-windows-virtual-machines-using-powershell"></a>Corrigir descompasso das máquinas virtuais do Windows usando o PowerShell
 
-Você pode corrigir o descompasso de máquinas virtuais do Windows usando o recurso de comando `Run`. Consulte [Executar scripts do PowerShell em sua VM do Windows com o comando Run](/azure/virtual-machines/windows/run-command).
+Você pode corrigir o descompasso de máquinas virtuais do Windows usando o recurso de comando `Run`. Consulte [Executar scripts do PowerShell em sua VM do Windows com o comando Run](../virtual-machines/windows/run-command.md).
 
 Para forçar um nó de State Configuration da Automação do Azure a baixar a configuração mais recente e aplicá-la, use o cmdlet [Update-DscConfiguration](/powershell/module/psdesiredstateconfiguration/update-dscconfiguration).
 
@@ -42,5 +43,5 @@ Para nós híbridos, você pode corrigir o descompasso usando os scripts do Pyth
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
 - Para ver um exemplo de uso do serviço State Configuration da Automação do Azure em um pipeline de implantação contínua, veja [Configuração de implantação contínua com o Chocolatey](automation-dsc-cd-chocolatey.md).

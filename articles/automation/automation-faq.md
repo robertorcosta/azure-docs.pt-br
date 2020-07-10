@@ -7,11 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 02/25/2020
-ms.openlocfilehash: 1cd20e28d1b36167154059adf728a9cfdf8102bc
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 76c8d09ef2ef0130ddac856a1f37f8b68d977494
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836610"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186224"
 ---
 # <a name="azure-automation-frequently-asked-questions"></a>Perguntas frequentes sobre a Automação do Azure
 
@@ -37,7 +38,7 @@ Implantar atualizações por classificação de atualização não funciona em v
 
 ### <a name="can-i-deploy-updates-across-azure-tenants"></a>Posso implantar atualizações em locatários do Azure?
 
-Se você tiver computadores que precisam de correções em outro locatário do Azure relatando ao Gerenciamento de Atualizações, use a seguinte solução alternativa para agendá-las. Você pode usar o cmdlet [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) com o parâmetro `ForUpdateConfiguration` especificado para criar uma agenda. Use o cmdlet [New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) e passe os computadores no outro locatário para o parâmetro `NonAzureComputer`. O exemplo a seguir mostra como fazer isso.
+Se você tiver computadores que precisam de correções em outro locatário do Azure relatando ao Gerenciamento de Atualizações, use a seguinte solução alternativa para agendá-las. Você pode usar o cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) com o parâmetro `ForUpdateConfiguration` especificado para criar uma agenda. Use o cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) e passe os computadores no outro locatário para o parâmetro `NonAzureComputer`. O exemplo a seguir mostra como fazer isso.
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -53,5 +54,5 @@ New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationA
 
 Se a sua pergunta não estiver respondida aqui, confira as fontes a seguir para ver outras perguntas e respostas.
 
-- [Automação do Azure](https://docs.microsoft.com/answers/topics/azure-automation.html)
+- [Automação do Azure](/answers/topics/azure-automation.html)
 - [Fórum de comentários](https://feedback.azure.com/forums/905242-update-management)

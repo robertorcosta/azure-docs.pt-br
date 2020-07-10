@@ -2,12 +2,13 @@
 title: Configurar investigação de preparação na instância de contêiner
 description: Saiba como configurar uma investigação para garantir que os contêineres nas instâncias de contêiner do Azure recebam solicitações somente quando estiverem prontos
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: 3e89086d66f284df35e36dc8f1d68bb09264843f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76935691"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169656"
 ---
 # <a name="configure-readiness-probes"></a>Configurar investigações de preparação
 
@@ -25,7 +26,7 @@ As instâncias de contêiner do Azure também dão suporte a [testes de vida](co
 Por exemplo, crie um `readiness-probe.yaml` arquivo com o trecho a seguir que inclui uma investigação de preparação. Esse arquivo define um grupo de contêineres que consiste em um contêiner que executa um pequeno aplicativo Web. O aplicativo é implantado a partir da `mcr.microsoft.com/azuredocs/aci-helloworld` imagem pública. Esse aplicativo em contêiner também é demonstrado em [implantar uma instância de contêiner no Azure usando o CLI do Azure](container-instances-quickstart.md) e outros guias de início rápido.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: readinesstest
 properties:

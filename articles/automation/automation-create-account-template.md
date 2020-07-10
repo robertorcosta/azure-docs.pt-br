@@ -7,11 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 06/09/2020
-ms.openlocfilehash: 6b26db522db246add48941da9af4784ed2942a0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b9d3ea30f502f8f95bb12c6a3b270f8eddde0cf
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84661035"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186615"
 ---
 # <a name="create-an-automation-account-using-an-azure-resource-manager-template"></a>Criar uma conta de Automação usando um modelo do Azure Resource Manager
 
@@ -41,7 +42,7 @@ A tabela a seguir lista a versão de API para os recursos usados neste exemplo.
 
 Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o módulo do Azure PowerShell Az. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa fazer a atualização, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure. Com o PowerShell, a implantação usa [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-Se você optar por instalar e usar a CLI do Azure localmente, este artigo exigirá que esteja em execução a versão 2.1.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Com a CLI do Azure, essa implantação usa a [criação da implantação de grupo AZ](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
+Se você optar por instalar e usar a CLI do Azure localmente, este artigo exigirá que esteja em execução a versão 2.1.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Com a CLI do Azure, essa implantação usa a [criação da implantação de grupo AZ](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
 O modelo JSON está configurado para solicitar:
 

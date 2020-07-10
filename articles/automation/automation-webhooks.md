@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: e64f437b65964b585311aeae25e5f3a92275754a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d73b87248fff2e99f05d2d6d6263f2bb3abba57
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361669"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185629"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Iniciar runbook a partir de um webhook
 
-Um webhook permite que um serviço externo inicie um runbook específico na Automação do Azure por meio de uma única solicitação HTTP. Os serviços externos incluem Azure DevOps Services, GitHub, logs do Azure Monitor e aplicativos personalizados. Esse serviço pode usar um webhook para iniciar um runbook sem implementar a API de Automação do Azure completa. Você pode comparar os webhooks a outros métodos para iniciar um runbook em [Como iniciar um runbook na Automação do Azure](automation-starting-a-runbook.md).
+Um webhook permite que um serviço externo inicie um runbook específico na Automação do Azure por meio de uma única solicitação HTTP. Os serviços externos incluem Azure DevOps Services, GitHub, logs do Azure Monitor e aplicativos personalizados. Esse serviço pode usar um webhook para iniciar um runbook sem implementar a API de Automação do Azure completa. Você pode comparar os webhooks a outros métodos para iniciar um runbook em [Como iniciar um runbook na Automação do Azure](./start-runbooks.md).
 
 > [!NOTE]
 > O uso de um webhook para iniciar um runbook do Python não é compatível.
@@ -27,7 +27,7 @@ Para entender os requisitos do cliente para o TLS 1,2 com WebHooks, confira [imp
 
 A tabela a seguir descreve as propriedades que devem ser configuradas para um webhook.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | Nome |Nome do webhook. É possível fornecer qualquer nome desejado, já que ele não é exposto ao cliente. Ele é usado apenas por você para identificar o runbook na Automação do Azure. Como melhor prática, você deve atribuir ao webhook um nome relacionado ao cliente que o utiliza. |
 | URL |URL do webhook. É o endereço exclusivo que um cliente chama com um HTTP POST para iniciar o runbook vinculado ao webhook. Ele é gerado automaticamente quando você cria o webhook. Você não pode especificar uma URL personalizada. <br> <br> A URL contém um token de segurança que permite que o runbook seja invocado por um sistema de terceiros sem autenticação adicional. Por esse motivo, você deve tratar a URL como uma senha. Por motivos de segurança, só é possível exibir a URL no portal do Azure ao criar o webhook. Anote a URL em um local seguro para uso futuro. |
@@ -133,7 +133,7 @@ Supondo que a solicitação seja bem-sucedida, a resposta do webhook conterá a 
 {"JobIds":["<JobId>"]}
 ```
 
-O cliente não pode determinar o status da conclusão do webhook ou quando o trabalho de runbook é concluído. Ele pode descobrir essas informações usando a ID de trabalho com outro mecanismo, como [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) ou a [API de Automação do Azure](/rest/api/automation/job).
+O cliente não pode determinar o status da conclusão do webhook ou quando o trabalho de runbook é concluído. Ele pode descobrir essas informações usando a ID de trabalho com outro mecanismo, como [Windows PowerShell](/powershell/module/servicemanagement/azure/get-azureautomationjob) ou a [API de Automação do Azure](/rest/api/automation/job).
 
 ## <a name="renew-a-webhook"></a>Renovar um webhook
 
@@ -151,7 +151,7 @@ Você pode estender um webhook que não atingiu seu prazo de validade. Para este
 O runbook de exemplo a seguir aceita os dados do webhook e inicia as máquinas virtuais especificadas no corpo da solicitação. Para testar esse runbook em sua conta de Automação, em **Runbooks**, clique em **Criar um Runbook**. Se você não souber como criar um runbook, confira [Criando um runbook](automation-quickstart-create-runbook.md).
 
 > [!NOTE]
-> Para runbooks não gráficos do PowerShell, `Add-AzAccount` e `Add-AzureRMAccount` são aliases para [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Você pode usar esses cmdlets ou pode [atualizar seus módulos](automation-update-azure-modules.md) em sua conta de Automação para as versões mais recentes. Talvez você precise atualizar os módulos mesmo que você tenha acabado de criar uma conta de Automação.
+> Para runbooks não gráficos do PowerShell, `Add-AzAccount` e `Add-AzureRMAccount` são aliases para [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Você pode usar esses cmdlets ou pode [atualizar seus módulos](automation-update-azure-modules.md) em sua conta de Automação para as versões mais recentes. Talvez você precise atualizar os módulos mesmo que você tenha acabado de criar uma conta de Automação.
 
 ```powershell
 param

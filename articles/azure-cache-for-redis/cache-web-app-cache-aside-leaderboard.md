@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: ca70262a7980df9d427fbd7e58e08b41c37d7133
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 177aa42991612d8ce2e899576599aafc43015c58
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195585"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082770"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Criar um placar de líderes cache-aside no ASP.NET
 
@@ -680,8 +680,8 @@ Nesta seção, você provisionará um novo banco de dados no Banco de Dados SQL 
 
     | Espaço reservado | Valor sugerido |
     | --- | --- |
-    | *{seu_nomedeusuário}* | Use o **logon de administrador do servidor** para o servidor de banco de dados recém-criado. |
-    | *{sua_senha}* | Use a senha para o servidor de banco de dados recém-criado. |
+    | *{seu_nomedeusuário}* | Use o **logon de administrador do servidor** do servidor recém-criado. |
+    | *{sua_senha}* | Use a senha do servidor recém-criado. |
 
     Ao adicionar o nome de usuário e a senha como uma Configuração de Aplicativo, seu nome de usuário e sua senha não são incluídos no código. Essa abordagem ajuda a proteger essas credenciais.
 

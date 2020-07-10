@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 37f1f129122a64dc27227bee8a267702c7f9d903
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 40dd7f1b177fd1319b145036c8263ba2c6e30137
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733663"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024665"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutorial: Criar uma relação de confiança de floresta de saída com um domínio local no Azure Active Directory Domain Services (versão prévia)
 
@@ -45,7 +45,9 @@ Para concluir este tutorial, você precisará dos seguintes recursos e privilég
     * Se necessário, [crie e configure um domínio gerenciado do Azure Active Directory Domain Services][create-azure-ad-ds-instance-advanced].
     
     > [!IMPORTANT]
-    > Crie um domínio gerenciado usando uma floresta de *recursos*. A opção padrão cria uma floresta de *usuários*. Somente as florestas de recursos podem criar relações de confiança com ambientes do AD DS locais. Você também precisa usar o mínimo do SKU *Enterprise* para seu domínio gerenciado. Se necessário, [altere o SKU de um domínio gerenciado][howto-change-sku].
+    > Crie um domínio gerenciado usando uma floresta de *recursos*. A opção padrão cria uma floresta de *usuários*. Somente as florestas de recursos podem criar relações de confiança com ambientes do AD DS locais.
+    >
+    > Você também precisa usar o mínimo do SKU *Enterprise* para seu domínio gerenciado. Se necessário, [altere o SKU de um domínio gerenciado][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
@@ -69,10 +71,10 @@ Antes de configurar uma relação de confiança de floresta no Azure AD DS, veri
 
 ## <a name="configure-dns-in-the-on-premises-domain"></a>Configurar a DNS no domínio local
 
-Para resolver corretamente o domínio gerenciado do ambiente local, talvez seja necessário adicionar encaminhadores aos servidores DNS existentes. Se você não configurou o ambiente local para se comunicar com o domínio gerenciado, conclua as seguintes etapas de uma estação de trabalho de gerenciamento para o domínio do AD DS local:
+Para resolver corretamente o domínio gerenciado do ambiente local, talvez seja necessário adicionar encaminhadores aos servidores DNS existentes. Se você não configurou o ambiente local para se comunicar com o domínio gerenciado, conclua as seguintes etapas em uma estação de trabalho de gerenciamento para o domínio do AD DS local:
 
 1. Selecione **Iniciar | Ferramentas Administrativas | DNS**
-1. Selecione com o botão direito do mouse o servidor DNS, como *myAD01* e selecione **Propriedades**
+1. Selecione o servidor DNS com o botão direito do mouse, como *myAD01*, e escolha **Propriedades**
 1. Escolha **Encaminhadores**e **Editar** para adicionar encaminhadores adicionais.
 1. Adicione os endereços IP do domínio gerenciado, como *10.0.2.4* e *10.0.2.5*.
 
@@ -83,9 +85,9 @@ O domínio do AD DS local precisa de uma relação de confiança de floresta de 
 Para configurar a relação de confiança de entrada no domínio do AD DS local, conclua as seguintes etapas em uma estação de trabalho de gerenciamento para o domínio do AD DS local:
 
 1. Selecione **Iniciar | Ferramentas Administrativas | Domínios e Relações de Confiança do Active Directory**
-1. Selecione com o botão direito do mouse o domínio, como *onprem.contoso.com*, e selecione **Propriedades**
+1. Selecione o domínio com o botão direito do mouse, como *onprem.contoso.com*, e escolha **Propriedades**
 1. Escolha **Relações de Confiança** e, em seguida, **Nova Relação de Confiança**
-1. Insira o nome no nome de domínio do Azure AD DS, como *aaddscontoso.com* e, em seguida, selecione **Avançar**
+1. Insira o nome de domínio do Azure AD DS, como *aaddscontoso.com*, e selecione **Avançar**
 1. Selecione a opção para criar uma **Relação de confiança de floresta** e, em seguida, para criar uma relação de confiança **Unidirecional: entrada**.
 1. Escolha criar a relação de confiança para **Somente este domínio**. Na próxima etapa, você criará a relação de confiança no portal do Azure para o domínio gerenciado.
 1. Escolha usar a **Autenticação em toda a floresta**; em seguida, insira a senha da relação de confiança e confirme-a. Essa mesma senha também é inserida no portal do Azure na próxima seção.
@@ -94,7 +96,7 @@ Para configurar a relação de confiança de entrada no domínio do AD DS local,
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Criar uma relação de confiança de floresta de saída no Azure AD DS
 
-Com o domínio do AD DS local configurado para resolver o domínio gerenciado e uma relação de confiança de floresta de entrada criada, agora crie a relação de confiança de floresta de saída. Essa relação de confiança de floresta de saída conclui a relação de confiança entre o domínio do AD DS local e o domínio gerenciado.
+Com o domínio do AD DS local configurado para resolver o domínio gerenciado e uma relação de confiança da floresta de entrada criada, agora crie a relação de confiança da floresta de saída. Essa relação de confiança de floresta de saída conclui a relação de confiança entre o domínio do AD DS local e o domínio gerenciado.
 
 Para criar a relação de confiança de saída para o domínio gerenciado no portal do Azure, conclua as seguintes etapas:
 
@@ -124,7 +126,7 @@ Os seguintes cenários comuns permitem que você valide se a relação de confia
 
 ### <a name="on-premises-user-authentication-from-the-azure-ad-ds-resource-forest"></a>Autenticação de usuário local na floresta de recursos do Azure AD DS
 
-Você deve ter a máquina virtual do Windows Server ingressada no domínio do recurso do Azure AD DS. Use esta máquina virtual para testar se o usuário local pode se autenticar em uma máquina virtual.
+Você deverá ter a máquina virtual do Windows Server ingressada no domínio gerenciado. Use esta máquina virtual para testar se o usuário local pode se autenticar em uma máquina virtual. Se necessário, [crie uma VM do Windows e ingresse-a no domínio gerenciado][join-windows-vm].
 
 1. Conecte-se à VM do Windows Server ingressada na floresta de recursos do Azure AD DS usando o [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) e suas credenciais de administrador do Azure AD DS.
 1. Abra um prompt de comando e use o comando `whoami` para mostrar o nome diferenciado do usuário autenticado no momento:
@@ -167,7 +169,7 @@ Usando o VM do Windows Server ingressado na floresta de recursos do Azure AD DS,
 1. Digite os *Usuários de Domínio* na caixa **Insira os nomes de objeto a serem selecionados**. Selecione **Verificar Nomes**, forneça credenciais para o Active Directory local e, em seguida, selecione **OK**.
 
     > [!NOTE]
-    > Você deve fornecer credenciais porque a relação de confiança é somente unidirecional. Isso significa que os usuários do Azure AD DS não podem acessar recursos nem pesquisar usuários ou grupos no domínio confiável (local).
+    > Você deve fornecer credenciais porque a relação de confiança é somente unidirecional. Isso significa que os usuários do domínio gerenciado do Azure AD DS não podem acessar recursos nem pesquisar usuários ou grupos no domínio confiável (local).
 
 1. O grupo **Usuários de Domínio** do seu Active Directory local deve ser membro do grupo **FileServerAccess**. Selecione **OK** para salvar o grupo e fechar a janela.
 
@@ -216,3 +218,4 @@ Para obter mais informações conceituais sobre os tipos de floresta no Azure AD
 [howto-change-sku]: change-sku.md
 [vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
 [expressroute]: ../expressroute/expressroute-introduction.md
+[join-windows-vm]: join-windows-vm.md

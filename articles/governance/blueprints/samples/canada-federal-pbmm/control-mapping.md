@@ -3,12 +3,12 @@ title: Exemplo de controles de blueprint do PBMM Federal do Canadá
 description: Mapeamento de controle das amostras de blueprint do PBMM Federal do Canadá. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 8fc5b2f369dbe174fb4d5ea8160d592e9aaef3af
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: e9153972938a572f8d37610e5721f7b0a578157c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005707"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085626"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint do PBMM Federal do Canadá
 
@@ -108,7 +108,7 @@ Este blueprint atribui definições do [Azure Policy](../../../policy/overview.m
 
 - Configuração de diagnóstico de auditoria
 - A auditoria no SQL Server deve ser habilitada
-- A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas
+- A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas do SQL
 - A Segurança de Dados Avançada deve ser habilitada nos servidores SQL
 
 ## <a name="au-6-4-audit-review-analysis-and-reporting--central-review-and-analysis"></a>AU-6 (4) Revisão, Análise e Relatório de Auditoria | Revisão e Análise Central
@@ -132,7 +132,7 @@ Este blueprint ajuda você a garantir que os eventos do sistema sejam registrado
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows
 - Configuração de diagnóstico de auditoria
 - A auditoria no SQL Server deve ser habilitada
-- A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas
+- A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas do SQL
 - A Segurança de Dados Avançada deve ser habilitada nos servidores SQL
 - Implantar Segurança de Dados Avançada em servidores SQL
 - Implantar Auditoria em servidores SQL
@@ -140,13 +140,13 @@ Este blueprint ajuda você a garantir que os eventos do sistema sejam registrado
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM-7 (5) Funcionalidade Mínima | Um Software autorizado / Lista de Permissões
 
-O controle de aplicativos adaptável na Central de Segurança do Azure é uma solução de lista de permissões inteligente, automatizada e de ponta a ponta que pode bloquear ou impedir a execução de softwares específicos em suas máquinas virtuais. O controle de aplicativo ajuda a criar listas de aplicativos aprovados para suas máquinas virtuais. Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a monitorar máquinas virtuais em que uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
+O controle de aplicativo adaptável da Central de Segurança do Azure é uma solução inteligente, automatizada e completa de lista de permissões de aplicativos que pode bloquear ou impedir a execução de softwares específicos nas suas máquinas virtuais. O controle de aplicativo ajuda a criar listas de aplicativos aprovados para suas máquinas virtuais. Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a monitorar as máquinas virtuais nas quais uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
 
 - Os controles de aplicativos adaptáveis devem ser habilitados em máquinas virtuais
 
 ## <a name="cm-11-user-installed-software"></a>CM-11 Software Instalado pelo Usuário
 
-O controle de aplicativos adaptável na Central de Segurança do Azure é uma solução de lista de permissões inteligente, automatizada e de ponta a ponta que pode bloquear ou impedir a execução de softwares específicos em suas máquinas virtuais. O controle de aplicativos pode ajudar a impor e a monitorar a conformidade com políticas de restrição de software. Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a monitorar máquinas virtuais em que uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
+O controle de aplicativo adaptável da Central de Segurança do Azure é uma solução inteligente, automatizada e completa de lista de permissões de aplicativos que pode bloquear ou impedir a execução de softwares específicos nas suas máquinas virtuais. O controle de aplicativos pode ajudar a impor e a monitorar a conformidade com políticas de restrição de software. Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a monitorar as máquinas virtuais nas quais uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
 
 - Os controles de aplicativos adaptáveis devem ser habilitados em máquinas virtuais
 
@@ -198,7 +198,7 @@ Este blueprint ajuda você a restringir e controlar o acesso privilegiado por me
 
 Este blueprint ajuda você a gerenciar as vulnerabilidades do sistema de informações por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que monitoram vulnerabilidades do sistema operacional, vulnerabilidades do SQL e vulnerabilidades da máquina virtual na Central de Segurança do Azure. A Central de Segurança do Azure fornece funcionalidades de relatórios que permitem ter insights em tempo real sobre o estado de segurança de recursos implantados do Azure. Este blueprint também atribui definições de política que auditam e impõem a Segurança de Dados Avançada em servidores SQL. A segurança de dados avançada inclui recursos de avaliação de vulnerabilidade e proteção avançada contra ameaças para ajudá-lo a entender as vulnerabilidades de seus recursos implantados.
 
-- A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas
+- A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas do SQL
 - A Segurança de Dados Avançada deve ser habilitada nos servidores SQL
 - Implantar Segurança de Dados Avançada em servidores SQL
 - As vulnerabilidades da configuração de segurança nos conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas
@@ -249,7 +249,7 @@ Este blueprint ajuda você a proteger a confidencialidade e a integridade das in
 
 Este blueprint ajuda você a impor sua política sobre o uso de controles de criptografia para proteger informações em repouso por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que impõem controles de criptografia específicos e auditam o uso de configurações de criptografia fraca. Entender em que local os recursos do Azure podem ter configurações de criptografia não ideais pode ajudá-lo a tomar ações corretivas para garantir que os recursos sejam configurados de acordo com a política de segurança de informações. Especificamente, as definições de política atribuídas por esse blueprint exigem criptografia para contas do Data Lake Storage; exigem Transparent Data Encryption em bancos de dados SQL e auditam quanto à falta de criptografia em bancos de dados SQL, discos de máquina virtual e variáveis de conta de automação.
 
-- A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas
+- A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas do SQL
 - A Segurança de Dados Avançada deve ser habilitada nos servidores SQL
 - Implantar Segurança de Dados Avançada em servidores SQL
 - Implantar a Transparent Data Encryption no BD SQL
@@ -293,7 +293,7 @@ Esse blueprint ajuda a monitorar seu sistema por meio da auditoria e da imposiç
 - \[Versão Prévia\]: Auditar o espaço de trabalho do Log Analytics para a VM – Relatar incompatibilidade
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows
-- A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas
+- A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas do SQL
 - A Segurança de Dados Avançada deve ser habilitada nos servidores SQL
 - Implantar Segurança de Dados Avançada em servidores SQL
 - Implantar a Proteção Avançada contra Ameaças em Contas de Armazenamento

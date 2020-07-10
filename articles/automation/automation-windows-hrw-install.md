@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: e1262aedda95f3feb7cf5604644d938bf4d00a53
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 6913ae8cbd8c73bd2763bd89172280feee9df973
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854908"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185612"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implantar um Windows híbrido Runbook Worker
 
@@ -206,9 +206,9 @@ Você pode obter as informações necessárias para os parâmetros `Url` e `Key`
 
 Os Runbooks podem usar qualquer uma das atividades e cmdlets definidos nos módulos instalados em seu ambiente de Automação do Azure. Como esses módulos não são implantados automaticamente em computadores locais, você deve instalá-los manualmente. A exceção é o módulo do Azure. Esse módulo é instalado por padrão e fornece acesso a cmdlets para todos os serviços e atividades do Azure para a Automação do Azure.
 
-Como o objetivo principal do Hybrid Runbook Worker é gerenciar recursos locais, você provavelmente precisará instalar os módulos que permitem esses recursos, principalmente o módulo `PowerShellGet`. Para obter informações sobre como instalar módulos do Windows PowerShell, veja [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell).
+Como o objetivo principal do Hybrid Runbook Worker é gerenciar recursos locais, você provavelmente precisará instalar os módulos que permitem esses recursos, principalmente o módulo `PowerShellGet`. Para obter informações sobre como instalar módulos do Windows PowerShell, veja [Windows PowerShell](/powershell/scripting/developer/windows-powershell).
 
-Os módulos instalados devem estar em um local referenciado pela variável de ambiente `PSModulePath`, para que o Hybrid Worker possa importá-los automaticamente. Para obter mais informações, veja [Instalar módulos no PSModulePath](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
+Os módulos instalados devem estar em um local referenciado pela variável de ambiente `PSModulePath`, para que o Hybrid Worker possa importá-los automaticamente. Para obter mais informações, veja [Instalar módulos no PSModulePath](/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
 
 ## <a name="remove-the-hybrid-runbook-worker-from-an-on-premises-windows-machine"></a><a name="remove-windows-hybrid-runbook-worker"></a>Remover o Hybrid Runbook Worker de um computador Windows local
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 04/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3ccb9c7aff6eb59c4883bc3218e205fb7877e86e
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 08649a537ac8f9de5f444ca3e4fe5ed509910294
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618368"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045834"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Tutorial: Configurar um ambiente de Versão Prévia do Azure Time Series Insights
 
@@ -204,7 +204,7 @@ Nesta seção, você executa análise básica em seus dados de série temporal u
 
 ## <a name="define-and-apply-a-model"></a>Definir e aplicar um modelo
 
-Nesta seção, você aplicará um modelo para estruturar seus dados. Para concluir o modelo, você definirá tipos, hierarquias e instâncias. Para saber mais sobre modelagem de dados, leia [Modelo de Série Temporal](./time-series-insights-update-tsm.md).
+Nesta seção, você aplicará um modelo para estruturar seus dados. Para concluir o modelo, você definirá tipos, hierarquias e instâncias. Para saber mais sobre modelagem de dados, leia [Modelo de Série Temporal](./concepts-model-overview.md).
 
 1. No gerenciador, selecione a guia **Modelo**:
 
@@ -349,15 +349,15 @@ Neste tutorial, você aprendeu a:
 
 Agora que você sabe como criar seu próprio ambiente de Versão Prévia do Azure Time Series Insights, saiba mais sobre os principais conceitos no Azure Time Series Insights.
 
-Leia mais sobre a configuração de armazenamento do Azure Time Series Insights:
+Leia mais sobre a ingestão do Azure Time Series Insights:
 
 > [!div class="nextstepaction"]
-> [Armazenamento e entrada da Versão Prévia do Azure Time Series Insights](./time-series-insights-update-storage-ingress.md)
+> [Visão geral da ingestão de dados do Azure Time Series Insights](./concepts-ingestion-overview.md)
 
 Saiba mais sobre Modelos do Time Series:
 
 > [!div class="nextstepaction"]
-> [Modelagem de dados da Versão Prévia do Azure Time Series Insights](./time-series-insights-update-tsm.md)
+> [Modelagem de dados da Versão Prévia do Azure Time Series Insights](./concepts-model-overview.md)
 
 Saiba mais sobre como Conectar seu ambiente ao Power BI
 

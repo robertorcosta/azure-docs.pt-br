@@ -5,11 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 6eab9b543bfec90c0c338bdc758d690499f083e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0af0848f057b5c225471e9ac13f14db2468d838c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204915"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186088"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Habilitar o Gerenciamento de Atualizações do portal do Azure
 
@@ -23,7 +24,7 @@ O número de grupos de recursos que você pode usar para gerenciar suas VMs é l
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Conta de automação](automation-offering-get-started.md) para gerenciar máquinas.
+* [Conta de automação](./index.yml) para gerenciar máquinas.
 * Uma [máquina virtual](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure

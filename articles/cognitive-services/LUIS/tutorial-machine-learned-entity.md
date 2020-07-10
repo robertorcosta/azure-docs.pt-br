@@ -3,12 +3,12 @@ title: 'Tutorial: extrair dados estruturados com entidade de aprendizado de máq
 description: Extrair dados estruturados de um enunciado usando a entidade de aprendizado de máquina. Para aumentar a precisão de extração, adicione subentidades com recursos.
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: e16badfb2e024c5d82f1aed8a02aa901dca2c2a9
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: eb9761a3d3a98a3318fe0adc6fa170652639a9a1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611009"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045596"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutorial: Extrair dados estruturados do enunciado do usuário usando entidades de aprendizado de máquina no LUIS (Reconhecimento vocal)
 
@@ -108,7 +108,7 @@ Adicionar uma lista de tamanhos conhecidos que o aplicativo cliente reconhece ta
 
 1. Selecione **Entidades** no menu esquerdo e, em seguida, selecione **+ Criar**.
 
-1. Defina o nome da entidade como `SizeListentity` para que seja fácil identificá-la quando comparada ao `SizePhraselist` criado na seção anterior.
+1. Defina o nome da entidade como `SizeListentity` e defina o Tipo como **Lista** para que seja fácil identificá-la quando comparada à `SizePhraselist` criada na seção anterior.
 
 1. Adicione os tamanhos que o aplicativo cliente espera: `Small`, `Medium`, `Large` e `XLarge`, em seguida, adicione sinônimos para cada um. Os sinônimos devem ser os termos que um usuário insere no chatbot. A entidade é extraída com uma entidade de lista quando corresponde exatamente ao valor normalizado ou aos sinônimos.
 

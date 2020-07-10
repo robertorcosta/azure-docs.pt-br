@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 57dbec2b91d313c9c93c141c9f3ec839a299d47d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 840d2afa72de290d5534adc766f8634efa6926e8
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385477"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170047"
 ---
 # <a name="integrating-twilio-verify-app-with-azure-active-directory-b2c"></a>Integrando o aplicativo twilio Verify ao Azure Active Directory B2C
 
@@ -42,7 +42,7 @@ Os seguintes componentes compõem a solução twilio:
 
     ![fluxo de twilio](media/partner-twilio/twilio-flow.png)
 
-|      |      |
+| Etapa | Descrição |
 |------|------|
 | 1     | O usuário inicia a entrada ou a inscrição no aplicativo de demonstração do PSD2. O usuário é autenticado por meio da política de entrada e inscrição Azure AD B2C combinada. Um token é retornado para o aplicativo. Na inscrição, o número de telefone do usuário é verificado usando o SMS/telefone e é registrado em sua conta de Azure AD B2C.     |
 | 2     | O usuário inicia uma transação de alto risco, como uma transferência de $50. O token de acesso atual do usuário é avaliado para a política para determinar se o usuário já foi autenticado por meio de uma política personalizada de etapa para cima.     |

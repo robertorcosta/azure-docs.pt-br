@@ -8,23 +8,23 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 1e408f27d4c9b2686bd9f56ca754f5553a446440
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b247a72b5d7db9892c6a2a763b7b71dc5f972d95
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014903"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045290"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Tutorial: extrair, transformar e carregar dados usando o Azure HDInsight
 
-Neste tutorial, você executa uma operação de ETL: extrair, transformar e carregar dados. Você obtém um arquivo de dados CSV bruto, importa-o em um cluster do Azure HDInsight, transforma-o com o Apache Hive e carrega-o em um Banco de Dados SQL do Azure com o Apache Sqoop.
+Neste tutorial, você executa uma operação de ETL: extrair, transformar e carregar dados. Você vai selecionar um arquivo de dados CSV bruto, importá-lo para um cluster do Azure HDInsight, transformá-lo com o Apache Hive e carregá-lo no Banco de Dados SQL do Azure com o Apache Sqoop.
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * extrair e carregar os dados em um cluster do HDInsight.
 > * transformar os dados usando o Apache Hive.
-> * Carregar os dados em um Banco de Dados SQL do Azure usando o Sqoop.
+> * Carregar os dados no Banco de Dados SQL do Azure usando o Sqoop.
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -38,7 +38,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
     Confira [Início Rápido: Introdução ao Apache Hadoop e ao Apache Hive no Azure HDInsight usando o portal do Azure](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal).
 
-* **Banco de Dados SQL do Azure**: Você usa um banco de dados SQL do Azure como um repositório de dados de destino. Se você não tiver um Banco de Dados SQL, consulte [Criar um Banco de Dados SQL do Azure no Portal do Azure](../../sql-database/sql-database-get-started.md).
+* **Banco de Dados SQL do Azure**: use o Banco de Dados SQL do Azure como um armazenamento de dados de destino. Se você não tiver um banco de dados no Banco de Dados SQL, confira [Criar um banco de dados no Banco de Dados SQL do Azure no portal do Azure](../../sql-database/sql-database-get-started.md).
 
 * **CLI do Azure**: Se você ainda não instalou a CLI do Azure, confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -224,7 +224,7 @@ Como parte do trabalho do Apache Hive, importe os dados do arquivo .csv para uma
 
 ## <a name="create-a-sql-database-table"></a>Criar uma tabela do Banco de Dados SQL
 
-É necessário o nome do servidor do banco de dados SQL para essa operação. Conclua estas etapas para localizar o nome do servidor.
+Você precisará do nome do servidor do Banco de Dados SQL para essa operação. Conclua estas etapas para localizar o nome do servidor.
 
 1. Vá para o [Portal do Azure](https://portal.azure.com).
 
@@ -300,7 +300,7 @@ Como parte do trabalho do Apache Hive, importe os dados do arquivo .csv para uma
 
 ## <a name="export-and-load-the-data"></a>Exportar e carregar os dados
 
-Nas seções anteriores, você copiou os dados transformados no local `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. Nesta seção, você usa o Sqoop para exportar os dados de `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` para a tabela criada no Banco de Dados SQL do Azure.
+Nas seções anteriores, você copiou os dados transformados no local `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. Nesta seção, você usará o Sqoop para exportar os dados de `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` para a tabela criada no Banco de Dados SQL do Azure.
 
 1. Use o comando a seguir para verificar se o Sqoop pode ver seu Banco de Dados SQL:
 

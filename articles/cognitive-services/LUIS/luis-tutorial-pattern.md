@@ -2,13 +2,13 @@
 title: 'Tutorial: Padrões – LUIS'
 description: Use padrões para aumentar a previsão de intenção e entidade enquanto fornece menos enunciados de exemplo neste tutorial. O padrão é fornecido como um enunciado de modelo de exemplo, que inclui sintaxe para identificar entidades e texto ignorável.
 ms.topic: tutorial
-ms.date: 05/07/2020
-ms.openlocfilehash: c9bbd521d49d669e8ebd18b29bda9f2add8f7739
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 07/06/2020
+ms.openlocfilehash: 3ca8bb15d19b0fa0dd6b33d35a380c0b1b07abe0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592909"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039493"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutorial: Adicionar formatos de enunciado de modelo de padrão comuns para aprimorar previsões
 
@@ -39,12 +39,10 @@ Um padrão é aplicado como uma combinação da correspondência de texto e do m
 
 Use as seguintes etapas:
 
-1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
+1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/tutorial-fix-unsure-predictions.json?raw=true).
 
 1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
-1. Importe o JSON para um novo aplicativo usando o [portal do LUIS](https://www.luis.ai). Na página **Meus Aplicativos**, selecione **+ Novo aplicativo para conversa** e, em seguida, **Importar como JSON**. Escolha o arquivo que você baixou na etapa anterior.
-
-1. Na seção **Gerenciar**, na guia **Versões**, escolha a versão ativa e, em seguida, **Clonar**. Dê à versão clonada o nome `patterns`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL.
+1. Importe o JSON para um novo aplicativo usando o [portal do LUIS](https://www.luis.ai). Na página **Meus Aplicativos**, selecione **+ Novo aplicativo para conversa** e, em seguida, **Importar como JSON**. Escolha o arquivo que você baixou na etapa anterior e nomeie o aplicativo `Patterns tutorial`.
 
 ## <a name="create-new-intents-and-their-utterances"></a>Crie novas intenções e seus enunciados
 
@@ -67,8 +65,6 @@ As duas intenções localizam o gerente ou os subordinados diretos do gerente, c
     |`Who is John W. Smith's manager?`|
     |`Who does Jill Jones directly report to?`|
     |`Who is Jill Jones supervisor?`|
-
-    Não se preocupe se a entidade keyPhrase estiver rotulada nos enunciados da intenção, em vez da entidade do funcionário. Ambos são previstos corretamente no painel Teste e no ponto de extremidade.
 
 1. Selecione **Intenções** no painel de navegação esquerdo.
 
@@ -109,50 +105,50 @@ As duas intenções localizam o gerente ou os subordinados diretos do gerente, c
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.313054234
+                    "score": 0.326605469
                 },
                 "OrgChart-Reports": {
-                    "score": 0.2462688
+                    "score": 0.127583548
                 },
                 "EmployeeFeedback": {
-                    "score": 0.0488328524
-                },
-                "GetJobInformation": {
-                    "score": 0.0156933
+                    "score": 0.0299124215
                 },
                 "MoveEmployee": {
-                    "score": 0.011265873
+                    "score": 0.01159851
                 },
-                "Utilities.StartOver": {
-                    "score": 0.003065792
-                },
-                "Utilities.Stop": {
-                    "score": 0.00300148362
-                },
-                "Utilities.Cancel": {
-                    "score": 0.00271081156
-                },
-                "None": {
-                    "score": 0.00212835032
+                "GetJobInformation": {
+                    "score": 0.0104600191
                 },
                 "ApplyForJob": {
-                    "score": 0.0020669254
+                    "score": 0.007508645
                 },
-                "Utilities.Confirm": {
-                    "score": 0.00200891262
+                "Utilities.StartOver": {
+                    "score": 0.00359402061
+                },
+                "Utilities.Stop": {
+                    "score": 0.00336530479
                 },
                 "FindForm": {
-                    "score": 0.00194145238
+                    "score": 0.002653719
+                },
+                "Utilities.Cancel": {
+                    "score": 0.00263288687
+                },
+                "None": {
+                    "score": 0.00238638581
                 },
                 "Utilities.Help": {
-                    "score": 0.00182301877
+                    "score": 0.00226386427
+                },
+                "Utilities.Confirm": {
+                    "score": 0.00211663754
                 }
             },
             "entities": {
                 "keyPhrase": [
                     "boss of Jill Jones"
                 ],
-                "Employee": [
+                "EmployeeListEntity": [
                     [
                         "Employee-45612"
                     ]
@@ -171,9 +167,9 @@ As duas intenções localizam o gerente ou os subordinados diretos do gerente, c
                             ]
                         }
                     ],
-                    "Employee": [
+                    "EmployeeListEntity": [
                         {
-                            "type": "Employee",
+                            "type": "EmployeeListEntity",
                             "text": "Jill Jones",
                             "startIndex": 19,
                             "length": 10,
@@ -190,13 +186,9 @@ As duas intenções localizam o gerente ou os subordinados diretos do gerente, c
     }
     ```
 
-As pontuações das duas principais intenções estão próximas, mas a intenção mais alta não é significativamente alta (mais de 60%) e não é está suficientemente acima da pontuação da próxima intenção.
+A principal intenção correta foi prevista, `OrgChart-Manager`, mas a pontuação não está acima de 70% e não está acima o suficiente da próxima intenção mais alta. Use padrões para tornar a pontuação da intenção correta significativamente maior em porcentagem e mais distante da próxima pontuação mais alta.
 
-Como o treinamento do LUIS não é exatamente o mesmo todas as vezes (há um pouco de variação), essas duas pontuações principais podem se inverter no próximo ciclo de treinamento. O resultado é que a intenção errada pode ser retornada.
-
-Use padrões para tornar a pontuação da intenção correta significativamente maior em porcentagem e mais distante da próxima pontuação mais alta.
-
-Uma nova e segunda janela do navegador é aberta. Você usará esse valor posteriormente no tutorial.
+Uma nova e segunda janela do navegador é aberta. Você a usará mais adiante no tutorial.
 
 ## <a name="template-utterances"></a>Enunciados de modelo
 Devido à natureza do domínio de assunto de Recursos Humanos, há algumas maneiras comuns de perguntar sobre as relações de funcionários em organizações. Por exemplo:
@@ -206,16 +198,16 @@ Devido à natureza do domínio de assunto de Recursos Humanos, há algumas manei
 |`Who does Jill Jones report to?`|
 |`Who reports to Jill Jones?`|
 
-Essas declarações estão perto demais para determinar a exclusividade contextual de cada uma sem fornecer muitos exemplos de declaração. Adicionando um padrão para uma intenção, o LUIS aprende padrões de declaração comuns para uma intenção sem fornecer muitos exemplos de declaração.
+Esses enunciados estão muito próximos para determinar a exclusividade contextual de cada um sem fornecer _muitos_ exemplos de enunciados. Adicionando um padrão a uma intenção, o LUIS aprende padrões de enunciado comuns para uma intenção sem a necessidade de fornecer muitos outros exemplos de enunciado.
 
 Exemplos de enunciado de modelo para essa intenção incluem:
 
 |Exemplo dos enunciados de modelo|significado da sintaxe|
 |--|--|
-|`Who does {Employee} report to[?]`|`{Employee}` intercambiável<br>ignorar `[?]`|
-|`Who reports to {Employee}[?]`|`{Employee}` intercambiável<br>ignorar `[?]`|
+|`Who does {EmployeeListEntity} report to[?]`|`{EmployeeListEntity}` intercambiável<br>ignorar `[?]`|
+|`Who reports to {EmployeeListEntity}[?]`|`{EmployeeListEntity}` intercambiável<br>ignorar `[?]`|
 
-A sintaxe `{Employee}` marca o local da entidade dentro da declaração de modelo, bem como qual entidade é. A sintaxe opcional, `[?]`, marca palavras ou [pontuações](luis-reference-application-settings.md#punctuation-normalization) opcionais. O LUIS corresponde ao enunciado, ignorando o texto opcional dentro dos parênteses.
+A sintaxe `{EmployeeListEntity}` marca o local da entidade dentro da declaração de modelo, bem como qual entidade é. A sintaxe opcional, `[?]`, marca palavras ou [pontuações](luis-reference-application-settings.md#punctuation-normalization) opcionais. O LUIS corresponde ao enunciado, ignorando o texto opcional dentro dos parênteses.
 
 Embora a sintaxe se pareça com uma expressão regular, ela não é uma expressão regular. Apenas a sintaxe com aspas inglesas, `{}`, e colchetes, `[]`, tem suporte. Eles podem ser aninhados em até dois níveis.
 
@@ -233,25 +225,25 @@ Para que um padrão seja correspondido a um enunciado, _primeiro_, as entidades 
 
     |Enunciados de modelo|
     |:--|
-    |`Who is {Employee} the subordinate of[?]`|
-    |`Who does {Employee} report to[?]`|
-    |`Who is {Employee}['s] manager[?]`|
-    |`Who does {Employee} directly report to[?]`|
-    |`Who is {Employee}['s] supervisor[?]`|
-    |`Who is the boss of {Employee}[?]`|
+    |`Who is {EmployeeListEntity} the subordinate of[?]`|
+    |`Who does {EmployeeListEntity} report to[?]`|
+    |`Who is {EmployeeListEntity}['s] manager[?]`|
+    |`Who does {EmployeeListEntity} directly report to[?]`|
+    |`Who is {EmployeeListEntity}['s] supervisor[?]`|
+    |`Who is the boss of {EmployeeListEntity}[?]`|
 
-    Esses enunciados de modelo incluem a entidade **Employee** com a notação de chave.
+    Esses enunciados de modelo incluem a entidade **EmployeeListEntity** com a notação de chave.
 
 1. Selecione a intenção **OrgChart-Reports** e, em seguida, insira os seguintes enunciados de modelo, enquanto ainda estiver na página de Padrões:
 
     |Enunciados de modelo|
     |:--|
-    |`Who are {Employee}['s] subordinates[?]`|
-    |`Who reports to {Employee}[?]`|
-    |`Who does {Employee} manage[?]`|
-    |`Who are {Employee} direct reports[?]`|
-    |`Who does {Employee} supervise[?]`|
-    |`Who does {Employee} boss[?]`|
+    |`Who are {EmployeeListEntity}['s] subordinates[?]`|
+    |`Who reports to {EmployeeListEntity}[?]`|
+    |`Who does {EmployeeListEntity} manage[?]`|
+    |`Who are {EmployeeListEntity} direct reports[?]`|
+    |`Who does {EmployeeListEntity} supervise[?]`|
+    |`Who does {EmployeeListEntity} boss[?]`|
 
 ### <a name="query-endpoint-when-patterns-are-used"></a>Ponto de extremidade de consulta quando os padrões são usados
 
@@ -261,7 +253,7 @@ Agora que os padrões foram adicionados ao aplicativo, treine, publique e consul
 
 1. Após a conclusão da publicação, alterne as guias do navegador de volta para a guia da URL do ponto de extremidade.
 
-1. Vá para o final da URL na barra de endereços e substitua _YOUR_QUERY_HERE_ por: `Who is the boss of Jill Jones?`
+1. Acesse o final da URL na barra de endereços e confirme se a consulta ainda é `Who is the boss of Jill Jones?` e envie a URL para uma nova previsão.
 
     ```json
     {
@@ -270,50 +262,50 @@ Agora que os padrões foram adicionados ao aplicativo, treine, publique e consul
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.999997854
+                    "score": 0.999999046
                 },
                 "OrgChart-Reports": {
-                    "score": 6.13748343E-05
+                    "score": 3.237443E-05
                 },
                 "EmployeeFeedback": {
-                    "score": 8.052567E-06
+                    "score": 4.364242E-06
                 },
                 "GetJobInformation": {
-                    "score": 1.18197136E-06
+                    "score": 1.616159E-06
                 },
                 "MoveEmployee": {
-                    "score": 7.65549657E-07
-                },
-                "None": {
-                    "score": 3.975E-09
-                },
-                "Utilities.StartOver": {
-                    "score": 1.53E-09
-                },
-                "Utilities.Confirm": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Help": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Stop": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Cancel": {
-                    "score": 1.25833333E-09
-                },
-                "FindForm": {
-                    "score": 1.15384613E-09
+                    "score": 7.575752E-07
                 },
                 "ApplyForJob": {
-                    "score": 5.26923061E-10
+                    "score": 5.234157E-07
+                },
+                "None": {
+                    "score": 3.3E-09
+                },
+                "Utilities.StartOver": {
+                    "score": 1.26E-09
+                },
+                "FindForm": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Cancel": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Confirm": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Help": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Stop": {
+                    "score": 1.13636367E-09
                 }
             },
             "entities": {
                 "keyPhrase": [
                     "boss of Jill Jones"
                 ],
-                "Employee": [
+                "EmployeeListEntity": [
                     [
                         "Employee-45612"
                     ]
@@ -332,9 +324,9 @@ Agora que os padrões foram adicionados ao aplicativo, treine, publique e consul
                             ]
                         }
                     ],
-                    "Employee": [
+                    "EmployeeListEntity": [
                         {
-                            "type": "Employee",
+                            "type": "EmployeeListEntity",
                             "text": "Jill Jones",
                             "startIndex": 19,
                             "length": 10,
@@ -351,7 +343,7 @@ Agora que os padrões foram adicionados ao aplicativo, treine, publique e consul
     }
     ```
 
-A previsão da intenção agora é significativamente mais confiável e a pontuação da próxima intenção mais alta é significativamente menor. Essas duas intenções não mudarão durante o treinamento.
+A previsão da intenção agora é significativamente mais confiável, e a pontuação da próxima intenção mais alta é muito menor. Essas duas intenções não mudarão durante o treinamento.
 
 ### <a name="working-with-optional-text-and-prebuilt-entities"></a>Trabalhanr com texto opcional e as entidades predefinidas
 
@@ -372,8 +364,8 @@ Declarações de modelo de exemplo que permitem essas informações opcionais:
 
 |Intencional|Exemplo de enunciado com texto opcional e as entidades predefinidas|
 |:--|:--|
-|Organograma-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-|Organograma-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
+|Organograma-Manager|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
+|Organograma-Manager|`who is {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 
 O uso da sintaxe de colchetes, opcional `[]`, facilita esse texto opcional adicionar a declaração de modelo e podem ser aninhados em até um segundo nível, `[[]]`e incluem entidades ou texto.
@@ -383,9 +375,10 @@ O uso da sintaxe de colchetes, opcional `[]`, facilita esse texto opcional adici
 
 **Pergunta: Por que um número predefinido não faz parte do modelo de expressão se 3 de março está previsto tanto como número `3` quanto como data `March 3`?** A expressão de modelo contextualmente está usando uma data, ou, literalmente, como em `March 3` ou abstraída como `in a month`. Uma data pode conter um número, mas um número necessariamente não pode ser visto como uma data. Sempre use a entidade que melhor representa o tipo que você deseja que seja retornado nos resultados da previsão de JSON.
 
-**Pergunta: E quanto a expressões mal formuladas como `Who will {Employee}['s] manager be on March 3?`.** Tempos verbais gramaticalmente diferentes, como este, em que o `will` e `be` são separados precisarão ser uma nova declaração de modelo. A expressão de modelo existente não coincida com isso. Embora a intenção da declaração não foi alterada, o posicionamento da palavra na declaração foi alterada. Essa alteração afeta a previsão no LUIS. Você pode [grupo e ou](#use-the-or-operator-and-groups) verbais combinar essas declarações.
+**Pergunta: E quanto a expressões mal formuladas como `Who will {EmployeeListEntity}['s] manager be on March 3?`.** Tempos verbais gramaticalmente diferentes, como este, em que o `will` e `be` são separados precisarão ser uma nova declaração de modelo. A expressão de modelo existente não coincida com isso. Embora a intenção da declaração não foi alterada, o posicionamento da palavra na declaração foi alterada. Essa alteração afeta a previsão no LUIS. Você pode [grupo e ou](#use-the-or-operator-and-groups) verbais combinar essas declarações.
 
-**Lembre-se: entidades encontram-se em primeiro lugar, em seguida, o padrão é correspondido.**
+> [!CAUTION]
+> **Lembre-se: entidades encontram-se em primeiro lugar, em seguida, o padrão é correspondido.**
 
 ### <a name="add-new-pattern-template-utterances"></a>Adicionar novas declarações de modelo padrão
 
@@ -393,9 +386,9 @@ O uso da sintaxe de colchetes, opcional `[]`, facilita esse texto opcional adici
 
     |Intencional|Exemplo de enunciado com texto opcional e as entidades predefinidas|
     |--|--|
-    |Organograma-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-    |Organograma-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-    |Organograma-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+    |Organograma-Manager|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
+    |Organograma-Manager|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
+    |Organograma-Manager|`who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 2. Selecione **Treinar** na barra de navegação para treinar o aplicativo.
 
@@ -403,7 +396,7 @@ O uso da sintaxe de colchetes, opcional `[]`, facilita esse texto opcional adici
 
 4. Insira várias declarações de teste para verificar se o padrão é correspondido e a pontuação de intenção é muito alta.
 
-    Depois de inserir a primeira expressão, selecione **Inspecionar** sob o resultado para que você possa ver todos os resultados de previsão. Cada expressão deve ter a intenção do **Organograma-Manager** e deve extrair os valores para as entidades de funcionário e datetimeV2.
+    Depois de inserir a primeira expressão, selecione **Inspecionar** sob o resultado para que você possa ver todos os resultados de previsão. Cada enunciado deve ter a intenção **OrgChart-Manager** e extrair os valores para as entidades `EmployeeListEntity` e `datetimeV2`.
 
     |Enunciado|
     |--|
@@ -425,18 +418,21 @@ Esse uso de padrões forneceu:
 
 Várias das declarações de modelo anterior são muito parecidas. Use a sintaxe **group** `()` e **OR** `|` para reduzir os enunciados de modelo.
 
-Os seguintes 2 padrões podem combinar em um único padrão usando o grupo `()` e a sintaxe OU `|`.
+Os dois padrões a seguir podem ser combinados em um só padrão por meio do grupo `()` e da sintaxe OR `|`.
 
 |Intencional|Exemplo de enunciado com texto opcional e as entidades predefinidas|
 |--|--|
-|Organograma-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-|Organograma-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+|Organograma-Manager|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
+|Organograma-Manager|`who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 A nova declaração de modelo será:
 
-`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
+`who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`.
 
 Isso usa um **grupo** em torno dos tempos verbais exigidos e o `in` opcional e `on` com um **ou** pipe entre eles.
+
+> [!NOTE]
+> Ao usar o símbolo _OR_, `|` (barra vertical), separe o símbolo de barra vertical com um espaço antes e depois dele no modelo de exemplo.
 
 1. Na página **Padrões**, selecione o filtro **Organograma-Manager**. Restrinja a lista pesquisando por `manager`.
 
@@ -444,7 +440,7 @@ Isso usa um **grupo** em torno dos tempos verbais exigidos e o `in` opcional e `
 
 1. Alterar a definição do modelo para:
 
-    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`
+    `who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`
 
 2. Selecione **Treinar** na barra de navegação para treinar o aplicativo.
 

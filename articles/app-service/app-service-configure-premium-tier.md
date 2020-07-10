@@ -6,11 +6,12 @@ ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 07/25/2018
 ms.custom: seodec18
-ms.openlocfilehash: f7f9f6d5617ad0f9be69c47ce514d395534fd892
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4fa64562f8d26297d2b2c8a13cd8b6a513c2c630
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74672219"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170013"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurar a camada PremiumV2 para o Serviço de Aplicativo do Azure
 
@@ -42,7 +43,7 @@ Ao configurar o Plano do Serviço de Aplicativo no <a href="https://portal.azure
 
 Selecione **produção**, em seguida, selecione **P1V2**, **P2V2**, ou **P3V2**, em seguida, clique em **aplicar**.
 
-![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
+![Captura de tela mostrando os tipos de preço recomendados para seu aplicativo.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
 > Se você não ver **P1V2**, **P2V2** e **P3V2** como opções, ou se as opções não estiverem disponíveis, **PremiumV2** provavelmente não está disponível na implantação do Serviço de Aplicativo subjacente que contém o plano do Serviço de Aplicativo. Consulte [Expandir de uma combinação de regiões e de um grupo de recursos sem suporte](#unsupported) para obter mais detalhes.
@@ -57,15 +58,15 @@ No <a href="https://portal.azure.com" target="_blank">Portal do Azure</a>, abra 
 
 No painel de navegação à esquerda da página do seu aplicativo do Serviço de Aplicativo, selecione **Expandir (Plano do Serviço de Aplicativo)**.
 
-![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
+![Captura de tela mostrando como escalar verticalmente seu plano do serviço de aplicativo.](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
 Selecione **produção**, em seguida, selecione **P1V2**, **P2V2**, ou **P3V2**, em seguida, clique em **aplicar**.
 
-![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
+![Captura de tela mostrando os tipos de preço recomendados para seu aplicativo.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 Se a operação for concluída com êxito, a página de visão geral do aplicativo mostrará que ele está no tipo de preço **PremiumV2**.
 
-![](media/app-service-configure-premium-tier/finished.png)
+![Captura de tela mostrando o tipo de preço PremiumV2 na página de visão geral do seu aplicativo.](media/app-service-configure-premium-tier/finished.png)
 
 ### <a name="if-you-get-an-error"></a>Se você receber um erro
 
@@ -80,7 +81,7 @@ Se o aplicativo for executado em uma implantação do Serviço de Aplicativo em 
 - Crie um **novo** grupo de recursos e, em seguida, crie um **novo** aplicativo e plano do Serviço de Aplicativo no **novo** grupo de recursos, escolhendo a região do Azure desejada durante o processo de criação.  Você **deve** selecionar o plano **PremiumV2** no momento em que o novo plano do serviço de aplicativo for criado.  Isso garante que a combinação do grupo de recursos, plano do Serviço de Aplicativo, e a região do Azure resulte no plano do Serviço de Aplicativo sendo criado em uma implantação do Serviço de Aplicativo com suporte a **PremiumV2**.  Em seguida, reimplante o código do aplicativo para o aplicativo e o plano do serviço de aplicativo recém-criados. Caso queira, posteriormente, é possível reduzir verticalmente o plano do Serviço de Aplicativo do **PremiumV2** para economizar custos, e você ainda poderá escalar verticalmente outra vez para uso futuro usando **PremiumV2**.
 - Se o aplicativo já é executado em uma camada **Premium** existente, é possível clonar o aplicativo com todas as configurações do aplicativo, cadeias de conexão e configuração de implantação em um novo plano de serviço de aplicativo que use **PremiumV2**.
 
-    ![](media/app-service-configure-premium-tier/clone-app.png)
+    ![Captura de tela mostrando como clonar seu aplicativo.](media/app-service-configure-premium-tier/clone-app.png)
 
     Na página **Clonar aplicativo**, você pode criar um plano do Serviço de Aplicativo usando **PremiumV2** na região escolhida e especificar as configurações de aplicativo e as configurações que deseja clonar.
 

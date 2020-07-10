@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d388162738930030ba311a04a0dce1db15590c79
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c51ef23e27cd63d3706c104d1e39a14bf61c258e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836831"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186343"
 ---
 # <a name="edit-textual-runbooks-in-azure-automation"></a>Editar runbooks de texto na Automação do Azure
 
@@ -56,7 +57,7 @@ Este artigo oferece as etapas detalhadas para a execução de funções diferent
 1. No controle da tela do editor de texto, posicione o cursor onde você deseja colocar o código do runbook filho.
 2. Expanda o nó **Ativos** no controle Biblioteca.
 3. Expanda o nó para o tipo de ativo desejado.
-4. Clique com botão direito do mouse no nome do ativo a ser inserido e selecione **Adicionar à tela**. Para os [ativos da variável](automation-variables.md), selecione **Adicionar "Get Variable" à tela** ou **Adicionar "Set Variable" à tela**, dependendo de você querer obter ou definir a variável.
+4. Clique com botão direito do mouse no nome do ativo a ser inserido e selecione **Adicionar à tela**. Para os [ativos da variável](./shared-resources/variables.md), selecione **Adicionar "Get Variable" à tela** ou **Adicionar "Set Variable" à tela**, dependendo de você querer obter ou definir a variável.
 5. Observe que o código do ativo é inserido no runbook.
 
 ## <a name="edit-an-azure-automation-runbook-using-windows-powershell"></a>Editar um runbook da Automação do Azure usando o Windows PowerShell
@@ -95,9 +96,9 @@ Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automatio
 * [Gerenciar runbooks na Automação do Azure](manage-runbooks.md).
 * [Aprender sobre o Fluxo de Trabalho do PowerShell](automation-powershell-workflow.md).
 * [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md).
-* [Certificados](automation-certificates.md).
+* [Certificados](./shared-resources/certificates.md).
 * [Conexões](automation-connections.md).
-* [Credenciais](automation-credentials.md).
-* [Agendas](automation-schedules.md).
-* [Variáveis](automation-variables.md).
-* [Referência de cmdlet do PowerShell](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* [Credenciais](./shared-resources/credentials.md).
+* [Agendas](./shared-resources/schedules.md).
+* [Variáveis](./shared-resources/variables.md).
+* [Referência de cmdlet do PowerShell](/powershell/module/az.automation/?view=azps-3.7.0#automation).

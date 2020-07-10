@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b62cca48323d4e12a92c89d64ab67bf5b783c36f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0a6f9e723fb6374f5ac72241501f49a94c2c2fe2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82183817"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101946"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Tutorial: Criar vários instâncias de recurso com os modelos do ARM
 
@@ -31,7 +31,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do ARM](use-vs-code-to-create-template.md).
+* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
@@ -44,7 +44,7 @@ Para concluir este artigo, você precisa do seguinte:
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
 3. Escolha **Abrir** para abrir o arquivo.
-4. Há um recurso 'Microsoft.Storage/storageAccounts' definido no modelo. Comparar o modelo para a [referência de modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). É útil ter algumas noções básicas do modelo antes de personalizá-lo.
+4. Há um recurso 'Microsoft.Storage/storageAccounts' definido no modelo. Comparar o modelo para a [referência de modelo](/azure/templates/Microsoft.Storage/storageAccounts). É útil ter algumas noções básicas do modelo antes de personalizá-lo.
 5. Escolha **Arquivo**>**Salvar como** para salvar o arquivo como **azuredeploy.json** em seu computador local.
 
 ## <a name="edit-the-template"></a>Editar o modelo

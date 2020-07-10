@@ -7,11 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 06/10/2020
-ms.openlocfilehash: feb1cc132bf5463550a2e7921f347c8f2f48260e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad9029b44ffb0c98bad58bbf012eb19d084d5446
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667991"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185748"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Habilitar o Gerenciamento de Atualizações usando o modelo do Azure Resource Manager
 
@@ -38,9 +39,9 @@ A tabela a seguir lista as versões de API para os recursos usados neste modelo.
 
 ## <a name="before-using-the-template"></a>Antes de usar o modelo
 
-Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o módulo do Azure PowerShell Az. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa fazer a atualização, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) para criar uma conexão com o Azure. Com o Azure PowerShell, a implantação usa [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o módulo do Azure PowerShell Az. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa fazer a atualização, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) para criar uma conexão com o Azure. Com o Azure PowerShell, a implantação usa [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-Se você optar por instalar e usar a CLI localmente, este artigo exigirá que esteja em execução a versão 2.1.0 ou posterior da CLI do Azure. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Com a CLI do Azure, essa implantação usa a [criação da implantação de grupo AZ](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
+Se você optar por instalar e usar a CLI localmente, este artigo exigirá que esteja em execução a versão 2.1.0 ou posterior da CLI do Azure. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Com a CLI do Azure, essa implantação usa a [criação da implantação de grupo AZ](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
 O modelo JSON está configurado para solicitar:
 

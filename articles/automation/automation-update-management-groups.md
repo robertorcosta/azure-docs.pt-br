@@ -5,11 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 11/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: c440862f1379983d4644fe99f33207456f747d23
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 25a306b3281079e8476a67ee70c2ca2cfffdd30c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830932"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185731"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>Usar grupos dinâmicos com o Gerenciamento de Atualizações
 
@@ -20,7 +21,7 @@ O Gerenciamento de Atualizações permite que você direcione um grupo dinâmico
 
 É possível definir grupos dinâmicos para computadores Azure ou não Azure a partir do **Gerenciamento de Atualizações** no portal do Azure. Veja [Gerenciar atualizações para várias máquinas virtuais do Azure](manage-update-multi.md).
 
-Um grupo dinâmico é definido por uma consulta que a Automação do Azure avalia no momento da implantação. Mesmo se uma consulta de grupo dinâmico recuperar um grande número de máquinas, a Automação do Azure poderá processar apenas um máximo de 1.000 máquinas de cada vez. Veja [Assinatura do Azure e limites, cotas e restrições de serviço](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#update-management). 
+Um grupo dinâmico é definido por uma consulta que a Automação do Azure avalia no momento da implantação. Mesmo se uma consulta de grupo dinâmico recuperar um grande número de máquinas, a Automação do Azure poderá processar apenas um máximo de 1.000 máquinas de cada vez. Veja [Assinatura do Azure e limites, cotas e restrições de serviço](../azure-resource-manager/management/azure-subscription-service-limits.md#update-management). 
 
 > [!NOTE]
 > Se quiser atualizar mais de 1.000 computadores, recomendamos que você divida as atualizações entre vários agendamentos de atualização. 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d4e5dfe26af7e1d92c20cf15e3519563e600b256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4d8174cd0bfdb2297099b403fb836210c5529ac
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385698"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170217"
 ---
 # <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Tutorial para configurar o arkose Labs com o Azure Active Directory B2C
 
@@ -35,7 +35,7 @@ O diagrama a seguir descreve como o arkose Labs se integra ao Azure AD B2C.
 
 ![Diagrama da arquitetura do arkose Labs](media/partner-arkose-labs/arkose-architecture-diagram.png)
 
-|   |   |
+| Etapa  | Descrição |
 |---|---|
 |1     | Um usuário entra com uma conta criada anteriormente. Quando o usuário seleciona Enviar, um desafio de imposição do arkose Labs é exibido. Depois que o usuário concluir o desafio, o status será enviado para o arkose Labs para gerar um token.        |
 |2     |  O arkose Labs envia o token de volta para Azure AD B2C.       |

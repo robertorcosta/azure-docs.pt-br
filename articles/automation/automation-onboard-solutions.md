@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 95370a45b9fce69e5c1d06ac9bb987e1bfcfba4f
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: d55a47e4eb921c71ff3539d34b6db514684da073
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204065"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186122"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Habilitar o Gerenciamento de Atualizações de um runbook
 
@@ -22,7 +22,7 @@ Este artigo descreve como você pode usar um runbook para habilitar o recurso de
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Conta de automação](automation-offering-get-started.md) para gerenciar máquinas.
+* [Conta de automação](./index.yml) para gerenciar máquinas.
 * Uma [máquina virtual](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="enable-update-management"></a>Habilitar Gerenciamento de Atualizações
@@ -50,7 +50,7 @@ Com o Gerenciamento de Atualizações habilitado, você pode adicionar uma VM do
 
 ## <a name="install-and-update-modules"></a>Instalar e atualizar módulos
 
-É necessário atualizar para os módulos do Azure mais recentes e importar o módulo [Az.OperationalInsights](https://docs.microsoft.com/powershell/module/az.operationalinsights/?view=azps-3.7.0) para ter êxito ao habilitar o Gerenciamento de Atualizações para suas VMs.
+É necessário atualizar para os módulos do Azure mais recentes e importar o módulo [Az.OperationalInsights](/powershell/module/az.operationalinsights/?view=azps-3.7.0) para ter êxito ao habilitar o Gerenciamento de Atualizações para suas VMs.
 
 1. Na sua conta de Automação, selecione **Módulos** em **Recursos Compartilhados**. 
 2. Selecione **Atualizar Módulos do Azure** para atualizar os módulos do Azure para a versão mais recente. 

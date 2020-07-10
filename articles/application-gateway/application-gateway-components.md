@@ -1,5 +1,5 @@
 ---
-title: Componentes do gateway de aplicativo
+title: Componentes do Gateway de Aplicativo
 description: Este artigo fornece informações sobre os vários componentes em um gateway de aplicativo
 services: application-gateway
 author: abshamsft
@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 46ef67e5ede1ea41469a8dcc78244e74c0bffc45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 798137a74f22824dbfec9653bff327d3a0a1f3b4
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254320"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186751"
 ---
-# <a name="application-gateway-components"></a>Componentes do gateway de aplicativo
+# <a name="application-gateway-components"></a>Componentes do Gateway de Aplicativo
 
  Um gateway de aplicativo serve como o único ponto de contato para clientes. Ele distribui o tráfego de aplicativo de entrada entre vários pools de back-end, que incluem VMs do Azure, conjuntos de dimensionamento de máquinas virtuais, serviço de Azure App e servidores locais/externos. Para distribuir o tráfego, um gateway de aplicativo usa vários componentes descritos neste artigo.
 
@@ -144,7 +144,7 @@ Você pode criar pools de back-end diferentes para diferentes tipos de solicita�
 
 Por padrão, um gateway de aplicativo monitora a integridade de todos os recursos em seu pool de back-end e remove automaticamente aqueles não íntegros. Em seguida, ele monitora instâncias não íntegras e as adiciona novamente ao pool de back-end íntegro quando elas se tornam disponíveis e respondem a investigações de integridade.
 
-Além de usar o monitoramento da investigação de integridade padrão, você também pode personalizar a investigação de integridade para atender às necessidades do seu aplicativo. As investigações personalizadas permitem um controle mais granular sobre o monitoramento de integridade. Ao usar investigações personalizadas, você pode configurar o intervalo de investigação, a URL e o caminho para teste e quantas respostas com falha serão aceitas antes que a instância do pool de back-end seja marcada como não íntegra. Recomendamos que você configure investigações personalizadas para monitorar a integridade de cada pool de back-end.
+Além de usar o monitoramento da investigação de integridade padrão, você também pode personalizar a investigação de integridade para atender às necessidades do seu aplicativo. As investigações personalizadas permitem um controle mais granular sobre o monitoramento de integridade. Ao usar investigações personalizadas, você pode configurar um nome de host personalizado, caminho de URL, intervalo de investigação e quantas respostas com falha aceitar antes de marcar a instância do pool de back-end como não íntegra, códigos de status personalizados e correspondência de corpo de resposta, etc. Recomendamos que você configure investigações personalizadas para monitorar a integridade de cada pool de back-end.
 
 Para obter mais informações, consulte [monitorar a integridade do seu gateway de aplicativo](../application-gateway/application-gateway-probe-overview.md).
 

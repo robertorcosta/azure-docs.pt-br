@@ -5,11 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: b40357e71275d835a200f3bc08c618b6713001d8
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 146cf01d99ccc00a972c98128d8e93e1ed5fb690
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830762"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185697"
 ---
 # <a name="query-update-management-logs"></a>Consultar os logs do Gerenciamento de Atualizações
 
@@ -193,7 +194,7 @@ Em um computador Windows, você pode examinar a seguinte informação para verif
 1. No painel de controle, abra o **Microsoft Monitoring Agent**. Na guia **Azure Log Analytics**, o agente exibirá a seguinte mensagem: **O Microsoft Monitoring Agent conectou-se com êxito ao Log Analytics**.
 2. Abra o Log de Eventos do Windows. Navegue até **Logs de Aplicativos e Serviços\Operations Manager** e procure as IDs de Evento 3000 e 5002 do **Conector de Serviço** de origem. Esses eventos indicam que o computador foi registrado com o espaço de trabalho do Log Analytics e está recebendo a configuração.
 
-Se o agente não puder se comunicar com os logs do Azure Monitor e o agente estiver configurado para se comunicar com a Internet por meio de um servidor proxy ou firewall, verifique se o servidor proxy ou firewall está configurado corretamente. Para saber como verificar se o firewall ou o servidor proxy está configurado corretamente, veja [Configuração de rede para agente do Windows](../azure-monitor/platform/agent-windows.md) ou [Configuração de rede para agente do Linux](../log-analytics/log-analytics-agent-linux.md).
+Se o agente não puder se comunicar com os logs do Azure Monitor e o agente estiver configurado para se comunicar com a Internet por meio de um servidor proxy ou firewall, verifique se o servidor proxy ou firewall está configurado corretamente. Para saber como verificar se o firewall ou o servidor proxy está configurado corretamente, veja [Configuração de rede para agente do Windows](../azure-monitor/platform/agent-windows.md) ou [Configuração de rede para agente do Linux](../azure-monitor/learn/quick-collect-linux-computer.md).
 
 > [!NOTE]
 > Se os seus sistemas Linux estiverem configurados para se comunicar com um proxy ou com o Gateway do Log Analytics, e você estiver habilitando o Gerenciamento de Atualizações, atualize as permissões de `proxy.conf` para conceder ao grupo omiuser permissão de leitura no arquivo usando os seguintes comandos:
@@ -408,5 +409,5 @@ Update
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter detalhes de logs do Azure Monitor, confira [Logs do Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+* Para obter detalhes de logs do Azure Monitor, confira [Logs do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 * Para obter ajuda com alertas, consulte [Configurar alertas](automation-tutorial-update-management.md#configure-alerts).

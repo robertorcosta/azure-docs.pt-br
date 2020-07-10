@@ -3,12 +3,12 @@ title: AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eve
 description: Guia de protocolo para expressões e a descrição do AMQP 1.0 no Barramento de Serviço e nos Hubs de Eventos do Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 17f2f6da88e585d770a0a04825dc817f870089f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79132ef7105de8de2261c35258006af3f0a665a5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337887"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186904"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
 
@@ -264,8 +264,8 @@ Cada conexão tem que iniciar seu próprio link de controle para poder iniciar e
 
 Para iniciar o trabalho transacional. o controlador precisa obter um `txn-id` do coordenador. Ele faz isso enviando uma mensagem do tipo `declare`. Se a declaração for bem-sucedida, o coordenador responderá com um resultado de disposição que contém o `txn-id` atribuído.
 
-| Cliente (controlador) | | Barramento de Serviço (coordenador) |
-| --- | --- | --- |
+| Cliente (controlador) | Direção | Barramento de Serviço (coordenador) |
+| :--- | :---: | :--- |
 | attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
 |  | <------ | attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>) |
 | transfer(<br/>delivery-id=0, ...)<br/>{AmqpValue (**declare ()**}| ------> |  |
@@ -277,8 +277,8 @@ O controlador conclui o trabalho transacional enviando uma mensagem `discharge` 
 
 > Observação: fail=true refere-se à reversão de uma transação e fail=false refere-se à confirmação.
 
-| Cliente (controlador) | | Barramento de Serviço (coordenador) |
-| --- | --- | --- |
+| Cliente (controlador) | Direção | Barramento de Serviço (coordenador) |
+| :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | | . . . <br/>Trabalho transacional<br/>em outros links<br/> . . . |
@@ -289,8 +289,8 @@ O controlador conclui o trabalho transacional enviando uma mensagem `discharge` 
 
 Todo o trabalho transacional é feito com o estado de entrega transacional `transactional-state` que transporta o TXN. No caso de envio de mensagens, o estado transacional é executado pelo quadro de transferência da mensagem. 
 
-| Cliente (controlador) | | Barramento de Serviço (coordenador) |
-| --- | --- | --- |
+| Cliente (controlador) | Direção | Barramento de Serviço (coordenador) |
+| :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }| ------> |  |
@@ -300,8 +300,8 @@ Todo o trabalho transacional é feito com o estado de entrega transacional `tran
 
 A disposição da mensagem inclui operações como `Complete` / `Abandon` / `DeadLetter` / `Defer`. Para executar essas operações em uma transação, passe o `transactional-state` com a disposição.
 
-| Cliente (controlador) | | Barramento de Serviço (coordenador) |
-| --- | --- | --- |
+| Cliente (controlador) | Direção | Barramento de Serviço (coordenador) |
+| :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }|  
@@ -378,7 +378,7 @@ A mensagem de resposta tem os seguintes valores de *application-properties*
 
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| status-code |Não |INT |Código de resposta HTTP **[RFC2616]**. |
+| status-code |Não |int |Código de resposta HTTP **[RFC2616]**. |
 | status-description |Sim |string |A descrição do status. |
 
 O cliente pode chamar *put-token* repetidamente e para qualquer entidade na infraestrutura de mensagens. Os tokens estão no escopo do cliente atual e ancorados na conexão atual, o que significa que o servidor cancela todos os tokens retidos quando a conexão cair.
@@ -399,8 +399,8 @@ Com essa funcionalidade, você pode criar um remetente e estabelecer o link com 
 
 > Observação: a autenticação deve ser executada para *via-entity* e para *destination-entity* antes do estabelecimento desse link.
 
-| Cliente | | Barramento de Serviço |
-| --- | --- | --- |
+| Cliente | Direção | Barramento de Serviço |
+| :--- | :---: | :--- |
 | attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>destino =**{via-Entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
 | | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 

@@ -3,11 +3,12 @@ title: Substituir EntryPoint na instância de contêiner
 description: Definir uma linha de comando para substituir o ponto de entrada em uma imagem de contêiner ao implantar uma instância de contêiner do Azure
 ms.topic: article
 ms.date: 04/15/2019
-ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23221de3dc91c37c2e6fb96489539d3954efcd87
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84693049"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169622"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Definir a linha de comando em uma instância de contêiner para substituir a operação de linha de comando padrão
 
@@ -53,8 +54,8 @@ A sintaxe da linha de comando varia dependendo da API do Azure ou da ferramenta 
 
 |    |  CLI do Azure   | Portal | Modelo | 
 | ---- | ---- | --- | --- |
-| Comando único | `--command-line "python myscript.py arg1 arg2"` | **Substituição de comando**:`python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
-| Vários comandos | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Substituição de comando**:`/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
+| **Comando único** | `--command-line "python myscript.py arg1 arg2"` | **Substituição de comando**:`python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
+| **Vários comandos** | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Substituição de comando**:`/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
 
 ## <a name="azure-cli-example"></a>Exemplos de CLI do Azure
 

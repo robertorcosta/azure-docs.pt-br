@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: bf2a60e1387ccdfb24ff5c5e166780c00506bac8
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f2bf058ddce81ab9f04e97787a4dc93e44036b1b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832292"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186105"
 ---
 # <a name="use-runbooks-and-modules-in-powershell-gallery"></a>Usar runbooks e módulos na Galeria do PowerShell
 
@@ -100,12 +101,11 @@ Runbooks Python estão disponíveis na [Galeria do Script Center](https://galler
 
 ## <a name="request-a-runbook-or-module"></a>Solicitar um runbook ou módulo
 
-Você pode enviar solicitações para a [Voz do Usuário](https://feedback.azure.com/forums/246290-azure-automation/).  Se você precisar de ajuda para escrever um runbook ou tiver dúvidas sobre o PowerShell, poste uma questão na [página de perguntas da Microsoft](https://docs.microsoft.com/answers/topics/azure-automation.html).
+Você pode enviar solicitações para a [Voz do Usuário](https://feedback.azure.com/forums/246290-azure-automation/).  Se você precisar de ajuda para escrever um runbook ou tiver dúvidas sobre o PowerShell, poste uma questão na [página de perguntas da Microsoft](/answers/topics/azure-automation.html).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para começar a usar um runbook do PowerShell, confira [Tutorial: criar um runbook do PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Para se familiarizar com os runbooks, confira [Gerenciar runbooks na Automação do Azure](manage-runbooks.md).
-* Para obter detalhes do PowerShell, confira [Documentos do PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
-* * Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Para obter detalhes do PowerShell, confira [Documentos do PowerShell](/powershell/scripting/overview).
+* * Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

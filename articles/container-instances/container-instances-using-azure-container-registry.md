@@ -3,15 +3,15 @@ title: Implantar a imagem de contêiner do registro de contêiner do Azure
 description: Saiba como implantar contêineres em instâncias de contêiner do Azure puxando imagens de contêiner de um registro de contêiner do Azure.
 services: container-instances
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 07/02/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 212624b857d65297830995018603c2627f83369b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a82b0b70b7be8897d8f85cabea2ee21ce84d913
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81453516"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169605"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implantar nas Instâncias de Contêiner do Azure por meio do Registro de Contêiner do Azure
 
@@ -136,7 +136,7 @@ Você pode especificar as propriedades do seu registro de contêiner do Azure em
 [...]
 ```
 
-Para obter configurações completas do grupo de contêineres, consulte a [referência de modelo do Resource Manager](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups).    
+Para obter configurações completas do grupo de contêineres, consulte a [referência de modelo do Resource Manager](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups).    
 
 Para obter detalhes sobre como referenciar segredos do Azure Key Vault em um modelo do Resource Manager, consulte [Usar o Azure Key Vault para passar o valor de parâmetro seguro durante a implantação](../azure-resource-manager/templates/key-vault-parameter.md).
 

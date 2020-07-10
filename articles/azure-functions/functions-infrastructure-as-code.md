@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7155a3fa9481ef5f2da62d85d4a932ad5e8e8ab1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b73b8418b202563ca7c4a73181b1b1b404db6ee2
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81382516"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170387"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implantação de recursos para seu aplicativo de funções do Azure Functions
 
@@ -26,12 +26,12 @@ Para modelos de exemplo, consulte:
 
 Uma implantação Azure Functions normalmente consiste nesses recursos:
 
-| Recurso                                                                           | Requisito | Referência de sintaxe e propriedades                                                         |   |
-|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
-| Um aplicativo de funções                                                                     | Obrigatório    | [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)                             |   |
-| Uma conta de [armazenamento do Azure](../storage/index.yml)                                   | Obrigatório    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| Um componente [Application insights](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft. insights/Components](/azure/templates/microsoft.insights/components)         |   |
-| Um [plano de hospedagem](./functions-scale.md)                                             | Opcional<sup>1</sup>    | [Microsoft. Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
+| Recurso                                                                           | Requisito | Referência de sintaxe e propriedades                                                         |
+|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
+| Um aplicativo de funções                                                                     | Obrigatório    | [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)                             |
+| Uma conta de [armazenamento do Azure](../storage/index.yml)                                   | Obrigatório    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| Um componente [Application insights](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft. insights/Components](/azure/templates/microsoft.insights/components)         |
+| Um [plano de hospedagem](./functions-scale.md)                                             | Opcional<sup>1</sup>    | [Microsoft. Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
 
 <sup>1</sup> Um plano de hospedagem só é necessário quando você opta por executar seu aplicativo de funções em um [plano Premium](./functions-premium-plan.md) ou em um [plano do serviço de aplicativo](../app-service/overview-hosting-plans.md).
 
@@ -649,7 +649,7 @@ Você pode usar qualquer uma das seguintes maneiras para implantar o modelo:
 
 * [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [CLI do Azure](../azure-resource-manager/templates/deploy-cli.md)
-* [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
+* [Portal do Azure](../azure-resource-manager/templates/deploy-portal.md)
 * [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Botão Implantar no Azure

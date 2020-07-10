@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 12990238455046d837b175318225bb4f3d317706
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3709511fa8da0a40f4faf4ab2dac9505d69003ab
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82185040"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118504"
 ---
 # <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Tutorial: Utilizar a referência de modelo do Resource Manager
 
@@ -36,7 +36,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do ARM](use-vs-code-to-create-template.md).
+* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
@@ -75,7 +75,7 @@ Para concluir este artigo, você precisa do seguinte:
 
 ## <a name="find-the-template-reference"></a>Encontrar a referência de modelo
 
-1. Navegue até [Referência de modelo do Azure](https://docs.microsoft.com/azure/templates/).
+1. Navegue até [Referência de modelo do Azure](/azure/templates/).
 1. Na caixa **Filtrar por título**, insira **contas de armazenamento** e selecione a primeira **Conta de Armazenamento** em **Referência > Armazenamento**.
 
     ![Conta de armazenamento de referência de modelo do Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts.png)

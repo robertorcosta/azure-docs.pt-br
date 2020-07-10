@@ -4,11 +4,12 @@ description: Transferir coleções de imagens ou outros artefatos de um registro
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: fd551671422931a51f5aa6468de87e28e3a81b5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c80f10e8795c63b84bb46fc21fd3406a195b772e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83006320"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186921"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefatos para outro registro
 
@@ -57,7 +58,7 @@ A autenticação de armazenamento usa tokens SAS, gerenciados como segredos em c
 * **[PipelineRun](#create-pipelinerun-for-export-with-resource-manager)** -o recurso usado para invocar um recurso ExportPipeline ou ImportPipeline.  
   * Execute o ExportPipeline manualmente criando um recurso PipelineRun e especifique os artefatos a serem exportados.  
   * Se um gatilho de importação estiver habilitado, o ImportPipeline será executado automaticamente. Ele também pode ser executado manualmente usando um PipelineRun. 
-  * No momento, um máximo de **10 artefatos** pode ser transferido com cada PipelineRun.
+  * No momento, no máximo **50 artefatos** podem ser transferidos com cada PipelineRun.
 
 ### <a name="things-to-know"></a>Observações importantes
 * O ExportPipeline e o ImportPipeline normalmente estarão em locatários Active Directory diferentes associados às nuvens de origem e de destino. Esse cenário requer identidades gerenciadas separadas e cofres de chaves para os recursos de exportação e importação. Para fins de teste, esses recursos podem ser colocados na mesma nuvem, compartilhando identidades.
@@ -336,7 +337,7 @@ az deployment group delete \
 * **Problemas de AzCopy**
   * Consulte [solucionar problemas de AzCopy](../storage/common/storage-use-azcopy-configure.md#troubleshoot-issues).  
 * **Problemas de transferência de artefatos**
-  * Nem todos os artefatos, ou nenhum, são transferidos. Confirme a ortografia dos artefatos na execução de exportação e o nome do blob nas execuções de exportação e importação. Confirme que você está transferindo um máximo de 10 artefatos.
+  * Nem todos os artefatos, ou nenhum, são transferidos. Confirme a ortografia dos artefatos na execução de exportação e o nome do blob nas execuções de exportação e importação. Confirme que você está transferindo um máximo de 50 artefatos.
   * A execução do pipeline pode não ter sido concluída. Uma execução de exportação ou importação pode levar algum tempo. 
   * Para outros problemas de pipeline, forneça a [ID de correlação](../azure-resource-manager/templates/deployment-history.md) de implantação da execução de exportação ou a execução de importação para a equipe de registro de contêiner do Azure.
 

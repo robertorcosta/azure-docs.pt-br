@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: edb6846d199470818e07a208feb778aca3021d9e
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: e12f0cd44143621d34096a6c1161a22a89d21d9b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253657"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077637"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Como ramificar e encadear atividades em um pipeline do Azure Data Factory usando o portal do Azure
 
@@ -139,7 +139,8 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
    O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se você receber o seguinte erro, altere o nome de data factory (por exemplo, yournameADFTutorialDataFactory) e tente criar novamente. Confira o artigo [Data Factory - regras de nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
 
-       `Data factory name “ADFTutorialDataFactory” is not available`
+   *O nome do data factory “ADFTutorialDataFactory” não está disponível.*
+
 3. Selecione a **assinatura** do Azure na qual você deseja criar o data factory.
 4. Para o **Grupo de Recursos**, execute uma das seguintes etapas:
 
@@ -202,10 +203,11 @@ Nesta etapa, você pode criar um pipeline com uma atividade de Cópia e duas ati
    ![Novo serviço vinculado de Armazenamento do Azure](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Insira `@pipeline().parameters.sourceBlobContainer` como a pasta e `emp.txt` como o nome do arquivo. Você pode usar o parâmetro de pipeline sourceBlobContainer para definir o caminho da pasta para o conjunto de dados.
 
-   ![Configurações do conjunto de dados de origem](./media/tutorial-control-flow-portal/source-dataset-settings.png)
-13. Alterne para a guia **pipeline** guia (ou) clique no pipeline na exibição em árvore. Confirme se **SourceBlobDataset** está selecionado para **Conjunto de Dados de Origem**.
+    ![Configurações do conjunto de dados de origem](./media/tutorial-control-flow-portal/source-dataset-settings.png)
 
-    ![Conjunto de dados de origem](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+13. Alterne para a guia **pipeline** guia (ou) clique no pipeline na exibição em árvore. Confirme se **SourceBlobDataset** está selecionado para **Conjunto de Dados de Origem**.
+      
+   ![Conjunto de dados de origem](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 
 13. Na janela de propriedades, alterne para a guia **Coletor** e, em seguida, clique em **+ Novo** para **Conjunto de Dados do Coletor**. Você cria um conjunto de dados do coletor para a atividade de cópia nesta etapa de forma semelhante a como você criou o conjunto de dados de origem.
 

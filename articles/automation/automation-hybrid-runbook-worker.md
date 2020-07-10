@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: d921ecc390ae9361c9b36b4738e73a499aa2e8a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0960dfe067e5092f3d64f66cad1d49c2bea28ae6
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361805"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186241"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Visão geral do Hybrid Runbook Worker
 
@@ -63,7 +63,7 @@ Se você usar um servidor proxy para a comunicação entre a automação do Azur
 
 ### <a name="firewall-use"></a>Uso de firewall
 
-Se você usar um firewall para restringir o acesso à Internet, precisará configurar o firewall para permitir o acesso. Se estiver usando o gateway do Log Analytics como proxy, verifique se ele está configurado para Hybrid Runbook Workers. Confira [Configurar o Gateway do Log Analytics para Hybrid Workers de Automação](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
+Se você usar um firewall para restringir o acesso à Internet, precisará configurar o firewall para permitir o acesso. Se estiver usando o gateway do Log Analytics como proxy, verifique se ele está configurado para Hybrid Runbook Workers. Confira [Configurar o Gateway do Log Analytics para Hybrid Workers de Automação](../azure-monitor/platform/gateway.md).
 
 ### <a name="service-tags"></a>Marcas de serviço
 

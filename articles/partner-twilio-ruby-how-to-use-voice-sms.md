@@ -12,12 +12,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 4822e6feb29f5a17c653a60937b895ec584e0ee4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19372b30a5e56738230216777897c08b07a0a86a
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69637192"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170693"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Como usar o Twilio para recursos de voz e SMS no Ruby
 Este guia demonstra como executar tarefas comuns de programação com o serviço de API do Twilio no Azure. Os cenários abrangidos incluem fazer uma chamada telefônica e enviar uma mensagem serviço de mensagem curta (SMS). Para obter mais informações sobre o Twilio e o uso de voz e SMS em seus aplicativos, consulte a seção [Próximas etapas](#NextSteps) .
@@ -38,10 +38,12 @@ TwiML é um conjunto de instruções em XML que informam o Twilio como processar
 
 Por exemplo, o seguinte TwiML converteria a mensagem **Olá, mundo** em fala.
 
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <Response>
-       <Say>Hello World</Say>
-    </Response>
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<Response>
+    <Say>Hello World</Say>
+</Response>
+```
 
 Todos os documentos do TwiML têm `<Response>` como seu elemento raiz. Por meio disso, você usará os verbos do Twilio para definir o comportamento do seu aplicativo.
 
@@ -63,7 +65,7 @@ A seguir está uma lista de verbos do Twilio.
 
 Para obter mais informações sobre os verbos do Twilio, seus atributos e o TwiML, consulte [TwiML][twiml]. Para obter mais informações sobre a API do Twilio, consulte [API do Twilio][twilio_api].
 
-## <a name="create-a-twilio-account"></a><a id="CreateAccount"></a>Criar uma conta na Twilio
+## <a name="create-a-twilio-account"></a><a id="CreateAccount"></a>Criar uma conta do twilio
 Quando estiver pronto para obter uma conta do Twilio, inscreva-se em [Experimentar o Twilio][try_twilio]. Você pode começar com uma conta gratuita e atualizá-la depois.
 
 Ao se inscrever em uma conta do Twilio, você receberá um número de telefone gratuito para o seu aplicativo. Você também receberá uma SID de conta e um token de autenticação. Eles serão necessários para fazer chamadas de API do Twilio. Para evitar o acesso não autorizado em sua conta, mantenha o token da autenticação seguro. A ID de sua conta e o token de autenticação estão visíveis na [página da conta do Twilio][twilio_account], nos campos rotulados **ACCOUNT SID** e **AUTH TOKEN**, respectivamente.
@@ -82,28 +84,36 @@ Nos exemplos a seguir, usaremos o [Sinatra][sinatra], uma estrutura da web muito
 
 Use SSH na sua nova VM e crie um diretório para o seu novo aplicativo. Dentro desse diretório, crie um arquivo denominado Gemfile e copie o código a seguir dentro dele:
 
-    source 'https://rubygems.org'
-    gem 'sinatra'
-    gem 'thin'
+```bash
+source 'https://rubygems.org'
+gem 'sinatra'
+gem 'thin'
+```
 
 Na linha de comando, execute `bundle install`. Isso instalará as dependências acima. Em seguida, crie um arquivo chamado `web.rb`. Ele será a localização do código do seu aplicativo Web. Cole o código a seguir dentro dele:
 
-    require 'sinatra'
+```ruby
+require 'sinatra'
 
-    get '/' do
-        "Hello Monkey!"
-    end
+get '/' do
+    "Hello Monkey!"
+end
+```
 
 A esta altura você deve ser capaz de executar o comando `ruby web.rb -p 5000`. Isso vai girar um servidor Web pequeno na porta 5000. Você poderá acessar esse aplicativo em seu navegador, visitando a URL configurada para sua VM do Azure. Depois que conseguir acessar seu aplicativo web no navegador, você estará pronto para iniciar a compilação de um aplicativo do Twilio.
 
 ## <a name="configure-your-application-to-use-twilio"></a><a id="configure_app"></a>Configurar seu aplicativo para usar o Twilio
 Você pode configurar seu aplicativo web para usar a biblioteca Twilio atualizando o `Gemfile` para incluir esta linha:
 
-    gem 'twilio-ruby'
+```bash
+gem 'twilio-ruby'
+```
 
 Na linha de comando, execute `bundle install`. Agora, abra `web.rb` e inclua esta linha na parte superior:
 
-    require 'twilio-ruby'
+```ruby
+require 'twilio-ruby'
+```
 
 Você está configurado para usar a biblioteca do auxiliar do Twilio para Ruby em seu aplicativo Web.
 
@@ -112,33 +122,35 @@ A seguir você verá como fazer uma chamada de saída. Os conceitos principais i
 
 Adicione esta função a `web.md`:
 
-    # Set your account ID and authentication token.
-    sid = "your_twilio_account_sid";
-    token = "your_twilio_authentication_token";
+```ruby
+# Set your account ID and authentication token.
+sid = "your_twilio_account_sid";
+token = "your_twilio_authentication_token";
 
-    # The number of the phone initiating the call.
-    # This should either be a Twilio number or a number that you've verified
-    from = "NNNNNNNNNNN";
+# The number of the phone initiating the call.
+# This should either be a Twilio number or a number that you've verified
+from = "NNNNNNNNNNN";
 
-    # The number of the phone receiving call.
-    to = "NNNNNNNNNNN";
+# The number of the phone receiving call.
+to = "NNNNNNNNNNN";
 
-    # Use the Twilio-provided site for the TwiML response.
-    url = "http://yourdomain.cloudapp.net/voice_url";
+# Use the Twilio-provided site for the TwiML response.
+url = "http://yourdomain.cloudapp.net/voice_url";
 
-    get '/make_call' do
-      # Create the call client.
-      client = Twilio::REST::Client.new(sid, token);
+get '/make_call' do
+    # Create the call client.
+    client = Twilio::REST::Client.new(sid, token);
 
-      # Make the call
-      client.account.calls.create(to: to, from: from, url: url)
-    end
+    # Make the call
+    client.account.calls.create(to: to, from: from, url: url)
+end
 
-    post '/voice_url' do
-      "<Response>
-         <Say>Hello Monkey!</Say>
-       </Response>"
-    end
+post '/voice_url' do
+    "<Response>
+        <Say>Hello Monkey!</Say>
+    </Response>"
+end
+```
 
 Se você reabrir `http://yourdomain.cloudapp.net/make_call` em um navegador, isso disparará a chamada de API do Twilio para fazer a chamada telefônica. Os dois primeiros parâmetros em `client.account.calls.create` são auto-explicativos: o número da chamada é `from` e o número de chamada é `to`. 
 
@@ -151,11 +163,13 @@ Primeiro, faça logon no seu [painel do Twilio][twilio_account]. Clique em "Núm
 
 Gostaríamos de processar mensagens SMS de entrada, portanto, vamos atualizar a URL para `http://yourdomain.cloudapp.net/sms_url`. Prossiga e clique em Salvar alterações na parte inferior da página. Agora, de volta em `web.rb` vamos programar o aplicativo para lidar com isso:
 
-    post '/sms_url' do
-      "<Response>
-         <Message>Hey, thanks for the ping! Twilio and Azure rock!</Message>
-       </Response>"
-    end
+```ruby
+post '/sms_url' do
+    "<Response>
+        <Message>Hey, thanks for the ping! Twilio and Azure rock!</Message>
+    </Response>"
+end
+```
 
 Após fazer a alteração, certifique-se de reiniciar o aplicativo web. Agora, remova o telefone e envie um SMS ao número do Twilio. Você deve obter imediatamente uma resposta de SMS que informa "Oi, obrigado pelo ping! O Twilio e o Azure são demais!".
 

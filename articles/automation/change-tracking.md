@@ -5,11 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2aab90b12cd3844b94b0b7e6e94582d403db2efe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 192fd0fe73a34ca4d6ffc49badeac7ca8a080793
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84555041"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185578"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Visão geral do Controle de Alterações e Inventário
 
@@ -48,11 +49,11 @@ Atualmente, a solução Controle de Alterações e Inventário está enfrentando
 
 - As atualizações de hotfix não são coletadas no Windows Server 2016 Core RS3 machines.
 
-- Os daemons do Linux podem mostrar um estado alterado, embora nenhuma alteração tenha ocorrido. Esse problema ocorre devido à maneira como os `SvcRunLevels` dados no log do Azure monitor [ConfigurationChange](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) são capturados.
+- Os daemons do Linux podem mostrar um estado alterado, embora nenhuma alteração tenha ocorrido. Esse problema ocorre devido à maneira como os `SvcRunLevels` dados no log do Azure monitor [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) são capturados.
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
-O Controle de Alterações e Inventário tem suporte em todos os sistemas operacionais que atendem aos requisitos de agente do Log Analytics. As versões do sistema operacional oficial são o Windows Server 2008 SP1 ou posterior e o Windows 7 SP1 ou posterior. O recurso também tem suporte em vários sistemas operacionais Linux. Para sistemas operacionais com suporte a Log Analytics, consulte [visão geral do agente de log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+O Controle de Alterações e Inventário tem suporte em todos os sistemas operacionais que atendem aos requisitos de agente do Log Analytics. As versões do sistema operacional oficial são o Windows Server 2008 SP1 ou posterior e o Windows 7 SP1 ou posterior. O recurso também tem suporte em vários sistemas operacionais Linux. Para sistemas operacionais com suporte a Log Analytics, consulte [visão geral do agente de log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
 Para entender os requisitos do cliente para o TLS 1,2, confira [imposição tls 1,2 para a automação do Azure](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -90,7 +91,7 @@ Você pode adicionar, modificar ou remover cada alteração. O exemplo a seguir 
 
 ## <a name="fim-support-in-azure-security-center"></a>Suporte do FIM na central de segurança do Azure
 
-O Controle de Alterações e Inventário usam [FIM (Monitoramento de Integridade do Arquivo) da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring). Embora o FIM monitore apenas arquivos e registros, o recurso completo de Controle de Alterações e Inventário também inclui o acompanhamento para:
+O Controle de Alterações e Inventário usam [FIM (Monitoramento de Integridade do Arquivo) da Central de Segurança do Azure](../security-center/security-center-file-integrity-monitoring.md). Embora o FIM monitore apenas arquivos e registros, o recurso completo de Controle de Alterações e Inventário também inclui o acompanhamento para:
 
 - Mudanças de software
 - Serviços Microsoft
@@ -105,7 +106,7 @@ Para rastrear alterações em arquivos no Windows e Linux, o Controle de Altera�
 
 ## <a name="tracking-of-file-content-changes"></a>Controle de alterações de conteúdo do arquivo
 
-Controle de Alterações e inventário permite que você exiba o conteúdo de um arquivo do Windows ou Linux. Para cada alteração em um arquivo, o Controle de Alterações e Inventário armazena o conteúdo do arquivo em uma [conta de Armazenamento do Azure](../storage/common/storage-create-storage-account.md). Quando você estiver acompanhando um arquivo, poderá exibir seu conteúdo antes ou depois de uma alteração. O conteúdo do arquivo pode ser exibido embutido ou lado a lado. 
+Controle de Alterações e inventário permite que você exiba o conteúdo de um arquivo do Windows ou Linux. Para cada alteração em um arquivo, o Controle de Alterações e Inventário armazena o conteúdo do arquivo em uma [conta de Armazenamento do Azure](../storage/common/storage-account-create.md). Quando você estiver acompanhando um arquivo, poderá exibir seu conteúdo antes ou depois de uma alteração. O conteúdo do arquivo pode ser exibido embutido ou lado a lado. 
 
 ![Exibir alterações em um arquivo](./media/change-tracking/view-file-changes.png)
 
@@ -170,7 +171,7 @@ A tabela a seguir mostra os limites de item controlados por máquina para Contro
 |Serviços|250|
 |Daemons|250|
 
-O uso médio de dados do Log Analytics para uma máquina usando o Controle de Alterações e Inventário é de aproximadamente 40 MB por mês, dependendo do seu ambiente. Com o recurso de uso e custos estimados do espaço de trabalho Log Analytics, você pode exibir os dados ingeridos por Controle de Alterações e inventário em um gráfico de uso. Use esta exibição de dados para avaliar o uso de dados e determinar como ele afeta sua fatura. Confira [Entender seu uso e estimar os custos](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
+O uso médio de dados do Log Analytics para uma máquina usando o Controle de Alterações e Inventário é de aproximadamente 40 MB por mês, dependendo do seu ambiente. Com o recurso de uso e custos estimados do espaço de trabalho Log Analytics, você pode exibir os dados ingeridos por Controle de Alterações e inventário em um gráfico de uso. Use esta exibição de dados para avaliar o uso de dados e determinar como ele afeta sua fatura. Confira [Entender seu uso e estimar os custos](../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Dados de serviço da Microsoft
 

@@ -5,11 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2dbaebac2228c11aef5fb33af4588f75ea15677a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc96f2dd81b618b4170acd4b415a09248adbb7d5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343047"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186156"
 ---
 # <a name="management-of-azure-automation-data"></a>Gerenciamento de dados da Automação do Azure
 
@@ -36,9 +37,9 @@ Para obter informações sobre o suporte a TLS 1,2 com o agente de Log Analytics
 |Plataforma/linguagem | Suporte | Mais informações |
 | --- | --- | --- |
 |Linux | Distribuições do Linux tendem a depender do [OpenSSL](https://www.openssl.org) para suporte a TLS 1.2.  | Verifique as [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) para confirmar a sua versão do OpenSSL é suportada.|
-| Windows 8.0 - 10 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012 - 2016 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando as [configurações padrão](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
-| Windows Server 7 SP1 e Windows Server 2008 R2 SP1 | Com suporte, mas não habilitado por padrão. | Consulte a página [configurações do registro de segurança de camada de transporte (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) para obter detalhes sobre como habilitar.  |
+| Windows 8.0 - 10 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 - 2016 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando as [configurações padrão](/windows-server/security/tls/tls-registry-settings) |
+| Windows Server 7 SP1 e Windows Server 2008 R2 SP1 | Com suporte, mas não habilitado por padrão. | Consulte a página [configurações do registro de segurança de camada de transporte (TLS)](/windows-server/security/tls/tls-registry-settings) para obter detalhes sobre como habilitar.  |
 
 ## <a name="data-retention"></a>Retenção de dados
 
@@ -50,7 +51,7 @@ A tabela a seguir resume a política de retenção para diferentes recursos.
 |:--- |:--- |
 | Contas |Uma conta é removida permanentemente 30 dias depois que um usuário a exclui. |
 | Ativos |Um ativo é removido permanentemente 30 dias depois que é excluído por um usuário, ou 30 dias depois que a conta que o contém é excluída por um usuário. |
-| Nós DSC |Um nó DSC é removido permanentemente 30 dias após o cancelamento do registro de uma conta da Automação usando o portal do Azure ou o cmdlet [Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) no Windows PowerShell. Um nó também é removido permanentemente 30 dias após um usuário excluir a conta que o contém. |
+| Nós DSC |Um nó DSC é removido permanentemente 30 dias após o cancelamento do registro de uma conta da Automação usando o portal do Azure ou o cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) no Windows PowerShell. Um nó também é removido permanentemente 30 dias após um usuário excluir a conta que o contém. |
 | Trabalhos |Um trabalho é excluído e removido permanentemente 30 dias após a modificação, por exemplo, depois que o trabalho é concluído, interrompido ou suspenso. |
 | Módulos |Um módulo é removido permanentemente 30 dias depois que é excluído por um usuário, ou 30 dias depois que a conta que o contém é excluída por um usuário. |
 | Arquivos de configurações/MOF de nó |Uma configuração de nó antigo é removida permanentemente 30 dias depois que uma nova configuração de nó é gerada. |
@@ -65,7 +66,7 @@ Quando você exclui uma conta da Automação no Azure, todos os objetos na conta
 
 ### <a name="runbooks"></a>Runbooks
 
-Você pode exportar seus runbooks para arquivos de script usando o Portal do Azure ou o cmdlet [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) no Windows PowerShell. Você pode importar esses arquivos de script para outra conta da Automação, conforme discutido em [Gerenciar runbooks na Automação do Azure](manage-runbooks.md).
+Você pode exportar seus runbooks para arquivos de script usando o Portal do Azure ou o cmdlet [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) no Windows PowerShell. Você pode importar esses arquivos de script para outra conta da Automação, conforme discutido em [Gerenciar runbooks na Automação do Azure](manage-runbooks.md).
 
 ### <a name="integration-modules"></a>Módulos de integração
 
@@ -79,8 +80,7 @@ Não é possível recuperar os valores de variáveis criptografadas, nem os camp
 
 ### <a name="dsc-configurations"></a>Configurações DSC
 
-Você pode exportar suas configurações DSC para arquivos de script usando o portal do Azure ou o cmdlet [Export-AzAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0
-) no Windows PowerShell. Você pode importar e usar essas configurações em outra conta da Automação.
+Você pode exportar suas configurações DSC para arquivos de script usando o portal do Azure ou o cmdlet [Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0) no Windows PowerShell. Você pode importar e usar essas configurações em outra conta da Automação.
 
 ## <a name="geo-replication-in-azure-automation"></a>Replicação geográfica na Automação do Azure
 
@@ -102,4 +102,4 @@ O serviço de replicação geográfica da Automação não pode ser acessado dir
 
 * Para saber mais sobre ativos seguros na Automação do Azure, confira [Criptografia de ativos seguros na Automação do Azure](automation-secure-asset-encryption.md).
 
-* Para saber mais sobre a replicação geográfica, confira [Criar e usar a replicação geográfica ativa](../sql-database/sql-database-active-geo-replication.md).
+* Para saber mais sobre a replicação geográfica, confira [Criar e usar a replicação geográfica ativa](../azure-sql/database/active-geo-replication-overview.md).

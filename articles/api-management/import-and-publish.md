@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 0b5fbb49e2f60f101f16988538af86c2caf550eb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 16c14774b1b032132040ea3fdcf810a4f9de8f18
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202836"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077347"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importar e publicar sua primeira API
 
@@ -97,3 +97,8 @@ Vá para o próximo tutorial para aprender a criar e publicar um produto:
 
 > [!div class="nextstepaction"]
 > [Criar e publicar um produto](api-management-howto-add-products.md)
+
+Deseja otimizar e reduzir seus gastos com a nuvem?
+
+> [!div class="nextstepaction"]
+> [Comece a analisar os custos com o Gerenciamento de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

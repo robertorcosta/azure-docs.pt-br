@@ -10,11 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d1b05f9e77d3530f3e883aa3f9d98de09c8f54c2
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 113a6a259f0c69bdcc3b1684803af54ed7ecbddf
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836984"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186479"
 ---
 # <a name="configure-data-based-on-stig"></a>Configurar dados com base no STIG
 
@@ -35,8 +36,8 @@ Lidar com linhas de base é mais complicado do que parece.
 Muitas organizações precisam [documentar exceções](https://github.com/microsoft/powerstig#powerstigdata) às regras e gerenciar esses dados em escala.
 O PowerSTIG resolve o problema fornecendo [recursos compostos](https://github.com/microsoft/powerstig#powerstigdsc) para tratar de cada área da configuração, em vez de tentar resolver todo o intervalo de configurações em um arquivo grande.
 
-Uma vez que as configurações tiverem sido geradas, você poderá usá-las com [scripts de Configuração de DSC](/powershell/scripting/dsc/configurations/configurations) para gerar arquivos MOF e [carregar os arquivos MOF para a Automação do Azure](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Em seguida, registre os servidores de [local](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) ou [no Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) para efetuar pull das configurações.
+Uma vez que as configurações tiverem sido geradas, você poderá usá-las com [scripts de Configuração de DSC](/powershell/scripting/dsc/configurations/configurations) para gerar arquivos MOF e [carregar os arquivos MOF para a Automação do Azure](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation).
+Em seguida, registre os servidores de [local](./automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines) ou [no Azure](./automation-dsc-onboarding.md#enable-azure-vms) para efetuar pull das configurações.
 
 Para experimentar o PowerSTIG, visite a [Galeria do PowerShell](https://www.powershellgallery.com) e baixe a solução ou clique em "Site do Projeto" para exibir a [documentação](https://github.com/microsoft/powerstig).
 

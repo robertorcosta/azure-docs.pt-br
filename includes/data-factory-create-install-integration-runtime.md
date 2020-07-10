@@ -4,16 +4,16 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: e7717cdeec33a32f926cb5ef4c1f6d28c25f9d93
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 20397339c1675686f2a670dc60899bfd4bd4c3ba
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76989070"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050280"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Criar um Integration Runtime auto-hospedado
 
-Nesta seção, você cria um Integration Runtime auto-hospedado e o associa a um computador local com o banco de dados do SQL Server. O runtime de integração auto-hospedada é o componente que copia os dados do SQL Server no computador para o banco de dados SQL do Azure. 
+Nesta seção, você cria um Integration Runtime auto-hospedado e o associa a um computador local com o banco de dados do SQL Server. O runtime de integração auto-hospedada é o componente que copia os dados do SQL Server no computador para o Banco de Dados SQL do Azure. 
 
 1. Crie uma variável para o nome do Integration Runtime. Use um nome exclusivo e anote-o. Você o usará posteriormente neste tutorial. 
 

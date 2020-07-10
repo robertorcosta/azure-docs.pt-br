@@ -10,11 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fbd721bc54ce2de6b7923b0f582c53ffc7da1a73
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: bc55a4c5ab20cac041a00a0f924b207eb256ae8b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837018"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186513"
 ---
 # <a name="configure-data-at-scale-for-azure-automation-state-configuration"></a>Configurar dados em escala para a State Configuration da Automação do Azure
 
@@ -43,8 +44,8 @@ Exemplos seriam:
 Essas informações são organizadas no formato de arquivo que você preferir (JSON, YAML ou PSD1).
 Os cmdlets são fornecidos para gerar arquivos de dados de configuração [consolidando as informações](https://github.com/gaelcolas/Datum#datum-tree) de cada arquivo no modo de exibição único de um servidor ou uma função de servidor.
 
-Uma vez que os arquivos de dados forem gerados, você poderá usá-los com [scripts de Configuração de DSC](/powershell/scripting/dsc/configurations/write-compile-apply-configuration) para gerar arquivos MOF e [carregar os arquivos MOF para a Automação do Azure](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Em seguida, registre os servidores de [local](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) ou [no Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) para efetuar pull das configurações.
+Uma vez que os arquivos de dados forem gerados, você poderá usá-los com [scripts de Configuração de DSC](/powershell/scripting/dsc/configurations/write-compile-apply-configuration) para gerar arquivos MOF e [carregar os arquivos MOF para a Automação do Azure](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation).
+Em seguida, registre os servidores de [local](./automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines) ou [no Azure](./automation-dsc-onboarding.md#enable-azure-vms) para efetuar pull das configurações.
 
 Para experimentar a Datum, visite a [Galeria do PowerShell](https://www.powershellgallery.com/packages/datum/) e baixe a solução ou clique em "Site do Projeto" para exibir a [documentação](https://github.com/gaelcolas/Datum#2-getting-started--concepts).
 

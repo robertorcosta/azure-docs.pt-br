@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 6ba78a44af7beb9b5b79aa1a87e08f5a82589cce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8db1c511ab9defb140720655588b27279a0f08be
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81425755"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085473"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Tutorial: Usar o Azure Key Vault com uma máquina virtual do Windows no .NET
 
 O Azure Key Vault ajuda a proteger segredos como chaves de API, as cadeias de conexão de banco de dados que você precisa para acessar seus aplicativos, serviços e recursos de TI.
 
-Neste tutorial, você aprenderá como fazer um aplicativo de console ler as informações no Azure Key Vault. Para isso, você usará identidades gerenciadas para recursos do Azure. 
+Neste tutorial, você aprenderá como fazer um aplicativo de console ler as informações no Azure Key Vault. O aplicativo usará a identidade gerenciada da máquina virtual para se autenticar no Key Vault. 
 
 Este tutorial mostra como:
 
@@ -42,17 +42,8 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para Windows, Mac e Linux:
   * [Git](https://git-scm.com/downloads)
-  * Este tutorial requer que você execute a CLI do Azure localmente. Você deve ter a CLI do Azure versão 2.0.4 ou posterior instalada. Execute `az --version` para encontrar a versão. Caso precise instalar ou atualizar a CLI, confira [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli).
-
-## <a name="about-managed-service-identity"></a>Sobre a Identidade de Serviço Gerenciada
-
-O Azure Key Vault armazena credenciais com segurança para que elas não sejam exibidas no seu código. No entanto, você precisa se autenticar no Azure Key Vault para recuperar as chaves. Para fazer a autenticação no Key Vault, você precisa de uma credencial. Esse é um dilema clássico de inicialização. A MSI (Identidade de Serviço Gerenciada) resolve esse problema fornecendo uma _identidade de inicialização_ que simplifica o processo.
-
-Ao habilitar a MSI para um serviço do Azure, como Máquinas Virtuais do Azure, Serviço de Aplicativo do Azure ou Azure Functions, o Azure cria um [serviço principal](basic-concepts.md). A MSI faz isso para a instância do serviço no Azure AD (Azure Active Directory) e injeta as credenciais da entidade de serviço nessa instância. 
-
-![MSI](../media/MSI.png)
-
-Em seguida, para obter um token de acesso, o código chama um serviço de metadados local disponível no recurso do Azure. Para se autenticar em um serviço do Azure Key Vault, o código usa o token de acesso obtido do ponto de extremidade da MSI local. 
+  * O [SDK do .NET Core 3.1 ou posterior](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+  * [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-resources-and-assign-permissions"></a>Criar recursos e atribuir permissões
 
@@ -152,21 +143,23 @@ Abra um prompt de comando.
 Você pode exibir "Olá, Mundo" no console executando os comandos a seguir:
 
 ```console
-dotnet new console -o helloworldapp
-cd helloworldapp
+dotnet new console -n keyvault-console-app
+cd keyvault-console-app
 dotnet run
 ```
 
-### <a name="install-the-packages"></a>Instalar os pacotes
+### <a name="install-the-package"></a>Instalar o pacote
 
-Na janela do console, instale os pacotes do .NET necessários para este início rápido:
+Na janela do console, instale a biblioteca de clientes de Segredos do Azure Key Vault para .NET:
 
 ```console
-dotnet add package System.IO;
-dotnet add package System.Net;
-dotnet add package System.Text;
-dotnet add package Newtonsoft.Json;
-dotnet add package Newtonsoft.Json.Linq;
+dotnet add package Azure.Security.KeyVault.Secrets
+```
+
+Para este guia de início rápido, você precisará instalar o seguinte pacote de identidade para autenticação no Azure Key Vault:
+
+```console
+dotnet add package Azure.Identity
 ```
 
 ## <a name="edit-the-console-app"></a>Editar o aplicativo de console
@@ -175,61 +168,59 @@ Abra o arquivo *Program.cs* e adicione esses pacotes:
 
 ```csharp
 using System;
-using System.IO;
-using System.Net;
-using System.Text;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
 ```
 
-Edite o arquivo de classe para que contenha o código seguindo este processo de três etapas:
-
-1. Efetue fetch de um token do ponto de extremidade da MSI local na VM. Isso também efetua fetch de um token no Azure AD.
-2. Passe o token para o cofre de chaves e, em seguida, efetue fetch do segredo. 
-3. Adicione o nome do cofre e o nome do segredo à solicitação.
+Adicione essas linhas, atualizando o URI para refletir o `vaultUri` do cofre de chaves. O código abaixo está usando ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) para autenticação no cofre de chaves, que está usando o token da identidade gerenciada do aplicativo para autenticar. Ele também está usando retirada exponencial para novas tentativas, caso o cofre de chaves esteja sendo limitado.
 
 ```csharp
- class Program
+  class Program
     {
         static void Main(string[] args)
         {
-            // Step 1: Get a token from the local (URI) Managed Service Identity endpoint, which in turn fetches it from Azure AD
-            var token = GetToken();
+            string secretName = "mySecret";
 
-            // Step 2: Fetch the secret value from your key vault
-            System.Console.WriteLine(FetchSecretValueFromKeyVault(token));
-        }
-
-        static string GetToken()
-        {
-            WebRequest request = WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net");
-            request.Headers.Add("Metadata", "true");
-            WebResponse response = request.GetResponse();
-            return ParseWebResponse(response, "access_token");
-        }
-        
-        static string FetchSecretValueFromKeyVault(string token)
-        {
-            //Step 3: Add the vault name and secret name to the request.
-            WebRequest kvRequest = WebRequest.Create("https://<YourVaultName>.vault.azure.net/secrets/<YourSecretName>?api-version=2016-10-01");
-            kvRequest.Headers.Add("Authorization", "Bearer "+  token);
-            WebResponse kvResponse = kvRequest.GetResponse();
-            return ParseWebResponse(kvResponse, "value");
-        }
-
-        private static string ParseWebResponse(WebResponse response, string tokenName)
-        {
-            string token = String.Empty;
-            using (Stream stream = response.GetResponseStream())
+            var kvUri = "https://<your-key-vault-name>.vault.azure.net";
+            SecretClientOptions options = new SecretClientOptions()
             {
-                StreamReader reader = new StreamReader(stream, Encoding.UTF8);
-                String responseString = reader.ReadToEnd();
+                Retry =
+                {
+                    Delay= TimeSpan.FromSeconds(2),
+                    MaxDelay = TimeSpan.FromSeconds(16),
+                    MaxRetries = 5,
+                    Mode = RetryMode.Exponential
+                 }
+            };
 
-                JObject joResponse = JObject.Parse(responseString);    
-                JValue ojObject = (JValue)joResponse[tokenName];             
-                token = ojObject.Value.ToString();
-            }
-            return token;
+            var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential(),options);
+
+            Console.Write("Input the value of your secret > ");
+            string secretValue = Console.ReadLine();
+
+            Console.Write("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...");
+
+            client.SetSecret(secretName, secretValue);
+
+            Console.WriteLine(" done.");
+
+            Console.WriteLine("Forgetting your secret.");
+            secretValue = "";
+            Console.WriteLine("Your secret is '" + secretValue + "'.");
+
+            Console.WriteLine("Retrieving your secret from " + keyVaultName + ".");
+
+            KeyVaultSecret secret = client.GetSecret(secretName);
+
+            Console.WriteLine("Your secret is '" + secret.Value + "'.");
+
+            Console.Write("Deleting your secret from " + keyVaultName + " ...");
+
+            client.StartDeleteSecret(secretName);
+
+            System.Threading.Thread.Sleep(5000);
+            Console.WriteLine(" done.");
+
         }
     }
 ```

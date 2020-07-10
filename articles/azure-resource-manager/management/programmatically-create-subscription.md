@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 06/26/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.openlocfilehash: 18c6e9aac220d7e76a82a2abded6840db931f2d1
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: b53c81a52c06780378e45b2141cbef452b4d363a
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057714"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170625"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Criar programaticamente assinaturas do Azure (versão prévia)
 
@@ -153,10 +153,10 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 | Nome do elemento  | Obrigatório | Type   | Descrição                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Não      | String | O nome de exibição da assinatura. Se não for especificado, será definido como o nome da oferta, como "Microsoft Azure Enterprise".                                 |
-| `offerType`   | Sim      | String | A oferta da assinatura. As duas opções para EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desenvolvimento/teste, precisa ser [ativado usando o portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `offerType`   | Sim      | Cadeia de caracteres | A oferta da assinatura. As duas opções para EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desenvolvimento/teste, precisa ser [ativado usando o portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `owners`      | Não       | String | A ID de objeto de qualquer usuário que você deseja adicionar como um proprietário de RBAC na assinatura quando ela é criada.  |
 
-Em resposta, você obtém um objeto `subscriptionOperation` para monitoramento. Quando terminar a criação de assinatura, o objeto `subscriptionOperation` retornaria um objeto `subscriptionLink`, que tem a ID da assinatura.
+Na resposta, você obtém uma `Location` URL para o monitoramento. Quando a criação da assinatura for concluída, uma URL GET no `Location` retornará um `subscriptionLink` objeto, que tem a ID da assinatura. Para obter mais detalhes, consulte a [documentação da API de assinatura](https://docs.microsoft.com/rest/api/subscription/)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -171,8 +171,8 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | Nome do elemento  | Obrigatório | Type   | Descrição                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | Não      | String | O nome de exibição da assinatura. Se não for especificado, será definido como o nome da oferta, como "Microsoft Azure Enterprise".                                 |
-| `OfferType`   | Sim      | String | A oferta da assinatura. As duas opções para EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desenvolvimento/teste, precisa ser [ativado usando o portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `EnrollmentAccountObjectId`      | Sim       | String | A ID de Objeto da conta do registro que a assinatura é criada e cobrada. Esse valor é um GUID que você obteve de `Get-AzEnrollmentAccount`. |
+| `OfferType`   | Sim      | Cadeia de caracteres | A oferta da assinatura. As duas opções para EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desenvolvimento/teste, precisa ser [ativado usando o portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `EnrollmentAccountObjectId`      | Sim       | Cadeia de caracteres | A ID de Objeto da conta do registro que a assinatura é criada e cobrada. Esse valor é um GUID que você obteve de `Get-AzEnrollmentAccount`. |
 | `OwnerObjectId`      | Não       | String | A ID de objeto de qualquer usuário que você deseja adicionar como um proprietário de RBAC na assinatura quando ela é criada.  |
 | `OwnerSignInName`    | Não       | String | O endereço de e-mail de qualquer usuário que você gostaria de adicionar como um Proprietário RBAC na assinatura quando ela é criada. Você pode usar este parâmetro em vez de `OwnerObjectId`.|
 | `OwnerApplicationId` | Não       | String | O ID do aplicativo de qualquer serviço principal que você gostaria de adicionar como um Proprietário RBAC na assinatura quando ela é criada. Você pode usar este parâmetro em vez de `OwnerObjectId`. Ao usar esse parâmetro, o principal de serviço deve ter [acesso de leitura ao diretório](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
@@ -192,8 +192,8 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | Nome do elemento  | Obrigatório | Type   | Descrição                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | Não      | String | O nome de exibição da assinatura. Se não for especificado, será definido como o nome da oferta, como "Microsoft Azure Enterprise".                                 |
-| `offer-type`   | Sim      | String | A oferta da assinatura. As duas opções para EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desenvolvimento/teste, precisa ser [ativado usando o portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `enrollment-account-object-id`      | Sim       | String | A ID de Objeto da conta do registro que a assinatura é criada e cobrada. Esse valor é um GUID que você obteve de `az billing enrollment-account list`. |
+| `offer-type`   | Sim      | Cadeia de caracteres | A oferta da assinatura. As duas opções para EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desenvolvimento/teste, precisa ser [ativado usando o portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `enrollment-account-object-id`      | Sim       | Cadeia de caracteres | A ID de Objeto da conta do registro que a assinatura é criada e cobrada. Esse valor é um GUID que você obteve de `az billing enrollment-account list`. |
 | `owner-object-id`      | Não       | String | A ID de objeto de qualquer usuário que você deseja adicionar como um proprietário de RBAC na assinatura quando ela é criada.  |
 | `owner-upn`    | Não       | String | O endereço de e-mail de qualquer usuário que você gostaria de adicionar como um Proprietário RBAC na assinatura quando ela é criada. Você pode usar este parâmetro em vez de `owner-object-id`.|
 | `owner-spn` | Não       | String | O ID do aplicativo de qualquer serviço principal que você gostaria de adicionar como um Proprietário RBAC na assinatura quando ela é criada. Você pode usar este parâmetro em vez de `owner-object-id`. Ao usar esse parâmetro, o principal de serviço deve ter [acesso de leitura ao diretório](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
@@ -342,9 +342,9 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 
 | Nome do elemento  | Obrigatório | Type   | Descrição                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `displayName` | Sim      | String | O nome de exibição da assinatura.|
-| `billingProfileId`   | Sim      | String | A ID do perfil de cobrança que será cobrado pelos encargos da assinatura.  |
-| `skuId` | Sim      | String | A ID do SKU que determina o tipo de plano do Azure. |
+| `displayName` | Sim      | Cadeia de caracteres | O nome de exibição da assinatura.|
+| `billingProfileId`   | Sim      | Cadeia de caracteres | A ID do perfil de cobrança que será cobrado pelos encargos da assinatura.  |
+| `skuId` | Sim      | Cadeia de caracteres | A ID do SKU que determina o tipo de plano do Azure. |
 | `owners`      | Não       | String | A ID de objeto de qualquer usuário ou entidade de serviço que você deseja adicionar como um proprietário de RBAC na assinatura quando ela é criada.  |
 | `costCenter` | Não      | String | O centro de custo associado à assinatura. Ele aparece no arquivo CSV de uso. |
 | `managementGroupId` | Não      | String | A ID do grupo de gerenciamento ao qual a assinatura será adicionada. Para obter a lista de grupos de gerenciamento, consulte [API de lista de grupos de gerenciamento](/rest/api/resources/managementgroups/list). Use a ID de um grupo de gerenciamento da API. |
@@ -507,8 +507,8 @@ POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/c
 
 | Nome do elemento  | Obrigatório | Type   | Descrição                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `displayName` | Sim      | String | O nome de exibição da assinatura.|
-| `skuId` | Sim      | String | A ID de SKU do plano do Azure. Use *0001* para assinaturas do tipo Microsoft Azure plano |
+| `displayName` | Sim      | Cadeia de caracteres | O nome de exibição da assinatura.|
+| `skuId` | Sim      | Cadeia de caracteres | A ID de SKU do plano do Azure. Use *0001* para assinaturas do tipo Microsoft Azure plano |
 | `resellerId`      | Não       | String | A ID de MPN do revendedor que será associada à assinatura.  |
 
 Em resposta, você obtém um objeto `subscriptionCreationResult` para monitoramento. Quando terminar a criação de assinatura, o objeto `subscriptionCreationResult` retornaria um objeto `subscriptionLink`, que tem a ID da assinatura.

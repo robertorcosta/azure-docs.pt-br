@@ -10,12 +10,12 @@ ms.author: magoedte
 ms.date: 06/22/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bdb387739be65b761c773ca13b7a407d7aebf738
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a1c6bb39e743a96ad110a60e41cc59306e7a2ae
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85206879"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186377"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Visão geral do State Configuration da Automação do Azure
 
@@ -77,7 +77,7 @@ Para nós que executam o Linux, a extensão de DSC do Linux dá suporte a todas 
 
 ### <a name="dsc-requirements"></a>Requisitos de DSC
 
-Para todos os nós do Windows em execução no Azure, o [WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) é instalado quando as máquinas virtuais são habilitadas. Para nós que executam o Windows Server 2012 e o Windows 7, o [WinRM](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency) é habilitado.
+Para todos os nós do Windows em execução no Azure, o [WMF 5.1](/powershell/scripting/wmf/setup/install-configure) é instalado quando as máquinas virtuais são habilitadas. Para nós que executam o Windows Server 2012 e o Windows 7, o [WinRM](/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency) é habilitado.
 
 Para todos os nós do Linux em execução no Azure, o [DSC do PowerShell para Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) é instalado quando as máquinas virtuais são habilitadas.
 
@@ -90,7 +90,7 @@ Se os nós estiverem localizados em uma rede privada, a porta e as URLs a seguir
 * URL global do US Gov – Virgínia: * **.azure-automation.us**
 * Serviço do agente: **https:// \<workspaceId\> . AgentSvc.Azure-Automation.net**
 
-Se você estiver usando recursos de DSC que se comunicam entre os nós, como os recursos [WaitFor*](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), também será necessário permitir o tráfego entre os nós. Confira a documentação de cada recurso de DSC para entender esses requisitos de rede.
+Se você estiver usando recursos de DSC que se comunicam entre os nós, como os recursos [WaitFor*](/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), também será necessário permitir o tráfego entre os nós. Confira a documentação de cada recurso de DSC para entender esses requisitos de rede.
 
 Para entender os requisitos do cliente para o TLS 1,2, confira [imposição tls 1,2 para a automação do Azure](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -114,5 +114,4 @@ Para os nós do Linux, o agente DSC oferece suporte a proxy e usa a variável `h
 - Para saber como compilar configurações DSC para que possam ser atribuídas a nós de destino, confira [Compilar configurações DSC no State Configuration da Automação do Azure](automation-dsc-compile.md).
 - Para ver um exemplo de uso do State Configuration da Automação do Azure em um pipeline de implantação contínua, confira [Configurar a implantação contínua com o Chocolatey](automation-dsc-cd-chocolatey.md).
 - Para saber mais sobre preços, confira [Preços do State Configuration da Automação do Azure](https://azure.microsoft.com/pricing/details/automation/).
-- Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+- Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

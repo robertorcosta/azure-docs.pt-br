@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebbb73b6fc4e2a934c7c4235cfcdc39b8fa81b60
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 18dc2e4393175751f5ac52d53e0c331c82fce7e8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126924"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078062"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shopify-plus"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Shopify Plus
 
@@ -103,7 +103,8 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | ---------------| --------------- | --------- |
     | email | | user.mail |
 
-1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no computador.
+1. Altere o formato da **ID do Nome** para **Persistente**. Selecione a opção **Identificador Exclusivo de Usuário (ID do Nome)** e escolha o formato de **Identificador de nome**. Selecione **Persistente** nessa opção. Salve suas alterações.
+1. Na página **Configurar logon único com o SAML**, na seção **Certificado de Autenticação SAML**, selecione o botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no computador.
 
     ![O link de download do Certificado](common/copy-metadataurl.png)
 
@@ -139,11 +140,31 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
 ## <a name="configure-shopify-plus-sso"></a>Configurar o SSO do Shopify Plus
 
-Para configurar o logon único no lado do **Shopify Plus**, é necessário enviar a **URL de Metadados de Federação do Aplicativo** para a [equipe de suporte do Shopify Plus](mailto:plus-user-management@shopify.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para ver as etapas completas, confira a [documentação do Shopify sobre como configurar as integrações do SAML](https://help.shopify.com/en/manual/shopify-plus/saml).
+
+Para configurar o logon único no lado do **Shopify Plus**, copie a **URL de Metadados de Federação do Aplicativo** do Azure Active Directory. Em seguida, faça logon no [administrador da organização](https://shopify.plus) e acesse **Usuários** > **Segurança**. Selecione **Definir configuração** e cole a URL de Metadados de Federação do Aplicativo na seção **URL de metadados do provedor de identidade**. Selecione **Adicionar** para concluir esta etapa.
 
 ### <a name="create-shopify-plus-test-user"></a>Criar usuário de teste do Shopify Plus
 
-Nesta seção, você criará um usuário chamado B.Fernandes no Shopify Plus. Trabalhe com a [equipe de suporte do Shopify Plus](mailto:plus-user-management@shopify.com) para adicionar os usuários na plataforma do Shopify Plus. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado B.Fernandes no Shopify Plus. Volte à seção **Usuários** e adicione um usuário inserindo o email e as permissões deles. Os usuários devem ser criados e ativados antes de usar o logon único.
+
+### <a name="enforce-saml-authentication"></a>Impor a autenticação SAML
+
+> [!NOTE]
+> Recomendamos testar a integração utilizando usuários individuais antes de aplicá-la em grande escala.
+
+Usuários individuais:
+1. Acesse a página de um usuário individual no Shopify Plus com um domínio de email gerenciado pelo Azure AD e confirmado no Shopify Plus.
+1. Na seção de autenticação SAML, selecione **Editar**, escolha **Obrigatória** e selecione **Salvar**.
+1. Teste se esse usuário pode se conectar com êxito por meio dos fluxos iniciados pelo IdP e pelo SP.
+
+Para todos os usuários em um domínio de email:
+1. Volte à página **Segurança**.
+1. Selecione **Obrigatória** para a configuração de autenticação SAML. Isso impõe o SAML a todos os usuários com esse domínio de email no Shopify Plus.
+1. Clique em **Salvar**.
+
+> [!IMPORTANT]
+> A habilitação do SAML para todos os usuários em um domínio de email afeta todos os usuários que usam esse aplicativo. Os usuários não poderão se conectar usando a respectiva página de entrada normal. Eles só poderão acessar o aplicativo por meio do Azure Active Directory. O Shopify não fornece uma URL de conexão de backup na qual os usuários podem entrar usando o nome de usuário e a senha normais. Entre em contato com o suporte do Shopify para desativar o SAML, se necessário.
 
 ## <a name="test-sso"></a>Testar o SSO 
 
@@ -153,9 +174,9 @@ Ao clicar no bloco do Shopify Plus no Painel de Acesso, você deverá ser conect
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

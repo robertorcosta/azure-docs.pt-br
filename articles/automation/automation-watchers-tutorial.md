@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 3369a807410e9e959e8091d5b16c8480803d26bb
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 38963a8e1bfdbde50439ed871aa33e9aaa830d35
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830575"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185646"
 ---
 # <a name="track-updated-files-with-a-watcher-task"></a>Rastrear os arquivos atualizados com uma tarefa do observador
 
@@ -19,7 +20,7 @@ A Automação do Azure usa a tarefa de observador para cuidar de eventos e dispa
 > Não há suporte para tarefas do observador no Azure China 21Vianet.
 
 > [!IMPORTANT]
-> A partir de maio de 2020, usar Aplicativos Lógicos do Azure será a maneira com suporte para monitorar eventos, agendar tarefas recorrentes e disparar ações. Consulte [Agendar e executar tarefas automatizadas, processos e fluxos de trabalho recorrentes com Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
+> A partir de maio de 2020, usar Aplicativos Lógicos do Azure será a maneira com suporte para monitorar eventos, agendar tarefas recorrentes e disparar ações. Consulte [Agendar e executar tarefas automatizadas, processos e fluxos de trabalho recorrentes com Aplicativos Lógicos do Azure](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Este tutorial orienta na criação de uma tarefa de observador para monitorar quando um novo arquivo é adicionado a um diretório. Você aprenderá como:
 
@@ -36,7 +37,7 @@ Este tutorial orienta na criação de uma tarefa de observador para monitorar qu
 Para concluir este tutorial, os itens a seguir são necessários:
 
 * Assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Conta de automação](automation-offering-get-started.md) para manter os runbooks de observador e de ação e a tarefa do observador.
+* [Conta de automação](./index.yml) para manter os runbooks de observador e de ação e a tarefa do observador.
 * Um [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) no qual a tarefa do observador é executada.
 * Runbooks do PowerShell. Os runbooks de fluxo de trabalho do PowerShell não são suportados por tarefas do observador.
 
@@ -60,7 +61,7 @@ Você também pode seguir as etapas abaixo para importar esse runbook na sua con
 
 ## <a name="create-an-automation-variable"></a>Criar uma variável da Automação
 
-Uma [variável de automação](automation-variables.md) é usada para armazenar os carimbos de data/hora que o runbook anterior lê e armazena de cada arquivo.
+Uma [variável de automação](./shared-resources/variables.md) é usada para armazenar os carimbos de data/hora que o runbook anterior lê e armazena de cada arquivo.
 
 1. Selecione **Variáveis** em **Recursos compartilhados** e clique em **+ Adicionar uma variável**.
 1. Digite "Watch-NewFileTimestamp" para o nome.

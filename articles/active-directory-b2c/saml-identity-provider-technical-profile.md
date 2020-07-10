@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 268295ce86a9323a1f7ae16bbfcbd4e78367c3a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 724178f71befbe4eace0d3d5615871c21253c1f1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203615"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170064"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do provedor de identidade SAML em uma política personalizada Azure Active Directory B2C
 
@@ -70,7 +70,7 @@ Para criptografar a declaração de resposta SAML:
 3. Defina os metadados do perfil técnico **WantsEncryptedAssertions** para `true`.
 4. Atualize o provedor de identidade com os novos metadados de perfil técnico do Azure AD B2C. Você deve ver **KeyDescriptor** com a propriedade **use** definida como `encryption` contendo a chave pública do certificado.
 
-O exemplo a seguir mostra a seção de criptografia de perfil técnico do Azure AD B2C dos metadados:
+O exemplo a seguir mostra a seção descritor de chave dos metadados SAML usados para criptografia:
 
 ```xml
 <KeyDescriptor use="encryption">

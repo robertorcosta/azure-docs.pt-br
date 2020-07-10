@@ -6,12 +6,12 @@ ms.subservice: change-inventory-management
 keywords: inventário, automação, alteração, acompanhamento
 ms.date: 06/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 73f5105240b8b6475bb9ebed48baadd501aec87d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 32d3c17a5f3d152f32b19ffbfd5c9793a7a34b80
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603104"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185714"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>Gerenciar coleção de inventário de VMs
 
@@ -131,5 +131,5 @@ Para remover sua VM do gerenciamento do Controle de Alterações e Inventário:
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter detalhes do trabalho com o recurso, veja [Gerenciar Controle de Alterações e Inventário](change-tracking-file-contents.md).
-* Para saber mais sobre como controlar alterações de software, veja [Rastrear alterações de software em seu ambiente com Controle de Alterações](../log-analytics/log-analytics-change-tracking.md).
+* Para saber mais sobre como controlar alterações de software, veja [Rastrear alterações de software em seu ambiente com Controle de Alterações](./change-tracking.md).
 * Para solucionar problemas gerais com o recurso, veja [Solucionar problemas de Controle de Alterações e Inventário](troubleshoot/change-tracking.md).

@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1feadeaf2a905abee396c09829dab5e06c46d99c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: acf31af6d3ba3d78a6435210fa17562aaddac0a3
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837103"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186598"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Usar um alerta para disparar um runbook de Automação do Azure
 
@@ -44,7 +45,7 @@ Conforme descrito na seção anterior, cada tipo de alerta tem um esquema difere
 
 Este exemplo usa um alerta de uma VM. Ele recupera os dados da VM do conteúdo e utiliza essas informações para interromper a VM. A conexão deve ser configurada na conta de Automação em que o runbook é executado. Ao usar alertas para disparar runbooks, é importante verificar o status do alerta no runbook que é disparado. O runbook dispara sempre que o alerta muda de estado. Os alertas têm vários estados, e os dois mais comuns são Ativo e Resolvido. Verifique o estado em sua lógica de runbook para garantir que o runbook não seja executado mais de uma vez. O exemplo neste artigo mostra como procurar alertas somente com o estado Ativo.
 
-O runbook usa [Executar como conta](automation-create-runas-account.md) do ativo de conexão `AzureRunAsConnection`para se autenticar com o Azure para executar a ação de gerenciamento na VM.
+O runbook usa [Executar como conta](./manage-runas-account.md) do ativo de conexão `AzureRunAsConnection`para se autenticar com o Azure para executar a ação de gerenciamento na VM.
 
 Use este exemplo para criar um runbook chamado **Stop-AzureVmInResponsetoVMAlert**. Você pode modificar o script do PowerShell e usá-lo com muitos recursos diferentes.
 
@@ -191,7 +192,7 @@ Os alertas usam grupos de ações, que são coleções de ações disparadas pel
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para iniciar um runbook usando um webhook, confira [Iniciar um runbook de um webhook](automation-webhooks.md).
-* Para descobrir diferentes maneiras de iniciar um runbook, confira [Iniciar um runbook](automation-starting-a-runbook.md).
+* Para descobrir diferentes maneiras de iniciar um runbook, confira [Iniciar um runbook](./start-runbooks.md).
 * Para criar um alerta de log de atividades, confira [Criar alertas do log de atividades](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * Para saber como criar um alerta quase em tempo real, veja [Criar uma regra de alerta no Portal do Azure](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
-* Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

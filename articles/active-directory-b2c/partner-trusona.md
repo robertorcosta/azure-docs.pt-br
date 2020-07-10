@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 78de242cb6fd1d670dc9564a2725070b7424b5b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc0bcd4a978912dccc9f08802acbf2ec1151b3a1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385545"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170098"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integração do Trusona com o Azure Active Directory B2C
 
@@ -40,8 +40,7 @@ Nesse cenário, Trusona atua como um provedor de identidade para Azure AD B2C ha
 
 ![Diagrama de arquitetura do Trusona](media/partner-trusona/trusona-architecture-diagram.png)
 
-
-|  |  |
+| Etapa | Descrição |
 |------|------|
 |1     | Um usuário tenta entrar no ou inscrever-se no aplicativo. O usuário é autenticado por meio da política de inscrição e entrada do Azure AD B2C. Durante a inscrição, o endereço de email verificado anteriormente do usuário do aplicativo Trusona é usado.     |
 |2     | O Azure B2C redireciona o usuário para o provedor de identidade Trusona OpenID Connect (OIDC) usando o fluxo implícito.     |
