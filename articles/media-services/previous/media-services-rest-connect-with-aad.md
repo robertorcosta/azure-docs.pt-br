@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: a693eb374365670da3fe8c4b2bb8ce664a024217
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b4980ee8ea252b4ce13601501e4bf1f7af97d1b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295438"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166358"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia com REST
 
@@ -58,7 +58,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Obter informações de autenticação do portal do Azure
 
-### <a name="overview"></a>Visão geral
+### <a name="overview"></a>Visão Geral
 
 Para acessar a API dos Serviços de Mídia, você precisa coletar os seguintes pontos de dados.
 
@@ -137,8 +137,10 @@ Esta seção mostra como usar o **Postman** para executar uma API REST que retor
 
     Como alternativa, clique no link **Editar em Massa** à direita da janela do Postman e cole o código a seguir.
 
-        Content-Type:application/x-www-form-urlencoded
-        Keep-Alive:true
+    ```javascript
+    Content-Type:application/x-www-form-urlencoded
+    Keep-Alive:true
+    ```
 
 6. Pressione a guia **Corpo**.
 7. Insira as informações do corpo usando a grade de dados de "chave/valor" (substitua os valores de ID do cliente e segredo). 
@@ -147,10 +149,12 @@ Esta seção mostra como usar o **Postman** para executar uma API REST que retor
 
     Como alternativa, clique em **Editar em Massa** à direita da janela do Postman e cole o corpo a seguir (substitua os valores de ID do cliente e segredo):
 
-        grant_type:client_credentials
-        client_id:{Your Client ID that you got from your Azure AD Application}
-        client_secret:{Your client secret that you got from your Azure AD Application's Keys}
-        resource:https://rest.media.azure.net
+    ```javascript
+    grant_type:client_credentials
+    client_id:{Your Client ID that you got from your Azure AD Application}
+    client_secret:{Your client secret that you got from your Azure AD Application's Keys}
+    resource:https://rest.media.azure.net
+    ```
 
 8. Pressione **Enviar**.
 
@@ -180,11 +184,13 @@ Esta seção mostra como acessar a API de **Ativos** usando o **Postman**.
 5. Clique no link **Editar em Massa** à direita da janela do Postman.
 6. Cole os seguintes cabeçalhos:
 
-        x-ms-version:2.19
-        Accept:application/json
-        Content-Type:application/json
-        DataServiceVersion:3.0
-        MaxDataServiceVersion:3.0
+    ```javascript
+    x-ms-version:2.19
+    Accept:application/json
+    Content-Type:application/json
+    DataServiceVersion:3.0
+    MaxDataServiceVersion:3.0
+    ```
 
 7. Pressione **Enviar**.
 

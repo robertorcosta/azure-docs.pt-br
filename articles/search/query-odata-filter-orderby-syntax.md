@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f3a1be435e297ab4a9ba7f8bfbd5f3ce3451d8a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f3e270e799753a582227abe53223bd05755eb5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77153869"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165202"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Visão geral da linguagem OData para `$filter` , `$orderby` e `$select` no Azure pesquisa cognitiva
 
@@ -82,7 +83,9 @@ O significado de um caminho de campo difere dependendo do contexto. Em filtros, 
 
 Considere o caminho do campo `Address/City` . Em um filtro, isso se refere a uma única cidade para o documento atual, como "San Francisco". Por outro lado, `Rooms/Type` o se refere ao `Type` subcampo para muitas salas (como "padrão" na primeira sala, "Deluxe" para a segunda sala e assim por diante). Como `Rooms/Type` o não se refere a uma *única instância* do subcampo `Type` , ele não pode ser usado diretamente em um filtro. Em vez disso, para filtrar o tipo de sala, você usaria uma [expressão lambda](search-query-odata-collection-operators.md) com uma variável de intervalo, desta forma:
 
-    Rooms/any(room: room/Type eq 'deluxe')
+```odata
+Rooms/any(room: room/Type eq 'deluxe')
+```
 
 Neste exemplo, a variável de intervalo `room` aparece no `room/Type` caminho do campo. Dessa forma, `room/Type` refere-se ao tipo da sala atual no documento atual. Essa é uma única instância do `Type` subcampo, portanto, ela pode ser usada diretamente no filtro.
 
@@ -236,7 +239,7 @@ Os parâmetros **$Filter**, **$OrderBy**e **$Select** são explorados com mais d
 - [Sintaxe de $orderby OData no Azure Pesquisa Cognitiva](search-query-odata-orderby.md)
 - [Sintaxe de $select OData no Azure Pesquisa Cognitiva](search-query-odata-select.md)
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Veja também  
 
 - [Navegação facetada no Azure Pesquisa Cognitiva](search-faceted-navigation.md)
 - [Filtros no Azure Pesquisa Cognitiva](search-filters.md)

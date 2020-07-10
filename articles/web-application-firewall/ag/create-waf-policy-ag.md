@@ -7,11 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 7ab4b60747509dfe56ec2e89b38986de747dab69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5705eedfb919c792c558384f6309325dcded4b43
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84014529"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146604"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Criar políticas de firewall do aplicativo Web para o gateway de aplicativo
 
@@ -22,7 +23,7 @@ Você pode fazer quantas políticas desejar. Depois de criar uma política, ela 
 Se o gateway de aplicativo tiver uma política aplicada e você aplicar uma política diferente a um ouvinte nesse gateway de aplicativo, a política do ouvinte entrará em vigor, mas apenas para os ouvintes aos quais eles estão atribuídos. A política de gateway de aplicativo ainda se aplica a todos os outros ouvintes que não têm uma política específica atribuída a eles. 
 
    > [!NOTE]
-   > As políticas de WAF por site e por URI estão em visualização pública. Isso significa que esse recurso está sujeito aos Termos de Uso Suplementares da Microsoft. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   > As políticas WAF por URI estão em visualização pública. Isso significa que esse recurso está sujeito aos Termos de Uso Suplementares da Microsoft. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
    > [!NOTE]
    > Depois que uma política de firewall é associada a um WAF, sempre deve haver uma política associada a esse WAF. Você pode substituir essa política, mas desassociar uma política do WAF totalmente não é suportado. 
 
@@ -35,15 +36,15 @@ Primeiro, crie uma política de WAF básica com um conjunto de regras padrão ge
 1. No lado superior esquerdo do portal, selecione **criar um recurso**. Procure **WAF**, selecione **Firewall do aplicativo Web**e, em seguida, selecione **criar**.
 2. Na página **criar uma política de WAF** , na guia **noções básicas** , insira ou selecione as informações a seguir, aceite os padrões para as configurações restantes e, em seguida, selecione **revisar + criar**:
 
-   |Setting  |Valor  |
+   |Configuração  |Valor  |
    |---------|---------|
    |Política para     |WAF regionais (gateway de aplicativo)|
    |Subscription     |Selecione o nome da sua assinatura|
-   |Resource group     |Selecione o grupo de recursos|
+   |Grupo de recursos     |Selecionar o grupo de recursos|
    |Nome de política     |Digite um nome exclusivo para sua política de WAF.|
 3. Na guia **Associação** , insira uma das seguintes configurações e, em seguida, selecione **Adicionar**:
 
-   |Setting  |Valor  |
+   |Configuração  |Valor  |
    |---------|---------|
    |Associar o gateway de aplicativo     |Selecione o nome do perfil do gateway de aplicativo.|
    |Associar ouvintes     |Selecione o nome do ouvinte do gateway de aplicativo e, em seguida, selecione **Adicionar**.|

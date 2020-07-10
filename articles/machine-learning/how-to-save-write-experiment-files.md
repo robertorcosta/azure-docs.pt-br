@@ -12,11 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 28b687577f01d6e83f012a51bd18ad082f2bd48d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3db7a1489b877544cd36627f3962b6b4e1b8c462
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433267"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146436"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Onde salvar e gravar arquivos para experimentos Azure Machine Learnings
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +30,9 @@ Ao iniciar o treinamento é executado em um [destino de computação](how-to-set
 
 Antes de poder iniciar um experimento em um destino de computação ou em seu computador local, você deve garantir que os arquivos necessários estejam disponíveis para esse destino de computação, como arquivos de dependência e arquivos de dados que seu código precisa executar.
 
-Azure Machine Learning executa scripts de treinamento copiando a pasta de script inteira para o contexto de computação de destino e, em seguida, tira um instantâneo. O limite de armazenamento para instantâneos de teste é de 300 MB e/ou 2.000 arquivos.
+Azure Machine Learning executa scripts de treinamento copiando o diretório de origem inteiro. Se você tiver dados confidenciais que não deseja carregar, use um [arquivo. ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou não o inclua no diretório de origem. Em vez disso, acesse seus dados usando um [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).
+
+O limite de armazenamento para instantâneos de teste é de 300 MB e/ou 2.000 arquivos.
 
 Por esse motivo, recomendamos:
 
@@ -55,7 +58,7 @@ Descrição do experimento &nbsp;|Solução de limite de armazenamento
 Menos de 2000 arquivos & não podem usar um repositório de armazenamento| Substituir o limite de tamanho do instantâneo por <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> Isso pode levar vários minutos, dependendo do número e do tamanho dos arquivos.
 Deve usar um diretório de script específico| [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 Pipeline|Usar um subdiretório diferente para cada etapa
-Notebooks Jupyter| Crie um `.amlignore` arquivo ou mova o bloco de anotações para um subdiretório novo, vazio e execute o código novamente.
+Jupyter notebooks| Crie um `.amlignore` arquivo ou mova o bloco de anotações para um subdiretório novo, vazio e execute o código novamente.
 
 ## <a name="where-to-write-files"></a>Onde gravar arquivos
 

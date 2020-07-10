@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 75b533368a01b2e98bece0751f45b12f36796658
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6af9db5ed76ecb79f8891895eab52ff71bcab048
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556261"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146875"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Como configurar o Caching para aprimoramento incremental no Azure Pesquisa Cognitiva
 
@@ -103,11 +103,13 @@ api-key: [YOUR-ADMIN-KEY]
 
 Se agora você emitir outra solicitação GET no indexador, a resposta do serviço incluirá uma `ID` propriedade no objeto cache. A cadeia de caracteres alfanumérica é anexada ao nome do contêiner que contém todos os resultados armazenados em cache e o estado intermediário de cada documento processado por esse indexador. A ID será usada para nomear exclusivamente o cache no armazenamento de BLOBs.
 
+```http
     "cache": {
         "ID": "<ALPHA-NUMERIC STRING>",
         "enableReprocessing": true,
         "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT>;AccountKey=<YOUR-STORAGE-KEY>;EndpointSuffix=core.windows.net"
     }
+```
 
 ### <a name="step-5-run-the-indexer"></a>Etapa 5: executar o indexador
 

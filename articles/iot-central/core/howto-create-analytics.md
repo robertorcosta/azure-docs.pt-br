@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 40460b58ede0ca0da8fe25475906bdbe41bfffe0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29605fc2a9094f70c26487691e74a4dd72a85813
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80158275"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147274"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Como usar a análise para analisar dados do dispositivo
 
@@ -86,10 +86,12 @@ Depois de consultar seus dados, você pode começar a Visualizar no gráfico de 
 
   ![Ampliar os dados](media/howto-create-analytics/zoom.png)
 
-Sob as reticências, há mais controles de gráfico para interagir com os dados.
+Sob as reticências, há mais controles de gráfico para interagir com os dados:
 
 - **Exibir grade:** Os resultados estão disponíveis em um formato de tabela, permitindo que você exiba o valor específico para cada ponto de dados.
 
-- **Descartar um marcador:** O controle "soltar marcador" fornece uma maneira de ancorar determinados pontos de dados no gráfico. É útil quando você está tentando comparar dados para várias linhas entre períodos de tempo diferentes.
+- **Baixar como CSV:** Os resultados estão disponíveis para exportação como um arquivo CSV (valores separados por vírgula). O arquivo CSV contém dados para cada dispositivo. Os resultados são exportados usando o intervalo e o período de tempo especificados. 
+
+- **Descartar um marcador:** O controle ' soltar marcador ' fornece uma maneira de ancorar determinados pontos de dados no gráfico. É útil quando você está tentando comparar dados para várias linhas entre períodos de tempo diferentes.
 
   ![Mostrando a exibição em grade da sua análise](media/howto-create-analytics/additionalchartcontrols.png)

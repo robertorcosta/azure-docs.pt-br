@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.author: larryfr
 author: larryfr
 ms.date: 11/12/2019
-ms.openlocfilehash: 8932640a69ad68e0fd30b8577ba95768dbf8b9b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e41323d05f1a81fbc73a9158cf30c2b0f7953f3
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85660736"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147064"
 ---
 # <a name="secure-code-best-practices-with-azure-machine-learning"></a>Práticas recomendadas de código seguro com o Azure Machine Learning
 
-No Azure Machine Learning, você pode carregar arquivos e conteúdo de qualquer fonte. O conteúdo em blocos de anotações ou scripts do Jupyter pode potencialmente ler dados de suas sessões, acessar dados em sua organização no Azure ou executar processos mal-intencionados em seu nome.
+No Azure Machine Learning, você pode carregar arquivos e conteúdo de qualquer fonte no Azure. O conteúdo em blocos de anotações ou scripts Jupyter que você carrega pode potencialmente ler dados de suas sessões, acessar dados em sua organização no Azure ou executar processos mal-intencionados em seu nome.
 
 > [!IMPORTANT]
 > Execute somente blocos de anotações ou scripts de fontes confiáveis. Por exemplo, onde você ou sua equipe de segurança revisou o bloco de anotações ou o script.

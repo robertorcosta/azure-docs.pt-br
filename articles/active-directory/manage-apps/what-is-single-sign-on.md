@@ -1,5 +1,5 @@
 ---
-title: Logon único para aplicativos – Azure Active Directory | Microsoft Docs
+title: O que é o SSO (logon único) do Azure?
 description: Saiba como escolher um método de logon único ao configurar aplicativos no Azure AD (Azure Active Directory). Use o logon único para que os usuários não precisem se lembrar de senhas para cada aplicativo e para simplificar a administração de gerenciamento de conta.
 services: active-directory
 author: kenwith
@@ -12,14 +12,14 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8b20d7d285f30eb0aa9ba5ac22739b57856d6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a50f2cf6fc00189c8cc764a132b550153b80b52e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479701"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144608"
 ---
-# <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Logon único para aplicativos no Azure Active Directory
+# <a name="what-is-single-sign-on-sso"></a>O que é SSO (logon único)?
 
 O SSO (logon único) adiciona segurança e conveniência quando os usuários se conectam a aplicativos no Azure Active Directory. Este artigo descreve os métodos de logon único e ajuda você a escolher o método de SSO mais adequado ao configurar os seus aplicativos.
 
@@ -40,7 +40,7 @@ Este fluxograma ajuda você a decidir qual método de logon único é melhor par
 
 A tabela a seguir resume os métodos de logon único e os links para obter mais detalhes.
 
-| Método de logon único | Tipos de aplicativos | Quando usar |
+| Método de logon único | Tipos de aplicativo | Quando usar |
 | :------ | :------- | :----- |
 | [OpenID Connect e OAuth](#openid-connect-and-oauth) | somente na nuvem | Use o OpenID Connect e o OAuth ao desenvolver um novo aplicativo. Esse protocolo simplifica a configuração de aplicativo, tem SDKs fáceis de usar e permite que seu aplicativo use o MS Graph.
 | [SAML](#saml-sso) | nuvem e local | Escolha SAML sempre que possível para aplicativos existentes que não usam o OpenID Connect nem o OAuth. O SAML funciona para aplicativos que são autenticados usando um dos protocolos SAML.|
@@ -54,7 +54,7 @@ A tabela a seguir resume os métodos de logon único e os links para obter mais 
 
 Ao desenvolver novos aplicativos, use protocolos modernos, como OpenID Connect e OAuth, para obter a melhor experiência de logon único para seu aplicativo em várias plataformas de dispositivo. O OAuth permite que usuários ou administradores [concedam consentimento](configure-user-consent.md) para recursos protegidos, como [Microsoft Graph](/graph/overview). Fornecemos [SDKs](../develop/reference-v2-libraries.md) fáceis de adotar para seu aplicativo e, além disso, seu aplicativo estará pronto para usar [Microsoft Graph](/graph/overview).
 
-Para obter mais informações, consulte:
+Para obter mais informações, confira:
 
 - [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md)
 - [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)
@@ -99,8 +99,8 @@ O logon único baseado em senha for compatível com qualquer aplicativo baseado 
 - O Microsoft Edge na Edição de Aniversário do Windows 10 ou posterior
 - Microsoft Edge para iOS e Android
 - Intune Managed Browser
-- Chrome no Windows 7 ou posterior e no MacOS X ou posterior
-- Firefox 26.0 ou posterior no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
+- Chrome no Windows 7 ou posterior e no macOS X ou posterior
+- Firefox 26,0 ou posterior no Windows XP SP2 ou posterior e no macOS X 10,6 ou posterior
 
 Para configurar um aplicativo de nuvem para logon único baseado em senha, consulte [Configurar logon único com senha](configure-password-single-sign-on-non-gallery-applications.md).
 

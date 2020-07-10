@@ -8,11 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 9a95af730e8250539e8b33af4bd5a90dc3a604a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c774d3f56eaf666a31ff73f433a3b4a5a363ce2f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466061"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142494"
 ---
 # <a name="use-javascript-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Usar o JavaScript para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2
 
@@ -89,11 +90,11 @@ function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantI
 > [!NOTE]
 > Para obter mais exemplos, consulte a documentação da [biblioteca de cliente de identidade do Azure para JS](https://www.npmjs.com/package/@azure/identity) .
 
-## <a name="create-a-file-system"></a>Criar um sistema de arquivos
+## <a name="create-a-container"></a>Criar um contêiner
 
-Um sistema de arquivos atua como um contêiner para seus arquivos. Você pode criar uma obtendo uma instância de **FileSystemClient** e, em seguida, chamando o método **FileSystemClient. Create** .
+Um contêiner atua como um sistema de arquivos para seus arquivos. Você pode criar uma obtendo uma instância de **FileSystemClient** e, em seguida, chamando o método **FileSystemClient. Create** .
 
-Este exemplo cria um sistema de arquivos chamado `my-file-system`. 
+Este exemplo cria um contêiner chamado `my-file-system` . 
 
 ```javascript
 async function CreateFileSystem(datalakeServiceClient) {
@@ -111,7 +112,7 @@ async function CreateFileSystem(datalakeServiceClient) {
 
 Crie uma referência de diretório obtendo uma instância de **DirectoryClient** e, em seguida, chamando o método **DirectoryClient. Create** .
 
-Este exemplo adiciona um diretório chamado `my-directory` a um sistema de arquivos. 
+Este exemplo adiciona um diretório chamado `my-directory` a um contêiner. 
 
 ```javascript
 async function CreateDirectory(fileSystemClient) {
@@ -357,7 +358,7 @@ async function ListFilesInDirectory(fileSystemClient) {
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Pacote (Gerenciador de pacotes do nó)](https://www.npmjs.com/package/@azure/storage-file-datalake)
 * [Amostras](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)

@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6809429b26eea30ca0569044634308d2e4dff9f7
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 368440976558730bd7bb9600a0bf45c56d1ee300
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025974"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147396"
 ---
 # <a name="about-virtual-hub-routing"></a>Sobre o roteamento de hub virtual
 
@@ -24,6 +24,10 @@ Para configurar o roteamento, consulte [como configurar o roteamento de Hub virt
 ## <a name="routing-concepts"></a><a name="concepts"></a>Conceitos de roteamento
 
 As seções a seguir descrevem os principais conceitos no roteamento de Hub virtual.
+
+> [!NOTE]
+> Alguns desses novos conceitos para tabela de rotas de Hub, associação, propagação e rotas estáticas em uma conexão de rede virtual ainda podem ser distribuídos e devem ser concluídos em semana de agosto.
+>
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Tabela de rotas do Hub
 
@@ -59,10 +63,6 @@ Uma **tabela de rota None** também está disponível para cada Hub virtual. A p
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>Configurando rotas estáticas em uma conexão de rede virtual
 
 A configuração de rotas estáticas fornece um mecanismo para direcionar o tráfego por meio de um IP do próximo salto, que pode ser de uma NVA (solução de virtualização de rede) provisionada em uma VNet do spoke conectada a um hub virtual. A rota estática é composta por um nome de rota, uma lista de prefixos de destino e um IP do próximo salto.
-
-> [!NOTE]
-> Alguns desses novos conceitos para associação, propagação e rotas estáticas em uma conexão de rede virtual ainda podem ser distribuídos e devem ser concluídos na semana de agosto.
->
 
 ## <a name="route-tables-in-basic-and-standard-virtual-wans-prior-to-the-feature-set-of-association-and-propagation"></a><a name="route"></a>Direcionar tabelas em WANs virtuais básicas e padrão antes do conjunto de recursos de associação e propagação
 

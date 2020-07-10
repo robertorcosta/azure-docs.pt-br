@@ -8,11 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 32ad34bcfb42bf8fc45ba7fdb7fba5e797ee6106
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03d4c2e0685ea165cbad524360a3db6e6c809733
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81262427"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146124"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Pesquisa difusa para corrigir erros ortográficos e erros de digitação
 
@@ -85,41 +86,53 @@ Suponha que a cadeia de caracteres a seguir exista em um `"Description"` campo e
 
 Comece com uma pesquisa difusa em "especial" e adicione o realce de clique ao campo Descrição:
 
-    search=special~&highlight=Description
+```console
+search=special~&highlight=Description
+```
 
 Na resposta, como você adicionou o realce de ocorrências, a formatação é aplicada a "especial" como o termo correspondente.
 
-    "@search.highlights": {
-        "Description": [
-            "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
-        ]
+```output
+"@search.highlights": {
+    "Description": [
+        "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
+    ]
+```
 
 Tente a solicitação novamente, digitando incorretamente "especial" por meio de várias letras ("PE"):
 
-    search=scial~&highlight=Description
+```console
+search=scial~&highlight=Description
+```
 
 Até agora, nenhuma alteração na resposta. Usando o padrão de 2 graus de distância, remover dois caracteres "PE" de "especial" ainda permite uma correspondência bem-sucedida nesse termo.
 
-    "@search.highlights": {
-        "Description": [
-            "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
-        ]
+```output
+"@search.highlights": {
+    "Description": [
+        "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
+    ]
+```
 
 Tentando mais uma solicitação, modifique ainda mais o termo de pesquisa, retirando um último caractere para um total de três exclusões (de "especial" para "Scala"):
 
-    search=scal~&highlight=Description
+```console
+search=scal~&highlight=Description
+```
 
 Observe que a mesma resposta é retornada, mas agora, em vez de corresponder ao "especial", a correspondência difusa é "SQL".
 
-            "@search.score": 0.4232868,
-            "@search.highlights": {
-                "Description": [
-                    "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
-                ]
+```output
+        "@search.score": 0.4232868,
+        "@search.highlights": {
+            "Description": [
+                "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
+            ]
+```
 
 O ponto deste exemplo expandido é ilustrar a clareza de que o realce de pressionamento pode trazer resultados ambíguos. Em todos os casos, o mesmo documento é retornado. Se você confiava em IDs de documento para verificar uma correspondência, talvez tenha perdido a mudança de "especial" para "SQL".
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 + [Como a pesquisa de texto completo funciona no Azure Pesquisa Cognitiva (arquitetura de análise de consulta)](search-lucene-query-architecture.md)
 + [Gerenciador de pesquisa](search-explorer.md)

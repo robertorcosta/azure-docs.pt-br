@@ -8,12 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 12/27/2019
-ms.openlocfilehash: 03bc49c24e3c2d32e97f3e5e03bd39da63428a6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/08/2020
+ms.openlocfilehash: 415c624153971e88afac3b18920a3ba3a8f2cfae
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77505566"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147025"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um espaço de trabalho Azure Machine Learning?
 
@@ -52,6 +53,7 @@ Você pode interagir com seu espaço de trabalho das seguintes maneiras:
 + Em qualquer ambiente do Python com o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Em qualquer ambiente de R com o [SDK do Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Na linha de comando usando a [extensão da CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) do Azure Machine Learning
++ [Extensão de VS Code de Azure Machine Learning](how-to-manage-resources-vscode.md#workspaces)
 
 ## <a name="machine-learning-with-a-workspace"></a>Aprendizado de máquina com um espaço de trabalho
 
@@ -69,13 +71,13 @@ As tarefas de aprendizado de máquina lêem e/ou gravam artefatos em seu espaço
 
 Você também pode executar as seguintes tarefas de gerenciamento de espaço de trabalho:
 
-| Tarefa de gerenciamento de espaço de trabalho   | Portal              | Estúdio | SDK/R do SDK do Python       | CLI        |
-|---------------------------|---------|---------|------------|------------|
-| Criar um workspace        | **&check;**     | | **&check;** | **&check;** |
-| Gerenciar o acesso ao espaço de trabalho    | **&check;**   || |  **&check;**    |
-| Atualizar para o Enterprise Edition    | **&check;** | **&check;**  | |     |
-| Criar e gerenciar recursos de computação    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
-| Criar uma VM do notebook |   | **&check;** | |     |
+| Tarefa de gerenciamento de espaço de trabalho   | Portal              | Estúdio | SDK/R do SDK do Python       | CLI        | Código VS
+|---------------------------|---------|---------|------------|------------|------------|
+| Criar um workspace        | **&check;**     | | **&check;** | **&check;** | **&check;** |
+| Gerenciar o acesso ao espaço de trabalho    | **&check;**   || |  **&check;**    ||
+| Atualizar para o Enterprise Edition    | **&check;** | **&check;**  | |     ||
+| Criar e gerenciar recursos de computação    | **&check;**   | **&check;** | **&check;** |  **&check;**   ||
+| Criar uma VM do notebook |   | **&check;** | |     ||
 
 > [!WARNING]
 > Não há suporte para a movimentação do workspace do Azure Machine Learning para outra assinatura nem para a movimentação da assinatura proprietária para um novo locatário. Se você fizer isso, poderá causar erros.
@@ -89,7 +91,7 @@ Há várias maneiras de criar um espaço de trabalho:
 * Use o [portal do Azure](how-to-manage-workspace.md) para uma interface de apontar e clicar para orientá-lo em cada etapa.
 * Use o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) para criar um espaço de trabalho instantaneamente de scripts Python ou notebooks Júpiter
 * Use um [modelo de Azure Resource Manager](how-to-create-workspace-template.md) ou a [CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md) quando precisar automatizar ou personalizar a criação com os padrões de segurança corporativa.
-* Se você trabalhar em Visual Studio Code, use a [extensão vs Code](tutorial-setup-vscode-extension.md).
+* Se você trabalhar em Visual Studio Code, use a [extensão vs Code](how-to-manage-resources-vscode.md#create-a-workspace).
 
 > [!NOTE]
 > O nome do workspace não diferencia maiúsculas de minúsculas.

@@ -6,20 +6,21 @@ author: linda33wj
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 07/08/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: f9e6c8dc7438e05f960504b2cacee7fc987adf70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7a872121ca6560b8ede86abc35294ab8c9b0c1b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022361"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142013"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Visão geral do conector do Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory dá suporte aos seguintes armazenamentos de dados e formatos por meio de copiar, fluxo de dados, Pesquisar, obter metadados e excluir atividades. Clique em cada armazenamento de dados para aprender os recursos com suporte e as configurações correspondentes em detalhes.
+Azure Data Factory oferece suporte aos seguintes armazenamentos de dados e formatos por meio de cópia, fluxo de dados, pesquisa, obtenção de metadados e atividades de exclusão. Clique em cada armazenamento de dados para aprender os recursos com suporte e as configurações correspondentes em detalhes.
 
 ## <a name="supported-data-stores"></a>Armazenamento de dados com suporte
 
@@ -27,7 +28,16 @@ Azure Data Factory dá suporte aos seguintes armazenamentos de dados e formatos 
 
 ## <a name="supported-file-formats"></a>Formatos de arquivo com suporte
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)]
+O Azure Data Factory dá suporte aos seguintes formatos de arquivo. Consulte cada artigo para configurações baseadas em formato.
+
+- [Formato Avro](format-avro.md)
+- [Formato binário](format-binary.md)
+- [Formato do Common Data Model](format-common-data-model.md)
+- [Formato de texto delimitado](format-delimited-text.md)
+- [Formato do Excel](format-excel.md)
+- [Formato JSON](format-json.md)
+- [Formato ORC](format-orc.md)
+- [Formato Parquet](format-parquet.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

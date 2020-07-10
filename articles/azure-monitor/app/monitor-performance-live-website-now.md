@@ -3,12 +3,12 @@ title: Monitorar um aplicativo Web ASP.NET dinâmico com o Azure Application Ins
 description: Monitore o desempenho do site sem implantá-lo novamente. Funciona com aplicativos Web ASP.NET hospedado localmente ou em máquinas virtuais.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: e30700deaa0121fbe473580d868a79d75a899a1d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f4ce01ea8fc7b6bf1f294071f04e2bebce3e1d27
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107471"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166375"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentar aplicativos Web em tempo de execução com Application Insights anexação sem código
 
@@ -39,14 +39,14 @@ Aqui está um resumo do que você tem com cada rota:
 
 |  | Tempo de compilação | Tempo de execução |
 | --- | --- | --- |
-| Solicitações e exceções |Sim |Sim |
-| [Exceções mais detalhadas](../../azure-monitor/app/asp-net-exceptions.md) | |Sim |
-| [Diagnóstico de dependência](../../azure-monitor/app/asp-net-dependencies.md) |No .NET 4.6+, mas menos detalhes |Sim, detalhes completos: códigos de resultado, texto do comando SQL, verbo HTTP|
-| [Contadores de desempenho do sistema](../../azure-monitor/app/performance-counters.md) |Sim |Sim |
-| [API de telemetria personalizada][api] |Sim |Não |
-| [Integração do log de rastreamento](../../azure-monitor/app/asp-net-trace-logs.md) |Sim |Não |
-| [Exibição da página e dados do usuário](../../azure-monitor/app/javascript.md) |Sim |Não |
-| É necessário recompilar o código |Sim | Não |
+| **Solicitações & exceções** |Sim |Sim |
+| **[Exceções mais detalhadas](../../azure-monitor/app/asp-net-exceptions.md)** | |Sim |
+| **[Diagnóstico de dependência](../../azure-monitor/app/asp-net-dependencies.md)** |No .NET 4.6+, mas menos detalhes |Sim, detalhes completos: códigos de resultado, texto do comando SQL, verbo HTTP|
+| **[Contadores de desempenho do sistema](../../azure-monitor/app/performance-counters.md)** |Sim |Sim |
+| **[API para telemetria personalizada][api]** |Sim |Não |
+| **[Integração de log de rastreamento](../../azure-monitor/app/asp-net-trace-logs.md)** |Sim |Não |
+| **[Exibição de página & dados de usuário](../../azure-monitor/app/javascript.md)** |Sim |Não |
+| **É necessário recompilar o código** |Sim | Não |
 
 
 

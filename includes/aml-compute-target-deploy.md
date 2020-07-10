@@ -25,7 +25,7 @@ ms.locfileid: "85378557"
 | [Clusters de cálculo do Azure Machine Learning](../articles/machine-learning/how-to-use-parallel-run-step.md) | Inferência de lote &nbsp; | [Sim](../articles/machine-learning/how-to-use-parallel-run-step.md) (pipeline de Machine Learning) | &nbsp;  | Executar a pontuação de lote em computação sem servidor. Dá suporte a VMs normais e de baixa prioridade. |
 | [Azure Functions](../articles/machine-learning/how-to-deploy-functions.md) | Apresentação Inferência em tempo real | &nbsp; | &nbsp; | &nbsp; |
 | [Azure IoT Edge](../articles/machine-learning/how-to-deploy-and-where.md#iotedge) | Apresentação &nbsp;Módulo IOT |  &nbsp; | &nbsp; | Implante e sirva modelos de ML em dispositivos IoT. |
-| [Borda da caixa de dados do Azure](../articles/databox-online/azure-stack-edge-overview.md)   | Via IoT Edge |  &nbsp; | Sim | Implante e sirva modelos de ML em dispositivos IoT. |
+| [Azure Data Box Edge](../articles/databox-online/azure-stack-edge-overview.md)   | Via IoT Edge |  &nbsp; | Sim | Implante e sirva modelos de ML em dispositivos IoT. |
 
 > [!NOTE]
 > Embora os destinos de computação, como local, Azure Machine Learning instância de computação, e Azure Machine Learning clusters de computação ofereçam suporte à GPU para treinamento e experimentação, usar GPU para inferência __quando implantado como um serviço Web__ tem suporte apenas no serviço kubernetes do Azure.

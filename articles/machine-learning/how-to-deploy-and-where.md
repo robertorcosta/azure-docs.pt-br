@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/12/2020
+ms.date: 07/08/2020
 ms.custom: seoapril2019, tracking-python
-ms.openlocfilehash: aa961cb94816b50aa515532e69454fce9b370c54
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 57e1ecb080d816898b862951846b15a4b5709e38
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083072"
+ms.locfileid: "86146558"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ O código a seguir mostra como se conectar a um espaço de trabalho Azure Machin
 
 + **Usar o Visual Studio Code**
 
-   Ao usar Visual Studio Code, você seleciona o espaço de trabalho usando uma interface gráfica. Para obter mais informações, consulte [implantar e gerenciar modelos](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) na documentação de extensão de Visual Studio Code.
+   Ao usar Visual Studio Code, você seleciona o espaço de trabalho usando uma interface gráfica. Para obter mais informações, consulte [implantar e gerenciar modelos](how-to-manage-resources-vscode.md#endpoints) na documentação de extensão de Visual Studio Code.
 
 ## <a name="register-your-model"></a><a id="registermodel"></a>Registrar seu modelo
 
@@ -216,7 +216,7 @@ myenv.register(workspace=ws)
 
 ### <a name="2-define-scoring-code"></a><a id="script"></a>2. definir código de Pontuação
 
-O script de entrada recebe os dados enviados para um serviço Web implantado e os transmite ao modelo. Ele então envia de volta ao cliente a resposta retornada pelo modelo. *O script é específico para seu modelo*. Ele deve entender os dados esperados e retornados pelo modelo.
+O script de entrada recebe os dados enviados para um serviço Web implantado e os transmite ao modelo. Em seguida, ele envia de volta ao cliente a resposta retornada pelo modelo. *O script é específico para seu modelo*. Ele deve entender os dados esperados e retornados pelo modelo.
 
 O script contém duas funções que carregam e executam o modelo:
 
@@ -613,7 +613,7 @@ A tabela a seguir descreve os diferentes Estados de serviço:
 | Transição | O serviço está em processo de implantação. | Não |
 | Não Íntegro | O serviço foi implantado, mas está inacessível no momento.  | Não |
 | Não agendável | O serviço não pode ser implantado no momento devido à falta de recursos. | Não |
-| Falhou | O serviço falhou ao ser implantado devido a um erro ou falha. | Sim |
+| Com falha | O serviço falhou ao ser implantado devido a um erro ou falha. | Sim |
 | Healthy | O serviço está íntegro e o ponto de extremidade está disponível. | Sim |
 
 ### <a name="compute-instance-web-service-devtest"></a><a id="notebookvm"></a>Serviço Web de instância de computação (desenvolvimento/teste)

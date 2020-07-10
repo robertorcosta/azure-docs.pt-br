@@ -9,11 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: tracking-python
-ms.openlocfilehash: f5ff33d021f27f2c5dfb86ca87f2579602f0d1cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07708de1326e0aba6485b2cf1fb0610d9710cdf7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559146"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142470"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o Python para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2
 
@@ -93,11 +94,11 @@ def initialize_storage_account_ad(storage_account_name, client_id, client_secret
 > [!NOTE]
 > Para obter mais exemplos, consulte a documentação da [biblioteca de cliente de identidade do Azure para Python](https://pypi.org/project/azure-identity/) .
 
-## <a name="create-a-file-system"></a>Criar um sistema de arquivos
+## <a name="create-a-container"></a>Criar um contêiner
 
-Um sistema de arquivos atua como um contêiner para seus arquivos. Você pode criar um chamando o método **FileSystemDataLakeServiceClient. create_file_system** .
+Um contêiner atua como um sistema de arquivos para seus arquivos. Você pode criar um chamando o método **FileSystemDataLakeServiceClient. create_file_system** .
 
-Este exemplo cria um sistema de arquivos chamado `my-file-system`.
+Este exemplo cria um contêiner chamado `my-file-system` .
 
 ```python
 def create_file_system():
@@ -115,7 +116,7 @@ def create_file_system():
 
 Crie uma referência de diretório chamando o método **FileSystemClient. create_directory** .
 
-Este exemplo adiciona um diretório chamado `my-directory` a um sistema de arquivos. 
+Este exemplo adiciona um diretório chamado `my-directory` a um contêiner. 
 
 ```python
 def create_directory():
@@ -330,7 +331,7 @@ def list_directory_contents():
      print(e) 
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Documentação de referência da API](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html)
 * [Pacote (índice do pacote do Python)](https://pypi.org/project/azure-storage-file-datalake/)

@@ -276,7 +276,7 @@
     - name: Shipyard de lote
       href: 'https://github.com/Azure/batch-shipyard'
     - name: Blog
-      href: 'https://blogs.technet.microsoft.com/windowshpc/'
+      href: /archive/blogs/windowshpc/
     - name: HPC no Azure
       href: /azure/architecture/topics/high-performance-computing/
     - name: Preços

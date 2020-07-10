@@ -11,11 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aab57d48e8bd95f1ce2aec2dde42303d5d991a58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa83e295460cc847647e83c7e4e8a9d7ee91f6f4
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444243"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165763"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planejar a implantação do dispositivo Azure Active Directory
 
@@ -101,7 +102,7 @@ Use esta árvore para determinar as opções para dispositivos de propriedade da
 
 dispositivos iOS e Android só podem ser registrados no AD do Azure. A tabela a seguir apresenta considerações de alto nível para dispositivos cliente do Windows. Use-o como uma visão geral e explore os métodos de integração diferentes detalhadamente.
 
-| | Azure AD registrado| Ingresso no Azure AD| Ingresso no Azure AD Híbrido |
+| Consideração | Azure AD registrado| Ingresso no Azure AD| Ingresso no Azure AD Híbrido |
 | - | - | - | - |
 | **Sistemas operacionais cliente**| | |  |
 | Dispositivos Windows 10| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
@@ -178,7 +179,7 @@ Escolha seu procedimento de implantação após [uma comparação](azureadjoin-p
 
 Você pode determinar que o ingresso no Azure AD é a melhor solução para um dispositivo e que o dispositivo pode já estar em Estados diferentes. Aqui estão as considerações de atualização.
 
-| Estado atual do dispositivo| Estado do dispositivo desejado| Como fazer |
+| Estado atual do dispositivo| Estado do dispositivo desejado| Instruções |
 | - | - | - |
 | Ingressado no domínio local| Ingresso no AD do Azure| Desassociar o dispositivo do domínio local antes de ingressar no Azure AD |
 | Ingresso híbrido no Azure AD| Ingresso no AD do Azure| Desassociar o dispositivo do domínio local e do Azure AD antes de ingressar no Azure AD |
@@ -212,7 +213,7 @@ Se a instalação da versão necessária do Azure AD Connect não for uma opçã
 
 Você pode determinar que o ingresso do Azure AD híbrido é a melhor solução para um dispositivo e que o dispositivo pode já estar em um estado diferente. Aqui estão as considerações de atualização.
 
-| Estado atual do dispositivo| Estado do dispositivo desejado| Como fazer |
+| Estado atual do dispositivo| Estado do dispositivo desejado| Instruções |
 | - | - | - |
 | Ingresso no domínio local| Ingresso híbrido no Azure AD| Usar o Azure AD Connect ou AD FS para ingressar no Azure |
 | Ingressado no grupo de trabalho local ou novo| Ingresso híbrido no Azure AD| Com suporte com o [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot). Caso contrário, o dispositivo precisa ser ingressado no domínio local antes da junção híbrida do Azure AD |

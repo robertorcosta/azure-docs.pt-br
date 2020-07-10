@@ -1,5 +1,5 @@
 ---
-title: Extrair informações no Excel usando a Análise de Texto e a automatização de energia
+title: Extrair informações no Excel usando a Análise de Texto e o Power Automate
 titleSuffix: Azure Cognitive Services
 description: Saiba como extrair o texto do Excel sem precisar escrever código, usando Análise de Texto e a automatização de energia.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
-ms.openlocfilehash: fd70fe14d3765fb7c21b92f62b4d73564176baa2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b9e6561c1ed9870b669ec5e9825a376f8bd03c4d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78201183"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145706"
 ---
-# <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Extrair informações no Excel usando a Análise de Texto e a automatização de energia 
+# <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Extrair informações no Excel usando a Análise de Texto e o Power Automate 
 
 Neste tutorial, você criará um fluxo de automatização de energia para extrair texto em uma planilha do Excel sem precisar escrever código. 
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta do Microsoft Azure. [Inicie uma avaliação gratuita](https://azure.microsoft.com/free/) ou [entre](https://portal.azure.com/).
+- Uma conta do Microsoft Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/cognitive-services/) ou [entre](https://portal.azure.com/).
 - Um recurso Análise de Texto. Se você não tiver uma, poderá [criar uma na portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) e usar a camada gratuita para concluir este tutorial.
 - A [chave e o ponto de extremidade](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que foi gerado para você durante a inscrição.
 - Uma planilha que contém problemas de locatário. Os dados de exemplo são fornecidos no GitHub
@@ -76,12 +76,12 @@ Crie variáveis que representem as informações que serão adicionadas ao arqui
 
 Adicione as informações a seguir às variáveis que você criou. Elas representam as colunas do arquivo do Excel. Se alguma variável for recolhida, você poderá clicar nelas para expandi-las.
 
-| Ação |Nome   | Type | Valor |
+| Ação |Nome   | Tipo | Valor |
 |---------|---------|---|---|
-| Inicializar variável | var_person | String | Person |
-| Inicializar variável 2 | var_phone | String | Phone_Number |
-| Inicializar variável 3 | var_plumbing | String | detalhes técnicos |
-| Inicializar a variável 4 | var_other | String | outros | 
+| Inicializar variável | var_person | Cadeia de caracteres | Person |
+| Inicializar variável 2 | var_phone | Cadeia de caracteres | Phone_Number |
+| Inicializar variável 3 | var_plumbing | Cadeia de caracteres | detalhes técnicos |
+| Inicializar a variável 4 | var_other | Cadeia de caracteres | outros | 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="informações contidas nas variáveis de fluxo":::
@@ -182,7 +182,7 @@ Minimize a ação **aplicar a cada 2** clicando no nome. Em seguida, adicione ou
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo.":::
 
-Em **aplicar a cada 3**, adicione um controle de **condição** . Ela será nomeada **condição 2**. Na primeira caixa de texto, pesquise e adicione o **tipo de entidades** na janela de conteúdo dinâmico. Verifique se a caixa central está definida como **igual a**. Em seguida, na caixa de texto à direita `var_phone`, digite. 
+Em **aplicar a cada 3**, adicione um controle de **condição** . Ela será nomeada **condição 2**. Na primeira caixa de texto, pesquise e adicione o **tipo de entidades** na janela de conteúdo dinâmico. Verifique se a caixa central está definida como **igual a**. Em seguida, na caixa de texto à direita, digite `var_phone` . 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo.":::
@@ -203,15 +203,15 @@ Minimize **aplicar a cada 3** clicando no nome. Em seguida, crie outro **se apli
 
 Em seguida, o fluxo verificará se a descrição do problema da linha da tabela do Excel contém a palavra "encanamento". Se sim, ele adicionará "encanamento" na coluna IssueType. Caso contrário, entraremos em "other".
 
-Dentro da ação **aplicar a cada 4** , adicione um controle de **condição** . Ele será denominado **condição 3**. Na primeira caixa de texto, procure e adicione a **Descrição** do arquivo do Excel, usando a janela de conteúdo dinâmico. Verifique se a caixa central diz **contém**. Em seguida, na caixa de texto à direita, localize `var_plumbing`e selecione. 
+Dentro da ação **aplicar a cada 4** , adicione um controle de **condição** . Ele será denominado **condição 3**. Na primeira caixa de texto, procure e adicione a **Descrição** do arquivo do Excel, usando a janela de conteúdo dinâmico. Verifique se a caixa central diz **contém**. Em seguida, na caixa de texto à direita, localize e selecione `var_plumbing` . 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo.":::
 
 
-Na condição **se sim** , clique em **Adicionar uma ação**e selecione **atualizar uma linha**. Em seguida, insira as informações como antes. Na coluna IssueType, selecione `var_plumbing`. Isso aplicará um rótulo de "encanamento" à linha.
+Na condição **se sim** , clique em **Adicionar uma ação**e selecione **atualizar uma linha**. Em seguida, insira as informações como antes. Na coluna IssueType, selecione `var_plumbing` . Isso aplicará um rótulo de "encanamento" à linha.
 
-Na condição **se não** , clique em **Adicionar uma ação**e selecione **atualizar uma linha**. Em seguida, insira as informações como antes. Na coluna IssueType, selecione `var_other`. Isso aplicará um rótulo "outro" à linha.
+Na condição **se não** , clique em **Adicionar uma ação**e selecione **atualizar uma linha**. Em seguida, insira as informações como antes. Na coluna IssueType, selecione `var_other` . Isso aplicará um rótulo "outro" à linha.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo.":::

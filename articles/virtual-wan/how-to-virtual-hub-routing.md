@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: e9891e3ac12de3f8735407c603ff59b61f4eb05d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 6d14094edc7ae21ca0d56b544fb9c2b19f1f0582
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118963"
+ms.locfileid: "86144989"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Como configurar um roteamento de hub virtual
 
@@ -22,9 +22,7 @@ Um hub virtual pode conter vários gateways, como um gateway de VPN site a site,
 Para obter mais informações, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Algumas dessas funcionalidades ainda podem ser distribuídas. Se a distribuição ainda não aconteceu em sua região, use as etapas nestas versões dos artigos neste ínterim:
->* [portal do Azure artigo](virtual-wan-route-table-nva-portal.md)
->* [Artigo do PowerShell](virtual-wan-route-table-nva.md)
+> Algumas dessas funcionalidades ainda podem ser distribuídas. Espera-se que isso seja concluído em 3 de agosto.
 >
 
 ## <a name="create-a-route-table"></a><a name="create-table"></a>Criar uma tabela de rotas

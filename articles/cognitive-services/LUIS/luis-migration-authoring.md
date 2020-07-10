@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: diberry
-ms.openlocfilehash: 338868c954df68fbf43bee9581a6afada58f7e97
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: cc14f1cd60f048ba01060b9ebdbca434af6b9751
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055453"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145622"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de criação de recursos do Azure
 
@@ -226,7 +226,7 @@ Se você estiver colaborando em aplicativos e tiver atribuído uma chave de prev
 ## <a name="troubleshooting-the-migration-process"></a>Solucionando problemas do processo de migração
 
 Quando você tenta migrar, mas não consegue encontrar sua assinatura do Azure na lista suspensa:
-* Verifique se você tem uma assinatura válida do Azure que está autorizada a criar recursos de serviços cognitivas. Vá para a [portal do Azure](https://ms.portal.azure.com) e verifique o status da assinatura. Se você não tiver uma, [crie uma avaliação gratuita](https://azure.microsoft.com/free/).
+* Verifique se você tem uma assinatura válida do Azure que está autorizada a criar recursos de serviços cognitivas. Vá para a [portal do Azure](https://ms.portal.azure.com) e verifique o status da assinatura. Se você não tiver uma, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/cognitive-services/).
 * Verifique se você está no locatário adequado associado à sua assinatura válida. Você pode alternar locatários do avatar para a esquerda de suas iniciais nesta barra de ferramentas: ![ barra de ferramentas onde você pode alternar locatários](./media/migrate-authoring-key/switch-user-tenant-2.png)
 
 Se você tiver um recurso de criação existente, mas não conseguir encontrá-lo quando selecionar a opção **usar recurso de criação existente** :

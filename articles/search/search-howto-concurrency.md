@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: edfb2fe5cc37a00335ca7b5be851a88825b03eb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f22e69cbc625d21c398151e413574387a2587790
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72792212"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145279"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Como gerenciar a simultaneidade no Azure Pesquisa Cognitiva
 
@@ -22,7 +22,7 @@ Ao gerenciar recursos do Azure Pesquisa Cognitiva como índices e fontes de dado
 > [!Tip]
 > O código conceitual em uma [solução C# de exemplo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) explica como o controle de simultaneidade funciona no Azure pesquisa cognitiva. O código cria condições que invocam o controle de simultaneidade. Ler o [fragmento de código a seguir](#samplecode) é provavelmente suficiente para a maioria dos desenvolvedores, mas se você deseja executar, edite appsettings.json para adicionar o nome do serviço e uma chave de api de administração. Dado um URL de serviço de `http://myservice.search.windows.net`, o nome do serviço é `myservice`.
 
-## <a name="how-it-works"></a>Como isso funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 A simultaneidade otimista é implementada por meio de verificações de condição de acesso nas chamadas à API gravando índices, indexadores, fontes de dados e recursos synonymMap.
 
@@ -46,7 +46,7 @@ O código a seguir demonstra verificações accessCondition para operações de 
 
 ### <a name="sample-code-from-dotnetetagsexplainer-program"></a>Código de exemplo do [programa DotNetETagsExplainer](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer)
 
-```
+```csharp
     class Program
     {
         // This sample shows how ETags work by performing conditional updates and deletes
@@ -173,6 +173,7 @@ Este snippet de código mostra a adição de um synonymMap para um índice que j
 
 O snippet de código obtém o índice "hotéis", verifica a versão do objeto em uma operação de atualização, gera uma exceção se a condição falha e, em seguida, repete a operação (até três vezes), iniciando com a recuperação de índice do servidor para obter a versão mais recente.
 
+```csharp
         private static void EnableSynonymsInHotelsIndexSafely(SearchServiceClient serviceClient)
         {
             int MaxNumTries = 3;
@@ -203,7 +204,7 @@ O snippet de código obtém o índice "hotéis", verifica a versão do objeto em
             index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
             return index;
         }
-
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 7ed55200db72879f7ec7323b5c165998944688a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ffdfeacad2fcfa7f77f3bcb55e8b1edaea865202
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84906778"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145167"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatíveis com o Azure Monitor
 
@@ -105,15 +105,15 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |OtherRequests|Outras Solicitações de Gateway (Preterido)|Contagem|Total|Número de outras solicitações de gateway – use a métrica de solicitação de várias dimensões com a dimensão GatewayResponseCodeCategory em vez disso|Localização, nome do host|
 |Duration|Duração total de solicitações de gateway|Milissegundos|Média|Duração total de solicitações de gateway em milissegundos|Localização, nome do host|
 |BackendDuration|Duração de Solicitações de Back-end|Milissegundos|Média|Duração de solicitações de back-end em milissegundos|Localização, nome do host|
-|Capacity|Capacity|Porcentagem|Média|Métrica de utilização para o serviço ApiManagement|Location|
-|EventHubTotalEvents|Eventos Totais do EventHub|Contagem|Total|Número de eventos enviados ao EventHub|Location|
-|EventHubSuccessfulEvents|Eventos do EventHub Bem-sucedidos|Contagem|Total|Número de eventos de EventHub bem-sucedidos|Location|
-|EventHubTotalFailedEvents|Eventos do EventHub com Falha|Contagem|Total|Número de eventos de EventHub com falha|Location|
-|EventHubRejectedEvents|Eventos do EventHub Rejeitados|Contagem|Total|Número de eventos do EventHub rejeitados (configuração incorreta ou não autorizada)|Location|
-|EventHubThrottledEvents|Eventos do EventHub Restringidos|Contagem|Total|Número de eventos regulados do EventHub|Location|
-|EventHubTimedoutEvents|Eventos do EventHub com Tempo Limite Excedido|Contagem|Total|Número de eventos do EventHub com tempo limite excedido|Location|
-|EventHubDroppedEvents|Eventos do EventHub Ignorados|Contagem|Total|Número de eventos ignorados devido ao limite de tamanho de fila atingido|Location|
-|EventHubTotalBytesSent|Tamanho dos Eventos do EventHub|Bytes|Total|Tamanho total dos eventos do EventHub em bytes|Location|
+|Capacity|Capacity|Porcentagem|Média|Métrica de utilização para o serviço ApiManagement|Localização|
+|EventHubTotalEvents|Eventos Totais do EventHub|Contagem|Total|Número de eventos enviados ao EventHub|Localização|
+|EventHubSuccessfulEvents|Eventos do EventHub Bem-sucedidos|Contagem|Total|Número de eventos de EventHub bem-sucedidos|Localização|
+|EventHubTotalFailedEvents|Eventos do EventHub com Falha|Contagem|Total|Número de eventos de EventHub com falha|Localização|
+|EventHubRejectedEvents|Eventos do EventHub Rejeitados|Contagem|Total|Número de eventos do EventHub rejeitados (configuração incorreta ou não autorizada)|Localização|
+|EventHubThrottledEvents|Eventos do EventHub Restringidos|Contagem|Total|Número de eventos regulados do EventHub|Localização|
+|EventHubTimedoutEvents|Eventos do EventHub com Tempo Limite Excedido|Contagem|Total|Número de eventos do EventHub com tempo limite excedido|Localização|
+|EventHubDroppedEvents|Eventos do EventHub Ignorados|Contagem|Total|Número de eventos ignorados devido ao limite de tamanho de fila atingido|Localização|
+|EventHubTotalBytesSent|Tamanho dos Eventos do EventHub|Bytes|Total|Tamanho total dos eventos do EventHub em bytes|Localização|
 |Requests|Requests|Contagem|Total|Métricas de solicitação de gateway com várias dimensões|Local, nome do host, LastErrorReason, BackendResponseCode, GatewayResponseCode, BackendResponseCodeCategory, GatewayResponseCodeCategory|
 |Conectividade|Status de conectividade de rede de recursos (versão prévia)|Contagem|Total|Status de conectividade de rede de tipos de recursos dependentes do serviço de gerenciamento de API|Local, ResourceType|
 
@@ -443,7 +443,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Porcentagem de CPU|Porcentagem de CPU|Porcentagem|Média|O percentual das unidades de computação alocadas que estão atualmente em uso pelas Máquinas Virtuais.|Nenhum|
+|Percentual de CPU|Porcentagem de CPU|Porcentagem|Média|O percentual das unidades de computação alocadas que estão atualmente em uso pelas Máquinas Virtuais.|Nenhum|
 |Entrada na rede|Entrada na rede|Bytes|Total|O número de bytes recebidos em todos os adaptadores de rede pelas Máquinas Virtuais (Tráfego de Entrada).|Nenhum|
 |Saída da rede|Saída da rede|Bytes|Total|O número de bytes de saída em todos os adaptadores de rede pelas Máquinas Virtuais (Tráfego de Saída).|Nenhum|
 |Disk Read Bytes/Sec|Leitura de disco|BytesPerSecond|Média|Média de bytes lidos do disco durante o período de monitoramento.|Nenhum|
@@ -456,7 +456,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Porcentagem de CPU|Porcentagem de CPU|Porcentagem|Média|O percentual das unidades de computação alocadas que estão atualmente em uso pelas Máquinas Virtuais.|RoleInstanceId|
+|Percentual de CPU|Porcentagem de CPU|Porcentagem|Média|O percentual das unidades de computação alocadas que estão atualmente em uso pelas Máquinas Virtuais.|RoleInstanceId|
 |Entrada na rede|Entrada na rede|Bytes|Total|O número de bytes recebidos em todos os adaptadores de rede pelas Máquinas Virtuais (Tráfego de Entrada).|RoleInstanceId|
 |Saída da rede|Saída da rede|Bytes|Total|O número de bytes de saída em todos os adaptadores de rede pelas Máquinas Virtuais (Tráfego de Saída).|RoleInstanceId|
 |Disk Read Bytes/Sec|Leitura de disco|BytesPerSecond|Média|Média de bytes lidos do disco durante o período de monitoramento.|RoleInstanceId|
@@ -471,7 +471,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |UsedCapacity|Capacidade utilizada|Bytes|Média|Capacidade utilizada pela conta|Nenhum|
-|Transactions|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação|
+|Transações|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Esse número inclui a entrada de um cliente externo no Armazenamento do Azure, bem como a entrada no Azure.|Geotipo, ApiName, autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Esse número inclui a saída de um cliente externo no Armazenamento do Azure, bem como a saída no Azure. Como resultado, esse número não reflete a saída faturável.|Geotipo, ApiName, autenticação|
 |SuccessServerLatency|Latência de Servidor Com Sucesso|Milissegundos|Média|A latência usada pelo armazenamento do Azure para processar uma solicitação bem-sucedida, em milissegundos. Esse valor não inclui a latência de rede especificada em SuccessE2ELatency.|Geotipo, ApiName, autenticação|
@@ -486,7 +486,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |BlobCount|Contagem de Blobs|Contagem|Média|O número de blob no serviço BLOB da conta de armazenamento.|BlobType, camada|
 |ContainerCount|Contagem de Contêineres de Blobs|Contagem|Média|O número de contêineres no serviço BLOB da conta de armazenamento.|Nenhum|
 |IndexCapacity|Capacidade de Índice|Bytes|Média|A quantidade de armazenamento usada pelo índice ADLS Gen2 (hierárquico) em bytes.|Nenhum|
-|Transactions|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação|
+|Transações|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Esse número inclui a entrada de um cliente externo no Armazenamento do Azure, bem como a entrada no Azure.|Geotipo, ApiName, autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Esse número inclui a saída de um cliente externo no Armazenamento do Azure, bem como a saída no Azure. Como resultado, esse número não reflete a saída faturável.|Geotipo, ApiName, autenticação|
 |SuccessServerLatency|Latência de Servidor Com Sucesso|Milissegundos|Média|A latência usada pelo armazenamento do Azure para processar uma solicitação bem-sucedida, em milissegundos. Esse valor não inclui a latência de rede especificada em SuccessE2ELatency.|Geotipo, ApiName, autenticação|
@@ -500,7 +500,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |TableCapacity|Capacidade da Tabela|Bytes|Média|A quantidade de armazenamento usada pelo serviço tabela da conta de armazenamento em bytes.|Nenhum|
 |TableCount|Contagem de Tabelas|Contagem|Média|O número de tabelas no serviço tabela da conta de armazenamento.|Nenhum|
 |TableEntityCount|Contagem de Entidades de Tabela|Contagem|Média|O número de entidades de tabela no serviço tabela da conta de armazenamento.|Nenhum|
-|Transactions|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação|
+|Transações|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Esse número inclui a entrada de um cliente externo no Armazenamento do Azure, bem como a entrada no Azure.|Geotipo, ApiName, autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Esse número inclui a saída de um cliente externo no Armazenamento do Azure, bem como a saída no Azure. Como resultado, esse número não reflete a saída faturável.|Geotipo, ApiName, autenticação|
 |SuccessServerLatency|Latência de Servidor Com Sucesso|Milissegundos|Média|A latência usada pelo armazenamento do Azure para processar uma solicitação bem-sucedida, em milissegundos. Esse valor não inclui a latência de rede especificada em SuccessE2ELatency.|Geotipo, ApiName, autenticação|
@@ -517,7 +517,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |FileShareSnapshotCount|Contagem de Instantâneos do Compartilhamento de Arquivo|Contagem|Média|O número de instantâneos presentes no serviço compartilhamento de arquivos da conta de armazenamento.|FileShare|
 |FileShareSnapshotSize|Tamanho do Instantâneo do Compartilhamento de Arquivo|Bytes|Média|A quantidade de armazenamento usada pelos instantâneos no serviço de arquivo da conta de armazenamento, em bytes.|FileShare|
 |FileShareQuota|Tamanho da cota do compartilhamento de arquivo|Bytes|Média|O limite superior da quantidade de armazenamento que pode ser usada pelo serviço de arquivos do Azure em bytes.|FileShare|
-|Transactions|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação, FileShare|
+|Transações|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação, FileShare|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Esse número inclui a entrada de um cliente externo no Armazenamento do Azure, bem como a entrada no Azure.|Geotipo, ApiName, autenticação, FileShare|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Esse número inclui a saída de um cliente externo no Armazenamento do Azure, bem como a saída no Azure. Como resultado, esse número não reflete a saída faturável.|Geotipo, ApiName, autenticação, FileShare|
 |SuccessServerLatency|Latência de Servidor Com Sucesso|Milissegundos|Média|A latência usada pelo armazenamento do Azure para processar uma solicitação bem-sucedida, em milissegundos. Esse valor não inclui a latência de rede especificada em SuccessE2ELatency.|Geotipo, ApiName, autenticação, FileShare|
@@ -531,7 +531,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |QueueCapacity|Capacidade da Fila|Bytes|Média|A quantidade de armazenamento usada pela serviço Fila da conta de armazenamento em bytes.|Nenhum|
 |QueueCount|Contagem de Filas|Contagem|Média|O número de filas na serviço Fila da conta de armazenamento.|Nenhum|
 |QueueMessageCount|Contagem de Mensagens da Fila|Contagem|Média|O número aproximado de mensagens de fila na serviço Fila da conta de armazenamento.|Nenhum|
-|Transactions|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação|
+|Transações|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Esse número inclui a entrada de um cliente externo no Armazenamento do Azure, bem como a entrada no Azure.|Geotipo, ApiName, autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Esse número inclui a saída de um cliente externo no Armazenamento do Azure, bem como a saída no Azure. Como resultado, esse número não reflete a saída faturável.|Geotipo, ApiName, autenticação|
 |SuccessServerLatency|Latência de Servidor Com Sucesso|Milissegundos|Média|A latência usada pelo armazenamento do Azure para processar uma solicitação bem-sucedida, em milissegundos. Esse valor não inclui a latência de rede especificada em SuccessE2ELatency.|Geotipo, ApiName, autenticação|
@@ -551,7 +551,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |ClientErrors|Erros do Cliente|Contagem|Total|Número de chamadas com erro do lado do cliente (código de resposta HTTP 4xx).|ApiName, OperationName, região|
 |DataIn|Entrada de Dados|Bytes|Total|Tamanho dos dados de entrada em bytes.|ApiName, OperationName, região|
 |DataOut|Saída de dados|Bytes|Total|Tamanho dos dados de saída em bytes.|ApiName, OperationName, região|
-|Latency|Latency|MilliSeconds|Média|Latência em milissegundos.|ApiName, OperationName, região|
+|Latência|Latency|MilliSeconds|Média|Latência em milissegundos.|ApiName, OperationName, região|
 |TotalTokenCalls|Total de chamadas de token|Contagem|Total|Número total de chamadas de token.|ApiName, OperationName, região|
 |CharactersTranslated|Caracteres traduzidos|Contagem|Total|Número total de caracteres na solicitação de texto de entrada.|ApiName, OperationName, região|
 |CharactersTrained|Caracteres Treinados|Contagem|Total|Número total de caracteres treinados.|ApiName, OperationName, região|
@@ -563,7 +563,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Porcentagem de CPU|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|Nenhum|
+|Percentual de CPU|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|Nenhum|
 |Entrada na rede|Rede em Faturável (Preterido)|Bytes|Total|O número de bytes faturáveis recebidos em todas as interfaces de rede pelas máquinas virtuais (tráfego de entrada) (preterido)|Nenhum|
 |Saída da rede|Rede Fora de Faturável (Preterido)|Bytes|Total|O número de bytes faturáveis de saída em todas as interfaces de rede pelas máquinas virtuais (tráfego de saída) (preterido)|Nenhum|
 |Bytes de leitura de disco|Bytes de leitura de disco|Bytes|Total|Bytes lidos do disco durante o período de monitoramento|Nenhum|
@@ -608,7 +608,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Porcentagem de CPU|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|VMName|
+|Percentual de CPU|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|VMName|
 |Entrada na rede|Rede em Faturável (Preterido)|Bytes|Total|O número de bytes faturáveis recebidos em todas as interfaces de rede pelas máquinas virtuais (tráfego de entrada) (preterido)|VMName|
 |Saída da rede|Rede Fora de Faturável (Preterido)|Bytes|Total|O número de bytes faturáveis de saída em todas as interfaces de rede pelas máquinas virtuais (tráfego de saída) (preterido)|VMName|
 |Bytes de leitura de disco|Bytes de leitura de disco|Bytes|Total|Bytes lidos do disco durante o período de monitoramento|VMName|
@@ -653,7 +653,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Porcentagem de CPU|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|Nenhum|
+|Percentual de CPU|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|Nenhum|
 |Entrada na rede|Rede em Faturável (Preterido)|Bytes|Total|O número de bytes faturáveis recebidos em todas as interfaces de rede pelas máquinas virtuais (tráfego de entrada) (preterido)|Nenhum|
 |Saída da rede|Rede Fora de Faturável (Preterido)|Bytes|Total|O número de bytes faturáveis de saída em todas as interfaces de rede pelas máquinas virtuais (tráfego de saída) (preterido)|Nenhum|
 |Bytes de leitura de disco|Bytes de leitura de disco|Bytes|Total|Bytes lidos do disco durante o período de monitoramento|Nenhum|
@@ -1320,7 +1320,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |StreamingIngestDuration|Duração da Ingestão de Streaming|Milissegundos|Média|Duração da ingestão de streaming em milissegundos|Nenhum|
 |StreamingIngestDataRate|Taxa de Dados de Ingestão de Streaming|Contagem|Média|Taxa de dados de ingestão de streaming (MB por segundo)|Nenhum|
 |SteamingIngestRequestRate|Taxa de Solicitação de Ingestão de Streaming|Contagem|RateRequestsPerSecond|Taxa de solicitação de ingestão de streaming (solicitações por segundo)|Nenhum|
-|StreamingIngestResults|Resultado da Ingestão de Streaming|Contagem|Média|Resultado de ingestão de streaming|Result|
+|StreamingIngestResults|Resultado da Ingestão de Streaming|Contagem|Média|Resultado de ingestão de streaming|Resultado|
 |TotalNumberOfConcurrentQueries|Número total de consultas simultâneas|Contagem|Total|Número total de consultas simultâneas|Nenhum|
 |TotalNumberOfThrottledQueries|Número total de consultas limitadas|Contagem|Total|Número total de consultas limitadas|Nenhum|
 |TotalNumberOfThrottledCommands|Número total de comandos regulados|Contagem|Total|Número total de comandos regulados|CommandType|
@@ -1587,7 +1587,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|Produtividade|Produtividade|BytesPerSecond|Média|Número de bytes por segundo atendidos pelo Gateway de Aplicativo|Nenhum|
+|Taxa de transferência|Produtividade|BytesPerSecond|Média|Número de bytes por segundo atendidos pelo Gateway de Aplicativo|Nenhum|
 |UnhealthyHostCount|Contagem de hosts não íntegros|Contagem|Média|Número de hosts de back-end não íntegros|BackendSettingsPool|
 |HealthyHostCount|Contagem de hosts íntegros|Contagem|Média|Número de hosts de back-end íntegros|BackendSettingsPool|
 |TotalRequests|Total de Solicitações|Contagem|Total|Contagem de solicitações bem sucedidas atendidas pelo Gateway de Aplicativo|BackendSettingsPool|
@@ -2013,9 +2013,9 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |cache_used_percent|Percentual de cache usado|Porcentagem|Máximo|Percentual de cache usado. Aplica-se somente a data warehouses.|Nenhum|
 |sqlserver_process_core_percent<sup>1</sup> |Porcentagem de núcleo do processo de SQL Server|Porcentagem|Máximo|Percentual de uso da CPU para o processo de SQL Server, conforme medido pelo sistema operacional.|Nenhum|
 |sqlserver_process_memory_percent<sup>1</sup> |Porcentagem de memória de processo SQL Server|Porcentagem|Máximo|Porcentagem de uso de memória para o processo de SQL Server, conforme medido pelo sistema operacional.|Nenhum|
-|tempdb_data_size<sup>2</sup> |Quilobytes do Tamanho do Arquivo de Dados Tempdb|Contagem|Máximo|Tamanho do arquivo de dados tempdb em kilobytes.|Nenhum|
-|tempdb_log_size<sup>2</sup> |Quilobytes do Tamanho do Arquivo de Log Tempdb|Contagem|Máximo|Tamanho do arquivo de log de tempdb em kilobytes.|Nenhum|
-|tempdb_log_used_percent<sup>2</sup> |Porcentagem de Uso do Log Tempdb|Porcentagem|Máximo|Log de porcentagem de tempdb usado.|Nenhum|
+|tempdb_data_size<sup>1</sup> |Quilobytes do Tamanho do Arquivo de Dados Tempdb|Contagem|Máximo|Tamanho do arquivo de dados tempdb em kilobytes.|Nenhum|
+|tempdb_log_size<sup>1</sup> |Quilobytes do Tamanho do Arquivo de Log Tempdb|Contagem|Máximo|Tamanho do arquivo de log de tempdb em kilobytes.|Nenhum|
+|tempdb_log_used_percent<sup>1</sup> |Porcentagem de Uso do Log Tempdb|Porcentagem|Máximo|Log de porcentagem de tempdb usado.|Nenhum|
 |local_tempdb_usage_percent|Porcentagem de local de tempdb|Porcentagem|Média|Porcentagem de tempdb local. Aplica-se somente a data warehouses.|Nenhum|
 |app_cpu_billed|CPU do aplicativo cobrado|Contagem|Total|CPU do aplicativo cobrada. Aplica-se a bancos de dados sem servidor.|Nenhum|
 |app_cpu_percent|Percentual de CPU do aplicativo|Porcentagem|Média|Porcentagem de CPU do aplicativo. Aplica-se a bancos de dados sem servidor.|Nenhum|
@@ -2040,9 +2040,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |snapshot_backup_size_bytes|Tamanho do armazenamento de backup de instantâneo|Bytes|Máximo|Tamanho de armazenamento de backup de instantâneo cumulativo. Aplica-se a bancos de dados de hiperescala.|Nenhum|
 |base_blob_size_bytes|Tamanho do armazenamento de BLOBs base|Bytes|Máximo|Tamanho do armazenamento de BLOBs base. Aplica-se a bancos de dados de hiperescala.|Nenhum|
 
-<sup>1</sup> essa métrica está disponível para bancos de dados usando o modelo de compra vCore com 2 vCores e superior, ou 200 DTU e superior para modelos de compra baseados em DTU. 
-
-<sup>2</sup> essa métrica está disponível para bancos de dados usando o modelo de compra vCore com 2 vCores e superior, ou 200 DTU e superior para modelos de compra baseados em DTU. Essa métrica não está disponível no momento para bancos de dados ou data warehouses de hiperescala.
+<sup>1</sup> essa métrica está disponível para bancos de dados usando o modelo de compra vCore com 2 vCores e superior, ou 200 DTU e superior para o modelo de compra baseado em DTU. 
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
@@ -2074,16 +2072,14 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |database_cpu_used|CPU usada|Contagem|Média|CPU usada|DatabaseResourceId|
 |sqlserver_process_core_percent<sup>1</sup>|Porcentagem de núcleo do processo de SQL Server|Porcentagem|Máximo|Percentual de uso da CPU para o processo de SQL Server, conforme medido pelo sistema operacional. Aplica-se a pools elásticos. |Nenhum|
 |sqlserver_process_memory_percent<sup>1</sup>|Porcentagem de memória de processo SQL Server|Porcentagem|Máximo|Porcentagem de uso de memória para o processo de SQL Server, conforme medido pelo sistema operacional. Aplica-se a pools elásticos. |Nenhum|
-|tempdb_data_size<sup>2</sup>|Quilobytes do Tamanho do Arquivo de Dados Tempdb|Contagem|Máximo|Tamanho do arquivo de dados tempdb em kilobytes.|Nenhum|
-|tempdb_log_size<sup>2</sup>|Quilobytes do Tamanho do Arquivo de Log Tempdb|Contagem|Máximo|Tamanho do arquivo de log de tempdb em kilobytes. |Nenhum|
-|tempdb_log_used_percent<sup>2</sup>|Porcentagem de Uso do Log Tempdb|Porcentagem|Máximo|Log de porcentagem de tempdb usado.|Nenhum|
+|tempdb_data_size<sup>1</sup>|Quilobytes do Tamanho do Arquivo de Dados Tempdb|Contagem|Máximo|Tamanho do arquivo de dados tempdb em kilobytes.|Nenhum|
+|tempdb_log_size<sup>1</sup>|Quilobytes do Tamanho do Arquivo de Log Tempdb|Contagem|Máximo|Tamanho do arquivo de log de tempdb em kilobytes. |Nenhum|
+|tempdb_log_used_percent<sup>1</sup>|Porcentagem de Uso do Log Tempdb|Porcentagem|Máximo|Log de porcentagem de tempdb usado.|Nenhum|
 |allocated_data_storage|Espaço alocado de dados|Bytes|Média|Espaço alocado de dados|Nenhum|
 |database_allocated_data_storage|Espaço alocado de dados|Bytes|Média|Espaço alocado de dados|DatabaseResourceId|
 |allocated_data_storage_percent|Porcentagem do espaço de dados alocado|Porcentagem|Máximo|Porcentagem do espaço de dados alocado|Nenhum|
 
-<sup>1</sup> essa métrica está disponível para bancos de dados usando o modelo de compra vCore com 2 vCores e superior, ou 200 DTU e superior para modelos de compra baseados em DTU. 
-
-<sup>2</sup> essa métrica está disponível para bancos de dados usando o modelo de compra vCore com 2 vCores e superior, ou 200 DTU e superior para modelos de compra baseados em DTU. Essa métrica não está disponível no momento para bancos de dados de hiperescala.
+<sup>1</sup> essa métrica está disponível para bancos de dados usando o modelo de compra vCore com 2 vCores e superior, ou 200 DTU e superior para o modelo de compra baseado em DTU. 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
@@ -2104,7 +2100,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |UsedCapacity|Capacidade utilizada|Bytes|Média|Capacidade utilizada pela conta|Nenhum|
-|Transactions|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação|
+|Transações|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Esse número inclui a entrada de um cliente externo no Armazenamento do Azure, bem como a entrada no Azure.|Geotipo, ApiName, autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Esse número inclui a saída de um cliente externo no Armazenamento do Azure, bem como a saída no Azure. Como resultado, esse número não reflete a saída faturável.|Geotipo, ApiName, autenticação|
 |SuccessServerLatency|Latência de Servidor Com Sucesso|Milissegundos|Média|A latência média usada pelo Armazenamento do Azure para processar uma solicitação bem-sucedida, em milissegundos. Esse valor não inclui a latência de rede especificada em AverageE2ELatency.|Geotipo, ApiName, autenticação|
@@ -2119,7 +2115,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |BlobCount|Contagem de Blobs|Contagem|Média|O número de blob no serviço BLOB da conta de armazenamento.|BlobType, camada|
 |ContainerCount|Contagem de Contêineres de Blobs|Contagem|Média|O número de contêineres no serviço BLOB da conta de armazenamento.|Nenhum|
 |IndexCapacity|Capacidade de Índice|Bytes|Média|A quantidade de armazenamento usada pelo índice ADLS Gen2 (hierárquico) em bytes.|Nenhum|
-|Transactions|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação|
+|Transações|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Esse número inclui a entrada de um cliente externo no Armazenamento do Azure, bem como a entrada no Azure.|Geotipo, ApiName, autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Esse número inclui a saída de um cliente externo no Armazenamento do Azure, bem como a saída no Azure. Como resultado, esse número não reflete a saída faturável.|Geotipo, ApiName, autenticação|
 |SuccessServerLatency|Latência de Servidor Com Sucesso|Milissegundos|Média|A latência média usada pelo Armazenamento do Azure para processar uma solicitação bem-sucedida, em milissegundos. Esse valor não inclui a latência de rede especificada em AverageE2ELatency.|Geotipo, ApiName, autenticação|
@@ -2133,7 +2129,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |TableCapacity|Capacidade da Tabela|Bytes|Média|A quantidade de armazenamento usada pelo serviço tabela da conta de armazenamento em bytes.|Nenhum|
 |TableCount|Contagem de Tabelas|Contagem|Média|O número de tabelas no serviço tabela da conta de armazenamento.|Nenhum|
 |TableEntityCount|Contagem de Entidades de Tabela|Contagem|Média|O número de entidades de tabela no serviço tabela da conta de armazenamento.|Nenhum|
-|Transactions|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação|
+|Transações|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Esse número inclui a entrada de um cliente externo no Armazenamento do Azure, bem como a entrada no Azure.|Geotipo, ApiName, autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Esse número inclui a saída de um cliente externo no Armazenamento do Azure, bem como a saída no Azure. Como resultado, esse número não reflete a saída faturável.|Geotipo, ApiName, autenticação|
 |SuccessServerLatency|Latência de Servidor Com Sucesso|Milissegundos|Média|A latência média usada pelo Armazenamento do Azure para processar uma solicitação bem-sucedida, em milissegundos. Esse valor não inclui a latência de rede especificada em AverageE2ELatency.|Geotipo, ApiName, autenticação|
@@ -2150,7 +2146,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |FileShareSnapshotCount|Contagem de instantâneos do compartilhamento de arquivo|Contagem|Média|O número de instantâneos presentes no serviço compartilhamento de arquivos da conta de armazenamento.|FileShare|
 |FileShareSnapshotSize|Tamanho do instantâneo do compartilhamento de arquivo|Bytes|Média|A quantidade de armazenamento usada pelos instantâneos no serviço de arquivo da conta de armazenamento, em bytes.|FileShare|
 |FileShareQuota|Tamanho da cota do compartilhamento de arquivo|Bytes|Média|O limite superior da quantidade de armazenamento que pode ser usada pelo serviço de arquivos do Azure em bytes.|FileShare|
-|Transactions|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação, FileShare|
+|Transações|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação, FileShare|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Esse número inclui a entrada de um cliente externo no Armazenamento do Azure, bem como a entrada no Azure.|Geotipo, ApiName, autenticação, FileShare|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Esse número inclui a saída de um cliente externo no Armazenamento do Azure, bem como a saída no Azure. Como resultado, esse número não reflete a saída faturável.|Geotipo, ApiName, autenticação, FileShare|
 |SuccessServerLatency|Latência de Servidor Com Sucesso|Milissegundos|Média|A latência média usada pelo Armazenamento do Azure para processar uma solicitação bem-sucedida, em milissegundos. Esse valor não inclui a latência de rede especificada em AverageE2ELatency.|Geotipo, ApiName, autenticação, FileShare|
@@ -2164,7 +2160,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |QueueCapacity|Capacidade da Fila|Bytes|Média|A quantidade de armazenamento usada pela serviço Fila da conta de armazenamento em bytes.|Nenhum|
 |QueueCount|Contagem de Filas|Contagem|Média|O número de filas na serviço Fila da conta de armazenamento.|Nenhum|
 |QueueMessageCount|Contagem de Mensagens da Fila|Contagem|Média|O número aproximado de mensagens de fila na serviço Fila da conta de armazenamento.|Nenhum|
-|Transactions|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação|
+|Transações|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Esse número inclui a entrada de um cliente externo no Armazenamento do Azure, bem como a entrada no Azure.|Geotipo, ApiName, autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Esse número inclui a saída de um cliente externo no Armazenamento do Azure, bem como a saída no Azure. Como resultado, esse número não reflete a saída faturável.|Geotipo, ApiName, autenticação|
 |SuccessServerLatency|Latência de Servidor Com Sucesso|Milissegundos|Média|A latência média usada pelo Armazenamento do Azure para processar uma solicitação bem-sucedida, em milissegundos. Esse valor não inclui a latência de rede especificada em AverageE2ELatency.|Geotipo, ApiName, autenticação|
@@ -2270,8 +2266,8 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |OrchestrationPipelineRunsEnded|Execuções de pipeline finalizadas|Contagem|Total|Contagem de execuções do pipeline de orquestração que tiveram êxito, falharam ou foram canceladas|Resultado, FailureType, pipeline|
 |OrchestrationActivityRunsEnded|Execuções de atividades encerradas|Contagem|Total|Contagem de atividades de orquestração que tiveram êxito, falharam ou foram canceladas|Resultado, FailureType, atividade, ActivityType, pipeline|
 |OrchestrationTriggersEnded|Gatilhos encerrados|Contagem|Total|Contagem de gatilhos de orquestração que foram bem-sucedidos, com falha ou foram cancelados|Resultado, FailureType, gatilho|
-|SQLOnDemandLoginAttempts|Tentativas de logon|Contagem|Total|Contagem de tentativas de logon que êxito na ou com falha|Result|
-|SQLOnDemandQueriesEnded|Consultas encerradas|Contagem|Total|Contagem de consultas que tiveram êxito, falharam ou foram canceladas|Result|
+|SQLOnDemandLoginAttempts|Tentativas de logon|Contagem|Total|Contagem de tentativas de logon que êxito na ou com falha|Resultado|
+|SQLOnDemandQueriesEnded|Consultas encerradas|Contagem|Total|Contagem de consultas que tiveram êxito, falharam ou foram canceladas|Resultado|
 |SQLOnDemandQueryProcessedBytes|Dados processados|Bytes|Total|Quantidade de dados processados por consultas|Nenhum|
 
 ## <a name="microsoftsynapseworkspacesbigdatapools"></a>Microsoft. Synapse/Workspaces/bigDataPools
@@ -2294,7 +2290,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |AdaptiveCacheUsedPercent|Percentual de cache adaptável usado|Porcentagem|Máximo|Mede o quão bem as cargas de trabalho estão utilizando o cache adaptável. Use essa métrica com a métrica percentual usada do cache para determinar se deve ser dimensionada para capacidade adicional ou executar novamente as cargas de trabalho para hidratar o cache|Nenhum|
 |LocalTempDBUsedPercent|Percentual de uso do tempdb local|Porcentagem|Máximo|Utilização de tempdb local em todos os nós de computação-os valores são emitidos a cada cinco minutos|Nenhum|
 |MemoryUsedPercent|Porcentagem de utilização da memória|Porcentagem|Máximo|Utilização de memória em todos os nós no pool de SQL|Nenhum|
-|conexões|conexões|Contagem|Total|Contagem de logons totais para o pool do SQL|Result|
+|conexões|conexões|Contagem|Total|Contagem de logons totais para o pool do SQL|Resultado|
 |WLGActiveQueries|Consultas ativas do grupo de carga de trabalho|Contagem|Total|As consultas ativas no grupo de cargas de trabalho. Usar essa métrica não filtrada e a divisão exibe todas as consultas ativas em execução no sistema|IsUserDefined, de carga de trabalho|
 |WLGActiveQueriesTimeouts|Tempos limite de consulta do grupo de carga de trabalho|Contagem|Total|Consultas para o grupo de cargas de trabalho que atingiram o tempo limite. Os tempos limite de consulta relatados por essa métrica são apenas uma vez que a consulta começou a ser executada (ela não inclui o tempo de espera devido a esperas de bloqueio ou de recursos)|IsUserDefined, de carga de trabalho|
 |WLGAllocationBySystemPercent|Percentual de alocação do grupo de carga de trabalho por sistema|Porcentagem|Máximo|A alocação percentual de recursos em relação a todo o sistema|IsUserDefined, de carga de trabalho|
@@ -2354,7 +2350,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |MemoryUsed|Memória Usada|Bytes|Média|A quantidade de memória da máquina que está sendo usada pela VM.|Nenhum|
 |MemoryGranted|Memória Concedida|Bytes|Média|A quantidade de memória que foi concedida à VM pelo host. A memória não é concedida ao host até que ele seja tocado uma vez e a memória concedida possa ser trocada ou bloqueada se o VMkernel precisar da memória.|Nenhum|
 |MemoryActive|Memória Ativa|Bytes|Média|A quantidade de memória usada pela VM na última pequena janela de tempo. Esse é o número "verdadeiro" da quantidade de memória necessária para a VM no momento. A memória adicional não utilizada pode ser trocada ou por balão sem impacto no desempenho do convidado.|Nenhum|
-|Porcentagem de CPU|Porcentagem de CPU|Porcentagem|Média|A utilização da CPU. Esse valor é relatado com 100% que representa todos os núcleos de processador no sistema. Por exemplo, uma VM de 2 vias usando 50% de um sistema de quatro núcleos está usando completamente dois núcleos.|Nenhum|
+|Percentual de CPU|Porcentagem de CPU|Porcentagem|Média|A utilização da CPU. Esse valor é relatado com 100% que representa todos os núcleos de processador no sistema. Por exemplo, uma VM de 2 vias usando 50% de um sistema de quatro núcleos está usando completamente dois núcleos.|Nenhum|
 |PercentageCpuReady|Percentual de CPU Pronta|Milissegundos|Total|O tempo de preparação é o tempo gasto aguardando que as CPUs fiquem disponíveis no intervalo de atualização anterior.|Nenhum|
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms

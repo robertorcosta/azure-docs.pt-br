@@ -16,11 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7494f8e65f0b92540fec3ddc1f07e59004227625
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bf19123888dd26073016131c93047b0cd0afaf4
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338174"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145749"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Solucionar problemas de gerenciamento de direitos do Azure AD
 
@@ -94,7 +95,9 @@ Este artigo descreve alguns itens que você deve verificar para ajudá-lo a solu
 
 Se um erro for atendido depois de disparar uma solicitação de reprocessamento de pacote de acesso, você deverá aguardar enquanto o sistema reprocessará a solicitação. O sistema tenta várias vezes para reprocessar por várias horas, para que você não possa forçar o reprocessamento durante esse tempo. 
 
-Você só pode reprocessar uma solicitação que tenha um status de **entrega com falha** ou **parcialmente entregue** e uma data de conclusão inferior a uma semana.
+Você só pode reprocessar uma solicitação que tenha um status de **entrega com falha** ou **parcialmente entregue** e uma data de conclusão inferior a uma semana. Caso contrário, o botão **Reprocessar** estaria esmaecido.
+
+![Botão reprocessar esmaecido](./media/entitlement-management-troubleshoot/cancel-reprocess-grayedout.png)
 
 - Se o erro for corrigido durante a janela de avaliações, o status da solicitação será alterado para **entrega**. A solicitação será reprocessada sem ações adicionais do usuário.
 
@@ -116,7 +119,7 @@ Você só pode reprocessar uma solicitação que tenha um status de **entrega co
 
 ### <a name="cancel-a-pending-request"></a>Cancelar uma solicitação pendente
 
-Você só pode cancelar uma solicitação pendente que ainda não foi entregue ou cuja entrega falhou.
+Você só pode cancelar uma solicitação pendente que ainda não foi entregue ou cuja entrega falhou. Caso contrário, o botão **Cancelar** estaria esmaecido.
 
 **Função de pré-requisito:** Administrador global, Administrador de usuário, Proprietário do catálogo ou Gerenciador de pacote de acesso
 

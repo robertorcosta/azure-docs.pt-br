@@ -16,19 +16,19 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1aca245592bef98bc5d0cff3268d5b6496d2220
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eaeaa8625a5bdb5bbf8ce76a68e616a913da5655
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103544"
+ms.locfileid: "86146990"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: agendador
 Este tópico descreve o Agendador interno no Azure AD Connect sincronização (mecanismo de sincronização).
 
 Esse recurso foi introduzido com a compilação 1.1.105.0 (lançada em fevereiro de 2016).
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 A sincronização do Azure AD Connect sincroniza mudanças ocorridas em seu diretório local usando um agendador. Há dois processos de agendador, um para sincronização de senha e outro para sincronização de atributo/objeto e tarefas de manutenção. Este tópico aborda a última opção.
 
 Em versões anteriores, o agendador de objetos e atributos era separado do mecanismo de sincronização. Ele usava o agendador de tarefas do Windows ou um serviço do Windows separado para disparar o processo de sincronização. O agendador faz parte dos recursos internos nas versões 1.1 do mecanismo de sincronização e permite alguma personalização. A frequência de sincronização do novo padrão é de 30 minutos.
@@ -41,8 +41,12 @@ O agendador é responsável por duas tarefas:
 O agendador em si está sempre em execução, mas ele pode ser configurado para executar apenas uma ou nenhuma dessas tarefas. Por exemplo, se você precisar ter seu próprio processo de ciclo de sincronização, poderá desabilitar essa tarefa no agendador, mas ainda executar a tarefa de manutenção.
 
 >[!IMPORTANT]
->Você precisará certificar-se de que um ciclo de sincronização seja executado pelo menos uma vez a cada 7 dias. A falha em fazer isso pode causar problemas de sincronização que exigirão a execução de uma sincronização completa para resolver.
-
+>Por padrão a cada 30 minutos, um ciclo de sincronização é executado. Se você tiver modificado o ciclo de sincronização, precisará certificar-se de que um ciclo de sincronização seja executado pelo menos uma vez a cada 7 dias. 
+>
+>* Uma sincronização Delta precisa ocorrer dentro de 7 dias a partir da última sincronização Delta.
+>* Uma sincronização Delta (após uma sincronização completa) precisa ocorrer dentro de 7 dias a partir da hora em que a última sincronização completa foi concluída.
+>
+>A falha em fazer isso pode causar problemas de sincronização que exigirão a execução de uma sincronização completa para resolver. Isso também se aplica a servidores no modo de preparo.
 
 ## <a name="scheduler-configuration"></a>Configuração do agendador
 Para ver as configurações atuais, acesse o PowerShell e execute `Get-ADSyncScheduler`. Ele mostra algo parecido com esta imagem:

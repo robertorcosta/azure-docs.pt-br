@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 35e6690726750e6c9e6dfb0cb62a6732603c3610
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: eb8ec09646fa3f3c226edbe957e19d079fd2607c
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083654"
+ms.locfileid: "86147418"
 ---
 # <a name="migrate-sql-server-to-sql-managed-instance-with-powershell--azure-database-migration-service"></a>Migrar SQL Server para o SQL Instância Gerenciada com o PowerShell & serviço de migração de banco de dados do Azure
 
@@ -26,8 +26,8 @@ Neste artigo, você migra o banco de dados **Adventureworks2016** restaurado par
 Neste artigo, você aprenderá como:
 > [!div class="checklist"]
 >
-> * Crie um grupos de recursos.
-> * Criar uma instância do Serviço de Migração de Banco de Dados do Azure.
+> * Crie um grupo de recursos.
+> * Crie uma instância do Serviço de Migração de Banco de Dados do Azure.
 > * Crie um projeto de migração em uma instância do serviço de migração de banco de dados do Azure.
 > * Executar a migração.
 
@@ -121,13 +121,11 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-O exemplo a seguir mostra a criação de informações de conexão para um Azure SQL Instância Gerenciada chamado ' targetmanagedinstance.database.windows.net ' usando a autenticação do SQL:
+O exemplo a seguir mostra a criação de informações de conexão para um Azure SQL Instância Gerenciada chamado ' targetmanagedinstance ':
 
 ```powershell
-$targetConnInfo = New-AzDmsConnInfo -ServerType SQL `
-  -DataSource "targetmanagedinstance.database.windows.net" `
-  -AuthType SqlAuthentication `
-  -TrustServerCertificate:$false
+$targetResourceId = (Get-AzSqlInstance -Name "targetmanagedinstance").Id
+$targetConnInfo = New-AzDmsConnInfo -ServerType SQLMI -MiResourceId $targetResourceId
 ```
 
 ### <a name="provide-databases-for-the-migration-project"></a>Fornecer bancos de dados para o projeto de migração

@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47e7e09bae082141efd872d3a90ecc30a3be04e5
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113240"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146057"
 ---
 # <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operadores de coleção OData no Azure Pesquisa Cognitiva- `any` e`all`
 
@@ -65,23 +66,33 @@ Uma **expressão lambda** em um filtro de coleção é como o corpo de um loop e
 
 Corresponder documentos cujo `tags` campo contém exatamente a cadeia de caracteres "WiFi":
 
-    tags/any(t: t eq 'wifi')
+```text
+tags/any(t: t eq 'wifi')
+```
 
 Corresponder documentos em que cada elemento do `ratings` campo cai entre 3 e 5, inclusive:
 
-    ratings/all(r: r ge 3 and r le 5)
+```text
+ratings/all(r: r ge 3 and r le 5)
+```
 
 Corresponder documentos em que qualquer uma das coordenadas geográficas no `locations` campo esteja dentro do polígono determinado:
 
-    locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
+```text
+locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
+```
 
 Corresponder documentos onde o `rooms` campo está vazio:
 
-    not rooms/any()
+```text
+not rooms/any()
+```
 
 Corresponder documentos em que para todas as salas, o `rooms/amenities` campo conterá "TV" e `rooms/baseRate` menor que 100:
 
-    rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
+```text
+rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
+```
 
 ## <a name="limitations"></a>Limitações
 

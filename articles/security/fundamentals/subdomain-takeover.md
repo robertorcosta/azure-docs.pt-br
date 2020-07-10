@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: 2baf2b209cae11f734494c377aebd731f69f514d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b395931d11c7bc7119be0122531908ed680fc3b9
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610856"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145973"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Impedir entradas DNS pendente e evitar subdomínio tomada
 
@@ -45,7 +45,7 @@ Um cenário comum para um subdomínio tomada:
 
 1. Quase imediatamente depois que o site é excluído, um ator de ameaça descobre o site ausente e cria seu próprio site em `app-contogreat-dev-001.azurewebsites.net` .
 
-    Agora, o tráfego destinado a `greatapp.contoso.com` vai para o site do Azure do ator de ameaça e o ator de ameaça está no controle do conteúdo exibido. 
+    Agora, o tráfego destinado a `greatapp.contoso.com` vai para o site do Azure do ator de ameaça e o ator de ameaça no controle do conteúdo exibido. 
 
     O DNS pendente foi explorado e o subdomínio "GreatApp" da Contoso foi vítima de subdomínio tomada. 
 
@@ -61,7 +61,7 @@ As entradas DNS pendente possibilitam que os atores de ameaça assumam o control
 
 - **Perda de controle sobre o conteúdo do subdomínio** -negativo Pressione sobre a incapacidade da sua organização de proteger seu conteúdo, bem como os danos à marca e a perda de confiança.
 
-- **Coleta de cookies de visitantes desconhecidos** – é comum que os aplicativos Web exponham cookies de sessão para subdomínios (*. contoso.com), consequentemente, qualquer subdomínio pode acessá-los. Os atores de ameaça podem usar tomada de subdomínio para criar uma página de aparência autêntica, enganar os usuários que não estão fazendo a visita e colher seus cookies (até mesmo cookies seguros). Um equívoco comum é que o uso de certificados SSL protege seu site e os cookies de seus usuários, de um tomada. No entanto, um ator de ameaça pode usar o subdomínio seqüestrado para se aplicar e receber um certificado SSL válido. Isso concede a eles acesso a cookies seguros e pode aumentar ainda mais a legitimidade percebida do site mal-intencionado.
+- **Coleta de cookies de visitantes desconhecidos** – é comum que os aplicativos Web exponham cookies de sessão para subdomínios (*. contoso.com), consequentemente, qualquer subdomínio pode acessá-los. Os atores de ameaça podem usar tomada de subdomínio para criar uma página de aparência autêntica, enganar os usuários que não estão fazendo a visita e colher seus cookies (até mesmo cookies seguros). Um equívoco comum é que o uso de certificados SSL protege seu site e os cookies de seus usuários, de um tomada. No entanto, um ator de ameaça pode usar o subdomínio seqüestrado para se aplicar e receber um certificado SSL válido. Os certificados SSL válidos concedem a eles acesso a cookies seguros e podem aumentar ainda mais a legitimidade percebida do site mal-intencionado.
 
 - **Campanhas de phishing** -os subdomínios de autenticidade podem ser usados em campanhas de phishing. Isso é verdadeiro para sites mal-intencionados e também para registros MX que permitiriam que o ator de ameaça recebesse emails endereçados a um subdomínio legítimo de uma marca conhecida.
 
@@ -78,14 +78,14 @@ As medidas preventivas disponíveis para você hoje estão listadas abaixo.
 
 ### <a name="use-azure-dns-alias-records"></a>Usar registros de alias do DNS do Azure
 
-Ao acoplar rigidamente o ciclo de vida de um registro DNS com um recurso do Azure, os [registros de alias](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) do DNS do Azure podem impedir referências pendente. Por exemplo, considere um registro DNS qualificado como um registro de alias para apontar para um endereço IP público ou um perfil do Gerenciador de Tráfego. Se você excluir esses recursos subjacentes, o registro de alias de DNS se tornará um conjunto de registros vazio. Ele não faz mais referência ao recurso excluído. É importante observar que há limites para o que você pode proteger com registros de alias. Hoje, a lista está limitada a:
+Os registros de [alias](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) do DNS do Azure podem impedir referências pendentes ao acoplar o ciclo de vida de um registro DNS com um recurso do Azure. Por exemplo, considere um registro DNS qualificado como um registro de alias para apontar para um endereço IP público ou um perfil do Gerenciador de Tráfego. Se você excluir esses recursos subjacentes, o registro de alias de DNS se tornará um conjunto de registros vazio. Ele não faz mais referência ao recurso excluído. É importante observar que há limites para o que você pode proteger com registros de alias. Hoje, a lista está limitada a:
 
-- Porta da frente do Azure
+- Azure Front Door
 - Perfis do Gerenciador de Tráfego
 - Pontos de extremidade da CDN (rede de distribuição de conteúdo) do Azure
 - IPs Públicos
 
-Se você tiver recursos que podem ser protegidos do subdomínio tomada com registros de alias, é recomendável fazer isso apesar das ofertas de serviço limitadas atualmente.
+Apesar das ofertas de serviço limitadas atuais, recomendamos o uso de registros de alias para se defender do tomada de subdomínio sempre que possível.
 
 [Saiba mais](https://docs.microsoft.com/azure/dns/dns-alias#capabilities) sobre os recursos dos registros de alias do DNS do Azure.
 
@@ -120,7 +120,7 @@ Muitas vezes, os desenvolvedores e as equipes de operações executam processos 
         - **Exist** -consulte as zonas DNS para ver os recursos que apontam para os subdomínios do Azure, como *. azurewebsites.net ou *. cloudapp.Azure.com (consulte [esta lista de referência](azure-domains.md)).
         - **Você tem certeza** de que possui todos os recursos que seus subdomínios DNS estão direcionando.
 
-    - Mantenha um catálogo de serviços de seus pontos de extremidade de FQDN (nome de domínio totalmente qualificado) do Azure e os proprietários do aplicativo. Para criar seu catálogo de serviços, execute a seguinte consulta de grafo de recursos do Azure com os parâmetros da tabela abaixo:
+    - Mantenha um catálogo de serviços de seus pontos de extremidade de FQDN (nome de domínio totalmente qualificado) do Azure e os proprietários do aplicativo. Para criar seu catálogo de serviços, execute a seguinte consulta de grafo de recursos do Azure (ARG) com os parâmetros da tabela abaixo:
     
         >[!IMPORTANT]
         > **Permissões** – execute a consulta como um usuário com acesso a todas as suas assinaturas do Azure. 
@@ -139,13 +139,16 @@ Muitas vezes, os desenvolvedores e as equipes de operações executam processos 
         
         Você também pode combinar vários tipos de recursos. Este exemplo de consulta retorna os recursos do serviço de Azure App **e** Azure app os slots de serviço:
 
-        ```
+        ```azurepowershell
         Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
         ```
 
+
+        Por parâmetros de serviço para a consulta de ARG:
+
         |Nome do recurso  |[ResourceType]  | [FQDNproperty]  |
         |---------|---------|---------|
-        |Porta da frente do Azure|microsoft.network/frontdoors|Properties. cName|
+        |Azure Front Door|microsoft.network/frontdoors|Properties. cName|
         |Armazenamento do Blobs do Azure|microsoft.storage/storageaccounts|Propriedades. primaryEndpoints. blob|
         |CDN do Azure|microsoft.cdn/profiles/endpoints|Propriedades. hostName|
         |Endereços IP públicos|microsoft.network/publicipaddresses|Properties. dnsSettings. FQDN|

@@ -7,15 +7,16 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
-ms.openlocfilehash: fb3b922b753b9696aa26ea189597589ecc5772db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eccd6b33353e071a66225279f1f1c150d4bdaafc
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536617"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143853"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migrar políticas de firewall do aplicativo Web usando Azure PowerShell
 
-Esse script facilita a transição de uma configuração WAF ou de uma política personalizada somente de regras de WAF para uma política completa de WAF. Você pode ver um aviso no portal que diz *migrar para a política de WAF*, ou talvez queira que os novos recursos de WAF de visualização pública, como regras personalizadas geocombinadas, política de WAF por site e por URI, ou o conjunto de regras de mitigação de bot. Para usar qualquer um desses recursos, você precisa de uma política WAF completa associada ao seu gateway de aplicativo. 
+Esse script facilita a transição de uma configuração WAF ou de uma política personalizada somente de regras de WAF para uma política completa de WAF. Você pode ver um aviso no portal que diz *migrar para a política WAF*ou talvez queira os novos recursos do WAF, como regras personalizadas geocombinadoras (versão prévia), política de WAF por site e política de WAF por URI (versão prévia) ou o conjunto de regras de mitigação de bot (versão prévia). Para usar qualquer um desses recursos, você precisa de uma política WAF completa associada ao seu gateway de aplicativo. 
 
 Para obter mais informações sobre como criar uma nova política de WAF, consulte [criar políticas de firewall do aplicativo Web para o gateway de aplicativo](create-waf-policy-ag.md). Para obter informações sobre como migrar, consulte [migrar para a política WAF](create-waf-policy-ag.md#migrate-to-waf-policy).
 

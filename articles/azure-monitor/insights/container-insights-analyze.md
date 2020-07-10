@@ -3,11 +3,12 @@ title: Kubernetes monitoramento com Azure Monitor para contêineres | Microsoft 
 description: Este artigo descreve como você pode exibir e analisar o desempenho de um cluster kubernetes com Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 17efb89e36429f9658759a0ed90d4e7b785fe4b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8b298208794e4ba562a608f22f4d0a539b81b47
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340905"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166630"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorar o desempenho do cluster kubernetes com Azure Monitor para contêineres
 
@@ -65,23 +66,23 @@ O estado de integridade calcula o status geral do cluster como o *pior dos* trê
 
 A tabela a seguir fornece uma análise do cálculo que controla os Estados de integridade de um cluster monitorado na exibição de vários clusters.
 
-| |Status |Disponibilidade |
+| Cluster monitorado |Status |Disponibilidade |
 |-------|-------|-----------------|
 |**Pod do usuário**| | |
 | |Healthy |100% |
 | |Aviso |90 – 99% |
 | |Crítico |<90% |
-| |Unknown (desconhecido) |Se não tiver sido relatado nos últimos 30 minutos |
+| |Desconhecido |Se não tiver sido relatado nos últimos 30 minutos |
 |**Pod do sistema**| | |
 | |Healthy |100% |
 | |Aviso |N/D |
 | |Crítico |<100% |
-| |Unknown (desconhecido) |Se não tiver sido relatado nos últimos 30 minutos |
+| |Desconhecido |Se não tiver sido relatado nos últimos 30 minutos |
 |**Nó** | | |
 | |Healthy |>85% |
 | |Aviso |60 – 84% |
 | |Crítico |<60% |
-| |Unknown (desconhecido) |Se não tiver sido relatado nos últimos 30 minutos |
+| |Desconhecido |Se não tiver sido relatado nos últimos 30 minutos |
 
 Na lista de clusters, você pode fazer uma busca detalhada na página do **cluster** selecionando o nome do cluster. Em seguida, vá para a página de desempenho de **nós** selecionando o acúmulo de nós na coluna **nós** para esse cluster específico. Ou, você pode fazer uma busca detalhada na página de desempenho de **controladores** selecionando o acúmulo da coluna **pods do usuário** ou pods do **sistema** .
 
