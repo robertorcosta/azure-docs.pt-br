@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: e550489f34d84946d0a9e3df641a1484b85a60f0
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f1e4e288b5b95f355221188a45f1e6c764fde77c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828926"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187329"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Uso da integração do controle do código-fonte na Automação do Azure – Herdado
 
@@ -55,7 +56,7 @@ Se você já tiver uma conta do GitHub e um repositório que deseja vincular à 
 5. Após você clicar em **OK**, a integração do controle do código-fonte estará configurada para sua conta de automação e deverá ser atualizada com as informações do GitHub. Agora clique nessa parte para exibir todo o histórico de trabalhos de sincronização do controle do código-fonte.  
 
     ![Valores para a configuração atual de controle do código-fonte](media/source-control-integration-legacy/automation-RepoValues.png)
-6. Depois de configurar o controle do código-fonte, dois [ativos de variáveis](automation-variables.md) são criados em sua conta de Automação. Além disso, um aplicativo autorizado é adicionado à sua conta do GitHub.
+6. Depois de configurar o controle do código-fonte, dois [ativos de variáveis](./shared-resources/variables.md) são criados em sua conta de Automação. Além disso, um aplicativo autorizado é adicionado à sua conta do GitHub.
 
    * A variável **Microsoft.Azure.Automation.SourceControl.Connection** contém os valores da cadeia de conexão, como mostrado abaixo.  
 
@@ -63,7 +64,7 @@ Se você já tiver uma conta do GitHub e um repositório que deseja vincular à 
      |:--- |:--- |
      | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
      | `Type`  |String |
-     | `Value` |{"Branch":\<*Nome da sua ramificação*>,"RunbookFolderPath":\<*Caminho da pasta do runbook*>,"ProviderType":\<*tem um valor 1 para o GitHub*>,"Repository":\<*Nome do seu repositório*>,"Username":\<*O nome do seu usuário no GitHub*>} |
+     | `Value` |{"Branch": \<*Your branch name*> , "RunbookFolderPath": \<*Runbook folder path*> , "ProviderType": \<*has a value 1 for GitHub*> , "Repository": \<*Name of your repository*> , "username": \<*Your GitHub user name*> } |
 
    * A variável **Microsoft.Azure.Automation.SourceControl.OAuthToken**contém o valor criptografado seguro do OAuthToken.  
 
@@ -83,7 +84,7 @@ Se você já tiver uma conta do GitHub e um repositório que deseja vincular à 
 
 O check-in de runbook permite que você envie por push as alterações feitas em um runbook na Automação do Azure para o repositório do controle do código-fonte. A seguir, as etapas para fazer check-in de um runbook:
 
-1. Na sua conta de Automação, [crie um novo runbook textual](automation-first-runbook-textual.md) ou [edite um runbook textual existente](automation-edit-textual-runbook.md). Esse runbook pode ser um Fluxo de Trabalho do PowerShell ou um runbook de script do PowerShell.  
+1. Na sua conta de Automação, [crie um novo runbook textual](./learn/automation-tutorial-runbook-textual.md) ou [edite um runbook textual existente](automation-edit-textual-runbook.md). Esse runbook pode ser um Fluxo de Trabalho do PowerShell ou um runbook de script do PowerShell.  
 2. Depois de editar o runbook, salve-o e clique em **Check-in** na página Editar.  
 
     ![Janela mostrando o botão de check-in no GitHub](media/source-control-integration-legacy/automation-CheckinButton.png)

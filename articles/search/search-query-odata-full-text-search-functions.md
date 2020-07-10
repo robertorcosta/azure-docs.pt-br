@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 06eb29f2f3245d3f4fd047fb86b2b57fb1f0989e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 837237be636e67f37f5c744cd4863f1eb159652a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72793360"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201398"
 ---
 # <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>Funções de pesquisa de texto completo OData no Azure Pesquisa Cognitiva- `search.ismatch` e`search.ismatchscoring`
 
@@ -98,25 +98,35 @@ As `search.ismatch` funções e `search.ismatchscoring` podem ser usadas na mesm
 
 Localizar documentos com as palavras "orla marítima". Essa consulta de filtro é idêntica a uma [solicitação de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) com `search=waterfront`.
 
+```odata-filter-expr
     search.ismatchscoring('waterfront')
+```
 
 Localizar documentos com a palavra "hostel" e classificação maior ou igual a 4, ou documentos com a palavra "motel" e classificação igual a 5. Observe que essa solicitação não pode ser expressa sem a função `search.ismatchscoring`.
 
+```odata-filter-expr
     search.ismatchscoring('hostel') and Rating ge 4 or search.ismatchscoring('motel') and Rating eq 5
+```
 
 Localizar documentos sem a palavra "luxo".
 
+```odata-filter-expr
     not search.ismatch('luxury')
+```
 
 Localizar documentos com a frase "vista para o mar" ou classificação igual a 5. A consulta `search.ismatchscoring` será executada apenas em relação aos campos `HotelName` e `Rooms/Description`.
 
 Os documentos que corresponderem somente à segunda cláusula da disjunção serão retornados também para hotéis com `Rating` igual a 5. Para tornar claro que esses documentos não corresponderam a nenhuma das partes pontuadas da expressão, eles serão retornados com pontuação igual a zero.
 
+```odata-filter-expr
     search.ismatchscoring('"ocean view"', 'Rooms/Description,HotelName') or Rating eq 5
+```
 
 Localize documentos em que os termos "Hotel" e "aeroporto" estejam dentro de 5 palavras entre si na descrição do Hotel, e onde o fumante não é permitido em pelo menos algumas das salas. Essa consulta usa a [linguagem de consulta Lucene completa](query-lucene-syntax.md).
 
+```odata-filter-expr
     search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and Rooms/any(room: not room/SmokingAllowed)
+```
 
 ## <a name="next-steps"></a>Próximas etapas  
 

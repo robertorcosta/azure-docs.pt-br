@@ -9,11 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 23e4d104697b5b688330c6ab3a93beebf62f3c6a
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 839347ce0a04cc1ca1bf16c68e0ccc36fcf0f7fc
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799965"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200819"
 ---
 # <a name="metrics-in-azure-monitor"></a>Métricas no Azure Monitor
 
@@ -28,15 +29,15 @@ Métricas são valores numéricos que descrevem algum aspecto de um sistema em u
 ## <a name="what-can-you-do-with-azure-monitor-metrics"></a>O que você pode fazer com as Métricas do Azure Monitor?
 A tabela a seguir lista as diferentes maneiras em que você pode usar dados de métrica no Azure Monitor.
 
-|  |  |
+|  | Descrição |
 |:---|:---|
-| Analisar | Use o [Metrics Explorer](metrics-charts.md) para analisar as métricas coletadas em um gráfico e comparar métricas de recursos diferentes. |
-| Visualizar | Fixe um gráfico do Metrics Explorer a um [painel do Azure](../learn/tutorial-app-dashboards.md).<br>Crie uma [pasta de trabalho](../platform/workbooks-overview.md) para combinar com vários conjuntos de dados em um relatório interativo. Exporte os resultados de uma consulta para o [Grafana](grafana-plugin.md) para aproveitar os painéis dele e combinar com outras fontes de dados. |
-| Alerta | Configurar uma [regra de alerta da métrica](alerts-metric.md) que envia uma notificação ou realiza uma [ação automatizada](action-groups.md) quando o valor da métrica ultrapassa o limite definido. |
-| Automatizar |  Usar o [Dimensionamento automático](autoscale-overview.md) para aumentar ou diminuir os recursos com base em um valor de métrica que está ultrapassando um limite. |
-| Exportação | [Roteie métricas para logs](resource-logs-collect-storage.md) a fim de analisar dados nas Métricas do Azure Monitor junto com os dados nos Logs do Azure Monitor e para armazenar valores de métrica por mais de 93 dias.<br>Transmitir métricas para um [Hub de Eventos](stream-monitoring-data-event-hubs.md) para encaminhá-las a sistemas externos. |
-| Recuperar | Acessar valores de métrica de uma linha de comando usando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Acessar valores de métrica do aplicativo personalizado usando a [API REST](rest-api-walkthrough.md).<br>Acesse valores de métrica de uma linha de comando usando a [CLI](/cli/azure/monitor/metrics). |
-| Archive | [Arquive](..//learn/tutorial-archive-data.md) o histórico de desempenho ou integridade do recurso para fins de conformidade, auditoria ou geração de relatórios offline. |
+| **Analisar** | Use o [Metrics Explorer](metrics-charts.md) para analisar as métricas coletadas em um gráfico e comparar métricas de recursos diferentes. |
+| **Visualizar** | Fixe um gráfico do Metrics Explorer a um [painel do Azure](../learn/tutorial-app-dashboards.md).<br>Crie uma [pasta de trabalho](../platform/workbooks-overview.md) para combinar com vários conjuntos de dados em um relatório interativo. Exporte os resultados de uma consulta para o [Grafana](grafana-plugin.md) para aproveitar os painéis dele e combinar com outras fontes de dados. |
+| **Alerta** | Configurar uma [regra de alerta da métrica](alerts-metric.md) que envia uma notificação ou realiza uma [ação automatizada](action-groups.md) quando o valor da métrica ultrapassa o limite definido. |
+| **Automatizar** |  Usar o [Dimensionamento automático](autoscale-overview.md) para aumentar ou diminuir os recursos com base em um valor de métrica que está ultrapassando um limite. |
+| **Exportar** | [Roteie métricas para logs](resource-logs-collect-storage.md) a fim de analisar dados nas Métricas do Azure Monitor junto com os dados nos Logs do Azure Monitor e para armazenar valores de métrica por mais de 93 dias.<br>Transmitir métricas para um [Hub de Eventos](stream-monitoring-data-event-hubs.md) para encaminhá-las a sistemas externos. |
+| **Recuperar** | Acessar valores de métrica de uma linha de comando usando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Acessar valores de métrica do aplicativo personalizado usando a [API REST](rest-api-walkthrough.md).<br>Acesse valores de métrica de uma linha de comando usando a [CLI](/cli/azure/monitor/metrics). |
+| **Archive** | [Arquive](..//learn/tutorial-archive-data.md) o histórico de desempenho ou integridade do recurso para fins de conformidade, auditoria ou geração de relatórios offline. |
 
 ## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Como os dados nas Métricas do Azure Monitor são estruturados?
 Os dados coletados pelas Métricas do Azure Monitor são armazenados em um banco de dados de série temporal que é otimizado para analisar dados com carimbo de data/hora. Cada conjunto de valores de métrica é uma série temporal com as seguintes propriedades:
@@ -55,7 +56,7 @@ O exemplo abaixo ilustra dois conjuntos de dados de uma métrica hipotética cha
 
 ### <a name="network-throughput"></a>Taxa de Transferência de Rede
 
-| Timestamp     | Valor da Métrica |
+| Carimbo de data/hora     | Valor da Métrica |
 | ------------- |:-------------|
 | 9/8/2017 8h14 | 1\.331,8 Kbps |
 | 9/8/2017 8h15 | 1\.141,4 Kbps |

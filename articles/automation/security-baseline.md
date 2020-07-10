@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 718be8599db5b30aa6c98bf4dfbd3663250b9d9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88f06bd30c97f857cd5a81068322a95c480a7b34
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255729"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187414"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Linha de base de segurança do Azure para automação
 
 A linha de base de segurança do Azure para automação contém recomendações que ajudarão você a melhorar a postura de segurança de sua implantação.
 
-A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
+A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
 
-Para obter mais informações, confira a [Visão geral sobre linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Para obter mais informações, confira a [Visão geral sobre linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Segurança de rede
 
-*Para saber mais, confira [Controle de segurança: Segurança de rede](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Para saber mais, confira [Controle de segurança: Segurança de rede](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteger os recursos do Azure em redes virtuais
 
@@ -34,15 +34,15 @@ Para obter mais isolamento para seus runbooks, você pode usar Hybrid runbook Wo
 
 Como alternativa, se você tiver um requisito específico, o Firewall do Azure também poderá ser usado para atendê-lo.
 
-* [Redes virtuais e máquinas virtuais no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/network-overview)
+* [Redes virtuais e máquinas virtuais no Azure](../virtual-machines/windows/network-overview.md)
 
-* [Como criar uma Rede Virtual](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Como criar uma Rede Virtual](../virtual-network/quick-create-portal.md)
 
-* [Como criar um NSG com uma configuração de segurança](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Como criar um NSG com uma configuração de segurança](../virtual-network/tutorial-filter-network-traffic.md)
 
-* [Como implantar e configurar o Firewall do Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Como implantar e configurar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Ambiente de execução de runbook](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-execution-environment)
+* [Ambiente de execução de runbook](./automation-runbook-execution.md#runbook-execution-environment)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -56,9 +56,9 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 Embora as regras NSG e as rotas definidas pelo usuário não se apliquem ao ponto de extremidade privado, os logs de fluxo do NSG e as informações de monitoramento para conexões de saída ainda têm suporte e podem ser usados.
 
-* [Como habilitar logs de fluxo de NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [Como habilitar logs de fluxo de NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Como habilitar e usar a Análise de Tráfego](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Como habilitar e usar a Análise de Tráfego](../network-watcher/traffic-analytics.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -80,15 +80,15 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 Você pode usar o acesso à rede just in time da central de segurança do Azure para limitar a exposição de máquinas virtuais do Windows aos endereços IP aprovados por um período de tempo limitado. Além disso, use as recomendações de proteção de rede adaptável da central de segurança do Azure para configurações de NSG para limitar portas e IPs de origem com base no tráfego real e na inteligência contra ameaças.
 
-* [Como configurar a proteção contra DDoS](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+* [Como configurar a proteção contra DDoS](../virtual-network/manage-ddos-protection.md)
 
-* [Como implantar o Firewall do Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Como implantar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+* [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../security-center/threat-protection.md)
 
-* [Entender a proteção de rede adaptável da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
+* [Entender a proteção de rede adaptável da central de segurança do Azure](../security-center/security-center-adaptive-network-hardening.md)
 
-* [Entender o controle de acesso à rede just in time da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+* [Entender o controle de acesso à rede just in time da central de segurança do Azure](../security-center/security-center-just-in-time.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -100,9 +100,9 @@ Você pode usar o acesso à rede just in time da central de segurança do Azure 
 
 Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais do Azure, poderá registrar os logs de fluxo NSG em uma conta de armazenamento para gerar registros de fluxo para as máquinas virtuais do Azure que estão agindo como runbook Workers. Ao investigar a atividade anômala, você pode habilitar a captura de pacotes do observador de rede para que o tráfego de rede possa ser examinado quanto a atividades incomuns e inesperadas.
 
-* [Como habilitar logs de fluxo de NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [Como habilitar logs de fluxo de NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Como habilitar o Observador de Rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+* [Como habilitar o Observador de Rede](../network-watcher/network-watcher-create.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -114,11 +114,11 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 Se você estiver usando Hybrid runbook Workers hospedados em máquinas virtuais do Azure, poderá combinar capturas de pacote fornecidas pelo observador de rede e ferramentas de IDS de software livre para executar a detecção de invasão de rede para uma ampla gama de ameaças a esses computadores de trabalho. Além disso, você pode implantar o Firewall do Azure nos segmentos de rede virtual, conforme apropriado, com inteligência contra ameaças habilitada e configurada para "alertar e negar" para tráfego de rede mal-intencionado.
 
-* [Executar a detecção de invasão de rede com o Observador de Rede e ferramentas de software livre](https://docs.microsoft.com/azure/network-watcher/network-watcher-intrusion-detection-open-source-tools)
+* [Executar a detecção de invasão de rede com o Observador de Rede e ferramentas de software livre](../network-watcher/network-watcher-intrusion-detection-open-source-tools.md)
 
-* [Como implantar o Firewall do Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Como implantar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Como configurar alertas com o Firewall do Azure](https://docs.microsoft.com/azure/firewall/threat-intel)
+* [Como configurar alertas com o Firewall do Azure](../firewall/threat-intel.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -136,7 +136,7 @@ Se você estiver usando Hybrid runbook Workers hospedados em máquinas virtuais 
 
 **Diretrizes**: use marcas de serviço de rede virtual para definir os controles de acesso à rede em grupos de segurança de rede ou no firewall do Azure configurados no Azure que exigem acesso aos recursos de automação. Você pode usar marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (por exemplo, GuestAndHybridManagement) no campo de origem ou destino apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços.
 
-* [Entender e usar marcas de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+* [Entender e usar marcas de serviço](../virtual-network/service-tags-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -148,11 +148,11 @@ Se você estiver usando Hybrid runbook Workers hospedados em máquinas virtuais 
 
 Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos do Azure Resource Manager, controles RBAC e políticas, em uma única definição de Blueprint. Você pode aplicar o plano gráfico a novas assinaturas e ajustar o controle e o gerenciamento por meio da versão.
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Exemplos de Azure Policy para rede](https://docs.microsoft.com/azure/governance/policy/samples/#network)
+* [Exemplos de Azure Policy para rede](/azure/governance/policy/samples/#network)
 
-* [Como criar um blueprint do Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+* [Como criar um blueprint do Azure](../governance/blueprints/create-blueprint-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -166,11 +166,11 @@ Use qualquer uma das definições de Azure Policy internas relacionadas à marca
 
 Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar ações em recursos com base em suas marcas.
 
-* [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
-* [Como criar uma Rede Virtual](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Como criar uma Rede Virtual](../virtual-network/quick-create-portal.md)
 
-* [Como criar um NSG com uma configuração de segurança](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Como criar um NSG com uma configuração de segurança](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -180,9 +180,9 @@ Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar aç�
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos e detectar alterações nos recursos de rede. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos críticos.
 
-* [Como exibir e recuperar eventos do log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [Como criar alertas no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -190,13 +190,13 @@ Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar aç�
 
 ## <a name="logging-and-monitoring"></a>Log e monitoramento
 
-*Para saber mais, confira [Controle de segurança: Registro em log e monitoramento](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para saber mais, confira [Controle de segurança: Registro em log e monitoramento](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Usar fontes de sincronização de tempo aprovadas
 
 **Diretrizes**: a Microsoft mantém fontes de tempo para recursos do Azure. No entanto, você tem a opção de gerenciar as configurações de sincronização de tempo para todos os Hybrid runbook Workers em execução em máquinas virtuais do Windows.
 
-* [Como configurar a sincronização de horário para recursos de computação do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
+* [Como configurar a sincronização de horário para recursos de computação do Azure](../virtual-machines/windows/time-sync.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -208,19 +208,19 @@ Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar aç�
 
 Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a um SIEM de terceiros.
 
-* [Como integrar o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Como coletar logs e métricas de plataforma com Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+* [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
 * [Introdução à integração do Azure Monitor e ao SIEM de terceiros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-* [Encaminhar os dados de trabalho da Automação do Azure para os logs do Azure Monitor](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)
+* [Encaminhar os dados de trabalho da Automação do Azure para os logs do Azure Monitor](./automation-manage-send-joblogs-log-analytics.md)
 
-* [Integrar o DSC a logs de Azure Monitor](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics)
+* [Integrar o DSC a logs de Azure Monitor](./automation-dsc-diagnostics.md)
 
-* [Regiões compatíveis com o workspace do Log Analytics vinculado](https://docs.microsoft.com/azure/automation/how-to/region-mappings)
+* [Regiões compatíveis com o workspace do Log Analytics vinculado](./how-to/region-mappings.md)
 
-* [Logs de Gerenciamento de Atualizações de consulta](https://docs.microsoft.com/azure/automation/automation-update-management-query-logs)
+* [Logs de Gerenciamento de Atualizações de consulta](./automation-update-management-query-logs.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -230,9 +230,9 @@ Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a u
 
 **Orientação**: habilite o Azure monitor para acesso aos logs de auditoria e de atividades, que incluem origem do evento, data, usuário, carimbo de data/hora, endereços de origem, endereços de destino e outros elementos úteis.
 
-* [Como coletar logs e métricas de plataforma com Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+* [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
-* [Exibir e recuperar eventos do log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -244,7 +244,7 @@ Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a u
 
 Ao usar o recurso Hybrid Runbook Worker, a central de segurança do Azure fornece monitoramento de log de eventos de segurança para máquinas virtuais do Windows. Se sua organização quiser manter os dados do log de eventos de segurança, ele poderá ser armazenado em uma camada de coleta de dados, no ponto em que pode ser consultado em Log Analytics. Há diferentes camadas: mínima, comum e todas, que são detalhadas no link a seguir.
 
-* [Configurar camada de coleta de dados na central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+* [Configurar camada de coleta de dados na central de segurança do Azure](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -254,9 +254,9 @@ Ao usar o recurso Hybrid Runbook Worker, a central de segurança do Azure fornec
 
 **Diretrizes**: em Azure monitor, defina seu período de retenção de espaço de trabalho de log Analytics de acordo com os regulamentos de conformidade de sua organização. Use contas de Armazenamento do Microsoft Azure para armazenamentos de longo prazo/arquivamento.
 
-* [Alterar o período de retenção de dados em Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-* [Detalhes de retenção de dados para contas de automação](https://docs.microsoft.com/azure/automation/automation-managing-data#data-retention)
+* [Detalhes de retenção de dados para contas de automação](./automation-managing-data.md#data-retention)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -268,11 +268,11 @@ Ao usar o recurso Hybrid Runbook Worker, a central de segurança do Azure fornec
 
 Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a um SIEM de terceiros.
 
-* [Como integrar o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Entender as consultas de log no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+* [Entender as consultas de log no Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
 
-* [Como realizar consultas personalizadas no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+* [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -284,11 +284,11 @@ Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a u
 
 Como alternativa, você pode habilitar e dados integrados para o Azure Sentinel.
 
-* [Como integrar o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Como gerenciar alertas na central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+* [Como gerenciar alertas na central de segurança do Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Como alertar sobre Azure Monitor dados de log](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+* [Como alertar sobre Azure Monitor dados de log](../azure-monitor/learn/tutorial-response.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -300,9 +300,9 @@ Como alternativa, você pode habilitar e dados integrados para o Azure Sentinel.
 
 No entanto, ao usar o recurso Hybrid Runbook Worker, você pode usar o Microsoft anti-malware para serviços de nuvem do Azure e máquinas virtuais. Configure suas máquinas virtuais para registrar eventos em uma conta de armazenamento do Azure. Configure um espaço de trabalho Log Analytics para ingerir os eventos das contas de armazenamento e criar alertas quando apropriado. Siga as recomendações na central de segurança do Azure: "aplicativos de computação &amp; ".
 
-* [Como configurar o anti-malware da Microsoft para serviços de nuvem e máquinas virtuais](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Como configurar o anti-malware da Microsoft para serviços de nuvem e máquinas virtuais](../security/fundamentals/antimalware.md)
 
-* [Como habilitar o monitoramento em nível de convidado para máquinas virtuais](https://docs.microsoft.com/azure/cost-management/azure-vm-extended-metrics)
+* [Como habilitar o monitoramento em nível de convidado para máquinas virtuais](../cost-management-billing/cloudyn/azure-vm-extended-metrics.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -322,7 +322,7 @@ No entanto, ao usar o recurso Hybrid Runbook Worker, você pode usar o Microsoft
 
 No entanto, ao usar o recurso Hybrid Runbook Worker, a central de segurança do Azure fornece monitoramento de log de eventos de segurança para máquinas virtuais do Azure. A central de segurança provisiona o agente de Log Analytics em todas as VMs do Azure com suporte e quaisquer novas que forem criadas se o provisionamento automático estiver habilitado. Ou você pode instalar o agente manualmente. O agente habilita o evento 4688 de criação de processo e o campo CommandLine dentro do evento 4688. Os novos processos criados na VM são registrados pelo log de eventos e monitorados pelos serviços de detecção da central de segurança.
 
-* [Coleta de dados na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+* [Coleta de dados na Central de Segurança do Azure](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -330,19 +330,19 @@ No entanto, ao usar o recurso Hybrid Runbook Worker, a central de segurança do 
 
 ## <a name="identity-and-access-control"></a>Identidade e controle de acesso
 
-*Para saber mais, confira [Controle de segurança: Identidade e controle de acesso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Para saber mais, confira [Controle de segurança: Identidade e controle de acesso](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Manter um inventário de contas administrativas
 
 **Diretrizes**: Use Azure Active Directory funções de administrador internas que podem ser atribuídas explicitamente e podem ser consultadas. Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de grupos administrativos. Sempre que usar contas Executar como da conta de automação para seus runbooks, verifique se essas entidades de serviço também são rastreadas em seu inventário, pois geralmente têm permissões elevadas. Exclua todas as contas Executar como não utilizadas para minimizar a superfície de ataque exposta.
 
-* [Como obter uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-* [Como obter membros de uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-* [Excluir uma conta Executar como ou Executar como Clássica](https://docs.microsoft.com/azure/automation/manage-runas-account#delete-a-run-as-or-classic-run-as-account)
+* [Excluir uma conta Executar como ou Executar como Clássica](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
 
-* [Gerenciar uma conta Executar como da Automação do Azure](https://docs.microsoft.com/azure/automation/manage-runas-account)
+* [Gerenciar uma conta Executar como da Automação do Azure](./manage-runas-account.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -362,11 +362,11 @@ No entanto, ao usar o recurso Hybrid Runbook Worker, a central de segurança do 
 
 Você também pode habilitar um acesso just-in-time/apenas o suficiente usando Azure AD Privileged Identity Management funções privilegiadas para serviços da Microsoft e Azure Resource Manager.
 
-* [Saiba mais sobre o Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
+* [Saiba mais sobre o Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
-* [Excluir uma conta Executar como ou Executar como Clássica](https://docs.microsoft.com/azure/automation/manage-runas-account#delete-a-run-as-or-classic-run-as-account)
+* [Excluir uma conta Executar como ou Executar como Clássica](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
 
-* [Gerenciar uma conta Executar como da Automação do Azure](https://docs.microsoft.com/azure/automation/manage-runas-account)
+* [Gerenciar uma conta Executar como da Automação do Azure](./manage-runas-account.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -376,11 +376,11 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 **Diretrizes**: sempre que possível, use o SSO com Azure Active Directory em vez de configurar credenciais autônomas individuais por serviço. Use as recomendações de gerenciamento de acesso e identidade da central de segurança do Azure.
 
-* [Logon único para aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+* [Logon único para aplicativos no Azure Active Directory](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-* [Como monitorar identidade e acesso na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Como monitorar identidade e acesso na Central de Segurança do Azure](../security-center/security-center-identity-access.md)
 
-* [Usar o Azure AD para a autenticação no Azure](https://docs.microsoft.com/azure/automation/automation-use-azure-ad)
+* [Usar o Azure AD para a autenticação no Azure](./automation-use-azure-ad.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -390,9 +390,9 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 **Orientação**: habilitar a MFA (autenticação multifator) do Azure AD e seguir as recomendações de gerenciamento de acesso e identidade da central de segurança do Azure.
 
-* [Como habilitar a MFA no Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Como habilitar a MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Como monitorar identidade e acesso na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Como monitorar identidade e acesso na Central de Segurança do Azure](../security-center/security-center-identity-access.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -402,9 +402,9 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 **Diretrizes**: Use o PAWs com a autenticação multifator configurada para fazer logon e configurar recursos de conta de automação do Azure em ambientes de produção.
 
-* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Como habilitar a MFA no Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Como habilitar a MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -414,11 +414,11 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 **Orientação**: Utilize as detecções de risco do Azure ad para exibir alertas e relatórios sobre comportamento de usuário arriscado. Opcionalmente, o cliente pode encaminhar alertas de detecção de risco da central de segurança do Azure para Azure Monitor e configurar alertas/notificações personalizados usando grupos de ação.
 
-* [Noções básicas sobre as detecções de riscos da central de segurança do Azure (atividade suspeita)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+* [Noções básicas sobre as detecções de riscos da central de segurança do Azure (atividade suspeita)](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Como integrar os logs de atividades do Azure ao Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Como configurar grupos de ação para alertas e notificações personalizados](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+* [Como configurar grupos de ação para alertas e notificações personalizados](../azure-monitor/platform/action-groups.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -428,7 +428,7 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 **Orientação**: é recomendável usar locais nomeados de acesso condicional para permitir o acesso somente de agrupamentos lógicos específicos de intervalos de endereços IP ou países/regiões.
 
-* [Como configurar locais nomeados no Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Como configurar locais nomeados no Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -438,9 +438,9 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 **Diretrizes**: Use o Azure ad como o sistema de autenticação e autorização central. O Azure AD protege os dados usando criptografia forte para dados em repouso e em trânsito. O Azure Active Directory também inclui sais, hashes e armazena com segurança as credenciais do usuário. Se estiver usando Hybrid runbook Workers, você poderá aproveitar identidades gerenciadas em vez de contas Executar como para habilitar permissões seguras mais diretas.
 
-* [Como criar e configurar uma instância do Azure AD](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance)
+* [Como criar e configurar uma instância do Azure AD](../active-directory-domain-services/tutorial-create-instance.md)
 
-* [Usar autenticação de runbook com identidades gerenciadas](https://docs.microsoft.com/azure/automation/automation-hrw-run-runbooks#runbook-auth-managed-identities)
+* [Usar autenticação de runbook com identidades gerenciadas](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -450,13 +450,13 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 **Diretrizes**: O Azure AD fornece logs para ajudar a descobrir contas obsoletas. Além disso, use as revisões de acesso de identidade do Azure para gerenciar associações de grupo, acesso aos aplicativos empresariais e atribuições de função com eficiência. O acesso do usuário pode ser revisado regularmente para garantir que apenas os usuários certos tenham acesso contínuo. Sempre que usar contas Executar como da conta de automação para seus runbooks, verifique se essas entidades de serviço também são controladas em seu inventário, pois geralmente têm permissões elevadas. Exclua todas as contas Executar como não utilizadas para minimizar a superfície de ataque exposta.
 
-* [Entender os relatórios do Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+* [Entender os relatórios do Azure AD](../active-directory/reports-monitoring/index.yml)
 
-* [Como usar as revisões de acesso de identidade do Azure](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Como usar as revisões de acesso de identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
-* [Excluir uma conta Executar como ou Executar como Clássica](https://docs.microsoft.com/azure/automation/manage-runas-account#delete-a-run-as-or-classic-run-as-account)
+* [Excluir uma conta Executar como ou Executar como Clássica](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
 
-* [Gerenciar uma conta Executar como da Automação do Azure](https://docs.microsoft.com/azure/automation/manage-runas-account)
+* [Gerenciar uma conta Executar como da Automação do Azure](./manage-runas-account.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -468,7 +468,7 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 Você pode simplificar esse processo criando configurações de diagnóstico para contas de usuário do Azure Active Directory e enviando os logs de auditoria e os logs de entrada para um workspace do Log Analytics. Você pode configurar os alertas desejados no workspace do Log Analytics.
 
-* [Como integrar os logs de atividades do Azure ao Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -478,11 +478,11 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretrizes**: Use os recursos de proteção de risco e identidade do Azure ad para configurar respostas automatizadas para ações suspeitas detectadas relacionadas a identidades de usuário para o recurso de rede. Você também pode ingerir dados no Azure Sentinel para uma investigação mais aprofundada.
 
-* [Como exibir entradas suspeitas do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [Como exibir entradas suspeitas do Azure Active Directory](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Como configurar e habilitar políticas de risco de proteção de identidade](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [Como configurar e habilitar políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Como integrar o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -494,7 +494,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 No entanto, ao usar Hybrid runbook Workers apoiado pelas máquinas virtuais do Azure e com as necessidades de terceiros para acessar os dados do cliente (como durante uma solicitação de suporte), use Sistema de Proteção de Dados do Cliente (versão prévia) para que as máquinas virtuais do Azure revisem e aprovem ou rejeitem solicitações de acesso a dados do cliente.
 
-* [Noções básicas sobre Sistema de Proteção de Dados do Cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+* [Noções básicas sobre Sistema de Proteção de Dados do Cliente](../security/fundamentals/customer-lockbox-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -502,13 +502,13 @@ No entanto, ao usar Hybrid runbook Workers apoiado pelas máquinas virtuais do A
 
 ## <a name="data-protection"></a>Proteção de dados
 
-*Para saber mais, confira [Controle de segurança: Proteção de dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Para saber mais, confira [Controle de segurança: Proteção de dados](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Manter um inventário de informações confidenciais
 
 **Diretrizes**: use marcas para auxiliar no rastreamento de recursos de automação do Azure que armazenam ou processam informações confidenciais.
 
-* [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -518,19 +518,19 @@ No entanto, ao usar Hybrid runbook Workers apoiado pelas máquinas virtuais do A
 
 **Diretriz**: implemente assinaturas e/ou grupos de gerenciamento separados para desenvolvimento, teste e produção. Isole os ambientes usando recursos de conta de automação separados. Recursos como Hybrid runbook Workers devem ser separados por rede virtual/sub-rede, marcados adequadamente e protegidos em um NSG (grupo de segurança de rede) ou firewall do Azure. Para máquinas virtuais que armazenam ou processam dados confidenciais, implemente políticas e procedimentos para desligá-los quando não estiverem em uso.
 
-* [Como criar assinaturas adicionais do Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gerenciamento](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Como criar Grupos de Gerenciamento](../governance/management-groups/create.md)
 
-* [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
-* [Como criar uma Rede Virtual](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Como criar uma Rede Virtual](../virtual-network/quick-create-portal.md)
 
-* [Como criar um NSG com uma configuração de segurança](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Como criar um NSG com uma configuração de segurança](../virtual-network/tutorial-filter-network-traffic.md)
 
-* [Como implantar o Firewall do Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Como implantar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Como configurar alerta ou alerta e negar com o Firewall do Azure](https://docs.microsoft.com/azure/firewall/threat-intel)
+* [Como configurar alerta ou alerta e negar com o Firewall do Azure](../firewall/threat-intel.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -542,7 +542,7 @@ No entanto, ao usar Hybrid runbook Workers apoiado pelas máquinas virtuais do A
 
 Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata todo o conteúdo do cliente como confidencial e protege contra perda e exposição de dados do cliente. Para garantir que os dados do cliente no Azure permaneçam seguros, a Microsoft implementou e mantém um conjunto de recursos e controles robustos de proteção de dados.
 
-* [Entender a proteção de dados do cliente no Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Entender a proteção de dados do cliente no Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -554,7 +554,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 Siga as recomendações da central de segurança do Azure para criptografia em repouso e criptografia em trânsito, quando aplicável.
 
-* [Entender a criptografia em trânsito com o Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+* [Entender a criptografia em trânsito com o Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 * [Imposição de TLS 1,2 da automação do Azure](https://azure.microsoft.com/updates/azure-automation-tls12-enforcement/)
 
@@ -574,11 +574,11 @@ Siga as recomendações da central de segurança do Azure para criptografia em r
 
 **Orientação**: usar o RBAC do Azure ad para controlar o acesso aos recursos de automação do Azure usando as definições de função internas, atribua acesso para usuários que acessam seus recursos de automação seguindo um modelo de acesso menos privilegiado ou "apenas suficiente". Ao usar Hybrid runbook Workers, aproveitar as identidades gerenciadas para essas máquinas virtuais para evitar o uso de entidades de serviço, ao usar os Hybrid runbook Worker com vários locatários ou híbridos, certifique-se de aplicar permissões RBAC com escopo adequado na identidade dos runbook Workers.
 
-* [Como configurar o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Como configurar o RBAC no Azure](../role-based-access-control/role-assignments-portal.md)
 
-* [Permissões de runbook para um Hybrid Runbook Worker](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker#runbook-permissions-for-a-hybrid-runbook-worker)
+* [Permissões de runbook para um Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md#runbook-permissions-for-a-hybrid-runbook-worker)
 
-* [Gerenciar permissões e segurança de funções](https://docs.microsoft.com/azure/automation/automation-role-based-access-control)
+* [Gerenciar permissões e segurança de funções](./automation-role-based-access-control.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -600,13 +600,13 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 Ao usar Hybrid runbook Workers, os discos virtuais nas máquinas virtuais são criptografados em repouso usando a criptografia do lado do servidor ou o ADE (Azure Disk Encryption). A criptografia de disco do Azure aproveita o recurso BitLocker do Windows para criptografar discos gerenciados com chaves gerenciadas pelo cliente na VM convidada. A criptografia do lado do servidor com chaves gerenciadas pelo cliente aprimora o ADE, permitindo usar quaisquer tipos de sistema operacional e imagens para as VMs, criptografando dados no serviço de armazenamento.
 
-* [Criptografia do lado do servidor de Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption)
+* [Criptografia do lado do servidor de Azure Managed disks](../virtual-machines/windows/disk-encryption.md)
 
-* [Azure Disk Encryption para VMs do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview)
+* [Azure Disk Encryption para VMs do Windows](../virtual-machines/windows/disk-encryption-overview.md)
 
-* [Uso de chaves gerenciadas pelo cliente para uma conta de automação](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+* [Uso de chaves gerenciadas pelo cliente para uma conta de automação](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
-* [Variáveis gerenciadas na automação do Azure](https://docs.microsoft.com/azure/automation/shared-resources/variables)
+* [Variáveis gerenciadas na automação do Azure](./shared-resources/variables.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -616,9 +616,9 @@ Ao usar Hybrid runbook Workers, os discos virtuais nas máquinas virtuais são c
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem para recursos críticos do Azure, como componentes de rede, contas de automação do Azure e runbooks.
 
-* [Log de diagnóstico para um grupo de segurança de rede](https://docs.microsoft.com/azure/private-link/private-link-overview#logging-and-monitoring)
+* [Log de diagnóstico para um grupo de segurança de rede](../private-link/private-link-overview.md#logging-and-monitoring)
 
-* [Como criar alertas para eventos do log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/platform/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -626,15 +626,15 @@ Ao usar Hybrid runbook Workers, os discos virtuais nas máquinas virtuais são c
 
 ## <a name="vulnerability-management"></a>Gerenciamento de vulnerabilidades
 
-*Para saber mais, confira [Controle de segurança: Gerenciamento de vulnerabilidades](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Para saber mais, confira [Controle de segurança: Gerenciamento de vulnerabilidades](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Executar ferramentas automatizadas de verificação de vulnerabilidade
 
 **Diretrizes**: siga as recomendações da central de segurança do Azure para executar avaliações de vulnerabilidade em seus recursos do Azure
 
-* [Recomendações de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
+* [Recomendações de segurança na Central de Segurança do Azure](../security-center/security-center-recommendations.md)
 
-* [Referência de recomendação da central de segurança](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+* [Referência de recomendação da central de segurança](../security-center/recommendations-reference.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -646,9 +646,9 @@ Ao usar Hybrid runbook Workers, os discos virtuais nas máquinas virtuais são c
 
 Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais do Azure, use o Azure Gerenciamento de Atualizações para gerenciar atualizações e patches para suas máquinas virtuais. Gerenciamento de Atualizações se baseia no repositório de atualização configurado localmente para corrigir os sistemas Windows com suporte. Ferramentas como System Center Updates Publisher (Updates Publisher) permitem que você publique atualizações personalizadas no Windows Server Update Services (WSUS). Esse cenário permite que Gerenciamento de Atualizações patch de máquinas que usam Configuration Manager como seu repositório de atualizações com software de terceiros.
 
-* [Gerenciamento de Atualizações no Azure](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Gerenciamento de Atualizações no Azure](./automation-update-management.md)
 
-* [Gerenciar atualizações e patches para as VMs do Azure](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [Gerenciar atualizações e patches para as VMs do Azure](./automation-tutorial-update-management.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -660,9 +660,9 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais do Azure, poderá usar o Azure Gerenciamento de Atualizações para gerenciar atualizações e patches para suas máquinas virtuais. Gerenciamento de Atualizações se baseia no repositório de atualização configurado localmente para corrigir os sistemas Windows com suporte. Ferramentas como System Center Updates Publisher (Updates Publisher) permitem que você publique atualizações personalizadas no Windows Server Update Services (WSUS). Esse cenário permite que Gerenciamento de Atualizações os computadores de patch que usam Configuration Manager como seu repositório de atualizações com software de terceiros.
 
-* [Solução Gerenciamento de Atualizações no Azure](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Solução Gerenciamento de Atualizações no Azure](./automation-update-management.md)
 
-* [Gerenciar atualizações e patches para as VMs do Azure](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [Gerenciar atualizações e patches para as VMs do Azure](./automation-tutorial-update-management.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -680,7 +680,7 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 **Diretrizes**: Use as classificações de risco padrão (Pontuação segura) fornecidas pela central de segurança do Azure para ajudar a priorizar a correção de vulnerabilidades descobertas.
 
-* [Entender a pontuação segura da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-secure-score)
+* [Entender a pontuação segura da central de segurança do Azure](../security-center/secure-score-security-controls.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -688,17 +688,17 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 ## <a name="inventory-and-asset-management"></a>Inventário e gerenciamento de ativos
 
-*Para saber mais, confira [Controle de segurança: Inventário e gerenciamento de ativos](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Para saber mais, confira [Controle de segurança: Inventário e gerenciamento de ativos](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: usar solução de descoberta de ativos automatizada
 
 **Orientação**: Use o grafo de recursos do Azure para consultar e descobrir todos os recursos de automação do Azure em suas assinaturas. Verifique se você tem permissões (leitura) apropriadas em seu locatário e é capaz de enumerar todas as assinaturas do Azure, bem como os recursos nas suas assinaturas.
 
-* [Como criar consultas com o Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Como criar consultas com o Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Como exibir suas assinaturas do Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Entender o RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Entender o RBAC do Azure](../role-based-access-control/overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -708,7 +708,7 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 **Diretriz**: Aplique marcas aos recursos do Azure, fornecendo metadados para organizá-los logicamente em uma taxonomia.
 
-* [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -718,15 +718,15 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 **Diretrizes**: use marcação, grupos de gerenciamento e assinaturas separadas, quando apropriado, para organizar e controlar os recursos de automação do Azure. Reconcilie o inventário regularmente e garanta que os recursos não autorizados sejam excluídos da assinatura em tempo hábil. Exclua todas as contas Executar como não utilizadas para minimizar a superfície de ataque exposta.
 
-* [Como criar assinaturas adicionais do Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gerenciamento](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Como criar Grupos de Gerenciamento](../governance/management-groups/create.md)
 
-* [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
-* [Excluir uma conta Executar como ou Executar como Clássica](https://docs.microsoft.com/azure/automation/manage-runas-account#delete-a-run-as-or-classic-run-as-account)
+* [Excluir uma conta Executar como ou Executar como Clássica](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
 
-* [Gerenciar uma conta Executar como da Automação do Azure](https://docs.microsoft.com/azure/automation/manage-runas-account)
+* [Gerenciar uma conta Executar como da Automação do Azure](./manage-runas-account.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -748,11 +748,11 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 Além disso, use o grafo de recursos do Azure para consultar/descobrir recursos dentro de assinaturas. Isso pode ajudar em ambientes baseados em alta segurança, como aqueles com contas de armazenamento.
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Como criar consultas com o Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Como criar consultas com o Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Azure Policy os internos de exemplo para a automação do Azure](https://docs.microsoft.com/azure/automation/policy-samples)
+* [Azure Policy os internos de exemplo para a automação do Azure](./policy-samples.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -764,11 +764,11 @@ Além disso, use o grafo de recursos do Azure para consultar/descobrir recursos 
 
 Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais do Azure, a automação do Azure fornecerá controle completo durante a implantação, operações e encerramento de cargas de trabalho e recursos. Aproveite o inventário de máquina virtual do Azure para automatizar a coleta de informações sobre todos os softwares em máquinas virtuais. O nome do software, a versão, o Publicador e o tempo de atualização estão disponíveis no portal do Azure. Para obter acesso à data de instalação e outras informações, o cliente precisou habilitar o diagnóstico em nível de convidado e colocar os logs de eventos do Windows em um espaço de trabalho Log Analytics.
 
-* [Uma introdução à Automação do Azure](https://docs.microsoft.com/azure/automation/automation-intro)
+* [Uma introdução à Automação do Azure](./automation-intro.md)
 
-* [Como habilitar o inventário de VM do Azure](https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software)
+* [Como habilitar o inventário de VM do Azure](./automation-tutorial-installed-software.md)
 
-* [Gerenciar o módulo na automação do Azure](https://docs.microsoft.com/azure/automation/shared-resources/modules)
+* [Gerenciar o módulo na automação do Azure](./shared-resources/modules.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -778,9 +778,9 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 **Orientação**: o cliente pode impedir a criação ou o uso de recursos com Azure Policy conforme exigido pelas diretrizes da empresa do cliente. Você pode implementar seu próprio processo para remover recursos não autorizados. Na oferta de automação do Azure, é possível instalar, remover e gerenciar os módulos do PowerShell ou do Python que os runbooks podem acessar por meio do portal ou cmdlets. O módulo antigo ou não aprovado deve ser removido ou atualizado para os runbooks.
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Gerenciar o módulo na automação do Azure](https://docs.microsoft.com/azure/automation/shared-resources/modules)
+* [Gerenciar o módulo na automação do Azure](./shared-resources/modules.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -790,7 +790,7 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 **Orientação**: ao usar o recurso Hybrid runbook Worker, você pode usar os controles de aplicativo adaptáveis da central de segurança do Azure para garantir que apenas o software autorizado seja executado e todos os softwares não autorizados sejam impedidos de serem executados em máquinas virtuais do Azure.
 
-* [Como usar os controles de aplicativo adaptáveis da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+* [Como usar os controles de aplicativo adaptáveis da central de segurança do Azure](../security-center/security-center-adaptive-application.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -802,9 +802,9 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Como negar um tipo de recurso específico com o Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/index.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -816,7 +816,7 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 O controle de aplicativo adaptável é uma solução inteligente, automatizada e de ponta a ponta da central de segurança do Azure, que ajuda você a controlar quais aplicativos podem ser executados em suas máquinas do Azure e não Azure (Windows e Linux). Implemente uma solução de terceiros se isso não atender aos requisitos da sua organização.
 
-* [Como usar os controles de aplicativo adaptáveis da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+* [Como usar os controles de aplicativo adaptáveis da central de segurança do Azure](../security-center/security-center-adaptive-application.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -826,7 +826,7 @@ O controle de aplicativo adaptável é uma solução inteligente, automatizada e
 
 **Orientação**: Use as políticas de acesso condicional do Azure para limitar a capacidade dos usuários de interagir com Azure Resource Manager Configurando "bloquear acesso" para o aplicativo de "gerenciamento de Microsoft Azure" de locais ou dispositivos não seguros ou não aprovados.
 
-* [Como configurar o acesso condicional para bloquear o acesso ao Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Como configurar o acesso condicional para bloquear o acesso ao Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -836,9 +836,9 @@ O controle de aplicativo adaptável é uma solução inteligente, automatizada e
 
 **Orientação**: ao usar o recurso de Hybrid runbook Worker e, dependendo do tipo de scripts, você pode usar configurações específicas do sistema operacional ou recursos de terceiros para limitar a capacidade dos usuários de executar scripts nos recursos de computação do Azure. Você também pode aproveitar os controles de aplicativo adaptáveis da central de segurança do Azure para garantir que apenas o software autorizado seja executado e todos os softwares não autorizados sejam impedidos de serem executados em máquinas virtuais do Azure.
 
-* [Como controlar a execução de script do PowerShell em ambientes Windows](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+* [Como controlar a execução de script do PowerShell em ambientes Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
-* [Como usar os controles de aplicativo adaptáveis da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+* [Como usar os controles de aplicativo adaptáveis da central de segurança do Azure](../security-center/security-center-adaptive-application.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -848,19 +848,19 @@ O controle de aplicativo adaptável é uma solução inteligente, automatizada e
 
 **Orientação**: aplicativos de alto risco implantados em seu ambiente do Azure podem ser isolados usando contêineres de rede e de recursos separados usando construções como redes virtuais, sub-rede, assinaturas, grupos de gerenciamento, eles podem ser suficientemente protegidos com um firewall do Azure, o WAF (firewall do aplicativo Web) ou o NSG (grupo de segurança de rede).
 
-* [Redes virtuais e máquinas virtuais no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/network-overview)
+* [Redes virtuais e máquinas virtuais no Azure](../virtual-machines/windows/network-overview.md)
 
-* [Visão geral do firewall do Azure](https://docs.microsoft.com/azure/firewall/overview)
+* [Visão geral do firewall do Azure](../firewall/overview.md)
 
-* [Visão geral do firewall do aplicativo Web do Azure](https://docs.microsoft.com/azure/web-application-firewall/overview)
+* [Visão geral do firewall do aplicativo Web do Azure](../web-application-firewall/overview.md)
 
-* [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview)
+* [Grupos de segurança de rede](../virtual-network/security-overview.md)
 
-* [Visão geral da rede virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+* [Visão geral da rede virtual do Azure](../virtual-network/virtual-networks-overview.md)
 
-* [Organizar seus recursos com grupos de gerenciamento do Azure](https://docs.microsoft.com/azure/governance/management-groups/overview)
+* [Organizar seus recursos com grupos de gerenciamento do Azure](../governance/management-groups/overview.md)
 
-* [Guia de decisão da assinatura](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/subscriptions/)
+* [Guia de decisão da assinatura](/azure/cloud-adoption-framework/decision-guides/subscriptions/)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -868,7 +868,7 @@ O controle de aplicativo adaptável é uma solução inteligente, automatizada e
 
 ## <a name="secure-configuration"></a>Configuração segura
 
-*Para saber mais, confira [Controle de segurança: Configuração segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Para saber mais, confira [Controle de segurança: Configuração segura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Estabelecer configurações seguras para todos os recursos do Azure
 
@@ -878,15 +878,15 @@ Além disso, Azure Resource Manager tem a capacidade de exportar o modelo no Jav
 
 Você também pode usar recomendações da central de segurança do Azure como uma linha de base de configuração segura para seus recursos do Azure.
 
-* [Como exibir os aliases disponíveis do Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Como exibir os aliases disponíveis do Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-* [Tutorial: Criar e gerenciar políticas para impor a conformidade](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Tutorial: Criar e gerenciar políticas para impor a conformidade](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy os internos de exemplo para a automação do Azure](https://docs.microsoft.com/azure/automation/policy-samples)
+* [Azure Policy os internos de exemplo para a automação do Azure](./policy-samples.md)
 
-* [Exportação única e de vários recursos para um modelo no portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+* [Exportação única e de vários recursos para um modelo no portal do Azure](../azure-resource-manager/templates/export-template-portal.md)
 
-* [Recomendações de segurança – um guia de referência](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+* [Recomendações de segurança – um guia de referência](../security-center/recommendations-reference.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -898,9 +898,9 @@ Você também pode usar recomendações da central de segurança do Azure como u
 
 Ao usar o recurso Hybrid Runbook Worker, use a recomendação da central de segurança do Azure [corrigir vulnerabilidades em configurações de segurança em suas máquinas virtuais] para manter as configurações de segurança em suas máquinas virtuais.
 
-* [Como monitorar as recomendações da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
+* [Como monitorar as recomendações da central de segurança do Azure](../security-center/security-center-recommendations.md)
 
-* [Como corrigir as recomendações da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+* [Como corrigir as recomendações da central de segurança do Azure](../security-center/security-center-remediate-recommendations.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -910,17 +910,17 @@ Ao usar o recurso Hybrid Runbook Worker, use a recomendação da central de segu
 
 **Diretrizes**: use modelos de Azure Resource Manager e Azure Policy para configurar com segurança os recursos do Azure associados à automação do Azure. Os modelos de Azure Resource Manager são arquivos baseados em JSON usados para implantar recursos do Azure, e todos os modelos personalizados precisarão ser armazenados e mantidos com segurança em um repositório de código. Use o recurso de integração de controle do código-fonte para manter seus runbooks em sua conta de automação atualizados com scripts no repositório do controle do código-fonte. Use Azure Policy [Deny] e [implantar se não existir] para impor configurações seguras em seus recursos do Azure.
 
-* [Usar a integração de controle do código-fonte](https://docs.microsoft.com/azure/automation/source-control-integration)
+* [Usar a integração de controle do código-fonte](./source-control-integration.md)
 
-* [Informações sobre como criar modelos de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal)
+* [Informações sobre como criar modelos de Azure Resource Manager](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Compreendendo os efeitos do Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Compreendendo os efeitos do Azure Policy](../governance/policy/concepts/effects.md)
 
-* [Implantar uma conta de automação usando um modelo de Azure Resource Manager](https://docs.microsoft.com/azure/automation/automation-create-account-template#deploy-the-template)
+* [Implantar uma conta de automação usando um modelo de Azure Resource Manager](./automation-create-account-template.md#deploy-the-template)
 
-* [Azure Policy os internos de exemplo para a automação do Azure](https://docs.microsoft.com/azure/automation/policy-samples)
+* [Azure Policy os internos de exemplo para a automação do Azure](./policy-samples.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -938,11 +938,11 @@ Ao usar o recurso Hybrid Runbook Worker, há várias opções para manter uma co
 
 Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com a configuração de estado de automação do Azure podem ajudar a atender e a manter os requisitos de segurança.
 
-* [Informações sobre como baixar o modelo de VM](https://docs.microsoft.com/azure/virtual-machines/windows/download-template)
+* [Informações sobre como baixar o modelo de VM](../virtual-machines/windows/download-template.md)
 
-* [Informações sobre a criação de modelos do ARM](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
+* [Informações sobre a criação de modelos do ARM](../virtual-machines/windows/ps-template.md)
 
-* [Como carregar um VHD de VM personalizado para o Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Como carregar um VHD de VM personalizado para o Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -952,11 +952,11 @@ Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com 
 
 **Diretrizes**: Use o Azure DevOps para armazenar e gerenciar com segurança seu código, como políticas personalizadas do Azure, modelos de Azure Resource Manager e scripts de configuração de estado desejado. Para acessar os recursos que você gerencia no Azure DevOps, você pode conceder ou negar permissões a usuários específicos, grupos de segurança internos ou grupos definidos no Azure Active Directory se integrados ao Azure DevOps ou Active Directory se integrado ao TFS. Use o recurso de integração de controle do código-fonte para manter seus runbooks em sua conta de automação atualizados com scripts no repositório do controle do código-fonte.
 
-* [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Sobre permissões e grupos no Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+* [Sobre permissões e grupos no Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-* [Usar a integração de controle do código-fonte](https://docs.microsoft.com/azure/automation/source-control-integration)
+* [Usar a integração de controle do código-fonte](./source-control-integration.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -968,9 +968,9 @@ Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com 
 
 Ao usar o recurso Hybrid Runbook Worker, verifique se você está limitando corretamente o acesso à imagem de sistema operacional personalizada localizada em sua conta de armazenamento para que somente usuários autorizados possam acessar a imagem.
 
-* [Entender o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+* [Entender o RBAC no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Como configurar o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+* [Como configurar o RBAC no Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -980,11 +980,11 @@ Ao usar o recurso Hybrid Runbook Worker, verifique se você está limitando corr
 
 **Orientação**: definir e implementar configurações de segurança padrão para recursos do Azure usando Azure Policy. Use aliases de Azure Policy para criar políticas personalizadas para auditar ou impor a configuração de rede dos recursos do Azure. Você também pode fazer uso de definições de política internas relacionadas aos seus recursos específicos.
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Como usar aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+* [Como usar aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
-* [Azure Policy os internos de exemplo para a automação do Azure](https://docs.microsoft.com/azure/automation/policy-samples)
+* [Azure Policy os internos de exemplo para a automação do Azure](./policy-samples.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -996,7 +996,7 @@ Ao usar o recurso Hybrid Runbook Worker, verifique se você está limitando corr
 
 Ao usar o recurso de Hybrid Runbook Worker, use a configuração de estado de automação do Azure em runbook Workers, que é um serviço de gerenciamento de configuração para nós de DSC (configuração de estado desejado) em qualquer datacenter local ou na nuvem. Ela permite a escalabilidade entre milhares de máquinas rápida e facilmente a partir de um local central e seguro. Você pode, facilmente, integrar máquinas, atribuir a elas configurações declarativas e exibir relatórios que mostram a conformidade de cada computador com o estado desejado especificado.
 
-* [Integrar computadores para gerenciamento por Configuração de Estado da Automação do Azure](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
+* [Integrar computadores para gerenciamento por Configuração de Estado da Automação do Azure](./automation-dsc-onboarding.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1008,13 +1008,13 @@ Ao usar o recurso de Hybrid Runbook Worker, use a configuração de estado de au
 
 Ao usar o recurso Hybrid Runbook Worker, aproveite a central de segurança do Azure para executar verificações de linha de base para suas máquinas virtuais do Azure. Métodos adicionais para configuração automatizada incluem a configuração de estado de automação do Azure.
 
-* [Como corrigir recomendações na central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+* [Como corrigir recomendações na central de segurança do Azure](../security-center/security-center-remediate-recommendations.md)
 
-* [Introdução à Configuração de Estado da Automação do Azure](https://docs.microsoft.com/azure/automation/automation-dsc-getting-started)
+* [Introdução à Configuração de Estado da Automação do Azure](./automation-dsc-getting-started.md)
 
-* [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy os internos de exemplo para a automação do Azure](https://docs.microsoft.com/azure/automation/policy-samples)
+* [Azure Policy os internos de exemplo para a automação do Azure](./policy-samples.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1026,7 +1026,7 @@ Ao usar o recurso Hybrid Runbook Worker, aproveite a central de segurança do Az
 
 Ao usar o recurso de Hybrid Runbook Worker, use a configuração de estado de automação do Azure para os runbook Workers que é um serviço de gerenciamento de configuração para nós de DSC (configuração de estado desejado) em qualquer datacenter local ou na nuvem. Ela permite a escalabilidade entre milhares de máquinas rápida e facilmente a partir de um local central e seguro. Você pode, facilmente, integrar máquinas, atribuir a elas configurações declarativas e exibir relatórios que mostram a conformidade de cada computador com o estado desejado especificado.
 
-* [Integrar computadores para gerenciamento por Configuração de Estado da Automação do Azure](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
+* [Integrar computadores para gerenciamento por Configuração de Estado da Automação do Azure](./automation-dsc-onboarding.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1036,13 +1036,13 @@ Ao usar o recurso de Hybrid Runbook Worker, use a configuração de estado de au
 
 **Diretrizes**: Use identidade de serviço gerenciada em conjunto com Azure Key Vault para simplificar e proteger o gerenciamento de segredos para seus aplicativos de nuvem.
 
-* [Uso de chaves gerenciadas pelo cliente para uma conta de automação](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+* [Uso de chaves gerenciadas pelo cliente para uma conta de automação](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
-* [Usar autenticação de runbook com identidades gerenciadas](https://docs.microsoft.com/azure/automation/automation-hrw-run-runbooks#runbook-auth-managed-identities)
+* [Usar autenticação de runbook com identidades gerenciadas](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)
 
-* [Como criar um Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
+* [Como criar um Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-* [Como fornecer Key Vault autenticação com uma identidade gerenciada](https://docs.microsoft.com/azure/key-vault/managed-identity)
+* [Como fornecer Key Vault autenticação com uma identidade gerenciada](../key-vault/general/managed-identity.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1052,9 +1052,9 @@ Ao usar o recurso de Hybrid Runbook Worker, use a configuração de estado de au
 
 **Diretrizes**: Use identidades gerenciadas para fornecer aos serviços do Azure uma identidade gerenciada automaticamente no Azure AD. As identidades gerenciadas permitem que você se autentique em qualquer serviço que dê suporte à autenticação do Azure AD, incluindo o Key Vault, sem ter credenciais em seu código.
 
-* [Como configurar identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+* [Como configurar identidades gerenciadas](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
-* [Uso de chaves gerenciadas pelo cliente para uma conta de automação](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+* [Uso de chaves gerenciadas pelo cliente para uma conta de automação](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1072,7 +1072,7 @@ Ao usar o recurso de Hybrid Runbook Worker, use a configuração de estado de au
 
 ## <a name="malware-defense"></a>Defesa contra malware
 
-*Para saber mais, confira [Controle de segurança: Defesa contra malware](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Para saber mais, confira [Controle de segurança: Defesa contra malware](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Usar software antimalware gerenciado centralmente
 
@@ -1080,7 +1080,7 @@ Ao usar o recurso de Hybrid Runbook Worker, use a configuração de estado de au
 
 Ao usar o recurso Hybrid Runbook Worker, use o antimalware da Microsoft para máquinas virtuais do Windows do Azure para monitorar e defender continuamente os recursos do runbook Worker.
 
-* [Como configurar o anti-malware da Microsoft para serviços de nuvem e máquinas virtuais](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Como configurar o anti-malware da Microsoft para serviços de nuvem e máquinas virtuais](../security/fundamentals/antimalware.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1090,7 +1090,7 @@ Ao usar o recurso Hybrid Runbook Worker, use o antimalware da Microsoft para má
 
 **Orientação**: não aplicável; A automação do Azure como um serviço não armazena arquivos. O Microsoft Antimalware está habilitado no host subjacente que dá suporte aos serviços do Azure (por exemplo, automação do Azure), no entanto, não é executado no seu conteúdo.
 
-* [Entender o Microsoft antimalware para serviços de nuvem do Azure e máquinas virtuais](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Entender o Microsoft antimalware para serviços de nuvem do Azure e máquinas virtuais](../security/fundamentals/antimalware.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1102,9 +1102,9 @@ Ao usar o recurso Hybrid Runbook Worker, use o antimalware da Microsoft para má
 
 Ao usar o recurso Hybrid Runbook Worker, use o Microsoft antimalware para Azure para instalar automaticamente as atualizações de assinatura, plataforma e mecanismo mais recentes, por padrão, no runbook Worker. Siga as recomendações na central de segurança do Azure: " &amp; aplicativos de computação" para garantir que todos os pontos de extremidade estejam atualizados com as assinaturas mais recentes. O sistema operacional Windows pode estar mais protegido com segurança adicional para limitar o risco de ataques baseados em vírus ou malware com o serviço de proteção avançada contra ameaças do Microsoft defender, que se integra à central de segurança do Azure.
 
-* [Como implantar o Microsoft antimalware para serviços de nuvem e máquinas virtuais do Azure](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Como implantar o Microsoft antimalware para serviços de nuvem e máquinas virtuais do Azure](../security/fundamentals/antimalware.md)
 
-* [Proteção Avançada contra Ameaças do Microsoft Defender](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/onboard-configure)
+* [Proteção Avançada contra Ameaças do Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/onboard-configure)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1112,7 +1112,7 @@ Ao usar o recurso Hybrid Runbook Worker, use o Microsoft antimalware para Azure 
 
 ## <a name="data-recovery"></a>Recuperação de dados
 
-*Para saber mais, confira [Controle de segurança: Recuperação de dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Para saber mais, confira [Controle de segurança: Recuperação de dados](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantir backups automatizados regulares
 
@@ -1120,23 +1120,23 @@ Ao usar o recurso Hybrid Runbook Worker, use o Microsoft antimalware para Azure 
 
 Use o recurso de integração de controle do código-fonte para manter seus runbooks em sua conta de automação atualizados com scripts no repositório do controle do código-fonte.
 
-* [Visão geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
+* [Visão geral do Azure Resource Manager](../azure-resource-manager/management/overview.md)
 
-* [Referência de modelo de Azure Resource Manager para recursos de automação do Azure](https://docs.microsoft.com/azure/templates/microsoft.automation/allversions)
+* [Referência de modelo de Azure Resource Manager para recursos de automação do Azure](/azure/templates/microsoft.automation/allversions)
 
-* [Criar uma conta de Automação usando um modelo do Azure Resource Manager](https://docs.microsoft.com/azure/automation/automation-create-account-template)
+* [Criar uma conta de Automação usando um modelo do Azure Resource Manager](./automation-create-account-template.md)
 
-* [Exportação única e de vários recursos para um modelo no portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+* [Exportação única e de vários recursos para um modelo no portal do Azure](../azure-resource-manager/templates/export-template-portal.md)
 
-* [Grupos de recursos-exportar modelo](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate)
+* [Grupos de recursos-exportar modelo](/rest/api/resources/resourcegroups/exporttemplate)
 
-* [Introdução à automação do Azure](https://docs.microsoft.com/azure/automation/automation-intro)
+* [Introdução à automação do Azure](./automation-intro.md)
 
-* [Como fazer backup de chaves do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
-* [Uso de chaves gerenciadas pelo cliente para uma conta de automação](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+* [Uso de chaves gerenciadas pelo cliente para uma conta de automação](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
-* [Usar a integração de controle do código-fonte](https://docs.microsoft.com/azure/automation/source-control-integration)
+* [Usar a integração de controle do código-fonte](./source-control-integration.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -1146,23 +1146,23 @@ Use o recurso de integração de controle do código-fonte para manter seus runb
 
 **Diretrizes**: Use Azure Resource Manager para implantar contas de automação do Azure e recursos relacionados. Azure Resource Manager fornece a capacidade de exportar modelos que podem ser usados como backups para restaurar contas de automação do Azure e recursos relacionados. Use a automação do Azure para chamar a API de exportação do modelo Azure Resource Manager regularmente. Fazer backup de chaves gerenciadas pelo cliente dentro do Azure Key Vault. Você pode exportar seus runbooks para arquivos de script usando o portal do Azure ou o PowerShell.
 
-* [Visão geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
+* [Visão geral do Azure Resource Manager](../azure-resource-manager/management/overview.md)
 
-* [Referência de modelo de Azure Resource Manager para recursos de automação do Azure](https://docs.microsoft.com/azure/templates/microsoft.automation/allversions)
+* [Referência de modelo de Azure Resource Manager para recursos de automação do Azure](/azure/templates/microsoft.automation/allversions)
 
-* [Criar uma conta de Automação usando um modelo do Azure Resource Manager](https://docs.microsoft.com/azure/automation/automation-create-account-template)
+* [Criar uma conta de Automação usando um modelo do Azure Resource Manager](./automation-create-account-template.md)
 
-* [Exportação única e de vários recursos para um modelo no portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+* [Exportação única e de vários recursos para um modelo no portal do Azure](../azure-resource-manager/templates/export-template-portal.md)
 
-* [Grupos de recursos-exportar modelo](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate)
+* [Grupos de recursos-exportar modelo](/rest/api/resources/resourcegroups/exporttemplate)
 
-* [Introdução à automação do Azure](https://docs.microsoft.com/azure/automation/automation-intro)
+* [Introdução à automação do Azure](./automation-intro.md)
 
-* [Como fazer backup de chaves do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
-* [Uso de chaves gerenciadas pelo cliente para uma conta de automação](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+* [Uso de chaves gerenciadas pelo cliente para uma conta de automação](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
-* [Backup de dados do Azure para contas de automação](https://docs.microsoft.com/azure/automation/automation-managing-data#data-backup)
+* [Backup de dados do Azure para contas de automação](./automation-managing-data.md#data-backup)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1172,11 +1172,11 @@ Use o recurso de integração de controle do código-fonte para manter seus runb
 
 **Orientação**: garanta a capacidade de executar periodicamente a implantação de modelos de Azure Resource Manager regularmente para uma assinatura isolada, se necessário. Teste a restauração de chaves de backup gerenciadas pelo cliente.
 
-* [Implantar recursos com modelos ARM e portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal)
+* [Implantar recursos com modelos ARM e portal do Azure](../azure-resource-manager/templates/deploy-portal.md)
 
-* [Como restaurar chaves do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Como restaurar chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-* [Uso de chaves gerenciadas pelo cliente para uma conta de automação](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+* [Uso de chaves gerenciadas pelo cliente para uma conta de automação](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1188,11 +1188,11 @@ Use o recurso de integração de controle do código-fonte para manter seus runb
 
 Use o recurso de integração de controle do código-fonte para manter seus runbooks em sua conta de automação atualizados com scripts no repositório do controle do código-fonte.
 
-* [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Sobre permissões e grupos no Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+* [Sobre permissões e grupos no Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-* [Usar a integração de controle do código-fonte](https://docs.microsoft.com/azure/automation/source-control-integration)
+* [Usar a integração de controle do código-fonte](./source-control-integration.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1200,7 +1200,7 @@ Use o recurso de integração de controle do código-fonte para manter seus runb
 
 ## <a name="incident-response"></a>Resposta a incidentes
 
-*Para saber mais, confira [Controle de segurança: Resposta a incidentes](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Para saber mais, confira [Controle de segurança: Resposta a incidentes](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Criar um guia de resposta a incidentes
 
@@ -1222,9 +1222,9 @@ Use o recurso de integração de controle do código-fonte para manter seus runb
 
 Além disso, marque claramente as assinaturas (por exemplo, produção, não produção) usando marcas e crie um sistema de nomeação para identificar claramente e categorizar os recursos do Azure, em especial aqueles que processam dados confidenciais. É sua responsabilidade priorizar a correção de alertas com base na criticalidade dos recursos do Azure e do ambiente em que o incidente ocorreu.
 
-* [Alertas na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+* [Alertas na Central de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-* [Usar marcas para organizar seus recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Usar marcas para organizar seus recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1244,7 +1244,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Diretriz**: As informações de contato do incidente serão usadas pela Microsoft para contatá-lo se o MSRC (Microsoft Security Response Center) descobrir que seus dados foram acessados por uma pessoa não autorizada ou ilegal. Examine os incidentes após o fato para garantir que os problemas sejam resolvidos.
 
-* [Como definir o contato de segurança da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Como definir o contato de segurança da Central de Segurança do Azure](../security-center/security-center-provide-security-contact-details.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1254,9 +1254,9 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Diretriz**: Exporte seus alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua para ajudar a identificar riscos para os recursos do Azure. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Azure Sentinel.
 
-* [Como configurar a exportação contínua](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [Como configurar a exportação contínua](../security-center/continuous-export.md)
 
-* [Como transmitir alertas para o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [Como transmitir alertas para o Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -1266,7 +1266,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Diretrizes**: Use o recurso de automação de fluxo de trabalho na central de segurança do Azure para disparar automaticamente respostas por meio de "aplicativos lógicos" em alertas de segurança e recomendações para proteger os recursos do Azure.
 
-* [Como configurar a automação de fluxo de trabalho e os Aplicativos Lógicos](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [Como configurar a automação de fluxo de trabalho e os Aplicativos Lógicos](../security-center/workflow-automation.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -1274,7 +1274,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testes de penetração e exercícios de Red Team
 
-*Para saber mais, confira [Controle de segurança: Testes de penetração e exercícios de Red Team](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para saber mais, confira [Controle de segurança: Testes de penetração e exercícios de Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: realize testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as descobertas de segurança críticas
 
@@ -1290,5 +1290,5 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira o [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Confira o [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

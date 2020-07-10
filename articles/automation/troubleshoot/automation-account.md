@@ -8,11 +8,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: bebc89514da7f28015da5cb145ae50bf3fccdb6a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: edd57d3d77432f3bb37872ee26f414b56398cae0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680090"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187278"
 ---
 # <a name="troubleshoot-azure-automation-account-issues"></a>Solução de problemas de conta da Automação do Azure
 
@@ -44,7 +45,7 @@ Para registrar o Provedor de Recursos de Automação, execute as seguintes etapa
 
 4. Na lista de provedores de recursos, verifique se o provedor de recursos **Microsoft.Automation** está registrado.
 
-5. Se o provedor não estiver listado, registre-o conforme descrito em [Resolver erros de registro do provedor de recursos](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+5. Se o provedor não estiver listado, registre-o conforme descrito em [Resolver erros de registro do provedor de recursos](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

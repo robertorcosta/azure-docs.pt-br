@@ -6,18 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 07/08/2020
 ms.author: alkohli
-ms.openlocfilehash: 3aa48f42c767a8f1fb1c7bf0ad78fef8b8af1594
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a632e753426def52bb260d7bf01875ec24e2ea9e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85558540"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200129"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Solucionar problemas relacionados a Azure Data Box e Azure Data Box Heavy
 
-Este artigo fornece informações detalhadas sobre como solucionar problemas que você pode ver ao usar o Azure Data Box ou Azure Data Box Heavy. O artigo inclui a lista de possíveis erros vistos quando os dados são copiados para o Data Box ou quando os dados são carregados de Data Box.
+Este artigo fornece informações detalhadas sobre como solucionar problemas que você pode ver ao usar o Azure Data Box ou Azure Data Box Heavy para ordens de importação. O artigo inclui a lista de possíveis erros vistos quando os dados são copiados para o Data Box ou quando os dados são carregados de Data Box para uma ordem de importação.
+
+As informações neste artigo não se aplicam a ordens de exportação criadas para Data Box.
 
 ## <a name="error-classes"></a>Classes de erro
 

@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: e2dcc070baa94ecf1ea27100fd49d4cde1dac637
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccad51d18a5e76f68633103af64e9ba6cc3f19c0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833339"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203372"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedagem de site estático no Armazenamento do Microsoft Azure
 
@@ -76,13 +76,15 @@ Você pode modificar o nível de acesso público do contêiner **$web**, mas iss
 
 A seguinte captura de tela mostra a configuração do nível de acesso público no portal do Azure:
 
-![Captura de tela mostrando como definir o nível de acesso público no portal](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+![Captura de tela mostrando como definir o nível de acesso público no portal](./media/anonymous-read-access-configure/configure-public-access-container.png)
 
 Embora o ponto de extremidade de site estático primário não seja afetado, uma alteração no nível de acesso público tem impacto sobre o ponto de extremidade de serviço blob primário.
 
 Por exemplo, se você alterar o nível de acesso público do contêiner **$web** de **Privado (sem acesso anônimo)** para **Blob (acesso de leitura anônimo somente para blobs)** , o nível de acesso público ao ponto de extremidade do site estático primário `https://contosoblobaccount.z22.web.core.windows.net/index.html` não será alterado.
 
 No entanto, o acesso público ao ponto de extremidade de serviço blob primário `https://contosoblobaccount.blob.core.windows.net/$web/index.html` muda de privado para público. Agora os usuários podem abrir esse arquivo usando qualquer um desses dois pontos de extremidade.
+
+Desabilitar o acesso público em uma conta de armazenamento não afeta sites estáticos hospedados nessa conta de armazenamento. Para obter mais informações, consulte [Configurar acesso de leitura público anônimo para contêineres e blobs](anonymous-read-access-configure.md).
 
 ## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Mapeamento de um domínio personalizado para uma URL de site estático
 

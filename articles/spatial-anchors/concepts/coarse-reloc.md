@@ -8,11 +8,12 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4c1604eaad1ebdedf6a360a647fe5b9f95c829c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ed1a7cacc6c40cb12976c8703164d46e0dc0458
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76844387"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202385"
 ---
 # <a name="coarse-relocalization"></a>Relocalização grosseira
 
@@ -119,13 +120,11 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 
 Em seguida, você precisará decidir quais sensores deseja usar para a relocalização de alta geração. Essa decisão é específica para o aplicativo que você está desenvolvendo, mas as recomendações na tabela a seguir devem fornecer um bom ponto de partida:
 
-
-|             | Inportações | Externas |
-|-------------|---------|----------|
-| GPS         | Desativado | Ativado |
-| WiFi        | Ativado | Ativado (opcional) |
-| Beacons BLE | Em (opcional com advertências, veja abaixo) | Desativado |
-
+|                 | Inportações | Externas |
+|-----------------|---------|----------|
+| **GPS**         | Desativado | Ativado |
+| **Fio**        | Ativado | Ativado (opcional) |
+| **Beacons BLE** | Em (opcional com advertências, veja abaixo) | Desativado |
 
 ### <a name="enabling-gps"></a>Habilitando GPS
 
@@ -657,12 +656,11 @@ A tabela a seguir estima o espaço de pesquisa esperado para cada tipo de sensor
 
 A tabela a seguir resume os dados do sensor coletados em cada uma das plataformas com suporte, juntamente com as limitações específicas da plataforma:
 
-
-|             | HoloLens | Android | iOS |
-|-------------|----------|---------|-----|
-| GPS         | N/D | Com suporte por meio de APIs do [locationmanager][3] (GPS e rede) | Com suporte por meio de APIs [CLLocationManager][4] |
-| WiFi        | Com suporte a uma taxa de aproximadamente uma verificação a cada 3 segundos | Com suporte. A partir do nível de API 28, as verificações de WiFi são limitadas a 4 chamadas a cada 2 minutos. No Android 10, a limitação pode ser desabilitada no menu de configurações do desenvolvedor. Para obter mais informações, consulte a [documentação do Android][5]. | N/A-sem API pública |
-| Beacons BLE | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] |
+|                 | HoloLens | Android | iOS |
+|-----------------|----------|---------|-----|
+| **GPS**         | N/D | Com suporte por meio de APIs do [locationmanager][3] (GPS e rede) | Com suporte por meio de APIs [CLLocationManager][4] |
+| **Fio**        | Com suporte a uma taxa de aproximadamente uma verificação a cada 3 segundos | Com suporte. A partir do nível de API 28, as verificações de WiFi são limitadas a 4 chamadas a cada 2 minutos. No Android 10, a limitação pode ser desabilitada no menu de configurações do desenvolvedor. Para obter mais informações, consulte a [documentação do Android][5]. | N/A-sem API pública |
+| **Beacons BLE** | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] |
 
 ## <a name="next-steps"></a>Próximas etapas
 

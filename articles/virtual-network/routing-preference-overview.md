@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: ba01b89b54dc7209449490059555f531f7616720
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 171ae04a70f3639981e74d20d260a03359a0f2c8
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193355"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187431"
 ---
 # <a name="what-is-routing-preference-preview"></a>O que é a preferência de roteamento (versão prévia)?
 
@@ -88,7 +88,7 @@ A diferença de preço entre as duas opções é refletida nos preços de transf
 
 O suporte à preferência de roteamento está disponível nas seguintes regiões para serviços como máquina virtual e balanceador de carga voltado para a Internet que usam um IP público para a saída da Internet: Norte da Europa, Oeste da Europa, Sul da França, Sul do Reino Unido, Leste dos EUA, Centro-Norte dos EUA, Centro-Sul dos EUA, Oeste dos EUA, Centro-Oeste dos EUA, Sudeste da Ásia, Centro-Oeste da Alemanha, Oeste da Suíça, Leste do Japão e Oeste do Japão.
 
-O suporte de preferência de roteamento para a conta de armazenamento está disponível nas seguintes regiões do Azure-sul da França, norte EUA Central, Oeste EUA Central, leste do Japão, oeste do Japão, Centro-oeste da Alemanha e Oeste da Suíça.
+O suporte de preferência de roteamento para a conta de armazenamento está disponível nas seguintes regiões do Azure-norte EUA Central, Oeste EUA Central, Sul EUA Central, leste dos EUA, oeste dos EUA, Europa Setentrional, sul da França, Centro-oeste da Alemanha, Oeste da Suíça, Sul Ásia Oriental, leste do Japão e oeste do Japão.
 ## <a name="limitations"></a>Limitações
 
 * A preferência de roteamento é compatível apenas com o SKU Standard do endereço IP público. Não há suporte para o SKU Básico do endereço IP público.

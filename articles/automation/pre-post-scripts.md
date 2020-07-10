@@ -5,11 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f05e705f351d75fdf772d3197b94fcece40d43fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 246fcdb27737e99bb677e23216f0305037f54526
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100380"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187448"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gerenciar pré-scripts e pós-scripts
 
@@ -146,7 +147,7 @@ Pré-tarefas e pós-tarefas são executadas como runbooks e não são executadas
 * Uma conta Executar como
 * Um runbook que você deseja executar
 
-Para interagir com computadores do Azure, você deve usar o cmdlet [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) para interagir com suas VMs do Azure. Para obter um exemplo de como fazer isso, confira o exemplo do runbook [Gerenciamento de Atualizações – executar script com o comando Executar](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
+Para interagir com computadores do Azure, você deve usar o cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) para interagir com suas VMs do Azure. Para obter um exemplo de como fazer isso, confira o exemplo do runbook [Gerenciamento de Atualizações – executar script com o comando Executar](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
 
 ### <a name="interact-with-non-azure-machines"></a>Interação com computadores não Azure
 
@@ -157,7 +158,7 @@ As pré-tarefas e as pós-tarefas são executadas no contexto do Azure e não t�
 * Um runbook que deseja executar localmente
 * Um runbook pai
 
-Para interagir com computadores não Azure, um runbook pai é executado no contexto do Azure. Esse runbook chama um runbook filho com o cmdlet [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). É necessário especificar o parâmetro `RunOn` e fornecer o nome do Hybrid Runbook Worker para o script ser executado. Confira o exemplo de runbook [Gerenciamento de Atualizações – executar script localmente](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
+Para interagir com computadores não Azure, um runbook pai é executado no contexto do Azure. Esse runbook chama um runbook filho com o cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). É necessário especificar o parâmetro `RunOn` e fornecer o nome do Hybrid Runbook Worker para o script ser executado. Confira o exemplo de runbook [Gerenciamento de Atualizações – executar script localmente](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
 ## <a name="abort-patch-deployment"></a>Anular implantação de patch
 
@@ -242,7 +243,7 @@ $variable = Get-AutomationVariable -Name $runId
 ```
 
 > [!NOTE]
-> Para runbooks não gráficos do PowerShell, `Add-AzAccount` e `Add-AzureRMAccount` são aliases para [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Você pode usar esses cmdlets ou pode [atualizar seus módulos](automation-update-azure-modules.md) em sua conta de Automação para as versões mais recentes. Talvez você precise atualizar os módulos mesmo que você tenha acabado de criar uma conta de Automação.
+> Para runbooks não gráficos do PowerShell, `Add-AzAccount` e `Add-AzureRMAccount` são aliases para [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Você pode usar esses cmdlets ou pode [atualizar seus módulos](automation-update-azure-modules.md) em sua conta de Automação para as versões mais recentes. Talvez você precise atualizar os módulos mesmo que você tenha acabado de criar uma conta de Automação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

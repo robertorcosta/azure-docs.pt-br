@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 557dc3ad48f8f21d8898e2beb5d940d66058e90c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 8bd988029b8d78a29de38e995c36ee1860d8cda9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744964"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187346"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gerenciar agendamentos na Automação do Azure
 
@@ -31,13 +32,13 @@ Os cmdlets na tabela a seguir são usados para criar e gerenciar agendamentos de
 
 | Cmdlets | Descrição |
 |:--- |:--- |
-| [Get-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Recupera uma agenda. |
-| [Get-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Recupera runbooks agendados. |
-| [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Cria uma nova agenda. |
-| [Register-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Associa um runbook a uma agenda. |
-| [Remove-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Remove uma agenda. |
-| [Set-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Define as propriedades de uma agenda existente. |
-| [Unregister-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Dissocia um runbook de uma agenda. |
+| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Recupera uma agenda. |
+| [Get-AzAutomationScheduledRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Recupera runbooks agendados. |
+| [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Cria uma nova agenda. |
+| [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Associa um runbook a uma agenda. |
+| [Remove-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Remove uma agenda. |
+| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Define as propriedades de uma agenda existente. |
+| [Unregister-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Dissocia um runbook de uma agenda. |
 
 ## <a name="create-a-schedule"></a>Criar um agendamento
 
@@ -64,7 +65,7 @@ Você pode criar um novo agendamento para runbooks no portal do Azure ou com o P
 
 ### <a name="create-a-new-schedule-with-powershell"></a>Criar um novo agendamento com o PowerShell
 
-Use o cmdlet [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) para criar agendamentos. Especifique a hora de início para a agenda e a frequência de execução. Os exemplos a seguir mostram como criar vários cenários de agendamento diferentes.
+Use o cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) para criar agendamentos. Especifique a hora de início para a agenda e a frequência de execução. Os exemplos a seguir mostram como criar vários cenários de agendamento diferentes.
 
 #### <a name="create-a-one-time-schedule"></a>Criar um agendamento único
 
@@ -127,7 +128,7 @@ Um runbook pode ser vinculado a várias agendas, e uma agenda pode ter vários r
 
 ### <a name="link-a-schedule-to-a-runbook-with-powershell"></a>Vincular um agendamento a um runbook com o PowerShell
 
-Use o cmdlet [Register-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) para vincular um agendamento. Você pode especificar valores para os parâmetros do runbook com o parâmetro Parameters. Para mais informações para especificar os valores do parâmetro, consulte [Como iniciar um runbook na Automação do Azure](../automation-starting-a-runbook.md).
+Use o cmdlet [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) para vincular um agendamento. Você pode especificar valores para os parâmetros do runbook com o parâmetro Parameters. Para mais informações para especificar os valores do parâmetro, consulte [Como iniciar um runbook na Automação do Azure](../start-runbooks.md).
 O exemplo a seguir mostra como vincular um agendamento a um runbook usando um cmdlet do Azure Resource Manager com parâmetros.
 
 ```azurepowershell-interactive
@@ -163,7 +164,7 @@ Quando você desabilita uma agenda, qualquer runbook vinculados a ela deixam de 
 
 ### <a name="disable-a-schedule-with-powershell"></a>Desabilitar um agendamento com o PowerShell
 
-Use o cmdlet [Set-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) para alterar as propriedades de um agendamento existente. Para desabilitar o agendamento, especifique false para o parâmetro `IsEnabled`.
+Use o cmdlet [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) para alterar as propriedades de um agendamento existente. Para desabilitar o agendamento, especifique false para o parâmetro `IsEnabled`.
 
 O exemplo a seguir mostra como desabilitar um agendamento para um runbook usando um cmdlet do Azure Resource Manager.
 

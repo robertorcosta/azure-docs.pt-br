@@ -8,11 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 90d7da9c8ddd8c9c595f2209dcc34e2f595acfd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71c1306d1516d8af3fb16c0ba353ab8144de2562
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78196919"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202579"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar políticas do Apache Hive no HDInsight com o Enterprise Security Package
 
@@ -55,7 +56,7 @@ Nesta seção, você criará duas políticas do Ranger para acessar hivesampleta
     |---|---|
     |Nome da política|Read-hivesampletable-All|
     |Banco de dados do hive|default|
-    |tabela|hivesampletable|
+    |table|hivesampletable|
     |Coluna do hive|*|
     |Selecionar usuário|hiveuser1|
     |Permissões|select|
@@ -73,7 +74,7 @@ Nesta seção, você criará duas políticas do Ranger para acessar hivesampleta
     |---|---|
     |Nome da política|Leia-hivesampletable-devicemake|
     |Banco de dados do hive|default|
-    |tabela|hivesampletable|
+    |table|hivesampletable|
     |Coluna do hive|ClientID, devicemake|
     |Selecionar usuário|hiveuser2|
     |Permissões|select|
@@ -91,7 +92,7 @@ As instruções podem ser encontradas em [Criar fonte de dados ODBC do Hive](../
  | Tipo de servidor Hive | Selecione **Servidor Hive 2** |
  | Mecanismo | Selecione **Serviço do Azure HDInsight** |
  | Caminho HTTP | Deixe em branco. |
- | Nome do Usuário | Digite hiveuser1@contoso158.onmicrosoft.com. Atualize o nome de domínio se ele for diferente. |
+ | Nome do Usuário | Insira hiveuser1@contoso158.onmicrosoft.com. Atualize o nome de domínio se ele for diferente. |
  | Senha | Digite a senha para hiveuser1. |
 
 Clique em **Testar** antes de salvar a fonte de dados.
@@ -120,7 +121,9 @@ Na última seção, você configurou duas políticas.  hiveuser1 tem a permissã
 
 1. Selecione a guia **definição** . O texto do comando é:
 
-       SELECT * FROM "HIVE"."default"."hivesampletable"
+    ```sql
+    SELECT * FROM "HIVE"."default"."hivesampletable"`
+    ```
 
    De acordo com as políticas do Ranger definidas por você, hiveuser1 tem permissão select em todas as colunas.  Portanto, essa consulta funciona com as credenciais do hiveuser1, mas essa consulta não funciona com as credenciais do hiveuser2.
 
@@ -135,15 +138,21 @@ Para testar a segunda política (read-hivesampletable-devicemake) que você crio
 1. Adicione uma nova planilha no Excel.
 2. Siga o último procedimento para importar os dados.  A única alteração que você fará é usar as credenciais de hiveuser2 em vez de hiveuser1. Isso falhará porque hiveuser2 só tem permissão para ver duas colunas. Você deverá receber o seguinte erro:
 
-        [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
-        
+    ```output
+    [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
+    ```
+
 3. Siga o mesmo procedimento para importar dados. Desta vez, use as credenciais de hiveuser2 e também modifique a instrução select from:
 
-        SELECT * FROM "HIVE"."default"."hivesampletable"
+    ```sql
+    SELECT * FROM "HIVE"."default"."hivesampletable"
+    ```
 
     para:
 
-        SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
+    ```sql
+    SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
+    ```
 
     Quando terminar, você deverá ver duas colunas de dados importadas.
 

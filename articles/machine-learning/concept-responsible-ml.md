@@ -1,5 +1,5 @@
 ---
-title: Machine Learning (ML) Responsável
+title: Visualização do Machine Learning responsável (ML)
 titleSuffix: Azure Machine Learning
 description: Saiba o que é o ML Responsável e como usá-lo no Azure Machine Learning
 services: machine-learning
@@ -8,14 +8,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 05/08/2020
-ms.openlocfilehash: 09bb7710df19482e9625c1834d2646f70368fc1d
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.date: 07/09/2020
+ms.openlocfilehash: 4f14d4a9207b3bd0ba242973443b8e756527fd70
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920361"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201937"
 ---
-# <a name="responsible-machine-learning-ml"></a>Machine Learning (ML) Responsável
+# <a name="responsible-machine-learning-ml-preview"></a>Visualização do Machine Learning responsável (ML)
 
 Neste artigo, você aprenderá o que é ML Responsável e as maneiras que você pode colocá-lo em prática com o Azure Machine Learning.
 

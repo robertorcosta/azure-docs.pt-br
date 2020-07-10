@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: f12f080f2b1b7379b622fe4d7c5e0b35e358d0ef
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 5f4b48dfbef7362a0b49e53a17b080e127701c94
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041720"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199876"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é AutoML (machine learning automatizado)?
 
@@ -220,21 +220,21 @@ As configurações a seguir permitem que você configure seu experimento de ML a
 
 | |O SDK do Python|A experiência Web do estúdio|
 ----|:----:|:----:
-Dividir dados em conjuntos de treinamento/validação| ✓|✓
-Dá suporte a tarefas de ML: classificação, regressão e previsão| ✓| ✓
-Otimiza com base na métrica primária| ✓| ✓
-Dá suporte à computação do AML como destino de computação | ✓|✓
-Configurar horizonte de previsão, atraso de destino e janela de rolagem|✓|✓
-Definir critérios de saída |✓|✓ 
-Definir iterações simultâneas| ✓|✓
-Remover colunas| ✓|✓
-Bloquear algoritmos|✓|✓
-Validação cruzada |✓|✓
-Dá suporte ao treinamento em clusters do Azure Databricks| ✓|
-Exibir nomes de recursos com engenharia|✓|
-Resumo da definição de recursos| ✓|
-Definição de recursos para feriados|✓|
-Níveis de detalhes do arquivo de log| ✓|
+|**Dividir dados em conjuntos de treinamento/validação**| ✓|✓
+|**Dá suporte a tarefas de ML: classificação, regressão e previsão**| ✓| ✓
+|**Otimiza com base na métrica primária**| ✓| ✓
+|**Dá suporte à computação do AML como destino de computação** | ✓|✓
+|**Configurar horizonte de previsão, atraso de destino & janela sem interrupção**|✓|✓
+|**Definir critérios de saída** |✓|✓ 
+|**Definir iterações simultâneas**| ✓|✓
+|**Remover colunas**| ✓|✓
+|**Bloquear algoritmos**|✓|✓
+|**Validação cruzada** |✓|✓
+|**Dá suporte ao treinamento em clusters do Azure Databricks**| ✓|
+|**Exibir nomes de recursos com engenharia**|✓|
+|**Resumo da definição de recursos**| ✓|
+|**Definição de recursos para feriados**|✓|
+|**Níveis de detalhes do arquivo de log**| ✓|
 
 ### <a name="model-settings"></a>Configurações do modelo
 
@@ -242,11 +242,11 @@ Essas configurações podem ser aplicadas ao melhor modelo como resultado de seu
 
 | |O SDK do Python|A experiência Web do estúdio|
 |----|:----:|:----:|
-|Melhor registro, implantação, capacidade de explicação do modelo| ✓|✓|
-|Habilitar os modelos do ensemble de votação e ensemble de pilha| ✓|✓|
-|Mostrar o melhor modelo com base na métrica não primária|✓||
-|Habilitar/desabilitar a compatibilidade do modelo de ONNX|✓||
-|Testar o modelo | ✓| |
+|**Melhor registro, implantação, capacidade de explicação do modelo**| ✓|✓|
+|**Habilitar Ensemble de votação & os modelos de Ensemble de pilha**| ✓|✓|
+|**Mostrar o melhor modelo com base na métrica não primária**|✓||
+|**Habilitar/desabilitar a compatibilidade do modelo de ONNX**|✓||
+|**Testar o modelo** | ✓| |
 
 ### <a name="run-control-settings"></a>Configurações do controle de execução
 
@@ -254,10 +254,10 @@ Essas configurações permitem que você examine e controle suas execuções de 
 
 | |O SDK do Python|A experiência Web do estúdio|
 |----|:----:|:----:|
-|Executar tabela de resumo| ✓|✓|
-|Cancelar execuções e execuções filho| ✓|✓|
-|Obter proteções| ✓|✓|
-|Pausar e retomar execuções| ✓| |
+|**Executar tabela de resumo**| ✓|✓|
+|**Cancelar execuções & as execuções filhas**| ✓|✓|
+|**Obter proteções**| ✓|✓|
+|**Pausar & retomar execuções**| ✓| |
 
 <a name="use-with-onnx"></a>
 

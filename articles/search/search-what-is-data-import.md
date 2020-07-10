@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 9a4b6bc8ae20789c1420e68f91cee34ac5b3a3ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86982aa418433ecef6a81252363091714185fe22
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554260"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202290"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Visão geral de importação de dados-Azure Pesquisa Cognitiva
 
@@ -67,7 +67,9 @@ Para POST e GET, você precisa fornecer o nome do *serviço*, o *nome do índice
 
 Para GET, você fornece os parâmetros de consulta na *cadeia de consulta* no fim da URL. Veja a seguir o formato da URL:
 
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2020-06-30
+```http
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2019-05-06
+```
 
 O formato para POST é o mesmo, mas com `api-version` nos parâmetros de cadeia de caracteres de consulta.
 
@@ -75,7 +77,7 @@ O formato para POST é o mesmo, mas com `api-version` nos parâmetros de cadeia 
 
 O modelo de pull rastreia uma fonte de dados com suporte e carrega automaticamente os dados no índice. No Azure Pesquisa Cognitiva, esse recurso é implementado por meio de *indexadores*, atualmente disponíveis para essas plataformas:
 
-+ [Armazenamento de BLOBs](search-howto-indexing-azure-blob-storage.md)
++ [Armazenamento de Blobs](search-howto-indexing-azure-blob-storage.md)
 + [Armazenamento de tabelas](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Banco de dados SQL do Azure, SQL Instância Gerenciada e SQL Server em VMs do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
@@ -96,7 +98,7 @@ Uma maneira rápida de executar uma verificação preliminar no carregamento do 
 > [!TIP]
 > Vários [exemplos de código do Azure pesquisa cognitiva](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluem conjuntos de valores inseridos ou prontamente disponíveis, oferecendo uma maneira fácil de começar. O portal também fornece um indexador de exemplo e uma fonte de dados que consiste em um conjunto de dados de imóveis pequeno (denominado "realestate-us-sample"). Quando você executa o indexador pré-configurado na fonte de dados de exemplo, um índice é criado e carregado com documentos que podem ser consultados no Search Explorer ou pelo código que você escreve.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 + [Visão geral do indexador](search-indexer-overview.md)
 + [Passo a passo do portal: criar, carregar, consultar um índice](search-get-started-portal.md)

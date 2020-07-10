@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 7933d5e5cf7d82de013e18b221f3a0c3ce6b5229
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 284f8c8432d732fdfa7e16b43a47578437bcf0ba
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800521"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202244"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Estrutura de resposta da API do Bing Web Search e tipos de resposta  
 
@@ -435,7 +435,7 @@ Se o Bing determinar que o usuário pode ter pretendido pesquisar algo diferente
 
 As respostas da API de Pesquisa na Web do Bing podem conter os seguintes cabeçalhos:
 
-|||
+| Cabeçalho | Descrição |
 |-|-|
 |`X-MSEdge-ClientID`|A ID exclusiva que o Bing atribuiu ao usuário|
 |`BingAPIs-Market`|O mercado que foi usado para atender à solicitação|
@@ -480,6 +480,6 @@ O exemplo a seguir mostra como o Bing usa a sugestão de ortografia.
 
 * Leia a documentação de [Limitação da solicitação](throttling-requests.md).  
 
-## <a name="see-also"></a>Confira também  
+## <a name="see-also"></a>Veja também  
 
 * [Referência da API de Pesquisa na Web do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

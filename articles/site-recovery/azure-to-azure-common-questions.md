@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 22848d84896989b1872c55e687c4a5e73da31de8
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 52c7a4bfeddf808e5a714c7ad4ab164d65868940
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134035"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201209"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas comuns: Recuperação de desastre do Azure para o Azure
 
@@ -120,7 +120,7 @@ Não. Esse é um cenário sem suporte. No entanto, se você mover acidentalmente
 Uma política de replicação define as configurações para o histórico de retenção dos pontos de recuperação. A política também define a frequência de instantâneos consistentes em termos de aplicativo. Por padrão, o Azure Site Recovery cria uma nova política de replicação com configurações padrão de:
 
 - 24 horas para o histórico de retenção dos pontos de recuperação.
-- 60 minutos para a frequência dos instantâneos consistentes em termos de aplicativo.
+- 4 horas para a frequência de instantâneos consistentes com o aplicativo.
 
 [Saiba mais sobre as configurações de replicação](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
 

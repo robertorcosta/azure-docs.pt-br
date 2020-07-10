@@ -5,14 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: how-to
-ms.date: 06/03/2019
+ms.topic: article
+ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 4e16f57d7a8ee10ef870ac102c5458cea4946304
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34b1ce42850fcefcc2b0d146e7f33d720fd8062d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608240"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202532"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use a interface do usuário da Web local para administrar seu Data Box e Data Box Heavy
 
@@ -27,6 +28,8 @@ Este artigo inclui os seguintes tutoriais:
 - Baixar arquivos de manifesto ou BOM
 - Exibir a capacidade disponível no dispositivo
 - Ignorar a validação de soma de verificação
+
+[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="generate-support-package"></a>Gerar pacote de suporte
 
@@ -79,9 +82,9 @@ Para reiniciar o Data Box, execute as seguintes etapas.
 
 ## <a name="download-bom-or-manifest-files"></a>Baixar arquivos de manifesto ou BOM
 
-A BOM (lista de materiais) ou os arquivos de manifesto contêm a lista dos arquivos que são copiados para o Data Box ou Data Box Heavy. Esses arquivos são gerados quando você prepara o dispositivo para envio.
+A BOM (lista de materiais) ou os arquivos de manifesto contêm a lista dos arquivos que são copiados para o Data Box ou Data Box Heavy. Esses arquivos são gerados para uma ordem de importação quando você prepara o dispositivo para envio.
 
-Antes de começar, verifique se o dispositivo foi concluído **preparação para o envio** etapa. Siga estas etapas para baixar a BOM ou os arquivos de manifesto:
+Antes de começar, verifique se o dispositivo foi concluído **preparação para o envio** etapa. Siga estas etapas para baixar a BOM ou os arquivos de manifesto para sua ordem de importação:
 
 1. Vá para a interface do usuário da Web local do seu dispositivo. Você verá que o dispositivo concluiu a preparação para o envio. Quando a preparação do dispositivo for concluída, o status do dispositivo será exibido como **Pronto para envio**.
 
@@ -100,9 +103,9 @@ Antes de começar, verifique se o dispositivo foi concluído **preparação para
     |Nome do Arquivo  |Tipo de Armazenamento do Azure  |Protocolo de conexão usado |
     |---------|---------|---------|
     |databoxe2etest_BlockBlob.txt     |Blobs de bloco         |SMB/NFS         |
-    |databoxe2etest_PageBlob.txt     |Blobs de página         |SMB/NFS         |
+    |databoxe2etest_PageBlob.txt     |Blobs de páginas         |SMB/NFS         |
     |databoxe2etest_AzFile-BOM.txt    |Arquivos do Azure         |SMB/NFS         |
-    |databoxe2etest_PageBlock_Rest-BOM.txt     |Blobs de página         |REST        |
+    |databoxe2etest_PageBlock_Rest-BOM.txt     |Blobs de páginas         |REST        |
     |databoxe2etest_BlockBlock_Rest-BOM.txt    |Blobs de bloco         |REST         |
     |mydbmdrg1_MDisk-BOM.txt    |Disco Gerenciado         |SMB/NFS         |
     |mydbmdrg2_MDisk-BOM.txt     |Disco Gerenciado         |SMB/NFS         |
@@ -167,6 +170,8 @@ Use o painel do dispositivo para exibir a capacidade disponível e é usada do d
 
 As somas de verificação são geradas para os seus dados por padrão quando você se prepara para o envio. Em alguns casos raros, dependendo do tipo de dados (tamanhos de arquivo pequeno), o desempenho pode ser lento. Nesses casos, você pode ignorar a soma de verificação.
 
+A computação de soma de verificação durante a preparação para envio é feita somente para ordens de importação e não para ordens de exportação. 
+
 É altamente recomendado que você não desabilite a soma de verificação, a menos que o desempenho seja gravemente afetado.
 
 1. No canto superior direito da interface do usuário da Web local do seu dispositivo, vá para **configurações**.
@@ -176,7 +181,8 @@ As somas de verificação são geradas para os seus dados por padrão quando voc
 2. **Desabilitar** a validação de soma de verificação
 3. Clique em **Aplicar**.
 
-## <a name="next-steps"></a>Próximas etapas
+> [!NOTE]
+> A opção de computação de soma de verificação de ignorar está disponível somente quando a Azure Data Box é desbloqueada. Você não verá essa opção quando o dispositivo estiver bloqueado.
 
 - Saiba como [gerenciar o data box e data Box Heavy por meio do portal do Azure](data-box-portal-admin.md).
 

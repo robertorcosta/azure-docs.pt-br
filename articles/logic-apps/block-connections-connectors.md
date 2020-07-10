@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 06/19/2020
-ms.openlocfilehash: 938f10b621d6081af84cf15d7e04c5f5ab517417
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6563f3e263867387332940db58abff62e085cded
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84977467"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187686"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Bloquear conexões criadas por conectores em aplicativos lógicos do Azure
 
@@ -123,7 +123,7 @@ Para bloquear a criação de uma conexão totalmente em um aplicativo lógico, s
 
    ![Propriedades de definição de política](./media/block-connections-connectors/policy-definition-create-connections-1.png)
 
-   | Property | Obrigatório | Valor | Descrição |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Local da definição** | Sim | <*Azure-subscription-name*> | A assinatura do Azure a ser usada para a definição de política <p><p>1. para localizar sua assinatura, selecione o botão de reticências (**...**). <br>2. na lista de **assinaturas** , localize e selecione sua assinatura. <br>3. quando terminar, selecione **selecionar**. |
    | **Nome** | Sim | <*política-definição-nome*> | O nome a ser usado para a definição de política |
@@ -244,7 +244,7 @@ Quando você cria uma conexão dentro de um aplicativo lógico, essa conexão ex
 
    ![Propriedades de definição de política](./media/block-connections-connectors/policy-definition-using-connections-1.png)
 
-   | Property | Obrigatório | Valor | Descrição |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Local da definição** | Sim | <*Azure-subscription-name*> | A assinatura do Azure a ser usada para a definição de política <p><p>1. para localizar sua assinatura, selecione o botão de reticências (**...**). <br>2. na lista de **assinaturas** , localize e selecione sua assinatura. <br>3. quando terminar, selecione **selecionar**. |
    | **Nome** | Sim | <*política-definição-nome*> | O nome a ser usado para a definição de política |
@@ -329,7 +329,7 @@ Em seguida, você precisa atribuir a definição de política na qual deseja imp
 
 1. Em **noções básicas**, forneça estas informações para a atribuição de política:
 
-   | Property | Obrigatório | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Escopo** | Sim | Os recursos em que você deseja impor a atribuição de política. <p><p>1. ao lado da caixa **escopo** , selecione o botão de reticências (**...**). <br>2. na lista **assinatura** , selecione a assinatura do Azure. <br>3. opcionalmente, na lista **grupo de recursos** , selecione o grupo de recursos. <br>4. quando terminar, selecione **selecionar**. |
    | **Exclusões** | Não | Todos os recursos do Azure a serem excluídos da atribuição de política. <p><p>1. ao lado da caixa **exclusões** , selecione o botão de reticências (**...**). <br>2. na lista de **recursos** , selecione o recurso > **Adicionar ao escopo selecionado**. <br>3. quando terminar, selecione **salvar**. |
@@ -363,7 +363,7 @@ Para testar a política, comece a criar uma conexão usando o conector restrito 
 
 A mensagem inclui essas informações:
 
-| | |
+| Descrição | Conteúdo |
 |---|---|
 | Motivo da falha | `"Resource 'instagram' was disallowed by policy."` |
 | Nome da atribuição | `"Block Instagram connections"` |

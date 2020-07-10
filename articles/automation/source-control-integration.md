@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3cc75fb34f0a828eccfed3951e84a1c463d4cfb7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 37df5ae8e88bf7832fbbeae37555d60943fca446
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828875"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187295"
 ---
 # <a name="use-source-control-integration"></a>Usar a integração de controle do código-fonte
 
@@ -72,8 +73,7 @@ Use este procedimento para configurar o controle do código-fonte usando o porta
 
 ### <a name="configure-source-control-in-powershell"></a>Configurar controle do código-fonte no PowerShell
 
-Você também pode usar o PowerShell para configurar o controle do código-fonte na Automação do Azure. Para usar os cmdlets do PowerShell nesta operação, você precisa de um PAT (token de acesso pessoal). Use o cmdlet [New-AzAutomationSourceControl](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0
-) para criar a conexão de controle do código-fonte. Este cmdlet requer uma cadeia de caracteres segura para o PAT. Para saber como criar uma cadeia de caracteres segura, confira [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+Você também pode usar o PowerShell para configurar o controle do código-fonte na Automação do Azure. Para usar os cmdlets do PowerShell nesta operação, você precisa de um PAT (token de acesso pessoal). Use o cmdlet [New-AzAutomationSourceControl](/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0) para criar a conexão de controle do código-fonte. Este cmdlet requer uma cadeia de caracteres segura para o PAT. Para saber como criar uma cadeia de caracteres segura, confira [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
 
 As subseções a seguir ilustram a criação do PowerShell da conexão de controle do código-fonte para GitHub, Azure Repos (Git) e Azure Repos (TFVC). 
 
@@ -122,7 +122,7 @@ A tabela a seguir contêm as permissões mínimas necessárias do PAT para o Git
 
 ##### <a name="minimum-pat-permissions-for-azure-repos"></a>Permissões mínimas do PAT para Azure Repos
 
-A lista a seguir contêm as permissões mínimas necessárias do PAT para o Azure Repos. Para obter mais informações sobre como criar um PAT no Azure Repos, confira [Autenticar o acesso com tokens de acesso pessoal](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page).
+A lista a seguir contêm as permissões mínimas necessárias do PAT para o Azure Repos. Para obter mais informações sobre como criar um PAT no Azure Repos, confira [Autenticar o acesso com tokens de acesso pessoal](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page).
 
 | Escopo  |  Tipo de acesso  |
 |---------| ----------|
@@ -195,14 +195,14 @@ Para se desconectar de um repositório de controle do código-fonte:
 
 ## <a name="handle-encoding-issues"></a>Tratar problemas de codificação
 
-Se várias pessoas estiverem editando runbooks em seu repositório de controle do código-fonte usando diferentes editores, poderão ocorrer problemas de codificação. Para saber mais sobre essa situação, confira [Causas comuns de problemas de codificação](https://docs.microsoft.com/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues).
+Se várias pessoas estiverem editando runbooks em seu repositório de controle do código-fonte usando diferentes editores, poderão ocorrer problemas de codificação. Para saber mais sobre essa situação, confira [Causas comuns de problemas de codificação](/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues).
 
 ## <a name="update-the-pat"></a>Atualizar o PAT
 
 No momento, você não pode usar o portal do Azure para atualizar o PAT no controle do código-fonte. Quando seu PAT vencer ou for revogado, você poderá atualizar o controle do código-fonte com um novo token de acesso de uma das seguintes maneiras:
 
-* Usar a [REST API](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update).
-* Usar o cmdlet [Update-AzAutomationSourceControl](https://docs.microsoft.com//powershell/module/az.automation/update-azautomationsourcecontrol).
+* Usar a [REST API](/rest/api/automation/sourcecontrol/update).
+* Usar o cmdlet [Update-AzAutomationSourceControl](//powershell/module/az.automation/update-azautomationsourcecontrol).
 
 ## <a name="next-steps"></a>Próximas etapas
 

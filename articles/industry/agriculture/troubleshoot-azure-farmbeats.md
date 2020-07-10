@@ -5,11 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: b82d415d5e0cf18250123f3483e196aa040285dd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6527ee8be64d57b42d7753c266a5c416ceeef589
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656824"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187703"
 ---
 # <a name="troubleshoot"></a>Solucionar problemas
 
@@ -109,7 +110,7 @@ Para entender como baixar logs, vá até a seção ["Coletar logs manualmente"](
 > [!NOTE]
 > A ID de parceiro do sensor no qual você está interessado.
 
-3. Volte para a API de parceiro e selecione **Get/\<ID>** .
+3. Volte para a API de parceiro e selecione **obter/ \<ID> **.
 4. Especifique a ID de parceiro da etapa 3 e, em seguida, selecione **Executar**.
 
    A resposta da API deve ter a cadeia de conexão dos Hubs de Eventos.
@@ -249,7 +250,7 @@ Esse problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Sentinel: Atingido o número máximo de conexões
 
-**Mensagem de falha de trabalho**: "Número máximo de dois fluxos simultâneos alcançados pelo usuário '\<nome de usuário > '."
+**Mensagem de falha de trabalho**: "número máximo de dois fluxos simultâneos obtidos pelo usuário ' \<username> '."
 
 **Significado**: Se um trabalho falhar porque o número máximo de conexões foi atingido, isso significará que a mesma conta do Sentinel está sendo usada em vários trabalhos.
 
@@ -313,3 +314,39 @@ Esse problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 1. Vá até o grupo de recursos do Datahub do FarmBeats.
 2. Selecione o **Serviço de aplicativo**.  
 3. Vá até a [página de preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/windows/) e, em seguida, selecione um tipo de preço apropriado.
+
+## <a name="weather-data-job-failures"></a>Falhas de trabalho de dados meteorológicos
+
+**Erro**: você executa trabalhos para obter dados meteorológicos, mas o trabalho falha
+
+### <a name="collect-logs-to-troubleshoot-weather-data-job-failures"></a>Coletar logs para solucionar problemas de falhas do trabalho de dados meteorológicos
+
+1. Vá para o grupo de recursos FarmBeats na portal do Azure.
+2. Clique no serviço de Data Factory que faz parte do grupo de recursos. O serviço terá uma marca "SKU: Datahub"
+
+> [!NOTE]
+> Para exibir as marcas dos serviços no grupo de recursos, clique em "Editar colunas" e adicione "marcas" à exibição do grupo de recursos
+
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Projeto FarmBeats":::
+
+3. Na página Visão geral do data Factory, clique em **autor e monitor**. Uma nova guia é aberta no navegador. Clique em **Monitor**
+
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Projeto FarmBeats":::
+
+4. Você verá uma lista de execuções de pipeline que fazem parte da execução do trabalho meteorológico. Clique no trabalho para o qual você deseja coletar logs
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Projeto FarmBeats":::
+
+5. Na página Visão geral do pipeline, você verá a lista de execuções de atividade. Anote as IDs de execução das atividades para as quais você deseja coletar os logs
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Projeto FarmBeats":::
+
+6. Volte para o grupo de recursos FarmBeats em portal do Azure e clique na conta de armazenamento com o nome **datahublogs-xxxx**
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Projeto FarmBeats":::
+
+7. Clique em **contêineres**  ->  **adfjobs**. Na caixa de pesquisa, insira a ID de execução do trabalho que você anotou na etapa 5 acima.
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Projeto FarmBeats":::
+
+8. O resultado da pesquisa conterá a pasta que tem os logs pertencentes ao trabalho. Baixe os logs e envie-os para farmbeatssupport@microsoft.com para obter assistência na depuração do problema.

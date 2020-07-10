@@ -11,11 +11,12 @@ ms.topic: how-to
 ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 03af572c94500e046265a5e9affa4f1742fae544
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8f712604ae854a1870fe96112db3ae0f2ed60a8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782017"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203001"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verificar o status do provisionamento do usuário
 
@@ -76,12 +77,11 @@ A tabela a seguir resume os tempos de sincronização para cenários comuns de p
 | Sincronizar todos os usuários no Azure AD|  Menos de 1.000  | Menos de 30 minutos | Menos de 30 minutos |
 | Sincronizar todos os usuários no Azure AD | 1.000 a 10.000  | 43 a 86 minutos | Menos de 30 minutos |
 
-
 Para a sincronização de configuração, **somente usuários e grupos atribuídos**, você pode usar as fórmulas a seguir para determinar os tempos de **ciclo inicial** mínimo e máximo aproximado:
 
-    Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
-    Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
-    
+- Mínimo de minutos = 0, 1 x [número de usuários atribuídos, grupos e membros do grupo]
+- Máximo de minutos = 0, 8 x [número de usuários atribuídos, grupos e membros do grupo]
+
 Resumo dos fatores que influenciam o tempo necessário para concluir um **ciclo inicial**:
 
 - O número total de usuários e grupos no escopo para provisionamento.

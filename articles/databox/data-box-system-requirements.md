@@ -6,13 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: e232ad131b1c0930afcf5e7e78b386aba2c9490b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 496069ebf64340bc55f03df8dc15304b4888bec0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79259949"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200324"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisitos de sistema do Azure Data Box
 
@@ -32,13 +33,19 @@ Os requisitos de software incluem as informações sobre os sistemas operacionai
 
 [!INCLUDE [data-box-supported-os-clients](../../includes/data-box-supported-os-clients.md)]
 
-### <a name="supported-file-systems-for-linux-clients"></a>Sistemas de arquivos com suporte para clientes Linux
+
+### <a name="supported-filesystems-for-linux-clients"></a>Sistemas de sistema com suporte para clientes Linux
 
 [!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
+
+
+> [!IMPORTANT] 
+> Não há suporte para a conexão com Data Box compartilhamentos via REST para ordens de exportação. 
 
 ### <a name="supported-storage-accounts"></a>Contas de armazenamento com suporte
 
 [!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
+
 
 ### <a name="supported-storage-types"></a>Tipos de armazenamento com suporte
 

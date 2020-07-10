@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: ff7eac9e004a06925fbfa657278e6ec848a7d600
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: b5ce74e680d79cfee006cb8cade6c22bff3c055f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851268"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202964"
 ---
 # <a name="list-blobs-with-net"></a>Listar blobs com .NET
 
-Ao listar blobs do seu código, você pode especificar várias opções para gerenciar o modo como os resultados são retornados do Armazenamento do Azure. Você pode especificar o número de resultados a serem retornados em cada conjunto de resultados e, em seguida, recuperar os conjuntos subsequentes. Você pode especificar um prefixo para retornar os blobs cujos nomes começam com esse caractere ou cadeia de caracteres. Além disso, você pode listar os blobs em uma estrutura de listagem plana ou hierarquicamente. Uma listagem hierárquica retorna blobs como se eles estivessem organizados em pastas. 
+Ao listar blobs do seu código, você pode especificar várias opções para gerenciar o modo como os resultados são retornados do Armazenamento do Azure. Você pode especificar o número de resultados a serem retornados em cada conjunto de resultados e, em seguida, recuperar os conjuntos subsequentes. Você pode especificar um prefixo para retornar os blobs cujos nomes começam com esse caractere ou cadeia de caracteres. Além disso, você pode listar os blobs em uma estrutura de listagem plana ou hierarquicamente. Uma listagem hierárquica retorna blobs como se eles estivessem organizados em pastas.
 
 Esse artigo mostra como listar blobs usando a [biblioteca de clientes do Armazenamento do Azure para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
 

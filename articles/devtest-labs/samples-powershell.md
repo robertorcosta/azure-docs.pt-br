@@ -3,18 +3,18 @@ title: Exemplos do Azure PowerShell para o Azure Lab Services | Microsoft Docs
 description: Exemplos do Azure PowerShell - Scripts para ajudar você a gerenciar laboratórios no Azure Lab Services
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d94074acdd4aeef87f322f8e7a9734e5da9a1c32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce7a4f77aa0ea309afb81a54fd2f8f0a8f373e58
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483220"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187720"
 ---
 # <a name="azure-powershell-samples-for-azure-lab-services"></a>Exemplos do Azure PowerShell para o Azure Lab Services
 
 A tabela a seguir inclui links para exemplos de scripts do Azure PowerShell para o Azure Lab Services.
 
-| |  |
+| Script | Descrição |
 |---|---|
 |[Adicionar um usuário externo a um laboratório](scripts/add-external-user-to-lab.md)| Este script do PowerShell adiciona um usuário externo a um laboratório no Azure DevTest Labs. |
 |[Adicionar imagens do marketplace a um laboratório](scripts/add-marketplace-images-to-lab.md)| Este script do PowerShell adiciona imagens do marketplace a um laboratório no Azure DevTest Labs. |

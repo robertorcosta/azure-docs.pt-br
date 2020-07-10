@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 519d9f25276ea54fbfd49970ba3c288245ce9653
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 528696daf4bddd1f448266243b511e600351606a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833682"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202607"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizado no Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -129,7 +129,7 @@ Use `validation_size` para especificar o percentual do conjunto de dados de trei
 
 ### <a name="custom-validation-dataset"></a>Conjunto de dados de validação personalizados
 
-Use o conjunto de dados de validação personalizado se a divisão aleatória não for aceitável, geralmente, dados de série temporal ou dados não balanceados. É possível especificar seu próprio conjunto de dados de validação. O modelo será avaliado em relação ao conjunto de dados de validação especificado em vez de um conjunto de dados aleatórios.
+Use o conjunto de dados de validação personalizado se a divisão aleatória não for aceitável, geralmente, dados de série temporal ou dados não balanceados. É possível especificar seu próprio conjunto de dados de validação. O modelo será avaliado em relação ao conjunto de dados de validação especificado em vez de um conjunto de dados aleatórios. Saiba mais sobre [como configurar um conjunto de validação personalizado com o SDK](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
 
 ## <a name="compute-to-run-experiment"></a>Computação para executar o experimento
 
@@ -433,7 +433,7 @@ Use essas duas APIs na primeira etapa do modelo ajustado para entender melhor.  
    |Transformações|Lista de transformações aplicadas aos recursos de entrada para gerar recursos de engenharia.|
 ### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>Escalamento/Normalização e algoritmo com valores de hiperparâmetro:
 
-Para entender os valores de escalamento/normalização e de algoritmo/hiperparâmetro para um pipeline, use fitted_model.steps. [Saiba mais sobre escalamento/normalização](). Aqui está uma amostra de saída:
+Para entender os valores de escalamento/normalização e de algoritmo/hiperparâmetro para um pipeline, use fitted_model.steps. [Saiba mais sobre escalamento/normalização](how-to-configure-auto-features.md). Aqui está uma amostra de saída:
 
 ```
 [('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))

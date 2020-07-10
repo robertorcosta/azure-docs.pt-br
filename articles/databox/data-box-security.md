@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 19f06893c862e1e34cd79a42c428d202918f92e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ec5889d952e2836f1d112e38b8248f667cab586
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817710"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200409"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Segurança e proteção de dados do Azure Data Box
 
@@ -30,11 +30,14 @@ A solução Microsoft Azure Data Box consiste em quatro componentes principais q
 - **Clientes/hosts conectados ao dispositivo** – os clientes em sua infraestrutura que se conectam ao dispositivo do Data Box e contêm dados que precisam ser protegidos.
 - **Armazenamento em nuvem** – O local na nuvem do Azure em que os dados ficam armazenados. Isso geralmente é a conta de armazenamento vinculada ao recurso do Azure Data Box que você criou.
 
-O diagrama a seguir indica o fluxo de dados através da solução do Azure Data Box do local para o Azure.
+O diagrama a seguir indica o fluxo de dados através da solução do Azure Data Box do local para o Azure. Esse fluxo é para uma ordem de importação para seu Data Box.
 
 ![Segurança do Data Box](media/data-box-security/data-box-security-2.png)
 
-Conforme os dados fluem por essa solução, os eventos são registrados e os logs são gerados. Para saber mais, acesse [Acompanhamento e registro em log de eventos para o Azure Data Box](data-box-logs.md).
+Conforme os dados fluem por essa solução, os eventos são registrados e os logs são gerados. Para obter mais informações, consulte:
+
+- [Rastreamento e log de eventos para seus Azure data Box importar ordens](data-box-logs.md).
+- [Rastreamento e log de eventos para seus Azure Data Box ordens de exportação](data-box-export-logs.md)
 
 ## <a name="security-features"></a>Recursos de segurança
 

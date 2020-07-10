@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: e5c0b00873cd97b255eff7e001f8b54cf0397462
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: ac5b1f72e4c70e15ccb12ea41e5f080ca0b8a505
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024563"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203025"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisionamento de aplicativo no status de quarentena
 
@@ -36,7 +36,9 @@ Há três maneiras de verificar se um aplicativo está em quarentena:
 
 - Use a solicitação de Microsoft Graph [obter synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) para obter programaticamente o status do trabalho de provisionamento:
 
-        `GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/`
+```microsoft-graph
+        GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
+```
 
 - Verifique seu email. Quando um aplicativo é colocado em quarentena, um email de notificação de uso único é enviado. Se o motivo da quarentena for alterado, um email atualizado será enviado mostrando o novo motivo para quarentena. Se você não vir um email:
 
@@ -74,7 +76,9 @@ Depois de resolver o problema, reinicie o trabalho de provisionamento. Determina
 
 - Use Microsoft Graph para [reiniciar o trabalho de provisionamento](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Você terá controle total sobre o que reinicia. Você pode optar por limpar as caução (para reiniciar o contador de caução que se acumula para o status de quarentena), limpar a quarentena (para remover o aplicativo da quarentena) ou limpar as marcas d' água. Envie a seguinte solicitação:
  
-       `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
-       
+```microsoft-graph
+        POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
+```
+
 Substitua "{ID}" pelo valor da ID do aplicativo e substitua "{jobId}" pela [ID do trabalho de sincronização](https://docs.microsoft.com/graph/api/resources/synchronization-configure-with-directory-extension-attributes?view=graph-rest-beta&tabs=http#list-synchronization-jobs-in-the-context-of-the-service-principal). 
 
