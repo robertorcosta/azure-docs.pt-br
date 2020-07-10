@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: b9bac7b5b23c4e7d4042b53b93347628488be953
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a06f0838f25e771a90fb6dc6f4fcd3bd9bdeda87
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984263"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203809"
 ---
 # <a name="create-a-consulting-service-offer"></a>Criar uma oferta de serviço de consultoria
 
@@ -98,12 +98,22 @@ Essa página permite definir o produto principal para o qual seu serviço de con
 
 3. Se você selecionou **Azure** como produto principal, selecione até três **áreas de solução**. Isso facilita para os clientes do Azure Marketplace encontrarem sua oferta. Se você não escolheu o Azure, pule esta etapa.
 
-    | Área da solução | | | |
-    | --- | --- | --- | --- |
-    | Análise | Backup | DevOps | Migração |
-    | Modernização do aplicativo | Big Data | Recuperação de desastre | Rede |
-    | Archive | Plataforma de dados | Identidade | Segurança |
-    | IA + Machine Learning | Gerenciamento de datacenter | Internet das Coisas | Armazenamento |
+    - Análise
+    - Modernização do aplicativo
+    - Arquivos
+    - IA + Machine Learning
+    - Backup
+    - Big Data
+    - Plataforma de dados
+    - Gerenciamento de datacenter
+    - DevOps
+    - Recuperação de desastre
+    - Identidade
+    - Internet das coisas
+    - Migração
+    - Rede
+    - Segurança
+    - Armazenamento
 
 1. Se você selecionou **Azure** como produto principal, terá a opção de selecionar até seis **indústrias**. Isso facilita para os clientes do Azure Marketplace encontrarem sua oferta. Consulte a lista completa de setores em [práticas recomendadas de listagem de ofertas](../gtm-offer-listing-best-practices.md). Se você não escolheu o Azure, pule esta etapa.
 1. Se você selecionou um produto principal *diferente* do Azure, selecione até três **produtos aplicáveis**. Isso facilita para os clientes do AppSource encontrarem sua oferta. Para mais informações, consulte [Diretrizes de listagem de serviço de consultoria do Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
@@ -126,7 +136,7 @@ Aqui está um exemplo de como as informações de oferta são exibidas no Azure 
 #### <a name="call-out-descriptions"></a>Descrições de chamada
 
 1. Logotipo
-2. Price
+2. Preço
 3. Áreas de solução
 4. Indústrias
 5. Nome da oferta
@@ -141,7 +151,7 @@ Aqui está um exemplo de como as informações de oferta são exibidas no Azure 
 #### <a name="call-out-descriptions"></a>Descrições de chamada
 
 1. Logotipo
-2. Price
+2. Preço
 3. Produtos
 4. Indústrias
 5. Nome da oferta
@@ -212,7 +222,7 @@ Adicione até cinco capturas de tela que mostram como sua oferta funciona. Cada 
 
 Adicione até quatro vídeos que demonstrem sua oferta. Insira o nome do vídeo, seu endereço web (URL) e uma imagem PNG em miniatura do vídeo com tamanho de 1280x720 pixels.
 
-Selecione **Salvar rascunho** para continuar.
+Selecione **Salvar rascunho** antes de continuar.
 
 ## <a name="pricing-and-availability"></a>Preços e disponibilidade
 

@@ -1,26 +1,27 @@
 ---
-title: Rastrear e registrar Azure Data Box Azure Data Box Heavy eventos | Microsoft Docs
-description: Descreve como rastrear e registrar eventos em vários estágios de seu Azure Data Box e Azure Data Box Heavy ordem.
+title: Rastrear e registrar Azure Data Box, Azure Data Box Heavy eventos para a ordem de importação | Microsoft Docs
+description: Descreve como rastrear e registrar eventos em vários estágios de sua Azure Data Box e Azure Data Box Heavy ordem de importação.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 74d38af4a64a184b26bd6ba1105db0d2530d8ba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b65d9579686cdf53f1cac35ba47bc5850b45c8e2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81676401"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204296"
 ---
-# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Rastreamento e log de eventos para seu Azure Data Box e Azure Data Box Heavy
+# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Rastreamento e log de eventos para sua Azure Data Box e Azure Data Box Heavy ordem de importação
 
-Uma ordem Data Box ou Data Box Heavy passa pelas seguintes etapas: pedido, configurar, copiar dados, retornar, carregar no Azure e verificar e a eliminação de dados. Correspondendo a cada etapa na ordem, você pode executar várias ações para controlar o acesso ao pedido, auditar os eventos, acompanhar o pedido e interpretar os vários logs gerados.
+Uma ordem de importação Data Box ou Data Box Heavy passa pelas seguintes etapas: ordem, configuração, cópia de dados, retorno, carregamento no Azure e verificação e eliminação de dados. Correspondendo a cada etapa na ordem, você pode executar várias ações para controlar o acesso ao pedido, auditar os eventos, acompanhar o pedido e interpretar os vários logs gerados.
 
-A tabela a seguir mostra um resumo das etapas Data Box ou Data Box Heavy Order e as ferramentas disponíveis para acompanhar e auditar o pedido durante cada etapa.
+A tabela a seguir mostra um resumo das etapas de ordem de importação Data Box ou Data Box Heavy e as ferramentas disponíveis para acompanhar e auditar o pedido durante cada etapa.
 
-| Estágio de ordem de Data Box       | Ferramenta para acompanhar e auditar                                                                        |
+| Estágio de ordem de importação de Data Box       | Ferramenta para acompanhar e auditar                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Criar pedido               | [Configurar o controle de acesso na ordem por meio de RBAC](#set-up-access-control-on-the-order)                                                    |
 | Pedido processado            | [Acompanhar o pedido](#track-the-order) <ul><li> Portal do Azure </li><li> Site da transportadora </li><li>Notificações por email</ul> |
@@ -30,7 +31,7 @@ A tabela a seguir mostra um resumo das etapas Data Box ou Data Box Heavy Order e
 | Carregamento de dados no Azure       | [Examinar os logs de cópia](#review-copy-log-during-upload-to-azure) em busca de erros durante o carregamento de dados no datacenter do Azure                         |
 | Eliminação de dados do dispositivo   | [Exibir cadeia de logs de custódia](#get-chain-of-custody-logs-after-data-erasure) , incluindo logs de auditoria e histórico de pedidos                |
 
-Este artigo descreve detalhadamente os vários mecanismos ou ferramentas disponíveis para rastrear e auditar Data Box ou Data Box Heavy ordem. As informações neste artigo se aplicam a ambos, Data Box e Data Box Heavy. Nas seções subsequentes, todas as referências a Data Box também se aplicam a Data Box Heavy.
+Este artigo descreve detalhadamente os vários mecanismos ou ferramentas disponíveis para rastrear e auditar Data Box ou Data Box Heavy ordem de importação. As informações neste artigo se aplicam a ordens de importação, Data Box e Data Box Heavy. Nas seções subsequentes, todas as referências a Data Box também se aplicam a Data Box Heavy.
 
 ## <a name="set-up-access-control-on-the-order"></a>Configurar o controle de acesso na ordem
 

@@ -11,15 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/17/2020
+ms.date: 06/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661339545f2c3f01ffd2e07b0fad08de8ac90278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cf82080a54075353d2ff1d98a2ea19fc6a96dc7
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078887"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204014"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Criar uma revisão de acesso de grupos e aplicativos nas revisões de acesso do Azure AD
 
@@ -105,7 +106,7 @@ Para obter mais informações, veja [Requisitos de licença](access-reviews-over
 
 1. Para especificar configurações adicionais, expanda a seção **Configurações avançadas**.
 
-    ![Criar uma revisão de acesso – configurações avançadas](./media/create-access-review/advanced-settings.png)
+    ![Criar uma revisão de acesso – configurações avançadas](./media/create-access-review/advanced-settings-preview.png)
 
 1. Definir **Mostrar recomendações** à **Habilitar** para mostrar aos revisores as recomendações do sistema com base nas informações de acesso do usuário.
 
@@ -113,9 +114,14 @@ Para obter mais informações, veja [Requisitos de licença](access-reviews-over
 
 1. Definir **Notificações por email** para **Habilitar** para que o Azure Active Directory envie notificações por email para os revisores quando uma revisão de acesso começar e para os administradores quando uma revisão terminar.
 
-1. Defina **Lembretes** para **Habilitar** para que o Azure Active Directory envie lembretes de análises de acesso em andamento para os revisores que não concluíram a sua análise.
+1. Defina **Lembretes** para **Habilitar** para que o Azure Active Directory envie lembretes de análises de acesso em andamento para os revisores que não concluíram a sua análise. 
 
-    Por padrão, o Azure AD enviará automaticamente um lembrete após passar a metade do tempo para o prazo final para revisores que ainda não responderam.
+    >[!NOTE]
+    > Por padrão, o Azure AD envia automaticamente um lembrete na metade da data de término para os revisores que ainda não responderam
+
+1. Apresentação O conteúdo do email enviado aos revisores é gerado automaticamente com base nos detalhes da revisão, como nome da revisão, nome do recurso, data de vencimento, etc. Se você precisar de uma maneira de comunicar informações adicionais, como instruções adicionais ou informações de contato, poderá especificar esses detalhes no conteúdo adicional do email do revisor que será incluído nos emails de convite e lembrete enviados aos revisores atribuídos. A seção realçada abaixo é onde essas informações serão exibidas.
+
+    ![Examinar um acesso de usuários a um grupo](./media/create-access-review/review-users-access-group.png)
 
 ## <a name="start-the-access-review"></a>Inicie a revisão de acesso
 

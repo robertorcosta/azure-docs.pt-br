@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81ac76ef5eeebd278dc10e03d661bb21469c8f4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b423cc4cd933f84fccae5c2116be7abbdc288c67
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610551"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203669"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários de Azure Disk Encryption em VMs Windows
 
@@ -82,7 +82,7 @@ Use o cmdlet [set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set
      Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
     
-- **Desabilitar criptografia de disco:** para desabilitar a criptografia, use o cmdlet [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption). Desabilitar a criptografia de disco de dados na VM do Windows quando os discos de dados e o sistema operacional foram criptografados não funciona conforme esperado. Desabilite a criptografia em todos os discos em vez disso.
+- **Desabilitar criptografia de disco:** para desabilitar a criptografia, use o cmdlet [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption). Desabilitar a criptografia de disco de dados na VM do Windows quando os discos de dados e o sistema operacional foram criptografados não funciona conforme o esperado. Desabilite a criptografia em todos os discos em vez disso.
 
      ```azurepowershell-interactive
      Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
@@ -112,7 +112,7 @@ Use o comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryptio
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
 
-- **Desabilitar criptografia:** para desabilitar a criptografia, use o comando [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). Desabilitar a criptografia de disco de dados na VM do Windows quando os discos de dados e o sistema operacional foram criptografados não funciona conforme esperado. Desabilite a criptografia em todos os discos em vez disso.
+- **Desabilitar criptografia:** para desabilitar a criptografia, use o comando [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). Desabilitar a criptografia de disco de dados na VM do Windows quando os discos de dados e o sistema operacional foram criptografados não funciona conforme o esperado. Desabilite a criptografia em todos os discos em vez disso.
 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
@@ -238,6 +238,9 @@ Azure Disk Encryption não funciona para os seguintes cenários, recursos e tecn
 - VMs Gen2 (consulte: [suporte para VMs de geração 2 no Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - VMs da série Lsv2 (consulte: [Lsv2-Series](../lsv2-series.md))
 - VMs da série M com discos Acelerador de Gravação.
+- Aplicar a [criptografia do lado do servidor com chaves gerenciadas pelo cliente](disk-encryption.md) a uma VM criptografada pelo Ade e vice-versa.
+- Migrando uma VM criptografada com ADE para [criptografia do lado do servidor com chaves gerenciadas pelo cliente](disk-encryption.md).
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
