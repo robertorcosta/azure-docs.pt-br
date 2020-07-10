@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: c82f1edfc3acd73c1d38425f963aaaf2976a1cc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff49e9baf83d52ba7c40d0c0a9efbd72cee66cd9
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76844575"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171492"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Tutorial: publicar, assinar eventos na nuvem
 
@@ -21,7 +20,7 @@ Este artigo percorre todas as etapas necessárias para publicar e assinar evento
 
 Consulte [conceitos da grade de eventos](concepts.md) para entender o que é um tópico e uma assinatura da grade de eventos antes de continuar.
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 Para concluir este tutorial, você precisará de:
 
 * **Assinatura do Azure** – crie uma [conta gratuita](https://azure.microsoft.com/free) se você ainda não tiver uma. 

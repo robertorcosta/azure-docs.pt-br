@@ -8,11 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4d2ee2bccf94dca933981c3070323b659eab6cfa
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f7bf1c8f3f1ecbb21207776a99bba99d123ea891
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836083"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171934"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Como implementar a navegação facetada no Azure Cognitive Search
 
@@ -283,10 +284,12 @@ Em uma busca detalhada facetada, você geralmente deseja incluir apenas os docum
 
 Resultados da faceta são documentos encontrados nos resultados da pesquisa que correspondem a um termo usado como faceta. No exemplo a seguir, nos resultados da pesquisa para *computação em nuvem*, 254 itens também têm *especificação interna* como um tipo de conteúdo. Os itens não são necessariamente mutuamente exclusivos. Se um item atende aos critérios de ambos os filtros, ele será contado em cada um deles. Essa duplicação é possível ao realizar a facetagem em campos `Collection(Edm.String)`, que geralmente são usados para implementar a marcação do documento.
 
-        Search term: "cloud computing"
-        Content type
-           Internal specification (254)
-           Video (10) 
+```output
+Search term: "cloud computing"
+Content type
+   Internal specification (254)
+   Video (10)
+```
 
 Em geral, se você descobrir que os resultados da faceta costumam ser muito grandes, é recomendável adicionar mais filtros para fornecer aos usuários mais opções para limitar a pesquisa.
 
@@ -344,7 +347,7 @@ Para dados numéricos, você pode usar uma lista de valores.  Considere o interv
 
 Para especificar um intervalo da faceta como a mostrada na captura de tela anterior, use uma lista de valores:
 
-    facet=listPrice,values:10|25|100|500|1000|2500
+> `facet=listPrice,values:10|25|100|500|1000|2500`
 
 Cada intervalo é criado usando 0 como ponto de partida, um valor da lista como um ponto de extremidade e então recortado do intervalo anterior para criar intervalos discretos. O Azure Cognitive Search faz essas coisas como parte da navegação facetada. Você não precisa escrever código para estruturar cada intervalo.
 

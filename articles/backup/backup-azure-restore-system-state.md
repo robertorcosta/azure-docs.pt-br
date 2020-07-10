@@ -1,15 +1,14 @@
 ---
 title: Restaurar o estado do sistema para um Windows Server
 description: Explicação passo a passo para restaurar o estado do sistema do Windows Server de um backup no Azure.
-ms.reviewer: saurse
 ms.topic: conceptual
-ms.date: 08/18/2017
-ms.openlocfilehash: 39cac84c4a33c1da209d0a0cc7b0f8ac8ee390a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 06/30/2020
+ms.openlocfilehash: 5212e5ea0ed3a8c0e0a8e9d4fa45f1eb6c901bf5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610778"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184441"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para Windows Server
 
@@ -19,7 +18,7 @@ Este artigo explica como restaurar backups de estado do sistema do Windows Serve
    * Restaurar o estado do sistema para o mesmo servidor em que os backups foram realizados, ou
    * Restaurar o arquivo de estado do sistema para um servidor alternativo.
 
-2. Aplica os arquivos restaurados do estado do sistema para um Windows Server.
+2. Aplique os arquivos de estado do sistema restaurados a um Windows Server usando o utilitário Backup do Windows Server.
 
 ## <a name="recover-system-state-files-to-the-same-server"></a>Recuperar arquivos de estado do sistema para o mesmo servidor
 
@@ -51,7 +50,7 @@ As etapas a seguir explicam como reverter a configuração do Windows Server par
 
     O Backup do Azure monta o ponto de recuperação local e o usa como um volume de recuperação.
 
-7. No próximo painel, especifique o destino para os arquivos recuperados do estado do sistema e clique em **Procurar** para abrir o Windows Explorer e localize os arquivos e pastas que você deseja. A opção **Criar cópias para ter ambas as versões** cria cópias de arquivos individuais em um arquivo existente de estado do sistema em vez de criar a cópia do arquivo de estado do sistema inteiro.
+7. No próximo painel, especifique o destino para os arquivos de estado do sistema recuperados. Em seguida, clique em **procurar** para abrir o Windows Explorer e localizar os arquivos e pastas desejados. A opção **Criar cópias para ter ambas as versões** cria cópias de arquivos individuais em um arquivo existente de estado do sistema em vez de criar a cópia do arquivo de estado do sistema inteiro.
 
     ![Opções de recuperação](./media/backup-azure-restore-system-state/recover-as-files.png)
 
@@ -61,7 +60,7 @@ As etapas a seguir explicam como reverter a configuração do Windows Server par
 
 9. Copie o diretório *WindowsImageBackup* no destino de recuperação para um volume não crítico do servidor. Geralmente, o volume do sistema operacional Windows é o volume crítico.
 
-10. Quando a recuperação for bem-sucedida, siga as etapas na seção [Aplicar arquivos restaurados de estado do sistema para o Windows Server](backup-azure-restore-system-state.md) para concluir o processo de recuperação do estado do sistema.
+10. Depois que a recuperação for bem-sucedida, siga as etapas na seção [aplicar o estado do sistema restaurado em um Windows Server](#apply-restored-system-state-on-a-windows-server)para concluir o processo de recuperação do estado do sistema.
 
 ## <a name="recover-system-state-files-to-an-alternate-server"></a>Recuperar o arquivo de estado do sistema para um servidor alternativo
 
@@ -71,7 +70,7 @@ A terminologia usada nessas etapas inclui:
 
 * *Computador de origem* – o computador original do qual o backup foi feito e que não está disponível no momento.
 * *Computador de destino* – O computador para o qual os dados estão sendo recuperados.
-* *Cofre de exemplo* – o cofre dos serviços de recuperação no qual o *computador de origem* e o *computador de destino* estão registrados. <br/>
+* *Cofre de exemplo* – o cofre dos serviços de recuperação no qual o *computador de origem* e o *computador de destino* estão registrados.
 
 > [!NOTE]
 > Os backups de um computador não podem ser restaurados em um computador que esteja executando uma versão anterior do sistema operacional. Por exemplo, os backups de um computador Windows Server 2016 não podem ser restaurados para o Windows Server 2012 R2. No entanto, o inverso é possível. Você pode usar os backups do Windows Server 2012 R2 para restaurar o Windows Server 2016.
@@ -115,6 +114,61 @@ A terminologia usada nessas etapas inclui:
 
 Uma vez você tiver recuperado o estado do sistema como arquivos usando o agente de serviços de recuperação do Azure, use o utilitário de Backup do Windows Server para aplicar o estado do sistema recuperado para o Windows Server. O utilitário de Backup do Windows Server já está disponível no servidor. As etapas a seguir explicam como aplicar o estado do sistema recuperado.
 
+1. Abra o snap-in Backup do Windows Server. Se você não souber onde o snap-in foi instalado, pesquise **Backup do Windows Server** no computador ou servidor.
+
+    O aplicativo da área de trabalho aparece nos resultados da pesquisa. Se ele não aparecer ou se você encontrar erros ao abrir o aplicativo, você deve instalar os **recursos de backup do Windows Server**e os componentes dependentes abaixo dele, que estão disponíveis no **Assistente para adicionar recursos** no **Gerenciador do servidor**.
+
+1. No snap-in, selecione **Backup Local**.
+
+    ![Selecionar Backup Local para restaurar a partir daí](./media/backup-azure-restore-system-state/win-server-backup-local-backup.png)
+
+1. No console do Backup Local, no **Painel Ações**, clique em **Recuperar** para abrir o Assistente de Recuperação.
+
+1. Selecione a opção **um backup armazenado em outro local**e clique em **Avançar**.
+
+   ![Escolha recuperar para um servidor diferente](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
+
+1. Ao especificar o tipo de local, selecione **Pasta compartilhada remota** se o backup do estado do sistema foi recuperado em outro servidor. Se o estado do sistema foi recuperado localmente, então, selecione **unidades locais**.
+
+    ![Selecione se é recuperação de servidor local ou outro](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
+
+1. Insira o caminho para o diretório *WindowsImageBackup*, ou escolha a unidade local que contém esse diretório (por exemplo, D:\WindowsImageBackup) recuperado como parte da recuperação de arquivos de estado do sistema usando o agente de serviços de recuperação do Azure e clique em **Avançar**.
+
+    ![Caminho para o arquivo compartilhado](./media/backup-azure-restore-system-state/ss-recovery-remote-folder.png)
+
+1. Selecione a versão de estado do sistema que você deseja restaurar e clique em **Avançar**.
+
+1. No painel Selecionar Tipo de Recuperação, selecione **Estado do Sistema** e clique em **Avançar**.
+
+1. Para o local da Recuperação do Estado do Sistema, selecione **Local Original**, e clique em **Avançar**.
+
+    Se estiver restaurando um controlador de domínio, você verá a seguinte opção adicional:
+
+    ![Local para recuperação de estado do sistema](./media/backup-azure-restore-system-state/location-for-system-state-recovery.png)
+
+    >[!NOTE]
+    >Selecione apenas "executar uma restauração autoritativa de arquivos de Active Directory" se você pretender explicitamente fazer uma restauração autoritativa de todos os dados de Active Directory.
+
+1. Examine os detalhes da confirmação, verifique as configurações de reinicialização e clique em **Recuperar** para aplicar os arquivos do estado do sistema restaurado.
+
+    ![Inicie a restauração de arquivos de estado do sistema](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
+
+    >[!NOTE]
+    >Não selecione a opção **reinicializar automaticamente o servidor** se você estiver executando a restauração no modo DSRM.
+
+1. Depois de concluir uma restauração com êxito, você precisará reiniciar o servidor no modo normal. Abra um prompt de comando e digite o seguinte:`bcdedit /deletevalue safeboot`
+1. Reinicialize o servidor.
+
+## <a name="special-considerations-for-system-state-recovery-on-a-domain-controller"></a>Considerações especiais sobre a recuperação de estado do sistema em um controlador de domínio
+
+O backup de estado do sistema inclui dados do Active Directory. Use as etapas a seguir para restaurar o Serviço de Domínio do Active Directory (AD DS) de seu estado atual para um estado anterior. Esse tipo de restauração pode ser feito em dois cenários:
+
+* Restaurar todos os dados de Active Directory quando não há controladores de domínio em funcionamento restantes na floresta
+* Restaurar uma parte do Active Directory dados quando esses objetos tiverem sido excluídos ou corrompidos
+
+Este artigo abordará apenas o primeiro cenário, que chama uma restauração nonauthorative de AD DS e uma restauração autoritativa da pasta SYSVOL.  Se você precisar executar o segundo cenário (em que os controladores de domínio ainda estão funcionais, mas precisar restaurar objetos específicos do AD), consulte [estas instruções](https://support.microsoft.com/help/840001/how-to-restore-deleted-user-accounts-and-their-group-memberships-in-ac).
+
+1. Siga as etapas aqui para [recuperar arquivos de estado do sistema para um servidor alternativo](#recover-system-state-files-to-an-alternate-server).
 1. Use os seguintes comandos para reiniciar o servidor em *Modo de reparo de serviços de diretório*. Em um prompt de comandos com privilégios elevados:
 
     ```cmd
@@ -122,48 +176,35 @@ Uma vez você tiver recuperado o estado do sistema como arquivos usando o agente
     Shutdown /r /t 0
     ```
 
-2. Após a reinicialização, abra o snap-in Backup do Windows Server. Se você não souber onde o snap-in foi instalado, pesquise **Backup do Windows Server** no computador ou servidor.
+1. Para recuperar Active Directory como parte de uma restauração de estado do sistema, você pode escolher um dos dois métodos:
 
-    O aplicativo da área de trabalho aparece nos resultados da pesquisa. Se ele não aparecer ou se você encontrar erros ao abrir o aplicativo, você deve instalar os **recursos de backup do Windows Server**e os componentes dependentes abaixo dele, que estão disponíveis no **Assistente para adicionar recursos** no **Gerenciador do servidor**.
+    * Siga as instruções acima para [aplicar o estado do sistema restaurado em um Windows Server](#apply-restored-system-state-on-a-windows-server) com o utilitário backup do Windows Server.
 
-3. No snap-in, selecione **Backup Local**.
+        >[!NOTE]
+        >Se você estiver restaurando todos os dados de Active Directory (e não houver controladores de domínio em funcionamento restantes na floresta), na etapa 9 acima, certifique-se de selecionar **executar uma restauração autoritativa de arquivos de Active Directory**.
 
-    ![Selecionar Backup Local para restaurar a partir daí](./media/backup-azure-restore-system-state/win-server-backup-local-backup.png)
+    * Use o utilitário [Wbadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) para executar a restauração a partir da linha de comando.
 
-4. No console do Backup Local, no **Painel Ações**, clique em **Recuperar** para abrir o Assistente de Recuperação.
+        Você precisará do identificador de versão do backup que deseja usar. Você pode obter uma lista de identificadores de versão executando este comando:
 
-5. Selecione a opção **um backup armazenado em outro local**e clique em **Avançar**.
+        ```cmd
+        wbadmin get versions -backuptarget <servername\sharename>
+        ```
 
-   ![Escolha recuperar para um servidor diferente](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
+        Em seguida, você usa esse identificador de versão para executar a restauração.
 
-6. Ao especificar o tipo de local, selecione **Pasta compartilhada remota** se o backup do estado do sistema foi recuperado em outro servidor. Se o estado do sistema foi recuperado localmente, então, selecione **unidades locais**.
+        Por exemplo, para executar uma [restauração nonauthorative de AD DS e uma restauração autoritativa da pasta SYSVOL](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) usando o backup de 04/30/2020 às 9:00, que é armazenado no recurso compartilhado `\\servername\share` para `server01` , digite:
 
-    ![Selecione se é recuperação de servidor local ou outro](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
+        ```cmd
+        wbadmin start systemstaterecovery -version:04/30/2020-09:00 -backupTarget:\\servername\share -machine:server01 -authsysvol
+        ```
 
-7. Insira o caminho para o diretório *WindowsImageBackup*, ou escolha a unidade local que contém esse diretório (por exemplo, D:\WindowsImageBackup) recuperado como parte da recuperação de arquivos de estado do sistema usando o agente de serviços de recuperação do Azure e clique em **Avançar**.
-
-    ![Caminho para o arquivo compartilhado](./media/backup-azure-restore-system-state/ss-recovery-remote-folder.png)
-
-8. Selecione a versão de estado do sistema que você deseja restaurar e clique em **Avançar**.
-
-9. No painel Selecionar Tipo de Recuperação, selecione **Estado do Sistema** e clique em **Avançar**.
-
-10. Para o local da Recuperação do Estado do Sistema, selecione **Local Original**, e clique em **Avançar**.
-
-11. Examine os detalhes da confirmação, verifique as configurações de reinicialização e clique em **Recuperar** para aplicar os arquivos do estado do sistema restaurado.
-
-    ![Inicie a restauração de arquivos de estado do sistema](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
-
-## <a name="special-considerations-for-system-state-recovery-on-active-directory-server"></a>Considerações especiais para recuperação de estado do sistema no servidor do Active Directory
-
-O backup de estado do sistema inclui dados do Active Directory. Use as etapas a seguir para restaurar o Serviço de Domínio do Active Directory (AD DS) de seu estado atual para um estado anterior.
-
-1. Reinicie o controlador de domínio no Modo de Restauração dos Serviços de Diretório (DSRM).
-2. Siga as etapas [aqui](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) para usar backup do Windows Server cmdlets para recuperar AD DS.
+1. Depois de concluir uma restauração com êxito, você deve reiniciar o servidor no modo normal. Abra um prompt de comando e digite o seguinte:`bcdedit /deletevalue safeboot`
+1. Reinicialize o servidor.
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Solucionar problemas de restauração de estado do sistema com falha
 
-Se o processo anterior de aplicação de estado do sistema não for concluído com êxito, use o ambiente de recuperação do Windows (Windows RE) para recuperar o Windows Server. As etapas a seguir explicam como recuperar usando o Win RE. Use esta opção somente se o Windows Server não inicializar normalmente após uma restauração do estado do sistema. O processo a seguir apaga dados que não são do sistema, tenha cuidado.
+Se o processo anterior de aplicação do estado do sistema não for concluído com êxito, use o ambiente de recuperação do Windows (Win RE) para recuperar o Windows Server. As etapas a seguir explicam como recuperar usando o Win RE. Use esta opção somente se o Windows Server não inicializar normalmente após uma restauração do estado do sistema. O processo a seguir apaga dados que não são do sistema, tenha cuidado.
 
 1. Inicialização do Windows Server para o ambiente de recuperação do Windows (Windows RE).
 

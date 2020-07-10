@@ -4,11 +4,12 @@ description: Neste artigo, saiba como solucionar problemas encontrados com backu
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 68310f504e94e50be9fbd4ce49055a4b318ab5d5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e40b74cc5bf995e943b20ddcd21127ed4f7d7ead
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659512"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184184"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
 
@@ -185,19 +186,58 @@ Isso garantirá que os instantâneos são executados por meio do host em vez do 
 
 **Etapa 3**: Tente [aumentar o tamanho da máquina virtual](https://azure.microsoft.com/blog/resize-virtual-machines/) e repita a operação
 
-## <a name="common-vm-backup-errors"></a>Erros comuns de backup da VM
 
-| Detalhes do erro | Solução alternativa |
-| ------ | --- |
-| **Erro de código**: 320001, ResourceNotFound <br/> **Mensagem de erro**: Não foi possível executar a operação, pois a VM não existe mais. <br/> <br/> **Erro de código**: 400094, BCMV2VMNotFound <br/> **Mensagem de erro**: A máquina virtual não existe <br/> <br/>  Uma máquina virtual do Azure não foi encontrada.  |Esse erro ocorre quando a VM primária é excluída, mas a política de backup ainda parece para uma VM fazer backup. Para corrigir esse erro, use as etapas a seguir: <ol><li> Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos **nome do serviço de nuvem**,<br>**or**</li><li> Pare a proteção da máquina virtual excluindo ou não os dados de backup. Para obter mais informações, consulte [Interromper a proteção de máquinas virtuais](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
-|**Erro de código**: UserErrorBCMPremiumStorageQuotaError<br/> **Mensagem de erro**: Não foi possível copiar o instantâneo da máquina virtual porque o espaço livre era insuficiente na conta de armazenamento | No caso de VMs premium na pilha de backup de VM V1, copiamos o instantâneo para a conta de armazenamento. Essa etapa garante que o tráfego de gerenciamento de backup, que funciona no instantâneo, não limite o número de IOPS disponível para o aplicativo usando discos premium. <br><br>É recomendável que você aloque apenas 50 por cento, 17,5 TB, do espaço de conta de armazenamento total. Então, o serviço de Backup do Azure pode copiar o instantâneo para a conta de armazenamento e transferir dados desse local copiado na conta de armazenamento para o cofre. |
-| **Erro de código**: 380008, AzureVmOffline <br/> **Mensagem de erro**: Falha ao instalar a extensão dos Serviços de Recuperação da Microsoft, pois uma máquina virtual não está em execução | O agente de VM é um pré-requisito para a extensão de serviços de recuperação do Azure. Instale o agente de VM do Azure e reinicie a operação de registro. <br> <ol> <li>Verifique se o agente da VM foi instalado corretamente. <li>Certifique-se de que o sinalizador de configuração da VM esteja definido corretamente.</ol> Leia mais sobre como instalar o agente da VM e como validar a instalação do agente da VM. |
-| **Erro de código**: ExtensionSnapshotBitlockerError <br/> **Mensagem de erro**: A operação de instantâneo falhou com o erro de operação do Serviço de Cópias de Sombra de Volume (VSS) **Essa unidade essa bloqueada pela Criptografia de Unidade de Disco BitLocker. Você deve desbloquear esta unidade no Painel de Controle.** |Desative o BitLocker para todas as unidades na VM e verifique se o problema VSS é resolvido. |
-| **Erro de código**: VmNotInDesirableState <br/> **Mensagem de erro**:  A VM não está em um estado que permite todos os backups. |<ul><li>Se a VM estiver em um estado transitório entre **Execução** e **Desligada**, aguarde a alteração do estado para mudar. Em seguida, dispare o trabalho de backup. <li> Se a VM for uma VM do Linux e usar o módulo de kernel do Linux com Segurança Aprimorada, exclua o caminho do Agente para Linux do Azure **/var/lib/waagent** da política de segurança e certifique-se de que a extensão de Backup está instalada.  |
-| O agente de VM não está presente na máquina virtual: <br>Instale qualquer pré-requisito necessário e o agente de VM. Em seguida, reinicie a operação. |Leia mais sobre [Instalação do Agente da VM e como validar a Instalação do Agente da VM](#vm-agent). |
-| **Erro de código**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Mensagem de erro**: A operação de instantâneo falhou devido a falha ao criar um canal de comunicação de rede segura. | <ol><li> Abra o Editor do Registro executando **regedit.exe** no modo elevado. <li> Identificar todas as versões do .NET Framework presente no seu sistema. Eles estão presentes na hierarquia de chave do Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Para cada .NET Framework presente na chave do registro, adicione a seguinte chave: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
-| **Erro de código**: ExtensionVCRedistInstallationFailure <br/> **Mensagem de erro**: A operação de instantâneo falhou devido a falha ao instalar os Pacotes Redistribuíveis do Visual C++ para Visual Studio 2012. | <li> Navegue até `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` e instale vcredist2013_x64.<br/>Certifique-se de que o valor da chave do registro permite que a instalação desse serviço seja definida como o valor correto. Ou seja, defina o valor **Iniciar** em **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** como **3** e não **4**. <br><br>Se você ainda estiver enfrentando problemas com a instalação, reinicie o serviço de instalação executando **MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** em um prompt de comandos com privilégios elevados. <br><br><li> Verifique o log de eventos para verificar se você está percebendo problemas relacionados ao acesso. Por exemplo:  *Produto: Tempo de C++ execução mínimo do Microsoft Visual 2013 x64-12.0.21005--Error 1401. não foi possível criar a chave: Software\Classes  Erro do sistema 5.  Verifique se você tem acesso suficiente a essa chave ou entre em contato com a equipe de suporte.* <br><br> Verifique se a conta de administrador ou de usuário tem permissões suficientes para atualizar a chave do registro **HKEY_LOCAL_MACHINE \SOFTWARE\Classes**. Forneça permissões suficientes e reinicie o agente convidado do Windows Azure.<br><br> <li> Se você tiver produtos antivírus em vigor, verifique se eles têm as regras de exclusão corretas para permitir a instalação.    |
-| **Erro de código**:  UserErrorRequestDisallowedByPolicy <BR> **Mensagem de erro**: Uma política inválida foi configurada na VM impedindo a operação de Instantâneo. | Se você tiver um Azure Policy que [governa as marcas em seu ambiente](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags), considere alterar a política de um [efeito de negação de](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) para um [de efeito modificar](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)ou crie o grupo de recursos manualmente de acordo com o esquema de nomenclatura do [exigido pelo](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines)de backup do Azure.
+## <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001, ResourceNotFound-não foi possível executar a operação porque a VM não existe mais/400094, BCMV2VMNotFound-a máquina virtual não existe/uma máquina virtual do Azure não foi encontrada
+
+Erro de código: 320001, ResourceNotFound <br/> Mensagem de erro: Não foi possível executar a operação, pois a VM não existe mais. <br/> <br/> Erro de código: 400094, BCMV2VMNotFound <br/> Mensagem de erro: A máquina virtual não existe <br/>
+Uma máquina virtual do Azure não foi encontrada.
+
+Esse erro ocorre quando a VM primária é excluída, mas a política de backup ainda parece para uma VM fazer backup. Para corrigir esse erro, use as etapas a seguir:
+- Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos **nome do serviço de nuvem**,<br>ou
+- Pare a proteção da máquina virtual excluindo ou não os dados de backup. Para obter mais informações, consulte [Interromper a proteção de máquinas virtuais](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>
+
+## <a name="usererrorbcmpremiumstoragequotaerror---could-not-copy-the-snapshot-of-the-virtual-machine-due-to-insufficient-free-space-in-the-storage-account"></a>UserErrorBCMPremiumStorageQuotaError-não foi possível copiar o instantâneo da máquina virtual devido a espaço livre insuficiente na conta de armazenamento
+
+Erro de código: UserErrorBCMPremiumStorageQuotaError<br/> Mensagem de erro: Não foi possível copiar o instantâneo da máquina virtual porque o espaço livre era insuficiente na conta de armazenamento
+
+ No caso de VMs premium na pilha de backup de VM V1, copiamos o instantâneo para a conta de armazenamento. Essa etapa garante que o tráfego de gerenciamento de backup, que funciona no instantâneo, não limite o número de IOPS disponível para o aplicativo usando discos premium. <br><br>É recomendável que você aloque apenas 50 por cento, 17,5 TB, do espaço de conta de armazenamento total. Então, o serviço de Backup do Azure pode copiar o instantâneo para a conta de armazenamento e transferir dados desse local copiado na conta de armazenamento para o cofre.
+
+
+## <a name="380008-azurevmoffline---failed-to-install-microsoft-recovery-services-extension-as-virtual-machine--is-not-running"></a>380008, AzureVmOffline-falha ao instalar a extensão dos serviços de recuperação da Microsoft porque a máquina virtual não está em execução
+Erro de código: 380008, AzureVmOffline <br/> Mensagem de erro: Falha ao instalar a extensão dos Serviços de Recuperação da Microsoft, pois uma máquina virtual não está em execução
+
+O agente de VM é um pré-requisito para a extensão de serviços de recuperação do Azure. Instale o agente de VM do Azure e reinicie a operação de registro. <br> <ol> <li>Verifique se o agente da VM foi instalado corretamente. <li>Certifique-se de que o sinalizador de configuração da VM esteja definido corretamente.</ol> Leia mais sobre como instalar o agente da VM e como validar a instalação do agente da VM.
+
+## <a name="extensionsnapshotbitlockererror---the-snapshot-operation-failed-with-the-volume-shadow-copy-service-vss-operation-error"></a>ExtensionSnapshotBitlockerError-falha na operação de instantâneo com o erro de operação de Serviço de Cópias de Sombra de Volume (VSS)
+Erro de código: ExtensionSnapshotBitlockerError <br/> Mensagem de erro: falha na operação de instantâneo com o erro de operação de Serviço de Cópias de Sombra de Volume (VSS) **esta unidade está bloqueada pelo criptografia de unidade de disco BitLocker. Você deve desbloquear esta unidade no painel de controle.**
+
+Desative o BitLocker para todas as unidades na VM e verifique se o problema VSS é resolvido.
+
+## <a name="vmnotindesirablestate---the-vm-isnt-in-a-state-that-allows-backups"></a>VmNotInDesirableState-a VM não está em um estado que permite backups
+Erro de código: VmNotInDesirableState <br/> Mensagem de erro:  A VM não está em um estado que permite todos os backups.
+- Se a VM estiver em um estado transitório entre **Execução** e **Desligada**, aguarde a alteração do estado para mudar. Em seguida, dispare o trabalho de backup.
+- Se a VM for uma VM do Linux e usar o módulo de kernel do Linux com Segurança Aprimorada, exclua o caminho do Agente para Linux do Azure **/var/lib/waagent** da política de segurança e certifique-se de que a extensão de Backup está instalada.
+
+- O agente de VM não está presente na máquina virtual: <br>Instale qualquer pré-requisito necessário e o agente de VM. Em seguida, reinicie a operação. | Leia mais sobre [a instalação do agente de VM e como validar a instalação do agente de VM](#vm-agent).
+
+
+## <a name="extensionsnapshotfailednosecurenetwork---the-snapshot-operation-failed-because-of-failure-to-create-a-secure-network-communication-channel"></a>ExtensionSnapshotFailedNoSecureNetwork-falha na operação de instantâneo devido à falha ao criar um canal de comunicação de rede segura
+Erro de código: ExtensionSnapshotFailedNoSecureNetwork <br/> Mensagem de erro: A operação de instantâneo falhou devido a falha ao criar um canal de comunicação de rede segura.
+- Abra o Editor do Registro executando **regedit.exe** no modo elevado.
+- Identificar todas as versões do .NET Framework presente no seu sistema. Eles estão presentes na hierarquia de chave do Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**.
+- Para cada .NET Framework presente na chave do registro, adicione a seguinte chave: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>
+
+
+## <a name="extensionvcredistinstallationfailure---the-snapshot-operation-failed-because-of-failure-to-install-visual-c-redistributable-for-visual-studio-2012"></a>ExtensionVCRedistInstallationFailure-falha na operação de instantâneo devido à falha na instalação do Pacotes Redistribuíveis do Visual C++ para Visual Studio 2012
+Erro de código: ExtensionVCRedistInstallationFailure <br/> Mensagem de erro: A operação de instantâneo falhou devido a falha ao instalar os Pacotes Redistribuíveis do Visual C++ para Visual Studio 2012.
+- Navegue até `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` e instale vcredist2013_x64.<br/>Certifique-se de que o valor da chave do registro permite que a instalação desse serviço seja definida como o valor correto. Ou seja, defina o valor **Iniciar** em **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** como **3** e não **4**. <br><br>Se você ainda estiver enfrentando problemas com a instalação, reinicie o serviço de instalação executando **MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** em um prompt de comandos com privilégios elevados.
+- Verifique o log de eventos para verificar se você está percebendo problemas relacionados ao acesso. Por exemplo:  *Produto: Tempo de C++ execução mínimo do Microsoft Visual 2013 x64-12.0.21005--Error 1401. não foi possível criar a chave: Software\Classes  Erro do sistema 5.  Verifique se você tem acesso suficiente a essa chave ou entre em contato com a equipe de suporte.* <br><br> Verifique se a conta de administrador ou de usuário tem permissões suficientes para atualizar a chave do registro **HKEY_LOCAL_MACHINE \SOFTWARE\Classes**. Forneça permissões suficientes e reinicie o agente convidado do Windows Azure.<br><br> <li> Se você tiver produtos antivírus em vigor, verifique se eles têm as regras de exclusão corretas para permitir a instalação.
+
+
+## <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy-uma política inválida está configurada na VM que está impedindo a operação de instantâneo
+Erro de código:  UserErrorRequestDisallowedByPolicy <BR> Mensagem de erro: Uma política inválida foi configurada na VM impedindo a operação de Instantâneo.
+
+Se você tiver um Azure Policy que [governa as marcas em seu ambiente](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags), considere alterar a política de um [efeito de negação de](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) para um [de efeito modificar](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)ou crie o grupo de recursos manualmente de acordo com o esquema de nomenclatura do [exigido pelo](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines)de backup do Azure.
 
 ## <a name="jobs"></a>Trabalhos
 

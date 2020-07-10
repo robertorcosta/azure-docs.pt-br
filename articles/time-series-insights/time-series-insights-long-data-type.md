@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: dpalled
-ms.openlocfilehash: ebb62b67b56134902f2752b43dd25fb0a7c6ccd4
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a0b53749a32e79d690cf4412fdac82b18dfe2f2e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045766"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183623"
 ---
 # <a name="adding-support-for-long-data-type"></a>Adicionando suporte para tipo de dados Long
 
@@ -63,39 +63,43 @@ Você também pode usar *"adesão ($Event. PropertyValue. Double e toduplo ($Eve
 
 *Definição de variável anterior:*
 
-    "PropertyValueVariable": {
+```tsx
+"PropertyValueVariable": {
 
-        "kind": "numeric",
+    "kind": "numeric",
 
-        "value": {
+    "value": {
 
-            "tsx": "$event.propertyValue.Double"
+        "tsx": "$event.propertyValue.Double"
 
-        },
+    },
 
-        "filter": null,
+    "filter": null,
 
-        "aggregation": {
+    "aggregation": {
 
-            "tsx": "avg($value)"
+        "tsx": "avg($value)"
+```
 
 *Nova definição de variável:*
 
-    "PropertyValueVariable ": {
+```tsx
+"PropertyValueVariable ": {
 
-        "kind": "numeric",
+    "kind": "numeric",
 
-        "value": {
+    "value": {
 
-            "tsx": "coalesce($event.propertyValue.Long, toLong($event.propertyValue.Double))"
+        "tsx": "coalesce($event.propertyValue.Long, toLong($event.propertyValue.Double))"
 
-        },
+    },
 
-        "filter": null,
+    "filter": null,
 
-        "aggregation": {
+    "aggregation": {
 
-            "tsx": "avg($value)"
+        "tsx": "avg($value)"
+```
 
 Você também pode usar *"adesão ($Event. PropertyValue. Double e toduplo ($Event. PropertyValue. Long))"* como a expressão de [série temporal personalizada.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
 
@@ -124,77 +128,81 @@ Variáveis categóricas ainda exigem que o valor seja de um tipo inteiro. O Data
 
 *Definição de variável anterior:*
 
-    "PropertyValueVariable_Long": {
+```tsx
+"PropertyValueVariable_Long": {
 
-        "kind": "categorical",
+    "kind": "categorical",
 
-        "value": {
+    "value": {
 
-            "tsx": "tolong($event.propertyValue.Double)"
+        "tsx": "tolong($event.propertyValue.Double)"
 
-        },
+    },
 
-        "categories": [
+    "categories": [
 
-        {
-            "label": "Good",
+    {
+        "label": "Good",
 
-            "values": [0, 1, 2 ]
+        "values": [0, 1, 2 ]
 
-        },
+    },
 
-        {
+    {
 
-            "label": "Bad",
+        "label": "Bad",
 
-            "values": [ 3, 4 ]
+        "values": [ 3, 4 ]
 
-        } ],
+    } ],
 
-        "defaultCategory": {
+    "defaultCategory": {
 
-            "label": "Unknown"
-
-        }
+        "label": "Unknown"
 
     }
+
+}
+```
 
 *Nova definição de variável:*
 
-    "PropertyValueVariable_Long": {
+```tsx
+"PropertyValueVariable_Long": {
 
-        "kind": "categorical",
+    "kind": "categorical",
 
-        "value": {
+    "value": {
 
-            "tsx": "coalesce($event.propertyValue.Long, tolong($event.propertyValue.Double))"
+        "tsx": "coalesce($event.propertyValue.Long, tolong($event.propertyValue.Double))"
 
-        },
+    },
 
-        "categories": [
+    "categories": [
 
-        {
-            "label": "Good",
+    {
+        "label": "Good",
 
-            "values": [0, 1, 2 ]
+        "values": [0, 1, 2 ]
 
-        },
+    },
 
-        {
+    {
 
-            "label": "Bad",
+        "label": "Bad",
 
-            "values": [ 3, 4 ]
+        "values": [ 3, 4 ]
 
-        } ],
+    } ],
 
-        "defaultCategory": {
+    "defaultCategory": {
 
-            "label": "Unknown"
-
-        }
+        "label": "Unknown"
 
     }
+
+}
+```
 
 Variáveis categóricas ainda exigem que o valor seja de um tipo inteiro. O DataType de todos os argumentos em adesão () deve ser do tipo Long na [expressão de série temporal personalizada.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
 

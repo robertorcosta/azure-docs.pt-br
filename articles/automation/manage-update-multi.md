@@ -5,15 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: d08afc6e501fd76167e0939633442213958f0d49
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: a2d16bdca18b7fc0afab2a3deb325d1a75be3bb8
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834621"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185153"
 ---
 # <a name="manage-updates-for-multiple-vms"></a>Gerenciar atualizações de várias VMs
 
-Você pode usar o Gerenciamento de Atualizações da Automação do Azure para gerenciar atualizações e patches em suas VMs (máquinas virtuais) Windows e Linux. A partir da sua conta da [Automação do Azure](automation-offering-get-started.md), é possível:
+Você pode usar o Gerenciamento de Atualizações da Automação do Azure para gerenciar atualizações e patches em suas VMs (máquinas virtuais) Windows e Linux. A partir da sua conta da [Automação do Azure](./index.yml), é possível:
 
 - Habilitar VMs para o gerenciamento de atualizações.
 - Avaliar o status das atualizações disponíveis.

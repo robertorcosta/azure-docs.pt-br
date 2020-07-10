@@ -5,15 +5,14 @@ author: arduppal
 manager: brymat
 ms.author: arduppal
 ms.reviewer: spelluru
-ms.date: 12/13/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 3360b92a1b71adcbf0364a16c197aecdab5700db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9389e0aff04baa18cb216f2a7ab6da42eb7031f2
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77086612"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171424"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Tutorial: reagir a eventos de armazenamento de BLOBs em IoT Edge (versão prévia)
 Este artigo mostra como implantar o armazenamento de BLOBs do Azure no módulo IoT, que atuaria como um editor de grade de eventos para enviar eventos sobre a criação de BLOB e exclusão de BLOB para a grade de eventos.  
@@ -38,7 +37,7 @@ Há várias maneiras de implantar módulos em um dispositivo IoT Edge e todos el
 
 ### <a name="select-your-iot-edge-device"></a>Selecione seu dispositivo IoT Edge
 
-1. Entre no [Portal do Azure](https://portal.azure.com)
+1. Entre no [portal do Azure](https://portal.azure.com)
 1. Navegue até seu Hub IoT.
 1. Selecione **IOT Edge** no menu da seção **Gerenciamento de dispositivo automático** . 
 1. Clique na ID do dispositivo de destino na lista de dispositivos
@@ -328,13 +327,13 @@ Aqui está a lista de propriedades de eventos com suporte e seus tipos e descri�
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
+| subject | string | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Um dos tipos de evento registrados para a origem do evento. |
 | eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | id | string | Identificador exclusivo do evento. |
 | data | objeto | Dados de eventos do armazenamento de blob. |
-| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. Grade de Eventos define o esquema de propriedades de nível superior. A Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades:
 

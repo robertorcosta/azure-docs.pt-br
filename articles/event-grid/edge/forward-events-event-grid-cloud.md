@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfe150a45c70bc5bed18f8e929c9567905cd38f5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76844710"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171594"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Tutorial: encaminhar eventos para a nuvem da grade de eventos
 
@@ -174,7 +173,7 @@ Por exemplo, se você criou um tópico chamado `testegcloudtopic` no oeste dos E
         ]
     ```
 
-1. Execute o comando a seguir:
+1. Execute o seguinte comando:
 
     ```sh
     curl -k -H "Content-Type: application/json" -X POST -g -d @event3.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3/events?api-version=2019-01-01-preview

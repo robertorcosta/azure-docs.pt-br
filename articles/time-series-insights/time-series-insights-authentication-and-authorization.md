@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 94fef951bf1c5c9d69a9b49cd9465d7d248c74a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9668307047771304c2d3785dc7ff3f760171a43f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85099232"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181991"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
 
@@ -91,7 +91,7 @@ De acordo com a **etapa 3**, separar as credenciais do aplicativo e as do usuár
 > [!IMPORTANT]
 > Se você estiver usando a [Adal (biblioteca de autenticação Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/azuread-dev/active-directory-authentication-libraries) , leia sobre [a migração para o MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration).
 
-    See our [Manage GA reference data for an Azure Time Series Insights environment using C#](time-series-insights-manage-reference-data-csharp.md) article to learn more.
+   Consulte nosso artigo [gerenciar dados de referência do GA para obter um Azure Time Series insights ambiente usando C#](time-series-insights-manage-reference-data-csharp.md) para saber mais.
 
 ## <a name="common-headers-and-parameters"></a>Cabeçalhos e parâmetros comuns
 

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: c14376cc80373371ec5fcb8f22a00584a6b2f714
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: fa518900b05ba552cb066fbf55e4dbeaa6c681e2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710160"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183198"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configure sua experiência de Pesquisa Personalizada do Bing
 
@@ -25,7 +25,7 @@ O portal permite criar uma instância de pesquisa que especifica as fatias da We
 
 Ao definir fatias da web, use o seguinte:
 
-| Nome da fatia | Description                                                                                                                                                                                                                                                                                                |
+| Nome da fatia | Descrição                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Domínio     | Uma fatia de domínio inclui todo o conteúdo localizado em um domínio da Internet. Por exemplo, `www.microsoft.com`. Omitir `www.` faz com que o Bing também pesquise os subdomínios do domínio. Por exemplo, se você especificar `microsoft.com` , o Bing também retorna resultados de `support.microsoft.com` ou `technet.microsoft.com` . |
 | Subpágina    | Uma fatia de subpágina inclui todo o conteúdo localizado na subpágina e nos caminhos abaixo. É possível especificar no máximo duas subpáginas no caminho. Por exemplo, `www.microsoft.com/en-us/windows/`                                                                                                                       |
@@ -92,8 +92,8 @@ Essas APIs são semelhantes às APIs de [Pesquisa de Imagem do Bing](../Bing-Ima
 
 O portal permite que você ajuste a classificação da pesquisa de conteúdo de domínios, subpáginas e páginas da Web específicos. Depois de enviar uma consulta de pesquisa no painel de visualização, cada resultado de pesquisa contém uma lista de ajustes que você pode fazer para ele:  
 
-|            |                                                                                                                                                                      |
-|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Ajuste | Descrição |
+|------------|-------------|
 | Bloquear      | Mova o domínio, a subpágina ou a página da Web para a lista Bloqueado. O Bing excluirá o conteúdo do site selecionado para não aparecer nos resultados da pesquisa.                    |
 | Aumentar      | Aumenta o conteúdo do domínio ou da subpágina nos resultados da pesquisa.                                                                                        |
 | Rebaixar     | Rebaixa o conteúdo do domínio ou subpágina ao nível abaixo nos resultados da pesquisa. Você seleciona se quer rebaixar o conteúdo do domínio ou da subpágina à qual a página da Web pertence. |

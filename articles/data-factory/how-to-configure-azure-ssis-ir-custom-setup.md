@@ -11,16 +11,17 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 06/03/2020
-ms.openlocfilehash: 576861265771977f7e13140dd595f47bf556e585
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: c3f3e7540f837722d4dd730c5635ac30c699ccd3
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84331892"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184272"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalizar instalação para um Azure-SSIS Integration Runtime
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 A configuração personalizada para um SSIS (Azure-SQL Server Integration Services) Integration Runtime (IR) no Azure Data Factory (ADF) fornece uma interface para adicionar suas próprias etapas durante o provisionamento ou reconfiguração de seu Azure-SSIS IR. 
 

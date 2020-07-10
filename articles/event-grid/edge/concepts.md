@@ -5,16 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/03/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 73309e10e88c11e639e6ac6fd3bb061e1b5c685b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3babfe93012fae15e79362ba34f3f48856bc833
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72992542"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171730"
 ---
 # <a name="event-grid-concepts"></a>Conceitos da Grade de Eventos
 
@@ -28,17 +26,17 @@ Para as propriedades incluídas em um evento, consulte esquema de [eventos da gr
 
 ## <a name="publishers"></a>Publicadores
 
-Um editor é o usuário ou a organização que decide enviar eventos para a Grade de Eventos. Você pode publicar eventos de seu próprio aplicativo.
+Um editor é o usuário ou a organização que decide enviar eventos para a Grade de Eventos. Você pode publicar eventos em seu próprio aplicativo.
 
 ## <a name="event-sources"></a>Origens de eventos
 
-A origem de um evento é onde o evento acontece. Cada origem do evento está relacionada a um ou mais tipos de evento. Por exemplo, o Armazenamento do Microsoft Azure é a origem dos eventos criados pelo blob. Seu aplicativo é a origem do evento para eventos personalizados que você definir. As fontes dos eventos são responsáveis por enviar eventos na Grade de Eventos.
+A origem de um evento é onde o evento acontece. Cada origem do evento está relacionada a um ou mais tipos de evento. Por exemplo, o Armazenamento do Azure é a origem dos eventos criados pelo blob. Seu aplicativo é a origem dos eventos personalizados definidos. As origens do evento são responsáveis por enviar eventos para a Grade de Eventos.
 
 ## <a name="topics"></a>Tópicos
 
 O tópico da grade de eventos fornece um ponto de extremidade em que a fonte envia eventos. O editor cria o tópico de grade de eventos e decide se uma origem do evento precisa de um tópico ou mais de um tópico. Um tópico é usado para uma coleção de eventos relacionados. Para reagir a determinados tipos de evento, os assinantes decidem quais tópicos assinar.
 
-Ao projetar seu aplicativo, você tem a flexibilidade de decidir quantos tópicos devem ser criados. Para soluções maiores, crie um tópico personalizado para cada categoria de eventos relacionados. Por exemplo, considere um aplicativo que envia eventos relacionados à modificação de contas de usuários e ordens de processamento. É improvável que qualquer manipulador de eventos queira ambas as categorias de eventos. Crie dois tópicos personalizados e permita que os manipuladores de eventos assinem o que for interessante para eles. Para soluções pequenas, você pode preferir enviar todos os eventos para um único tópico. Assinantes de evento podem filtrar par os tipos de evento que desejam.
+Ao projetar seu aplicativo, você tem a flexibilidade de decidir quantos tópicos devem ser criados. Para soluções maiores, crie um tópico personalizado para cada categoria de eventos relacionados. Por exemplo, considere um aplicativo que envia eventos relacionados à modificação de contas de usuário e ordens de processamento. É improvável que qualquer manipulador de eventos queira ambas as categorias de eventos. Crie dois tópicos personalizados e permita que os manipuladores de eventos assinem o que for interessante para eles. Para soluções pequenas, você pode preferir enviar todos os eventos para um único tópico. Assinantes de evento podem filtrar par os tipos de evento que desejam.
 
 Consulte a [documentação da API REST](api.md) sobre como gerenciar tópicos na grade de eventos.
 

@@ -9,11 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: ca5c8fdd14f155163dd55d944cafd2e209e7a94b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af14d4770d032c23216b805045eb27fadded5954
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450000"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170251"
 ---
 # <a name="train-pytorch-model"></a>Treinar modelo de Pytorch
 
@@ -26,7 +27,7 @@ Este artigo descreve como usar o módulo de **modelo Train Pytorch** no designer
 2. Adicione o módulo **modelo de treinamento Pytorch** ao pipeline. Você pode encontrar esse módulo na categoria **treinamento do modelo** . Expanda **treinar**e arraste o módulo **modelo de treinamento Pytorch** para seu pipeline.
 
    > [!NOTE]
-   > O módulo de **modelo Train Pytorch** só pode ser executado em computação de tipo **GPU** , caso contrário, o pipeline falhará. Você pode selecionar computação para um módulo específico no painel direito do módulo Configurando **usar outro destino de computação**.
+   > O módulo de **modelo Train Pytorch** é melhor executado na computação de tipo **GPU** para um grande conjunto de grandes, caso contrário, o pipeline falhará. Você pode selecionar computação para um módulo específico no painel direito do módulo Configurando **usar outro destino de computação**.
 
 3.  Na entrada à esquerda, anexe um modelo não treinado. Anexe o DataSet de treinamento e o conjunto de dados de validação à entrada do meio e do lado direito do **modelo Train Pytorch**.
 

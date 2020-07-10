@@ -5,16 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: ba261aeedf6574f69d3c05f8fd005c912dcc59d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea36c40f2038d016afb0c45944a98d4d90df6240
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73242472"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171560"
 ---
 # <a name="event-schemas"></a>Esquemas de evento
 
@@ -57,13 +55,13 @@ Todos os eventos têm os seguintes dados de nível superior:
 | Propriedade | Tipo | Obrigatório | Descrição |
 | -------- | ---- | ----------- |-----------
 | topic | Cadeia de caracteres | No | Deve corresponder ao tópico no qual ele está publicado. A grade de eventos popula com o nome do tópico no qual ele é publicado, se não for especificado. |
-| subject | string | Sim | Caminho definido pelo fornecedor para o assunto do evento. |
+| subject | string | Sim | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Sim | Tipo de evento para essa origem do evento, por exemplo, BlobCreated. |
 | eventTime | string | Sim | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | ID | Cadeia de caracteres | No | Identificador exclusivo do evento. |
 | data | objeto | Não | Usado para capturar dados de evento que são específicos para a entidade de publicação. |
-| dataVersion | string | Sim | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | string | No | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | string | Sim | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | No | A versão do esquema dos metadados do evento. Grade de Eventos define o esquema de propriedades de nível superior. A Grade de Eventos fornece esse valor. |
 
 ### <a name="example--eventgrid-schema-event"></a>Exemplo — evento de esquema EventGrid
 

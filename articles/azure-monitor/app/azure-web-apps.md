@@ -3,12 +3,12 @@ title: Monitorar desempenho dos serviços de aplicativos do Azure | Microsoft Do
 description: Monitoramento do desempenho de aplicativos para serviços de aplicativos do Azure. Tempo de resposta e carregamento do gráfico, informações de dependência e definir alertas sobre o desempenho.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 0f4d4dedab30839db56cb47ac7ac103413f2d4be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 574aefa4d554be7b0027c921289d8d15cffb8e49
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82733435"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169928"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorar o desempenho do Serviço de Aplicativo do Azure
 
@@ -58,7 +58,7 @@ Há duas maneiras de habilitar o monitoramento de aplicativos para aplicativos h
  
  Veja abaixo um resumo dos dados coletados para cada rota:
         
-|  | Coleção do .NET Basic | Coleção recomendada do .NET |
+| Dados | Coleção do .NET Basic | Coleção recomendada do .NET |
 | --- | --- | --- |
 | Adiciona as tendências de uso de CPU, memória e E/S |Sim |Sim |
 | Coleta as tendências de uso e permite a correlação entre resultados de disponibilidade e transações | Sim |Sim |
@@ -168,7 +168,7 @@ Para habilitar a coleta de telemetria com Application Insights, somente as confi
 |Nome da configuração do aplicativo |  Definição | Valor |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Extensão principal, que controla o monitoramento do tempo de execução. | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  Somente no modo padrão, os recursos essenciais são habilitados para garantir o desempenho ideal. | `default` ou `recommended` |
+|XDT_MicrosoftApplicationInsights_Mode |  Somente no modo padrão, os recursos essenciais são habilitados para garantir o desempenho ideal. | `default` ou `recommended`. |
 |InstrumentationEngine_EXTENSION_VERSION | Controla se o mecanismo de regravação binária `InstrumentationEngine` será ativado. Essa configuração tem implicações de desempenho e afeta o tempo de início/inicialização frio. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Controla se o SQL & texto da tabela do Azure será capturado junto com as chamadas de dependência. Aviso de desempenho: o tempo de inicialização a frio do aplicativo será afetado. Essa configuração requer o `InstrumentationEngine` . | `~1` |
 
@@ -376,7 +376,7 @@ Abaixo está nosso guia de solução de problemas passo a passo para o monitoram
 
 A tabela a seguir fornece uma explicação mais detalhada do que esses valores significam, suas causas subjacentes e correções recomendadas:
 
-|Valor do problema|Explicação|Fix
+|Valor do problema|Explicação|Correção
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Esse valor indica que a extensão detectou que algum aspecto do SDK já está presente no aplicativo e será retirada. Pode ser devido a uma referência a `System.Diagnostics.DiagnosticSource` , `Microsoft.AspNet.TelemetryCorrelation` ou`Microsoft.ApplicationInsights`  | Remova as referências. Algumas dessas referências são adicionadas por padrão de determinados modelos do Visual Studio, e as versões mais antigas do Visual Studio podem adicionar referências ao `Microsoft.ApplicationInsights` .
 |`AppAlreadyInstrumented:true` | Se o aplicativo estiver direcionando o .NET Core 2,1 ou 2,2 e se referir a [Microsoft. AspNetCore. All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) metapackage, ele levará em Application insights e a extensão será retirada. | Os clientes no .NET Core 2.1, 2.2 são [recomendados](https://github.com/aspnet/Announcements/issues/287) a usar o meta-Package Microsoft. AspNetCore. app em vez disso.|

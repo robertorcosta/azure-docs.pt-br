@@ -4,104 +4,80 @@ description: Veja como carregar o Business Applications programa ISV Connect.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: parthpandyaMSFT
-ms.author: parthp
-ms.date: 7/12/2019
-ms.openlocfilehash: fe518cf5b01bbefd5b596b10dff27d0e3ecfcfcc
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 6/25/2020
+ms.author: dsindona
+ms.openlocfilehash: 37d8c26bd41f06a39d4404c142aef5faa0bf199c
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104940"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170234"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guia de integração do programa ISV Connect do Microsoft Business Applications
 
-O [programa Business Applications ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview) tem como objetivo acelerar o crescimento e o sucesso geral de fornecedores independentes de software (ISVs) que criam soluções modernas, baseadas em nuvem e de linha de negócios (LOB) com o *engajamento do cliente do Dynamics 365 e o PowerApps* ("Dynamics CE Offers") ou o *Dynamics 365 Finance and Operations* ("ofertas do Dynamics Ops"). Aqui está como fazer parte dele.
+O [programa Business Applications ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview) visa acelerar o crescimento e o sucesso geral de fornecedores independentes de software (ISVs) que criam soluções modernas, baseadas em nuvem e de linha de negócios (LOB) com o envolvimento do cliente do Dynamics 365 e o PowerApps (aplicativos do Dynamics CE) ou Finanças e operações do Dynamics 365 (aplicativos do Dynamics ops). 
+
+Para registrar e aproveitar todos os benefícios técnicos, de marketing e de habilitação de vendas do Business Applications programa ISV Connect, conclua as seções a seguir neste artigo. 
 
 > [!IMPORTANT]
-> Parceiros ISV existentes com o *engajamento do cliente do dynamics 365*, o *Dynamics 365 para finanças e operações*e aplicativos do *PowerApps* devem concluir todas as etapas de integração abaixo antes de **15 de outubro de 2019** para evitar que suas ofertas existentes sejam removidas do [Microsoft AppSource](https://appsource.microsoft.com).
-
-Para registrar e aproveitar todos os [benefícios técnicos, de marketing e de habilitação de vendas](https://partner.microsoft.com/solutions/business-applications/isv-overview) do Business Applications programa ISV Connect, estamos nos pedindo que os parceiros ISV existentes (com o *Dynamics CE* e o *Ops* ofereçam) para concluir as seguintes etapas:
-
-- [Configure sua conta do Microsoft Partner Center](#set-up-your-microsoft-partner-center-account).
-- [Aceite o adendo de Business Applications](#accept-the-business-applications-isv-program-addendum).
-- [Configure suas informações de cobrança](#set-up-your-billing-information).
-- [Recertifice seu aplicativo](#recertify-your-application).
-
-> [!IMPORTANT]
-> Você precisará concluir todas as etapas acima antes de publicar alterações em uma oferta existente.
+> É necessário concluir todas as etapas neste artigo antes de publicar alterações em uma oferta nova ou existente.
 
 ## <a name="set-up-your-microsoft-partner-center-account"></a>Configurar sua conta do Microsoft Partner Center
 
-O [Partner Center](https://partner.microsoft.com) é o local para gerenciar as configurações de sua conta para o programa ISV Connect.
+Para configurar e gerenciar sua conta para o programa ISV Connect, conclua as etapas do artigo: [criar uma conta do Marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). Este artigo fornece todas as etapas para criar uma nova conta, bem como informações sobre como adicionar novos Publicadores ao programa comercial Marketplace.
 
 > [!NOTE]
-> Esta etapa requer uma função de *proprietário* no portal do Cloud Partner para sua conta e uma função de *proprietário* ou *gerente* no Partner Center.
-
-Se você já publicou as ofertas do Dynamics CE ou Dynamics Ops, provavelmente sua conta do Portal do Cloud Partner (CPP) já foi migrada e ativada no Partner Center. Caso contrário, você pode ativar manualmente sua conta do Partner Center do seu perfil do editor de CPP.
-
-1. Entre em sua página de **perfil do Publicador** no [portal do Cloud Partner](https://cloudpartner.azure.com/).
-2. Se você vir uma faixa mostrando que as configurações de sua conta foram migradas para o Partner Center, continue na próxima seção. Caso contrário, selecione a faixa solicitando que você ative sua conta do Partner Center.
-
-Para obter mais informações, consulte [migração de conta do portal do Cloud Partner para o Partner Center](../partner-center-portal/account-migration-from-cpp-to-pc.md).
+> Esta etapa requer uma função de *proprietário* ou *gerente* no Partner Center.
 
 ## <a name="accept-the-business-applications-isv-program-addendum"></a>Aceite o adendo do programa ISV Business Applications
 
-A participação neste programa exige que você examine e aceite o *adendo Business Applications*.
+A participação neste programa exige que você examine e aceite o [adendo Business Applications](https://aka.ms/bizappsisvaddendum).
 
 > [!NOTE]
-> Esta etapa requer uma função de *proprietário* ou *gerente* no Partner Center para sua conta para assinar contratos legais. Se você concluiu sua migração de conta do Portal do Cloud Partner [ativando sua conta do Partner Center](#set-up-your-microsoft-partner-center-account) na etapa anterior, suas permissões também foram migradas para o Partner Center.
+> Esta etapa requer uma função de *proprietário* ou *gerente* no Partner Center para sua conta para assinar contratos legais. 
 
-1. Vá para [o painel do Partner Center](https://partner.microsoft.com/dashboard/account/agreements) e entre no Partner Center, conforme solicitado.
-
-2. No título do **Marketplace comercial**, localize **o adendo do Microsoft Business Applications ISV**.
-
-3. Selecione o link de versão e exiba o contrato.
-
-4. Selecione **aceitar contrato** para concordar e aceitar o contrato.
+1.  Entre no [Partner Center](https://partner.microsoft.com/dashboard).
+2.  Selecione **configurações** (ícone de engrenagem) e selecione **configurações do desenvolvedor**.
+3.  Selecione **contratos**. 
+4.  Selecione o link de versão e exiba o contrato.
+5.  Para concordar e aceitar o contrato, selecione **aceitar contrato**.
 
 ## <a name="set-up-your-billing-information"></a>Configurar suas informações de cobrança
 
-Em seguida, configure suas informações de cobrança para o Business Applications programa ISV Connect.
+Configure as informações de cobrança para o Business Applications programa ISV Connect.
 
 > [!NOTE]
 > Esta etapa requer uma função de *proprietário* ou *gerente* no Partner Center para sua conta para atualizar as informações de cobrança.
 
-1. Entre no [Partner Center](https://partner.microsoft.com/dashboard).
+1.  Entre no [Partner Center](https://partner.microsoft.com/dashboard).
+2.  Selecione **configurações** (ícone de engrenagem) e selecione **configurações do desenvolvedor**.
+3.  Em **conta**, selecione **perfil de cobrança**.
+4.  Examine as informações de contato primário e de cobrança preenchidas em sua entidade legal e faça as atualizações necessárias.
+5.  Se aplicável, forneça as configurações de ID do imposto/ID do IVA.
+6.  Para salvar suas alterações, clique em **Salvar**.
 
-2. Selecione o ícone de *configurações* (engrenagem) e selecione **configurações do desenvolvedor**.
+> [!NOTE]
+> Você pode atualizar seu perfil de cobrança a qualquer momento. No entanto, o *nome da empresa* e o *país* do endereço de cobrança não podem ser alterados posteriormente.
 
-3. Em *contas*, selecione **perfil de cobrança**.
+## <a name="publish-and-certify-your-application"></a>Publicar e certificar seu aplicativo
 
-4. Examine as informações de contato primário e de cobrança preenchidas em sua entidade legal e faça as atualizações necessárias.
+Depois de concluir as etapas acima, seus aplicativos existentes do Dynamics 365 CE e/ou Dynamics 365 Ops estarão disponíveis para edição no Partner Center. Você também terá a opção de criar novos aplicativos.
 
-5. Configurações de imposto de fornecimento/ID de IVA, se aplicável.
+A etapa final do registro no Business Applications programa ISV Connect é publicar e certificar seus aplicativos existentes. Para publicar e certificar seu aplicativo ao AppSource, siga o link apropriado: 
 
-6. Selecione **Salvar** para salvar as alterações.
+- [Para o compromisso com o cliente do Dynamics 365](https://docs.microsoft.com/powerapps/developer/common-data-service/publish-app-appsource) 
+- [Para o Dynamics 365 para finanças e operações](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
-Você pode atualizar seu perfil de cobrança a qualquer momento, no entanto, o *nome da empresa* e o *país* do endereço de cobrança não podem ser alterados posteriormente.
+> [!IMPORTANT]
+> Você precisa certificar seus aplicativos a cada seis meses para mantê-los ativos no AppSource. Para obter detalhes, consulte [políticas de certificação](https://docs.microsoft.com/legal/marketplace/certification-policies)do Marketplace comercial de política do Marketplace. 
 
-## <a name="recertify-your-application"></a>Recertificar seu aplicativo
+## <a name="next-steps"></a>Próximas etapas
 
-Depois de concluir as etapas acima, suas ofertas existentes do Dynamics CE e do Dynamics Ops estarão disponíveis para edição no Partner Center. Você também pode criar novas ofertas por meio do Partner Center.
+Pergunte ao seu gerente de conta ou entre em contato com o [suporte ao parceiro da Microsoft](https://aka.ms/marketplacepublishersupport) para obter assistência com sua conta. Para obter informações gerais sobre o Business Applications programa ISV Connect, consulte:
 
-A etapa final do registro no Business Applications programa ISV Connect está recertificando seus aplicativos existentes.
+- **[Business Applications para ISVs (artigo online)](https://aka.ms/bizappsisvweb)**
 
-1. [Siga estas etapas](https://partner.microsoft.com/solutions/business-applications/isv-publish) para rescertificar seu aplicativo ao AppSource.
-2. [Crie e publique uma nova oferta](../partner-center-portal/create-new-customer-engagement-offer.md). Esta oferta será uma oferta totalmente nova e não substituirá uma existente.
+- **[Visão geral do novo programa para Business Applications ISVs (PDF)](https://aka.ms/bizappsisvprogram)**
 
-## <a name="further-info"></a>Mais informações
+- **[Políticas do programa ISV Connect](https://aka.ms/bizappsisvpolicies)**
 
-Pergunte ao seu gerente de conta ou entre em contato com o [suporte ao parceiro da Microsoft](https://partner.microsoft.com/support) para obter assistência com sua conta. Para obter informações gerais sobre o Business Applications programa ISV Connect e o Microsoft Partner Center, consulte:
-
-#### <a name="business-applications-for-isvs-online-article"></a>Business Applications para ISVs (artigo online)
-https://partner.microsoft.com/solutions/business-applications/isv-overview
-
-#### <a name="overview-of-the-new-program-for-business-applications-isvs-pdf"></a>Visão geral do novo programa para Business Applications ISVs (PDF)
-https://aka.ms/BizAppsISVProgram
-
-#### <a name="business-applications-isv-connect-program-faq-pdf"></a>FAQ do programa Business Applications ISV Connect (PDF)
-https://assetsprod.microsoft.com/business-applications-partner-faq.pdf
-
-#### <a name="upcoming-program-for-business-applications-isvs-blog-post"></a>Programa futuro para Business Applications ISVs (postagem de blog)
-https://cloudblogs.microsoft.com/dynamics365/bdm/2019/04/17/upcoming-program-for-business-applications-isvs/

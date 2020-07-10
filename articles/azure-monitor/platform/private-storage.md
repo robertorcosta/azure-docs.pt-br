@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 0c9982fd4aa6459cdcbd715077f08092075a9776
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05eb92e2fb887b5c64e2c73576fe85a4543ac1b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84610059"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184490"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Contas de armazenamento de propriedade do cliente para ingestão de logs no Azure Monitor
 
@@ -39,7 +40,7 @@ A conta de armazenamento deve atender aos seguintes requisitos:
 
 - Ser acessível aos recursos em sua VNet que gravam logs no armazenamento.
 - Estar na mesma região que o workspace ao qual está vinculada.
-- Permitir explicitamente que o Log Analytics leia os logs da conta de armazenamento selecionando *Permitir que serviços confiáveis da Microsoft acessem essa conta de armazenamento*.
+- Permitir acesso de Azure Monitor – se você optou por limitar o acesso à conta de armazenamento para selecionar redes, certifique-se de permitir esta exceção: *permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento*.
 
 ## <a name="process-to-configure-customer-owned-storage"></a>Processo para configurar o armazenamento de propriedade do cliente
 O processo básico do uso de sua conta de armazenamento para ingestão é o seguinte:
@@ -50,7 +51,12 @@ O processo básico do uso de sua conta de armazenamento para ingestão é o segu
 
 O único método disponível para criar e remover links é por meio da API REST. Detalhes sobre a solicitação de API específica necessária para cada processo são fornecidos nas seções a seguir.
 
-## <a name="api-request-values"></a>Valores da solicitação de API
+## <a name="command-line-and-rest-api"></a>Linha de comando e API REST
+
+### <a name="command-line"></a>Linha de Comando
+Para criar e gerenciar contas de armazenamento vinculadas, use [AZ monitor log-Analytics espaço de trabalho vinculado-Storage](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage). Esse comando pode vincular e desvincular contas de armazenamento de um espaço de trabalho e listar as contas de armazenamento vinculadas.
+
+### <a name="request-and-cli-values"></a>Valores de solicitação e CLI
 
 #### <a name="datasourcetype"></a>dataSourceType 
 
@@ -72,37 +78,7 @@ subscriptions/{subscriptionId}/resourcesGroups/{resourceGroupName}/providers/Mic
 ```
 
 
-
-## <a name="get-current-links"></a>Obter links atuais
-
-### <a name="get-linked-storage-accounts-for-a-specific-data-source-type"></a>Obter contas de armazenamento vinculadas para um tipo de fonte de dados específico
-
-#### <a name="api-request"></a>Solicitação de API
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-#### <a name="response"></a>Resposta 
-
-```json
-{
-    "properties":
-    {
-        "dataSourceType": "CustomLogs",
-        "storageAccountIds  ": 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    },
-    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-    "name": "CustomLogs",
-    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-}
-```
-
-### <a name="get-all-linked-storage-accounts"></a>Obter todas as contas de armazenamento vinculadas
+### <a name="get-linked-storage-accounts-for-all-data-source-types"></a>Obter contas de armazenamento vinculadas para todos os tipos de fonte de dados
 
 #### <a name="api-request"></a>Solicitação de API
 
@@ -144,6 +120,34 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
             "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
         }
     ]
+}
+```
+
+
+### <a name="get-linked-storage-accounts-for-a-specific-data-source-type"></a>Obter contas de armazenamento vinculadas para um tipo de fonte de dados específico
+
+#### <a name="api-request"></a>Solicitação de API
+
+```
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
+```
+
+#### <a name="response"></a>Resposta 
+
+```json
+{
+    "properties":
+    {
+        "dataSourceType": "CustomLogs",
+        "storageAccountIds  ": 
+        [  
+            "<storage_account_resource_id_1>",
+            "<storage_account_resource_id_2>"
+        ],
+    },
+    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
+    "name": "CustomLogs",
+    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
 }
 ```
 

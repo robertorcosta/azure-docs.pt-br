@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 7df283b12a0d04d2b785c13a2f12b03115581e79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa0b3a05fb26f6be951b697145d7b22e03b7792d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76841705"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171611"
 ---
 # <a name="delivery-and-retry"></a>Entregar e tentar novamente
 
@@ -33,7 +32,7 @@ Há duas filas de back-configure pré-configuradas que determinam o agendamento 
 | 1 minuto | As mensagens que acabam aqui são tentadas a cada minuto.
 | 10 minutos | As mensagens que terminam aqui são tentadas a cada 10 minutos.
 
-### <a name="how-it-works"></a>Como funciona
+### <a name="how-it-works"></a>Como ele funciona
 
 1. A mensagem chega ao módulo de grade de eventos. É feita uma tentativa de entregá-la imediatamente.
 1. Se a entrega falhar, a mensagem será enfileirada em uma fila de 1 minuto e repetida após um minuto.

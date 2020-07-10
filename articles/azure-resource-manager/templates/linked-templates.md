@@ -3,12 +3,12 @@ title: Vincular modelos para implantação
 description: Descreve como usar modelos vinculados em um modelo do Gerenciador de Recursos do Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 1b63ebc62a944b43aef3b777dd7d285369356c29
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 6b28268a522dde4fe16ccf9d0d01738c3b6a9b5d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056677"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170642"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
@@ -160,7 +160,7 @@ O modelo a seguir demonstra como as expressões de modelo são resolvidas de aco
 
 O valor de `exampleVar` alterações dependendo do valor da `scope` propriedade em `expressionEvaluationOptions` . A tabela a seguir mostra os resultados para ambos os escopos.
 
-| `expressionEvaluationOptions` `scope` | Saída |
+| `expressionEvaluationOptions`com | Saída |
 | ----- | ------ |
 | interna | do modelo aninhado |
 | externo (ou padrão) | do modelo pai |
