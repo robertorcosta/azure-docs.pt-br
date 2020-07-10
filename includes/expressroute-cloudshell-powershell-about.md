@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 12/13/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ff5a42150140035105298802a7ce8b4d0e25959c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 446a3b786686d96f68d2d0a09d00a75e176a7661
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75436930"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218128"
 ---
 Você pode usar Azure Cloud Shell para executar a maioria dos cmdlets do PowerShell e comandos da CLI, em vez de instalar o Azure PowerShell ou a CLI localmente. Azure Cloud Shell é um shell interativo gratuito que tem ferramentas comuns do Azure pré-instalado e está configurado para usar com sua conta.
 Para executar qualquer código contido neste artigo no Azure Cloud Shell, abra uma sessão do Cloud Shell, use o botão **Copiar** em um bloco de códigos para copiar o código e colá-lo na sessão do Cloud Shell com __Ctrl+Shift+V__ no Windows e no Linux ou __Cmd+Shift+V__ no macOS. O texto colado não é executado automaticamente, pressione **Enter** para executar o código.
 
 Há algumas maneiras de inicializar o Cloud Shell:
 
-|  |   |
+| Opção | Link |
 |-----------------------------------------------|---|
 | Clique em **Experimente** no canto superior direito de um bloco de código. | ![Cloud Shell neste artigo](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-powershell-try-it.png) |
 | Abra o Cloud Shell em seu navegador. | [![https://shell.azure.com/powershell](./media/vpn-gateway-cloud-shell-powershell/launchcloudshell.png)](https://shell.azure.com/powershell) |

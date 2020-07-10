@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 896e69bad9cd75b57ef2bf93048c332ef4d974c0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847445"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207701"
 ---
 # <a name="how-to-use-perfinsights"></a>Como usar o PerfInsights
 
@@ -76,13 +76,13 @@ Este cenário executa uma captura de contador de desempenho especial junto com u
 | IOPS         | Solicitações de dados/s             |
 |              | Solicitações de leitura/s             |
 |              | Solicitações de gravação/s            |
-| Latency      | Média de solicitação de dados/s         |
+| Latência      | Média de solicitação de dados/s         |
 |              | Média de leitura/s                 |
 |              | Média de gravação/s                |
 | Tamanho de E/S      | Média de bytes/solicitação de dados       |
 |              | Média de bytes/leitura               |
 |              | Média de bytes/gravação              |
-| Produtividade   | Bytes de dados/s                |
+| Taxa de transferência   | Bytes de dados/s                |
 |              | Bytes de leitura/s                |
 |              | Bytes de gravação/s               |
 | Comprimento da fila | Comprimento médio da fila de leitura        |
@@ -101,9 +101,8 @@ Ao executar uma análise de desempenho avançado, você seleciona rastreamentos 
 
 São coletadas informações sobre a VM do Windows, a configuração de discos ou de pools de armazenamento, os contadores de desempenho, logs e vários rastreamentos. Depende do cenário de desempenho que você está usando. A tabela a seguir fornece os detalhes:
 
-|Dados coletados                              |  |  | Cenários de desempenho |  |  | |
-|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Análise rápida de desempenho | Parâmetros de comparação | Análise de desempenho | Análise de Arquivos do Azure | Análise de desempenho avançado |
+| Dados coletados | Análise rápida de desempenho | Parâmetros de comparação | Análise de desempenho | Análise de Arquivos do Azure | Análise de desempenho avançado |
+|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|
 | Informações de logs de eventos       | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Informações do sistema                | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Mapa de volume                        | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |

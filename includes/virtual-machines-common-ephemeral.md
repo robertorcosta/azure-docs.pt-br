@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4e31560126919e4c61b176a6eaa62ee7f9b4a624
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8d712e4eecb930b52a519a1aaddf97c744a24ab
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85111982"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218169"
 ---
 Os discos do sistema operacional efêmero são criados no armazenamento da VM (máquina virtual) local e não são salvos no armazenamento remoto do Azure. Os discos do sistema operacional efêmero funcionam bem para cargas de trabalho sem estado, em que os aplicativos são tolerantes a falhas de VM individuais, mas são mais afetados pelo tempo de implantação da VM ou refazendo a imagem das instâncias de VM individuais. Com o disco do sistema operacional efêmero, você obtém latência de leitura/gravação mais baixa no disco do sistema operacional e uma reimagem de VM mais rápida. 
  
@@ -30,17 +30,17 @@ Os principais recursos dos discos efêmeras são:
  
 Principais diferenças entre discos do sistema operacional persistentes e efêmeras:
 
-|                             | Disco do so persistente                          | Disco do SO Efêmero                              |    |
+|                             | Disco do so persistente                          | Disco do SO Efêmero                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| Limite de tamanho para o disco do sistema operacional      | 2 TiB                                                                                        | Tamanho do cache para o tamanho da VM ou 2TiB, o que for menor. Para o **tamanho do cache em GIB**, consulte [DS](../articles/virtual-machines/linux/sizes-general.md), [es](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md)e [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
-| Tamanhos de VM com suporte          | Tudo                                                                                          | DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
-| Suporte a tipo de disco           | Disco do sistema operacional gerenciado e não gerenciado                                                                | Somente disco do sistema operacional gerenciado                                                               |
-| Suporte de regiões              | Todas as regiões                                                                                  | Todas as regiões                              |
-| Persistência de dados            | Os dados do disco do sistema operacional gravados no disco do sistema operacional são armazenados no armazenamento do Azure                                  | Os dados gravados no disco do sistema operacional são armazenados no armazenamento da VM local e não são persistidos no armazenamento do Azure. |
-| Estado de parada desalocada      | As VMs e as instâncias do conjunto de dimensionamento podem ser interrompidas e reiniciadas a partir do estado de parada/desalocada | VMs e instâncias do conjunto de dimensionamento não podem ser interrompidas-desalocadas                                  |
-| Suporte a disco do so especializado | Sim                                                                                          | Não                                                                                 |
-| Redimensionamento de disco do so              | Com suporte durante a criação da VM e depois que a VM é parada-desalocada                                | Com suporte somente durante a criação da VM                                                  |
-| Redimensionando para um novo tamanho de VM   | OS dados do disco do sistema operacional são preservados                                                                    | Os dados no disco do sistema operacional são excluídos, o sistema operacional é reprovisionado                                      |
+| **Limite de tamanho para o disco do sistema operacional**      | 2 TiB                                                                                        | Tamanho do cache para o tamanho da VM ou 2TiB, o que for menor. Para o **tamanho do cache em GIB**, consulte [DS](../articles/virtual-machines/linux/sizes-general.md), [es](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md)e [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
+| **Tamanhos de VM com suporte**          | Tudo                                                                                          | DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
+| **Suporte a tipo de disco**           | Disco do sistema operacional gerenciado e não gerenciado                                                                | Somente disco do sistema operacional gerenciado                                                               |
+| **Suporte de regiões**              | Todas as regiões                                                                                  | Todas as regiões                              |
+| **Persistência de dados**            | Os dados do disco do sistema operacional gravados no disco do sistema operacional são armazenados no armazenamento do Azure                                  | Os dados gravados no disco do sistema operacional são armazenados no armazenamento da VM local e não são persistidos no armazenamento do Azure. |
+| **Estado de parada desalocada**      | As VMs e as instâncias do conjunto de dimensionamento podem ser interrompidas e reiniciadas a partir do estado de parada/desalocada | VMs e instâncias do conjunto de dimensionamento não podem ser interrompidas-desalocadas                                  |
+| **Suporte a disco do so especializado** | Sim                                                                                          | Não                                                                                 |
+| **Redimensionamento de disco do so**              | Com suporte durante a criação da VM e depois que a VM é parada-desalocada                                | Com suporte somente durante a criação da VM                                                  |
+| **Redimensionando para um novo tamanho de VM**   | OS dados do disco do sistema operacional são preservados                                                                    | Os dados no disco do sistema operacional são excluídos, o sistema operacional é reprovisionado                                      |
 
 ## <a name="size-requirements"></a>Requisitos de tamanho
 

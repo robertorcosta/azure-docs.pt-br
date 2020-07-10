@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
-ms.openlocfilehash: a1d411662fd7afe57c714b97ab67b9d490acd40d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 407db727f521ea7731f0cbdbdd05c4338c9f452e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076361"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207715"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Executar tarefas do MapReduce com o Apache Hadoop no HDInsight usando o REST
 
@@ -61,7 +61,7 @@ Você pode:
 
     Você deve receber uma resposta semelhante ao JSON a seguir:
 
-    ```output
+    ```json
     {"version":"v1","status":"ok"}
     ```
 
@@ -83,9 +83,7 @@ Você pode:
      * **class**: a classe que contém a lógica do MapReduce
      * **arg**: os argumentos a serem passados para o trabalho MapReduce. Nesse caso, o arquivo de texto de entrada e o diretório usados para a saída
 
-    Esse comando deve retornar uma ID de trabalho que pode ser usada para verificar o status do trabalho:
-
-       job_1415651640909_0026
+    Esse comando deve retornar uma ID de trabalho que pode ser usada para verificar o status do trabalho: `job_1415651640909_0026` .
 
 1. Para verificar o status do trabalho, use o comando a seguir. Substitua o valor de `JOBID` pelo valor **real** retornado na etapa anterior. Revisar o local do **JQ** conforme necessário.
 
@@ -116,7 +114,7 @@ Você pode:
 
     Você deve receber uma resposta semelhante ao JSON a seguir:
 
-    ```output
+    ```json
     {"version":"v1","status":"ok"}
     ```
 
@@ -146,9 +144,7 @@ Você pode:
     * **class**: a classe que contém a lógica do MapReduce
     * **arg**: os argumentos a serem passados para o trabalho MapReduce. Nesse caso, o arquivo de texto de entrada e o diretório usados para a saída
 
-   Esse comando deve retornar uma ID de trabalho que pode ser usada para verificar o status do trabalho:
-
-       job_1415651640909_0026
+   Esse comando deve retornar uma ID de trabalho que pode ser usada para verificar o status do trabalho: `job_1415651640909_0026` .
 
 1. Para verificar o status do trabalho, use o comando a seguir:
 

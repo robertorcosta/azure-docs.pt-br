@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 94c132421f1e113b667341b094acad8047e5f465
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3312d1ec7c2535e103cf8959599c0d4c3014f520
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82561765"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218231"
 ---
 1. [Conecte-se à interface do PowerShell](#connect-to-the-powershell-interface).
 2. Use o `Get-HcsApplianceInfo` para obter as informações do seu dispositivo.
@@ -44,15 +44,15 @@ ms.locfileid: "82561765"
     ```
 
     Aqui está uma tabela que resume algumas das informações importantes do dispositivo:
-    
-    | Parâmetro                             | Descrição                                                                                                                                                  |   |
-    |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-    | FriendlyName                   | O nome amigável do dispositivo, conforme configurado por meio da interface do usuário da Web local durante a implantação do dispositivo. O nome amigável padrão é o número de série do dispositivo.  |   |
-    | SerialNumber                   | O número de série do dispositivo é um número exclusivo atribuído na fábrica.                                                                             |   |
-    | Modelo                          | O modelo para seu Azure Stack borda ou dispositivo de Gateway do Data Box. O modelo é físico para Azure Stack borda e virtual para Gateway do Data Box.                   |   |
-    | FriendlySoftwareVersion        | A cadeia de caracteres amigável que corresponde à versão do software do dispositivo. Para um sistema executando a visualização, a versão de software amigável seria Data Box Edge 1902. |   |
-    | HcsVersion                     | A versão do software HCS em execução no seu dispositivo. Por exemplo, a versão do software HCS correspondente ao Data Box Edge 1902 é 1.4.771.324.            |   |
-    | LocalCapacityInMb              | A capacidade local total do dispositivo em megabits.                                                                                                        |   |
-    | IsRegistered                   | Esse valor indica se o dispositivo está ativado com o serviço.                                                                                         |   |
+
+    | Parâmetro | Descrição |
+    |-----------|-------------|
+    | FriendlyName                   | O nome amigável do dispositivo, conforme configurado por meio da interface do usuário da Web local durante a implantação do dispositivo. O nome amigável padrão é o número de série do dispositivo.  |
+    | SerialNumber                   | O número de série do dispositivo é um número exclusivo atribuído na fábrica.                                                                             |
+    | Modelo                          | O modelo para seu Azure Stack borda ou dispositivo de Gateway do Data Box. O modelo é físico para Azure Stack borda e virtual para Gateway do Data Box.                   |
+    | FriendlySoftwareVersion        | A cadeia de caracteres amigável que corresponde à versão do software do dispositivo. Para um sistema executando a visualização, a versão de software amigável seria Data Box Edge 1902. |
+    | HcsVersion                     | A versão do software HCS em execução no seu dispositivo. Por exemplo, a versão do software HCS correspondente ao Data Box Edge 1902 é 1.4.771.324.            |
+    | LocalCapacityInMb              | A capacidade local total do dispositivo em megabits.                                                                                                        |
+    | IsRegistered                   | Esse valor indica se o dispositivo está ativado com o serviço.                                                                                         |
 
 

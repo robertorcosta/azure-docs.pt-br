@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2c8c0430e8a1f54daa99d3fd986bae0c3eaf7f61
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e10d1d5aa5b45c0ea0e31df4d5d847f8541838b9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017590"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218339"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho de aplicativo
 
@@ -119,10 +119,10 @@ A tabela abaixo resume os fatores de desempenho e as etapas necessárias para ot
 
 Para obter mais informações sobre tamanhos de VM e sobre o IOPS, taxa de transferência e latência disponível para cada tipo de VM, consulte [tamanhos de VM Linux](../articles/virtual-machines/linux/sizes.md) ou [tamanhos de VM Windows](../articles/virtual-machines/windows/sizes.md).
 
-| &nbsp; | **IOPS** | **Taxa de transferência** | **Latência** |
+| | **IOPS** | **Taxa de transferência** | **Latência** |
 | --- | --- | --- | --- |
 | **Cenário de exemplo** |Aplicativo OLTP corporativo que exige taxa muito alta de transações por segundo. |Aplicativo de data warehouse corporativo que processa grandes volumes de dados. |Aplicativos quase em tempo real que exigem respostas instantâneas às solicitações de usuário, como jogos online. |
-| Fatores de desempenho | &nbsp; | &nbsp; | &nbsp; |
+| **Fatores de desempenho** | &nbsp; | &nbsp; | &nbsp; |
 | **Tamanho de E/S** |E/S menores geram IOPS mais altas. |E/S maiores geram Taxa de Transferência mais altas. | &nbsp;|
 | **Tamanho da VM** |Use um tamanho de VM que ofereça IOPS maior que o requisito do seu aplicativo. |Use um tamanho de VM com limite de Taxa de Transferência maior que o requisito do seu aplicativo. |Use um tamanho de VM que ofereça limites de escala maiores que o requisito do seu aplicativo. |
 | **Tamanho do disco** |Use um tamanho de disco que ofereça IOPS maior que o requisito de seu aplicativo. |Use um tamanho de disco com limite de Taxa de Transferência maior que o requisito do seu aplicativo. |Use um tamanho de disco que ofereça limites de escala maiores que o requisito do seu aplicativo. |

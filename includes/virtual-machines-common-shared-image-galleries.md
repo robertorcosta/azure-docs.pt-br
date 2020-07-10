@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 04/16/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 5af9deef7b6c3e2ea688f9e8ad5cc498f79c784e
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 1ca9d41134bf33a9e007da4b5a56652ccdbd4e22
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84317397"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218376"
 ---
 A Galeria de Imagens Compartilhadas é um serviço que ajuda você a criar a estrutura e a organização em torno das suas imagens gerenciadas. A Galeria de Imagens Compartilhadas fornece:
 
@@ -84,20 +84,7 @@ As VMs especializadas não passaram por um processo para remover informações e
 
 As regiões de origem estão listadas na tabela abaixo. Todas as regiões públicas podem ser regiões de destino, mas para replicar para Austrália Central e Austrália Central 2, é necessário incluir a sua assinatura na lista de permissões. Para solicitar a inclusão na lista de permissões, acesse: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
-
-| Regiões de origem        |                   |                    |                    |
-| --------------------- | ----------------- | ------------------ | ------------------ |
-| Austrália Central     | Leste da China        | Sul da Índia        | Europa Ocidental        |
-| Austrália Central 2   | Leste da China 2      | Sudeste Asiático     | Sul do Reino Unido           |
-| Leste da Austrália        | Norte da China       | Leste do Japão         | Oeste do Reino Unido            |
-| Sudeste da Austrália   | Norte da China 2     | Oeste do Japão         | DoD Central dos EUA     |
-| Sul do Brasil          | Leste da Ásia         | Coreia Central      | DoD do Leste dos EUA        |
-| Canadá Central        | Leste dos EUA           | Sul da Coreia        | Governo dos EUA do Arizona     |
-| Leste do Canadá           | Leste dos EUA 2         | Centro-Norte dos EUA   | Governo dos EUA do Texas       |
-| Índia Central         | Leste dos EUA 2 EUAP    | Norte da Europa       | Gov. dos EUA – Virgínia    |
-| Centro dos EUA            | França Central    | Centro-Sul dos Estados Unidos   | Oeste da Índia         |
-| EUA Central EUAP       | Sul da França      | Centro-Oeste dos EUA    | Oeste dos EUA            |
-|                       |                   |                    | Oeste dos EUA 2          |
+> Austrália Central, Leste da China, sul da Índia, Europa Ocidental, Austrália Central 2, Leste da China 2, Sudeste Asiático, Sul do Reino Unido, leste da Austrália, Norte da China, leste do Japão, Oeste do Reino Unido, sudeste da Austrália, Norte da China 2, Japão ocidental, US DoD Central, sul do Brasil, Ásia Oriental, Coreia central, US DoD Leste, Canadá central, leste dos EUA, Coreia do Sul, US Gov Arizona, leste do Canadá, leste dos EUA , US Gov Texas, Índia central, leste dos EUA 2 EUAP, Europa Setentrional, US Gov-Virgínia, EUA Central, França central, Sul EUA Central, oeste da Índia, EUA Central EUAP, França South, Oeste EUA Central, oeste dos EUA, oeste dos EUA 2 |
 
 
 
