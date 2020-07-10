@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/24/2020
-ms.openlocfilehash: 0b7ca2654fb8b7bdcca6dcb5f2fd354a138f2fcf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/08/2020
+ms.openlocfilehash: fe0d3819701e062fa2253bc6dd0c3a28eaeaadfb
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564362"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171101"
 ---
 # <a name="evaluate-model-module"></a>Módulo Avaliar modelo
 
@@ -35,10 +35,10 @@ Use este módulo para medir a precisão de um modelo treinado. Você fornece um 
 
 ## <a name="how-to-use-evaluate-model"></a>Como usar Avaliar modelo
 1. Conecte a saída **Conjunto de dados pontuados** da saída do conjunto de dados [Modelo de pontuação](./score-model.md) ou Resultado de [Atribuir dados aos clusters](./assign-data-to-clusters.md) à porta de entrada esquerda de **Avaliar modelo**. 
-  > [!NOTE] 
-  > Se usar módulos, como "Selecionar colunas no conjunto de dados", para selecionar parte do conjunto de dados de entrada, verifique se as colunas de rótulo “Real” (usada no treinamento), “Probabilidades pontuadas” e “Rótulos pontuados” existem para calcular métricas, como AUC, Precisão para classificação binária/detecção de anomalias.
-  > A coluna de rótulo real e a coluna “Rótulos pontuados” existem para calcular métricas para classificação/regressão multiclasse.
-  > A coluna “Atribuições” e as colunas “DistancesToClusterCenter no.X” (X é o índice do centroide, de 0, ..., número de centroides-1) existem para calcular métricas para clustering.
+    > [!NOTE] 
+    > Se usar módulos, como "Selecionar colunas no conjunto de dados", para selecionar parte do conjunto de dados de entrada, verifique se as colunas de rótulo “Real” (usada no treinamento), “Probabilidades pontuadas” e “Rótulos pontuados” existem para calcular métricas, como AUC, Precisão para classificação binária/detecção de anomalias.
+    > A coluna de rótulo real e a coluna “Rótulos pontuados” existem para calcular métricas para classificação/regressão multiclasse.
+    > A coluna “Atribuições” e as colunas “DistancesToClusterCenter no.X” (X é o índice do centroide, de 0, ..., número de centroides-1) existem para calcular métricas para clustering.
 
 2. [Opcional] Conecte a saída **Conjunto de dados pontuado** da saída de conjunto de dados [Modelo de pontuação](./score-model.md) ou Resultado de Atribuir dados a clusters para o segundo modelo à porta de entrada **direita** de **Avaliar modelo**. Você pode comparar facilmente os resultados de dois modelos diferentes nos mesmos dados. Os dois algoritmos de entrada devem ter o mesmo tipo de algoritmo. Ou, você pode comparar pontuações de duas execuções diferentes sobre os mesmos dados com parâmetros diferentes.
 
@@ -49,7 +49,12 @@ Use este módulo para medir a precisão de um modelo treinado. Você fornece um 
 
 ## <a name="results"></a>Resultados
 
-Depois de executar **Avaliar modelo**, selecione o módulo para abrir o painel de navegação **Avaliar modelo** à direita.  Depois, escolha a guia **Saídas + Logs** e, nessa guia, a seção **Saída de dados** tem vários ícones.   O ícone **Visualizar** tem ícone de gráfico de barra e é a primeira maneira de ver os resultados.
+Depois de executar **Avaliar modelo**, selecione o módulo para abrir o painel de navegação **Avaliar modelo** à direita.  Depois, escolha a guia **Saídas + Logs** e, nessa guia, a seção **Saída de dados** tem vários ícones. O ícone **Visualizar** tem ícone de gráfico de barra e é a primeira maneira de ver os resultados.
+
+Para classificação binária, depois de clicar no ícone **Visualizar** , você poderá visualizar a matriz de confusão binária.
+Para várias classificações, você pode encontrar o arquivo de plotagem da matriz de confusão na guia **saídas + logs** , como a seguir:
+> [!div class="mx-imgBorder"]
+> ![Visualização da imagem carregada](media/module/multi-class-confusion-matrix.png)
 
 Se você conectar conjuntos de dados a ambas as entradas de **Avaliar modelo**, os resultados conterão as métricas para o conjunto de dados ou ambos os modelos.
 O modelo ou os dados anexados à porta à esquerda são apresentados primeiro no relatório, seguidos pelas métricas do conjunto de dados ou pelo modelo anexado na porta à direita.  
@@ -70,7 +75,8 @@ Esta seção descreve as métricas retornadas para os tipos específicos de mode
 
 ### <a name="metrics-for-classification-models"></a>Métricas para modelos de classificação
 
-As métricas a seguir são relatadas ao avaliar modelos de classificação.
+
+As métricas a seguir são relatadas ao avaliar modelos de classificação binária.
   
 -   **Precisão** mede a qualidade de um modelo de classificação como a proporção entre os resultados verdadeiros com o total de casos.  
   
@@ -78,13 +84,10 @@ As métricas a seguir são relatadas ao avaliar modelos de classificação.
   
 -   **Recall** é a fração de todos os resultados corretos retornados pelo modelo.  
   
--   A **pontuação F** é calculada como a média ponderada da precisão e recall entre 0 e 1, onde a pontuação F ideal seria 1.  
+-   A **Pontuação F1** é calculada como a média ponderada de precisão e RECALL entre 0 e 1, em que o valor de Pontuação F1 ideal é 1.  
   
 -   **AUC** mede a área sob a curva plotada com verdadeiros positivos no eixo y e falsos positivos no eixo x. Essa métrica é útil porque ele fornece um único número que permite comparar modelos de tipos diferentes.  
-  
-- **Perda de registro médio** é uma pontuação única usada para expressar a penalidade por resultados errados. Ela é calculada como a diferença entre duas distribuições de probabilidade: o verdadeiro e no modelo.  
-  
-- **Perda de log de treinamento** é uma pontuação única que representa a vantagem do classificador sobre uma predição aleatória. A perda de log mede a incerteza do seu modelo comparando as probabilidades que ele gera com os valores conhecidos (valor de referência) nos rótulos. O objetivo é minimizar a perda de log do modelo como um todo.
+
 
 ### <a name="metrics-for-regression-models"></a>Métricas para modelos de regressão
  
