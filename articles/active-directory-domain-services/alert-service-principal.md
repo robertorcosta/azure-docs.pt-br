@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/20/2019
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 991bb3e296f18ef6d5182048d8ce4601c0fc09c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc665503413d2f022b10ae043aac3315597c6ba4
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734989"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221384"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Problemas conhecidos: Alertas de entidade de serviço no Azure Active Directory Domain Services
 
@@ -33,11 +34,11 @@ Se uma entidade de serviço necessária for excluída, a plataforma Azure não p
 
 ### <a name="check-for-missing-service-principals"></a>Verificar entidades de serviço ausentes
 
-Para verificar qual entidade de serviço está ausente e precisa ser recriada, conclua as seguintes etapas:
+Para verificar qual entidade de serviço está ausente e deve ser recriada, conclua as seguintes etapas:
 
 1. No portal do Azure, selecione **Azure Active Directory** no menu de navegação à esquerda.
 1. Selecione **Aplicativos empresariais**. Selecione *Todos os aplicativos* no menu suspenso **Tipo de aplicativo** e, sem seguida, **Aplicar**.
-1. Pesquise cada uma das IDs de aplicativo. Se nenhum aplicativo existente for encontrado, siga as etapas de *Resolução* para criar a entidade de serviço ou registrar novamente o namespace.
+1. Pesquise cada uma das IDs de aplicativo a seguir. Se nenhum aplicativo existente for encontrado, siga as etapas de *Resolução* para criar a entidade de serviço ou registrar novamente o namespace.
 
     | ID do aplicativo | Resolução |
     | :--- | :--- |
@@ -48,9 +49,9 @@ Para verificar qual entidade de serviço está ausente e precisa ser recriada, c
 
 ### <a name="recreate-a-missing-service-principal"></a>Recriar entidade de serviço ausente
 
-Se a ID do aplicativo *2565bd9d-DA50-47d4-8b85-4c97f669dc36* não estiver no diretório do Azure AD, use o PowerShell do Azure AD para concluir as etapas a seguir. Para obter mais informações, consulte [Instalar o Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
+Se a ID do aplicativo *2565bd9d-DA50-47d4-8b85-4c97f669dc36* não estiver no diretório do Azure AD, use o PowerShell do Azure AD para concluir as etapas a seguir. Para obter mais informações, consulte [PowerShell do Azure ad](/powershell/azure/active-directory/install-adv2).
 
-1. Instale o módulo do Azure AD PowerShell e importe-o da seguinte forma:
+1. Se necessário, instale o módulo do PowerShell do Azure AD e importe-o da seguinte maneira:
 
     ```powershell
     Install-Module AzureAD
@@ -80,7 +81,7 @@ A integridade do domínio gerenciado se atualiza automaticamente dentro de duas 
 
 ### <a name="alert-message"></a>Mensagem de alerta
 
-*A entidade de serviço com a ID do aplicativo “d87dcbc6-a371-462e-88e3-28ad15ec4e64” foi excluída e depois recriada. A recriação ignora permissões divergentes nos recursos do Azure AD Domain Services necessários para atender o domínio gerenciado. A sincronização de senhas no domínio gerenciado pode ser afetada.*
+*A entidade de serviço com a ID de aplicativo "d87dcbc6-a371-462e-88e3-28ad15ec4e64" foi excluída e recriada. A recreação deixa por trás das permissões inconsistentes em Azure AD Domain Services recursos necessários para atender ao domínio gerenciado. A sincronização de senhas em seu domínio gerenciado pode ser afetada.*
 
 O Azure AD DS sincroniza automaticamente as contas de usuário e as credenciais do Azure AD. Se houver um problema com o aplicativo Azure AD usado para esse processo, a sincronização de credenciais entre o Azure AD DS e o Azure AD falhará.
 
@@ -88,7 +89,7 @@ O Azure AD DS sincroniza automaticamente as contas de usuário e as credenciais 
 
 Para recriar o aplicativo do Azure AD usado para sincronização de credenciais, use o PowerShell do Azure AD para concluir as etapas a seguir. Para obter mais informações, consulte [Instalar o Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
-1. Instale o módulo do Azure AD PowerShell e importe-o da seguinte forma:
+1. Se necessário, instale o módulo do PowerShell do Azure AD e importe-o da seguinte maneira:
 
     ```powershell
     Install-Module AzureAD

@@ -1,17 +1,17 @@
 ---
 title: Criar programaticamente assinaturas do Azure
 description: Saiba como criar assinaturas adicionais do Azure programaticamente.
-author: amberbhargava
+author: anuragdalmia
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 07/09/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.openlocfilehash: b53c81a52c06780378e45b2141cbef452b4d363a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 7fac201de2fd623058eb5771e194ae697f879ee8
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170625"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224155"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Criar programaticamente assinaturas do Azure (versão prévia)
 
@@ -156,7 +156,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 | `offerType`   | Sim      | Cadeia de caracteres | A oferta da assinatura. As duas opções para EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desenvolvimento/teste, precisa ser [ativado usando o portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `owners`      | Não       | String | A ID de objeto de qualquer usuário que você deseja adicionar como um proprietário de RBAC na assinatura quando ela é criada.  |
 
-Na resposta, você obtém uma `Location` URL para o monitoramento. Quando a criação da assinatura for concluída, uma URL GET no `Location` retornará um `subscriptionLink` objeto, que tem a ID da assinatura. Para obter mais detalhes, consulte a [documentação da API de assinatura](https://docs.microsoft.com/rest/api/subscription/)
+Na resposta, como parte do cabeçalho `Location` , você obtém uma URL que você pode consultar para obter o status na operação de criação da assinatura. Quando a criação da assinatura for concluída, uma URL GET no `Location` retornará um `subscriptionLink` objeto, que tem a ID da assinatura. Para obter mais detalhes, consulte a [documentação da API de assinatura](https://docs.microsoft.com/rest/api/subscription/)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

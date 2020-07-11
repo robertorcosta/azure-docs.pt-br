@@ -5,17 +5,17 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 06/15/2020
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 40ba5a935e78cd75c4fcd7729e44f1cdf6c2859b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7aad1eb10018445150fb5cf3ac01b97480da674b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75772916"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86226407"
 ---
-Se você encontrar problemas ao executar quaisquer operações em galerias de imagens compartilhadas, definições de imagem e versões de imagem, execute o comando com falha novamente no modo de depuração. O modo de depuração é ativado passando a opção **-debug** com a CLI e a opção **-debug** com o PowerShell. Depois de localizar o erro, siga este documento para solucionar os erros.
+Se você encontrar problemas ao executar quaisquer operações em galerias de imagens compartilhadas, definições de imagem e versões de imagem, execute o comando com falha novamente no modo de depuração. O modo de depuração é ativado passando a `--debug` opção com a CLI e a `-Debug` opção com o PowerShell. Depois de localizar o erro, siga este documento para solucionar os erros.
 
 
 ## <a name="unable-to-create-a-shared-image-gallery"></a>Não é possível criar uma galeria de imagens compartilhadas
@@ -43,7 +43,7 @@ Os caracteres permitidos para a definição de imagem são letras maiúsculas ou
 
 As propriedades como nome, editor, oferta, sku e tipo de sistema operacional são obrigatórias. Verifique se todas as propriedades estão sendo passadas.
 
-Verifique se o **OSType**, seja Linux ou Windows, da definição da imagem é igual ao da imagem gerenciada de origem que você está usando para criar a versão da imagem. 
+Verifique se o **OSType**, Linux ou Windows, da definição da imagem é igual à origem que você está usando para criar a versão da imagem. 
 
 
 ## <a name="unable-to-create-an-image-version"></a>Não é possível criar uma versão da imagem 
@@ -84,7 +84,7 @@ Verifique se a região em que você está tentando criar uma escala de VM ou má
 
 *A criação do conjunto de dimensionamento de máquinas virtuais ou VM leva muito tempo.*
 
-Verifique se que o **OSType** da versão da imagem da qual você está tentando criar a VM ou conjunto de dimensionamento de máquinas virtuais tem o mesmo **OSType** da imagem gerenciada de origem que você usou para criar a versão da imagem. 
+Verifique se o **OSType** da versão da imagem da qual você está tentando criar a VM ou o conjunto de dimensionamento de máquinas virtuais tem o mesmo **OSType** da fonte que você usou para criar a versão da imagem. 
 
 ## <a name="unable-to-share-resources"></a>Não é possível compartilhar recursos
 

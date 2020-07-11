@@ -9,11 +9,12 @@ ms.topic: how-to
 ms.date: 05/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 970a6dfc167a6bef7984598c60e7ce89c6e4b34c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2914dfed14360c114476025c74f3dc0c03d82e25
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463715"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224886"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Habilitar e gerenciar exclusão reversível para blobs
 
@@ -39,31 +40,31 @@ Habilite a exclusão reversível para blobs em sua conta de armazenamento usando
 
 5. Selecione o botão **Salvar** para confirmar as configurações da Proteção de dados
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+![Captura de tela do portal do Azure com o serviço blob de proteção de dados escolhido.](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
 Para exibir blobs com exclusão reversível, marque a caixa de seleção **Mostrar blobs excluídos**.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
+![Captura de tela da página de serviço blob de proteção de dados com a opção Mostrar BLOBs excluídos realçada.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
 
 Para exibir instantâneos com exclusão reversível para um determinado blob, selecione o blob e clique em **Exibir instantâneos**.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
+![Captura de tela da página de serviço blob de proteção de dados com a opção Exibir instantâneos realçada.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
 
 Verifique se a caixa de seleção **Mostrar instantâneos excluídos** está selecionada.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
+![Captura de tela da página Exibir instantâneos com a opção Mostrar BLOBs excluídos realçada.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
 
 Quando você clica em um blob com exclusão reversível ou um instantâneo, observe as novas propriedades do blob. Elas indicam quando o objeto foi excluído e o número de dias até que o blob ou o instantâneo de blob expire permanentemente. Se o objeto com exclusão reversível não for um instantâneo, você também terá a opção de restaurá-lo.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-properties.png)
+![Captura de tela dos detalhes de um objeto com exclusão reversível.](media/soft-delete-enable/storage-blob-soft-delete-portal-properties.png)
 
 Lembre-se de que restaurar um blob também restaurará todos os instantâneos associados. Para restaurar instantâneos com exclusão reversível para um blob ativo, clique no blob e selecione **Restaurar todos os instantâneos**.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
+![Captura de tela dos detalhes de um blob com exclusão reversível.](media/soft-delete-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
 
 Depois que restaurar os instantâneos de um blob, você poderá clicar em **Promover** para copiar um instantâneo sobre o blob raiz, restaurando assim o blob para o instantâneo.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
+![Captura de tela da página Exibir instantâneos com a opção promover realçada.](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

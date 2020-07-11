@@ -9,11 +9,12 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: f54adb54ca842ea389b0d3ea203d747df0071ee5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2338c523c13b16b4a63ee9de0d966182e26c3286
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84792023"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223288"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Visão geral de blobs de páginas do Azure
 
@@ -122,7 +123,7 @@ Assim que uma solicitação de gravação em um conjunto sequencial de páginas 
 
 O diagrama abaixo mostra duas operações de gravação separadas:
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
+![Um diagrama que mostra as duas opções de gravação separadas.](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
 
 1.  Uma operação de Gravação começando no deslocamento 0 com um tamanho de 1.024 bytes 
 2.  Uma operação de Gravação começando no deslocamento 4.096 com um tamanho de 1.024 
@@ -150,7 +151,7 @@ Isso permite que você baixe o blob ou o intervalo de bytes completo, começando
 
 A figura a seguir mostra uma operação de leitura com um deslocamento de 256 e um tamanho de intervalo de 4352. Os dados retornados são realçados em laranja. Zeros são retornados para páginas NUL.
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
+![Um diagrama que mostra uma operação de leitura com um deslocamento de 256 e um tamanho de intervalo de 4352](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
 Se você tiver um blob populado de modo disperso, baixe apenas as regiões de página válidas para evitar pagar pela saída de zero bytes e reduzir a latência de download.  
 

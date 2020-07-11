@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: cynthn
-ms.openlocfilehash: 3d55efb15454f0b1dfe5ac1101a8a53eb1c9aa8f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 469e225a1cc40dc2ecc45339d9355484e87c4af2
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683943"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223577"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Visualização: Use chaves gerenciadas pelo cliente para criptografar imagens
 
@@ -194,3 +195,5 @@ Ao criar sua versão da imagem no portal, você pode usar a guia **Criptografia*
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre [Criptografia de disco do lado do servidor](./windows/disk-encryption.md).
+
+Para obter informações sobre como fornecer informações do plano de compra, consulte [fornecer informações do plano de compra do Azure Marketplace ao criar imagens](marketplace-images.md).

@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 03/31/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 40dd985b7cf09ddc2a902630cec3f0c74a1edbe1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e21009341857cc6de3cb7aa411445bc10e6827e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734598"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223475"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-active-directory-domain-services-managed-domains"></a>Resolver erros de diretório incompatíveis para domínios gerenciados Azure Active Directory Domain Services existentes
 
@@ -27,26 +28,32 @@ Este artigo explica por que o erro ocorre e como resolvê-lo.
 
 Um erro de diretório incompatível ocorre quando um domínio gerenciado do Azure AD DS e uma rede virtual pertencem a dois locatários diferentes do Azure AD. Por exemplo, você pode ter um domínio gerenciado chamado *aaddscontoso.com* que é executado no locatário do Azure ad da contoso. No entanto, a rede virtual do Azure para o domínio gerenciado faz parte do locatário do Azure AD da Fabrikam.
 
-O Azure usa o RBAC (controle de acesso baseado em função) para limitar o acesso aos recursos. Quando você habilita o Azure AD DS em um locatário do Azure AD, os hashes de credenciais são sincronizados com o domínio gerenciado. Esta operação exige que você seja um administrador de locatários para o diretório do Azure AD e o acesso às credenciais deve ser controlado. Para implantar recursos em uma rede virtual do Azure e controlar o tráfego, você deve ter privilégios administrativos na rede virtual na qual você implanta o Azure AD DS.
+O Azure usa o RBAC (controle de acesso baseado em função) para limitar o acesso aos recursos. Quando você habilita o Azure AD DS em um locatário do Azure AD, os hashes de credenciais são sincronizados com o domínio gerenciado. Esta operação exige que você seja um administrador de locatários para o diretório do Azure AD e o acesso às credenciais deve ser controlado.
+
+Para implantar recursos em uma rede virtual do Azure e controlar o tráfego, você deve ter privilégios administrativos na rede virtual na qual você implanta o domínio gerenciado.
 
 Para que o RBAC funcione consistentemente e proteja o acesso a todos os recursos que o Azure AD DS usa, o domínio gerenciado e a rede virtual devem pertencer ao mesmo locatário do Azure AD.
 
-As regras a seguir se aplicam no ambiente do Resource Manager:
+As regras a seguir se aplicam a implantações:
 
 - Um diretório do Azure AD pode ter várias assinaturas do Azure.
 - Uma assinatura do Azure pode ter vários recursos, como redes virtuais.
-- Um único domínio gerenciado do Azure AD Domain Services fica habilitado para um diretório do Azure AD.
-- Um domínio gerenciado do Azure AD Domain Services pode ser habilitado em uma rede virtual pertencente a qualquer uma das assinaturas do Azure no mesmo locatário do Azure AD.
+- Um único domínio gerenciado é habilitado para um diretório do Azure AD.
+- Um domínio gerenciado pode ser habilitado em uma rede virtual que pertence a qualquer uma das assinaturas do Azure dentro do mesmo locatário do Azure AD.
 
 ### <a name="valid-configuration"></a>Configuração válida
 
-No cenário de implantação de exemplo a seguir, o domínio gerenciado da Contoso é habilitado no locatário do Azure AD da contoso. O domínio gerenciado é implantado em uma rede virtual que pertence a uma assinatura do Azure de Propriedade do locatário do Azure AD da contoso. O domínio gerenciado e a rede virtual pertencem ao mesmo locatário do Azure AD. Esta configuração de exemplo é válida e tem suporte total.
+No cenário de implantação de exemplo a seguir, o domínio gerenciado da Contoso é habilitado no locatário do Azure AD da contoso. O domínio gerenciado é implantado em uma rede virtual que pertence a uma assinatura do Azure de Propriedade do locatário do Azure AD da contoso.
+
+O domínio gerenciado e a rede virtual pertencem ao mesmo locatário do Azure AD. Esta configuração de exemplo é válida e tem suporte total.
 
 ![Configuração válida do locatário do Azure AD DS com o domínio gerenciado e a parte da rede virtual do mesmo locatário do Azure AD](./media/getting-started/valid-tenant-config.png)
 
 ### <a name="mismatched-tenant-configuration"></a>Configuração de locatários incompatíveis
 
-Neste cenário de implantação de exemplo, o domínio gerenciado da Contoso é habilitado no locatário do Azure AD da contoso. No entanto, o domínio gerenciado é implantado em uma rede virtual que pertence a uma assinatura do Azure de Propriedade do locatário do Azure AD da Fabrikam. O domínio gerenciado e a rede virtual pertencem a dois locatários diferentes do Azure AD. Esta configuração de exemplo é um locatário incompatível e não tem suporte. A rede virtual deve ser movida para o mesmo locatário do Azure AD que o domínio gerenciado.
+Neste cenário de implantação de exemplo, o domínio gerenciado da Contoso é habilitado no locatário do Azure AD da contoso. No entanto, o domínio gerenciado é implantado em uma rede virtual que pertence a uma assinatura do Azure de Propriedade do locatário do Azure AD da Fabrikam.
+
+O domínio gerenciado e a rede virtual pertencem a dois locatários diferentes do Azure AD. Esta configuração de exemplo é um locatário incompatível e não tem suporte. A rede virtual deve ser movida para o mesmo locatário do Azure AD que o domínio gerenciado.
 
 ![Configuração de locatários incompatíveis](./media/getting-started/mismatched-tenant-config.png)
 
@@ -54,7 +61,7 @@ Neste cenário de implantação de exemplo, o domínio gerenciado da Contoso é 
 
 As duas opções a seguir resolvem o erro de diretório incompatível:
 
-* [Exclua o domínio gerenciado](delete-aadds.md) do seu diretório existente do AD do Azure. [Crie um domínio gerenciado de substituição](tutorial-create-instance.md) no mesmo diretório do AD do Azure que a rede virtual que você deseja usar. Quando estiver pronto, junte-se a todos os computadores adicionados anteriormente ao domínio excluído ao domínio gerenciado recriado.
+* Primeiro, [exclua o domínio gerenciado](delete-aadds.md) do seu diretório existente do AD do Azure. Em seguida, [crie um domínio gerenciado de substituição](tutorial-create-instance.md) no mesmo diretório do AD do Azure que a rede virtual que você deseja usar. Quando estiver pronto, junte-se a todos os computadores adicionados anteriormente ao domínio excluído ao domínio gerenciado recriado.
 * [Mova a assinatura do Azure](../cost-management-billing/manage/billing-subscription-transfer.md) que contém a rede virtual para o mesmo diretório do Azure AD que o domínio gerenciado.
 
 ## <a name="next-steps"></a>Próximas etapas

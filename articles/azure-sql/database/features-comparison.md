@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 06/25/2020
-ms.openlocfilehash: e48a027af70ec9d002ddcfbb2ee36ded4ca7875a
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4eb1afdd7a6e48d8701dafc6dff44ce6e6db4902
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983512"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231617"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparação de recursos: banco de dados SQL do Azure e Azure SQL Instância Gerenciada
 
@@ -69,7 +69,7 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 | [Eventos estendidos (XEvent)](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Alguns - veja [Eventos estendidos no Banco de Dados SQL](xevent-db-diff-from-svr.md) | Sim-consulte [diferenças de eventos estendidos](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) |
 | [Procedimentos armazenados estendidos](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Não | Não |
 | [Arquivos e grupos de arquivos](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Somente o grupo de arquivos primários | Sim. Os caminhos de arquivo são atribuídos automaticamente e o local do arquivo não pode ser especificado na `ALTER DATABASE ADD FILE` [instrução](../managed-instance/transact-sql-tsql-differences-sql-server.md#alter-database-statement).  |
-| [Fluxo de arquivos](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Não | [Não](../managed-instance/transact-sql-tsql-differences-sql-server.md#filestream-and-filetable) |
+| [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Não | [Não](../managed-instance/transact-sql-tsql-differences-sql-server.md#filestream-and-filetable) |
 | [Pesquisa de texto completo (FTS)](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Sim, mas não há suporte para separadores de palavras de terceiros | Sim, mas [não há suporte para separadores de palavras de terceiros](../managed-instance/transact-sql-tsql-differences-sql-server.md#full-text-semantic-search) |
 | [Funções](https://docs.microsoft.com/sql/t-sql/functions/functions) | Maioria - veja funções individuais | Sim – consulte [Diferenças entre procedimentos armazenados, funções e gatilhos](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
 | [Otimização na memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sim-as [camadas Premium e comercialmente crítico só](../in-memory-oltp-overview.md) têm suporte limitado para objetos não persistentes na memória, como tipos de tabela | Sim - [Camada Comercialmente Crítico somente](../managed-instance/sql-managed-instance-paas-overview.md) |
@@ -144,7 +144,7 @@ A plataforma Azure fornece vários recursos de PaaS que são adicionados como um
 | [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Sim, com um SSIS gerenciado no ambiente da fábrica de dados do Azure (AAD), onde os pacotes estão armazenados no SSISDB hospedado pelo banco de dados SQL do Azure e executado no Azure-SSIS IR (Integration Runtime), consulte [criar IR do Azure-SSIS no ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Para comparar os recursos do SSIS no banco de dados SQL e o SQL Instância Gerenciada, consulte [comparar banco de dados SQL com sql instância gerenciada](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance). | Sim, com um SSIS gerenciado no ambiente Azure Data Factory (ADF), em que os pacotes são armazenados no SSISDB hospedado pelo SQL Instância Gerenciada e executados no Azure SSIS Integration Runtime (IR), consulte [criar Azure-SSIS ir no ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Para comparar os recursos do SSIS no banco de dados SQL e o SQL Instância Gerenciada, consulte [comparar banco de dados SQL com sql instância gerenciada](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance). |
 | [SSRS (SQL Server Reporting Services)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Não – [consulte Power BI](https://docs.microsoft.com/power-bi/) | Não – [consulte Power BI](https://docs.microsoft.com/power-bi/) |
 | [Informações de desempenho de consulta (QPI)](query-performance-insight-use.md) | Sim | Não. Use relatórios internos em SQL Server Management Studio e Azure Data Studio. |
-| [Virtual](../../virtual-network/virtual-networks-overview.md) | Parcial, ele habilita o acesso restrito usando [pontos de extremidade de VNet](vnet-service-endpoint-rule-overview.md) | Sim, o SQL Instância Gerenciada é injetado na VNet do cliente. Consulte [sub-rede](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) e rede [virtual](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
+| [VNET](../../virtual-network/virtual-networks-overview.md) | Parcial, ele habilita o acesso restrito usando [pontos de extremidade de VNet](vnet-service-endpoint-rule-overview.md) | Sim, o SQL Instância Gerenciada é injetado na VNet do cliente. Consulte [sub-rede](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) e rede [virtual](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
 | Ponto de extremidade de serviço VNet | [Sim](vnet-service-endpoint-rule-overview.md) | Não |
 | Emparelhamento global de VNet | Sim, usando [IP privado e pontos de extremidade de serviço](vnet-service-endpoint-rule-overview.md) | Não, o [SQL instância gerenciada não tem suporte](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) devido à [restrição do balanceador de carga no emparelhamento global da VNet](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
 
@@ -167,7 +167,7 @@ O banco de dados SQL do Azure e o Azure SQL Instância Gerenciada oferecem supor
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Sim | Sim [, versão 18,0 e superior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sim | Sim |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Não - veja [Eventos estendidos](xevent-db-diff-from-svr.md) | Sim |
-| [System Center Operations Manager (SCOM)](https://docs.microsoft.com/system-center/scom/welcome) | [Sim](https://www.microsoft.com/download/details.aspx?id=38829) | Sim, [em versão prévia](https://www.microsoft.com/download/details.aspx?id=100306) |
+| [System Center Operations Manager (SCOM)](https://docs.microsoft.com/system-center/scom/welcome) | [Sim](https://www.microsoft.com/download/details.aspx?id=38829) | Sim, [em versão prévia](https://www.microsoft.com/download/details.aspx?id=38829) |
 
 ## <a name="migration-methods"></a>Métodos de migração
 

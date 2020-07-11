@@ -8,18 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/31/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 8109b7b1f6cd8477d49bafd114be24b91530d123
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51f277827ac0865eaede141e5817962b04d2bd49
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734955"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221418"
 ---
 # <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>Alterar a SKU de um domínio gerenciado Azure Active Directory Domain Services existente
 
-No Azure Active Directory Domain Services (AD DS do Azure), o desempenho e os recursos disponíveis são baseados no tipo de SKU. Essas diferenças de recursos incluem a frequência de backup ou o número máximo de relações de confiança de floresta de saída unidirecionais (atualmente em versão prévia). Você seleciona uma SKU ao criar o domínio gerenciado e pode alternar os SKUs para cima ou para baixo conforme suas necessidades de negócios mudam depois que o domínio gerenciado tiver sido implantado. As alterações nos requisitos de negócios podem incluir a necessidade de backups mais frequentes ou a criação de relações de confiança de floresta adicionais. Para obter mais informações sobre os limites e os preços das diferentes SKUs, consulte [conceitos do azure AD DS SKU][concepts-sku] e páginas de [preços do Azure AD DS][pricing] .
+No Azure Active Directory Domain Services (AD DS do Azure), o desempenho e os recursos disponíveis são baseados no tipo de SKU. Essas diferenças de recursos incluem a frequência de backup ou o número máximo de relações de confiança de floresta de saída unidirecionais (atualmente em versão prévia).
+
+Você seleciona uma SKU ao criar o domínio gerenciado e pode alternar os SKUs para cima ou para baixo conforme suas necessidades de negócios mudam depois que o domínio gerenciado tiver sido implantado. As alterações nos requisitos de negócios podem incluir a necessidade de backups mais frequentes ou a criação de relações de confiança de floresta adicionais. Para obter mais informações sobre os limites e os preços das diferentes SKUs, consulte [conceitos do azure AD DS SKU][concepts-sku] e páginas de [preços do Azure AD DS][pricing] .
 
 Este artigo mostra como alterar a SKU de um domínio gerenciado AD DS do Azure existente usando o portal do Azure.
 

@@ -2,13 +2,13 @@
 title: Matriz de suporte para recuperação de desastres do VMware/físico no Azure Site Recovery
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidor físico para o Azure usando Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: ff99fd1dd1710cd96f6257096b97ae1912a61dc6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.date: 07/10/2020
+ms.openlocfilehash: 86aed87be2d65a78b2485d0ce71ce1f674ea9407
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131887"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224631"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -59,9 +59,6 @@ Portas | 443 usado para orquestração de canal de controle<br/>9443 para o tran
 ## <a name="replicated-machines"></a>Computadores replicados
 
 O Site Recovery dá suporte para replicação de qualquer carga de trabalho em execução em um computador com suporte.
-
-> [!Note]
-> A tabela a seguir lista o suporte para computadores com a inicialização do BIOS. Consulte a seção de [armazenamento](#storage) para obter suporte em computadores baseados em UEFI.
 
 **Componente** | **Detalhes**
 --- | ---
@@ -181,6 +178,7 @@ IP estático da rede do convidado/servidor (Linux) | Sim. <br/><br/>As VMs são 
 Várias NICs da rede do convidado/servidor | Sim.
 
 
+
 ## <a name="azure-vm-network-after-failover"></a>Rede VM do Azure (após o failover)
 
 **Componente** | **Com suporte**
@@ -224,7 +222,7 @@ Convidado/servidor - excluir disco | Sim
 MPIO (Múltiplos caminhos) de convidado/servidor | Não
 Partições do convidado/servidor GPT | Há suporte para cinco partições do [pacote cumulativo de atualizações 37](https://support.microsoft.com/help/4508614/) (versão 9,25 do serviço de mobilidade) em diante. Quatro eram suportados anteriormente.
 ReFS | O sistema de arquivos resiliente tem suporte com o serviço de mobilidade versão 9,23 ou superior
-Inicialização de EFI/servidor do convidado/UEFI | -Com suporte para Windows Server 2012 ou posterior, SLES 12 SP4 e RHEL 8,0 com agente de mobilidade versão 9,30 em diante<br/> -Não há suporte para o tipo de inicialização UEFI segura. [Saiba mais.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
+Inicialização de EFI/servidor do convidado/UEFI | -Há suporte para todos os [SOS de UEFI do Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-images-in-azure-marketplace) com site Recovery o agente de mobilidade versão 9,30 em diante. <br/> -Não há suporte para o tipo de inicialização UEFI segura. [Saiba mais.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Canais de replicação
 
@@ -246,7 +244,9 @@ Armazenamento quente| Não
 Blobs de bloco | Não
 Criptografia em repouso (SSE)| Sim
 Criptografia em repouso (CMK)| Sim (por meio do PowerShell AZ 3.3.0 Module em diante)
+Criptografia dupla em repouso | Sim (por meio do PowerShell AZ 3.3.0 Module em diante). Saiba mais sobre as regiões com suporte para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md).
 Armazenamento Premium | Sim
+Opção de transferência segura | Sim
 Serviço de importação/exportação | Não
 Firewalls do armazenamento do Azure para VNets | Sim.<br/> Configurado na conta de armazenamento de armazenamento/cache de destino (usada para armazenar dados de replicação).
 Contas de armazenamento v2 de uso geral (camadas quentes e frias) | Sim (os custos de transações são consideravelmente mais altos para v2 em comparação com v1)

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 6af9db5ed76ecb79f8891895eab52ff71bcab048
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4a732bd81b65c0c6b0cc227e1ed82de7bae3a1a0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146875"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230699"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Como configurar o Caching para aprimoramento incremental no Azure Pesquisa Cognitiva
 
@@ -174,7 +174,7 @@ A tabela a seguir resume como várias APIs se relacionam com o cache:
 | [Criar indexador (2020-06-30-Preview)](https://docs.microsoft.com/rest/api/searchservice/preview-api/create-indexer) | Cria e executa um indexador no primeiro uso, incluindo a criação de um cache se a definição do indexador o especificar. |
 | [Executar indexador](https://docs.microsoft.com/rest/api/searchservice/run-indexer) | Executa um pipeline de enriquecimento sob demanda. Essa API lê o cache se ele existir, ou cria um cache se você adicionou o cache a uma definição de indexador atualizada. Quando você executa um indexador que tem o Caching habilitado, o indexador omite etapas se a saída armazenada em cache pode ser usada. Você pode usar a versão de API de visualização ou disponível em geral desta API.|
 | [Redefinir Indexador](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)| Limpa o indexador de qualquer informação de indexação incremental. A próxima execução do indexador (sob demanda ou agendamento) é o reprocessamento completo do zero, incluindo a nova execução de todas as habilidades e a recriação do cache. É funcionalmente equivalente a excluir o indexador e recriá-lo. Você pode usar a versão de API de visualização ou disponível em geral desta API.|
-| [Redefinir habilidades](https://docs.microsoft.com/rest/api/searchservice/reset-skills) | Especifica quais habilidades executar novamente na próxima execução do indexador, mesmo que você não tenha modificado nenhuma habilidade. O cache é atualizado de acordo. As saídas, como uma loja de conhecimento ou um índice de pesquisa, são atualizadas usando dados reutilizáveis do cache, mais o novo conteúdo de acordo com a habilidade atualizada. |
+| [Redefinir habilidades](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) | Especifica quais habilidades executar novamente na próxima execução do indexador, mesmo que você não tenha modificado nenhuma habilidade. O cache é atualizado de acordo. As saídas, como uma loja de conhecimento ou um índice de pesquisa, são atualizadas usando dados reutilizáveis do cache, mais o novo conteúdo de acordo com a habilidade atualizada. |
 
 Para obter mais informações sobre como controlar o que acontece com o cache, consulte [Gerenciamento de cache](cognitive-search-incremental-indexing-conceptual.md#cache-management).
 

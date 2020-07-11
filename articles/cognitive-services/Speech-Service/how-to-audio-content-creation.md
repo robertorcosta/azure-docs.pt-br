@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 083580435c467a7d4b6a4cede0a821a2c271962f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 72fecbdc173a6174e54a28e48f983965f397ba6a
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589645"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224580"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Melhorar a síntese com a ferramenta de criação de conteúdo de áudio
 
@@ -23,11 +23,13 @@ A [criação de conteúdo de áudio](https://aka.ms/audiocontentcreation) é uma
 
 A ferramenta de criação de conteúdo de áudio baseia-se na [SSML (linguagem de marcação de síntese de fala)](speech-synthesis-markup.md). Para simplificar a personalização e o ajuste, a criação de conteúdo de áudio permite que você inspecione visualmente suas saídas de texto em fala em tempo real.
 
-## <a name="how-does-it-work"></a>Como funciona?
+Consulte o [tutorial em vídeo](https://www.youtube.com/watch?v=O1wIJ7mts_w) para a criação de conteúdo de áudio.
+
+## <a name="how-does-it-work"></a>Como ela funciona?
 
 Este diagrama mostra as etapas necessárias para ajustar as saídas de conversão de texto em fala. Use os links abaixo para saber mais sobre cada etapa.
 
-![](media/audio-content-creation/audio-content-creation-diagram.jpg)
+![Um diagrama das etapas necessárias para ajustar as saídas de conversão de texto em fala.](media/audio-content-creation/audio-content-creation-diagram.jpg)
 
 1. [Configure sua conta do Azure e o recurso de fala](#set-up-your-azure-account-and-speech-resource) para começar.
 2. [Crie um arquivo de ajuste de áudio](#create-an-audio-tuning-file) usando texto sem formatação ou scripts de SSML.

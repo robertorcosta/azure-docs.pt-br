@@ -1,5 +1,5 @@
 ---
-title: Copiar uma versão de imagem de outra galeria
+title: Copiar uma versão de imagem de outra galeria usando a CLI
 description: Copie uma versão de imagem de outra galeria com a CLI do Azure.
 author: cynthn
 ms.service: virtual-machines
@@ -9,13 +9,14 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: add08d7b8ef39322f03e0faf78959b08a6ae2a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 764fe98ad20aa29506b4fba723762124e24af245
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82797052"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224325"
 ---
-# <a name="copy-an-image-from-another-gallery"></a>Copiar uma imagem de outra galeria
+# <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Copiar uma imagem de outra galeria usando o CLI do Azure
 
 Se você tiver várias galerias em sua organização, também poderá criar versões de imagem de versões de imagem existentes armazenadas em outras galerias. Por exemplo, você pode ter uma galeria de desenvolvimento e teste para criar e testar novas imagens. Quando eles estiverem prontos para serem usados na produção, você poderá copiá-los para uma galeria de produção usando este exemplo. Você também pode criar uma imagem de uma imagem em outra galeria usando [Azure PowerShell](image-version-another-gallery-powershell.md).
 
@@ -161,3 +162,5 @@ az sig image-version create \
 Crie uma VM com base em uma versão de imagem [generalizada](vm-generalized-image-version-cli.md) ou [especializada](vm-specialized-image-version-cli.md) .
 
 Além disso, experimente o [Construtor de imagens do Azure (versão prévia)](./linux/image-builder-overview.md) pode ajudar a automatizar a criação da versão da imagem, até mesmo usá-la para atualizar e [criar uma nova versão da imagem a partir de uma versão de imagem existente](./linux/image-builder-gallery-update-image-version.md). 
+
+Para obter informações sobre como fornecer informações do plano de compra, consulte [fornecer informações do plano de compra do Azure Marketplace ao criar imagens](marketplace-images.md).

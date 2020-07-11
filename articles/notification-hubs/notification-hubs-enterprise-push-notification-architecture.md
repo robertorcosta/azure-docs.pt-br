@@ -16,11 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 0104547a432f7f78d74731e11926bcd82088cef7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e53e9599da3c12fdf01c8902a7275fc75ce86643
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76264026"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223594"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Orientação arquitetural do push corporativo
 
@@ -36,7 +37,7 @@ Esta é a arquitetura geral da solução (generalizado com vários aplicativos m
 
 ## <a name="architecture"></a>Arquitetura
 
-![][1]
+![Diagrama da arquitetura empresarial mostrando o fluxo por meio de eventos, assinaturas e mensagens por push.][1]
 
 A parte mais importante neste diagrama de arquitetura é o Barramento de Serviço do Azure, que fornece um modelo de programação de tópicos/assinaturas (falaremos mais sobre isso em [Programação do Barramento de Serviço Pub/Sub]). O receptor, que nesse caso, é o back-end móvel (normalmente o [serviço móvel do Azure], que inicia um envio por push para os aplicativos móveis) não recebe mensagens diretamente dos sistemas de back-end, mas sim uma camada de abstração intermediária fornecida pelo [barramento de serviço do Azure], que permite que o back-end móvel receba mensagens de um ou mais sistemas de back-end. Um Tópico do Barramento de Serviço precisa ser criado para cada um dos sistemas de back-end, por exemplo, Conta, RH, Finanças, que são basicamente "tópicos" de interesse que iniciam o envio de mensagens como notificação por push. Os sistemas de back-end enviam mensagens para esses tópicos. Um Back-end Móvel pode assinar um ou mais tópicos criando uma assinatura do Barramento de Serviço. Isso permite que o back-end móvel receba uma notificação do sistema de back-end correspondente. O back-end móvel continua a escutar mensagens em suas assinaturas e, assim que uma mensagem chega, ela volta e é enviada como notificação para seu hub de notificação. Por fim, os hubs de notificação entregam a mensagem para o aplicativo móvel. Confira a lista de componentes principais:
 
@@ -227,15 +228,17 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 
     e. Para publicar este aplicativo como um **Trabalho Web**, clique com o botão direito do mouse na solução no Visual Studio e selecione **Publicar como Trabalho Web**
 
-    ![][2]
+    ![Captura de tela das opções de clique com o botão direito do mouse sendo exibidas com publicar como Azure WebJob descrito em vermelho.][2]
 
     f. Selecione o perfil de publicação e crie um novo site do Azure, se ele ainda não existir, que hospeda esse Trabalho Web e, quando tiver o site, clique em **Publicar**.
 
-    ![][3]
+    :::image type="complex" source="./media/notification-hubs-enterprise-push-architecture/PublishAsWebJob.png" alt-text="Captura de tela mostrando o fluxo de trabalho para criar um site no Azure.":::
+    Captura de tela da caixa de diálogo Publicar Web com a opção Microsoft Azure sites selecionada, uma seta verde apontando para a caixa de diálogo Selecionar site existente com a nova opção contornada em vermelho, e uma seta verde apontando para a caixa de diálogo criar sites na Microsoft Azure com o nome do site e as opções de criação descritas em vermelho.
+    :::image-end:::
 
-    (por exemplo, Configure o trabalho para ser “Executado Continuamente” para que, quando fizer logon no [Portal do Azure], você veja algo semelhante ao seguinte:
+    g. Configure o trabalho para ser “Executado Continuamente” para que, quando fizer logon no [Portal do Azure], você veja algo semelhante ao seguinte:
 
-    ![][4]
+    ![Captura de tela do portal do Azure com os trabalhos Web de back-end do Enterprise Push exibidos e os valores de nome, agendamento e logs descritos em vermelho.][4]
 
 3. **EnterprisePushMobileApp**
 
@@ -269,11 +272,11 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 2. Execute o **EnterprisePushMobileApp**, que inicia o aplicativo da Windows Store.
 3. Execute o aplicativo de console **EnterprisePushBackendSystem** que simula o back-end do LoB e começa a enviar mensagens. Você deverá ver as notificações do sistema da seguinte forma:
 
-    ![][5]
+    ![Captura de tela de um console que executa o aplicativo de sistema de back-end do Enterprise push e a mensagem enviada pelo aplicativo.][5]
 
 4. Originalmente, as mensagens foram enviadas para os tópicos do Barramento de Serviço que estava sendo monitorado por assinaturas do Barramento de Serviço em seu WebJob. Depois que uma mensagem foi recebida, uma notificação foi criada e enviada ao aplicativo móvel. Você pode verificar os logs do WebJob para confirmar o processamento quando for para o link Logs no [Portal do Azure] para seu WebJob:
 
-    ![][6]
+    ![Captura de tela da caixa de diálogo detalhes do WebJob contínuo com a mensagem que é enviada descrita em vermelho.][6]
 
 <!-- Images -->
 [1]: ./media/notification-hubs-enterprise-push-architecture/architecture.png

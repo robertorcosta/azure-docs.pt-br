@@ -8,11 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: tagore
-ms.openlocfilehash: e862818a4fe2471af574d153d43f0096af7847b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 169b12ff4fbf2471270aa912d5d1f8242371036b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811404"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223730"
 ---
 # <a name="how-to-configure-cloud-services"></a>Como configurar serviços de nuvem
 
@@ -47,7 +48,7 @@ Se você precisar direcionar para uma versão específica do sistema operacional
 
 Você pode adicionar alertas para o seu serviço de nuvem. Clique em **configurações**  >  **regras de alerta**  >  **adicionar alerta**.
 
-![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
+![Captura de tela das configurações panorâmica com a opção regras de alerta realçada e contornada em vermelho e a opção Adicionar alerta contornada em vermelho.](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
 Daqui, você pode configurar um alerta. Com a caixa suspensa **Métrica**, você pode configurar um alerta para os seguintes tipos de dados.
 
@@ -57,7 +58,7 @@ Daqui, você pode configurar um alerta. Com a caixa suspensa **Métrica**, você
 * Limite de rede
 * Percentual de CPU
 
-![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
+![Captura de tela do painel Adicionar uma regra de alerta com todas as opções de configuração definidas.](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>Configurar o monitoramento de um bloco de métrica
 
@@ -94,7 +95,7 @@ Talvez seja necessário reconfigurar o serviço de nuvem por meio do arquivo da 
     ![Baixar](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. Após atualizar o arquivo de configuração de serviço, carregue e aplique as atualizações da configuração:
 
-    ![Carregar](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
+    ![Upload](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
 5. Selecione o arquivo .cscfg e clique em **OK**.
 
 ## <a name="next-steps"></a>Próximas etapas

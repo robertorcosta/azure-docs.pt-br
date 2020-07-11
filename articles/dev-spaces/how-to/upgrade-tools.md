@@ -5,11 +5,12 @@ ms.date: 07/03/2018
 ms.topic: conceptual
 description: Saiba como atualizar as ferramentas de linha de comando do Azure Dev Spaces, a extensão do Visual Studio Code e a extensão do Visual Studio
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contêiner do Azure, contêineres
-ms.openlocfilehash: 1dad455b834bbef046b295b2cba040831a74f757
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: af4ef92d335c350042b74ccfbfaf5266615f92a6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873476"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229254"
 ---
 # <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Como atualizar as ferramentas do Azure Dev Spaces
 
@@ -40,4 +41,4 @@ O Azure Dev Spaces faz parte da carga de trabalho do Desenvolvimento do Azure e 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Teste as novas ferramentas criando um novo cluster. Experimente as guias de início rápido e tutoriais no [Azure Dev Spaces](/azure/dev-spaces).
+Teste as novas ferramentas criando um novo cluster. Experimente as guias de início rápido e tutoriais no [Azure Dev Spaces](../index.yml).

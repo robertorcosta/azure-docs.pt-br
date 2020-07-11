@@ -14,12 +14,12 @@ ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 06/19/2019
-ms.openlocfilehash: b9ca241b5deebc4d23e0ff648eddee0782617e0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aaaaedbd6d2262f632bd47aa6eefb4cc83ab1abd
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79536982"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223951"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Introdução aos Hubs de Notificação usando o Baidu
 
@@ -415,8 +415,8 @@ Anote `DefaultListenSharedAccessSignature` e `DefaultFullSharedAccessSignature` 
 
 Você pode testar rapidamente o recebimento de notificações do [portal do Azure]: use o botão **Enviar** na tela de configuração do hub de notificação conforme mostrado nas telas a seguir:
 
-![](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
-![](./media/notification-hubs-baidu-get-started/BaiduTestSend.png)
+![Captura de tela do portal do Azure com a opção de envio de teste descrita em vermelho e uma seta vermelha apontando para ela. ](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
+ ![ Captura de tela para a página de envio de teste do Baidu no portal do Azure.](./media/notification-hubs-baidu-get-started/BaiduTestSend.png)
 
 Notificações por push normalmente são enviadas em um serviço de back-end como Serviços Móveis ou ASP.NET usando uma biblioteca compatível. Se a biblioteca não estiver disponível para seu back-end, você também poderá usar a API REST diretamente para enviar mensagens de notificação.
 
@@ -436,7 +436,7 @@ Nesta seção, vamos mostrar o envio de uma notificação usando um aplicativo d
 
 1. Crie um novo aplicativo de console do Visual C#:
 
-    ![](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
+    ![Captura de tela da caixa de diálogo novo projeto com a opção aplicativo de console Visual C# realçada.](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
 
 2. Na janela do Console do Gerenciador de Pacotes, defina o **Projeto padrão** como o seu novo projeto de aplicativo do console e execute o seguinte comando na janela do console:
 
@@ -446,7 +446,7 @@ Nesta seção, vamos mostrar o envio de uma notificação usando um aplicativo d
 
     Essa instrução adiciona uma referência ao SDK dos Hubs de Notificação do Azure usando o [pacote NuGet Microsoft.Azure.Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+    ![Captura de tela da caixa de diálogo console do Gerenciador de pacotes com a opção Enviar para Hub de notificação circulada em vermelho.](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
 3. Abra o arquivo `Program.cs` e adicione o seguinte usando a instrução:
 

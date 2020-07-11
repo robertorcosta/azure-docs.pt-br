@@ -1,5 +1,5 @@
 ---
-title: Descrições da função de administrador – Azure AD | Microsoft Docs
+title: Descrições e permissões da função do Azure AD – Azure Active Directory | Microsoft Docs
 description: Uma função de administrador pode adicionar usuários, atribuir funções administrativas, redefinir senhas de usuário, gerenciar licenças de usuário ou gerenciar domínios.
 services: active-directory
 author: curtand
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 04/29/2020
+ms.date: 06/15/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1e648058e866be57deaf8dd159c89fc08141b68
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: dd0d17732991fd97b2406c9c5f182408f4746d96
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166664"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223866"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -42,6 +42,11 @@ Caso seja frustrante para você encontrar a função de que precisa para uma lis
 ## <a name="assign-or-remove-administrator-roles"></a>Atribuir ou remover funções de administrador
 
 Para saber como atribuir funções administrativas a um usuário no Azure Active Directory, veja [Exibir e atribuir funções de administrador no Azure Active Directory](directory-manage-roles-portal.md).
+
+> [!Note]
+> Se você tiver uma licença do Azure AD Premium P2 e já for um usuário Privileged Identity Management (PIM), todas as tarefas de gerenciamento de função serão executadas no gerenciamento de identidades de privilégio e não no Azure AD.
+>
+> ![Funções do Azure AD gerenciadas no PIM para usuários que já usam o PIM e que têm uma licença Premium P2](./media/directory-manage-roles-portal/pim-manages-roles-for-p2.png)
 
 ## <a name="available-roles"></a>Funções disponíveis
 
@@ -180,6 +185,7 @@ Essa função está disponível para atribuição apenas como um administrador l
 ### <a name="directory-readers"></a>[Leitores de Diretório](#directory-readers-permissions)
 
 Os usuários com essa função podem ler informações básicas do diretório. Essa função deve ser usada para:
+
 * Conceder o acesso de leitura a um conjunto específico de usuários convidados em vez de a todos os usuários convidados.
 * Conceder a um conjunto específico de usuários não administradores o acesso ao portal do Azure quando a opção “Restringir o acesso ao portal do Azure AD somente para administradores” estiver definida como “Sim”.
 * Conceder acesso às entidades de serviço ao diretório no qual Directory.Read.All não seja uma opção.
@@ -290,7 +296,7 @@ Usuários com essa função têm permissões globais no Microsoft Intune Online,
 Essa função pode criar e gerenciar todos os grupos de segurança. Porém, o Administrador do Intune não tem direitos de administrador sobre grupos do Office. Isso significa que ele não pode atualizar os proprietários ou as associações de todos os grupos do Office na organização. Porém, ele pode gerenciar o grupo do Office que ele mesmo criar, o que vem como parte de seus privilégios de usuário final. Portanto, qualquer grupo do Office (não grupos de segurança) que ele cria deve ser incluído em sua cota de 250.
 
 > [!NOTE]
-> Na API do Microsoft Graph e no PowerShell do Azure AD, essa função é identificada como “Administrador de Serviços do Intune”. É "Administrador do Intune" no [portal do Azure](https://portal.azure.com).
+> Na API do Microsoft Graph e no Azure AD PowerShell, essa função é identificada como "administrador de serviços do Intune". É "Administrador do Intune" no [portal do Azure](https://portal.azure.com).
 
 ### <a name="kaizala-administrator"></a>[Administrador do Kaizala](#kaizala-administrator-permissions)
 
@@ -309,6 +315,7 @@ Os usuários com essa função podem monitorar todas as notificações no Centro
 Usuários nessa função podem monitorar notificações e atualizações de integridade de consultoria no [Centro de Mensagens do Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) da organização em serviços configurados como Exchange, Intune e Microsoft Teams. Os Leitores do Centro de Mensagens recebem por email resumos semanais de postagens, atualizações e podem compartilhar postagens do Centro de Mensagens no Office 365. No Azure AD, os usuários atribuídos a essa função terão acesso somente leitura aos serviços do Azure AD como usuários e grupos. Essa função não tem acesso para exibir, criar nem gerenciar tíquetes de suporte.
 
 ### <a name="modern-commerce-administrator"></a>[Administrador de Comércio Moderno](#modern-commerce-administrator-permissions)
+
 Não use. Essa função é automaticamente atribuída a partir do Comércio e não tem a finalidade ou o suporte para outros usos. Veja detalhes abaixo.
 
 A função de Administrador de Comércio Moderno dá permissão a determinados usuários para acessar o Centro de administração do Microsoft 365 e ver as entradas de navegação à esquerda em **Página Inicial**, **Cobrança** e **Suporte**. O conteúdo disponível nessas áreas é controlado por [funções específicas de comércio](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles) atribuídas aos usuários para gerenciar os produtos que eles compraram para si mesmos ou para a sua organização. Isso pode incluir tarefas como pagar faturas ou acessar contas de cobrança e perfis de cobrança. 
@@ -316,17 +323,17 @@ A função de Administrador de Comércio Moderno dá permissão a determinados u
 Os usuários com a função de Administrador de Comércio Moderno normalmente têm permissões administrativas em outros sistemas de compra da Microsoft, mas não têm funções de Administrador global nem de Administrador de cobrança usadas para acessar o centro de administração. 
 
 **Quando a função de Administrador de Comércio Moderno é atribuída?**
+
 * **Compra por autoatendimento no Centro de administração do Microsoft 365** – a compra por autoatendimento dá aos usuários a oportunidade de experimentar novos produtos comprando-os ou inscrevendo-se neles por conta própria. Esses produtos são gerenciados no centro de administração. Os usuários que fazem uma compra por autoatendimento recebem uma função no sistema de comércio e a função de Administrador de Comércio Moderno, assim, eles podem gerenciar suas compras no centro de administração. Os administradores podem bloquear compras por autoatendimento (para Power BI, Power Apps e Power Automate) por meio do [PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Para obter mais informações, consulte [Perguntas frequentes da compra por autoatendimento](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
-* **Compras no marketplace comercial da Microsoft** – de modo semelhante à compra por autoatendimento, quando um usuário compra um produto ou serviço do Microsoft AppSource ou do Azure Marketplace, a função de Administrador de Comércio Moderno será atribuída caso não haja a função de Administrador global ou de Administrador de cobrança. Em alguns casos, os usuários podem ser impedidos de fazer essas compras. Para obter mais informações, consulte [Marketplace comercial da Microsoft](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).   
-* **Propostas da Microsoft** – uma proposta é uma oferta formal enviada pela Microsoft para a sua organização comprar produtos e serviços da Microsoft. Quando a pessoa que estiver aceitando a proposta não tiver a função de Administrador global ou de Administrador de cobrança no Azure AD, ela receberá uma função específica de comércio para concluir a proposta, além da função de Administrador de Comércio Moderno para acessar o centro de administração. Ao acessar o centro de administração, essa pessoa só poderá usar recursos que sejam autorizados por sua função específica de comércio. 
+* **Compras no marketplace comercial da Microsoft** – de modo semelhante à compra por autoatendimento, quando um usuário compra um produto ou serviço do Microsoft AppSource ou do Azure Marketplace, a função de Administrador de Comércio Moderno será atribuída caso não haja a função de Administrador global ou de Administrador de cobrança. Em alguns casos, os usuários podem ser impedidos de fazer essas compras. Para obter mais informações, consulte [Marketplace comercial da Microsoft](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).
+* **Propostas da Microsoft** – uma proposta é uma oferta formal enviada pela Microsoft para a sua organização comprar produtos e serviços da Microsoft. Quando a pessoa que estiver aceitando a proposta não tiver a função de Administrador global ou de Administrador de cobrança no Azure AD, ela receberá uma função específica de comércio para concluir a proposta, além da função de Administrador de Comércio Moderno para acessar o centro de administração. Ao acessar o centro de administração, essa pessoa só poderá usar recursos que sejam autorizados por sua função específica de comércio.
 * **Funções específicas de comércio** – alguns usuários recebem esse tipo de função. Caso um usuário não seja um Administrador global nem um Administrador de cobrança, ele obterá a função de Administrador de Comércio Moderno para poder acessar o centro de administração.  
 
-Caso a atribuição da função de Administrador de Comércio Moderno de um usuário seja cancelada, ele perderá o acesso ao Centro de administração do Microsoft 365. Caso ele estivesse gerenciando produtos, seja para si próprio ou para a sua organização, ele não poderá mais fazê-lo. Isso pode incluir a atribuição de licenças, a alteração de métodos de pagamento, a cobrança de contas ou mesmo outras tarefas de gerenciamento de assinaturas. 
+Caso a atribuição da função de Administrador de Comércio Moderno de um usuário seja cancelada, ele perderá o acesso ao Centro de administração do Microsoft 365. Caso ele estivesse gerenciando produtos, seja para si próprio ou para a sua organização, ele não poderá mais fazê-lo. Isso pode incluir a atribuição de licenças, a alteração de métodos de pagamento, a cobrança de contas ou mesmo outras tarefas de gerenciamento de assinaturas.
 
 ### <a name="network-administrator"></a>[Administrador de Rede](#network-administrator-permissions)
 
-Os usuários com essa função podem revisar as recomendações de arquitetura do perímetro de rede da Microsoft que sejam baseadas na telemetria de rede de seus locais de usuário. O desempenho de rede do Office 365 conta com uma cuidadosa arquitetura de perímetro de rede de clientes comerciais, a qual, geralmente, é específica ao local do usuário. Essa função permite a edição de locais de usuários descobertos e a configuração de parâmetros de rede desses locais para facilitar medidas de telemetria e recomendações de design melhores. 
-
+Os usuários com essa função podem revisar as recomendações de arquitetura do perímetro de rede da Microsoft que sejam baseadas na telemetria de rede de seus locais de usuário. O desempenho de rede do Office 365 conta com uma cuidadosa arquitetura de perímetro de rede de clientes comerciais, a qual, geralmente, é específica ao local do usuário. Essa função permite a edição de locais de usuários descobertos e a configuração de parâmetros de rede para esses locais para facilitar medidas de telemetria e recomendações de design aprimoradas
 ### <a name="office-apps-administrator"></a>[Administrador de Aplicativos do Office](#office-apps-administrator-permissions)
 
 Os usuários com essa função podem gerenciar as configurações de nuvem dos aplicativos do Office 365. Isso inclui o gerenciamento de políticas de nuvem, o gerenciamento de download de autoatendimento, além da capacidade de exibir relatórios relacionados aos aplicativos do Office. Além disso, essa função concede a capacidade de gerenciar tíquetes de suporte e monitorar a integridade do serviço no centro de administração principal. Os usuários atribuídos a essa função também podem gerenciar a comunicação de novos recursos nos aplicativos do Office. 
@@ -460,7 +467,7 @@ Usuários com essa função têm permissões globais no Microsoft SharePoint Onl
 > Na API do Microsoft Graph e no PowerShell do Azure AD, essa função é identificada como “Administrador de Serviços do SharePoint”. É "Administrador do SharePoint" no [portal do Azure](https://portal.azure.com).
 
 > [!NOTE]
-> Essa função também concede permissões de escopo para a API de Microsoft Graph para Microsoft Intune, permitindo o gerenciamento e a configuração de políticas relacionadas ao SharePoint e aos recursos do onedrive.
+> Essa função também concede permissões de escopo para a API de Microsoft Graph para Microsoft Intune, permitindo o gerenciamento e a configuração de políticas relacionadas ao SharePoint e aos recursos do OneDrive.
 
 ### <a name="skype-for-business--lync-administrator"></a>[Administrador do Lync/Skype for Business](#lync-service-administrator-permissions)
 
@@ -487,13 +494,13 @@ Usuários nessa função podem gerenciar todos os aspectos da carga de trabalho 
 
 ### <a name="user-administrator"></a>[Administrador de usuários](#user-administrator-permissions)
 
-Os usuários com essa função podem criar usuários e gerenciar todos os aspectos de usuários com algumas restrições (veja abaixo), além de poder atualizar as políticas de validade de senha. Além disso, os usuários com essa função podem criar e gerenciar todos os grupos. Essa função também inclui a capacidade de criar e gerenciar exibições de usuários, gerenciar tickets de suporte e monitorar a integridade do serviço. Os administradores de usuários não têm permissão para gerenciar algumas propriedades de usuários na maioria das funções de administrador. O usuário com essa função não tem permissões para gerenciar a MFA. As funções que são exceções a essa restrição estão listadas na tabela a seguir.
+Os usuários com essa função podem criar usuários e gerenciar todos os aspectos de usuários com algumas restrições (consulte a tabela) e podem atualizar as políticas de expiração de senha. Além disso, os usuários com essa função podem criar e gerenciar todos os grupos. Essa função também inclui a capacidade de criar e gerenciar exibições de usuários, gerenciar tickets de suporte e monitorar a integridade do serviço. Os administradores de usuários não têm permissão para gerenciar algumas propriedades de usuários na maioria das funções de administrador. O usuário com essa função não tem permissões para gerenciar a MFA. As funções que são exceções a essa restrição estão listadas na tabela a seguir.
 
-| Permissão | O que ele pode fazer |
+| **Permissão** | **O que ele pode fazer** |
 | --- | --- |
 |Permissões gerais|<p>Criar usuários e grupos</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Gerenciar tíquetes de suporte do Office<p>Atualizar políticas de expiração de senha|
-|<p>Em todos os usuários, inclusive todos os administradores</p>|<p>Gerenciar licenças</p><p>Gerenciar todas as propriedades de usuário, exceto o nome Principal do usuário</p>
-|Somente em usuários não administradores ou em qualquer um destes procedimentos limitada de funções de administrador:<ul><li>Leitores de Diretório<li>Emissor do Convite ao Convidado<li>Administrador de assistência técnica<li>Leitor do Centro de Mensagens<li>Leitor de Relatórios<li>Administrador de usuários|<p>Excluir e restauração</p><p>Desativar e ativar</p><p>Invalidar Tokens de atualização</p><p>Gerenciar todas as propriedades de usuário, incluindo o nome Principal do usuário</p><p>Redefinir senha</p><p>Atualizar chaves de dispositivo FIDO)</p>|
+| <p>Em todos os usuários, inclusive todos os administradores</p>|<p>Gerenciar licenças</p><p>Gerenciar todas as propriedades de usuário, exceto o nome Principal do usuário</p>
+| Somente em usuários não administradores ou em qualquer um destes procedimentos limitada de funções de administrador:<ul><li>Leitores de Diretório<li>Emissor do Convite ao Convidado<li>Administrador de assistência técnica<li>Leitor do Centro de Mensagens<li>Leitor de Relatórios<li>Administrador de usuários|<p>Excluir e restauração</p><p>Desativar e ativar</p><p>Invalidar Tokens de atualização</p><p>Gerenciar todas as propriedades de usuário, incluindo o nome Principal do usuário</p><p>Redefinir senha</p><p>Atualizar chaves de dispositivo FIDO)</p>|
 
 > [!IMPORTANT]
 > Usuários com essa função podem alterar senhas de pessoas que podem ter acesso a informações confidenciais ou particulares ou a configurações críticas dentro e fora do Azure Active Directory. A alteração da senha de um usuário pode significar a capacidade de assumir a identidade e as permissões do usuário. Por exemplo:

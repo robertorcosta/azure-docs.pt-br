@@ -16,11 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: a1726e18ea8c1ba86d77d7b9ca3d50c444620361
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2862d5ab2c42ebdd1787022dc86119bc4e0f596
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77657156"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229356"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Visão geral de segurança de máquinas virtuais do Azure
 Este artigo fornece uma visão geral dos principais recursos de segurança do Azure que podem ser usados com máquinas virtuais.
@@ -60,7 +61,7 @@ Para uma proteção ainda mais poderosa, considere o uso da [Proteção Avançad
 * [Proteção de próxima geração](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [Resposta e a proteção de ponto de extremidade](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [Correção e investigação automatizada](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
-* [Pontuação segura](/windows/security/threat-protection/microsoft-defender-atp/configuration-score)
+* [Pontuação segura](/windows/security/threat-protection/microsoft-defender-atp/tvm-microsoft-secure-score-devices)
 * [Procura avançada](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
 * [Gerenciamento e APIs](/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Proteção contra Ameaças da Microsoft](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
@@ -78,7 +79,7 @@ O Cofre de Chaves oferece a opção de armazenar as chaves em HSMs (módulos de 
 
 Saiba mais:
 
-* [O que é o Cofre da Chave do Azure?](/azure/key-vault/key-vault-overview)
+* [O que é o Azure Key Vault?](/azure/key-vault/key-vault-overview)
 * [Blog do Cofre de Chaves do Azure](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Criptografia de disco da máquina virtual
@@ -115,7 +116,7 @@ Recuperação de Site:
 
 Saiba mais:
 
-* [O que é o Azure Site Recovery?](/azure/site-recovery/site-recovery-overview)
+* [O que é Azure Site Recovery?](/azure/site-recovery/site-recovery-overview)
 * [Como funciona Azure Site Recovery?](/azure/site-recovery/site-recovery-components)
 * [Quais cargas de trabalho são protegidas por Azure Site Recovery?](/azure/site-recovery/site-recovery-workload)
 
@@ -157,9 +158,9 @@ Saiba mais:
 
 ## <a name="confidential-computing"></a>Computação Confidencial
 
-Embora a computação confidencial não seja tecnicamente parte da segurança da máquina virtual, o tópico da segurança da máquina virtual pertence ao assunto de nível mais alto da segurança de “computação”. A computação confidencial pertence à categoria de segurança "computar".
+Embora a computação confidencial não seja tecnicamente parte da segurança da máquina virtual, o tópico da segurança da máquina virtual pertence ao assunto de "computação" de nível superior. A computação confidencial pertence dentro da categoria de segurança de "computação".
 
-A computação confidencial garante que, quando os dados estiverem “limpos”, o que é necessário para um processamento eficiente, os dados são protegidos dentro de um Trusted Execution Environment https://en.wikipedia.org/wiki/Trusted_execution_environment (TEE - também conhecido como enclave), um exemplo é mostrado no figura abaixo.  
+A computação confidencial garante que quando os dados estiverem "em claro", o que é necessário para um processamento eficiente, os dados serão protegidos dentro de um ambiente de execução confiável https://en.wikipedia.org/wiki/Trusted_execution_environment (também conhecido como enclave), um exemplo do que é mostrado na figura abaixo.  
 
 Os TEEs garantem que não há como visualizar os dados ou as operações internas de fora, mesmo com um depurador. Eles até garantem que apenas o código autorizado tenha permissão para acessar os dados. Se o código for alterado ou adulterado, as operações serão negadas e o ambiente desativado. O TEE aplica essas proteções durante a execução do código dentro dele.
 

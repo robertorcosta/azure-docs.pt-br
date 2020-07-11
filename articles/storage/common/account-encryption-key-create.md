@@ -10,12 +10,12 @@ ms.date: 02/05/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 7e47440a54d733d0b5d849123633bf7e067fcd81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf7d72e6f16605827b55e3a460a9b28010842d2f
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805707"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220823"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Criar uma conta que dê suporte a chaves gerenciadas pelo cliente para tabelas e filas
 
@@ -237,7 +237,7 @@ $account.Encryption.Services.Table
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para verificar se um serviço em uma conta de armazenamento está usando a chave de criptografia da conta, chame o comando [AZ Storage Account](/cli/azure/storage/account#az-storage-account-show) . Esse comando retorna um conjunto de propriedades de conta de armazenamento e seus valores. Procure o `keyType` campo de cada serviço na propriedade de criptografia e verifique se ele está definido como `Account` .
+Para verificar se um serviço em uma conta de armazenamento está usando a chave de criptografia da conta, chame o comando [AZ Storage Account show](/cli/azure/storage/account#az-storage-account-show) . Esse comando retorna um conjunto de propriedades de conta de armazenamento e seus valores. Procure o `keyType` campo de cada serviço na propriedade de criptografia e verifique se ele está definido como `Account` .
 
 ```azurecli
 az storage account show /

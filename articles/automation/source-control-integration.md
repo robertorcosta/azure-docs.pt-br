@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 37df5ae8e88bf7832fbbeae37555d60943fca446
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: eea4de106fe566b55ae30330d4c9d101f7126bbf
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187295"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229611"
 ---
 # <a name="use-source-control-integration"></a>Usar a integração de controle do código-fonte
 
@@ -202,7 +202,7 @@ Se várias pessoas estiverem editando runbooks em seu repositório de controle d
 No momento, você não pode usar o portal do Azure para atualizar o PAT no controle do código-fonte. Quando seu PAT vencer ou for revogado, você poderá atualizar o controle do código-fonte com um novo token de acesso de uma das seguintes maneiras:
 
 * Usar a [REST API](/rest/api/automation/sourcecontrol/update).
-* Usar o cmdlet [Update-AzAutomationSourceControl](//powershell/module/az.automation/update-azautomationsourcecontrol).
+* Usar o cmdlet [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol).
 
 ## <a name="next-steps"></a>Próximas etapas
 

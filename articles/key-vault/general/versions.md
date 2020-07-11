@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 06/30/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4959d530e1f7a3c777aa3db21fe577c853fbca13
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 58c5fdcfef5e866d0c69d65412582c0ed649f7c6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856006"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230818"
 ---
 # <a name="key-vault-versions"></a>Versões do Key Vault
 
@@ -55,16 +55,16 @@ Novos recursos lançados neste ano:
 ## <a name="2015"></a>2015
 
 Novos recursos lançados neste ano:
-- Gerenciamento de certificados. Adicionado como um recurso à versão de GA 2015-06-01 em 26 de setembro de 2016.
+- Gerenciamento de certificado. Adicionado como um recurso à versão de GA 2015-06-01 em 26 de setembro de 2016.
 
 A disponibilidade geral (versão 2015-06-01) foi anunciada em 24 de junho de 2015. As seguintes alterações foram feitas nessa versão: 
-- Excluir uma chave - campo "usar" removido.
-- Obtenha informações sobre uma chave - campo "usar" removido.
-- Importar uma chave em um cofre - campo "usar" removido.
-- Restaurar uma chave - campo "usar" removido.     
-- "RSA_OAEP" alterado para "RSA-OAEP" para Algoritmos RSA. Consulte [sobre chaves, segredos e certificados](about-keys-secrets-certificates.md).    
+- Excluir um campo "Use" de chave removido.
+- Obter informações sobre um campo de "uso" de chave removido.
+- Importar uma chave para um cofre-campo "usar" removido.
+- Restaurar um campo de "uso" de chave removido.     
+- "RSA_OAEP" foi alterado para "RSA-OAEP" para algoritmos RSA. Consulte [sobre chaves, segredos e certificados](about-keys-secrets-certificates.md).    
  
-A segunda versão de visualização (versão 2015-02-01-Preview) foi anunciada em 20 de abril de 2015. Para saber mais, consulte a postagem no blog [Atualização da API REST](https://blogs.technet.com/b/kv/archive/2015/04/20/empty-3.aspx). As seguintes tarefas foram atualizadas:
+A segunda versão de visualização (versão 2015-02-01-Preview) foi anunciada em 20 de abril de 2015. Para saber mais, consulte a postagem no blog [Atualização da API REST](https://docs.microsoft.com/archive/blogs/kv/rest-api-update). As seguintes tarefas foram atualizadas:
  
 - Listar as chaves em um cofre - adição de suporte a paginação para a operação.
 - Listar as versões de uma chave - adição de operação para listar as versões de uma chave.  

@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: scottsta
-ms.openlocfilehash: 0a7048e79ddd4a86d7e14e573cf5b8556f462f03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af410310e3866b547b8c898a1cc4f91f4f851bc7
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550336"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223016"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Entrar no Azure Active Directory usando o email como uma ID de logon alternativa (versão prévia)
 
@@ -40,7 +40,7 @@ Para organizações em que o UPN local é o email de entrada preferencial do usu
 
 No entanto, em algumas organizações, o UPN local não é usado como um nome de entrada. Nos ambientes locais, você configuraria o AD DS local para permitir a entrada com uma ID de logon alternativa. Definir o UPN do Azure AD com o mesmo valor que o UPN local não é uma opção, pois o Azure AD exigiria que os usuários entrassem com esse valor.
 
-A solução alternativa típica para esse problema era definir o UPN do Azure AD para o endereço de email no qual o usuário espera entrar. Essa abordagem funciona, embora resulte em UPNs diferentes entre o AD local e no Azure AD, e essa configuração não é compatível com todas as cargas de trabalho de Microsoft 365.
+A solução alternativa típica para esse problema era definir o UPN do Azure AD para o endereço de email no qual o usuário espera entrar. Essa abordagem funciona, embora resulte em UPNs diferentes entre o AD local e o Azure AD, e essa configuração não é compatível com todas as cargas de trabalho de Microsoft 365.
 
 Uma abordagem diferente é sincronizar o Azure AD e os UPNs locais com o mesmo valor e, em seguida, configurar o Azure AD para permitir que os usuários entrem no Azure AD com um email verificado. Para fornecer essa capacidade, você define um ou mais endereços de email no atributo *proxyAddresses* do usuário no diretório local. Os *proxyAddresses* são então sincronizados com o Azure ad automaticamente usando Azure ad Connect.
 

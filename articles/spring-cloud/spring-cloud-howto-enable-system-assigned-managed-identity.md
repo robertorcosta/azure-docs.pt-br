@@ -6,11 +6,12 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
-ms.openlocfilehash: d113d20e87d58bad007a35fce47d597a67849a6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2aadc5806f0c5c610dc28b32039ca944af87ab13
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445195"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231719"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Como habilitar a identidade gerenciada atribuída pelo sistema para o aplicativo Azure Spring Cloud
 Identidades gerenciadas para recursos do Azure fornecem uma identidade gerenciada automaticamente no Azure Active Directory para um recurso do Azure, como seu aplicativo de nuvem Spring do Azure. Você pode usar essa identidade para autenticar em qualquer serviço que dá suporte à autenticação do Azure AD, incluindo o Key Vault, sem ter as credenciais no seu código.
@@ -80,6 +81,6 @@ az spring-cloud app identity remove -n app_name -s service_name -g resource_grou
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Como usar identidades gerenciadas com o SDK do Java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
-* [Acesse Azure Key Vault com identidades gerenciadas no iniciador do Spring boot](https://github.com/microsoft/azure-spring-boot/blob/master/azure-spring-boot-starters/azure-keyvault-secrets-spring-boot-starter/README.md#use-msi--managed-identities)
+* [Acesse Azure Key Vault com identidades gerenciadas no iniciador do Spring boot](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets/README.md#use-msi--managed-identities)
 * [Saiba mais sobre identidades gerenciadas para recursos do Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
 

@@ -3,12 +3,12 @@ title: Melhorar a base de dados de conhecimento – QnA Maker
 description: Melhore a qualidade de sua base de dados de conhecimento com o aprendizado ativo. Examine, aceite ou rejeite, adicione sem remover ou altere as perguntas existentes.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 2e074716e4342a8748de4fb4e217548f1cb731f6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 88ccbc52e0eb3447d0b99cac9ba41761e292a6fd
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650767"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231770"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar perguntas sugeridas sobre o aprendizado ativo na base de dados de conhecimento
 
@@ -199,7 +199,7 @@ O código do bot Framework precisa chamar a API de treinamento se a consulta do 
 * Determinar se a consulta deve ser usada para o aprendizado ativo
 * Enviar consulta de volta para a API de treinamento do QnA Maker para aprendizagem ativa
 
-No [exemplo de bot do Azure](https://aka.ms/activelearningsamplebot), ambas as atividades foram programadas.
+No [exemplo de bot do Azure](https://github.com/microsoft/BotBuilder-Samples), ambas as atividades foram programadas.
 
 ### <a name="example-c-code-for-train-api-with-bot-framework-4x"></a>Código C# de exemplo para a API de treinamento com o bot Framework 4. x
 
@@ -264,7 +264,7 @@ public async static void CallTrain(string endpoint, FeedbackRecords feedbackReco
 }
 ```
 
-### <a name="example-nodejs-code-for-train-api-with-bot-framework-4x"></a>Código do node. js de exemplo para a API de treinamento com o bot Framework 4. x
+### <a name="example-nodejs-code-for-train-api-with-bot-framework-4x"></a>Exemplo de código de Node.js para a API de treinamento com o bot Framework 4. x
 
 O código a seguir ilustra como enviar informações de volta para QnA Maker com a API de treinamento.
 

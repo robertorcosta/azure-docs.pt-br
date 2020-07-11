@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: rolyon
-ms.openlocfilehash: f169cf45702d4a5051f9f6908b77c645c7a0018f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: db1b030aed34498ade91a195d5ca68725b579ba3
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042383"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230835"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Transferir uma assinatura do Azure para um diretório diferente do Azure AD (versão prévia)
 
@@ -189,7 +189,7 @@ Identidades gerenciadas não são atualizadas quando uma assinatura é transferi
 
 1. Examine a [lista de serviços do Azure que dão suporte a identidades gerenciadas](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) para observar onde você pode estar usando identidades gerenciadas.
 
-1. Use [AZ ad SP List](/azure/ad/sp#az-ad-sp-list) para listar suas identidades gerenciadas atribuídas pelo sistema e pelo usuário.
+1. Use [AZ ad SP List](/cli/azure/identity?view=azure-cli-latest#az-identity-list) para listar suas identidades gerenciadas atribuídas pelo sistema e pelo usuário.
 
     ```azurecli
     az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"

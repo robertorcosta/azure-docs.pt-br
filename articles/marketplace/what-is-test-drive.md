@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 06/19/2020
-ms.openlocfilehash: 95ca527d8f7912e2c455f94036fe61828b220257
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: abad72145b095b4da77ec499f936c6912fd970a6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121462"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229441"
 ---
 # <a name="what-is-a-test-drive"></a>O que é um test drive?
 
@@ -24,7 +24,7 @@ Como Publicador, você gerencia e define as configurações de test drive no Par
 
 Os clientes potenciais detectam seu test drive no mercado comercial. Eles fornecem suas informações de contato e concordam com os termos e a política de privacidade da sua oferta e, em seguida, acessam seu ambiente pré-configurado para testá-lo por um período de tempo fixo. Os clientes recebem uma avaliação prática e Autoguiada dos principais recursos e benefícios do seu produto e você recebe um líder valioso.
 
-## <a name="how-does-it-work"></a>Como isso funciona?
+## <a name="how-does-it-work"></a>Como ela funciona?
 
 Como Publicador, você gerencia e define as configurações de test drive no Partner Center. Após a instalação, ele se torna uma instância gerenciada que será implantada sob demanda para o cliente que a solicita. Depois que uma instância de test drive for atribuída, ela estará disponível para uso por um determinado período de tempo e, em seguida, excluída para criar espaço para outro cliente.
 
@@ -74,7 +74,7 @@ O processo de transformar uma arquitetura de recursos em um test drive pode ser 
 
 ## <a name="generate-leads-from-your-test-drive"></a>Gerar leads de seu test drive
 
-Uma test drive do Marketplace comercial é uma excelente ferramenta para os comerciantes. Recomendamos que você o incorpore em seus esforços de entrada no mercado ao iniciar para gerar mais clientes potenciais para sua empresa. Para obter diretrizes detalhadas, confira [leads do cliente de sua oferta do Marketplace comercial](https://github.com/partner-center-portal/commercial-marketplace-get-customer-leads.md).
+Uma test drive do Marketplace comercial é uma excelente ferramenta para os comerciantes. Recomendamos que você o incorpore em seus esforços de entrada no mercado ao iniciar para gerar mais clientes potenciais para sua empresa. Para obter diretrizes detalhadas, confira [leads do cliente de sua oferta do Marketplace comercial](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 Se você fechar um negócio com um Lead test drive, não se esqueça de registrá-lo no [Microsoft Partner Sales Connect](https://support.microsoft.com/help/3155788/getting-started-with-microsoft-partner-sales-connect). Além disso, adoraríamos saber sobre seu cliente vence onde um test drive desempenhava uma função.
 

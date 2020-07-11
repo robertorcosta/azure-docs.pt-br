@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: dd5d9c721c3e0204a66367b76654f9a917e26ba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8e84e845910b8f84a9b3f84ad414f2ecdd250a5
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82884625"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223781"
 ---
 # <a name="soft-delete-for-blob-storage"></a>Exclusão reversível do armazenamento de blobs
 
@@ -53,7 +54,7 @@ A exclusão reversível preserva seus dados em muitos casos em que os objetos s�
 
 Quando um blob é substituído usando **Put Blob**, **Put bloquear List**ou **Copy blob**, uma versão ou um instantâneo do estado do blob antes da operação de gravação é gerado automaticamente. Esse objeto é invisível, a menos que os objetos excluídos por software sejam explicitamente listados. Consulte a seção [Recuperação](#recovery) para saber como listar os objetos com exclusão reversível.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-overwrite.png)
+![Um diagrama que mostra como os instantâneos de BLOBs são armazenados à medida que são substituídos usando Put Blob, put bloquear lista ou copiar BLOB.](media/soft-delete-overview/storage-blob-soft-delete-overwrite.png)
 
 *Os dados com exclusão reversível estão em cinza, enquanto os dados ativos são azuis. Os dados gravados mais recentemente aparecem abaixo dos dados mais antigos. Quando B0 é substituído por B1, um instantâneo com exclusão reversível de B0 é gerado. Quando B1 é substituído por B2, um instantâneo com exclusão reversível de B1 é gerado.*
 
@@ -65,13 +66,13 @@ Quando um blob é substituído usando **Put Blob**, **Put bloquear List**ou **Co
 
 Quando **Excluir Blob** é chamado em um instantâneo, esse instantâneo é marcado como com exclusão reversível. Um novo instantâneo não é gerado.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-explicit-delete-snapshot.png)
+![Um diagrama que mostra como instantâneos de BLOBs são excluídos de forma reversível ao usar excluir BLOB.](media/soft-delete-overview/storage-blob-soft-delete-explicit-delete-snapshot.png)
 
 *Os dados com exclusão reversível estão em cinza, enquanto os dados ativos são azuis. Os dados gravados mais recentemente aparecem abaixo dos dados mais antigos. Quando o **blob de instantâneo** é chamado, B0 torna-se um instantâneo e B1 é o estado ativo do blob. Quando o instantâneo B0 é excluído, ele é marcado como com exclusão reversível.*
 
 Quando **Excluir Blob** é chamado em um blob de base (qualquer blob que não seja ele próprio um instantâneo), esse blob é marcado como com exclusão reversível. Conforme o comportamento anterior, chamar **Excluir Blob** em um blob que tenha instantâneos ativos retornará um erro. Chamar **Excluir Blob** em um blob com instantâneos com exclusão reversível não retornará um erro. Você ainda poderá excluir um blob e todos os seus instantâneos em única operação quando a exclusão reversível estiver ativada. Isso marca o blob de base e os instantâneos como com exclusão reversível.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-explicit-include.png)
+![Um diagrama que mostra o que acontece quando o blog de exclusão é chamado em um blob de base.](media/soft-delete-overview/storage-blob-soft-delete-explicit-include.png)
 
 *Os dados com exclusão reversível estão em cinza, enquanto os dados ativos são azuis. Os dados gravados mais recentemente aparecem abaixo dos dados mais antigos. Aqui, uma chamada **delete blob** é feita para excluir B2 e todos os instantâneos associados. O blob ativo, B2 e todos os instantâneos associados são marcados como com exclusão reversível.*
 
@@ -91,7 +92,7 @@ A tabela a seguir detalha o comportamento esperado quando a exclusão reversíve
 | [Copiar blob](/rest/api/storageservices/copy-blob) | Blobs de bloco, acréscimo e página | Copia um blob de origem para um blob de destino na mesma conta de armazenamento ou em outra conta de armazenamento. | Se usado para substituir um blob existente, um instantâneo do estado do blob anterior à chamada é gerado automaticamente. Isso também se aplica a um blob com exclusão reversível anteriormente se e somente se ele for substituído por um blob do mesmo tipo (bloco, acréscimo ou página). Se ele for substituído por um blob de um tipo diferente, todos os dados com exclusão reversível existentes expirarão permanentemente. |
 | [Put Block](/rest/api/storageservices/put-block) | Blobs de bloco | Cria um novo bloco a ser confirmado como parte de um blob de bloco. | Se for usado para confirmar um bloco em um blob que está ativo, não haverá alteração. Se usado para confirmar um bloco para um blob com exclusão reversível, um novo blob será criado, e um instantâneo, gerado automaticamente para capturar o estado do blob com exclusão reversível. |
 | [Put Block List](/rest/api/storageservices/put-block-list) | Blobs de bloco | Confirma um blob especificando o conjunto de IDs de bloco que compõem o blob de bloco. | Se usado para substituir um blob existente, um instantâneo do estado do blob anterior à chamada é gerado automaticamente. Isso também se aplica a um blob com exclusão reversível anteriormente se e somente se ele for um blob de blocos. Se ele for substituído por um blob de um tipo diferente, todos os dados com exclusão reversível existentes expirarão permanentemente. |
-| [Colocar Página](/rest/api/storageservices/put-page) | Blobs de página | Grava um intervalo de páginas em um blob de páginas. | Sem alteração. Os dados de blob de páginas substituídos ou limpos usando essa operação não são salvos e não são recuperáveis. |
+| [Colocar Página](/rest/api/storageservices/put-page) | Blobs de páginas | Grava um intervalo de páginas em um blob de páginas. | Sem alteração. Os dados de blob de páginas substituídos ou limpos usando essa operação não são salvos e não são recuperáveis. |
 | [Acrescentar Bloco](/rest/api/storageservices/append-block) | Blob de acréscimo | Grava um bloco de dados no final de um blob de acréscimo | Sem alteração. |
 | [Set Blob Properties](/rest/api/storageservices/set-blob-properties) | Blobs de bloco, acréscimo e página | Define valores para propriedades do sistema definidas para um blob. | Sem alteração. As propriedades do blob substituído não são recuperáveis. |
 | [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) | Blobs de bloco, acréscimo e página | Define metadados definidos pelo usuário para o blob especificado como um ou mais pares de nome-valor. | Sem alteração. Os metadados de blob substituídos não são recuperáveis. |
@@ -104,7 +105,7 @@ Chamar a operação de [remover blob](/rest/api/storageservices/undelete-blob) e
 
 Para restaurar um blob para um instantâneo de exclusão reversível específico, você pode chamar **undelete blob** no blob de base. Em seguida, você pode copiar o instantâneo sobre o blob ativo agora. Você também pode copiar o instantâneo para um novo blob.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-recover.png)
+![Um diagrama que mostra o que acontece quando o blob de reexclusão é usado.](media/soft-delete-overview/storage-blob-soft-delete-recover.png)
 
 *Os dados com exclusão reversível estão em cinza, enquanto os dados ativos são azuis. Os dados gravados mais recentemente aparecem abaixo dos dados mais antigos. Aqui, o **blob** de restauração é chamado no blob B, restaurando assim o blob de base, B1 e todos os instantâneos associados, aqui apenas B0, como ativo. Na segunda etapa, B0 é copiado sobre o blob de base. Essa operação de cópia gera um instantâneo com exclusão reversível de B1.*
 

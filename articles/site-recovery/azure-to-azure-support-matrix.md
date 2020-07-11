@@ -2,14 +2,14 @@
 title: Matriz de suporte para a recuperação de desastre da VM do Azure com o Azure Site Recovery
 description: Resume o suporte para a recuperação de desastre de VMs do Azure em uma região secundária com o Azure Site Recovery.
 ms.topic: article
-ms.date: 06/03/2020
+ms.date: 07/10/2020
 ms.author: raynew
-ms.openlocfilehash: c729645eadc192dba4d7bb4f2c346d7b9d36434a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d56a507586c9d62fdbeae01d47bb734b98bf385b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132682"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223798"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação de desastre de VM do Azure entre regiões do Azure
 
@@ -205,7 +205,7 @@ Disco temporário | Sem suporte | O disco temporário é sempre excluído da rep
 Tamanho máximo do disco de dados | 8\.192 GB para discos gerenciados<br></br>4\.095 GB para discos não gerenciados|
 Tamanho mínimo do disco de dados | Sem restrições para discos não gerenciados. 2 GB para discos gerenciados |
 Número máximo de discos de dados | Até 64, de acordo com o suporte para um tamanho específico de VM do Azure | [Saiba mais](../virtual-machines/windows/sizes.md) sobre os tamanhos de VM.
-Taxa de alteração do disco de dados | Máximo de 10 MBps por disco para armazenamento premium. Máximo de 2 MBps por disco para armazenamento padrão. | Se a taxa média de alteração de dados no disco for continuamente maior que a máxima, a replicação não será recuperada.<br/><br/>  No entanto, se o máximo for excedido esporadicamente, a replicação poderá recuperar, mas você poderá ver pontos de recuperação um pouco atrasados.
+Taxa de alteração do disco de dados | Máximo de 20 MBps por disco para o armazenamento Premium. Máximo de 2 MBps por disco para armazenamento padrão. | Se a taxa média de alteração de dados no disco for continuamente maior que a máxima, a replicação não será recuperada.<br/><br/>  No entanto, se o máximo for excedido esporadicamente, a replicação poderá recuperar, mas você poderá ver pontos de recuperação um pouco atrasados.
 Disco de dados - conta de armazenamento padrão | Com suporte |
 Disco de dados - conta de armazenamento premium | Com suporte | Se uma VM tiver discos distribuídos em contas de armazenamento premium e padrão, você poderá selecionar uma conta de armazenamento de destino diferente para cada disco, para garantir que você tenha a mesma configuração de armazenamento na região de destino.
 Disco gerenciado - standard | Suporte para regiões do Azure nas quais há suporte para Azure Site Recovery. |
@@ -216,6 +216,7 @@ Armazenamento frio e quente | Sem suporte | Discos de VM não são suportados em
 Espaços de Armazenamento | Com suporte |
 Criptografia em repouso (SSE) | Com suporte | SSE é a configuração padrão em contas de armazenamento.
 Criptografia em repouso (CMK) | Com suporte | As chaves de software e HSM são compatíveis com discos gerenciados
+Criptografia dupla em repouso | Com suporte | Saiba mais sobre as regiões com suporte para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md)
 Habilitar o ADE (Azure Disk Encryption) para o sistema operacional Windows | Compatível com VMs com discos gerenciados. | VMs usando discos não gerenciados não são compatíveis. <br/><br/> Chaves protegidas por HSM não são compatíveis. <br/><br/> A criptografia de volumes individuais em apenas um disco não é um procedimento compatível. |
 ADE (Azure Disk Encryption) para sistema operacional Linux | Compatível com VMs com discos gerenciados. | VMs usando discos não gerenciados não são compatíveis. <br/><br/> Chaves protegidas por HSM não são compatíveis. <br/><br/> A criptografia de volumes individuais em apenas um disco não é um procedimento compatível. |
 Adição a quente    | Com suporte | A habilitação da replicação para um disco de dados que você adiciona a uma VM do Azure replicada é compatível com VMs que usam discos gerenciados. <br/><br/> É possível adicionar a quente somente um disco por vez a uma VM do Azure. A adição paralela de vários discos não é um procedimento compatível. |
@@ -234,6 +235,7 @@ Contas de armazenamento V2 de uso geral (camadas Hot e Cool) | Com suporte | Os 
 Geração 2 (inicialização de UEFI) | Com suporte
 Discos NVMe | Sem suporte
 Discos compartilhados do Azure | Sem suporte
+Opção de transferência segura | Com suporte
 
 >[!IMPORTANT]
 > Para evitar problemas de desempenho, verifique se você está seguindo as metas de desempenho e escalabilidade de disco de VM para VMs do [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou do [Windows](../virtual-machines/windows/disk-scalability-targets.md). Se você usar as configurações padrão, o Site Recovery criará as contas de armazenamento e discos necessários com base na configuração de origem. Se você personalizar e selecionar suas configurações, siga as metas de desempenho e escalabilidade de discos para suas VMs de origem.
@@ -282,5 +284,7 @@ IPv6  | Sem suporte | Também não há suporte para configurações mistas que i
 
 
 ## <a name="next-steps"></a>Próximas etapas
+
 - Leia as [diretrizes de rede](./azure-to-azure-about-networking.md) para replicar VMs do Azure.
 - Implante a recuperação de desastres [replicando as VMs do Azure](./azure-to-azure-quickstart.md).
+

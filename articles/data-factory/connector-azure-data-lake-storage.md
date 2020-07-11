@@ -10,12 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 52a99763e345096dcf379d2e4fd00fa4687ebcd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 7a17e9b0de3e77b2f6b8bf3c6eb55503d34c359c
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727079"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223713"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiar e transformar dados no Azure Data Lake Storage Gen2 usando o Azure Data Factory
 
@@ -414,11 +415,13 @@ Ao copiar arquivos do Azure Data Lake Storage Gen1/Gen2 para Gen2, você pode op
 ## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
 
 Quando estiver transformando dados no mapeamento de fluxos de dados, você pode ler e gravar arquivos de Azure Data Lake Storage Gen2 nos seguintes formatos:
-* [JSON](format-json.md#mapping-data-flow-properties)
 * [Avro](format-avro.md#mapping-data-flow-properties)
-* [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)
-* [Parquet](format-parquet.md#mapping-data-flow-properties).
 * [Modelo de dados comuns (visualização)](format-common-data-model.md#mapping-data-flow-properties)
+* [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)
+* [Delta](format-delta.md#mapping-data-flow-properties)
+* [Excel](format-excel.md#mapping-data-flow-properties)
+* [JSON](format-json.md#mapping-data-flow-properties)
+* [Parquet](format-parquet.md#mapping-data-flow-properties)
 
 As configurações de formato específico estão localizadas na documentação para esse formato. Para obter mais informações, consulte [transformação de origem no mapeamento de fluxo de dados](data-flow-source.md) e [transformação de coletor no fluxo de dados de mapeamento](data-flow-sink.md).
 
@@ -517,7 +520,7 @@ Para saber mais detalhes sobre as propriedades, marque [Excluir atividade](delet
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de dados herdado
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type do conjunto de dados deve ser definida como: **AzureBlobFSFile**. |Sim |
 | folderPath | Caminho para a pasta em Data Lake Storage Gen2. Se não especificado, apontará para a raiz. <br/><br/>O filtro curinga tem suporte. Os curingas permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único). Use `^` como escape se o nome real da pasta tiver curingas ou esse caractere de escape. <br/><br/>Exemplos: filesystem/folder/. Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). |Não |
@@ -562,7 +565,7 @@ Para saber mais detalhes sobre as propriedades, marque [Excluir atividade](delet
 
 ### <a name="legacy-copy-activity-source-model"></a>Modelo de origem de atividade de cópia herdado
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type da origem da atividade de cópia deve ser definida como **AzureBlobFSSource**. |Sim |
 | recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor.<br/>Os valores permitidos são **true** (padrão) e **false**. | Não |

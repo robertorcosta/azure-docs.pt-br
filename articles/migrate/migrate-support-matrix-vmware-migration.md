@@ -3,12 +3,12 @@ title: Suporte para migração do VMware nas migrações para Azure
 description: Saiba mais sobre o suporte para migração de VM do VMware nas migrações para Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 7b026d07c6ac1630048d8aee6778215f3a99dddb
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d8a2488e16031a4d960d039d646d9da5de1c1c2e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134986"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223696"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração do VMware
 
@@ -162,7 +162,7 @@ Arquitetura do sistema operacional convidado | 64 bits.
 Tamanho do disco do sistema operacional | Até 2.048 GB. 
 Contagem do disco do sistema operacional | 1 
 Contagem de disco de dados | 64 ou menos. 
-Tamanho do disco de dados | Até 4.095 GB 
+Tamanho do disco de dados | Até 8.095 GB
 Adaptadores de Rede | Há suporte para vários adaptadores.
 VHD compartilhado | Sem suporte. 
 Disco FC | Sem suporte. 

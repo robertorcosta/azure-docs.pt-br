@@ -15,18 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8baf1c70d115b80e3238d3eedf128057684d2e6
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80981300"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224699"
 ---
 # <a name="security-management-in-azure"></a>Gerenciamento de segurança no Azure
 Os assinantes do Azure podem gerenciar ambientes de nuvem de vários dispositivos, incluindo estações de trabalho, computadores de desenvolvedores e até mesmo dispositivos de usuário final com privilégios que têm permissões de tarefas específicas. Em alguns casos, as funções administrativas são executadas por meio de consoles baseado na Web, como o [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Em outros casos, pode haver conexões diretas ao Azure de sistemas locais por meio de VPNs (Redes Virtuais Privadas), Serviços de Terminal, protocolos de aplicativos de cliente ou (programaticamente) a SMAPI (API de Gerenciamento de Serviços do Azure). Além disso, os pontos de extremidade do cliente podem ser unidos ao domínio ou isolados e não gerenciados, como tablets ou smartphones.
 
 Embora vários recursos de gerenciamento e acesso forneçam um conjunto avançado de opções, essa variação pode adicionar um risco significativo para uma implantação de nuvem. Pode ser difícil gerenciar, controlar e auditar as ações administrativas. Essa variação também pode introduzir ameaças de segurança por meio do acesso não regulado a pontos de extremidade do cliente que são usados para gerenciar serviços de nuvem. O uso de estações de trabalho pessoais ou gerais para desenvolvimento e gerenciamento de infraestrutura abre vetores de ameaça imprevisíveis, como navegação na Web (por exemplo, ataques do tipo "watering hole") ou email (por exemplo, engenharia social e phishing).
 
-![](./media/management/typical-management-network-topology.png)
+![Um diagrama que mostra as diferentes maneiras pelas quais uma ameaça poderia montar ataques.](./media/management/typical-management-network-topology.png)
 
 O potencial para ataques aumenta nesse tipo de ambiente porque é muito difícil criar políticas de segurança e mecanismos para gerenciar adequadamente o acesso às interfaces do Azure (como a SMAPI) de pontos de extremidade amplamente variados.
 
@@ -137,7 +138,7 @@ A imposição de políticas que inclui controles de acesso estritos utiliza meca
 ## <a name="client-configuration"></a>Configuração do cliente
 Recomendamos três configurações principais para uma estação de trabalho protegida. Os maiores diferenciais entre elas são o custo, a usabilidade e a acessibilidade, mantendo um perfil de segurança semelhante em todas as opções. A tabela a seguir fornece uma breve análise dos benefícios e riscos de cada uma delas. (Observe que "computador corporativo" se refere a uma configuração de computador desktop padrão que seria implantada para todos os usuários do domínio, independentemente das funções.)
 
-| Configuração | Benefícios | Desvantagens |
+| Configuração | Benefícios | Contras |
 | --- | --- | --- |
 | Estação de trabalho protegida autônoma |Estação de trabalho rigidamente controlada |custo mais alto para áreas de trabalho dedicadas |
 | - | Risco reduzido de explorações de aplicativos |Maior esforço de gerenciamento |
@@ -156,12 +157,12 @@ Com uma estação de trabalho autônoma protegida, os administradores têm um co
 
 No cenário de estação de trabalho protegida autônoma (mostrado abaixo), a instância local do Firewall do Windows (ou um firewall de cliente não Microsoft) é configurada para bloquear conexões de entrada, como RDP. O administrador pode fazer logon na estação de trabalho protegida e iniciar uma sessão RDP que se conecta ao Azure depois de estabelecer uma conexão VPN com uma Rede Virtual do Azure, mas não pode fazer logon em um computador corporativo e usar RDP para se conectar à própria estação de trabalho protegida.
 
-![](./media/management/stand-alone-hardened-workstation-topology.png)
+![Um diagrama que mostra o cenário de estação de trabalho protegida autônoma.](./media/management/stand-alone-hardened-workstation-topology.png)
 
 ### <a name="corporate-pc-as-virtual-machine"></a>Computador corporativo como máquina virtual
 Em casos em que uma estação de trabalho protegida autônoma separada tem custo proibitivo ou é inconveniente, a estação de trabalho protegida pode hospedar uma máquina virtual para realizar tarefas não administrativas.
 
-![](./media/management/hardened-workstation-enabled-with-hyper-v.png)
+![Um diagrama que mostra a estação de trabalho protegida que hospeda uma máquina virtual para executar tarefas não administrativas.](./media/management/hardened-workstation-enabled-with-hyper-v.png)
 
 Para evitar vários riscos de segurança que podem ocorrer devido ao uso de uma estação de trabalho para gerenciamento de sistemas e outras tarefas de trabalho diário, você pode implantar uma máquina virtual Hyper-V do Windows para a estação de trabalho protegida. A máquina virtual pode ser usada como o computador corporativo. O ambiente de computador corporativo pode permanecer isolado do host, o que reduz a superfície de ataque e impede a coexistência das atividades diárias do usuário (como email) com tarefas administrativas confidenciais.
 

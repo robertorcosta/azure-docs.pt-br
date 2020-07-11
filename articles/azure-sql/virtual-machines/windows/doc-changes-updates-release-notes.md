@@ -11,17 +11,26 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/06/2020
-ms.openlocfilehash: 43b2a02acc04a5c81b9e7bfbe3bfb1551b48ed52
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9f41cb11960dbe9487231f14b005376261075a83
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964610"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231498"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Alterações na documentação das máquinas virtuais do SQL Server no Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 O Azure permite implantar uma VM (máquina virtual) com uma imagem do SQL Server inserida. Este artigo resume as alterações na documentação associadas aos novos recursos e aprimoramentos nas versões recentes das [Máquinas Virtuais do SQL Server no Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
+
+## <a name="july-2020"></a>Julho de 2020
+
+
+| Alterações | Detalhes |
+| --- | --- |
+| **Migrar log para ultra Disk** | Saiba como você pode [migrar seu arquivo de log para um ultra Disk](storage-migrate-to-ultradisk.md) para aproveitar o alto desempenho e baixa latência. | 
+
+
 
 
 ## <a name="june-2020"></a>Junho de 2020

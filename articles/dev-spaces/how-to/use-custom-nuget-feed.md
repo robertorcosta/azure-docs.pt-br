@@ -8,11 +8,12 @@ ms.topic: conceptual
 description: Use um feed NuGet personalizado para acessar e usar os pacotes NuGet em um Azure Dev Space.
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contêiner do Azure, contêineres
 manager: gwallace
-ms.openlocfilehash: 39984a3b3a1be64a497fb8088559ccfcdee4f1c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77c7b733b12d9b352f9a806cadc0f900b9283ef3
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74325735"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229270"
 ---
 # <a name="use-a-custom-nuget-feed-with-azure-dev-spaces"></a>Usar um feed do NuGet personalizado com o Azure Dev Spaces
 
@@ -20,7 +21,7 @@ Um feed NuGet fornece uma maneira conveniente de incluir fontes de pacotes em um
 
 ## <a name="set-up-a-nuget-feed"></a>Configurar um feed NuGet
 
-Adicione uma [referência de pacote](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) para sua dependência no `*.csproj` arquivo sob o `PackageReference` nó. Por exemplo:
+Adicione uma [referência de pacote](/nuget/consume-packages/package-references-in-project-files) para sua dependência no `*.csproj` arquivo sob o `PackageReference` nó. Por exemplo:
 
 ```xml
 <ItemGroup>
@@ -30,7 +31,7 @@ Adicione uma [referência de pacote](https://docs.microsoft.com/nuget/consume-pa
 </ItemGroup>
 ```
 
-Crie um arquivo de [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) na pasta do projeto e defina `packageSources` as `packageSourceCredentials` seções e para o feed do NuGet. A `packageSources` seção contém a URL do feed, que deve ser acessível do seu cluster AKs. O `packageSourceCredentials` são as credenciais para acessar o feed. Por exemplo:
+Crie um arquivo de [NuGet.Config](/nuget/reference/nuget-config-file) na pasta do projeto e defina `packageSources` as `packageSourceCredentials` seções e para o feed do NuGet. A `packageSources` seção contém a URL do feed, que deve ser acessível do seu cluster AKs. O `packageSourceCredentials` são as credenciais para acessar o feed. Por exemplo:
 
 ```xml
 <packageSources>
@@ -70,4 +71,4 @@ Na próxima vez que você executar `azds up` ou acessar `F5` o Visual Studio Cod
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre [o NuGet e como ele funciona](https://docs.microsoft.com/nuget/what-is-nuget).
+Saiba mais sobre [o NuGet e como ele funciona](/nuget/what-is-nuget).

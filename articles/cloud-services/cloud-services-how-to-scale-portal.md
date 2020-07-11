@@ -7,11 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: 5880544137855a2ea5bcd6d6e4bada46563564ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5452e0794083afabbee2759c5b37feb1eed0c88
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75360830"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223679"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Como configurar o dimensionamento automático para um Serviço de Nuvem no portal
 
@@ -42,10 +43,10 @@ Após selecionar o serviço de nuvem, a folha de serviço de nuvem deverá estar
 1. Na folha de serviço de nuvem, no bloco **Funções e Instâncias** , selecione o nome do serviço de nuvem.   
    **IMPORTANTE**: certifique-se de clicar na função de serviço de nuvem, não na instância de função que está abaixo da função.
 
-    ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
+    ![Captura de tela do bloco funções e instâncias com a função de trabalho com a opção S B fila 1 descrita em vermelho.](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Selecione o bloco **escala** .
 
-    ![](./media/cloud-services-how-to-scale-portal/scale-tile.png)
+    ![Captura de tela da página operações com o bloco de venda descrito em vermelho.](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
 ## <a name="automatic-scale"></a>Escala automática
 Você pode definir as configurações de escala para uma função com o modo **manual** ou **automático**. O modo manual é a forma como você esperaria, você define a contagem absoluta de instâncias. No entanto, o modo automático permite que você defina regras que determinem como e quanto você deverá dimensionar.
@@ -88,7 +89,7 @@ As regras são adicionadas a um perfil e representam uma condição que dispara 
 
 O gatilho de regra se baseia em uma métrica do serviço de nuvem (utilização da CPU, atividade de disco ou atividade de rede) para a qual você pode adicionar um valor condicional. Além disso, o gatilho pode se basear em uma fila de mensagens ou na métrica de algum outro recurso do Azure associada à sua assinatura.
 
-![](./media/cloud-services-how-to-scale-portal/rule-settings.png)
+![Captura de tela da caixa de diálogo regra com a opção nome da métrica descrita em vermelho.](./media/cloud-services-how-to-scale-portal/rule-settings.png)
 
 Depois de configurar a regra, selecione o botão **OK** na parte inferior da folha de regra.
 

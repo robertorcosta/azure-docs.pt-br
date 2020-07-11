@@ -1,5 +1,5 @@
 ---
-title: Copiar uma imagem de outra galeria
+title: Copiar uma imagem de outra galeria usando o PowerShell
 description: Copie uma imagem de outra galeria usando Azure PowerShell.
 author: cynthn
 ms.service: virtual-machines
@@ -9,14 +9,14 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 10cd8514b529f29f68ea3df14cdc208dd8fdd556
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fe26a880979a431e456d9a1819dfd1b18d25f77
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82796922"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221214"
 ---
-# <a name="copy-an-image-from-another-gallery"></a>Copiar uma imagem de outra galeria
+# <a name="copy-an-image-from-another-gallery-using-powershell"></a>Copiar uma imagem de outra galeria usando o PowerShell
 
 Se você tiver várias galerias em sua organização, poderá criar imagens de imagens armazenadas em outras galerias. Por exemplo, você pode ter uma galeria de desenvolvimento e teste para criar e testar novas imagens. Quando eles estiverem prontos para serem usados na produção, você poderá copiá-los para uma galeria de produção usando este exemplo. Você também pode criar uma imagem de uma imagem em outra galeria usando o [CLI do Azure](image-version-another-gallery-cli.md).
 
@@ -165,3 +165,5 @@ $job.State
 Crie uma VM com base em uma versão de imagem [generalizada](vm-generalized-image-version-powershell.md) ou [especializada](vm-specialized-image-version-powershell.md) .
 
 O [Construtor de imagens do Azure (visualização)](./linux/image-builder-overview.md) pode ajudar a automatizar a criação da versão da imagem, até mesmo usá-la para atualizar e [criar uma nova versão da imagem a partir de uma versão de imagem existente](./linux/image-builder-gallery-update-image-version.md). 
+
+Para obter informações sobre como fornecer informações do plano de compra, consulte [fornecer informações do plano de compra do Azure Marketplace ao criar imagens](marketplace-images.md).

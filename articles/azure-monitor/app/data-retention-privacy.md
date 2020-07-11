@@ -3,12 +3,12 @@ title: Retenção de dados e armazenamento no Azure Application Insights | Micro
 description: Declaração de política de privacidade e retenção
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 848285accd7e05607bac418b6b4ae39055a5772f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acee1ad0b531f23a872d78111ccd9f0ac09bcfb1
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601353"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224478"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Coleta de dados, retenção e armazenamento no Application Insights
 
@@ -62,7 +62,7 @@ As principais categorias são:
 ## <a name="how-can-i-verify-whats-being-collected"></a>Como verificar o que está sendo coletado?
 Se você estiver desenvolvendo o aplicativo usando o Visual Studio, execute o aplicativo no modo de depuração (F5). A telemetria é exibida na janela Saída. A partir dali, é possível copiá-la e formatá-la como JSON para fácil inspeção. 
 
-![](./media/data-retention-privacy/06-vs.png)
+![Captura de tela que mostra a execução do aplicativo no modo de depuração no Visual Studio.](./media/data-retention-privacy/06-vs.png)
 
 Também há uma exibição mais legível na janela Diagnóstico.
 
@@ -247,9 +247,9 @@ Os SDKs variam entre diferentes plataformas, e há vários componentes que você
 
 | Sua ação | Classes de dados coletados (consulte a tabela a seguir) |
 | --- | --- |
-| [Adicionar o Application Insights SDK a um projeto Web .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Requests<br/>**Exceções**<br/>Session<br/>users |
+| [Adicionar o Application Insights SDK a um projeto Web .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Requests<br/>**Exceções**<br/>Sessão<br/>users |
 | [Instalar o Monitor de Status no IIS][redfield] |Dependências<br/>ServerContext<br/>Inferido<br/>Contadores de desempenho |
-| [Adicionar o Application Insights SDK a um aplicativo Web Java][java] |ServerContext<br/>Inferido<br/>Solicitação<br/>Session<br/>users |
+| [Adicionar o Application Insights SDK a um aplicativo Web Java][java] |ServerContext<br/>Inferido<br/>Solicitação<br/>Sessão<br/>users |
 | [Adicionar SDK do JavaScript à página da Web][client] |ClientContext  <br/>Inferido<br/>Página<br/>ClientPerf<br/>Ajax |
 | [Definir propriedades padrão][apiproperties] |**Propriedades** em todos os eventos padrão e personalizados |
 | [Chamar TrackMetric][api] |Valores numéricos<br/>**Propriedades** |
@@ -266,7 +266,7 @@ Para [SDKs para outras plataformas][platforms], consulte seus respectivos docume
 | **Propriedades** |**Quaisquer dados - determinados pelo seu código** |
 | DeviceContext |`Id`, IP, localidade, modelo de dispositivo, rede, tipo de rede, nome do OEM, resolução da tela, instância de função, nome da função, tipo de dispositivo |
 | ClientContext  |Sistema operacional, localidade, linguagem, rede, resolução da janela |
-| Session |`session id` |
+| Sessão |`session id` |
 | ServerContext |Nome do computador, localidade, sistema operacional, dispositivo, sessão de usuário, contexto de usuário, operação |
 | Inferido |localização geográfica do endereço IP, carimbo de data/hora, sistema operacional, navegador |
 | Métricas |Valor e nome da métrica |

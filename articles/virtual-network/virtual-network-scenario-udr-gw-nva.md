@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: 80a9397838e90a2af504125b2dc4c4ef39251d4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d2dde4e77a39b114f721cd6d2be250141984e7f
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81455355"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231702"
 ---
 # <a name="virtual-appliance-scenario"></a>Cenário de dispositivo virtual
 Um cenário comum entre os maiores clientes do Azure é a necessidade de fornecer um aplicativo de duas camadas exposto à Internet, permitindo acesso para a camada traseira de um datacenter local. Este documento explica um cenário usando UDR (Rotas Definidas pelo Usuário), um Gateway de VPN e dispositivos virtuais de rede para implantar um ambiente de duas camadas que atende aos seguintes requisitos:
@@ -33,8 +33,8 @@ Esse é um cenário de rede de perímetro padrão (também conhecido como DMZ) c
 
 |  | Vantagens | Desvantagens |
 | --- | --- | --- |
-| NSG |Sem custo. <br/>Integrado ao RBAC do Azure. <br/>As regras podem ser criadas em modelos de Azure Resource Manager. |A complexidade pode variar em ambientes maiores. |
-| Firewall |Controle total sobre o plano de dados. <br/>Gerenciamento central por meio do console do firewall. |Custo do dispositivo de firewall. <br/>Não é integrado ao RBAC do Azure. |
+| **NSG** |Sem custo. <br/>Integrado ao RBAC do Azure. <br/>As regras podem ser criadas em modelos de Azure Resource Manager. |A complexidade pode variar em ambientes maiores. |
+| **Firewall** |Controle total sobre o plano de dados. <br/>Gerenciamento central por meio do console do firewall. |Custo do dispositivo de firewall. <br/>Não é integrado ao RBAC do Azure. |
 
 A solução a seguir usa dispositivos virtuais de firewall para implementar um cenário de rede de rede de perímetro (DMZ)/protected.
 
@@ -77,30 +77,30 @@ Para garantir a comunicação seja feita por meio do dispositivo de firewall cor
 ### <a name="azgwudr"></a>azgwudr
 Nesse cenário, o único tráfego fluindo do local para o Azure será usado para gerenciar os firewalls se conectando ao **AZF3** e esse tráfego deve passar pelo firewall interno, **AZF2**. Portanto, é necessária apenas uma rota no **GatewaySubnet** conforme mostrado abaixo.
 
-| Destination | Próximo salto | Explicação |
+| Destino | Próximo salto | Explicação |
 | --- | --- | --- |
 | 10.0.4.0/24 |10.0.3.11 |Permite que tráfego local alcance o gerenciamento de firewall **AZF3** |
 
 ### <a name="azsn2udr"></a>azsn2udr
-| Destination | Próximo salto | Explicação |
+| Destino | Próximo salto | Explicação |
 | --- | --- | --- |
 | 10.0.3.0/24 |10.0.2.11 |Permite tráfego para a sub-rede de back-end que hospeda o servidor de aplicativos por meio do **AZF2** |
 | 0.0.0.0/0 |10.0.2.10 |Permite que todos os outros tráfegos sejam roteados por meio do **AZF1** |
 
 ### <a name="azsn3udr"></a>azsn3udr
-| Destination | Próximo salto | Explicação |
+| Destino | Próximo salto | Explicação |
 | --- | --- | --- |
 | 10.0.2.0/24 |10.0.3.10 |Permite que o tráfego **azsn2** ao flua do servidor de aplicativos para o servidor Web por meio do **AZF2** |
 
 Você também precisa criar tabelas de rotas para as sub-redes em **onpremvnet** simularem o datacenter local.
 
 ### <a name="onpremsn1udr"></a>onpremsn1udr
-| Destination | Próximo salto | Explicação |
+| Destino | Próximo salto | Explicação |
 | --- | --- | --- |
 | 192.168.2.0/24 |192.168.1.4 |Permite o tráfego para **onpremsn2** por meio do **OPFW** |
 
 ### <a name="onpremsn2udr"></a>onpremsn2udr
-| Destination | Próximo salto | Explicação |
+| Destino | Próximo salto | Explicação |
 | --- | --- | --- |
 | 10.0.3.0/24 |192.168.2.4 |Permite o tráfego para a sub-rede com suporte no Azure por meio de **OPFW** |
 | 192.168.1.0/24 |192.168.2.4 |Permite o tráfego para **onpremsn1** por meio do **OPFW** |

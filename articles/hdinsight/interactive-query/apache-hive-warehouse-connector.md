@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 3efccc44255067b7e47c468c9a35853def2fce69
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c2590a2c745969313ae73521dbcd110fbf3b7551
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085847"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221010"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrar o Apache Spark e o Apache Hive ao Hive Warehouse Connector no Azure HDInsight
 
@@ -37,6 +37,9 @@ Algumas das operações com suporte do Hive Warehouse Connector são:
 * Escrever um dataframe ou um fluxo do Spark para o Hive usando HiveStreaming
 
 ## <a name="hive-warehouse-connector-setup"></a>Configuração do Hive Warehouse Connector
+
+> [!IMPORTANT]
+> A instância interativa do HiveServer2 instalada no Spark 2,4 Enterprise Security Package clusters não tem suporte para uso com o conector do depósito do hive. Em vez disso, você deve configurar um cluster interativo HiveServer2 separado para hospedar suas cargas de trabalho interativas do HiveServer2. Não há suporte para uma configuração de conector de depósito do hive que utilize um único cluster Spark 2,4.
 
 O Hive Warehouse Connector precisa de clusters separados para cargas de trabalho do Spark e do Interactive Query. Siga estas etapas para configurar esses clusters no Azure HDInsight.
 
