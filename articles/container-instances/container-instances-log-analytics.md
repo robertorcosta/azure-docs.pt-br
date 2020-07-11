@@ -2,13 +2,14 @@
 title: Coletar & analisar logs de recursos
 description: Saiba como enviar logs de recursos e dados de eventos de grupos de contêineres em instâncias de contêiner do Azure para Azure Monitor logs
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 07/02/2020
 ms.author: danlep
-ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c76d8a2e7e468c511f0df47ebb240a787f40e026
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80892386"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169724"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Log de instância e grupo de contêineres com logs de Azure Monitor
 
@@ -67,7 +68,7 @@ az container create \
 Use esse método se você preferir implantar grupos de contêineres com YAML. O YAML a seguir define um grupo de contêineres com um único contêiner. Copie o YAML para em um novo arquivo, então substitua `LOG_ANALYTICS_WORKSPACE_ID` e `LOG_ANALYTICS_WORKSPACE_KEY` pelos valores obtidos na etapa anterior. Salve o arquivo como **deploy-aci.yaml**.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: mycontainergroup001
 properties:
@@ -104,7 +105,7 @@ Você deverá receber uma resposta do Azure contendo detalhes da implantação, 
 Após implantar o grupo de contêineres, poderá demorar vários minutos (até 10) para que as primeiras entradas de log apareçam no portal do Azure. Para exibir logs do grupo de contêineres na tabela `ContainerInstanceLog_CL`:
 
 1. Navegue até o espaço de trabalho do Log Analytics no portal do Azure
-1. Em **Geral**, selecione **Logs**  
+1. Em **geral**, selecione **logs**  
 1. Digite a seguinte consulta: `ContainerInstanceLog_CL | limit 50`
 1. Selecione **executar**
 
@@ -117,7 +118,7 @@ Você deverá ver vários resultados exibidos pela consulta. Se, a princípio, v
 Você também pode exibir eventos para instâncias de contêiner no portal do Azure. Os eventos incluem a hora em que a instância é criada e quando ela é iniciada. Para exibir dados de evento na tabela `ContainerEvent_CL`:
 
 1. Navegue até o espaço de trabalho do Log Analytics no portal do Azure
-1. Em **Geral**, selecione **Logs**  
+1. Em **geral**, selecione **logs**  
 1. Digite a seguinte consulta: `ContainerEvent_CL | limit 50`
 1. Selecione **executar**
 

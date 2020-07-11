@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: f4b76bd91a47f14104a9f7f23a4a545ee3d40e59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a48467100e396ed1b43544d1b10ae5007415e3e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477848"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201949"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: entrar em qualquer usuário do Azure Active Directory usando o padrão de aplicativo de vários inquilinos
 
@@ -71,15 +71,21 @@ Aplicativos Web e APIs Web recebem e validam tokens da plataforma Microsoft Iden
 
 Vejamos como um aplicativo valida os tokens que ele recebe da plataforma de identidade da Microsoft. Um aplicativo de locatário único normalmente tem um valor de ponto de extremidade como:
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com
+```
 
 e o usará para criar uma URL de metadados (nesse caso, OpenID Connect) como:
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
+```
 
 para baixar duas partes críticas de informações que são usadas para validar tokens: as chaves de assinatura do locatário e o valor de emissor. Cada locatário do Azure AD tem um valor de emissor exclusivo do formato:
 
+```http
     https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
+```
 
 em que o valor de GUID é a versão à prova de renomeação da ID de locatário. Se você clicar no link de metadados anterior para `contoso.onmicrosoft.com`, poderá ver esse valor de emissor no documento.
 
@@ -87,7 +93,9 @@ Quando um aplicativo de locatário único valida um token, ele verifica a assina
 
 Como o ponto de extremidade /common não corresponde a um locatário e não é um emissor, ao examinar o valor do emissor nos metadados para /common, ele tem uma URL de modelo em vez de um valor real:
 
+```http
     https://sts.windows.net/{tenantid}/
+```
 
 Portanto, um aplicativo multilocatário não pode validar tokens apenas combinando o valor do emissor nos metadados com o valor `issuer` no token. Um aplicativo multilocatário precisa de lógica para decidir quais valores de emissor são válidos e quais não são baseados na parte da ID do locatário do valor do emissor. 
 
@@ -135,7 +143,9 @@ Seu aplicativo pode ter várias camadas, cada uma representada por seu próprio 
 
 Isso poderá ser um problema se seu aplicativo lógico consistir em dois ou mais registros de aplicativo, por exemplo, um cliente e um recurso separados. Como você obtém o recurso no locatário do cliente primeiro? O Azure AD abrange neste caso permitindo que o cliente e o recurso recebam o consentimento em uma única etapa. O usuário vê a soma total das permissões solicitadas pelo cliente e pelo recurso na página de consentimento. Para permitir esse comportamento, o registro do aplicativo do recurso deve incluir a ID do aplicativo do cliente como um `knownClientApplications` no [manifesto do aplicativo][AAD-App-Manifest]. Por exemplo:
 
+```aad-app-manifest
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
+```
 
 Isso é demonstrado em uma amostra de chamada de cliente nativo de várias camadas à API da Web na seção [Conteúdo relacionado](#related-content) ao final deste artigo. O diagrama a seguir fornece uma visão geral de consentimento para um aplicativo de várias camadas registrado em um único locatário.
 
@@ -178,7 +188,7 @@ Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário
 * [Exemplo de aplicativo multilocatário](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md)
 * [Diretrizes de identidade visual para aplicativos][AAD-App-Branding]
 * [Objetos de aplicativo e objetos de entidade de serviço][AAD-App-SP-Objects]
-* [Integrando aplicativos com o Azure Active Directory][AAD-Integrating-Apps]
+* [Integrando aplicativos ao Azure Active Directory][AAD-Integrating-Apps]
 * [Visão geral da estrutura de consentimento][AAD-Consent-Overview]
 * [Escopos de permissão da API do Microsoft Graph][MSFT-Graph-permission-scopes]
 

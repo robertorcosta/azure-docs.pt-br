@@ -6,11 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
-ms.openlocfilehash: 86cbeddba699e89ce1127dbac72dac81dcc41449
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dd228add317b5c4cd19f1d0daefa90ce3c937b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76547482"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184864"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Como monitorar o Cache Redis do Azure
 
@@ -67,7 +68,7 @@ Para configurar uma conta de armazenamento para suas métricas de cache:
 4. Marque **Arquivar em uma conta de armazenamento**. Você pagará taxas de dados normais por armazenamento e transações ao enviar diagnóstico para uma conta de armazenamento.
 4. Selecione **Configurar** para escolher a conta de armazenamento na qual armazenar as métricas de cache.
 5. Na **métrica**título da tabela, marque a caixa de seleção ao lado dos itens de linha que você deseja armazenar, como **biométricas**. Especifique uma política de **retenção (dias)** . A retenção máxima de dias que você pode especificar é de **365 dias**. No entanto, se você quiser manter os dados de métricas para sempre, defina a **retenção (dias)** como **0**.
-6. Clique em **Save** (Salvar).
+6. Clique em **Salvar**.
 
 
 ![Diagnóstico do Redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
@@ -102,7 +103,7 @@ Cada métrica inclui duas versões. Uma métrica mede o desempenho de todo o cac
 | Gravação no Cache |A quantidade de dados gravados no cache, em MB/s, durante o intervalo de relatório especificado. Esse valor é derivado das placas de adaptador de rede que dão suporte à máquina virtual que hospeda o cache e não é específico do Redis. Esse valor corresponde à largura de banda de rede de dados enviados para o cache do cliente. |
 | Clientes conectados |O número de conexões de cliente com o cache durante o intervalo de relatório especificado. Esse número é mapeado para `connected_clients` do comando REDIS info. Depois que o [limite de conexão](cache-configure.md#default-redis-server-configuration) for atingido, as tentativas de conexão subsequentes para o cache falharão. Mesmo que não haja nenhum aplicativo cliente ativo, ainda pode haver algumas instâncias de clientes conectados devido a conexões e processos internos. |
 | CPU |A utilização da CPU do servidor do Cache Redis do Azure como um percentual durante o intervalo de relatório especificado. Esse valor é mapeado para o contador de desempenho `\Processor(_Total)\% Processor Time` do sistema operacional. |
-| Erros | Falhas específicas e problemas de desempenho que o cache pode estar enfrentando durante um intervalo de relatório especificado. Essa métrica tem oito dimensões representando diferentes tipos de erros, mas poderia ter mais adicionadas no futuro. Os tipos de erros representados agora são os seguintes: <br/><ul><li>**Failover** – quando um cache executa failover (subordinado elevado ao mestre)</li><li>**Perda** de dados – quando há perda de dado no cache</li><li>**UnresponsiveClients** – quando os clientes não estão lendo dados do servidor com rapidez suficiente</li><li>**AOF** – quando há um problema relacionado à persistência do AOF</li><li>**RDB** – quando há um problema relacionado à persistência do RDB</li><li>**Importação** – quando há um problema relacionado à Importação do RDB</li><li>**Exportação** – quando há um problema relacionado à Exportação do RDB</li></ul> |
+| Erros | Falhas específicas e problemas de desempenho que o cache pode estar enfrentando durante um intervalo de relatório especificado. Essa métrica tem oito dimensões representando diferentes tipos de erros, mas poderia ter mais adicionadas no futuro. Os tipos de erros representados agora são os seguintes: <br/><ul><li>**Failover** – quando um cache faz failover (subordinado eleva ao primário)</li><li>**Perda** de dados – quando há perda de dado no cache</li><li>**UnresponsiveClients** – quando os clientes não estão lendo dados do servidor com rapidez suficiente</li><li>**AOF** – quando há um problema relacionado à persistência do AOF</li><li>**RDB** – quando há um problema relacionado à persistência do RDB</li><li>**Importação** – quando há um problema relacionado à Importação do RDB</li><li>**Exportação** – quando há um problema relacionado à Exportação do RDB</li></ul> |
 | Chaves removidas |O número de itens removidos do cache durante o intervalo de relatório especificado devido ao limite de `maxmemory` . Esse número é mapeado para `evicted_keys` do comando REDIS info. |
 | Chaves expiradas |O número de itens expirados do cache durante o intervalo de relatório especificado. Esse valor é mapeado para `expired_keys` do comando INFO do Redis.|
 | Gets |O número de operações get do cache durante o intervalo de relatório especificado. Esse valor é a soma dos seguintes valores de informações do comando INFO all do Redis: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit` e `cmdstat_getrange`. Ele é equivalente à soma de acertos e erros de cache durante o intervalo de relatório. |

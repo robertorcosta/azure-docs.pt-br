@@ -7,11 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5c947617f0c27708e72f9bff92e2b0041473cd92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba94f15f21696c87b336dc1f17b6f9f9def75c6c
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701822"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220687"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Criar um aplicativo Web em um Ambiente do Serviço de Aplicativo v1
 
@@ -33,7 +34,7 @@ Este tutorial supõe que você tenha criado um Ambiente de Serviço de Aplicativ
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web
 1. No [Portal do Azure](https://portal.azure.com/), clique em **Criar um recurso > Web + Celular > Aplicativo Web**. 
    
-    ![][1]
+    ![Captura de tela que mostra onde criar um aplicativo Web no portal do Azure.][1]
 2. Selecione sua assinatura.  
    
     Se você tiver várias assinaturas, lembre-se de que, para criar um aplicativo no Ambiente de Serviço de Aplicativo, precisará usar a mesma assinatura que usou ao criar o ambiente. 
@@ -46,7 +47,7 @@ Este tutorial supõe que você tenha criado um Ambiente de Serviço de Aplicativ
    
     Você pode identificar os planos do Serviço de Aplicativo no ASE examinando o local indicado abaixo do nome do plano.  
    
-    ![][5]
+    ![A captura de tela que mostra o foi para exibir os planos do serviço de aplicativo em seu ASE.][5]
    
     Se você quiser usar um plano de serviço do Serviço de Aplicativo que já exista no seu Ambiente de Serviço de Aplicativo, selecione-o. Se você quiser criar um novo plano do Serviço de Aplicativo, consulte a seção seguinte deste tutorial, [Criar um plano do Serviço de Aplicativo em um Ambiente de Serviço de Aplicativo](#createplan).
 5. Insira o nome do aplicativo Web e clique em **Criar**. 
@@ -68,18 +69,18 @@ As instruções a seguir mostram como criar um plano do Serviço de Aplicativo e
    
     Como um Ambiente do Serviço de Aplicativo é, essencialmente, um local de implantação particular, ele é mostrado no Local. 
    
-    ![][2]
+    ![Captura de tela que mostra o seletor de local para selecionar o ASE desejado.][2]
    
     Após a seleção de um ASE no seletor de local, a interface do usuário de criação de Serviço de Aplicativo é atualizada.  O local agora mostra o nome do sistema ASE e a região em que ele está, e o seletor de plano de preços será substituído por um seletor de pool de trabalho.  
    
-    ![][3]
+    ![Captura de tela que mostra os detalhes do sistema do ASE depois de selecionar o ASE no seletor de local.][3]
 
 ### <a name="selecting-a-worker-pool"></a>Selecionando o pool de trabalho
 Normalmente no Serviço de Aplicativo do Azure e fora de um Ambiente do Serviço de Aplicativo, há três tamanhos da computação disponíveis com a seleção de um plano de preços dedicado.  De maneira semelhante, para um ASE, você pode definir até três pools de trabalho e especificar o tamanho da computação que é usado para esse pool de trabalho.  O que isso significa para locatários do ASE é que, em vez de selecionar um plano de preços com tamanho da computação para o plano do Serviço de Aplicativo, selecione o que chamamos de um *pool de trabalho*.  
 
 A interface do usuário de seleção de pool de trabalho mostra o tamanho da computação usado para esse pool de trabalho abaixo do nome.  A quantidade disponível se refere a quantas instâncias de computação estão disponíveis para uso no pool.  O pool pode, na realidade, ter mais instâncias que esse número, mas esse valor se refere simplesmente a quantas não estão em uso.  Se você precisar ajustar o seu ambiente de serviço de aplicativo para adicionar mais recursos de computação, consulte [Configurando seu ambiente de serviço de aplicativo](app-service-web-configure-an-app-service-environment.md).
 
-![][4]
+![Captura de tela que mostra o painel do pool de trabalho em que você pode selecionar os pools de trabalho para o ASE.][4]
 
 Neste exemplo, você verá apenas dois pools de trabalho disponíveis. Isso ocorre porque o administrador do ASE alocou hosts apenas nesses dois pools de trabalho.  O terceiro aparecerá quando houver VMs alocadas para ele.  
 

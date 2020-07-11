@@ -17,11 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: tracking-python
-ms.openlocfilehash: e94448debe3e846e37dcffa81a6a6a28f0f7d757
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af03d0fc091c34bfef7f38b1a215832086de57c6
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84561192"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220058"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Como usar Hubs de notificação do Python
 
@@ -382,7 +383,7 @@ Executar o código do Python deve produzir uma notificação que aparece em seu 
 
 Quando habilitar o sinalizador de depuração ao inicializar o NotificationHub, você verá a solicitação HTTP detalhada e o despejo de resposta, bem como NotificationOutcome semelhante ao seguinte, em que você poderá entender quais cabeçalhos HTTP são passados na solicitação e qual a resposta HTTP foi recebida do Hub de notificação:
 
-![][1]
+![Captura de tela de um console com detalhes da solicitação H T T e do despejo de resposta e das mensagens de resultado de notificação descritos em vermelho.][1]
 
 Você verá o resultado do Hub de Notificação detalhado, por exemplo.
 
@@ -403,7 +404,7 @@ Observe os cabeçalhos que são enviados quando você está enviando uma transmi
 hub.send_windows_notification(wns_payload)
 ```
 
-![][2]
+![Captura de tela de um console com detalhes da solicitação H T T e do formato de notificação do barramento de serviço e dos valores de tipo X W N S descritos em vermelho.][2]
 
 ### <a name="send-notification-specifying-a-tag-or-tag-expression"></a>Enviar notificação especificando uma marca (ou expressão de marca)
 
@@ -413,7 +414,7 @@ Observe as Marcas do cabeçalho HTTP que são adicionadas à solicitação HTTP 
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![][3]
+![Captura de tela de um console com detalhes da solicitação H T T e do formato de notificação do barramento de serviço, das marcas de notificação do barramento de serviço e dos valores de tipo X W N S descritos em vermelho.][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>Enviar notificação especificando várias marcas
 
@@ -424,7 +425,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![][4]
+![Captura de tela de um console com detalhes da solicitação H T T e do formato de notificação do barramento de serviço, das marcas de notificação do barramento de serviço e dos valores de tipo X W N S descritos em vermelho.][4]
 
 ### <a name="templated-notification"></a>Notificação modelada
 
@@ -443,7 +444,7 @@ template_payload = {'greeting_en': 'Hello', 'greeting_fr': 'Salut'}
 hub.send_template_notification(template_payload)
 ```
 
-![][5]
+![Captura de tela de um console com detalhes da solicitação H T T e os valores de tipo de conteúdo e de formato de notificação do barramento de serviço descritos em vermelho.][5]
 
 ## <a name="next-steps"></a>Próximas etapas
 

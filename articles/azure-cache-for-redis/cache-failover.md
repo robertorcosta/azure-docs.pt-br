@@ -6,11 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: adsasine
-ms.openlocfilehash: 6ff33bd594181aabc4fd7d55ce33f780a0d06086
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d14e030898db364d6621933d0032fa9ce0cab676
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74122192"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185017"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Failover e aplicação de patch para o cache do Azure para Redis
 
@@ -22,32 +23,32 @@ Vamos começar com uma visão geral do failover para o cache do Azure para Redis
 
 ### <a name="a-quick-summary-of-cache-architecture"></a>Um resumo rápido da arquitetura de cache
 
-Um cache é construído de várias máquinas virtuais com endereços IP privados e separados. Cada máquina virtual, também conhecida como um nó, é conectada a um balanceador de carga compartilhado com um único endereço IP virtual. Cada nó executa o processo do servidor Redis e é acessível por meio do nome do host e das portas Redis. Cada nó é considerado um nó mestre ou de réplica. Quando um aplicativo cliente se conecta a um cache, seu tráfego passa por esse balanceador de carga e é automaticamente roteado para o nó mestre.
+Um cache é construído de várias máquinas virtuais com endereços IP privados e separados. Cada máquina virtual, também conhecida como um nó, é conectada a um balanceador de carga compartilhado com um único endereço IP virtual. Cada nó executa o processo do servidor Redis e é acessível por meio do nome do host e das portas Redis. Cada nó é considerado um nó primário ou de réplica. Quando um aplicativo cliente se conecta a um cache, seu tráfego passa por esse balanceador de carga e é automaticamente roteado para o nó primário.
 
-Em um cache básico, o único nó é sempre um mestre. Em um cache Standard ou Premium, há dois nós: um é escolhido como o mestre e o outro é a réplica. Como os caches padrão e Premium têm vários nós, um nó pode estar indisponível enquanto o outro continua a processar solicitações. Os caches clusterizados são compostos de muitos fragmentos, cada um com nós mestre e de réplica distintos. Um fragmento pode estar inoperante enquanto os outros permanecem disponíveis.
+Em um cache básico, o único nó é sempre um primário. Em um cache Standard ou Premium, há dois nós: um é escolhido como o primário e o outro é a réplica. Como os caches padrão e Premium têm vários nós, um nó pode estar indisponível enquanto o outro continua a processar solicitações. Os caches clusterizados são compostos de muitos fragmentos, cada um com nós primários e de réplica distintos. Um fragmento pode estar inoperante enquanto os outros permanecem disponíveis.
 
 > [!NOTE]
 > Um cache básico não tem vários nós e não oferece um SLA (contrato de nível de serviço) para sua disponibilidade. Os caches básicos são recomendados apenas para fins de desenvolvimento e teste. Use um cache Standard ou Premium para uma implantação de vários nós, para aumentar a disponibilidade.
 
 ### <a name="explanation-of-a-failover"></a>Explicação de um failover
 
-Um failover ocorre quando um nó de réplica se promove a se tornar um nó mestre, e o nó mestre antigo fecha as conexões existentes. Depois que o nó mestre é revertido, ele observa a alteração nas funções e se rebaixa para se tornar uma réplica. Em seguida, ele se conecta ao novo mestre e sincroniza os dados. Um failover pode ser planejado ou não planejado.
+Um failover ocorre quando um nó de réplica se promove a se tornar um nó primário, e o nó primário antigo fecha as conexões existentes. Depois que o nó primário é revertido, ele observa a alteração nas funções e se rebaixa para se tornar uma réplica. Em seguida, ele se conecta ao novo primário e sincroniza os dados. Um failover pode ser planejado ou não planejado.
 
 Um *failover planejado* ocorre durante atualizações do sistema, como aplicação de patch de Redis ou atualizações de so, e operações de gerenciamento, como dimensionamento e reinicialização. Como os nós recebem aviso prévio da atualização, eles podem trocar funções de maneira cooperativa e atualizar rapidamente o balanceador de carga da alteração. Um failover planejado geralmente termina em menos de 1 segundo.
 
-Um *failover não planejado* pode ocorrer devido a falha de hardware, falha de rede ou outras interrupções inesperadas no nó mestre. O nó de réplica promove a si mesmo para o mestre, mas o processo leva mais tempo. Um nó de réplica deve primeiro detectar que seu nó mestre não está disponível antes de poder iniciar o processo de failover. O nó de réplica também deve verificar se essa falha não planejada não é transitória ou local, para evitar um failover desnecessário. Esse atraso na detecção significa que um failover não planejado geralmente termina dentro de 10 a 15 segundos.
+Um *failover não planejado* pode ocorrer devido a falha de hardware, falha de rede ou outras interrupções inesperadas no nó primário. O nó de réplica se promove a primário, mas o processo leva mais tempo. Um nó de réplica deve primeiro detectar que seu nó primário não está disponível antes de poder iniciar o processo de failover. O nó de réplica também deve verificar se essa falha não planejada não é transitória ou local, para evitar um failover desnecessário. Esse atraso na detecção significa que um failover não planejado geralmente termina dentro de 10 a 15 segundos.
 
 ## <a name="how-does-patching-occur"></a>Como ocorre a aplicação de patch?
 
 O cache do Azure para o serviço Redis atualiza regularmente seu cache com os recursos e correções mais recentes da plataforma. Para corrigir um cache, o serviço segue estas etapas:
 
 1. O serviço de gerenciamento seleciona um nó para ser corrigido.
-1. Se o nó selecionado for um nó mestre, o nó de réplica correspondente se promoverá de forma cooperativa. Essa promoção é considerada um failover planejado.
+1. Se o nó selecionado for um nó primário, o nó de réplica correspondente se promoverá de forma cooperativa. Essa promoção é considerada um failover planejado.
 1. O nó selecionado é reinicializado para realizar as novas alterações e é retornado como um nó de réplica.
-1. O nó de réplica conecta-se ao nó mestre e sincroniza os dados.
+1. O nó de réplica conecta-se ao nó primário e sincroniza os dados.
 1. Quando a sincronização de dados é concluída, o processo de aplicação de patch se repete para os nós restantes.
 
-Como a aplicação de patch é um failover planejado, o nó de réplica se promove rapidamente a se tornar um mestre e começa a atender solicitações e novas conexões. Os caches básicos não têm um nó de réplica e ficam indisponíveis até que a atualização seja concluída. Cada fragmento de um cache clusterizado é corrigido separadamente e não fecha as conexões com outro fragmento.
+Como a aplicação de patch é um failover planejado, o nó de réplica se promove rapidamente a se tornar um primário e começa a atender solicitações e novas conexões. Os caches básicos não têm um nó de réplica e ficam indisponíveis até que a atualização seja concluída. Cada fragmento de um cache clusterizado é corrigido separadamente e não fecha as conexões com outro fragmento.
 
 > [!IMPORTANT]
 > Os nós são corrigidos um de cada vez para evitar a perda de dados. Os caches básicos terão perda de dados. Os caches clusterizados são corrigidos em um fragmento por vez.

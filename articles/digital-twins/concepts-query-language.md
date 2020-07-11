@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3196004015046b4d3d2789745c80d323bacdced9
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 6da539ccd8ad293aed402a4a6d130b6701e7b9c2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985234"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187108"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Sobre a linguagem de consulta para o gêmeos digital do Azure
 
@@ -30,10 +30,10 @@ Aqui estão as operações disponíveis na linguagem Repositório de Consultas d
 * Obter gêmeos por propriedades de relação.
 * Obter gêmeos em vários tipos de relação ( `JOIN` consultas). Há limitações no número de `JOIN` s permitido (um nível para visualização pública).
 * Use a função personalizada `IS_OF_MODEL(twinCollection, twinTypeName)` , que permite a filtragem com base no [modelo](concepts-models.md)de entrelaçamento. Ele dá suporte à herança.
-* Use qualquer combinação ( `AND` , `OR` , `NOT` operador) dos itens acima.
 * Usar funções escalares:,,,,,, `IS_BOOL` `IS_DEFINED` `IS_NULL` `IS_NUMBER` `IS_OBJECT` `IS_PRIMITIVE` `IS_STRING` , `STARTS_WITH` , `ENDS_WITH` .
-* Usar operadores de comparação de consulta:,,,,,, `AND` / `OR` / `NOT` `IN` / `NOT IN` `STARTSWITH` / `ENDSWITH` `=` `!=` `<` `>` , `<=` , `>=` .
-* Use a continuação: o objeto de consulta é instanciado com um tamanho de página (até 100). Você pode recuperar o digital gêmeos uma página por vez, repetindo as chamadas para o `nextAsTwin` método.
+* Usar operadores de comparação de consulta:,,,,, `IN` / `NIN` `=` `!=` `<` `>` `<=` , `>=` .
+* Use qualquer combinação ( `AND` , `OR` , `NOT` operador) dos itens acima.
+* Use a continuação: o objeto de consulta é instanciado com um tamanho de página (até 100). Você pode recuperar o digital gêmeos uma página por vez fornecendo o token de continuação em chamadas subsequentes para a API.
 
 ## <a name="next-steps"></a>Próximas etapas
 

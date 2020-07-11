@@ -9,20 +9,22 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 580c6294856145530e354b6e5cced955dbaa9f9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1d9e34687f4a8a5d973d90006e90692fde7a668
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565561"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146857"
 ---
 # <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Como indexar BLOBs CSV usando o modo de análise de delimitedText e indexadores de blob no Azure Pesquisa Cognitiva
 
 Por padrão, o [indexador de blob pesquisa cognitiva do Azure](search-howto-indexing-azure-blob-storage.md) analisa blobs de texto delimitados como uma única parte do texto. No entanto, com blobs contendo dados CSV, o ideal é tratar cada linha no blob como um documento separado. Por exemplo, considerando o seguinte texto delimitado, você pode querer analisá-lo em dois documentos, cada um contendo os campos "id", "datePublished" e "tags": 
 
-    id, datePublished, tags
-    1, 2016-01-12, "azure-search,azure,cloud" 
-    2, 2016-07-07, "cloud,mobile" 
+```text
+id, datePublished, tags
+1, 2016-01-12, "azure-search,azure,cloud"
+2, 2016-07-07, "cloud,mobile"
+```
 
 Neste artigo, você aprenderá a analisar BLOBs CSV com um indexador de blob Pesquisa Cognitiva do Azure definindo o `delimitedText` modo de análise. 
 
@@ -32,20 +34,26 @@ Neste artigo, você aprenderá a analisar BLOBs CSV com um indexador de blob Pes
 ## <a name="setting-up-csv-indexing"></a>Configurando a indexação de CSV
 Para indexar BLOBs CSV, crie ou atualize uma definição de indexador com o `delimitedText` modo de análise em uma solicitação [criar indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) :
 
+```http
     {
       "name" : "my-csv-indexer",
       ... other indexer properties
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "firstLineContainsHeaders" : true } }
     }
+```
 
 `firstLineContainsHeaders` indica que a primeira linha (não vazia) de cada blob contém cabeçalhos.
 Se os blobs não contêm uma linha de cabeçalho inicial, os cabeçalhos devem ser especificados na configuração do indexador: 
 
-    "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
+```http
+"parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
+```
 
 É possível personalizar o caractere delimitador usando a configuração `delimitedTextDelimiter`. Por exemplo:
 
-    "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
+```http
+"parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
+```
 
 > [!NOTE]
 > Atualmente, apenas a codificação UTF-8 tem suporte. Se você precisar de suporte para outras codificações, vote nele em [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
@@ -60,6 +68,7 @@ Reunindo tudo isso, estes são os exemplos de carga completa.
 
 Fonte de dados: 
 
+```http
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -70,9 +79,11 @@ Fonte de dados:
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "<optional, my-folder>" }
     }   
+```
 
 Indexador:
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -83,6 +94,7 @@ Indexador:
       "targetIndexName" : "my-target-index",
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } }
     }
+```
 
 ## <a name="help-us-make-azure-cognitive-search-better"></a>Ajude-nos a tornar o Azure Pesquisa Cognitiva melhor
 Caso você tenha solicitações de recursos ou ideias para melhorias, dê sua opinião em [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

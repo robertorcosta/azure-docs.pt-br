@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bff9873742d5d660f563eebcb58ff9bcca940d24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1dc1b14a917786e124775a4505c53f63238a383
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760160"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203852"
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Um aplicativo de Proxy de Aplicativo demora muito para carregar
 
@@ -31,8 +31,6 @@ Este artigo ajuda-o a entender porque um aplicativo de Proxy de Aplicativo do Az
 Embora os aplicativos estejam funcionando, eles podem experimentar uma longa latência. Pode haver alterações de topologia de rede que você pode fazer para melhorar a velocidade. Para uma avaliação de diferentes topologias, consulte o [documento de considerações de rede](application-proxy-network-topology.md).
 
 Além da topologia de rede, não há atualmente nenhuma recomendação adicional para ajuste de desempenho. Conforme o serviço Proxy de Aplicativo é expandido, ela pode ir para um data center que esteja fisicamente mais próximo. A proximidade maior pode ajudar na latência. Para uma lista de data centers do Azure, consulte a [página de teste de latência](http://www.azurespeed.com/Azure/Latency). 
-
-Os data centers com o serviço de Proxy de Aplicativo podem ser localizados com a [Ferramenta de Teste de Portas do Conector](https://aadap-portcheck.connectorporttest.msappproxy.net/). 
 
 ## <a name="feedback-on-application-proxy-data-center-locations"></a>Comentários sobre locais de data centers do Proxy de Aplicativo 
 Podem existir data centers do Azure que ainda não incluem Proxy de Aplicativo, mas poderiam conduzi-lo a uma grande melhoria de latência. Envie o local do data center para aadapfeedback@microsoft.com. A Microsoft usa seus comentários para planos de expansão.

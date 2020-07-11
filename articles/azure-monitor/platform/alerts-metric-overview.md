@@ -1,14 +1,15 @@
 ---
 title: Entender como funcionam os alertas de métrica no Azure Monitor.
 description: Obtenha uma visão geral do que você pode fazer com alertas de métrica e como eles funcionam no Azure Monitor.
-ms.date: 03/17/2020
+ms.date: 07/09/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 603df6f9b00c9261885937a3d85052b3806ff4f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd8c28b2c26e8859eda1634d2441982336cdd460
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248814"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187516"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entender como funcionam os alertas de métrica no Azure Monitor
 
@@ -125,7 +126,7 @@ Até agora, você viu como um único alerta de métrica pode ser usado para moni
 
 No momento, esse recurso tem suporte para métricas de plataforma (não métricas personalizadas) para os seguintes serviços nas seguintes nuvens do Azure:
 
-| Serviço | Azure público | Governamental | China |
+| Serviço | Azure público | Governo | China |
 |:--------|:--------|:--------|:--------|
 | Máquinas virtuais  | **Sim** | Não | Não |
 | Bancos de dados do SQL Server | **Sim** | **Sim** | Não |
@@ -134,9 +135,13 @@ No momento, esse recurso tem suporte para métricas de plataforma (não métrica
 
 Você pode especificar o escopo do monitoramento por uma única regra de alerta de métrica de uma das três maneiras. Por exemplo, com máquinas virtuais, você pode especificar o escopo como:  
 
-- uma lista de máquinas virtuais em uma região do Azure em uma assinatura
+- uma lista de máquinas virtuais (em uma região do Azure) em uma assinatura
 - todas as máquinas virtuais (em uma única região do Azure) em um ou mais grupos de recursos em uma assinatura
 - todas as máquinas virtuais (em uma região do Azure) em uma assinatura
+
+> [!NOTE]
+>
+> O escopo de uma regra de alerta de métrica de vários recursos deve conter pelo menos um recurso do tipo de recurso selecionado.
 
 Criar regras de alerta de métrica que monitorem vários recursos é como [criar qualquer outro alerta de métrica](alerts-metric.md) que monitore um único recurso. A única diferença é que você selecionaria todos os recursos que quisesse monitorar. Você também pode criar essas regras por meio de [modelos do Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Você receberá notificações individuais para cada recurso monitorado.
 

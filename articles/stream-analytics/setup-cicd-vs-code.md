@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: 7a7fe3f7e1c39837106471d118a8b1bb770a524e
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 75db20bdb746e7d15bef56ce7ac0a064993d3f3a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045817"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187754"
 ---
 # <a name="deploy-an-azure-stream-analytics-job-using-cicd-npm-package"></a>Implantar um trabalho de Azure Stream Analytics usando o pacote NPM de CI/CD 
 
@@ -41,15 +41,11 @@ Quando um Stream Analytics Visual Studio Code projeto é compilado com êxito, e
 
 * Arquivo de modelo do Resource Manager
 
-   ```
-   [ProjectName].JobTemplate.json 
-   ```
+   `[ProjectName].JobTemplate.json`
 
 * Arquivo de parâmetros do Resource Manager
 
-   ```
-   [ProjectName].JobTemplate.parameters.json
-   ```   
+   `[ProjectName].JobTemplate.parameters.json`   
 
 Os parâmetros padrão na parameters.jsno arquivo são das configurações em seu projeto de Visual Studio Code. Se você deseja implantar em outro ambiente, apenas substitua os parâmetros adequadamente.
 
@@ -151,13 +147,13 @@ Abra um navegador da Web e navegue até seu Azure Stream Analytics Visual Studio
 
 2. Selecione o **+** ao lado de **trabalho do Agent** e pesquise implantação do grupo de *recursos do Azure*. Insira os parâmetros s seguir:
 
-   |Setting|Valor|
+   |Configuração|Valor|
    |-|-|
    |Nome de exibição| *Implantar myASAJob*|
    |Assinatura do Azure| Escolha sua assinatura.|
    |Ação| *Criar ou atualizar o grupo de recursos*|
-   |Resource group| Escolha um nome para o grupo de recursos de teste que conterá seu trabalho de Stream Analytics.|
-   |Location|Escolha o local do seu grupo de recursos de teste.|
+   |Grupo de recursos| Escolha um nome para o grupo de recursos de teste que conterá seu trabalho de Stream Analytics.|
+   |Localização|Escolha o local do seu grupo de recursos de teste.|
    |Local do modelo| *Artefato vinculado*|
    |Modelo| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.jsem |
    |Parâmetros de modelo|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.jsem|
@@ -168,13 +164,13 @@ Abra um navegador da Web e navegue até seu Azure Stream Analytics Visual Studio
 
 4. Selecione o **+** ao lado de **trabalho do Agent** e pesquise implantação do grupo de *recursos do Azure*. Insira os parâmetros s seguir:
 
-   |Setting|Valor|
+   |Configuração|Valor|
    |-|-|
    |Nome de exibição| *Implantar myASAJob*|
    |Assinatura do Azure| Escolha sua assinatura.|
    |Ação| *Criar ou atualizar o grupo de recursos*|
-   |Resource group| Escolha um nome para o grupo de recursos de produção que conterá seu trabalho de Stream Analytics.|
-   |Location|Escolha o local do seu grupo de recursos de produção.|
+   |Grupo de recursos| Escolha um nome para o grupo de recursos de produção que conterá seu trabalho de Stream Analytics.|
+   |Localização|Escolha o local do seu grupo de recursos de produção.|
    |Local do modelo| *Artefato vinculado*|
    |Modelo| $ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.jsem |
    |Parâmetros de modelo|($ (Build. ArtifactStagingDirectory) \drop\myASAJob.JobTemplate.parameters.jsem|

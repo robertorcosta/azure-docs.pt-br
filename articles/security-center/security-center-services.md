@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: memildin
-ms.openlocfilehash: 4d048bb348b8093db7d3bf92ef0fc93aead35055
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 060db99cf0163876b68eeee2cff8ef2d03e2b5b9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762285"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187006"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
@@ -38,18 +38,17 @@ As tabelas a seguir mostram os recursos da central de segurança do Azure que es
 |[Acesso à VM just-in-time](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Avaliação de vulnerabilidades nativas](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[Monitoramento de integridade de arquivo](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
-|[Controles de aplicativo adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[Controles de aplicativos adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Proteção de rede adaptável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|Controles de rede adaptável|✔|✔|-|Standard|
 |[Painel de conformidade regulatória & relatórios](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recomendações e proteção contra ameaças em contêineres de IaaS hospedados pelo Docker|-|-|-|Standard|
-|Avaliação de patches do sistema operacional ausente|✔|✔|✔|Grátis|
-|Avaliação de incorretas de segurança|✔|✔|✔|Grátis|
-|[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Grátis|
-|Avaliação de criptografia de disco|✔|✔|-|Grátis|
-|Avaliação de vulnerabilidade de terceiros|✔|-|-|Grátis|
-|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Grátis|
+|Avaliação de patches do sistema operacional ausente|✔|✔|✔|Gratuita|
+|Avaliação de incorretas de segurança|✔|✔|✔|Gratuita|
+|[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Gratuita|
+|Avaliação de criptografia de disco|✔|✔|-|Gratuita|
+|Avaliação de vulnerabilidade de terceiros|✔|-|-|Gratuita|
+|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Gratuita|
 
 
 ### <a name="linux-machines"></a>[Máquinas do Linux](#tab/features-linux)
@@ -64,18 +63,18 @@ As tabelas a seguir mostram os recursos da central de segurança do Azure que es
 |[Acesso à VM just-in-time](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Avaliação de vulnerabilidades nativas](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[Monitoramento de integridade de arquivo](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
-|[Controles de aplicativo adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[Controles de aplicativos adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Proteção de rede adaptável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |Controles de rede adaptável|✔|✔|-|Standard|
 |[Painel de conformidade regulatória & relatórios](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recomendações e proteção contra ameaças em contêineres de IaaS hospedados pelo Docker|✔|✔|✔|Standard|
-|Avaliação de patches do sistema operacional ausente|✔|✔|✔|Grátis|
-|Avaliação de incorretas de segurança|✔|✔|✔|Grátis|
-|[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Grátis|
-|Avaliação de criptografia de disco|✔|✔|-|Grátis|
-|Avaliação de vulnerabilidade de terceiros|✔|-|-|Grátis|
-|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Grátis|
+|Avaliação de patches do sistema operacional ausente|✔|✔|✔|Gratuita|
+|Avaliação de incorretas de segurança|✔|✔|✔|Gratuita|
+|[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratuita|
+|Avaliação de criptografia de disco|✔|✔|-|Gratuita|
+|Avaliação de vulnerabilidade de terceiros|✔|-|-|Gratuita|
+|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Gratuita|
 
 --- 
 

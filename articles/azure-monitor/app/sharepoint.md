@@ -3,11 +3,12 @@ title: Monitorar um site do SharePoint com o Application Insights
 description: Iniciar o monitoramento de um novo aplicativo com uma nova chave de instrumentação
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.openlocfilehash: 395e8d667985318f4a084428c6fd4c395ee8b956
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9b31a715b19d6c06cbddb91c0bd9279088c4447
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671436"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221044"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorar um site do SharePoint com o Application Insights
 O Azure Application Insights monitora a disponibilidade, o desempenho e o uso de seus aplicativos. Aqui você aprenderá a configurá-lo para um site do SharePoint.
@@ -48,18 +49,18 @@ Se você puder editar a página mestra do site, que fornecerá monitoramento par
 
 Confira a página mestra e edite-a usando o SharePoint Designer ou qualquer outro editor.
 
-![](./media/sharepoint/03-master.png)
+![Captura de tela que mostra como editar a página mestra usando o SharePoint Designer ou outro editor.](./media/sharepoint/03-master.png)
 
 Adicione o código logo antes da </head> Tags. 
 
-![](./media/sharepoint/04-code.png)
+![Captura de tela que mostra onde adicionar o código à página do site.](./media/sharepoint/04-code.png)
 
 #### <a name="or-on-individual-pages"></a>Ou em páginas individuais
 Para monitorar um conjunto limitado de páginas, adicione o script separadamente a cada página. 
 
 Insira uma web part e insira o snippet de código nela.
 
-![](./media/sharepoint/05-page.png)
+![Captura de tela que mostra a adição do script para monitorar um conjunto limitado de páginas.](./media/sharepoint/05-page.png)
 
 ## <a name="view-data-about-your-app"></a>Exibir dados sobre seu aplicativo
 Reimplante o aplicativo.
@@ -68,7 +69,7 @@ Retorne à folha de seu aplicativo no [portal do Azure](https://portal.azure.com
 
 Os primeiros eventos aparecerão na Pesquisa. 
 
-![](./media/sharepoint/09-search.png)
+![Captura de tela que mostra os novos dados que você pode exibir no aplicativo.](./media/sharepoint/09-search.png)
 
 Se você estiver esperando mais dados, clique em Atualizar depois de alguns segundos.
 
@@ -77,7 +78,7 @@ O snippet de código de página da Web padrão não captura a ID de usuário do 
 
 1. Copie a chave de instrumentação do seu aplicativo da lista suspensa Essentials no Application Insights. 
 
-    ![](./media/sharepoint/02-props.png)
+    ![Captura de tela que mostra a cópia da instrumentação do aplicativo do menu suspenso Essentials no Application Insights.](./media/sharepoint/02-props.png)
 
 1. Substitua a chave de instrumentação para 'XXXX' no snippet a seguir. 
 2. Insira o script em seu aplicativo do SharePoint, em vez de inserir o snippet de código que você obtém do portal.

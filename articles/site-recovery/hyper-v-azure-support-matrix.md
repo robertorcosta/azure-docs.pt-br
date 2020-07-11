@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/27/2020
+ms.date: 7/10/2020
 ms.author: raynew
-ms.openlocfilehash: b48dfba6fa5dc270a4d711864d15e9128f4beb98
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b7551ec01e3401c0636b47a25d83173b6322d06e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132411"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86219871"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V locais para o Azure
 
@@ -76,6 +76,7 @@ Proxy HTTPS | Não | Não
 
 
 
+
 ## <a name="azure-vm-network-configuration-after-failover"></a>Configuração de rede da VM do Azure (após failover)
 
 **Componente** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
@@ -94,7 +95,7 @@ Rede Acelerada | Não | Não
 
 ## <a name="hyper-v-host-storage"></a>Armazenamento de host do Hyper-V
 
-**Storage** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
+**Armazenamento** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | --- 
 NFS | NA | NA
 SMB 3.0 | Sim | Sim
@@ -103,7 +104,7 @@ Múltiplos caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5
 
 ## <a name="hyper-v-vm-guest-storage"></a>Armazenamento de convidado da VM do Hyper-V
 
-**Storage** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
+**Armazenamento** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | ---
 VMDK | NA | NA
 VHD/VHDX | Sim | Sim
@@ -136,11 +137,13 @@ Armazenamento quente| Não | Não
 Blobs de bloco | Não | Não
 Criptografia em repouso (SSE)| Sim | Sim
 Criptografia em repouso (CMK) <br></br> (Somente para failover em discos gerenciados)| Sim (por meio do PowerShell AZ 3.3.0 Module em diante) | Sim (por meio do PowerShell AZ 3.3.0 Module em diante)
+Criptografia dupla em repouso <br></br> (Somente para failover em discos gerenciados) <br></br> Saiba mais sobre as regiões com suporte para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md) | Sim (por meio do PowerShell AZ 3.3.0 Module em diante) | Sim (por meio do PowerShell AZ 3.3.0 Module em diante)
 Armazenamento Premium | Sim | Sim
 Armazenamento Standard | Sim | Sim
 Serviço de importação/exportação | Não | Não
 Contas de armazenamento do Azure com firewall habilitado | Sim. Para armazenamento e cache de destino. | Sim. Para armazenamento e cache de destino.
 Modificar a conta de armazenamento | Não. A conta de armazenamento do Azure de destino não pode ser modificada depois de habilitar a replicação. Para modificar, desabilitar e habilitar novamente a recuperação de desastres. | Não
+Opção de transferência segura | Sim
 
 
 ## <a name="azure-compute-features"></a>Recursos de computação do Azure

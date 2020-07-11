@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 3d8ab6da9327048469c8b781657bb03b6a4b9669
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 920f7f2fa6fb6e80b060f0308b124a3a1214cb3f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508241"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204451"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar volumes (Atualização 3 e posterior)
 
@@ -51,7 +51,7 @@ Se estiver usando o volume em camadas para dados de arquivamento, marque a caixa
 
 Consulte a tabela a seguir para máxima capacidade provisionada para cada tipo de dispositivo e volume. (Observe que os volumes afixados localmente não estão disponíveis em um dispositivo virtual.)
 
-|  | Tamanho máximo do volume em camadas | Tamanho máximo de volume afixado localmente |
+| Type | Tamanho máximo do volume em camadas | Tamanho máximo de volume afixado localmente |
 | --- | --- | --- |
 | **Dispositivos físicos** | | |
 | 8100 |64 TB |8 TB |
@@ -165,7 +165,7 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
    
    1. Vá para **Gerenciamento do computador**gerenciamento de  -> **disco**.
    2. Clique com o botão direito do mouse em **Gerenciamento de Disco** e selecione **Examinar Discos Novamente**.
-   3. Na lista de discos, selecione o volume que você atualizou, clique com o botão direito do mouse e selecione **Estender Volume**. O Assistente para Estender Volume é iniciado. Clique em **Próximo**.
+   3. Na lista de discos, selecione o volume que você atualizou, clique com o botão direito do mouse e selecione **Estender Volume**. O Assistente para Estender Volume é iniciado. Clique em **Avançar**.
    4. Conclua o assistente, aceitando os valores padrão. Depois que o assistente for concluído, o volume deve mostrar o tamanho aumentado.
       
       > [!NOTE]

@@ -5,11 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 62d0bf776b2d0c97d95b992ed6a1fd2a356e467a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5e4c4d89a1119b0f59aa15885406cd7261d2f69
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75967389"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169996"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Provisionar e implantar microsserviços previsíveis no Azure
 Este tutorial mostra como provisionar e implantar um aplicativo composto por [microsserviços](https://en.wikipedia.org/wiki/Microservices) no [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/) como uma única unidade e de maneira previsível usando modelos do grupo de recursos JSON e scripts do PowerShell. 
@@ -53,19 +54,19 @@ Agora vamos direto ao ponto.
 2. Em readme.md, clique em **Implantar no Azure**.
 3. Você é levado para o site [implantar-no-azure](https://deploy.azure.com) e solicitado a inserir parâmetros de implantação. Observe que a maioria dos campos é preenchida com o nome do repositório e algumas cadeias de caracteres aleatórias para você. Você pode alterar todos os campos se desejar, mas as únicas coisas que você precisa inserir são o logon administrativo do SQL Server e a senha; então, clique em **Próximo**.
    
-   ![](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
+   ![Mostra os parâmetros de implantação de entrada no site Deploy-to-Azure.](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
 4. Em seguida, clique em **Implantar** para iniciar o processo de implantação. Quando o processo for concluído, clique no link http://todoapp*XXXX*.azurewebsites.net para procurar o aplicativo implantado. 
    
-   ![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
+   ![Mostra o processo de implantação do aplicativo.](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
    
    A interface do usuário deve estar um pouco lenta quando você navega pela primeira vez por ela porque os aplicativos estão sendo iniciados, mas esteja convencido de que se trata de um aplicativo totalmente funcional.
 5. De volta à página Implantar, clique no link **Gerenciar** para ver o novo aplicativo no Portal do Azure.
 6. Na lista suspensa **Essentials** , clique no link grupo de recursos. Observe também que o aplicativo já está conectado ao repositório GitHub em **Projeto Externo**. 
    
-   ![](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
+   ![Mostra o link do grupo de recursos na seção suspensa do Essentials.](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
 7. Na folha do grupo de recursos, observe que já existem dois aplicativos e um banco de dados SQL no grupo de recursos.
    
-   ![](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
+   ![Mostra os recursos disponíveis em seu grupo de recursos.](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
 
 Tudo o que você acabou de ver em poucos minutos é um aplicativo de dois microsserviços totalmente implantado, com todos os componentes, dependências, configurações, banco de dados e publicação contínua, configurado por uma orquestração automatizada no Gerenciador de Recursos do Azure. Tudo isso foi feito por duas coisas:
 
@@ -79,10 +80,10 @@ Agora vamos examinar como o repositório GitHub foi configurado. Você usará o 
 
 1. Clone o repositório [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) usando sua ferramenta git favorita. Na captura de tela abaixo, faço isso no Team Explorer no Visual Studio 2013.
    
-   ![](./media/app-service-deploy-complex-application-predictably/examinejson-1-vsclone.png)
+   ![Mostra como usar uma ferramenta git para clonar o repositório ToDoApp.](./media/app-service-deploy-complex-application-predictably/examinejson-1-vsclone.png)
 2. Na raiz do repositório, abra azuredeploy.json no Visual Studio. Se você não vir o painel Estrutura de Tópicos JSON, precisará instalar o SDK .NET do Azure.
    
-   ![](./media/app-service-deploy-complex-application-predictably/examinejson-2-vsjsoneditor.png)
+   ![Mostra o painel estrutura de tópicos JSON no Visual Studio.](./media/app-service-deploy-complex-application-predictably/examinejson-2-vsjsoneditor.png)
 
 Não vou descrever todos os detalhes do formato JSON, mas a seção [Mais Recursos](#resources) contém links para aprender a linguagem de modelo de grupo de recursos. Aqui, eu vou mostrar a você recursos interessantes que podem ajudá-lo a começar a fazer seu próprio modelo personalizado para implantação do aplicativo.
 
@@ -95,7 +96,7 @@ No nó recursos, você pode ver que 4 recursos do nível mais alto estão defini
 #### <a name="app-service-plan"></a>Plano do Serviço de Aplicativo
 Vamos começar com um recurso simples de nível raiz em JSON. Na Estrutura de Tópicos JSON, clique no plano de Serviço de Aplicativo chamado **[hostingPlanName]** para realçar o código do JSON correspondente. 
 
-![](./media/app-service-deploy-complex-application-predictably/examinejson-3-appserviceplan.png)
+![Mostra a seção [hostingPlanName] do código JSON.](./media/app-service-deploy-complex-application-predictably/examinejson-3-appserviceplan.png)
 
 Observe que o elemento `type` especifica a cadeia de caracteres em um plano do Serviço de Aplicativo (isso era chamado de farm de servidores, há muito tempo atrás) enquanto outros elementos e propriedades são preenchidos com os parâmetros definidos no arquivo JSON, sendo que este recurso não tem nenhum recurso aninhado.
 
@@ -107,7 +108,7 @@ Observe que o elemento `type` especifica a cadeia de caracteres em um plano do S
 #### <a name="sql-server"></a>SQL Server
 Em seguida, clique no recurso do SQL Server chamado **SQLServer** na Estrutura de Tópicos JSON.
 
-![](./media/app-service-deploy-complex-application-predictably/examinejson-4-sqlserver.png)
+![Mostra o recurso de SQL Server chamado SQLServer na estrutura de tópicos JSON.](./media/app-service-deploy-complex-application-predictably/examinejson-4-sqlserver.png)
 
 Observe o seguinte sobre o código JSON realçado:
 
@@ -127,12 +128,12 @@ Agora, vamos passar para os aplicativos em si, que são mais complicados. Clique
 ##### <a name="root-resource"></a>Recurso raiz
 O aplicativo depende de dois recursos diferentes. Isso significa que o Azure Resource Manager criará o aplicativo somente depois que ambos o plano do Serviço de Aplicativo e a instância do SQL Server forem criados.
 
-![](./media/app-service-deploy-complex-application-predictably/examinejson-5-webapproot.png)
+![Mostra as dependências do aplicativo no plano do serviço de aplicativo e a instância de SQL Server.](./media/app-service-deploy-complex-application-predictably/examinejson-5-webapproot.png)
 
-##### <a name="app-settings"></a>Configurações do aplicativo
+##### <a name="app-settings"></a>Configurações de aplicativo
 As configurações do aplicativo também serão definidas como um recurso aninhado.
 
-![](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
+![Mostra as configurações do aplicativo definidas como um recurso aninhado no código JSON.](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
 
 No elemento `properties` para `config/appsettings`, você tem duas configurações de aplicativo no formato `"<name>" : "<value>"`.
 
@@ -142,7 +143,7 @@ No elemento `properties` para `config/appsettings`, você tem duas configuraçõ
 ##### <a name="connection-strings"></a>Cadeias de conexão
 As cadeias de conexão também serão definidas como um recurso aninhado.
 
-![](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
+![Mostra como as cadeias de conexão são definidas como um recurso aninhado no código JSON.](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
 No elemento `properties` para `config/connectionstrings`, cada cadeia de conexão também é definida como um par nome:valor, com o formato específico de `"<name>" : {"value": "…", "type": "…"}`. Para o elemento `type`, os valores possíveis são `MySql`, `SQLServer`, `SQLAzure` e `Custom`.
 
@@ -154,7 +155,7 @@ No elemento `properties` para `config/connectionstrings`, cada cadeia de conexã
 ##### <a name="source-control"></a>Controle do código-fonte
 As configurações do controle do código-fonte também serão definidas como um recurso aninhado. O Gerenciador de Recursos do Azure usa esse recurso para configurar a publicação contínua (consulte a advertência sobre `IsManualIntegration` posteriormente) e também para iniciar a implantação do código do aplicativo automaticamente durante o processamento do arquivo JSON.
 
-![](./media/app-service-deploy-complex-application-predictably/examinejson-8-webappsourcecontrol.png)
+![Mostra como as configurações de controle do código-fonte são definidas como um recurso aninhado no código JSON.](./media/app-service-deploy-complex-application-predictably/examinejson-8-webappsourcecontrol.png)
 
 `RepoUrl` e `branch` devem ser bastante intuitivos e devem apontar para o repositório Git e o nome da ramificação por meio da qual publicar. Mais uma vez, estes são definidos pelos parâmetros de entrada. 
 
@@ -170,11 +171,11 @@ Aqui, você pode percorrer todas as folhas do aplicativo no [Portal do Azure](ht
 
 Por exemplo, quando vou para a ferramenta [Gerenciador de Recursos do Azure](https://resources.azure.com) e expando os nós no gerenciador, posso ver o grupo de recursos e os recursos de nível raiz que são coletados em seus respectivos tipos de recurso.
 
-![](./media/app-service-deploy-complex-application-predictably/ARM-1-treeview.png)
+![Exiba o grupo de recursos e os recursos de nível raiz na ferramenta expandida do Gerenciador de recursos do Azure.](./media/app-service-deploy-complex-application-predictably/ARM-1-treeview.png)
 
 Se você acessar hierarquias mais baixas de um aplicativo, você deve ser capaz de ver os detalhes de configuração de aplicativo como a captura de tela a seguir:
 
-![](./media/app-service-deploy-complex-application-predictably/ARM-2-jsonview.png)
+![Faça uma busca detalhada para exibir os detalhes de configuração no aplicativo.](./media/app-service-deploy-complex-application-predictably/ARM-2-jsonview.png)
 
 Novamente, os recursos aninhados devem ter uma hierarquia muito semelhante àquela no seu arquivo de modelo JSON, e você verá as configurações do aplicativo, cadeias de conexão, etc., adequadamente refletidas no painel JSON. A ausência de configurações pode indicar um problema com o arquivo JSON, e pode ajudá-lo a solucionar problemas no arquivo de modelo JSON.
 
@@ -184,44 +185,44 @@ O botão **Implantar no Azure** é ótimo, mas só permite que você implante o 
 1. No Visual Studio, clique em **Arquivo** > **Novo** > **Projeto**.
 2. Clique em **Visual C#**  >  **Cloud**  >  **Azure Resource Group**e clique em **OK**.
    
-   ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
+   ![Crie um novo projeto como um grupo de recursos do Azure no SDK do .NET do Azure.](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. Em **Selecionar Modelo do Azure**, selecione **Modelo em Branco** e clique em **OK**.
 4. Arraste azuredeploy.json para a pasta **Modelo** do novo projeto.
    
-   ![](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
+   ![Mostra o resultado de arrastar o azuredeploy.jsno arquivo para a pasta de modelo do seu projeto.](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
 5. No Gerenciador de Soluções, abra o azuredeploy.json copiado.
 6. Apenas para fins de demonstração, vamos adicionar alguns recursos padrão do Application Insight em nosso arquivo JSON, clicando em **Adicionar Recurso**. Se estiver interessado apenas na implantação do arquivo JSON, vá direto para as etapas de implantação.
    
-   ![](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
+   ![Mostra o botão Adicionar recurso que você pode usar para adicionar recursos padrão do Application Insight ao seu arquivo JSON.](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
 7. Selecione **Application Insights para Aplicativos Web**, certifique-se de que um aplicativo e um Plano do Serviço de Aplicativo existentes estão selecionados e, em seguida, clique em **Adicionar**.
    
-   ![](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
+   ![Mostra a seleção de Application Insights para aplicativos Web, nome, plano do serviço de aplicativo e aplicativo Web.](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
    
    Você será capaz de ver vários recursos novos que, dependendo do recurso e do que ele faz, têm dependências no plano do Serviço de Aplicativo ou então no aplicativo. Esses recursos não estão habilitados segundo sua definição existente e você vai mudar isso.
    
-   ![](./media/app-service-deploy-complex-application-predictably/deploy-5-appinsightresources.png)
+   ![Exiba os novos recursos que têm dependências no plano ou aplicativo do serviço de aplicativo.](./media/app-service-deploy-complex-application-predictably/deploy-5-appinsightresources.png)
 8. Na estrutura de tópicos JSON, clique em **appInsights AutoScale** para destacar seu código JSON. Essa é a configuração de dimensionamento para seu plano do Serviço de Aplicativo.
 9. No código realçado JSON, localize as propriedades `location` e `enabled` e defina-as conforme mostrado abaixo.
    
-   ![](./media/app-service-deploy-complex-application-predictably/deploy-6-autoscalesettings.png)
+   ![Mostra o local e as propriedades habilitadas no código JSON de dimensionamento automático appInsights e os valores para os quais você deve defini-las.](./media/app-service-deploy-complex-application-predictably/deploy-6-autoscalesettings.png)
 10. Na estrutura de tópicos JSON, clique em **CPUHigh appInsights** para destacar seu código JSON. Este é um alerta.
 11. Localize as propriedades `location` e `isEnabled` e defina-as conforme mostrado abaixo. Faça o mesmo para os outros três alertas (lâmpadas roxas).
     
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
+    ![Mostra as propriedades Location e isEnabled no código JSON CPUHigh appInsights e os valores para os quais você deve defini-las.](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
 12. Agora, você está pronto para implantar. Clique com o botão direito do mouse no projeto e selecione **implantar**  >  **nova implantação**.
     
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
+    ![Mostra como implantar seu novo projeto.](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 13. Faça logon na conta do Azure se ainda não fez isso.
 14. Selecione um grupo de recursos existente em sua assinatura ou crie um novo, selecione **azuredeploy.json** e, em seguida, clique em **Editar parâmetros**.
     
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
+    ![Mostra como editar os parâmetros no azuredeploy.jsno arquivo.](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
     
     Agora você poderá editar todos os parâmetros definidos no arquivo de modelo em uma boa tabela. Parâmetros que definem padrões já terão seus valores padrão, enquanto parâmetros que definem uma lista de valores permitidos serão mostrados como listas suspensas.
     
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-10-parametereditor.png)
+    ![Mostra parâmetros que definem uma lista de valores permitidos como listas suspensas.](./media/app-service-deploy-complex-application-predictably/deploy-10-parametereditor.png)
 15. Preencha todos os parâmetros vazios e use o [Endereço de repositório do GitHub para ToDoApp](https://github.com/azure-appservice-samples/ToDoApp.git) na **repoUrl**. Clique em **Salvar**.
     
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
+    ![Mostra os parâmetros preenchidos recentemente para o azuredeploy.jsno arquivo.](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
     
     > [!NOTE]
     > O dimensionamento automático é um recurso oferecido no patamar **Standard** ou mais alto, enquanto alertas de nível de plano são recursos oferecidos no patamar **Básico** ou superior; você precisará definir o parâmetro **sku** como **Standard** ou **Premium** para ver todos os seus novos recursos do App Insights se iluminarem.
@@ -239,7 +240,7 @@ As etapas cumpridas nesta seção realizaram principalmente o seguinte:
 
 A última etapa é facilmente realizada por um cmdlet do PowerShell. Para ver o que o Visual Studio fez quando implantou seu aplicativo, abra Scripts\Deploy AzureResourceGroup.ps1. Há muito código lá, mas vou destacar todo o código relevante que necessário para implantar o arquivo de modelo com o arquivo de parâmetros.
 
-![](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
+![Mostra o código pertinente no script que você precisa usar para implantar o arquivo de modelo com o arquivo de parâmetro.](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
 
 O último cmdlet, `New-AzureResourceGroup`, é o que executa efetivamente a ação. Tudo isso deve demonstrar a você que, com a ajuda de ferramentas, é relativamente fácil implantar seu aplicativo em nuvem de modo previsível. Sempre que você executar o cmdlet no mesmo modelo com o mesmo arquivo de parâmetros, você obterá o mesmo resultado.
 

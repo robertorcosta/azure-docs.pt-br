@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 89dc96370f65ff20d7f8be38ff78d6c1664305d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 543050bc899c257c4ad5e0d0c399a1de6f0f58f2
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80477801"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220568"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Como criar um Ambiente do Serviço de Aplicativo v1 
 
@@ -26,8 +26,8 @@ O Ambiente de Serviço de Aplicativo (ASE) é uma opção de serviço Premium do
 ### <a name="before-you-create-your-ase"></a>Antes de criar seu ASE
 É importante estar ciente dos itens que você não pode alterar. Os aspectos que você não pode alterar quanto ao ASE após sua criação são:
 
-* Local
-* Subscription
+* Localização
+* Assinatura
 * Grupo de recursos
 * VNET usada
 * Sub-rede usada 
@@ -40,11 +40,11 @@ Para criar um Ambiente do Serviço de Aplicativo v1, você pode pesquisar no Mic
 
 1. Forneça o nome do seu ASE. O nome que você especificou para o ASE será usado para os aplicativos criados no ASE. Se o nome do ASE fosse appsvcenvdemo, o nome do subdomínio seria: *appsvcenvdemo.p.azurewebsites.net*. Se você tivesse criado um aplicativo nomeado *mytestapp*, ele seria endereçável em *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Você não pode usar espaços em branco no nome do ASE. Se você usar letras maiúsculas entre os caracteres do nome, o nome de domínio será a versão total em letras minúsculas desse nome. Se você usa um ILB, seu nome ASE não é usado em seu subdomínio, mas é declarado explicitamente durante a criação do ASE.
    
-    ![][1]
+    ![Captura de tela que mostra como criar um Ambiente do Serviço de Aplicativo (ASE).][1]
 2. Selecione sua assinatura. A assinatura que você usa para o seu ASE também se aplicará a todas as aplicações que você criar nesse ASE. Você não pode colocar seu ASE em uma VNet que esteja em outra assinatura.
 3. Selecione ou especifique um novo grupo de recursos. O grupo de recursos usado para seu ASE deve ser o mesmo usado para sua rede virtual. Se você selecionar uma VNet já existente, a seleção de grupo de recursos para o ASE será atualizada para refletir a de sua rede virtual.
    
-    ![][2]
+    ![Captura de tela que mostra como selecionar ou modificar um novo grupo de recursos.][2]
 4. Faça suas seleções de Rede Virtual e Local. Você pode optar por criar uma nova rede virtual ou selecionar uma rede virtual já existente. Se selecionar uma nova rede virtual, você poderá especificar um nome e local. A nova VNet terá o intervalo de endereços 192.168.250.0/23 e uma sub-rede denominada **padrão** que é definida como 192.168.250.0/24. Você pode simplesmente selecionar um VNet pré-existente clássico ou do Gerenciador de Recursos. A seleção do tipo de VIP determina se seu ASE pode ser acessado diretamente por meio da Internet (Externo) ou se ele usa um Balanceador de Carga Interno (ILB). Para saber mais sobre eles, leia [Usando um Balanceador de Carga Interno com um Ambiente de Serviço de Aplicativo][ILBASE]. Se você selecionar um tipo de VIP externo, você poderá selecionar quantos endereços IP externos o sistema será criado para fins de IP SSL. Se selecionar Interno, você precisará especificar o subdomínio que seu ASE usará. Os ASEs podem ser implantados em redes virtuais que usam os intervalos de endereço público *ou* espaços de endereço *ou* RFC1918 (ou seja, endereços privados). Para usar uma rede virtual com um intervalo de endereços públicos, você precisará criar a VNet antecipadamente. Ao selecionar uma VNet já existente, você precisará criar uma nova sub-rede durante a criação do ASE. **Você não pode usar uma sub-rede criada previamente no Portal. Você pode criar um ASE com uma sub-rede pré-existente se criar seu ASE usando um modelo do Resource Manager.** Para criar um ASE por meio de um modelo, use as informações fornecidas aqui, [Criar um ambiente de serviço de aplicativo do modelo][ILBAseTemplate] e aqui, [Criar um ambiente de serviço de aplicativo do ILB do modelo][ASEfromTemplate].
 
 ### <a name="details"></a>Detalhes

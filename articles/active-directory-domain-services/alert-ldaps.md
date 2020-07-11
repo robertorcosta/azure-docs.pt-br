@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/18/2019
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 68798cf98bf01697e5d854f5b539c1c381642c3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d987bbbe2a35dd24341b75d5663bab33d8c3bdb9
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735023"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220245"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>Problemas conhecidos: LDAP Seguro alertas no Azure Active Directory Domain Services
 
@@ -36,7 +36,7 @@ Quando você habilita o LDAP seguro, é recomendável criar regras adicionais qu
 
 1. Na portal do Azure, procure e selecione grupos de **segurança de rede**.
 1. Escolha o grupo de segurança de rede associado ao domínio gerenciado, como *AADDS-contoso.com-NSG*e selecione **regras de segurança de entrada**
-1. **+ Adicione** uma regra para a porta TCP 636. Se necessário, selecione **avançado** na janela para criar uma regra.
+1. Selecione **+ Adicionar** para criar uma regra para a porta TCP 636. Se necessário, selecione **avançado** na janela para criar uma regra.
 1. Para a **origem**, escolha *endereços IP* no menu suspenso. Insira os endereços IP de origem que você deseja conceder acesso para tráfego LDAP seguro.
 1. Escolha *qualquer* como **destino**e, em seguida, insira *636* para os intervalos de **porta de destino**.
 1. Defina o **protocolo** como *TCP* e a **ação** a *permitir*.

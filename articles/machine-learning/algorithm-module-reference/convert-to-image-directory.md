@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 41724753df0d529e4c44344e8e975e68ee5eafd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b29b5fa1beb19bc055f94c56b064ae2c0ae175b5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84904585"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171135"
 ---
 # <a name="convert-to-image-directory"></a>Converter em Diretório de Imagem
 
@@ -24,11 +24,15 @@ Este artigo descreve como usar o módulo converter em diretório de imagem para 
 
 1.  Adicione o módulo **converter no diretório de imagens** ao seu experimento. Você pode encontrar esse módulo na categoria ' Pesquisa Visual Computacional/transformação de dados de imagem ' na lista de módulos. 
 
-2.  Conecte um conjunto de dados de imagem como entrada. Verifique se há uma imagem no conjunto de dados de entrada.
+2.  [Registre um conjunto](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) de dados de imagem e conecte-o à porta de entrada do módulo. Verifique se há uma imagem no conjunto de dados de entrada. 
     Há suporte para os seguintes formatos de conjunto de os:
 
     - Arquivo compactado nestas extensões: '. zip ', '. tar ', '. gz ', '. bz2 '.
     - Pasta que contém imagens. É **altamente recomendável compactar essa pasta primeiro, então, usar o arquivo compactado como DataSet**.
+
+    > [!WARNING]
+    > **Não é possível** usar o módulo **importar dados** para importar DataSet de imagem, pois o tipo de saída do módulo **importar dados** é o diretório dataframe, que contém apenas uma cadeia de caracteres de caminho de arquivo.
+    
 
     > [!NOTE]
     > Se usar conjunto de informações de imagem no aprendizado supervisionado, o rótulo será necessário.
@@ -54,13 +58,13 @@ A saída do módulo **converter para o diretório de imagens** está no formato 
 
 ###  <a name="expected-inputs"></a>Entradas esperadas  
 
-| Nome          | Tipo                  | Descrição   |
+| Nome          | Type                  | Descrição   |
 | ------------- | --------------------- | ------------- |
 | Conjunto de dados de entrada | AnyDirectory, ZipFile | Conjunto de dados de entrada |
 
 ###  <a name="output"></a>Saída  
 
-| Nome                   | Tipo           | Descrição            |
+| Nome                   | Type           | Descrição            |
 | ---------------------- | -------------- | ---------------------- |
 | Diretório de imagens de saída | ImageDirectory | Diretório de imagens de saída |
 

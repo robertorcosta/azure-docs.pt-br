@@ -7,11 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6b6da2a15441564ef0b67e76ee5a0e0c85839a63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 248725c7281c8c63e4ca5c0c70428b4fc997d350
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609309"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142408"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Entenda o gêmeos digital e seu gráfico de entrelaçamento
 
@@ -97,6 +98,7 @@ Quando representado como um objeto JSON, uma pesquisa digital exibirá os seguin
 | Nome do campo | Descrição |
 | --- | --- |
 | `$dtId` | Uma cadeia de caracteres fornecida pelo usuário que representa a ID do digital de texto |
+| `$etag` | Campo HTTP padrão atribuído pelo servidor Web |
 | `$conformance` | Um enum que contém o status de conformidade desta teledigital *(compatível*, *não*compatível, *desconhecido*) |
 | `{propertyName}` | O valor de uma propriedade em JSON ( `string` , tipo de número ou objeto) |
 | `$relationships` | A URL do caminho para a coleção de relações. Esse campo estará ausente se o digital up não tiver nenhuma borda de relação de saída. |
@@ -115,6 +117,7 @@ Aqui está um exemplo de um filetreme digital formatado como um objeto JSON:
 ```json
 {
   "$dtId": "Cafe",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "Temperature": 72,
   "Location": {
     "x": 101,
@@ -162,6 +165,7 @@ Quando representado como um objeto JSON, uma relação de uma pesquisa digital e
 | Nome do campo | Descrição |
 | --- | --- |
 | `$relationshipId` | Uma cadeia de caracteres fornecida pelo usuário que representa a ID dessa relação. Essa cadeia de caracteres é exclusiva no contexto da fonte de texto digital de origem, o que também significa que `sourceId`  +  `relationshipId` é exclusivo no contexto da instância do gêmeos digital do Azure. |
+| `$etag` | Campo HTTP padrão atribuído pelo servidor Web |
 | `$sourceId` | A ID da fonte de los digitais |
 | `$targetId` | A ID do teledigital de destino |
 | `$relationshipName` | O nome da relação |

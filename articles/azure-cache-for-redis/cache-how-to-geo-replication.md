@@ -6,15 +6,19 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: ce50c665fa79c361f638fda4ec373d5215c407f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a2ec2e60ae38506d716a244872baddbbdf570e7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74129423"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184966"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Como configurar a replicação geográfica para o cache do Azure para Redis
 
-A replicação geográfica fornece um mecanismo para vincular duas instâncias do Cache do Azure para Redis de camada Premium. Um cache é escolhido como o cache vinculado primário e o outro como o cache vinculado secundário. O cache vinculado secundário se torna somente leitura e os dados gravados no cache primário são replicados para o cache vinculado secundário. Essa funcionalidade pode ser usada para replicar um cache entre regiões do Azure. Este artigo fornece um guia para configurar a replicação geográfica para o cache do Azure da camada Premium para instâncias Redis.
+A replicação geográfica fornece um mecanismo para vincular duas instâncias do Cache do Azure para Redis de camada Premium. Um cache é escolhido como o cache vinculado primário e o outro como o cache vinculado secundário. O cache vinculado secundário se torna somente leitura e os dados gravados no cache primário são replicados para o cache vinculado secundário. A transferência de dados entre as instâncias de cache primária e secundária é protegida por TLS. A replicação geográfica pode ser usada para configurar um cache que abrange duas regiões do Azure. Este artigo fornece um guia para configurar a replicação geográfica para o cache do Azure da camada Premium para instâncias Redis.
+
+> [!NOTE]
+> A replicação geográfica é projetada como uma solução de recuperação de desastre. Por padrão, seu aplicativo irá gravar e ler a partir da região primária. Opcionalmente, ele pode ser configurado para ler a partir da região secundária. A replicação geográfica não fornece failover automático devido a preocupações sobre a latência de rede adicionada entre regiões se o restante do seu aplicativo permanecer na região primária. Você precisará gerenciar e iniciar o failover desvinculando o cache secundário. Isso irá promovê-lo para ser a nova instância primária.
 
 ## <a name="geo-replication-prerequisites"></a>Pré-requisitos de replicação geográfica
 

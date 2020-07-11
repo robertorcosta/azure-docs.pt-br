@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 2cc89bf57167db75404c044f58d18ab48edfaf38
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7ec407b7f6baf56f0a2fe724089826d8f9303b85
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68854081"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186836"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurar a experiência de interface do usuário hospedada
 
@@ -35,12 +35,10 @@ Para configurar uma interface do usuário hospedada para os aplicativos Web, sig
   
 4. Selecione um layout.
 
-    |  |  |
-    |---------|---------|
-    |Barra de pesquisa e resultados (padrão)    | Exibe uma caixa de pesquisa com os resultados da pesquisa abaixo dela.         |
-    |Somente os resultados     | Exibe apenas os resultados da pesquisa sem uma caixa de pesquisa. Ao usar esse layout, forneça a consulta de pesquisa (`&q=<query string>`). Adicione o parâmetro de consulta para a URL solicitada no snippet de JavaScript ou o link de ponto de extremidade de HTML.        |
-    |Pop-over     | Fornece uma caixa de pesquisa e exibe os resultados da pesquisa em uma sobreposição deslizante.        |
-    
+    - Barra de pesquisa e resultados (padrão): exibe uma caixa de pesquisa com os resultados da pesquisa abaixo dele.
+    - Somente resultados: exibe somente os resultados da pesquisa, sem uma caixa de pesquisa. Ao usar esse layout, forneça a consulta de pesquisa (`&q=<query string>`). Adicione o parâmetro de consulta para a URL solicitada no snippet de JavaScript ou o link de ponto de extremidade de HTML.
+    - Pop-over: fornece uma caixa de pesquisa e exibe os resultados da pesquisa em uma sobreposição deslizante.
+
 5. Selecione um tema de cor. Personalize as cores de acordo com seu aplicativo clicando em **Personalizar tema**. Para alterar uma cor, insira o valor RGB HEX da cor (por exemplo, `#366eb8`) ou clique na caixa de texto correspondente.
 
    Você pode visualizar as alterações no lado direito do portal. Ao clicar em **Redefinir para padrão**, suas escolhas voltarão para as cores padrão no tema selecionado.
@@ -96,55 +94,38 @@ Configure o comportamento de sua interface do usuário hospedada ao clicar em **
 
 ### <a name="web-search-configurations"></a>Configurações de pesquisa da Web
 
-|  |  |
-|---------|---------|
-|Resultados da Web ativados    | Determina se a pesquisa na Web está habilitada (você verá uma guia da Web na parte superior da página)        |
-|Sugestão Automática ativada     | Determina se a sugestão automática personalizada está habilitada (consulte [preço](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) para ver o custo adicional).        |
-|Resultados por página da Web    | Número de resultados da pesquisa na Web a exibir de cada vez (o máximo é de 50 resultados por página).        |
-|Legenda da imagem   | Determina se as imagens são exibidas com os resultados da pesquisa.|
-
+- Resultados da Web habilitados: determina se a pesquisa da Web está habilitada (você verá uma guia da Web na parte superior da página)
+- Habilitar autosugestão: determina se a sugestão automática personalizada está habilitada (consulte os [preços](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) para obter custos adicionais).
+- Resultados da Web por página: o número de resultados da pesquisa na Web a serem exibidos de cada vez (o máximo é 50 resultados por página).
+- Legenda da imagem: determina se as imagens são exibidas com os resultados da pesquisa.
 
 As configurações a seguir serão exibidas se você clicar em **Mostrar configurações avançadas**:
 
-
-|  | |
-|---------|---------|
-|Realçar palavras     | Determina se os resultados são exibidos com os termos de pesquisa em negrito.         |
-|Destino do link    |  Determina se a página da Web será aberta em uma nova guia do navegador (em branco) ou na mesma guia do navegador (própria) quando o usuário clicar em um resultado de pesquisa.        |
+- Realçar palavras: determina se os resultados são exibidos com os termos de pesquisa em negrito.
+- Destino do link: determina se a página da Web é aberta em uma nova guia do navegador (em branco) ou na mesma guia do navegador (própria) quando o usuário clica em um resultado da pesquisa.
 
 ### <a name="image-search-configurations"></a>Configurações de pesquisa de imagem
 
-| | |
-|---------|---------|
-|Resultados de imagem ativados     | Determina se a pesquisa de imagem está habilitada (você verá uma guia imagens na parte superior da página).            |
-|Resultados de imagens por página     | Número de resultados da pesquisa de imagem a exibir de cada vez (o máximo é de 150 resultados por página).          |
+- Resultados da imagem habilitado: determina se a pesquisa de imagem está habilitada (você verá uma guia imagens na parte superior da página).
+- Resultados da imagem por página: o número de resultados da pesquisa de imagem a serem exibidos de cada vez (o máximo é 150 resultados por página).
 
 A configuração a seguir será mostrada se você clicar em **Mostrar configurações avançadas**.  
   
-| | |
-|---------|---------|
-| Habilitar filtros     | Adiciona filtros que o usuário pode usar para filtrar as imagens que o Bing retorna. Por exemplo, o usuário pode filtrar os resultados somente para GIFs animados.|
+- Habilitar filtros: adiciona filtros que o usuário pode usar para filtrar as imagens que o Bing retorna. Por exemplo, o usuário pode filtrar os resultados somente para GIFs animados.
 
 ### <a name="video-search-configurations"></a>Configurações de pesquisa de vídeo
 
-|  | |
-|---------|---------|
-|Resultados de vídeo ativados     | Determina se a pesquisa de vídeo está habilitada (você verá uma guia de vídeos na parte superior da página).           |
-|Resultados de vídeo por página   | Número de resultados da pesquisa de imagem a exibir de cada vez (o máximo é de 150 resultados por página).        |
+- Resultados de vídeo habilitados: determina se a pesquisa de vídeo está habilitada (você verá uma guia vídeos na parte superior da página).
+- Resultados de vídeo por página: número de resultados de pesquisa de vídeo a serem exibidos de cada vez (o máximo é 150 resultados por página).
 
 A configuração a seguir será mostrada se você clicar em **Mostrar configurações avançadas**.  
   
-|  | |
-|---------|---------|
-|Habilitar filtros    | Adiciona filtros que o usuário pode usar para filtrar as imagens que o Bing retorna. Por exemplo, o usuário pode filtrar os resultados para vídeos com uma determinada resolução ou vídeos descobertos nas últimas 24 horas.          |
+- Habilitar filtros: adiciona filtros que o usuário pode usar para filtrar os vídeos que o Bing retorna. Por exemplo, o usuário pode filtrar os resultados para vídeos com uma determinada resolução ou vídeos descobertos nas últimas 24 horas.
 
 ### <a name="miscellaneous-configurations"></a>Configurações diversas
 
-
-| |  |
-|---------|---------|
-|Título da página   | O texto exibido na área de título da página de resultados da pesquisa (não para o layout de pop-over).        |
-|Tema da barra de ferramentas    | Determina a cor da tela de fundo da área de título da página de resultados da pesquisa. |
+- Título da página: texto exibido na área de título da página de resultados da pesquisa (não para layout pop-over).
+- Tema da barra de ferramentas: determina a cor do plano de fundo da área de título da página de resultados da pesquisa.
 
 As configurações a seguir serão mostradas se você clicar em **Mostrar configurações avançadas**.  
 

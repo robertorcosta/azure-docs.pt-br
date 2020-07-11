@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ae9b6bf41d90b0a9111414302b2eafea3c8332d3
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7c40f4d9f86f27af34c1bc649483810f6756c41d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965436"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169809"
 ---
 # <a name="configure-a-distributed-network-name-for-an-fci"></a>Configurar um nome de rede distribuída para um FCI 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -80,6 +80,10 @@ Set-ClusterParameter -Name DnsName -Value FCIDNN
 ```
 
 Agora, os clientes entrarão `FCIDNN` em sua cadeia de conexão ao se conectarem ao SQL Server FCI. 
+
+   > [!WARNING]
+   > Não exclua o nome da rede virtual atual (VNN), pois ele é um componente necessário da infraestrutura do FCI. 
+
 
 ### <a name="rename-the-vnn"></a>Renomear o VNN 
 

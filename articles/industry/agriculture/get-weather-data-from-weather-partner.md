@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 39d37b1a032a386219a98a409f2eb04a6ccc6eca
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7666ee1a81c2ed93ee5e246b3ec79f056f9d63ab
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078715"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187771"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Obter dados meteorológicos de parceiros meteorológicos
 
@@ -153,7 +153,7 @@ Para consultar dados meteorológicos usando a API REST do amFarmBeats, siga as e
 
 1. No Swagger do hub de dados do FarmBeats ( https://yourdatahub.azurewebsites.net/swagger) , navegue até a API do/WeatherDataLocation e faça uma solicitação get. A resposta terá objetos/WeatherDataLocation criados para o local (Latitude/Longitude) que foi especificado como parte da execução do trabalho. Anote a **ID** e a **weatherDataModelId** do (s) objetos.
 
-2. Crie uma GET/{id} na API/WeatherDataModel para o **weatherDataModelId** , conforme observado na etapa 1. O "modelo de dados meteorológicos" tem todos os metadados e detalhes sobre os dados meteorológicos ingeridos. Por exemplo, a **medida de clima** dentro do objeto de modelo de **dados meteorológicos** tem detalhes sobre quais informações de clima são suportadas e em quais tipos e unidades. Por exemplo,
+2. Crie uma GET/{id} na API/WeatherDataModel para o **weatherDataModelId** , conforme observado na etapa 1. O "modelo de dados meteorológicos" tem todos os metadados e detalhes sobre os dados meteorológicos ingeridos. Por exemplo, a **medida de clima** dentro do objeto de modelo de **dados meteorológicos** tem detalhes sobre quais informações de clima são suportadas e em quais tipos e unidades. Por exemplo:
 
    ```json
    {
@@ -210,6 +210,11 @@ Para consultar dados meteorológicos usando a API REST do amFarmBeats, siga as e
    ```
 
 No exemplo anterior, a resposta tem dados para dois carimbos de data/hora junto com o nome da medida ("temperatura") e os valores dos dados meteorológicos relatados nos dois carimbos de data/hora. Você precisará consultar o modelo de dados meteorológico associado (conforme descrito na etapa 2 acima) para interpretar o tipo e a unidade dos valores relatados.
+
+## <a name="troubleshoot-job-failures"></a>Solucionar falhas de trabalho
+
+Para solucionar problemas de falhas de trabalho, você pode verificar os logs de trabalho. Siga as [etapas aqui](troubleshoot-azure-farmbeats.md#weather-data-job-failures) para o mesmo.
+
 
 ## <a name="appendix"></a>Apêndice
 

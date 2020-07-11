@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: fe7b74b0d4d065d4f222fefbbdc4a1d434d1163b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 635a8fc5409e18da9529763b06e4a531a36d0156
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80518259"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169197"
 ---
 # <a name="interoperability-in-azure--data-plane-analysis"></a>Interoperabilidade no Azure: análise do plano de dados
 
@@ -29,13 +29,15 @@ A análise do plano de dados examina o caminho percorrido pelos pacotes que atra
 
 O emparelhamento da VNet (rede virtual) emula uma funcionalidade de ponte de rede entre as duas VNets emparelhadas. Mostramos a saída do rastreamento de rotas de uma VNet do hub para uma VM na VNet do spoke aqui:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1     2 ms     1 ms     1 ms  10.11.30.4
+  1     2 ms     1 ms     1 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 A figura a seguir mostra a exibição da conexão gráfica da VNet do hub e da VNet do spoke da perspectiva do Observador de Rede do Azure:
 
@@ -46,15 +48,17 @@ A figura a seguir mostra a exibição da conexão gráfica da VNet do hub e da V
 
 Mostramos a saída do rastreamento de rotas de uma VNet do hub para uma VM na VNet do branch aqui:
 
-    C:\Users\rb>tracert 10.11.30.68
+```console
+C:\Users\rb>tracert 10.11.30.68
 
-    Tracing route to 10.11.30.68 over a maximum of 30 hops
+Tracing route to 10.11.30.68 over a maximum of 30 hops
 
-      1     1 ms     1 ms     1 ms  10.10.30.142
-      2     *        *        *     Request timed out.
-      3     2 ms     2 ms     2 ms  10.11.30.68
+  1     1 ms     1 ms     1 ms  10.10.30.142
+  2     *        *        *     Request timed out.
+  3     2 ms     2 ms     2 ms  10.11.30.68
 
-    Trace complete.
+Trace complete.
+```
 
 Neste rastreamento de rotas, o primeiro salto é o gateway VPN no Gateway de VPN do Azure da VNet do hub. O segundo salto é o gateway VPN da VNet do branch. O endereço IP do gateway VPN da VNet do branch não é anunciado na VNet do hub. O terceiro salto é a VM na VNet do branch.
 
@@ -70,16 +74,18 @@ Para a mesma conexão, a seguinte figura mostra a exibição de grade no Observa
 
 Mostramos a saída do rastreamento de rotas de uma VNet do hub para uma VM na Localização local 1 aqui:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1     2 ms     2 ms     2 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4     2 ms     2 ms     2 ms  10.2.30.10
+  1     2 ms     2 ms     2 ms  10.10.30.132
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     2 ms     2 ms     2 ms  10.2.30.10
 
-    Trace complete.
+Trace complete.
+```
 
 Neste rastreamento de rotas, o primeiro salto é o ponto de extremidade do túnel do gateway do Azure ExpressRoute para um MSEE (Roteador do Microsoft Enterprise Edge). O segundo e o terceiro saltos são o roteador de CE (borda do cliente) e os IPs de LAN da Localização local 1. Esses endereços IP não são anunciados na VNet do hub. O quarto salto é a VM na Localização local 1.
 
@@ -88,16 +94,18 @@ Neste rastreamento de rotas, o primeiro salto é o ponto de extremidade do túne
 
 Mostramos a saída do rastreamento de rotas de uma VNet do hub para uma VM na Localização local 2 aqui:
 
-    C:\Users\rb>tracert 10.1.31.10
+```console
+C:\Users\rb>tracert 10.1.31.10
 
-    Tracing route to 10.1.31.10 over a maximum of 30 hops
+Tracing route to 10.1.31.10 over a maximum of 30 hops
 
-      1    76 ms    75 ms    75 ms  10.10.30.134
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4    75 ms    75 ms    75 ms  10.1.31.10
+  1    76 ms    75 ms    75 ms  10.10.30.134
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4    75 ms    75 ms    75 ms  10.1.31.10
 
-    Trace complete.
+Trace complete.
+```
 
 Neste rastreamento de rotas, o primeiro salto é o ponto de extremidade do túnel de gateway do ExpressRoute para um MSEE. O segundo e o terceiro saltos são o roteador de CE e os IPs de LAN da Localização local 2. Esses endereços IP não são anunciados na VNet do hub. O quarto salto é a VM na Localização local 2.
 
@@ -105,15 +113,17 @@ Neste rastreamento de rotas, o primeiro salto é o ponto de extremidade do túne
 
 Mostramos a saída do rastreamento de rotas de uma VNet do hub para uma VM na VNet remoto aqui:
 
-    C:\Users\rb>tracert 10.17.30.4
+```console
+C:\Users\rb>tracert 10.17.30.4
 
-    Tracing route to 10.17.30.4 over a maximum of 30 hops
+Tracing route to 10.17.30.4 over a maximum of 30 hops
 
-      1     2 ms     2 ms     2 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3    69 ms    68 ms    69 ms  10.17.30.4
+  1     2 ms     2 ms     2 ms  10.10.30.132
+  2     *        *        *     Request timed out.
+  3    69 ms    68 ms    69 ms  10.17.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 Neste rastreamento de rotas, o primeiro salto é o ponto de extremidade do túnel de gateway do ExpressRoute para um MSEE. O segundo salto é o IP do gateway da VNet remota. O intervalo de IP do segundo salto não é anunciado na VNet do hub. O terceiro salto é a VM na VNet remota.
 
@@ -125,27 +135,31 @@ O VNet do spoke compartilha a exibição de rede da VNet do hub. Por meio do Emp
 
 Mostramos a saída do rastreamento de rotas de uma VNet do spoke para uma VM na VNet do hub aqui:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-branch-vnet"></a>Caminho para a VNet do branch
 
 Mostramos a saída do rastreamento de rotas de uma VNet do spoke para uma VM na VNet do branch aqui:
 
-    C:\Users\rb>tracert 10.11.30.68
+```console
+C:\Users\rb>tracert 10.11.30.68
 
-    Tracing route to 10.11.30.68 over a maximum of 30 hops
+Tracing route to 10.11.30.68 over a maximum of 30 hops
 
-      1     1 ms    <1 ms    <1 ms  10.10.30.142
-      2     *        *        *     Request timed out.
-      3     3 ms     2 ms     2 ms  10.11.30.68
+  1     1 ms    <1 ms    <1 ms  10.10.30.142
+  2     *        *        *     Request timed out.
+  3     3 ms     2 ms     2 ms  10.11.30.68
 
-    Trace complete.
+Trace complete.
+```
 
 Neste rastreamento de rotas, o primeiro salto é o gateway VPN da VNet do hub. O segundo salto é o gateway VPN da VNet do branch. O endereço IP do gateway VPN da VNet do branch não é anunciado dentro da VNet do hub/spoke. O terceiro salto é a VM na VNet do branch.
 
@@ -153,16 +167,18 @@ Neste rastreamento de rotas, o primeiro salto é o gateway VPN da VNet do hub. O
 
 Mostramos a saída do rastreamento de rotas da VNet do spoke para uma VM na Localização local 1 aqui:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1    24 ms     2 ms     3 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4     3 ms     2 ms     2 ms  10.2.30.10
+  1    24 ms     2 ms     3 ms  10.10.30.132
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     3 ms     2 ms     2 ms  10.2.30.10
 
-    Trace complete.
+Trace complete.
+```
 
 Nessas rotas, o primeiro salto é o ponto de extremidade de túnel de gateway do ExpressRoute da VNet do hub para um MSEE. O segundo e o terceiro saltos são o roteador de CE e os IPs de LAN da Localização local 1. Esses endereços IP não são anunciados na VNet do hub/spoke. O quarto salto é a VM na Localização local 1.
 
@@ -170,17 +186,18 @@ Nessas rotas, o primeiro salto é o ponto de extremidade de túnel de gateway do
 
 Mostramos a saída do rastreamento de rotas da VNet do spoke para uma VM na Localização local 2 aqui:
 
+```console
+C:\Users\rb>tracert 10.1.31.10
 
-    C:\Users\rb>tracert 10.1.31.10
+Tracing route to 10.1.31.10 over a maximum of 30 hops
 
-    Tracing route to 10.1.31.10 over a maximum of 30 hops
+  1    76 ms    75 ms    76 ms  10.10.30.134
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4    75 ms    75 ms    75 ms  10.1.31.10
 
-      1    76 ms    75 ms    76 ms  10.10.30.134
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4    75 ms    75 ms    75 ms  10.1.31.10
-
-    Trace complete.
+Trace complete.
+```
 
 Nessas rotas, o primeiro salto é o ponto de extremidade de túnel de gateway do ExpressRoute da VNet do hub para um MSEE. O segundo e o terceiro saltos são o roteador de CE e os IPs de LAN da Localização local 2. Esses endereços IP não são anunciados na VNets do hub/spoke. O quarto salto é a VM na Localização local 2.
 
@@ -188,15 +205,17 @@ Nessas rotas, o primeiro salto é o ponto de extremidade de túnel de gateway do
 
 Mostramos a saída do rastreamento de rotas de uma VNet do spoke para uma VM na VNet remota aqui:
 
-    C:\Users\rb>tracert 10.17.30.4
+```console
+C:\Users\rb>tracert 10.17.30.4
 
-    Tracing route to 10.17.30.4 over a maximum of 30 hops
+Tracing route to 10.17.30.4 over a maximum of 30 hops
 
-      1     2 ms     1 ms     1 ms  10.10.30.133
-      2     *        *        *     Request timed out.
-      3    71 ms    70 ms    70 ms  10.17.30.4
+  1     2 ms     1 ms     1 ms  10.10.30.133
+  2     *        *        *     Request timed out.
+  3    71 ms    70 ms    70 ms  10.17.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 Nessas rotas, o primeiro salto é o ponto de extremidade de túnel de gateway do ExpressRoute da VNet do hub para um MSEE. O segundo salto é o IP do gateway da VNet remota. O intervalo de IP do segundo salto não é anunciado na VNet do hub/spoke. O terceiro salto é a VM na VNet remota.
 
@@ -206,15 +225,17 @@ Nessas rotas, o primeiro salto é o ponto de extremidade de túnel de gateway do
 
 Mostramos a saída do rastreamento de rotas de uma VNet do branch para uma VM na VNet do hub aqui:
 
-    C:\Windows\system32>tracert 10.10.30.4
+```console
+C:\Windows\system32>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.11.30.100
-      2     *        *        *     Request timed out.
-      3     4 ms     3 ms     3 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.11.30.100
+  2     *        *        *     Request timed out.
+  3     4 ms     3 ms     3 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 Neste rastreamento de rotas, o primeiro salto é o gateway VPN da VNet do branch. O segundo salto é o gateway VPN da VNet do hub. O endereço IP do gateway VPN da VNet do hub não é anunciado na VNet remota. O terceiro salto é a VM na VNet do hub.
 
@@ -222,15 +243,17 @@ Neste rastreamento de rotas, o primeiro salto é o gateway VPN da VNet do branch
 
 Mostramos a saída do rastreamento de rotas de uma VNet do branch para uma VM na VNet do spoke aqui:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1     1 ms    <1 ms     1 ms  10.11.30.100
-      2     *        *        *     Request timed out.
-      3     4 ms     3 ms     2 ms  10.11.30.4
+  1     1 ms    <1 ms     1 ms  10.11.30.100
+  2     *        *        *     Request timed out.
+  3     4 ms     3 ms     2 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 Neste rastreamento de rotas, o primeiro salto é o gateway VPN da VNet do branch. O segundo salto é o gateway VPN da VNet do hub. O endereço IP do gateway VPN da VNet do hub não é anunciado na VNet remota. O terceiro salto é a VM na VNet do spoke.
 
@@ -238,17 +261,19 @@ Neste rastreamento de rotas, o primeiro salto é o gateway VPN da VNet do branch
 
 Mostramos a saída do rastreamento de rotas da VNet do branch para uma VM na Localização local 1 aqui:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1     1 ms    <1 ms    <1 ms  10.11.30.100
-      2     *        *        *     Request timed out.
-      3     3 ms     2 ms     2 ms  10.2.30.125
-      4     *        *        *     Request timed out.
-      5     3 ms     3 ms     3 ms  10.2.30.10
+  1     1 ms    <1 ms    <1 ms  10.11.30.100
+  2     *        *        *     Request timed out.
+  3     3 ms     2 ms     2 ms  10.2.30.125
+  4     *        *        *     Request timed out.
+  5     3 ms     3 ms     3 ms  10.2.30.10
 
-    Trace complete.
+Trace complete.
+```
 
 Neste rastreamento de rotas, o primeiro salto é o gateway VPN da VNet do branch. O segundo salto é o gateway VPN da VNet do hub. O endereço IP do gateway VPN da VNet do hub não é anunciado na VNet remota. O terceiro salto é o ponto de terminação do túnel VPN no roteador CE principal. O quarto salto é um endereço IP interno da Localização local 1. Esse endereço IP de LAN não é anunciado fora do roteador de CE. O quinto salto é a VM de destino na Localização local 1.
 
@@ -256,27 +281,29 @@ Neste rastreamento de rotas, o primeiro salto é o gateway VPN da VNet do branch
 
 Como discutimos na análise do plano de controle, a ramificação de rede virtual não tem nenhuma visibilidade para a Localização local 2 ou para a rede virtual remota acordo com a configuração de rede. Os seguintes resultados ping confirmam: 
 
-    C:\Users\rb>ping 10.1.31.10
+```console
+C:\Users\rb>ping 10.1.31.10
 
-    Pinging 10.1.31.10 with 32 bytes of data:
+Pinging 10.1.31.10 with 32 bytes of data:
 
-    Request timed out.
-    ...
-    Request timed out.
+Request timed out.
+...
+Request timed out.
 
-    Ping statistics for 10.1.31.10:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+Ping statistics for 10.1.31.10:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
 
-    C:\Users\rb>ping 10.17.30.4
+C:\Users\rb>ping 10.17.30.4
 
-    Pinging 10.17.30.4 with 32 bytes of data:
+Pinging 10.17.30.4 with 32 bytes of data:
 
-    Request timed out.
-    ...
-    Request timed out.
+Request timed out.
+...
+Request timed out.
 
-    Ping statistics for 10.17.30.4:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+Ping statistics for 10.17.30.4:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+```
 
 ## <a name="data-path-from-on-premises-location-1"></a>Caminho de dados da Localização local 1
 
@@ -284,17 +311,19 @@ Como discutimos na análise do plano de controle, a ramificação de rede virtua
 
 Mostramos a saída do rastreamento de rotas da Localização local 1 para uma VM na Vnet do hub aqui:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3    <1 ms    <1 ms    <1 ms  192.168.30.18
-      4     *        *        *     Request timed out.
-      5     2 ms     2 ms     2 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3    <1 ms    <1 ms    <1 ms  192.168.30.18
+  4     *        *        *     Request timed out.
+  5     2 ms     2 ms     2 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 Neste rastreamento de rotas, os dois primeiros saltos fazem parte da rede local. O terceiro salto é a interface principal do MSEE voltada para o roteador de CE. O quarto salto é o gateway do ExpressRoute da VNet do hub. O intervalo de IP do gateway do ExpressRoute da VNet do hub não é anunciado para a rede local. O quinto salto é o VM de destino.
 
@@ -306,15 +335,17 @@ A figura a seguir mostra a exibição de topologia da conectividade da VM de Loc
 
 Conforme discutido anteriormente, a configuração do teste usa uma VPN site a site como conectividade de backup para o ExpressRoute entre a Localização local 1 e a VNet do hub. Para testar o caminho de dados de backup, vamos induzir uma falha de link do ExpressRoute entre o roteador CE local 1 primário e o MSEE correspondente. Para induzir uma falha de link do ExpressRoute, desligue a interface de CE voltada para o MSEE:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3     3 ms     2 ms     3 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3     3 ms     2 ms     3 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 A figura a seguir é a exibição de topologia da conectividade da VM da Localização local 1 para a VM na VNet do hub por meio da conectividade VPN de site a site quando a conectividade do ExpressRoute está inativa:
 
@@ -326,17 +357,19 @@ Mostramos a saída do rastreamento de rotas da Localização local 1 para uma VM
 
 Vamos trazer de volta a conectividade primária do ExpressRoute para fazer a análise do caminho de dados em direção à VNet do spoke:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3    <1 ms    <1 ms    <1 ms  192.168.30.18
-      4     *        *        *     Request timed out.
-      5     3 ms     2 ms     2 ms  10.11.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3    <1 ms    <1 ms    <1 ms  192.168.30.18
+  4     *        *        *     Request timed out.
+  5     3 ms     2 ms     2 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 Traga a conectividade primária do ExpressRoute 1 para o restante da análise do caminho de dados.
 
@@ -344,46 +377,52 @@ Traga a conectividade primária do ExpressRoute 1 para o restante da análise do
 
 Mostramos a saída do rastreamento de rotas da Localização local 1 para uma VM na Vnet do branch aqui:
 
-    C:\Users\rb>tracert 10.11.30.68
+```console
+C:\Users\rb>tracert 10.11.30.68
 
-    Tracing route to 10.11.30.68 over a maximum of 30 hops
+Tracing route to 10.11.30.68 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3     3 ms     2 ms     2 ms  10.11.30.68
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3     3 ms     2 ms     2 ms  10.11.30.68
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-on-premises-location-2"></a>Caminho para a Localização local 2
 
 Conforme discutimos na [análise do plano de controle][Control-Analysis], a Localização local 1 não tem visibilidade para a Localização local 2 de acordo com a configuração de rede. Os seguintes resultados ping confirmam: 
 
-    C:\Users\rb>ping 10.1.31.10
-    
-    Pinging 10.1.31.10 with 32 bytes of data:
+```console
+C:\Users\rb>ping 10.1.31.10
 
-    Request timed out.
-    ...
-    Request timed out.
+Pinging 10.1.31.10 with 32 bytes of data:
 
-    Ping statistics for 10.1.31.10:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+Request timed out.
+...
+Request timed out.
+
+Ping statistics for 10.1.31.10:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+```
 
 ### <a name="path-to-the-remote-vnet"></a>Caminho para a VNet remota
 
 Mostramos a saída do rastreamento de rotas da Localização local 1 para uma VM na VNet remota aqui:
 
-    C:\Users\rb>tracert 10.17.30.4
+```console
+C:\Users\rb>tracert 10.17.30.4
 
-    Tracing route to 10.17.30.4 over a maximum of 30 hops
+Tracing route to 10.17.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2     2 ms     5 ms     7 ms  192.168.30.0
-      3    <1 ms    <1 ms    <1 ms  192.168.30.18
-      4     *        *        *     Request timed out.
-      5    69 ms    70 ms    69 ms  10.17.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2     2 ms     5 ms     7 ms  192.168.30.0
+  3    <1 ms    <1 ms    <1 ms  192.168.30.18
+  4     *        *        *     Request timed out.
+  5    69 ms    70 ms    69 ms  10.17.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ## <a name="data-path-from-on-premises-location-2"></a>Caminho de dados da Localização local 2
 
@@ -391,32 +430,36 @@ Mostramos a saída do rastreamento de rotas da Localização local 1 para uma VM
 
 Mostramos a saída do rastreamento de rotas da Localização local 2 para uma VM na Vnet do hub aqui:
 
-    C:\Windows\system32>tracert 10.10.30.4
+```console
+C:\Windows\system32>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.1.31.3
-      2    <1 ms    <1 ms    <1 ms  192.168.31.4
-      3    <1 ms    <1 ms    <1 ms  192.168.31.22
-      4     *        *        *     Request timed out.
-      5    75 ms    74 ms    74 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.1.31.3
+  2    <1 ms    <1 ms    <1 ms  192.168.31.4
+  3    <1 ms    <1 ms    <1 ms  192.168.31.22
+  4     *        *        *     Request timed out.
+  5    75 ms    74 ms    74 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-spoke-vnet"></a>Caminho para a VNet do spoke
 
 Mostramos a saída do rastreamento de rotas da Localização local 2 para uma VM na Vnet do spoke aqui:
 
-    C:\Windows\system32>tracert 10.11.30.4
+```console
+C:\Windows\system32>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
-      1    <1 ms    <1 ms     1 ms  10.1.31.3
-      2    <1 ms    <1 ms    <1 ms  192.168.31.0
-      3    <1 ms    <1 ms    <1 ms  192.168.31.18
-      4     *        *        *     Request timed out.
-      5    75 ms    74 ms    74 ms  10.11.30.4
+Tracing route to 10.11.30.4 over a maximum of 30 hops
+  1    <1 ms    <1 ms     1 ms  10.1.31.3
+  2    <1 ms    <1 ms    <1 ms  192.168.31.0
+  3    <1 ms    <1 ms    <1 ms  192.168.31.18
+  4     *        *        *     Request timed out.
+  5    75 ms    74 ms    74 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-branch-vnet-on-premises-location-1-and-the-remote-vnet"></a>Caminho para a VNet do branch, para a Localização local 1 e para a VNet remota
 
@@ -428,29 +471,33 @@ Como discutimos na [análise do plano de controle][Control-Analysis], a Localiza
 
 Mostramos a saída do rastreamento de rotas de uma VNet remota para uma VM na VNet do hub aqui:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    65 ms    65 ms    65 ms  10.17.30.36
-      2     *        *        *     Request timed out.
-      3    69 ms    68 ms    68 ms  10.10.30.4
+  1    65 ms    65 ms    65 ms  10.17.30.36
+  2     *        *        *     Request timed out.
+  3    69 ms    68 ms    68 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-spoke-vnet"></a>Caminho para a VNet do spoke
 
 Mostramos a saída do rastreamento de rotas da VNet remota para uma VM na VNet do spoke aqui:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1    67 ms    67 ms    67 ms  10.17.30.36
-      2     *        *        *     Request timed out.
-      3    71 ms    69 ms    69 ms  10.11.30.4
+  1    67 ms    67 ms    67 ms  10.17.30.36
+  2     *        *        *     Request timed out.
+  3    71 ms    69 ms    69 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-branch-vnet-and-on-premises-location-2"></a>Caminho para a VNet do branch e para a Localização local 2
 
@@ -460,17 +507,18 @@ Como discutimos na [análise do plano de controle][Control-Analysis], a VNet rem
 
 Mostramos a saída do rastreamento de rotas da VNet remota para uma VM na Localização local 1 aqui:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1    67 ms    67 ms    67 ms  10.17.30.36
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4    69 ms    69 ms    69 ms  10.2.30.10
+  1    67 ms    67 ms    67 ms  10.17.30.36
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4    69 ms    69 ms    69 ms  10.2.30.10
 
-    Trace complete.
-
+Trace complete.
+```
 
 ## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>Conectividade do ExpressRoute e VPN site a site em conjunto
 

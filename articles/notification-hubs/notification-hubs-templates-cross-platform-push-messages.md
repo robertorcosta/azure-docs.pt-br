@@ -16,13 +16,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 7d88f57fe92b9da62cc9f90d64bdec4c27642fb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3c64155053517205ab006673bb8f400325ad3c4
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76263737"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86219956"
 ---
-# <a name="templates"></a>Modelos
+# <a name="notification-hubs-templates"></a>Modelos de hubs de notificação
 
 Os modelos permitem que um aplicativo cliente especifique o formato exato das notificações que deseja receber. Ao usar modelos, um aplicativo pode reconhecer diversos benefícios diferentes, incluindo os seguintes:
 
@@ -61,7 +62,7 @@ O recurso de modelo de Hubs de Notificação permite que um aplicativo cliente c
 
 A figura a seguir ilustra o processo:
 
-![](./media/notification-hubs-templates/notification-hubs-hello.png)
+![Diagrama mostrando o processo para usar modelos de plataforma cruzada](./media/notification-hubs-templates/notification-hubs-hello.png)
 
 O modelo para o registro do aplicativo cliente iOS é como segue:
 
@@ -120,7 +121,7 @@ A mensagem enviada ao Hub de Notificação contém as seguintes propriedades:
 
 Ao usar esse padrão, o back-end envia apenas uma única mensagem sem ter que armazenar opções de personalização específicas para os usuários do aplicativo. A figura a seguir ilustra esse cenário:
 
-![](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
+![Diagrama mostrando como o back-end envia apenas uma única mensagem para cada plataforma.](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
 
 ## <a name="how-to-register-templates"></a>Como registrar modelos
 
@@ -132,7 +133,7 @@ Os modelos são limitados aos formatos de documento XML ou JSON. Além disso, s�
 
 A tabela a seguir mostra a linguagem permitida nos modelos:
 
-| Expression       | Descrição |
+| Expressão       | Descrição |
 | ---------------- | --- |
 | $(prop)          | Referência para uma propriedade de evento com o nome fornecido. Os nomes de propriedade não diferenciam maiúsculas de minúsculas. Esta expressão é convertida para o valor de texto da propriedade ou em uma sequência de caracteres vazia se a propriedade não estiver presente. |
 | $(prop, n)       | Como consta acima, mas o texto é explicitamente cortado em n caracteres, por exemplo, $(title, 20) corta o conteúdo da propriedade de título em 20 caracteres. |

@@ -1,5 +1,5 @@
 ---
-title: Explicabilidade em ML automatizado
+title: Explicabilidade em ML automatizado (visualização)
 titleSuffix: Azure Machine Learning
 description: Saiba como obter explicações sobre como seu modelo de ML automatizado determina a importância dos recursos e faz previsões ao usar o SDK do Azure Machine Learning.
 services: machine-learning
@@ -8,14 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: mesameki
 author: mesameki
-ms.date: 03/11/2020
-ms.openlocfilehash: 6fcebb34f82565fcf83a9535e8c036231c5b3cf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: af3fe7bffbf985936a1648088daaf1a294a69905
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430537"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206595"
 ---
-# <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Interpretação: explicações de modelo no Machine Learning automatizado
+# <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interpretação: explicações de modelo no Machine Learning automatizado (visualização)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -118,7 +119,7 @@ Nesta seção, você aprenderá a colocar em operação um modelo de ML automati
 
 Use o `TreeScoringExplainer` para criar o explicador de pontuação que calculará os valores de importância de recursos com engenharia no tempo de inferência. Você inicializa o explicador de pontuação com o `feature_map` que foi calculado anteriormente. 
 
-Salve o explicador de Pontuação e registre o modelo e o explicador de pontuação com o Serviço Gerenciamento de Modelos. Execute o seguinte código:
+Salve o explicador de Pontuação e registre o modelo e o explicador de pontuação com o Serviço Gerenciamento de Modelos. Execute o código a seguir:
 
 ```python
 from azureml.interpret.scoring.scoring_explainer import TreeScoringExplainer, save

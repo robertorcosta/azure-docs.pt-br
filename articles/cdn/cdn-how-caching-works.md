@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
-ms.openlocfilehash: d0c438aee7f56e96feb7167fad718fd9519a9f76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa3c190912c0fbd62b08182018c99b985354811b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81253706"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201802"
 ---
 # <a name="how-caching-works"></a>Como funciona o cache
 
@@ -111,11 +112,11 @@ Quando o cache está obsoleto, validadores de cache HTTP são usados para compar
 
 Nem todos os recursos podem ser armazenados em cache. A tabela a seguir mostra quais recursos podem ser armazenados em cache, com base no tipo de resposta HTTP. Os recursos entregues com respostas HTTP que não atendem a todas essas condições não podem ser armazenados em cache. Para a **CDN Premium do Azure da Verizon** é possível utilizar o mecanismo de regras para personalizar algumas dessas condições.
 
-|                   | CDN do Azure da Microsoft          | CDN do Azure da Verizon | CDN do Azure do Akamai        |
-|-------------------|-----------------------------------|------------------------|------------------------------|
-| Códigos de status HTTP | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
-| Métodos HTTP      | OBTER, PRINCIPAL                         | GET                    | GET                          |
-| Limites de tamanho de arquivo  | 300 GB                            | 300 GB                 | - Otimização geral de entrega na Web: 1,8 GB<br />- Otimizações de streaming de mídia: 1,8 GB<br />- Otimização de arquivos grandes: 150 GB |
+|                       | CDN do Azure da Microsoft          | CDN do Azure da Verizon | CDN do Azure do Akamai        |
+|-----------------------|-----------------------------------|------------------------|------------------------------|
+| **Códigos de status HTTP** | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
+| **Métodos HTTP**      | OBTER, PRINCIPAL                         | GET                    | GET                          |
+| **Limites de tamanho de arquivo**  | 300 GB                            | 300 GB                 | - Otimização geral de entrega na Web: 1,8 GB<br />- Otimizações de streaming de mídia: 1,8 GB<br />- Otimização de arquivos grandes: 150 GB |
 
 Para **a CDN do Azure Standard da Microsoft** em cache para funcionar em um recurso, o servidor de origem deve oferecer suporte a qualquer CABEÇALHO e solicitações HTTP GET e os valores de comprimento de conteúdo devem ser o mesmo para todas as respostas de CABEÇALHO e HTTP GET para o ativo. Para uma solicitação de CABEÇALHO, o servidor de origem deve oferecer suporte a solicitação CABEÇALHO e deve responder com os mesmos cabeçalhos como se ele recebeu uma solicitação GET.
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d34bb14dd0f474ff9350fec513c02fbb470d6738
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7567302be8d717cda3627af303128bfb704bd014
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385647"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170132"
 ---
 # <a name="tutorial-for-configuring-idology-with-azure-active-directory-b2c"></a>Tutorial para configurar o IDology com o Azure Active Directory B2C 
 
@@ -41,7 +41,7 @@ O diagrama de arquitetura a seguir mostra a implementação.
 
 ![Diagrama de arquitetura do IDology](media/partner-idology/idology-architecture-diagram.png)
 
-|      |      |
+| Etapa | Descrição |
 |------|------|
 |1     | Um usuário chega na página de entrada. |
 |2     | O usuário seleciona a opção de inscrição para criar uma nova conta e inserir informações na página. Azure AD B2C coleta os atributos de usuário. |
