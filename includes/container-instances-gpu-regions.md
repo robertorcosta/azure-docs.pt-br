@@ -13,7 +13,7 @@ ms.locfileid: "75445849"
 ---
 ### <a name="region-availability"></a>Disponibilidade de região
 
-| Regiões | Sistema operacional | SKUs de GPU disponíveis |
+| Regiões | SO | SKUs de GPU disponíveis |
 | -------- | ---- | :-----------: |
 | Leste dos EUA, Europa Ocidental, oeste dos EUA 2 | Linux | K80, P100, V100 |
 | Sudeste Asiático | Linux | P100, V100|
