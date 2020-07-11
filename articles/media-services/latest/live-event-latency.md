@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: a82a0644fac099b568ab86ea213b98cd8e7d5c22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 720931cf9f955f63075e3881b6b9f2e884bd3a76
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78199641"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232450"
 ---
 # <a name="live-event-low-latency-settings"></a>Configurações de baixa latência de evento ao vivo
 
@@ -61,15 +62,15 @@ A tabela a seguir mostra os resultados comuns de latência (quando o sinalizador
 
 ||2s GOP baixa latência habilitada|1s GOP baixa latência habilitada|
 |---|---|---|
-|TRAÇO no AMP|10s|8s|
-|HLS no player de iOS nativo|14s|10s|
+|**TRAÇO no AMP**|10s|8s|
+|**HLS no player de iOS nativo**|14s|10s|
 
 ### <a name="live-encoding"></a>Codificação ativa
 
 ||2s GOP baixa latência habilitada|1s GOP baixa latência habilitada|
 |---|---|---|
-|TRAÇO no AMP|14s|10s|
-|HLS no player de iOS nativo|18s|13s|
+|**TRAÇO no AMP**|14s|10s|
+|**HLS no player de iOS nativo**|18s|13s|
 
 > [!NOTE]
 > A latência de ponta a ponta pode variar, dependendo das condições de rede local ou com a introdução de uma camada de cache da CDN. Você deve testar as configurações exatas.

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/24/2017
 ms.author: gwallace
-ms.openlocfilehash: ca6ac145db0536d3cf7e5bcc72a58d72101ab12a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98b72dbb9f3b62fd5985f6245e52293ec31fc682
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81459110"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232535"
 ---
 # <a name="azure-powershell-samples-for-networking"></a>Exemplos do Azure PowerShell para rede
 
 A tabela a seguir inclui links para scripts compilados usando Azure PowerShell.
 
-| | |
+| script | Descrição |
 |-|-|
 |**Conectividade entre os recursos do Azure**||
 | [Criar uma rede virtual para aplicativos de várias camadas](./scripts/virtual-network-powershell-sample-multi-tier-application.md?toc=%2fazure%2fnetworking%2ftoc.json) | Cria uma rede virtual com sub-redes de front-end e back-end. O tráfego para a sub-rede de front-end é limitado a HTTP, enquanto o tráfego para a sub-rede de back-end é limitado a SQL, porta 1433. |

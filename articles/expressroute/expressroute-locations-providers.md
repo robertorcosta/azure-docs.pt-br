@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: a19a4414cd31c2a4f0261ba0214b99fa12490ecb
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 412574bc9f994b522ef10b15c2f4efcfe69e07c0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856802"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232348"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros do ExpressRoute
 
@@ -129,7 +129,7 @@ A tabela a seguir mostra os locais de conectividade e os provedores de serviço 
 | **San Antonio** | [CyrusOne SA1](https://cyrusone.com/locations/texas/san-antonio-texas/) | 1 | Centro-Sul dos Estados Unidos | 10G, 100G | CenturyLink Cloud Connect, Megaport |
 | **São Paulo** | [Equinix SP2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/sao-paulo-data-centers/sp2/) | 3 | Sul do Brasil | n/d | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
 | **Seattle** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | 1 | Oeste dos EUA 2 | 10G, 100G | Aryaka Networks, Equinix, Level 3 Communications, Megaport, Telus, Zayo |
-| **Seul** | [KINX Gasan IDC](https://www.kinx.net/support/location/?lang=en) | 2 | Coreia Central | 10G, 100G | KINX, KT, LG CNS, Sejong Telecom |
+| **Seul** | [KINX Gasan IDC](https://www.kinx.net/?lang=en) | 2 | Coreia Central | 10G, 100G | KINX, KT, LG CNS, Sejong Telecom |
 | **Vale do Silício** | [Equinix SV1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv1/) | 1 | Oeste dos EUA | 10G, 100G | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Comcast, Coresite, Equinix, InterCloud, Internet2, IX Reach, Packet, PacketFabric, Level 3 Communications, Megaport, Orange, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
 | **Vale do Silício2** | [Coresite SV7](https://www.coresite.com/data-centers/locations/silicon-valley/sv7) | 1 | Oeste dos EUA | 10G, 100G | Colt, Coresite | 
 | **Singapura** | [Equinix SG1](https://www.equinix.com/locations/asia-colocation/singapore-colocation/singapore-data-center/sg1/) | 2 | Sudeste Asiático | 10G, 100G | Aryaka Networks, AT&T NetBond, British Telecom, China Mobile International, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
@@ -154,7 +154,7 @@ A tabela a seguir mostra os locais de conectividade e os provedores de serviço 
 As nuvens nacionais do Azure são isoladas umas das outras e do Azure comercial global. O ExpressRoute de uma nuvem do Azure não pode se conectar às regiões do Azure nos outros.
 
 ### <a name="us-government-cloud"></a>Nuvem do Governo dos EUA
-| **Localidade** | **Endereço** | **Regiões do Azure locais**| **ER direto** | **Provedores de serviço** |
+| **Localização** | **Endereço** | **Regiões do Azure locais**| **ER direto** | **Provedores de serviço** |
 | --- | --- | --- | --- | --- |
 | **Atlanta** | [Equinix AT1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at1/) | N/D | 10G, 100G | Equinix |
 | **Chicago** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | n/d | 10G, 100G | AT&T NetBond, Equinix, Level 3 Communications, Verizon |

@@ -14,19 +14,15 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ed973b6ea5bbcd2b23e30d381e909ef2ab03b917
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: f1f564a36a3f0103832bc81bbbc65d2818c03143
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921669"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231997"
 ---
 # <a name="automated-patching-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Aplicação de Patch Automatizada para máquinas virtuais do SQL Server no Azure (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
-
-> [!div class="op_single_selector"]
-> * [Resource Manager](automated-patching.md)
-> * [Clássico](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
 A Aplicação de Patch Automatizada estabelece uma janela de manutenção para uma máquina virtual do Azure que executa o SQL Server. Atualizações automáticas só podem ser instaladas durante esta janela de manutenção. Para o SQL Server, essa restrição garante que as atualizações do sistema e qualquer reinicialização associada ocorram no melhor momento possível para o banco de dados. 
 

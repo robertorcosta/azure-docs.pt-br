@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 543ed51cc10cce017e0e57a1a351ce382f1ca35f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f448174842ffd3b7ba14104c30319933c680127d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083501"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232314"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como habilitar a virtualização aninhada em uma VM do Azure
 
@@ -181,3 +181,4 @@ Neste exemplo, você usará um endereço no intervalo 192.168.0.0/24.
 Na máquina virtual convidada, abra o navegador e navegue para uma página da Web.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
+Para obter instruções sobre como habilitar a conectividade transparente entre as VMs convidadas e VMs do Azure, consulte [este documento](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).

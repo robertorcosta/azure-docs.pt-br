@@ -7,11 +7,12 @@ ms.manager: carmonm
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
-ms.openlocfilehash: c6b791fda43a018a26204b2b43dc1e581ff3a945
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afc3132ebdd0f144d16507ef2ccda2dcaffaa34e
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79269478"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232161"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Migrar VMs VMware para VMs do Azure habilitadas com criptografia do lado do servidor e chaves gerenciadas pelo cliente
 
@@ -57,7 +58,7 @@ A experiência do portal de migração do servidor simplifica a preparação da 
 
 Um objeto de conjunto de criptografia de disco mapeia Managed Disks para um Key Vault que contém o CMK a ser usado para a SSE. Para replicar VMs com CMK, você criará um conjunto de criptografia de disco e o passará como uma entrada para a operação de replicação.
 
-Siga o exemplo [aqui](../virtual-machines/windows/disk-encryption.md#powershell) para criar um conjunto de criptografia de disco usando Azure PowerShell. Verifique se o conjunto de criptografia de disco foi criado na assinatura de destino para a qual as VMs estão sendo migradas e na região do Azure de destino para a migração.
+Siga o exemplo [aqui](../virtual-machines/windows/disks-enable-customer-managed-keys-powershell.md) para criar um conjunto de criptografia de disco usando Azure PowerShell. Verifique se o conjunto de criptografia de disco foi criado na assinatura de destino para a qual as VMs estão sendo migradas e na região do Azure de destino para a migração.
 
 ```azurepowershell
 $Location = "southcentralus"                           #Target Azure region for migration 

@@ -9,11 +9,12 @@ ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 565d98bd5f27351f16ff523aa017c4b980fbdd53
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 597a9e3b018f4ddb68710dff65094f35828b3c4b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827259"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232654"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Dimensionamento automático vertical com conjuntos de dimensionamento de máquinas virtuais
 
@@ -38,7 +39,7 @@ Você pode definir o dimensionamento vertical para ser disparado com base em ale
 > [!NOTE]
 > Devido ao tamanho da primeira máquina virtual, os tamanhos para expansão podem ser limitados devido à disponibilidade de outros tamanhos no cluster em que a máquina virtual atual está implantada. Nos Runbooks de automação publicados usados neste artigo, levamos isso em conta e dimensionamos apenas dentro dos pares de tamanhos da VM abaixo. Isso significa que uma máquina virtual Standard_D1v2 não será expandida repentinamente para Standard_G5 ou reduzida para Basic_A0. Também não há suporte para escalar/reduzir verticalmente os tamanhos restritos de máquina virtual. Você pode optar por dimensionar entre os seguintes pares de tamanhos:
 > 
-> | Par de dimensionamento de tamanhos de VM |  |
+> | Membro do par dimensionamento de tamanhos de VM | Membro |
 > | --- | --- |
 > | Basic_A0 |Basic_A4 |
 > | Standard_A0 |Standard_A4 |

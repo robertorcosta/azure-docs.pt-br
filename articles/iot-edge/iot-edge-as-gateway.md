@@ -11,11 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 916eeaa60bc054301af039164ce1c14e77ceb91a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7c924af297d9a315b61351b69d2fe6346bc1178
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733524"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232620"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Como um dispositivo IoT Edge pode ser usado como um gateway
 
@@ -23,11 +24,11 @@ Os gateways em soluções IoT Edge fornecem conectividade de dispositivo e anál
 
 ## <a name="patterns"></a>Padrões
 
-Há três padrões de uso de um dispositivo IoT Edge como um gateway: transparente, conversão de protocolo e tradução de identidade:
+Há três padrões para usar um dispositivo IoT Edge como um gateway: transparente, conversão de protocolo e conversão de identidade:
 
-* **Transparente** – dispositivos que teoricamente podem se conectar ao Hub IoT podem, em vez disso, conectar-se a um dispositivo de gateway. Os dispositivos downstream possuem suas próprias identidades Hub IoT e estão usando qualquer um dos protocolos MQTT, AMQP ou HTTP. O gateway simplesmente passa as comunicações entre os dispositivos e o Hub IoT. Os dispositivos e os usuários que interagem com eles por meio do Hub IoT não sabem que um gateway está mediando suas comunicações. Essa falta de conscientização significa que o gateway é considerado *transparente*. Consulte [Criar um gateway transparente](how-to-create-transparent-gateway.md) para obter detalhes sobre como usar um dispositivo IoT Edge como um gateway transparente.
-* **Tradução de protocolo** - Também conhecido como padrão de gateway opaco, os dispositivos que não suportam MQTT, AMQP ou HTTP podem usar um dispositivo de gateway para enviar dados para o Hub IoT em seu nome. O gateway compreende o protocolo usado pelos dispositivos downstream e é o único dispositivo que tem uma identidade no Hub IoT. Todas as informações parecem estar vindo de um dispositivo, o gateway. Os dispositivos de downstream devem incorporar informações adicionais de identificação em suas mensagens, se os aplicativos em nuvem quiserem analisar os dados em uma base por dispositivo. Além disso, as primitivas do Hub IoT, como gêmeos e métodos, estão disponíveis apenas para o dispositivo de gateway, não para dispositivos de recebimento de dados.
-* **Tradução de identidade** - Dispositivos que não podem se conectar ao Hub IoT podem se conectar a um dispositivo de gateway. O gateway fornece a identidade do Hub IoT e a conversão de protocolo em nome dos dispositivos downstream. O gateway é inteligente o suficiente para entender o protocolo usado por dispositivos downstream, fornecer identidade a eles e converter Hub IoT primitivos. Dispositivos downstream aparecem no Hub IoT como dispositivos de primeira classe com gêmeos e métodos. Um usuário pode interagir com os dispositivos do Hub IoT e não tem ciência do dispositivo de gateway intermediário.
+* **Transparente** – dispositivos que teoricamente podiam se conectar ao Hub IOT podem se conectar a um dispositivo de gateway em vez disso. Os dispositivos downstream têm as próprias identidades de Hub IoT e usam qualquer um dos protocolos MQTT, AMQP ou HTTP. O gateway simplesmente passa as comunicações entre os dispositivos e o Hub IoT. Os dispositivos e os usuários que interagem com eles por meio do Hub IoT não sabem que um gateway está mediando suas comunicações. Essa falta de conscientização significa que o gateway é considerado *transparente*. Confira [Criar um gateway transparente](how-to-create-transparent-gateway.md) para informações específicas sobre como usar um dispositivo IoT Edge como um gateway transparente.
+* **Tradução de protocolo** - Também conhecido como padrão de gateway opaco, os dispositivos que não suportam MQTT, AMQP ou HTTP podem usar um dispositivo de gateway para enviar dados para o Hub IoT em seu nome. O gateway compreende o protocolo usado pelos dispositivos downstream e é o único dispositivo que tem uma identidade no Hub IoT. Todas as informações parecem estar vindo de um dispositivo, o gateway. Dispositivos downstream deverão inserir informações de identificação adicionais em suas mensagens se os aplicativos de nuvem quiserem analisar os dados por dispositivo. Além disso, os primitivos do Hub IoT como gêmeos e métodos só estão disponíveis para o dispositivo de gateway, não para dispositivos downstream.
+* **Conversão de identidade** – dispositivos que não podem se conectar ao Hub IOT podem se conectar a um dispositivo de gateway, em vez disso. O gateway fornece a conversão de protocolo e a identidade do Hub IoT em nome dos dispositivos downstream. O gateway é inteligente o suficiente para entender o protocolo usado pelos dispositivos downstream, fornecer identidade e converter primitivos do Hub IoT. Dispositivos downstream aparecem no Hub IoT como dispositivos de primeira classe com gêmeos e métodos. Um usuário pode interagir com os dispositivos no Hub IoT e não estar ciente do dispositivo de gateway intermediário.
 
 ![Diagrama - transparente, protocolo e padrões de gateway de identidade](./media/iot-edge-as-gateway/edge-as-gateway.png)
 
@@ -49,7 +50,7 @@ Um gateway que faz a tradução de identidade fornece os benefícios da convers�
 
 Aqui está um roteiro rápido que compara os Hub IoT primitivos ao usarem gateways transparentes, opacos (protocolo) e de proxy.
 
-| &nbsp; | Gateway transparente | Conversão de protocolo | Conversão de identidade |
+| Primitiva | Gateway transparente | Conversão de protocolo | Conversão de identidade |
 |--------|-------------|--------|--------|
 | Identidades armazenadas no registro de identidade do Hub IoT | Identidades de todos os dispositivos conectados | Somente a identidade do dispositivo de gateway | Identidades de todos os dispositivos conectados |
 | Dispositivo gêmeo | Cada dispositivo conectado tem seu próprio dispositivo gêmeo | Somente o gateway tem um dispositivo e módulo gêmeos | Cada dispositivo conectado tem seu próprio dispositivo gêmeo |

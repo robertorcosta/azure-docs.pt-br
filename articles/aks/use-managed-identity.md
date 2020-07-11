@@ -4,14 +4,14 @@ description: Saiba como usar identidades gerenciadas no serviço kubernetes do A
 services: container-service
 author: mlearned
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 07/10/2020
 ms.author: mlearned
-ms.openlocfilehash: 30d1290f9eb7b2750f09e5e256d4dd212c7e4607
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27ae1d1a2c6309bdac2410dca4b48abf27d8ea0b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610278"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231974"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Usar identidades gerenciadas no serviço kubernetes do Azure
 
@@ -23,7 +23,7 @@ Atualmente, um cluster AKS (serviço de kubernetes do Azure) (especificamente, o
 
 Você deve ter o seguinte recurso instalado:
 
-- A CLI do Azure versão 2.2.0 ou posterior
+- O CLI do Azure, versão 2.8.0 ou posterior
 
 ## <a name="limitations"></a>Limitações
 

@@ -8,11 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 4bdfe1609d80a0e3198a9e428a148be2f28c72d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: adee8064a97c7757ae7a6d3c9475bc5a3044e50d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392107"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232297"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java Async do Azure Cosmos DB para a API do SQL: Notas sobre a versão e recursos
 > [!div class="op_single_selector"]
@@ -26,7 +27,7 @@ ms.locfileid: "85392107"
 > * [SDK do Java Síncrono v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * Deixa (/rest/api
-> * [Provedor de recursos REST](/rest/apier/)
+> * [Provedor de recursos REST](/azure/azure-resource-manager/management/azure-services-resource-providers)
 > * [SQL](sql-api-query-reference.md)
 > * [Executor em massa-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)

@@ -5,11 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: ad232c5d9df9f6bfae3a79dbd72e2c68143be949
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f9aff2ea88c2334ab30c9819f68fd6cbb9124c5
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79080353"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232433"
 ---
 # <a name="encrypt-deployment-data"></a>Criptografar dados de implantação
 
@@ -25,10 +26,10 @@ Você pode contar com chaves gerenciadas pela Microsoft para a criptografia de s
 
 |    |    Chaves gerenciadas pela Microsoft     |     Chaves gerenciadas pelo cliente     |
 |----|----|----|
-|    Operações de criptografia/descriptografia    |    Azure    |    Azure    |
-|    Armazenamento de chave    |    Repositório de chaves da Microsoft    |    Cofre de Chave do Azure    |
-|    Responsabilidade de rotação de chave    |    Microsoft    |    Cliente    |
-|    Acesso à chave    |    Somente Microsoft    |    Microsoft, cliente    |
+|    **Operações de criptografia/descriptografia**    |    Azure    |    Azure    |
+|    **Armazenamento de chave**    |    Repositório de chaves da Microsoft    |    Cofre de Chave do Azure    |
+|    **Responsabilidade de rotação de chave**    |    Microsoft    |    Cliente    |
+|    **Acesso à chave**    |    Somente Microsoft    |    Microsoft, cliente    |
 
 O restante do documento aborda as etapas necessárias para criptografar os dados de implantação do ACI com sua chave (chave gerenciada pelo cliente). 
 

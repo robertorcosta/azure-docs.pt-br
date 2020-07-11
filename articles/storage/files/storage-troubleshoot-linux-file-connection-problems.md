@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3a24f6c7c8339ee5e63fea4c0cd4d7edc9da2a17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ffd73e9dff06df4b5acdd004dddcfca5ff03ede0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512006"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232263"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Solucionar problemas de Arquivos do Azure no Linux
 
@@ -30,12 +30,12 @@ Causas comuns para esse problema são:
 
 |   | SMB 2.1 <br>(Montagens em VMs na mesma região do Azure) | SMB 3.0 <br>(Montagens de local e entre regiões) |
 | --- | :---: | :---: |
-| Ubuntu Server | 14.04+ | 16.04+ |
-| RHEL | 7+ | 7.5+ |
-| CentOS | 7+ |  7.5+ |
-| Debian | Mais de 8 |   |
-| openSUSE | 13.2+ | 42.3+ |
-| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+| **Ubuntu Server** | 14.04+ | 16.04+ |
+| **RHEL** | 7+ | 7.5+ |
+| **CentOS** | 7+ |  7.5+ |
+| **Debian** | Mais de 8 |   |
+| **openSUSE** | 13.2+ | 42.3+ |
+| **SUSE Linux Enterprise Server** | 12 | 12 SP3+ |
 
 - Os utilitários CIFS (CIFS-utils) não estão instalados no cliente.
 - A versão mínima do SMB / CIFS, 2.1, não está instalada no cliente.
@@ -84,9 +84,9 @@ No Linux, você recebe uma mensagem de erro semelhante à seguinte:
 
 ### <a name="cause"></a>Causa
 
-Você atingiu o limite máximo de identificadores abertos simultâneos permitidos para um arquivo.
+Você atingiu o limite máximo de identificadores abertos simultâneos que são permitidos para um arquivo ou diretório.
 
-Há uma cota de 2.000 identificadores abertos em um único arquivo. Quando você tem 2.000 identificadores abertos, uma mensagem de erro é exibida informando que a cota foi atingida.
+Há uma cota de 2.000 identificadores abertos em um único arquivo ou diretório. Quando você tem 2.000 identificadores abertos, uma mensagem de erro é exibida informando que a cota foi atingida.
 
 ### <a name="solution"></a>Solução
 

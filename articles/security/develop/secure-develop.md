@@ -13,11 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f9ed611ae530e49ad8e776c47450bc9b7ece3190
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 34294bf29ec861d7bbb954ece7016de37769a332
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266756"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232688"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicativos seguros no Azure
 Neste artigo, apresentamos as atividades de segurança e os controles a serem considerados ao desenvolver aplicativos para a nuvem. Abordamos as perguntas e os conceitos de segurança a serem considerados durante as fases de implementação e verificação do ciclo de vida de desenvolvimento do [Microsoft SDL (Security Development Lifecycle)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx). O objetivo é ajudá-lo a definir atividades e serviços do Azure que você possa usar para desenvolver um aplicativo mais seguro.
@@ -133,7 +134,7 @@ Faça o DAST preferencialmente com a assistência de um profissional de seguran�
 
 No [teste de fuzzing](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/), você induz a falha do programa com a apresentação deliberada de dados incorretos ou aleatórios a um aplicativo. A indução em falha do programa ajuda a revelar possíveis problemas de segurança antes do lançamento do aplicativo.
 
-A [Detecção de Riscos de Segurança](https://docs.microsoft.com/security-risk-detection/) é o serviço de teste de fuzzing exclusivo da Microsoft para localizar bugs críticos de segurança no software.
+A [Detecção de Riscos de Segurança](https://www.microsoft.com/en-us/security-risk-detection/) é o serviço de teste de fuzzing exclusivo da Microsoft para localizar bugs críticos de segurança no software.
 
 ### <a name="conduct-attack-surface-review"></a>Fazer o exame da superfície de ataque
 

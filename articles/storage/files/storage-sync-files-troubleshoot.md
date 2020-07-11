@@ -7,11 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ec7469210bcfae53407a157a325c749aee2c2b08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17c8f846201553d3cfa9a2d68b8b4a7ab655c378
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512056"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232371"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -689,7 +690,9 @@ Esse erro ocorre porque a exclusão do ponto de extremidade do servidor falhou, 
 | **HRESULT (decimal)** | -1906441711 |
 | **Cadeia de caracteres de erro** | JET_errLogDiskFull |
 | **Correção necessária** | Sim |
+
 | | |
+|-|-|
 | **HRESULT** | 0x80c8031a |
 | **HRESULT (decimal)** | -2134375654 |
 | **Cadeia de caracteres de erro** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
@@ -716,12 +719,16 @@ Esse erro ocorre porque o ponto de extremidade na nuvem foi criado com conteúdo
 | **HRESULT (decimal)** | -2134375877 |
 | **Cadeia de caracteres de erro** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
 | **Correção necessária** | Sim |
+
 | | |
+|-|-|
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimal)** | -2134375908 |
 | **Cadeia de caracteres de erro** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Correção necessária** | Sim |
+
 | | |
+|-|-|
 | **HRESULT** | 0x80c80253 |
 | **HRESULT (decimal)** | -2134375853 |
 | **Cadeia de caracteres de erro** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |

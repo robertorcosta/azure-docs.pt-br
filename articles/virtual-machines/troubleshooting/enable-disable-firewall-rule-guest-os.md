@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: e93dbd085ce99b8d555d6b9bb04e7eb6f60de0ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9484b81622e208077f0659975f42f46d90d2137
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80422886"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232229"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Habilitar ou desabilitar uma regra de firewall em um sistema operacional convidado da VM do Azure
 
@@ -107,7 +107,7 @@ Se a VM estiver on-line e puder ser acessada em outra VM na mesma rede virtual, 
     
         Em seguida, altere **Ativo = FALSO** para **Ativo = VERDADEIRO** na sequência:
 
-        **v 2.22 | Ação = permitir | Ativo = verdadeiro | Dir = in | Protocolo = 6 | Perfil = domínio | Perfil = privado | Perfil = público | LPort = 3389 | Aplicativo =% SystemRoot% \system32\svchost.exe| SVC = TermService | Nome = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
+        `v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
     
     * Para desabilitar uma regra, abra o seguinte valor do Registro:
     
@@ -115,7 +115,7 @@ Se a VM estiver on-line e puder ser acessada em outra VM na mesma rede virtual, 
 
         Em seguida, altere **Ativo = VERDADEIRO** para **Ativo = FALSO**:
         
-        **v 2.22 | Ação = permitir | Ativo = falso | Dir = in | Protocolo = 6 | Perfil = domínio | Perfil = privado | Perfil = público | LPort = 3389 | Aplicativo =% SystemRoot% \system32\svchost.exe| SVC = TermService | Nome = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
+        `v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
 3.  Reinicie a VM para aplicar as alterações.
 
@@ -154,7 +154,7 @@ Antes de seguir estas etapas, tire um instantâneo do disco do sistema da VM afe
         
         Em seguida, altere **Active Directory = FALSO** à **Active = Verdadeiro**.
         
-        **v 2.22 | Ação = permitir | Ativo = verdadeiro | Dir = in | Protocolo = 6 | Perfil = domínio | Perfil = privado | Perfil = público | LPort = 3389 | Aplicativo =% SystemRoot% \system32\svchost.exe| SVC = TermService | Nome = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
+        `v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
     3.  Para desabilitar uma regra, abra a seguinte chave do registro:
 
@@ -162,7 +162,7 @@ Antes de seguir estas etapas, tire um instantâneo do disco do sistema da VM afe
 
         Em seguida, altere **Active Directory = True** à **Active Directory = FALSE**.
         
-        **v 2.22 | Ação = permitir | Ativo = falso | Dir = in | Protocolo = 6 | Perfil = domínio | Perfil = privado | Perfil = público | LPort = 3389 | Aplicativo =% SystemRoot% \system32\svchost.exe| SVC = TermService | Nome = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
+        `v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
 9.  Realce **BROKENSYSTEM**e, em seguida, selecione **arquivo**  >  **Descarregar Hive** no menu.
 

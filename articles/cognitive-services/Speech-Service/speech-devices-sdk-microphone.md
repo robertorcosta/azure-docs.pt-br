@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: a87bdd7a55036e8b70f0bc5816d2b587c1569202
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eace63effdbd62d8f08395aa16683627b475a963
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77168132"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232518"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recomendações de matriz do microfone do SDK de dispositivos de fala
 
@@ -27,11 +27,11 @@ O SDK dos dispositivos de fala funciona melhor com uma matriz de microfone que f
 
 As geometrias de matriz a seguir são recomendadas para uso com a pilha de áudio da Microsoft. A localização de fontes de som e a rejeição do ruído de ambiente são aprimoradas com um número maior de microfones com dependências em aplicativos específicos, cenários de usuário e o fator forma de dispositivo.
 
-|     | Matriz circular |     | Matriz linear |     |
+| Mics & Geometry | Matriz circular | Matriz circular | Matriz linear | Matriz linear |
 | --- | -------------- | --- | ------------ | --- |
 |     | <img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/> | <img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/> |
 | \#Mics | 7 | 4 | 4 | 2 |
-| Geometry | 6 externa, 1 Center, RADIUS = 42,5 mm, com espaçamento uniforme | 3 externo, 1 Center, RADIUS = 42,5 mm, com espaçamento uniforme | Comprimento = 120 mm, espaçamento = 40 mm | Espaçamento = 40 mm |
+| Geometria | 6 externa, 1 Center, RADIUS = 42,5 mm, com espaçamento uniforme | 3 externo, 1 Center, RADIUS = 42,5 mm, com espaçamento uniforme | Comprimento = 120 mm, espaçamento = 40 mm | Espaçamento = 40 mm |
 
 Os canais de microfone devem ser ordenados de acordo com a numeração representada para cada matriz acima, aumentando de 0. A pilha de áudio da Microsoft exigirá um fluxo de referência adicional de reprodução de áudio para executar o cancelamento de eco.
 
@@ -41,7 +41,7 @@ Os componentes do microfone devem ser selecionados para reproduzir com precisão
 
 As propriedades recomendadas ao selecionar microfones são:
 
-| Parâmetro | Recomendadas |
+| Parâmetro | Recomendado |
 | --------- | ----------- |
 | SNR | \>= 65 dB (sinal de 1 kHz 94 dBSPL, ruído de peso) |
 | Correspondência de amplitude | ± 1 dB @ 1 kHz |
@@ -60,7 +60,7 @@ Uma boa seleção de componente deve ser emparelhada com boa integração de Ele
 
 O desempenho da matriz de microfone quando integrada a um dispositivo será diferente da especificação do componente. É importante garantir que os microfones sejam bem combinados após a integração. Portanto, o desempenho do dispositivo medido após qualquer lucro ou EQ fixo deve atender às seguintes recomendações:
 
-| Parâmetro          | Recomendadas                                        |
+| Parâmetro          | Recomendado                                        |
 | ------------------ | -------------------------------------------------- |
 | SNR                | \>63 dB (sinal de 1 kHz 94 dBSPL, ruído de peso) |
 | Sensibilidade de saída | -26 dBFS/PA @ 1 kHz (recomendado)                  |
@@ -76,7 +76,7 @@ O desempenho da matriz de microfone quando integrada a um dispositivo será dife
 
 Como o cancelamento de eco é necessário para dispositivos de reconhecimento de fala que contêm alto-falantes, são fornecidas recomendações adicionais para a integração e a seleção de palestrante.
 
-| Parâmetro | Recomendadas |
+| Parâmetro | Recomendado |
 | --------- | ----------- |
 | Considerações sobre linearidade | Nenhum processamento não linear após a referência do alto-falante, caso contrário, é necessário um fluxo de referência de auto-retorno baseado em hardware |
 | Loopback do orador | Fornecido via WASAPI, APIs privadas, plug-in ALSA personalizado (Linux) ou fornecido por meio do canal de firmware |
@@ -90,8 +90,8 @@ As seguintes diretrizes para arquitetura são necessárias ao integrar microfone
 | Parâmetro | Recomendação |
 | --------- | -------------- |
 | Similaridade de porta do MIC | Todas as portas de microfone têm o mesmo comprimento na matriz |
-| Dimensões da porta do MIC | Tamanho da porta a partir de 0,8-1,0 mm. Comprimento da porta/diâmetro \< da porta 2 |
-| Lacre do MIC         | Lacrando gaskets uniformemente implementado na pilha. Taxa \> de compactação de 70% recomendada para gaskets de espuma |
+| Dimensões da porta do MIC | Tamanho da porta a partir de 0,8-1,0 mm. Comprimento da porta/diâmetro da porta \< 2 |
+| Lacre do MIC         | Lacrando gaskets uniformemente implementado na pilha. \>Taxa de compactação de 70% recomendada para gaskets de espuma |
 | Confiabilidade do MIC     | A malha deve ser usada para evitar a poeira e a entrada (entre PCB para microfones portados inferiores e o selo da tampa Gasket/superior) |
 | Isolamento do MIC       | Gaskets de borracha e vibração desacoplando por meio da estrutura, particularmente para isolar os caminhos de vibração devido aos alto-falantes integrados |
 | Relógio de amostragem      | O áudio do dispositivo deve estar livre de tremulação e saídas com baixa descompasso |

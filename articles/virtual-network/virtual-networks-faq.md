@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 19824e978af78e85f9e8c790517bd66b1f6c0113
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d32c130205420ef8f20d7ce8cb97f9a2595e978
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481724"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232195"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure (FAQ)
 
@@ -406,9 +406,8 @@ O Azure Active Directory (AD do Azure) não dá suporte a pontos de extremidade 
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>Há limites de pontos de extremidade de serviço de VNet que podem ser configurados em uma VNet?
 Não há limite para o número total de pontos de extremidade de serviço de VNet em uma rede virtual. Para um recurso de serviço do Azure (como uma conta de armazenamento do Azure), os serviços podem impor limites no número de sub-redes usadas para proteger o recurso. A tabela a seguir mostra limites de exemplo: 
 
-|||
-|---|---|
 |Serviço do Azure| Limites de regras de VNet|
+|---|---|
 |Armazenamento do Azure| 100|
 |SQL do Azure| 128|
 |SQL Data Warehouse do Azure|  128|
