@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 09/11/2019
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b7552fc083c5ed340dc54c2a31160b0c8b4bd076
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84b826ce33b5395db5bd38e883b3a0fb3425725b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80420895"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244031"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>Proteção de segurança para SO host do nó do AKS Agent
 
-O AKS (serviço kubernetes do Azure) é um serviço seguro compatível com os padrões SOC, ISO, PCI DSS e HIPAA. Este artigo aborda a proteção de segurança aplicada aos hosts de máquina virtual AKS. Para obter mais informações sobre a segurança do AKS, consulte [conceitos de segurança para aplicativos e clusters no AKs (serviço kubernetes do Azure)](https://docs.microsoft.com/azure/aks/concepts-security).
+O AKS (serviço kubernetes do Azure) é um serviço seguro compatível com os padrões SOC, ISO, PCI DSS e HIPAA. Este artigo aborda a proteção de segurança aplicada aos hosts de máquina virtual AKS. Para obter mais informações sobre a segurança do AKS, consulte [conceitos de segurança para aplicativos e clusters no AKs (serviço kubernetes do Azure)](./concepts-security.md).
 
 > [!Note]
 > Este documento tem como escopo os agentes do Linux somente no AKS.
@@ -32,7 +32,7 @@ O objetivo do sistema operacional de host protegido por segurança é reduzir a 
 
 * O AKS fornece um sistema operacional de host otimizado para segurança por padrão. Não há nenhuma opção para selecionar um sistema operacional alternativo.
 
-* O Azure aplica patches diários (incluindo patches de segurança) a hosts de máquina virtual AKS. Alguns desses patches exigirão uma reinicialização, enquanto outros não vão. Você é responsável por agendar reinicializações de host de VM AKS conforme necessário. Para obter orientação sobre como automatizar a aplicação de patches do AKS, consulte [patching AKs Nodes](https://docs.microsoft.com/azure/aks/node-updates-kured).
+* O Azure aplica patches diários (incluindo patches de segurança) a hosts de máquina virtual AKS. Alguns desses patches exigirão uma reinicialização, enquanto outros não vão. Você é responsável por agendar reinicializações de host de VM AKS conforme necessário. Para obter orientação sobre como automatizar a aplicação de patches do AKS, consulte [patching AKs Nodes](./node-updates-kured.md).
 
 ## <a name="what-is-configured"></a>O que está configurado
 
@@ -85,8 +85,8 @@ O objetivo do sistema operacional de host protegido por segurança é reduzir a 
 
 Consulte os artigos a seguir para obter mais informações sobre a segurança do AKS: 
 
-[AKS (Serviço de Kubernetes do Azure)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+[AKS (Serviço de Kubernetes do Azure)](./intro-kubernetes.md)
 
-[Considerações de segurança do AKS](https://docs.microsoft.com/azure/aks/concepts-security)
+[Considerações de segurança do AKS](./concepts-security.md)
 
-[Práticas recomendadas do AKS](https://docs.microsoft.com/azure/aks/best-practices)
+[Práticas recomendadas do AKS](./best-practices.md)

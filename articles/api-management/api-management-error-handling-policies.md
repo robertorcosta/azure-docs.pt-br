@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 0bc4792b44ccff23a141460c3521d684801c4567
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bddb4ea3759d19d1e122739fb69cf9bf96c66635
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674254"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243538"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Tratamento de erro em políticas de Gerenciamento de API
 
@@ -50,7 +51,7 @@ Durante o processamento de uma solicitação, as etapas internas são executadas
 A seção de política `on-error` pode ser usada em qualquer escopo. Os editores de API podem configurar um comportamento personalizado, como registrar o erro para hubs de eventos ou criar uma nova resposta para retornar ao chamador.
 
 > [!NOTE]
-> A seção `on-error` não está presente nas políticas por padrão. Para adicionar a seção `on-error` a uma política, navegue até a política desejada no editor de políticas e adicione-a. Para informações sobre como configurar políticas, consulte [Políticas do Gerenciamento de API](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).
+> A seção `on-error` não está presente nas políticas por padrão. Para adicionar a seção `on-error` a uma política, navegue até a política desejada no editor de políticas e adicione-a. Para informações sobre como configurar políticas, consulte [Políticas do Gerenciamento de API](./api-management-howto-policies.md).
 >
 > Se não houver nenhuma seção `on-error`, os chamadores receberão mensagens de resposta HTTP 400 ou 500 se ocorrer uma condição de erro.
 
@@ -79,7 +80,7 @@ As políticas a seguir podem ser usadas na seção da política `on-error`.
 
 Quando ocorre um erro e o controle salta para a `on-error` seção de política, o erro é armazenado no [contexto. Propriedade LastError](api-management-policy-expressions.md#ContextVariables) , que pode ser acessada por políticas na `on-error` seção. LastError tem as propriedades a seguir.
 
-| Nome       | Tipo   | Descrição                                                                                               | Obrigatório |
+| Nome       | Type   | Descrição                                                                                               | Obrigatório |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | `Source`   | string | Indica o elemento em que ocorreu o erro. Pode ser a política ou um nome de etapa de pipeline interno.      | Sim      |
 | `Reason`   | string | Código de erro amigável para computadores, que pode ser usado no tratamento de erro.                                       | Não       |
@@ -188,5 +189,5 @@ Para obter mais informações sobre como trabalhar com políticas, consulte:
 
 -   [Políticas no Gerenciamento de API](api-management-howto-policies.md)
 -   [Transformar APIs](transform-api.md)
--   [Referência de Política](api-management-policy-reference.md) para uma lista completa das instruções de política e suas configurações
+-   [Referência de Política](./api-management-policies.md) para uma lista completa das instruções de política e suas configurações
 -   [Exemplos de política](policy-samples.md)

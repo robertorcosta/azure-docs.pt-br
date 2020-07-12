@@ -5,11 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: 0f9b625dfbe9c39bea7771dcc5fd58805ce19811
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8a1fdfb23b6e0aee9b9bdd04f70c554824f4c35
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458363"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246564"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Definições de configuração para um cluster autônomo no Windows
 Este artigo descreve as definições de configuração de um cluster autônomo do Service Fabric do Azure que pode ser definido no arquivo *ClusterConfig.json*. Este arquivo será utilizado para especificar informações sobre os nós do cluster, as configurações de segurança, assim como a topologia de rede em termos de domínio de atualização e falha.  Depois de alterar ou adicionar definições de configuração, você pode [Criar um cluster autônomo](service-fabric-cluster-creation-for-windows-server.md) ou [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -75,7 +76,7 @@ A seção propriedades no ClusterConfig.json é usada para configurar o cluster 
 ### <a name="reliability"></a>Confiabilidade
 O conceito de reliabilityLevel define o número de réplicas ou as instâncias dos serviços de sistema do Service Fabric que podem ser executados em nós do cluster primários. Determina a confiabilidade desses serviços e, portanto, do cluster. O valor é calculado pelo sistema na hora da criação e da atualização do cluster.
 
-### <a name="diagnostics"></a>Diagnósticos
+### <a name="diagnostics"></a>Diagnóstico
 Na seção diagnosticsStore, você pode configurar parâmetros para habilitar o diagnóstico e solucionar problemas de falhas de nó e do cluster, conforme mostra o seguinte snippet de código: 
 
 ```json
@@ -88,7 +89,7 @@ Na seção diagnosticsStore, você pode configurar parâmetros para habilitar o 
 }
 ```
 
-Os metadados são uma descrição do diagnóstico do cluster e podem ser definidos de acordo com sua configuração. Essas variáveis ajudam na coleta de logs de rastreamento ETW e despejos de memória, além de contadores de desempenho. Para saber mais sobre os logs de rastreamento de ETW, leia [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) e [Rastreamento ETW](https://msdn.microsoft.com/library/ms751538.aspx). Todos os logs que incluem [despejos de memória](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) e [contadores de desempenho](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) podem ser direcionados para a pasta connectionString em seu computador. Você também pode usar AzureStorage para armazenar diagnósticos. Consulte o seguinte snippet de código de exemplo:
+Os metadados são uma descrição do diagnóstico do cluster e podem ser definidos de acordo com sua configuração. Essas variáveis ajudam na coleta de logs de rastreamento ETW e despejos de memória, além de contadores de desempenho. Para saber mais sobre os logs de rastreamento de ETW, leia [Tracelog](/windows-hardware/drivers/devtest/tracelog) e [Rastreamento ETW](/dotnet/framework/wcf/samples/etw-tracing). Todos os logs que incluem [despejos de memória](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) e [contadores de desempenho](/windows/win32/perfctrs/performance-counters-portal) podem ser direcionados para a pasta connectionString em seu computador. Você também pode usar AzureStorage para armazenar diagnósticos. Consulte o seguinte snippet de código de exemplo:
 
 ```json
 "diagnosticsStore": {
@@ -192,7 +193,7 @@ Para configurar recursos de complemento, configure a apiVersion de abril de 2017
     ]
 }
 ```
-Todos os recursos complementares disponíveis podem ser vistos na [referência da API REST do Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-addonfeatures).
+Todos os recursos complementares disponíveis podem ser vistos na [referência da API REST do Service Fabric](/rest/api/servicefabric/sfrp-model-addonfeatures).
 
 ### <a name="container-support"></a>Suporte a contêiner
 Para habilitar o suporte de contêiner para os contêineres do Windows Server e os contêineres do Hyper-V para clusters autônomos, o recurso de complemento DnsService precisa ser habilitado.
@@ -203,4 +204,3 @@ Depois de ter uma *ClusterConfig.jscompleta no* arquivo configurado de acordo co
 Se você tiver um cluster autônomo implantado, você também pode [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md). 
 
 Saiba como [visualizar seu cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-

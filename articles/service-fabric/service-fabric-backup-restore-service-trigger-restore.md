@@ -5,11 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f98bf4f4518abd5f1b1a826e355c851acc055852
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75377898"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246683"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Backup de restauração no Azure Service Fabric
 
@@ -51,7 +52,7 @@ Uma restauração pode ser disparada para qualquer um dos seguintes cenários:
 
 ### <a name="data-restore-in-the-case-of-disaster-recovery"></a>Restauração de dados no caso de recuperação de desastres
 
-Caso um cluster do Service Fabric inteiro seja perdido, você poderá recuperar os dados para as partições do serviço Confiável com Estado e Reliable Actors. O backup desejado pode ser selecionado na lista quando você usa [GetBackupAPI com detalhes de armazenamento de backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). A enumeração de backup pode ser feita por aplicativo, serviço ou partição.
+Caso um cluster do Service Fabric inteiro seja perdido, você poderá recuperar os dados para as partições do serviço Confiável com Estado e Reliable Actors. O backup desejado pode ser selecionado na lista quando você usa [GetBackupAPI com detalhes de armazenamento de backup](/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). A enumeração de backup pode ser feita por aplicativo, serviço ou partição.
 
 Para o exemplo a seguir, suponha que o cluster perdido seja o mesmo cluster mencionado em [Habilitar o backup periódico para o serviço confiável com estado e Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). Nesse caso, `SampleApp` é implantado com a política de backup habilitada e os backups são configurados no Armazenamento do Azure.
 
@@ -165,7 +166,7 @@ Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -Backup
 
 #### <a name="rest-call-using-powershell"></a>Chamada REST usando o PowerShell
 
-Solicite a restauração em relação à partição do cluster de backup usando a seguinte [API de Restauração](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition):
+Solicite a restauração em relação à partição do cluster de backup usando a seguinte [API de Restauração](/rest/api/servicefabric/sfclient-api-restorepartition):
 
 ```powershell
 
@@ -305,7 +306,7 @@ O andamento da solicitação de restauração acontece na seguinte ordem:
         RestoredEpoch : 
         RestoredLsn   : 0
         ```
-    - **Tempo limite**: um estado de restauração de _tempo limite_ indica que a solicitação tem tempo limite. Crie uma nova solicitação de restauração com um valor maior para [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). O tempo limite padrão é 10 minutos. Certifique-se de que a partição está fora do estado de perda de dados antes de solicitar a restauração novamente.
+    - **Tempo limite**: um estado de restauração de _tempo limite_ indica que a solicitação tem tempo limite. Crie uma nova solicitação de restauração com um valor maior para [RestoreTimeout](/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). O tempo limite padrão é 10 minutos. Certifique-se de que a partição está fora do estado de perda de dados antes de solicitar a restauração novamente.
      
         ```
         RestoreState  : Timeout
@@ -319,12 +320,12 @@ O andamento da solicitação de restauração acontece na seguinte ordem:
 Você pode configurar o serviço Confiável com Estado e partições com Reliable Actors no cluster do Service Fabric para _restauração automática_. Na política de backup, defina `AutoRestore` como _true_. Habilitar a _restauração automática_ automaticamente restaurará dados do backup de partição mais recente, se a perda de dados for informada. Para obter mais informações, consulte:
 
 - [Habilitação de Restauração Automática na Política de Backup](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
-- [Referência da API RestorePartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
-- [Referência da API GetPartitionRestoreProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
+- [Referência da API RestorePartition](/rest/api/servicefabric/sfclient-api-restorepartition)
+- [Referência da API GetPartitionRestoreProgress](/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Noções básicas sobre a configuração de backup periódico](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [Referência da API REST de backup e restauração](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [Referência da API REST de backup e restauração](/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [2]: ./media/service-fabric-backuprestoreservice/restore-partition-backup.png
 [3]: ./media/service-fabric-backuprestoreservice/restore-partition-fileshare.png

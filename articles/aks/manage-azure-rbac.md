@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 84800f978790a114b80c415a5e5e3dad77eaf8da
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fc0464c226b8edc2dae01f8ea54c3e5b2e11f2d6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122240"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244253"
 ---
-# <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Usar o Azure RBAC para autorização de kubernetes (versão prévia)
+# <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Usar o Azure RBAC para Autorização do Kubernetes (versão prévia)
 
 Hoje, você já pode aproveitar a [autenticação integrada entre o Azure Active Directory (Azure AD) e o AKs](managed-aad.md). Quando habilitado, essa integração permite que os clientes usem usuários, grupos ou entidades de serviço do Azure AD como entidades no RBAC kubernetes, veja mais [aqui](azure-ad-rbac.md).
 Esse recurso libera você de ter que gerenciar identidades e credenciais de usuário separadamente para kubernetes. No entanto, você ainda precisa configurar e gerenciar RBAC do Azure e kubernetes RBAC separadamente. Para obter mais detalhes sobre autenticação, autorização e RBAC no AKS, consulte [aqui](concepts-identity.md).
@@ -215,7 +215,7 @@ az aks get-credentials -g MyResourceGroup -n MyManagedCluster
 ```
 
 > [!IMPORTANT]
-> Você precisará da função interna de [usuário do cluster do serviço kubernetes do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) para executar a etapa acima.
+> Você precisará da função interna de [usuário do cluster do serviço kubernetes do Azure](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) para executar a etapa acima.
 
 Agora, você pode usar kubectl para, por exemplo, listar os nós no cluster. Na primeira vez que você executá-lo, precisará entrar e os comandos subsequentes usarão o respectivo token de acesso.
 
@@ -254,7 +254,7 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 ```
 
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
 ### <a name="clean-role-assignment"></a>Limpar atribuição de função
 

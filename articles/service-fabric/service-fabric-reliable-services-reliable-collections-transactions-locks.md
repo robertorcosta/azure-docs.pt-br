@@ -4,11 +4,12 @@ description: Gerenciador de estado confiável do Azure Service Fabric e Bloqueio
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.custom: sfrev
-ms.openlocfilehash: 5f7b3a4d43d35f0d2965dd33c8f69143f4b3a8f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7d0970918b0fc60f1208b5997d696a57e5bc698
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76938921"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245102"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transações e modos de bloqueio em Coleções Confiáveis do Azure Service Fabric
 
@@ -18,7 +19,7 @@ Uma transação é uma sequência de operações executadas como uma única unid
 
 * **Atomicidade**: uma transação deve ser uma unidade atômica de trabalho. Em outras palavras, todas as suas modificações de dados são realizadas ou nenhuma delas é realizada.
 * **Consistência**: quando concluída, uma transação deve deixar todos os dados em um estado consistente. Todas as estruturas de dados internos devem estar corretas ao final da transação.
-* **Isolamento**: as modificações feitas por transações simultâneas devem ser isoladas das modificações feitas por quaisquer outras transações simultâneas. O nível de isolamento usado para uma operação em um [ITransaction](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.itransaction?view=azure-dotnet) é determinado pelo [IReliableState](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestate?view=azure-dotnet) que executa a operação.
+* **Isolamento**: as modificações feitas por transações simultâneas devem ser isoladas das modificações feitas por quaisquer outras transações simultâneas. O nível de isolamento usado para uma operação em um [ITransaction](/dotnet/api/microsoft.servicefabric.data.itransaction?view=azure-dotnet) é determinado pelo [IReliableState](/dotnet/api/microsoft.servicefabric.data.ireliablestate?view=azure-dotnet) que executa a operação.
 * **Durabilidade**: após uma transação ser concluída, seus efeitos ficam permanentemente vigentes no sistema. As modificações persistem até mesmo no caso de uma queda do sistema.
 
 ### <a name="isolation-levels"></a>Níveis de isolamento
@@ -48,7 +49,7 @@ A seguir está a tabela que descreve os padrões de nível de isolamento para op
 O dicionário confiável e a fila confiável dão suporte à *leitura de suas gravações*.
 Em outras palavras, qualquer gravação em uma transação será visível para uma leitura seguinte que pertence à mesma transação.
 
-## <a name="locks"></a>Locks
+## <a name="locks"></a>Bloqueios
 
 Nas Coleções Confiáveis, todas as transações implementam um bloqueio de duas fases rigoroso: uma transação não libera os bloqueios que adquiriu até que a transação seja encerrada com uma confirmação ou anulação.
 
@@ -67,9 +68,9 @@ Um Bloqueio de atualização é um bloqueio assimétrico usado para evitar uma f
 
 A matriz de compatibilidade de bloqueio pode ser encontrada na tabela a seguir:
 
-| Solicitação\concedida | Nenhum | Compartilhado | Atualizar | Exclusivo |
+| Solicitação\concedida | Nenhum | Compartilhada | Atualizar | Exclusivo |
 | --- |:--- |:--- |:--- |:--- |
-| Compartilhado |Sem conflito |Sem conflito |Conflito |Conflito |
+| Compartilhada |Sem conflito |Sem conflito |Conflito |Conflito |
 | Atualizar |Sem conflito |Sem conflito |Conflito |Conflito |
 | Exclusivo |Sem conflito |Conflito |Conflito |Conflito |
 
@@ -84,4 +85,4 @@ Nesse caso, uma ou ambas as operações atingirão o tempo limite. Nesse cenári
 * [Notificações do Reliable Services](service-fabric-reliable-services-notifications.md)
 * [Backup e restauração do Reliable Services (recuperação de desastre)](service-fabric-reliable-services-backup-restore.md)
 * [Configuração do Gerenciador de Estado Confiável](service-fabric-reliable-services-configuration.md)
-* [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+* [Referência do desenvolvedor para Coleções Confiáveis](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)

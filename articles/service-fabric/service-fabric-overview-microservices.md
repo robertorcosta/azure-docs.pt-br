@@ -4,11 +4,12 @@ description: Uma visão geral sobre por que criar aplicativos de nuvem com uma a
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: 9e0c93423b3639fb2bc3739f0d6569c4c4cec8da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8fbe5096014b116c3d5c5deaa7615874135d001
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792861"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246013"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Por que usar uma abordagem de microserviços para a criação de aplicativos
 
@@ -130,7 +131,7 @@ Integridade é diferente de diagnóstico. Integridade significa que o microsserv
 
 ## <a name="guidance-for-designing-microservices-on-azure"></a>Diretrizes para a criação de microserviços no Azure
 
-Visite o centro de arquitetura do Azure para obter orientação sobre como [projetar e criar microserviços no Azure](https://docs.microsoft.com/azure/architecture/microservices/).
+Visite o centro de arquitetura do Azure para obter orientação sobre como [projetar e criar microserviços no Azure](/azure/architecture/microservices/).
 
 ## <a name="service-fabric-as-a-microservices-platform"></a>Service Fabric como uma plataforma de microsserviço
 
@@ -190,7 +191,7 @@ O objetivo do Service Fabric é reduzir as complexidades da criação de aplicat
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Microsserviços: uma revolução de aplicativo proporcionada pela nuvem](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
-* [Centro de Arquitetura do Azure: criando microserviços no Azure](https://docs.microsoft.com/azure/architecture/microservices/)
+* [Centro de Arquitetura do Azure: criando microserviços no Azure](/azure/architecture/microservices/)
 * [Práticas recomendadas de aplicativo e cluster do Azure Service Fabric](service-fabric-best-practices-overview.md)
 * [Visão geral da terminologia do Service Fabric](service-fabric-technical-overview.md)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 219681351159de6ac6bb48ff979cc68aa4ee18d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72f9381a320dc0fb946dbf6f48c5bcab5390aed5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233475"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243572"
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas frequentes sobre Gerenciamento de API do Azure
 Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas do Gerenciamento de API do Azure.
@@ -68,7 +68,7 @@ Sim, você pode gerenciar o Gerenciamento de API de forma programática, usando:
 
 * A [API REST de Gerenciamento de API](/rest/api/apimanagement/)
 * O [SDK da Biblioteca de Gerenciamento do Serviço Microsoft Azure ApiManagement](https://aka.ms/apimsdk).
-* Os cmdlets do PowerShell [Implantação de serviço](https://docs.microsoft.com/powershell/module/wds) e [Gerenciamento de serviço](https://docs.microsoft.com/powershell/azure/servicemanagement/overview).
+* Os cmdlets do PowerShell [Implantação de serviço](/powershell/module/wds) e [Gerenciamento de serviço](/powershell/azure/servicemanagement/overview).
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Como adicionar um usuário ao grupo Administradores?
 Veja como você pode adicionar um usuário ao grupo Administradores:
@@ -77,7 +77,7 @@ Veja como você pode adicionar um usuário ao grupo Administradores:
 2. Vá para o grupo de recursos que tem a instância de Gerenciamento de API que você deseja atualizar.
 3. No gerenciamento de API, atribua a função **colaborador do serviço de gerenciamento de API** ao usuário.
 
-Agora o colaborador recém-adicionado pode usar [cmdlets](https://docs.microsoft.com/powershell/azure/overview) do Azure PowerShell. Veja como conectar-se como um administrador:
+Agora o colaborador recém-adicionado pode usar [cmdlets](/powershell/azure/overview) do Azure PowerShell. Veja como conectar-se como um administrador:
 
 1. Use o cmdlet `Connect-AzAccount` para entrar.
 2. Defina o contexto para a assinatura com o serviço usando `Set-AzContext -SubscriptionID <subscriptionGUID>`.
@@ -85,7 +85,7 @@ Agora o colaborador recém-adicionado pode usar [cmdlets](https://docs.microsoft
 4. Use a URL para acessar o portal de administração.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Por que a política que desejo adicionar não está disponível no editor de política?
-Se a política que você deseja adicionar aparecer esmaecida ou sombreada no editor de política, verifique se você está no escopo correto para a política. Cada declaração de política foi projetada para uso nas seções de política e escopos específicas. Para examinar as seções de política e escopos de uma política, confira a seção de uso da política em [Políticas de Gerenciamento de API](/azure/api-management/api-management-policies).
+Se a política que você deseja adicionar aparecer esmaecida ou sombreada no editor de política, verifique se você está no escopo correto para a política. Cada declaração de política foi projetada para uso nas seções de política e escopos específicas. Para examinar as seções de política e escopos de uma política, confira a seção de uso da política em [Políticas de Gerenciamento de API](./api-management-policies.md).
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Como configurar vários ambientes em uma única API?
 Para configurar vários ambientes, por exemplo, um ambiente de teste e um ambiente de produção, em uma única API, você tem duas opções. Você pode:
@@ -94,7 +94,7 @@ Para configurar vários ambientes, por exemplo, um ambiente de teste e um ambien
 * Hospede as mesmas APIs em locatários diferentes.
 
 ### <a name="can-i-use-soap-with-api-management"></a>Pode usar SOAP com Gerenciamento de API?
-O suporte a [Passagem SOAP](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) agora está disponível. Os administradores podem importar o WSDL do serviço SOAP e o Gerenciamento de API do Azure criará um front-end SOAP. Documentação do portal de desenvolvedor, console de teste, políticas e análise estão disponíveis para serviços SOAP.
+O suporte a [Passagem SOAP](https://azure.microsoft.com/blog/soap-pass-through/) agora está disponível. Os administradores podem importar o WSDL do serviço SOAP e o Gerenciamento de API do Azure criará um front-end SOAP. Documentação do portal de desenvolvedor, console de teste, políticas e análise estão disponíveis para serviços SOAP.
 
 ### <a name="can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security"></a>Posso configurar um servidor de autorização OAUth 2.0 com segurança ADFS?
 Para saber como configurar um servidor de autorização OAuth 2.0 com a segurança do AD FS (Serviços de Federação do Active Directory), confira [Usar ADFS no Gerenciamento de API](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
@@ -109,7 +109,7 @@ Sim. Consulte os modelos de início rápido do [serviço de gerenciamento de API
 Sim. Isso pode ser feito usando o PowerShell ou enviando diretamente à API. Isso desabilitará a validação da cadeia de certificados e permitirá que você use certificados autoassinados ou assinados de forma privada ao se comunicar do Gerenciamento de API com os serviços de back-end.
 
 #### <a name="powershell-method"></a>Método com o PowerShell ####
-Use os [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) cmdlets do PowerShell (para novo back-end) ou [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (para back-end existente) e defina o `-SkipCertificateChainValidation` parâmetro como `True` .
+Use os [`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend) cmdlets do PowerShell (para novo back-end) ou [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend) (para back-end existente) e defina o `-SkipCertificateChainValidation` parâmetro como `True` .
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

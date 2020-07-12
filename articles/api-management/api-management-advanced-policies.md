@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 5b17b7784691cdf38c45e4f306b2ed14b981a2d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3843ff986fdc37c37690bee9616861f16a334c67
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751255"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243725"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gerenciamento de API
 
@@ -38,7 +38,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 -   [Definir método de solicitação](#SetRequestMethod) - Permite alterar o método HTTP de uma solicitação.
 -   [Definir código de status](#SetStatus) – altera o código de status de HTTP para o valor especificado.
 -   [Definir variável](api-management-advanced-policies.md#set-variable) – persiste um valor em uma variável de [contexto](api-management-policy-expressions.md#ContextVariables) nomeada para acesso posterior.
--   [Trace](#Trace) – adiciona rastreamentos personalizados na saída do [Inspetor de API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) , Application insights telemetrias e logs de recursos.
+-   [Trace](#Trace) – adiciona rastreamentos personalizados na saída do [Inspetor de API](./api-management-howto-api-inspector.md) , Application insights telemetrias e logs de recursos.
 -   [Wait](#Wait) -aguarda a conclusão das políticas de [envio por solicitação](api-management-advanced-policies.md#SendRequest), [obtenção de valor do cache](api-management-caching-policies.md#GetFromCacheByKey)ou [fluxo de controle](api-management-advanced-policies.md#choose) antes de continuar.
 
 ## <a name="control-flow"></a><a name="choose"></a>Fluxo de controle
@@ -140,7 +140,7 @@ Este exemplo mostra como executar a filtragem de conteúdo removendo elementos d
 
 ### <a name="usage"></a><a name="ChooseUsage"></a>Usos
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 
@@ -148,7 +148,7 @@ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documen
 
 ## <a name="forward-request"></a><a name="ForwardRequest"></a>Encaminhar solicitação
 
-A política `forward-request` encaminha a solicitação de entrada para o serviço de back-end especificado na variável de [contexto](api-management-policy-expressions.md#ContextVariables) de solicitação. A URL do serviço de back-end é especificada nas [configurações](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) da API e pode ser alterada usando a política [definir serviço de back-end](api-management-transformation-policies.md) .
+A política `forward-request` encaminha a solicitação de entrada para o serviço de back-end especificado na variável de [contexto](api-management-policy-expressions.md#ContextVariables) de solicitação. A URL do serviço de back-end é especificada nas [configurações](./import-and-publish.md) da API e pode ser alterada usando a política [definir serviço de back-end](api-management-transformation-policies.md) .
 
 > [!NOTE]
 > A remoção dessa política resulta na solicitação não ser encaminhada para o serviço de back-end e as políticas na seção de saída serem avaliadas imediatamente após a conclusão bem-sucedida das políticas na seção de entrada.
@@ -259,7 +259,7 @@ Essa política de nível de operação não encaminha solicitações para o serv
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções de política:** back-end
 -   **Escopos da política:** todos os escopos
@@ -309,7 +309,7 @@ O exemplo a seguir demonstra como limitar o número de solicitações encaminhad
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 
@@ -320,7 +320,7 @@ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documen
 A política `log-to-eventhub` envia mensagens no formato especificado para um Hub de Eventos definido por uma entidade Logger. Como o nome sugere, a política é usada para salvar informações de contexto de solicitação ou de resposta solicitadas para a análise online ou offline.
 
 > [!NOTE]
-> Para obter um guia passo a passo sobre como configurar um hub de eventos e registrar eventos, consulte [Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API](https://azure.microsoft.com/documentation/articles/api-management-howto-log-event-hubs/).
+> Para obter um guia passo a passo sobre como configurar um hub de eventos e registrar eventos, consulte [Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API](./api-management-howto-log-event-hubs.md).
 
 ### <a name="policy-statement"></a>Declaração de política
 
@@ -363,7 +363,7 @@ Qualquer cadeia de caracteres pode ser usada como o valor a ser registrado em Hu
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 
@@ -407,7 +407,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções de política:** de entrada, de saída, em caso de erro
 
@@ -462,7 +462,7 @@ No exemplo a seguir o encaminhamento de solicitação será repetido até dez ve
 | Atributo        | Descrição                                                                                                                                           | Obrigatório | Padrão |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | condition        | Uma [expressão](api-management-policy-expressions.md) ou literal booliano especificando se as novas tentativas devem ser paradas (`false`) ou continuadas (`true`).      | Sim      | N/D     |
-| count            | Um número positivo que especifica o número máximo de novas tentativas a serem realizadas.                                                                                | Sim      | N/D     |
+| contagem            | Um número positivo que especifica o número máximo de novas tentativas a serem realizadas.                                                                                | Sim      | N/D     |
 | intervalo         | Um número positivo, em segundos, que especifica o intervalo de espera entre as novas tentativas.                                                                 | Sim      | N/D     |
 | max-interval     | Um número positivo, em segundos, que especifica o intervalo de espera máximo entre as novas tentativas. Ele é usado para implementar um algoritmo de nova tentativa exponencial. | Não       | N/D     |
 | delta            | Um número positivo, em segundos, que especifica o incremento do intervalo de espera. Ele é usado para implementar algoritmos de nova tentativa exponenciais e lineares.             | Não       | N/D     |
@@ -475,7 +475,7 @@ No exemplo a seguir o encaminhamento de solicitação será repetido até dez ve
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir. Observe que as restrições de uso de política filho serão herdadas por essa política.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir. Observe que as restrições de uso de política filho serão herdadas por essa política.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 
@@ -525,7 +525,7 @@ A política `return-response` anula a execução do pipeline e retorna uma respo
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 
@@ -550,7 +550,7 @@ A política `send-one-way-request` envia a solicitação fornecida para a URL es
 
 ### <a name="example"></a>Exemplo
 
-Essa política de exemplo mostra um exemplo de uso da política `send-one-way-request` para enviar uma mensagem para uma sala de chat do Slack se o código de resposta HTTP for maior ou igual a 500. Para obter mais informações sobre esse exemplo, consulte [Uso dos serviços externos do serviço de Gerenciamento de API do Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+Essa política de exemplo mostra um exemplo de uso da política `send-one-way-request` para enviar uma mensagem para uma sala de chat do Slack se o código de resposta HTTP for maior ou igual a 500. Para obter mais informações sobre esse exemplo, consulte [Uso dos serviços externos do serviço de Gerenciamento de API do Azure](./api-management-sample-send-request.md).
 
 ```xml
 <choose>
@@ -599,7 +599,7 @@ Essa política de exemplo mostra um exemplo de uso da política `send-one-way-re
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 
@@ -625,7 +625,7 @@ A política `send-request` envia a solicitação fornecida para a URL especifica
 
 ### <a name="example"></a>Exemplo
 
-Este exemplo mostra uma maneira de verificar um token de referência com um servidor de autorização. Para obter mais informações sobre esse exemplo, consulte [Uso dos serviços externos do serviço de Gerenciamento de API do Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+Este exemplo mostra uma maneira de verificar um token de referência com um servidor de autorização. Para obter mais informações sobre esse exemplo, consulte [Uso dos serviços externos do serviço de Gerenciamento de API do Azure](./api-management-sample-send-request.md).
 
 ```xml
 <inbound>
@@ -686,7 +686,7 @@ Este exemplo mostra uma maneira de verificar um token de referência com um serv
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 
@@ -728,7 +728,7 @@ Observe o uso de [propriedades](api-management-howto-properties.md) como valores
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções de política:** de entrada
 
@@ -747,7 +747,7 @@ A política `set-method` permite alterar o método de solicitação HTTP de uma 
 
 ### <a name="example"></a>Exemplo
 
-Essa política de exemplo que usa a política `set-method` mostra um exemplo de envio de uma mensagem para uma sala de chat do Slack se o código de resposta HTTP for maior ou igual a 500. Para obter mais informações sobre esse exemplo, consulte [Uso dos serviços externos do serviço de Gerenciamento de API do Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+Essa política de exemplo que usa a política `set-method` mostra um exemplo de envio de uma mensagem para uma sala de chat do Slack se o código de resposta HTTP for maior ou igual a 500. Para obter mais informações sobre esse exemplo, consulte [Uso dos serviços externos do serviço de Gerenciamento de API do Azure](./api-management-sample-send-request.md).
 
 ```xml
 <choose>
@@ -783,7 +783,7 @@ Essa política de exemplo que usa a política `set-method` mostra um exemplo de 
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções de política:** entrada, em caso de erro
 
@@ -802,7 +802,7 @@ A política `set-status` define o código de status HTTP para o valor especifica
 
 ### <a name="example"></a>Exemplo
 
-Este exemplo mostra como retornar uma resposta 401, se o token de autorização for inválido. Para obter mais informações, consulte [Uso dos serviços externos do serviço de Gerenciamento de API do Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)
+Este exemplo mostra como retornar uma resposta 401, se o token de autorização for inválido. Para obter mais informações, consulte [Uso dos serviços externos do serviço de Gerenciamento de API do Azure](./api-management-sample-send-request.md)
 
 ```xml
 <choose>
@@ -833,7 +833,7 @@ Este exemplo mostra como retornar uma resposta 401, se o token de autorização 
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções de política:** saída, back-end, em caso de erro
 -   **Escopos da política:** todos os escopos
@@ -871,7 +871,7 @@ O exemplo a seguir demonstra uma política de definir a variável na seção de 
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 -   **Escopos da política:** todos os escopos
@@ -916,9 +916,9 @@ As expressões usadas na política `set-variable` devem retornar um dos seguinte
 
 A `trace` política adiciona um rastreamento personalizado à saída do Inspetor de API, Application insights telemetrias e/ou logs de recursos.
 
--   A política adiciona um rastreamento personalizado à saída do [Inspetor de API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) quando o rastreamento é disparado, ou seja, o cabeçalho da `Ocp-Apim-Trace` solicitação está presente e definido como true e `Ocp-Apim-Subscription-Key` o cabeçalho da solicitação está presente e contém uma chave válida que permite o rastreamento.
--   A política cria uma telemetria de [rastreamento](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) no Application insights, quando [Application insights integração](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) está habilitada e o `severity` nível especificado na política é em ou superior ao `verbosity` nível especificado na configuração de diagnóstico.
--   A política adiciona uma propriedade na entrada de log quando [os logs de recursos](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) estão habilitados e o nível de severidade especificado na política é ou superior ao nível de detalhes especificado na configuração de diagnóstico.
+-   A política adiciona um rastreamento personalizado à saída do [Inspetor de API](./api-management-howto-api-inspector.md) quando o rastreamento é disparado, ou seja, o cabeçalho da `Ocp-Apim-Trace` solicitação está presente e definido como true e `Ocp-Apim-Subscription-Key` o cabeçalho da solicitação está presente e contém uma chave válida que permite o rastreamento.
+-   A política cria uma telemetria de [rastreamento](../azure-monitor/app/data-model-trace-telemetry.md) no Application insights, quando [Application insights integração](./api-management-howto-app-insights.md) está habilitada e o `severity` nível especificado na política é em ou superior ao `verbosity` nível especificado na configuração de diagnóstico.
+-   A política adiciona uma propriedade na entrada de log quando [os logs de recursos](./api-management-howto-use-azure-monitor.md#activity-logs) estão habilitados e o nível de severidade especificado na política é ou superior ao nível de detalhes especificado na configuração de diagnóstico.
 
 ### <a name="policy-statement"></a>Declaração de política
 
@@ -946,7 +946,7 @@ A `trace` política adiciona um rastreamento personalizado à saída do Inspetor
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | rastreamento    | Elemento raiz.                                                                                                                                        | Sim      |
 | message  | Uma cadeia de caracteres ou expressão a ser registrada.                                                                                                                 | Sim      |
-| metadata | Adiciona uma propriedade personalizada à telemetria de [rastreamento](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) de Application insights. | Não       |
+| metadata | Adiciona uma propriedade personalizada à telemetria de [rastreamento](../azure-monitor/app/data-model-trace-telemetry.md) de Application insights. | Não       |
 
 ### <a name="attributes"></a>Atributos
 
@@ -959,7 +959,7 @@ A `trace` política adiciona um rastreamento personalizado à saída do Inspetor
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções da política:** entrada, saída, back-end, em caso de erro
 
@@ -1025,11 +1025,11 @@ No exemplo a seguir há duas políticas `choose` como políticas filho imediatas
 
 | Atributo | Descrição                                                                                                                                                                                                                                                                                                                                                                                                            | Obrigatório | Padrão |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| para       | Determina se a política `wait` aguarda todas as políticas filho imediatas a serem concluídas ou apenas uma. Valores permitidos são:<br /><br /> - `all` – aguarda todas as políticas filho imediatas serem concluídas<br />-Any-aguardar a conclusão de qualquer política filho imediata. Concluída a primeira política filho imediata, a política `wait` é concluída e a execução de qualquer outra política filho imediata é encerrada. | Não       | all     |
+| for       | Determina se a política `wait` aguarda todas as políticas filho imediatas a serem concluídas ou apenas uma. Valores permitidos são:<br /><br /> - `all` – aguarda todas as políticas filho imediatas serem concluídas<br />-Any-aguardar a conclusão de qualquer política filho imediata. Concluída a primeira política filho imediata, a política `wait` é concluída e a execução de qualquer outra política filho imediata é encerrada. | Não       | all     |
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções de política:** entrada, saída, back-end
 -   **Escopos da política:** todos os escopos
@@ -1040,5 +1040,5 @@ Para obter mais informações sobre como trabalhar com políticas, consulte:
 
 -   [Políticas no Gerenciamento de API](api-management-howto-policies.md)
 -   [Expressões de política](api-management-policy-expressions.md)
--   [Referência de Política](api-management-policy-reference.md) para uma lista completa das instruções de política e suas configurações
+-   [Referência de Política](./api-management-policies.md) para uma lista completa das instruções de política e suas configurações
 -   [Exemplos de política](policy-samples.md)

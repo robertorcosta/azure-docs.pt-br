@@ -3,12 +3,12 @@ title: Referência de configurações de aplicativo para Azure Functions
 description: Documentação de referência para as configurações de aplicativo ou variáveis de ambiente do Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: adb11f29460bd6dee7171fa97a6ebfc958cfad12
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2be13fbdbf8ce75a051448bfb46d2a41ad425be8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169895"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242756"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -17,6 +17,9 @@ As configurações de aplicativo em um aplicativo de funções contém opções 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 Há outras opções de configuração global no arquivo [host.json](functions-host-json.md) e no arquivo [local.settings.json](functions-run-local.md#local-settings-file).
+
+> [!NOTE]  
+> Você pode usar as configurações do aplicativo para substituir host.jsem valores de configuração sem precisar alterar o host.jsno próprio arquivo. Isso é útil para cenários em que você precisa configurar ou modificar host.jsespecíficas em configurações para um ambiente específico. Isso também permite que você altere host.jsem configurações sem precisar republicar o projeto. Para saber mais, consulte o [host.jsno artigo de referência](functions-host-json.md#override-hostjson-values).  
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 

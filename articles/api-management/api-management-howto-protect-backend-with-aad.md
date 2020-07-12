@@ -12,11 +12,12 @@ ms.workload: mobile
 ms.topic: article
 ms.date: 06/24/2020
 ms.author: apimpm
-ms.openlocfilehash: 72899e743e167eef5ee7d1be04cb50cafc1f2a95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 455444fe78171e3e2b37a309fd5708f283121ed6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445501"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243402"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Proteger uma API usando OAuth 2.0 com o Azure Active Directory e o Gerenciamento de API
 
@@ -145,7 +146,7 @@ Neste exemplo, o Console do Desenvolvedor é o aplicativo cliente. As etapas a s
 
 1. Se você usar pontos de extremidade **v1** , adicione um parâmetro de corpo chamado **Resource**. Para o valor desse parâmetro, use a **ID de aplicativo** do aplicativo de back-end. 
 
-1. Se você usar pontos de extremidade **v2** , use o escopo que você criou para o aplicativo de back-end no campo **escopo padrão** . Além disso, certifique-se de definir o valor da [`accessTokenAcceptedVersion`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) propriedade como `2` em seu [manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
+1. Se você usar pontos de extremidade **v2** , use o escopo que você criou para o aplicativo de back-end no campo **escopo padrão** . Além disso, certifique-se de definir o valor da [`accessTokenAcceptedVersion`](../active-directory/develop/reference-app-manifest.md#accesstokenacceptedversion-attribute) propriedade como `2` em seu [manifesto do aplicativo](../active-directory/develop/reference-app-manifest.md).
 
 1. Em seguida, especifique as credenciais do cliente. Essas são as credenciais para o aplicativo cliente.
 
@@ -169,7 +170,7 @@ A próxima etapa é habilitar a autorização de usuário do OAuth 2.0 para a su
 
 1. Selecione a API que você deseja proteger. Por exemplo, `Echo API`.
 
-1. Vá para **Configurações**.
+1. Acesse **Configurações**.
 
 1. Em **Segurança**, escolha **OAuth 2.0** e selecione o servidor OAuth 2.0 configurado anteriormente. 
 
@@ -202,7 +203,7 @@ Neste ponto, quando um usuário tenta fazer uma chamada a partir do Console do D
 
 No entanto, e se alguém chamar sua API sem um token ou com um token inválido? Por exemplo, tente chamar a API sem o `Authorization` cabeçalho, a chamada ainda passará. Isso porque o Gerenciamento de API não valida o token de acesso nesse momento. Ele simplesmente passa o cabeçalho de `Authorization` para a API de back-end.
 
-Use a política [validar JWT](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#ValidateJWT) para autorizar previamente as solicitações no gerenciamento de API, Validando os tokens de acesso de cada solicitação de entrada. Se uma solicitação não tiver um token válido, o Gerenciamento de API a bloqueará. Por exemplo, adicione a seguinte política à `<inbound>` seção política do `Echo API` . Ela verifica a declaração de audiência em um token de acesso e retorna uma mensagem de erro se o token não é válido. Para obter informações sobre como configurar as políticas, confira [Definir ou editar políticas](https://docs.microsoft.com/azure/api-management/set-edit-policies).
+Use a política [validar JWT](./api-management-access-restriction-policies.md#ValidateJWT) para autorizar previamente as solicitações no gerenciamento de API, Validando os tokens de acesso de cada solicitação de entrada. Se uma solicitação não tiver um token válido, o Gerenciamento de API a bloqueará. Por exemplo, adicione a seguinte política à `<inbound>` seção política do `Echo API` . Ela verifica a declaração de audiência em um token de acesso e retorna uma mensagem de erro se o token não é válido. Para obter informações sobre como configurar as políticas, confira [Definir ou editar políticas](./set-edit-policies.md).
 
 
 ```xml
@@ -227,7 +228,7 @@ Neste guia, você usou o Console do Desenvolvedor no Gerenciamento de API como o
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [Azure Active Directory e o OAuth2.0](../active-directory/develop/authentication-scenarios.md).
+- Saiba mais sobre o [Azure Active Directory e o OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
 - Confira mais [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre o Gerenciamento de API.
 - Para outras maneiras de proteger seu serviço de back-end, confira [Autenticação de certificado mútuo](./api-management-howto-mutual-certificates.md).
 - [Crie uma instância de serviço de gerenciamento de API](./get-started-create-service-instance.md).

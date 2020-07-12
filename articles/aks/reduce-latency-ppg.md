@@ -5,11 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 06/22/2020
-ms.openlocfilehash: 095746b9cf3cada9cebf7d169078eff9eb64a52d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bcdfb4bb3c910feeac0521308e1e7d733fbd959
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444260"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244065"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Reduzir a latência com grupos de posicionamento de proximidade (visualização)
 
@@ -73,7 +74,7 @@ O primeiro recurso que você implanta com um grupo de posicionamento de proximid
 
 O exemplo a seguir usa o comando [AZ Group Create][az-group-create] para criar um grupo de recursos chamado *MyResource* Group na região *centralus* . Um cluster AKS chamado *myAKSCluster* é então criado usando o comando [AZ AKs Create][az-aks-create] . 
 
-A rede acelerada melhora muito o desempenho de rede das máquinas virtuais. Idealmente, use grupos de posicionamento de proximidade em conjunto com a rede acelerada. Por padrão, o AKS usa rede acelerada em [instâncias de máquinas virtuais com suporte](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), que incluem a maioria das máquinas virtuais do Azure com dois ou mais vCPUs.
+A rede acelerada melhora muito o desempenho de rede das máquinas virtuais. Idealmente, use grupos de posicionamento de proximidade em conjunto com a rede acelerada. Por padrão, o AKS usa rede acelerada em [instâncias de máquinas virtuais com suporte](../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), que incluem a maioria das máquinas virtuais do Azure com dois ou mais vCPUs.
 
 Crie um novo cluster AKS com um grupo de posicionamento de proximidade:
 
@@ -134,7 +135,7 @@ az aks nodepool add \
     --ppg myPPGResourceID
 ```
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
 Para excluir o cluster, use o [`az group delete`][az-group-delete] comando para excluir o grupo de recursos AKs:
 
@@ -163,4 +164,3 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
-

@@ -3,11 +3,12 @@ title: Serialização de objeto de coleção confiável
 description: Saiba mais sobre a serialização de objeto de coleções confiáveis do Azure Service Fabric, incluindo a estratégia padrão e como definir a serialização personalizada. '
 ms.topic: conceptual
 ms.date: 5/8/2017
-ms.openlocfilehash: 666e1bb45a9c75ee143f15a0d871d6ae1408eca9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7a0dc56c181ddd6a98ab0e263180c222368dafb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639540"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245986"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialização de objeto de Coleções Confiáveis no Azure Service Fabric
 As Coleções Confiáveis replicam e persistem seus itens para garantir que eles são duráveis durante falhas do computador e interrupções de energia.
@@ -18,7 +19,7 @@ O Gerenciador de Estado Confiável contém serializadores internos e permite que
 
 ## <a name="built-in-serializers"></a>Serializadores internos
 
-O Gerenciador de Estado Confiável inclui um serializador interno para alguns tipos comuns, de forma que eles possam ser serializados com eficiência por padrão. Para outros tipos, o Gerenciador de Estado Confiável recorre ao uso do [DataContractSerializer](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer(v=vs.110).aspx).
+O Gerenciador de Estado Confiável inclui um serializador interno para alguns tipos comuns, de forma que eles possam ser serializados com eficiência por padrão. Para outros tipos, o Gerenciador de Estado Confiável recorre ao uso do [DataContractSerializer](/dotnet/api/system.runtime.serialization.datacontractserializer?view=netcore-3.1).
 Serializadores internos são mais eficientes, pois sabem que seus tipos não podem ser alterados e não precisam incluir informações sobre o tipo, como seu nome de tipo.
 
 O Gerenciador de Estado Confiável tem um serializador interno para os seguintes tipos: 
@@ -32,7 +33,7 @@ O Gerenciador de Estado Confiável tem um serializador interno para os seguintes
 - decimal
 - double
 - FLOAT
-- INT
+- int
 - uint
 - long
 - ulong
@@ -43,7 +44,7 @@ O Gerenciador de Estado Confiável tem um serializador interno para os seguintes
 
 Os serializadores personalizados são geralmente usados para aumentar o desempenho ou criptografar os dados durante a transmissão e em disco. Entre outros motivos, de modo geral, os serializadores personalizados são mais eficientes do que os serializadores genéricos, já que eles não precisam serializar informações sobre o tipo. 
 
-[IReliableStateManager.TryAddStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) é usado para registrar um serializador personalizado para o tipo T especificado. Esse registro deve ser feito na construção da StatefulServiceBase para garantir que, antes do início da recuperação, todas as Coleções Confiáveis têm acesso ao serializador relevante para ler seus dados persistentes.
+[IReliableStateManager.TryAddStateSerializer\<T>](/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) é usado para registrar um serializador personalizado para o tipo T especificado. Esse registro deve ser feito na construção da StatefulServiceBase para garantir que, antes do início da recuperação, todas as Coleções Confiáveis têm acesso ao serializador relevante para ler seus dados persistentes.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -61,7 +62,7 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>Como implementar um serializador personalizado
 
-Um serializador personalizado precisa implementar a interface [IStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1).
+Um serializador personalizado precisa implementar a interface [IStateSerializer\<T>](/dotnet/api/microsoft.servicefabric.data.istateserializer-1).
 
 > [!NOTE]
 > IStateSerializer\<T> inclui uma sobrecarga de Gravação e Leitura que usa um valor base chamado T adicional. Essa API destina-se à serialização diferencial. Atualmente, o recurso de serialização diferencial não está exposto. Portanto, essas duas sobrecargas só são chamadas quando a serialização diferencial é exposta e habilitada.
@@ -130,7 +131,7 @@ Se você estiver usando o serializador interno, não precisará se preocupar com
 No entanto, caso você esteja usando um serializador personalizado ou o DataContractSerializer, os dados precisam ser compatíveis com versões anteriores e futuras.
 Em outras palavras, cada versão do serializador precisa conseguir serializar e desserializar qualquer versão do tipo.
 
-Os usuários do Contrato de Dados devem seguir as regras de controle de versão bem definidas para adicionar, remover e alterar campos. O Contrato de Dados também tem suporte para lidar com campos desconhecidos, vinculando-se ao processo de serialização e desserialização e lidando com a herança de classe. Para saber mais, confira [Usando o contrato de dados](https://msdn.microsoft.com/library/ms733127.aspx).
+Os usuários do Contrato de Dados devem seguir as regras de controle de versão bem definidas para adicionar, remover e alterar campos. O Contrato de Dados também tem suporte para lidar com campos desconhecidos, vinculando-se ao processo de serialização e desserialização e lidando com a herança de classe. Para saber mais, confira [Usando o contrato de dados](/dotnet/framework/wcf/feature-details/using-data-contracts).
 
 Os usuários do serializador personalizado devem seguir as diretrizes do serializador que estiverem usando para garantir que ele é compatível com versões anteriores e posteriores.
 Uma maneira comum de dar suporte a todas as versões é adicionar informações de tamanho ao início e adicionar somente propriedades opcionais.
@@ -138,7 +139,7 @@ Dessa forma, cada versão pode ler o máximo que puder e pular para a parte rest
 
 ## <a name="next-steps"></a>Próximas etapas
   * [Serialização e atualização](service-fabric-application-upgrade-data-serialization.md)
-  * [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  * [Referência do desenvolvedor para Coleções Confiáveis](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
   * [Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante a atualização de aplicativo usando o Visual Studio.
   * [Atualizar seu aplicativo usando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você durante uma atualização de aplicativo usando o PowerShell.
   * Controle como o aplicativo é atualizado usando [parâmetros de atualização](service-fabric-application-upgrade-parameters.md).

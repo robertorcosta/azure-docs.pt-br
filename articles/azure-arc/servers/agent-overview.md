@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 07/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 38c487928f15e953a1c660c5007398bc5c2b3f7d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: ed95b902c2c0768f50a0c6dadbfc617292932c2b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206635"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242943"
 ---
 # <a name="overview-of-azure-arc-for-servers-agent"></a>Visão geral do agente do Azure Arc para servidores
 
@@ -62,7 +62,7 @@ Após a instalação do agente do Connected Machine para Windows, serão aplicad
 
     |Pasta |Descrição |
     |-------|------------|
-    |C:\Arquivos de Programas\AzureConnectedMachineAgent |Caminho de instalação padrão contendo os arquivos de suporte do agente.|
+    |%ProgramFiles%\AzureConnectedMachineAgent |Caminho de instalação padrão contendo os arquivos de suporte do agente.|
     |%ProgramData%\AzureConnectedMachineAgent |Contém os arquivos de configuração do agente.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Contém os tokens adquiridos.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |Contém o arquivo de configuração do agente `agentconfig.json` com as suas informações de registro do serviço.|
@@ -99,7 +99,7 @@ Após a instalação do agente do Connected Machine para Windows, serão aplicad
 
 * Durante a desinstalação do agente, os artefatos a seguir não são removidos.
 
-    * C:\Arquivos de Programas\AzureConnectedMachineAgent\Logs
+    * %ProgramFiles%\AzureConnectedMachineAgent\Logs
     * %ProgramData%\AzureConnectedMachineAgent e subdiretórios
     * %ProgramData%\GuestConfig
 
@@ -170,9 +170,9 @@ Há suporte oficial para as seguintes versões do sistema operacional Windows e 
 
 ### <a name="required-permissions"></a>Permissões necessárias
 
-- Para os computadores de integração, você é membro da função **Integração do Azure Connected Machine**.
+* Para os computadores de integração, você é membro da função **Integração do Azure Connected Machine**.
 
-- Para ler, modificar, reintegrar e excluir um computador, é necessário ser membro da função **Administrador de Recursos do Azure Connected Machine**. 
+* Para ler, modificar, reintegrar e excluir um computador, é necessário ser membro da função **Administrador de Recursos do Azure Connected Machine**. 
 
 ### <a name="azure-subscription-and-service-limits"></a>Limites de serviço e assinatura do Azure
 
@@ -195,15 +195,15 @@ Se a conectividade de saída estiver restrita por seu firewall ou servidor proxy
 
 Marcas de serviço:
 
-- AzureActiveDirectory
-- AzureTrafficManager
+* AzureActiveDirectory
+* AzureTrafficManager
 
 URLs:
 
 | recurso de agente | Descrição |
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
-|`login.windows.net`|Azure Active Directory|
+|`login.windows.net`|Active Directory do Azure|
 |`dc.services.visualstudio.com`|Application Insights|
 |`agentserviceapi.azure-automation.net`|Configuração de convidado|
 |`*-agentservice-prod-1.azure-automation.net`|Configuração de convidado|
@@ -218,8 +218,8 @@ As URLs na tabela anterior são necessárias, além das informações sobre o in
 
 O Azure Arc para servidores (versão prévia) depende dos seguintes provedores de recursos do Azure em sua assinatura para usar esse serviço:
 
-- **Microsoft.HybridCompute**
-- **Microsoft.GuestConfiguration**
+* **Microsoft.HybridCompute**
+* **Microsoft.GuestConfiguration**
 
 Se não estiverem registrados, você poderá registrá-los usando os seguintes comandos:
 

@@ -4,12 +4,12 @@ description: Saiba como criar um cluster privado do AKS (Serviço de Kubernetes 
 services: container-service
 ms.topic: article
 ms.date: 6/18/2020
-ms.openlocfilehash: ebbe2f754aa70c6c65ec7016da29a4a1b0bd7dd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c788f2009bdc771bcdde20d1c3dbe9eafdbcffcb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374518"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244218"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Criar um cluster privado do Serviço de Kubernetes do Azure
 
@@ -83,7 +83,7 @@ Conforme mencionado, o emparelhamento VNet é uma maneira de acessar seu cluster
 
 ## <a name="hub-and-spoke-with-custom-dns"></a>Hub e spoke com DNS personalizado
 
-As [arquiteturas de hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) geralmente são usadas para implantar redes no Azure. Em muitas dessas implantações, as configurações de DNS nas VNets spoke são definidas para fazer referência a um encaminhador DNS central para permitir a resolução de DNS local e baseada no Azure. Ao implantar um cluster AKS em um ambiente de rede como esse, há algumas considerações especiais que devem ser levadas em conta.
+As [arquiteturas de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) geralmente são usadas para implantar redes no Azure. Em muitas dessas implantações, as configurações de DNS nas VNets spoke são definidas para fazer referência a um encaminhador DNS central para permitir a resolução de DNS local e baseada no Azure. Ao implantar um cluster AKS em um ambiente de rede como esse, há algumas considerações especiais que devem ser levadas em conta.
 
 ![Hub de cluster privado e spoke](media/private-clusters/aks-private-hub-spoke.png)
 
@@ -116,9 +116,9 @@ As [arquiteturas de hub e spoke](https://docs.microsoft.com/azure/architecture/r
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: /azure/private-link/private-link-service-overview#limitations
+[private-link-service]: ../private-link/private-link-service-overview.md#limitations
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-[devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops
+[devops-agents]: /azure/devops/pipelines/agents/agents?view=azure-devops
 [availability-zones]: availability-zones.md

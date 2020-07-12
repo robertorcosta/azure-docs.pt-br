@@ -2,14 +2,15 @@
 title: Depuração do Grade de Eventos do Azure Functions local
 description: Aprenda a depurar localmente as funções do Azure por meio de um evento de Grade de Eventos
 author: craigshoemaker
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: bfb502e42e41ac530851766db87bcebf3c94c371
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d57b230ceecc8e676eea6a1ab0855761e78f723b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340867"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242739"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Depuração local do gatilho da Grade de Eventos do Azure Functions
 
@@ -80,7 +81,7 @@ Depois de inserir o valor apropriado, clique em **Confirmar seleção**.
 > [!IMPORTANT]
 > Sempre que você iniciar o *ngrok*, a URL HTTPS é gerada novamente e o valor é alterado. Portanto você deve criar uma nova assinatura de evento cada vez que expor sua função no Azure por meio do *ngrok*.
 
-## <a name="upload-a-file"></a>Carregar um arquivo
+## <a name="upload-a-file"></a>Fazer upload de um arquivo
 
 Agora você pode carregar um arquivo para sua conta de armazenamento para disparar um Evento de Grade de Eventos para sua função local para tratar. 
 

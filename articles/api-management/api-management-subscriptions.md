@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 9144af131e1427d0b3226655c871921ac1d91665
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 137cbec270b40042503fc7687c9deb39b0df1aa4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70073414"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243283"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Assinaturas no Gerenciamento de API do Azure
 
@@ -32,8 +32,8 @@ Quando você publica APIs por meio do Gerenciamento de API, é fácil e normal p
 > [!TIP]
 > O Gerenciamento de API também oferece suporte a outros mecanismos para proteger o acesso às APIs, incluindo os exemplos a seguir:
 > - [OAuth2.0](api-management-howto-protect-backend-with-aad.md)
-> - [Certificados do cliente](api-management-howto-mutual-certificates-for-clients.md)
-> - [Lista de permissões de IP](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#RestrictCallerIPs)
+> - [Certificados de cliente](api-management-howto-mutual-certificates-for-clients.md)
+> - [Lista de permissões de IP](./api-management-access-restriction-policies.md#RestrictCallerIPs)
 
 ## <a name="scope-of-subscriptions"></a>Escopo das assinaturas
 

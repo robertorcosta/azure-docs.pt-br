@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: ec58f8df5507fd9c52950e880c062e6cad964b7a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ce014fc338ebfad18b91ba65b614ca0a380a3f7c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106978"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243844"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Políticas de suporte para o Serviço de Kubernetes do Azure
 
@@ -75,7 +75,7 @@ A Microsoft não oferece suporte técnico para o seguinte:
   > A Microsoft pode oferecer suporte de melhor esforço para projetos de software livre de terceiros, como Helm e Kured. Nos casos em que a ferramenta de software livre de terceiros se integra ao provedor de nuvem do Azure no Kubernetes ou outros bugs específicos do AKS, a Microsoft dá suporte a exemplos e aplicativos da documentação da Microsoft.
 * Software closed-source de terceiros. Esse software pode incluir ferramentas de verificação de segurança e software ou dispositivos de rede.
 * Problemas sobre o desenvolvimento de multinuvem ou de vários fornecedores. Por exemplo, a Microsoft não dá suporte a problemas relacionados à execução de uma solução de fornecedor de nuvem multipública federada.
-* Personalizações de rede diferentes daquelas listadas na [documentação do AKS](https://docs.microsoft.com/azure/aks/).
+* Personalizações de rede diferentes daquelas listadas na [documentação do AKS](./index.yml).
   > [!NOTE]
   > A Microsoft dá suporte a problemas e bugs relacionados aos NSGs (grupos de segurança de rede). Por exemplo, o Suporte da Microsoft pode responder a perguntas sobre uma falha de NSG para atualização ou um comportamento inesperado de NSG ou de balanceador de carga.
 

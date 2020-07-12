@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: c8699ff86573084e3199b096b25dd5d97cce2985
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ba9edba97ce89cede54287076e50eb587af10f3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791564"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242467"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos do pacote de desenho
 
@@ -20,7 +21,7 @@ O [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/ma
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O pacote de desenho inclui desenhos salvos no formato DWG, que é o formato de arquivo nativo para o software AutoCAD® do Autodesk, uma [marca comercial da Autodesk, Inc](https://www.autodesk.com/company/legal-notices-trademarks/trademarks/guidelines-for-use#section12).
+O pacote de desenho inclui desenhos salvos no formato DWG, que é o formato de arquivo nativo para o AutoCAD® software da Autodesk, uma [marca comercial da Autodesk, Inc](https://www.autodesk.com/company/legal-notices-trademarks/trademarks/guidelines-for-use#section12).
 
 Você pode usar qualquer software CAD para produzir os desenhos no pacote de desenho.  
 
@@ -207,7 +208,7 @@ As seções a seguir detalham os requisitos de cada objeto.
 
 O objeto `buildingLevels` contém uma matriz JSON de níveis de construções.
 
-| Propriedade  | Tipo | Necessária | Descrição |
+| Propriedade  | Type | Necessária | Descrição |
 |-----------|------|----------|-------------|
 |levelName    |string    |true |    Nome do nível descritivo. Por exemplo:  1º andar, lobby, estacionamento azul, porão e assim por diante.|
 |ordinal | inteiro |    true | O ordinal é usado para determinar a ordem vertical dos níveis. Cada instalação deve ter um nível com o ordinal 0. |
@@ -217,7 +218,7 @@ O objeto `buildingLevels` contém uma matriz JSON de níveis de construções.
 
 ### <a name="georeference"></a>georeference
 
-| Propriedade  | Tipo | Obrigatório | Descrição |
+| Propriedade  | Type | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |lat    | numeric |    true |    Representação decimal da latitude em graus na origem do desenho da instalação. As coordenadas de origem devem estar no WGS84 Web Mercator (`EPSG:3857`).|
 |lon    |numeric|    true|    Representação decimal da longitude em graus na origem do desenho da instalação. As coordenadas de origem devem estar no WGS84 Web Mercator (`EPSG:3857`). |
@@ -225,7 +226,7 @@ O objeto `buildingLevels` contém uma matriz JSON de níveis de construções.
 
 ### <a name="dwglayers"></a>dwgLayers
 
-| Propriedade  | Tipo | Obrigatório | Descrição |
+| Propriedade  | Type | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |exterior    |Matriz de cadeia de caracteres|    true|    Nomes de camada(s) que definem o perfil de construção exterior.|
 |unit|    Matriz de cadeia de caracteres|    true|    Nomes de camada(s) que definem unidades.|
@@ -239,7 +240,7 @@ O objeto `buildingLevels` contém uma matriz JSON de níveis de construções.
 
 O objeto `unitProperties` contém uma matriz JSON das propriedades da unidade.
 
-| Propriedade  | Tipo | Obrigatório | Descrição |
+| Propriedade  | Type | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |unitName    |string    |true    |Nome da unidade a ser associada a esse registro `unitProperty`. Esse registro só é válido quando um rótulo correspondente a `unitName` for encontrado na(s) camada(s) `unitLabel`. |
 |categoryName|    string|    false    |Nome da categoria. Para obter uma lista completa das categorias, consulte [categorias](https://aka.ms/pa-indoor-spacecategories). |
@@ -259,7 +260,7 @@ O objeto `unitProperties` contém uma matriz JSON das propriedades da unidade.
 
 O objeto `zoneProperties` contém uma matriz JSON das propriedades da zona.
 
-| Propriedade  | Tipo | Obrigatório | Descrição |
+| Propriedade  | Type | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |zoneName        |string    |true    |Nome da zona a ser associada ao registro `zoneProperty`. Esse registro só é válido quando um rótulo correspondente a `zoneName` for encontrado na camada `zoneLabel` da zona.  |
 |categoryName|    string|    false    |Nome da categoria. Para obter uma lista completa das categorias, consulte [categorias](https://aka.ms/pa-indoor-spacecategories). |

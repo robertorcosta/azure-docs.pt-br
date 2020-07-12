@@ -3,11 +3,12 @@ title: Service Fabric do Azure – usando referências de keyvault de aplicativo
 description: Este artigo explica como usar o suporte do Service-Fabric KeyVaultReference para segredos do aplicativo.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: f7d8a083ea5ec4b66c29d392ee98927915465875
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1ac3ac50c5ac7cbabb03561c5db7f9c14150de4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76545476"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246156"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Suporte do KeyVaultReference para aplicativos Service Fabric (versão prévia)
 
@@ -157,4 +158,4 @@ KeyVaultReference é um tipo com suporte para o contêiner RepositoryCredentials
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Documentação do Azure keyvault](https://docs.microsoft.com/azure/key-vault/)
+* [Documentação do Azure keyvault](../key-vault/index.yml)

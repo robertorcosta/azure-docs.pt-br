@@ -4,12 +4,12 @@ description: Aprenda a solucionar problemas comuns ao usar o Serviço de Kuberne
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 08668289faa2341389a80b00cba11a33021da608
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: f334f501335e9e384cfcc35b356e61ab66efe7a8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054382"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243674"
 ---
 # <a name="aks-troubleshooting"></a>Solução de problemas do AKS
 
@@ -22,7 +22,7 @@ Há também um [guia de solução de problemas](https://github.com/feiskyer/kube
 
 ## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Estou recebendo um erro de “cota excedida” durante a criação ou atualização. O que devo fazer? 
 
- [Solicitar mais núcleos](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+ [Solicitar mais núcleos](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 ## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Qual é a configuração máxima de pods por nó para o AKS?
 
@@ -34,7 +34,7 @@ A configuração máxima de pods por nó é 110 por padrão, se você implantar 
 Esse erro indica que uma sub-rede em uso para um cluster não tem mais IPs disponíveis em seu CIDR para atribuição de recursos bem-sucedida. Para clusters Kubenet, o requisito é espaço IP suficiente para cada nó no cluster. Para clusters CNI do Azure, o requisito é espaço IP suficiente para cada nó e Pod no cluster.
 Leia mais sobre o [design do Azure CNI para atribuir IPS a pods](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-Esses erros também são exibidos no [diagnóstico de AKs](https://docs.microsoft.com/azure/aks/concepts-diagnostics) , que mostra de forma proativa problemas como um tamanho de sub-rede insuficiente.
+Esses erros também são exibidos no [diagnóstico de AKs](./concepts-diagnostics.md) , que mostra de forma proativa problemas como um tamanho de sub-rede insuficiente.
 
 Os três (3) casos a seguir causam um erro de tamanho de sub-rede insuficiente:
 
