@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: d4113205b47b4c6cab8b133d89c35520aa8505c1
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 0a3aa0c26ddb515b8096cce909ca074f6f24a333
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851213"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250474"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Adicionar caching para melhorar o desempenho no Gerenciamento de API do Azure
 
@@ -43,7 +43,7 @@ O que você aprenderá:
 
 Para concluir este tutorial:
 
-+ [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
++ [Criar uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md)
 + [Importar e publicar uma API](import-and-publish.md)
 
 ## <a name="add-the-caching-policies"></a><a name="caching-policies"> </a>Adicionar as políticas de cache
@@ -108,15 +108,15 @@ Para ver o cache em funcionamento, chame a operação por meio do portal do dese
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add operations to an API]: ./mock-api-responses.md
 [How to add and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
 
-[API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
-[Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
+[API Management policy reference]: ./api-management-policies.md
+[Caching policies]: ./api-management-caching-policies.md
 
 [Create an API Management service instance]: get-started-create-service-instance.md
 

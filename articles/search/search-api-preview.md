@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: fb99530923f25541316fd159a2270f7035a1916b
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 0c0f40144fde49d467ca7fb126a19afa6c76660a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229237"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246949"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Recursos de visualização no Azure Pesquisa Cognitiva
 
@@ -23,6 +23,7 @@ Os recursos de visualização que fazem a transição para a disponibilidade ger
 
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
 |---------|------------------|-------------|---------------|
+| [**Habilidade do Azure Machine Learning (AML)**](cognitive-search-aml-skill.md) | Enriquecimento de IA| Um novo tipo de habilidade para integrar um ponto de extremidade inferência de Azure Machine Learning. Veja uma introdução [neste tutorial](cognitive-search-tutorial-aml-custom-skill.md). | Use [a API REST de pesquisa 2020-06-30-Preview](https://docs.microsoft.com/rest/api/searchservice/) ou 2019-05-06-Preview. Também disponível no portal, no design de Skills, supondo que Pesquisa Cognitiva e os serviços do Azure ML sejam implantados na mesma assinatura. |
 | [**parâmetro featuresmode**](https://docs.microsoft.com/rest/api/searchservice/search-documents#featuresmode) | Relevância (Pontuação) | Expansão da Pontuação de relevância para incluir detalhes: por Pontuação de similaridade de campo, por frequência de termo de campo, e por número de campo de tokens exclusivos correspondentes. Você pode consumir esses pontos de dados em [soluções de Pontuação personalizadas](https://github.com/Azure-Samples/search-ranking-tutorial). | Adicione esse parâmetro de consulta usando [Pesquisar documentos (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) com a API-Version = 2020-06 -30-preview ou 2019-05-06-Preview. |
 | [**Identidade de Serviço Gerenciada**](search-howto-managed-identities-data-sources.md) | Indexadores, segurança| Registre um serviço de pesquisa com Azure Active Directory para torná-lo um serviço confiável e, em seguida, use as permissões RBAC em fontes de dados do Azure para permitir o acesso somente leitura por um indexador. | Acesse essa funcionalidade ao usar o portal ou [criar fonte de dados (REST)](https://docs.microsoft.com/rest/api/searchservice/create-data-source) com a API-Version = 2020-06 -30-Preview ou API-Version = 2019-05-06-Preview. |
 | [**Sessões de depuração**](cognitive-search-debug-session.md) | Portal, enriquecimento de ia (contextset) | Um editor de qualificações na sessão usado para investigar e resolver problemas com um qualificable. As correções aplicadas durante uma sessão de depuração podem ser salvas em um conconhecimento no serviço. | Somente no portal, usando links de página intermediária na página Visão geral para abrir uma sessão de depuração. |

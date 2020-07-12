@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/25/2020
-ms.openlocfilehash: 33e521046889733b2f0a66b839ab5dde46398318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 350c542e1b183c79707c99989b2544fd8faa43ac
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412688"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248468"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -179,7 +180,7 @@ Algumas operações de conector fazem chamadas assíncronas ou escutam solicita�
 
 ### <a name="authentication-limits"></a>Limites da autenticação
 
-Veja os limites de um aplicativo lógico que começa com um Gatilho de solicitação e permite a [Open Authorization do Azure Active Directory](../active-directory/develop/about-microsoft-identity-platform.md) (OAuth do Azure AD) para autorizar chamadas de entrada para esse gatilho:
+Veja os limites de um aplicativo lógico que começa com um Gatilho de solicitação e permite a [Open Authorization do Azure Active Directory](/azure/active-directory/develop/) (OAuth do Azure AD) para autorizar chamadas de entrada para esse gatilho:
 
 | Nome | Limite | Observações |
 | ---- | ----- | ----- |
@@ -206,7 +207,7 @@ Aqui estão os limites para conectores personalizados que você pode criar de AP
 | Nome | Limite |
 |------|-------|
 | Identidades gerenciadas por aplicativo lógico | Identidade atribuída pelo sistema ou 1 identidade atribuída pelo usuário |
-| Número de aplicativos lógicos que têm uma identidade gerenciada em uma assinatura do Azure por região | 1,000 |
+| Número de aplicativos lógicos que têm uma identidade gerenciada em uma assinatura do Azure por região | 1.000 |
 |||
 
 <a name="integration-account-limits"></a>
@@ -241,10 +242,10 @@ Para obter os valores, consulte [Preços dos Aplicativos Lógicos](https://azure
 
 | Artefato | Grátis | Basic | Standard |
 |----------|------|-------|----------|
-| Contratos comerciais de EDI | 10 | 1 | 1,000 |
-| Parceiros comerciais de EDI | 25 | 2 | 1,000 |
-| Mapas | 25 | 500 | 1,000 |
-| Esquemas | 25 | 500 | 1,000 |
+| Contratos comerciais de EDI | 10 | 1 | 1.000 |
+| Parceiros comerciais de EDI | 25 | 2 | 1.000 |
+| Mapas | 25 | 500 | 1.000 |
+| Esquemas | 25 | 500 | 1.000 |
 | Assemblies | 10 | 25 | 1,000 |
 | Certificados | 25 | 2 | 1,000 |
 | Configurações de lote | 5 | 1 | 50 |
@@ -301,7 +302,8 @@ Ao excluir um aplicativo lógico, nenhuma nova execução será instanciada. Tod
 Os endereços IP usados pelos Aplicativos Lógicos do Azure para chamadas de entrada e saída dependem da região em que seu aplicativo lógico existe. *Todos* os aplicativos lógicos na mesma região usam os mesmos intervalos de endereço IP. Algumas chamadas do [Power Automate](https://docs.microsoft.com/power-automate/getting-started), como solicitações **HTTP** e **HTTP + OpenAPI**, vão diretamente por meio do serviço de Aplicativos Lógicos do Azure e vêm dos endereços IP listados aqui. Para obter mais informações sobre os endereços IP usados pelo Power Automate, consulte os [Limites e configuração no Power Automate](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
 
 > [!TIP]
-> Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar [marcas de serviço](../virtual-network/service-tags-overview.md), em vez de especificar os endereços IP dos Aplicativos Lógicos para cada região, descritos mais adiante nesta seção. Essas marcas funcionam nas regiões em que o serviço de Aplicativos Lógicos está disponível:
+> Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar [marcas de serviço](../virtual-network/service-tags-overview.md), em vez de especificar os endereços IP dos Aplicativos Lógicos para cada região, descritos mais adiante nesta seção.
+> Essas marcas funcionam nas regiões em que o serviço de Aplicativos Lógicos está disponível:
 >
 > * **LogicAppsManagement**: Representa os prefixos do endereço IP de entrada para o serviço de Aplicativos Lógicos.
 > * **LogicApps**: Representa os prefixos do endereço IP de saída para o serviço de Aplicativos Lógicos.
@@ -325,7 +327,8 @@ Os endereços IP usados pelos Aplicativos Lógicos do Azure para chamadas de ent
 Esta seção lista os endereços IP de entrada para o serviço de Aplicativos Lógicos do Azure somente. Se você tem o Azure Governamental, consulte os [endereços IP de entrada do Azure Governamental](#azure-government-inbound).
 
 > [!TIP]
-> Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar a [marca de serviço](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, em vez de especificar os endereços IP dos Aplicativos Lógicos de entrada para cada região. Essa marca funciona nas regiões em que o serviço de Aplicativos Lógicos está disponível.
+> Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar a [marca de serviço](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, em vez de especificar os endereços IP dos Aplicativos Lógicos de entrada para cada região.
+> Essa marca funciona nas regiões em que o serviço de Aplicativos Lógicos está disponível.
 
 <a name="multi-tenant-inbound"></a>
 
@@ -385,7 +388,9 @@ Esta seção lista os endereços IP de entrada para o serviço de Aplicativos L�
 Esta seção lista os endereços IP de saída para o serviço de Aplicativos Lógicos do Azure e conectores gerenciados. Se você tem o Azure Governamental, consulte os [endereços IP de saída do Azure Governamental](#azure-government-outbound).
 
 > [!TIP]
-> Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar a [marca de serviço](../virtual-network/service-tags-overview.md), **LogicApps**, em vez de especificar os endereços IP dos Aplicativos Lógicos de saída para cada região. Essa marca funciona nas regiões em que o serviço de Aplicativos Lógicos está disponível. Para os conectores gerenciados, você deve continuar a usar os endereços IP.
+> Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar a [marca de serviço](../virtual-network/service-tags-overview.md), **LogicApps**, em vez de especificar os endereços IP dos Aplicativos Lógicos de saída para cada região.
+> Essa marca funciona nas regiões em que o serviço de Aplicativos Lógicos está disponível.
+> Para os conectores gerenciados, você deve continuar a usar os endereços IP.
 
 <a name="multi-tenant-outbound"></a>
 
@@ -440,5 +445,5 @@ Esta seção lista os endereços IP de saída para o serviço de Aplicativos Ló
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba como [criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
+* Saiba como [criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * Saiba mais sobre [exemplos e cenários comuns](../logic-apps/logic-apps-examples-and-scenarios.md)

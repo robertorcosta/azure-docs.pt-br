@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: ce0cd0866cc6daa36d598767a486faeabac8076d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 033b4967d3da382057c2651457f7792e760d8bc3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791809"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247608"
 ---
 # <a name="monitoring-the-cluster"></a>Monitoramento de cluster
 
@@ -81,7 +81,7 @@ Para obter uma lista de contadores de desempenho para coleta ao usar o Service F
 Aqui estão duas maneiras com as quais você pode configurar a coleta de dados de desempenho para o cluster:
 
 * **Usando um agente**  
-Essa é a maneira preferida de coleta de desempenho de um computador, desde que os agentes geralmente tenham uma lista de possíveis métricas de desempenho que podem ser coletadas e é um processo relativamente fácil para escolher as métricas que você deseja coletar ou alterá-las. A leitura sobre o Azure Monitor oferece Azure Monitor logs na integração dos [logs de Azure monitor](service-fabric-diagnostics-event-analysis-oms.md) do Service Fabric e [a configuração do agente de log Analytics](../log-analytics/log-analytics-windows-agent.md) para saber mais sobre o agente de log Analytics, que é um agente de monitoramento que é capaz de obter dados de desempenho para VMs de cluster e contêineres implantados.
+Essa é a maneira preferida de coleta de desempenho de um computador, desde que os agentes geralmente tenham uma lista de possíveis métricas de desempenho que podem ser coletadas e é um processo relativamente fácil para escolher as métricas que você deseja coletar ou alterá-las. A leitura sobre o Azure Monitor oferece Azure Monitor logs na integração dos [logs de Azure monitor](service-fabric-diagnostics-event-analysis-oms.md) do Service Fabric e [a configuração do agente de log Analytics](../azure-monitor/platform/agent-windows.md) para saber mais sobre o agente de log Analytics, que é um agente de monitoramento que é capaz de obter dados de desempenho para VMs de cluster e contêineres implantados.
 
 * **Contadores de desempenho para o Armazenamento de Tabelas do Azure**  
 Você também pode enviar métricas de desempenho para o mesmo armazenamento de tabela como os eventos. Isso requer alterar a configuração de Diagnóstico do Azure para acompanhar os contadores de desempenho apropriados das VMs no cluster e habilitá-lo para acompanhar as estatísticas do docker se você estiver implantando qualquer contêiner. Leia sobre como configurar os [Contadores de desempenho no WAD](service-fabric-diagnostics-event-aggregation-wad.md) no Service Fabric para configurar a coleta do contador de desempenho.

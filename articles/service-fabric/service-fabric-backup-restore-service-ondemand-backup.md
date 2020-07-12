@@ -5,11 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: d5eada62bec49fe771373671e9438d2786d6b165
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04d8bb4a9f8157a229751d073e8d351f5448fa68
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458428"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247890"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Backup sob demanda no Azure Service Fabric
 
@@ -55,7 +56,7 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 
 #### <a name="rest-call-using-powershell"></a>Chamada REST usando o PowerShell
 
-Use a API [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) para configurar o acionamento do backup sob demanda para a ID de partição `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
+Use a API [BackupPartition](/rest/api/servicefabric/sfclient-api-backuppartition) para configurar o acionamento do backup sob demanda para a ID de partição `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
 
 ```powershell
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/Backup?api-version=6.4"
@@ -63,7 +64,7 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-Use a API [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) para ativar o acompanhamento para o [progresso do backup sob demanda](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
+Use a API [GetBackupProgress](/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) para ativar o acompanhamento para o [progresso do backup sob demanda](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
 
 ### <a name="on-demand-backup-to-specified-storage"></a>Backup sob demanda para o armazenamento especificado
 
@@ -80,7 +81,7 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlo
 
 #### <a name="rest-call-using-powershell"></a>Chamada REST usando o PowerShell
 
-Use a API [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) para configurar o acionamento do backup sob demanda para a ID de partição `974bd92a-b395-4631-8a7f-53bd4ae9cf22`. Inclua as seguintes informações do Armazenamento do Microsoft Azure:
+Use a API [BackupPartition](/rest/api/servicefabric/sfclient-api-backuppartition) para configurar o acionamento do backup sob demanda para a ID de partição `974bd92a-b395-4631-8a7f-53bd4ae9cf22`. Inclua as seguintes informações do Armazenamento do Microsoft Azure:
 
 ```powershell
 $StorageInfo = @{
@@ -99,7 +100,7 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-Você pode usar a API [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) para configurar o acompanhamento para o [progresso do backup sob demanda](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
+Você pode usar a API [GetBackupProgress](/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) para configurar o acompanhamento para o [progresso do backup sob demanda](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
 
 ### <a name="using-service-fabric-explorer"></a>Usando Service Fabric Explorer
 Verifique se o modo avançado foi habilitado nas configurações de Service Fabric Explorer.
@@ -169,7 +170,7 @@ Solicitações de backup sob demanda podem estar nos seguintes estados:
     LsnOfLastBackupRecord   : 0
     FailureError            : @{Code=FABRIC_E_BACKUPCOPIER_UNEXPECTED_ERROR; Message=An error occurred during this operation.  Please check the trace logs for more details.}
     ```
-  - **Tempo limite**: um estado de backup de _tempo limite_ indica que o backup do estado da partição não pôde ser criado em um determinado período de tempo. O valor do tempo limite padrão é de 10 minutos. Inicie uma nova solicitação de backup sob demanda com [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) maior neste cenário.
+  - **Tempo limite**: um estado de backup de _tempo limite_ indica que o backup do estado da partição não pôde ser criado em um determinado período de tempo. O valor do tempo limite padrão é de 10 minutos. Inicie uma nova solicitação de backup sob demanda com [BackupTimeout](/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) maior neste cenário.
     ```
     BackupState             : Timeout
     TimeStampUtc            : 0001-01-01T00:00:00Z
@@ -183,7 +184,7 @@ Solicitações de backup sob demanda podem estar nos seguintes estados:
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Noções básicas sobre a configuração de backup periódico](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [Referência da API REST BackupRestore](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [Referência da API REST BackupRestore](/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/trigger-partition-backup.png
 [1]: ./media/service-fabric-backuprestoreservice/trigger-backup-fileshare.png

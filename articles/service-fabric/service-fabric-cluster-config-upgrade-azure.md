@@ -5,18 +5,19 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: c2973428354f101b5b546128b08bf67587923a8e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 010f2b5d6dee3a5985c421e468bcd28b18148e5a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82793067"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247720"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Atualizar a configuração de um cluster no Azure 
 
 Este artigo descreve como personalizar as várias configurações de malha e a política de atualização para o cluster do Service Fabric. Para clusters hospedados no Azure, você pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager.
 
 > [!NOTE]
-> Nem todas as configurações estão disponíveis no portal e a [melhor prática é personalizá-lo usando um modelo do Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code); o Portal é para o cenário de Desenvolvimento\Teste do Service Fabric apenas.
+> Nem todas as configurações estão disponíveis no portal e a [melhor prática é personalizá-lo usando um modelo do Azure Resource Manager](./service-fabric-best-practices-infrastructure-as-code.md); o Portal é para o cenário de Desenvolvimento\Teste do Service Fabric apenas.
 > 
 
 
@@ -44,11 +45,11 @@ Clusters do Azure podem ser configurados por meio do modelo do Resource Manager 
 
 Você também pode personalizar as configurações de cluster em uma das maneiras a seguir com o Azure Resource Manager:
 
-- Use o [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template) para exportar e atualizar o modelo do Gerenciador de Recursos.
-- Use o [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) para exportar e atualizar o modelo do Gerenciador de Recursos.
-- Use a [CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) para exportar e atualizar o modelo do Gerenciador de Recursos.
-- Use os comandos Azure PowerShell [set-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Set-azServiceFabricSetting) e [Remove-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Remove-azServiceFabricSetting) para modificar a configuração diretamente.
-- Usar os comandos de configuração do cluster[az sf da CLI do Azure](https://docs.microsoft.com/cli/azure/sf/cluster/setting) para modificar a configuração diretamente.
+- Use o [portal do Azure](../azure-resource-manager/templates/export-template-portal.md) para exportar e atualizar o modelo do Gerenciador de Recursos.
+- Use o [PowerShell](../azure-resource-manager/management/manage-resources-powershell.md) para exportar e atualizar o modelo do Gerenciador de Recursos.
+- Use a [CLI do Azure](../azure-resource-manager/management/manage-resources-cli.md) para exportar e atualizar o modelo do Gerenciador de Recursos.
+- Use os comandos Azure PowerShell [set-AzServiceFabricSetting](/powershell/module/az.servicefabric/set-azservicefabricsetting) e [Remove-AzServiceFabricSetting](/powershell/module/az.servicefabric/remove-azservicefabricsetting) para modificar a configuração diretamente.
+- Usar os comandos de configuração do cluster[az sf da CLI do Azure](/cli/azure/sf/cluster/setting) para modificar a configuração diretamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [configurações de cluster do Service Fabric](service-fabric-cluster-fabric-settings.md).

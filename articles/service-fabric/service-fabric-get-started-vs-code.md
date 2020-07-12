@@ -5,11 +5,12 @@ author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 17bff459a0399d39c6bfdd772ad16d0b5b2f6771
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b34893b64ac3533406f33c45583a911b70ae42af
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692591"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247431"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Microsoft Azure Service Fabric para Visual Studio Code
 
@@ -27,7 +28,7 @@ Os pré-requisitos a seguir devem ser instalados em todos os ambientes.
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Node.js](https://nodejs.org/)
 * [Git](https://git-scm.com/)
-* [SDK do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
+* [SDK do Service Fabric](./service-fabric-get-started.md)
 * Geradores do yeoman – instale os geradores apropriados para seu aplicativo
 
    ```sh

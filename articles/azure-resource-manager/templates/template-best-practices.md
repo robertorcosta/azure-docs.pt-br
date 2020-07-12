@@ -2,13 +2,13 @@
 title: Práticas recomendadas para modelos
 description: Descreve as abordagens recomendadas para a criação de modelos do Azure Resource Manager. Oferece sugestões para evitar problemas comuns ao usar os modelos.
 ms.topic: conceptual
-ms.date: 06/09/2020
-ms.openlocfilehash: a85e9afd64c416628c35bd36d16086f28d0732d3
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/10/2020
+ms.openlocfilehash: 272c7e7f824eb193ed48d79c5256167f1dbbbce5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058054"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248910"
 ---
 # <a name="arm-template-best-practices"></a>Práticas recomendadas do modelo ARM
 
@@ -28,7 +28,7 @@ Você também está limitado a:
 
 Você pode exceder alguns limites de modelo usando um modelo aninhado. Para saber mais, confira [Uso de modelos vinculados ao implantar recursos do Azure](linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, você pode combinar vários valores em um objeto. Para saber mais, veja [Objetos como parâmetros](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
-## <a name="resource-group"></a>Resource group
+## <a name="resource-group"></a>Grupo de recursos
 
 Quando você implanta recursos em um grupo de recursos, o grupo de recursos armazena metadados sobre os recursos. Os metadados são armazenados no local do grupo de recursos.
 
@@ -160,7 +160,7 @@ As seguintes informações podem ser úteis quando você trabalha com [variávei
 
 Ao decidir quais [dependências](define-resource-dependency.md) definir, use as seguintes diretrizes:
 
-* Use a função **reference** e transmita o nome de recurso para definir dependências implícita entre os recursos que precisam compartilhar uma propriedade. Não adicione elemento `dependsOn` explícito quando você já tiver definido uma dependência implícita. Essa abordagem reduz o risco de ter dependências desnecessárias.
+* Use a função **reference** e transmita o nome de recurso para definir dependências implícita entre os recursos que precisam compartilhar uma propriedade. Não adicione elemento `dependsOn` explícito quando você já tiver definido uma dependência implícita. Essa abordagem reduz o risco de ter dependências desnecessárias. Para obter um exemplo de como definir uma dependência implícita, consulte [dependência implícita](define-resource-dependency.md#reference-and-list-functions).
 
 * Defina um recurso filho como dependente do recurso pai.
 

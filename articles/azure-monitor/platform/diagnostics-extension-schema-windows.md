@@ -6,11 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e078f81db75dd6b89a65ff2d00bb2805ea912d0d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81676426"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249131"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de extensão de diagnóstico do Windows
 Diagnóstico do Azure extensão é um agente no Azure Monitor que coleta dados de monitoramento do sistema operacional convidado e das cargas de trabalho dos recursos de computação do Azure. Este artigo detalha o esquema usado para a configuração da extensão de diagnóstico em máquinas virtuais do Windows e outros recursos de computação.
@@ -75,7 +76,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 |----------------|-----------------|  
 | **overallQuotaInMB** | A quantidade máxima de espaço em disco local que pode ser consumido pelos diversos tipos de dados de diagnóstico coletados pelo Diagnóstico do Azure. A configuração padrão é 4096 MB.<br />
 |**useProxyServer** | Configure o Diagnóstico do Azure para usar as configurações de servidor proxy como definido nas configurações do IE.|
-|**coletores** | Adicionado em 1.5. Opcional. Aponta para um local do coletor para também enviar dados de diagnóstico para todos os elementos filho que são suporte a coletores. Exemplo de coletor é Application Insights ou Hubs de Eventos.|  
+|**coletores** | Adicionado em 1.5. Opcional. Aponta para um local do coletor para também enviar dados de diagnóstico para todos os elementos filho que são suporte a coletores. Exemplo de coletor é Application Insights ou Hubs de Eventos. Observação Você precisa adicionar a propriedade *ResourceId* sob o elemento de *métricas* se desejar que os eventos carregados nos hubs de eventos tenham uma ID de recurso. |  
 
 
 <br /> <br />
@@ -188,7 +189,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
  Permite gerar uma tabela de contador de desempenho otimizada para consultas rápidas. Cada contador de desempenho definido no elemento **PerformanceCounters** é armazenado na tabela Métricas, além de na tabela Contador de Desempenho.  
 
- O atributo **resourceId** é necessário.  A ID de recurso da Máquina Virtual ou Conjunto de Dimensionamento de Máquinas Virtuais na qual o Diagnóstico do Azure está sendo implantado. Obtenha o **resourceID** do [portal do Azure](https://portal.azure.com). Selecione **procurar**  ->  **grupos de recursos**  ->  **<\> nome**. Clique no bloco **Propriedades** e copie o valor do campo **ID**.  
+ O atributo **resourceId** é necessário.  A ID de recurso da Máquina Virtual ou Conjunto de Dimensionamento de Máquinas Virtuais na qual o Diagnóstico do Azure está sendo implantado. Obtenha o **resourceID** do [portal do Azure](https://portal.azure.com). Selecione **procurar**  ->  **grupos de recursos**  ->  **<\> nome**. Clique no bloco **Propriedades** e copie o valor do campo **ID**.  Essa propriedade ResourceId é usada para enviar métricas personalizadas e para adicionar uma Propriedade ResourceId aos dados enviados aos hubs de eventos. Observação Você precisa adicionar a propriedade *ResourceId* sob o elemento de *métricas* se desejar que os eventos carregados nos hubs de eventos tenham uma ID de recurso.
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
@@ -208,7 +209,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 |Elemento filho|Descrição|  
 |-------------------|-----------------|  
 |**PerformanceCounterConfiguration**|Os atributos a seguir são obrigatórios:<br /><br /> - **counterSpecifier** - o nome do contador de desempenho. Por exemplo, `\Processor(_Total)\% Processor Time`. Para obter uma lista de contadores de desempenho no seu host, execute o comando `typeperf`.<br /><br /> - **sampleRate** - Com que frequência o contador deve ser testado.<br /><br /> Atributo opcional:<br /><br /> **unidade** - a unidade de medida do contador. Os valores estão disponíveis na [classe UnitType](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
-|**coletores** | Adicionado em 1.5. Opcional. Aponta para um local de coletor para também enviar dados de diagnóstico. Por exemplo, o Azure Monitor ou o os Hubs de Eventos.|    
+|**coletores** | Adicionado em 1.5. Opcional. Aponta para um local de coletor para também enviar dados de diagnóstico. Por exemplo, o Azure Monitor ou o os Hubs de Eventos. Observação Você precisa adicionar a propriedade *ResourceId* sob o elemento de *métricas* se desejar que os eventos carregados nos hubs de eventos tenham uma ID de recurso.|    
 
 
 
@@ -238,7 +239,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 |**bufferQuotaInMB**|**unsignedInt**|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
 |**scheduledTransferLogLevelFilter**|**cadeia de caracteres**|Opcional. Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**, que transfere todos os logs. Outros possíveis valores (na ordem de mais informações para menos) são **Detalhado**, **Informações**, **Aviso**, **Erro**, e **Crítico**.|  
 |**scheduledTransferPeriod**|**duration**|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
-|**coletores** |**cadeia de caracteres**| Adicionado em 1.5. Opcional. Aponta para um local de coletor para também enviar dados de diagnóstico. Por exemplo, Application Insights ou Hubs de Eventos.|  
+|**coletores** |**cadeia de caracteres**| Adicionado em 1.5. Opcional. Aponta para um local de coletor para também enviar dados de diagnóstico. Por exemplo, Application Insights ou Hubs de Eventos. Observação Você precisa adicionar a propriedade *ResourceId* sob o elemento de *métricas* se desejar que os eventos carregados nos hubs de eventos tenham uma ID de recurso.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -265,14 +266,14 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
  Define os locais para os quais os dados de diagnóstico devem ser enviados. Por exemplo, o serviço Application Insights.  
 
-|Atributo|Tipo|Descrição|  
+|Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
 |**name**|string|Uma cadeia de caracteres que identifica o nome do coletor.|  
 
 |Elemento|Type|Descrição|  
 |-------------|----------|-----------------|  
 |**Application Insights**|string|Usado somente durante o envio de dados para o Application Insights. Contém a Chave de Instrumentação para uma conta ativa do Application Insights a que você tem acesso.|  
-|**Channels**|string|Uma para cada filtragem adicional que o fluxo que você|  
+|**Canais**|string|Uma para cada filtragem adicional que o fluxo que você|  
 
 ## <a name="channels-element"></a>Elemento Channels  
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -292,7 +293,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
  Define os locais para os quais os dados de diagnóstico devem ser enviados. Por exemplo, o serviço Application Insights.  
 
-|Atributos|Tipo|Descrição|  
+|Atributos|Type|Descrição|  
 |----------------|----------|-----------------|  
 |**logLevel**|**cadeia de caracteres**|Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**, que transfere todos os logs. Outros possíveis valores (na ordem de mais informações para menos) são **Detalhado**, **Informações**, **Aviso**, **Erro**, e **Crítico**.|  
 |**name**|**cadeia de caracteres**|Um nome exclusivo do canal que será mencionado|  
@@ -326,7 +327,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 Os *PublicConfig* e *PrivateConfig* são separados porque, na maioria dos casos de uso de JSON, eles são passados como variáveis diferentes. Esses casos incluem modelos do Resource Manager, o PowerShell e o Visual Studio.
 
 > [!NOTE]
-> A definição pública de Azure Monitor de configuração do coletor tem duas propriedades, *ResourceId* e *região*. Só são necessárias para os serviços de nuvem clássico e VMs clássicas. Essas propriedades não devem ser usadas para outros recursos.
+> A definição pública de Azure Monitor de configuração do coletor tem duas propriedades, *ResourceId* e *região*. Só são necessárias para os serviços de nuvem clássico e VMs clássicas. A propriedade *Region* não deve ser usada para outros recursos, a propriedade *ResourceId* é usada em VMs ARM para preencher o campo ResourceId em logs carregados nos hubs de eventos.
 
 ```json
 "PublicConfig" {

@@ -4,11 +4,12 @@ description: Práticas recomendadas para a serialização de dados e como ela af
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.openlocfilehash: 7dc60c28b56982f82c1ac90db55ac752977ea2d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d502e74139c543d4183a75faa6bea1948d9f3e56
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75457487"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247975"
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Como a serialização de dados afeta a atualização de um aplicativo
 Em uma [atualização de aplicativo sem interrupção](service-fabric-application-upgrade.md), a atualização é aplicada a um subconjunto de nós, um domínio de atualização de cada vez. Durante esse processo, alguns domínios de atualização têm a versão mais recente do aplicativo, enquanto outros têm a versão mais antiga do aplicativo. Durante a distribuição, a nova versão do seu aplicativo deve ser capaz de ler a versão antiga dos dados, e a versão antiga do seu aplicativo deve ser capaz de ler a nova versão dos dados. Se o formato de dados não for compatível com versões anteriores e posteriores, a atualização poderá falhar ou, pior ainda, os dados poderão ser perdidos ou corrompidos. Este artigo discute o que constitui o formato de dados e oferece as práticas recomendadas para garantir que seus dados sejam compatíveis de uma versão para outra.
@@ -25,7 +26,7 @@ Uma vez que o formato de dados é determinado pelas classes C#, alterações nas
 * Alterar o nome de classe ou namespace
 
 ### <a name="data-contract-as-the-default-serializer"></a>Contrato de Dados como o serializador padrão
-O serializador é geralmente responsável por ler os dados e desserializá-los para a versão atual mesmo se os dados estiverem em uma versão mais antiga ou *mais recente* . O serializador padrão é o [serializador de contrato de dados](https://msdn.microsoft.com/library/ms733127.aspx), que tem regras de controle de versão bem definidas. As Coleções confiáveis permitem que o serializador seja substituído, mas os Reliable Actors ainda não. O serializador de dados desempenha um papel importante na habilitação de atualizações sem interrupção. O serializador de Contrato de Dados é o serializador recomendado para os aplicativos do Service Fabric.
+O serializador é geralmente responsável por ler os dados e desserializá-los para a versão atual mesmo se os dados estiverem em uma versão mais antiga ou *mais recente* . O serializador padrão é o [serializador de contrato de dados](/dotnet/framework/wcf/feature-details/using-data-contracts), que tem regras de controle de versão bem definidas. As Coleções confiáveis permitem que o serializador seja substituído, mas os Reliable Actors ainda não. O serializador de dados desempenha um papel importante na habilitação de atualizações sem interrupção. O serializador de Contrato de Dados é o serializador recomendado para os aplicativos do Service Fabric.
 
 ## <a name="how-the-data-format-affects-a-rolling-upgrade"></a>Como o formato de dados afeta uma atualização sem interrupção
 Durante uma atualização sem interrupção, há dois cenários principais em que o serializador pode encontrar versão mais antiga ou *mais recente* dos dados:
@@ -40,7 +41,7 @@ Durante uma atualização sem interrupção, há dois cenários principais em qu
 
 As duas versões do formato de dados e código devem ser compatíveis uma com a outra. Se não forem compatíveis, a atualização sem interrupção pode falhar ou dados podem ser perdidos. A atualização sem interrupção pode falhar porque o código ou o serializador pode acionar exceções ou falhas ao encontrar a outra versão. Dados podem ser perdidos se, por exemplo, uma nova propriedade foi adicionada, mas o serializador antigo a descartar durante a desserialização.
 
-O Contrato de Dados é a solução recomendada para garantir que seus dados sejam compatíveis. Ele possui regras de versão bem definidas para adição, remoção e alteração de campos. Ele também tem suporte para lidar com campos desconhecidos, conectando-se ao processo de serialização e desserialização e lidando com a herança de classe. Para saber mais, confira [Usando o contrato de dados](https://msdn.microsoft.com/library/ms733127.aspx).
+O Contrato de Dados é a solução recomendada para garantir que seus dados sejam compatíveis. Ele possui regras de versão bem definidas para adição, remoção e alteração de campos. Ele também tem suporte para lidar com campos desconhecidos, conectando-se ao processo de serialização e desserialização e lidando com a herança de classe. Para saber mais, confira [Usando o contrato de dados](/dotnet/framework/wcf/feature-details/using-data-contracts).
 
 ## <a name="next-steps"></a>Próximas etapas
 [Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante a atualização de aplicativo usando o Visual Studio.
@@ -52,4 +53,3 @@ Controle como o aplicativo é atualizado usando [parâmetros de atualização](s
 Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando [Tópicos avançados](service-fabric-application-upgrade-advanced.md).
 
 Corrija problemas comuns em atualizações de aplicativos consultando as etapas em [solução de problemas de atualizações de aplicativos](service-fabric-application-upgrade-troubleshooting.md).
-

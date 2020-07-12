@@ -2,13 +2,13 @@
 title: Exclusões de histórico de implantações
 description: Descreve como Azure Resource Manager exclui automaticamente implantações do histórico de implantação. As implantações são excluídas quando o histórico está próximo de exceder o limite de 800.
 ms.topic: conceptual
-ms.date: 07/06/2020
-ms.openlocfilehash: 70730ce814ebc689d9672952bad7c3dd39b5a7f1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/10/2020
+ms.openlocfilehash: 8ec3291dc5e35689d4e2c614949e0328057fbfd3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981649"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248967"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Exclusões automáticas do histórico de implantação
 
@@ -23,16 +23,18 @@ Azure Resource Manager em breve começará a excluir automaticamente as implanta
 
 ## <a name="when-deployments-are-deleted"></a>Quando as implantações são excluídas
 
-As implantações são excluídas do seu histórico de implantação quando você chega a 790 implantações. Azure Resource Manager exclui um pequeno conjunto de implantações mais antigas para limpar o espaço para implantações futuras. A maior parte do seu histórico permanece inalterada. As implantações mais antigas são sempre excluídas primeiro.
+As implantações são excluídas do seu histórico quando você atinge 775 ou mais implantações. Azure Resource Manager exclui as implantações até que o histórico seja reduzido para 750. As implantações mais antigas são sempre excluídas primeiro.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Exclusões do histórico de implantação":::
+
+> [!NOTE]
+> O número inicial (775) e o número final (750) estão sujeitos a alterações.
+>
+> Se o grupo de recursos já estiver no limite de 800, a próxima implantação falhará com um erro. O processo de exclusão automática é iniciado imediatamente. Você pode tentar a implantação novamente após uma breve espera.
 
 Além das implantações, você também dispara exclusões quando executa a [operação What-If](template-deploy-what-if.md) ou valida uma implantação.
 
 Quando você dá a uma implantação o mesmo nome que uma no histórico, você redefine seu local no histórico. A implantação é movida para o local mais recente no histórico. Você também redefine o local de uma implantação ao [reverter para essa implantação](rollback-on-error.md) após um erro.
-
-> [!NOTE]
-> Se o grupo de recursos já estiver no limite de 800, a próxima implantação falhará com um erro. O processo de exclusão automática é iniciado imediatamente. Você pode tentar a implantação novamente após uma breve espera.
 
 ## <a name="opt-out-of-automatic-deletions"></a>Recusar exclusões automáticas
 

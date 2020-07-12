@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 99c63fd04a40b1a4e591f5ad42d8f776e8e5b67c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c2ad99a59e548ff7793455dac21748dd057c5fc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208494"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248689"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Personalizar o feed para usuários da Área de Trabalho Virtual do Windows
 
@@ -124,7 +124,7 @@ Você pode alterar o nome de exibição de uma área de trabalho remota publicad
 
 Agora que você personalizou o feed para os usuários, você pode entrar em um cliente de área de trabalho virtual do Windows para testá-lo. Para fazer isso, vá para o How-tos da área de trabalho virtual do Windows:
 
- * [Conectar-se com o Windows 10 ou o Windows 7](connect-windows-7-and-10.md)
+ * [Conectar-se com o Windows 10 ou o Windows 7](connect-windows-7-10.md)
  * [Conectar-se ao cliente Web](connect-web.md)
  * [Conectar-se ao cliente Android](connect-android.md)
  * [Conectar-se ao cliente iOS](connect-ios.md)

@@ -1,15 +1,16 @@
 ---
 title: Replicação geográfica de um registro
-description: Comece a criar e gerenciar um registro de contêiner do Azure com replicação geográfica, que permite que o registro atenda a várias regiões com réplicas regionais de vários mestres. A replicação geográfica é um recurso da camada de atendimento Premium.
+description: Comece a criar e gerenciar um registro de contêiner do Azure com replicação geográfica, que permite que o registro atenda a várias regiões com réplicas regionais de vários mestres. A replicação geográfica é um recurso da camada de serviço Premium.
 author: stevelas
 ms.topic: article
 ms.date: 05/11/2020
 ms.author: stevelas
-ms.openlocfilehash: 35525906135db02c453c55d8798e1405396c8598
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 315de5151547c4339255639cb65d1be30f7213ff
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84508787"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247125"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicação geográfica no Registro de Contêiner do Azure
 
@@ -17,9 +18,9 @@ As empresas que desejam ter uma presença local ou um backup dinâmico optam por
 
 Um Registro com replicação geográfica oferece os seguintes benefícios:
 
-* Nomes de marca/imagem/Registro únicos podem ser usados em várias regiões
+* Nomes de marca/imagem/registro únicos podem ser usados em várias regiões
 * Acesso ao Registro perto da rede das implantações regionais
-* Nenhuma taxa de saída adicional, uma vez que o pull das imagens são efetuadas de um Registro replicado local na mesma região que seu host de contêiner
+* Nenhuma taxa de saída adicional, uma vez que o pull das imagens são efetuadas de um registro replicado local na mesma região que seu host de contêiner
 * Gerenciamento único de um Registro entre várias regiões
 
 > [!NOTE]
@@ -27,7 +28,7 @@ Um Registro com replicação geográfica oferece os seguintes benefícios:
 >
 
 ## <a name="example-use-case"></a>Caso de uso de exemplo
-A Contoso executa um site com presença pública localizado nos EUA, Canadá e Europa. Para atender a esses mercados com conteúdo local e perto da rede, a Contoso executa os clusters do [Serviço de Kubernetes do Azure](/azure/aks/) (AKS) no Oeste dos EUA, Leste dos EUA, Canadá Central e Europa Ocidental. O aplicativo do site, implantado como uma imagem do Docker, utiliza os mesmos código e imagem em todas as regiões. O conteúdo, local para essa região, é recuperado de um banco de dados, provisionado exclusivamente em cada região. Cada implantação regional tem sua configuração exclusiva para recursos como o banco de dados local.
+A Contoso executa um site com presença pública localizado nos EUA, Canadá e Europa. Para atender a esses mercados com conteúdo local e perto da rede, a Contoso executa os clusters do [Serviço de Kubernetes do Azure](../aks/index.yml) (AKS) no Oeste dos EUA, Leste dos EUA, Canadá Central e Europa Ocidental. O aplicativo do site, implantado como uma imagem do Docker, utiliza os mesmos código e imagem em todas as regiões. O conteúdo, local para essa região, é recuperado de um banco de dados, provisionado exclusivamente em cada região. Cada implantação regional tem sua configuração exclusiva para recursos como o banco de dados local.
 
 A equipe de desenvolvimento está localizada em Seattle WA, utilizando o data center do Oeste dos EUA.
 
@@ -94,7 +95,7 @@ O ACR começa a sincronizar imagens em réplicas configurados. Depois de conclu�
 * Quando você envia imagens por push ou pull de um registro com replicação geográfica, o Gerenciador de Tráfego do Azure em segundo plano envia a solicitação para o registro localizado na região mais próxima de você em termos de latência de rede.
 * Depois que você envia uma atualização de imagem ou marca por push para a região mais próxima, demora algum tempo até o Registro de Contêiner do Azure replicar as camadas e manifestos para as demais regiões que você aceitou. As imagens maiores demoram mais tempo para replicar do que as menores. As imagens e marcas são sincronizadas em todas as regiões de replicação com um modelo de consistência eventual.
 * Para gerenciar fluxos de trabalho que dependem de atualizações por push para um registro com replicação geográfica, recomendamos que você configure [webhooks](container-registry-webhook.md) para responder a eventos por push. Você pode configurar webhooks regionais dentro de um registro com replicação geográfica para acompanhar eventos por push, conforme eles são concluídos em todas as regiões com replicação geográfica.
-* Para atender a blobs que representam camadas de conteúdo, o Registro de Contêiner do Azure usa pontos de extremidade de dados. Você pode habilitar [pontos de extremidade de dados dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) para seu registro em cada uma das regiões replicadas geograficamente do registro. Esses pontos de extremidade permitem a configuração de regras de acesso a firewall com escopo bem delimitado.
+* Para atender a BLOBs que representam camadas de conteúdo, o registro de contêiner do Azure usa pontos de extremidade de dados. Você pode habilitar [pontos de extremidade de dados dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) para seu registro em cada uma das regiões replicadas geograficamente do registro. Esses pontos de extremidade permitem a configuração de regras de acesso a firewall com escopo bem delimitado.
 * Se você configurar um [link privado](container-registry-private-link.md) para o registro usando pontos de extremidade privados em uma rede virtual, os pontos de extremidade de dados dedicados em cada uma das regiões com replicação geográfica serão habilitados por padrão. 
 
 ## <a name="delete-a-replica"></a>Excluir uma réplica

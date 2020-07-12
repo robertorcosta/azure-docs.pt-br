@@ -3,11 +3,12 @@ title: Empacotar um executável existente no Azure Service Fabric
 description: Aprenda sobre como empacotar um aplicativo existente como um executável do convidado, para que ele possa ser implementado em um cluster do Service Fabric.
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 3d7aab28a32effa2caf7b04b830d72e5e3dfda56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b808d092001196a4d2150e44d508e031db95554
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75457822"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247380"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Implantar um executável existente no Service Fabric
 Você pode executar qualquer tipo de código, como Node.js, Java ou C++ no Service Fabric como um serviço. O Service Fabric se refere a esses tipos de serviço como executáveis convidados.
@@ -64,8 +65,7 @@ O ApplicationPackageRoot contém o arquivo ApplicationManifest.xml que define o 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes artigos para tarefas e informações relacionadas.
 * [Implantar um executável convidado](service-fabric-deploy-existing-app.md)
-* [Implantar vários executáveis de convidado](service-fabric-deploy-multiple-apps.md)
+* [Implantar vários executáveis de convidado](./service-fabric-deploy-existing-app.md)
 * [Crie o primeiro aplicativo executável do convidado utilizando o Visual Studio ](quickstart-guest-app.md)
 * [Amostra de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), incluindo um link para o pré-lançamento da ferramenta de empacotamento
 * [Exemplo de dois executáveis convidados (C# e nodejs) se comunicando por meio do Serviço de nomenclatura usando REST](https://github.com/Azure-Samples/service-fabric-containers)
-

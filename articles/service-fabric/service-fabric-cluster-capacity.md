@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 774b114a47958b173f891ed13d423f9b051ee37c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2af8dcb2460e4e95d29bd81e6994d145ac61a48
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610533"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247766"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planejamento de capacidade de cluster do Service Fabric
 
@@ -26,7 +26,7 @@ Este artigo explicará os pontos de decisão significativos para cada uma dessas
 
 ## <a name="initial-number-and-properties-of-cluster-node-types"></a>Número inicial e propriedades de tipos de nó de cluster
 
-Um *tipo de nó* define o tamanho, o número e as propriedades de um conjunto de nós (máquinas virtuais) no cluster. Cada tipo de nó definido em um cluster do Service Fabric mapeia para um [conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+Um *tipo de nó* define o tamanho, o número e as propriedades de um conjunto de nós (máquinas virtuais) no cluster. Cada tipo de nó definido em um cluster do Service Fabric mapeia para um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/overview.md).
 
 Como cada tipo de nó é um conjunto de dimensionamento distinto, ele pode ser aumentado ou reduzido de forma independente, ter diferentes conjuntos de portas abertas e ter métricas de capacidade diferentes. Para obter mais informações sobre a relação entre os tipos de nó e os conjuntos de dimensionamento de máquinas virtuais, consulte [Service Fabric tipos de nó de cluster](service-fabric-cluster-nodetypes.md).
 
@@ -34,11 +34,11 @@ Cada cluster requer um **tipo de nó primário**, que executa serviços de siste
 
 **Tipos de nó não primários** podem ser usados para definir funções de aplicativo (como serviços de *front-end* e *back-end* ) e para isolar fisicamente os serviços em um cluster. Service Fabric clusters podem ter zero ou mais tipos de nós não primários.
 
-O tipo de nó primário é configurado usando o `isPrimary` atributo sob a definição de tipo de nó no modelo de implantação Azure Resource Manager. Consulte o [objeto NodeTypeDescription](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) para obter a lista completa de propriedades de tipo de nó. Por exemplo, para uso, abra qualquer *AzureDeploy.jsno* arquivo em [exemplos de Cluster Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) e *encontre na* pesquisa de página pelo `nodetTypes` objeto.
+O tipo de nó primário é configurado usando o `isPrimary` atributo sob a definição de tipo de nó no modelo de implantação Azure Resource Manager. Consulte o [objeto NodeTypeDescription](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) para obter a lista completa de propriedades de tipo de nó. Por exemplo, para uso, abra qualquer *AzureDeploy.jsno* arquivo em [exemplos de Cluster Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) e *encontre na* pesquisa de página pelo `nodetTypes` objeto.
 
 ### <a name="node-type-planning-considerations"></a>Considerações de planejamento do tipo de nó
 
-O número de tipos de nós iniciais depende da finalidade do cluster e dos aplicativos e serviços em execução nele. Considere as perguntas a seguir:
+O número de tipos de nós iniciais depende da finalidade do cluster e dos aplicativos e serviços em execução nele. Considere as seguintes perguntas:
 
 * ***O aplicativo tem vários serviços, e algum deles precisa ser público ou voltado para a Internet?***
 
@@ -79,7 +79,7 @@ A tabela a seguir lista Service Fabric camadas de durabilidade, seus requisitos 
 > Com durabilidade de bronze, a atualização automática da imagem do sistema operacional não está disponível. Embora o [aplicativo de orquestração de patch](service-fabric-patch-orchestration-application.md) (destinado apenas a clusters não hospedados no Azure) não seja *recomendado* para níveis de durabilidade prata ou maior, é sua única opção para automatizar atualizações do Windows com relação a Service Fabric domínios de atualização.
 
 > [!IMPORTANT]
-> Independentemente do nível de durabilidade, a execução de uma operação de [desalocação](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) em um conjunto de dimensionamento de máquinas virtuais destruirá o cluster.
+> Independentemente do nível de durabilidade, a execução de uma operação de [desalocação](/rest/api/compute/virtualmachinescalesets/deallocate) em um conjunto de dimensionamento de máquinas virtuais destruirá o cluster.
 
 ### <a name="bronze"></a>Bronze
 

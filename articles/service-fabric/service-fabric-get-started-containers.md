@@ -4,11 +4,12 @@ description: Crie seu primeiro aplicativo de contêiner do Windows no Azure Serv
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: tracking-python
-ms.openlocfilehash: d7076226b63fa3b45eaae82c2964997d3065ed88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0baad5d2596de04b629c4cf9eb86c51b37b8cdc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560657"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247397"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Como criar seu primeiro aplicativo de contêiner do Service Fabric no Windows
 
@@ -16,7 +17,7 @@ ms.locfileid: "84560657"
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Executar um aplicativo existente em um contêiner do Windows em um cluster do Service Fabric não requer alterações no seu aplicativo. Este artigo orienta você pela criação de uma imagem do Docker que contém um aplicativo Web Python [Flask](http://flask.pocoo.org/) e sua implantação em um Cluster Service Fabric do Azure. Você também compartilhará seu aplicativo em contêineres pelo [Registro de Contêiner do Azure](/azure/container-registry/). Este artigo pressupõe uma compreensão básica sobre o Docker. Saiba mais sobre o Docker lendo a [Visão geral de Docker](https://docs.docker.com/engine/understanding-docker/).
+Executar um aplicativo existente em um contêiner do Windows em um cluster do Service Fabric não requer alterações no seu aplicativo. Este artigo orienta você pela criação de uma imagem do Docker que contém um aplicativo Web Python [Flask](http://flask.pocoo.org/) e sua implantação em um Cluster Service Fabric do Azure. Você também compartilhará seu aplicativo em contêineres pelo [Registro de Contêiner do Azure](../container-registry/index.yml). Este artigo pressupõe uma compreensão básica sobre o Docker. Saiba mais sobre o Docker lendo a [Visão geral de Docker](https://docs.docker.com/engine/understanding-docker/).
 
 > [!NOTE]
 > Este artigo se aplica a um ambiente de desenvolvimento do Windows.  O runtime do cluster do Service Fabric e o runtime do Docker devem estar em execução no mesmo sistema operacional.  Você não pode executar contêineres do Windows em um cluster do Linux.
@@ -109,7 +110,7 @@ if __name__ == "__main__":
 
 <a id="Build-Containers"></a>
 ## <a name="build-the-image"></a>Criar a imagem
-Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Execute o comando a seguir:
+Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Execute o seguinte comando:
 
 ```
 docker build -t helloworldapp .
@@ -129,7 +130,7 @@ helloworldapp                 latest              8ce25f5d6a79        2 minutes 
 ## <a name="run-the-application-locally"></a>Executar o aplicativo localmente
 Verifique a imagem localmente antes de enviá-la ao registro de contêiner. 
 
-Executar o aplicativo:
+Execute o aplicativo:
 
 ```
 docker run -d --name my-web-site helloworldapp
@@ -330,9 +331,9 @@ O aplicativo está pronto quando ele está em ```Ready``` estado: ![pronto][2]
 
 Abra um navegador e navegue até `http://containercluster.westus2.cloudapp.azure.com:8081`. Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
-Você continua a incorrer em encargos enquanto o cluster estiver em execução, considere [excluir o cluster](service-fabric-cluster-delete.md).
+Você continua a incorrer em encargos enquanto o cluster estiver em execução, considere [excluir o cluster](./service-fabric-tutorial-delete-cluster.md).
 
 Depois que você enviar a imagem para o registro de contêiner, você pode excluir a imagem local do seu computador de desenvolvimento:
 
@@ -349,7 +350,7 @@ Os contêineres do Windows Server não são compatíveis em todas as versões de
 - Os contêineres do Windows Server criados usando o Windows Server 2016 funcionam no modo de isolamento do Hyper-V somente em um host que executa o Windows Server versão 1709. 
 - Com contêineres do Windows Server criados usando o Windows Server 2016, pode ser necessário garantir que a revisão do sistema operacional do contêiner e sistema operacional do host são as mesmas durante a execução no modo de isolamento do processo em um host executando o Windows Server 2016.
  
-Para obter mais informações, consulte [Compatibilidade de versão de contêiner do Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+Para obter mais informações, consulte [Compatibilidade de versão de contêiner do Windows](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
 Considere a compatibilidade do sistema operacional do host e do sistema operacional do contêiner ao compilar e implantar contêineres para o cluster do Service Fabric. Por exemplo:
 

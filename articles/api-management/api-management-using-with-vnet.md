@@ -13,11 +13,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 76107a3713a7570bc3bbca15aa1b47e76560bf66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7323793dcbbd05fc5abf032d140b2caa5975da4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674271"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249454"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o Gerenciamento de API do Azure com redes virtuais
 As redes virtuais do Azure (VNETs) permitem que você coloque qualquer um dos recursos do Azure em uma rede não roteável para a Internet com acesso controlado. Essas redes podem ser conectadas às redes locais usando várias tecnologias VPN. Para saber mais sobre Redes Virtuais do Azure comece com as informações aqui: [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -102,7 +103,7 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
 * **Instalação de servidor DNS personalizado**: O serviço de Gerenciamento de API depende de vários serviços do Azure. Quando o Gerenciamento de API estiver hospedado em uma VNET com um servidor DNS personalizado, será necessário resolver os nomes de host desses serviços do Azure. Siga [estas](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) orientações sobre a configuração de DNS personalizada. Consulte a tabela de portas abaixo e outros requisitos de rede para ter uma referência.
 
 > [!IMPORTANT]
-> Se você planeja usar Servidor(es) de DNS personalizados para a rede virtual, você deve configurá-lo **antes** de implantar um serviço de gerenciamento de API para ele. Caso contrário, você precisa atualizar o serviço de gerenciamento de API cada vez que alterar o(s) servidor(es) DNS executando a [Operação Aplicar configurações de rede](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Se você planeja usar Servidor(es) de DNS personalizados para a rede virtual, você deve configurá-lo **antes** de implantar um serviço de gerenciamento de API para ele. Caso contrário, você precisa atualizar o serviço de gerenciamento de API cada vez que alterar o(s) servidor(es) DNS executando a [Operação Aplicar configurações de rede](/rest/api/apimanagement/2019-12-01/apimanagementservice/applynetworkconfigurationupdates)
 
 * **Portas necessárias para o Gerenciamento de API**: O tráfego de entrada e saída para a sub-rede na qual o Gerenciamento de API foi implantado pode ser controlado usando o [Grupo de Segurança de Rede][Network Security Group]. Se qualquer uma dessas portas estiver indisponível, o Gerenciamento de API poderá não funcionar corretamente e poderá se tornar inacessível. A existência de uma ou mais dessas portas bloqueadas é outro problema de configuração incorreta no uso do Gerenciamento de API em uma VNET.
 
@@ -173,7 +174,7 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
   > [!IMPORTANT]
   > Após validar a conectividade, certifique-se de remover todos os recursos implantados na sub-rede antes de implantar o Gerenciamento de API na sub-rede.
 
-* **Atualizações incrementais**: Ao fazer alterações em sua rede, consulte [API NetworkStatus](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/networkstatus) para verificar se o serviço de Gerenciamento de API não perdeu o acesso a qualquer um dos recursos críticos dos quais ele depende. O status de conectividade deve ser atualizado a cada 15 minutos.
+* **Atualizações incrementais**: Ao fazer alterações em sua rede, consulte [API NetworkStatus](/rest/api/apimanagement/2019-12-01/networkstatus) para verificar se o serviço de Gerenciamento de API não perdeu o acesso a qualquer um dos recursos críticos dos quais ele depende. O status de conectividade deve ser atualizado a cada 15 minutos.
 
 * **Links de Navegação do Recurso**: Ao implantar na sub-rede da VNET do estilo Resource Manager, o Gerenciamento de API reserva a sub-rede criando um Link de navegação do recurso. Se a sub-rede já contiver um recurso de outro provedor, a implantação **falhará**. Da mesma forma, quando você move um serviço de Gerenciamento de API para uma sub-rede diferente ou o exclui, removeremos esse link de navegação do recurso.
 

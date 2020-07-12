@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 922ab731ccd76e6a1336d61abe4b0251e358beb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b87244b4df155768e815bdba5226fc784866f6b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60780812"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249709"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Cache personalizado no Gerenciamento de API do Azure
-O serviço de gerenciamento de API do Azure tem suporte interno para [Cache de resposta HTTP](api-management-howto-cache.md) usando a URL de recurso como chave. A chave pode ser modificada por cabeçalhos de solicitação usando as propriedades do `vary-by` . Isso é útil para armazenar em cache respostas HTTP inteiras (também conhecido como representações), mas às vezes é útil para armazenar apenas uma parte de uma representação. As novas políticas [cache-lookup-value](/azure/api-management/api-management-caching-policies#GetFromCacheByKey) e [cache-store-value](/azure/api-management/api-management-caching-policies#StoreToCacheByKey) fornecem a capacidade de armazenar e recuperar partes arbitrárias de dados de dentro das definições da política. Essa capacidade também adiciona valor à política anteriormente introduzida [send-request](/azure/api-management/api-management-advanced-policies#SendRequest) porque você agora pode armazenar em cache as respostas de serviços externos.
+O serviço de gerenciamento de API do Azure tem suporte interno para [Cache de resposta HTTP](api-management-howto-cache.md) usando a URL de recurso como chave. A chave pode ser modificada por cabeçalhos de solicitação usando as propriedades do `vary-by` . Isso é útil para armazenar em cache respostas HTTP inteiras (também conhecido como representações), mas às vezes é útil para armazenar apenas uma parte de uma representação. As novas políticas [cache-lookup-value](./api-management-caching-policies.md#GetFromCacheByKey) e [cache-store-value](./api-management-caching-policies.md#StoreToCacheByKey) fornecem a capacidade de armazenar e recuperar partes arbitrárias de dados de dentro das definições da política. Essa capacidade também adiciona valor à política anteriormente introduzida [send-request](./api-management-advanced-policies.md#SendRequest) porque você agora pode armazenar em cache as respostas de serviços externos.
 
 ## <a name="architecture"></a>Arquitetura
 O serviço de Gerenciamento de API usa um cache de dados compartilhados por locatário para que, à medida que você escalar verticalmente para várias unidades, ainda tenha acesso ao mesmo dados em cache. No entanto, ao trabalhar com uma implantação de várias regiões, existem caches independentes dentro de cada uma das regiões. É importante não tratar o cache como um armazenamento de dados, em que ele é a única fonte de alguma informação. Se posteriormente você decidir se beneficiar da implantação de várias regiões, clientes com usuários que viajam podem perder o acesso aos dados armazenados em cache.

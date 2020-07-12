@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 4e3e430874f9d5b64f717b6ebb1cacb0eae46b1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1aef238ec0b947dda1417b567b343ae9d92754d9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690057"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249505"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modelos de perfil de usuário no Gerenciamento de API do Azure
 O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configura o respectivo conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como o [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), bem como um conjunto fornecido de [Recursos de cadeia de caracteres](api-management-template-resources.md#strings), [Recursos do Glyph](api-management-template-resources.md#glyphs) e [Controles de página](api-management-page-controls.md) localizados, você tem grande flexibilidade para configurar o conteúdo das páginas, conforme a necessidade, usando esses modelos.  
@@ -33,7 +34,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 -   [Atualizar informações da conta](#UpdateAccountInfo)  
   
 > [!NOTE]
->  Os modelos de amostra padrão estão incluídos na documentação a seguir, mas estão sujeitos à alteração devido a melhorias contínuas. Você pode exibir os modelos padrão em tempo real no portal do desenvolvedor, navegando até os modelos individuais desejados. Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o portal de desenvolvedor de Gerenciamento de API usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Os modelos de amostra padrão estão incluídos na documentação a seguir, mas estão sujeitos à alteração devido a melhorias contínuas. Você pode exibir os modelos padrão em tempo real no portal do desenvolvedor, navegando até os modelos individuais desejados. Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o portal de desenvolvedor de Gerenciamento de API usando modelos](./api-management-developer-portal-templates.md).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -104,7 +105,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 > [!NOTE]
 >  Os modelos [Perfil](#Profile), [Aplicativos](#Applications) e [Assinaturas](#Subscriptions) compartilham o mesmo modelo de dados e recebem os mesmos dados de modelo.  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`firstName`|string|O primeiro nome do usuário atual.|  
 |`lastName`|string|O sobrenome do usuário atual.|  
@@ -325,7 +326,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 > [!NOTE]
 >  Os modelos [Perfil](#Profile), [Aplicativos](#Applications) e [Assinaturas](#Subscriptions) compartilham o mesmo modelo de dados e recebem os mesmos dados de modelo.  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`firstName`|string|O primeiro nome do usuário atual.|  
 |`lastName`|string|O sobrenome do usuário atual.|  
@@ -488,7 +489,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 > [!NOTE]
 >  Os modelos [Perfil](#Profile), [Aplicativos](#Applications) e [Assinaturas](#Subscriptions) compartilham o mesmo modelo de dados e recebem os mesmos dados de modelo.  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`firstName`|string|O primeiro nome do usuário atual.|  
 |`lastName`|string|O sobrenome do usuário atual.|  

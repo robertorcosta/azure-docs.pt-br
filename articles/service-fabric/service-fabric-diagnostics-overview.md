@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: ef77810adfab213845c7824740effc3416d85407
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b4e454532dec31cbcc92269d63c8be1ff92a9f6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712217"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247516"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitoramento e diagnóstico no Azure Service Fabric
 
@@ -91,4 +92,4 @@ Os pontos-chave para qualquer plataforma que você escolher devem incluir o quan
 * Saiba como configurar logs de Azure Monitor para monitoramento de contêineres- [monitoramento e diagnóstico para contêineres do Windows no Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
 * Consulte os problemas de diagnóstico de exemplo e soluções com o Service Fabric no [cenários comuns de diagnóstico](service-fabric-diagnostics-common-scenarios.md)
 * Check-out de outros produtos de diagnóstico que se integram ao Service Fabric no [parceiros de diagnóstico do Service Fabric](service-fabric-diagnostics-partners.md)
-* Saiba mais sobre as recomendações gerais de monitoramentos para recursos do Azure - [Práticas Recomendadas - Monitoramento e Diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). 
+* Saiba mais sobre as recomendações gerais de monitoramentos para recursos do Azure - [Práticas Recomendadas - Monitoramento e Diagnóstico](/azure/architecture/best-practices/monitoring). 

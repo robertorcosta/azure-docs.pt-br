@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 672f145b638fa6b85f7139f2edb4fc41bb2855d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8f7d7f7707add22d700421b229f6dbe725db465
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81260965"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250450"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Como gerenciar contas de usuário no Gerenciamento de API do Azure
 
-No Gerenciamento de API, os desenvolvedores são os usuários das APIs que você expõe utilizando o Gerenciamento d API. Este guia mostra como criar e convidar desenvolvedores a utilizarem as APIs e os produtos que você disponibilizar para eles com sua instância do Gerenciamento da API. Para saber mais sobre como gerenciar contas de usuário por meio de programação, confira a documentação sobre [Entidade de usuário](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user) na referência [REST de Gerenciamento de API](/rest/api/apimanagement/).
+No Gerenciamento de API, os desenvolvedores são os usuários das APIs que você expõe utilizando o Gerenciamento d API. Este guia mostra como criar e convidar desenvolvedores a utilizarem as APIs e os produtos que você disponibilizar para eles com sua instância do Gerenciamento da API. Para saber mais sobre como gerenciar contas de usuário por meio de programação, confira a documentação sobre [Entidade de usuário](/rest/api/apimanagement/2019-12-01/user) na referência [REST de Gerenciamento de API](/rest/api/apimanagement/).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -67,7 +68,7 @@ Para bloquear um usuário, siga as seguintes etapas.
 
 ## <a name="reset-a-user-password"></a>Redefinir a senha de um usuário
 
-Para trabalhar de forma programática com contas de usuário, consulte a documentação da entidade de usuário na referência da [API REST do gerenciamento de API](/rest/api/apimanagement/) . Para redefinir uma senha de conta de usuário para um valor específico, você pode usar a operação [Atualizar um usuário](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) e especificar a senha desejada.
+Para trabalhar de forma programática com contas de usuário, consulte a documentação da entidade de usuário na referência da [API REST do gerenciamento de API](/rest/api/apimanagement/) . Para redefinir uma senha de conta de usuário para um valor específico, você pode usar a operação [Atualizar um usuário](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) e especificar a senha desejada.
 
 ## <a name="next-steps"></a><a name="next-steps"> </a>Próximas etapas
 Após criar uma conta de desenvolvedor, você pode associá-la a funções e inscrevê-la em produtos e APIs. Para obter mais informações, consulte [Como criar e utilizar grupos][How to create and use groups].

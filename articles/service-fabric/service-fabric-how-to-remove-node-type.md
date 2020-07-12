@@ -6,12 +6,12 @@ manager: sridmad
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: chrpap
-ms.openlocfilehash: d9562c09fe99372a9b1106d3ae891f65663cf307
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6cc7cbcc8344c5015d60d9721c682b6a856cbb6e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610091"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247227"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Como remover um tipo de nó Service Fabric
 Este artigo descreve como dimensionar um cluster do Azure Service Fabric removendo um tipo de nó existente de um cluster. Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você usa para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Então, cada tipo de nó pode ser gerenciado separadamente. Depois de criar um cluster do Service Fabric, você pode dimensionar um cluster horizontalmente removendo um tipo de nó (conjunto de dimensionamento de máquinas virtuais) e todos os seus nós.  É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
@@ -20,7 +20,7 @@ Este artigo descreve como dimensionar um cluster do Azure Service Fabric removen
 > O uso dessa abordagem para remover um tipo de nó de um cluster de produção não é recomendável para ser usado com frequência. Esse é um comando muito perigoso, pois ele exclui o recurso de conjunto de dimensionamento de máquinas virtuais por trás do tipo de nó. 
 
 ## <a name="durability-characteristics"></a>Características de durabilidade
-A segurança é priorizada em velocidade ao usar remove-AzServiceFabricNodeType. O tipo de nó deve ser do [nível de durabilidade](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#durability-characteristics-of-the-cluster) Prata ou Ouro, porque:
+A segurança é priorizada em velocidade ao usar remove-AzServiceFabricNodeType. O tipo de nó deve ser do [nível de durabilidade](./service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Prata ou Ouro, porque:
 - Bronze não dá nenhuma garantia sobre como salvar informações de estado.
 - A durabilidade Prata ou Ouro intercepta todas as alterações para o conjunto de dimensionamento.
 - Ouro também dá controle sobre as atualizações do Azure sob o conjunto de dimensionamento.
@@ -175,6 +175,6 @@ Ao remover um tipo de nó que é Bronze, todos os nós no tipo de nó diminuem i
     - Aguarde a conclusão da implantação.
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre o cluster [características de durabilidade](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#durability-characteristics-of-the-cluster).
+- Saiba mais sobre o cluster [características de durabilidade](./service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
 - Saiba mais sobre [tipos de nós e Conjuntos de Dimensionamento de Máquinas Virtuais](service-fabric-cluster-nodetypes.md).
 - Saiba mais sobre [Dimensionamento do cluster do Service Fabric](service-fabric-cluster-scaling.md).

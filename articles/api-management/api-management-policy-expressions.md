@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 40ea26a2394b7ca093f1bba2456ebf5ef116cd0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1713f2ca8fda0c768727ea12e682b373d644bcba
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695803"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249811"
 ---
 # <a name="api-management-policy-expressions"></a>Expressões de política de Gerenciamento de API
 Este artigo discute a sintaxe de expressões de política no C# 7. Toda expressão tem acesso à variável de [contexto](api-management-policy-expressions.md#ContextVariables) fornecida implicitamente e a um [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos do .NET Framework.
@@ -26,7 +27,7 @@ Para mais informações:
 
 - Veja como fornecer informações de contexto ao serviço de back-end. Use as políticas [Definir parâmetro de cadeia de caracteres de consulta](api-management-transformation-policies.md#SetQueryStringParameter) e [Definir cabeçalho HTTP](api-management-transformation-policies.md#SetHTTPheader) para fornecer essas informações.
 - Como usar a política [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) para pré-autorizar o acesso a operações baseadas em declarações de token.
-- Como usar um rastreamento de [Inspetor de API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) para ver como as políticas são avaliadas e os resultados das avaliações.
+- Como usar um rastreamento de [Inspetor de API](./api-management-howto-api-inspector.md) para ver como as políticas são avaliadas e os resultados das avaliações.
 - Como usar expressões com as políticas [Obter do cache](api-management-caching-policies.md#GetFromCache) e [Armazenar em cache](api-management-caching-policies.md#StoreToCache) para configurar o cache de resposta de Gerenciamento de API. Defina uma duração que coincida com o cache de resposta do serviço de back-end conforme especificado pela diretiva `Cache-Control` do serviço de backup.
 - Veja como realizar a filtragem de conteúdo. Remova os elementos de dados da resposta recebida do back-end usando as políticas [Controlar fluxo](api-management-advanced-policies.md#choose) e [Definir corpo](api-management-transformation-policies.md#SetBody).
 - Para baixar as instruções de política, consulte o repositório GitHub [API-Management-Samples/Policies](https://github.com/Azure/api-management-samples/tree/master/policies) .
@@ -73,7 +74,7 @@ Expressões podem ser usadas como valores de atributo ou de texto em qualquer [p
 ## <a name="net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a> Tipos do .NET framework permitidos em expressões de política
 A tabela a seguir lista os tipos do .NET Framework e seus membros permitidos em expressões de política.
 
-|Tipo|Membros com suporte|
+|Type|Membros com suporte|
 |--------------|-----------------------|
 |Newtonsoft.Jsem. Formatação|Tudo|
 |Newtonsoft.Json.Jsonconvert|SerializeObject, desserializaobject|
@@ -251,5 +252,5 @@ Para obter mais informações sobre como trabalhar com políticas, consulte:
 
 + [Políticas no Gerenciamento de API](api-management-howto-policies.md)
 + [Transformar APIs](transform-api.md)
-+ [Referência de Política](api-management-policy-reference.md) para uma lista completa das instruções de política e suas configurações
++ [Referência de Política](./api-management-policies.md) para uma lista completa das instruções de política e suas configurações
 + [Exemplos de política](policy-samples.md)

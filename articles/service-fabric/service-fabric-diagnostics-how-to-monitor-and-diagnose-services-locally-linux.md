@@ -3,11 +3,12 @@ title: Depurar aplicativos Service Fabric do Azure no Linux
 description: Saiba como monitorar e diagnosticar seus serviços do Service Fabric em um computador de desenvolvimento Linux local.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: fa8c4053a348c539c2e9e7a87d002d0fcf4a4d52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f637721d24045f5ca3386ffc31775d469e88537
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80991323"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247550"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Monitorar e diagnosticar serviços em uma configuração de desenvolvimento de computador Linux local
 
@@ -131,4 +132,4 @@ Os exemplos neste [Exemplos de C#](https://github.com/Azure-Samples/service-fabr
 
 ## <a name="next-steps"></a>Próximas etapas
 O mesmo código de rastreamento adicionado ao seu aplicativo também funciona com o diagnóstico do seu aplicativo em um cluster do Azure. Consulte estes artigos que discutem as diferentes opções para as ferramentas e descrevem como configurá-las.
-* [Como coletar logs com o Diagnóstico do Azure](service-fabric-diagnostics-how-to-setup-lad.md)
+* [Como coletar logs com o Diagnóstico do Azure](./service-fabric-diagnostics-event-aggregation-lad.md)

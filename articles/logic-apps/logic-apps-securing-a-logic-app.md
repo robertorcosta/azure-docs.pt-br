@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 07/03/2020
-ms.openlocfilehash: 769d82cae6b5f9039587018ba5a7cde407f74e4c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 902c48f2edcca6eb25958a9f22d6760faf1fcbc2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964236"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248706"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
@@ -110,7 +110,7 @@ No corpo, inclua a propriedade `KeyType` como `Primary` ou `Secondary`. Essa pro
 
 ### <a name="enable-azure-active-directory-oauth"></a>Habilitar o OAuth do Azure Active Directory
 
-Se seu aplicativo lógico começar com um [gatilho de solicitação](../connectors/connectors-native-reqres.md), você poderá habilitar [Azure Active Directory autenticação aberta](../active-directory/develop/about-microsoft-identity-platform.md) (Azure ad OAuth) criando uma política de autorização para chamadas de entrada para o gatilho de solicitação. Antes de habilitar essa autenticação, revise estas considerações:
+Se seu aplicativo lógico começar com um [gatilho de solicitação](../connectors/connectors-native-reqres.md), você poderá habilitar [Azure Active Directory autenticação aberta](/azure/active-directory/develop/) (Azure ad OAuth) criando uma política de autorização para chamadas de entrada para o gatilho de solicitação. Antes de habilitar essa autenticação, revise estas considerações:
 
 * Uma chamada de entrada para seu aplicativo lógico pode usar apenas um esquema de autorização, o OAuth do Azure AD ou [SAS (Assinaturas de Acesso Compartilhado)](#sas). Somente esquemas de autorização de [tipo de portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) têm suporte para tokens OAuth, que têm suporte apenas para o gatilho de solicitação.
 
@@ -309,7 +309,7 @@ Você pode limitar o acesso às entradas e saídas no histórico de execuções 
 
 1. Em **Configuração de controle de acesso** > **Endereços IP de entrada permitidos**, selecione **Intervalos IP específicos**.
 
-1. Em **intervalos IP para conteúdo**, especifique os intervalos de endereços IP que podem acessar o conteúdo de entradas e saídas. 
+1. Em **intervalos IP para conteúdo**, especifique os intervalos de endereços IP que podem acessar o conteúdo de entradas e saídas.
 
    Um intervalo IP válido usa estes formatos: *x.x.x.* ou *x.x.x. x-x.x.x. x*
 
@@ -462,7 +462,8 @@ Se você implantar em ambientes diferentes, considere a possibilidade de paramet
 Por exemplo, se você estiver autenticando ações HTTP com o [OAuth do Azure AD](#azure-active-directory-oauth-authentication), defina e proteja os parâmetros que aceitam a ID e o segredo do cliente usados para autenticação. Para definir esses parâmetros em seu aplicativo lógico, use a seção `parameters` na definição de fluxo de trabalho do aplicativo lógico e um modelo do Resource Manager para implantação. Para proteger valores de parâmetro que você não deseja mostrar ao editar seu aplicativo lógico ou exibir o histórico de execuções, você pode definir os parâmetros usando o tipo `securestring` ou `secureobject` e a codificação conforme necessário. Parâmetros que têm esse tipo não são retornados com a definição de recurso e não são acessíveis ao exibir o recurso após a implantação. Para acessar esses valores de parâmetro durante o runtime, use a expressão `@parameters('<parameter-name>')` dentro de sua definição de fluxo de trabalho. Essa expressão é avaliada apenas em runtime e é descrita pela [Linguagem de Definição do Fluxo de Trabalho](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
-> Se você usar um parâmetro em um cabeçalho ou corpo de solicitação, esse parâmetro poderá ser visível quando você exibir o histórico de execuções do aplicativo lógico e a solicitação HTTP de saída. Defina também suas políticas de acesso de conteúdo adequadamente. Você também pode usar [ofuscação](#obfuscate) para ocultar entradas e saídas em seu histórico de execuções. Cabeçalhos de autorização nunca são visíveis por meio de entradas ou saídas. Portanto, se um segredo for usado lá, ele não será recuperável.
+> Se você usar um parâmetro em um cabeçalho ou corpo de solicitação, esse parâmetro poderá ser visível quando você exibir o histórico de execuções do aplicativo lógico e a solicitação HTTP de saída. Defina também suas políticas de acesso de conteúdo adequadamente.
+> Você também pode usar [ofuscação](#obfuscate) para ocultar entradas e saídas em seu histórico de execuções. Cabeçalhos de autorização nunca são visíveis por meio de entradas ou saídas. Portanto, se um segredo for usado lá, ele não será recuperável.
 
 Para mais informações, confira estas seções neste tópico:
 
@@ -680,7 +681,7 @@ Aqui estão algumas maneiras de ajudar a proteger pontos de extremidade que rece
   * [Autenticação OAuth do Active Directory](#azure-active-directory-oauth-authentication)
 
   * [Autenticação de identidade gerenciada](#managed-identity-authentication)
-  
+
   Para mais informações, confira [Adicionar autenticação a chamadas de saída](#add-authentication-outbound) mais adiante neste tópico.
 
 * Restringir o acesso a endereços IP de aplicativo lógico.
@@ -727,7 +728,8 @@ Aqui estão algumas maneiras de ajudar a proteger pontos de extremidade que rece
 Os pontos de extremidade HTTP e HTTPS dão suporte a vários tipos de autenticação. Em alguns gatilhos e ações que você usa para enviar chamadas de saída ou solicitações para esses pontos de extremidade, você pode especificar um tipo de autenticação. No designer do aplicativo lógico, gatilhos e ações que dão suporte à escolha de um tipo de autenticação têm uma propriedade de **autenticação** . No entanto, essa propriedade nem sempre pode ser exibida por padrão. Nesses casos, no gatilho ou na ação, abra a lista **Adicionar novo parâmetro** e selecione **autenticação**.
 
 > [!IMPORTANT]
-> Para proteger informações confidenciais que seu aplicativo lógico manipula, use parâmetros protegidos e codifique os dados conforme necessário. Para obter mais informações sobre como usar e proteger parâmetros, confira [Acesso a entradas de parâmetro](#secure-action-parameters).
+> Para proteger informações confidenciais que seu aplicativo lógico manipula, use parâmetros protegidos e codifique os dados conforme necessário.
+> Para obter mais informações sobre como usar e proteger parâmetros, confira [Acesso a entradas de parâmetro](#secure-action-parameters).
 
 Esta tabela identifica os tipos de autenticação que estão disponíveis nos gatilhos e ações em que você pode selecionar um tipo de autenticação:
 
@@ -814,7 +816,7 @@ Para mais informações sobre como proteger serviços usando a autenticação de
 
 ### <a name="azure-active-directory-open-authentication"></a>Autenticação do Azure Active Directory
 
-Em gatilhos de solicitação, você pode usar o [OAuth do Azure Active Directory](../active-directory/develop/about-microsoft-identity-platform.md), para autenticar chamadas de entrada depois de [configurar as políticas de autorização do Azure AD](#enable-oauth) para seu aplicativo lógico. Para todos os outros gatilhos e ações que fornecem o tipo de autenticação **OAuth do Active Directory** como opção, especifique estes valores de propriedade:
+Em gatilhos de solicitação, você pode usar o [OAuth do Azure Active Directory](/azure/active-directory/develop/), para autenticar chamadas de entrada depois de [configurar as políticas de autorização do Azure AD](#enable-oauth) para seu aplicativo lógico. Para todos os outros gatilhos e ações que fornecem o tipo de autenticação **OAuth do Active Directory** como opção, especifique estes valores de propriedade:
 
 | Propriedade (designer) | Propriedade (JSON) | Obrigatório | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|

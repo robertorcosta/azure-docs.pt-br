@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 0d122a56035e58bd5065da8fde56246da6478d54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f594d4467e64ead40ff3c26aaf3e3a44cb673a98
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82871262"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250287"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure
 Hub de Eventos do Azure é um serviço de entrada de dados altamente escalonável que pode incluir milhões de eventos por segundo, para que você possa processar e analisar grandes quantidades de dados produzidos por seus aplicativos e dispositivos conectados. Hub de Eventos age como a "porta de entrada” para um pipeline de eventos e depois que os dados são coletados em um hub de eventos, ele pode ser transformado e armazenado usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Hub de Eventos separa a produção de um fluxo de eventos do consumo desses eventos, para que os consumidores de eventos possam acessar os eventos em seu próprio cronograma.
@@ -26,12 +27,12 @@ Este artigo é um complemento para o [integrar o Gerenciamento de API do Azure c
 
 ## <a name="create-an-azure-event-hub"></a>Criar um Hub de Eventos do Azure
 
-Para saber as etapas detalhadas sobre como criar um hub de eventos e obter cadeias de conexão que você precisa para enviar e receber eventos de e para o Hub de Eventos, consulte [Criar um namespace de Hubs de Eventos e um hub de eventos usando o portal do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+Para saber as etapas detalhadas sobre como criar um hub de eventos e obter cadeias de conexão que você precisa para enviar e receber eventos de e para o Hub de Eventos, consulte [Criar um namespace de Hubs de Eventos e um hub de eventos usando o portal do Azure](../event-hubs/event-hubs-create.md).
 
 ## <a name="create-an-api-management-logger"></a>Criar um agente de Gerenciamento de API
-Agora que você tem um Hub de Eventos, a próxima etapa será configurar um [Agente](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger) no seu serviço de Gerenciamento de API para que ele possa registrar eventos em log para o Hub de Eventos.
+Agora que você tem um Hub de Eventos, a próxima etapa será configurar um [Agente](/rest/api/apimanagement/2019-12-01/logger) no seu serviço de Gerenciamento de API para que ele possa registrar eventos em log para o Hub de Eventos.
 
-Os agentes do Gerenciamento de API são configurados usando a [API REST do Gerenciamento de API](https://aka.ms/apimapi). Para obter exemplos de solicitação detalhados, consulte [como criar agentes](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate).
+Os agentes do Gerenciamento de API são configurados usando a [API REST do Gerenciamento de API](https://aka.ms/apimapi). Para obter exemplos de solicitação detalhados, consulte [como criar agentes](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
 
 ## <a name="configure-log-to-eventhub-policies"></a>Configurar políticas de log para eventhub
 
@@ -68,7 +69,7 @@ Clique em **Salvar** para salvar a configuração da política atualizada. Assim
 
 ## <a name="preview-the-log-in-event-hubs-by-using-azure-stream-analytics"></a>Visualizar o log nos hubs de eventos usando Azure Stream Analytics
 
-Você pode visualizar o log nos hubs de eventos usando [consultas Azure Stream Analytics](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics). 
+Você pode visualizar o log nos hubs de eventos usando [consultas Azure Stream Analytics](../event-hubs/process-data-azure-stream-analytics.md). 
 
 1. Na portal do Azure, navegue até o Hub de eventos para o qual o agente envia eventos. 
 2. Em **recursos**, selecione a guia **processar dados** .
@@ -78,11 +79,11 @@ Você pode visualizar o log nos hubs de eventos usando [consultas Azure Stream A
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre Hubs de Eventos do Azure
   * [Introdução aos Hubs de Eventos do Azure](../event-hubs/event-hubs-c-getstarted-send.md)
-  * [Receber mensagens com EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
+  * [Receber mensagens com EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
   * [Guia de programação dos Hubs de Eventos](../event-hubs/event-hubs-programming-guide.md)
 * Saiba mais sobre a integração do Gerenciamento de API e Hubs de eventos
-  * [Referência de entidade do agente](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger)
-  * [referência de política de log ao hub de eventos](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
+  * [Referência de entidade do agente](/rest/api/apimanagement/2019-12-01/logger)
+  * [referência de política de log ao hub de eventos](./api-management-advanced-policies.md#log-to-eventhub)
   * [Monitorar suas APIs com gerenciamento de API do Azure, Hubs de Eventos e Moesif](api-management-log-to-eventhub-sample.md)  
 * Saiba mais sobre a [integração com o Azure Application Insights](api-management-howto-app-insights.md)
 

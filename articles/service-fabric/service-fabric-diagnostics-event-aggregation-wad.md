@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: b9a448ff41c66fa3a38c124f7acde062bacbe9ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff13f8301274ebfc8b31dcbe01ef2a0fe6cd6fcc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846666"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247754"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Coleta e agregação de eventos utilizando o Diagnóstico do Windows Azure
 > [!div class="op_single_selector"]
@@ -21,7 +21,7 @@ ms.locfileid: "85846666"
 
 Quando você estiver executando um cluster de Service Fabric do Azure, é uma boa ideia coletar os logs de todos os nós em um local central. Ter os logs em um local central ajuda a analisar e solucionar problemas no cluster ou nos aplicativos e serviços em execução nesse cluster.
 
-Uma maneira de fazer upload e coletar logs é utilizar a extensão WAD (Diagnóstico do Windows Azure) que faz upload dos logs no Armazenamento do Azure e, além disso, possui a opção de enviar os logs para o Azure Application Insights ou Hubs de Evento. Você também pode usar um processo externo para ler os eventos do armazenamento e colocá-los em um produto da plataforma de análise, como [logs de Azure monitor](../log-analytics/log-analytics-service-fabric.md) ou outra solução de análise de log.
+Uma maneira de fazer upload e coletar logs é utilizar a extensão WAD (Diagnóstico do Windows Azure) que faz upload dos logs no Armazenamento do Azure e, além disso, possui a opção de enviar os logs para o Azure Application Insights ou Hubs de Evento. Você também pode usar um processo externo para ler os eventos do armazenamento e colocá-los em um produto da plataforma de análise, como [logs de Azure monitor](./service-fabric-diagnostics-oms-setup.md) ou outra solução de análise de log.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -31,7 +31,7 @@ As ferramentas a seguir são usadas neste artigo:
 
 * [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 * [PowerShell do Azure](/powershell/azure/overview)
-* [Modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Modelo do Azure Resource Manager](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
 
 ## <a name="service-fabric-platform-events"></a>Eventos de plataforma do Service Fabric
 O Service Fabric configura alguns [canais de log prontos](service-fabric-diagnostics-event-generation-infra.md), dos quais os canais a seguir são pré-configurados com a extensão para enviar dados de monitoramento e diagnósticos para uma tabela de armazenamento ou em outro lugar:
@@ -202,12 +202,12 @@ Como as tabelas preenchidas pela extensão aumentam até que a cota seja atingid
 ## <a name="log-collection-configurations"></a>Configurações de coleção de log
 Logs de canais adicionais também estão disponíveis para coleção, aqui estão algumas das configurações mais comuns que você pode fazer no modelo para clusters em execução no Azure.
 
-* Canal operacional-base: habilitada por padrão, operações de alto nível executadas por Service Fabric e o cluster, incluindo eventos para um nó surgindo, um novo aplicativo sendo implantado ou uma reversão de atualização, etc. Para obter uma lista de eventos, consulte [eventos de canal operacional](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* Canal operacional-base: habilitada por padrão, operações de alto nível executadas por Service Fabric e o cluster, incluindo eventos para um nó surgindo, um novo aplicativo sendo implantado ou uma reversão de atualização, etc. Para obter uma lista de eventos, consulte [eventos de canal operacional](./service-fabric-diagnostics-event-generation-operational.md).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
   ```
-* Canal operacional - Detalhado: Inclui relatórios de integridade e balanceamento de cargo, além de tudo no canal operacional de base. Esses eventos são gerados pelo sistema ou seu código usando a integridade ou APIs de relatórios de carga como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) ou [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000008" à lista de provedores de ETW.
+* Canal operacional - Detalhado: Inclui relatórios de integridade e balanceamento de cargo, além de tudo no canal operacional de base. Esses eventos são gerados pelo sistema ou seu código usando a integridade ou APIs de relatórios de carga como [ReportPartitionHealth](/previous-versions/azure/reference/mt645153(v=azure.100)) ou [ReportLoad](/previous-versions/azure/reference/mt161491(v=azure.100)). Para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000008" à lista de provedores de ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387912"
@@ -296,7 +296,7 @@ Por exemplo, se a origem do evento for denominada My-Eventsource, adicione o seg
         }
 ```
 
-Para coletar contadores de desempenho ou logs de eventos, modifique o modelo do Resource Manager usando os exemplos fornecidos em [Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando um modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Em seguira, republique o modelo do Resource Manager.
+Para coletar contadores de desempenho ou logs de eventos, modifique o modelo do Resource Manager usando os exemplos fornecidos em [Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando um modelo do Azure Resource Manager](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json). Em seguira, republique o modelo do Resource Manager.
 
 ## <a name="collect-performance-counters"></a>Coletar contadores de desempenho
 
@@ -358,7 +358,7 @@ Depois de configurar corretamente o diagnóstico do Azure, você verá os dados 
 >[!NOTE]
 >Atualmente, não há nenhuma maneira de filtrar ou limpar os eventos que são enviados para a tabela. Se você não implantar um processo para remover eventos da tabela, a tabela continuará crescendo. Atualmente, há um exemplo de um serviço de limpeza de dados em execução no [exemplo Watchdog](https://github.com/Azure-Samples/service-fabric-watchdog-service), e é recomendável que você grave um para você mesmo, a menos que haja uma boa razão para armazenar logs além de um período de 30 ou 90 dias.
 
-* [Aprenda a coletar contadores de desempenho ou logs usando a extensão de Diagnóstico](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Aprenda a coletar contadores de desempenho ou logs usando a extensão de Diagnóstico](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
 * [Análise e visualização de eventos com Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Análise de eventos e visualização com logs de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
 * [Análise e visualização de eventos com Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)

@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 393563427e936e07315cd44b78cb793d4292b352
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c8cd4aa3e91c5d69c40e47683818ed8bc9be338
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79243920"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249896"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Modelos de produto no Gerenciamento de API do Azure
 
@@ -30,7 +31,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 -   [Product](#Product)  
   
 > [!NOTE]
->  Os modelos de amostra padrão estão incluídos na documentação a seguir, mas estão sujeitos à alteração devido a melhorias contínuas. Você pode exibir os modelos padrão em tempo real no portal do desenvolvedor, navegando até os modelos individuais desejados. Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o portal de desenvolvedor de Gerenciamento de API usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Os modelos de amostra padrão estão incluídos na documentação a seguir, mas estão sujeitos à alteração devido a melhorias contínuas. Você pode exibir os modelos padrão em tempo real no portal do desenvolvedor, navegando até os modelos individuais desejados. Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o portal de desenvolvedor de Gerenciamento de API usando modelos](./api-management-developer-portal-templates.md).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -78,7 +79,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |Paginamento|Entidade de [paginação](api-management-template-data-model-reference.md#Paging).|As informações de paginação da coleção de produtos.|  
 |Filtragem|Entidade de [filtragem](api-management-template-data-model-reference.md#Filtering).|As informações de filtragem da página de lista de produtos.|  
@@ -203,13 +204,13 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |Produto|[Product](api-management-template-data-model-reference.md#Product)|O produto especificado.|  
 |IsDeveloperSubscribed|booleano|Se o usuário atual assinou esse produto.|  
 |SubscriptionState|número|O estado da assinatura. Os possíveis estados são:<br /><br /> -   `0 - suspended` – a assinatura está bloqueada e o assinante não pode chamar APIs do produto.<br />-   `1 - active` – a assinatura está ativa.<br />-   `2 - expired` – a assinatura atingiu sua data de validade e foi desativada.<br />-   `3 - submitted` – a solicitação de assinatura foi feita pelo desenvolvedor, mas ainda não foi aprovada ou rejeitada.<br />-   `4 - rejected` – a solicitação de assinatura foi negada por um administrador.<br />-   `5 - cancelled` – a assinatura foi cancelada pelo desenvolvedor ou administrador.|  
-|limites|matriz|Essa propriedade foi preterida e não deve ser usada.|  
-|DelegatedSubscriptionEnabled|booleano|Se [delegação](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) está habilitada para essa assinatura.|  
+|Limites|matriz|Essa propriedade foi preterida e não deve ser usada.|  
+|DelegatedSubscriptionEnabled|booleano|Se [delegação](./api-management-howto-setup-delegation.md) está habilitada para essa assinatura.|  
 |DelegatedSubscriptionUrl|string|Se delegação estiver habilitada, a URL da assinatura delegada.|  
 |IsAgreed|booleano|Se o produto tiver termos, se o atual usuário concordou com os termos.|  
 |Assinaturas|Coleção de entidades de [Resumo da assinatura](api-management-template-data-model-reference.md#SubscriptionSummary).|As assinaturas para o produto.|  

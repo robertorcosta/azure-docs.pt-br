@@ -3,12 +3,12 @@ title: Gerenciar segredos do aplicativo Service Fabric do Azure
 description: Saiba como proteger os valores do segredo em um aplicativo do Service Fabric (independente de plataforma).
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.openlocfilehash: 18090dd3e4046da2069e3035be4edb4d2f979204
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af82a55d41c48eebcbcbd1581ec5096a89c49bea
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583241"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248111"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gerenciar segredos criptografados nos aplicativos do Service Fabric
 Este guia explica as etapas do gerenciamento de segredos em um aplicativo do Service Fabric. Os segredos podem ser informações confidenciais, como cadeias de conexão de armazenamento, senhas ou outros valores que não devem ser tratados como texto sem formatação.
@@ -99,7 +99,7 @@ Para substituir valores em Settings.xml, declare um parâmetro de substituição
 
 Agora, o valor pode ser especificado como um *parâmetro de aplicativo* ao criar uma instância do aplicativo. A criação de uma instância do aplicativo pode ser controlada por script usando o PowerShell, ou escrita em C#, para fácil integração em um processo de compilação.
 
-Usando o PowerShell, o parâmetro é fornecido para o comando `New-ServiceFabricApplication` como uma [tabela de hash](https://technet.microsoft.com/library/ee692803.aspx):
+Usando o PowerShell, o parâmetro é fornecido para o comando `New-ServiceFabricApplication` como uma [tabela de hash](/previous-versions/windows/it-pro/windows-powershell-1.0/ee692803(v=technet.10)):
 
 ```powershell
 New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}

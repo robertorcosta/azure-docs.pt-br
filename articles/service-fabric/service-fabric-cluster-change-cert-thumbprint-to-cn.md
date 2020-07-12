@@ -3,11 +3,12 @@ title: Atualizar um cluster para usar o nome comum do certificado
 description: Saiba fazer um cluster do Service Fabric alternar do uso de impressões digitais de certificado para o uso do nome comum do certificado.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 1926b0501766eb0a5fe086ceada0c9bf45e3dcf6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a90290430616302dbbe9ab9cf717510070936529
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81272620"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247907"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Alterar o cluster de impressão digital do certificado para nome comum
 Dois certificados não podem ter a mesma impressão digital, o que dificulta a substituição ou gerenciamento de certificados de cluster. Vários certificados, no entanto, podem ter o mesmo nome comum ou assunto.  Alternar um cluster implantado do uso de impressões digitais de certificado para o uso de nomes comuns do certificado simplifica muito o gerenciamento de certificados. Este artigo descreve como atualizar um cluster do Service Fabric em execução para usar o nome comum do certificado em vez da impressão digital do certificado.
@@ -19,7 +20,7 @@ Dois certificados não podem ter a mesma impressão digital, o que dificulta a s
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-a-certificate"></a>Obter um certificado
-Primeiro, obtenha um [certificado de uma autoridade de certificação (CA)](https://wikipedia.org/wiki/Certificate_authority).  O nome comum do certificado deve ser para o domínio personalizado de sua propriedade e comprado de um registrador de domínios. Por exemplo, "azureservicefabricbestpractices.com"; aqueles que não são funcionários da Microsoft não podem provisionar certificados para domínios da MS, portanto, você não poderá usar os nomes DNS do seu LB ou Gerenciador de Tráfego como nomes comuns para o seu certificado e precisará provisionar uma [Zona DNS do Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) se o domínio personalizado precisar ser resolvido no Azure. Declare também o domínio personalizado de sua propriedade como o "managementEndpoint" do cluster se você quiser que o portal reflita o alias do domínio personalizado para seu cluster.
+Primeiro, obtenha um [certificado de uma autoridade de certificação (CA)](https://wikipedia.org/wiki/Certificate_authority).  O nome comum do certificado deve ser para o domínio personalizado de sua propriedade e comprado de um registrador de domínios. Por exemplo, "azureservicefabricbestpractices.com"; aqueles que não são funcionários da Microsoft não podem provisionar certificados para domínios da MS, portanto, você não poderá usar os nomes DNS do seu LB ou Gerenciador de Tráfego como nomes comuns para o seu certificado e precisará provisionar uma [Zona DNS do Azure](../dns/dns-delegate-domain-azure-dns.md) se o domínio personalizado precisar ser resolvido no Azure. Declare também o domínio personalizado de sua propriedade como o "managementEndpoint" do cluster se você quiser que o portal reflita o alias do domínio personalizado para seu cluster.
 
 Para fins de teste, você pode obter um certificado assinado CA de uma autoridade de certificação livre ou aberta.
 
@@ -178,7 +179,7 @@ Em seguida, abra o arquivo de modelo em um editor de texto e faça três atualiz
         ...
     ```
 
-Para obter informações adicionais [, consulte Implantar um Service Fabric cluster que usa o nome comum do certificado em vez da impressão digital.](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn)
+Para obter informações adicionais [, consulte Implantar um Service Fabric cluster que usa o nome comum do certificado em vez da impressão digital.](./service-fabric-create-cluster-using-cert-cn.md)
 
 ## <a name="deploy-the-updated-template"></a>Implantar o modelo atualizado
 Reimplante o modelo atualizado após fazer as alterações.

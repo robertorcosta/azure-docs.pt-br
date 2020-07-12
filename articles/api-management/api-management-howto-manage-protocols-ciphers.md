@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
-ms.openlocfilehash: 7f87389016286c9f1b91abc77155be9e94005371
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 043a3d0b63dfc74f587b58b3c2ac42f1a084cc4a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335879"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250304"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Gerenciar protocolos e cifras no Gerenciamento de API do Azure
 
@@ -38,9 +38,9 @@ Para seguir as etapas deste artigo, você precisa ter:
 1. Navegue até sua **instância de Gerenciamento de API** no portal do Azure.
 2. Selecione **configurações de protocolo** no menu.  
 3. Habilite ou desabilite os protocolos ou cifras desejados.
-4. Clique em **Save** (Salvar). As alterações serão aplicadas em uma hora.  
+4. Clique em **Salvar**. As alterações serão aplicadas em uma hora.  
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre [TLS (Transport Layer Security)](https://docs.microsoft.com/dotnet/framework/network-programming/tls).
+* Saiba mais sobre [TLS (Transport Layer Security)](/dotnet/framework/network-programming/tls).
 * Confira mais [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre o Gerenciamento de API.

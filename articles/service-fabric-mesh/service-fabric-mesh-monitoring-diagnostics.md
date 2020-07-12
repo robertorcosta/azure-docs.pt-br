@@ -6,11 +6,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 247a1de4d00668371337295616d31caf101f0cc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e940f0cf0d1547b317cd9e7bd15ac5486d5e70b2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75498151"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248400"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitoramento e diagnóstico
 A Malha do Microsoft Azure Service Fabric é um serviço totalmente gerenciado que permite aos desenvolvedores implantar aplicativos de microsserviços sem gerenciar máquinas virtuais, armazenamento ou rede. Monitoramento e diagnóstico para a malha de Service Fabric é categorizado em três principais tipos de dados de diagnóstico:
@@ -57,7 +58,7 @@ O ambiente de malha expõe algumas métricas que indicam como os contêineres es
 | RestartCount | Número de reinicializações de contêiner | N/D |
 
 > [!NOTE]
-> Os valores de perstatus e ServiceReplicaStatus são os mesmos que o [HealthState](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) em Service Fabric. 
+> Os valores de perstatus e ServiceReplicaStatus são os mesmos que o [HealthState](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) em Service Fabric. 
 
 Cada métrica está disponível em dimensões diferentes para que você possa ver agregações em diferentes níveis. A lista atual de dimensões é a seguinte:
 
@@ -73,7 +74,7 @@ Cada dimensão corresponde a diferentes componentes do [modelo de aplicativo Ser
 
 ### <a name="azure-monitor-cli"></a>CLI do Azure Monitor
 
-Uma lista completa de comandos está disponível nos [documentos da CLI do Azure monitor](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) , mas incluímos alguns exemplos úteis abaixo 
+Uma lista completa de comandos está disponível nos [documentos da CLI do Azure monitor](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) , mas incluímos alguns exemplos úteis abaixo 
 
 Em cada exemplo, a ID de recurso segue esse padrão
 
@@ -117,4 +118,4 @@ In addition to the metrics explorer, we also have a dashboard available out of t
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre Malha do Service Fabric, leia [visão geral sobre Malha do Service Fabric](service-fabric-mesh-overview.md).
-* Para saber mais sobre os comandos de métricas Azure Monitor, confira os [documentos Azure monitor CLI](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list).
+* Para saber mais sobre os comandos de métricas Azure Monitor, confira os [documentos Azure monitor CLI](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list).

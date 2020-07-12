@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: 1b299cf21652c23451aed735b10597adb85dc3db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9c3f8e1e37a59dc0010269c6b4c19e3a682c57e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82982721"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247006"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Entender como Azure IoT Edge usa certificados
 
@@ -24,6 +25,9 @@ Este artigo explica como os certificados de IoT Edge podem funcionar em cenário
 ## <a name="iot-edge-certificates"></a>Certificados do IoT Edge
 
 Normalmente, os fabricantes não são os usuários finais de um dispositivo IoT Edge. Às vezes, a única relação entre os dois é quando o usuário final ou o operador, adquire um dispositivo genérico feito pelo fabricante. Em outras ocasiões, o fabricante trabalha sob contrato para criar um dispositivo personalizado para o operador. O design do certificado IoT Edge tenta levar em conta os dois cenários.
+
+> [!NOTE]
+> Atualmente, uma limitação no libiothsm impede o uso de certificados que expiram em 1º de janeiro de 2050. Essa limitação se aplica ao certificado de autoridade de certificação do dispositivo, a todos os certificados no pacote de confiança e aos certificados de ID de dispositivo usados para os métodos de provisionamento X. 509.
 
 A figura a seguir ilustra o uso de certificados da IoT Edge. Pode haver zero, um ou muitos certificados de assinatura intermediários entre o Certificado de Autoridade de Certificação raiz e o Certificado de Autoridade de Certificação do dispositivo, dependendo do número de entidades envolvidas. Aqui, mostramos um caso.
 

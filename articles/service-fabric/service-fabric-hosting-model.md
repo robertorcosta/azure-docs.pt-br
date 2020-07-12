@@ -5,11 +5,12 @@ author: harahma
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: 82bc5068be651b05eb24efa3b05e46c1e7c1e24d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6c55ab52f4e51ddf2a39e03bed3ea543a6096be
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81115047"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247448"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modelo de hospedagem do Microsoft Azure Service Fabric
 Este artigo fornece uma visão geral dos modelos de hospedagem de aplicativos fornecidos pelo Microsoft Azure Service Fabric e descreve as diferenças entre os modelos de **Processo Compartilhado** e **Processo Exclusivo**. Ele descreve a aparência de um aplicativo implantado em um nó do Service Fabric e a relação entre réplicas (ou instâncias) do serviço e o processo de host de serviço.
@@ -170,7 +171,7 @@ No exemplo anterior, é possível pensar que, se o 'MyCodePackageA' registrar am
 
 ### <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services e subprocessos de bifurcação de ator
 
-O Service Fabric não dá suporte a serviços confiáveis e, subsequentemente, a subprocessos confiáveis de bifurcação de atores. Um exemplo do motivo pelo qual não há suporte para ele é o fato de que [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) não pode ser usado para registrar um subprocesso sem suporte e que tokens de cancelamento são enviados somente para processos registrados, resultando em diversos tipos de problemas, como falhas de atualização, quando os subprocessos não são fechados depois que o processo pai recebe um token de cancelamento.
+O Service Fabric não dá suporte a serviços confiáveis e, subsequentemente, a subprocessos confiáveis de bifurcação de atores. Um exemplo do motivo pelo qual não há suporte para ele é o fato de que [CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) não pode ser usado para registrar um subprocesso sem suporte e que tokens de cancelamento são enviados somente para processos registrados, resultando em diversos tipos de problemas, como falhas de atualização, quando os subprocessos não são fechados depois que o processo pai recebe um token de cancelamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Empacotar um aplicativo][a4] e prepará-lo para a implantação.
@@ -192,16 +193,16 @@ O Service Fabric não dá suporte a serviços confiáveis e, subsequentemente, a
 [a4]: service-fabric-package-apps.md
 [a5]: service-fabric-deploy-remove-applications.md
 
-[r1]: https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-createservice
+[r1]: /rest/api/servicefabric/sfclient-api-createservice
 
-[c1]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync
-[c2]: https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription.instancecount
+[c1]: /dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync
+[c2]: /dotnet/api/system.fabric.description.statelessservicedescription.instancecount
 
-[p1]: https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice
-[p2]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicedescription
-[p3]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicePackage
-[p4]: https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricdeployedservicepackagehealthreport
-[p5]: https://docs.microsoft.com/powershell/module/servicefabric/restart-servicefabricdeployedcodepackage
-[p6]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicetype
-[p7]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedreplica
-[p8]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedcodepackage
+[p1]: /powershell/module/servicefabric/new-servicefabricservice
+[p2]: /powershell/module/servicefabric/get-servicefabricservicedescription
+[p3]: /powershell/module/servicefabric/get-servicefabricdeployedservicepackage
+[p4]: /powershell/module/servicefabric/send-servicefabricdeployedservicepackagehealthreport
+[p5]: /powershell/module/servicefabric/restart-servicefabricdeployedcodepackage
+[p6]: /powershell/module/servicefabric/get-servicefabricdeployedservicetype
+[p7]: /powershell/module/servicefabric/get-servicefabricdeployedreplica
+[p8]: /powershell/module/servicefabric/get-servicefabricdeployedcodepackage

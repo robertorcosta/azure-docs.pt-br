@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: 6054c595bca26dc2a0432c53369a60a61e3efde0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd7ca6bdfa7626707af9efa20d76dab633dc16fd
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76841856"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249522"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Usar o serviço de Gerenciamento de API do Azure com rede virtual interna
 Com as VNETs (Redes Virtuais) do Azure, o Gerenciamento de API pode gerenciar as APIs que não estão acessíveis pela Internet. Várias tecnologias de VPN estão disponíveis para fazer a conexão. O Gerenciamento de API pode ser implantado em dois modos principais dentro de uma rede virtual:
@@ -50,7 +51,7 @@ Para executar as etapas descritas neste artigo, você precisa ter:
 + Quando um serviço de gerenciamento de API é implantado em uma rede virtual, uma [lista de portas](./api-management-using-with-vnet.md#required-ports) é usada e precisa ser aberta. 
 
 ## <a name="creating-an-api-management-in-an-internal-virtual-network"></a><a name="enable-vpn"> </a>Criar um Gerenciamento de API em uma rede virtual interna
-O serviço de gerenciamento de API em uma rede virtual interna é hospedado atrás de um [balanceador de carga interno (clássico)](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Essa é a única opção disponível e não pode ser alterada.
+O serviço de gerenciamento de API em uma rede virtual interna é hospedado atrás de um [balanceador de carga interno (clássico)](/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Essa é a única opção disponível e não pode ser alterada.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Habilite uma conexão de rede virtual usando o portal do Azure
 
@@ -143,4 +144,3 @@ Para saber mais, leia os seguintes artigos:
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
 
 [ServiceTags]: ../virtual-network/security-overview.md#service-tags
-
