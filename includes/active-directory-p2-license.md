@@ -4,11 +4,11 @@ ms.service: active-directory
 ms.topic: include
 ms.date: 04/30/2019
 ms.author: daveba
-ms.openlocfilehash: 5e430b16bbdebf97c1499d997fe2c30771270987
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: HT
+ms.openlocfilehash: 77c262982fc24215462559772e01f8d85dd00d2d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73522210"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256638"
 ---
-Para usar esse recurso, é necessária uma licença do Azure AD Premium P2. Para localizar a licença correta para satisfazer seus requisitos, confira  [Comparar recursos geralmente disponíveis nas edições Gratuita, Básica e Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+Para usar esse recurso, é necessária uma licença do Azure AD Premium P2. Para encontrar a licença certa para seus requisitos, consulte comparando [recursos disponíveis de forma geral dos aplicativos gratuitos, Office 365 e edições Premium](https://azure.microsoft.com/pricing/details/active-directory/).

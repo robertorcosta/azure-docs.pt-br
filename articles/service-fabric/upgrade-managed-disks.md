@@ -3,12 +3,12 @@ title: Atualizar nós de cluster para usar o Azure Managed disks
 description: Veja como atualizar um cluster de Service Fabric existente para usar o Azure Managed disks com pouco ou nenhum tempo de inatividade do cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 46dec6ae29fdd8f2a418f695c31900e6df4483e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cff0f99412f189f38f1b14d15c7285166a048c87
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611621"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255890"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Atualizar nós de cluster para usar o Azure Managed disks
 
@@ -16,7 +16,7 @@ Os [discos gerenciados do Azure](../virtual-machines/windows/managed-disks-overv
 
 A estratégia geral para atualizar um Service Fabric nó de cluster para usar discos gerenciados é:
 
-1. Implante um conjunto de escala de máquina virtual duplicado de outra forma do tipo de nó, mas com o objeto [managedDisk](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) adicionado à `osDisk` seção do modelo de implantação do conjunto de dimensionamento de máquinas virtuais. O novo conjunto de dimensionamento deve se associar ao mesmo balanceador de carga/IP que o original, para que os clientes não tenham uma interrupção de serviço durante a migração.
+1. Implante um conjunto de escala de máquina virtual duplicado de outra forma do tipo de nó, mas com o objeto [managedDisk](/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) adicionado à `osDisk` seção do modelo de implantação do conjunto de dimensionamento de máquinas virtuais. O novo conjunto de dimensionamento deve se associar ao mesmo balanceador de carga/IP que o original, para que os clientes não tenham uma interrupção de serviço durante a migração.
 
 2. Depois que os conjuntos de dimensionamento original e atualizado estiverem em execução lado a lado, desabilite as instâncias de nó originais uma de cada vez para que os serviços do sistema (ou réplicas dos serviços com estado) migrem para o novo conjunto de dimensionamento.
 
@@ -25,7 +25,7 @@ A estratégia geral para atualizar um Service Fabric nó de cluster para usar di
 Este artigo orientará você pelas etapas de atualização do tipo de nó primário de um cluster de exemplo para usar discos gerenciados, ao mesmo tempo em que evita qualquer tempo de inatividade do cluster (consulte a observação abaixo). O estado inicial do exemplo de cluster de teste consiste em um tipo de nó de [durabilidade prateada](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), apoiado por um único conjunto de dimensionamento com cinco nós.
 
 > [!CAUTION]
-> Você terá uma interrupção com esse procedimento somente se tiver dependências no DNS do cluster (por exemplo, ao acessar [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). A [prática recomendada de arquitetura para serviços de front-end](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) é ter algum tipo de [balanceador de carga](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) na frente de seus tipos de nó para tornar a troca de nó possível sem uma interrupção.
+> Você terá uma interrupção com esse procedimento somente se tiver dependências no DNS do cluster (por exemplo, ao acessar [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). A [prática recomendada de arquitetura para serviços de front-end](/azure/architecture/microservices/design/gateway) é ter algum tipo de [balanceador de carga](/azure/architecture/guide/technology-choices/load-balancing-overview) na frente de seus tipos de nó para tornar a troca de nó possível sem uma interrupção.
 
 Aqui estão os [modelos e cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) para Azure Resource Manager que usaremos para concluir o cenário de atualização. As alterações no modelo serão explicadas em [implantar um conjunto de dimensionamento atualizado para o tipo de nó primário](#deploy-an-upgraded-scale-set-for-the-primary-node-type) abaixo.
 
@@ -258,7 +258,7 @@ Depois de implementar todas as alterações em seus arquivos de modelo e de par�
 
 ### <a name="obtain-your-key-vault-references"></a>Obter suas referências de Key Vault
 
-Para implantar a configuração atualizada, primeiro você deve obter várias referências ao seu certificado de cluster armazenado em seu Key Vault. A maneira mais fácil de encontrar esses valores é por meio de portal do Azure. Você precisará de:
+Para implantar a configuração atualizada, primeiro você deve obter várias referências ao seu certificado de cluster armazenado em seu Key Vault. A maneira mais fácil de encontrar esses valores é por meio de portal do Azure. Você precisará do seguinte:
 
 * **A URL de Key Vault do seu certificado de cluster.** Em seu Key Vault em portal do Azure, selecione **certificados**  >  *o*  >  **identificador secreto**do certificado desejado:
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 248725c7281c8c63e4ca5c0c70428b4fc997d350
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 955a3b8d12eb3b93bc9d44c624953cd5c1007318
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142408"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258209"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Entenda o gêmeos digital e seu gráfico de entrelaçamento
 
@@ -21,11 +21,27 @@ Em uma solução de gêmeos digital do Azure, as entidades em seu ambiente são 
 > [!TIP]
 > "Azure digital gêmeos" refere-se a esse serviço do Azure como um todo. "Cópia digital (ões)" ou apenas ""/s "" refere-se a nós de cópia individual na sua instância do serviço.
 
-## <a name="creating-digital-twins"></a>Criação de gêmeos digitais
+## <a name="digital-twins"></a>Gêmeos digital
 
 Antes de criar uma cópia digital em sua instância do gêmeos digital do Azure, você precisa ter um *modelo* carregado para o serviço. Um modelo descreve o conjunto de propriedades, mensagens de telemetria e relações que uma mensagem de grupo pode ter em particular, entre outras coisas. Para os tipos de informações que são definidas em um modelo, consulte [conceitos: modelos personalizados](concepts-models.md).
 
 Depois de criar e carregar um modelo, seu aplicativo cliente pode criar uma instância do tipo; Este é um teledigital. Por exemplo, depois de criar um modelo de *andar*, você pode criar um ou vários gêmeos digitais que usam esse tipo (como um tipo de *chão*de texto chamado *GroundFloor*, outro chamado *Floor2*, etc.). 
+
+## <a name="relationships-a-graph-of-digital-twins"></a>Relações: um grafo de gêmeos digital
+
+Gêmeos são conectados a um grafo de entrelaçamento por suas relações. As relações que um papel de entrelaçar pode ter são definidas como parte de seu modelo.  
+
+Por exemplo, a *base* do modelo pode definir uma relação *Contains que tem* como alvo gêmeos do tipo *Room*. Com essa definição, o gêmeos digital do Azure permitirá que você crie *conterá* relações de qualquer *andar* de cima para qualquer *sala* (incluindo gêmeos que são subtipos de *espaço* ). 
+
+O resultado desse processo é um conjunto de nós (o gêmeos digital) conectado por meio de bordas (suas relações) em um grafo.
+
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+## <a name="create-with-the-apis"></a>Criar com as APIs
+
+Esta seção mostra o que parece criar gêmeos digital e relações de um aplicativo cliente. Ele contém exemplos de código .NET que utilizam as [APIs DigitalTwins](how-to-use-apis-sdks.md), para fornecer contexto adicional sobre o que acontece dentro de cada um desses conceitos.
+
+### <a name="create-digital-twins"></a>Criar gêmeos digitais
 
 Abaixo está um trecho de código de cliente que usa as [APIs DigitalTwins](how-to-use-apis-sdks.md) para criar uma instância de um tipo de *espaço*.
 
@@ -59,11 +75,7 @@ public Task<boolean> CreateRoom(string id, double temperature, double humidity)
 }
 ```
 
-## <a name="relationships-creating-a-graph-of-digital-twins"></a>Relações: criação de um grafo de gêmeos digital
-
-Gêmeos são conectados a um grafo de entrelaçamento por suas relações. As relações que um papel de entrelaçar pode ter são definidas como parte de seu modelo.  
-
-Por exemplo, a *base* do modelo pode definir uma relação *Contains que tem* como alvo gêmeos do tipo *Room*. Com essa definição, o gêmeos digital do Azure permitirá que você crie *conterá* relações de qualquer *andar* de cima para qualquer *sala* (incluindo gêmeos que são subtipos de *espaço* ). 
+### <a name="create-relationships"></a>Criar relações
 
 Aqui está um código de cliente de exemplo que usa as [APIs DigitalTwins](how-to-use-apis-sdks.md) para criar uma relação entre um tipo de andar de um *piso*digital chamado *GroundFloor* e um tipo de *sala*digital de texto chamado *Cafe*.
 
@@ -84,8 +96,6 @@ try
     Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");
 }
 ```
-
-O resultado desse processo é um conjunto de nós (o gêmeos digital) conectado por meio de bordas (suas relações) em um grafo.
 
 ## <a name="json-representations-of-graph-elements"></a>Representações JSON de elementos de grafo
 

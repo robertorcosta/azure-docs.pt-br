@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 009e762b69d4f3512158d69ef3c67089096c9da7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77ea5a354dde7adb006c95e9548d8fcc37e2dc12
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360785"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256859"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Solução de problemas de provisionamento de nuvem
 
@@ -55,9 +55,7 @@ Para verificar se o agente é visto pelo Azure e está íntegro, siga estas etap
 
 ### <a name="verify-the-port"></a>Verificar a porta
 
-Para verificar se o Azure está escutando na porta 443 e se o agente pode se comunicar com ele, use a seguinte ferramenta:
-
-https://aadap-portcheck.connectorporttest.msappproxy.net/ 
+Verifique se o Azure está escutando na porta 443 e se o agente pode se comunicar com ele. 
 
 Esse teste verifica se os agentes podem se comunicar com o Azure pela porta 443. Abra um navegador e vá para a URL anterior do servidor em que o agente está instalado.
 

@@ -3,12 +3,12 @@ title: Saiba mais sobre a segurança do aplicativo Service Fabric do Azure
 description: Uma visão geral de como executar com segurança aplicativos de microsserviço no Service Fabric. Saiba como executar um script de inicialização e serviços em diferentes contas de segurança, autenticar e autorizar usuários, gerenciar segredos de aplicativo, proteger as comunicações de serviço, usar um gateway de API e proteger dados em repouso de aplicativos.
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: c97c5345a1a18cce8c44508542f12d3642d2b8f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f17840f31d2a4c12a1d4618bd16e81dcc2cc8a14
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461422"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256570"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Segurança de serviço e aplicativo do Service Fabric
 Uma arquitetura de microsserviços pode trazer [muitos benefícios](service-fabric-overview-microservices.md). Porém, o gerenciamento da segurança de microsserviços é um desafio que difere do gerenciamento da segurança de aplicativos monolítica tradicional. 
@@ -35,7 +35,7 @@ A [autorização do ASP.NET Core](/dotnet/standard/microservices-architecture/se
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>Restringir e proteger o acesso usando um gateway de API
 Os aplicativos em nuvem geralmente precisam de um gateway front-end para fornecer um ponto de entrada único para usuários, dispositivos ou outros aplicativos. Um [gateway de API](/azure/architecture/microservices/gateway) fica entre clientes e serviços e é o ponto de entrada para todos os serviços que o seu aplicativo fornece. Ele atua como um proxy reverso, encaminhando as solicitações de clientes para serviços. Ele também pode executar várias tarefas abrangentes, como autenticação e autorização, terminação de TLS e limitação de taxa. Se você não implantar um gateway, os clientes deverão enviar solicitações diretamente aos serviços front-end.
 
-No Service Fabric, um gateway pode ser qualquer serviço sem estado, como um [aplicativo ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), ou outro serviço projetado para entrada de tráfego, como [Traefik](https://docs.traefik.io/), [Hubs de Eventos](https://docs.microsoft.com/azure/event-hubs/), [Hub IoT](https://docs.microsoft.com/azure/iot-hub/) ou [Gerenciamento de API do Azure](https://docs.microsoft.com/azure/api-management).
+No Service Fabric, um gateway pode ser qualquer serviço sem estado, como um [aplicativo ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), ou outro serviço projetado para entrada de tráfego, como [Traefik](https://docs.traefik.io/), [Hubs de Eventos](../event-hubs/index.yml), [Hub IoT](../iot-hub/index.yml) ou [Gerenciamento de API do Azure](../api-management/index.yml).
 
 O Gerenciamento de API integra-se diretamente com o Service Fabric, permitindo que APIs sejam publicadas com um conjunto de regras de roteamento avançado para serviços de back-end do Service Fabric .  Você pode proteger o acesso a serviços de back-end, evitar ataques de DOS usando limitação ou verificar chaves de API, tokens de JWT, certificados e outras credenciais. Para saber mais, leia [Service Fabric com visão geral de Gerenciamento de API do Azure](service-fabric-api-management-overview.md).
 
@@ -85,7 +85,7 @@ Você pode estabelecer uma conexão segura entre o proxy reverso e serviços, pe
 A estrutura de aplicativo dos Reliable Services fornece algumas pilhas e ferramentas de comunicação predefinidas que você pode usar para aprimorar a segurança. Aprenda a melhorar a segurança quando você estiver usando a comunicação remota do serviço (em [C#](service-fabric-reliable-services-secure-communication.md) ou [Java](service-fabric-reliable-services-secure-communication-java.md)) ou usando [WCF](service-fabric-reliable-services-secure-communication-wcf.md).
 
 ## <a name="encrypt-application-data-at-rest"></a>Criptografar dados de aplicativos em repouso
-Cada [tipo de nó](service-fabric-cluster-nodetypes.md) em um cluster do [Service Fabric](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) sendo executado no Azure é respaldado por um conjunto de dimensionamento de máquinas virtuais. Usando um modelo do Azure Resource Manager, é possível anexar discos de dados para os conjuntos de dimensionamento que compõem o cluster do Service Fabric.  Se os seus serviços salvarem dados em um disco de dados anexado, você poderá [criptografar esses discos de dados](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) para proteger os dados do aplicativo.
+Cada [tipo de nó](service-fabric-cluster-nodetypes.md) em um cluster do [Service Fabric](../virtual-machine-scale-sets/overview.md) sendo executado no Azure é respaldado por um conjunto de dimensionamento de máquinas virtuais. Usando um modelo do Azure Resource Manager, é possível anexar discos de dados para os conjuntos de dimensionamento que compõem o cluster do Service Fabric.  Se os seus serviços salvarem dados em um disco de dados anexado, você poderá [criptografar esses discos de dados](../virtual-machine-scale-sets/disk-encryption-powershell.md) para proteger os dados do aplicativo.
 
 <!--TO DO: Enable BitLocker on Windows standalone clusters?
 TO DO: Encrypt disks on Linux clusters?-->

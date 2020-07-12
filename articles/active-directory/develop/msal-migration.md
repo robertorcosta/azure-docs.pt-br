@@ -13,12 +13,12 @@ ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 52a4a7131c85231107a2a23a1916016776b219fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f84e479c4780437b09ab463781edbb52d8dfdfaa
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367420"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255618"
 ---
 # <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>Migrar aplicativos para a biblioteca de autenticação da Microsoft (MSAL)
 
@@ -49,7 +49,7 @@ Os artigos a seguir podem ajudá-lo a migrar para o MSAL:
 - [Migrar para a MSAL Python](migrate-python-adal-msal.md)
 - [Migrar aplicativos Xamarin usando agentes para o MSAL.NET](msal-net-migration-ios-broker.md)
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes
+## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
 
 __P: a ADAL está sendo preterida?__  
 A: Sim. A partir de 30 de junho de 2020, não adicionaremos mais novos recursos à ADAL. Continuaremos adicionando correções de segurança críticas à ADAL até 30 de junho de 2022.
@@ -75,5 +75,5 @@ R: consulte a seção [diretrizes de migração](#migration-guidance) deste arti
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Atualizar seus aplicativos para usar a biblioteca de autenticação da Microsoft e a API de Microsoft Graph](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/update-your-applications-to-use-microsoft-authentication-library/ba-p/1257363)
-- [Saiba mais sobre a plataforma de identidade da Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
-- [Examine nossos exemplos de código MSAL](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code)
+- [Visão geral da plataforma Microsoft Identity](v2-overview.md)
+- [Examine nossos exemplos de código MSAL](sample-v2-code.md)

@@ -3,12 +3,12 @@ title: Padrões de rede para o Azure Service Fabric
 description: Descreve os padrões de rede comuns do Service Fabric e como criar um cluster usando os recursos de rede do Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: b9114be5498bcb7fdec4e105ad6e3ff9fcc03a7c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c3664d1890fd318aa1bff508a51cb227bdcc01d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85106627"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258533"
 ---
 # <a name="service-fabric-networking-patterns"></a>Padrões de rede do Service Fabric
 Você pode integrar seu cluster do Azure Service Fabric a outros recursos de rede do Azure. Neste artigo, mostramos como criar clusters que usam os seguintes recursos:
@@ -598,10 +598,9 @@ Após a implantação, você poderá ver dois balanceadores de carga no grupo de
 
 ## <a name="notes-for-production-workloads"></a>Observações para cargas de trabalho de produção
 
-Os modelos do GitHub acima foram projetados para funcionar com o SKU padrão do Standard Load Balancer do Azure (SLB), a SKU básica. Esse SLB não tem SLA, portanto, para cargas de trabalho de produção, o SKU Standard deve ser usado. Para saber mais sobre isso, confira a [visão geral de Standard Load Balancer do Azure](/azure/load-balancer/load-balancer-standard-overview). Qualquer Service Fabric cluster usando o SKU Standard para SLB precisa garantir que cada tipo de nó tenha uma regra que permita o tráfego de saída na porta 443. Isso é necessário para concluir a configuração do cluster e qualquer implantação sem essa regra falhará. No exemplo acima de um balanceador de carga "somente interno", um balanceador de carga externo adicional deve ser adicionado ao modelo com uma regra que permite o tráfego de saída para a porta 443.
+Os modelos do GitHub acima foram projetados para funcionar com o SKU padrão do Standard Load Balancer do Azure (SLB), a SKU básica. Esse SLB não tem SLA, portanto, para cargas de trabalho de produção, o SKU Standard deve ser usado. Para saber mais sobre isso, confira a [visão geral de Standard Load Balancer do Azure](../load-balancer/load-balancer-overview.md). Qualquer Service Fabric cluster usando o SKU Standard para SLB precisa garantir que cada tipo de nó tenha uma regra que permita o tráfego de saída na porta 443. Isso é necessário para concluir a configuração do cluster e qualquer implantação sem essa regra falhará. No exemplo acima de um balanceador de carga "somente interno", um balanceador de carga externo adicional deve ser adicionado ao modelo com uma regra que permite o tráfego de saída para a porta 443.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um cluster](service-fabric-cluster-creation-via-arm.md)
 
 Após a implantação, você poderá ver dois balanceadores de carga no grupo de recursos. Se você procurar os balanceadores de carga, você poderá ver os endereços IP públicos e pontos de extremidade de gerenciamento (portas 19000 e 19080) atribuídos ao endereço IP público. Você também poderá ver o endereço IP interno estático e o ponto de extremidade do aplicativo (porta 80) atribuído ao balanceador de carga interno. Ambos os balanceadores de carga usam o mesmo pool de back-end de conjunto de dimensionamento de máquinas virtuais.
-

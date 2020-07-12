@@ -7,11 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bfdf1263ccee78b57ccf79c63efcc01d95dd13c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d51abab46cd8450dd3a09e5e5ef47e6267b990d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392243"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258095"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerenciar um grafo de gêmeos digital usando relações
 
@@ -20,6 +21,8 @@ O coração do Azure digital gêmeos é o [grafo de entrelaçamento](concepts-tw
 Depois que você tiver uma [instância do gêmeos do Azure digital](how-to-set-up-instance.md) em funcionamento e tiver configurado a [autenticação](how-to-authenticate-client.md) para seu aplicativo cliente, poderá usar as [**APIs do DigitalTwins**](how-to-use-apis-sdks.md) para criar, modificar e excluir gêmeos digitais e suas relações em uma instância do gêmeos digital do Azure. Você também pode usar o [SDK do .net (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou a [CLI do gêmeos digital do Azure](how-to-use-cli.md).
 
 Este artigo se concentra no gerenciamento de relações e no grafo como um todo; para trabalhar com gêmeos digitais individuais, consulte [como gerenciar o digital gêmeos](how-to-manage-twin.md).
+
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## <a name="create-relationships"></a>Criar relações
 
@@ -229,12 +232,12 @@ Considere a tabela de dados a seguir, descrevendo um conjunto de gêmeos e rela�
 | Modelo    | ID | Pai | Nome da Relação | Outros dados |
 | --- | --- | --- | --- | --- |
 | floor    | Floor01 | | | … |
-| quarto    | Room10 | Floor01 | contém | … |
-| quarto    | Room11 | Floor01 | contém | … |
-| quarto    | Room12 | Floor01 | contém | … |
+| quarto    | Room10 | Floor01 | contains | … |
+| quarto    | Room11 | Floor01 | contains | … |
+| quarto    | Room12 | Floor01 | contains | … |
 | floor    | Floor02 | | | … |
-| quarto    | Room21 | Floor02 | contém | … |
-| quarto    | Room22 | Floor02 | contém | … |
+| quarto    | Room21 | Floor02 | contains | … |
+| quarto    | Room22 | Floor02 | contains | … |
 
 O código a seguir usa a [API Microsoft Graph](https://docs.microsoft.com/graph/overview) para ler uma planilha e construir um grafo do Azure digital gêmeos bispersão dos resultados.
 

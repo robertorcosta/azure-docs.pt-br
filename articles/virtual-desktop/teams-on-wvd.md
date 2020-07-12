@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3fc44ca18f237fecd1c694e96f9ebc2d5b541757
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d482b3335b31d116846ec64883b43897fcc4e43d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564455"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255652"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usar o Microsoft Teams na área de trabalho virtual do Windows
 
@@ -32,7 +32,7 @@ Com a otimização de mídia para o Microsoft Teams, o cliente de área de traba
 Antes de poder usar o Microsoft Teams na área de trabalho virtual do Windows, você precisará fazer o seguinte:
 
 - [Prepare sua rede para o](/microsoftteams/prepare-network/) Microsoft Teams.
-- Instale o [cliente de área de trabalho do Windows](connect-windows-7-and-10.md) em um dispositivo Windows 10 ou Windows 10 IOT Enterprise que atenda aos requisitos de hardware do Microsoft Team [para equipes em um computador Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Instale o [cliente de área de trabalho do Windows](connect-windows-7-10.md) em um dispositivo Windows 10 ou Windows 10 IOT Enterprise que atenda aos requisitos de hardware do Microsoft Team [para equipes em um computador Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Conecte-se a uma VM (máquina virtual) do Windows 10 de várias sessões ou do Windows 10 Enterprise.
 - Instale o aplicativo de área de trabalho de equipes no host usando a instalação por máquina. A otimização de mídia para o Microsoft Teams requer o aplicativo de área de trabalho de equipes versão 1.3.00.4461 ou posterior.
 
@@ -47,7 +47,7 @@ Para habilitar a otimização de mídia para equipes, defina a seguinte chave do
 1. No menu Iniciar, execute **regedit** como administrador. Navegue até **HKEY_LOCAL_MACHINE \software\microsoft\teams**.
 2. Crie o seguinte valor para a chave de equipes:
 
-| Nome             | Tipo   | Dados/valor  |
+| Nome             | Type   | Dados/valor  |
 |------------------|--------|-------------|
 | IsWVDEnvironment | DWORD  | 1           |
 

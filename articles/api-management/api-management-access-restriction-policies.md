@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 3ba620d66b84e6724751b2024059e8ecd66888cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6e5012d64f7370c4d81c24324522824bc88584d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690329"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255108"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso do Gerenciamento de API
 
@@ -75,7 +76,7 @@ Use a política `check-header` para impor que uma solicitação tem um cabeçalh
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções de política:** de entrada, de saída
 
@@ -135,7 +136,7 @@ A política `rate-limit` impede picos de uso da API para cada assinatura, limita
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções de política:** de entrada
 
@@ -148,7 +149,7 @@ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documen
 
 A política `rate-limit-by-key` impede picos de uso da API para cada chave, limitando a taxa de chamadas para um número especificado por um período de tempo especificado. A chave pode ter um valor de cadeia de caracteres arbitrária e geralmente é fornecida usando uma expressão de política. A condição de incremento opcional pode ser adicionada para especificar quais solicitações devem ser contadas para obtenção do limite. Quando essa política é disparada, o chamador recebe um código de status de resposta `429 Too Many Requests`.
 
-Para obter mais informações e exemplos dessa política, consulte [Limitação de solicitação avançada com o Gerenciamento de API do Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
+Para obter mais informações e exemplos dessa política, consulte [Limitação de solicitação avançada com o Gerenciamento de API do Azure](./api-management-sample-flexible-throttling.md).
 
 > [!CAUTION]
 > Devido à natureza distribuída da arquitetura de limitação, a limitação de taxa nunca é completamente precisa. A diferença entre a configuração e o número real de solicitações permitidas varia de acordo com o volume e a taxa de solicitação, a latência de back-end e outros fatores.
@@ -199,7 +200,7 @@ No exemplo a seguir, o limite de taxa é codificado pelo endereço IP do chamado
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções de política:** de entrada
 
@@ -246,7 +247,7 @@ No exemplo a seguir, a política só permite solicitações provenientes do ende
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções de política:** de entrada
 -   **Escopos da política:** todos os escopos
@@ -303,7 +304,7 @@ A política `quota` impõe uma cota renovável ou de tempo de vida de volume de 
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções de política:** de entrada
 -   **Escopos de política:** produto
@@ -315,7 +316,7 @@ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documen
 
 A política `quota-by-key` impõe uma cota renovável ou de tempo de vida de volume de chamadas e/ou largura de banda, para cada chave. A chave pode ter um valor de cadeia de caracteres arbitrária e geralmente é fornecida usando uma expressão de política. A condição de incremento opcional pode ser adicionada para especificar quais solicitações devem ser contadas para obtenção da cota. Se várias políticas incrementassem o mesmo valor de chave, ele seria incrementado apenas uma vez por solicitação. Quando essa política é disparada, o chamador recebe um código de status de resposta `403 Forbidden`.
 
-Para obter mais informações e exemplos dessa política, consulte [Limitação de solicitação avançada com o Gerenciamento de API do Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
+Para obter mais informações e exemplos dessa política, consulte [Limitação de solicitação avançada com o Gerenciamento de API do Azure](./api-management-sample-flexible-throttling.md).
 
 ### <a name="policy-statement"></a>Declaração de política
 
@@ -364,7 +365,7 @@ No exemplo a seguir, a cota é codificada pelo endereço IP do chamador.
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções de política:** de entrada
 -   **Escopos da política:** todos os escopos
@@ -533,7 +534,7 @@ Este exemplo mostra como usar a política [validar JWT](api-management-access-re
 
 ### <a name="usage"></a>Uso
 
-Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
+Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 
 -   **Seções de política:** de entrada
 -   **Escopos da política:** todos os escopos
@@ -544,5 +545,5 @@ Para obter mais informações sobre como trabalhar com políticas, consulte:
 
 -   [Políticas no Gerenciamento de API](api-management-howto-policies.md)
 -   [Transformar APIs](transform-api.md)
--   [Referência de Política](api-management-policy-reference.md) para uma lista completa das instruções de política e suas configurações
+-   [Referência de Política](./api-management-policies.md) para uma lista completa das instruções de política e suas configurações
 -   [Exemplos de política](policy-samples.md)

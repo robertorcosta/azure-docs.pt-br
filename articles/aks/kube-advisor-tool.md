@@ -7,11 +7,12 @@ author: seanmck
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 9dc5a38a05ef73863f85e4dbe92d52eb94b2715f
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 2b0078f1aff3ef81ee270f67de0fffddec3abab9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773797"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255244"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Verificar as práticas recomendadas do Kubernetes no seu cluster
 
@@ -28,7 +29,7 @@ A ferramenta kube-advisor pode relatar a solicitação de recursos e os limites 
 
 ## <a name="running-kube-advisor"></a>Executando o Supervisor de kube
 
-Para executar a ferramenta em um cluster configurado para [controle de acesso baseado em função (RBAC)](azure-ad-integration.md), use os seguintes comandos. O primeiro comando cria uma conta de serviço do Kubernetes. O segundo comando executa a ferramenta em um pod usando essa conta de serviço e configura o pod para exclusão após sua saída. 
+Para executar a ferramenta em um cluster configurado para [controle de acesso baseado em função (RBAC)](./azure-ad-integration-cli.md), use os seguintes comandos. O primeiro comando cria uma conta de serviço do Kubernetes. O segundo comando executa a ferramenta em um pod usando essa conta de serviço e configura o pod para exclusão após sua saída. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml

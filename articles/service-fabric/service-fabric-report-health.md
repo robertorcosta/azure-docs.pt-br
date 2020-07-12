@@ -5,11 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 167ca76d0b6977a87352f8219d807949a0e4a301
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5695e8d03f782527cd3a9a2667f3513046d7e76c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392634"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256298"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Adicionar relatórios de integridade personalizados do Service Fabric
 O Azure Service Fabric apresenta um [modelo de integridade](service-fabric-health-introduction.md) desenvolvido para sinalizar condições de cluster e aplicativo não íntegras em entidades específicas. O modelo de integridade usa **relatores de integridade** (componentes do sistema e watchdogs). O objetivo é facilitar e agilizar o diagnóstico e o reparo. Os criadores de serviço precisam pensar à frente sobre a integridade. Qualquer condição que possa afetar a integridade deve ser apontada, especialmente se ela puder ajudar a sinalizar problemas próximos da raiz. As informações de integridade podem economizar tempo e esforço na investigação e depuração. A utilidade é especialmente clara quando o serviço está em funcionamento em grande escala na nuvem (Azure ou privada).
@@ -37,7 +38,7 @@ Conforme mencionado, o relatório pode ser gerado:
 > 
 > 
 
-Uma vez o design de relatório de integridade estiver claro, os relatórios de integridade poderão ser enviados facilmente. Você poderá usar o [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) para relatar a integridade se o cluster não for [seguro](service-fabric-cluster-security.md) ou se o cliente de malha tiver privilégios administrativos. O relatório pode ser produzido pela API usando o [FabricClient.HealthManager.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), por meio do PowerShell ou REST. Botões de configuração que dividem os relatórios em lotes para melhor desempenho.
+Uma vez o design de relatório de integridade estiver claro, os relatórios de integridade poderão ser enviados facilmente. Você poderá usar o [FabricClient](/dotnet/api/system.fabric.fabricclient) para relatar a integridade se o cluster não for [seguro](service-fabric-cluster-security.md) ou se o cliente de malha tiver privilégios administrativos. O relatório pode ser produzido pela API usando o [FabricClient.HealthManager.ReportHealth](/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), por meio do PowerShell ou REST. Botões de configuração que dividem os relatórios em lotes para melhor desempenho.
 
 > [!NOTE]
 > O relatório de integridade é síncrono e representa apenas o trabalho de validação no lado do cliente. O fato de que o relatório é aceito pelo cliente de integridade, ou pelos objetos `Partition` ou `CodePackageActivationContext`, não significa que ele será aplicado no repositório. Ele será enviado de forma assíncrona e, possivelmente, em lote com outros relatórios. O processamento no servidor ainda pode falhar: o número de sequência é obsoleto, a entidade na qual o relatório deve ser aplicado foi excluída, etc.
@@ -57,7 +58,7 @@ Os relatórios de integridade são enviados para o Gerenciador de integridade po
 > 
 
 O armazenamento em buffer no cliente leva a exclusividade dos relatórios em consideração. Por exemplo, se um relator específico com problemas estiver relatando 100 relatórios por segundo na mesma propriedade da mesma entidade, os relatórios serão substituídos pela versão mais recente. Existe, no máximo, um relatório como este na fila do cliente. Se o envio em lote estiver configurado, o número de relatórios enviados para o Gerenciador de integridade será apenas um por intervalo de envio. Este relatório é o último adicionado, que reflete o estado mais atual da entidade.
-Os parâmetros de configuração podem ser especificados quando `FabricClient` é criado, passando o [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) com os valores desejados para as entradas relacionadas à integridade.
+Os parâmetros de configuração podem ser especificados quando `FabricClient` é criado, passando o [FabricClientSettings](/dotnet/api/system.fabric.fabricclientsettings) com os valores desejados para as entradas relacionadas à integridade.
 
 O exemplo a seguir cria um cliente de malha e especifica que os relatórios devem ser enviados quando forem adicionados. Em tempos limite e erros que podem ser recuperados, as repetições ocorrem a cada 40 segundos.
 
@@ -71,7 +72,7 @@ var clientSettings = new FabricClientSettings()
 var fabricClient = new FabricClient(clientSettings);
 ```
 
-Recomendamos manter as configurações padrão de cliente de malha, que definem `HealthReportSendInterval` para 30 segundos. Essa configuração garante um desempenho ideal devido ao envio em lote. Para relatórios importantes que devem ser enviados o quanto antes, use `HealthReportSendOptions` com `true` imediato na API do [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth). Relatórios imediatos ignoram o intervalo de envio em lote. Use este sinalizador com cuidado. Queremos aproveitar o envio em lote do cliente de integridade sempre que possível. O envio imediato também é útil quando o cliente de malha está em encerramento (por exemplo, o processo determinou estado inválido e precisa ser desligado para evitar efeitos colaterais). Isso garante envios de melhor esforço dos relatórios acumulados. Quando um relatório é adicionado com o sinalizador de Imediato, o cliente de integridade envia em lote todos os relatórios acumulados desde o último envio.
+Recomendamos manter as configurações padrão de cliente de malha, que definem `HealthReportSendInterval` para 30 segundos. Essa configuração garante um desempenho ideal devido ao envio em lote. Para relatórios importantes que devem ser enviados o quanto antes, use `HealthReportSendOptions` com `true` imediato na API do [FabricClient.HealthClient.ReportHealth](/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth). Relatórios imediatos ignoram o intervalo de envio em lote. Use este sinalizador com cuidado. Queremos aproveitar o envio em lote do cliente de integridade sempre que possível. O envio imediato também é útil quando o cliente de malha está em encerramento (por exemplo, o processo determinou estado inválido e precisa ser desligado para evitar efeitos colaterais). Isso garante envios de melhor esforço dos relatórios acumulados. Quando um relatório é adicionado com o sinalizador de Imediato, o cliente de integridade envia em lote todos os relatórios acumulados desde o último envio.
 
 Os mesmos parâmetros podem ser especificados ao criar uma conexão com um cluster por meio do PowerShell. Veja abaixo o início de uma conexão com um cluster local:
 
@@ -113,12 +114,12 @@ Para REST, os relatórios são enviados para o gateway do Service Fabric, que te
 ## <a name="report-from-within-low-privilege-services"></a>Relatório nos serviços de baixo privilégio
 Se os serviços do Service Fabric não têm acesso administrativo ao cluster, você pode enviar relatórios de integridade sobre entidades do contexto atual por meio de `Partition` ou `CodePackageActivationContext`.
 
-* Em serviços sem estado, use [IStatelessServicePartition.ReportInstanceHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) para relatar a instância atual do serviço.
-* Em serviços com estado, use [IStatefulServicePartition.ReportReplicaHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) para relatar a réplica atual.
-* Use [IServicePartition.ReportPartitionHealth](https://docs.microsoft.com/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) para relatar a entidade de partição atual.
-* Use [CodePackageActivationContext.ReportApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) para relatar o aplicativo atual.
-* Use [CodePackageActivationContext.ReportDeployedApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) para relatar o aplicativo atual implantado no nó atual.
-* Use [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) para enviar relatório sobre um pacote de serviços ao aplicativo atual implantado no nó atual.
+* Em serviços sem estado, use [IStatelessServicePartition.ReportInstanceHealth](/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) para relatar a instância atual do serviço.
+* Em serviços com estado, use [IStatefulServicePartition.ReportReplicaHealth](/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) para relatar a réplica atual.
+* Use [IServicePartition.ReportPartitionHealth](/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) para relatar a entidade de partição atual.
+* Use [CodePackageActivationContext.ReportApplicationHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) para relatar o aplicativo atual.
+* Use [CodePackageActivationContext.ReportDeployedApplicationHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) para relatar o aplicativo atual implantado no nó atual.
+* Use [CodePackageActivationContext.ReportDeployedServicePackageHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) para enviar relatório sobre um pacote de serviços ao aplicativo atual implantado no nó atual.
 
 > [!NOTE]
 > Internamente, `Partition` e `CodePackageActivationContext` mantêm um cliente de integridade que é configurado com parâmetros padrão. Conforme explicado para o [cliente de integridade](service-fabric-report-health.md#health-client), os relatórios são reunidos e enviados em lote de acordo com um temporizador. Os objetos devem ser mantidos ativos para tentar enviar o relatório.
@@ -289,7 +290,7 @@ HealthEvents          :
 ```
 
 ### <a name="rest"></a>REST
-Envie relatórios de integridade usando o REST com solicitações POST que vão para a entidade desejada e têm, no corpo, a descrição do relatório de integridade. Por exemplo, veja como enviar [relatórios de integridade do cluster](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster) ou [relatórios de integridade do serviço](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service) de REST. Todas as entidades têm suporte.
+Envie relatórios de integridade usando o REST com solicitações POST que vão para a entidade desejada e têm, no corpo, a descrição do relatório de integridade. Por exemplo, veja como enviar [relatórios de integridade do cluster](/rest/api/servicefabric/report-the-health-of-a-cluster) ou [relatórios de integridade do serviço](/rest/api/servicefabric/report-the-health-of-a-service) de REST. Todas as entidades têm suporte.
 
 ## <a name="next-steps"></a>Próximas etapas
 Com base nos dados de integridade, os criadores de serviço e administradores de cluster/aplicativo podem pensar em maneiras de consumir as informações. Por exemplo, eles podem configurar alertas com base no status de integridade para capturar problemas graves antes que eles provoquem interrupções. Os administradores também podem definir os sistemas de reparo para corrigir problemas automaticamente.
@@ -305,4 +306,3 @@ Com base nos dados de integridade, os criadores de serviço e administradores de
 [Monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
-

@@ -4,11 +4,12 @@ description: Aprenda a controlar o acesso ao arquivo de configuração Kubernete
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 87f4dc18fc595242117e10233d4fecd77e66373f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d25babd13bb8ecdcd8c9eb60a976a05702fb9b6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82890890"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255261"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Usar os controles de acesso baseado em função do Azure para definir o acesso ao arquivo de configuração do Kubernetes no AKS (Serviço de Kubernetes do Azure)
 
@@ -153,5 +154,5 @@ Para segurança aprimorada no acesso aos clusters do AKS, [integre a autenticaç
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-role-assignment-delete]: /cli/azure/role/assignment#az-role-assignment-delete
-[aad-integration]: azure-ad-integration.md
+[aad-integration]: ./azure-ad-integration-cli.md
 [az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show

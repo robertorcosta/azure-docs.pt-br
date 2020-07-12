@@ -5,11 +5,12 @@ author: grzuber
 ms.topic: article
 ms.date: 05/09/2019
 ms.author: grzuber
-ms.openlocfilehash: 344fef70522240da2236a020c96308c472c9c545
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 983d45a7a240701fa6441d2d9edeeda16f1ed18b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75463104"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256485"
 ---
 # <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnosticar erros de pacote de código comum usando Service Fabric
 
@@ -56,6 +57,6 @@ Código de saída | Valor hexadecimal | Descrição breve | Causa raiz | Correç
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre como [diagnosticar outros cenários comuns](service-fabric-diagnostics-common-scenarios.md).
-* Obtenha uma visão geral mais detalhada dos logs de Azure Monitor e o que eles oferecem lendo [Azure monitor visão geral](../operations-management-suite/operations-management-suite-overview.md).
-* Saiba mais sobre [alertas](../log-analytics/log-analytics-alerts.md) de Azure monitor logs para auxiliar na detecção e no diagnóstico.
-* Familiarize-se com os recursos de [pesquisa de logs e consulta](../log-analytics/log-analytics-log-searches.md) oferecidos como parte dos logs de Azure monitor.
+* Obtenha uma visão geral mais detalhada dos logs de Azure Monitor e o que eles oferecem lendo [Azure monitor visão geral](../azure-monitor/overview.md).
+* Saiba mais sobre [alertas](../azure-monitor/platform/alerts-overview.md) de Azure monitor logs para auxiliar na detecção e no diagnóstico.
+* Familiarize-se com os recursos de [pesquisa de logs e consulta](../azure-monitor/log-query/log-query-overview.md) oferecidos como parte dos logs de Azure monitor.

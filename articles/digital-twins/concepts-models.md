@@ -7,11 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: a1bb07ee900622b138a556a33469641e4e8310af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab0b08c01478d1375ec2a234dc0277980312f17c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392294"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258270"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Entender os modelos de entrelaçamento no Azure digital gêmeos
 
@@ -196,9 +197,14 @@ A interface de extensão não pode alterar nenhuma das definições das interfac
 
 ## <a name="validating-models"></a>Validando modelos
 
-Há um exemplo disponível para validar documentos de modelo para certificar-se de que o DTDL é válido. Ele é criado na biblioteca do analisador DTDL e não é independente de linguagem. Encontre aqui: [exemplo de validador de DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+> [!TIP]
+> É recomendável validar seus modelos offline antes de carregá-los na instância do gêmeos digital do Azure.
 
-Ou, para obter mais informações sobre a biblioteca do analisador, incluindo um exemplo de como usá-la diretamente, consulte [como analisar e validar modelos](how-to-use-parser.md).
+Há um exemplo independente de linguagem disponível para validar documentos de modelo para verificar se o DTDL está correto. Ele está localizado aqui: [**exemplo de validador de DTDL**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+
+O exemplo do validador DTDL é criado em uma biblioteca do analisador do .NET DTDL, que está disponível no NuGet como uma biblioteca do lado do cliente: [**Microsoft. Azure. DigitalTwins. Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). Você também pode usar a biblioteca diretamente para criar sua própria solução de validação. Ao usar a biblioteca do analisador, certifique-se de usar uma versão compatível com a versão que o Azure digital gêmeos está executando. Durante a visualização, esta é a versão *3.7.0*.
+
+Você pode aprender mais sobre a biblioteca do analisador, incluindo exemplos de uso, em [instruções: analisar e validar modelos](how-to-use-parser.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

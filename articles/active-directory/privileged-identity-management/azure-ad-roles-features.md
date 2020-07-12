@@ -1,27 +1,25 @@
 ---
-title: Gerenciando funções do Azure AD no Privileged Identity Management (PIM) | Microsoft Docs
+title: Recursos de função do Azure AD no Privileged Identity Management | Microsoft Docs
 description: Como gerenciar funções do Azure AD para Privileged Identity Management de atribuição (PIM)
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: pim
-ms.devlang: na
-ms.topic: how-to
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 07/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 501efaf2e9e97f37521daa770e6c760cc794fa36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54a286ed63d842dba08ad545b17498cb4000a5cf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742854"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256621"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Recursos de gerenciamento para funções do Azure AD no Privileged Identity Management
 
@@ -29,28 +27,30 @@ A experiência de gerenciamento das funções do Azure AD no Privileged Identity
 
 Com a atualização sendo distribuída no momento, estamos mesclando as duas em uma única experiência de gerenciamento e, nela, você obtém a mesma funcionalidade para as funções do Azure AD como as funções de recursos do Azure. Este artigo informa sobre os recursos atualizados e quaisquer requisitos.
 
-
 ## <a name="time-bound-assignments"></a>Atribuições de limite de tempo
 
-Anteriormente, em Privileged Identity Management para as funções do Azure AD, você estava familiarizado com as atribuições de função com dois Estados possíveis – *elegíveis* e *permanentes*. Agora você pode definir uma hora de início e de término para cada tipo de atribuição. Essa adição fornece quatro possíveis Estados nos quais você pode fazer uma atribuição:
+Anteriormente, havia dois Estados possíveis para as atribuições de função: *elegíveis* e *permanentes*. Agora você também pode definir uma hora de início e de término para cada tipo de atribuição. Essa adição oferece quatro Estados possíveis em que você pode fazer uma atribuição:
 
 - Qualificado permanentemente
 - Ativo permanentemente
-- Qualificado, com datas de início/término especificadas para atribuição
-- Ativo, com datas de início/término especificadas para atribuição
+- Qualificado, com datas de início e de término especificadas para atribuição
+- Ativo, com datas de início e de término especificadas para atribuição
 
 Em muitos casos, mesmo que você não queira que os usuários tenham funções qualificadas de atribuição e ativação todas as vezes, você ainda pode proteger sua organização do Azure AD definindo um tempo de expiração para atribuições. Por exemplo, se você tiver alguns usuários temporários qualificados, considere definir uma expiração para removê-los automaticamente da atribuição de função quando seu trabalho for concluído.
 
 ## <a name="new-role-settings"></a>Novas configurações de função
 
-Também estamos adicionando novas configurações para as funções do Azure AD. Anteriormente, você podia definir apenas as configurações de ativação por função. Ou seja, as configurações de ativação, como requisitos de autenticação multifator e requisitos de incidente/solicitação de tíquete, foram aplicadas a todos os usuários qualificados para uma função especificada. Agora, você pode configurar se um usuário individual precisa executar a autenticação multifator antes de poder ativar uma função. Além disso, você pode ter controle avançado sobre seus emails de Privileged Identity Management relacionados a funções específicas.
+Também estamos adicionando novas configurações para as funções do Azure AD.
+
+- **Anteriormente**, você podia definir apenas as configurações de ativação por função. Ou seja, as configurações de ativação, como requisitos de autenticação multifator e requisitos de incidente/solicitação de tíquete, foram aplicadas a todos os usuários qualificados para uma função especificada.
+- **Agora**, você pode configurar se um usuário individual precisa executar a autenticação multifator antes de poder ativar uma função. Além disso, você pode ter controle avançado sobre seus emails de Privileged Identity Management relacionados a funções específicas.
 
 ## <a name="extend-and-renew-assignments"></a>Estender e renovar atribuições
 
 Assim que você descobrir a atribuição de tempo limite, a primeira pergunta que você pode fazer é o que acontece se uma função tiver expirado? Nesta nova versão, fornecemos duas opções para este cenário:
 
-- Estender – quando uma atribuição de função se aproxima de sua expiração, o usuário pode usar Privileged Identity Management para solicitar uma extensão para essa atribuição de função
-- Renovar – quando uma atribuição de função tiver expirado, o usuário poderá usar Privileged Identity Management para solicitar uma renovação para essa atribuição de função
+- **Estender**: quando uma atribuição de função se aproxima de sua expiração, o usuário pode usar Privileged Identity Management para solicitar uma extensão para essa atribuição de função
+- **Renovar**: quando uma atribuição de função tiver expirado, o usuário poderá usar Privileged Identity Management para solicitar uma renovação para essa atribuição de função
 
 As duas ações iniciadas pelo usuário exigem uma aprovação de um administrador global ou de um administrador de função com privilégios. Os administradores não precisarão mais estar no negócio de gerenciar essas expirações. Eles só precisam aguardar as solicitações de extensão ou renovação e aprová-las se a solicitação for válida.
 

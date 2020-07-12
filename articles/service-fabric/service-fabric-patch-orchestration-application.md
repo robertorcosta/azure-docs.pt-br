@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 5a5ffdf217483c60836f67213c20ff3afd9043d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43b6f5d4367cfc641183a17fda89cf1381c22a6c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82608908"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258600"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Windows em seu cluster do Service Fabric
 
@@ -28,7 +28,7 @@ ms.locfileid: "82608908"
 > A partir de 30 de abril de 2019, o aplicativo de orquestração de patch versão 1,2. * não é mais suportado. Certifique-se de atualizar para a versão mais recente.
 
 > [!NOTE]
-> Obter [atualizações automáticas de imagem do sistema operacional em seu conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) é a melhor prática para manter seu sistema operacional corrigido no Azure. O conjunto de dimensionamento de máquinas virtuais baseado em atualizações automáticas de imagem de so exigirá uma durabilidade prateada ou maior em uma escala.
+> Obter [atualizações automáticas de imagem do sistema operacional em seu conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) é a melhor prática para manter seu sistema operacional corrigido no Azure. O conjunto de dimensionamento de máquinas virtuais baseado em atualizações automáticas de imagem de so exigirá uma durabilidade prateada ou maior em uma escala.
 >
 
  O POA (aplicativo de orquestração de patch) é um wrapper em todo o serviço de Gerenciador de Reparos Service Fabric do Azure, que permite o agendamento de patches de so baseado em configuração para clusters não hospedados no Azure. O POA não é necessário para clusters não hospedados no Azure, mas o agendamento de instalação de patch por domínio de atualização é necessário para patches Service Fabric hosts de cluster sem incorrer em tempo de inatividade.
@@ -82,9 +82,9 @@ Você pode habilitar Gerenciador de Reparos do portal do Azure ao configurar o c
 ![Imagem de habilitação de Gerenciador de Reparos do portal do Azure](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### <a name="the-azure-resource-manager-deployment-model"></a>O modelo de implantação Azure Resource Manager
-Como alternativa, você pode usar o [modelo de implantação Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) para habilitar o serviço de Gerenciador de reparos em clusters de Service Fabric novos e existentes. Obtenha o modelo para o cluster que você deseja implantar. Você pode usar os modelos de exemplo ou criar um modelo de implantação do Azure Resource Manager personalizado. 
+Como alternativa, você pode usar o [modelo de implantação Azure Resource Manager](./service-fabric-cluster-creation-via-arm.md) para habilitar o serviço de Gerenciador de reparos em clusters de Service Fabric novos e existentes. Obtenha o modelo para o cluster que você deseja implantar. Você pode usar os modelos de exemplo ou criar um modelo de implantação do Azure Resource Manager personalizado. 
 
-Para habilitar o serviço de Gerenciador de Reparos usando o [modelo de modelo de implantação Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm), faça o seguinte:
+Para habilitar o serviço de Gerenciador de Reparos usando o [modelo de modelo de implantação Azure Resource Manager](./service-fabric-cluster-creation-via-arm.md), faça o seguinte:
 
 1. Verifique se `apiVersion` o está definido como *2017-07-01-Preview* para o recurso *Microsoft. perfabric/clusters* . Se for diferente, você precisará atualizar `apiVersion` para *2017-07-01-Preview* ou posterior:
 
@@ -113,11 +113,11 @@ Para habilitar o serviço de Gerenciador de Reparos usando o [modelo de modelo d
 
 ### <a name="standalone-on-premises-clusters"></a>Clusters locais autônomos
 
-Para habilitar o serviço de Gerenciador de Reparos em um cluster de Service Fabric novo ou existente, você pode usar as [definições de configuração para o cluster autônomo do Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest).
+Para habilitar o serviço de Gerenciador de Reparos em um cluster de Service Fabric novo ou existente, você pode usar as [definições de configuração para o cluster autônomo do Windows](./service-fabric-cluster-manifest.md).
 
 Para habilitar o serviço de Gerenciador de Reparos:
 
-1. Verifique se `apiVersion` [as configurações de cluster geral](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest#general-cluster-configurations) estão definidas como *04-2017* ou posteriores, conforme mostrado aqui:
+1. Verifique se `apiVersion` [as configurações de cluster geral](./service-fabric-cluster-manifest.md#general-cluster-configurations) estão definidas como *04-2017* ou posteriores, conforme mostrado aqui:
 
     ```json
     {
@@ -139,7 +139,7 @@ Para habilitar o serviço de Gerenciador de Reparos:
     ],
     ```
 
-1. Atualize o manifesto do cluster com essas alterações usando o manifesto de cluster atualizado [crie um novo cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) ou [atualize a configuração do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server). 
+1. Atualize o manifesto do cluster com essas alterações usando o manifesto de cluster atualizado [crie um novo cluster](./service-fabric-cluster-creation-for-windows-server.md) ou [atualize a configuração do cluster](./service-fabric-cluster-upgrade-windows-server.md). 
 
    Depois que o cluster estiver em execução com um manifesto de cluster atualizado, você poderá ver o serviço de Gerenciador de Reparos em execução no cluster. Ele é chamado de *Fabric:/System/RepairManagerService*e está na seção serviços do sistema em Service Fabric Explorer.
 
@@ -160,13 +160,13 @@ Você pode configurar o comportamento do POA para atender às suas necessidades.
 |MaxResultsToCache    |long                              | O número máximo de resultados de Windows Update que devem ser armazenados em cache. <br><br>O valor padrão é 3000, supondo que: <br> &nbsp;&nbsp;-O número de nós é 20. <br> &nbsp;&nbsp;-O número de atualizações para um nó por mês é 5. <br> &nbsp;&nbsp;-O número de resultados por operação pode ser 10. <br> &nbsp;&nbsp;-Os resultados dos últimos três meses devem ser armazenados. |
 |TaskApprovalPolicy   |Enumeração <br> { NodeWise, UpgradeDomainWise }                          |A TaskApprovalPolicy indica a política a ser usada pelo Serviço do Coordinator para instalar atualizações do Windows em todos os nós de cluster do Service Fabric.<br><br>Os valores permitidos são: <br>*NodeWise*: as atualizações do Windows são instaladas em um nó por vez. <br> *UpgradeDomainWise*: as atualizações do Windows são instaladas em um domínio de atualização por vez. (No máximo, todos os nós que pertencem a um domínio de atualização podem ir para um Windows Update.)<br><br> Para ajudar a decidir qual política é mais adequada para seu cluster, consulte a seção [perguntas frequentes](#frequently-asked-questions) .
 |LogsDiskQuotaInMB   |long  <br> (Padrão: *1024*)               | O tamanho máximo dos logs do aplicativo de orquestração de patch em MB, que pode ser persistido localmente em nós.
-| WUQuery               | string<br>(Padrão: *IsInstalled = 0*)                | Consulta para obter atualizações do Windows. Para obter mais informações, consulte [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | *Boolean* <br> (padrão: false)                 | Use esse sinalizador para controlar quais atualizações devem ser baixadas e instaladas. Os seguintes valores são permitidos <br>true – instala somente as atualizações do sistema operacional Windows.<br>false – instala todas as atualizações disponíveis no computador.          |
+| WUQuery               | string<br>(Padrão: *IsInstalled = 0*)                | Consulta para obter atualizações do Windows. Para obter mais informações, consulte [WuQuery.](/windows/win32/api/wuapi/nf-wuapi-iupdatesearcher-search)
+| InstallWindowsOSOnlyUpdates | *Booliano* <br> (padrão: false)                 | Use esse sinalizador para controlar quais atualizações devem ser baixadas e instaladas. Os seguintes valores são permitidos <br>true – instala somente as atualizações do sistema operacional Windows.<br>false – instala todas as atualizações disponíveis no computador.          |
 | WUOperationTimeOutInMinutes | Int <br>(Padrão: *90*)                   | Especifica o tempo limite para qualquer operação do Windows Update (pesquisar, baixar ou instalar). Se a operação não for concluída dentro do tempo limite especificado, ela será anulada.       |
 | WURescheduleCount     | Int <br> (Padrão: *5*)                  | O número máximo de vezes que o serviço reagendará o Windows Update se uma operação falhar de forma persistente.          |
 | WURescheduleTimeInMinutes | Int <br>(Padrão: *30*) | O intervalo no qual o serviço reagendará as atualizações do Windows se a falha persistir. |
 | WUFrequency           | Cadeia de caracteres separada por vírgula (padrão: *semanalmente, quarta-feira, 7:00:00*)     | A frequência de instalação das atualizações do Windows. O formato e os valores possíveis são: <br>-Mensal, DD, HH: MM: SS (exemplo: *mensal, 5, 12:22:32*). Os valores permitidos para o campo _DD_ (Day) são números de 1 a 28 e _Last_. <br>-Semanalmente, dia, HH: MM: SS (exemplo: *semanalmente, terça-feira, 12:22:32*)  <br>-Diário, HH: MM: SS (exemplo: *Daily, 12:22:32*)  <br>-Week, Day, HH: MM: SS (exemplo: *2, sexta-feira, 21:00:00* indica 9:00 PM UTC na sexta-feira da segunda semana de cada mês) <br>- *Nenhum* indica que as atualizações do Windows não devem ser feitas.  <br><br> Os horários estão em UTC.|
-| AcceptWindowsUpdateEula | Boolean <br>(Padrão: *true*) | Ao definir esse sinalizador, o aplicativo aceita o Contrato de licença do usuário final para o Windows Update em nome do proprietário do computador.              |
+| AcceptWindowsUpdateEula | Booliano <br>(Padrão: *true*) | Ao definir esse sinalizador, o aplicativo aceita o Contrato de licença do usuário final para o Windows Update em nome do proprietário do computador.              |
 
 > [!TIP]
 > Se você quiser que as atualizações do Windows ocorram imediatamente, defina `WUFrequency` em relação ao tempo de implantação do aplicativo. Por exemplo, suponha que você tem um cluster de teste de cinco nós e planeja implantar o aplicativo em torno de 5:00 PM UTC. Se você assumir que a atualização ou a implantação do aplicativo levará 30 minutos no máximo, defina o WUFrequency como *diário, 17:30:00*.
@@ -174,7 +174,7 @@ Você pode configurar o comportamento do POA para atender às suas necessidades.
 ## <a name="deploy-poa"></a>Implantar POA
 
 1. Conclua todas as etapas necessárias para preparar o cluster.
-1. Implante POA como qualquer outro aplicativo Service Fabric. Para implantá-lo usando o PowerShell, consulte [implantar e remover aplicativos usando o PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
+1. Implante POA como qualquer outro aplicativo Service Fabric. Para implantá-lo usando o PowerShell, consulte [implantar e remover aplicativos usando o PowerShell](./service-fabric-deploy-remove-applications.md).
 1. Para configurar o aplicativo no momento da implantação, passe o `ApplicationParameter` para o cmdlet `New-ServiceFabricApplication`. Para sua conveniência, fornecemos o script Deploy.ps1 juntamente com o aplicativo. Para usar o script:
 
     - Conectar a um cluster do Service Fabric usando `Connect-ServiceFabricCluster`.
@@ -185,11 +185,11 @@ Você pode configurar o comportamento do POA para atender às suas necessidades.
 
 ## <a name="upgrade-poa"></a>Atualizar POA
 
-Para atualizar sua versão do POA usando o PowerShell, siga as instruções em [Service Fabric atualização do aplicativo usando o PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-tutorial-powershell).
+Para atualizar sua versão do POA usando o PowerShell, siga as instruções em [Service Fabric atualização do aplicativo usando o PowerShell](./service-fabric-application-upgrade-tutorial-powershell.md).
 
 ## <a name="remove-poa"></a>Remover POA
 
-Para remover o aplicativo, siga as instruções em [implantar e remover aplicativos usando o PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
+Para remover o aplicativo, siga as instruções em [implantar e remover aplicativos usando o PowerShell](./service-fabric-deploy-remove-applications.md).
 
 Para sua conveniência, fornecemos o script Undeploy.ps1 junto com o aplicativo. Para usar o script:
 
@@ -240,7 +240,7 @@ Campo | Valores | Detalhes
 OperationResult | 0 - Êxito<br> 1 - Êxito com erros<br> 2 - Falha<br> 3 - Anulado<br> 4 - Anulado com tempo limite | Indica o resultado da operação geral, que normalmente envolve a instalação de uma ou mais atualizações.
 ResultCode | O mesmo que OperationResult | Esse campo indica o resultado da operação de instalação para uma atualização individual.
 OperationType | 1 - Instalação<br> 0-Pesquisar e baixar| Por padrão, a instalação é o único OperationType mostrado nos resultados.
-WindowsUpdateQuery | O padrão é "IsInstalled=0" | A consulta Windows Update que foi usada para Pesquisar atualizações. Para obter mais informações, consulte [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
+WindowsUpdateQuery | O padrão é "IsInstalled=0" | A consulta Windows Update que foi usada para Pesquisar atualizações. Para obter mais informações, consulte [WuQuery](/windows/win32/api/wuapi/nf-wuapi-iupdatesearcher-search).
 RebootRequired | true - a reinicialização foi necessária<br> false - a reinicialização não foi necessária | Indica se uma reinicialização foi necessária para concluir a instalação das atualizações.
 OperationStartTime | Datetime | Indica a hora em que a operação (download/instalação) foi iniciada.
 Operationtime | Datetime | Indica a hora em que a operação (download/instalação) foi concluída.
@@ -258,7 +258,7 @@ Se o proxy reverso estiver habilitado no cluster, você também poderá acessar 
 
 O ponto de extremidade que você precisa atingir é *http:// &lt; ServerURL &gt; : &lt; REVERSEPROXYPORT &gt; /PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults*.
 
-Para habilitar o proxy reverso no cluster, siga as instruções em [proxy reverso no Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy). 
+Para habilitar o proxy reverso no cluster, siga as instruções em [proxy reverso no Azure Service Fabric](./service-fabric-reverseproxy.md). 
 
 > 
 > [!WARNING]
@@ -271,17 +271,17 @@ Esta seção discute como depurar ou diagnosticar problemas com atualizações d
 > [!NOTE]
 > Para obter muitos dos seguintes aprimoramentos de diagnóstico, desconhecidos, você deve ter o POA versão 1.4.0 ou posterior instalado.
 
-O NTService do agente de nó cria [tarefas de reparo](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) para instalar atualizações nos nós. Cada tarefa é preparada pelo serviço de coordenador de acordo com a política de aprovação de tarefa. Por fim, as tarefas preparadas são aprovadas por Gerenciador de Reparos, que não aprova nenhuma tarefa se o cluster estiver em um estado não íntegro. 
+O NTService do agente de nó cria [tarefas de reparo](/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) para instalar atualizações nos nós. Cada tarefa é preparada pelo serviço de coordenador de acordo com a política de aprovação de tarefa. Por fim, as tarefas preparadas são aprovadas por Gerenciador de Reparos, que não aprova nenhuma tarefa se o cluster estiver em um estado não íntegro. 
 
 Para ajudá-lo a entender como as atualizações procedem em um nó, vamos passar passo a passo:
 
 1. NodeAgentNTService, em execução em cada nó, procura atualizações disponíveis do Windows no horário agendado. Se as atualizações estiverem disponíveis, elas serão baixadas no nó.
 
-1. Depois que as atualizações forem baixadas, o NTService do agente de nó criará uma tarefa de reparo correspondente para o nó com o nome *POS___ \<unique_id> *. Você pode exibir essas tarefas de reparo usando o cmdlet [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) ou usando o SFX na seção detalhes do nó. Depois que a tarefa de reparo for criada, ela passará rapidamente para o [estado *declarado* ](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
+1. Depois que as atualizações forem baixadas, o NTService do agente de nó criará uma tarefa de reparo correspondente para o nó com o nome *POS___ \<unique_id> *. Você pode exibir essas tarefas de reparo usando o cmdlet [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) ou usando o SFX na seção detalhes do nó. Depois que a tarefa de reparo for criada, ela passará rapidamente para o [estado *declarado* ](/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
 
 1. Periodicamente, o serviço de coordenador procura tarefas de reparo no estado *declarado* e, em seguida, atualiza-as para *preparando* o estado com base em a taskapprovalpolicy. Se A taskapprovalpolicy estiver configurado para ser NodeWise, uma tarefa de reparo que corresponde a um nó será preparada somente se nenhuma outra tarefa de reparo estiver atualmente em *preparação*, *aprovado*, em *execução*ou em estado de *restauração* . 
 
-   Da mesma forma, no caso de UpgradeWise A taskapprovalpolicy, há tarefas nos Estados anteriores somente para os nós que pertencem ao mesmo domínio de atualização. Depois que uma tarefa de reparo for movida para o estado de *preparação* , o nó de Service Fabric correspondente será [desabilitado](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) com a intenção definida para *reiniciar*.
+   Da mesma forma, no caso de UpgradeWise A taskapprovalpolicy, há tarefas nos Estados anteriores somente para os nós que pertencem ao mesmo domínio de atualização. Depois que uma tarefa de reparo for movida para o estado de *preparação* , o nó de Service Fabric correspondente será [desabilitado](/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) com a intenção definida para *reiniciar*.
 
    POA versões 1.4.0 e posteriores postam eventos com a propriedade ClusterPatchingStatus em CoordinatorService para exibir os nós que estão sendo corrigidos. As atualizações são instaladas em _poanode_0, conforme mostrado na imagem a seguir:
 
@@ -300,7 +300,7 @@ Para ajudá-lo a entender como as atualizações procedem em um nó, vamos passa
 
    [![Imagem do status da operação de Windows Update](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
-   Você também pode obter os detalhes usando o PowerShell. Para fazer isso, você se conecta ao cluster e busca o estado da tarefa de reparo usando [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). 
+   Você também pode obter os detalhes usando o PowerShell. Para fazer isso, você se conecta ao cluster e busca o estado da tarefa de reparo usando [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). 
    
    No exemplo a seguir, a tarefa "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15" está no estado *DownloadComplete* . Isso significa que as atualizações foram baixadas no nó *poanode_2* , e a instalação será tentada quando a tarefa for movida para o estado de *execução* .
 
@@ -334,7 +334,7 @@ Para ajudá-lo a entender como as atualizações procedem em um nó, vamos passa
 
 Os logs do aplicativo de orquestração de patch são coletados como parte dos logs do Service Fabric Runtime.
 
-Você pode capturar logs usando a ferramenta de diagnóstico ou pipeline de sua escolha. O POA usa as seguintes IDs de provedor fixas para registrar eventos por meio da [origem do evento](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1):
+Você pode capturar logs usando a ferramenta de diagnóstico ou pipeline de sua escolha. O POA usa as seguintes IDs de provedor fixas para registrar eventos por meio da [origem do evento](/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1):
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -379,7 +379,7 @@ R: o POA não instala atualizações enquanto o cluster não está íntegro. Ten
 
 **P: devo definir A taskapprovalpolicy como "NodeWise" ou "UpgradeDomainWise" para o meu cluster?**
 
-R: a configuração "UpgradeDomainWise" acelera o reparo geral do cluster ao aplicar patches em paralelo em todos os nós que pertencem a um domínio de atualização. Durante o processo, os nós que pertencem a um domínio de atualização inteiro ficam indisponíveis (no [estado *desabilitado* ](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)).
+R: a configuração "UpgradeDomainWise" acelera o reparo geral do cluster ao aplicar patches em paralelo em todos os nós que pertencem a um domínio de atualização. Durante o processo, os nós que pertencem a um domínio de atualização inteiro ficam indisponíveis (no [estado *desabilitado* ](/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)).
 
 Por outro lado, a configuração "NodeWise" corrige apenas um nó por vez, o que significa que a aplicação geral de patches do cluster pode demorar mais. No entanto, apenas um nó no máximo não estará disponível (no estado *desabilitado* ) durante o processo de aplicação de patch.
 
@@ -405,9 +405,9 @@ R: o tempo necessário para corrigir um cluster inteiro depende de:
     - Para "NodeWise": ~ 20 horas.
     - Para "UpgradeDomainWise": ~ 5 horas.
 
-- O carregamento do cluster. Cada operação de aplicação de patch requer a realocação da carga de trabalho do cliente para outros nós disponíveis no cluster. Um nó que está sendo corrigido estaria no estado de [ *desabilitação* ](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) durante esse tempo. Se o cluster estiver executando perto da carga de pico, o processo de desabilitação levará mais tempo. Portanto, o processo geral de aplicação de patch pode parecer lento em tais condições sob medida.
+- O carregamento do cluster. Cada operação de aplicação de patch requer a realocação da carga de trabalho do cliente para outros nós disponíveis no cluster. Um nó que está sendo corrigido estaria no estado de [ *desabilitação* ](/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) durante esse tempo. Se o cluster estiver executando perto da carga de pico, o processo de desabilitação levará mais tempo. Portanto, o processo geral de aplicação de patch pode parecer lento em tais condições sob medida.
 
-- Falhas de integridade do cluster durante a aplicação de patch. Qualquer [degradação](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) na [integridade do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction) interromperia o processo de aplicação de patch. Esse problema seria adicionado ao tempo geral necessário para aplicar o patch a todo o cluster.
+- Falhas de integridade do cluster durante a aplicação de patch. Qualquer [degradação](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) na [integridade do cluster](./service-fabric-health-introduction.md) interromperia o processo de aplicação de patch. Esse problema seria adicionado ao tempo geral necessário para aplicar o patch a todo o cluster.
 
 **P: por que vejo algumas atualizações na Windows Update resultados obtidos por meio da API REST, mas não sob o histórico de Windows Update no computador?**
 
@@ -415,11 +415,11 @@ R: algumas atualizações do produto aparecem apenas em seu próprio histórico 
 
 **P: POA pode ser usado para corrigir meu cluster de desenvolvimento (cluster de um nó)?**
 
-R: não, o POA não pode ser usado para corrigir um cluster de um nó. Essa limitação é por design, porque [Service Fabric serviços do sistema](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) ou outros aplicativos de cliente incorrem em tempo de inatividade. Portanto, os trabalhos de reparo de patch nunca seriam aprovados pelo Gerenciador de Reparos.
+R: não, o POA não pode ser usado para corrigir um cluster de um nó. Essa limitação é por design, porque [Service Fabric serviços do sistema](./service-fabric-technical-overview.md#system-services) ou outros aplicativos de cliente incorrem em tempo de inatividade. Portanto, os trabalhos de reparo de patch nunca seriam aprovados pelo Gerenciador de Reparos.
 
 **P: Como fazer nós de cluster de patch no Linux?**
 
-R: para saber mais sobre a orquestração de atualizações no Linux, confira [conjunto de dimensionamento de máquinas virtuais do Azure atualizações automáticas de imagem do sistema operacional](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
+R: para saber mais sobre a orquestração de atualizações no Linux, confira [conjunto de dimensionamento de máquinas virtuais do Azure atualizações automáticas de imagem do sistema operacional](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
 
 **P: por que o ciclo de atualização está demorando tanto tempo?**
 
