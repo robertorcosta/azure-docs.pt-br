@@ -9,29 +9,29 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: 7bc6938523a6d66a2bc20b37c659568fc5ca494d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1171c07a754b056fb9df2cee73ddf224427037cc
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77123247"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86277907"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>Disponibilidade geral e comparação de visualização
 
 A tabela a seguir resume várias diferenças importantes entre Azure Time Series Insights GA (disponibilidade geral) e instâncias de visualização.
 
-| | GA | Visualização |
+| | GA | Versão Prévia |
 | --- | --- | ---|
-| Cidadão de primeira classe | Centrado em evento | Centrado em série temporal |
-| Raciocínio semântico | Nível baixo (dados de referência) | Alto nível (modelos) |
-| Contexto de dados | Não nível de dispositivo | Dispositivo e não nível de dispositivo |
-| Armazenamento lógico de computação | Não | Armazenado na parte de variáveis de tipo do modelo |
-| Armazenamento e controle de acesso | Não | Habilitado por meio do modelo |
-| Agregações/amostragem | Não | Ponderado do evento e tempo demorado |
-| Reconstrução de sinal | Não | Interpola |
-| Produção de série temporal derivada | Não | Sim, mesclagens e junções |
-| Flexibilidade da linguagem | Não combinável | Combinável |
-| Linguagem de expressão | Cadeia de predicado | Expressões de série temporal (cadeias de caracteres de predicado, valores, expressões e funções) |
+| **Cidadão de primeira classe** | Centrado em evento | Centrado em série temporal |
+| **Raciocínio semântico** | Nível baixo (dados de referência) | Alto nível (modelos) |
+| **Contexto de dados** | Não nível de dispositivo | Dispositivo e não nível de dispositivo |
+| **Armazenamento lógico de computação** | Não | Armazenado na parte de variáveis de tipo do modelo |
+| **Armazenamento e controle de acesso** | Não | Habilitado por meio do modelo |
+| **Agregações/amostragem** | Não | Ponderado do evento e tempo demorado |
+| **Reconstrução de sinal** | Não | Interpola |
+| **Produção de série temporal derivada** | Não | Sim, mesclagens e junções |
+| **Flexibilidade da linguagem** | Não combinável | Combinável |
+| **Linguagem de expressão** | Cadeia de predicado | Expressões de série temporal (cadeias de caracteres de predicado, valores, expressões e funções) |
 
 ### <a name="property-limits"></a>Limites de propriedade
 

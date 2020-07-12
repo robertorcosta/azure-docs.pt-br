@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 920ff19b162843d1c2d631ad192ce1b3c4273a68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14f21b1c0bff5f4d5f77b1547c09ddd6c370ece0
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696976"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276423"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introdução ao Azure Metrics Explorer
 
@@ -38,7 +39,7 @@ Para criar um gráfico de métricas, em seu recurso, grupo de recursos, assinatu
 
     > ![Selecione uma métrica](./media/metrics-getting-started/metric-picker.png)
 
-4. Opcionalmente, você pode alterar a agregação de métrica. Por exemplo, talvez você queira que o gráfico mostre os valores mínimo, máximo ou médio da métrica.
+4. Opcionalmente, você pode [alterar a agregação de métrica](metrics-charts.md#changing-aggregation). Por exemplo, talvez você queira que o gráfico mostre os valores mínimo, máximo ou médio da métrica.
 
 > [!NOTE]
 > Use o botão **Adicionar métrica** e repita essas etapas se quiser ver várias métricas plotadas no mesmo gráfico. Para vários gráficos em uma exibição, selecione o botão **Adicionar gráfico** na parte superior.

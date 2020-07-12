@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 26569606ce2aeb9d645f82e474b728cc4044ca93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f5ad6fd0444c40d95bf4c2f1105959bde07245d
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85250937"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276304"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria do banco de dados SQL do Azure e do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ A auditoria do [banco de dados SQL do Azure](sql-database-paas-overview.md) e [d
 
 A auditoria também:
 
-- Ajuda você a manter a conformidade regulatória, entender a atividade do banco de dados e obter informações sobre discrepâncias e anomalias que podem indicar preocupações para os negócios ou suspeitas de violações de segurança.
+- Ajuda a manter conformidade com as normas, entender a atividade do banco de dados e aprofundar-se sobre discrepâncias e anomalias que podem indicar preocupações comerciais ou violações suspeitas de segurança.
 
 - Permite e facilita a adesão aos padrões de conformidade, embora não garanta a conformidade. Para obter mais informações sobre os programas do Azure que dão suporte à conformidade com padrões, consulte a [central de confiabilidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde você pode encontrar a lista mais atual de certificações de conformidade do SQL do Azure.
 
@@ -116,6 +116,8 @@ Para configurar a gravação de logs de auditoria em um espaço de trabalho do L
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
+Para obter mais detalhes sobre os espaços de trabalho de logs de Azure Monitor, consulte [projetando sua implantação de logs de Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
+   
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Auditoria para destino do hub de eventos
 
 > [!WARNING]

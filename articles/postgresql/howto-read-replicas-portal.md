@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/09/2020
-ms.openlocfilehash: 8e148a3dac8435a08c0f1735cd35d06c700e1e84
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/10/2020
+ms.openlocfilehash: 8ca4d3d2d52e79dbcaaa15eba5794a4d2d28366a
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106621"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274536"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Criar e gerenciar réplicas de leitura no banco de dados do Azure para PostgreSQL-servidor único do portal do Azure
 
@@ -39,7 +39,7 @@ O servidor precisa ser reiniciado após uma alteração desse parâmetro. Intern
 
 2. No menu do servidor, selecione **replicação**. Se o suporte à replicação do Azure for definido como pelo menos **réplica**, você poderá criar réplicas de leitura. 
 
-3. Se o suporte à replicação do Azure não estiver definido como pelo menos **réplica**, defina-o. Clique em **Salvar**.
+3. Se o suporte à replicação do Azure não estiver definido como pelo menos **réplica**, defina-o. Selecione **Salvar**.
 
    ![Banco de dados do Azure para PostgreSQL-replicação – definir réplica e salvar](./media/howto-read-replicas-portal/set-replica-save.png)
 
@@ -71,22 +71,22 @@ Para criar uma réplica de leitura, siga estas etapas:
 
 5. Selecione um local para a réplica. O local padrão é o mesmo que o do servidor mestre.
 
-    ![Selecione um local](./media/howto-read-replicas-portal/location-replica.png)
+    ![Selecionar um local](./media/howto-read-replicas-portal/location-replica.png)
 
    > [!NOTE]
    > Para saber mais sobre em quais regiões você pode criar uma réplica, visite o artigo [conceitos de réplica de leitura](concepts-read-replicas.md). 
 
 6. Selecione **OK** para confirmar a criação da réplica.
 
-Uma réplica é criada usando as mesmas configurações de computação e armazenamento que o mestre. Depois que uma réplica é criada, várias configurações podem ser alteradas independentemente do servidor mestre: período de retenção de backup, armazenamento, vCores e geração da computação. O tipo de preço também pode ser alterado de forma independente, exceto de ou para a camada básica.
-
-> [!IMPORTANT]
-> Antes que uma configuração de servidor mestre seja atualizada para um novo valor, atualize a configuração de réplica para um valor igual ou maior. Essa ação ajuda a réplica a acompanhar as alterações feitas no mestre.
-
 Depois que a réplica de leitura é criada, ela pode ser exibida na janela **Replicação**:
 
 ![Exibir a nova réplica na janela Replicação](./media/howto-read-replicas-portal/list-replica.png)
  
+
+> [!IMPORTANT]
+> Examine a [seção considerações da visão geral da réplica de leitura](concepts-read-replicas.md#considerations).
+>
+> Antes que uma configuração de servidor mestre seja atualizada para um novo valor, atualize a configuração de réplica para um valor igual ou maior. Essa ação ajuda a réplica a acompanhar as alterações feitas no mestre.
 
 ## <a name="stop-replication"></a>Parar replicação
 Você pode interromper a replicação entre um servidor mestre e uma réplica de leitura.

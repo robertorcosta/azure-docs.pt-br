@@ -5,18 +5,20 @@ author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 5/6/2019
-ms.openlocfilehash: 9b0e263d3b8bce9e04548f5e8433ff90d2bda274
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/09/2020
+ms.openlocfilehash: a94afc1ab970c2cd3f509c86efba4e455d46fd13
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116345"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274502"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Otimizar o vácuo autoaspirar em um banco de dados do Azure para PostgreSQL-servidor único
+
 Este artigo descreve como otimizar de maneira eficaz o vácuo automático em um Banco de Dados do Azure para PostgreSQL.
 
 ## <a name="overview-of-autovacuum"></a>Visão geral do vácuo automático
+
 O PostgreSQL usa o MVCC (controle de simultaneidade multiversão) para permitir maior simultaneidade de banco de dados. Cada atualização leva a uma inserção e exclusão, e cada exclusão leva à marcação temporária de linhas para exclusão. A marcação temporária identifica tuplas inativas que serão limpas posteriormente. Para executar essas tarefas, o PostgreSQL executa um trabalho de vácuo.
 
 Um trabalho de vácuo pode ser disparado manualmente ou automaticamente. Quando o banco de dados passa por operações com alta frequência de atualização ou exclusão, o número de tuplas inativas é maior. Quando o banco de dados está ocioso, esse número é menor. Você precisará executar trabalhos de vácuo com mais frequência quando a carga do banco de dados for pesada, o que dificulta a execução *manual* desses trabalhos.
@@ -36,6 +38,7 @@ Se você não executar o vácuo periodicamente, as tuplas inativas acumuladas po
 - Aumento de E/S.
 
 ## <a name="monitor-bloat-with-autovacuum-queries"></a>Monitorar a sobrecarga com consultas de vácuo automático
+
 O exemplo de consulta a seguir foi criado para identificar o número de tuplas ativas e inativas em uma tabela chamada XYZ:
 
 ```sql
@@ -43,7 +46,9 @@ SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRa
 ```
 
 ## <a name="autovacuum-configurations"></a>Configurações de vácuo automático
+
 Os parâmetros de configuração que controlam o vácuo automático são baseados nas respostas de duas perguntas importantes:
+
 - Quando ele deve começar?
 - Quanto ele limpa depois de ter começado?
 
@@ -55,10 +60,10 @@ autovacuum_vacuum_threshold|Especifica o número mínimo de tuplas atualizadas o
 autovacuum_vacuum_scale_factor|Especifica uma fração do tamanho da tabela a ser adicionada a autovacuum_vacuum_threshold ao decidir se uma operação de vácuo deve ser disparada. O padrão é 0.2, que é 20% do tamanho da tabela. Este parâmetro pode ser definido apenas no arquivo postgresql.conf ou na linha de comando do servidor. Para substituir a configuração para tabelas individuais, altere os parâmetros de armazenamento da tabela.|0,2
 autovacuum_vacuum_cost_limit|Especifica o valor do limite de custo usado em operações de vácuo automáticas. Se -1, que é o padrão, for especificado, o valor normal de vacuum_cost_limit será usado. Se houver mais de uma função de trabalho, o valor será distribuído proporcionalmente entre as funções de trabalho de vácuo em execução. A soma dos limites para cada trabalho não excede o valor dessa variável. Este parâmetro pode ser definido apenas no arquivo postgresql.conf ou na linha de comando do servidor. Para substituir a configuração para tabelas individuais, altere os parâmetros de armazenamento da tabela.|-1
 autovacuum_vacuum_cost_delay|Especifica o valor do atraso de custo usado em operações de vácuo automático. Se -1 for especificado, o valor normal de vacuum_cost_delay será usado. O valor padrão é 20 milissegundos. Este parâmetro pode ser definido apenas no arquivo postgresql.conf ou na linha de comando do servidor. Para substituir a configuração para tabelas individuais, altere os parâmetros de armazenamento da tabela.|20 ms
-autovacuum_nap_time|Especifica o atraso mínimo entre execuções do vácuo automático em qualquer determinado banco de dados. Em cada turno, o daemon examina o banco de dados e emite comandos VACUUM e ANALYZE conforme necessário para as tabelas nesse banco de dados. O atraso é medido em segundos, sendo que o padrão é um minuto (1 minuto). Este parâmetro pode ser definido apenas no arquivo postgresql.conf ou na linha de comando do servidor.|15 s
-autovacuum_max_workers|Especifica o número máximo de processos de vácuo automático, exceto pelo inicializador do vácuo automático, que podem ser executados simultaneamente. O padrão é três. Defina esse parâmetro somente na inicialização do servidor.|3
+autovacuum_naptime | Especifica o atraso mínimo entre execuções do vácuo automático em qualquer determinado banco de dados. Em cada turno, o daemon examina o banco de dados e emite comandos VACUUM e ANALYZE conforme necessário para as tabelas nesse banco de dados. O atraso é medido em segundos. Este parâmetro pode ser definido apenas no arquivo postgresql.conf ou na linha de comando do servidor.| 15 s
+autovacuum_max_workers | Especifica o número máximo de processos de vácuo automático, exceto pelo inicializador do vácuo automático, que podem ser executados simultaneamente. O padrão é três. Defina esse parâmetro somente na inicialização do servidor.|3
 
-Para substituir as configurações de tabelas individuais, altere os parâmetros de armazenamento da tabela. 
+Para substituir as configurações de tabelas individuais, altere os parâmetros de armazenamento da tabela.
 
 ## <a name="autovacuum-cost"></a>Custo do vácuo automático
 
@@ -82,12 +87,14 @@ O fator de escala padrão de 20 por cento funciona bem em tabelas com um percent
 Com o PostgreSQL, você pode definir esses parâmetros no nível de tabela ou no nível de instância. Atualmente, é possível definir esses parâmetros no nível da tabela apenas no Banco de Dados do Azure para PostgreSQL.
 
 ## <a name="estimate-the-cost-of-autovacuum"></a>Estimar o custo do vácuo automático
+
 Executar o vácuo automático é "caro" e há parâmetros para controlar o runtime das operações de vácuo. Os parâmetros a seguir ajudam a estimar o custo da execução de vácuo:
+
 - vacuum_cost_page_hit = 1
 - vacuum_cost_page_miss = 10
 - vacuum_cost_page_dirty = 20
 
-O processo de vácuo lê páginas físicas e verifica em busca de tuplas inativas. Considera-se que cada página em shared_buffers tem um custo igual a 1 (vacuum_cost_page_hit). Considera-se que todas as outras páginas têm um custo de 20 (vacuum_cost_page_dirty) quando há tuplas inativas ou de 10 (vacuum_cost_page_miss) quando não há nenhuma tupla inativa. A operação de vácuo é interrompida quando o processo ultrapassa autovacuum_vacuum_cost_limit. 
+O processo de vácuo lê páginas físicas e verifica em busca de tuplas inativas. Considera-se que cada página em shared_buffers tem um custo igual a 1 (vacuum_cost_page_hit). Considera-se que todas as outras páginas têm um custo de 20 (vacuum_cost_page_dirty) quando há tuplas inativas ou de 10 (vacuum_cost_page_miss) quando não há nenhuma tupla inativa. A operação de vácuo é interrompida quando o processo ultrapassa autovacuum_vacuum_cost_limit.
 
 Após o limite ser atingido, o processo fica suspenso pela duração especificada pelo parâmetro autovacuum_vacuum_cost_delay antes de ser iniciado novamente. Se o limite não for atingido, o vácuo automático começará após o valor especificado pelo parâmetro autovacuum_nap_time.
 

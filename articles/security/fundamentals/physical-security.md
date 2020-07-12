@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 19fd257e76cdf811343f1c1c772fb3646933bb86
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: fd83cd164415f45929049541a8731f80a4ba146d
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774057"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273499"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Recursos, local e segurança física do Azure
 Este artigo descreve o que a Microsoft faz para proteger a infraestrutura do Azure.
@@ -29,7 +30,7 @@ O Azure é composto de uma [infraestrutura de datacenter distribuída globalment
 
 A infraestrutura é projetada para aproximar os aplicativos aos usuários em todo o mundo, preservando a residência dos dados e oferecendo opções abrangentes de conformidade e resiliência para os clientes. O Azure tem 58 regiões em todo o mundo e está disponível em 140 países/regiões.
 
-Uma região é um conjunto de datacenters interconectados por meio de uma rede massiva e resiliente. A rede inclui a distribuição de conteúdo, o balanceamento de carga, redundância e criptografia por padrão. Com mais regiões globais do que qualquer outro provedor de nuvem, o Azure oferece a flexibilidade de implantar aplicativos onde você precisa deles.
+Uma região é um conjunto de datacenters interconectados por meio de uma rede massiva e resiliente. A rede inclui distribuição de conteúdo, balanceamento de carga, redundância e [criptografia de camada de vínculo de dados por padrão](encryption-overview.md#encryption-of-data-in-transit) para todo o tráfego do Azure em uma região ou viajam entre regiões. Com mais regiões globais do que qualquer outro provedor de nuvem, o Azure oferece a flexibilidade de implantar aplicativos onde você precisa deles.
 
 As regiões do Azure são organizadas em geografias. Uma geografia do Azure garante que os requisitos de residência, de soberania, de conformidade e de resiliência de dados sejam respeitados dentro de limites geográficos.
 

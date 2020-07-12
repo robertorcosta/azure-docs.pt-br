@@ -7,11 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 9f3f361b3e9fafdb350f943c0a8adcd87fa06c78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25aafee59c7f5f7ae59aa2fd7871de8926907f68
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84325126"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261381"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a solicitações HTTPS de entrada nos Aplicativos Lógicos do Azure
 
@@ -23,7 +24,7 @@ Com [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e o ga
 
 * Receber e responder a uma chamada HTTPS de outro aplicativo lógico.
 
-O gatilho de solicitação é compatível com a [Autenticação Aberta do Azure Active Directory](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) para autorizar chamadas de entrada para seu aplicativo lógico. Para obter mais informações sobre como habilitar essa autenticação, consulte [Acesso seguro e dados em Aplicativos Lógicos do Azure – Habilitar a autenticação do Azure AD OAuth](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+O gatilho de solicitação é compatível com a [Autenticação Aberta do Azure Active Directory](/azure/active-directory/develop/) (Azure AD OAuth) para autorizar chamadas de entrada para seu aplicativo lógico. Para obter mais informações sobre como habilitar essa autenticação, consulte [Acesso seguro e dados em Aplicativos Lógicos do Azure – Habilitar a autenticação do Azure AD OAuth](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -156,7 +157,7 @@ Esse gatilho interno cria um ponto de extremidade HTTPS que pode ser chamado man
          "account": {
             "name": "Contoso",
             "ID": "12345",
-            "address": { 
+            "address": {
                "number": "1234",
                "street": "Anywhere Street",
                "city": "AnyTown",
@@ -171,9 +172,9 @@ Esse gatilho interno cria um ponto de extremidade HTTPS que pode ser chamado man
 1. Para verificar se a chamada de entrada tem um corpo de solicitação que corresponde ao esquema especificado, siga estas etapas:
 
    1. Na barra de título do gatilho de solicitação, selecione o botão de reticências (**...**).
-   
+
    1. Nas configurações do gatilho, ative a **validação de esquema**e selecione **concluído**.
-   
+
       Se o corpo da solicitação da chamada de entrada não corresponder ao seu esquema, o gatilho retornará um `HTTP 400 Bad Request` erro.
 
 1. Para especificar propriedades adicionais, abra a lista **Adicionar novo parâmetro** e selecione os parâmetros que você deseja adicionar.
@@ -258,7 +259,7 @@ Seu aplicativo lógico mantém a solicitação de entrada aberta por [tempo limi
 
    O gatilho de solicitação é recolhido neste exemplo para simplificar.
 
-1. Adicione quaisquer valores necessários para a mensagem de resposta. 
+1. Adicione quaisquer valores necessários para a mensagem de resposta.
 
    Em alguns campos, clicar dentro de suas caixas abre a lista de conteúdo dinâmico. Em seguida, você pode selecionar tokens que representam as saídas disponíveis de etapas anteriores no fluxo de trabalho. As propriedades do esquema especificado no exemplo anterior agora aparecem na lista de conteúdo dinâmico.
 
@@ -270,7 +271,7 @@ Seu aplicativo lógico mantém a solicitação de entrada aberta por [tempo limi
 
    ![Cabeçalhos - Mudar para a exibição de texto](./media/connectors-native-reqres/switch-to-text-view.png)
 
-   Para obter mais informações sobre as propriedades que podem ser definidas na ação de resposta. 
+   Para obter mais informações sobre as propriedades que podem ser definidas na ação de resposta.
 
    | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
@@ -281,7 +282,7 @@ Seu aplicativo lógico mantém a solicitação de entrada aberta por [tempo limi
 
 1. Para especificar propriedades adicionais, como um esquema JSON para o corpo da resposta, abra a lista **Adicionar novo parâmetro** e selecione os parâmetros que você deseja adicionar.
 
-1. Quando terminar, salve o aplicativo lógico. Selecione **Salvar** na barra de ferramentas do designer. 
+1. Quando terminar, salve o aplicativo lógico. Selecione **Salvar** na barra de ferramentas do designer.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 07/10/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6e7294f10ba094a1adaae399187fb9973397a561
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 2589c2abf13edc19b930d597a4d75a2be823f45d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83868119"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86277801"
 ---
 Os discos compartilhados do Azure (versão prévia) são um novo recurso para discos gerenciados do Azure que permitem anexar um disco gerenciado a várias VMs (máquinas virtuais) simultaneamente. Anexar um disco gerenciado a várias VMs permite implantar novos aplicativos clusterizados ou migrar os existentes para o Azure.
 
@@ -41,7 +41,7 @@ A maioria dos clusters baseados em Windows é criada no WSFC, que lida com toda 
 
 Alguns aplicativos populares em execução no WSFC incluem:
 
-- Instâncias de cluster de failover (FCI) do SQL Server
+- [Criar um FCI com discos compartilhados do Azure (SQL Server em VMs do Azure)](../articles/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
 - Servidor de arquivos de expansão (SoFS)
 - Servidor de arquivos para uso geral (Carga de trabalho de IW)
 - Disco de perfil de usuário do servidor da área de trabalho remota (RDS UPD)
@@ -87,7 +87,12 @@ Os discos ultra oferecem uma restrição adicional, para um total de duas restri
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Uma imagem de uma tabela que descreve o acesso Somente Leitura ou Leitura/Gravação para Titular de Reserva, Registrado e Outros.":::
 
-## <a name="ultra-disk-performance-throttles"></a>Restrições de desempenho de discos ultra
+## <a name="performance-throttles"></a>Acelerações de desempenho
+
+### <a name="premium-ssd-performance-throttles"></a>Acelerações de desempenho de SSD Premium
+Com o SSD Premium, o IOPS de disco e a taxa de transferência são fixos, por exemplo, IOPS de um p30 é 5000. Esse valor permanece se o disco é compartilhado entre duas VMs ou 5 VMs. Os limites de disco podem ser alcançados de uma única VM ou divididas em duas ou mais VMs. 
+
+### <a name="ultra-disk-performance-throttles"></a>Restrições de desempenho de discos ultra
 
 Os discos ultra têm o recurso exclusivo de permitir que você defina seu desempenho, expondo atributos modificáveis e permitindo modificá-los. Por padrão, há apenas dois atributos modificáveis, mas os discos ultra compartilhados têm dois atributos adicionais.
 
@@ -111,23 +116,23 @@ As fórmulas a seguir explicam como os atributos de desempenho podem ser definid
     - O limite de taxa de transferência de um único disco é de 256 KiB/s para cada IOPS provisionado, até no máximo 2.000 MBps por disco
     - A taxa de transferência mínima garantida por disco é 4KiB/s para cada IOPS provisionado, com uma linha de base geral mínima de 1 MBps
 
-### <a name="examples"></a>Exemplos
+#### <a name="examples"></a>Exemplos
 
 Os exemplos a seguir descrevem alguns cenários que mostram como a restrição pode funcionar com discos ultra compartilhados, especificamente.
 
-#### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Cluster de dois nós usando volumes compartilhados do cluster
+##### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Cluster de dois nós usando volumes compartilhados do cluster
 
 Veja a seguir um exemplo de um WSFC de dois nós usando volumes compartilhados clusterizados. Com essa configuração, ambas as VMs têm acesso de gravação simultâneo no disco, o que faz com que a restrição Leitura e Gravação seja dividida entre as duas VMs e a restrição Somente Leitura não seja usada.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Exemplo de ultra de dois nós do CSV":::
 
-#### <a name="two-node-cluster-without-cluster-share-volumes"></a>Cluster de dois nós sem volumes de compartilhamento de cluster
+##### <a name="two-node-cluster-without-cluster-share-volumes"></a>Cluster de dois nós sem volumes de compartilhamento de cluster
 
 Este é um exemplo de um WSFC de 2 nós que não está usando volumes compartilhados clusterizados. Com essa configuração, apenas uma VM tem acesso de gravação no disco. Isso faz com que a restrição Leitura e Gravação seja usada exclusivamente para a VM primária e a restrição Somente Leitura seja usada pela secundária.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Exemplo de dois nós de CSV sem disco ultra csv":::
 
-#### <a name="four-node-linux-cluster"></a>Cluster Linux de quatro nós
+##### <a name="four-node-linux-cluster"></a>Cluster Linux de quatro nós
 
 Este é um exemplo de um cluster Linux de 4 nós com um único gravador e três leitores de expansão. Com essa configuração, apenas uma VM tem acesso de gravação no disco. Isso faz com que a restrição Leitura e Gravação seja usada exclusivamente para a VM primária e a restrição Somente Leitura seja dividida pelas VMs secundárias.
 

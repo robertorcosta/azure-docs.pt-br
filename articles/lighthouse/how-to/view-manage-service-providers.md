@@ -1,14 +1,14 @@
 ---
 title: Exibir e gerenciar provedores de serviços
 description: Os clientes podem usar a página Provedores de serviços no portal do Azure para exibir informações sobre provedores de serviços, ofertas de provedor de serviço e recursos delegados.
-ms.date: 07/07/2020
+ms.date: 07/10/2020
 ms.topic: how-to
-ms.openlocfilehash: 56ba5b8c88cd4653c9d41f7f3fcc6219cc376256
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bc0de0d3fd7ac4fe7c00720aab41961d9100ff5a
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111619"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273771"
 ---
 # <a name="view-and-manage-service-providers"></a>Exibir e gerenciar provedores de serviços
 
@@ -19,7 +19,7 @@ Para acessar a página **Provedores de serviços** no portal do Azure, o cliente
 > [!NOTE]
 > Para exibir a página **provedores de serviços** , um usuário no locatário do cliente deve ter a [função interna do leitor](../../role-based-access-control/built-in-roles.md#reader) (ou outra função interna que inclui acesso ao leitor).
 >
-> Para adicionar ofertas, delegar recursos e remover ofertas, o usuário deve ter a [função interna do proprietário](../../role-based-access-control/built-in-roles.md#owner) para a assinatura.
+> Para adicionar ou atualizar ofertas, delegar recursos e remover ofertas, o usuário deve ter a [função interna de proprietário](../../role-based-access-control/built-in-roles.md#owner) para a assinatura.
 
 Tenha em mente que a página **provedores de serviço** mostra apenas informações sobre os provedores de serviço que têm acesso às assinaturas ou aos grupos de recursos do cliente por meio do Azure Lighthouse. Se um cliente trabalha com provedores de serviço adicionais que não usam o Azure Lighthouse para acessar os recursos do cliente, as informações sobre esses provedores de serviços não são mostradas aqui.
 

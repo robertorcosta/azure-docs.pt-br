@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: c45839d622f4bad5097006a364a36db05ce5dacc
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 005932f4a4be9e4a7bae85a6b380c934de5e9874
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84012969"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276525"
 ---
 # <a name="azure-encryption-overview"></a>Visão geral da criptografia do Azure
 
@@ -116,9 +117,13 @@ Três tipos de chave são usados na criptografia e descriptografia de dados: a M
 
 O Azure oferece muitos mecanismos para manter os dados privados à medida que eles são movidos de um local para outro.
 
-### <a name="tlsssl-encryption-in-azure"></a>Criptografia TLS/SSL no Azure
+### <a name="data-link-layer-encryption-in-azure"></a>Criptografia de camada de link de dados no Azure
 
-A Microsoft usa o protocolo TLS ([Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security)) para proteger dados quando eles estão viajando entre os serviços de nuvem e os clientes. Os datacenters da Microsoft negociam uma conexão TLS com os sistemas cliente que se conectam aos serviços do Azure. O TLS fornece autenticação forte, privacidade de mensagem e integridade (habilitando a detecção de adulteração, interceptação e falsificação de mensagens), interoperabilidade, flexibilidade de algoritmo e facilidade de implantação e uso.
+Sempre que o tráfego do cliente do Azure se move entre data centers – os limites físicos externos não são controlados pela Microsoft (ou em nome da Microsoft) – um método de criptografia de camada de vínculo de dados que usa os [padrões de segurança do Mac IEEE 802.1 AE](https://1.ieee802.org/security/802-1ae/) (também conhecido como MACsec) é aplicado de ponto a ponto no hardware de rede subjacente.  Os pacotes são criptografados e descriptografados nos dispositivos antes de serem enviados, impedindo ataques físicos "Man-in-the-middle" ou de espionagem/wiretapping.  Como essa tecnologia é integrada ao próprio hardware de rede, ela fornece criptografia de taxa de linha no hardware de rede sem aumento de latência de link mensurável.  Essa criptografia de MACsec está ativada por padrão para todos os viajam de tráfego do Azure em uma região ou entre regiões, e nenhuma ação é necessária na parte dos clientes para habilitar. 
+
+### <a name="tls-encryption-in-azure"></a>Criptografia TLS no Azure
+
+A Microsoft oferece aos clientes a capacidade [de usar o](https://en.wikipedia.org/wiki/Transport_Layer_Security) protocolo TLS para proteger os dados quando estão viajando entre os serviços de nuvem e os clientes. Os datacenters da Microsoft negociam uma conexão TLS com os sistemas cliente que se conectam aos serviços do Azure. O TLS fornece autenticação forte, privacidade de mensagem e integridade (habilitando a detecção de adulteração, interceptação e falsificação de mensagens), interoperabilidade, flexibilidade de algoritmo e facilidade de implantação e uso.
 
 O [PFS](https://en.wikipedia.org/wiki/Forward_secrecy) protege as conexões entre os sistemas cliente dos clientes e os serviços em nuvem da Microsoft por chaves exclusivas. As conexões também usam comprimentos de chave de criptografia de 2.048 bits baseados em RSA. Essa combinação dificulta a interceptação e o acesso a dados que estão em trânsito.
 
@@ -140,7 +145,7 @@ Por padrão, depois que a criptografia SMB é ativada para um compartilhamento o
 
 ## <a name="in-transit-encryption-in-vms"></a>Criptografia em trânsito em VMs
 
-Os dados em trânsito em todas as direções e entre as VMs que executam o Windows são criptografados de várias maneiras, dependendo da natureza da conexão.
+Os dados em trânsito para, de e entre as VMs que executam o Windows podem ser criptografados de várias maneiras, dependendo da natureza da conexão.
 
 ### <a name="rdp-sessions"></a>Sessões RDP
 
