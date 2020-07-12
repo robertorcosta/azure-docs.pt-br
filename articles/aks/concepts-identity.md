@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 55fd27d473bd47fd3321bdb2e730e4ef2d35352f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 560f7b958e04b55a7d642c9f95750812b86d32bc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106147"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251715"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Acesso e opções de identidade para o Serviço de Kubernetes do Azure (AKS)
 
@@ -83,7 +83,7 @@ No cluster do Kubernetes, a autenticação de token do Webhook é usada para ver
 
 Conforme mostrado no gráfico acima, o servidor de API chama o servidor de webhook AKS e executa as seguintes etapas:
 
-1. O aplicativo cliente do Azure AD é usado pelo kubectl para conectar usuários com o [fluxo de concessão de autorização de dispositivo OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code).
+1. O aplicativo cliente do Azure AD é usado pelo kubectl para conectar usuários com o [fluxo de concessão de autorização de dispositivo OAuth 2,0](../active-directory/develop/v2-oauth2-device-code.md).
 2. O Azure AD fornece um access_token, id_token e um refresh_token.
 3. O usuário faz uma solicitação para kubectl com um access_token de kubeconfig.
 4. Kubectl envia o access_token para APIServer.

@@ -5,14 +5,15 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92fd8dbd1afbd2bdcabbaebbd5dc056d912ae118
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699798"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253109"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidade de diagnóstico para Reliable Services com monitoração de estado
-A classe StatefulServiceBase dos Reliable Services com Estado do Azure Service Fabric emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) que podem ser usados para depurar o serviço, fornecer informações sobre como o runtime está funcionando e ajudar a solucionar problemas.
+A classe StatefulServiceBase dos Reliable Services com Estado do Azure Service Fabric emite eventos [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) que podem ser usados para depurar o serviço, fornecer informações sobre como o runtime está funcionando e ajudar a solucionar problemas.
 
 ## <a name="eventsource-events"></a>Eventos EventSource
 O nome do EventSource da classe StatefulServiceBase de Reliable Services com estado é "Microsoft-ServiceFabric-Services." Os eventos dessa origem de eventos aparecem na janela [Eventos de Diagnóstico](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quando o serviço está sendo [depurado no Visual Studio](service-fabric-debugging-your-application.md).
@@ -20,7 +21,7 @@ O nome do EventSource da classe StatefulServiceBase de Reliable Services com est
 Exemplos de ferramentas e tecnologias que ajudam a coletar e/ou exibir eventos EventSource são [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) e [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## <a name="events"></a>Eventos
-| Nome do evento | ID do evento | Nível | Descrição do evento |
+| Nome do evento | ID do evento | Level | Descrição do evento |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Informativo |Emitido quando a tarefa RunAsync do serviço é iniciada |
 | StatefulRunAsyncCancellation |2 |Informativo |Emitido quando a tarefa RunAsync do serviço é cancelada |
@@ -45,11 +46,11 @@ O runtime dos Reliable Services define as categorias de contador de desempenho a
 | Replicador Transacional do Service Fabric |Contadores específicos para o Replicador Transacional do Azure Service Fabric |
 | Service Fabric TStore |Contadores específicos para o Replicador Transacional |
 
-O replicador transacional do Service Fabric é usado pelo [Gerenciador de estado confiável](service-fabric-reliable-services-reliable-collections-internals.md) para replicar as transações em um determinado conjunto de [réplicas](service-fabric-concepts-replica-lifecycle.md).
+O replicador transacional do Service Fabric é usado pelo [Gerenciador de estado confiável](./service-fabric-reliable-services-introduction.md) para replicar as transações em um determinado conjunto de [réplicas](service-fabric-concepts-replica-lifecycle.md).
 
-O Service Fabric TStore é um componente usado nas [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections-internals.md) para armazenar e recuperar pares de valor de chave.
+O Service Fabric TStore é um componente usado nas [Coleções Confiáveis](./service-fabric-reliable-services-introduction.md) para armazenar e recuperar pares de valor de chave.
 
-O aplicativo [Monitor de Desempenho do Windows](https://technet.microsoft.com/library/cc749249.aspx) está disponível por padrão no sistema operacional Windows e pode ser usado para coletar e exibir dados do contador de desempenho. [Diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) é outra opção para coletar dados do contador de desempenho e carregá-los nas tabelas do Azure.
+O aplicativo [Monitor de Desempenho do Windows](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749249(v=ws.11)) está disponível por padrão no sistema operacional Windows e pode ser usado para coletar e exibir dados do contador de desempenho. [Diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) é outra opção para coletar dados do contador de desempenho e carregá-los nas tabelas do Azure.
 
 ### <a name="performance-counter-instance-names"></a>Nomes da instância do contador de desempenho
 Um cluster que tem um grande número de serviços confiáveis ou partições de serviço confiáveis terá um grande número de instâncias do contador de desempenho do replicador transacional. Isso também é o caso para os contadores TStore contadores de desempenho, mas também é multiplicado pelo número de dicionários confiáveis e filas confiáveis usadas. Os nomes da instância do contador de desempenho podem ajudar a identificar a réplica de [partição](service-fabric-concepts-partitioning.md) específica e o fornecedor de estado no caso de TStore que a instância do contador de desempenho está associada.
@@ -59,7 +60,7 @@ Para a categoria `Service Fabric Transactional Replicator`, os nomes da instânc
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId`
 
-*ServiceFabricPartitionID* é a representação da cadeia de caracteres da ID da partição do Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres é gerada por meio do [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) especificador de formato "D".
+*ServiceFabricPartitionID* é a representação da cadeia de caracteres da ID da partição do Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres é gerada por meio do [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) especificador de formato "D".
 
 O *ServiceFabricReplicaId* é a ID associada a uma determinada réplica de um serviço confiável. A ID da réplica é incluída no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflitos com outras instâncias de contador de desempenho geradas pela mesma partição. Mais detalhes sobre réplicas e sua função de serviços confiáveis podem ser encontrados [aqui](service-fabric-concepts-replica-lifecycle.md).
 
@@ -74,7 +75,7 @@ Para a categoria `Service Fabric TStore`, os nomes da instância do contador est
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId:StateProviderId_PerformanceCounterInstanceDifferentiator_StateProviderName`
 
-*ServiceFabricPartitionID* é a representação da cadeia de caracteres da ID da partição do Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres é gerada por meio do [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) especificador de formato "D".
+*ServiceFabricPartitionID* é a representação da cadeia de caracteres da ID da partição do Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres é gerada por meio do [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) especificador de formato "D".
 
 O *ServiceFabricReplicaId* é a ID associada a uma determinada réplica de um serviço confiável. A ID da réplica é incluída no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflitos com outras instâncias de contador de desempenho geradas pela mesma partição. Mais detalhes sobre réplicas e sua função de serviços confiáveis podem ser encontrados [aqui](service-fabric-concepts-replica-lifecycle.md).
 
@@ -115,4 +116,4 @@ O runtime de Serviços Confiáveis emite os eventos a seguir na `Service Fabric 
 | Bytes de transferência de disco de cópia por segundo | O número de bytes de disco lidos (na réplica primária) ou gravados (em uma réplica secundária) por segundo durante uma cópia do repositório.|
 
 ## <a name="next-steps"></a>Próximas etapas
-[Provedores de EventSource no PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+[Provedores de EventSource no PerfView](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)

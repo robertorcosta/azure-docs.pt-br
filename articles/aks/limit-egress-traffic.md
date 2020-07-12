@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 06/29/2020
 author: palma21
-ms.openlocfilehash: 6aed6c84439e65646c15367cdad3bf13c5573256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d06852e9d3d61b3e3d368a1d1c6f4107aff1442
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831638"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251307"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlar o tráfego de saída dos nós de cluster no Serviço de Kubernetes do Azure (AKS)
 
@@ -239,7 +239,7 @@ Veja abaixo uma arquitetura de exemplo da implantação:
   * As solicitações de nós de agente do AKS seguem um UDR que foi colocado na sub-rede em que o cluster AKS foi implantado.
   * O Firewall do Azure sai da rede virtual de um front-end de IP público
   * Acesso à Internet pública ou outros fluxos de serviços do Azure fluem de e para o endereço IP de front-end do firewall
-  * Opcionalmente, o acesso ao plano de controle AKS é protegido por [intervalos de IP autorizados do servidor de API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), que inclui o endereço IP público de front-end do firewall.
+  * Opcionalmente, o acesso ao plano de controle AKS é protegido por [intervalos de IP autorizados do servidor de API](./api-server-authorized-ip-ranges.md), que inclui o endereço IP público de front-end do firewall.
 * Tráfego interno
   * Opcionalmente, em vez disso ou além de um [Load Balancer público](load-balancer-standard.md) , você pode usar um [Load balancer interno](internal-lb.md) para tráfego interno, que também pode ser isolado em sua própria sub-rede.
 
@@ -353,7 +353,7 @@ FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurati
 ```
 
 > [!NOTE]
-> Se você usar o acesso seguro ao servidor de API do AKS com [intervalos de endereços IP autorizados](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), será necessário adicionar o IP público do firewall ao intervalo de IP autorizado.
+> Se você usar o acesso seguro ao servidor de API do AKS com [intervalos de endereços IP autorizados](./api-server-authorized-ip-ranges.md), será necessário adicionar o IP público do firewall ao intervalo de IP autorizado.
 
 ### <a name="create-a-udr-with-a-hop-to-azure-firewall"></a>Criar um UDR com um salto para o Firewall do Azure
 
@@ -389,7 +389,7 @@ az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aks
 az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --fqdn-tags "AzureKubernetesService" --action allow --priority 100
 ```
 
-Confira a [documentação do Firewall do Azure](https://docs.microsoft.com/azure/firewall/overview) para saber mais sobre o serviço do Firewall do Azure.
+Confira a [documentação do Firewall do Azure](../firewall/overview.md) para saber mais sobre o serviço do Firewall do Azure.
 
 ### <a name="associate-the-route-table-to-aks"></a>Associe a tabela de rotas ao AKS
 
@@ -722,7 +722,7 @@ kubectl apply -f example.yaml
 ### <a name="add-a-dnat-rule-to-azure-firewall"></a>Adicionar uma regra DNAT ao Firewall do Azure
 
 > [!IMPORTANT]
-> Ao usar o Firewall do Azure para restringir o tráfego de saída e criar uma rota definida pelo usuário (UDR) para forçar todo o tráfego de saída, crie uma regra DNAT apropriada no firewall para permitir corretamente o tráfego de entrada. Usar o Firewall do Azure com uma UDR interrompe a configuração de entrada devido ao roteamento assimétrico. (O problema ocorre se a sub-rede do AKS tiver uma rota padrão para o endereço IP privado do firewall e você estiver usando um balanceador de carga de entrada ou serviço do tipo do Kubernetes: LoadBalancer). Nesse caso, o tráfego de entrada do balanceador de carga é recebido por meio de seu endereço IP público, mas o caminho de retorno passa pelo endereço IP privado do firewall. Como o firewall tem monitoramento de estado, ele descarta o pacote de retorno porque o firewall não está ciente de uma sessão estabelecida. Para saber como integrar o Firewall do Azure com o balanceador de carga de serviço ou de entrada, confira [Integrar o Firewall do Azure com o Azure Standard Load Balancer](https://docs.microsoft.com/azure/firewall/integrate-lb).
+> Ao usar o Firewall do Azure para restringir o tráfego de saída e criar uma rota definida pelo usuário (UDR) para forçar todo o tráfego de saída, crie uma regra DNAT apropriada no firewall para permitir corretamente o tráfego de entrada. Usar o Firewall do Azure com uma UDR interrompe a configuração de entrada devido ao roteamento assimétrico. (O problema ocorre se a sub-rede do AKS tiver uma rota padrão para o endereço IP privado do firewall e você estiver usando um balanceador de carga de entrada ou serviço do tipo do Kubernetes: LoadBalancer). Nesse caso, o tráfego de entrada do balanceador de carga é recebido por meio de seu endereço IP público, mas o caminho de retorno passa pelo endereço IP privado do firewall. Como o firewall tem monitoramento de estado, ele descarta o pacote de retorno porque o firewall não está ciente de uma sessão estabelecida. Para saber como integrar o Firewall do Azure com o balanceador de carga de serviço ou de entrada, confira [Integrar o Firewall do Azure com o Azure Standard Load Balancer](../firewall/integrate-lb.md).
 
 
 Para configurar a conectividade de entrada, uma regra DNAT deve ser gravada no Firewall do Azure. Para testar a conectividade com o cluster, uma regra é definida para o endereço IP público de front-end do firewall para rotear para o IP interno exposto pelo serviço interno.

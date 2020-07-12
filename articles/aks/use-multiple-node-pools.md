@@ -4,12 +4,12 @@ description: Saiba como criar e gerenciar vários pools de nós para um cluster 
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 64eaa3fd38a9f3de7e2032ef7ff7a18924353a1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c35b3cdbde79a771eccc42c7c3a60b0ab4e08e8a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85318429"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250848"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerenciar vários pools de nós para um cluster no serviço de kubernetes do Azure (AKS)
 
@@ -37,7 +37,7 @@ As seguintes limitações se aplicam quando você cria e gerencia clusters do AK
 * Todos os pools de nós devem residir na mesma rede virtual.
 * Ao criar vários pools de nós no momento da criação do cluster, todas as versões do kubernetes usadas por pools de nós devem corresponder à versão definida para o plano de controle. Isso pode ser atualizado depois que o cluster tiver sido provisionado usando operações de pool por nó.
 
-## <a name="create-an-aks-cluster"></a>Criar um cluster AKS
+## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS
 
 > [!Important]
 > Se você executar um pool de nós de sistema único para o cluster AKS em um ambiente de produção, recomendamos que você use pelo menos três nós para o pool de nós.
@@ -844,7 +844,7 @@ Use [grupos de posicionamento de proximidade][reduce-latency-ppg] para reduzir a
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [quotas-skus-regions]: quotas-skus-regions.md
 [supported-versions]: supported-kubernetes-versions.md
-[tag-limitation]: ../azure-resource-manager/resource-group-using-tags.md
+[tag-limitation]: ../azure-resource-manager/management/tag-resources.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-system-pool]: use-system-pools.md

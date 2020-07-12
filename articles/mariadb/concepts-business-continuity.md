@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: c1f4945cda9db0f99799ea072737d4524f04e481
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 183ece0d82431a8a961902d75d2fc24b013bc97b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076565"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252259"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Entender a continuidade dos negócios no banco de dados do Azure para MariaDB
 
@@ -23,7 +23,7 @@ O Banco de Dados do Azure para MariaDB fornece recursos de continuidade dos neg�
 
 A tabela a seguir compara o ERT e o RPO para os recursos disponíveis:
 
-| **Recurso** | **Basic** | **Uso Geral** | **Memória otimizada** |
+| **Recurso** | **Básico** | **Uso Geral** | **Otimizado para memória** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Recuperação Pontual do backup | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção |
 | Restauração geográfica de backups replicados geograficamente | Sem suporte | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
@@ -51,6 +51,10 @@ A outra opção é usar a restauração geográfica do Banco de Dados do Azure p
 ## <a name="cross-region-read-replicas"></a>Réplicas de leitura entre regiões
 
 Você pode usar réplicas de leitura entre regiões para aprimorar sua continuidade de negócios e planejamento de recuperação de desastre. As réplicas de leitura são atualizadas de forma assíncrona usando a tecnologia de replicação de log binário do MariaDB. Saiba mais sobre réplicas de leitura, regiões disponíveis e como fazer failover do [artigo conceitos de leitura de réplicas](concepts-read-replicas.md). 
+
+## <a name="faq"></a>Perguntas frequentes
+### <a name="where-does-azure-database-for-mariadb-store-customer-data"></a>Onde o Azure database for MariaDB armazena dados do cliente?
+Por padrão, o banco de dados do Azure para MariaDB não moverá nem armazenará o cliente de fora da região em que está implantado. No entanto, os clientes podem optar por habilitar [backups com redundância geográfica](concepts-backup.md#backup-redundancy-options) ou criar [réplica de leitura entre regiões](concepts-read-replicas.md#cross-region-replication) para armazenar dados em outra região.
 
 ## <a name="next-steps"></a>Próximas etapas
 

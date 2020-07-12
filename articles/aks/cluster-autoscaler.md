@@ -4,11 +4,12 @@ description: Saiba como usar o dimensionador automático de cluster para dimensi
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: e87470e577f4d2613b43cc02755ccc2d500c0ef8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9aa06ea2fbc3aff218a4940fa60da767fabca500
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84730009"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252021"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para atender às demandas de aplicativo no AKS (Serviço de Kubernetes do Azure)
 
@@ -212,7 +213,7 @@ O AKS gerencia o dimensionador automático de cluster em seu nome e o executa no
 
 Siga as etapas abaixo para configurar o envio de logs por push do dimensionador automático de cluster para o Log Analytics.
 
-1. Configure uma regra para logs de recursos de modo que enviem por push logs do dimensionador automático de cluster para o Log Analytics. [As instruções são detalhadas aqui](https://docs.microsoft.com/azure/aks/view-master-logs#enable-resource-logs); certifique-se de marcar a caixa de `cluster-autoscaler` ao selecionar opções para "Logs".
+1. Configure uma regra para logs de recursos de modo que enviem por push logs do dimensionador automático de cluster para o Log Analytics. [As instruções são detalhadas aqui](./view-master-logs.md#enable-resource-logs); certifique-se de marcar a caixa de `cluster-autoscaler` ao selecionar opções para "Logs".
 1. Clique na seção "Logs" no seu cluster pelo portal do Azure.
 1. Insira a seguinte consulta de exemplo no Log Analytics:
 

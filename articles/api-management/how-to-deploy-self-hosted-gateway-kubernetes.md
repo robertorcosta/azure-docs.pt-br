@@ -9,11 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: 38cfab8a3b73eeef28249f53bd2f5c56e26b21a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51ce2e0dec8b38c9285f4f4e71dd35056b292b66
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82854100"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254275"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Implantar um gateway auto-hospedado no Kubernetes
 
@@ -64,7 +65,7 @@ Este artigo descreve as etapas para implantar o componente de gateway auto-hospe
 ### <a name="access-token"></a>Token de acesso
 Sem um token de acesso válido, um gateway auto-hospedado não pode acessar e baixar dados de configuração do ponto de extremidade do serviço de gerenciamento de API associado. O token de acesso pode ser válido por um máximo de 30 dias. Ele deve ser regenerado e o cluster configurado com um token atualizado, seja manualmente ou por meio da automação antes de expirar. 
 
-Quando você estiver automatizando a atualização de token, use [essa operação de API de gerenciamento](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway/generatetoken) para gerar um novo token. Para obter informações sobre como gerenciar segredos do kubernetes, consulte o [site do kubernetes](https://kubernetes.io/docs/concepts/configuration/secret).
+Quando você estiver automatizando a atualização de token, use [essa operação de API de gerenciamento](/rest/api/apimanagement/2019-12-01/gateway/generatetoken) para gerar um novo token. Para obter informações sobre como gerenciar segredos do kubernetes, consulte o [site do kubernetes](https://kubernetes.io/docs/concepts/configuration/secret).
 
 ### <a name="namespace"></a>Namespace
 Os [namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) kubernetes ajudam a dividir um único cluster entre várias equipes, projetos ou aplicativos. Os namespaces fornecem um escopo para recursos e nomes. Eles podem ser associados a uma cota de recursos e a políticas de controle de acesso.

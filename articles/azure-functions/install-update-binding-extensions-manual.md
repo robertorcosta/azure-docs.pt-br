@@ -1,13 +1,14 @@
 ---
 title: Instalar ou atualizar manualmente as extensões de associação do Azure Functions
 description: Saiba como instalar ou atualizar as extensões de ligação do Azure Functions para aplicativos de função implantados.
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: e8716f691a5d19ddac7fece47c423e1f7787b9db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0705e62adc4acb26797b937a6dd8c684a598ebc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75768853"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252616"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Instalar ou atualizar manualmente as extensões de associação do Azure Functions no portal
 

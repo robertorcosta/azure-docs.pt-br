@@ -3,12 +3,12 @@ title: Usar identidade gerenciada com um aplicativo
 description: Como usar identidades gerenciadas no Azure Service Fabric código do aplicativo para acessar os serviços do Azure.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f960c01367ab42a434a8c2e1e276d9c5f7bd11
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461558"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253636"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Como aproveitar a identidade gerenciada de um aplicativo Service Fabric para acessar os serviços do Azure
 
@@ -371,7 +371,7 @@ Limites de limitação se aplicam ao número de chamadas feitas ao subsistema de
 | 5 | Aguarde 16 segundos e tente novamente |
 
 ## <a name="resource-ids-for-azure-services"></a>IDs de recurso para serviços do Azure
-Consulte [Serviços do Azure que dão suporte à autenticação do Azure ad](../active-directory/managed-identities-azure-resources/services-support-msi.md) para obter uma lista de recursos que dão suporte ao Azure AD e suas respectivas IDs de recursos.
+Consulte [Serviços do Azure que dão suporte à autenticação do Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) para obter uma lista de recursos que dão suporte ao Azure AD e suas respectivas IDs de recursos.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Implantar um aplicativo de Service Fabric do Azure com uma identidade gerenciada atribuída pelo sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)

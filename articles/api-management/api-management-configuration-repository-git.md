@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: c1a9f3e76622523dde03cc2a639cce33227dff5f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 183a3561a7c01d8f0911a70846384cf8ebc7dd9c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649223"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254836"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git
 
@@ -141,7 +142,7 @@ git push
 
 Após a confirmação de suas alterações locais e o envio para o repositório do servidor, você pode implantá-las na instância de seu serviço de Gerenciamento de API.
 
-Para saber mais sobre como executar essa operação usando a API REST, confira [Implantar as alterações do Git no banco de dados de configuração usando a API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/tenantconfiguration).
+Para saber mais sobre como executar essa operação usando a API REST, confira [Implantar as alterações do Git no banco de dados de configuração usando a API REST](/rest/api/apimanagement/2019-12-01/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Referência da estrutura de pastas e arquivos do repositório Git local
 
@@ -171,8 +172,8 @@ Esses arquivos podem ser criados, excluídos, editados e gerenciados em seu sist
 > [!NOTE]
 > As entidades a seguir não estão no repositório Git e não podem ser configuradas usando o Git.
 >
-> * [Usuários](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user)
-> * [Assinaturas](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription)
+> * [Usuários](/rest/api/apimanagement/2019-12-01/user)
+> * [Assinaturas](/rest/api/apimanagement/2019-12-01/subscription)
 > * Valores nomeados
 > * Outras entidades do portal do desenvolvedor além dos estilos
 >
@@ -221,15 +222,15 @@ A configuração final, `$ref-policy`, é mapeada para o arquivo de instruções
 ### <a name="apis-folder"></a>pasta apis
 A pasta `apis` contém uma pasta para cada API na instância do serviço que contém os itens a seguir.
 
-* `apis\<api name>\configuration.json` - é a configuração da API e contém informações sobre a URL do serviço de back-end e as operações. Essas são as mesmas informações que retornariam se você chamasse [Obter uma API específica](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apis/get) com `export=true` no formato `application/json`.
-* `apis\<api name>\api.description.html` - é a descrição da API e corresponde à propriedade `description` da [entidade da API](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.entityproperty).
-* `apis\<api name>\operations\` - esta pasta contém os arquivos `<operation name>.description.html` que são mapeados para as operações na API. Cada arquivo contém a descrição de uma única operação na API que mapeia para a propriedade `description` da [entidade de operação](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) na API REST.
+* `apis\<api name>\configuration.json` - é a configuração da API e contém informações sobre a URL do serviço de back-end e as operações. Essas são as mesmas informações que retornariam se você chamasse [Obter uma API específica](/rest/api/apimanagement/2019-12-01/apis/get) com `export=true` no formato `application/json`.
+* `apis\<api name>\api.description.html` - é a descrição da API e corresponde à propriedade `description` da [entidade da API](/java/api/com.microsoft.azure.storage.table.entityproperty).
+* `apis\<api name>\operations\` - esta pasta contém os arquivos `<operation name>.description.html` que são mapeados para as operações na API. Cada arquivo contém a descrição de uma única operação na API que mapeia para a propriedade `description` da [entidade de operação](/rest/api/visualstudio/operations/list#operationproperties) na API REST.
 
 ### <a name="groups-folder"></a>pasta groups
 A pasta `groups` contém uma pasta para cada grupo definido na instância do serviço.
 
-* `groups\<group name>\configuration.json` - é a configuração do grupo. Essas são as mesmas informações que retornariam se você chamasse a operação [Obter um grupo específico](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/group/get) .
-* `groups\<group name>\description.html` - é a descrição do grupo e corresponde à propriedade `description` da [entidade de grupo](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
+* `groups\<group name>\configuration.json` - é a configuração do grupo. Essas são as mesmas informações que retornariam se você chamasse a operação [Obter um grupo específico](/rest/api/apimanagement/2019-12-01/group/get) .
+* `groups\<group name>\description.html` - é a descrição do grupo e corresponde à propriedade `description` da [entidade de grupo](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>pasta policies
 A pasta `policies` contém as instruções da política para a instância de seu serviço.
@@ -248,8 +249,8 @@ A pasta `portalStyles` contém folhas de estilo e configuração para personaliz
 ### <a name="products-folder"></a>pasta products
 A pasta `products` contém uma pasta para cada produto definida na instância do serviço.
 
-* `products\<product name>\configuration.json` - é a configuração do produto. Essas são as mesmas informações que retornariam se você chamasse a operação [Obter um produto específico](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/product/get) .
-* `products\<product name>\product.description.html` - é a descrição do produto e corresponde à propriedade `description` da [entidade do produto](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) na API REST.
+* `products\<product name>\configuration.json` - é a configuração do produto. Essas são as mesmas informações que retornariam se você chamasse a operação [Obter um produto específico](/rest/api/apimanagement/2019-12-01/product/get) .
+* `products\<product name>\product.description.html` - é a descrição do produto e corresponde à propriedade `description` da [entidade do produto](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) na API REST.
 
 ### <a name="templates"></a>modelos
 A pasta `templates` contém a configuração dos [modelos de email](api-management-howto-configure-notifications.md) na instância do serviço.
@@ -261,8 +262,8 @@ A pasta `templates` contém a configuração dos [modelos de email](api-manageme
 Para saber mais sobre outras maneiras de gerenciar sua instância de serviço, confira:
 
 * Gerenciar a instância de seu serviço usando os seguintes cmdlets do PowerShell
-  * [Referência de cmdlets do PowerShell para implantação de serviços](https://docs.microsoft.com/powershell/module/wds)
-  * [Referência de cmdlet do PowerShell para gerenciamento de serviços](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
+  * [Referência de cmdlets do PowerShell para implantação de serviços](/powershell/module/wds)
+  * [Referência de cmdlet do PowerShell para gerenciamento de serviços](/powershell/azure/servicemanagement/overview)
 * Gerenciar a instância de seu serviço usando a API REST
   * [Referência de API REST do Gerenciamento de API](/rest/api/apimanagement/)
 
@@ -280,7 +281,3 @@ Para saber mais sobre outras maneiras de gerenciar sua instância de serviço, c
 [api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
-
-
-
-

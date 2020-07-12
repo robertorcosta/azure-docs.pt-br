@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9f8b0cc5a80853542b15d1993713d8a97f5371b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 672a5afe36449aaa486ca6980f510ba52cf6daf2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361567"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250950"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA de tempo de atividade do Serviço de Kubernetes do Azure (AKS)
 
@@ -40,7 +40,7 @@ O SLA de tempo de atividade é um recurso pago e habilitado por cluster. O preç
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-* Instalar o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) versão 2.8.0 ou posterior
+* Instalar o [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) versão 2.8.0 ou posterior
 
 ## <a name="creating-a-new-cluster-with-uptime-sla"></a>Criando um novo cluster com SLA de tempo de atividade
 
@@ -113,7 +113,7 @@ Use o [`az aks update`][az-aks-nodepool-update] comando para atualizar o cluster
   },
   ```
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
 Para evitar cobranças, limpe todos os recursos que você criou. Para excluir o cluster, use o [`az group delete`][az-group-delete] comando para excluir o grupo de recursos AKs:
 

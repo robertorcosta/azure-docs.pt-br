@@ -3,11 +3,12 @@ title: Coletar & analisar logs de recursos
 description: Registre e analise eventos de log de recursos para o registro de contêiner do Azure, como autenticação, push de imagem e pull de imagem.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: b41b1001a669fe42721471bc196e7628eabff983
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8757b8bdb67cf75b1ba800658d80b2a44311f1ba
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343176"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252480"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria
 
@@ -141,10 +142,9 @@ ContainerRegistryLoginEvents
 
 Além de enviar os logs para Log Analytics, ou como alternativa, um cenário comum é selecionar uma conta de armazenamento do Azure como um destino de log. Para arquivar logs no armazenamento do Azure, crie uma conta de armazenamento antes de habilitar o arquivamento por meio das configurações de diagnóstico.
 
-Você também pode transmitir eventos de log de diagnóstico para um [Hub de eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Os Hubs de Eventos podem incluir milhões de eventos por segundo, os quais você pode transformar e armazenar usando qualquer provedor de análise em tempo real. 
+Você também pode transmitir eventos de log de diagnóstico para um [Hub de eventos do Azure](../event-hubs/event-hubs-about.md). Os Hubs de Eventos podem incluir milhões de eventos por segundo, os quais você pode transformar e armazenar usando qualquer provedor de análise em tempo real. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre como usar [log Analytics](../azure-monitor/log-query/get-started-portal.md) e criar [consultas de log](../azure-monitor/log-query/get-started-queries.md).
 * Consulte [visão geral dos logs da plataforma Azure](../azure-monitor/platform/platform-logs-overview.md) para saber mais sobre os logs de plataforma que estão disponíveis em diferentes camadas do Azure.
-

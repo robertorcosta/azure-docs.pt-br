@@ -6,18 +6,18 @@ author: mlearned
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: mlearned
-ms.openlocfilehash: 27ae1d1a2c6309bdac2410dca4b48abf27d8ea0b
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 95a303a4b6a83901560b26679bca920b9de4d3f4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231974"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250898"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Usar identidades gerenciadas no serviço kubernetes do Azure
 
 Atualmente, um cluster AKS (serviço de kubernetes do Azure) (especificamente, o provedor de nuvem kubernetes) requer uma identidade para criar recursos adicionais, como balanceadores de carga e discos gerenciados no Azure. Essa identidade pode ser uma *identidade gerenciada* ou uma *entidade de serviço*. Se você usar uma [entidade de serviço](kubernetes-service-principal.md), deverá fornecer uma ou AKs cria uma em seu nome. Se você usar a identidade gerenciada, ela será criada para você pelo AKS automaticamente. Os clusters que usam entidades de serviço eventualmente atingem um estado no qual a entidade de serviço deve ser renovada para manter o cluster funcionando. O gerenciamento de entidades de serviço adiciona complexidade, motivo pelo qual é mais fácil usar identidades gerenciadas. Os mesmos requisitos de permissão se aplicam a entidades de serviço e identidades gerenciadas.
 
-*Identidades gerenciadas* são essencialmente um wrapper em relação às entidades de serviço e tornam seu gerenciamento mais simples. A rotação de credenciais para MI ocorre automaticamente a cada 46 dias de acordo com Azure Active Directory padrão. O AKS usa tipos de identidade gerenciados atribuídos pelo sistema e atribuídos pelo usuário. Atualmente, essas identidades são imutáveis. Para saber mais, leia sobre [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+*Identidades gerenciadas* são essencialmente um wrapper em relação às entidades de serviço e tornam seu gerenciamento mais simples. A rotação de credenciais para MI ocorre automaticamente a cada 46 dias de acordo com Azure Active Directory padrão. O AKS usa tipos de identidade gerenciados atribuídos pelo sistema e atribuídos pelo usuário. Atualmente, essas identidades são imutáveis. Para saber mais, leia sobre [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -110,4 +110,4 @@ O cluster será criado em alguns minutos. Em seguida, você pode implantar suas 
 * Use [modelos de Azure Resource Manager (ARM)][aks-arm-template] para criar clusters habilitados para identidade gerenciada.
 
 <!-- LINKS - external -->
-[aks-arm-template]: https://docs.microsoft.com/azure/templates/microsoft.containerservice/managedclusters
+[aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters

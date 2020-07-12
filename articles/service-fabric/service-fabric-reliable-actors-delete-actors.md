@@ -5,11 +5,12 @@ author: amanbha
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: amanbha
-ms.openlocfilehash: b90c5a10c64e273f1c8f48c7bf5713859796db65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d977b6fea71d246610b0e6ef2d9e17d587f1e9ad
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645609"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253534"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Excluir Reliable Actors e o respectivo estado
 A coleta de lixo dos atores desativados elimina apenas o objeto do ator, mas não remove os dados que são armazenados no Gerenciador de Estado de um ator. Quando um ator é reativado, seus dados são novamente disponibilizados a ele através do Gerenciador de Estado. Nos casos em que atores armazenam dados no Gerenciador de Estado e são desativados, mas nunca reativados, pode ser necessário eliminar seus dados.
@@ -48,7 +49,7 @@ Para obter mais informações sobre Reliable Actors, leia o seguinte:
 * [Eventos de ator](service-fabric-reliable-actors-events.md)
 * [Reentrância do ator](service-fabric-reliable-actors-reentrancy.md)
 * [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md)
-* [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Documentação de referência da API do Ator](/previous-versions/azure/dn971626(v=azure.100))
 * [Código de exemplo em C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Código de exemplo Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

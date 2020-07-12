@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 48a83fad3395f6ecf06fb1f1ba95aa1b06a53431
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c9df3393a0554d2e65b3918c6760885f89e11ed
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259129"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254735"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Como integrar o Gerenciamento de API do Azure ao Azure Application Insights
 
@@ -50,7 +51,7 @@ Para que você possa usar as informações do Azure Application Insights, primei
     ![Agente do Application Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> Nos bastidores, uma entidade [Agente](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate) é criada sem sua instância do Gerenciamento de API, contendo a Chave de instrumentação da instância do Application Insights.
+> Nos bastidores, uma entidade [Agente](/rest/api/apimanagement/2019-12-01/logger/createorupdate) é criada sem sua instância do Gerenciamento de API, contendo a Chave de instrumentação da instância do Application Insights.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Habilitar o log do Application Insights para sua API
 
@@ -63,18 +64,18 @@ Para que você possa usar as informações do Azure Application Insights, primei
 6. Marque a caixa **Habilitar**.
 7. Selecione o agente anexado na lista suspensa **Destino**.
 8. Insira **100** como **Amostragem (%)** e marque a caixa de seleção **Sempre registrar erros**.
-9. Clique em **Save** (Salvar).
+9. Clique em **Salvar**.
 
 > [!WARNING]
 > Substituir o valor padrão **0** no campo **Primeiros bytes do corpo** pode diminuir significativamente o desempenho de suas APIs.
 
 > [!NOTE]
-> Nos bastidores, uma entidade [Diagnóstico](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) chamada 'applicationinsights' é criada no nível da API.
+> Nos bastidores, uma entidade [Diagnóstico](/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) chamada 'applicationinsights' é criada no nível da API.
 
 | Nome da configuração                        | Tipo de valor                        | Descrição                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Habilitar                              | booleano                           | Especifica se o log desta API está habilitado.                                                                                                                                                                                                                                                                                                |
-| Destination                         | Agente do Azure Application Insights | Especifica o agente do Azure Application Insights a ser usado                                                                                                                                                                                                                                                                                           |
+| Destino                         | Agente do Azure Application Insights | Especifica o agente do Azure Application Insights a ser usado                                                                                                                                                                                                                                                                                           |
 | Amostragem (%)                        | decimal                           | Valores de 0 a 100 (porcentagem). <br/> Especifica o percentual de solicitações que será registrada no Azure Application Insights. A amostragem de 0% significa zero solicitações registradas, enquanto a amostragem de 100% significa que todas as solicitações foram registradas. <br/> Essa configuração é usada para reduzir as implicações no desempenho das solicitações de registro no Azure Application Insights (confira a seção abaixo). |
 | Sempre registrar erros                   | booleano                           | Se essa configuração for selecionada, todas as falhas serão registradas no Azure Application Insights, independentemente da configuração de **Amostragem**.                                                                                                                                                                                                                  |
 | Opções básicas: cabeçalhos              | list                              | Especifica os cabeçalhos que serão registrados no Azure Application Insights para solicitações e respostas.  Padrão: nenhum cabeçalho é registrado.                                                                                                                                                                                                             |
@@ -125,5 +126,5 @@ Ignorar o registro do cabeçalho e do corpo das solicitações e respostas tamb�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-+ Saiba mais sobre o [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/).
++ Saiba mais sobre o [Azure Application Insights](/azure/application-insights/).
 + Considere o [registro com Hubs de Eventos do Azure](api-management-howto-log-event-hubs.md).

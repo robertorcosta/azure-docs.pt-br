@@ -13,11 +13,12 @@ ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 2e9a50553a12c57c0043c7f2924245f6a907242a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 095bc5594cf9b6eaf0df7929ea83c25a401793e2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83825951"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252106"
 ---
 # <a name="authentication-vs-authorization"></a>Autenticação versus autorização
 
@@ -37,7 +38,7 @@ Em vez de criar aplicativos que mantêm as próprias informações de nome de us
 
 O Azure AD (Azure Active Directory) é um provedor de identidade centralizado na nuvem. Delegar autenticação e autorização a ele permite cenários como políticas de acesso condicional que exigem que um usuário esteja em um local específico, o uso de [autenticação multifatorial](../authentication/concept-mfa-howitworks.md) (às vezes referida como autenticação de dois fatores ou 2FA), além de habilitar um usuário para entrar uma vez e, em seguida, entrar automaticamente em todos os aplicativos da web que compartilham o mesmo diretório centralizado. Essa funcionalidade é conhecida como **SSO (logon único)** .
 
-A plataforma de identidade da Microsoft simplifica a autorização e a autenticação para os desenvolvedores de aplicativos, fornecendo a identidade como serviço, com suporte para protocolos padrão do setor, como OAuth 2.0 e OpenID Connect, bem como bibliotecas de software livre para diferentes plataformas para ajudar você a começar a codificação rapidamente. Ela permite que os desenvolvedores criem aplicativos que se conectam a todas as identidades da Microsoft e obtenham tokens para chamar o [Microsoft Graph](https://developer.microsoft.com/graph/), outras APIs da Microsoft ou APIs que os desenvolvedores criaram. Para saber mais, confira [Evolução da plataforma de identidade da Microsoft](about-microsoft-identity-platform.md).
+A plataforma de identidade da Microsoft simplifica a autorização e a autenticação para os desenvolvedores de aplicativos, fornecendo a identidade como serviço, com suporte para protocolos padrão do setor, como OAuth 2.0 e OpenID Connect, bem como bibliotecas de software livre para diferentes plataformas para ajudar você a começar a codificação rapidamente. Ela permite que os desenvolvedores criem aplicativos que se conectam a todas as identidades da Microsoft e obtenham tokens para chamar o [Microsoft Graph](https://developer.microsoft.com/graph/), outras APIs da Microsoft ou APIs que os desenvolvedores criaram.
 
 A seguir, é apresentada uma breve comparação dos vários protocolos usados pela plataforma de identidade da Microsoft:
 

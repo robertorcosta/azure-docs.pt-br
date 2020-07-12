@@ -12,11 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 380b61df8a774e69454577d201cebf1c495b4f74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 981d3134e957e1f19b9cd88ee13a72fc45d79277
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83004739"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252888"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado
 
@@ -70,8 +71,8 @@ Para executar as etapas descritas neste artigo, você precisa ter:
     > Os nomes de domínio curinga, por exemplo, `*.contoso.com` têm suporte em todas as camadas, exceto a camada de consumo.
 
     > [!TIP]
-    > É recomendável usar [Azure Key Vault para gerenciar certificados](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) e defini-los para renovar.
-    > Se você usar Azure Key Vault para gerenciar o certificado TLS/SSL de domínio personalizado, verifique se o certificado foi inserido no Key Vault [como um _certificado_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), não como um _segredo_.
+    > É recomendável usar [Azure Key Vault para gerenciar certificados](../key-vault/certificates/about-certificates.md) e defini-los para renovar.
+    > Se você usar Azure Key Vault para gerenciar o certificado TLS/SSL de domínio personalizado, verifique se o certificado foi inserido no Key Vault [como um _certificado_](/rest/api/keyvault/createcertificate/createcertificate), não como um _segredo_.
     >
     > Para buscar um certificado TLS/SSL, o gerenciamento de API deve ter a lista e obter permissões de segredos no Azure Key Vault que contém o certificado. Ao usar portal do Azure todas as etapas de configuração necessárias serão concluídas automaticamente. Ao usar as ferramentas de linha de comando ou a API de gerenciamento, essas permissões devem ser concedidas manualmente. Isso é feito em duas etapas. Primeiro, use a página identidades gerenciadas na instância de gerenciamento de API para garantir que a identidade gerenciada esteja habilitada e anote a ID da entidade de segurança mostrada nessa página. Em segundo lugar, dê à lista de permissões e obtenha permissões de segredos para essa ID de entidade de segurança no Azure Key Vault que contém o certificado.
     >

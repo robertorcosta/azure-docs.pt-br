@@ -5,11 +5,12 @@ author: BharatNarasimman
 ms.topic: conceptual
 ms.date: 06/07/2017
 ms.author: bharatn
-ms.openlocfilehash: 7f3b3974893316a488270f755b8f8822080658d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fbcf552cee8a96636920f04472843b1fea5c845
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75433854"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253228"
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>Pilha de comunicação baseada no WCF para Reliable Services
 A estrutura de Serviços confiáveis permite que os autores do serviço escolham qual pilha de comunicação desejam usar para seu serviço. Eles podem ligar a pilha de comunicação de sua escolha por meio do **ICommunicationListener** retornado dos métodos [CreateServiceReplicaListeners ou CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) . A estrutura fornece uma implementação da pilha de comunicação baseada no WCF (Windows Communication Foundation) da pilha de comunicação para autores de serviço que desejam usar comunicação baseada no WCF.
@@ -115,6 +116,5 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Chamada de procedimento remoto com Reliable Services remoto](service-fabric-reliable-services-communication-remoting.md)
-* [API Web com OWIN no Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* [API Web com OWIN no Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication-wcf.md)
-

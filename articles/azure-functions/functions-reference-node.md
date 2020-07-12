@@ -2,13 +2,14 @@
 title: Referência do desenvolvedor de JavaScript para Azure Functions
 description: Entenda como desenvolver funções usando JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 51d8c951958dc5fb4b26e92337f96e7a5c758999
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d71301ef73cd94c13b12e17c923ec73abb8e4aae
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83996594"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252718"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -127,7 +128,7 @@ As entradas são divididas em duas categorias no Azure Functions: uma é a entra
    };
    ```
 
-### <a name="outputs"></a>Saídas
+### <a name="outputs"></a>outputs
 As saídas (ligações de `direction === "out"`) podem ser gravadas por uma função de várias maneiras. Em todos os casos, a propriedade `name` da ligação, conforme definido em * function.json *, corresponde ao nome do membro do objeto gravado na sua função. 
 
 Você pode atribuir dados a associações de saída de uma das seguintes maneiras (não Combine esses métodos):
@@ -341,7 +342,7 @@ HTTP e gatilhos de webhook e associações de saída HTTP usam objetos de solici
 
 O objeto `context.req` (solicitação) tem as seguintes propriedades:
 
-| Property      | Descrição                                                    |
+| Propriedade      | Descrição                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Um objeto que contém o corpo da solicitação.               |
 | _conector_     | Um objeto que contém os cabeçalhos da solicitação.                   |
@@ -356,7 +357,7 @@ O objeto `context.req` (solicitação) tem as seguintes propriedades:
 
 O objeto `context.res` (resposta) tem as seguintes propriedades:
 
-| Property  | Descrição                                               |
+| Propriedade  | Descrição                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | Um objeto que contém o corpo da resposta.         |
 | _conector_ | Um objeto que contém os cabeçalhos da resposta.             |
@@ -490,7 +491,7 @@ Ao executar localmente, as configurações do aplicativo são lidos a partir de 
 
 As propriedades `scriptFile` e `entryPoint` do `function.json` podem ser usadas para configurar o local e o nome da função exportada. Essas propriedades podem ser importantes quando seu JavaScript é transferido.
 
-### <a name="using-scriptfile"></a>Como usar `scriptFile`
+### <a name="using-scriptfile"></a>Usando `scriptFile`
 
 Por padrão, uma função JavaScript é executada do `index.js`, um arquivo que compartilha o mesmo diretório pai que seu `function.json` correspondente.
 
@@ -519,7 +520,7 @@ O `function.json` da `myNodeFunction` deve incluir uma propriedade `scriptFile` 
 }
 ```
 
-### <a name="using-entrypoint"></a>Como usar `entryPoint`
+### <a name="using-entrypoint"></a>Usando `entryPoint`
 
 No `scriptFile` (ou `index.js`), uma função precisa ser exportada usando `module.exports` para ser localizada e executada. Por padrão, a função que é executada quando disparada é a única exportação desse arquivo, a exportação denominada `run` ou a exportação denominada `index`.
 

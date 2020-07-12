@@ -5,11 +5,12 @@ author: sumukhs
 ms.topic: conceptual
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 9743213394b59af701b25b8be9dd48cf4310b499
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8765e86ffeae86b9f4e2b693c0dbf92478632dbf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645507"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253160"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar serviços confiáveis com estado
 Há dois conjuntos de definições de configuração para Reliable Services. Um conjunto é global para todos os Reliable Services no cluster, enquanto o outro conjunto é específico para um determinado Reliable Service.
@@ -115,7 +116,7 @@ ReplicatorConfig
 | SharedLogPath |Nome de caminho totalmente qualificado |"" |Especifica o caminho totalmente qualificado onde o arquivo de log compartilhado para esta réplica será criado. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado. |
 | SlowApiMonitoringDuration |Segundos |300 |Define o intervalo de monitoramento para as chamadas da API gerenciadas. Exemplo: o usuário fez o backup da função de callback. Após o intervalo, um relatório de integridade de aviso será enviado para o Gerenciador de Integridade. |
 | LogTruncationIntervalSeconds |Segundos |0 |Intervalo configurável no qual o truncamento de log será iniciado em cada réplica. Ele é usado para garantir que o log também seja truncado com base no tempo em vez de apenas no tamanho do log. Essa configuração também força a eliminação de entradas excluídas no dicionário confiável. Por isso, ele pode ser usado para garantir que os itens excluídos sejam removidos em tempo hábil. |
-| EnableStableReads |Boolean |Falso |A habilitação de leituras estáveis restringe as réplicas secundárias para retornar valores que foram confirmado de quorum. |
+| EnableStableReads |Booliano |Falso |A habilitação de leituras estáveis restringe as réplicas secundárias para retornar valores que foram confirmado de quorum. |
 
 ### <a name="sample-configuration-via-code"></a>Amostra de configuração via código
 ```csharp
@@ -183,5 +184,4 @@ As configurações de SharedLogId e SharedLogPath são sempre usadas juntas para
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Depurar seu aplicativo do Service Fabric usando o Visual Studio](service-fabric-debugging-your-application.md)
-* [Referência do desenvolvedor para Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
+* [Referência do desenvolvedor para Reliable Services](/previous-versions/azure/dn706529(v=azure.100))

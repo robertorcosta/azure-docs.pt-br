@@ -10,12 +10,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: abf7e6d7032e7e5dc35b2f4397a5630d45d762de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7321331adcfc81e26b40e7a3c4869b8b1e50fc0e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82205112"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254377"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Implantar no Serviço de Kubernetes do Azure
 
@@ -23,7 +23,7 @@ Este artigo fornece as etapas para implantar o componente de gateway de hospedag
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
+- [Criar uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md)
 - [Criar um cluster kubernetes do Azure](../aks/kubernetes-walkthrough-portal.md)
 - [Provisione um recurso de gateway em sua instância de gerenciamento de API](api-management-howto-provision-self-hosted-gateway.md).
 
@@ -36,7 +36,7 @@ Este artigo fornece as etapas para implantar o componente de gateway de hospedag
 5. Verifique se **kubernetes** está selecionado em **scripts de implantação**.
 6. Selecione **<nome do gateway>** o link do arquivo. yml ao lado da **implantação** para baixar o arquivo.
 7. Ajuste os mapeamentos de porta e o nome do contêiner no arquivo yml, conforme necessário.
-8. Dependendo do seu cenário, talvez seja necessário alterar o tipo de [serviço](https://docs.microsoft.com/azure/aks/concepts-network#services). O valor padrão é `NodePort`.
+8. Dependendo do seu cenário, talvez seja necessário alterar o tipo de [serviço](../aks/concepts-network.md#services). O valor padrão é `NodePort`.
 9. Selecione o ícone de **cópia** localizado na extremidade direita da caixa de texto **implantar** para salvar o `kubectl` comando na área de transferência.
 10. Cole o comando na janela de terminal (ou comando). Observe que o comando espera que o arquivo de ambiente baixado esteja presente no diretório atual.
 ```console
@@ -63,10 +63,6 @@ contosogateway   NodePort    10.110.230.87   <none>        80:32504/TCP,443:3004
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre o gateway auto-hospedado, confira [visão geral do gateway de gerenciamento de API do Azure-hospedado](self-hosted-gateway-overview.md)
-* Saiba mais sobre o [serviço kubernetes do Azure](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+* Saiba mais sobre o [serviço kubernetes do Azure](../aks/intro-kubernetes.md)
 * Saiba [como configurar e persistir logs na nuvem](how-to-configure-cloud-metrics-logs.md)
 * * Saiba [como configurar e persistir logs localmente](how-to-configure-local-metrics-logs.md)
-
-
-
-
