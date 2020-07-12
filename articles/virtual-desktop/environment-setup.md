@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ad535dd18b89cbe2fceab90f73789180ad332b57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d189d5febe54a83cde4fe6cd6aa51e728aa882e6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82612360"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259896"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Ambiente da Área de Trabalho Virtual do Windows
 
@@ -66,7 +66,7 @@ Para saber como configurar o pool de hosts da área de trabalho virtual do Windo
 
 Para saber como se conectar à área de trabalho virtual do Windows, consulte um dos seguintes artigos:
 
-- [Conectar-se com o Windows 10 ou o Windows 7](connect-windows-7-and-10.md)
+- [Conectar-se com o Windows 10 ou o Windows 7](connect-windows-7-10.md)
 - [Conectar-se com um navegador da Web](connect-web.md)
 - [Conectar-se ao cliente Android](connect-android.md)
 - [Conectar-se ao cliente macOS](connect-macos.md)

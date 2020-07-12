@@ -5,11 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: a3b2f7c22c1afd0a24aafa3bcd9dc9a6c3f725f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e60ac5065c2f9543a641daf4f62299c00c61fc8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392566"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260186"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usar relatórios de integridade do sistema para solução de problemas
 Os componentes do Service Fabric do Azure apresentam relatórios de integridade do sistema em todas as entidades no cluster prontos para uso. O [repositório de integridade](service-fabric-health-introduction.md#health-store) cria e exclui entidades baseado nos relatórios do sistema. Ele também os organiza em uma hierarquia que captura interações de entidade.
@@ -73,17 +74,17 @@ O relatório de aviso para o status do nó de semente listará todos os nós de 
 * **Próximas etapas**: se este aviso aparecer no cluster, siga as instruções abaixo para corrigi-lo: para cluster em execução Service Fabric versão 6,5 ou superior: para Service Fabric cluster no Azure, depois que o nó semente ficar inativo, Service Fabric tentará alterá-lo para um nó não semente automaticamente. Para fazer isso acontecer, verifique se o número de nós que não são de semente no tipo de nó primário é maior ou igual ao número de nós de semente inativos. Se necessário, adicione mais nós ao tipo de nó primário para conseguir isso.
 Dependendo do status do cluster, pode levar algum tempo para corrigir o problema. Quando isso for feito, o relatório de aviso será limpo automaticamente.
 
-Para Service Fabric cluster autônomo, para limpar o relatório de aviso, todos os nós de semente precisam se tornar íntegros. Dependendo de por que os nós de semente não estão íntegros, ações diferentes precisam ser tomadas: se o nó semente estiver inativo, os usuários precisarão trazer esse nó de semente para cima; Se o nó de semente for removido ou desconhecido, esse nó semente [precisará ser removido do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes).
+Para Service Fabric cluster autônomo, para limpar o relatório de aviso, todos os nós de semente precisam se tornar íntegros. Dependendo de por que os nós de semente não estão íntegros, ações diferentes precisam ser tomadas: se o nó semente estiver inativo, os usuários precisarão trazer esse nó de semente para cima; Se o nó de semente for removido ou desconhecido, esse nó semente [precisará ser removido do cluster](./service-fabric-cluster-windows-server-add-remove-nodes.md).
 O relatório de aviso é limpo automaticamente quando todos os nós de propagação se tornam íntegros.
 
 Para o cluster que executa a versão Service Fabric mais antiga que 6,5: nesse caso, o relatório de aviso precisa ser limpo manualmente. **Os usuários devem garantir que todos os nós de semente se tornem íntegros antes de limpar o relatório**: se o nó semente estiver inativo, os usuários precisarão trazer esse nó de semente para cima; se o nó semente for removido ou desconhecido, esse nó semente precisará ser removido do cluster.
-Depois que todos os nós de semente se tornarem íntegros, use o comando a seguir do PowerShell para [limpar o relatório de aviso](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
+Depois que todos os nós de semente se tornarem íntegros, use o comando a seguir do PowerShell para [limpar o relatório de aviso](/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
 
 ```powershell
 PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
 
 ## Node system health reports
-System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
+System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
 
 ### Node up/down
 System.FM reports as OK when the node joins the ring (it's up and running). It reports an error when the node departs the ring (it's down, either for upgrading or simply because it has failed). The health hierarchy built by the health store acts on deployed entities in correlation with System.FM node reports. It considers the node a virtual parent of all deployed entities. The deployed entities on that node are exposed through queries if the node is reported as up by System.FM, with the same instance as the instance associated with the entities. When System.FM reports that the node is down or restarted, as a new instance, the health store automatically cleans up the deployed entities that can exist only on the down node or on the previous instance of the node.
@@ -674,7 +675,7 @@ Outras chamadas à API que podem ficar paralisadas estão na interface **IReplic
 * **Propriedade**: **PrimaryReplicationQueueStatus** ou **SecondaryReplicationQueueStatus**, dependendo da função da réplica.
 
 ### <a name="slow-naming-operations"></a>Operações de Nomeação lentas
-**System.NamingService** relata a integridade na réplica primária quando uma operação de Nomenclatura demora mais do que o aceitável. Exemplos de operações de Nomeação: [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) ou [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Mais métodos podem ser encontrados no FabricClient. Por exemplo, eles podem ser encontrados em [métodos de gerenciamento do serviço](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) ou [métodos de gerenciamento de propriedade](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
+**System.NamingService** relata a integridade na réplica primária quando uma operação de Nomenclatura demora mais do que o aceitável. Exemplos de operações de Nomeação: [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) ou [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Mais métodos podem ser encontrados no FabricClient. Por exemplo, eles podem ser encontrados em [métodos de gerenciamento do serviço](/dotnet/api/system.fabric.fabricclient.servicemanagementclient) ou [métodos de gerenciamento de propriedade](/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
 
 > [!NOTE]
 > O serviço de Nomenclatura resolve nomes de serviço para um local no cluster. Os usuários podem usá-lo para gerenciar nomes e propriedades de serviço. É um serviço particionado-persistente do Service Fabric. Uma das partições representa o *proprietário da autoridade*, que contém metadados sobre todos os nomes de Service Fabric e serviços. Os nomes de Service Fabric são mapeados para partições diferentes, chamadas de partições de *proprietário de nome* , para que o serviço seja extensível. Leia mais sobre o [Serviço de nomenclatura](service-fabric-architecture.md).
@@ -879,4 +880,3 @@ System.Hosting relata um aviso se as capacidades de nó não estiverem definidas
 * [Monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 * [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
-

@@ -5,12 +5,12 @@ author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: bd7c57f3089115e4da861fc8fd20331ab92bc33e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19f773fa781c51f64412039201842a7af4c29052
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82787100"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261121"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Dimensionar um cluster do Service Fabric por meio de programação 
 
@@ -20,7 +20,7 @@ Os clusters do Service Fabric em execução no Azure são criados sobre conjunto
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>Gerenciar credenciais
-Um desafio de se escrever um serviço para manipular o dimensionamento é que o serviço deve ser capaz de acessar recursos do conjunto de dimensionamento de máquinas virtuais sem um logon interativo. O acesso ao cluster do Service Fabric é fácil se o serviço de dimensionamento está modificando seu próprio aplicativo do Service Fabric, mas as credenciais são exigidas para acessar o conjunto de dimensionamento. Para entrar, você pode usar uma [entidade de serviço](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) criada com o [CLI do Azure](https://github.com/azure/azure-cli).
+Um desafio de se escrever um serviço para manipular o dimensionamento é que o serviço deve ser capaz de acessar recursos do conjunto de dimensionamento de máquinas virtuais sem um logon interativo. O acesso ao cluster do Service Fabric é fácil se o serviço de dimensionamento está modificando seu próprio aplicativo do Service Fabric, mas as credenciais são exigidas para acessar o conjunto de dimensionamento. Para entrar, você pode usar uma [entidade de serviço](/cli/azure/create-an-azure-service-principal-azure-cli) criada com o [CLI do Azure](https://github.com/azure/azure-cli).
 
 Uma entidade de serviço pode ser criada com as seguintes etapas:
 
@@ -59,7 +59,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-Como alternativa, o tamanho do conjunto de dimensionamento de máquinas virtuais também pode ser gerenciado com os cmdlets do PowerShell. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)pode recuperar o objeto do conjunto de dimensionamento de máquinas virtuais. A capacidade atual está disponível por meio da propriedade `.sku.capacity`. Depois de alterar a capacidade para o valor desejado, o conjunto de dimensionamento de máquinas virtuais no Azure pode ser atualizado com o [`Update-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) comando.
+Como alternativa, o tamanho do conjunto de dimensionamento de máquinas virtuais também pode ser gerenciado com os cmdlets do PowerShell. [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss)pode recuperar o objeto do conjunto de dimensionamento de máquinas virtuais. A capacidade atual está disponível por meio da propriedade `.sku.capacity`. Depois de alterar a capacidade para o valor desejado, o conjunto de dimensionamento de máquinas virtuais no Azure pode ser atualizado com o [`Update-AzVmss`](/powershell/module/az.compute/update-azvmss) comando.
 
 Assim como na adição de um nó manual, a adição de uma instância de conjunto de dimensionamento deve ser suficiente para iniciar um novo nó do Service Fabric, pois o modelo do conjunto de dimensionamento inclui extensões para unir novas instâncias de cluster do Service Fabric automaticamente. 
 
@@ -121,4 +121,4 @@ Para começar a implementar sua própria lógica de dimensionamento automático,
 
 - [Dimensionar manualmente ou com regras de dimensionamento automático](./service-fabric-cluster-scale-in-out.md)
 - [Bibliotecas do Gerenciamento do Azure para .NET fluentes](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (útil para interagir com conjuntos de dimensionamento de máquinas virtuais subjacentes a um cluster do Service Fabric)
-- [System.Fabric.FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (útil para interagir com um cluster do Service Fabric e seus nós)
+- [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient) (útil para interagir com um cluster do Service Fabric e seus nós)

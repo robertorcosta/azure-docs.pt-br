@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bfe428b9eba1f83f3e1bb05c3941c4c56317c9bc
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 12caa6fce4d49e86d1ad5da16aa7abba30f26207
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223101"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260808"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurar o tipo de atribuição do pool de hosts da área de trabalho pessoal
 
@@ -91,7 +91,7 @@ Para atribuir diretamente um usuário a um host de sessão no portal do Azure:
 
 Agora que você configurou o tipo de atribuição da área de trabalho pessoal, pode entrar em um cliente da Área de Trabalho Virtual do Windows para testá-lo como parte de uma sessão de usuário. Os dois tutoriais a seguir mostrarão como se conectar a uma sessão usando o cliente de sua escolha:
 
-- [Conectar-se ao cliente da Área de Trabalho do Windows](connect-windows-7-and-10.md)
+- [Conectar-se ao cliente da Área de Trabalho do Windows](connect-windows-7-10.md)
 - [Conectar-se ao cliente Web](connect-web.md)
 - [Conectar-se ao cliente Android](connect-android.md)
 - [Conectar-se ao cliente iOS](connect-ios.md)

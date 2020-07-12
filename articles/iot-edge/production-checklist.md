@@ -4,18 +4,19 @@ description: Saiba como levar sua solução de Azure IoT Edge de desenvolvimento
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/25/2020
+ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 128504c59690476afef03aa82a03d69769968e99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f5698c5390a341df505bf5a1f849e121bd754a2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84431918"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258782"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implantar sua solução IoT Edge em produção
 
@@ -37,11 +38,14 @@ Os dispositivos IoT Edge podem ser de um Raspberry Pi a um laptop para uma máqu
 
 ### <a name="install-production-certificates"></a>Instalar certificados de produção
 
-Cada dispositivo IoT Edge em produção precisa de um certificado de autoridade de certificação (CA) do dispositivo instalado. Esse certificado de CA é então declarado para o runtime do IoT Edge no arquivo config.yaml. Para cenários de desenvolvimento e teste, o tempo de execução de IoT Edge cria certificados temporários se nenhum certificado for declarado no arquivo config. YAML. No entanto, esses certificados temporários expiram após três meses e não são seguros para cenários de produção.
+Cada dispositivo IoT Edge em produção precisa de um certificado de autoridade de certificação (CA) do dispositivo instalado. Esse certificado de CA é então declarado para o runtime do IoT Edge no arquivo config.yaml. Para cenários de desenvolvimento e teste, o tempo de execução de IoT Edge cria certificados temporários se nenhum certificado for declarado no arquivo config. YAML. No entanto, esses certificados temporários expiram após três meses e não são seguros para cenários de produção. Para cenários de produção, você deve fornecer seu próprio certificado de autoridade de certificação do dispositivo, seja de uma autoridade de certificação autoassinada ou adquirida de uma autoridade de certificação comercial.
+
+> [!NOTE]
+> Atualmente, uma limitação no libiothsm impede o uso de certificados que expiram em 1º de janeiro de 2050.
 
 Para reconhecer a função do certificado de CA do dispositivo, consulte [Como o IoT Edge do Azure usa certificados](iot-edge-certs.md).
 
-Para obter mais informações sobre como instalar certificados em um dispositivo IoT Edge e referenciá-los do arquivo config. YAML, consulte [instalar certificados de produção em um dispositivo IOT Edge](how-to-manage-device-certificates.md).
+Para obter mais informações sobre como instalar certificados em um dispositivo IoT Edge e referenciá-los do arquivo config. YAML, consulte [gerenciar certificado em um dispositivo IOT Edge](how-to-manage-device-certificates.md).
 
 ### <a name="have-a-device-management-plan"></a>Tenha um plano de gerenciamento de dispositivos
 
@@ -272,7 +276,7 @@ Você pode limitar o tamanho de todos os arquivos de log de contêiner nas opç�
 
 Adicione (ou acrescente) essas informações a um arquivo chamado `daemon.json` e coloque-o no local certo para a plataforma do dispositivo.
 
-| Plataforma | Location |
+| Plataforma | Localização |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |

@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 8a8fff374edab7e307cd6dc8fb9aa4a4f974d09c
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: e855ed169a0c4eca7dda696c03deedb9e519e9bf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224682"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259983"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucionar problemas de Arquivos do Azure no Windows
 
-Este artigo lista os problemas comuns relacionados aos Arquivos do Microsoft Azure quando você se conecta de clientes Windows. Também fornece as possíveis causas e resoluções para esses problemas. Além das etapas de solução de problemas neste artigo, você também pode usar o [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)   para garantir que o ambiente de cliente do Windows tenha pré-requisitos corretos. O AzFileDiagnostics automatiza a detecção da maioria dos sintomas mencionados neste artigo e ajuda a configurar seu ambiente para obter um desempenho ideal. Você também pode encontrar essas informações no [solucionador de problemas de compartilhamentos de arquivos do Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) que fornece etapas para ajudá-lo com problemas de conexão/mapeamento/montagem de compartilhamentos de arquivos do Azure.
+Este artigo lista os problemas comuns relacionados aos Arquivos do Microsoft Azure quando você se conecta de clientes Windows. Também fornece as possíveis causas e resoluções para esses problemas. Além das etapas de solução de problemas neste artigo, você também pode usar o [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)   para garantir que o ambiente de cliente do Windows tenha pré-requisitos corretos. O AzFileDiagnostics automatiza a detecção da maioria dos sintomas mencionados neste artigo e ajuda a configurar seu ambiente para obter um desempenho ideal. Você também pode encontrar essas informações no [solucionador de problemas de compartilhamentos de arquivos do Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) que fornece etapas para ajudá-lo com problemas de conexão/mapeamento/montagem de compartilhamentos de arquivos do Azure.
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Erro 5 ao montar um compartilhamento de arquivos do Azure
@@ -65,7 +65,7 @@ Quando você tenta montar um compartilhamento de arquivos do local ou de um data
 
 Pode ocorrer um erro de sistema 53 ou erro de sistema 67 se a comunicação de saída na porta 445 para o datacenter de Arquivos do Azure estiver bloqueada. Para ver o resumo de ISPs que permitem ou proíbem o acesso a partir da porta 445, vá para [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
-Para verificar se o firewall ou ISP está bloqueando a porta 445, use a ferramenta [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) ou o cmdlet `Test-NetConnection`. 
+Para verificar se o firewall ou ISP está bloqueando a porta 445, use a ferramenta [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) ou o cmdlet `Test-NetConnection`. 
 
 Para usar o `Test-NetConnection` cmdlet, o módulo Azure PowerShell deve ser instalado, consulte [instalar Azure PowerShell módulo](/powershell/azure/install-Az-ps) para obter mais informações. Lembre-se de substituir `<your-storage-account-name>` e `<your-resource-group-name>` pelos nomes referentes a sua conta de armazenamento.
 
@@ -334,7 +334,7 @@ No momento, você pode considerar reimplantar seu AAD DS usando um novo nome DNS
 ### <a name="self-diagnostics-steps"></a>Etapas de autodiagnóstico
 Primeiro, certifique-se de ter seguido todas as quatro etapas para [habilitar a autenticação do AD dos arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable).
 
-Em segundo lugar, tente [montar o compartilhamento de arquivos do Azure com a chave da conta de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Se você não conseguiu montar, baixe [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) para ajudá-lo a validar o cliente que está executando o ambiente, detectar a configuração de cliente incompatível que causaria falha de acesso para os arquivos do Azure, fornece orientação prescritiva sobre AutoCorreção e coleta dos rastreamentos de diagnóstico.
+Em segundo lugar, tente [montar o compartilhamento de arquivos do Azure com a chave da conta de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Se você não conseguiu montar, baixe [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) para ajudá-lo a validar o cliente que está executando o ambiente, detectar a configuração de cliente incompatível que causaria falha de acesso para os arquivos do Azure, fornece orientação prescritiva sobre AutoCorreção e coleta dos rastreamentos de diagnóstico.
 
 Em terceiro lugar, você pode executar o cmdlet Debug-AzStorageAccountAuth para conduzir um conjunto de verificações básicas em sua configuração do AD com o usuário conectado do AD. Esse cmdlet é compatível com a [versão AzFilesHybrid v0.1.2+](https://github.com/Azure-Samples/azure-files-samples/releases). Você precisa executar esse cmdlet com um usuário do AD que tenha permissão de proprietário na conta de armazenamento de destino.  
 ```PowerShell

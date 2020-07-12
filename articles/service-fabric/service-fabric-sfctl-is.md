@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: a64aaca97c9df61d795c82d64e6048d6f9ae032f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 349f70c32ea4ebb4559f053d5ef05b4b37b6480f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906082"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260368"
 ---
 # <a name="sfctl-is"></a>sfctl is
 Consultar e enviar comandos para o serviço de infraestrutura.
@@ -70,4 +71,4 @@ Para clusters que têm uma ou mais instâncias do serviço de infraestrutura con
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Configure](service-fabric-cli.md) a CLI do Service Fabric.
-- Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](./scripts/sfctl-upgrade-application.md).

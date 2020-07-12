@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: c3c1bf511f3313e7408d6ce90b73de60bd1309f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b91a8a8742a5bdc9454ebcbd8894889084a12a79
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79366731"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258689"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Monitoramento de desempenho com logs de Azure Monitor
 
@@ -22,7 +23,7 @@ Este artigo aborda as etapas para adicionar o Agente do Log Analytics como exten
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Adicionar a extensão do agente por meio da CLI do Azure
 
-A melhor maneira de adicionar o Agente do Log Analytics ao cluster é por meio das APIs de conjunto de dimensionamento de máquinas virtuais disponíveis com a CLI do Azure. Se você não tiver a CLI do Azure configurada ainda, vá para o Portal do Azure e abra uma instância do [Cloud Shell](../cloud-shell/overview.md) ou [instale a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+A melhor maneira de adicionar o Agente do Log Analytics ao cluster é por meio das APIs de conjunto de dimensionamento de máquinas virtuais disponíveis com a CLI do Azure. Se você não tiver a CLI do Azure configurada ainda, vá para o Portal do Azure e abra uma instância do [Cloud Shell](../cloud-shell/overview.md) ou [instale a CLI do Azure](/cli/azure/install-azure-cli).
 
 1. Depois que o Cloud Shell for solicitado, certifique-se de que você esteja trabalhando na mesma assinatura do recurso. Verifique isso com `az account show` e certifique-se de que o valor “nome” corresponde ao da assinatura de cluster.
 
@@ -72,7 +73,7 @@ Agora que você adicionou o agente do Log Analytics, vá direto para o portal do
 
 3. Clique em **Configurações Avançadas**.
 
-4. Clique em **Dados**, depois clique em **Contadores de Desempenho Windows ou Linux**. Há uma lista de contadores padrão que você pode habilitar, além de também poder definir o intervalo de coleta. Você pode também adicionar [contadores de desempenho adicionais](service-fabric-diagnostics-event-generation-perf.md) para coletar. O formato correto é referenciado neste [artigo](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
+4. Clique em **Dados**, depois clique em **Contadores de Desempenho Windows ou Linux**. Há uma lista de contadores padrão que você pode habilitar, além de também poder definir o intervalo de coleta. Você pode também adicionar [contadores de desempenho adicionais](service-fabric-diagnostics-event-generation-perf.md) para coletar. O formato correto é referenciado neste [artigo](/windows/win32/perfctrs/specifying-a-counter-path).
 
 5. Clique em **Salvar**, depois em **OK**.
 
@@ -91,5 +92,5 @@ Agora que você adicionou o agente do Log Analytics, vá direto para o portal do
 ## <a name="next-steps"></a>Próximas etapas
 
 * Coletar [contador de desempenho](service-fabric-diagnostics-event-generation-perf.md) relevantes. Para configurar o agente do Log Analytics para coletar contadores de desempenho específicos, veja [configurando fontes de dados](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
-* Configurar logs de Azure Monitor para configurar [alertas automatizados](../log-analytics/log-analytics-alerts.md) para auxiliar na detecção e no diagnóstico
+* Configurar logs de Azure Monitor para configurar [alertas automatizados](../azure-monitor/platform/alerts-overview.md) para auxiliar na detecção e no diagnóstico
 * Como alternativa, você pode coletar os contadores de desempenho por meio da [extensão de Diagnóstico do Azure e enviá-los ao Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)

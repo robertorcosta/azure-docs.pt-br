@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: 11e32c9d1290227e638a314ed8417b1bed906842
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e1c96d0b04140f8c1121cfb74b43969b49cfdda
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75749540"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260524"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Visão geral do modelo de programação do Service Fabric
 
@@ -25,7 +26,7 @@ Comece a usar executáveis convidados implantando seu primeiro [aplicativo execu
 
 Por padrão, o Service Fabric implanta e ativa esses serviços como processos. O Service Fabric também pode implantar serviços em [contêineres](service-fabric-containers-overview.md). Service Fabric dá suporte à implantação de contêineres do Linux e contêineres do Windows no Windows Server 2016 e posterior. As imagens de contêiner podem ser extraídas de qualquer repositório de contêiner e implantadas no computador. Você pode implantar aplicativos existentes como executáveis do convidado, serviços confiáveis ou Reliable Actors do Service Fabric com ou sem estado em contêineres e você pode combinar serviços em processos e serviços em contêineres no mesmo aplicativo.
 
-[Saiba mais sobre colocação de seus serviços em contêineres no Windows ou Linux](service-fabric-deploy-container.md)
+[Saiba mais sobre colocação de seus serviços em contêineres no Windows ou Linux](./service-fabric-get-started-containers.md)
 
 ## <a name="reliable-services"></a>Reliable Services
 

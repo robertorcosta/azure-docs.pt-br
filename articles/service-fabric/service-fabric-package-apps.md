@@ -3,11 +3,12 @@ title: Empacotar um aplicativo de Service Fabric do Azure
 description: Saiba mais sobre como empacotar um aplicativo de Service Fabric do Azure e como se preparar para a implantação em um cluster.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c00e46915c7bf147d224911ef4988d9fedd691c7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701040"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260969"
 ---
 # <a name="package-an-application"></a>Preparar um aplicativo
 
@@ -210,7 +211,7 @@ Com essa opção, o pacote de aplicativos não precisa ser copiado para o reposi
 O `sfpkg` é um arquivo zip que contém o pacote de aplicativos inicial e tem a extensão ".sfpkg".
 Dentro do zip, o pacote de aplicativos pode estar compactado ou não. A compactação do pacote de aplicativos dentro do zip é feita nos níveis de código, configuração e pacote de dados, como [mencionado anteriormente](service-fabric-package-apps.md#compress-a-package).
 
-Para criar um `sfpkg`, comece com uma pasta que contém o pacote de aplicativos original, compactado ou não. Em seguida, use qualquer utilitário para compactar a pasta com a extensão ".sfpkg". Por exemplo, use [ZipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
+Para criar um `sfpkg`, comece com uma pasta que contém o pacote de aplicativos original, compactado ou não. Em seguida, use qualquer utilitário para compactar a pasta com a extensão ".sfpkg". Por exemplo, use [ZipFile.CreateFromDirectory](/dotnet/api/system.io.compression.zipfile.createfromdirectory?view=netcore-3.1#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_).
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);

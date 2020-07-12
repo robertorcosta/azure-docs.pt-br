@@ -24,6 +24,8 @@
   items:
     - name: Conectar-se a recursos de Área de Trabalho Virtual do Windows
       items:
+        - name: Conectar-se ao Cliente de Área de Trabalho do Windows
+          href: connect-windows-7-10-2019.md
         - name: Conectar-se ao cliente Web
           href: connect-web-2019.md
         - name: Conectar-se ao cliente Android

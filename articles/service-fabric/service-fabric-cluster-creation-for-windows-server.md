@@ -5,11 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: a42797b51d811ee9427c9b77f8ea59a24c00feee
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ba6474751913b4994ae840f77577b3c1db6c5f73
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827957"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259278"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Criar um cluster autônomo em execução no Windows Server
 Você pode usar o Azure Service Fabric para criar clusters do Service Fabric em qualquer máquina virtual ou computador que estiver executando o Windows Server. Isso significa que você pode implantar e executar os aplicativos do Service Fabric em qualquer ambiente que tenha um conjunto de computadores com o Windows Server interconectados, seja localmente ou em qualquer provedor de nuvem. O Service Fabric fornece um pacote de instalação para criar os clusters do Service Fabric denominado pacote do Windows Server autônomo. Os clusters tradicionais do Service Fabric no Azure estão disponíveis como um serviço gerenciado, enquanto os clusters autônomos do Service Fabric são de autoatendimento. Para obter mais informações, consulte [Comparando clusters do Service Fabric autônomos e do Azure](./service-fabric-deploy-anywhere.md).
@@ -24,10 +25,10 @@ Este artigo guia você pelas etapas para criação de um cluster do Service Fabr
 <a id="getsupport"></a>
 
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Obter suporte para o pacote do Service Fabric para Windows Server
-* Pergunte à comunidade sobre o pacote autônomo do Service Fabric para Windows Server na [página de perguntas e respostas da Microsoft sobre o Azure Service Fabric](https://docs.microsoft.com/answers/topics/azure-service-fabric.html).
+* Pergunte à comunidade sobre o pacote autônomo do Service Fabric para Windows Server na [página de perguntas e respostas da Microsoft sobre o Azure Service Fabric](/answers/topics/azure-service-fabric.html).
 * Abra um tíquete de [Suporte Profissional para o Service Fabric](https://support.microsoft.com/oas/default.aspx?prid=16146).  Saiba mais sobre o Suporte Profissional da Microsoft [aqui](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * Você também pode obter suporte para este pacote como parte do [Suporte Premier da Microsoft](https://support.microsoft.com/en-us/premier).
-* Para obter mais detalhes, consulte as [Opções de suporte do Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
+* Para obter mais detalhes, consulte as [Opções de suporte do Azure Service Fabric](./service-fabric-support.md).
 * Para coletar logs para fins de suporte, execute o [Coletor de logs Autônomo do Service Fabric](service-fabric-cluster-standalone-package-contents.md).
 
 <a id="downloadpackage"></a>
@@ -215,7 +216,7 @@ Nenhum.
 * [Definições de configuração para o cluster autônomo no Windows](service-fabric-cluster-manifest.md)
 * [Adicionar ou remover nós de um cluster do Service Fabric autônomo](service-fabric-cluster-windows-server-add-remove-nodes.md)
 * [Atualizar uma versão autônoma de cluster do Service Fabric](service-fabric-cluster-upgrade-windows-server.md)
-* [Criar um cluster do Service Fabric autônomo com VMs do Azure executando o Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
+* [Criar um cluster do Service Fabric autônomo com VMs do Azure executando o Windows](./service-fabric-cluster-creation-via-arm.md)
 * [Proteger um cluster autônomo no Windows usando a segurança](service-fabric-windows-cluster-windows-security.md)
 * [Proteger um cluster autônomo no Windows usando os certificados X509](service-fabric-windows-cluster-x509-security.md)
 

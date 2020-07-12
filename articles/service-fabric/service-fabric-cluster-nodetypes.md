@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 03076a711041812f7587aa1c388b0889b49725d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4efa8626e80cbd64cd6216faa1869d7210f32cf2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82787126"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261108"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nó do Service Fabric e os conjuntos de dimensionamento da máquina virtual
 
-[Conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets) são um recurso de computação do Azure. Você pode usar os conjuntos de dimensionamento para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que você define em um cluster do Azure Service Fabric define exatamente um conjunto de dimensionamento: vários tipos de nó não podem ser apoiados pelo mesmo conjunto de dimensionamento e um tipo de nó não deve (na maioria dos casos) ser apoiado por vários conjuntos de dimensionamento. Uma exceção a isso é na rara situação do [dimensionamento vertical](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) de um tipo de nó, quando você tem temporariamente dois conjuntos de dimensionamento com o mesmo `nodeTypeRef` valor enquanto as réplicas são migradas do original para o conjunto de dimensionamento atualizado.
+[Conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/index.yml) são um recurso de computação do Azure. Você pode usar os conjuntos de dimensionamento para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que você define em um cluster do Azure Service Fabric define exatamente um conjunto de dimensionamento: vários tipos de nó não podem ser apoiados pelo mesmo conjunto de dimensionamento e um tipo de nó não deve (na maioria dos casos) ser apoiado por vários conjuntos de dimensionamento. Uma exceção a isso é na rara situação do [dimensionamento vertical](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) de um tipo de nó, quando você tem temporariamente dois conjuntos de dimensionamento com o mesmo `nodeTypeRef` valor enquanto as réplicas são migradas do original para o conjunto de dimensionamento atualizado.
 
 O tempo de execução do Service Fabric é instalado em cada máquina virtual no conjunto de dimensionamento pela extensão da máquina virtual *Microsoft. Azure. perfabric* . Cada tipo de nó pode ser escalado vertical ou horizontalmente de forma independente, ter a SKU de sistema operacional em execução em cada nó de cluster, ter conjuntos diferentes de portas abertas e usar métricas de capacidade diferentes.
 

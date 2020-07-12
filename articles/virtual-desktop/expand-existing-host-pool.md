@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 07394fb2d33aaacdc8e47bc2d1809854c0c8ca1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5eee6f34124f8b286deff278c6c3d1038b595357
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209344"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259884"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir um pool de hosts existente com novos hosts de sessão
 
@@ -31,7 +31,7 @@ Este artigo lhe dirá como você pode expandir um pool de hosts existente com no
 
 Antes de começar, verifique se você criou um pool de hosts e VMs (máquinas virtuais) de host de sessão usando um dos seguintes métodos:
 
-- [Azure portal](./create-host-pools-azure-marketplace.md)
+- [Portal do Azure](./create-host-pools-azure-marketplace.md)
 - [Criar um pool de host com o PowerShell](./create-host-pools-powershell.md)
 
 Você também precisará das seguintes informações ao criar pela primeira vez o pool de hosts e as VMs de host de sessão:
@@ -44,7 +44,7 @@ Você também precisará das seguintes informações ao criar pela primeira vez 
 
 Para expandir o pool de hosts adicionando máquinas virtuais:
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 
 2. Pesquise e selecione **Área de Trabalho Virtual do Windows**.
 
@@ -78,7 +78,7 @@ Para expandir o pool de hosts adicionando máquinas virtuais:
 
 Agora que você expandiu o pool de hosts existente, você pode entrar em um cliente de área de trabalho virtual do Windows para testá-los como parte de uma sessão de usuário. Você pode se conectar a uma sessão com qualquer um dos seguintes clientes:
 
-- [Conectar-se ao cliente da Área de Trabalho do Windows](./connect-windows-7-and-10.md)
+- [Conectar-se ao cliente da Área de Trabalho do Windows](./connect-windows-7-10.md)
 - [Conectar-se ao cliente Web](./connect-web.md)
 - [Conectar-se ao cliente Android](./connect-android.md)
 - [Conectar-se ao cliente macOS](./connect-macos.md)

@@ -3,11 +3,12 @@ title: Autenticação com a entidade de serviço
 description: Fornecer acesso a imagens em seu registro de contêiner particular usando uma entidade de serviço do Azure Active Directory.
 ms.topic: article
 ms.date: 10/04/2019
-ms.openlocfilehash: 37da784c8e95a5f5b924532e4a019552924a1a3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d49628576a1c337efaea3e5286fef00e39def17
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74455415"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259142"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticação do Registro de Contêiner do Azure com entidades de serviço
 
@@ -29,7 +30,7 @@ Por exemplo, configure seu aplicativo Web para usar uma entidade de serviço que
 
 Você deve usar uma entidade de serviço para fornecer o acesso de registro em **cenários “sem periféricos”**. Em outras palavras, qualquer aplicativo, serviço ou script que precisa enviar por push ou efetuar pull de imagens de contêiner de maneira automatizada ou autônoma. Por exemplo:
 
-  * *Pull*: implante contêineres de um registro para sistemas de orquestração, incluindo KUBERNETES, DC/so e Docker Swarm. Você também pode efetuar pull de registros de contêiner para serviços do Azure relacionados, como o [AKs (serviço kubernetes do Azure)](../aks/cluster-container-registry-integration.md), [instâncias de contêiner do Azure](container-registry-auth-aci.md), [serviço de aplicativo](../app-service/index.yml), [lote](../batch/index.yml), [Service Fabric](/azure/service-fabric/)e outros.
+  * *Pull*: implante contêineres de um registro para sistemas de orquestração, incluindo KUBERNETES, DC/so e Docker Swarm. Você também pode efetuar pull de registros de contêiner para serviços do Azure relacionados, como o [AKs (serviço kubernetes do Azure)](../aks/cluster-container-registry-integration.md), [instâncias de contêiner do Azure](container-registry-auth-aci.md), [serviço de aplicativo](../app-service/index.yml), [lote](../batch/index.yml), [Service Fabric](../service-fabric/index.yml)e outros.
 
   * *Push*: crie imagens de contêiner e envie-as por push para um registro usando soluções de implantação e integração contínuas como Azure pipelines ou Jenkins.
 

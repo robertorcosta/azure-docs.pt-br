@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: d0625c817703fe5d5645bcfdab962591cb184ae2
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 0bb0fb268d18ddc152dae45014e2154686762976
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232722"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259821"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Criptografia do lado do servidor de Armazenamento em Disco do Azure
 
@@ -84,9 +84,9 @@ O [Azure Disk Encryption](../../security/fundamentals/azure-disk-encryption-vms-
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Habilitar criptografia baseada em host](disks-enable-host-based-encryption-powershell.md)
-- [Azure PowerShell-habilitar a criptografia dupla em discos gerenciados em repouso](disks-enable-double-encryption-at-rest-powershell.md)
-- [Habilitar chaves gerenciadas pelo cliente para o disco gerenciado-PowerShell](disks-enable-customer-managed-keys-powershell.md)
-- [Habilitar os discos gerenciados por chaves gerenciadas pelo cliente](disks-enable-customer-managed-keys-portal.md)
+- [Habilitar criptografia de ponta a ponta usando criptografia no host-PowerShell](disks-enable-host-based-encryption-powershell.md)
+- [Habilitar a criptografia dupla em repouso para os discos gerenciados-PowerShell](disks-enable-double-encryption-at-rest-powershell.md)
+- [Habilitar chaves gerenciadas pelo cliente para seus discos gerenciados-PowerShell](disks-enable-customer-managed-keys-powershell.md)
+- [Habilitar chaves gerenciadas pelo cliente para seus discos gerenciados-Portal](disks-enable-customer-managed-keys-portal.md)
 - [Conheça os modelos do Azure Resource Manager para criar discos criptografados com chaves gerenciadas pelo cliente](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [O que é o Cofre da Chave do Azure?](../../key-vault/general/overview.md)

@@ -9,12 +9,12 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ccd8d383db265826d8644ee89d7300128fc3a350
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c54690645286a4fceb3fd786d85652b1cf77d7aa
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82131300"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260040"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Criar e provisionar um dispositivo IoT Edge usando certificados X. 509
 
@@ -50,6 +50,9 @@ Você precisa dos seguintes arquivos para configurar o provisionamento automáti
 * O certificado de identidade do dispositivo e seu certificado de chave privada. O certificado de identidade do dispositivo será carregado no DPS se você criar um registro individual. A chave privada é passada para o tempo de execução de IoT Edge.
 * Um certificado de cadeia completo, que deve ter pelo menos a identidade do dispositivo e os certificados intermediários nele. O certificado de cadeia completo é passado para o tempo de execução de IoT Edge.
 * Um certificado de autoridade de certificação raiz ou intermediária da cadeia de certificados de confiança. Esse certificado será carregado no DPS se você criar um registro de grupo.
+
+> [!NOTE]
+> Atualmente, uma limitação no libiothsm impede o uso de certificados que expiram em 1º de janeiro de 2050.
 
 ### <a name="use-test-certificates"></a>Usar certificados de teste
 

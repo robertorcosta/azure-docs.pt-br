@@ -3,11 +3,12 @@ title: Visão geral do Service Fabric e contêineres
 description: Uma visão geral do Service Fabric e o uso de contêineres para implantar aplicativos de microsserviço. Este artigo fornece uma visão geral de como os contêineres podem ser usados e dos recursos disponíveis no Service Fabric.
 ms.topic: conceptual
 ms.date: 8/8/2018
-ms.openlocfilehash: 884cefa3d6a60f55269afac73c40b9f6b21518f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c92910a92c8fa3061a1a0d53611734cf681484f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458214"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259236"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric e contêineres
 
@@ -64,7 +65,7 @@ A figura a seguir mostra os diferentes tipos de níveis de isolamento e virtuali
 
 Estes são exemplos típicos em que um contêiner é uma boa opção:
 
-* **Comparar e deslocar IIS**: você pode colocar um aplicativo [ASP.NET MVC](https://www.asp.net/mvc) existente em um contêiner em vez de migrar para ASP.NET Core. Esses aplicativos ASP.NET MVC dependem do IIS (Serviços de Informações da Internet). Você pode empacotar esses aplicativos em imagens de contêiner a partir da imagem do IIS pré-criada e implantá-los com o Service Fabric. Consulte [Container Images on Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) (Imagens de contêiner no Windows Server) para obter informações sobre contêineres do Windows.
+* **Comparar e deslocar IIS**: você pode colocar um aplicativo [ASP.NET MVC](https://www.asp.net/mvc) existente em um contêiner em vez de migrar para ASP.NET Core. Esses aplicativos ASP.NET MVC dependem do IIS (Serviços de Informações da Internet). Você pode empacotar esses aplicativos em imagens de contêiner a partir da imagem do IIS pré-criada e implantá-los com o Service Fabric. Consulte [Container Images on Windows Server](/virtualization/windowscontainers/quick-start/quick-start-windows-server) (Imagens de contêiner no Windows Server) para obter informações sobre contêineres do Windows.
 
 * **Combinar contêineres e microsserviços do Service Fabric**: use uma imagem existente do contêiner para parte do seu aplicativo. Por exemplo, é possível usar o [contêiner NGINX](https://hub.docker.com/_/nginx/) para o front-end da Web do seu aplicativo e serviços com estado para obter a computação mais intensiva de back-end.
 
@@ -89,7 +90,7 @@ O Service Fabric fornece vários recursos de contêiner que ajudam a compilar de
 * Capacidade de definir credenciais de segurança no contêiner.
 * A opção de diferentes modos de rede para contêineres.
 
-Para obter uma visão abrangente do contêiner de suporte no Azure, por exemplo, como criar um cluster Kubernetes com o Serviço de Kubernetes do Azure, como para criar um registro privado do Docker no Registro de Contêiner do Azure e muito mais, consulte [Azure para contêineres](https://docs.microsoft.com/azure/containers/).
+Para obter uma visão abrangente do contêiner de suporte no Azure, por exemplo, como criar um cluster Kubernetes com o Serviço de Kubernetes do Azure, como para criar um registro privado do Docker no Registro de Contêiner do Azure e muito mais, consulte [Azure para contêineres](../containers/index.yml).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -97,6 +98,6 @@ Neste artigo, você aprendeu sobre o suporte que o Service Fabric fornece para c
 
 [Criar seu primeiro aplicativo de contêiner do Service Fabric no Linux](service-fabric-get-started-containers-linux.md)  
 [Criar seu primeiro aplicativo de contêiner do Service Fabric no Windows](service-fabric-get-started-containers.md)  
-[Saiba mais sobre contêineres do Windows](https://docs.microsoft.com/virtualization/windowscontainers/about/)
+[Saiba mais sobre contêineres do Windows](/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

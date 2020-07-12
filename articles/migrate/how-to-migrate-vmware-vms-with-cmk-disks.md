@@ -7,12 +7,12 @@ ms.manager: carmonm
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
-ms.openlocfilehash: afc3132ebdd0f144d16507ef2ccda2dcaffaa34e
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 01f30305529e7f142be0ca6ddffa0f5a12a235bb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232161"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260023"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Migrar VMs VMware para VMs do Azure habilitadas com criptografia do lado do servidor e chaves gerenciadas pelo cliente
 
@@ -59,6 +59,10 @@ A experiência do portal de migração do servidor simplifica a preparação da 
 Um objeto de conjunto de criptografia de disco mapeia Managed Disks para um Key Vault que contém o CMK a ser usado para a SSE. Para replicar VMs com CMK, você criará um conjunto de criptografia de disco e o passará como uma entrada para a operação de replicação.
 
 Siga o exemplo [aqui](../virtual-machines/windows/disks-enable-customer-managed-keys-powershell.md) para criar um conjunto de criptografia de disco usando Azure PowerShell. Verifique se o conjunto de criptografia de disco foi criado na assinatura de destino para a qual as VMs estão sendo migradas e na região do Azure de destino para a migração.
+
+O conjunto de criptografia de disco pode ser configurado para criptografar discos gerenciados com uma chave gerenciada pelo cliente ou para criptografia dupla com uma chave gerenciada pelo cliente e uma chave de plataforma. Para usar a opção criptografia dupla em repouso, configure o conjunto de criptografia de disco conforme descrito [aqui](../virtual-machines/windows/disks-enable-double-encryption-at-rest-powershell.md).
+
+No exemplo mostrado abaixo, o conjunto de criptografia de disco está configurado para usar uma chave gerenciada pelo cliente.
 
 ```azurepowershell
 $Location = "southcentralus"                           #Target Azure region for migration 

@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 95864f932fe255d561eaeb2d803b5fcc79cb2802
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0004b7689b6ede2200e3fe4cb06bba2bbc168d6d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82184088"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259406"
 ---
 # <a name="azure-security-baseline-for-azure-container-registry"></a>Linha de base de segurança do Azure para registro de contêiner do Azure
 
 A linha de base de segurança do Azure para o registro de contêiner do Azure contém recomendações que o ajudarão a melhorar a postura de segurança de sua implantação.
 
-A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
+A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
 
-Para obter mais informações, consulte [Visão geral sobre linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Para obter mais informações, consulte [Visão geral sobre linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Segurança de rede
 
-*Para obter mais informações, consulte [Controle de segurança: Segurança de rede](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Para obter mais informações, consulte [Controle de segurança: Segurança de rede](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteger recursos usando grupos de segurança de rede ou o Firewall do Azure em sua Rede Virtual
 
@@ -174,7 +174,7 @@ Como criar alertas no Azure Monitor:https://docs.microsoft.com/azure/azure-monit
 
 ## <a name="logging-and-monitoring"></a>Registro em log e monitoramento
 
-*Para obter mais informações, consulte [Controle de segurança: registro em log e monitoramento](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para obter mais informações, consulte [Controle de segurança: registro em log e monitoramento](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: usar fontes de sincronização de tempo aprovadas
 
@@ -285,7 +285,7 @@ Como alertar sobre os dados de log do log Analytics:https://docs.microsoft.com/a
 
 ## <a name="identity-and-access-control"></a>Identidade e controle de acesso
 
-*Para obter mais informações, consulte [Controle de segurança: Identidade e controle de acesso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Para obter mais informações, consulte [Controle de segurança: Identidade e controle de acesso](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: manter um inventário de contas administrativas
 
@@ -464,7 +464,7 @@ Lista de serviços suportados do Sistema de Proteção de Dados do Cliente: http
 
 ## <a name="data-protection"></a>Proteção de dados
 
-*Para obter mais informações, consulte [Controle de segurança: proteção de dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Para obter mais informações, consulte [Controle de segurança: proteção de dados](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: manter um inventário de informações confidenciais
 
@@ -608,7 +608,7 @@ Logs de registro de contêiner do Azure para avaliação de diagnóstico e audit
 
 ## <a name="vulnerability-management"></a>Gerenciamento de vulnerabilidades
 
-*Para obter mais informações, consulte [Controle de segurança: gerenciamento de vulnerabilidades](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Para obter mais informações, consulte [Controle de segurança: gerenciamento de vulnerabilidades](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: executar ferramentas automatizadas de verificação de vulnerabilidade
 
@@ -674,7 +674,7 @@ Integração do registro de contêiner do Azure com a central de segurança (ver
 
 ## <a name="inventory-and-asset-management"></a>Inventário e gerenciamento de ativos
 
-*Para obter mais informações, consulte [Controle de segurança: inventário e gerenciamento de ativos](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Para obter mais informações, consulte [Controle de segurança: inventário e gerenciamento de ativos](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: Usar a descoberta de ativos do Azure
 
@@ -843,7 +843,7 @@ Como criar um NSG com uma configuração de segurança:https://docs.microsoft.co
 
 ## <a name="secure-configuration"></a>Configuração segura
 
-*Para obter mais informações, consulte [Controle de segurança: configuração segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Para obter mais informações, consulte [Controle de segurança: configuração segura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: estabelecer configurações seguras para todos os recursos do Azure
 
@@ -1007,7 +1007,7 @@ Como configurar o verificador de credenciais:https://secdevtools.azurewebsites.n
 
 ## <a name="malware-defense"></a>Defesa contra malwares
 
-*Para obter mais informações, consulte [Controle de segurança: defesa contra malwares](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Para obter mais informações, consulte [Controle de segurança: defesa contra malwares](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: usar software antimalware gerenciado centralmente
 
@@ -1042,7 +1042,7 @@ Pré-examinar todos os arquivos que estão sendo carregados em recursos que não
 
 ## <a name="data-recovery"></a>Recuperação de dados
 
-*Para obter mais informações, consulte [Controle de segurança: recuperação de dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Para obter mais informações, consulte [Controle de segurança: recuperação de dados](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: garantir backups automatizados regulares
 
@@ -1097,7 +1097,7 @@ Como habilitar a exclusão reversível no Key Vault:https://docs.microsoft.com/a
 
 ## <a name="incident-response"></a>Resposta a incidentes
 
-*Para obter mais informações, consulte [Controle de segurança: resposta a incidentes](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Para obter mais informações, consulte [Controle de segurança: resposta a incidentes](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: criar um guia de resposta a incidentes
 
@@ -1176,7 +1176,7 @@ Como configurar a automação de fluxo de trabalho e os aplicativos lógicos:htt
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testes de penetração e exercícios de Red Team
 
-*Para obter mais informações, consulte [Controle de segurança: testes de penetração e exercícios de Red Team](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para obter mais informações, consulte [Controle de segurança: testes de penetração e exercícios de Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: realizar testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as constatações de segurança críticas em 60 dias
 
@@ -1192,5 +1192,5 @@ Você pode encontrar mais informações sobre a estratégia da Microsoft e a exe
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte o [Parâmetro de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Saiba mais sobre as [Linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Consulte o [Parâmetro de segurança do Azure](../security/benchmarks/overview.md)
+- Saiba mais sobre as [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

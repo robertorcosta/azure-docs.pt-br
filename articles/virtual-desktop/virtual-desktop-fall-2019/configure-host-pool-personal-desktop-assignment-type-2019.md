@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 376f9d78f508c245bec2d066863566ace68eff0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f4ee0a6ba028a6359a83f5130aca7c6f05ba08b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204856"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259789"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurar o tipo de atribuição do pool de hosts da área de trabalho pessoal
 
@@ -92,5 +92,5 @@ Se precisar adicionar o host da sessão de volta ao pool de hosts da área de tr
 
 Agora que você configurou o tipo de atribuição da área de trabalho pessoal, pode entrar em um cliente da Área de Trabalho Virtual do Windows para testá-lo como parte de uma sessão de usuário. Os dois tutoriais a seguir mostrarão como se conectar a uma sessão usando o cliente de sua escolha:
 
-- [Conectar-se ao cliente da Área de Trabalho do Windows](../connect-windows-7-and-10.md)
+- [Conectar-se ao cliente da Área de Trabalho do Windows](connect-windows-7-10-2019.md)
 - [Conectar-se ao cliente Web](connect-web-2019.md)

@@ -5,12 +5,12 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 7855b92c90a9ccd208a25080c260437e6808d1b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4cab376318bec471fa59614e5bcc716a31dc333
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82184139"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260927"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Introdução ao Reliable Services em Java
 > [!div class="op_single_selector"]
@@ -190,7 +190,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections.reliablehashmap) é uma implementação de dicionário que você pode usar para armazenar o estado no serviço de forma confiável. Com o Service Fabric e os HashMap Confiáveis, você agora pode armazenar dados diretamente em seu serviço sem a necessidade de um repositório persistente externo. Os HashMap Confiáveis tornam os dados altamente disponíveis. O Service Fabric consegue isso criando e gerenciando várias *réplicas* do seu serviço para você. Ele também fornece uma API que abstrai as complexidades de gerenciar essas réplicas e as respectivas transições de estado.
+[ReliableHashMap](/java/api/microsoft.servicefabric.data.collections.reliablehashmap) é uma implementação de dicionário que você pode usar para armazenar o estado no serviço de forma confiável. Com o Service Fabric e os HashMap Confiáveis, você agora pode armazenar dados diretamente em seu serviço sem a necessidade de um repositório persistente externo. Os HashMap Confiáveis tornam os dados altamente disponíveis. O Service Fabric consegue isso criando e gerenciando várias *réplicas* do seu serviço para você. Ele também fornece uma API que abstrai as complexidades de gerenciar essas réplicas e as respectivas transições de estado.
 
 As Coleções Confiáveis podem armazenar qualquer tipo Java, incluindo tipos personalizados, com algumas limitações:
 
@@ -225,7 +225,7 @@ As operações nos HashMap Confiáveis são assíncronas. Isso ocorre porque as 
 As operações de HashMap Confiável são *transacionais*, de modo que você pode manter o estado consistente entre vários HashMap Confiáveis e operações. Por exemplo, você pode obter um item de trabalho de um Dicionário Confiável, executar uma operação nele e salvar o resultado em outro HashMap Confiável, tudo em uma única transação. Trata-se de uma operação atômica e ela garante que toda a operação seja bem-sucedida ou revertida. Se ocorrer um erro depois de remover o item da fila, mas antes de salvar o resultado, toda a transação será revertida e o item permanecerá na fila para processamento.
 
 
-## <a name="build-the-application"></a>Compilar o aplicativo
+## <a name="build-the-application"></a>Criar o aplicativo
 
 O scaffolding Yeoman inclui um script gradle para compilar o aplicativo e os scripts bash para implantar e remover o aplicativo. Para executar o aplicativo, primeiro compile o aplicativo com gradle:
 

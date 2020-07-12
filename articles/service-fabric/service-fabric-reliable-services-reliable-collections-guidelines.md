@@ -3,12 +3,12 @@ title: Diretrizes para coleções confiáveis
 description: Diretrizes e recomendações para usar Service Fabric coleções confiáveis em um aplicativo de Service Fabric do Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: f196df4b58f1acb01a497b5fa08e9af99a4707d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63e6de436bdaceed7f1d2a78e8385dd14bfc0ed6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483118"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260922"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Diretrizes e recomendações para Coleções Confiáveis no Azure Service Fabric
 Esta seção fornece diretrizes para usar o Gerenciador de Estado Confiável e Coleções Confiáveis. A meta é ajudar os usuários a evitar armadilhas comuns.
@@ -64,4 +64,4 @@ Ao decidir usar coleções confiáveis voláteis, considere o seguinte:
   * [Configuração do Gerenciador de Estado Confiável](service-fabric-reliable-services-configuration.md)
 * Outras pessoas
   * [Início Rápido dos Reliable Services](service-fabric-reliable-services-quick-start.md)
-  * [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  * [Referência do desenvolvedor para Coleções Confiáveis](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)

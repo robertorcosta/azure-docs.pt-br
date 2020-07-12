@@ -7,11 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 87932887edd0aac536a2c7fbd25a02d2442f9db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84fa7ae50b69e7e1a2fe341e34497f2bf1a75b0d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84267623"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260175"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidade e recuperação de desastres do Hub IoT
 
@@ -75,6 +76,8 @@ Se suas metas de tempo de atividade de negócios não forem satisfeitas pelo RTO
 
 A opção de failover manual está sempre disponível para uso, independentemente de a região principal estar com tempo de inatividade ou não. Portanto, essa opção poderia ser usada para realizar failovers planejados. Um exemplo de uso de failovers planejados é executar exercícios de failover periódicos. Uma palavra de cautela é que uma operação de failover planejada resulta em um tempo de inatividade para o hub para o período definido pelo RTO para essa opção e também resulta em uma perda de dados, conforme definido pela tabela de RPO acima. Você pode considerar a configuração de uma instância de hub de IoT de teste para exercer a opção de failover planejada periodicamente para ganhar confiança em sua capacidade de obter suas soluções de ponta a ponta funcionando quando ocorre um desastre real.
 
+O failover manual está disponível sem custo adicional para os hubs IoT criados após 18 de maio de 2017
+
 Para obter as instruções passo a passo, consulte [tutorial: executar failover manual para um hub IOT](tutorial-manual-failover.md)
 
 ### <a name="running-test-drills"></a>Executando análises de teste
@@ -131,7 +134,7 @@ Aqui está um resumo das opções de HA/DR apresentado neste artigo que pode ser
 | --- | --- | --- | --- | --- | --- |
 | Failover iniciado pelo Microsoft |2 - 26 horas|Consulte a tabela RPO acima|Não|Nenhum|Nenhum|
 | Failover manual |10 min - 2 horas|Consulte a tabela RPO acima|Sim|Muito baixa. Você só precisará disparar essa operação no portal.|Nenhum|
-| Entre a alta disponibilidade de região |< 1 minuto|Depende da frequência de replicação de sua solução personalizada de alta disponibilidade|Não|Alta|> 1 vezes o custo do hub do IoT 1|
+| Entre a alta disponibilidade de região |< 1 minuto|Depende da frequência de replicação de sua solução personalizada de alta disponibilidade|Não|Alto|> 1 vezes o custo do hub do IoT 1|
 
 ## <a name="next-steps"></a>Próximas etapas
 

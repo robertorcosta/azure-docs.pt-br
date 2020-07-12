@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: a9bd75e0b7f8bfceb50a71ca83b60ff1e7b45508
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a5ebd4822c5f0ff1735464bb4d5b42c436ee529
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905820"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260322"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Propriedades de armazenamento e a consulta em nomes do Service Fabric.
@@ -121,4 +122,4 @@ Cria ou atualiza a propriedade de malha do serviço especificada em um determina
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Configure](service-fabric-cli.md) a CLI do Service Fabric.
-- Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](./scripts/sfctl-upgrade-application.md).

@@ -3,11 +3,12 @@ title: Endereço IP estático para o grupo de contêineres
 description: Criar um grupo de contêineres em uma rede virtual e usar um gateway de aplicativo do Azure para expor um endereço IP de front-end estático para um aplicativo Web em contêineres
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: a27cf20b7d04fedb0b9e0ab408de24d37f2935c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc128da0f4c2e92af98781cef45f48f9e8aeab31
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299155"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260787"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Expor um endereço IP estático para um grupo de contêineres
 
@@ -102,7 +103,7 @@ ACI_IP=$(az container show \
 
 ## <a name="create-application-gateway"></a>Criar um gateway de aplicativo
 
-Crie um gateway de aplicativo na rede virtual, seguindo as etapas no guia de [início rápido do gateway de aplicativo](../application-gateway/quick-create-cli.md). O comando [AZ Network Application-Gateway][az-network-application-gateway-create] a seguir cria um gateway com um endereço IP de front-end público e uma rota para o grupo de contêineres de back-end. Consulte a [documentação do gateway de aplicativo](/azure/application-gateway/) para obter detalhes sobre as configurações do gateway.
+Crie um gateway de aplicativo na rede virtual, seguindo as etapas no guia de [início rápido do gateway de aplicativo](../application-gateway/quick-create-cli.md). O comando [AZ Network Application-Gateway][az-network-application-gateway-create] a seguir cria um gateway com um endereço IP de front-end público e uma rota para o grupo de contêineres de back-end. Consulte a [documentação do gateway de aplicativo](../application-gateway/index.yml) para obter detalhes sobre as configurações do gateway.
 
 ```azurecli
 az network application-gateway create \

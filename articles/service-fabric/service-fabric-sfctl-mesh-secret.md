@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: fab388ff223eb95020e2ba0945c76532bc54f224
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c91a59e57613934c946e3cd56089b330893a51a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905972"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260337"
 ---
 # <a name="sfctl-mesh-secret"></a>sfctl mesh secret
 Obter e excluir recursos de segredo da malha.
@@ -82,4 +83,4 @@ Obtém as informações sobre o recurso de segredo com o nome fornecido. As info
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Configure](service-fabric-cli.md) a CLI do Service Fabric.
-- Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](./scripts/sfctl-upgrade-application.md).

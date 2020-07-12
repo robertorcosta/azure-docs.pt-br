@@ -5,11 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: pepogors
-ms.openlocfilehash: 46601fd91fccb5bd0866bd999cc7643c37c6d582
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86a02fd489ca0eec61b798db7136f963277f6c82
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75551770"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261080"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Práticas recomendadas de aplicativo e cluster do Azure Service Fabric
 
@@ -26,7 +27,7 @@ Este artigo fornece links para as práticas recomendadas para o gerenciamento de
 ## <a name="compute-planning-and-scaling"></a>Planejamento e escala de computação
 
 * [Práticas recomendadas para dimensionamento de computação](service-fabric-best-practices-capacity-scaling.md)
-* [Planejamento de capacidade da computação](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)
+* [Planejamento de capacidade da computação](./service-fabric-cluster-capacity.md)
 
 ## <a name="infrastructure-as-code"></a>Infraestrutura como código
 
@@ -43,7 +44,7 @@ Este artigo fornece links para as práticas recomendadas para o gerenciamento de
 ## <a name="checklist"></a>Lista de verificação
 
 Depois de implementar as práticas sugeridas nas seções anteriores, verifique se você integrou todas as práticas recomendadas na lista de verificação de preparação de produção:
-* [Lista de verificação de preparação de produção do Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
+* [Lista de verificação de preparação de produção do Azure Service Fabric](./service-fabric-production-readiness-checklist.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

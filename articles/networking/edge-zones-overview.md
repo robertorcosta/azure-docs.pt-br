@@ -7,12 +7,12 @@ ms.service: vnf-manager
 ms.topic: article
 ms.date: 07/07/2020
 ms.author: ganesr
-ms.openlocfilehash: 65a5f7e261913fa38c41930cc44341ca872d1b44
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: be113fec596d4730d55403b6ce4dbd6d2709e273
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086884"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260063"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Sobre a visualização da zona do Azure Edge
 
@@ -75,6 +75,8 @@ Os casos de uso típicos incluem:
 As zonas de borda serão oferecidas em parceria com os seguintes operadores:
 
 - ÀS&T (Atlanta, Dallas e Los Angeles) 
+
+Os ISVs que trabalham em aplicativos otimizados e escalonáveis conectados a redes 5G agora podem usar o novo local de visualização de Los Angeles de zonas de borda do Azure com no&T ao criar e experimentar plataformas de latência extremamente baixa, cenários móveis e conectados. Registre-se no programa pioneiro para tirar proveito da conectividade segura e de alta largura de banda.
 
 [Contate a equipe da zona de borda](https://aka.ms/EdgeZones) para obter mais informações.
 

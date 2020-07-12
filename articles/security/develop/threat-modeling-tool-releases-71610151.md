@@ -6,11 +6,12 @@ ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 10/16/2019
-ms.openlocfilehash: 452b44653775a1bcb9456b62e1587b5ff2dff874
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 410da29d8c119111d1ec9b4e60bf8fb1ca661f70
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75552042"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259379"
 ---
 # <a name="threat-modeling-tool-update-release-71610151---10162019"></a>Versão 7.1.61015.1 de atualização do Threat Modeling Tool – 16/10/2019
 
@@ -40,15 +41,17 @@ Novos estênceis para aplicativos lógicos do Azure e Data Explorer do Azure for
 
 Alguns clientes relataram o recebimento da seguinte mensagem de erro ao abrir arquivos criados no "Threat Modeling Tool 2016" ou modelos personalizados:
 
-    System.InvalidOperationException: Invalid Priority value. Accepted values are [0..4] and 'High', 'Medium', 'Low' at ThreatModeling.Model.Threat.get_Priority()
-    
-    System.ArgumentOutOfRangeException: Accepted values are 'High', 'Medium', and 'Low' Parameter name: value Actual value was 5.6. at ThreatModeling.Model.Threat.set_Priority(String value)
+```output
+System.InvalidOperationException: Invalid Priority value. Accepted values are [0..4] and 'High', 'Medium', 'Low' at ThreatModeling.Model.Threat.get_Priority()
+
+System.ArgumentOutOfRangeException: Accepted values are 'High', 'Medium', and 'Low' Parameter name: value Actual value was 5.6. at ThreatModeling.Model.Threat.set_Priority(String value)
+```
 
 Esse problema está em investigação
 
 ## <a name="system-requirements"></a>Requisitos do sistema
 
-- Sistemas operacionais com suporte
+- Sistemas operacionais compatíveis
   - [Atualização de aniversário do Microsoft Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou posterior
 - Versão necessária do .NET
   - [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou posterior

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: charwen
-ms.openlocfilehash: f3a658d4b02501994437691308810ffb9cabcb6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2672068e505b7c86127b8b765372e7c607c3875a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738848"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259779"
 ---
 # <a name="optimize-expressroute-routing"></a>Otimizar o roteamento do ExpressRoute
 Quando você tem vários circuitos de ExpressRoute, tem mais de um caminho para se conectar à Microsoft. Portanto, pode ocorrer um roteamento abaixo do ideal, ou seja, o tráfego pode levar um caminho mais longo para acessar a Microsoft e esta para acessar a sua rede. Quanto maior o caminho de rede, maior será a latência. A latência tem impacto direto na experiência de usuário e no desempenho do aplicativo. Este artigo ilustra esse problema e explica como otimizar o roteamento usando tecnologias de roteamento padrão.
@@ -33,18 +33,18 @@ No exemplo acima, para preferir caminhos do ExpressRoute, configure a preferênc
 
 **Configuração do Cisco IOS-XE da perspectiva de R1:**
 
-    R1(config)#route-map prefer-ExR permit 10
-    R1(config-route-map)#set local-preference 150
+- R1 (config) #route-map preferência-ExR permitir 10
+- R1 (config-rota-mapa) #set local-preferência 150
 
-    R1(config)#router BGP 345
-    R1(config-router)#neighbor 1.1.1.2 remote-as 12076
-    R1(config-router)#neighbor 1.1.1.2 activate
-    R1(config-router)#neighbor 1.1.1.2 route-map prefer-ExR in
+- R1 (config) #router BGP 345
+- R1 (config-router) #neighbor 1.1.1.2 remoto-como 12076
+- R1 (config-router) #neighbor 1.1.1.2 ativar
+- R1 (config-router) #neighbor 1.1.1.2 do mapa de rota-ExR em
 
 **Configuração do Junos da perspectiva do R1:**
 
-    user@R1# set protocols bgp group ibgp type internal
-    user@R1# set protocols bgp group ibgp local-preference 150
+- user@R1# Set protocolos BGP grupo de iBGP tipo interno
+- user@R1# Set protocolos BGP local iBGP-preferência 150
 
 
 

@@ -5,12 +5,12 @@ author: shsha-msft
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: shsha
-ms.openlocfilehash: 8483e00f55d0dd49ba57db58b99b237ce0a169e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3be079b97c2660437344f88203fdda06cc6d6740
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81430624"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258972"
 ---
 # <a name="initializer-codepackages"></a>Initializer CodePackages
 
@@ -50,7 +50,7 @@ Vejamos um exemplo completo usando o inicializador CodePackages.
 > [!IMPORTANT]
 > O exemplo a seguir pressupõe familiaridade com a criação de [aplicativos de contêiner do Windows usando o Service Fabric e o Docker][containers-getting-started-link].
 >
-> Este exemplo faz referência a mcr.microsoft.com/windows/nanoserver:1809. Os contêineres do Windows Server não são compatíveis em todas as versões de um sistema operacional do host. Para obter mais informações, consulte [Compatibilidade de versão de contêiner do Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+> Este exemplo faz referência a mcr.microsoft.com/windows/nanoserver:1809. Os contêineres do Windows Server não são compatíveis em todas as versões de um sistema operacional do host. Para obter mais informações, consulte [Compatibilidade de versão de contêiner do Windows](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
 A ServiceManifest.xml a seguir baseia-se no trecho de código do manifesto descrito anteriormente. *InitCodePackage0*, *InitCodePackage1* e *WorkloadCodePackage* são CodePackages que representam contêineres. Após a ativação, *InitCodePackage0* é executado primeiro. Ele registra uma mensagem em um arquivo e sai. Em seguida, *InitCodePackage1* é executado, que também registra uma mensagem em um arquivo e sai. Por fim, o *WorkloadCodePackage* começa a execução. Ele também registra uma mensagem em um arquivo, gera o conteúdo do arquivo para **stdout** e, em seguida, executa pings para sempre.
 
@@ -151,4 +151,3 @@ Consulte os artigos a seguir para obter informações relacionadas.
 [application-model-link]: service-fabric-application-model.md
 [hosting-model-link]: service-fabric-hosting-model.md
 [setup-entry-point-link]: service-fabric-run-script-at-service-startup.md
-

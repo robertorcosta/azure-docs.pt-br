@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 46ce91e607341e2fbdc0b6a3018e74cb24e76839
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 100cf1f7bf8a0c903cfd61d93d2f923c32cabd11
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645524"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260950"
 ---
 # <a name="reliable-actors-reentrancy"></a>Reentrância de Reliable Actors
 Por padrão, o runtime do Reliable Actors permite a reentrância baseada no contexto da chamada lógica. Isso possibilita que os atores sejam reentrantes se estiverem na mesma cadeia de contexto de chamada. Por exemplo, se um Ator A envia a mensagem para o Ator B, que envia a mensagem para o Ator C. Como parte do processamento da mensagem no caso de o Ator C chamar o Ator A, a mensagem é reentrante e por isso será permitida. Todas as outras mensagens que fazem parte de um contexto de chamada diferente serão bloqueadas no Ator A até a conclusão do processamento.
@@ -101,4 +102,4 @@ static class Program
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre a reentrada na [Documentação de referência de API de Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* Saiba mais sobre a reentrada na [Documentação de referência de API de Ator](/previous-versions/azure/dn971626(v=azure.100))

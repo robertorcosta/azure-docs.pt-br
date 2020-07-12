@@ -4,12 +4,12 @@ description: Transferir coleções de imagens ou outros artefatos de um registro
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: c80f10e8795c63b84bb46fc21fd3406a195b772e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 7f63936ad8f2a97bae6ff63e783e38c15db35e13
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186921"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259463"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefatos para outro registro
 
@@ -36,7 +36,7 @@ Esse recurso está disponível na camada de serviço **Premium** do registro de 
 * **Contas de armazenamento** – crie contas de armazenamento de origem e de destino em uma assinatura e no local de sua escolha. Para fins de teste, você pode usar a mesma assinatura ou assinaturas que os registros de origem e de destino. Para cenários de nuvem cruzada, normalmente você cria uma conta de armazenamento separada em cada nuvem. Se necessário, crie as contas de armazenamento com o [CLI do Azure](../storage/common/storage-account-create.md?tabs=azure-cli) ou outras ferramentas. 
 
   Crie um contêiner de BLOB para transferência de artefato em cada conta. Por exemplo, crie um contêiner chamado *transferência*. Dois ou mais pipelines de transferência podem compartilhar a mesma conta de armazenamento, mas devem usar escopos de contêiner de armazenamento diferentes.
-* **Cofres de chaves** -cofres de chaves são necessários para armazenar segredos de token SAS usados para acessar contas de armazenamento de origem e de destino. Crie os cofres de chave de origem e de destino na mesma assinatura ou assinaturas do Azure que os registros de origem e de destino. Se necessário, crie cofres de chaves com o [CLI do Azure](../key-vault/quick-create-cli.md) ou outras ferramentas.
+* **Cofres de chaves** -cofres de chaves são necessários para armazenar segredos de token SAS usados para acessar contas de armazenamento de origem e de destino. Crie os cofres de chave de origem e de destino na mesma assinatura ou assinaturas do Azure que os registros de origem e de destino. Se necessário, crie cofres de chaves com o [CLI do Azure](../key-vault/secrets/quick-create-cli.md) ou outras ferramentas.
 * **Variáveis de ambiente** – por exemplo, comandos neste artigo definem as seguintes variáveis de ambiente para os ambientes de origem e de destino. Todos os exemplos são formatados para o shell bash.
   ```console
   SOURCE_RG="<source-resource-group>"
@@ -257,7 +257,7 @@ az storage blob list \
 
 Use a ferramenta AzCopy ou outros métodos para [transferir dados de blob](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) da conta de armazenamento de origem para a conta de armazenamento de destino.
 
-Por exemplo, o comando a seguir [`azcopy copy`](/azure/storage/common/storage-ref-azcopy-copy) copia myblob do contêiner de *transferência* na conta de origem para o contêiner de *transferência* na conta de destino. Se o blob existir na conta de destino, ele será substituído. A autenticação usa tokens SAS com permissões apropriadas para os contêineres de origem e de destino. (As etapas para criar tokens não são mostradas.)
+Por exemplo, o comando a seguir [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) copia myblob do contêiner de *transferência* na conta de origem para o contêiner de *transferência* na conta de destino. Se o blob existir na conta de destino, ele será substituído. A autenticação usa tokens SAS com permissões apropriadas para os contêineres de origem e de destino. (As etapas para criar tokens não são mostradas.)
 
 ```console
 azcopy copy \
@@ -366,6 +366,3 @@ Para importar imagens de contêiner único para um registro de contêiner do Azu
 [az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
 [az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
 [az-acr-import]: /cli/azure/acr#az-acr-import
-
-
-

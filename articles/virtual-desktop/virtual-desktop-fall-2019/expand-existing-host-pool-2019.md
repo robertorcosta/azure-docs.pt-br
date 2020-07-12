@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 70ae4a014768976c7dcf81ffadf1066027fa06ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 956934bd536d8eb5e692ed193cad1424929db24b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214274"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260769"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir um pool de hosts existente com novos hosts de sessão
 
@@ -129,7 +130,7 @@ Siga as instruções em [executar o modelo de Azure Resource Manager para provis
 
 Agora que você expandiu o pool de hosts existente, você pode entrar em um cliente de área de trabalho virtual do Windows para testá-los como parte de uma sessão de usuário. Você pode se conectar a uma sessão com qualquer um dos seguintes clientes:
 
-- [Conectar-se ao cliente da Área de Trabalho do Windows](../connect-windows-7-and-10.md)
+- [Conectar-se ao cliente da Área de Trabalho do Windows](connect-windows-7-10-2019.md)
 - [Conectar-se ao cliente Web](connect-web-2019.md)
 - [Conectar-se ao cliente Android](connect-android-2019.md)
 - [Conectar-se ao cliente macOS](connect-macos-2019.md)

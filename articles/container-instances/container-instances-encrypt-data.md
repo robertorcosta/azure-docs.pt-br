@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: 2f9aff2ea88c2334ab30c9819f68fd6cbb9124c5
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 3c7a84dad1f107d8709e3bcdeac696414cdf883d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232433"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259708"
 ---
 # <a name="encrypt-deployment-data"></a>Criptografar dados de implantação
 
@@ -39,7 +39,7 @@ O restante do documento aborda as etapas necessárias para criptografar os dados
 
 ### <a name="create-service-principal-for-aci"></a>Criar entidade de serviço para ACI
 
-A primeira etapa é garantir que seu [locatário do Azure](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) tenha uma entidade de serviço atribuída para conceder permissões ao serviço de instâncias de contêiner do Azure. 
+A primeira etapa é garantir que seu [locatário do Azure](../active-directory/develop/quickstart-create-new-tenant.md) tenha uma entidade de serviço atribuída para conceder permissões ao serviço de instâncias de contêiner do Azure. 
 
 > [!IMPORTANT]
 > Para executar o comando a seguir e criar uma entidade de serviço com êxito, confirme que você tem permissões para criar entidades de serviço em seu locatário.
@@ -59,7 +59,7 @@ Caso você não consiga criar a entidade de serviço com êxito:
 
 ### <a name="create-a-key-vault-resource"></a>Crie um recurso do Key Vault
 
-Crie um Azure Key Vault usando [portal do Azure](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault), [CLI](https://docs.microsoft.com/azure/key-vault/quick-create-cli)ou [PowerShell](https://docs.microsoft.com/azure/key-vault/quick-create-powershell). 
+Crie um Azure Key Vault usando [portal do Azure](../key-vault/secrets/quick-create-portal.md#create-a-vault), [CLI](../key-vault/secrets/quick-create-cli.md)ou [PowerShell](../key-vault/secrets/quick-create-powershell.md). 
 
 Para as propriedades do cofre de chaves, use as seguintes diretrizes: 
 * Name: um nome exclusivo é necessário. 
@@ -96,7 +96,7 @@ A política de acesso agora deve aparecer nas políticas de acesso do cofre de c
 > [!IMPORTANT]
 > A criptografia de dados de implantação com uma chave gerenciada pelo cliente está disponível na versão mais recente da API (2019-12-01) que está sendo distribuída no momento. Especifique essa versão de API em seu modelo de implantação. Se você tiver problemas com isso, entre em contato com o suporte do Azure.
 
-Depois que a chave do Key Vault e a política de acesso forem configuradas, adicione as propriedades a seguir ao modelo de implantação do ACI. Saiba mais sobre a implantação de recursos do ACI com um modelo no [tutorial: implantar um grupo de vários contêineres usando um modelo do Resource Manager](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Depois que a chave do Key Vault e a política de acesso forem configuradas, adicione as propriedades a seguir ao modelo de implantação do ACI. Saiba mais sobre a implantação de recursos do ACI com um modelo no [tutorial: implantar um grupo de vários contêineres usando um modelo do Resource Manager](./container-instances-multi-container-group.md). 
 * Em `resources` , defina `apiVersion` como `2019-12-01` .
 * Na seção Propriedades do grupo de contêineres do modelo de implantação, adicione um `encryptionProperties` , que contém os seguintes valores:
   * `vaultBaseUrl`: o nome DNS do cofre de chaves pode ser encontrado na folha visão geral do recurso do cofre de chaves no portal
@@ -129,7 +129,7 @@ O trecho de código de modelo a seguir mostra essas propriedades adicionais para
 ]
 ```
 
-A seguir está um modelo completo, adaptado do modelo no [tutorial: implantar um grupo de vários contêineres usando um modelo do Resource Manager](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+A seguir está um modelo completo, adaptado do modelo no [tutorial: implantar um grupo de vários contêineres usando um modelo do Resource Manager](./container-instances-multi-container-group.md). 
 
 ```json
 {
@@ -233,14 +233,14 @@ Crie um grupo de recursos com o comando [az group create][az-group-create].
 az group create --name myResourceGroup --location eastus
 ```
 
-Implante o modelo com o comando [az group deployment create][az-group-deployment-create].
+Implante o modelo com o comando [AZ Deployment Group Create][az-deployment-group-create] .
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file deployment-template.json
+az deployment group create --resource-group myResourceGroup --template-file deployment-template.json
 ```
 
 Em alguns segundos, você deverá receber uma resposta inicial do Azure. Depois que a implantação for concluída, todos os dados relacionados a ela persistidos pelo serviço ACI serão criptografados com a chave que você forneceu.
 
 <!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group#az-group-create
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group/#az-deployment-group-create

@@ -4,11 +4,12 @@ description: Perguntas frequentes sobre Service Fabric, incluindo recursos, caso
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: bf61858b446c1ac6d4a0210571fffaa721ad0166
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 056ff2475e0ae8c78887e24e07a3e33f12d7df88
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78254895"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258943"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Perguntas frequentes sobre o Service Fabric
 
@@ -21,9 +22,9 @@ Há muitas perguntas frequentes sobre o que o Service Fabric pode fazer e como e
 
 ### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Como faço para reverter meu certificado de cluster do Service Fabric?
 
-Reverter qualquer atualização para o seu aplicativo requer detecção de falha de integridade antes da confirmação de alteração do quórum do cluster do Service Fabric; as alterações confirmadas somente podem passar por roll forward. Engenheiros de escalação nos Serviços de Atendimento ao Cliente podem ser solicitados a recuperar seu cluster, se uma alteração de certificado interrompido não monitorado tiver sido introduzido.  A [Atualização do aplicativo do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) aplica [parâmetros de atualização de aplicativo](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master) e não oferece promessa de atualização de tempo de inatividade.  Seguindo o nosso modo monitorado de atualização de aplicativo recomendado, o andamento automática através de domínios de atualização se baseia nas verificações de integridade sem interrupção, revertendo automaticamente se a atualização de um serviço padrão falhar.
+Reverter qualquer atualização para o seu aplicativo requer detecção de falha de integridade antes da confirmação de alteração do quórum do cluster do Service Fabric; as alterações confirmadas somente podem passar por roll forward. Engenheiros de escalação nos Serviços de Atendimento ao Cliente podem ser solicitados a recuperar seu cluster, se uma alteração de certificado interrompido não monitorado tiver sido introduzido.  A [Atualização do aplicativo do Service Fabric](./service-fabric-application-upgrade.md?branch=master) aplica [parâmetros de atualização de aplicativo](./service-fabric-application-upgrade-parameters.md?branch=master) e não oferece promessa de atualização de tempo de inatividade.  Seguindo o nosso modo monitorado de atualização de aplicativo recomendado, o andamento automática através de domínios de atualização se baseia nas verificações de integridade sem interrupção, revertendo automaticamente se a atualização de um serviço padrão falhar.
  
-Se o seu cluster ainda estiver aproveitando a clássica propriedade Thumbprint do Certificado em seu modelo do Resource Manager, é recomendável [Alterar o cluster da impressão digital do certificado para o nome comum](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), para aproveitar recursos modernos de gerenciamento de segredos.
+Se o seu cluster ainda estiver aproveitando a clássica propriedade Thumbprint do Certificado em seu modelo do Resource Manager, é recomendável [Alterar o cluster da impressão digital do certificado para o nome comum](./service-fabric-cluster-change-cert-thumbprint-to-cn.md), para aproveitar recursos modernos de gerenciamento de segredos.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>É possível criar um cluster que abranja várias regiões do Azure ou meus próprios data centers?
 
@@ -40,7 +41,7 @@ Veja a seguir alguns itens que você deve levar em consideração:
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Os nós do Service Fabric recebem as atualizações do sistema operacional automaticamente?
 
-Você pode usar [o recurso Atualização geral de imagem do sistema operacional em escala de computador virtual](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) disponível hoje em dia.
+Você pode usar [o recurso Atualização geral de imagem do sistema operacional em escala de computador virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) disponível hoje em dia.
 
 Para clusters que NÃO são executados no Azure, [fornecemos um aplicativo ](service-fabric-patch-orchestration-application.md) para corrigir os sistemas operacionais abaixo dos nós do Service Fabric.
 
@@ -124,8 +125,8 @@ Não. Não há suporte para VMs de baixa prioridade.
 ### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Como meu aplicativo pode autenticar obter segredos no cofre de chaves?
 A seguir, os meios para o seu aplicativo obter credenciais para autenticação no KeyVault:
 
-a. Durante o trabalho de criação / empacotamento de aplicativos, você pode inserir um certificado no pacote de dados do aplicativo SF e usá-lo para autenticar no KeyVault.
-B. Para hosts habilitados para MSI do conjunto de dimensionamento de máquinas virtuais, você pode desenvolver um SetupEntryPoint simples do PowerShell para seu aplicativo de it para obter [um token de acesso do ponto de extremidade do MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e, em seguida, [recuperar seus segredos do keyvault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+A. Durante o trabalho de criação / empacotamento de aplicativos, você pode inserir um certificado no pacote de dados do aplicativo SF e usá-lo para autenticar no KeyVault.
+B. Para hosts habilitados para MSI do conjunto de dimensionamento de máquinas virtuais, você pode desenvolver um SetupEntryPoint simples do PowerShell para seu aplicativo de it para obter [um token de acesso do ponto de extremidade do MSI](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)e, em seguida, [recuperar seus segredos do keyvault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Design do aplicativo
 
@@ -176,9 +177,9 @@ Os contêineres oferecem uma maneira simples de empacotar serviços e suas depen
 
 Temos partes de código aberto do Service Fabric ([estrutura de serviços confiáveis](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [estrutura de atores confiáveis](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [bibliotecas de integração do ASP.NET Core](https://github.com/Azure/service-fabric-aspnetcore), [Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer) e [CLI do Service Fabric](https://github.com/Azure/service-fabric-cli)) no GitHub e aceitamos contribuições da comunidade para esses projetos. 
 
-Nós [anunciamos recentemente](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/) que estamos planejando tornar o código-fonte aberto do runtime do Service Fabric. No momento, estamos com o [repositório do Service Fabric](https://github.com/Microsoft/service-fabric/) no GitHub com build do Linux e ferramentas de teste, o que significa que você pode clonar o repositório, criar o Service Fabric para Linux, executar testes básicos, indicar problemas e enviar solicitações de pull. Estamos trabalhando duro para migrar o ambiente de build do Windows junto com um ambiente completo de CI.
+Nós [anunciamos recentemente](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) que estamos planejando tornar o código-fonte aberto do runtime do Service Fabric. No momento, estamos com o [repositório do Service Fabric](https://github.com/Microsoft/service-fabric/) no GitHub com build do Linux e ferramentas de teste, o que significa que você pode clonar o repositório, criar o Service Fabric para Linux, executar testes básicos, indicar problemas e enviar solicitações de pull. Estamos trabalhando duro para migrar o ambiente de build do Windows junto com um ambiente completo de CI.
 
-Siga o [Blog do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) para obter mais detalhes à medida que eles forem anunciados.
+Siga o [Blog do Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) para obter mais detalhes à medida que eles forem anunciados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

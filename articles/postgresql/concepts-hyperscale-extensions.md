@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/16/2020
-ms.openlocfilehash: ba8f4591782a4e34fbde26d9669ef01f24450486
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: de2579868ad72bdf4cf78c552e9553f289ecabd0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82146424"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259060"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Extensões PostgreSQL no banco de dados do Azure para PostgreSQL – Citus (hiperescala)
 
@@ -144,6 +144,6 @@ A configuração `pg_stat_statements.track` controla quais instruções são con
 Há uma compensação entre as informações de execução da consulta pg_stat_statements fornece e o efeito no desempenho do servidor enquanto registra cada instrução SQL. Se você não estiver usando ativamente a extensão de pg_stat_statements, recomendamos que você defina `pg_stat_statements.track` como `none` . Alguns serviços de monitoramento de terceiros podem contar com pg_stat_statements para fornecer informações de desempenho de consulta, portanto, confirme se esse é o caso para você ou não.
 
 ## <a name="dblink-and-postgres_fdw"></a>dblink e postgres_fdw
-Você pode usar dblink e postgres_fdw para se conectar de um servidor PostgreSQL para outro ou a outro banco de dados no mesmo servidor. O servidor de recebimento precisa permitir conexões do servidor de envio por meio de seu firewall. Para usar essas extensões para se conectar entre os servidores do banco de dados do Azure para PostgreSQL, defina **permitir acesso aos serviços do Azure** como ativado. Você também precisará ativar essa configuração se quiser usar as extensões para fazer um loop de volta para o mesmo servidor. A configuração **permitir acesso aos serviços do Azure** pode ser encontrada na página portal do Azure para o servidor postgres em **segurança de conexão**. Desativando **permitir o acesso aos serviços do Azure** em listas de permissões todos os IPS do Azure.
 
-Atualmente, não há suporte para conexões de saída do banco de dados do Azure para PostgreSQL, exceto para conexões com outros servidores do banco de dados do Azure para PostgreSQL.
+Você pode usar dblink e postgres \_ fdw para se conectar de um servidor PostgreSQL para outro ou a outro banco de dados no mesmo servidor.  O servidor de recebimento precisa permitir conexões do servidor de envio por meio de seu firewall.  Para usar essas extensões para se conectar entre os servidores do banco de dados do Azure para servidor PostgreSQL ou grupos de servidores Citus (hiperescala), defina **permitir que os serviços e recursos do Azure acessem este grupo de servidores (ou servidor)** como ativado.  Você também precisará ativar essa configuração se quiser usar as extensões para fazer um loop de volta para o mesmo servidor.
+A configuração **permitir que os serviços e recursos do Azure acessem este grupo de servidores** pode ser encontrada na página portal do Azure para o grupo de servidores de hiperescala (Citus) em **rede**.  Atualmente, não há suporte para conexões de saída do banco de dados do Azure para PostgreSQL de servidor único e hiperescala (Citus), exceto para conexões com outros grupos de servidores do banco de dados do Azure para servidor PostgreSQL e de hiperescala (Citus).

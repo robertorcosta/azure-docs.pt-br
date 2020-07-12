@@ -3,12 +3,12 @@ title: Implantar instância de contêiner habilitada para GPU
 description: Saiba como implantar instâncias de contêiner do Azure para executar aplicativos de contêiner de uso intensivo de computação usando recursos de GPU.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 78b67843978583dd6b0f0aee2c1d8ad0e5a7ca77
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a25efc90573eb338b81f4a6532a632a140c7ab7d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169741"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259591"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implantar instâncias de contêiner que usam recursos GPU
 
@@ -225,7 +225,7 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre como implantar um grupo de contêiner usando um [arquivo YAML](container-instances-multi-container-yaml.md) ou [modelo do Resource Manager](container-instances-multi-container-group.md).
-* Saiba mais sobre [tamanhos de VM otimizados para GPU](../virtual-machines/linux/sizes-gpu.md) no Azure.
+* Saiba mais sobre [tamanhos de VM otimizados para GPU](../virtual-machines/sizes-gpu.md) no Azure.
 
 
 <!-- IMAGES -->

@@ -4,11 +4,12 @@ description: Este artigo fornece uma visão geral do gerenciamento de um aplicat
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 7a9f59e3e44d3302ac19c7a9e7e77beb51947ce4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ad0d4f6d92ba8d85383df281bd14681f43bb6d4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81682636"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258735"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modelo de recurso de aplicativo Service Fabric
 
@@ -55,7 +56,7 @@ Os recursos no cluster podem ser protegidos definindo o nível de acesso públic
 
 * Autorize o acesso a BLOBs e filas usando [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
 * Conceda acesso ao blob do Azure e aos dados [da fila usando o RBAC no portal do Azure](../storage/common/storage-auth-aad-rbac-portal.md).
-* Delegar acesso usando uma [assinatura de acesso compartilhado](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature).
+* Delegar acesso usando uma [assinatura de acesso compartilhado](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 O exemplo na captura de tela a seguir usa acesso de leitura anônimo para BLOBs.
 
@@ -165,13 +166,13 @@ Você pode atualizar um aplicativo que já está implantado em um Cluster Servic
 
 Para excluir um aplicativo que foi implantado usando o modelo de recurso de aplicativo no Gerenciador de recursos:
 
-1. Use o cmdlet [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource?view=azps-2.5.0) para obter a ID de recurso para o aplicativo:
+1. Use o cmdlet [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-2.5.0) para obter a ID de recurso para o aplicativo:
 
     ```powershell
     Get-AzResource  -Name <String> | f1
     ```
 
-1. Use o cmdlet [Remove-AzResource](https://docs.microsoft.com/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) para excluir os recursos do aplicativo:
+1. Use o cmdlet [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) para excluir os recursos do aplicativo:
 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]

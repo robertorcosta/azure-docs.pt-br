@@ -3,12 +3,12 @@ title: Dimensionar um tipo de nó do Azure Service Fabric
 description: Aprenda como dimensionar um cluster do Microsoft Azure Service Fabric adicionando um conjunto de dimensionamento de máquinas virtuais.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: 2d700367049e0bf9bf710aad110c850a78c26220
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a42e33fa87b6cf7966368481ef6d3920511919e3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610686"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260455"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Dimensionar um tipo de nó primário do cluster do Service Fabric
 Este artigo descreve como dimensionar um tipo de nó primário de cluster do Service Fabric aumentando os recursos da máquina virtual. Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você usa para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Então, cada tipo de nó pode ser gerenciado separadamente. Após criar um cluster do Service Fabric, será possível dimensionar verticalmente um tipo de nó de cluster (alterar os recursos dos nós) ou atualizar o sistema operacional das VMs do tipo de nó.  É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
@@ -49,7 +49,7 @@ Em seguida, entre na sua conta do Azure.
 Login-AzAccount -SubscriptionId "<your subscription ID>"
 ```
 
-Este tutorial percorre o cenário de criação de um certificado autoassinado. Para usar um certificado já existente no Azure Key Vault, ignore a etapa abaixo e, em vez disso, espelhe as etapas em [usando um certificado existente para implantar o cluster](https://docs.microsoft.com/azure/service-fabric/upgrade-managed-disks#use-an-existing-certificate-to-deploy-the-cluster).
+Este tutorial percorre o cenário de criação de um certificado autoassinado. Para usar um certificado já existente no Azure Key Vault, ignore a etapa abaixo e, em vez disso, espelhe as etapas em [usando um certificado existente para implantar o cluster](./upgrade-managed-disks.md#use-an-existing-certificate-to-deploy-the-cluster).
 
 ### <a name="generate-a-self-signed-certificate-and-deploy-the-cluster"></a>Gerar um certificado autoassinado e implantar o cluster
 
@@ -251,4 +251,3 @@ O tipo de nó primário do cluster foi atualizado. Verifique se todos os aplicat
 * [Reduzir horizontalmente ou escalar horizontalmente um cluster do Azure](service-fabric-tutorial-scale-cluster.md).
 * [Dimensionar um cluster do Azure de forma programática](service-fabric-cluster-programmatic-scaling.md) usando a SDK fluente de computação do Azure.
 * [Dimensione um cluster autônomo para dentro ou para fora](service-fabric-cluster-windows-server-add-remove-nodes.md).
-

@@ -3,17 +3,18 @@ title: Criar uma regra do Azure Load Balancer para um cluster
 description: Configure um Azure Load Balancer para abrir portas para seu cluster do Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: f4599b2e0174381ab7df04aeeb33db7e3ee60f26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 049afb88b5552c92294180069b54d49574a410fa
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025377"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259042"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir portas para um cluster do Service Fabric
 
 O balanceador de carga implantado com o cluster do Azure Service Fabric direciona o tráfego para seu aplicativo em execução em um nó. Se você alterar o aplicativo para usar uma porta diferente, será preciso expor essa porta (ou rotear outra porta) no Azure Load Balancer.
 
-Na implantação do cluster do Service Fabric no Azure, um balanceador de carga foi criado automaticamente para você. Caso não tenha um balanceador de carga, confira [Configurar um balanceador de carga voltado para Internet](../load-balancer/load-balancer-get-started-internet-portal.md).
+Na implantação do cluster do Service Fabric no Azure, um balanceador de carga foi criado automaticamente para você. Caso não tenha um balanceador de carga, confira [Configurar um balanceador de carga voltado para Internet](../load-balancer/quickstart-load-balancer-standard-public-portal.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -24,7 +25,7 @@ O arquivo de configuração do seu aplicativo do Service Fabric **ServiceManifes
 
 ## <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
 
-Uma regra de balanceador de carga abre uma porta voltada para a Internet e encaminha o tráfego para a porta do nó interna usado pelo seu aplicativo. Caso não tenha um balanceador de carga, confira [Configurar um balanceador de carga voltado para Internet](../load-balancer/load-balancer-get-started-internet-portal.md).
+Uma regra de balanceador de carga abre uma porta voltada para a Internet e encaminha o tráfego para a porta do nó interna usado pelo seu aplicativo. Caso não tenha um balanceador de carga, confira [Configurar um balanceador de carga voltado para Internet](../load-balancer/quickstart-load-balancer-standard-public-portal.md).
 
 Para criar uma regra de balanceador de carga, você precisa coletar as seguintes informações:
 

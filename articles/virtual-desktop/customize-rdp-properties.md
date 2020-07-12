@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4cbfe03c48c6d971c140dc332c38a47bc9234173
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d41df8fe4f411cf28af83c8b4b667f1e86bdb45d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135117"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259914"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalizar propriedades de protocolo RDP para um pool de hosts
 
@@ -132,7 +132,7 @@ CustomRdpProperty : <CustomRDPpropertystring>
 
 Agora que você personalizou as propriedades de RDP para um determinado pool de hosts, você pode entrar em um cliente de área de trabalho virtual do Windows para testá-los como parte de uma sessão de usuário. Os próximos guias de instruções lhe dirão como se conectar a uma sessão usando o cliente de sua escolha:
 
-- [Conectar-se ao cliente da Área de Trabalho do Windows](connect-windows-7-and-10.md)
+- [Conectar-se ao cliente da Área de Trabalho do Windows](connect-windows-7-10.md)
 - [Conectar-se ao cliente Web](connect-web.md)
 - [Conectar-se ao cliente Android](connect-android.md)
 - [Conectar-se ao cliente macOS](connect-macos.md)

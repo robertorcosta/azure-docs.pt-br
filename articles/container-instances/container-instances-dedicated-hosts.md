@@ -5,11 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: a614d6b5d0cf5c6c1df5ffcb90e56960d6b8a2a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9d7e2a706f65b5f2948a24400aa63ba39350661
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82025026"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259637"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Implantar em hosts dedicados
 
@@ -27,7 +28,7 @@ O SKU dedicado é apropriado para cargas de trabalho de contêiner que exigem is
 > O uso do SKU dedicado só está disponível na versão mais recente da API (2019-12-01) que está sendo distribuída no momento. Especifique essa versão de API em seu modelo de implantação.
 >
 
-A partir da versão de API 2019-12-01, há uma `sku` Propriedade na seção Propriedades do grupo de contêineres de um modelo de implantação, que é necessária para uma implantação do ACI. No momento, você pode usar essa propriedade como parte de um modelo de implantação Azure Resource Manager para ACI. Saiba mais sobre a implantação de recursos do ACI com um modelo no [tutorial: implantar um grupo de vários contêineres usando um modelo do Resource Manager](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+A partir da versão de API 2019-12-01, há uma `sku` Propriedade na seção Propriedades do grupo de contêineres de um modelo de implantação, que é necessária para uma implantação do ACI. No momento, você pode usar essa propriedade como parte de um modelo de implantação Azure Resource Manager para ACI. Saiba mais sobre a implantação de recursos do ACI com um modelo no [tutorial: implantar um grupo de vários contêineres usando um modelo do Resource Manager](./container-instances-multi-container-group.md). 
 
 A `sku` propriedade pode ter um dos seguintes valores:
 * `Standard`-a opção de implantação ACI padrão, que ainda garante a segurança em nível de hipervisor 
@@ -136,17 +137,17 @@ Crie um grupo de recursos com o comando [az group create][az-group-create].
 az group create --name myResourceGroup --location eastus
 ```
 
-Implante o modelo com o comando [az group deployment create][az-group-deployment-create].
+Implante o modelo com o comando [AZ Deployment Group Create][az-deployment-group-create] .
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file deployment-template.json
+az deployment group create --resource-group myResourceGroup --template-file deployment-template.json
 ```
 
 Em alguns segundos, você deverá receber uma resposta inicial do Azure. Uma implantação bem-sucedida ocorre em um host dedicado.
 
 <!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group#az-group-create
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

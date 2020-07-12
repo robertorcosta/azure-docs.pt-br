@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7e3a35d95e7d2a339bf33620c9d1a140fb6a0a1d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 3ed3ff94b764c0fcb5521ef8106b32923b203a01
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143744"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260650"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Como indexar documentos no armazenamento de BLOBs do Azure com o Azure Pesquisa Cognitiva
 
@@ -210,6 +210,25 @@ Para unir tudo isso, veja como você pode adicionar mapeamentos de campo e habil
 >
 >
 
+#### <a name="what-if-you-need-to-encode-a-field-to-use-it-as-a-key-but-you-also-want-to-search-it"></a>E se você precisar codificar um campo para usá-lo como uma chave, mas também deseja pesquisá-lo?
+
+Há ocasiões em que você precisa usar uma versão codificada de um campo como metadata_storage_path como a chave, mas também precisa que esse campo seja pesquisável (sem codificação). Para resolver esse problema, você pode mapeá-lo em dois campos; um que será usado para a chave e outro que será usado para fins de pesquisa. No exemplo abaixo, o campo de *chave* contém o caminho codificado, enquanto o campo de *caminho* não está codificado e será usado como o campo pesquisável no índice.
+
+```http
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2020-06-30
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      "dataSourceName" : " blob-datasource ",
+      "targetIndexName" : "my-target-index",
+      "schedule" : { "interval" : "PT2H" },
+      "fieldMappings" : [
+        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
+        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "path" }
+      ]
+    }
+```
 <a name="WhichBlobsAreIndexed"></a>
 ## <a name="controlling-which-blobs-are-indexed"></a>Controlando quais blobs serão indexados
 É possível controlar quais blobs são indexados e quais são ignorados.
@@ -333,7 +352,7 @@ Há duas maneiras de implementar a abordagem de exclusão reversível. Ambos sã
 
 Nesse método, você usará o recurso de [exclusão reversível de blob nativo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) oferecido pelo armazenamento de BLOBs do Azure. Se a exclusão reversível de blob nativo estiver habilitada em sua conta de armazenamento, sua fonte de dados terá um conjunto de políticas de exclusão reversível nativa e o indexador encontrará um blob que foi transferido para um estado de exclusão reversível, o indexador removerá esse documento do índice. Não há suporte para a política de exclusão reversível de blob nativo ao indexar blobs de Azure Data Lake Storage Gen2.
 
-Use as etapas a seguir:
+Use as seguintes etapas:
 1. Habilite [a exclusão reversível nativa para o armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete). É recomendável definir a política de retenção com um valor muito maior do que a agenda do intervalo do indexador. Dessa forma, se houver um problema ao executar o indexador ou se você tiver um grande número de documentos para indexar, haverá muito tempo para que o indexador eventualmente processe os BLOBs com exclusão reversível. Os indexadores do Azure Pesquisa Cognitiva excluirão apenas um documento do índice se ele processar o blob enquanto ele estiver em um estado de exclusão reversível.
 1. Configure uma política de detecção de exclusão reversível de blob nativo na fonte de dados. Um exemplo é mostrado abaixo. Como esse recurso está em versão prévia, você deve usar a API REST de visualização.
 1. Execute o indexador ou defina o indexador para ser executado em um agendamento. Quando o indexador executar e processar o blob, o documento será removido do índice.
@@ -361,7 +380,7 @@ Se você excluir um blob do armazenamento de BLOBs do Azure com a exclusão reve
 
 Nesse método, você usará os metadados de um blob para indicar quando um documento deve ser removido do índice de pesquisa.
 
-Use as etapas a seguir:
+Use as seguintes etapas:
 
 1. Adicione um par chave-valor de metadados personalizados ao blob para indicar ao Azure Pesquisa Cognitiva que ele é excluído logicamente.
 1. Configure uma política de detecção de coluna de exclusão reversível na fonte de dados. Um exemplo é mostrado abaixo.

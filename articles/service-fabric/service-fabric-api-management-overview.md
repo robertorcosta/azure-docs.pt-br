@@ -5,15 +5,16 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 2a331715d4e4538cfdda8d958ff549a81b627b79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbde23dd888d179917f123d00745fb7d0099c2d2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76028541"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259305"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric com visão geral de Gerenciamento de API do Azure
 
-Os aplicativos em nuvem geralmente precisam de um gateway front-end para fornecer um ponto de entrada único para usuários, dispositivos ou outros aplicativos. No Service Fabric, um gateway pode ser qualquer serviço sem estado, como um [aplicativo ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), ou outro serviço projetado para entrada de tráfego, como [hubs de eventos](https://docs.microsoft.com/azure/event-hubs/), [Hub IOT](https://docs.microsoft.com/azure/iot-hub/)ou [Gerenciamento de API do Azure](https://docs.microsoft.com/azure/api-management/).
+Os aplicativos em nuvem geralmente precisam de um gateway front-end para fornecer um ponto de entrada único para usuários, dispositivos ou outros aplicativos. No Service Fabric, um gateway pode ser qualquer serviço sem estado, como um [aplicativo ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), ou outro serviço projetado para entrada de tráfego, como [hubs de eventos](../event-hubs/index.yml), [Hub IOT](../iot-hub/index.yml)ou [Gerenciamento de API do Azure](../api-management/index.yml).
 
 Este artigo é uma introdução ao uso de Gerenciamento de API do Azure como um gateway para aplicativos do Service Fabric. O Gerenciamento de API integra-se diretamente com o Service Fabric, permitindo que APIs sejam publicadas com um conjunto de regras de roteamento avançado para serviços de back-end do Service Fabric .
 

@@ -4,12 +4,12 @@ description: Saiba mais sobre cenários de segurança para um cluster do Azure S
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: ba1565c31e8a3ce3f25501f0cad321d5413dc962
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 258a6dd141ccc31516e37dac9f265328f981bbf5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080678"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261063"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança do cluster do Service Fabric
 
@@ -27,7 +27,7 @@ A segurança de nó para nó ajuda a proteger a comunicação entre as VMs ou os
 
 ![Diagrama de comunicação de nó para nó][Node-to-Node]
 
-Os clusters executados em clusters do Azure e clusters autônomos em execução no Windows podem usar a [Segurança de Certificado](https://msdn.microsoft.com/library/ff649801.aspx) ou então a [Segurança do Windows](https://msdn.microsoft.com/library/ff649396.aspx) para computadores Windows Server.
+Os clusters executados em clusters do Azure e clusters autônomos em execução no Windows podem usar a [Segurança de Certificado](/previous-versions/msp-n-p/ff649801(v=pandp.10)) ou então a [Segurança do Windows](/previous-versions/msp-n-p/ff649396(v=pandp.10)) para computadores Windows Server.
 
 ### <a name="node-to-node-certificate-security"></a>Segurança de certificado de nó para nó
 
@@ -54,7 +54,7 @@ A segurança de cliente para nó autentica clientes e ajuda a proteger a comunic
 
 ![Diagrama de comunicação de cliente para nó][Client-to-Node]
 
-Os clusters em execução no Azure e clusters autônomos em execução no Windows podem usar a [segurança do certificado](https://msdn.microsoft.com/library/ff649801.aspx) ou a [segurança do Windows](https://msdn.microsoft.com/library/ff649396.aspx), embora a recomendação seja usar a autenticação de certificado X. 509 sempre que possível.
+Os clusters em execução no Azure e clusters autônomos em execução no Windows podem usar a [segurança do certificado](/previous-versions/msp-n-p/ff649801(v=pandp.10)) ou a [segurança do Windows](/previous-versions/msp-n-p/ff649396(v=pandp.10)), embora a recomendação seja usar a autenticação de certificado X. 509 sempre que possível.
 
 ### <a name="client-to-node-certificate-security"></a>Segurança de certificado de cliente para nó
 
@@ -95,7 +95,7 @@ Defina as funções de cliente de Administrador e de Usuário quando criar o clu
 
 ## <a name="x509-certificates-and-service-fabric"></a>Certificados X.509 e Service Fabric
 
-Os certificados digitais X.509 são usados normalmente para autenticar clientes e servidores. Eles também são usados para criptografar e assinar digitalmente as mensagens. O Service Fabric usa certificados x.509 para proteger um cluster e fornecer recursos de segurança do aplicativo. Para obter mais informações sobre certificados digitais X.509, consulte [Trabalhar com certificados](https://msdn.microsoft.com/library/ms731899.aspx). Use o [Key Vault](../key-vault/general/overview.md) para gerenciar certificados de clusters do Service Fabric no Azure.
+Os certificados digitais X.509 são usados normalmente para autenticar clientes e servidores. Eles também são usados para criptografar e assinar digitalmente as mensagens. O Service Fabric usa certificados x.509 para proteger um cluster e fornecer recursos de segurança do aplicativo. Para obter mais informações sobre certificados digitais X.509, consulte [Trabalhar com certificados](/dotnet/framework/wcf/feature-details/working-with-certificates). Use o [Key Vault](../key-vault/general/overview.md) para gerenciar certificados de clusters do Service Fabric no Azure.
 
 Algumas coisas importantes a considerar:
 

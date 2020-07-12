@@ -3,17 +3,17 @@ title: Criar um cluster do Service Fabric no portal do Azure
 description: Saiba como configurar um cluster seguro do Service Fabric no Azure usando o portal do Azure e o Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: eeadfcf24ad2448c845f3d612247686347600001
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b47f3b756ef4d012b41fd15686ffc08ab54fc187
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611145"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259314"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster do Service Fabric no usando o portal do Azure
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure portal](service-fabric-cluster-creation-via-portal.md)
+> * [Portal do Azure](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -121,7 +121,7 @@ Configure os nós de cluster. Os tipos de nó definem os tamanhos e o número de
 ### <a name="3-security"></a>3. segurança
 ![Captura de tela das configurações de segurança no portal do Azure.][BasicSecurityConfigs]
 
-Para facilitar a configuração de um cluster de teste seguro para você, oferecemos a opção **Básica**. Se você já tiver um certificado e já o carregou para sua [Cofre de chaves](/azure/key-vault/) (e habilitada o Cofre de chaves para implantação), em seguida, usar o **personalizado** opção
+Para facilitar a configuração de um cluster de teste seguro para você, oferecemos a opção **Básica**. Se você já tiver um certificado e já o carregou para sua [Cofre de chaves](../key-vault/index.yml) (e habilitada o Cofre de chaves para implantação), em seguida, usar o **personalizado** opção
 
 #### <a name="basic-option"></a>Opção Básica
 Siga as telas para adicionar ou reutilizar um cofre de chaves existente e adicionar um certificado. A adição do certificado é um processo síncrono e, por isso, você terá que aguardar a criação do certificado.
@@ -202,7 +202,7 @@ Cada um dos NodeTypes que você especifica no cluster resulta na configuração 
 Neste ponto, você tem um cluster seguro usando certificados para autenticação de gerenciamento. Em seguida, [conecte-se ao cluster](service-fabric-connect-to-secure-cluster.md) e saiba como [gerenciar segredos do aplicativo](service-fabric-application-secret-management.md).  Além disso, saiba mais sobre as [Azure Service Fabric support options](service-fabric-support.md) (Opções de suporte do Service Fabric).
 
 <!-- Links -->
-[azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[azure-powershell]: /powershell/azure/
 [azure-portal]: https://portal.azure.com/
 [key-vault-get-started]: ../key-vault/general/overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md
