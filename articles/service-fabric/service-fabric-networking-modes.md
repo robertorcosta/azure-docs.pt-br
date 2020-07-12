@@ -5,12 +5,12 @@ author: athinanthny
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: feeef1773ffe68f3ff88175b413cd40ba618b8d9
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e6174f35bd54b3ca0b2c5240a663369350b30ce8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207221"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241889"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de rede de contêiner do Service Fabric
 
@@ -21,7 +21,7 @@ Se você tiver um serviço de contêiner com um ponto de extremidade estático e
 Quando um serviço de contêiner é reiniciado ou movido para outro nó no cluster, o endereço IP é alterado. Por esse motivo, não é recomendável usar o endereço IP atribuído dinamicamente para descobrir os serviços de contêiner. Use somente o Serviço de Nomenclatura do Service Fabric ou o Serviço DNS para a descoberta de serviço. 
 
 >[!WARNING]
->O Azure permite um total de 65.356 IPs por rede virtual. A soma do número de nós e o número de instâncias de serviço de contêiner (que estão usando o modo aberto) não podem exceder 65.356 IPs em uma rede virtual. Para cenários de alta densidade, recomendamos o modo de rede nat. Além disso, outras dependências, como o balanceador de carga, terão outras [limitações](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) a serem consideradas. Atualmente, até 50 IPs por nó foram testados e são estáveis em termos de estabilidade. 
+>O Azure permite um total de 65.356 IPs por rede virtual. A soma do número de nós e o número de instâncias de serviço de contêiner (que estão usando o modo aberto) não podem exceder 65.356 IPs em uma rede virtual. Para cenários de alta densidade, recomendamos o modo de rede nat. Além disso, outras dependências, como o balanceador de carga, terão outras [limitações](../azure-resource-manager/management/azure-subscription-service-limits.md) a serem consideradas. Atualmente, até 50 IPs por nó foram testados e são estáveis em termos de estabilidade. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Configurar o modo de rede Aberto
@@ -195,8 +195,8 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
    | --- | --- |
    |Prioridade |2000 |
    |Nome |Custom_Dns  |
-   |Fonte |VirtualNetwork |
-   |Destination | VirtualNetwork |
+   |Origem |VirtualNetwork |
+   |Destino | VirtualNetwork |
    |Serviço | DNS (UDP/53) |
    |Ação | Allow  |
 
@@ -263,6 +263,6 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
  
 ## <a name="next-steps"></a>Próximas etapas
 * [Entender o modelo de aplicativo do Service Fabric](service-fabric-application-model.md)
-* [Saiba mais sobre recursos do manifesto do serviço Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Saiba mais sobre recursos do manifesto do serviço Service Fabric](./service-fabric-service-manifest-resources.md)
 * [Implantar um contêiner do Windows no Service Fabric no Windows Server 2016](service-fabric-get-started-containers.md)
 * [Implantar um contêiner do Docker no Service Fabric no Linux](service-fabric-get-started-containers-linux.md)

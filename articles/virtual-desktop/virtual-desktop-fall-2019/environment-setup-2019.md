@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d666f7e3e43b5429423a5356aa00e074ed020869
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 153532b3c33158ee1a43db7883eb7a9ec621ade7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82615325"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241668"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Ambiente da Área de Trabalho Virtual do Windows
 
@@ -67,5 +67,5 @@ Para saber como configurar seu locatário de área de trabalho virtual do Window
 
 Para saber como se conectar à área de trabalho virtual do Windows, consulte um dos seguintes artigos:
 
-- [Conectar-se do Windows 10 ou Windows 7](../connect-windows-7-and-10.md)
+- [Conectar-se do Windows 10 ou Windows 7](connect-windows-7-10-2019.md)
 - [Conectar-se de um navegador da Web](connect-web-2019.md)

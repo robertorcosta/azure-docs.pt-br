@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2eafe3c16a89723d55ec52fde785e9ec69e45e0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3db8ae98302ad6df7355ce03f5a33b5d21f1ea09
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334031"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242093"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Categorias compatíveis com o Azure Mapas
 O Azure Mapas dá suporte a vários estilos de mapa internos diferentes, como descrito abaixo.
@@ -28,6 +28,7 @@ Um **mapa** de estradas é um mapa padrão que exibe estradas, naturais e artifi
 * [Bloco de mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Controle de mapa do SDK da Web
 * Controle de mapa do Android
+* Visual do Power BI
 
 ## <a name="blank-and-blank_accessible"></a>em branco e blank_accessible
 
@@ -48,6 +49,7 @@ O estilo **satélite** é uma combinação de imagens de satélite e aéreas.
 * [Peça de satélite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
 * Controle de mapa do SDK da Web
 * Controle de mapa do Android
+* Visual do Power BI
 
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos sobre imagens aéreas e de satélite.
@@ -57,6 +59,7 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos sobre imag
 **APIs aplicáveis:**
 * Controle de mapa do SDK da Web
 * Controle de mapa do Android
+* Visual do Power BI
 
 ## <a name="grayscale_dark"></a>grayscale_dark
 **Escala de cinza escuro** é uma versão escura do estilo de mapa rodoviário.
@@ -68,6 +71,7 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos sobre imag
 * [Bloco de mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Controle de mapa do SDK da Web 
 * Controle de mapa do Android
+* Visual do Power BI
 
 
 ## <a name="grayscale_light"></a>grayscale_light
@@ -78,6 +82,7 @@ a **luz de escala de cinza** é uma versão leve do estilo de mapa rodoviário.
 **APIs aplicáveis:**
 * Controle de mapa do SDK da Web
 * Controle de mapa do Android
+* Visual do Power BI
 
 
 ## <a name="night"></a>noite
@@ -88,6 +93,7 @@ a **luz de escala de cinza** é uma versão leve do estilo de mapa rodoviário.
 **APIs aplicáveis:**
 * Controle de mapa do SDK da Web
 * Controle de mapa do Android
+* Visual do Power BI
 
 ## <a name="road_shaded_relief"></a>road_shaded_relief
 **road shaded relief** é o estilo principal do Azure Mapas concluído com as delimitações da Terra.
@@ -98,6 +104,7 @@ a **luz de escala de cinza** é uma versão leve do estilo de mapa rodoviário.
 * [Bloco de mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Controle de mapa do SDK da Web
 * Controle de mapa do Android
+* Visual do Power BI
 
 ## <a name="high_contrast_dark"></a>high_contrast_dark
 
@@ -107,6 +114,7 @@ a **luz de escala de cinza** é uma versão leve do estilo de mapa rodoviário.
 
 **APIs aplicáveis:**
 * Controle de mapa do SDK da Web
+* Visual do Power BI
 
 ## <a name="next-steps"></a>Próximas etapas
 

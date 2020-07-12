@@ -8,11 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 23f52e48c6a435678a01569d25e0072d9c8a3e28
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: febfdf5405038e5b60a3133a554eba7a756f617d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648582"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242365"
 ---
 # <a name="building-an-accessible-application"></a>Criando um aplicativo acessível
 
@@ -21,7 +22,7 @@ Mais de 20% dos usuários de Internet precisam de aplicativos Web acessíveis. A
 Quando se trata de conteúdo interativo avançado como um mapa, algumas considerações comuns de acessibilidade são:
 - Ofereça suporte ao leitor de tela para usuários que têm dificuldade em visualizar o aplicativo Web.
 - Tenha vários métodos para interagir e navegar pelo aplicativo Web, como mouse, toque e teclado.
-- Verifique se o contraste de cores é tal que as cores não se misturam e se tornam difíceis de distinguir uma da outra. 
+- Verifique se o contraste de cores é que as cores não se misturam e se tornam difíceis de distinguir umas das outras. 
 
 O SDK da Web do Azure Maps vem predefinido com muitos recursos de acessibilidade, como:
 - Descrições do leitor de tela quando o mapa se move e quando o usuário se concentra em um controle ou pop-up.
@@ -45,6 +46,7 @@ Há várias maneiras diferentes de ampliar, deslocar, girar e inclinar o mapa. A
 - Com o mapa focalizado, use o sinal de menos, hífen (`-`) ou sublinhado (`_`) para reduzir um nível.
 - Com o controle de ampliação usando o mouse, o toque ou as teclas Tab e Enter do teclado.
 - Pressione e segure o botão `Shift` e pressione o botão esquerdo do mouse no mapa e arraste para delimitar uma área para ampliar o mapa.
+- Usando alguns pads multitoque, arrastando dois dedos para ampliar ou reduzir para ampliar.
 
 **Deslocar o mapa**
 
@@ -75,7 +77,7 @@ Nem todos os desenvolvedores desejam que todos os estilos de mapa possíveis est
 - Quando o controle de mapa é carregado, ele verifica se o alto contraste está ativado e o navegador é compatível.
 - O controle de mapa não monitora o modo de alto contraste do dispositivo. Se o modo do dispositivo for alterado, o mapa não será. Assim, o usuário precisará recarregar o mapa atualizando a página.
 - Quando o alto contraste for detectado, o estilo do mapa mudará automaticamente para alto contraste e todos os controles internos usarão um estilo de alto contraste. Por exemplo, ZoomControl, PitchControl, CompassControl, StyleControl e outros controles internos, usarão um estilo de alto contraste.
-- Há dois tipos de alto contraste, claro e escuro. Se o tipo de alto contraste puder ser detectado pelos controles de mapa, o comportamento do mapa será ajustado de acordo. Se claro, o estilo de mapa grayscale_light será carregado. Se o tipo não puder ser detectado ou for escuro, o estilo high_contrast_dark será carregado.
+- Há dois tipos de alto contraste, claro e escuro. Se o tipo de alto contraste puder ser detectado pelos controles de mapa, o comportamento do mapa será ajustado de acordo. Se claro, o estilo de mapa grayscale_light será carregado. Se o tipo não puder ser detectado ou for escuro, o estilo de high_contrast_dark será carregado.
 - Ao criar controles personalizados, é útil saber se os controles internos estão usando um estilo de alto contraste. Os desenvolvedores podem adicionar uma classe css na div do contêiner de mapa para verificar. As classes css que seriam adicionadas são `high-contrast-dark` e `high-contrast-light`. Para verificar usando o JavaScript, use:
 
 ```javascript
