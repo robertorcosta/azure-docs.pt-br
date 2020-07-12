@@ -16,7 +16,7 @@ ms.locfileid: "70381741"
 Você pode acessar os serviços cognitivas do Azure por meio de dois recursos diferentes: um recurso de vários serviços ou um único serviço.
 
 * Recurso de vários serviços:
-    * Acesse vários serviços cognitivas do Azure com uma única chave e ponto de extremidade.
+    * Acessar vários Serviços Cognitivos do Azure com uma chave e um ponto de extremidade.
     * Consolida a cobrança dos serviços que você usa.
 * Recurso de serviço único:
     * Acesse um único serviço cognitiva do Azure com uma chave exclusiva e um ponto de extremidade para cada serviço criado. 
