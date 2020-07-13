@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 06/09/2020
-ms.openlocfilehash: 766a41b61f32804c7d7f59c946530f8e1a7b869a
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 3f84cd92a4c4f96831d39cac783df6710c5ea5f4
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296263"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513417"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-sql-pool-by-using-an-arm-template"></a>Início Rápido: Criar um pool de SQL do Azure Synapse Analytics usando um modelo ARM
 
-Esse modelo criará um pool de SQL do Azure Synapse Analytics com a Transparent Data Encryption habilitada. O pool de SQL do Synapse refere-se aos recursos corporativos de data warehousing que estão em disponibilidade geral no Azure Synapse.
+Este modelo do Azure Resource Manager (modelo ARM) criará um pool de SQL do Azure Synapse Analytics com Transparent Data Encryption habilitada. O pool de SQL do Synapse refere-se aos recursos corporativos de data warehousing que estão em disponibilidade geral no Azure Synapse.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -107,8 +107,8 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um pool de SQL do Azure Synapse Analytics usando um modelo do Azure Resource Manager e validou a implantação. Para saber mais sobre o Azure Synapse Analytics e o Azure Resource Manager, continue com os artigos abaixo.
+Neste início rápido, você criou um pool de SQL do Azure Synapse Analytics usando um modelo do ARM e validou a implantação. Para saber mais sobre o Azure Synapse Analytics e o Azure Resource Manager, continue com os artigos abaixo.
 
 - Leia uma [Visão geral do Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)
 - Saiba mais sobre o [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- [Criar e implantar seu primeiro modelo do Azure Resource Manager](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+- [Criar e implantar seu primeiro modelo do ARM](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)

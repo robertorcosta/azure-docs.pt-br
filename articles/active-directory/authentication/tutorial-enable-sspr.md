@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c84aa99608a4fc2ac1842c617cca54e2afc3cdbe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5842d21f9fb35cd8fddc5521d630d597aedcc2ba
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201985"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983142"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os usuários desbloqueiem sua conta ou redefinam senhas usando a redefinição de senha por autoatendimento do Microsoft Azure Active Directory
 
@@ -47,7 +47,11 @@ Para concluir este tutorial, você precisará dos seguintes recursos e privilég
 
 ## <a name="enable-self-service-password-reset"></a>Habilitar a redefinição de senha por autoatendimento
 
-O Azure AD permite que você habilite a SSPR para *Nenhum* usuário, usuários *Selecionados* ou *Todos* os usuários. Com essa capacidade granular, você pode escolher um subconjunto de usuários para testar o processo de registro e o fluxo de trabalho de SSPR. Quando você estiver familiarizado com o processo e puder comunicar os requisitos com um conjunto mais amplo de usuários, poderá selecionar grupos de usuários adicionais para habilitar a SSPR. Ou, você pode habilitar a SSPR para todos no locatário do Azure AD.
+O Azure AD permite que você habilite a SSPR para *Nenhum* usuário, usuários *Selecionados* ou *Todos* os usuários. Com essa capacidade granular, você pode escolher um subconjunto de usuários para testar o processo de registro e o fluxo de trabalho de SSPR. Quando você estiver familiarizado com o processo e puder comunicar os requisitos com um conjunto mais amplo de usuários, poderá selecionar um grupo de usuários para habilitar para SSPR. Ou, você pode habilitar a SSPR para todos no locatário do Azure AD.
+
+> [!NOTE]
+>
+> No momento, só é possível habilitar um grupo do Azure AD para SSPR usando o portal do Azure. Como parte de uma implantação mais ampla da SSPR, há suporte para grupos aninhados. Verifique se os usuários nos grupos que você escolher têm as licenças apropriadas atribuídas. No momento, não há nenhum processo de validação desses requisitos de licenciamento.
 
 Neste tutorial, você configurará a SSPR para um conjunto de usuários em um grupo de teste. No exemplo a seguir, o grupo *SSPR-Test-Group* é usado. Forneça seu grupo do Azure AD, conforme necessário:
 
@@ -57,8 +61,6 @@ Neste tutorial, você configurará a SSPR para um conjunto de usuários em um gr
 1. Procure e selecione um grupo do Azure AD, como *SSPR-Test-Group*, e escolha *Selecionar*.
 
     [![](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png "Select a group in the Azure portal to enable for self-service password reset")](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
-
-    Como parte de uma implantação mais ampla da SSPR, há suporte para grupos aninhados. Verifique se os usuários nos grupos que você escolher têm as licenças apropriadas atribuídas. No momento, não há nenhum processo de validação desses requisitos de licenciamento.
 
 1. Para habilitar a SSPR para os usuários selecionados, selecione **Salvar**.
 
@@ -77,6 +79,7 @@ Quando os usuários precisam desbloquear a conta ou redefinir a senha, eles prec
     * *Email*
     * *Celular*
     * *Telefone comercial*
+    * *Perguntas de segurança*
 
 1. Para aplicar os métodos de autenticação, selecione **Salvar**.
 

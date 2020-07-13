@@ -3,20 +3,20 @@ title: 'Padrão: Implantar recursos com uma definição de política'
 description: Esse padrão do Azure Policy fornece um exemplo de como implantar recursos com uma definição de política.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: a8b6528afbd21c7c667e48965574c9b48c403654
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7ce93f4895a86905cd31889e853f95a3de640b13
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77169984"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970851"
 ---
 # <a name="azure-policy-pattern-deploy-resources"></a>Padrão do Azure Policy: implantar recursos
 
-O efeito [deployIfNotExists](../concepts/effects.md#deployifnotexists) torna possível implantar um [modelo do Azure Resource Manager](../../../azure-resource-manager/templates/overview.md) ao criar ou atualizar um recurso que não é compatível. Pode ser preferível usar essa abordagem do que o efeito [deny](../concepts/effects.md#deny), pois ela permite que os recursos continuem sendo criados, mas garante que as alterações sejam feitas para torná-los compatíveis.
+Com o efeito [deployIfNotExists](../concepts/effects.md#deployifnotexists), é possível implantar um [modelo do ARM](../../../azure-resource-manager/templates/overview.md) (modelo do Azure Resource Manager) ao criar ou atualizar um recurso que não está em conformidade. Pode ser preferível usar essa abordagem do que o efeito [deny](../concepts/effects.md#deny), pois ela permite que os recursos continuem sendo criados, mas garante que as alterações sejam feitas para torná-los compatíveis.
 
 ## <a name="sample-policy-definition"></a>Definição de política de amostra
 
-Esta definição de política usa o operador **field** para avaliar o `type` do recurso criado ou atualizado. Quando esse recurso é um _Microsoft.Network/virtualNetworks_, a política procura um observador de rede no local do recurso novo ou atualizado. Se um observador de rede correspondente não for localizado, o modelo do Resource Manager será implantado para criar o recurso ausente.
+Esta definição de política usa o operador **field** para avaliar o `type` do recurso criado ou atualizado. Quando esse recurso é um _Microsoft.Network/virtualNetworks_, a política procura um observador de rede no local do recurso novo ou atualizado. Se um observador de rede correspondente não for localizado, o modelo do ARM será implantado para criar o recurso ausente.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json":::
 

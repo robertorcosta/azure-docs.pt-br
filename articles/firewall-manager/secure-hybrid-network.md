@@ -1,26 +1,24 @@
 ---
-title: 'Tutorial: Proteger sua rede virtual de hub usando a versão prévia do Gerenciador de Firewall do Azure'
+title: 'Tutorial: Proteger sua rede virtual de hub usando o Gerenciador de Firewall do Azure'
 description: Neste tutorial, você aprenderá a proteger sua rede virtual com o Gerenciador de Firewall do Azure usando o portal do Azure.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: cdd416bdb833e4784334a6847d724a7375e2ef8d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3d4d1e65c2200aee178abefb46d3e330acbd3108
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77459946"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563639"
 ---
-# <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager-preview"></a>Tutorial: Proteger sua rede virtual de hub usando a versão prévia do Gerenciador de Firewall do Azure 
-
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+# <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager"></a>Tutorial: Proteger sua rede virtual de hub usando o Gerenciador de Firewall do Azure
 
 Ao conectar sua rede local a uma rede virtual do Azure para criar uma rede híbrida, a capacidade de controlar o acesso aos recursos da rede do Azure é uma parte importante de um plano geral de segurança.
 
-Com a versão prévia do Gerenciador de Firewall do Azure, é possível criar uma rede virtual de hub para proteger o tráfego de rede híbrida destinado a endereços IP privados, PaaS do Azure e à Internet. É possível usar o Gerenciador de Firewall do Azure para controlar o acesso de rede em uma rede híbrida usando as políticas que definem tráfegos de rede permitidos e negados.
+Com o Gerenciador de Firewall do Azure, é possível criar uma rede virtual de hub para proteger o tráfego de rede híbrida destinado a endereços IP privados, PaaS do Azure e à Internet. É possível usar o Gerenciador de Firewall do Azure para controlar o acesso de rede em uma rede híbrida usando as políticas que definem tráfegos de rede permitidos e negados.
 
 O Gerenciador de Firewall também dá suporte a uma arquitetura de hub virtual seguro. Para obter uma comparação dos tipos de arquitetura de rede virtual de hub e hub virtual seguro, confira [quais são as opções de arquitetura do Gerenciador de Firewall do Azure?](vhubs-and-vnets.md)
 
@@ -413,7 +411,7 @@ Trata-se de uma máquina virtual que pode ser usada para se conectar usando a Á
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-3. Abra um navegador da Web na **VM-Onprem** e navegue até o IP privado http://\<VM-spoke-01\>.
+3. Abra um navegador da Web em **VM-Onprem** e navegue até http://\<VM-spoke-01 private IP\>.
 
    Você deverá ver a página da Web **VM-spoke-01**: ![Página da Web de VM-Spoke-01](media/secure-hybrid-network/vm-spoke-01-web.png)
 
@@ -444,4 +442,4 @@ Você pode manter seus recursos de firewall para o próximo tutorial ou se não 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: Proteger sua WAN Virtual usando a versão prévia do Gerenciador de Firewall do Azure](secure-cloud-network.md)
+> [Tutorial: Proteger sua WAN Virtual usando o Gerenciador de Firewall do Azure](secure-cloud-network.md)

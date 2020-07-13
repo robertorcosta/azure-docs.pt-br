@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 03fe40cea5891e87f42f0d6a50eedee80a68f25e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: efcc5e8f629c8b6ccc903478473b54989c0e9fd6
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200531"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959426"
 ---
 ::: zone target="docs"
 
@@ -46,7 +46,7 @@ Neste tutorial, você aprenderá sobre tópicos como:
 Antes de começar, verifique se:
 
 - Você concluiu o [Tutorial: Copiar dados para o Azure Data Box e verificá-los](data-box-deploy-copy-data.md). 
-- Trabalhos de cópia estão concluídos. A Preparação para o envio não poderá ser executada se os trabalhos de cópia estiverem em andamento.
+- Os trabalhos de cópia estão concluídos e não há erros na página **Conectar e copiar**. A preparação para o envio não poderá ser executada se os trabalhos de cópia estiverem em andamento ou houver erros na página **Conectar e copiar**.
 
 ## <a name="prepare-to-ship"></a>Preparar para o envio
 

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Como consultar com SQL no Azure Cosmos DB?'
-description: 'Tutorial: Saiba como consultar com consultas SQL no Azure Cosmos DB usando o playground para consultas do THW'
+description: 'Tutorial: Saiba como consultar com consultas SQL no Azure Cosmos DB usando o Playground para Consultas'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7e83ed0f9e635ed24b7e6115eeaaa9057d422c69
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e8d1498520ea0c59372ec4e1096b6f2b4bcf885f
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74870064"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921119"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: Consultar o Azure Cosmos DB usando a API do SQL
 
@@ -56,6 +56,7 @@ As consultas de SQL neste artigo usam o seguinte exemplo de documento.
   "isRegistered": false
 }
 ```
+
 ## <a name="where-can-i-run-sql-queries"></a>Onde é possível executar consultas SQL?
 
 Você pode executar consultas usando o Data Explorer no Portal do Azure, por meio da [API REST e SDKs](sql-api-sdk-dotnet.md) e até mesmo o [Playground de consultas](https://www.documentdb.com/sql/demo), que executa consultas em um conjunto existente de dados de exemplo.
@@ -65,17 +66,19 @@ Para saber mais sobre consultas SQL, confira:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial presume que você tem uma conta e uma coleção do Azure Cosmos DB. Não tenho nenhum deles? Conclua o [início rápido de 5 minutos](create-cosmosdb-resources-portal.md).
+Este tutorial presume que você tem uma conta e uma coleção do Azure Cosmos DB. Não tem nenhum desses recursos? Conclua o [início rápido de 5 minutos](create-cosmosdb-resources-portal.md).
 
 ## <a name="example-query-1"></a>Exemplo de consulta 1
 
-Com base no exemplo de documento de família acima, a consulta SQL a seguir retorna os documentos cujo campo de id corresponde a `WakefieldFamily`. Por se tratar de uma instrução `SELECT *`, a saída da consulta será todo o documento JSON:
+Com base no exemplo de documento de família acima, a consulta SQL a seguir retorna os documentos cujo campo de ID corresponde a `WakefieldFamily`. Por se tratar de uma instrução `SELECT *`, a saída da consulta será todo o documento JSON:
 
 **Consulta**
 
+```sql
     SELECT * 
     FROM Families f 
     WHERE f.id = "WakefieldFamily"
+```
 
 **Resultados**
 
@@ -110,23 +113,34 @@ Com base no exemplo de documento de família acima, a consulta SQL a seguir reto
 
 ## <a name="example-query-2"></a>Exemplo de consulta 2
 
-A próxima consulta retorna todos os nomes dos filhos na família cuja identificação corresponde ao `WakefieldFamily` organizado por nota.
+A próxima consulta retorna todos os nomes dos filhos na família cuja ID corresponde a `WakefieldFamily`, ordenados pelas respectivas notas.
 
 **Consulta**
 
+```sql
     SELECT c.givenName 
     FROM Families f 
     JOIN c IN f.children 
     WHERE f.id = 'WakefieldFamily'
+```
 
 **Resultados**
 
-[ { "givenName": "Jesse" }, { "givenName": "Lisa" } ]
+```
+[
+    {
+        "givenName": "Jesse"
+    },
+    {
+        "givenName": "Lisa"
+    }
+]
+```
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você fez o seguinte:
+Neste tutorial, você executou as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Aprendeu a consultar usando SQL  

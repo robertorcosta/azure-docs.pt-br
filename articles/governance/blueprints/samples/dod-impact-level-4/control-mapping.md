@@ -1,14 +1,14 @@
 ---
 title: Controles do modelo de blueprint do Nível de Impacto 4 do DoD
 description: Mapeamento de controle do modelo de blueprint do Nível de Impacto 4 do DoD. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
-ms.date: 05/12/2020
+ms.date: 06/30/2020
 ms.topic: sample
-ms.openlocfilehash: 48734e62f47c38feb8bc34409f9ba41af2648e7a
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 54eb1807e4986bb56b72e064cdae9df973ed7a81
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168974"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800419"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Mapeamento de controle do modelo de blueprint do Nível de Impacto 4 do DoD
 
@@ -175,21 +175,21 @@ Essa política interna exige que você especifique uma matriz de tipos de recurs
 
 ## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>CM-7 (2) Funcionalidade Mínima | Impedir a Execução do Programa
 
-O controle de aplicativos adaptável na Central de Segurança do Azure é uma solução de lista de permissões inteligente, automatizada e de ponta a ponta que pode bloquear ou impedir a execução de softwares específicos em suas máquinas virtuais. O controle de aplicativos pode ser executado no modo de imposição, que proíbe a execução de aplicativos não aprovados. Esse blueprint atribui uma definição do Azure Policy que ajuda você a monitorar máquinas virtuais em que uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
+O controle de aplicativos adaptável na Central de Segurança do Azure é uma solução de lista de permissões de aplicativos inteligente, automatizada e de ponta a ponta que pode bloquear ou impedir a execução de programas de software específicos em suas máquinas virtuais. O controle de aplicativos pode ser executado no modo de imposição, que proíbe a execução de aplicativos não aprovados. Esse blueprint atribui uma definição do Azure Policy que ajuda você a monitorar máquinas virtuais em que uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
 
-- Os controles de aplicativos adaptáveis devem ser habilitados em máquinas virtuais
+- Os controles de aplicativos adaptáveis para definir aplicativos seguros devem ser habilitados nos computadores
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM-7 (5) Funcionalidade Mínima | Um Software autorizado / Lista de Permissões
 
-O controle de aplicativos adaptável na Central de Segurança do Azure é uma solução de lista de permissões inteligente, automatizada e de ponta a ponta que pode bloquear ou impedir a execução de softwares específicos em suas máquinas virtuais. O controle de aplicativo ajuda a criar listas de aplicativos aprovados para suas máquinas virtuais. Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a monitorar máquinas virtuais em que uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
+O controle de aplicativos adaptável na Central de Segurança do Azure é uma solução de lista de permissões de aplicativos inteligente, automatizada e de ponta a ponta que pode bloquear ou impedir a execução de programas de software específicos em suas máquinas virtuais. O controle de aplicativo ajuda a criar listas de aplicativos aprovados para suas máquinas virtuais. Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a monitorar máquinas virtuais em que uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
 
-- Os controles de aplicativos adaptáveis devem ser habilitados em máquinas virtuais
+- Os controles de aplicativos adaptáveis para definir aplicativos seguros devem ser habilitados nos computadores
 
 ## <a name="cm-11-user-installed-software"></a>CM-11 Software Instalado pelo Usuário
 
-O controle de aplicativos adaptável na Central de Segurança do Azure é uma solução de lista de permissões inteligente, automatizada e de ponta a ponta que pode bloquear ou impedir a execução de softwares específicos em suas máquinas virtuais. O controle de aplicativos pode ajudar a impor e a monitorar a conformidade com políticas de restrição de software. Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a monitorar máquinas virtuais em que uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
+O controle de aplicativos adaptável na Central de Segurança do Azure é uma solução de lista de permissões de aplicativos inteligente, automatizada e de ponta a ponta que pode bloquear ou impedir a execução de programas de software específicos em suas máquinas virtuais. O controle de aplicativos pode ajudar a impor e a monitorar a conformidade com políticas de restrição de software. Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a monitorar máquinas virtuais em que uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
 
-- Os controles de aplicativos adaptáveis devem ser habilitados em máquinas virtuais
+- Os controles de aplicativos adaptáveis para definir aplicativos seguros devem ser habilitados nos computadores
 
 ## <a name="cp-7-alternate-processing-site"></a>CP-7 Site de Processamento Alternativo
 

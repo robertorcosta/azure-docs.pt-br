@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao Predictix Price Reporting | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Predictix Price Reporting | Microsoft Docs'
 description: Neste tutorial, você aprenderá a configurar o logon único entre o Azure Active Directory e o Predictix Price Reporting.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 808b2d964bb39af6b410a84563717102ebece454
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ad80956cf7d6324487da5d0fabc2e93a5b4bf52f
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67094101"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800204"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Tutorial: integração do Azure Active Directory ao Predictix Price Reporting
+# <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Tutorial: Integração do Azure Active Directory ao Predictix Price Reporting
 
 Neste tutorial, você aprenderá a integrar o Predictix Price Reporting ao Azure AD (Azure Active Directory).
 
@@ -36,7 +36,7 @@ Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [L
 
 Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Predictix Price Reporting, você precisará dos seguintes itens:
 
@@ -111,11 +111,10 @@ Para configurar o logon único do Azure AD com o Predictix Price Reporting, exec
 
     1. Na caixa **Identificador (ID da Entidade)** , insira uma URL neste padrão:
 
-        | |
-        |--|
-        | `https://<companyname-pricing>.predictix.com` |
-        | `https://<companyname-pricing>.dev.predictix.com` |
-        | |
+        ```https
+        https://<companyname-pricing>.predictix.com
+        https://<companyname-pricing>.dev.predictix.com
+        ```
 
     > [!NOTE]
     > Esses valores são espaços reservados. Você precisa usar o identificador e a URL de logon real. Contate a [equipe de suporte do Predictix Price Reporting](https://www.infor.com/company/customer-center/) para obter os valores. Você também pode ver os padrões exibidos na caixa de diálogo **Configuração Básica de SAML** no portal do Azure.
@@ -156,7 +155,7 @@ Nesta seção, você criará um usuário de teste chamado Brenda Fernandes no po
 
     1. Na caixa **Nome**, insira **BrendaFernandes**.
   
-    1. Na caixa **Nome de usuário**, insira **BrendaFernandes@\<domíniodaempresa>.\<extensão>** . (Por exemplo, BrittaSimon@contoso.com.)
+    1. Na caixa **Nome de usuário**, insira **BrendaFernandes@\<yourcompanydomain>.\<extension>** . (Por exemplo, BrittaSimon@contoso.com.)
 
     1. Selecione **Mostrar Senha** e, em seguida, anote o valor mostrado na caixa **Senha**.
 
@@ -204,4 +203,4 @@ Ao selecionar o bloco do Predictix Price Reporting no Painel de Acesso, você de
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

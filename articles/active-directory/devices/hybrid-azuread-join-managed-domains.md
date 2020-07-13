@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5d631143b839e052316490d3b3b89ca10469cb1
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 2f3ea5f1810b5ca80e096b19e1dcf230e21eabcc
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778830"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317634"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar o ingresso no Azure Active Directory híbrido para os domínios gerenciados
 
@@ -70,9 +70,9 @@ O ingresso no Azure AD híbrido requer que os dispositivos tenham acesso aos seg
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com` (se você usa ou planeja usar o SSO contínuo)
 
-Se sua organização exigir acesso à Internet por meio de um proxy de saída, recomendamos [implementar a WPAD (Descoberta Automática de Proxy Web)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) de modo a permitir computadores Windows 10 para registro do dispositivo com o Azure AD. Para solucionar problemas encontrados ao configurar e gerenciar a WPAD, veja [Solucionando problemas de detecção automática](/previous-versions/tn-archive/cc302643(v=technet.10)).
+Se a sua organização exigir acesso à Internet por meio de um proxy de saída, você poderá usar [implementar a WPAD (Descoberta Automática de Proxy Web)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) para permitir que computadores Windows 10 registrem-se no dispositivo com o Azure AD. Para solucionar problemas encontrados ao configurar e gerenciar a WPAD, veja [Solucionando problemas de detecção automática](/previous-versions/tn-archive/cc302643(v=technet.10)). Em dispositivos Windows 10 anteriores à atualização 1709, o WPAD é a única opção disponível para configurar um proxy para trabalhar com o ingresso no Azure AD Híbrido. 
 
-Se você não usa a WPAD, pode configurar as definições de proxy no computador com o Windows 10 1709 e versões posteriores. Para obter mais informações, confira [Configurações de proxy WinHTTP implantadas por GPO](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
+Se você não usa a WPAD, pode configurar as definições de proxy WinHTTP no computador com o Windows 10 1709 e versões posteriores. Para obter mais informações, confira [Configurações de proxy WinHTTP implantadas por GPO](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
 > [!NOTE]
 > Se você definir as configurações de proxy em seu computador usando as configurações de WinHTTP, qualquer computador que não possa se conectar ao proxy configurado não conseguirá se conectar à Internet.

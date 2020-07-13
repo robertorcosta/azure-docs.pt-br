@@ -2,7 +2,8 @@
 title: Automação de trabalho
 description: Usar a Automação de Trabalhos para executar scripts T-SQL (Transact-SQL) em um conjunto de um ou mais bancos de dados
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: overview
@@ -10,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 03/10/2020
-ms.openlocfilehash: 1b27eac1a8b5989734d3451bf21c5b13dd5cc0af
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 537c989271800c15444d5323cfce8e133c8eeeba
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220562"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85984634"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gerenciamento usando trabalhos de banco de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,8 +55,8 @@ Vale a pena observar algumas diferenças entre o SQL Agent (disponível localmen
 
 | |Trabalhos elásticos |SQL Agent |
 |---------|---------|---------|
-|Escopo | Qualquer número de bancos de dados no Banco de Dados SQL do Azure e/ou data warehouses na mesma nuvem do Azure do agente de trabalho. Os destinos podem estar em diferentes servidores, assinaturas e/ou regiões. <br><br>Os grupos de destino podem ser compostos de bancos de dados ou data warehouses individuais ou dos bancos de dados em um servidor, pool ou mapa de fragmentos (enumerados dinamicamente no runtime do trabalho). | Qualquer banco de dados individual na mesma instância que o SQL Agent. |
-|Ferramentas e APIs com suporte | Portal, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SSMS (SQL Server Management Studio) |
+|**Escopo** | Qualquer número de bancos de dados no Banco de Dados SQL do Azure e/ou data warehouses na mesma nuvem do Azure do agente de trabalho. Os destinos podem estar em diferentes servidores, assinaturas e/ou regiões. <br><br>Os grupos de destino podem ser compostos de bancos de dados ou data warehouses individuais ou dos bancos de dados em um servidor, pool ou mapa de fragmentos (enumerados dinamicamente no runtime do trabalho). | Qualquer banco de dados individual na mesma instância que o SQL Agent. |
+|**Ferramentas e APIs com suporte** | Portal, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SSMS (SQL Server Management Studio) |
 
 ## <a name="sql-agent-jobs"></a>Trabalhos do SQL Agent
 

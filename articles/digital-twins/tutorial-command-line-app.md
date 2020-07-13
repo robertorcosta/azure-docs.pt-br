@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 67b476b2ec6ec0c841639f7aa1d94a0d9d3d3304
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: d670ee0cb2396858d908ac13f70819efd57d7f63
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262320"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391818"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Explorar os Gêmeos Digitais do Azure com um aplicativo cliente de exemplo
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Este tutorial apresenta um aplicativo de exemplo que implementa um aplicativo cliente de linha de comando para interagir com uma instância dos Gêmeos Digitais do Azure. O aplicativo cliente é semelhante ao escrito no [Tutorial: Codificar um aplicativo cliente](tutorial-code.md).
 
@@ -131,7 +128,8 @@ Execute novamente o comando `CreateModels` para tentar carregar novamente um dos
 CreateModels Room
 ```
 
-Como os modelos não podem ser substituídos, um erro de serviço será retornado:
+Como os modelos não podem ser substituídos, um erro de serviço será retornado.
+Para ver detalhes sobre como excluir modelos existentes, confira [Como: Gerenciar modelos personalizados](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)

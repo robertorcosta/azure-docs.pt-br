@@ -6,20 +6,23 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 06/24/2019
 ms.author: banders
-ms.openlocfilehash: e65637f20d14b93c212b1af2f20695ff5dfeb350
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e238a409adda674e1182c0ffd40a4f666d362731
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199680"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361499"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Acompanhar o saldo de crédito Azure no Contrato de Cliente da Microsoft
 
 Verifique o saldo de crédito Azure de sua conta de cobrança para um Contrato de Cliente da Microsoft no portal do Azure ou por meio de APIs REST.
 
 Na conta de cobrança de um Contrato de Cliente da Microsoft, os créditos são atribuídos a um perfil de cobrança. Cada perfil de cobrança tem créditos próprios, que são aplicados automaticamente aos encargos na respectiva fatura. Você precisa ter uma função de proprietário, colaborador, leitor ou gerenciador de faturas no perfil de cobrança ou uma função de proprietário, colaborador ou leitor na conta de cobrança para exibir o saldo de crédito Azure de um perfil de cobrança. Para saber mais sobre as funções, confira [Entender as funções administrativas do Contrato de Cliente da Microsoft no Azure](understand-mca-roles.md).
+
+> [!NOTE]
+> Um novo crédito pode levar até 24 horas para aparecer no portal do Azure. Se você obtiver um novo crédito e não conseguir vê-lo no portal, aguarde 24 horas para ele aparecer.
 
 Este artigo aplica-se a uma conta de cobrança para um Contrato de Cliente da Microsoft. [Verifique se você tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
@@ -84,7 +87,7 @@ Este artigo aplica-se a uma conta de cobrança para um Contrato de Cliente da Mi
    | Termo | Definição |
    |---|---|
    | Data da transação | A data em que a transação ocorreu |
-   | DESCRIÇÃO | A descrição da transação |
+   | Descrição | A descrição da transação |
    | Amount| A quantidade de transações |
    | Saldo | O saldo após a transação |
 
@@ -196,7 +199,7 @@ A resposta da API retorna o saldo estimado e atual do perfil de cobrança.
 }
 ```
 
-| Nome do elemento  | DESCRIÇÃO                                                                           |
+| Nome do elemento  | Descrição                                                                           |
 |---------------|---------------------------------------------------------------------------------------|
 | `estimatedBalance` | O valor estimado de créditos que você terá depois de considerar todas as transações cobradas e pendentes. |
 | `currentBalance`   | O valor de créditos após a última fatura. Ele não inclui nenhuma transação pendente.    |
@@ -259,7 +262,7 @@ A resposta da API retorna listas de créditos Azure de um perfil de cobrança.
   ]
 }
 ```
-| Nome do elemento  | DESCRIÇÃO                                                                                               |
+| Nome do elemento  | Descrição                                                                                               |
 |---------------|-----------------------------------------------------------------------------------------------------------|
 | `originalAmount` | O valor original do crédito. |
 | `closedBalance`   | O saldo da última fatura.    |
@@ -347,7 +350,7 @@ A resposta da API retorna todas as transações que afetaram o saldo de crédito
   ]
 }
 ```
-| Nome do elemento  | DESCRIÇÃO                                                                                               |
+| Nome do elemento  | Descrição                                                                                               |
 |---------------|-----------------------------------------------------------------------------------------------------------|
 | `transactionDate` | A data em que a transação ocorreu. |
 | `description` | A descrição da transação. |

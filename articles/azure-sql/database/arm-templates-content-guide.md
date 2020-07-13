@@ -1,9 +1,8 @@
 ---
-title: Modelos do Azure Resource Manager
-titleSuffix: Azure SQL Database & SQL Managed Instance
+title: Modelos do Azure Resource Manager – Banco de Dados SQL do Azure e Instância Gerenciada de SQL
 description: Use modelos do Azure Resource Manager para criar e configurar um Banco de Dados SQL do Azure e uma Instância Gerenciada de SQL do Azure.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: overview-samples sqldbrb=2
 ms.devlang: ''
@@ -12,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 76b9b1301a0aeee24b698b15a3871754de8ca0b9
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: ee2c6580285246d3b170602e507aed038b2507f4
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718794"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983631"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Modelos do Azure Resource Manager para o Banco de Dados SQL do Azure e a Instância Gerenciada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +27,7 @@ Os modelos do Azure Resource Manager permitem que você defina a infraestrutura 
 
 A tabela a seguir inclui links para modelos do Azure Resource Manager para o Banco de Dados SQL do Azure.
 
-| |  |
+|Link |Descrição|
 |---|---|
 | [Banco de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create) | Esse modelo do Azure Resource Manager cria um banco de dados individual no Banco de Dados SQL do Azure e configura regras de firewall de IP no nível do servidor. |
 | [Servidor](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Esse modelo do Azure Resource Manager cria um servidor para o Banco de Dados SQL do Azure. |
@@ -47,7 +46,7 @@ A tabela a seguir inclui links para modelos do Azure Resource Manager para o Ban
 
 A tabela a seguir inclui links para modelos do Azure Resource Manager da Instância Gerenciada de SQL do Azure.
 
-| |  |
+|Link|Descrição|
 |---|---|
 | [Instância Gerenciada de SQL em uma nova VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet) | Esse modelo do Azure Resource Manager cria uma rede virtual do Azure configurada e a instância gerenciada na rede virtual. |
 | [Ambiente de rede da Instância Gerenciada de SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | Essa implantação criará uma rede virtual do Azure configurada com duas sub-redes, uma que será dedicada para as instâncias gerenciadas e a outra na qual você poderá colocar outros recursos (por exemplo, VMs, ambientes do Serviço de Aplicativo etc.). Esse modelo criará um ambiente de rede configurado de maneira apropriada em que você poderá implantar as instâncias gerenciadas. |

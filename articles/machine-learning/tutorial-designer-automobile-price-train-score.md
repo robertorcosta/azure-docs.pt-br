@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 05/12/2020
+ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 2fab23e9f765d9ab4908cc4be69d8b747c6856b9
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 7068c1e795e7a607776c48d1b026562a1be6b25d
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84790527"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517569"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Prever preço de automóvel com o designer (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Na [segunda parte](tutorial-designer-automobile-price-deploy.md) do tutorial, vo
 >
 >Para encontrá-lo, acesse o designer em seu workspace. Na seção **Novo pipeline**, selecione **Amostra 1 – Regressão: Previsão de Preços de Automóveis (Básica)** .
 
-## <a name="create-a-new-pipeline"></a>Criar um pipeline
+## <a name="create-a-new-pipeline"></a>Criar um novo pipeline
 
 Os pipelines do Azure Machine Learning organizam várias etapas do aprendizado de máquina e do processamento de dados em um só recurso. Os pipelines permitem que você organize, gerencie e reutilize fluxos de trabalho complexos de aprendizado de máquina entre projetos e usuários.
 
@@ -107,14 +107,14 @@ Você pode visualizar os dados para entender o conjunto de dados que será usado
 1. No painel de detalhes do módulo à direita da tela, selecione **Saídas + log**.
 
 1. Selecione o ícone de grafo para visualizar os dados.
-
-    ![Visualizar os dados](./media/tutorial-designer-automobile-price-train-score/visualize-data.png)
+    
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/visualize-data.png"alt-text="Texto Alt aqui.":::
 
 1. Selecione as diferentes colunas na janela de dados para exibir informações sobre cada um.
 
     Cada linha representa um automóvel e as variáveis associadas a cada automóvel aparecem como colunas. Há 205 linhas e 26 colunas nesse conjunto de dados.
 
-## <a name="prepare-data"></a>Preparar os dados
+## <a name="prepare-data"></a>Preparar dados
 
 Os conjuntos de dados normalmente exigem algum pré-processamento antes da análise. Talvez você tenha observado alguns valores ausentes quando inspecionou o conjunto de dados. Esses valores ausentes precisam ser limpos para que o modelo possa analisar os dados corretamente.
 
@@ -173,15 +173,15 @@ Seu conjunto de dados ainda tem valores ausentes após a remoção da coluna **n
 
 1. Na janela **Colunas a serem limpas** que é exibida, expanda o menu suspenso ao lado de **Incluir**. Selecione **Todas as colunas**
 
-1. Clique em **Salvar**
+1. Selecione **Salvar**
 
 1. No painel detalhes do módulo à direita da tela, selecione **Remover linha inteira** em **Modo de limpeza**.
 
 1. No painel detalhes do módulo à direita da tela, marque a caixa de texto **Comentário** e insira *Remover linhas com valores ausentes*. 
 
     Agora, seu pipeline deve ser semelhante ao seguinte:
-    
-    ![Select-column](./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png)
+
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png"alt-text="Select-column":::
 
 ## <a name="train-a-machine-learning-model"></a>Treinar um modelo de machine learning
 
@@ -229,7 +229,7 @@ Treine o modelo fornecendo a ele um conjunto de dados que inclua o preço. O alg
     > [!IMPORTANT]
     > Verifique se as portas de saída esquerdas de **Dividir Dados** se conectam a **Treinar Modelo**. A porta esquerda contém o conjunto de treinamento. A porta direita contém o conjunto de teste.
 
-    ![Captura de tela mostrando a configuração correta do módulo Treinar Modelo. O módulo Regressão Linear se conecta à porta esquerda do módulo Treinar Modelo e o módulo Dividir Dados se conecta à porta direita do módulo Treinar Modelo](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Captura de tela mostrando a configuração correta do módulo Treinar Modelo. O módulo Regressão Linear se conecta à porta esquerda e o módulo Dividir Dados se conecta à porta direita do módulo Treinar Modelo.":::
 
 1. Selecione o módulo **Treinar Modelo**.
 
@@ -244,7 +244,7 @@ Treine o modelo fornecendo a ele um conjunto de dados que inclua o preço. O alg
 
     Seu pipeline deve ter esta aparência:
 
-    ![Captura de tela mostrando a configuração correta do pipeline após a adição do módulo Treinar Modelo.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Captura de tela mostrando a configuração correta do pipeline após a adição do módulo Treinar Modelo.":::
 
 ### <a name="add-the-score-model-module"></a>Módulo Adicionar o Modelo de Pontuação
 
@@ -264,7 +264,7 @@ Use o módulo **Avaliar Modelo** para avaliar a o desempenho do modelo na pontua
 
     O pipeline final deve ser semelhante ao seguinte:
 
-    ![Captura de tela mostrando a configuração correta do pipeline.](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Captura de tela mostrando a configuração correta do pipeline.":::
 
 ## <a name="submit-the-pipeline"></a>Enviar o pipeline
 
@@ -295,7 +295,7 @@ Depois que a execução for concluída, você poderá exibir os resultados da ex
 
     Aqui você poderá ver os preços previstos e os preços reais dos dados de teste.
 
-    ![Captura de tela da visualização de saída realçando a coluna Rótulo Pontuado](./media/tutorial-designer-automobile-price-train-score/score-result.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Captura de tela da visualização de saída realçando a coluna Rótulo Pontuado":::
 
 ### <a name="evaluate-models"></a>Avaliar os modelos
 

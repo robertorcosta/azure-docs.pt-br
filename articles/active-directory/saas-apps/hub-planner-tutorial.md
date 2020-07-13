@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc1cc89beb1e704428fdb4e10868e72e837804d3
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 0b5a52d0a54a9671052b9b7d46810cc65c22951f
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765253"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799864"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hub-planner"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Hub Planner
 
@@ -43,8 +43,8 @@ Para começar, você precisará dos seguintes itens:
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O Hub Planner dá suporte ao SSO iniciado por **SP**
-* Depois de configurar o Hub Planner, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* O Hub Planner dá suporte ao SSO iniciado por **SP**.
+* Depois de configurar o Hub Planner, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-hub-planner-from-the-gallery"></a>Adicionar o Hub Planner por meio da galeria
 
@@ -83,11 +83,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<SUBDOMAIN>.hubplanner.com`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.hubplanner.com`
 
-    b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.hubplanner.com/sso/metadata`
+    b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://app.hubplanner.com/sso/metadata`
 
-    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.hubplanner.com/sso/callback`
+    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://app.hubplanner.com/sso/callback`
 
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte ao cliente do Hub Planner](mailto:hello@hubplanner.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -133,9 +133,29 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 Para configurar o logon único no lado do **Hub Planner**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Hub Planner](mailto:hello@hubplanner.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
+### <a name="install-the-extension-in-hub-planner"></a>Instalar a extensão no Hub Planner
+
+Para habilitar a funcionalidade de SSO, você precisa primeiro habilitar a extensão. Como o proprietário da conta ou com permissões equivalentes, conclua estas etapas:
+
+1. Vá para **Configurações**.
+1. No menu lateral, selecione **Gerenciar Extensões** > **Adicionar/Remover Extensões**.
+1. Localize a extensão para Logon Único e Adicionar ou Experimentar Gratuitamente.
+1. Quando solicitado, concorde com os termos e condições e selecione **Adicionar Agora**.
+
+### <a name="enable-sso"></a>Habilitar SSO
+
+Depois que a extensão estiver habilitada, você precisará habilitar o SSO para a conta. 
+
+1. Vá para **Configurações**.
+1. No menu lateral, selecione **Autenticação**.
+1. Selecione **SSO (Logon Único)** .
+1. Insira informações de autenticação adicionais conforme mostrado na imagem a seguir e selecione **Salvar**.
+
+![Captura de tela das configurações de SSO](media/hub-planner-tutorial/sso-settings.png)
+
 ### <a name="create-hub-planner-test-user"></a>Criar um usuário de teste do Hub Planner
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Hub Planner. Trabalhe com a [equipe de suporte do Hub Planner](mailto:hello@hubplanner.com) para adicionar os usuários à plataforma do Hub Planner. Os usuários devem ser criados e ativados antes de usar o logon único.
+Se você quiser adicionar outros usuários, acesse **Configurações** > **Gerenciar recursos**. É necessário que você adicione o endereço de email deles e os convide. Uma vez convidados, eles receberão um email e poderão entrar por meio do SSO. 
 
 ## <a name="test-sso"></a>Testar o SSO 
 

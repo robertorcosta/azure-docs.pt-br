@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/02/2020
+ms.date: 06/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 310023893d25a484cf05dac00628c632a4421edb
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: d8f65236fee57b4dc3e2bb012d8cdd222f431ec0
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84719945"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482608"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smartkargo"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SmartKargo
 
@@ -83,22 +83,18 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<CUSTOMER_NAME>.smartkargo.com/`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<CUSTOMER_NAME>.smartkargo.com/`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<CUSTOMER_NAME>.smartkargo.com/`
 
     c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<CUSTOMER_NAME>.smartkargo.com/SamlResponse.aspx`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Logon, a URL de Resposta e o Identificador reais. Entre em contato com a [equipe de suporte ao cliente do SmartKargo](https://www.smartkargo.com/company/contact-2/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de Logon, a URL de Resposta e o Identificador. Entre em contato com a [equipe de suporte ao cliente do SmartKargo](https://www.smartkargo.com/company/contact-2/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na seção **Certificado de Autenticação SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![Editar o Certificado de Autenticação SAML](common/edit-certificate.png)
-
-1. Na seção **Certificado de Autenticação SAML**, copie o **Valor da Impressão Digital** e salve-o em seu computador.
-
-    ![Copiar o valor da Impressão Digital](common/copy-thumbprint.png)
+    ![O link de download do Certificado](common/metadataxml.png)
 
 1. Na seção **Configurar o SmartKargo**, copie as URLs apropriadas de acordo com suas necessidades.
 
@@ -136,7 +132,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao p
 
 ## <a name="configure-smartkargo-sso"></a>Configurar o SSO do SmartKargo
 
-Para configurar o logon único no lado do **SmartKargo**, é necessário enviar o **Valor da Impressão Digital** e as URLs apropriadas copiadas do portal do Azure para [a equipe de suporte da plataforma SmartKargo](https://www.smartkargo.com/company/contact-2/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **IP SmartKargo**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte da plataforma SmartKargo](https://www.smartkargo.com/company/contact-2/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-smartkargo-test-user"></a>Criar usuário de teste do SmartKargo
 

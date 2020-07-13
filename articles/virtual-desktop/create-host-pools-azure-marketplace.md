@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8a20d7cb05f4529d5aa8a115b7d1db6e4d812be0
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 7c22ad844f0a543cfbf2e007ab2bfc8f0fe22ef7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100849"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362927"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar um pool de host com o portal do Azure
 
@@ -67,20 +67,23 @@ Para começar a criar seu pool de host:
    
    Os metadados para esse pool de host e seus objetos relacionados serão armazenados na geografia do Azure associada às regiões que você selecionou. Escolha as regiões dentro da geografia em que você deseja que os metadados de serviço sejam armazenados.
 
-     ![Uma captura de tela do portal do Azure mostrando o campo Localização com a localização Leste dos EUA selecionada. Ao lado do campo está o texto que diz "Os metadados serão armazenados no Leste dos EUA".](media/portal-location-field.png)
+     > [!div class="mx-imgBorder"]
+     > ![Uma captura de tela do portal do Azure mostrando o campo Localização com a localização Leste dos EUA selecionada. Ao lado do campo está o texto que diz "Os metadados serão armazenados no Leste dos EUA".](media/portal-location-field.png)
 
 8. Em Tipo de pool de host, selecione se o pool de host será **Pessoal** ou **Em pool**.
 
     - Se você escolher **Pessoal**, selecione **Automático** ou **Direto** no campo Tipo de Atribuição.
 
-      ![Uma captura de tela do menu suspenso do campo de tipo de atribuição. O usuário selecionou Automático.](media/assignment-type-field.png)
+      > [!div class="mx-imgBorder"]
+      > ![Uma captura de tela do menu suspenso do campo de tipo de atribuição. O usuário selecionou Automático.](media/assignment-type-field.png)
 
 9. Se você escolher **Em pool**, insira as seguintes informações:
 
      - Para **Limite máximo de sessão**, insira o número máximo de usuários cuja carga você deseja balancear para um host de sessão.
      - Para **Algoritmo de balanceamento de carga**, escolha amplitude primeiro ou profundidade primeiro conforme seu padrão de uso.
 
-       ![Uma captura de tela do campo de tipo de atribuição com "Em pool" selecionado. O usuário está focalizando o cursor sobre Amplitude primeiro no menu suspenso de balanceamento de carga.](media/pooled-assignment-type.png)
+       > [!div class="mx-imgBorder"]
+       > ![Uma captura de tela do campo de tipo de atribuição com "Em pool" selecionado. O usuário está passando o cursor sobre Balanceamento em largura no menu suspenso de balanceamento de carga.](media/pooled-assignment-type.png)
 
 10. Selecione **Avançar: Detalhes da VM**.
 
@@ -117,11 +120,13 @@ Para configurar sua máquina virtual dentro do processo de configuração do poo
 
      Se você não vir a imagem desejada, selecione **Procurar todas as imagens e discos**, o que permite que você selecione outra imagem na galeria ou uma imagem fornecida pela Microsoft e outros editores.
 
-     ![Uma captura de tela do Marketplace com uma lista de imagens da Microsoft exibida.](media/marketplace-images.png)
+     > [!div class="mx-imgBorder"]
+     > ![Uma captura de tela do Marketplace com uma lista de imagens da Microsoft exibida.](media/marketplace-images.png)
 
      Você também pode ir até **Meus Itens** e escolher uma imagem personalizada que você já carregou.
 
-     ![Uma captura de tela da guia Meus Itens.](media/my-items.png)
+     > [!div class="mx-imgBorder"]
+     > ![Uma captura de tela da guia Meus Itens.](media/my-items.png)
 
     - Se você escolher **Blob de Armazenamento**, poderá aproveitar seu build de imagem por meio do Hyper-V ou em uma VM do Azure. Basta inserir a localização da imagem no blob de armazenamento como um URI.
 
@@ -136,7 +141,8 @@ Para configurar sua máquina virtual dentro do processo de configuração do poo
     >[!NOTE]
     >Para maior segurança, recomendamos não abrir portas de entrada públicas.
 
-    ![Uma captura de tela da página do grupo de segurança que mostra uma lista de portas disponíveis em um menu suspenso.](media/available-ports.png)
+    > [!div class="mx-imgBorder"]
+    > ![Uma captura de tela da página do grupo de segurança que mostra uma lista de portas disponíveis em um menu suspenso.](media/available-ports.png)
     
     Se você escolher **Avançado**, selecione um grupo de segurança de rede existente que você já configurou.
 

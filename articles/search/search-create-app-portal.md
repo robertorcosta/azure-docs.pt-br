@@ -1,23 +1,25 @@
 ---
-title: Criar um aplicativo de pesquisa no portal do Azure
+title: Criar um aplicativo de demonstração no portal do Azure
 titleSuffix: Azure Cognitive Search
-description: Execute o assistente para Criar aplicativo (versão prévia) para gerar páginas HTML e script para um aplicativo Web operacional. A página inclui uma barra de pesquisa, uma área de resultados, uma barra lateral e suporte para typeahead.
+description: Execute o assistente para Criar aplicativo de demonstração (versão prévia) para gerar páginas HTML e script para um aplicativo Web operacional. A página inclui uma barra de pesquisa, uma área de resultados, uma barra lateral e suporte para typeahead.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 6c956c937027b16d51141ded4de5ff9b019c37d4
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.date: 07/01/2020
+ms.openlocfilehash: 11dd12fce669d6b6a027eb182d5f9e6e493577ad
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488164"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955685"
 ---
-# <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Início Rápido: Criar um aplicativo de pesquisa no portal (Azure Cognitive Search)
+# <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Início Rápido: Criar um aplicativo de demonstração no portal (Azure Cognitive Search)
 
-Use o assistente **Criar aplicativo de pesquisa** do portal do Azure para gerar um aplicativo Web no estilo "localhost" para download que seja executado em um navegador. Dependendo de sua configuração, o aplicativo gerado está operacional no primeiro uso, com uma conexão dinâmica com um índice remoto. Um aplicativo padrão pode incluir uma barra de pesquisa, uma área de resultados, filtros de barra lateral e suporte para typeahead.
+Use o assistente **Criar aplicativo de demonstração** do portal do Azure para gerar um aplicativo Web no estilo "localhost" para download que seja executado em um navegador. Dependendo de sua configuração, o aplicativo gerado está operacional no primeiro uso, com uma conexão somente leitura dinâmica com um índice remoto. Um aplicativo padrão pode incluir uma barra de pesquisa, uma área de resultados, filtros de barra lateral e suporte para typeahead.
+
+O aplicativo de demonstração pode ajudá-lo a visualizar como um índice funcionará em um aplicativo cliente, mas não se destina a cenários de produção. Os aplicativos cliente devem incluir segurança, tratamento de erro e lógica de hospedagem que a página HTML gerada não fornece. Quando você estiver pronto para criar um aplicativo cliente, confira [Criar seu primeiro aplicativo de pesquisa usando o SDK do .NET](tutorial-csharp-create-first-app.md) para as próximas etapas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,7 +47,7 @@ Quando o índice estiver pronto para uso, prossiga para a próxima etapa.
 
 1. Escolha *realestate-us-sample-index* na lista de índices existentes.
 
-1. Na página Índice, na parte superior, selecione **Criar aplicativo de pesquisa (versão prévia)** para iniciar o assistente.
+1. Na página Índice, na parte superior, selecione **Criar aplicativo de demonstração (versão prévia)** para iniciar o assistente.
 
 1. Na primeira página do assistente, selecione **Habilitar CORS (Compartilhamento de Recursos Entre Origens)** para adicionar suporte a CORS à definição de índice. Esta etapa é opcional, mas seu aplicativo Web local não se conectará ao índice remoto sem ela.
 
@@ -85,7 +87,7 @@ A captura de tela a seguir mostra as opções no assistente, justapostas a uma p
 
 ## <a name="create-download-and-execute"></a>Criar, baixar e executar
 
-1. Selecione **Criar aplicativo de pesquisa** para gerar o arquivo HTML.
+1. Selecione **Criar aplicativo de demonstração** para gerar o arquivo HTML.
 
 1. Quando solicitado, selecione **Baixar seu aplicativo** para baixar o arquivo.
 

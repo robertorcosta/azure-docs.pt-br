@@ -3,23 +3,25 @@ title: Introdução ao Gerenciamento de Custos do Azure para parceiros
 description: Este artigo explica como os parceiros usam os recursos do Gerenciamento de Custos do Azure e como eles habilitam o acesso do Gerenciamento de Custos para os clientes.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/08/2020
+ms.date: 07/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 08037cbd3723604720a273722bd5dbee3fb79b8e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 0b0b5eb8ec41eccf99c23b671cef42a9c1bc8859
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554566"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849858"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introdução ao Gerenciamento de Custos do Azure para parceiros
 
-O Gerenciamento de Custos do Azure está disponível nativamente para os parceiros diretos que integraram os clientes a um Contrato de Cliente da Microsoft e [compraram um plano do Azure](/partner-center/purchase-azure-plan). Este artigo explica como os parceiros usam os recursos do [Gerenciamento de Custos do Azure](../index.yml) para ver os custos de assinaturas no plano do Azure. Também descreve como os parceiros habilitam o acesso do Gerenciamento de Custos para os clientes.
+O Gerenciamento de Custos do Azure está disponível nativamente para os parceiros diretos que integraram os clientes a um Contrato de Cliente da Microsoft e [compraram um plano do Azure](/partner-center/purchase-azure-plan). Este artigo explica como os parceiros usam os recursos do [Gerenciamento de Custos do Azure](../index.yml) para ver os custos de assinaturas no plano do Azure. Também descreve como os parceiros habilitam o acesso do Gerenciamento de Custos às taxas de varejo para seus clientes.
 
-Para parceiros diretos e provedores indiretos, o administrador global e os agentes administradores do provedor indireto podem acessar o Gerenciamento de Custos no locatário do parceiro. Os revendedores e os clientes podem acessar o Gerenciamento de Custos no locatário do cliente e ver os custos das assinaturas, em que os custos são calculados e mostrados em taxas de varejo. No entanto, eles precisam ter acesso RBAC à assinatura no locatário do cliente para ver os custos. A política de visibilidade de custo precisa ser habilitada pelo provedor para o locatário do cliente.
+Para parceiros diretos e provedores indiretos, o administrador global e os agentes administradores podem acessar o Gerenciamento de Custos no locatário do parceiro e gerenciar custos aos preços faturados.
+
+Os revendedores e os clientes podem acessar o Gerenciamento de Custos no locatário do cliente e ver os custos das assinaturas, em que os custos são calculados e mostrados em taxas de varejo. No entanto, eles precisam ter acesso RBAC à assinatura no locatário do cliente para ver os custos. A política de visibilidade de custo precisa ser habilitada pelo provedor para o locatário do cliente.
 
 Os clientes podem usar os recursos do Gerenciamento de Custos quando eles são habilitados pelo parceiro CSP.
 
@@ -33,10 +35,12 @@ Os parceiros CSP usam o Gerenciamento de Custos para:
 - Exportar os dados de custo e uso para um blob de armazenamento com uma assinatura paga conforme o uso.
 
 Veja um exemplo que mostra os custos de todos os clientes.
-![Exemplo mostrando os custos de todos os clientes](./media/get-started-partners/customer-costs1.png)
+
+[![Exemplo mostrando os custos de todos os clientes](./media/get-started-partners/customer-costs1.png)](./media/get-started-partners/customer-costs1.png#lightbox)
 
 Veja um exemplo que mostra os custos de um só cliente.
-![Exemplo mostrando os custos de um só cliente](./media/get-started-partners/customer-costs2.png)
+
+[![Exemplo mostrando os custos de um só cliente](./media/get-started-partners/customer-costs2.png)](./media/get-started-partners/customer-costs2.png#lightbox)
 
 Todas as funcionalidades disponíveis no Gerenciamento de Custos do Azure também estão disponíveis nas APIs REST. Use as APIs para automatizar as tarefas de gerenciamento de custos.
 
@@ -50,8 +54,7 @@ O Gerenciamento de Custos do Azure exige acesso de leitura à sua conta de cobra
 
 Para obter mais informações sobre como habilitar e atribuir acesso ao Gerenciamento de Custos do Azure em uma conta de cobrança, confira [Atribuir funções e permissões de usuários](/partner-center/permissions-overview). As funções **Administrador global** e **Agente administrativo** podem gerenciar os custos de uma conta de cobrança.
 
-Para acessar o Gerenciamento de Custos do Azure no escopo da assinatura, qualquer usuário com acesso RBAC a uma assinatura pode ver os custos com base em taxas de varejo (pagas conforme o uso). No entanto, a política de visibilidade de custo do locatário do cliente precisa ser habilitada. Para ver uma lista completa dos tipos de contas compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md).
-
+Para acessar o Gerenciamento de Custos do Azure no escopo da assinatura, qualquer usuário com acesso RBAC a uma assinatura pode ver os custos com base em taxas de varejo (pagas conforme o uso). No entanto, a [política de visibilidade de custo do locatário do cliente](#enable-the-policy-to-view-azure-usage-charges) precisa ser habilitada. Para ver uma lista completa dos tipos de contas compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md).
 
 ## <a name="how-cost-management-uses-scopes"></a>Como o Gerenciamento de Custos usa os escopos
 
@@ -110,13 +113,13 @@ O escopo do cliente não inclui os clientes que estão na oferta atual do CSP. O
 
 Somente os usuários com as funções **Administrador global** e **Agente administrativo** podem gerenciar e ver os custos de contas de cobrança, perfis de cobrança e clientes diretamente no locatário do Azure do parceiro. Para obter mais informações sobre as funções do Partner Center, confira [Atribuir funções e permissões de usuários](/partner-center/permissions-overview).
 
-## <a name="enable-cost-management-in-the-customer-tenant"></a>Habilitar o gerenciamento de custos no locatário do cliente
+## <a name="enable-cost-management-for-customer-tenant-subscriptions"></a>Habilitar o gerenciamento de custos para assinaturas de locatário do cliente
 
-Os parceiros poderão habilitar o acesso ao Gerenciamento de Custos depois que os clientes forem integrados a um Contrato de Cliente da Microsoft. Em seguida, os parceiros poderão habilitar uma política que permite aos clientes ver os custos calculados com base em taxas de varejo pagas conforme o uso. Os custos são mostrados na moeda de cobrança do cliente para o uso consumido nos escopos dos grupos de recursos e da assinatura RBAC.
+Os parceiros poderão habilitar o acesso ao Gerenciamento de Custos depois que os clientes forem integrados a um Contrato de Cliente da Microsoft. Em seguida, os parceiros poderão habilitar uma política que permite aos clientes ver os custos calculados dos serviços consumidos do Azure com base em taxas de varejo pagas conforme o uso. Os custos são mostrados na moeda de cobrança do cliente para o uso consumido nos escopos dos grupos de recursos e da assinatura RBAC.
 
 Quando a política de visibilidade de custo é habilitada pelo parceiro, qualquer usuário com acesso ao Azure Resource Manager na assinatura pode gerenciar e analisar os custos com base em taxas pagas conforme o uso. Efetivamente, os revendedores e os clientes que têm o acesso do RBAC apropriado às assinaturas do Azure podem ver o custo.
 
-Seja qual for a política, os parceiros também poderão ver os custos se tiverem acesso à assinatura e ao grupo de recursos.
+Independentemente da política, os administradores globais e os agentes de administração do provedor poderão ver os custos de assinatura se tiverem acesso à assinatura e ao grupo de recursos.
 
 ### <a name="enable-the-policy-to-view-azure-usage-charges"></a>Habilitar a política para ver os preços de uso do Azure
 
@@ -126,7 +129,7 @@ No portal do Azure, entre no locatário do parceiro e selecione **Gerenciamento 
 
 Na lista de clientes, selecione o cliente que deseja permitir para ver os custos.
 
-![Selecionar clientes no Gerenciamento de Custos](./media/get-started-partners/customer-list.png)
+[![Selecionar clientes no Gerenciamento de Custos](./media/get-started-partners/customer-list.png)](./media/get-started-partners/customer-list.png#lightbox)
 
 Em **Configurações**, selecione **Políticas**.
 
@@ -139,16 +142,17 @@ Quando a política de custo é definida como **Sim**, os usuários da assinatura
 
 Quando a política de visibilidade de custo é habilitada, todos os serviços que tenham o uso da assinatura mostram os custos com base nas taxas pagas conforme o uso. O uso de reserva é exibido com preços sem nenhum valor para os custos reais e amortizados. As compras e os direitos não estão associados a uma assinatura específica. Portanto, as compras não são exibidas no escopo da assinatura.
 
+### <a name="view-subscription-costs-in-the-customer-tenant"></a>Exibir custos de assinatura no locatário do cliente
 
-### <a name="view-customer-costs"></a>Exibir custos do cliente
+Para ver os custos de uma assinatura, abra **Gerenciamento de Custos + Cobrança** no locatário do Azure do cliente. Selecione **Análise de custo** na assinatura necessária para começar a examinar os custos. Você pode ver os custos de consumo para cada assinatura individualmente no locatário do cliente.
 
-Para exibir os custos do locatário do cliente, abra **Gerenciamento de Custos + Cobrança**. Selecione **Análise de custo** e, em seguida, altere o escopo para a assinatura do locatário do cliente para começar a examinar os custos.
-
-![Ver a análise de custo como um cliente ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
+[![Exibir a análise de custo como um cliente ](./media/get-started-partners/subscription-costs.png)](./media/get-started-partners/subscription-costs.png#lightbox)
 
 A análise de custo, os orçamentos e os alertas estão disponíveis para os escopos do RBAC do grupo de recursos e da assinatura em custos com base em taxas pagas conforme o uso.
 
 As exibições amortizadas e os custos reais das instâncias reservadas nos escopos do RBAC mostram preços sem nenhum valor. Os custos de instância reservada são mostrados apenas nos escopos de cobrança em que as compras foram feitas.
+
+As taxas de varejo usadas para computar os custos mostrados na exibição são iguais aos preços mostrados na Calculadora de Preços do Azure para todos os clientes. Os custos mostrados não incluem descontos nem créditos que o parceiro possa ter, como Créditos Ganhos do Parceiro, Descontos por Nível e descontos de Serviço Global.
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Analisar os custos na análise de custo
 

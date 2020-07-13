@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: b905b1e86810b25c4c94072d6cd414b993e2a883
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1792f158ac59e2b80a037621be2c2ce2556e1097
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77425943"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799778"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Faça um tour da interface do usuário do Azure IoT Central
 
@@ -103,7 +103,7 @@ O menu superior aparece em cada página:
 * Para procurar dispositivos e modelos de dispositivo, insira um valor **Pesquisar**.
 * Para alterar o idioma da interface do usuário ou o tema, escolha o ícone **Configurações**. Saiba mais sobre [como gerenciar suas preferências de aplicativo](howto-manage-preferences.md)
 * Para sair do aplicativo, escolha o ícone **Conta**.
-* Para obter ajuda e suporte, escolha o menu suspenso da **Ajuda** para ver uma lista de recursos. Em um aplicativo no plano de preço gratuito, os recursos de suporte incluem o acesso ao [chat ao vivo](howto-show-hide-chat.md).
+* Para obter ajuda e suporte, escolha o menu suspenso da **Ajuda** para ver uma lista de recursos. Você pode [obter informações sobre seu aplicativo](./howto-get-app-info.md) no link **Sobre seu aplicativo**. Em um aplicativo no plano de preço gratuito, os recursos de suporte incluem o acesso ao [chat ao vivo](howto-show-hide-chat.md).
 
 Você pode escolher entre um tema claro ou escuro para a interface do usuário:
 

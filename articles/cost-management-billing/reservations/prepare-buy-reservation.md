@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: banders
-ms.openlocfilehash: 718365119b8cdf9279dcabc5f8c54deb386e8500
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 609ca56419ed14f3cf4e449e9b906a75a4ff20ab
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019034"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85807774"
 ---
 # <a name="buy-a-reservation"></a>Comprar uma reserva
 
@@ -85,7 +85,7 @@ Você pode pagar por elas fazendo pagamentos mensais. Diferente de uma compra an
 
 Se a reserva for comprada usando o MCA (Contrato de Cliente da Microsoft), o valor do pagamento mensal poderá variar de acordo com o câmbio da moeda local do mercado para o mês corrente.
 
-Os pagamentos mensais não estão disponíveis para: Databricks, reservas do SUSE Linux, planos de Red Hat e Computação do Red Hat OpenShift no Azure.
+Os pagamentos mensais não estão disponíveis para: Databricks, reservas do SUSE Linux, Planos do Red Hat e Licenças do Red Hat OpenShift no Azure.
 
 ### <a name="view-payments-made"></a>Exibir pagamentos feitos
 

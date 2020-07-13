@@ -1,16 +1,16 @@
 ---
 title: Organizar seus recursos com grupos de gerenciamento – Governança do Azure
 description: Saiba mais sobre os grupos de gerenciamento, o funcionamento de suas permissões e como usá-los.
-ms.date: 04/15/2020
+ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: 43c8bb2bdb71b0b75d2fcc31451952214978093c
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: b3d031b68ee7dba9c80ee0c7e97898bb8b439a47
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773144"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963675"
 ---
-# <a name="organize-your-resources-with-azure-management-groups"></a>Organizar seus recursos com grupos de gerenciamento do Azure
+# <a name="what-are-azure-management-groups"></a>O que são grupos de gerenciamento do Azure?
 
 Se sua organização tiver muitas assinaturas, talvez seja necessária uma maneira de gerenciar com eficiência o acesso, as políticas e a conformidade dessas assinaturas. Os grupos de gerenciamento do Azure fornecem um nível de escopo acima das assinaturas. Você organiza assinaturas em contêineres chamados "grupos de gerenciamento" e aplica as condições de governança aos grupos de gerenciamento. Todas as assinaturas dentro de um grupo de gerenciamento herdam automaticamente as condições aplicadas ao grupo de gerenciamento. Os grupos de gerenciamento fornecem gerenciamento de nível empresarial em larga escala, independentemente do tipo de assinaturas que você possa ter.
 Todas as assinaturas em um único grupo de gerenciamento devem confiar no mesmo locatário do Azure Active Directory.
@@ -199,6 +199,4 @@ Para saber mais sobre grupos de gerenciamento, consulte:
 
 - [Criar grupos de gerenciamento para organizar recursos do Azure](./create.md)
 - [Como alterar, excluir ou gerenciar seus grupos de gerenciamento](./manage.md)
-- [Analisar grupos de gerenciamento no Módulo de Recursos do Azure PowerShell](/powershell/module/az.resources#resources)
-- [Revisar grupos de gerenciamento na API REST](/rest/api/resources/managementgroups)
-- [Revisar grupos de gerenciamento na CLI do Azure](/cli/azure/account/management-group)
+- Veja opções para [Como proteger sua hierarquia de recursos](./how-to/protect-resource-hierarchy.md)

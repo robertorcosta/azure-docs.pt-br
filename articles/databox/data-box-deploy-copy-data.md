@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: a3e66e7f6857361136fb4b7839953790f66b4db5
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 82cdd8519f1e3fce80aaf051d6bc5fc40a9b8be9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219105"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959548"
 ---
 ::: zone target="docs"
 
@@ -62,7 +62,7 @@ Em compartilhamentos de blob de blocos e blob de páginas, as entidades de prime
 
 A tabela a seguir mostra o caminho UNC para os compartilhamentos na URL de caminho do Data Box e do Armazenamento do Azure em que os dados são carregados. A URL final de caminho do Armazenamento do Azure pode ser derivada do caminho de compartilhamento UNC.
  
-|                   |                                                            |
+|Tipos de Armazenamento do Azure  | Compartilhamentos do Data Box            |
 |-------------------|--------------------------------------------------------------------------------|
 | Blobs de blocos do Azure | <li>Caminho UNC para compartilhamentos: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>URL do Armazenamento do Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Blobs de páginas do Azure  | <li>Caminho UNC para compartilhamentos: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>URL do Armazenamento do Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
@@ -70,32 +70,32 @@ A tabela a seguir mostra o caminho UNC para os compartilhamentos na URL de camin
 
 Se estiver usando um computador host do Windows Server, siga estas etapas para conectar-se ao Data Box.
 
-1. O primeiro passo é autenticar e iniciar uma sessão. Vá para **conectar e copiar**. Clique em **Obter credenciais** para obter as credenciais de acesso aos compartilhamentos associados à sua conta de armazenamento. 
+1. O primeiro passo é autenticar e iniciar uma sessão. Vá para **conectar e copiar**. Selecione **SMB** para obter as credenciais de acesso aos compartilhamentos associados à sua conta de armazenamento. 
 
     ![Obter as credenciais de compartilhamento 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. No compartilhamento de acesso e caixa de diálogo de dados de cópia, copie o **nome de usuário** e o **senha** correspondente para o compartilhamento. Clique em **OK**.
+2. No compartilhamento de acesso e caixa de diálogo de dados de cópia, copie o **nome de usuário** e o **senha** correspondente para o compartilhamento. Selecione **OK**.
     
     ![Obter as credenciais de compartilhamento 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. Para acessar os compartilhamentos associados à sua conta de armazenamento (*devicemanagertest1* no exemplo a seguir) no computador host, abra uma janela Comando. No prompt de comando, digite:
+3. Para acessar os compartilhamentos associados à sua conta de armazenamento (*utsac1* no exemplo a seguir) no computador host, abra uma janela Comando. No prompt de comando, digite:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
     Dependendo do formato dos dados, os caminhos de compartilhamento serão os seguintes:
-    - Blob de blocos do Azure – `\\10.126.76.172\devicemanagertest1_BlockBlob`
-    - Blob de páginas do Azure – `\\10.126.76.172\devicemanagertest1_PageBlob`
-    - Arquivos do Azure – `\\10.126.76.172\devicemanagertest1_AzFile`
+    - Blob de blocos do Azure – `\\10.126.76.138\utSAC1_202006051000_BlockBlob`
+    - Blob de páginas do Azure – `\\10.126.76.138\utSAC1_202006051000_PageBlob`
+    - Arquivos do Azure – `\\10.126.76.138\utSAC1_202006051000_AzFile`
 
 4. Quando solicitado, digite a senha do compartilhamento. A amostra a seguir mostra a conexão a um compartilhamento por meio do comando anterior.
 
     ```
-    C:\Users\Databoxuser>net use \\10.126.76.172\devicemanagertest1_BlockBlob /u:devicemanagertest1
-    Enter the password for 'devicemanagertest1' to connect to '10.126.76.172':
+    C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
+    Enter the password for 'testuser1' to connect to '10.126.76.138':
     The command completed successfully.
     ```
 
-4. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Clique em **OK** para abrir o Explorador de Arquivos.
+4. Pressione Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Selecione **OK** para abrir o Explorador de Arquivos.
     
     ![Conecte-se para compartilhar via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
@@ -107,7 +107,7 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
     
 Se estiver usando um cliente Linux, use o seguinte comando para montar o compartilhamento SMB. O parâmetro "vers" abaixo é a versão do SMB compatível com seu host do Linux. Conecte a versão adequada no comando a seguir. Para versões do SMB compatíveis com o Data Box, consulte [Sistemas de arquivo compatíveis para clientes Linux](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
 
-    `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
+    `sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home/databoxubuntuhost/databox`
 
 ## <a name="copy-data-to-data-box"></a>Copiar dados para caixa de dados
 
@@ -215,11 +215,23 @@ Para otimizar o desempenho, use os seguintes parâmetros de robocopy ao copiar o
 
 Para mais informações sobre o comando Robocopy, vá para [Robocopy e alguns exemplos](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
 
-Abra a pasta de destino para exibir e verificar os arquivos copiados. Se você tiver algum erro durante o processo de cópia, baixe os arquivos de erro para solução de problemas. Para obter mais informações, veja [Exibir logs de erros durante a cópia de dados para o Data Box](data-box-logs.md#view-error-log-during-data-copy). Para obter uma lista detalhada de erros durante a cópia de dados, veja [Solucionar problemas do Data Box](data-box-troubleshoot.md).
+Durante o processo de cópia, se houver algum erro, você verá uma notificação.
+
+![Baixar e ver erros em Conectar e copiar](media/data-box-deploy-copy-data/view-errors-1.png)
+
+Selecione **Baixar lista de problemas**.
+
+![Baixar e exibir erros em Conectar e copiar](media/data-box-deploy-copy-data/view-errors-2.png)
+
+Abra a lista para ver os detalhes do erro e selecione a URL de resolução para ver a resolução recomendada.
+
+![Baixar e exibir erros em Conectar e copiar](media/data-box-deploy-copy-data/view-errors-3.png)
+
+Para obter mais informações, veja [Exibir logs de erros durante a cópia de dados para o Data Box](data-box-logs.md#view-error-log-during-data-copy). Para obter uma lista detalhada de erros durante a cópia de dados, veja [Solucionar problemas do Data Box](data-box-troubleshoot.md).
 
 Para garantir a integridade dos dados, a soma de verificação é computada em linha à medida que os dados são copiados. Quando a cópia estiver concluída, verifique o espaço usado e o espaço livre no seu dispositivo.
 
-   ![Verificar o espaço livre e usado no painel](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
+![Verificar o espaço livre e usado no painel](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 ::: zone-end
 

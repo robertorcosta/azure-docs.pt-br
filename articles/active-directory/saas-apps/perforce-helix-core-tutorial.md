@@ -12,19 +12,19 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/15/2020
+ms.date: 06/23/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ea6531d85670301691e4aa88503d7eee4fb16d9
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 6742b1466ed5055e3906adc96cfe346b7f46be9c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84905453"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482625"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-perforce-helix-core--helix-authentication-service"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Perforce Helix Core – Helix Authentication Service
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-perforce-helix-core---helix-authentication-service"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Perforce Helix Core – Helix Authentication Service
 
-Neste tutorial, você aprenderá como integrar o Perforce Helix Core – Helix Authentication Service ao Azure AD (Azure Active Directory). Ao integrar o Perforce Helix Core – Helix Authentication Service com o Azure AD, você pode:
+Neste tutorial, você aprenderá a integrar o Perforce Helix Core – Helix Authentication Service ao Azure AD (Azure Active Directory). Ao integrar o Perforce Helix Core – Helix Authentication Service ao Azure AD, você pode:
 
 * Controlar no Azure AD que tem acesso ao Perforce Helix Core – Helix Authentication Service.
 * Permitir que os usuários sejam conectados automaticamente ao Perforce Helix Core – Helix Authentication Service com as contas do Azure AD deles.
@@ -46,7 +46,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 * O Perforce Helix Core – Helix Authentication Service é compatível com o SSO iniciado por **SP**
 * Após configurar o Perforce Helix Core – Helix Authentication Service, você poderá impor controles de sessão, que protegem o vazamento e a infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-perforce-helix-core--helix-authentication-service-from-the-gallery"></a>Adicionar o Perforce Helix Core – Helix Authentication Service da galeria
+## <a name="adding-perforce-helix-core---helix-authentication-service-from-the-gallery"></a>Adicionar o Perforce Helix Core – Helix Authentication Service da galeria
 
 Para configurar a integração do Perforce Helix Core – Helix Authentication Service ao Azure AD, você precisa adicionar o Perforce Helix Core – Helix Authentication Service da Galeria à sua lista de aplicativos SaaS gerenciados.
 
@@ -55,9 +55,9 @@ Para configurar a integração do Perforce Helix Core – Helix Authentication S
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
 1. Na seção **Adicionar da galeria**, digite **Perforce Helix Core – Helix Authentication Service** na caixa de pesquisa.
-1. Selecione o **Perforce Helix Core – Helix Authentication Service** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. Selecione o **Perforce Helix Core – Helix Authentication Service** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-perforce-helix-core--helix-authentication-service"></a>Configurar e testar o logon único do Azure AD para o Perforce Helix Core – Helix Authentication Service
+## <a name="configure-and-test-azure-ad-single-sign-on-for-perforce-helix-core---helix-authentication-service"></a>Configurar e testar o logon único do Azure AD para o Perforce Helix Core – Helix Authentication Service
 
 Configure e teste o SSO do Azure AD com o Perforce Helix Core – Helix Authentication Service usando um usuário de teste com o nome **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Perforce Helix Core – Helix Authentication Service.
 
@@ -66,8 +66,8 @@ Para configurar e testar o SSO do Azure AD com o Perforce Helix Core – Helix A
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
     1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
-1. **[Configurar o SSO do Perforce Helix Core – Helix Authentication Service](#configure-perforce-helix-core--helix-authentication-service-sso)** – para definir as configurações de logon único no lado do aplicativo.
-    1. **[Criar usuário de teste do Perforce Helix Core – Helix Authentication Service](#create-perforce-helix-core--helix-authentication-service-test-user)** – para ter um equivalente de B. Simon no Perforce Helix Core – Helix Authentication Service que está vinculado à representação do usuário no Azure AD.
+1. **[Configurar o SSO do Perforce Helix Core – Helix Authentication Service](#configure-perforce-helix-core---helix-authentication-service-sso)** – para definir as configurações de logon único no lado do aplicativo.
+    1. **[Criar usuário de teste do Perforce Helix Core – Helix Authentication Service](#create-perforce-helix-core---helix-authentication-service-test-user)** – para ter um equivalente de B. Simon no Perforce Helix Core – Helix Authentication Service que está vinculado à declaração do usuário no Azure AD.
 1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
@@ -89,7 +89,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<HELIX-AUTH-SERVICE>.<CUSTOMER-HOSTNAME>.com/saml/sso`
 
     > [!NOTE]
-    > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Contate a [equipe de suporte ao cliente do Perforce Helix Core – Helix Authentication Service](mailto:support@perforce.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de Resposta, o Identificador e a URL de Logon reais. Contate a [equipe de suporte ao cliente do Perforce Helix Core – Helix Authentication Service](mailto:support@perforce.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no computador.
 
@@ -125,11 +125,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-## <a name="configure-perforce-helix-core--helix-authentication-service-sso"></a>Configurar o SSO do Perforce Helix Core – Helix Authentication Service
+## <a name="configure-perforce-helix-core---helix-authentication-service-sso"></a>Configurar o SSO do Perforce Helix Core – Helix Authentication Service
 
 Para configurar o logon único no lado do **Perforce Helix Core – Helix Authentication Service**, é necessário enviar a **URL de metadados de federação do aplicativo** para a [equipe de suporte do Perforce Helix Core – Helix Authentication Service](mailto:support@perforce.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
-### <a name="create-perforce-helix-core--helix-authentication-service-test-user"></a>Criar usuário de teste do Perforce Helix Core – Helix Authentication Service
+### <a name="create-perforce-helix-core---helix-authentication-service-test-user"></a>Criar usuário de teste do Perforce Helix Core – Helix Authentication Service
 
 Nesta seção, você criará uma usuária de teste no Perforce Helix Core – Helix Authentication Service chamada Brenda Fernandes. Trabalhe com a [equipe de suporte do Perforce Helix Core – Helix Authentication Service](mailto:support@perforce.com) para adicionar os usuários na plataforma do Perforce Helix Core – Helix Authentication Service. Os usuários devem ser criados e ativados antes de usar o logon único.
 

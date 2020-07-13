@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: f8b34f1678d39471a1d0b91756ac93a01cbfedba
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 61b6ad0bedb4817c262b4269a6e9f6930a6caa6c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800173"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985681"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Criar um cluster do Red Hat OpenShift 4 no Azure
 
@@ -26,7 +26,7 @@ Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que 
 
 ### <a name="verify-your-permissions"></a>Verificar suas permissões
 
-Para criar um cluster do Red Hat OpenShift no Azure, verifique as seguintes permissões em sua conta e usuário do Azure:
+Para criar um cluster do Red Hat OpenShift no Azure, verifique as seguintes permissões em sua entidade de serviço, usuário do Azure Active Directory ou assinatura do Azure:
 
 |Permissões|Grupo de recursos que contém a VNet|Usuário executando `az aro create`|Entidade de serviço passada como `–client-id`|
 |----|:----:|:----:|:----:|
@@ -83,7 +83,7 @@ Um segredo de pull do Red Hat permite que o cluster acesse registros de contêin
 
 Mantenha o arquivo `pull-secret.txt` salvo em algum lugar seguro; ele será usado em cada criação de cluster.
 
-Ao executar o comando `az aro create`, você pode fazer referência ao segredo de pull usando o parâmetro `--pull-secret @pull-secret.txt`. Execute `az aro create` no diretório em que você armazenou o arquivo `pull-secret.txt`. Caso contrário, substitua `@pull-secret.txt` por `@<path-to-my-pull-secret-file>`.
+Quando executar o comando `az aro create`, você pode fazer referência ao segredo de pull usando o parâmetro `--pull-secret @pull-secret.txt`. Execute `az aro create` no diretório em que você armazenou o arquivo `pull-secret.txt`. Caso contrário, substitua `@pull-secret.txt` por `@<path-to-my-pull-secret-file>`.
 
 Se você estiver copiando o segredo de pull ou fazendo referência a ele em outros scripts, o segredo de pull deverá ser formatado como uma cadeia de caracteres JSON válida.
 

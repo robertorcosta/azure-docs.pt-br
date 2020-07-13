@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7f8c8efcad0a07a3d3a56925866b10d94f82ed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 34e496ea9d2a89894951856a19854bff18f20a8b
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68227475"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800853"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Tutorial: Integração do Azure Active Directory com o PageDNA
 
@@ -110,21 +110,19 @@ Para configurar o logon único do Azure AD com o PageDNA, execute as seguintes e
 
     1. Na caixa **URL de Logon**, insira uma URL usando um dos seguintes padrões:
 
-        ||
-        |--|
-        | `https://stores.pagedna.com/<your site>` |
-        | `https://<your domain>` |
-        | `https://<your domain>/<your site>` |
-        | `https://www.nationsprint.com/<your site>` |
-        | |
+        ```https
+        https://stores.pagedna.com/<your site>
+        https://<your domain>
+        https://<your domain>/<your site>
+        https://www.nationsprint.com/<your site>
+        ```
 
     1. Na caixa **Identificador (ID da Entidade)** , insira uma URL usando um dos seguintes padrões:
 
-        ||
-        |--|
-        | `https://stores.pagedna.com/<your site>/saml2ep.cgi` |
-        | `https://www.nationsprint.com/<your site>/saml2ep.cgi` |
-        | |
+        ```https
+        https://stores.pagedna.com/<your site>/saml2ep.cgi
+        https://www.nationsprint.com/<your site>/saml2ep.cgi
+        ```
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Para obter esses valores, contate a [equipe de suporte do PageDNA](mailto:success@pagedna.com). Você também pode consultar os padrões exibidos no painel **Configuração Básica de SAML** no portal do Azure.
@@ -163,7 +161,7 @@ Nesta seção, você criará uma usuária de teste no portal do Azure chamada Br
 
     1. Na caixa **Nome**, insira **BrendaFernandes**.
   
-    1. Na caixa **Nome de usuário**, insira **BrendaFernandes\@\<domíniodaempresa>.\<extensão>** . Por exemplo, **BrendaFernandes\@contoso.com**.
+    1. Na caixa **Nome de usuário**, insira **BrendaFernandes\@\<yourcompanydomain>.\<extension>** . Por exemplo, **BrendaFernandes\@contoso.com**.
 
     1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
 

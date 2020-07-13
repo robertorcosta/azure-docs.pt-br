@@ -8,19 +8,19 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 93b150d47f1703662ebda5b017e1824cf74b7ab0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e40eb9cc22cdc071381cc847b49a01d4d713653d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233696"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318617"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Tutorial: Implantar o aplicativo ASP.NET e código do Banco de Dados SQL do Azure usando o Azure DevOps Starter
 
 O Azure DevOps Starter apresenta uma experiência simplificada na qual é possível trazer seu código e seu repositório Git existentes ou escolher um aplicativo de exemplo para criar um pipeline de CI (integração contínua) e CD (entrega contínua) para o Azure. 
 
 Além disso, o DevOps Starter:
-* Cria automaticamente os recursos do Azure, como um banco de dados SQL do Azure.
+* Cria automaticamente os recursos do Azure, como um banco de dados no Banco de Dados SQL do Azure.
 * Cria e configura um pipeline de lançamento no Azure Pipelines que inclui um pipeline de build de CI.
 * Configura um pipeline de lançamento de CD. 
 * Cria um recurso do Azure Application Insights para monitoramento.
@@ -33,14 +33,14 @@ Neste tutorial, você irá:
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
 > * Confirmar alterações no Azure Repos e implantá-las automaticamente no Azure
-> * Conectar-se e ao banco de dados SQL do Azure 
+> * Conectar-se ao Banco de Dados SQL do Azure 
 > * Limpar os recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Você pode obter uma gratuita por meio do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-an-azure-sql-database"></a>Criar um projeto do DevOps Projects para um aplicativo ASP.NET e um Banco de Dados SQL do Azure
+## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-azure-sql-database"></a>Criar um projeto do DevOps Projects para um aplicativo ASP.NET e um Banco de Dados SQL do Azure
 
 O DevOps Starter cria um pipeline de CI/CD no Azure Pipelines. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Starter também cria recursos do Azure, como um Banco de Dados SQL do Azure, na assinatura do Azure de sua escolha.
 
@@ -140,11 +140,11 @@ Agora você está pronto para colaborar com uma equipe em seu aplicativo usando 
 
 1. Depois de concluir o lançamento, atualize o aplicativo para verificar as alterações.
 
-## <a name="connect-to-the-azure-sql-database"></a>Conectar-se e ao banco de dados SQL do Azure
+## <a name="connect-to-azure-sql-database"></a>Conectar-se ao Banco de Dados SQL do Azure
 
-Você precisa de permissões apropriadas para se conectar ao banco de dados SQL do Azure.
+Você precisa de permissões apropriadas para se conectar ao Banco de Dados SQL do Azure.
 
-1. No painel do DevOps Starter, selecione o **Banco de Dados SQL** para ir até a página de gerenciamento do banco de dados SQL.
+1. No painel do DevOps Starter, selecione o **Banco de Dados SQL** para ir até a página de gerenciamento do Banco de Dados SQL.
    
 1. Selecione **Definir firewall do servidor**, depois selecione **Adicionar IP do cliente**. 
 
@@ -156,7 +156,7 @@ Você precisa de permissões apropriadas para se conectar ao banco de dados SQL 
 
 1. Selecione **Redefinir senha**, insira uma senha para o logon de administrador do SQL Server e selecione **Salvar**. Guarde essa senha para usar posteriormente neste tutorial.
 
-    Como opção, agora você pode usar ferramentas de cliente como o SQL Server Management Studio ou o Visual Studio para se conectar ao SQL Server e ao banco de dados SQL do Azure. Use a propriedade **Nome do servidor** para se conectar.
+    Como opção, agora você pode usar ferramentas de cliente como o SQL Server Management Studio ou o Visual Studio para se conectar ao SQL Server e ao Banco de Dados SQL do Azure. Use a propriedade **Nome do servidor** para se conectar.
 
     Caso não tenha alterado o nome de usuário do banco de dados ao configurar o DevOps Projects inicialmente, seu nome de usuário é a parte local do seu endereço de email. Por exemplo, se o seu endereço de email for *joãosilva\@microsoft.com*, seu nome de usuário será *joãosilva*.
 
@@ -165,7 +165,7 @@ Você precisa de permissões apropriadas para se conectar ao banco de dados SQL 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Caso esteja fazendo testes, é possível evitar o acúmulo de encargos de cobrança limpando seus recursos. Quando eles não forem mais necessários, será possível excluir o banco de dados SQL do Azure e os recursos relacionados criados neste tutorial. Para fazer isso, use a funcionalidade **Excluir** no painel do DevOps Starter.
+Caso esteja fazendo testes, é possível evitar o acúmulo de encargos de cobrança limpando seus recursos. Quando eles não forem mais necessários, será possível excluir o Banco de Dados SQL do Azure e os recursos relacionados criados neste tutorial. Para fazer isso, use a funcionalidade **Excluir** no painel do DevOps Starter.
 
 > [!IMPORTANT]
 > O procedimento a seguir exclui os recursos permanentemente. A funcionalidade *Excluir* destrói os dados criados pelo projeto no DevOps Starter no Azure e no Azure DevOps, e não é possível recuperá-los. Só use esse procedimento depois de ler os prompts com cuidado.
@@ -184,7 +184,7 @@ Como opção, você pode modificar esses pipelines de build e de lançamento par
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
 > * Confirmar alterações no Azure Repos e implantá-las automaticamente no Azure
-> * Conectar-se e ao banco de dados SQL do Azure 
+> * Conectar-se ao Banco de Dados SQL do Azure 
 > * Limpar os recursos
 
 Para saber mais sobre o pipeline de CI/CD, confira:

@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
-ms.openlocfilehash: 14fe27c28e2eb6a527dc6f026916002cfb5b0147
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 4313d9fec9e858a5d30cfea2bbe7372e6a96169c
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84945238"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413885"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Exemplos do PowerShell do Azure Monitor
 Este artigo mostra exemplos de comandos do PowerShell que ajudarão você a acessar os recursos do Azure Monitor.
@@ -220,6 +220,10 @@ Set-AzActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGr
 As propriedades de webhook adicionais são opcionais. Você pode obter novamente os conteúdos de um alerta do Log de Atividade usando `Get-AzActivityLogAlert`.
 
 ## <a name="create-and-manage-autoscale-settings"></a>Criar e gerenciar configurações de Autoescala
+
+> [!NOTE] 
+> Para serviços de nuvem (Microsoft.ClassicCompute), o dimensionamento automático dá suporte a um intervalo de agregação de 5 minutos (PT5M). Para os outros serviços, o dimensionamento automático dá suporte a um intervalo de agregação mínimo de 1 minuto (PT1M)
+
 Um recurso (um aplicativo Web, VM, serviço de nuvem ou conjunto de dimensionamento de máquinas virtuais) pode ter apenas uma configuração de autoescala definida para ele.
 No entanto, cada configuração de autoescala pode ter vários perfis. Por exemplo, um para um perfil de escala baseada em desempenho e outro para um perfil baseado em agendamento. Cada perfil pode ter várias regras configuradas nele. Para obter mais informações sobre Dimensionamento Automático, confira [Como fazer o dimensionamento automático de um aplicativo](../../cloud-services/cloud-services-how-to-scale-portal.md).
 

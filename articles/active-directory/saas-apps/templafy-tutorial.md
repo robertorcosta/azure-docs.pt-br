@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Templafy | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Active Directory do Azure e o Templafy.
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Templafy SAML2 | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Templafy SAML2.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,24 +11,23 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2019
+ms.date: 06/23/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52130ac90f9faec19eedf77da425645e35259269
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1b5eee56509eb10a2c51c168d432803af75bf46a
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74081611"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482693"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-templafy"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Templafy
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-templafy-saml2"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Templafy SAML2
 
-Neste tutorial, você aprenderá como integrar o Templafy ao Azure AD (Azure Active Directory). Ao integrar o Templafy ao Azure AD, você poderá:
+Neste tutorial, você aprenderá a integrar o Templafy SAML2 ao Azure AD (Azure Active Directory). Ao integrar o Templafy SAML2 ao Azure AD, você poderá:
 
-* Controlar no Azure AD quem terá acesso ao Templafy.
-* Permitir que os usuários sejam conectados automaticamente ao Templafy usando suas contas do Azure AD.
+* Controlar no Azure AD quem terá acesso ao Templafy SAML2.
+* Permitir que os usuários sejam conectados automaticamente ao Templafy SAML2 usando suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -38,44 +37,44 @@ Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O
 Para começar, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
-* Assinatura habilitada para SSO (logon único) do Templafy.
+* Assinatura habilitada para SSO (logon único) do Templafy SAML2.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O Templafy é compatível com o SSO iniciado por **SP**
-* O Templafy dá suporte ao provisionamento de usuário **Just-In-Time**
+* O Templafy SAML2 é compatível com o SSO iniciado por **SP**
+* O Templafy SAML2 dá suporte ao provisionamento de usuário **Just-In-Time**
 
-## <a name="adding-templafy-from-the-gallery"></a>Adicionando o Templafy da galeria
+## <a name="adding-templafy-saml2-from-the-gallery"></a>Como adicionar o Templafy SAML2 da galeria
 
-Para configurar a integração do Templafy ao Azure AD, você precisa adicionar o Templafy da galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração do Templafy SAML2 ao Azure AD, você precisa adicionar o Templafy SAML2 da galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria**, digite **Templafy** na caixa de pesquisa.
-1. Selecione **Templafy** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. Na seção **Adicionar da galeria**, digite **Templafy SAML2** na caixa de pesquisa.
+1. Selecione **Templafy SAML2** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-templafy"></a>Configurar e testar o logon único do Azure AD para o Templafy
+## <a name="configure-and-test-azure-ad-single-sign-on-for-templafy-saml2"></a>Configurar e testar o logon único do Azure AD para o Templafy SAML2
 
-Configure e teste o SSO do Azure AD com o Templafy usando um usuário de teste com o nome **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Templafy.
+Configure e teste o SSO do Azure AD com o Templafy SAML2 usando um usuário de teste com o nome **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Templafy SAML2.
 
-Para configurar e testar o SSO do Azure AD com o Templafy, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Templafy SAML2, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
     * **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
-1. **[Configurar o SSO do Templafy](#configure-templafy-sso)** – para definir as configurações de logon único no lado do aplicativo.
-    * **[Criar um usuário de teste do Templafy](#create-templafy-test-user)** – para ter um equivalente de B.Fernandes no Templafy vinculado à representação do usuário no Azure AD.
+1. **[Configurar o SSO do Templafy SAML2](#configure-templafy-saml2-sso)** – para definir as configurações de logon único no lado do aplicativo.
+    * **[Criar um usuário de teste do Templafy SAML2](#create-templafy-saml2-test-user)** – para ter um equivalente de B.Fernandes no Templafy SAML2 vinculado à declaração do usuário no Azure AD.
 1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Templafy**, localize a seção **Gerenciar** e selecione **logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Templafy SAML2**, localize a seção **Gerenciar** e selecione **logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
 1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
@@ -86,13 +85,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<CLIENTSUBDOMAIN>.templafy.com`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do Templafy](mailto:support@templafy.com) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do Templafy SAML2](mailto:support@templafy.com) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. O aplicativo Templafy espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
+1. O aplicativo Templafy SAML2 espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
     ![image](common/default-attributes.png)
 
-1. Além do indicado acima, o aplicativo Templafy espera que mais alguns atributos sejam passados novamente na resposta SAML, os quais são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
+1. Além do indicado acima, o aplicativo Templafy SAML2 espera que mais alguns atributos sejam passados novamente na resposta SAML, os quais são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
 
     | Nome | Atributo de Origem| Namespace  |
     | ---------------| --------------- | --------- |
@@ -130,10 +129,10 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B.F
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permitirá que B.Fernandes use o logon único do Azure concedendo a ela acesso ao Templafy.
+Nesta seção, você permitirá que B.Fernandes use o logon único do Azure concedendo a ela acesso ao Templafy SAML2.
 
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
-1. Na lista de aplicativos, escolha **Templafy**.
+1. Na lista de aplicativos, escolha **Templafy SAML2**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
    ![O link “Usuários e grupos”](common/users-groups-blade.png)
@@ -146,19 +145,19 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-## <a name="configure-templafy-sso"></a>Configurar o SSO do Templafy
+## <a name="configure-templafy-saml2-sso"></a>Configurar o SSO do Templafy SAML2
 
-Para configurar o logon único no lado do **Templafy**, é necessário enviar a **URL de Metadados de Federação do Aplicativo** para a [equipe de suporte do Templafy](mailto:support@templafy.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Templafy SAML2**, é necessário enviar a **URL de Metadados de Federação do Aplicativo** para a [equipe de suporte do Templafy SAML2](mailto:support@templafy.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
-### <a name="create-templafy-test-user"></a>Criar usuário de teste do Templafy
+### <a name="create-templafy-saml2-test-user"></a>Criar usuário de teste do Templafy SAML2
 
-Nesta seção, um usuário chamado Brenda Fernandes será criado no Templafy. O Templafy dá suporte ao provisionamento de usuário Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no Templafy, um novo será criado após a autenticação.
+Nesta seção, um usuário chamado B.Fernandes será criado no Templafy SAML2. O Templafy SAML2 dá suporte ao provisionamento de usuário Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no Templafy SAML2, um será criado após a autenticação.
 
 ## <a name="test-sso"></a>Testar o SSO
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Templafy no Painel de Acesso, você deverá ser conectado automaticamente ao Templafy, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Templafy SAML2 no Painel de Acesso, você deverá ser conectado automaticamente ao Templafy SAML2, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -168,4 +167,6 @@ Ao clicar no bloco do Templafy no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimentar o Templafy com o Azure AD](https://aad.portal.azure.com/)
+- [Avaliar o Templafy SAML2 com o Azure AD](https://aad.portal.azure.com/)
+
+- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

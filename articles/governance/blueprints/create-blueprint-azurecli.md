@@ -3,16 +3,16 @@ title: 'Início Rápido: criar um blueprint com a CLI do Azure'
 description: Neste início rápido, você usa o Azure Blueprints para criar, definir e implantar artefatos usando a CLI do Azure.
 ms.date: 06/02/2020
 ms.topic: quickstart
-ms.openlocfilehash: 7d144edca0794679e67358ff820e1508736ba723
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 30a450fc7eab55424da7ce971ad234cbf2248b30
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613344"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969631"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Início Rápido: definir e atribuir um Blueprint do Azure com a CLI do Azure
 
-Aprender a criar e atribuir blueprints permite definir padrões comuns para desenvolver configurações reutilizáveis e que podem ser implantadas rapidamente com base em modelos do Resource Manager, políticas, segurança e muito mais. Neste tutorial, você aprenderá a usar o Blueprint do Azure para executar algumas das tarefas comuns relacionadas à criação, publicação e atribuição de um blueprint dentro de sua organização, como:
+Aprender a criar e atribuir blueprints permite definir padrões comuns para desenvolver configurações reutilizáveis e que podem ser implantadas rapidamente com base em modelos do ARM (modelos do Azure Resource Manager), políticas, segurança e muito mais. Neste tutorial, você aprenderá a usar o Blueprint do Azure para executar algumas das tarefas comuns relacionadas à criação, publicação e atribuição de um blueprint dentro de sua organização, como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,7 +46,7 @@ Essa extensão funcionará sempre que a CLI do Azure puder ser usada, incluindo 
 
 ## <a name="create-a-blueprint"></a>Criar um plano gráfico
 
-A primeira etapa na definição de um modelo padrão para conformidade é compor um blueprint a partir dos recursos disponíveis. Vamos criar um blueprint chamado 'MyBlueprint' para configurar as atribuições de função e política para a assinatura. Em seguida, vamos adicionar um grupo de recursos, um modelo do Resource Manager e uma atribuição de função ao grupo de recursos.
+A primeira etapa na definição de um modelo padrão para conformidade é compor um blueprint a partir dos recursos disponíveis. Vamos criar um blueprint chamado 'MyBlueprint' para configurar as atribuições de função e política para a assinatura. Em seguida, vamos adicionar um grupo de recursos, um modelo do ARM e uma atribuição de função ao grupo de recursos.
 
 > [!NOTE]
 > Ao usar a CLI do Azure, o objeto _blueprint_ será criado primeiro. Para cada _artefato_ com parâmetros a ser adicionado, os parâmetros precisam ser definidos com antecedência no _blueprint_ inicial.
@@ -193,9 +193,9 @@ A primeira etapa na definição de um modelo padrão para conformidade é compor
         --parameters artifacts\policyStorageTags.json
      ```
 
-1. Adicione o modelo sob o grupo de recursos. O parâmetro **template** de um modelo do Resource Manager inclui os componentes JSON normais do modelo. O modelo também reutiliza os parâmetros de blueprint **storageAccountType**, **tagName** e **tagValue** transmitindo-os para o modelo. Os parâmetros do blueprint são disponibilizados ao modelo usando o parâmetro **parameters** e, dentro do JSON do modelo, o par chave-valor é usado para injetar o valor. Os nomes dos parâmetros de blueprint e de modelo podem ser iguais.
+1. Adicione o modelo sob o grupo de recursos. O parâmetro **template** de um modelo do ARM inclui os componentes JSON normais do modelo. O modelo também reutiliza os parâmetros de blueprint **storageAccountType**, **tagName** e **tagValue** transmitindo-os para o modelo. Os parâmetros do blueprint são disponibilizados ao modelo usando o parâmetro **parameters** e, dentro do JSON do modelo, o par chave-valor é usado para injetar o valor. Os nomes dos parâmetros de blueprint e de modelo podem ser iguais.
 
-   - Arquivo do modelo JSON do Azure Resource Manager – artifacts\templateStorage.json
+   - Arquivo de modelo do ARM JSON – artifacts\templateStorage.json
 
      ```json
      {
@@ -249,7 +249,7 @@ A primeira etapa na definição de um modelo padrão para conformidade é compor
      }
      ```
 
-   - Arquivo de parâmetro do modelo JSON do Azure Resource Manager – artifacts\templateStorageParams.json
+   - Arquivo de parâmetro de modelo de ARM JSON – artifacts\templateStorageParams.json
 
      ```json
      {

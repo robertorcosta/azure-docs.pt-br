@@ -7,21 +7,21 @@ ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 07/01/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 633f406d042ce5b8ddde5b28022bdb33fdd70377
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 722d1bca7f983c124c85e6d675f51d29c5357522
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052155"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854949"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de cobrança de uma assinatura do Azure para outra conta
 
 Talvez você queria transferir a propriedade de cobrança da sua assinatura do Azure, caso esteja se desligando da empresa ou queira que sua assinatura seja cobrada em outra conta. A transferência da propriedade de cobrança para outra conta fornece aos administradores da noca conta a permissão para tarefas de cobrança. Eles podem alterar o método de pagamento, exibir encargos e cancelar a assinatura.
 
-Se você quiser manter a propriedade de cobrança, mas alterar o tipo de assinatura, confira [Mudar sua assinatura do Azure para outra oferta](switch-azure-offer.md). Para controlar quem pode gerenciar os recursos da assinatura, confira [Funções internas para recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Se você quiser manter a propriedade de cobrança, mas alterar o tipo de assinatura, confira [Mudar sua assinatura do Azure para outra oferta](switch-azure-offer.md). Para controlar quem pode acessar recursos na assinatura, confira [Funções internas do Azure](../../role-based-access-control/built-in-roles.md).
 
 Se você for um cliente do EA (Contrato Enterprise), seus administradores corporativos poderão transferir a propriedade de cobrança de suas assinaturas entre contas. Para obter mais informações, confira [Transferir a propriedade de cobrança de assinaturas do EA (Contrato Enterprise)](#EA).
 
@@ -45,7 +45,7 @@ Se você for um cliente do EA (Contrato Enterprise), seus administradores corpor
 
     > [!IMPORTANT]
     >
-    > Se você optar por migrar a assinatura para o locatário do Azure AD da nova conta, todas as atribuições de [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) para gerenciar recursos na assinatura serão permanentemente removidas. Somente o usuário da nova conta que aceitar sua solicitação de transferência terá acesso para gerenciar os recursos da assinatura. Para obter mais informações, confira [Como transferir uma assinatura a um usuário em outro locatário do Azure AD](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories). Como alternativa, você pode desmarcar a caixa do locatário do Azure AD da assinatura para transferir a propriedade de cobrança sem mover a assinatura para o locatário da nova conta. Se você fizer isso, as permissões RBAC existentes para gerenciar os recursos do Azure serão mantidas.
+    > Se você optar por migrar a assinatura para o locatário do Azure AD da nova conta, todas as [atribuições de função do Azure](../../role-based-access-control/role-assignments-portal.md) para acessar recursos na assinatura serão permanentemente removidas. Somente o usuário da nova conta que aceitar sua solicitação de transferência terá acesso para gerenciar os recursos da assinatura. Para obter mais informações, confira a próxima seção [Transferir uma assinatura para outra conta de locatário do Azure AD](#transfer-a-subscription-to-another-azure-ad-tenant-account)). Como alternativa, você pode desmarcar a caixa para o **Locatário do Azure AD da assinatura** para transferir a propriedade da cobrança sem mover a assinatura para o locatário da nova conta. Se você fizer isso, as atribuições de função do Azure atuais para acessar os recursos do Azure serão mantidas.
 
     ![Enviar página de transferência](./media/billing-subscription-transfer/billing-send-transfer-request.PNG)
 
@@ -71,7 +71,7 @@ Um locatário do Azure AD (Active Directory) é criado quando você se inscreve 
 
 Quando você cria uma nova assinatura, ela é hospedada no locatário do Azure AD da sua conta. Se você quiser fornecer acesso à assinatura ou aos recursos dela a outras pessoas, será necessário convidá-las para ingressar em seu locatário. Isso ajuda a controlar o acesso às assinaturas e aos recursos.
 
-Quando você transfere a propriedade de cobrança da sua assinatura para uma conta em outro locatário do Azure AD, você pode mover a assinatura para o locatário da nova conta. Se fizer isso, todos os usuários, os grupos ou as entidades de serviço que tinham [RBAC (acesso baseado em função)](../../role-based-access-control/role-assignments-portal.md) para gerenciar assinaturas e recursos perderão o acesso. Somente o usuário da nova conta que aceitar sua solicitação de transferência terá acesso para gerenciar os recursos. O novo proprietário deve [adicionar manualmente esses usuários à assinatura](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para fornecer acesso a quem perdeu.
+Quando você transfere a propriedade de cobrança da sua assinatura para uma conta em outro locatário do Azure AD, você pode mover a assinatura para o locatário da nova conta. Se fizer isso, todos os usuários, os grupos ou as entidades de serviço que tinham [atribuições de função do Azure](../../role-based-access-control/role-assignments-portal.md) para gerenciar assinaturas e recursos perderão o acesso. Somente o usuário da nova conta que aceitar sua solicitação de transferência terá acesso para gerenciar os recursos. O novo proprietário deve adicionar manualmente esses usuários à assinatura para fornecer acesso ao usuário que a perdeu. Para obter mais informações, confira [Transferir uma assinatura do Azure para um diretório diferente do Azure AD (versão prévia)](../../role-based-access-control/transfer-subscription.md).
 
 
 ## <a name="transfer-visual-studio-and-partner-network-subscriptions"></a>Transferir assinaturas do Visual Studio e do Partner Network
@@ -89,7 +89,7 @@ O administrador corporativo pode transferir a propriedade das assinaturas entre 
 
 Se você aceitou a propriedade de cobrança de uma assinatura do Azure, recomendamos que você examine as próximas etapas:
 
-1. Examine e atualize o Administrador de Serviços, os Coadministradores e outras funções do RBAC. Para obter mais informações, confira [Adicionar ou alterar os administradores de assinatura do Azure](add-change-subscription-administrator.md) e [Gerenciar o acesso usando o RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+1. Examine e atualize o administrador do serviço, os coadministradores e as atribuições de função do Azure. Para saber mais, confira [Adicionar ou alterar os administradores de assinatura do Azure](add-change-subscription-administrator.md) e [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 1. Atualize as credenciais associadas aos serviços dessa assinatura, incluindo:
    1. Certificados de gerenciamento que concedem ao usuário direitos de administrador aos recursos de assinatura. Para saber mais, confira [Criar e carregar um certificado de gerenciamento do Azure](../../cloud-services/cloud-services-certs-create.md)
    1. Chaves de acesso para serviços como Armazenamento. Para saber mais, consulte [Sobre as contas de Armazenamento do Azure](../../storage/common/storage-create-storage-account.md)
@@ -142,7 +142,7 @@ Se você não tiver certeza de quem é o administrador da conta de uma assinatur
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Tudo é transferido? Incluindo grupos de recursos, VMs, discos e outros serviços em execução?
 
-Todos os recursos – como VMs, discos e sites – são transferidos para a nova conta. No entanto, se você transferir uma assinatura para uma conta em outro locatário do Azure AD, nenhuma atribuição de [função de administrador](add-change-subscription-administrator.md) e [RBAC (controle de acesso baseado em função)](../../role-based-access-control/role-assignments-portal.md) da assinatura [será transferida](#transfer-a-subscription-to-another-azure-ad-tenant-account). Além disso, os [Registros de aplicativo](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) e outros serviços específicos do locatário também não serão transferidos juntamente com a assinatura.
+Todos os recursos – como VMs, discos e sites – são transferidos para a nova conta. No entanto, se você transferir uma assinatura para uma conta em outro locatário do Azure AD, as [funções de administrador](add-change-subscription-administrator.md) e as [atribuições de função do Azure](../../role-based-access-control/role-assignments-portal.md) na assinatura [não serão transferidas](#transfer-a-subscription-to-another-azure-ad-tenant-account). Além disso, os [Registros de aplicativo](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) e outros serviços específicos do locatário também não serão transferidos juntamente com a assinatura.
 
 ### <a name="can-i-transfer-ownership-to-an-account-in-another-countryregion"></a>Posso transferir a propriedade para uma conta em outro país/região?
 Transferências entre países/regiões não podem ser executadas no portal do Azure. Para transferir a assinatura para outro país/região, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -152,7 +152,7 @@ Sim, você pode transferir assinaturas entre suas contas. Conceitualmente, suas 
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>Uma transferência de assinatura resulta em qualquer tempo de inatividade do serviço?
 
-Se você transferir uma assinatura para uma conta no mesmo locatário do Azure AD, não haverá nenhum impacto sobre os recursos em execução na assinatura. No entanto, as informações de contexto salvas no PowerShell não são atualizadas, portanto, talvez seja necessário limpá-las ou alterar as configurações. Se você transferir a assinatura para uma conta em outro locatário e decidir mover a assinatura para esse locatário, todos os usuários, grupos e entidades de serviço que tinham [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) para gerenciar recursos na assinatura perderão o acesso. Como resultado, pode ocorrer o tempo de inatividade do serviço.
+Se você transferir uma assinatura para uma conta no mesmo locatário do Azure AD, não haverá nenhum impacto sobre os recursos em execução na assinatura. No entanto, as informações de contexto salvas no PowerShell não são atualizadas, portanto, talvez seja necessário limpá-las ou alterar as configurações. Se você transferir a assinatura para uma conta em outro locatário e decidir mover a assinatura para esse locatário, todos os usuários, grupos e entidades de serviço que tinham [atribuições de função do Azure](../../role-based-access-control/role-assignments-portal.md) para acessar recursos na assinatura perderão o acesso. Como resultado, pode ocorrer o tempo de inatividade do serviço.
 
 ### <a name="can-users-in-new-account-access-usage-and-billing-history"></a>Os usuários da nova conta podem acessar o histórico de cobrança e de uso?
 
@@ -173,16 +173,16 @@ Essas perguntas frequentes se aplicam aos usuários que estão aceitando a propr
 
 ### <a name="if-i-take-over-billing-ownership-of-a-subscription-from-another-account-do-users-in-that-account-continue-to-have-access-to-my-resources"></a>Se eu assumir a propriedade de cobrança de uma assinatura de outra conta, os usuários dessa conta continuarão a ter acesso aos meus recursos?
 
-Sim. No entanto, as atribuições de [funções de administrador](add-change-subscription-administrator.md) e [RBAC (controle de acesso baseado em função)](../../role-based-access-control/role-assignments-portal.md) podem ser removidas. A perda de acesso ocorre quando sua conta está em um locatário do Azure AD diferente do locatário da assinatura, e o usuário que enviou a solicitação de transferência move a assinatura para o locatário da sua conta. Para exibir os usuários que têm [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) para gerenciar recursos na assinatura, use as seguintes etapas:
+Sim. No entanto, [funções de administrador](add-change-subscription-administrator.md) e [atribuições de função do Azure](../../role-based-access-control/role-assignments-portal.md) podem ser removidas. A perda de acesso ocorre quando sua conta está em um locatário do Azure AD diferente do locatário da assinatura, e o usuário que enviou a solicitação de transferência move a assinatura para o locatário da sua conta. Para ver os usuários que têm atribuições de função do Azure para acessar recursos na assinatura, siga estas etapas:
 
 1. Acesse a [página de Assinaturas no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Selecione a assinatura que deseja verificar e, em seguida, selecione **Controle de Acesso (IAM)** no painel à esquerda.
-1. Na parte superior da página, selecione **Atribuições de função**. A página de atribuições de função lista todos os usuários que têm acesso RBAC à assinatura.
+1. Na parte superior da página, selecione **Atribuições de função**. A página de atribuições de função lista todos os usuários que têm acesso à assinatura.
 
-Mesmo que as atribuições de [RBAC (controle de acesso baseado em função)](../../role-based-access-control/role-assignments-portal.md) sejam removidas durante a transferência, os usuários da conta do proprietário original ainda poderão ter acesso à assinatura por meio de alguns mecanismos de segurança, incluindo:
+Mesmo que as [atribuições de função do Azure](../../role-based-access-control/role-assignments-portal.md) sejam removidas durante a transferência, os usuários da conta do proprietário original continuarão tendo acesso à assinatura por meio de outros mecanismos de segurança, incluindo:
 
 * Certificados de gerenciamento que concedem ao usuário direitos de administrador aos recursos de assinatura. Para saber mais, confira [Criar e carregar um certificado de gerenciamento do Azure](../../cloud-services/cloud-services-certs-create.md).
-* Chaves de acesso para serviços como Armazenamento. Para saber mais, consulte [Sobre as contas de Armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
+* Chaves de acesso para serviços como Armazenamento. Para saber mais, confira [Sobre as contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
 * Credenciais de Acesso Remoto para serviços como Máquinas Virtuais do Azure.
 
 Se o destinatário precisar restringir o acesso a seus recursos, ele deverá considerar a atualização dos segredos associados ao serviço. A maioria dos recursos pode ser atualizada usando as seguintes etapas:
@@ -225,4 +225,4 @@ Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](htt
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine e atualize o Administrador de Serviços, os Coadministradores e outras funções do RBAC. Para obter mais informações, confira [Adicionar ou alterar os administradores de assinatura do Azure](add-change-subscription-administrator.md) e [Gerenciar o acesso usando o RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+- Examine e atualize o administrador do serviço, os coadministradores e as atribuições de função do Azure. Para saber mais, confira [Adicionar ou alterar os administradores de assinatura do Azure](add-change-subscription-administrator.md) e [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).

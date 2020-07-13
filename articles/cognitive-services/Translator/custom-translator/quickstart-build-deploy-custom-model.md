@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: ea01fcd259075caee1e21eb091b8df1b326c553f
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: b0992c4d18fdb9cb5201ab3ef52fba8ee3feb7a2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996458"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964372"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Início Rápido: Compilar, implantar e usar um modelo personalizado para tradução
 
@@ -24,13 +24,13 @@ Este artigo fornece instruções passo a passo para criar um sistema de traduç�
 
 1. Para entrar e usar o Portal do [Tradutor Personalizado](https://portal.customtranslator.azure.ai), você precisará de uma [conta da Microsoft](https://signup.live.com) ou de uma [conta do Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (conta da organização hospedada no Azure).
 
-2. Uma assinatura do Tradutor via portal do Azure. Você precisará da chave de assinatura do Tradutor para associar ao seu espaço de trabalho no Tradutor Personalizado. Consulte [como se inscrever para o Tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
+2. Uma assinatura do Tradutor via portal do Azure. Você precisará de uma chave de assinatura do Tradutor para associar ao seu workspace no Tradutor Personalizado. Consulte [como se inscrever para o Tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
 3. Quando você tiver ambos os itens acima, entre no portal do [Tradutor Personalizado](https://portal.customtranslator.azure.ai) para criar workspaces e projetos, carregar arquivos e criar/implantar modelos.
 
 ## <a name="create-a-workspace"></a>Criar um workspace
 
-Se você for um usuário iniciante, será solicitado a concordar com os Termos de Serviço, criar um espaço de trabalho e associar seu espaço de trabalho à assinatura do Tradutor.
+Se você for um usuário iniciante, será solicitado a concordar com os Termos de Serviço, criar um workspace e associar seu workspace à assinatura do Tradutor.
 
 ![Criar workspace](media/quickstart/terms-of-service.png)
 ![Criar workspace](media/quickstart/create-workspace-1.png)
@@ -83,7 +83,7 @@ Quando você estiver pronto para implantar seu modelo treinado, clique no botão
 
 ## <a name="use-a-deployed-model"></a>Usar um modelo implantado
 
-Os modelos implantados podem ser acessados através da [API de Tradução de Texto V3 da Microsoft](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) especificando o CategoryID. Mais informações sobre o Tradutor podem ser encontradas na página da Web [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
+Modelos implantados podem ser acessados por meio do Tradutor especificando a CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Mais informações sobre o Tradutor podem ser encontradas na página da Web [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -10,14 +10,14 @@ ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: fb989825ed27cc83c14c36e6394e37ae2db2c12a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c6e36bdbb3d58878e6afa28610ab2b214f47de20
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76988253"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800718"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Tutorial: aplicativo de Pesquisa de Vídeo de página única
+# <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicativo de Pesquisa de Vídeo de página única
 A API de Pesquisa de Vídeo do Bing permite que você faça pesquisas na Web e obtenha resultados de vídeo relevantes para uma consulta de pesquisa. Neste tutorial, criaremos um aplicativo Web de página única que usa a API de Pesquisa do Bing para exibir os resultados da pesquisa na página. O aplicativo inclui componentes HTML, CSS e JavaScript.
 
 <!-- Remove until it can be replaced with a sanitized version.
@@ -100,7 +100,7 @@ A figura a seguir mostra a caixa de texto de consulta e as opções que definem 
 
 O formulário HTML inclui elementos com os seguintes nomes:
 
-|Elemento|DESCRIÇÃO|
+|Elemento|Descrição|
 |-|-|
 | `where` | Um menu suspenso para selecionar o mercado (local e idioma) usado para a pesquisa. |
 | `query` | O campo de texto no qual inserir os termos de pesquisa. |
@@ -308,7 +308,7 @@ Os resultados da pesquisa são retornados como o objeto `value` de nível superi
 
 A API de Pesquisa de Notícias do Bing retorna até quatro tipos diferentes de resultados relacionados, cada um em seu próprio objeto de nível superior. Eles são:
 
-|Relação|DESCRIÇÃO|
+|Relação|Descrição|
 |-|-|
 |`pivotSuggestions`|Consultas que substituem uma palavra original na pesquisa original por outra. Por exemplo, se você pesquisar "flores vermelhas", uma palavra original pode ser "vermelhas" e uma sugestão dinâmica poderá ser "flores amarelas".|
 |`queryExpansions`|Consultas que restringem a pesquisa original com a adição de mais termos. Por exemplo, se você pesquisar "Microsoft Surface", uma expansão da consulta poderá ser "Microsoft Surface Pro".|
@@ -332,7 +332,7 @@ searchItemRenderers = {
 ```
 Uma função de renderizador pode aceitar os seguintes parâmetros:
 
-|Parâmetro|DESCRIÇÃO|
+|Parâmetro|Descrição|
 |-|-|
 |`item`| O objeto do JavaScript que contém as propriedades do item, como a URL e a descrição.|
 |`index`| O índice do item de resultado na coleção.|
@@ -393,15 +393,18 @@ Para fins de desenvolvimento, você pode fazer a solicitação da API de Pesquis
 
 É fácil instalar um proxy CORS para permitir que o aplicativo de tutorial acesse o cabeçalho da ID do cliente. Primeiro, caso ainda não tenha, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, emita o seguinte comando em uma janela de comando:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
 Em seguida, altere o ponto de extremidade da Pesquisa na Web do Bing no arquivo HTML para:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Por fim, inicie o proxy CORS com o seguinte comando:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Deixe a janela de comando aberta enquanto você usa o aplicativo de tutorial, já que se fechar a janela irá parar o proxy. Na seção Cabeçalhos HTTP expansíveis abaixo dos resultados da pesquisa, é possível ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e verificar se é o mesmo para cada solicitação.
 

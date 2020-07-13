@@ -1,33 +1,33 @@
 ---
-title: Tutorial – criar um locatário Azure Active Directory B2C
+title: 'Tutorial: Criar um locatário do Azure Active Directory B2C'
 description: Saiba como preparar para registrar os aplicativos criando um locatário do Azure Active Directory B2C usando o portal do Azure.
 services: B2C
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/28/2019
+ms.topic: tutorial
+ms.date: 07/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c31f3c4c6688af7d2142180e8d9b7100965bad96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 044a2d2cb23e36234256b9b19363462e542176fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186396"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806843"
 ---
-# <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial - Criar um locatário do Azure Active Directory B2C
+# <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Criar um locatário do Azure Active Directory B2C
 
-Antes que seus aplicativos possam interagir com Azure Active Directory B2C (Azure AD B2C), eles devem ser registrados em um locatário que você gerencia.
+Antes que os aplicativos possam interagir com o Azure Active Directory B2C (Azure AD B2C), eles precisarão ser registrados em um locatário gerenciado por você.
 
 Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar um locatário do Azure AD B2C
 > * Vincular seu locatário à sua assinatura
-> * Alternar para o diretório que contém seu locatário de Azure AD B2C
-> * Adicione o recurso de Azure AD B2C como um **favorito** no portal do Azure
+> * Alternar para o diretório que contém o locatário do Azure AD B2C
+> * Adicione o recurso de Azure AD B2C como um **Favorito** no portal do Azure
 
 Saiba como registrar um aplicativo no próximo tutorial.
 
@@ -35,66 +35,59 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="create-an-azure-ad-b2c-tenant"></a>Criar um locatário do Azure AD B2C
 
-1. Entre no [portal do Azure](https://portal.azure.com/). Entre com uma conta do Azure que tenha sido atribuída pelo menos a função de [colaborador](../role-based-access-control/built-in-roles.md) dentro da assinatura ou um grupo de recursos dentro da assinatura.
+1. Entre no [portal do Azure](https://portal.azure.com/). Entre com uma conta do Azure que tenha sido atribuída pelo menos à função de [Colaborador](../role-based-access-control/built-in-roles.md) na assinatura ou em um grupo de recursos contido na assinatura.
 
-1. Selecione o diretório que contém sua assinatura.
+1. Selecione o diretório que contém a assinatura.
 
-    Na barra de ferramentas portal do Azure, selecione o **diretório +** ícone de assinatura e, em seguida, selecione o diretório que contém sua assinatura. Esse diretório é diferente daquele que conterá seu locatário Azure AD B2C.
+    Na barra de ferramentas do portal do Azure, selecione o ícone **Diretório + Assinatura** e selecione o diretório que contém a assinatura. Esse diretório será diferente daquele que conterá seu locatário do Azure AD B2C.
 
-    ![Locatário de assinatura, diretório + filtro de assinatura com locatário de assinatura selecionado](media/tutorial-create-tenant/portal-01-pick-directory.png)
+    ![Locatário de assinatura, filtro Diretório + Assinatura com o locatário de assinatura selecionado](media/tutorial-create-tenant/portal-01-pick-directory.png)
 
 1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
-1. Pesquise **Azure Active Directory B2C**e, em seguida, selecione **criar**.
+1. Pesquise e selecione **Azure Active Directory B2C** e selecione **Criar**.
 1. Selecione **Criar um novo Locatário Azure AD B2C**.
 
-    ![Criar um novo locatário de Azure AD B2C selecionado em portal do Azure](media/tutorial-create-tenant/portal-02-create-tenant.png)
+    ![Criar um locatário do Azure AD B2C selecionado no portal do Azure](media/tutorial-create-tenant/portal-02-create-tenant.png)
 
-1. Insira um **nome de organização** e um **nome de domínio inicial**. Selecione o **país ou região** (ele não pode ser alterado posteriormente) e, em seguida, selecione **criar**.
+1. Na página **Criar um diretório**, insira as seguintes informações:
 
-    O nome de domínio é usado como parte do nome de domínio completo do locatário. Neste exemplo, o nome do locatário é *contosob2c.onmicrosoft.com*:
+   - **Nome da organização**: insira um nome para o locatário do Azure AD B2C.
+   - **Nome de domínio inicial**: insira um nome de domínio para o locatário do Azure AD B2C.
+   - **País ou região**: selecione seu país ou região na lista. Não é possível alterar essa seleção posteriormente.
+   - **Assinatura**: selecione a assinatura na lista.
+   - **Grupo de recursos**: selecione um grupo de recursos que conterá o locatário. Ou selecione **Criar**, insira um **Nome** para o grupo de recursos, escolha a **Localização do grupo de recursos** e clique em **OK**.
 
-    ![Criar formulário de locatário no com valores de exemplo no portal do Azure](media/tutorial-create-tenant/portal-03-tenant-naming.png)
+    ![Criar formulário de locatário com valores de exemplo no portal do Azure](media/tutorial-create-tenant/review-and-create-tenant.png)
 
-1. Quando a criação do locatário for concluída, selecione o link **criar novo locatário B2C ou vincular ao locatário existente** na parte superior da página de criação do locatário.
+1. Selecione **Examinar + criar**.
+1. Examine as configurações do diretório. Em seguida, selecione **Criar**.
 
-    ![Link de navegação estrutural do locatário realçado em portal do Azure](media/tutorial-create-tenant/portal-04-select-link-sub-link.png)
+É possível vincular vários locatários Azure AD B2C a apenas uma assinatura do Azure para fins de cobrança. Para vincular um locatário, você precisa ser um administrador no locatário do Azure AD B2C e receber pelo menos uma função de Colaborador dentro da assinatura do Azure. Confira [Vincular um locatário do Azure AD B2C a uma assinatura](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
 
-1. Selecione **vincular um locatário existente do Azure ad B2C à minha assinatura do Azure**.
+## <a name="select-your-b2c-tenant-directory"></a>Selecionar o diretório do locatário B2C
 
-   ![Vincular uma seleção de assinatura existente no portal do Azure](media/tutorial-create-tenant/portal-05-link-subscription.png)
+Para começar a usar seu novo locatário do Azure AD B2C, você precisa alternar para o diretório que contém o locatário.
 
-1. Selecione o **locatário de Azure ad B2C** que você criou e, em seguida, selecione sua **assinatura**.
+Selecione o filtro **Diretório + assinatura** no menu superior do portal do Azure e escolha o diretório que contém o locatário do Azure AD B2C.
 
-    Para **Grupo de recursos**, selecione **Criar novo**. Insira um **nome** para o grupo de recursos que conterá o locatário, selecione o **local do grupo de recursos**e, em seguida, selecione **criar**.
+Se, a princípio, você não vir seu novo locatário do Azure B2C na lista, atualize a janela do navegador e selecione o filtro **Diretório + assinatura** novamente no menu superior.
 
-    ![Formulário vincular configurações de assinatura no portal do Azure](media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
+![Diretório que contém o locatário do B2C selecionado no portal do Azure](media/tutorial-create-tenant/portal-07-select-tenant-directory.png)
 
-    Você pode vincular vários locatários Azure AD B2C a uma única assinatura do Azure para fins de cobrança.
+## <a name="add-azure-ad-b2c-as-a-favorite-optional"></a>Adicionar o Azure AD B2C como um favorito (opcional)
 
-## <a name="select-your-b2c-tenant-directory"></a>Selecione seu diretório de locatário B2C
+Essa etapa opcional facilita a seleção de seu locatário do Azure AD B2C no tutorial a seguir em todos os tutoriais subsequentes.
 
-Para começar a usar seu novo Azure AD B2C locatário, você precisa alternar para o diretório que contém o locatário.
+Em vez de pesquisar pelo *Azure AD B2C* em **Todos os serviços** cada vez que você quiser trabalhar com seu locatário, você pode, em vez disso, adicionar o recurso aos favoritos. Em seguida, você pode selecioná-lo na seção **Favoritos** do menu do portal para navegar rapidamente até o locatário do Azure AD B2C.
 
-Selecione o **diretório +** filtro de assinatura no menu superior da portal do Azure, em seguida, selecione o diretório que contém o locatário Azure ad B2C.
-
-Se, a princípio, você não vir seu novo locatário do Azure B2C na lista, atualize a janela do navegador e, em seguida, selecione o filtro **diretório + assinatura** novamente no menu superior.
-
-![Locatário B2C-diretório contendo selecionado em portal do Azure](media/tutorial-create-tenant/portal-07-select-tenant-directory.png)
-
-## <a name="add-azure-ad-b2c-as-a-favorite-optional"></a>Adicionar Azure AD B2C como um favorito (opcional)
-
-Essa etapa opcional facilita a seleção de seu locatário Azure AD B2C nos seguintes e em todos os tutoriais subsequentes.
-
-Em vez de procurar *Azure ad B2C* em **todos os serviços** toda vez que você quiser trabalhar com seu locatário, você pode, em vez disso, favorita o recurso. Em seguida, você pode selecioná-lo na seção **favoritos** do menu do portal para navegar rapidamente até seu locatário de Azure ad B2C.
-
-Você só precisa executar essa operação uma vez. Antes de executar essas etapas, certifique-se de ter alternado para o diretório que contém o locatário do Azure AD B2C, conforme descrito na seção anterior, [Selecione seu diretório de locatário do B2C](#select-your-b2c-tenant-directory).
+Você só precisa executar essa operação uma vez. Antes de executar essas etapas, verifique se você alternou para o diretório que contém o locatário do Azure AD B2C, conforme descrito na seção anterior, [Selecionar o diretório do locatário B2C](#select-your-b2c-tenant-directory).
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. No menu portal do Azure, selecione **todos os serviços**.
-1. Na caixa de pesquisa **todos os serviços** , procure **Azure ad B2C**, passe o mouse sobre o resultado da pesquisa e selecione o ícone de estrela na dica de ferramenta. **Azure ad B2C** agora aparece na portal do Azure em **favoritos**.
-1. Se você quiser alterar a posição do novo favorito, vá para o menu portal do Azure, selecione **Azure ad B2C**e arraste-o para cima ou para baixo até a posição desejada.
+1. No menu do portal do Azure, selecione **Todos os serviços**.
+1. Na caixa de pesquisa **Todos os serviços**, pesquise **Azure AD B2C**, focalize o resultado da pesquisa e selecione o ícone de estrela na dica de ferramenta. O **Azure AD B2C** agora aparece no portal do Azure, em **Favoritos**.
+1. Se você quiser alterar a posição do novo favorito, vá para o menu do portal do Azure, selecione **Azure AD B2C** e arraste-o para cima ou para baixo até a posição desejada.
 
-    ![Azure AD B2C, menu Favoritos portal do Microsoft Azure](media/tutorial-create-tenant/portal-08-b2c-favorite.png)
+    ![Azure AD B2C, menu Favoritos, portal do Microsoft Azure](media/tutorial-create-tenant/portal-08-b2c-favorite.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -103,10 +96,10 @@ Neste artigo, você aprendeu a:
 > [!div class="checklist"]
 > * Criar um locatário do Azure AD B2C
 > * Vincular seu locatário à sua assinatura
-> * Alternar para o diretório que contém seu locatário de Azure AD B2C
-> * Adicione o recurso de Azure AD B2C como um **favorito** no portal do Azure
+> * Alternar para o diretório que contém o locatário do Azure AD B2C
+> * Adicione o recurso de Azure AD B2C como um **Favorito** no portal do Azure
 
 Em seguida, saiba como registrar um aplicativo Web em seu novo locatário.
 
 > [!div class="nextstepaction"]
-> [Registre seus aplicativos >](tutorial-register-applications.md)
+> [Registrar seus aplicativos >](tutorial-register-applications.md)

@@ -3,13 +3,13 @@ title: 'Tutorial: Examinando enunciados de ponto de extremidade – LUIS'
 description: Neste tutorial, aprimore as previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS dos quais o LUIS não tem certeza. Alguns enunciados podem ser verificados quanto à intenção e outros quanto à entidade.
 services: cognitive-services
 ms.topic: tutorial
-ms.date: 06/22/2020
-ms.openlocfilehash: c2df8cdba3422c522aa4ccf1fe4138a510355d12
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.date: 07/02/2020
+ms.openlocfilehash: 082e625efeeb4764aaa1ac5101eb2b0013348b19
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445910"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959002"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões incertas examinando os enunciados de ponto de extremidade
 Neste tutorial, melhore as previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS sobre os quais o LUIS não tem certeza. Você deve examinar os enunciados de ponto de extremidade como uma parte regular da sua manutenção agendada do LUIS.
@@ -35,11 +35,16 @@ Ao revisar os enunciados de ponto de extremidade, você verifica ou corrige a in
 
 ## <a name="download-json-file-for-app"></a>Baixar arquivo JSON para aplicativo
 
-Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
+Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/tutorial-fix-unsure-predictions.json?raw=true).
 
 ## <a name="import-json-file-for-app"></a>Importar arquivo JSON para aplicativo
 
-[!INCLUDE [Import app steps](includes/import-app-steps.md)]
+
+1. No [portal do LUIS](https://www.luis.ai), na página **Meus aplicativos**, selecione **+ Novo aplicativo para conversa**, em seguida, **Importar como JSON**. Localize o arquivo JSON salvo na etapa anterior. Você não precisa alterar o nome do aplicativo. Selecione **Concluído**
+
+1. Selecione **Compilar** e, em seguida, **Intenções** para ver as intenções, que são os principais blocos de construção de um aplicativo LUIS.
+
+    :::image type="content" source="media/luis-tutorial-review-endpoint-utterances/initial-intents-in-app.png" alt-text="Altere da página Versões para a página Intenções.":::
 
 ## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Treinar o aplicativo para aplicar as alterações de entidade ao aplicativo
 
@@ -77,15 +82,11 @@ Examine os enunciados do ponto de extremidade para uma intenção corretamente a
 
 1. Na seção **Build** do portal, selecione **Examinar enunciados do ponto de extremidade** no painel de navegação esquerdo. A lista é filtrada para a intenção **ApplyForJob**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Captura de tela do botão Examinar enunciados de ponto de extremidade na barra de navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
+    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="Captura de tela do botão Examinar enunciados de ponto de extremidade na barra de navegação à esquerda.":::
 
-    Este enunciado, `I'm looking for a job with Natural Language Processing`, não está na intenção correta.
+    Este enunciado, `I'm looking for a job with Natural Language Processing`, não está na intenção correta, _GetJobInformation_. Ele foi previsto incorretamente como _ApplyForJob_ devido à similaridade de nomes e verbos do de trabalho nas duas intenções.
 
-1.  Para alinhar esse enunciado, na linha do enunciado, selecione a **Intenção Alinhada** de `GetJobInformation`. Adicione o enunciado alterado ao aplicativo selecionando a marca de seleção.
-
-    > [!div class="mx-imgBorder"]
-    > ![Captura de tela do botão Examinar enunciados de ponto de extremidade na barra de navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
+1.  Para alinhar esse enunciado, selecione a **Intenção Alinhada** correta de `GetJobInformation`. Adicione o enunciado alterado ao aplicativo selecionando a marca de seleção.
 
     Examine os enunciados restantes nesta intenção, corrigindo a intenção alinhada conforme necessário. Use a tabela de enunciado inicial neste tutorial para exibir a intenção alinhada.
 
@@ -110,37 +111,37 @@ Para verificar se os enunciados de exemplo alinhados corretamente melhoraram a p
             "topIntent": "GetJobInformation",
             "intents": {
                 "GetJobInformation": {
-                    "score": 0.903607249
-                },
-                "EmployeeFeedback": {
-                    "score": 0.0312187821
+                    "score": 0.901367366
                 },
                 "ApplyForJob": {
-                    "score": 0.0230276529
+                    "score": 0.0307973567
+                },
+                "EmployeeFeedback": {
+                    "score": 0.0296942145
                 },
                 "MoveEmployee": {
-                    "score": 0.008322801
-                },
-                "Utilities.Stop": {
-                    "score": 0.004480808
+                    "score": 0.00739785144
                 },
                 "FindForm": {
-                    "score": 0.00425248267
+                    "score": 0.00449316856
+                },
+                "Utilities.Stop": {
+                    "score": 0.00417657848
                 },
                 "Utilities.StartOver": {
-                    "score": 0.004224336
+                    "score": 0.00407167152
                 },
                 "Utilities.Help": {
-                    "score": 0.00373591436
+                    "score": 0.003662492
                 },
                 "None": {
-                    "score": 0.0034621188
+                    "score": 0.00335733569
                 },
                 "Utilities.Cancel": {
-                    "score": 0.00230977475
+                    "score": 0.002225436
                 },
                 "Utilities.Confirm": {
-                    "score": 0.00112078607
+                    "score": 0.00107437756
                 }
             },
             "entities": {
@@ -156,7 +157,7 @@ Para verificar se os enunciados de exemplo alinhados corretamente melhoraram a p
                                 "timex": "PRESENT_REF",
                                 "resolution": [
                                     {
-                                        "value": "2019-12-05 23:23:53"
+                                        "value": "2020-07-02 21:45:50"
                                     }
                                 ]
                             }

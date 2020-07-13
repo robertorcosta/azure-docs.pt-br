@@ -3,12 +3,12 @@ title: Visão geral do Azure Blueprint
 description: Entenda como o serviço do Azure Blueprints permite criar, definir e implantar artefatos no seu ambiente do Azure.
 ms.date: 05/06/2020
 ms.topic: overview
-ms.openlocfilehash: 68baeb8030caa17a9880cb0846688f1db6a15c87
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 3a7cece81027bd8ac79250f2f2cd08da637b5f0b
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864497"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970919"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -18,20 +18,20 @@ O Blueprints é uma maneira declarativa de orquestrar a implementação de vári
 
 - Atribuições de Funções
 - Atribuições de Políticas
-- Modelos do Azure Resource Manager
+- Modelos do ARM (modelos do Azure Resource Manager)
 - Grupos de recursos
 
 O serviço do Azure BluePrint é apoiado pelo [Azure Cosmos DB](../../cosmos-db/introduction.md) distribuído globalmente. Objetos de blueprint são replicados para várias regiões do Azure. Essa replicação oferece baixa latência, alta disponibilidade e acesso consistente a seus objetos de blueprint, independentemente de em qual região o Azure Blueprints implanta seus recursos.
 
-## <a name="how-its-different-from-resource-manager-templates"></a>Como ele difere dos modelos do Resource Manager
+## <a name="how-its-different-from-arm-templates"></a>Como ele difere dos modelos do ARM
 
-O serviço foi projetado para ajudá-lo na _configuração do ambiente_. Essa configuração geralmente consiste em um conjunto de grupos de recursos, políticas, atribuições de função e implantações de modelo do Resource Manager. Um blueprint é um pacote para reunir cada um desses _artefatos_ e permitir que você componha e versione esse pacote, inclusive por meio de um pipeline de CI/CD. Por fim, cada um é atribuído a uma assinatura em uma única operação que pode ser auditada e rastreada.
+O serviço foi projetado para ajudá-lo na _configuração do ambiente_. Essa configuração geralmente consiste em um conjunto de grupos de recursos, políticas, atribuições de função e implantações de modelo do ARM. Um blueprint é um pacote para reunir cada um desses _artefatos_ e permitir que você componha e versione esse pacote, inclusive por meio de um pipeline de CI/CD. Por fim, cada um é atribuído a uma assinatura em uma única operação que pode ser auditada e rastreada.
 
-Quase tudo o que você deseja incluir na implantação no Azure Blueprints pode ser feito com um modelo do Resource Manager. No entanto, um modelo do Resource Manager é um documento que não existe nativamente no Azure. Cada um está armazenado localmente ou no controle do código-fonte. O modelo é usado para implantações de um ou mais recursos do Azure, mas, quando esses recursos são implantados, não há relação ou conexão ativa com o modelo.
+Quase tudo o que você deseja incluir na implantação no Azure Blueprints pode ser feito com um modelo do ARM. No entanto, um modelo do ARM é um documento que não existe nativamente no Azure. Cada um está armazenado localmente ou no controle do código-fonte. O modelo é usado para implantações de um ou mais recursos do Azure, mas, quando esses recursos são implantados, não há relação ou conexão ativa com o modelo.
 
 Com o Azure Blueprints, a relação entre a definição do blueprint (o que _deve ser_ implantado) e a atribuição do blueprint (o que _foi_ implantado) é preservada. Essa conexão dá suporte ao acompanhamento e à auditoria de implantações aprimorados. O Azure Blueprints também pode atualizar várias assinaturas ao mesmo tempo quando regidas pelo mesmo blueprint.
 
-Não há necessidade de escolher entre um modelo do Resource Manager e um blueprint. Cada blueprint pode consistir em zero ou mais artefatos _do modelo do Resource Manager_. Esse suporte significa que os esforços anteriores para desenvolver e manter uma biblioteca de modelos do Resource Manager podem ser reutilizados no Azure Blueprints.
+Não há necessidade de escolher entre um modelo ARM e um blueprint. Cada blueprint pode consistir em zero ou mais _artefatos_ de modelo ARM. Esse suporte significa que os esforços anteriores para desenvolver e manter uma biblioteca de modelos do ARM podem ser reutilizados no Azure Blueprints.
 
 ## <a name="how-its-different-from-azure-policy"></a>Como ele difere do Azure Policy
 
@@ -49,8 +49,8 @@ Um plano gráfico é composto por _artefatos_. O Azure Blueprints atualmente dá
 
 |Recurso  | Opções de hierarquia| Descrição  |
 |---------|---------|---------|
-|Grupos de recursos | Subscription | Crie um novo grupo de recursos para uso por outros artefatos no blueprint.  Esses grupos de recursos de espaço reservado permitem que você organize os recursos exatamente da maneira que você deseja que eles sejam estruturados e fornece um limitador de escopo para os artefatos de atribuição de diretivas e funções incluídos, além dos modelos do Azure Resource Manager. |
-|Modelo do Azure Resource Manager | Assinatura, Grupo de Recursos | Modelos, incluindo aninhados e vinculados, são usados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, uma configuração de estado da Automação do Azure ou um espaço de trabalho do Log Analytics. |
+|Grupos de recursos | Subscription | Crie um novo grupo de recursos para uso por outros artefatos no blueprint.  Esses grupos de recursos de espaço reservado permitem que você organize os recursos exatamente da maneira que você deseja que eles sejam estruturados e fornece um limitador de escopo para os artefatos de atribuição de políticas e funções incluídos, além dos modelos do ARM. |
+|Modelo de ARM | Assinatura, Grupo de Recursos | Modelos, incluindo aninhados e vinculados, são usados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, uma configuração de estado da Automação do Azure ou um espaço de trabalho do Log Analytics. |
 |Atribuição de política | Assinatura, Grupo de Recursos | Permite a atribuição de uma política ou iniciativa à assinatura a qual o blueprint está atribuído. A política ou iniciativa deve estar dentro do escopo do local de definição do blueprint. Se a política ou iniciativa tiver parâmetros, esses parâmetros serão atribuídos na criação do blueprint ou durante a atribuição do blueprint. |
 |Atribuição de função | Assinatura, Grupo de Recursos | Adicione um usuário ou grupo existente a uma função interna para fazer com que as pessoas certas tenham sempre o acesso correto aos seus recursos. Atribuições de função podem ser definidas para a assinatura inteira ou aninhadas em um grupo de recursos específico incluído no blueprint. |
 
@@ -60,9 +60,7 @@ Ao criar uma definição de blueprint, você definirá onde o blueprint será sa
 
 ### <a name="blueprint-parameters"></a>Parâmetros de blueprint
 
-Planos gráficos podem passar parâmetros para uma iniciativa de política/ou um modelo do Azure Resource Manager.
-Ao adicionar um _artefato_ a um blueprint, o criador decide fornecer um valor definido para cada atribuição de blueprint ou permitir que cada atribuição de blueprint forneça um valor na hora da atribuição.
-Essa flexibilidade fornece a opção para definir um valor predeterminado para todos os usos do plano gráfico ou para habilitar essa decisão a ser feita no momento da atribuição.
+Os blueprints podem passar parâmetros para uma política/iniciativa ou um modelo do ARM. Ao adicionar um _artefato_ a um blueprint, o criador decide fornecer um valor definido para cada atribuição de blueprint ou permitir que cada atribuição de blueprint forneça um valor na hora da atribuição. Essa flexibilidade fornece a opção para definir um valor predeterminado para todos os usos do plano gráfico ou para habilitar essa decisão a ser feita no momento da atribuição.
 
 > [!NOTE]
 > Um plano gráfico pode ter seus próprios parâmetros, mas elas atualmente podem ser criado somente se um plano gráfico é gerado da API REST, em vez de por meio do Portal.

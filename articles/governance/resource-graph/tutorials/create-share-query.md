@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Gerenciar consultas no portal do Azure'
 description: Neste tutorial, você cria uma consulta do Resource Graph e compartilha a nova consulta com outras pessoas no portal do Azure.
-ms.date: 05/20/2020
+ms.date: 06/29/2020
 ms.topic: tutorial
-ms.openlocfilehash: 80725bd03d31a4985374005fe68a62e16aaef000
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: c3da623e8bea44cc49e4ef46517ce461459405a9
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148014"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970579"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: Criar e compartilhar uma consulta do Azure Resource Graph no portal do Azure
 
-O Azure Resource Graph Explorer permite salvar consultas do Resource Graph diretamente no portal do Azure. Há dois tipos de consultas: _Privada_ e _compartilhada_. Uma consulta privada é salva em suas configurações do portal do Azure. Já uma consulta compartilhada é um recurso do Resource Manager que pode ser gerenciado com RBACs (controles de acesso baseado em função) e protegido com bloqueios de recurso. Os dois tipos de consultas são criptografados em repouso.
+O Azure Resource Graph Explorer permite salvar consultas do Resource Graph diretamente no portal do Azure. Há dois tipos de consultas: _Privada_ e _compartilhada_. Uma consulta privada é salva em suas configurações do portal do Azure. Já uma consulta compartilhada é um recurso do Azure Resource Manager que pode ser gerenciado com o RBAC (controle de acesso baseado em função) e protegido com bloqueios de recurso. Os dois tipos de consultas são criptografados em repouso.
 
 Ao salvar consultas no portal do Azure, você economiza tempo que, de outro modo, poderia ter que gastar procurando suas consultas favoritas ou frequentemente usadas. Ao compartilhar consultas, você ajuda sua equipe a perceber as metas de consistência e eficiência por meio de repetição.
 
@@ -45,7 +45,6 @@ As consultas particulares são acessíveis e visíveis somente para a conta que 
    Selecione **Executar consulta** para ver os resultados da consulta no painel inferior.
 
    Para obter mais informações sobre essa consulta, veja [Amostras – contar máquinas virtuais por tipo de sistema operacional](../samples/starter.md#count-os).
-
 
 1. Selecione **Salvar** ou **Salvar como**, insira **Contar VMs por sistema operacional** como o nome, deixe o tipo como **Consulta privada** e, em seguida, selecione **Salvar** na parte inferior do painel **Salvar consulta**. O título da guia muda de **Consulta 1** para **Contar VMs por SO**.
 
@@ -80,8 +79,7 @@ Para criar uma nova consulta compartilhada, siga estas etapas:
 
 1. Selecione **Salvar** ou **Salvar como**.
 
-   
-   ![Salvar a nova consulta usando o botão Salvar](../media/create-share-query/save-shared-query-buttons.png)
+   :::image type="content" source="../media/create-share-query/save-shared-query-buttons.png" alt-text="Salvar a nova consulta usando o botão Salvar" border="false":::
 
 1. No painel **Salvar consulta**, defina o nome como **Contar VMs por sistema operacional**.
 
@@ -91,7 +89,7 @@ Para criar uma nova consulta compartilhada, siga estas etapas:
 
 1. Selecione **Salvar** na parte inferior do painel **Salvar consulta**. O título da guia muda de **Consulta 1** para **Contar VMs por SO**. Na primeira vez que o grupo de recursos **Resource-Graph-queries** é usado, o salvamento demora mais do que o esperado à medida que o grupo de recursos é criado.
    
-   ![Salvar a nova consulta como uma consulta compartilhada](../media/create-share-query/save-shared-query-window.png)
+   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Salvar a nova consulta como uma consulta compartilhada" border="false":::
 
    > [!NOTE] 
    > Se desejar fornecer o nome de um grupo de recursos existente no qual salvar a consulta compartilhada, você poderá desmarcar a caixa de seleção **Publicar no grupo de recursos resource-graph-queries**. Usar o grupo de recursos com o nome padrão para consultas torna as consultas compartilhadas mais fáceis de descobrir. Essa escolha também torna a finalidade desse grupo de recursos mais aparente. No entanto, você pode optar por selecionar um grupo de recursos existente por motivos de segurança, com base em permissões existentes.
@@ -100,7 +98,7 @@ Para criar uma nova consulta compartilhada, siga estas etapas:
 
 1. Selecione **Abrir uma consulta**. Verifique se o tipo está definido como **Consulta compartilhada** e a combinação de **Assinatura** e **Grupo de recursos** corresponde ao local em que você salvou a consulta. O item salvo **Contar VMs por sistema operacional** agora aparece na lista **Nome da Consulta**. Selecione o link de título da consulta salva para carregá-la em uma nova guia com o nome dessa consulta. Como uma consulta compartilhada, ela exibe um ícone na guia ao lado do título, o qual indica que ela é compartilhada.
 
-   ![Mostrar a consulta compartilhada com o ícone](../media/create-share-query/show-saved-shared-query.png)
+   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Mostrar a consulta compartilhada com o ícone" border="false":::
 
    > [!NOTE] 
    > Quando uma consulta salva estiver aberta e a guia mostrar o nome dela, o botão **Salvar** atualizará a consulta com as alterações feitas. Para criar uma nova consulta salva, selecione **Salvar como** e prossiga como se você estivesse salvando uma consulta totalmente nova.
@@ -136,6 +134,10 @@ Resources
 | where type == "microsoft.resourcegraph/queries"
 | project name, properties.timeModified, properties.query
 ```
+
+## <a name="run-a-shared-query"></a>Executar uma consulta compartilhada
+
+Uma consulta compartilhada do Resource Graph pode ser executada com a sintaxe `{{shared-query-uri}}` (versão prévia). Para obter mais informações, confira [Sintaxe das consultas compartilhadas](../concepts/query-language.md#shared-query-syntax).
 
 ## <a name="delete-a-shared-query"></a>Excluir uma consulta compartilhada
 

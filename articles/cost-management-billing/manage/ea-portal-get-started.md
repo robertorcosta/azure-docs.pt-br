@@ -3,16 +3,16 @@ title: Introdução ao Azure Enterprise Portal
 description: Este artigo explica como os clientes do Azure EA (Contrato Enterprise do Azure) usam o Azure Enterprise Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 06/29/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 7983afa32ff8104d181fbcdc75a50d12e2240128
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 6b31f3cd8ca6baa2d20d0281de51ed83424eca17
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298101"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85560361"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introdução ao Azure Enterprise Portal
 
@@ -471,6 +471,7 @@ O Azure Enterprise Portal filtra os registros inativos, deixando-os fora da exib
 
 ### <a name="enrollment-statuses"></a>Status de registro
 
+- **Novo**: Esse status é atribuído a um registro criado dentro de 24 horas e será atualizado para um status pendente dentro de 24 horas.
 - **Pendente**: o administrador do registro precisa entrar no Azure Enterprise Portal. Depois de conectado, o registro mudará para o status Ativo.
 - **Ativa**: o registro está Ativo e as contas e assinaturas podem ser criadas no Azure Enterprise Portal. O registro permanecerá ativo até a data de término do Contrato Enterprise.
 - **Termo estendido indefinido**: o status de termo estendido indefinido ocorre após a data de término do Contrato Enterprise. Ele permite que os clientes do EA do Azure que optaram pelo período estendido continuem a usar os serviços do Azure indefinidamente no final do Contrato Enterprise.

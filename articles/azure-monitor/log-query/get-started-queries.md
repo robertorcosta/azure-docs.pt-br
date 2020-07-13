@@ -6,17 +6,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: f56abe2bf6ccea1f55f9b3fe94b75016d449b46b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: dcb3afd14a7355a08291cd8553d5050d96919aec
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77670172"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801420"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introdução às consultas de log no Azure Monitor
 
 > [!NOTE]
-> Você poderá trabalhar com este exercício em seu próprio ambiente se estiver coletando dados de pelo menos uma máquina virtual. Caso contrário, use nosso [Ambiente de demonstração](https://portal.loganalytics.io/demo), que inclui muitos dados de exemplo.
+> Você poderá trabalhar com este exercício em seu próprio ambiente se estiver coletando dados de pelo menos uma máquina virtual. Caso contrário, use nosso [Ambiente de demonstração](https://portal.loganalytics.io/demo), que inclui muitos dados de exemplo.  Se você já sabe como consultar em KQL, mas precisa apenas criar rapidamente consultas úteis com base em tipos de recurso, confira o [painel de consultas de exemplo salvas](saved-queries.md).
 
 Neste tutorial, você aprenderá a escrever consultas de log no Azure Monitor. Ele irá ensiná-lo como para:
 
@@ -36,12 +36,14 @@ Acompanhe com uma versão em vídeo deste tutorial abaixo:
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
 ## <a name="writing-a-new-query"></a>Escrevendo uma nova consulta
+
 As consultas podem começar com um nome de tabela ou com o comando *pesquisa*. Você deve começar com um nome de tabela, pois ele define um escopo claro para a consulta e melhora o desempenho da consulta e a relevância dos resultados.
 
 > [!NOTE]
 > A linguagem de consulta Kusto usada pelo Azure Monitor diferencia maiúsculas de minúsculas. Palavras-chave geralmente são escritas em minúsculas. Ao usar nomes de tabelas ou colunas em uma consulta, certifique-se de usar a capitalização correta, conforme mostrado no painel de esquema.
 
 ### <a name="table-based-queries"></a>Consultas baseadas em tabela
+
 O Azure Monitor organiza os dados de log em tabelas, cada uma composta por várias colunas. Todas as tabelas e colunas são mostradas no painel de esquema no Log Analytics, no portal do Analytics. Identifica uma tabela que você está interessado e, em seguida, vejamos um pouco de dados:
 
 ```Kusto
@@ -58,6 +60,7 @@ A consulta mostrada acima retorna 10 resultados do *SecurityEvent* tabela, em ne
 Na verdade, estamos poderia executar a consulta mesmo sem adicionar `| take 10` - que ainda seria válida, mas ele poderia retornar resultados até 10.000.
 
 ### <a name="search-queries"></a>Consultas de pesquisa
+
 Consultas de pesquisa são menos estruturado e geralmente mais adequada para localizar registros que incluem um valor específico em qualquer uma de suas colunas:
 
 ```Kusto
@@ -104,7 +107,7 @@ SecurityEvent
 
 Ao escrever as condições de filtro, você pode usar as expressões a seguir:
 
-| Expression | DESCRIÇÃO | Exemplo |
+| Expression | Descrição | Exemplo |
 |:---|:---|:---|
 | == | Verificação de igualdade<br>(diferencia maiusculas de minúsculas) | `Level == 8` |
 | =~ | Verificação de igualdade<br>(diferencia maiusculas de minúsculas) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
@@ -132,12 +135,14 @@ SecurityEvent
 ## <a name="specify-a-time-range"></a>Especifique um intervalo de tempo
 
 ### <a name="time-picker"></a>Seletor de tempo
+
 O seletor de hora está próximo ao botão Executar e indica que estamos consultando apenas registro das últimas 24 horas. Isso é o intervalo de tempo padrão aplicado a todas as consultas. Para obter apenas os registros da última hora, selecione _última hora_ e execute a consulta novamente.
 
 ![Seletor de Tempo](media/get-started-queries/timepicker.png)
 
 
 ### <a name="time-filter-in-query"></a>Filtro de tempo na consulta
+
 Você também pode definir seu próprio intervalo de tempo adicionando um filtro de tempo à consulta. É melhor colocar o filtro de tempo imediatamente após o nome da tabela: 
 
 ```Kusto
@@ -150,6 +155,7 @@ No filtro de hora acima, `ago(30m)` significa "30 minutos atrás", portanto, ess
 
 
 ## <a name="project-and-extend-select-and-compute-columns"></a>Projeto e Extensão: selecione e calcule colunas
+
 Use **projeto** para selecionar colunas específicas a serem incluídas nos resultados:
 
 ```Kusto

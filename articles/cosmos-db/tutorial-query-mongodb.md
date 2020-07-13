@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 5b9bc78f6af833d89a3404de0295ddad78ebdf20
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5283916194d407cebd30ef072907c56ded1c6cb0
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74870132"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848953"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Consultar dados usando a API para MongoDB do Azure Cosmos DB
 
@@ -63,12 +63,15 @@ As consultas neste artigo usam o seguinte exemplo de documento.
 Com base no exemplo de documento de família acima, a consulta a seguir retorna os documentos cujo campo de id corresponde a `WakefieldFamily`.
 
 **Consulta**
-    
-    db.families.find({ id: "WakefieldFamily"})
+
+```bash
+db.families.find({ id: "WakefieldFamily"})
+```
 
 **Resultados**
 
-    {
+```json
+{
     "_id": "ObjectId(\"58f65e1198f3a12c7090e68c\")",
     "id": "WakefieldFamily",
     "parents": [
@@ -106,19 +109,23 @@ Com base no exemplo de documento de família acima, a consulta a seguir retorna 
     },
     "creationDate": 1431620462,
     "isRegistered": false
-    }
+}
+```
 
 ## <a name="example-query-2"></a><a id="examplequery2"></a>Exemplo de consulta 2 
 
 A próxima consulta retorna todos os filhos da família. 
 
 **Consulta**
-    
-    db.families.find( { id: "WakefieldFamily" }, { children: true } )
+
+```bash 
+db.families.find( { id: "WakefieldFamily" }, { children: true } )
+``` 
 
 **Resultados**
 
-    {
+```json
+{
     "_id": "ObjectId("58f65e1198f3a12c7090e68c")",
     "children": [
       {
@@ -138,28 +145,37 @@ A próxima consulta retorna todos os filhos da família.
         "grade": 8
       }
     ]
-    }
-
+}
+```
 
 ## <a name="example-query-3"></a><a id="examplequery3"></a>Exemplo de consulta 3 
 
 A próxima consulta retorna todas as famílias registradas. 
 
 **Consulta**
-    
-    db.families.find( { "isRegistered" : true })
-**Resultados** Nenhum documento retornará. 
+
+```bash
+db.families.find( { "isRegistered" : true })
+``` 
+
+**Resultados**
+
+Nenhum documento será retornado. 
 
 ## <a name="example-query-4"></a><a id="examplequery4"></a>Exemplo de consulta 4
 
 A próxima consulta retorna todas as famílias não registradas. 
 
 **Consulta**
-    
-    db.families.find( { "isRegistered" : false })
+
+```bash
+db.families.find( { "isRegistered" : false })
+``` 
+
 **Resultados**
 
-     {
+```json
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -193,18 +209,22 @@ A próxima consulta retorna todas as famílias não registradas.
     "creationDate": 1431620462,
     "isRegistered": false
 }
+```
 
 ## <a name="example-query-5"></a><a id="examplequery5"></a>Exemplo de consulta 5
 
 A próxima consulta retorna todas as famílias não registradas e cujo estado seja NY. 
 
 **Consulta**
-    
-     db.families.find( { "isRegistered" : false, "address.state" : "NY" })
+
+```bash
+db.families.find( { "isRegistered" : false, "address.state" : "NY" })
+``` 
 
 **Resultados**
 
-     {
+```json
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -238,19 +258,22 @@ A próxima consulta retorna todas as famílias não registradas e cujo estado se
     "creationDate": 1431620462,
     "isRegistered": false
 }
-
+```
 
 ## <a name="example-query-6"></a><a id="examplequery6"></a>Exemplo de consulta 6
 
 A próxima consulta retorna todas as famílias das quais as notas dos filhos seja 8.
 
 **Consulta**
-  
-     db.families.find( { children : { $elemMatch: { grade : 8 }} } )
+
+```bash
+db.families.find( { children : { $elemMatch: { grade : 8 }} } )
+```
 
 **Resultados**
 
-     {
+```json
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -284,14 +307,17 @@ A próxima consulta retorna todas as famílias das quais as notas dos filhos sej
     "creationDate": 1431620462,
     "isRegistered": false
 }
+```
 
 ## <a name="example-query-7"></a><a id="examplequery7"></a>Exemplo de consulta 7
 
 A próxima consulta retorna todas as famílias das quais o tamanho da matriz de filhos seja três.
 
 **Consulta**
-  
-      db.Family.find( {children: { $size:3} } )
+
+```bash
+db.Family.find( {children: { $size:3} } )
+```
 
 **Resultados**
 

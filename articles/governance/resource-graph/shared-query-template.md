@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Criar uma consulta compartilhada com modelos'
-description: Neste guia de início rápido, você usa um modelo do Resource Manager para criar uma consulta compartilhada do Resource Graph que conta máquinas virtuais por SO.
-ms.date: 04/28/2020
+description: Neste guia de início rápido, você usa um modelo do ARM (modelo do Azure Resource Manager) para criar uma consulta compartilhada do Resource Graph que conta máquinas virtuais por SO.
+ms.date: 07/06/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 050cf26da2054883fceaa08b11f94c6af4c85a16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3cdcff4898a8644008193943a243be4a2ef9e8c4
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82254237"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969798"
 ---
-# <a name="quickstart-create-a-shared-query-by-using-a-resource-manager-template"></a>Início Rápido: Criar uma consulta compartilhada usando um modelo do Resource Manager
+# <a name="quickstart-create-a-shared-query-by-using-an-azure-resource-manager-template"></a>Início Rápido: Criar uma consulta compartilhada usando um modelo do Azure Resource Manager
 
-As consultas do Resource Graph podem ser salvas como uma _consulta privada_ ou uma _consulta compartilhada_. Uma consulta privada é salva no perfil do portal dos indivíduos e não fica visível a outras pessoas. Uma consulta compartilhada é um objeto do Resource Manager que pode ser compartilhado com outras pessoas por meio de permissões e acesso baseado em função. Uma consulta compartilhada fornece execução consistente e comum da descoberta de recursos. Este guia de início rápido usa um modelo do Resource Manager para criar uma consulta compartilhada.
+As consultas do Resource Graph podem ser salvas como uma _consulta privada_ ou uma _consulta compartilhada_. Uma consulta privada é salva no perfil do portal dos indivíduos e não fica visível a outras pessoas. Uma consulta compartilhada é um objeto do Resource Manager que pode ser compartilhado com outras pessoas por meio de permissões e acesso baseado em função. Uma consulta compartilhada fornece execução consistente e comum da descoberta de recursos. Este guia de início rápido usa um modelo do ARM (modelo do Azure Resource Manager) para criar uma consulta compartilhada.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -42,7 +42,7 @@ O recurso definido no modelo inclui:
 
 1. Selecione a imagem a seguir para entrar no portal do Azure e abrir o modelo:
 
-   [![Implantar o modelo de política no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json)
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Implantar o modelo ARM para criar uma consulta compartilhada para o Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
 
 1. Selecione ou insira os valores a seguir:
 
@@ -62,7 +62,7 @@ Alguns recursos adicionais:
 
 - para encontrar mais exemplos de modelo, confira [Modelo de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Para ver a referência de modelo, acesse [Referência de modelo do Azure](/azure/templates/microsoft.resourcegraph/allversions).
-- Para saber como desenvolver modelos do Resource Manager, confira a [Documentação do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+- Para saber como desenvolver modelos do ARM, confira a [documentação do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 - Para conhecer a implantação de nível de assinatura, confira [Create resource groups and resources at the subscription level](../../azure-resource-manager/templates/deploy-to-subscription.md) (Criar grupos de recursos e recursos no nível da assinatura).
 
 ## <a name="validate-the-deployment"></a>Validar a implantação

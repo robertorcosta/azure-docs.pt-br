@@ -1,24 +1,22 @@
 ---
-title: 'Tutorial: Proteger sua WAN Virtual usando a versão prévia do Gerenciador de Firewall do Azure'
-description: Neste tutorial, você aprenderá a proteger sua WAN Virtual com o Gerenciador de Firewall do Azure usando o portal do Azure.
+title: 'Tutorial: Proteger seu hub virtual usando o Gerenciador de Firewall do Azure'
+description: Neste tutorial, você aprenderá a proteger seu hub virtual com o Gerenciador de Firewall do Azure usando o portal do Azure.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 05/01/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b13f3b4eeb57c34f51152bb6d1914f6c80f31be1
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: c44daa67b4029c73c57ca82d72ee0a9759dd4c2d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691030"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563658"
 ---
-# <a name="tutorial-secure-your-virtual-wan-using-azure-firewall-manager-preview"></a>Tutorial: Proteger sua WAN Virtual usando a versão prévia do Gerenciador de Firewall do Azure 
+# <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Tutorial: Proteger seu hub virtual usando o Gerenciador de Firewall do Azure
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Com a versão prévia do Gerenciador de Firewall do Azure, é possível criar hubs virtuais seguros para proteger o tráfego de rede na nuvem destinado a endereços IP privados, PaaS do Azure e à Internet. O roteamento de tráfego para o firewall é automatizado, portanto, não é necessário criar UDRs (rotas definidas pelo usuário).
+Com o Gerenciador de Firewall do Azure, é possível criar hubs virtuais seguros para proteger o tráfego de rede na nuvem destinado a endereços IP privados, PaaS do Azure e à Internet. O roteamento de tráfego para o firewall é automatizado, portanto, não é necessário criar UDRs (rotas definidas pelo usuário).
 
 ![proteger a rede na nuvem](media/secure-cloud-network/secure-cloud-network.png)
 
@@ -95,7 +93,7 @@ Agora você pode emparelhar as VNets de hub e spoke.
 5. Para **Hubs**, selecione **Hub-01**.
 6. Para **Grupo de recursos**, selecione **FW-Manager**.
 7. Para **Rede virtual**, selecione **Spoke-01**.
-8. Selecione **OK**.
+8. Selecione **Criar**.
 
 ## <a name="create-a-firewall-policy-and-secure-your-hub"></a>Criar uma política de firewall e proteger seu hub
 
@@ -111,16 +109,18 @@ Uma política de firewall define coleções de regras para direcionar o tráfego
 8. Em **Prioridade**, digite **100**.
 9. Verifique se a **Ação de coleção de regras** é **Permitir**.
 10. Para o **Nome** da regra, digite **Allow-msft**.
-11. Para **Endereço de origem**, digite **\*** .
-12. Para **Protocolo**, digite **http,https**.
-13. Verifique se o **Tipo de destino é **FQDN**.
-14. Para **Destino**, digite **\*.microsoft.com**.
-15. Selecione **Adicionar**.
-16. Selecione **Avançar: Hubs**.
-17. Na guia **Hubs**, selecione **Associar hubs virtuais**.
-18. Selecione **Hub-01** e, em seguida, selecione **Adicionar**.
-1. Selecione **Examinar + criar**.
-2. Selecione **Criar**.
+11. Para o **Tipo de origem**, selecione **Endereço IP**.
+12. Para **Origem**, digite **\*** .
+13. Para **Protocolo**, digite **http,https**.
+14. Verifique se o **Tipo de destino** é **FQDN**.
+15. Para **Destino**, digite **\*.microsoft.com**.
+16. Selecione **Adicionar**.
+17. Selecione **Avançar: Inteligência contra ameaças**.
+18. Selecione **Avançar: Hubs**.
+19. Na guia **Hubs**, selecione **Associar hubs virtuais**.
+20. Selecione **Hub-01** e, em seguida, selecione **Adicionar**.
+21. Selecione **Examinar + criar**.
+22. Selecione **Criar**.
 
 Isso pode demorar cerca de cinco minutos ou mais para terminar.
 
@@ -130,13 +130,11 @@ Agora, você deve garantir que o tráfego seja roteado por meio do firewall.
 
 1. No Gerenciador de Firewall, selecione **Hubs virtuais seguros**.
 2. Selecione **Hub-01**.
-3. Em **Configurações**, selecione **Configurações de rota**.
-4. Em **Tráfego da Internet**, **Tráfego de Redes Virtuais**, selecione **Enviar pelo Firewall do Azure**.
-5. Em **Tráfego privado do Azure**, **Tráfego para Redes Virtuais**, selecione **Enviar pelo Firewall do Azure**.
-6. Selecione **Editar os prefixos de endereço IP**.
-8. Digite **10.0.1.0/24** como o endereço da sub-rede de carga de trabalho e selecione **Salvar**.
-9. Em **Configurações**, selecione **Conexões**.
+3. Em **Configurações**, escolha **Configuração de segurança**.
+4. Em **Tráfego da Internet**, selecione **Firewall do Azure**.
+5. Em **Tráfego privado**, selecione **Enviar por meio do Firewall do Azure**.
 10. Verifique se a conexão **hub-spoke** mostra **Tráfego da Internet** como **Protegido**.
+11. Clique em **Salvar**.
 
 
 ## <a name="test-your-firewall"></a>Testar o firewall

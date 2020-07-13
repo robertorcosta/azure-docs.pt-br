@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 116ec218b1f3947b85b4ab865df30477f05c601a
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 46c27f18f8f16f783248790f03364654d0b3c2fe
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559897"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986818"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure
 
@@ -95,9 +95,7 @@ Quando você receber a notificação a seguir, a operação de escala terá sido
 
 ## <a name="get-domain-verification-id"></a>Obter a ID de verificação de domínio
 
-Para adicionar um domínio personalizado ao seu aplicativo, você precisa verificar sua propriedade do domínio adicionando uma ID de verificação como um registro TXT com seu provedor de domínio. No painel de navegação à esquerda da página do seu aplicativo, clique em **Gerenciador de recursos** em **Ferramentas de Desenvolvimento** e clique em **Ir**.
-
-Na exibição JSON das propriedades do seu aplicativo, pesquise `customDomainVerificationId` e copie seu valor dentro das aspas duplas. Você precisa dessa ID de verificação para a próxima etapa.
+Para adicionar um domínio personalizado ao seu aplicativo, você precisa verificar sua propriedade do domínio adicionando uma ID de verificação como um registro TXT com seu provedor de domínio. No painel de navegação à esquerda da página do aplicativo, clique em **Domínios Personalizados**, em **Configurações**. Copie o valor da ID de verificação de domínio personalizado daqui. Você precisa dessa ID de verificação para a próxima etapa.
 
 ## <a name="map-your-domain"></a>Mapear seu domínio
 
@@ -113,6 +111,8 @@ Você pode usar um **registro CNAME** ou um **registro A** para mapear um nome D
 ### <a name="map-a-cname-record"></a>Criar um registro CNAME
 
 No exemplo do tutorial, você adiciona um registro CNAME ao subdomínio `www` (por exemplo, `www.contoso.com`).
+
+Se você tiver um subdomínio diferente de `www`, substitua `www` pelo subdomínio (por exemplo, por `sub` se o seu domínio personalizado for `sub.constoso.com`).
 
 #### <a name="access-dns-records-with-domain-provider"></a>Acessar registros DNS com o provedor de domínio
 

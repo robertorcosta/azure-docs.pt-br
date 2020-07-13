@@ -8,24 +8,24 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: 1ff29be9cde4a2bd53f0edbe57f3eab603c1796f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: f673fd4b49a33c2faf6bc8b489520f2a877b0689
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84739489"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513802"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Tutorial: Criar e implantar uma habilidade personalizada com o Azure Machine Learning 
 
-Neste tutorial, você usará o [conjunto de dados de avaliações de hotel](https://www.kaggle.com/datafiniti/hotel-reviews) (distribuído sob a licença Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) para criar uma [habilidade personalizada](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface) usando o Azure Machine Learning para extrair os sentimentos baseados em aspectos das avaliações. Isso permite que a atribuição de sentimentos positivos e negativos na mesma avaliação seja atribuída corretamente para entidades identificadas como equipe, quarto, saguão ou piscina.
+Neste tutorial, você usará o [conjunto de dados de avaliações de hotel](https://www.kaggle.com/datafiniti/hotel-reviews) (distribuído sob a licença Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) para criar uma [habilidade personalizada](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill) usando o Azure Machine Learning para extrair os sentimentos baseados em aspectos das avaliações. Isso permite que a atribuição de sentimentos positivos e negativos na mesma avaliação seja atribuída corretamente para entidades identificadas como equipe, quarto, saguão ou piscina.
 
-Para treinar o modelo de sentimentos baseado em aspectos, você usará o [repositório de receitas nlp](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). O modelo será então implantado como um ponto de extremidade em um cluster do Kubernetes do Azure. Depois de implantado, o modelo é adicionado ao pipeline de enriquecimento como uma habilidade personalizada para uso pelo serviço Cognitive Search.
+Para treinar o modelo de sentimentos baseado em aspectos no Azure Machine Learning, você usará o [repositório de receitas nlp](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). O modelo será então implantado como um ponto de extremidade em um cluster do Kubernetes do Azure. Depois de implantado, o ponto de extremidade é adicionado ao pipeline de enriquecimento como uma habilidade do AML para uso pelo serviço Cognitive Search.
 
 Dois conjuntos de dados são fornecidos. Se você quiser treinar o modelo por conta própria, o arquivo hotel_reviews_1000.csv será necessário. Prefere ignorar a etapa de treinamento? Baixe o hotel_reviews_100.csv.
 
 > [!div class="checklist"]
 > * Criar uma instância do Azure Cognitive Search
-> * Criar um workspace do Azure Machine Learning
+> * Criar um Workspace do Azure Machine Learning (o serviço de pesquisa e o workspace devem estar na mesma assinatura)
 > * Treinar e implantar um modelo em um cluster Kubernetes do Azure
 > * Vincular um pipeline de enriquecimento de IA ao modelo implantado
 > * Ingerir a saída do modelo implantado como uma habilidade personalizada
@@ -35,7 +35,7 @@ Dois conjuntos de dados são fornecidos. Se você quiser treinar o modelo por co
 * Assinatura do Azure – obtenha uma [assinatura gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Serviço Cognitive Search](https://docs.microsoft.com/azure/search/search-get-started-arm)
 * [Recurso dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows)
-* [Conta de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)
+* [Conta do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)
 * [Workspace do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
 
 ## <a name="setup"></a>Instalação
@@ -98,7 +98,7 @@ Depois de salvar o conjunto de habilidades, vá para o indexador e selecione o l
 
 Quando você está trabalhando em sua própria assinatura, é uma boa ideia identificar, no final de um projeto, se você ainda precisa dos recursos criados. Recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
 
-Encontre e gerencie recursos no portal usando o link **Todos os recursos** ou **Grupos de recursos** no painel de navegação à esquerda.
+Você pode localizar e gerenciar recursos no portal usando o link **Todos os recursos** ou **Grupos de recursos** no painel de navegação à esquerda.
 
 Se você estiver usando um serviço gratuito, estará limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite.
 

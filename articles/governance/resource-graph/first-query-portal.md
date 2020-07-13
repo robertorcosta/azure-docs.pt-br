@@ -3,12 +3,12 @@ title: 'Início Rápido: Sua primeira consulta do portal'
 description: Neste início rápido, você segue etapas necessárias para executar sua primeira consulta no portal do Azure usando o Azure Resource Graph Explorer.
 ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: a4b8e0b792dfda1bbd1866444ddc6c4ec8d289b6
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 1e506ee1b1c610381f300323f80c38eb6bf67caa
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148031"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958800"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Início Rápido: Executar a primeira consulta do Resource Graph usando o Azure Resource Graph Explorer
 
@@ -90,11 +90,11 @@ Para fornecer exemplos de consultas do Resource Graph e de como o Resource Graph
 
 - [Resource Graph Explorer – Painel de Amostra 1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
 
-  [![Exemplo de imagem do Painel de Amostra 1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample1-small.png" alt-text="Exemplo de imagem do Painel de Amostra 1" lightbox="./media/arge-sample1-large.png":::
 
 - [Resource Graph Explorer – Painel de Amostra 2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  [![Exemplo de imagem do Painel de Amostra 2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Exemplo de imagem do Painel de Amostra 2" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
 > As contagens e os gráficos nas capturas de tela do painel de exemplo acima variam de acordo com o ambiente do Azure.

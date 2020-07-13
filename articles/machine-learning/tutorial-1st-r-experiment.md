@@ -10,17 +10,17 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: dea5b3fb6cf20924666668e59e370399664d6b28
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d95c0fc9baf1e53e6643660726c72660719908ba
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684738"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483373"
 ---
-# <a name="tutorial-use-r-to-create-a-machine-learning-model"></a>Tutorial: Usar o R para criar um modelo de machine learning
+# <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Tutorial: Usar o R para criar um modelo de machine learning (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste tutorial, você usará o SDK do R do Azure Machine Learning para criar um modelo de regressão logística que prevê a probabilidade de uma fatalidade em um acidente de carro. Você verá como os recursos de nuvem do Azure Machine Learning funcionam com o R para fornecer um ambiente escalonável para treinamento e implantação de um modelo.  
+Neste tutorial, você usará o SDK do R do Azure Machine Learning (versão prévia) para criar um modelo de regressão logística que prevê a probabilidade de uma fatalidade em um acidente de carro. Você verá como os recursos de nuvem do Azure Machine Learning funcionam com o R para fornecer um ambiente escalonável para treinamento e implantação de um modelo.  
 
 Neste tutorial, você executa as seguintes tarefas:
 > [!div class="checklist"]
@@ -73,7 +73,7 @@ Conclua a configuração do experimento a seguir e execute as etapas no Azure Ma
 
 1. Uma lista de pastas exibe cada usuário que acessa o espaço de trabalho.  Selecione uma pasta na qual clonar a pasta **vinhetas**.
 
-## <a name="a-nameopenopen-rstudio"></a><a name="open">Abrir o RStudio
+## <a name="open-rstudio"></a><a name="open"></a>Abrir o RStudio
 
 Use o RStudio em uma instância de computação ou VM do Notebook para executar este tutorial.  
 

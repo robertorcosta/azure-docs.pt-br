@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: implantar seu aplicativo ASP.NET em máquinas virtuais do Azure usando o iniciador DevOps do Azure'
-description: O DevOps Starter facilita a introdução ao Azure e a implantação do aplicativo ASP.NET em máquinas virtuais do Azure em algumas etapas rápidas.
+title: 'Tutorial: Implantar o aplicativo ASP.NET em máquinas virtuais do Azure com o Azure DevOps Starter'
+description: O DevOps Starter facilita o uso do Azure e a implantação do aplicativo ASP.NET em máquinas virtuais do Azure em algumas etapas rápidas.
 ms.author: mlearned
 manager: gwallace
 ms.prod: devops
@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: 80a590ff97cc6595f2da6d1e573820324a46c2d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82231485"
 ---
-# <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-starter"></a>Tutorial: implantar seu aplicativo ASP.NET em máquinas virtuais do Azure usando o iniciador DevOps do Azure
+# <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-starter"></a>Tutorial: Implantar o aplicativo ASP.NET em máquinas virtuais do Azure com o Azure DevOps Starter
 
-O Azure DevOps Starter apresenta uma experiência simplificada em que você pode colocar seu código existente e o repositório git ou escolher um aplicativo de exemplo para criar um pipeline de CI (integração contínua) e CD (entrega contínua) para o Azure. 
+O Azure DevOps Starter apresenta uma experiência simplificada na qual é possível trazer seu código e seu repositório Git existentes ou escolher um aplicativo de exemplo para criar um pipeline de CI (integração contínua) e CD (entrega contínua) para o Azure. 
 
-DevOps iniciador também:
+Além disso, o DevOps Starter:
 * Cria automaticamente recursos do Azure, como uma nova VM (máquina virtual) do Azure.
 * Cria e configura um pipeline de lançamento no Azure DevOps que inclui um pipeline de build de CI.
 * Configura um pipeline de lançamento de CD. 
@@ -36,19 +36,19 @@ Neste tutorial, você irá:
 > * Configurar o monitoramento do Application Insights
 > * Limpar os recursos
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Você pode obter uma gratuita por meio do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
 ## <a name="use-devops-starter-to-deploy-your-aspnet-app"></a>Usar o DevOps Starter para implantar seu aplicativo ASP.NET
 
-O iniciador DevOps cria um pipeline de CI/CD no Azure Pipelines. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Projects também cria recursos do Azure, como máquinas virtuais, na assinatura do Azure de sua escolha.
+O DevOps Starter cria um pipeline de CI/CD no Azure Pipelines. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Projects também cria recursos do Azure, como máquinas virtuais, na assinatura do Azure de sua escolha.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-1. Na caixa de pesquisa, digite **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
+1. Na caixa de pesquisa, digite **DevOps Starter** e selecione. Clique em **Adicionar** para criar um.
 
-    ![O painel inicial do DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
+    ![O painel do DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 1. Selecione **.NET** e selecione **Avançar**.
 
@@ -66,21 +66,21 @@ O iniciador DevOps cria um pipeline de CI/CD no Azure Pipelines. É possível cr
  
 1. Insira um nome da máquina virtual, nome de usuário e senha para o novo recurso de máquina virtual do Azure e selecione **Concluído**. Depois de alguns minutos, a máquina virtual do Azure estará pronta. Um aplicativo de exemplo ASP.NET é configurado em um repositório em sua organização do Azure DevOps, um build e uma versão são executados e seu aplicativo é implantado na VM do Azure recém-criada. 
 
-   Após a conclusão, o painel inicial do DevOps é exibido no portal do Azure. Também é possível navegar até o painel diretamente de **Todos os recursos** no portal do Azure. 
+   Depois de concluído, o painel do DevOps Starter é exibido no portal do Azure. Também é possível navegar até o painel diretamente de **Todos os recursos** no portal do Azure. 
 
    O painel oferece visibilidade sobre o repositório de código do Azure DevOps, o pipeline de CI/CD e o aplicativo em execução no Azure.   
 
    ![Exibição Painel](_img/azure-devops-project-vms/vm-starter-dashboard.png)
 
-O DevOps Starter configura automaticamente um gatilho de compilação e liberação de CI que implanta alterações de código em seu repositório. Você pode também configurar opções adicionais no Azure DevOps. Para exibir o aplicativo em execução, selecione **Procurar**.
+O DevOps Starter configura automaticamente um build de CI e um gatilho de versão que implantam alterações de código em seu repositório. Você pode também configurar opções adicionais no Azure DevOps. Para exibir o aplicativo em execução, selecione **Procurar**.
     
 ## <a name="examine-the-ci-pipeline"></a>Examinar o pipeline de CI
  
-O iniciador DevOps configurou automaticamente um pipeline de CI/CD no Azure Pipelines. É possível explorar e personalizar o pipeline. Para se familiarizar com os pipelines de build, faça o seguinte:
+O DevOps Starter configura automaticamente um pipeline de CI/CD no Azure Pipelines. É possível explorar e personalizar o pipeline. Para se familiarizar com os pipelines de build, faça o seguinte:
 
-1. Na parte superior do painel inicial do DevOps, selecione **criar pipelines**. Uma guia do navegador exibe o pipeline de build do seu novo projeto.
+1. Na parte superior do painel do DevOps Starter, selecione **Pipelines de Build**. Uma guia do navegador exibe o pipeline de build do seu novo projeto.
 
-1. Aponte para o campo **status** e, em seguida, selecione as reticências (...). Um menu exibe várias opções, como enfileirar uma nova compilação, pausar uma compilação e editar o pipeline de compilação.
+1. Aponte para o campo **Status** e selecione as reticências (...). Um menu exibe várias opções, como o enfileiramento de um novo build, pausando um build e editando o pipeline de build.
 
 1. Selecione **Editar**.
 
@@ -88,19 +88,19 @@ O iniciador DevOps configurou automaticamente um pipeline de CI/CD no Azure Pipe
 
 1. Na parte superior do pipeline de build, selecione o nome desse pipeline.
 
-1. Altere o nome do pipeline de compilação para algo mais descritivo, selecione **salvar & fila**e, em seguida, selecione **salvar**.
+1. Altere o nome do pipeline de build para algo mais descritivo, selecione **Salvar e enfileirar** e selecione **Salvar**.
 
 1. Embaixo do nome do pipeline de build, selecione **Histórico**. Esse painel exibe uma trilha de auditoria das alterações recentes do build. O Azure DevOps controla quaisquer alterações feitas no pipeline de build e permite que você compare versões.
 
-1. Selecione **Gatilhos**. O DevOps Starter cria automaticamente um gatilho de CI e cada confirmação para o repositório inicia uma nova compilação. Como opção, é possível incluir ou excluir os branches do processo de CI.
+1. Selecione **Gatilhos**. O DevOps Starter cria automaticamente um gatilho de CI, e cada confirmação no repositório inicia um novo build. Como opção, é possível incluir ou excluir os branches do processo de CI.
 
 1. Selecione **Retenção**. Dependendo do seu cenário, você pode especificar políticas para manter ou remover um determinado número de compilações.
 
 ## <a name="examine-the-cd-pipeline"></a>Examinar o pipeline de CD
 
-O DevOps Starter cria e configura automaticamente as etapas necessárias para implantar de sua organização do Azure DevOps em sua assinatura do Azure. Essas etapas incluem a configuração de uma conexão de serviço do Azure para autenticar o Azure DevOps em sua assinatura do Azure. A automação também cria um pipeline de CD, o qual fornece a CD para a máquina virtual do Azure. Para saber mais sobre o pipeline de CD do Azure DevOps, faça o seguinte:
+O DevOps Starter cria e configura automaticamente as etapas necessárias para implantar a organização do Azure DevOps na assinatura do Azure. Essas etapas incluem a configuração de uma conexão de serviço do Azure para autenticar o Azure DevOps em sua assinatura do Azure. A automação também cria um pipeline de CD, o qual fornece a CD para a máquina virtual do Azure. Para saber mais sobre o pipeline de CD do Azure DevOps, faça o seguinte:
 
-1. Selecione **Build e Lançamento** e selecione **Lançamentos**.  O iniciador DevOps cria um pipeline de liberação para gerenciar implantações no Azure.
+1. Selecione **Build e Lançamento** e selecione **Lançamentos**.  O DevOps Starter cria um pipeline de lançamento para gerenciar implantações no Azure.
 
 1. Selecione as reticências (...) ao lado do pipeline de lançamento e selecione **Editar**. O pipeline de lançamento contém um *pipeline* que define o processo de lançamento.
 
@@ -123,7 +123,7 @@ O DevOps Starter cria e configura automaticamente as etapas necessárias para im
 
 1. Selecione **Confirmações**. Essa exibição mostra as confirmações de código associadas a essa implantação. Compare as versões para exibir as diferenças de confirmação entre implantações.
 
-1. Selecione **logs**. Os logs contêm informações úteis sobre o processo de implantação. É possível exibi-los durante e após as implantações.
+1. Selecione **Logs**. Os logs contêm informações úteis sobre o processo de implantação. É possível exibi-los durante e após as implantações.
 
 ## <a name="commit-changes-to-azure-repos-and-automatically-deploy-them-to-azure"></a>Confirmar alterações no Azure Repos e implantá-las automaticamente no Azure 
 
@@ -135,15 +135,15 @@ Agora você está pronto para colaborar com uma equipe em seu aplicativo usando 
 
 1. Faça uma alteração no arquivo, como adicionar um texto dentro de uma das marcas div. 
 
-1. No canto superior direito, selecione **Confirmar** e selecione **Confirmar** novamente para efetuar push da alteração. Após alguns instantes, um build é iniciado no Azure DevOps e uma versão é executada para implantar as alterações. Monitore o status da compilação no painel inicial do DevOps ou no navegador com sua organização do DevOps do Azure.
+1. No canto superior direito, selecione **Confirmar** e selecione **Confirmar** novamente para efetuar push da alteração. Após alguns instantes, um build é iniciado no Azure DevOps e uma versão é executada para implantar as alterações. Monitore o status do build no painel do DevOps Starter ou no navegador com sua organização do Azure DevOps.
 
 1. Depois de concluir o lançamento, atualize o aplicativo para verificar as alterações.
 
 ## <a name="configure-azure-application-insights-monitoring"></a>Configurar o monitoramento do Application Insights
 
-Com o Azure Application Insights, você pode monitorar facilmente o aplicativo quanto à sua disponibilidade e uso. O DevOps Starter configura automaticamente um recurso de Application Insights para seu aplicativo. Além disso você pode configurar vários alertas e recursos de monitoramento conforme necessário.
+Com o Azure Application Insights, você pode monitorar facilmente o aplicativo quanto à sua disponibilidade e uso. O DevOps Starter configura automaticamente um recurso do Application Insights para seu aplicativo. Além disso você pode configurar vários alertas e recursos de monitoramento conforme necessário.
 
-1. Na portal do Azure, vá para o painel inicial do DevOps. 
+1. No portal do Azure, vá até o painel do DevOps Starter. 
 
 1. No canto inferior direito, selecione o link **Application Insights** para seu aplicativo. O painel do **Application Insights** é aberto. Essa exibição contém informações de uso, desempenho e monitoramento da disponibilidade do seu aplicativo.
 
@@ -171,12 +171,12 @@ Com o Azure Application Insights, você pode monitorar facilmente o aplicativo q
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Caso esteja fazendo testes, é possível evitar o acúmulo de encargos de cobrança limpando seus recursos. Quando eles não forem mais necessários, será possível excluir a máquina virtual do Azure e os recursos relacionados criados neste tutorial. Para fazer isso, use a funcionalidade **excluir** no painel inicial do DevOps. 
+Caso esteja fazendo testes, é possível evitar o acúmulo de encargos de cobrança limpando seus recursos. Quando eles não forem mais necessários, será possível excluir a máquina virtual do Azure e os recursos relacionados criados neste tutorial. Para fazer isso, use a funcionalidade **Excluir** no painel do DevOps Starter. 
 
 > [!IMPORTANT]
-> O procedimento a seguir exclui os recursos permanentemente. A funcionalidade de *exclusão* destrói os dados que são criados pelo projeto no iniciador DevOps no Azure e no Azure DevOps, e você não poderá recuperá-lo. Só use esse procedimento depois de ler os prompts com cuidado.
+> O procedimento a seguir exclui os recursos permanentemente. A funcionalidade *Excluir* destrói os dados criados pelo projeto no DevOps Starter no Azure e no Azure DevOps, e não é possível recuperá-los. Só use esse procedimento depois de ler os prompts com cuidado.
 
-1. Na portal do Azure, vá para o painel inicial do DevOps.
+1. No portal do Azure, vá até o painel do DevOps Starter.
 1. No canto superior direito, selecione **Excluir**. 
 1. No prompt, selecione **Sim** para *excluir permanentemente* os recursos.
 

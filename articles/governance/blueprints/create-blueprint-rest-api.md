@@ -1,18 +1,18 @@
 ---
 title: 'Início Rápido: Criar um blueprint com a API REST'
 description: Neste início rápido, você usa o Azure Blueprints para criar, definir e implantar artefatos usando a API REST.
-ms.date: 02/26/2020
+ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: ec84e8396ad65aa01f73414b971f27bc95396e2f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e3cdf28cfe523e52aceefe20294042d28b98e1e2
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745106"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971191"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Início Rápido: Definir e atribuir um Azure Blueprint com a API REST
 
-Aprender a criar e atribuir blueprints permite definir padrões comuns para desenvolver configurações reutilizáveis e que podem ser implantadas rapidamente com base em modelos do Resource Manager, políticas, segurança e muito mais. Neste tutorial, você aprenderá a usar o Blueprint do Azure para executar algumas das tarefas comuns relacionadas à criação, publicação e atribuição de um blueprint dentro de sua organização, como:
+Aprender a criar e atribuir blueprints permite definir padrões comuns para desenvolver configurações reutilizáveis e que podem ser implantadas rapidamente com base em modelos do ARM (modelos do Azure Resource Manager), políticas, segurança e muito mais. Neste tutorial, você aprenderá a usar o Blueprint do Azure para executar algumas das tarefas comuns relacionadas à criação, publicação e atribuição de um blueprint dentro de sua organização, como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,7 +52,7 @@ Substitua `{subscriptionId}` na variável **$restUri** acima para obter informa�
 
 ## <a name="create-a-blueprint"></a>Criar um plano gráfico
 
-A primeira etapa na definição de um modelo padrão para conformidade é compor um blueprint a partir dos recursos disponíveis. Vamos criar um blueprint chamado 'MyBlueprint' para configurar as atribuições de função e política para a assinatura. Em seguida, vamos adicionar um grupo de recursos, um modelo do Resource Manager e uma atribuição de função ao grupo de recursos.
+A primeira etapa na definição de um modelo padrão para conformidade é compor um blueprint a partir dos recursos disponíveis. Vamos criar um blueprint chamado 'MyBlueprint' para configurar as atribuições de função e política para a assinatura. Em seguida, vamos adicionar um grupo de recursos, um modelo do ARM e uma atribuição de função ao grupo de recursos.
 
 > [!NOTE]
 > Ao usar a API REST, o objeto _blueprint_ é criado primeiro. Para cada _artefato_ com parâmetros a ser adicionado, os parâmetros precisam ser definidos com antecedência no _blueprint_ inicial.
@@ -200,7 +200,7 @@ Em cada URI da API REST, há variáveis usadas que precisam ser substituídas co
      }
      ```
 
-1. Adicione o modelo sob o grupo de recursos. O **Corpo da Solicitação** para um modelo do Resource Manager inclui o componente normal JSON do modelo e define o grupo de recursos de destino com **properties.resourceGroup**. O modelo também reutiliza os parâmetros de blueprint **storageAccountType**, **tagName** e **tagValue** transmitindo-os para o modelo. Os parâmetros de blueprint são disponibilizados para o modelo definindo **properties.parameters** e dentro do modelo JSON em que o par chave-valor é usado para injetar o valor. Os nomes de parâmetro de blueprint e de modelo podem ser o mesmo, mas foram diferenciados para ilustrar como cada um é transmitido do blueprint para o artefato de modelo.
+1. Adicione o modelo sob o grupo de recursos. O **Corpo da Solicitação** para um modelo do ARM inclui o componente normal JSON do modelo e define o grupo de recursos de destino com **properties.resourceGroup**. O modelo também reutiliza os parâmetros de blueprint **storageAccountType**, **tagName** e **tagValue** transmitindo-os para o modelo. Os parâmetros de blueprint são disponibilizados para o modelo definindo **properties.parameters** e dentro do modelo JSON em que o par chave-valor é usado para injetar o valor. Os nomes de parâmetro de blueprint e de modelo podem ser o mesmo, mas foram diferenciados para ilustrar como cada um é transmitido do blueprint para o artefato de modelo.
 
    - URI da API REST
 

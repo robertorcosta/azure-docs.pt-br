@@ -3,26 +3,38 @@ title: Criar um provedor de recursos
 description: Descreve como criar um provedor de recursos e como implantar os tipos de recurso personalizados dele.
 author: MSEvanhi
 ms.topic: tutorial
-ms.date: 06/19/2020
+ms.date: 06/24/2020
 ms.author: evanhi
-ms.openlocfilehash: ce547c010d3cc814d4e6f6182c19572248228fc3
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 541d140716e52b4fe1db4bc999682914a380a5f0
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85124997"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368100"
 ---
-# <a name="quickstart-create-custom-provider-and-deploy-custom-resources"></a>Início Rápido: Criar um provedor personalizado e implantar recursos personalizados
+# <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>Início Rápido: Criar um provedor personalizado e implantar recursos personalizados
 
 Neste início rápido, você cria seu próprio provedor de recursos e implanta tipos de recurso personalizados para o provedor de recursos. Para saber mais sobre provedores personalizados, confira [Visão geral da Visualização de Provedores Personalizados do Azure](overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir as etapas deste início rápido, você precisará chamar operações `REST`. Há [diferentes maneiras de enviar solicitações REST](/rest/api/azure/).
+- Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- Para concluir as etapas deste início rápido, você precisará chamar operações `REST`. Há [diferentes maneiras de enviar solicitações REST](/rest/api/azure/).
 
-Para executar comandos da CLI do Azure, use [Bash no Azure Cloud Shell](/azure/cloud-shell/quickstart). Os comandos [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) exigem uma extensão. Para obter mais informações, confira [Usar extensões com a CLI do Azure](/cli/azure/azure-cli-extensions-overview).
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para executar comandos do PowerShell localmente, use o PowerShell 7 ou posterior e os módulos do Azure PowerShell. Para obter mais informações, consulte [Instalar o Azure PowerShell](/powershell/azure/install-az-ps). Se você ainda não tiver uma ferramenta para operações `REST`, instale o [ARMClient](https://github.com/projectkudu/ARMClient). É a ferramenta de linha de comando de software livre que simplifica a invocação da API do Azure Resource Manager.
+- Os comandos [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) exigem uma extensão. Para obter mais informações, confira [Usar extensões com a CLI do Azure](/cli/azure/azure-cli-extensions-overview).
+- Exemplos da CLI do Azure usam `az rest` para solicitações de `REST`. Para obter mais informações, confira [az rest](/cli/azure/reference-index#az-rest).
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+- Os comandos do PowerShell são executados usando o PowerShell 7 ou posterior e os módulos do Azure PowerShell. Para obter mais informações, consulte [Instalar o Azure PowerShell](/powershell/azure/install-az-ps).
+- Se você ainda não tiver uma ferramenta para operações `REST`, instale o [ARMClient](https://github.com/projectkudu/ARMClient). É a ferramenta de linha de comando de software livre que simplifica a invocação da API do Azure Resource Manager.
+- Depois que o **ARMClient** for instalado, você poderá exibir informações de uso de um prompt de comando do PowerShell digitando: `armclient.exe`. Ou acesse o [wiki do ARMClient](https://github.com/projectkudu/ARMClient/wiki).
+
+---
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="deploy-custom-provider"></a>Implantar provedor personalizado
 
@@ -30,14 +42,16 @@ Para configurar o provedor personalizado, implante um [modelo de exemplo](https:
 
 Depois de implantar o modelo, sua assinatura terá os seguintes recursos:
 
-* O Aplicativo de funções com as operações para recursos e ações.
-* A Conta de Armazenamento para armazenar os usuários criados por meio do provedor personalizado.
-* O Provedor Personalizado, que define os tipos de recurso personalizado e as ações. Ele usa o ponto de extremidade do aplicativo de funções para enviar solicitações.
-* O recurso personalizado do provedor personalizado.
+- O Aplicativo de funções com as operações para recursos e ações.
+- A Conta de Armazenamento para armazenar os usuários criados por meio do provedor personalizado.
+- O Provedor Personalizado, que define os tipos de recurso personalizado e as ações. Ele usa o ponto de extremidade do aplicativo de funções para enviar solicitações.
+- O recurso personalizado do provedor personalizado.
 
-Para implantar o provedor personalizado, use a CLI do Azure ou o PowerShell:
+Para implantar o provedor personalizado, use a CLI do Azure, o PowerShell ou o portal do Azure:
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Este exemplo solicita que você insira um grupo de recursos, uma localização e um nome de aplicativo de funções do provedor. Os nomes são armazenados em variáveis que são usadas em outros comandos. Os comandos [az group create](/cli/azure/group#az-group-create) e [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) implantam os recursos.
 
 ```azurecli-interactive
 read -p "Enter a resource group name:" rgName &&
@@ -52,6 +66,8 @@ read
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
+Este exemplo solicita que você insira um grupo de recursos, uma localização e um nome de aplicativo de funções do provedor. Os nomes são armazenados em variáveis que são usadas em outros comandos. Os comandos [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) e [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) implantam os recursos.
+
 ```powershell
 $rgName = Read-Host -Prompt "Enter a resource group name"
 $location = Read-Host -Prompt "Enter the location (i.e. eastus)"
@@ -64,7 +80,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 ---
 
-Ou você pode implantar a solução por meio do portal do Azure com o seguinte botão:
+Você também pode implantar a solução do portal do Azure. Selecione o botão **Implantar no Azure** para abrir o modelo no portal do Azure.
 
 [![Implantar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json)
 
@@ -252,7 +268,7 @@ Use os comandos [custom-providers](/cli/azure/ext/custom-providers/custom-provid
 
 ### <a name="list-custom-resource-providers"></a>Listar provedores de recursos personalizados
 
-Liste todos os provedores de recursos personalizados em uma assinatura. O padrão lista os provedores de recursos personalizados para a assinatura atual ou você pode especificar o parâmetro `--subscription`. Para listar para um grupo de recursos, use o parâmetro `--resource-group`.
+Use o comando `list` para exibir todos os provedores de recursos personalizados em uma assinatura. O padrão lista os provedores de recursos personalizados da assinatura atual ou você pode especificar o parâmetro `--subscription`. Para listar para um grupo de recursos, use o parâmetro `--resource-group`.
 
 ```azurecli-interactive
 az custom-providers resource-provider list --subscription $subID
@@ -289,7 +305,7 @@ az custom-providers resource-provider list --subscription $subID
 
 ### <a name="show-the-properties"></a>Mostrar as propriedades
 
-Mostra as propriedades de um provedor de recursos personalizado. O formato de saída é semelhante à saída de `list`.
+Use o comando `show` para exibir as propriedades do provedor de recursos personalizado. O formato de saída é semelhante à saída de `list`.
 
 ```azurecli-interactive
 az custom-providers resource-provider show --resource-group $rgName --name $funcName

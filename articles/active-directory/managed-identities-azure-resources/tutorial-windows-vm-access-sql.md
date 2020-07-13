@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd3d3aeecb66ba332d9c32c944d527ac3a07f2fe
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 13be33843172f505ed8f12293137c0808e9bd2a0
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014308"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920380"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o SQL Azure
 
@@ -66,10 +66,10 @@ Há duas etapas para conceder acesso da VM a um banco de dados:
 
 Esta seção mostra como criar um usuário contido no banco de dados que representa a identidade atribuída do sistema da VM. Para esta etapa, você precisará do SSMS ([Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)). Antes de começar, também pode ser útil examinar os seguintes artigos para obter informações sobre a integração do Azure AD:
 
-* [Autenticação Universal com o Banco de Dados SQL e o SQL Data Warehouse (suporte de SSMS para MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
-* [Configurar e gerenciar o Azure Active Directory para autenticação com o Banco de Dados SQL ou o SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
+- [Autenticação Universal com o Banco de Dados SQL e o Azure Synapse Analytics (suporte de SSMS para MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
+- [Configurar e gerenciar o Azure Active Directory para autenticação com o Banco de Dados SQL ou o Azure Synapse Analytics](/azure/sql-database/sql-database-aad-authentication-configure)
 
-O Banco de Dados SQL exige nomes de exibição exclusivos do AAD. Com isso, contas do AAD como usuários, grupos e Entidades de serviço (aplicativos) e nomes de VM habilitados para identidade gerenciada devem ser definidos exclusivamente no AAD com relação a seus nomes de exibição. O Banco de Dados SQL verifica o nome de exibição do AAD durante a criação do T-SQL desses usuários e, se ele não for exclusivo, o comando falhará solicitando o fornecimento de um nome de exibição exclusivo do AAD para uma conta especificada.
+O BD SQL requer nomes de exibição exclusivos do AAD. Com isso, contas do AAD como usuários, grupos e entidades de serviço (aplicativos) e nomes de VM habilitados para identidade gerenciada precisam ser definidos exclusivamente no AAD com relação aos respectivos nomes de exibição. O BD SQL verifica o nome de exibição do AAD durante a criação do T-SQL desses usuários e, se ele não for exclusivo, o comando falhará solicitando para fornecer um nome de exibição do AAD exclusivo para uma determinada conta.
 
 **Para criar um usuário contido:**
 
@@ -109,7 +109,7 @@ O código em execução na VM agora pode obter um token usando a identidade gere
 
 Esta seção mostra como obter um token de acesso usando a identidade gerenciada atribuída pelo sistema da VM e usá-lo para chamar o Azure SQL. O SQL Azure tem suporte nativo para autenticação do Azure AD, de modo que pode aceitar diretamente os tokens de acesso obtidos usando identidades gerenciadas para recursos do Azure. Você usa o método **token de acesso** para criar uma conexão para o SQL. Isso faz parte da integração do SQL Azure ao Azure AD e é diferente de fornecer as credenciais na cadeia de conexão.
 
-Aqui está um exemplo de código .NET de abertura de uma conexão a SQL usando um token de acesso. Esse código deve ser executado na VM para ser capaz de acessar o ponto de extremidade da identidade gerenciada atribuída pelo sistema da VM. É necessário ter o **.NET Framework 4.6** ou superior ou o **.NET Core 2.2** ou superior para usar o método de token de acesso. Substitua os valores de AZURE-SQL-SERVERNAME e DATABASE de acordo. Observe a ID de recurso para o SQL Azure é `https://database.windows.net/`.
+Aqui está um exemplo de código .NET de abertura de uma conexão a SQL usando um token de acesso. O código precisa ser executado na VM para ser capaz de acessar o ponto de extremidade da identidade gerenciada atribuída pelo sistema da VM. É necessário ter o **.NET Framework 4.6** ou superior ou o **.NET Core 2.2** ou superior para usar o método de token de acesso. Substitua os valores de AZURE-SQL-SERVERNAME e DATABASE de acordo. Observe a ID de recurso para o SQL Azure é `https://database.windows.net/`.
 
 ```csharp
 using System.Net;

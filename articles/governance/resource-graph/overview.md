@@ -1,14 +1,14 @@
 ---
 title: Visão geral do Azure Resource Graph
 description: Entenda como o serviço do Azure Resource Graph habilita a consulta complexa de recursos em grande escala entre assinaturas e locatários.
-ms.date: 03/02/2020
+ms.date: 06/29/2020
 ms.topic: overview
-ms.openlocfilehash: a084215f6f2d1b5a8ed34ca59266e1c0087f608b
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 9c15ff12f21c1d3d168828eae67de51069cdcada
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167257"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970596"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph?
 
@@ -29,7 +29,7 @@ Nesta documentação, você estudará cada recurso em detalhes.
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Como o Azure Resource Graph complementa o Azure Resource Manager
 
-Atualmente, o Azure Resource Manager dá suporte para consultas por campos de recursos básicos, mais especificamente: Nome do recurso, ID, Tipo, Grupo de recursos, Assinatura e Local. O Resource Manager também fornece recursos para chamar provedores de recursos individuais para propriedades detalhadas um recurso por vez.
+Atualmente, o Resource Manager dá suporte para consultas por campos de recursos básicos, mais especificamente: Nome do recurso, ID, Tipo, Grupo de recursos, Assinatura e Localização. O Resource Manager também fornece recursos para chamar provedores de recursos individuais para propriedades detalhadas um recurso por vez.
 
 Com o Azure Resource Graph, você pode acessar essas propriedades retornadas pelos provedores de recursos sem a necessidade de fazer chamadas individuais para cada um deles. Para obter uma lista de tipos de recursos compatíveis, examine a [referência de tipo de recurso e tabela](./reference/supported-tables-resources.md). Uma maneira alternativa de ver os tipos de recursos com suporte é por meio do [navegador de Esquema do Azure Resource Graph Explorer](./first-query-portal.md#schema-browser).
 
@@ -52,8 +52,7 @@ Agora que você tem uma compreensão melhor do que é o Azure Resource Graph, va
 
 É importante entender que a linguagem da consulta do Azure Resource Graph se baseia na [linguagem de consulta do Kusto](/azure/data-explorer/data-explorer-overview) usada pelo Azure Data Explorer.
 
-Primeiro, para obter detalhes sobre operações e funções que podem ser usadas com o Azure Resource Graph, consulte [linguagem de consulta do Resource Graph](./concepts/query-language.md).
-Para procurar recursos, veja [explorar recursos](./concepts/explore-resources.md).
+Primeiro, para obter detalhes sobre operações e funções que podem ser usadas com o Azure Resource Graph, consulte [linguagem de consulta do Resource Graph](./concepts/query-language.md). Para procurar recursos, veja [explorar recursos](./concepts/explore-resources.md).
 
 ## <a name="permissions-in-azure-resource-graph"></a>Permissões no Azure Resource Graph
 
@@ -62,8 +61,7 @@ Para usar o Resource Graph, você deve ter os direitos apropriados no RBAC ([con
 > [!NOTE]
 > O Resource Graph usa as assinaturas disponíveis para uma entidade de segurança durante o logon. Para ver os recursos de uma nova assinatura adicionada durante uma sessão ativa, a entidade de segurança deve atualizar o contexto. Essa ação ocorre automaticamente ao fazer logoff e logon.
 
-A CLI do Azure e o Azure PowerShell usam assinaturas às quais o usuário tem acesso. Ao usar a API REST diretamente, a lista de assinaturas é fornecida pelo usuário. Se o usuário tiver acesso a uma das assinaturas na lista, os resultados da consulta serão retornados para as assinaturas às quais o usuário tem acesso. Esse comportamento é o mesmo que chamar [Grupos de Recursos – Lista](/rest/api/resources/resourcegroups/list) \- você obtém os grupos de recursos aos quais tem acesso sem nenhuma indicação de que o resultado pode ser parcial.
-Se não houver nenhuma assinatura na lista de assinaturas à qual o usuário tenha direitos apropriados, a resposta será um _403_ (Proibido).
+A CLI do Azure e o Azure PowerShell usam assinaturas às quais o usuário tem acesso. Ao usar a API REST diretamente, a lista de assinaturas é fornecida pelo usuário. Se o usuário tiver acesso a uma das assinaturas na lista, os resultados da consulta serão retornados para as assinaturas às quais o usuário tem acesso. Esse comportamento é o mesmo que chamar [Grupos de Recursos – Lista](/rest/api/resources/resourcegroups/list) \- você obtém os grupos de recursos aos quais tem acesso sem nenhuma indicação de que o resultado pode ser parcial. Se não houver nenhuma assinatura na lista de assinaturas à qual o usuário tenha direitos apropriados, a resposta será um _403_ (Proibido).
 
 ## <a name="throttling"></a>Limitação
 

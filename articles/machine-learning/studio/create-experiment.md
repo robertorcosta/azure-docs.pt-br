@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: a8ad945e20e1274025595620e08f264863297892
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: f8984b3b712d591b64c383dabb723ba5afc61efc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117364"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965137"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Início Rápido: Crie seu primeiro experimento no de ciência de dados no Azure Machine Learning Studio (clássico)
 
@@ -136,7 +136,7 @@ Localizar um bom conjunto de recursos para criar um modelo de previsão requer e
 
 Vamos criar um modelo que usa um subconjunto dos recursos em nosso conjunto de dados. É possível voltar depois e selecionar diferentes recursos, executar o experimento novamente e ver se você obtém melhores resultados. Mas, para começar, vamos testar os seguintes recursos:
 
-    make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
+> marca, estilo de carroceria, distância entre os eixos, tamanho do motor, potência, pico de RPM, quilometragem em estrada, preço
 
 1. Arraste outro módulo [Selecionar Colunas no Conjunto de Dados][select-columns] à tela do experimento. Conecte a porta de saída à esquerda do módulo [Limpar Dados Ausentes][clean-missing-data] à entrada do módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
 

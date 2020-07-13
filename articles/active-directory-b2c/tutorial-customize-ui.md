@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: personalizar a interface do usuário'
+title: 'Tutorial: Personalizar a interface do usuário'
 titleSuffix: Azure AD B2C
 description: Saiba como personalizar a interface do usuário de seus aplicativos no Azure Active Directory B2C usando o portal do Azure.
 services: B2C
@@ -7,20 +7,20 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e023e9c8c4c6f0021eabccad8783c27eba98d0d5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 235fd429707a418fa193e986b95c9b38fa6c8101
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116519"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385018"
 ---
-# <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: personalizar a interface de experiências do usuário no Azure Active Directory B2C
+# <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: Personalizar a interface das experiências do usuário no Azure Active Directory B2C
 
-Para experiências de usuário mais comuns, como inscrição, entrada e edição de perfil, você pode usar [fluxos de usuário](user-flow-overview.md) no Azure Active Directory B2C (Azure ad B2C). As informações neste tutorial ajudam você a aprender a [personalizar a interface do usuário](customize-ui-overview.md) dessas experiências usando seus próprios arquivos HTML e CSS.
+Para experiências do usuário mais comuns, como inscrição, conexão e edição de perfil, você pode usar os [fluxos dos usuários](user-flow-overview.md) no Azure AD B2C (Azure Active Directory B2C). As informações neste tutorial ajudam você a aprender a [personalizar a interface do usuário](customize-ui-overview.md) dessas experiências usando seus próprios arquivos HTML e CSS.
 
 Neste artigo, você aprenderá como:
 
@@ -44,7 +44,7 @@ Você cria um contêiner e uma conta de Armazenamento do Azure e coloca os arqui
 Embora você possa armazenar seus arquivos de várias maneiras, para este tutorial, vai armazená-los no [Armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md).
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Verifique se você está usando o diretório que contém sua assinatura do Azure. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o diretório que contém sua assinatura. Esse diretório é diferente daquele que contém o seu locatário B2C do Azure.
+2. Verifique se você está usando o diretório que contém sua assinatura do Azure. Selecione o **Filtro de diretório + assinatura** no menu superior e escolha o diretório que contém sua assinatura. Esse diretório é diferente daquele que contém o seu locatário B2C do Azure.
 3. Escolha Todos os serviços no canto superior esquerdo do portal do Azure, então pesquise e selecione **Contas de armazenamento**.
 4. Selecione **Adicionar**.
 5. Em **Grupo de recursos**, selecione **Criar novo**, insira um nome para o novo grupo de recursos e, em seguida, clique em **OK**.
@@ -64,12 +64,12 @@ Embora você possa armazenar seus arquivos de várias maneiras, para este tutori
 
 1. No menu, selecione **CORS**.
 2. Para **origens permitidas**, insira `https://your-tenant-name.b2clogin.com`. Substitua `your-tenant-name` pelo nome de seu locatário do Azure AD B2C. Por exemplo, `https://fabrikam.b2clogin.com`. Você precisa usar todas as letras minúsculas ao digitar o nome do seu locatário.
-3. Para **métodos permitidos**, selecione `GET` , `PUT` e `OPTIONS` .
+3. Para **Métodos Permitidos**, selecione `GET`, `PUT` e `OPTIONS`.
 4. Para **cabeçalhos permitidos**, digite um asterisco (*).
 5. Para **cabeçalhos expostos**, digite um asterisco (*).
 6. Para **Idade máxima de**, insira 200.
 
-    ![Página de configuração do CORS no armazenamento de BLOBs do Azure no portal do Azure](./media/tutorial-customize-ui/enable-cors.png)
+    ![Página de configuração do CORS no Armazenamento de Blobs do Azure no portal do Azure](./media/tutorial-customize-ui/enable-cors.png)
 
 5. Clique em **Save** (Salvar).
 
@@ -127,11 +127,11 @@ Para personalizar a interface do usuário da experiência de inscrição, você 
 
 Neste tutorial, você armazena os arquivos criados na conta de armazenamento para que o Azure AD B2C possa acessá-los.
 
-1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure, procure e selecione **contas de armazenamento**.
+1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, então pesquise e selecione **Contas de armazenamento**.
 2. Selecione a conta de armazenamento que você criou, selecione **Blobs** e, em seguida, selecione o contêiner que você criou.
 3. Selecione **Fazer Upload**, navegue até o arquivo *custom-ui.html* e selecione-o, então clique em **Fazer Upload**.
 
-    ![Carregar página de blob no portal com o botão carregar e os arquivos realçados](./media/tutorial-customize-ui/upload-blob.png)
+    ![Carregar página de blob no portal com o botão Carregar e os arquivos realçados](./media/tutorial-customize-ui/upload-blob.png)
 
 4. Copie a URL para o arquivo que você carregou para usar posteriormente no tutorial.
 5. Repita as etapas 3 e 4 para o arquivo *style.css*.
@@ -150,7 +150,7 @@ Neste tutorial, você armazena os arquivos criados na conta de armazenamento par
 2. Na parte superior da página, clique em **Executar fluxo de usuário**.
 3. Clique no botão **Executar fluxo de usuário**.
 
-    ![Executar a página de fluxo de usuário para o fluxo de usuário de inscrição ou de entrada](./media/tutorial-customize-ui/run-user-flow.png)
+    ![Executar a página de fluxo de usuário para o fluxo de usuário de inscrição ou de conexão](./media/tutorial-customize-ui/run-user-flow.png)
 
     Você deverá ver uma página semelhante ao exemplo a seguir com os elementos centralizados com base no arquivo CSS que você criou:
 

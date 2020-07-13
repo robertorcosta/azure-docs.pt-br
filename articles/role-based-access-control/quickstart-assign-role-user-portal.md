@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: e70a3a1eedbc56754ad46fd99dddc0c7a3a6cf2f
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: c6736bb2642ff08d0aa3cda536ef1599324efded
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735837"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362000"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>Tutorial: Conceder acesso aos recursos do Azure para um usuário usando o portal do Azure
 
@@ -72,7 +72,9 @@ No RBAC do Azure, para conceder acesso, você cria uma atribuição de função.
 
    Se você não tiver permissões para atribuir funções, a opção Adicionar atribuição de função será desativada.
 
-   ![Adicionar menu](./media/role-assignments-portal/add-menu.png)
+   ![Adicionar menu de atribuição de função](./media/shared/add-role-assignment-menu.png)
+
+    O painel Adicionar atribuição de função é aberto.
 
    ![Adicionar painel de atribuição de função](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
 

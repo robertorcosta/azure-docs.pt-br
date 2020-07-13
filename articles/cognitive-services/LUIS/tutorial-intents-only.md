@@ -3,12 +3,12 @@ title: 'Tutorial: Prever intenções – LUIS'
 description: Crie um aplicativo personalizado que prevê a intenção de um usuário com base no enunciado (texto) neste tutorial.
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: c76273d7c180928d25be70e0abd7abf26c90b44a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d0a625708e730094ab4dea8f705852f38ee6e1da
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588916"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959852"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Tutorial: Criar um aplicativo LUIS para determinar as intenções do usuário
 
@@ -113,9 +113,8 @@ Para classificar um enunciado, a intenção precisa de exemplos de enunciados cl
 
     `get a medium vegetarian pizza for delivery`
 
-    Isso não é exatamente o mesmo que um enunciado de exemplo, portanto, é um bom teste para ver se o LUIS pode aprender o que deve ser previsto com essa intenção.
-
-    O último parâmetro da cadeia de consulta é `query`, a declaração **query**. Esse enunciado não é o mesmo de nenhum dos enunciados de exemplo. Ele é um bom teste e deve retornar a intenção `OrderPizza` como a intenção com a maior pontuação.
+  
+    O parâmetro de cadeia de consulta é `query`, o enunciado **consulta** é passado no URI. Esse enunciado não é o mesmo de nenhum dos enunciados de exemplo. Esse deve ser um bom teste para verificar se o LUIS aprende e prevê a intenção de `OrderPizza` como a principal intenção de pontuação.
 
     ```JSON
     {

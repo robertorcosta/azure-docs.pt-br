@@ -1,29 +1,29 @@
 ---
-title: Tutorial-Active Directory básica do ambiente local e do Azure AD.
+title: Tutorial – Ambiente do Azure AD e local do Active Directory básico.
 services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 356a05d4d92f17ceb66ff0208153ec3eac736757
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe2d0a16aeacfc551a6a07a72b58b5f461f93433
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74793892"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360513"
 ---
-# <a name="tutorial-basic-active-directory-environment"></a>Tutorial: ambiente de Active Directory básica
+# <a name="tutorial-basic-active-directory-environment"></a>Tutorial: Ambiente básico do Active Directory
 
-Este tutorial orienta você pela criação de um ambiente de Active Directory básico. 
+Este tutorial orienta você na criação de um ambiente básico do Active Directory. 
 
 ![Criar](media/tutorial-single-forest/diagram1.png)
 
-Você pode usar o ambiente criado no tutorial para testar vários aspectos de cenários de identidade híbrida e será um pré-requisito para alguns dos tutoriais.  Se você já tiver um ambiente de Active Directory existente, poderá usá-lo como um substituto.  Essas informações são fornecidas para pessoas que não estão iniciando nada.
+Você pode usar o ambiente criado no tutorial para testar vários aspectos de cenários de identidade híbrida e será um pré-requisito para alguns dos tutoriais.  Se você já tiver um ambiente do Active Directory, poderá usá-lo como substituto.  Essas informações são fornecidas para pessoas que estão começando desde o princípio.
 
 Este tutorial consiste em
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -37,12 +37,12 @@ A seguir estão os pré-requisitos necessários para concluir este tutorial
 > [!NOTE]
 > Este tutorial usa scripts do PowerShell para que você possa criar o ambiente do tutorial no menor tempo possível.  Cada um dos scripts usa variáveis que são declaradas no início dos scripts.  Você pode e deve alterar as variáveis para refletir seu ambiente.
 >
->Os scripts usados criam um ambiente de Active Directory geral antes de instalar o agente de provisionamento de nuvem Azure AD Connect.  Eles são relevantes para todos os tutoriais.
+>Os scripts usados criam um ambiente do Active Directory geral antes de instalar o agente de provisionamento de nuvem do Azure AD Connect.  Eles são relevantes para todos os tutoriais.
 >
 > Cópias dos scripts do PowerShell que são usados neste tutorial estão disponíveis no GitHub [aqui](https://github.com/billmath/tutorial-phs).
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
-A primeira coisa que você precisa fazer para colocar o ambiente de identidade híbrida em funcionamento é criar uma máquina virtual que será usada como nosso servidor de Active Directory local.  Faça o seguinte:
+A primeira etapa necessária para colocar o ambiente de identidade híbrida em funcionamento é criar uma máquina virtual que será usada como o servidor local do Active Directory.  Faça o seguinte:
 
 1. Abra o ISE do PowerShell como Administrador.
 2. Execute o seguinte script.
@@ -87,7 +87,7 @@ Para concluir a criação da máquina virtual, é necessário concluir a instala
 10. Quando a instalação estiver concluída, reinicie a máquina virtual, entre e execute as atualizações do Windows para garantir que a VM seja a mais atualizada.  Instale as últimas atualizações.
 
 ## <a name="install-active-directory-prerequisites"></a>Instalar os pré-requisitos do Active Directory
-Agora que você tem uma máquina virtual ativa, precisa fazer algumas coisas antes de instalar o Active Directory.  Ou seja, você precisa renomear a máquina virtual, definir um endereço IP estático e informações de DNS e instalar as ferramentas de administração de servidor remoto.   Faça o seguinte:
+Agora que você tem uma máquina virtual ativa, precisa executar algumas etapas antes de instalar o Active Directory.  Ou seja, precisa renomear a máquina virtual, definir um endereço IP estático e informações de DNS e instalar as Ferramentas de Administração de Servidor Remoto.   Faça o seguinte:
 
 1. Abra o ISE do PowerShell como Administrador.
 2. Execute o seguinte script.
@@ -123,7 +123,7 @@ Agora que você tem uma máquina virtual ativa, precisa fazer algumas coisas ant
     ```
 
 ## <a name="create-a-windows-server-ad-environment"></a>Criar um ambiente AD do Windows Server
-Agora que a VM foi criada e foi renomeada e tem um endereço IP estático, você pode instalar e configurar o Active Directory Domain Services.  Faça o seguinte:
+Agora que você tem a VM criada e ela foi renomeada e tem um endereço IP estático, pode instalar e configurar o Active Directory Domain Services.  Faça o seguinte:
 
 1. Abra o ISE do PowerShell como Administrador.
 2. Execute o seguinte script.
@@ -154,7 +154,7 @@ Agora que a VM foi criada e foi renomeada e tem um endereço IP estático, você
     ```
 
 ## <a name="create-a-windows-server-ad-user"></a>Criar um usuário do AD do Windows Server
-Agora que você tem nosso ambiente de Active Directory, precisa de uma conta de teste.  Essa conta será criada no ambiente AD local e, em seguida, sincronizada com o Azure AD.  Faça o seguinte:
+Agora que você tem o ambiente do Active Directory, precisa de uma conta de teste.  Essa conta será criada no ambiente AD local e, em seguida, sincronizada com o Azure AD.  Faça o seguinte:
 
 1. Abra o ISE do PowerShell como Administrador.
 2. Execute o seguinte script.
@@ -194,7 +194,7 @@ Agora que você tem nosso ambiente de Active Directory, precisa de uma conta de 
 
 
 ## <a name="create-an-azure-ad-tenant"></a>Criar um locatário do Azure AD
-Agora você precisa criar um locatário do Azure AD para que possa sincronizar nossos usuários com a nuvem.  Para criar um novo locatário do Azure AD, faça o seguinte.
+Agora, é necessário criar um locatário do Azure AD para que seja possível sincronizar os usuários com a nuvem.  Para criar um novo locatário do Azure AD, faça o seguinte.
 
 1. Navegue até o [portal do Azure](https://portal.azure.com) e entre com uma conta que tenha uma assinatura do Azure.
 2. Selecione o **ícone adição (+)** e pesquise **Azure Active Directory**.
@@ -205,7 +205,7 @@ Agora você precisa criar um locatário do Azure AD para que possa sincronizar n
 6. Depois que for concluído, clique no link **aqui** para gerenciar o diretório.
 
 ## <a name="create-a-global-administrator-in-azure-ad"></a>Criar um administrador global no Azure AD
-Agora que você tem um locatário do Azure AD, você criará uma conta de administrador global.  Para criar a conta de administrador global, faça o seguinte.
+Agora que você tem um locatário do Azure AD, criará uma conta de administrador global.  Para criar a conta de administrador global, faça o seguinte.
 
 1.  Em **Gerenciar**, selecione **Usuários**.</br>
 ![Criar](media/tutorial-single-forest/administrator1.png)</br>
@@ -215,10 +215,10 @@ Agora que você tem um locatário do Azure AD, você criará uma conta de admini
 4. Depois que isso for concluído, abra um novo navegador da Web e entre em myapps.microsoft.com usando a nova conta de administrador global e a senha temporária.
 5. Altere a senha do administrador global para algo que você irá lembrar.
 
-## <a name="optional--additional-server-and-forest"></a>Opcional: servidor e floresta adicionais
-A seguir está uma seção opcional que fornece etapas para criar um servidor e ou floresta adicional.  Isso pode ser usado em alguns dos tutoriais mais avançados, como o [piloto, para Azure ad Connect para o provisionamento em nuvem](tutorial-pilot-aadc-aadccp.md).
+## <a name="optional--additional-server-and-forest"></a>Opcional:  Servidor e floresta adicionais
+A seguir está uma seção opcional que fornece as etapas para criar um servidor e/ou floresta adicional.  Isso pode ser usado em alguns dos tutoriais mais avançados, como [Piloto para Azure AD Connect para o provisionamento de nuvem](tutorial-pilot-aadc-aadccp.md).
 
-Se você precisar apenas de um servidor adicional, poderá parar após a etapa- **criar a máquina virtual** e ingressar o servidor no domínio existente que foi criado acima.  
+Se você precisar apenas de um servidor adicional, poderá parar após a etapa **Criar a máquina virtual** e ingressar o servidor no domínio existente que foi criado acima.  
 
 ### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
@@ -274,7 +274,7 @@ Para concluir a criação da máquina virtual, é necessário concluir a instala
 10. Quando a instalação estiver concluída, reinicie a máquina virtual, entre e execute as atualizações do Windows para garantir que a VM seja a mais atualizada.  Instale as últimas atualizações.
 
 ### <a name="install-active-directory-prerequisites"></a>Instalar os pré-requisitos do Active Directory
-Agora que você tem uma máquina virtual ativa, precisa fazer algumas coisas antes de instalar o Active Directory.  Ou seja, você precisa renomear a máquina virtual, definir um endereço IP estático e informações de DNS e instalar as ferramentas de administração de servidor remoto.   Faça o seguinte:
+Agora que você tem uma máquina virtual ativa, precisa executar algumas etapas antes de instalar o Active Directory.  Ou seja, precisa renomear a máquina virtual, definir um endereço IP estático e informações de DNS e instalar as Ferramentas de Administração de Servidor Remoto.   Faça o seguinte:
 
 1. Abra o ISE do PowerShell como Administrador.
 2. Execute o seguinte script.
@@ -324,7 +324,7 @@ Agora que você tem uma máquina virtual ativa, precisa fazer algumas coisas ant
     Restart-Computer
     ```
 ### <a name="create-a-windows-server-ad-environment"></a>Criar um ambiente AD do Windows Server
-Agora que a VM foi criada e foi renomeada e tem um endereço IP estático, você pode instalar e configurar o Active Directory Domain Services.  Faça o seguinte:
+Agora que você tem a VM criada e ela foi renomeada e tem um endereço IP estático, pode instalar e configurar o Active Directory Domain Services.  Faça o seguinte:
 
 1. Abra o ISE do PowerShell como Administrador.
 2. Execute o seguinte script.
@@ -370,7 +370,7 @@ Agora que a VM foi criada e foi renomeada e tem um endereço IP estático, você
     ```
 
 ### <a name="create-a-windows-server-ad-user"></a>Criar um usuário do AD do Windows Server
-Agora que você tem nosso ambiente de Active Directory, precisa de uma conta de teste.  Essa conta será criada no ambiente AD local e, em seguida, sincronizada com o Azure AD.  Faça o seguinte:
+Agora que você tem o ambiente do Active Directory, precisa de uma conta de teste.  Essa conta será criada no ambiente AD local e, em seguida, sincronizada com o Azure AD.  Faça o seguinte:
 
 1. Abra o ISE do PowerShell como Administrador.
 2. Execute o seguinte script.

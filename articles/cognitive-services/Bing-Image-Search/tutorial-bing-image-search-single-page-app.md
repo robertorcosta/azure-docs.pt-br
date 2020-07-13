@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 9227417d28eb09a322dd4757033ee62fee97d91c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 6a88ca1f028efcb3b9614df532b6d2dcc9dcfac8
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78943898"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800897"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutorial: criar um aplicativo de página única usando a API de Pesquisa de Imagem do Bing
 
@@ -31,7 +31,7 @@ O aplicativo de tutorial ilustra como:
 
 O código-fonte completo deste tutorial está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * A versão mais recente do [Node.js](https://nodejs.org/).
 * A estrutura [Express.js](https://expressjs.com/) para Node.js. Instruções de instalação do código-fonte estão disponíveis no arquivo Leiame da amostra do GitHub.
@@ -316,7 +316,7 @@ function renderImageResults(items) {
 
 A API de Pesquisa de Imagem do Bing pode retornar quatro tipos de sugestões de pesquisa para ajudar a orientar as experiências de pesquisa dos usuários, cada um em seu próprio objeto de nível superior:
 
-| Sugestão         | DESCRIÇÃO                                                                                                                                                                                                         |
+| Sugestão         | Descrição                                                                                                                                                                                                         |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pivotSuggestions` | Consultas que substituem uma palavra original na pesquisa original por outra. Por exemplo, se você pesquisar "flores vermelhas", uma palavra original pode ser "vermelhas" e uma sugestão dinâmica poderá ser "flores amarelas". |
 | `queryExpansions`  | Consultas que restringem a pesquisa original com a adição de mais termos. Por exemplo, se você pesquisar "Microsoft Surface", uma expansão da consulta poderá ser "Microsoft Surface Pro".                                   |
@@ -338,7 +338,7 @@ searchItemRenderers = {
 
 Essas funções de renderizador aceitam os seguintes parâmetros:
 
-| Parâmetro         | DESCRIÇÃO                                                                                              |
+| Parâmetro         | Descrição                                                                                              |
 |---------|----------------------------------------------------------------------------------------------|
 | `item`  | O objeto do JavaScript que contém as propriedades do item, como a URL e a descrição. |
 | `index` | O índice do item de resultado na coleção.                                          |
@@ -390,15 +390,18 @@ Para fins de desenvolvimento, você pode fazer a solicitação da API de Pesquis
 
 É fácil instalar um proxy CORS para permitir que o aplicativo de tutorial acesse o cabeçalho da ID do cliente. Primeiro, caso ainda não tenha, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, emita o seguinte comando em uma janela de comando:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
 Em seguida, altere o ponto de extremidade da Pesquisa na Web do Bing no arquivo HTML para:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Por fim, inicie o proxy CORS com o seguinte comando:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Deixe a janela de comando aberta enquanto você usa o aplicativo de tutorial, já que se fechar a janela irá parar o proxy. Na seção Cabeçalhos HTTP expansíveis abaixo dos resultados da pesquisa, é possível ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e verificar se é o mesmo para cada solicitação.
 

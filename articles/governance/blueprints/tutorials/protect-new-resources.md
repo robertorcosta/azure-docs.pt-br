@@ -3,16 +3,16 @@ title: 'Tutorial: Proteger novos recursos com bloqueios'
 description: Neste tutorial, você usa as opções Somente Leitura e Não Excluir dos bloqueios de recursos do Azure Blueprints para proteger recursos recém-implantados.
 ms.date: 05/06/2020
 ms.topic: tutorial
-ms.openlocfilehash: 90ffb0f5b8c1b6d3919b05abf778c5082bfee0dc
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 738c627d350c5e11b41a65d159cf2cc7de807334
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864157"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85969633"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Proteger recursos novos com bloqueios de recursos do Azure Blueprints
 
-Com os [bloqueios de recursos](../concepts/resource-locking.md) do Azure Blueprints, é possível proteger recursos recém-implantados contra interferências, até mesmo por uma conta com a função _Proprietário_. É possível adicionar essa proteção nas definições de blueprint de recursos criados por um artefato de modelo do Resource Manager.
+Com os [bloqueios de recursos](../concepts/resource-locking.md) do Azure Blueprints, é possível proteger recursos recém-implantados contra interferências, até mesmo por uma conta com a função _Proprietário_. É possível adicionar essa proteção nas definições de blueprint dos recursos criados por um artefato de modelo do ARM (modelo do Azure Resource Manager).
 
 Neste tutorial, você concluirá estas etapas:
 
@@ -55,8 +55,7 @@ Primeiro, crie a definição de blueprint.
 1. Adicionar modelo sob o grupo de recursos:
    1. Selecione a linha **Adicionar artefato** na entrada **RGtoLock**.
    1. Selecione **Modelo do Azure Resource Manager** em **Tipo de artefato**, defina **Nome de exibição do artefato** como **StorageAccount** e deixe **Descrição** em branco.
-   1. Na guia **Modelo**, cole o seguinte modelo do Resource Manager na caixa do editor.
-      Após colar o modelo, selecione **Adicionar** para adicionar o artefato ao blueprint.
+   1. Na guia **Modelo**, cole o modelo do ARM a seguir na caixa do editor. Após colar o modelo, selecione **Adicionar** para adicionar o artefato ao blueprint.
 
    ```json
    {
@@ -166,7 +165,7 @@ Depois que a notificação do portal **A atribuição da definição do blueprin
 
 ## <a name="inspect-resources-deployed-by-the-assignment"></a>Inspecionar recursos implantados pela atribuição
 
-A atribuição cria o grupo de recursos _TestingBPLocks_ e a conta de armazenamento implantados pelo artefato de modelo do Resource Manager. O novo grupo de recursos e o estado de bloqueio selecionado são mostrados na página de detalhes de atribuição.
+A atribuição cria o grupo de recursos _TestingBPLocks_ e a conta de armazenamento implantados pelo artefato de modelo do ARM. O novo grupo de recursos e o estado de bloqueio selecionado são mostrados na página de detalhes de atribuição.
 
 1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **Blueprints**.
 

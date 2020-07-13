@@ -4,12 +4,12 @@ description: Neste tutorial, você aprenderá a reduzir horizontalmente e expand
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 6e8dbb5a56bf313bf35ad97ec6ea7df8ce483be9
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: ed212083a29836e1da593ec42c31bbf86b907546
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82788814"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611638"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
 
@@ -33,7 +33,7 @@ Nesta série de tutoriais, você aprenderá a:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial:
 
@@ -833,13 +833,12 @@ Foreach($node in $nodes)
 ```
 
 ## <a name="increase-node-resources"></a>Aumentar os recursos do nó 
-Após criar um cluster do Service Fabric, será possível dimensionar verticalmente um tipo de nó de cluster (alterar os recursos dos nós) ou atualizar o sistema operacional das VMs do tipo de nó.  
+Após criar um cluster do Service Fabric, será possível dimensionar verticalmente um tipo de nó de cluster (alterar os recursos dos nós) ou atualizar o sistema operacional das VMs do tipo de nó substituindo o tipo de nó original por um novo tipo de nó (com o SKU da VM atualizado ou a imagem do sistema operacional). Para obter mais detalhes, confira [Escalar verticalmente um tipo de nó do Azure Service Fabric](service-fabric-scale-up-node-type.md).
 
-> [!WARNING]
-> É recomendável não alterar a SKU da VM de um conjunto de dimensionamento/tipo de nó, exceto se estiver em execução na durabilidade Prata ou superior. Alterar o tamanho da SKU da VM é uma operação de infraestrutura in-loco com destruição de dados. Sem alguma habilidade para atrasar ou monitorar essa alteração, é possível que a operação possa causar perda de dados para serviços com estado ou causar outros problemas operacionais imprevistos, mesmo para cargas de trabalho sem estado.
+> [!IMPORTANT]
+> Nunca tente uma alteração in-loco do SKU da VM ou da imagem do sistema operacional, pois essa é uma operação perigosa e sem suporte.
 
-> [!WARNING]
-> É recomendável não alterar a SKU da VM do tipo de nó primário, já que é uma operação perigosa e sem suporte.  Se você precisar de mais capacidade de cluster, poderá adicionar mais instâncias de VM ou tipos de nó adicionais.  Se isso não for possível, você poderá criar um novo cluster e [restaurar o estado do aplicativo](service-fabric-reliable-services-backup-restore.md) (se aplicável) do cluster antigo.  Se isso não for possível, você poderá [alterar a SKU da VM do tipo de nó primário](service-fabric-scale-up-node-type.md).
+Se isso não for possível, você poderá criar um novo cluster e [restaurar o estado do aplicativo](service-fabric-reliable-services-backup-restore.md) (se aplicável) do cluster antigo. Você não precisa restaurar nenhum estado de serviço do sistema; eles são recriados quando você implanta os aplicativos no novo cluster. Se você estiver apenas executando aplicativos sem monitoração de estado no cluster, basta implantar os aplicativos no novo cluster; não há nada para restaurar.
 
 ### <a name="update-the-template"></a>Atualizar o modelo
 
@@ -873,19 +872,7 @@ Em seguida, avance para o próximo tutorial para saber como atualizar o runtime 
 > [!div class="nextstepaction"]
 > [Atualizar o runtime de um cluster](service-fabric-tutorial-upgrade-cluster.md)
 
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
-[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
-[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
-
-> * Adicionar e remover tipos de nó (escalar e reduzir horizontalmente)
-> * Aumentar recursos de nó (escalar verticalmente)
-
-Em seguida, avance para o próximo tutorial para saber como atualizar o runtime de um cluster.
-> [!div class="nextstepaction"]
-> [Atualizar o runtime de um cluster](service-fabric-tutorial-upgrade-cluster.md)
-
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
