@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: c06b0c79e01257eebf566b9752269cb88c072d8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57e312df31682ea868443423f40d54369cab6699
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846718"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231292"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Especificações do Azure FXT Edge Filer
 
@@ -34,9 +34,9 @@ Os números das unidades estão impressos no espaço entre elas. No Azure FXT Ed
 
 ![foto de um compartimento de disco rígido no gabinete do FXT mostrando os números das unidades e os rótulos de capacidade](media/fxt-drives-photo.png)
 
-| Números de unidade    |  Uso   |  Especificações |
+| Números de unidade    |  Usar   |  Especificações |
 |------------------|--------|-----------------|
-| 0, 1             | Sistema operacional     | SSD SATA de 480 GB |
+| 0, 1             | SO     | SSD SATA de 480 GB |
 | 2, 3, 4, 5, 6, 7, 8, 9 | Dados   | FXT 6600:3,2 TB de SSD do NVMe <br> FXT 6400:1,6 TB de SSD do NVMe |
 
 
@@ -46,7 +46,7 @@ O Azure FXT Edge Filer foi projetado para caber em um rack de equipamento padrã
 
 <!-- 10x2.5 inches version -->
 
-| Dimensões do Filer           |                          |
+| Dimensões do Filer            | Valor                    |
 |-----------------------------|--------------------------|
 | Altura                      | 42,8 mm (1,68 polegadas)    |
 | Largura (incluindo suportes adicionais) | 482 mm (18,97 polegadas)  |
@@ -56,7 +56,7 @@ O Azure FXT Edge Filer foi projetado para caber em um rack de equipamento padrã
 | Profundidade, do suporte adicional até a ponta dianteira mais distante, sem contar a borda | 22 mm (0,87 polegada)  |
 | Profundidade, do suporte adicional até a ponta dianteira mais distante, contando a borda    | 35,84 mm (1,41 polegada) |
 
-| Peso | |
+| Peso | Valor |
 |-----------------|----------------------|
 | Peso do nó (sem embalagem, sem acessórios) | 40 lb (18,1 kg) |
 | Peso líquido (sem embalagem, incluindo acessórios) | 51 lb (23,1 kg)|

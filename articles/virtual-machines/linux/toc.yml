@@ -477,6 +477,8 @@
                   items:
                     - name: De uma VM
                       href: ../image-version-vm-cli.md
+                    - name: De um VHD ou instantâneo
+                      href: ../image-version-snapshot-cli.md
                     - name: Migrar de uma imagem gerenciada
                       href: ../image-version-managed-image-cli.md
                     - name: Copiar de outra galeria
@@ -499,6 +501,8 @@
                   items:
                     - name: De uma VM
                       href: ../image-version-vm-powershell.md
+                    - name: De um VHD ou instantâneo
+                      href: ../image-version-snapshot-powershell.md
                     - name: Migrar de uma imagem gerenciada
                       href: ../image-version-managed-image-powershell.md
                     - name: Copiar de outra galeria
@@ -547,6 +551,8 @@
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Como localizar e usar imagens
           href: cli-ps-findimage.md
+        - name: Informações do plano de compra
+          href: ../marketplace-images.md
         - name: Capturar a VM para a imagem gerenciada
           href: capture-image.md
         - name: Como criar uma imagem com o Packer
@@ -945,6 +951,16 @@
           href: disks-incremental-snapshots-portal.md
         - name: Backup de discos não gerenciados
           href: incremental-snapshots.md
+        - name: Criptografia
+          items:
+            - name: Habilitar criptografia no host – CLI
+              href: disks-enable-host-based-encryption-cli.md
+            - name: Habilitar chaves gerenciadas pelo cliente – CLI
+              href: disks-enable-customer-managed-keys-cli.md
+            - name: Habilitar chaves gerenciadas pelo cliente – Portal
+              href: disks-enable-customer-managed-keys-portal.md
+            - name: Habilitar criptografia dupla em repouso
+              href: disks-enable-double-encryption-at-rest-cli.md
         - name: Migração e conversão
           items:
             - name: Migrar para o armazenamento Premium com o Azure Site Recovery

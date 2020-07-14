@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.openlocfilehash: 50a7e9520730159ad2df3ec3e0b75fcfa0c5ce0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dae6b40e7ec8a2bb6f635a6ffca4886ed09c1364
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450580"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229526"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Solucionando problemas de falha de carregamento do SDK para aplicativos Web JavaScript
 
@@ -75,11 +76,11 @@ Se você confirmar que há uma interrupção, poderá [criar um novo tíquete de
 Como o trecho de código e sua configuração são retornados por seu aplicativo como parte de cada página gerada, você pode alterar a configuração de trecho `src` para usar uma URL diferente para o SDK. Ao usar essa abordagem, você pode ignorar o problema bloqueado da CDN, pois a nova URL não deve ser bloqueada.
 
 Pontos de extremidade CDN atuais do Application Insights SDK do JavaScript
-- https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js
-- https://js.monitor.azure.com/scripts/b/ai.2.min.js
+- `https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js`
+- `https://js.monitor.azure.com/scripts/b/ai.2.min.js`
 
 > [!NOTE]
-> O https://js.monitor.azure.com/ ponto de extremidade é um alias que nos permite alternar entre os provedores de CDN em aproximadamente 5 minutos, sem a necessidade de alterar qualquer configuração. Isso é para nos permitir corrigir problemas de CDN detectados mais rapidamente se um provedor CDN estiver tendo problemas regionais ou globais sem exigir que todos ajustem suas configurações.
+> O `https://js.monitor.azure.com/` ponto de extremidade é um alias que nos permite alternar entre os provedores de CDN em aproximadamente 5 minutos, sem a necessidade de alterar qualquer configuração. Isso é para nos permitir corrigir problemas de CDN detectados mais rapidamente se um provedor CDN estiver tendo problemas regionais ou globais sem exigir que todos ajustem suas configurações.
 
 ## <a name="sdk-failed-to-initialize-after-loading-the-script"></a>Falha na inicialização do SDK após o carregamento do script
 

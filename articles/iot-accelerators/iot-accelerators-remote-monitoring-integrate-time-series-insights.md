@@ -8,11 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edf669eb813240505cba8faef41e166785cc5b18
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77564637"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232059"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrar o Azure Time Series Insights com o Monitoramento Remoto
 
@@ -56,7 +57,7 @@ Em seguida, implante os Insights do Time Series como um recurso adicional em sua
 
 1. Para criar seu ambiente do Time Series Insights, use os valores da tabela a seguir:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Nome do ambiente | A captura de tela a seguir usa o nome **contorosrmtsi**. Ao concluir esta etapa, escolha seu próprio nome exclusivo. |
     | Subscription | Na lista suspensa, selecione sua assinatura do Azure. |
@@ -85,10 +86,10 @@ Crie uma nova fonte de evento para se conectar ao hub IoT. Use o grupo de consum
 
 1. Para configurar seu hub IoT como uma nova origem do evento, use os valores da tabela a seguir:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Nome da origem do evento | A captura de tela a seguir usa o nome **contosorm-iot-hub**. Ao concluir esta etapa, use seu próprio nome exclusivo. |
-    | Origem | **Hub IoT** |
+    | Fonte | **Hub IoT** |
     | Importar opção | **Usar o Hub IoT nas assinaturas disponíveis** |
     | ID da assinatura | Na lista suspensa, selecione sua assinatura do Azure. |
     | Nome do Hub IoT | **contosorma57a6**. Use o nome do seu hub IoT na solução de Monitoramento Remoto. |
@@ -243,7 +244,7 @@ Configure o ambiente da implementação de `basic` para os microsserviços atual
 
 Configurar o ambiente de `standard` implantação para os serviços de micro atualizados acima
 
-1. Na linha de comando, execute `kubectl proxy`. Para mais informações, consulte [acessando a API do Kubernetes](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/#using-kubectl-to-start-a-proxy-server).
+1. Na linha de comando, execute `kubectl proxy`. Para mais informações, consulte [acessando a API do Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/).
 
 1. Abra o console de gerenciamento do Kubernetes.
 

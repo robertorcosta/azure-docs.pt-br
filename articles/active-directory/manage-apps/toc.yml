@@ -5,6 +5,8 @@
   items:
     - name: O que é gerenciamento de aplicativos?
       href: what-is-application-management.md
+    - name: O que é SSO (logon único)?
+      href: what-is-single-sign-on.md
 - name: Inícios rápidos
   items:
     - name: Exibir seus aplicativos
@@ -19,6 +21,8 @@
       href: delete-application-portal.md
 - name: Tutoriais
   items:
+    - name: Adicionar um aplicativo não listado na galeria
+      href: add-non-gallery-app.md
     - name: 'Aplicativos integrados da galeria (por exemplo, ServiceNow, Salesforce, Dropbox)'
       href: /azure/active-directory/saas-apps/
     - name: Adicionar um aplicativo local por meio do Proxy de Aplicativo
@@ -46,8 +50,6 @@
               href: developer-guidance-for-integrating-applications.md
         - name: Logon único
           items:
-            - name: O que é logon único?
-              href: what-is-single-sign-on.md
             - name: Habilitar o SSO para seu aplicativo multilocatário
               href: isv-sso-content.md
             - name: Criar um locatário do Azure para o aplicativo multilocatário
@@ -103,10 +105,6 @@
   items:
     - name: Aplicativos de nuvem e logon único
       items:
-        - name: Adicionar um aplicativo de nuvem
-          items:
-            - name: Adicionar um aplicativo inexistente na galeria
-              href: add-non-gallery-app.md
         - name: Configurar o logon único
           items:
             - name: Configurar o logon único baseado em SAML
@@ -143,6 +141,8 @@
               href: configure-admin-consent-workflow.md
             - name: Atribuir um usuário ou um grupo a um aplicativo
               href: assign-user-or-group-access-portal.md
+            - name: Examinar permissões concedidas a aplicativos
+              href: manage-application-permissions.md
             - name: Criar coleções em Meus Aplicativos
               href: access-panel-collections.md
             - name: Usar o acesso a aplicativo de autoatendimento

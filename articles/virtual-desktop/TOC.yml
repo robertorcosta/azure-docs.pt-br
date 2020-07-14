@@ -23,7 +23,7 @@
     - name: Conectar-se a recursos de Área de Trabalho Virtual do Windows
       items:
         - name: Conectar-se ao Cliente de Área de Trabalho do Windows
-          href: connect-windows-7-and-10.md
+          href: connect-windows-7-10.md
         - name: Conectar-se ao cliente Web
           href: connect-web.md
         - name: Conectar-se ao cliente Android
@@ -38,6 +38,8 @@
       items:
         - name: PowerShell
           href: create-host-pools-powershell.md
+        - name: Implantar uma máquina virtual do Windows 7
+          href: deploy-windows-7-virtual-machine.md
         - name: Implantar um host da sessão baseado em GPU
           href: configure-vm-gpu.md
         - name: Expandir um pool de hosts existente
@@ -90,6 +92,8 @@
       href: language-packs.md
 - name: Conceitos
   items:
+    - name: Lista de URL segura
+      href: safe-url-list.md
     - name: Ambiente da Área de Trabalho Virtual do Windows
       href: environment-setup.md
     - name: Determinar a latência de conexão do usuário

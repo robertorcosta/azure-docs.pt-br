@@ -225,7 +225,7 @@ Aqui estão os status de uma ordem de importação.
 |Concluído com erros| A cópia de dados foi concluída, mas apresentou erros. <br> Examine os logs de cópia usando o caminho fornecido no portal do Azure. Consulte [exemplos de logs de cópia quando o upload for concluído com erros](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
 |Concluído com avisos| A cópia de dados foi concluída, mas os dados foram modificados. Os dados tinham erros não críticos de BLOB ou de nome de arquivo que foram corrigidos alterando os nomes de arquivo ou BLOB. <br> Examine os logs de cópia usando o caminho fornecido no portal do Azure. Anote as modificações em seus dados. Consulte [exemplos de logs de cópia quando o upload for concluído com avisos](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
 |Canceled            |Pedido cancelado. <br> Você cancelou o pedido ou ocorreu um erro e o serviço cancelou o pedido. Se o pedido não puder ser processado em até 90 dias, ele também será cancelado e você será notificado.     |
-|Limpeza | Os dados nos discos do dispositivo foram apagados. A limpeza do dispositivo é considerada concluída quando o histórico de pedidos fica disponível no portal do Azure.|
+|Limpar | Os dados nos discos do dispositivo foram apagados. A limpeza do dispositivo é considerada concluída quando o histórico de pedidos fica disponível no portal do Azure.|
 
 ### <a name="statuses-for-export-order"></a>Status da ordem de exportação
 
@@ -246,7 +246,7 @@ Aqui estão os status de uma ordem de exportação.
 |Recolhido     |A remessa de devolução foi recolhida e verificada pela transportadora.         |
 |Recebido     | O dispositivo foi recebido e verificado no datacenter do Azure. <br> A remessa é inspecionada.      |
 |Concluído           |A ordem foi concluída.     |
-|Limpeza | Os dados nos discos do dispositivo foram apagados. A limpeza do dispositivo é considerada concluída quando o histórico de pedidos fica disponível no portal do Azure.|
+|Limpar | Os dados nos discos do dispositivo foram apagados. A limpeza do dispositivo é considerada concluída quando o histórico de pedidos fica disponível no portal do Azure.|
 
 > [!NOTE]
 > Se o trabalho de cópia para exportar dados das contas de armazenamento do Azure para Data Box for concluído com erros ou avisos, o dispositivo ainda será enviado. Somente no caso de uma falha de cópia, a ordem é encerrada e o dispositivo não é enviado.
