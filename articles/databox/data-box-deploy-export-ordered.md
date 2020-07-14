@@ -70,7 +70,7 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
     |---------|---------|
     |Tipo de transferência     | Selecione **exportar para o Azure**.        |
     |Subscription     | Selecione uma assinatura do EA, do CSP ou do Azure Sponsorship para o serviço Data Box. <br> A assinatura está vinculada à sua conta de cobrança.       |
-    |Grupo de recursos     |    Selecione um grupo de recursos existente. <br> Um grupo de recursos é um contêiner lógico para os recursos que podem ser gerenciados ou implantados juntos.         |
+    |Resource group     |    Selecione um grupo de recursos existente. <br> Um grupo de recursos é um contêiner lógico para os recursos que podem ser gerenciados ou implantados juntos.         |
     |Região do Azure de origem    |    Selecione a região do Azure na qual seus dados estão atualmente.         |
     |País de destino     |     Selecione o país em que deseja enviar o dispositivo.        |
 
@@ -84,8 +84,8 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
     |Configuração  |Valor  |
     |---------|---------|
-    |Assinatura     | A assinatura é preenchida automaticamente com base na sua seleção anterior.|
-    |Grupo de recursos | O grupo de recursos que você selecionou anteriormente. |
+    |Subscription     | A assinatura é preenchida automaticamente com base na sua seleção anterior.|
+    |Resource group | O grupo de recursos que você selecionou anteriormente. |
     |Nome da ordem de exportação     |  Forneça um nome amigável para acompanhar o pedido. <br> O nome pode ter entre 3 e 24 caracteres que podem ser letras, números e hífens. <br> O nome deve começar e terminar com uma letra ou um número.      |
 
     ![Noções básicas de ordem de exportação](media/data-box-deploy-export-ordered/azure-data-box-export-03.png)
@@ -205,11 +205,11 @@ Se a entrega autogerenciada foi selecionada, você receberá uma notificação p
 
 ## <a name="cancel-the-order"></a>Cancelar o pedido
 
-Para cancelar esse pedido, na portal do Azure, acesse **visão geral** e selecione **Cancelar** na barra de comandos.
+Para cancelar esse pedido, no portal do Azure, vá para **Visão geral** e selecione **Cancelar** na barra de comandos.
 
 Depois de fazer um pedido, você pode cancelá-lo a qualquer momento antes de o pedido começar a ser processado.
 
-Para excluir uma ordem cancelada, acesse **visão geral** e selecione **excluir** na barra de comandos.
+Para excluir um pedido cancelado, vá para **Visão geral** e selecione **Excluir** na barra de comandos.
 
 ## <a name="sample-xml-file"></a>Arquivo XML de exemplo
 

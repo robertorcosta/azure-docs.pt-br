@@ -7,13 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/22/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 35f92afea9f9e8da3cf1eeefa81cac0cb712843a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2802445bbb80a4412787362a3ee9aaee4adcd40
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734615"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223492"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrar Azure Active Directory Domain Services do modelo de rede virtual clássica para o Gerenciador de recursos
 
@@ -45,7 +46,7 @@ No estágio de *migração* , os discos virtuais subjacentes para os controlador
 Alguns cenários comuns para migrar um domínio gerenciado incluem os exemplos a seguir.
 
 > [!NOTE]
-> Não converta a rede virtual clássica até que você tenha confirmado uma migração bem-sucedida. A conversão da rede virtual remove a opção de reverter ou restaurar o domínio gerenciado se houver problemas durante os estágios de migração e verificação.
+> Não converta a rede virtual clássica até confirmar uma migração bem-sucedida. A conversão da rede virtual remove a opção de reverter ou restaurar o domínio gerenciado se houver problemas durante os estágios de migração e verificação.
 
 ### <a name="migrate-azure-ad-ds-to-an-existing-resource-manager-virtual-network-recommended"></a>Migrar AD DS do Azure para uma rede virtual do Resource Manager existente (recomendado)
 
@@ -97,13 +98,15 @@ As etapas de alto nível envolvidas neste cenário de migração de exemplo incl
 
 Os endereços IP do controlador de domínio para um domínio gerenciado são alterados após a migração. Essa alteração inclui o endereço IP público para o ponto de extremidade LDAP seguro. Os novos endereços IP estão dentro do intervalo de endereços para a nova sub-rede na rede virtual do Resource Manager.
 
-No caso da reversão, os endereços IP podem mudar após a reversão.
+Se você precisar reverter, os endereços IP poderão mudar após a reversão.
 
 O Azure AD DS normalmente usa os dois primeiros endereços IP disponíveis no intervalo de endereços, mas isso não é garantido. No momento, não é possível especificar os endereços IP a serem usados após a migração.
 
 ### <a name="downtime"></a>Tempo de inatividade
 
-O processo de migração envolve os controladores de domínio que estão offline por um período de tempo. Os controladores de domínio ficam inacessíveis enquanto o Azure AD DS é migrado para o modelo de implantação do Gerenciador de recursos e para a rede virtual. Em média, o tempo de inatividade é de cerca de 1 a 3 horas. Esse período de tempo é de quando os controladores de domínio são colocados offline no momento em que o primeiro controlador de domínio volta a ficar online. Essa média não inclui o tempo que leva para o segundo controlador de domínio ser replicado ou o tempo que pode levar para migrar recursos adicionais para o modelo de implantação do Gerenciador de recursos.
+O processo de migração envolve os controladores de domínio que estão offline por um período de tempo. Os controladores de domínio ficam inacessíveis enquanto o Azure AD DS é migrado para o modelo de implantação do Gerenciador de recursos e para a rede virtual.
+
+Em média, o tempo de inatividade é de cerca de 1 a 3 horas. Esse período de tempo é de quando os controladores de domínio são colocados offline no momento em que o primeiro controlador de domínio volta a ficar online. Essa média não inclui o tempo que leva para o segundo controlador de domínio ser replicado ou o tempo que pode levar para migrar recursos adicionais para o modelo de implantação do Gerenciador de recursos.
 
 ### <a name="account-lockout"></a>Bloqueio de conta
 
@@ -206,7 +209,7 @@ Para preparar o domínio gerenciado para migração, conclua as seguintes etapas
 
 ## <a name="migrate-the-managed-domain"></a>Migrar o domínio gerenciado
 
-Com o domínio gerenciado preparado e submetido a backup, o domínio pode ser migrado. Esta etapa recria as VMs do controlador de domínio Azure AD Domain Services usando o modelo de implantação do Gerenciador de recursos. Esta etapa pode levar de 1 a 3 horas para ser concluída.
+Com o domínio gerenciado preparado e submetido a backup, o domínio pode ser migrado. Esta etapa recria as VMs do controlador de domínio AD DS do Azure usando o modelo de implantação do Gerenciador de recursos. Esta etapa pode levar de 1 a 3 horas para ser concluída.
 
 Execute o `Migrate-Aadds` cmdlet usando o parâmetro *-Commit* . Forneça o *-ManagedDomainFqdn* para seu próprio domínio gerenciado preparado na seção anterior, como *aaddscontoso.com*:
 
@@ -247,10 +250,12 @@ Com o modelo de implantação do Gerenciador de recursos, os recursos de rede pa
 
 Quando pelo menos um controlador de domínio estiver disponível, conclua as seguintes etapas de configuração para conectividade de rede com VMs:
 
-* **Atualizar configurações do servidor DNS** Para permitir que outros recursos na rede virtual do Resource Manager resolvam e usem o domínio gerenciado, atualize as configurações de DNS com os endereços IP dos novos controladores de domínio. O portal do Azure pode configurar automaticamente essas configurações para você. Para saber mais sobre como configurar a rede virtual do Resource Manager, consulte [Atualizar configurações de DNS para a rede virtual do Azure][update-dns].
+* **Atualizar configurações do servidor DNS** Para permitir que outros recursos na rede virtual do Resource Manager resolvam e usem o domínio gerenciado, atualize as configurações de DNS com os endereços IP dos novos controladores de domínio. O portal do Azure pode configurar automaticamente essas configurações para você.
+
+    Para saber mais sobre como configurar a rede virtual do Resource Manager, consulte [Atualizar configurações de DNS para a rede virtual do Azure][update-dns].
 * **Reiniciar VMs ingressadas no domínio** -como os endereços IP do servidor DNS para os controladores de domínio do AD DS do Azure mudam, reinicie qualquer VM ingressada no domínio para que elas usem as novas configurações do servidor DNS. Se os aplicativos ou as VMs tiverem configurado manualmente as configurações de DNS, atualize-as manualmente com os novos endereços IP do servidor DNS dos controladores de domínio mostrados no portal do Azure.
 
-Agora, teste a conexão de rede virtual e a resolução de nomes. Em uma VM que está conectada à rede virtual do Resource Manager ou emparelhada a ela, experimente os seguintes testes de comunicação de rede:
+Agora, teste a conexão de rede virtual e a resolução de nomes. Em uma VM conectada à rede virtual do Resource Manager ou emparelhada a ela, experimente os seguintes testes de comunicação de rede:
 
 1. Verifique se você pode executar o ping no endereço IP de um dos controladores de domínio, como`ping 10.1.0.4`
     * Os endereços IP dos controladores de domínio são mostrados na página de **Propriedades** do domínio gerenciado no portal do Azure.
@@ -269,7 +274,7 @@ O Azure AD DS expõe logs de auditoria para ajudar a solucionar problemas e exib
 
 Você pode usar modelos para monitorar informações importantes expostas nos logs. Por exemplo, o modelo de pasta de trabalho log de auditoria pode monitorar possíveis bloqueios de conta no domínio gerenciado.
 
-### <a name="configure-azure-ad-domain-services-email-notifications"></a>Configurar Azure AD Domain Services notificações por email
+### <a name="configure-email-notifications"></a>Configurar notificações por email
 
 Para ser notificado quando um problema for detectado no domínio gerenciado, atualize as configurações de notificação de email no portal do Azure. Para obter mais informações, consulte [definir configurações de notificação][notifications].
 
@@ -296,7 +301,7 @@ Até um determinado ponto no processo de migração, você pode optar por revert
 
 ### <a name="roll-back"></a>Reverter
 
-Se houver um erro quando você executar o cmdlet do PowerShell para se preparar para a migração na etapa 2 ou para a migração em si na etapa 3, o domínio gerenciado poderá reverter para a configuração original. Essa reversão requer a rede virtual clássica original. Observe que os endereços IP ainda podem ser alterados após a reversão.
+Se houver um erro quando você executar o cmdlet do PowerShell para se preparar para a migração na etapa 2 ou para a migração em si na etapa 3, o domínio gerenciado poderá reverter para a configuração original. Essa reversão requer a rede virtual clássica original. Os endereços IP ainda podem ser alterados após a reversão.
 
 Execute o `Migrate-Aadds` cmdlet usando o parâmetro *-Abort* . Forneça o *-ManagedDomainFqdn* para seu próprio domínio gerenciado preparado em uma seção anterior, como *aaddscontoso.com*e o nome da rede virtual clássica, como *myClassicVnet*:
 

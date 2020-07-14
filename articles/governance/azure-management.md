@@ -1,16 +1,16 @@
 ---
 title: Visão geral do Gerenciamento do Azure - Governança do Azure
 description: Visão geral das áreas de gerenciamento de aplicativos do Azure e recursos com links para conteúdo sobre ferramentas de gerenciamento do Azure.
-ms.date: 05/22/2020
+ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: e293ab743b7c3b49a13cab97200c136a9bd044f5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 81d655db706a7330fc541724d490a4885cc2fe8b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828140"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041907"
 ---
-# <a name="overview-of-management-services-in-azure"></a>Visão geral dos serviços de gerenciamento do Azure
+# <a name="what-are-the-azure-management-areas"></a>Quais são as áreas de Gerenciamento do Azure?
 
 A Governança no Azure é um aspecto do Gerenciamento do Azure. Este artigo aborda as diferentes áreas de gerenciamento para implantar e manter os recursos no Azure.
 
@@ -26,7 +26,7 @@ As seções a seguir descrevem resumidamente as diferentes áreas de gerenciamen
 
 ## <a name="monitor"></a>Monitoramento
 
-Monitoramento é o ato de coletar e analisar dados para auditar o desempenho, a integridade e a disponibilidade dos recursos. Uma estratégia de monitoramento eficaz ajuda a compreender a operação dos componentes e aumentar o tempo de atividade com notificações. Leia uma visão geral do monitoramento que identifica os diferentes serviços usados no [Monitoramento de aplicativos e recursos do Azure](../monitoring/monitoring-overview.md).
+Monitoramento é o ato de coletar e analisar dados para auditar o desempenho, a integridade e a disponibilidade dos recursos. Uma estratégia de monitoramento eficaz ajuda a compreender a operação dos componentes e aumentar o tempo de atividade com notificações. Leia uma visão geral do monitoramento que identifica os diferentes serviços usados no [Monitoramento de aplicativos e recursos do Azure](../azure-monitor/overview.md).
 
 ## <a name="configure"></a>Configurar
 
@@ -46,9 +46,16 @@ Gerencie a segurança dos seus recursos e dados. Um programa de segurança envol
 
 ## <a name="protect"></a>Proteger
 
-Proteção refere-se a manter os aplicativos e dados disponíveis, mesmo com interrupções que estão além do seu controle. A proteção no Azure é fornecida por dois serviços. O [Backup do Azure](../backup/backup-introduction-to-azure-backup.md) fornece backup e recuperação de seus dados, tanto na nuvem como localmente. O [Azure Site Recovery](../site-recovery/site-recovery-overview.md) fornece continuidade dos negócios e recuperação imediata durante um desastre.
+Proteção refere-se a manter os aplicativos e dados disponíveis, mesmo com interrupções que estão além do seu controle. A proteção no Azure é fornecida por dois serviços. O [Backup do Azure](../backup/backup-overview.md) fornece backup e recuperação de seus dados, tanto na nuvem como localmente. O [Azure Site Recovery](../site-recovery/site-recovery-overview.md) fornece continuidade dos negócios e recuperação imediata durante um desastre.
 
 ## <a name="migrate"></a>Migrar
 
 Migração refere-se à transição de cargas de trabalho atualmente em execução localmente para a nuvem do Azure.
-[Migrações para Azure](../migrate/migrate-overview.md) é um serviço que ajuda a avaliar a adequação de migração de máquinas virtuais locais para o Azure. O Azure Site Recovery migra máquinas virtuais [do local](../site-recovery/migrate-tutorial-on-premises-azure.md) ou [do Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md). A [Migração de Banco de Dados Azure](../dms/dms-overview.md) ajuda você na migração de fontes de banco de dados para plataformas do Azure Data.
+[Migrações para Azure](../migrate/migrate-services-overview.md) é um serviço que ajuda a avaliar a adequação de migração de máquinas virtuais locais para o Azure. O Azure Site Recovery migra máquinas virtuais [do local](../site-recovery/migrate-tutorial-on-premises-azure.md) ou [do Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md). A [Migração de Banco de Dados Azure](../dms/dms-overview.md) ajuda você na migração de fontes de banco de dados para plataformas do Azure Data.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para saber mais sobre a Governança do Azure, leia estes artigos:
+
+- Confira o [Hub de Governança do Azure](./index.yml).
+- Confira [Governança no Cloud Adoption Framework para o Azure](/azure/cloud-adoption-framework/govern/)

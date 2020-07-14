@@ -3,16 +3,16 @@ title: 'Início Rápido: Criar um blueprint no portal'
 description: Neste início rápido, você usa o Azure Blueprints para criar, definir e implantar artefatos por meio do portal do Azure.
 ms.date: 03/25/2020
 ms.topic: quickstart
-ms.openlocfilehash: dd50b1833f16d364a4494483fcccfee017bb982b
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: dfd0aeb22801776fc9effdf8d0418a9c9b6ab802
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381900"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045205"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Início Rápido: Definir e atribuir um blueprint no portal
 
-Aprender a criar e atribuir blueprints permite definir padrões comuns para desenvolver configurações reutilizáveis e que podem ser implantadas rapidamente com base em modelos do Azure Resource Manager, políticas, segurança e muito mais. Neste tutorial, você aprenderá a usar o Azure Blueprints para executar algumas das tarefas comuns relacionadas à criação, publicação e atribuição de um blueprint dentro de sua organização. Essas tarefas incluem:
+Quando você aprende a criar e atribuir blueprints, pode definir padrões comuns para desenvolver configurações reutilizáveis e que podem ser implantadas rapidamente com base em modelos do ARM (modelos do Azure Resource Manager), políticas, segurança e muito mais. Neste tutorial, você aprenderá a usar o Azure Blueprints para executar algumas das tarefas comuns relacionadas à criação, publicação e atribuição de um blueprint dentro de sua organização. Essas tarefas incluem:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -85,8 +85,7 @@ A primeira etapa na definição de um modelo padrão para conformidade é compor
 
    1. Selecione **Modelo do Azure Resource Manager** para **Tipo de artefato**, defina **Nome de exibição do artefato** como **StorageAccount** e deixe **Descrição** em branco.
 
-   1. Na guia **Template** na caixa do editor, cole o seguinte modelo do Resource Manager.
-      Depois de colar o modelo, selecione a guia **Parâmetros** e observe que os parâmetros de modelo **storageAccountType** e **local** foram detectados. Cada parâmetro foi automaticamente detectado e preenchido, mas configurado como um parâmetro dinâmico.
+   1. Na guia **Modelo** na caixa do editor, cole o modelo ARM a seguir. Depois de colar o modelo, selecione a guia **Parâmetros** e observe que os parâmetros de modelo **storageAccountType** e **local** foram detectados. Cada parâmetro foi automaticamente detectado e preenchido, mas configurado como um parâmetro dinâmico.
 
       > [!IMPORTANT]
       > Se estiver importando o modelo, verifique se o arquivo é apenas JSON e não inclui HTML. Ao apontar para uma URL no GitHub, assegure-se de ter clicado em **RAW** para obter o arquivo JSON puro e não aquele envolvido com HTML para exibição no GitHub. Um erro ocorrerá se o modelo importado não for puramente JSON.
@@ -140,7 +139,7 @@ A primeira etapa na definição de um modelo padrão para conformidade é compor
       }
       ```
 
-   1. Remova a marca da caixa de seleção **storageAccountType** e observe que a lista suspensa contém apenas valores incluídos no modelo do Resource Manager em **allowedValues**. Verifique a caixa para defini-lo de volta para um parâmetro dinâmico.
+   1. Remova a marca da caixa de seleção **storageAccountType** e observe que a lista suspensa contém apenas valores incluídos no modelo do ARM em **allowedValues**. Verifique a caixa para defini-lo de volta para um parâmetro dinâmico.
 
    1. Clique em **Adicionar** para adicionar este artefato ao blueprint.
 
@@ -207,7 +206,7 @@ Depois que um blueprint for publicado, ele poderá ser atribuído a uma assinatu
 
 1. Na página **Atribuir blueprint**, selecione as assinaturas para as quais deseja implantar esse blueprint na lista suspensa **Assinatura**.
 
-   Se as ofertas do Enterprise com suporte estiverem disponíveis em [Cobrança do Azure](../../billing/index.md), um link **Criar novo** será ativado na caixa **Assinatura**. Siga estas etapas:
+   Se as ofertas do Enterprise com suporte estiverem disponíveis em [Cobrança do Azure](../../cost-management-billing/index.yml), um link **Criar novo** será ativado na caixa **Assinatura**. Siga estas etapas:
 
    1. Selecione o link **Criar novo** para criar uma nova assinatura, em vez de selecionar os existentes.
 
@@ -249,7 +248,7 @@ Depois que um blueprint for publicado, ele poderá ser atribuído a uma assinatu
    > Para cada artefato que foi incluído no grupo de recursos durante a definição do blueprint, esse artefato é recuado para alinhar com o grupo de recursos ou objeto com o qual será implementado.
    > Os artefatos que não receberem parâmetros ou não tiverem parâmetros a serem definidos na atribuição serão listados apenas para informações contextuais.
 
-1. No modelo **StorageAccount** do Azure Resource Manager, selecione **Standard_GRS** para o parâmetro **storageAccountType**.
+1. No modelo **StorageAccount** do ARM, selecione **Standard_GRS** para o parâmetro **storageAccountType**.
 
 1. Leia a caixa de informações na parte inferior da página e selecione **Atribuir**.
 

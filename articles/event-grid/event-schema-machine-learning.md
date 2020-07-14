@@ -3,12 +3,12 @@ title: Azure Machine Learning como fonte da grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos de Workspace do Machine Learning com a grade de eventos do Azure
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 11d8c38ee041ac9278e08166c4c060cdad87655f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b5a39539a6f39c78251a3cc7788b8e5ee4babbf9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102490"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181515"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning como uma fonte de grade de eventos
 
@@ -26,7 +26,7 @@ Azure Machine Learning emite os seguintes tipos de evento:
 | Microsoft. MachineLearningServices. ModelDeployed | Gerado quando modelo (s) foram implantados com êxito em um ponto de extremidade. |
 | Microsoft. MachineLearningServices. RunCompleted | Gerado quando uma execução é concluída com êxito. |
 | Microsoft. MachineLearningServices. DatasetDriftDetected | Gerado quando um monitor de descompasso de conjunto de uma detecta descompasso. |
-| Microsoft. MachineLearningServices. RunStatusChanged | Gerado quando um status de execução é alterado para ' Failed '. |
+| Microsoft. MachineLearningServices. RunStatusChanged | Gerado quando um status de execução é alterado. |
 
 ### <a name="the-contents-of-an-event-response"></a>O conteúdo de uma resposta de evento
 
@@ -189,13 +189,13 @@ Um evento tem os seguintes dados de nível superior:
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
+| subject | string | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Um dos tipos de evento registrados para a origem do evento. |
 | eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | id | string | Identificador exclusivo do evento. |
 | data | objeto | Dados de eventos do armazenamento de blob. |
-| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. Grade de Eventos define o esquema de propriedades de nível superior. A Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 

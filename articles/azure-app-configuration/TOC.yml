@@ -103,6 +103,8 @@
       href: howto-import-export-data.md
     - name: Rotear eventos para um ponto de extremidade personalizado
       href: howto-app-configuration-event.md
+    - name: Fazer backup do repositório de configurações automaticamente
+      href: howto-backup-config-store.md
     - name: Práticas recomendadas
       href: howto-best-practices.md
 - name: Referência

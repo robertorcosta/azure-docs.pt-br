@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9fe61cf2a53b8e128a6cb58465cbb4785faa89d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6e66dc05ac2b6e54a1be94576b8686390949145
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562046"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171832"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Como modelar tipos de dados complexos no Azure Pesquisa Cognitiva
 
@@ -111,7 +111,7 @@ As expressões de pesquisa de forma livre funcionam como esperado com tipos comp
 
 As consultas são mais nuances quando você tem vários termos e operadores, e alguns termos têm nomes de campo especificados, como é possível com a [sintaxe Lucene](query-lucene-syntax.md). Por exemplo, essa consulta tenta corresponder a dois termos, "Portland" e "OR", em relação a dois subcampos do campo de endereço:
 
-    search=Address/City:Portland AND Address/State:OR
+> `search=Address/City:Portland AND Address/State:OR`
 
 Consultas como essa não são *correlacionadas* para pesquisa de texto completo, ao contrário de filtros. Em filtros, as consultas em subcampos de uma coleção complexa são correlacionadas usando variáveis de intervalo no [ `any` ou `all` ](search-query-odata-collection-operators.md)no. A consulta Lucene acima retorna documentos contendo "Portland, Maine" e "Portland, Oregon", juntamente com outras cidades no Oregon. Isso acontece porque cada cláusula se aplica a todos os valores de seu campo no documento inteiro, portanto, não há um conceito de "subdocumento atual". Para obter mais informações sobre isso, consulte [noções básicas sobre filtros de coleção OData no Azure pesquisa cognitiva](search-query-understand-collection-filters.md).
 
@@ -119,7 +119,7 @@ Consultas como essa não são *correlacionadas* para pesquisa de texto completo,
 
 O `$select` parâmetro é usado para escolher quais campos são retornados nos resultados da pesquisa. Para usar esse parâmetro para selecionar subcampos específicos de um campo complexo, inclua o campo pai e o subcampo separados por uma barra ( `/` ).
 
-    $select=HotelName, Address/City, Rooms/BaseRate
+> `$select=HotelName, Address/City, Rooms/BaseRate`
 
 Os campos devem ser marcados como recuperáveis no índice, se você quiser nos resultados da pesquisa. Somente os campos marcados como recuperáveis podem ser usados em uma `$select` instrução.
 
@@ -143,11 +143,11 @@ As operações de classificação funcionam quando os campos têm um único valo
 
 Você pode se referir a subcampos de um campo complexo em uma expressão de filtro. Basta usar a mesma [sintaxe de caminho OData](query-odata-filter-orderby-syntax.md) usada para facetar, classificar e selecionar campos. Por exemplo, o seguinte filtro retornará todos os hotéis no Canadá:
 
-    $filter=Address/Country eq 'Canada'
+> `$filter=Address/Country eq 'Canada'`
 
 Para filtrar em um campo de coleção complexo, você pode usar uma **expressão lambda** com os [ `any` `all` operadores e](search-query-odata-collection-operators.md). Nesse caso, a **variável de intervalo** da expressão lambda é um objeto com subcampos. Você pode consultar esses subcampos com a sintaxe de caminho OData padrão. Por exemplo, o filtro a seguir retornará todos os hotéis com pelo menos uma sala de luxo e todos os quartos não fumantes:
 
-    $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
+> `$filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)`
 
 Assim como acontece com campos simples de nível superior, subcampos simples de campos complexos só podem ser incluídos em filtros se eles tiverem o atributo **filtrável** definido como `true` na definição do índice. Para obter mais informações, consulte a [referência de API CREATE INDEX](/rest/api/searchservice/create-index).
 

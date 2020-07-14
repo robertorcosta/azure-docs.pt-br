@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: a3e78ff2936cb3dbbc1bcf432f130fbd17622d14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc41152bb39b0f5022d51dbefe16e3d56107c457
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610057"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223451"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conhecidos e solução de problemas no Azure Machine Learning
 
@@ -147,11 +147,11 @@ Para obter mais informações sobre solução de problemas, consulte [próximas 
 
 * **Portal do Azure**: se você for diretamente para exibir seu espaço de trabalho em um link de compartilhamento no SDK ou no portal, você não poderá exibir a página de **visão geral** normal com as informações de assinatura na extensão. Você também não poderá alternar para outro workspace. Se você precisar exibir outro espaço de trabalho, vá diretamente para [Azure Machine Learning Studio](https://ml.azure.com) e pesquise o nome do espaço de trabalho.
 
-## <a name="set-up-your-environment"></a>Configurar seu ambiente
+## <a name="set-up-your-environment"></a>Configure seu ambiente
 
 * **Problemas ao criar AmlCompute**: há uma chance rara de que alguns usuários que criaram seu espaço de trabalho Azure Machine Learning do portal do Azure antes da versão GA talvez não possam criar AmlCompute nesse espaço de trabalho. Você pode gerar uma solicitação de suporte em relação ao serviço ou criar um novo espaço de trabalho por meio do portal ou do SDK para desbloquear-se imediatamente.
 
-## <a name="work-with-data"></a>Trabalhe usando dados
+## <a name="work-with-data"></a>Trabalhar com dados
 
 ### <a name="overloaded-azurefile-storage"></a>Armazenamento do Azurefile sobrecarregado
 
@@ -181,7 +181,27 @@ Se você estiver usando o compartilhamento de arquivos para outras cargas de tra
 |Ao revisar imagens, as imagens rotuladas recentemente não são mostradas.     |   Para carregar todas as imagens rotuladas, escolha o **primeiro** botão. O **primeiro** botão o levará de volta à frente da lista, mas carregará todos os dados rotulados.      |
 |Pressionar a tecla ESC enquanto rotular para detecção de objeto cria um rótulo de tamanho zero no canto superior esquerdo. O envio de rótulos nesse estado falha.     |   Exclua o rótulo clicando na marca de cruz ao lado dele.  |
 
-### <a name="data-drift-monitors"></a>Monitores de descompasso de dados
+### <a name="data-drift-monitors"></a><a name="data-drift"></a>Monitores de descompasso de dados
+
+Limitações e problemas conhecidos para monitores de descompasso de dados:
+
+* O intervalo de tempo durante a análise de dados históricos é limitado a 31 intervalos da configuração de frequência do monitor. 
+* Limitação de 200 recursos, a menos que uma lista de recursos não seja especificada (todos os recursos usados).
+* O tamanho da computação deve ser grande o suficiente para lidar com os dados.
+* Certifique-se de que o conjunto de dados tenha os dados dentro da data de início e de término de uma determinada execução do monitor.
+* Os monitores de conjunto de registros só funcionarão em conjuntos de valores que contenham 50 linhas ou mais.
+* Colunas ou recursos, no conjunto de linhas, são classificados como categóricos ou numéricos com base nas condições na tabela a seguir. Se o recurso não atender a essas condições, por exemplo, uma coluna do tipo cadeia de caracteres com >valores exclusivos de 100-o recurso será descartado do nosso algoritmo de descompasso de dados, mas ainda será criado um perfil. 
+
+    | Tipo de recurso | Tipo de dados | Condição | Limitações | 
+    | ------------ | --------- | --------- | ----------- |
+    | Categóricos | Cadeia de caracteres, bool, int, float | O número de valores exclusivos no recurso é menor que 100 e menor que 5% do número de linhas. | NULL é tratado como sua própria categoria. | 
+    | Numérico | int, float | Os valores no recurso são de um tipo de dados numérico e não atendem à condição de um recurso categórico. | Recurso Descartado se >15% dos valores forem nulos. | 
+
+* Quando você tiver [criado um monitor de descompasso](how-to-monitor-datasets.md) , mas não puder ver os dados na página de **monitores do conjunto** no Azure Machine Learning Studio, tente o seguinte.
+
+    1. Verifique se você selecionou o intervalo de datas correto na parte superior da página.  
+    1. Na guia **monitores do conjunto** de testes, selecione o link experimento para verificar o status da execução.  Esse link está na extrema direita da tabela.
+    1. Se a execução for concluída com êxito, verifique os logs de driver para ver quantas métricas foram geradas ou se há alguma mensagem de aviso.  Localize os logs de driver na guia **saída + logs** depois de clicar em um experimento.
 
 * Se a função SDK não `backfill()` gerar a saída esperada, isso pode ser devido a um problema de autenticação.  Quando você cria a computação para passar para essa função, não use `Run.get_context().experiment.workspace.compute_targets` .  Em vez disso, use [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) como o seguinte para criar a computação que você passa para essa `backfill()` função: 
 

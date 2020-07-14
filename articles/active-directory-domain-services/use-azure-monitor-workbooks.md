@@ -7,13 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/18/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 99b61bdd4318bf7c77ae53cc9b77e66ebd6c098a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 879138d882913b8ab43c5689ff72a40e6987c104
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84733391"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223033"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Examinar eventos de auditoria de segurança em Azure Active Directory Domain Services usando pastas de trabalho Azure Monitor
 
@@ -31,8 +32,8 @@ Para concluir este artigo, você precisará dos seguintes recursos e privilégio
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * Um domínio gerenciado do Azure Active Directory Domain Services habilitado e configurado no locatário do Azure AD.
     * Se necessário, conclua o tutorial para [criar e configurar um Azure Active Directory Domain Services domínio gerenciado][create-azure-ad-ds-instance].
-* Eventos de auditoria de segurança habilitados para seu Azure Active Directory Domain Services domínio gerenciado que transmite dados para um espaço de trabalho Log Analytics.
-    * Se necessário, [habilite as auditorias de segurança para Azure Active Directory Domain Services][enable-security-audits].
+* Eventos de auditoria de segurança habilitados para seu domínio gerenciado que transmitem dados para um espaço de trabalho Log Analytics.
+    * Se necessário, [habilite as auditorias de segurança para o Azure AD DS][enable-security-audits].
 
 ## <a name="azure-monitor-workbooks-overview"></a>Visão geral das Azure Monitor de trabalho
 
@@ -60,11 +61,13 @@ Para acessar o modelo de pasta de trabalho para o relatório de visão geral de 
     ![Selecione a opção de menu pastas de trabalho no portal do Azure](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
 1. Escolha o **relatório visão geral de segurança**.
-1. Nos menus suspensos na parte superior da pasta de trabalho, selecione sua assinatura do Azure e, em seguida, Azure Monitor espaço de trabalho. Escolha um **intervalo de tempo**, como *últimos 7 dias*.
+1. Nos menus suspensos na parte superior da pasta de trabalho, selecione sua assinatura do Azure e, em seguida, um espaço de trabalho Azure Monitor.
+
+    Escolha um **intervalo de tempo**, como os *últimos 7 dias*, conforme mostrado no seguinte exemplo de captura de tela:
 
     ![Selecione a opção de menu pastas de trabalho no portal do Azure](./media/use-azure-monitor-workbooks/select-query-filters.png)
 
-    As opções **exibição de bloco** e exibição de **gráfico** também podem ser alteradas para analisar e visualizar os dados conforme desejado
+    As opções **exibição de bloco** e exibição de **gráfico** também podem ser alteradas para analisar e visualizar os dados conforme desejado.
 
 1. Para fazer uma busca detalhada em um tipo de evento específico, selecione um dos cartões de **resultados de entrada** , como *Conta bloqueada*, conforme mostrado no exemplo a seguir:
 
@@ -84,7 +87,11 @@ Para acessar o modelo de pasta de trabalho para o relatório de atividade da con
 1. Selecione seu domínio gerenciado, como *aaddscontoso.com*
 1. No menu no lado esquerdo, escolha **monitoramento > pastas de trabalho**
 1. Escolha o **relatório atividade da conta**.
-1. Nos menus suspensos na parte superior da pasta de trabalho, selecione sua assinatura do Azure e, em seguida, Azure Monitor espaço de trabalho. Escolha um **intervalo de tempo**, como *últimos 30 dias*, como você deseja que o **modo de exibição de bloco** represente os dados. Você pode filtrar por **nome de usuário da conta**, como *Felix*, conforme mostrado no seguinte relatório de exemplo:
+1. Nos menus suspensos na parte superior da pasta de trabalho, selecione sua assinatura do Azure e, em seguida, um espaço de trabalho Azure Monitor.
+
+    Escolha um **intervalo de tempo**, como *últimos 30 dias*, como você deseja que o **modo de exibição de bloco** represente os dados.
+
+    Você pode filtrar por **nome de usuário da conta**, como *Felix*, conforme mostrado no seguinte relatório de exemplo:
 
     [![](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png "Account activity report in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
 

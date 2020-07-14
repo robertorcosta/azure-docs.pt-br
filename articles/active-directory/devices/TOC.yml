@@ -79,6 +79,10 @@
       href: enterprise-state-roaming-group-policy-settings.md
     - name: Configurações do Windows do Enterprise State Roaming
       href: enterprise-state-roaming-windows-settings-reference.md
+    - name: API do Graph
+      items:
+        - name: API da identidade do dispositivo
+          href: /graph/api/resources/device?view=graph-rest-1.0
 - name: Recursos
   items:
     - name: Fórum de comentários do Azure

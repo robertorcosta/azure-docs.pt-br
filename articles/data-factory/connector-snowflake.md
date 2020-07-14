@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/15/2020
-ms.openlocfilehash: 347f37fb999656a1c4951f01a75a392887b5b882
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/09/2020
+ms.openlocfilehash: 43839e19eb252c9fa7ab46605fd247f3a798d223
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045664"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220279"
 ---
 # <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Copiar dados de e para floco de neve usando Azure Data Factory
 
@@ -46,7 +46,7 @@ As seções a seguir fornecem detalhes sobre as propriedades que definem Data Fa
 
 As propriedades a seguir têm suporte para um serviço vinculado a floco de neve.
 
-| Property         | Descrição                                                  | Obrigatório |
+| Propriedade         | Descrição                                                  | Obrigatório |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | type             | A propriedade Type deve ser definida como **floco de neve**.              | Sim      |
 | connectionString | Configure o [nome completo da conta](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) (incluindo segmentos adicionais que identificam a região e a plataforma de nuvem), o nome de usuário, a senha, o banco de dados e o depósito. Especifique a cadeia de conexão JDBC para se conectar à instância de floco de neve. Você também pode colocar a senha em Azure Key Vault. Consulte os exemplos abaixo da tabela, bem como as credenciais de [armazenamento no artigo Azure Key Vault](store-credentials-in-key-vault.md) , para obter mais detalhes.| Sim      |
@@ -60,7 +60,7 @@ As propriedades a seguir têm suporte para um serviço vinculado a floco de neve
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>(optional)"
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -78,7 +78,7 @@ As propriedades a seguir têm suporte para um serviço vinculado a floco de neve
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>(optional)",
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>",
             "password": {
                 "type": "AzureKeyVaultSecret",
                 "store": { 
@@ -102,7 +102,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte para o conjunto de itens floco de neve.
 
-| Property  | Descrição                                                  | Obrigatório                    |
+| Propriedade  | Descrição                                                  | Obrigatório                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | A propriedade Type do conjunto de conjuntos deve ser definida como **floco de neve**. | Sim                         |
 | esquema | Nome do esquema. |Não para fonte, sim para coletor  |
@@ -140,7 +140,7 @@ Se o armazenamento de dados do coletor e o formato tiverem suporte nativo do com
 
 Para copiar dados do floco de neve, as propriedades a seguir têm suporte na seção **origem** da atividade de cópia.
 
-| Property                     | Descrição                                                  | Obrigatório |
+| Propriedade                     | Descrição                                                  | Obrigatório |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | A propriedade Type da fonte da atividade de cópia deve ser definida como **floco de neve**. | Sim      |
 | Consulta          | Especifica a consulta SQL para ler dados do floco de neve.<br>Não há suporte para a execução do procedimento armazenado. | Não       |
@@ -156,14 +156,19 @@ Se o armazenamento e o formato de dados do coletor atenderem aos critérios desc
 
 - O **serviço vinculado do coletor** é o [**armazenamento de BLOBs do Azure**](connector-azure-blob-storage.md) com autenticação de **assinatura de acesso compartilhado** .
 
-- O **formato de dados do coletor** é de **parquet** ou de **texto delimitado**, com as seguintes configurações:
+- O **formato de dados do coletor** é de **parquet**, **texto delimitado**ou **JSON** com as seguintes configurações:
 
-   - Para o formato **parquet** , o codec de compactação é **None**, **snapshot**ou **LZO**.
-   - Para o formato de **texto delimitado** :
-     - `rowDelimiter`é **\r\n**ou qualquer caractere único.
-     - `compression`pode ser **sem compactação**, **gzip**, **bzip2**ou **deflate**.
-     - `encodingName` é deixado como padrão ou definido como **utf-8**.
-     - `quoteChar`é **aspas duplas**, aspas **simples**ou **cadeia de caracteres vazia** (sem caractere de aspas).
+    - Para o formato **parquet** , o codec de compactação é **None**, **snapshot**ou **LZO**.
+    - Para o formato de **texto delimitado** :
+        - `rowDelimiter`é **\r\n**ou qualquer caractere único.
+        - `compression`pode ser **sem compactação**, **gzip**, **bzip2**ou **deflate**.
+        - `encodingName` é deixado como padrão ou definido como **utf-8**.
+        - `quoteChar`**aspas duplas**, **aspas simples** ou **cadeia de caracteres vazia** (sem caractere de aspas).
+    - Para o formato **JSON** , a cópia direta só dá suporte ao caso de a tabela floco de neve de origem ou o resultado da consulta tem apenas uma única coluna e o tipo de dados dessa coluna é **Variant**, **Object**ou **array**.
+        - `compression`pode ser **sem compactação**, **gzip**, **bzip2**ou **deflate**.
+        - `encodingName` é deixado como padrão ou definido como **utf-8**.
+        - `filePattern`no coletor de atividade de cópia é deixado como padrão ou definido como **setOfObjects**.
+
 - Na origem da atividade de cópia, `additionalColumns` não está especificado.
 - O mapeamento de coluna não foi especificado.
 
@@ -266,7 +271,7 @@ Se o armazenamento e o formato de dados de origem tiverem suporte nativo pelo co
 
 Para copiar dados para floco de neve, as propriedades a seguir têm suporte na seção **coletor** de atividade de cópia.
 
-| Property          | Descrição                                                  | Obrigatório                                      |
+| Propriedade          | Descrição                                                  | Obrigatório                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | A propriedade Type do coletor da atividade de cópia, definida como **SnowflakeSink**. | Sim                                           |
 | preCopyScript     | Especifique uma consulta SQL para que a atividade de cópia seja executada antes de gravar dados em floco de neve em cada execução. Use essa propriedade para limpar os dados pré-carregados. | Não                                            |
@@ -282,15 +287,19 @@ Se o armazenamento e o formato de dados de origem atenderem aos critérios descr
 
 - O **serviço vinculado de origem** é o [**armazenamento de BLOBs do Azure**](connector-azure-blob-storage.md) com autenticação de **assinatura de acesso compartilhado** .
 
-- O **formato de dados de origem** é **parquet** ou **texto delimitado**, com as seguintes configurações:
+- O **formato de dados de origem** é **parquet**, **texto delimitado**ou **JSON** com as seguintes configurações:
 
-   - Para o formato **parquet** , o codec de compactação é **None** ou **encaixado**.
+    - Para o formato **parquet** , o codec de compactação é **None**ou **encaixado**.
 
-   - Para o formato de **texto delimitado** :
-     - `rowDelimiter`é **\r\n**ou qualquer caractere único. Se o delimitador de linha não for "\r\n", `firstRowAsHeader` precisará ser **falso**e `skipLineCount` não for especificado.
-     - `compression`pode ser **sem compactação**, **gzip**, **bzip2**ou **deflate**.
-     - `encodingName`é deixado como padrão ou definido como "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
-     - `quoteChar`é **aspas duplas**, aspas **simples**ou **cadeia de caracteres vazia** (sem caractere de aspas).
+    - Para o formato de **texto delimitado** :
+        - `rowDelimiter`é **\r\n**ou qualquer caractere único. Se o delimitador de linha não for "\r\n", `firstRowAsHeader` precisará ser **falso**e `skipLineCount` não for especificado.
+        - `compression`pode ser **sem compactação**, **gzip**, **bzip2**ou **deflate**.
+        - `encodingName`é deixado como padrão ou definido como "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
+        - `quoteChar`**aspas duplas**, **aspas simples** ou **cadeia de caracteres vazia** (sem caractere de aspas).
+    - Para o formato **JSON** , a cópia direta dá suporte apenas ao caso em que a tabela floco de neve do coletor tem apenas uma única coluna e o tipo de dados dessa coluna é **Variant**, **Object**ou **array**.
+        - `compression`pode ser **sem compactação**, **gzip**, **bzip2**ou **deflate**.
+        - `encodingName` é deixado como padrão ou definido como **utf-8**.
+        - O mapeamento de coluna não foi especificado.
 
 - Na fonte da atividade de cópia: 
 

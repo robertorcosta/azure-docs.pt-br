@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b77f2e78fa3df6c7ac6a422a03335f93d2a19d99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4834cccff11a70249140f49b498b8f7891787c72
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255714"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169333"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Otimizar prompts de reautenticação e entender o tempo de vida da sessão para a autenticação multifator do Azure
 
@@ -122,10 +122,10 @@ Se você tiver habilitado tempos de vida de token configuráveis, esse recurso s
 
 A tabela a seguir resume as recomendações com base em licenças:
 
-|                              | Aplicativos Azure AD Gratuito e Office 365 | Azure AD Premium |
+|              | Aplicativos Azure AD Gratuito e Office 365 | Azure AD Premium |
 |------------------------------|-----------------------------------|------------------|
-| SSO                          | [Ingresso](../devices/concept-azure-ad-join.md) no Azure ad ou [ingresso no Azure ad híbrido](../devices/concept-azure-ad-join-hybrid.md)ou [SSO contínuo](../hybrid/how-to-connect-sso.md) para dispositivos não gerenciados. | Ingresso no Azure AD<br />Ingresso no Azure AD Híbrido |
-| Configurações de reautenticação    | Permanecer conectado                  | Usar políticas de acesso condicional para frequência de entrada e sessão de navegador persistente |
+| **SSO**                      | [Ingresso](../devices/concept-azure-ad-join.md) no Azure ad ou [ingresso no Azure ad híbrido](../devices/concept-azure-ad-join-hybrid.md)ou [SSO contínuo](../hybrid/how-to-connect-sso.md) para dispositivos não gerenciados. | Ingresso no Azure AD<br />Ingresso no Azure AD Híbrido |
+| **Configurações de reautenticação** | Permanecer conectado                  | Usar políticas de acesso condicional para frequência de entrada e sessão de navegador persistente |
 
 ## <a name="next-steps"></a>Próximas etapas
 

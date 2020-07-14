@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 061907783d21372f0e926e529730e9e82b7a4ddb
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 632071c2a9597fc11ab4ffc0971493ef5b52d807
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488759"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083552"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure no portal do Azure
 > [!div class="op_single_selector"]
@@ -150,7 +150,7 @@ O **Gerenciador de pesquisa** só é capaz de lidar com [Solicitações da API R
 
    ![Comando Search Explorer](media/search-get-started-portal/search-explorer-cmd.png)
 
-2. Na lista suspensa **Índice**, escolha *hotels-sample-index*. Clique na lista suspensa **Versão da API** para ver quais APIs REST estão disponíveis. Para as consultas a seguir, use a versão disponível para uso geral (06/05/2019).
+2. Na lista suspensa **Índice**, escolha *hotels-sample-index*. Clique na lista suspensa **Versão da API** para ver quais APIs REST estão disponíveis. Para as consultas a seguir, use a versão em disponibilidade geral (30/06/2020).
 
    ![Comandos de índice e API](media/search-get-started-portal/search-explorer-changeindex.png)
 
@@ -275,4 +275,9 @@ Se você estiver usando um serviço gratuito, estará limitado a três índices,
 Use um assistente do portal para gerar um aplicativo Web pronto para uso executado em um navegador. Você pode experimentar esse assistente no pequeno índice que acabou de criar ou usar um dos conjuntos de dados de exemplo internos para uma experiência de pesquisa mais avançada.
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo de pesquisa no portal](search-create-app-portal.md)
+> [Criar um aplicativo de demonstração no portal](search-create-app-portal.md)
+
+Deseja otimizar e reduzir seus gastos com a nuvem?
+
+> [!div class="nextstepaction"]
+> [Comece a analisar os custos com o Gerenciamento de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

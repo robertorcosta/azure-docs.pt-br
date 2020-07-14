@@ -6,11 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: ab6ee597cfdc5d169bd33b77a061880b19e134b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7be1c350af6c9bb84669b45a9bc8a1d9dd808133
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84302288"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165627"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Solucionar problemas de alertas de log no Azure Monitor  
 
@@ -182,9 +183,10 @@ Cada regra de alerta de log criada em Azure Monitor como parte de sua configura�
 - Não houve fluxo de dados para a plataforma de análise. A [execução da consulta gera um erro](https://dev.loganalytics.io/documentation/Using-the-API/Errors) porque não há dados para a consulta fornecida.
 - As alterações na [linguagem de consulta](https://docs.microsoft.com/azure/kusto/query/) incluem um formato revisado para comandos e funções. Portanto, a consulta fornecida anteriormente em uma regra de alerta não é mais válida.
 
-O [Azure Advisor](../../advisor/advisor-overview.md) avisa você sobre esse comportamento. Uma recomendação é adicionada para a regra de alerta de log específica no Azure Advisor, sob a categoria de alta disponibilidade com impacto médio e uma descrição de "reparar sua regra de alerta de log para garantir o monitoramento". Se uma consulta de alerta na regra de alerta de log não for corrigida depois que o Azure Advisor tiver fornecido uma recomendação por sete dias, Azure Monitor desabilitará o alerta de log e garantirá que você não seja cobrado desnecessariamente quando a regra não puder ser executada continuamente por um período dimensionável (como uma semana).
+O [Azure Advisor](../../advisor/advisor-overview.md) avisa você sobre esse comportamento. Uma recomendação é adicionada para a regra de alerta de log específica no Azure Advisor, sob a categoria de alta disponibilidade com impacto médio e uma descrição de "reparar sua regra de alerta de log para garantir o monitoramento".
 
-Você pode encontrar a hora exata em que Azure Monitor desabilitou a regra de alerta de log procurando um evento no [log de atividades do Azure](../../azure-resource-manager/management/view-activity-logs.md).
+> [!NOTE]
+> Se uma consulta de alerta na regra de alerta de log não for corrigida depois que o Azure Advisor tiver fornecido uma recomendação por sete dias, Azure Monitor desabilitará o alerta de log e garantirá que você não seja cobrado desnecessariamente quando a regra não puder ser executada continuamente por um período dimensionável (7 dias). Você pode encontrar a hora exata em que Azure Monitor desabilitou a regra de alerta de log procurando um evento no [log de atividades do Azure](../../azure-resource-manager/management/view-activity-logs.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

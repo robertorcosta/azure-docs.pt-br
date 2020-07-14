@@ -4,6 +4,8 @@
   href: debug-rendering.md
 - name: Substituição de estado hierárquico
   href: override-hierarchical-state.md
+- name: Preparar espaço
+  href: stage-space.md
 - name: Reprojeção de fase tardia
   href: late-stage-reprojection.md
 - name: Iluminação de cena

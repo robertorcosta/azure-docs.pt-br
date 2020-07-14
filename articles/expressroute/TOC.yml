@@ -40,6 +40,8 @@
       items:
         - name: Sobre circuitos e emparelhamento
           href: expressroute-circuit-peerings.md
+        - name: Sobre a atualização da largura de banda do circuito
+          href: about-upgrade-circuit-bandwidth.md
         - name: Movendo circuitos do clássico para o Gerenciador de Recursos
           href: expressroute-move.md
     - name: BFD por meio do ExpressRoute

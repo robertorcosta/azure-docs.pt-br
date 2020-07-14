@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 01/21/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 5d3300151dc5fdfde0b34aa3f76c3ed9494d34fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91a060e8a5fe1bdaf3e6ea08811814297c355108
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734054"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86222965"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problemas conhecidos: alertas e resoluções comuns no Azure Active Directory Domain Services
 
@@ -33,7 +34,7 @@ Este artigo fornece informações de solução de problemas para alertas comuns 
 
 Esse erro geralmente ocorre quando uma assinatura do Azure é movida para um novo diretório do Azure AD e o diretório do Azure AD antigo associado ao Azure AD DS é excluído.
 
-Esse erro é irrecuperável. Para resolver o alerta, [exclua seu domínio gerenciado AD DS do Azure existente](delete-aadds.md) e recrie-o no novo diretório. Se você tiver problemas ao excluir o domínio gerenciado, [abra uma solicitação de suporte do Azure][azure-support] para obter assistência de solução de problemas adicional.
+Esse erro é irrecuperável. Para resolver o alerta, [exclua o domínio gerenciado existente](delete-aadds.md) e recrie-o no novo diretório. Se você tiver problemas ao excluir o domínio gerenciado, [abra uma solicitação de suporte do Azure][azure-support] para obter assistência de solução de problemas adicional.
 
 ## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101: O Azure AD B2C está em execução neste diretório
 
@@ -66,7 +67,7 @@ Antes de começar, certifique-se de entender os [espaços de endereço IP V4 pri
 Dentro de uma rede virtual, as VMs podem fazer solicitações aos recursos do Azure no mesmo intervalo de endereços IP que foram configuradas para a sub-rede. Se você configurar um intervalo de endereços IP públicos para uma sub-rede, as solicitações roteadas em uma rede virtual poderão não alcançar os recursos da Web pretendidos. Essa configuração pode levar a erros imprevisíveis com o Azure AD DS.
 
 > [!NOTE]
-> Se você possui o intervalo de endereços IP na internet que está configurada em sua rede virtual, esse alerta pode ser ignorado. No entanto, Azure AD Domain Services não pode confirmar para o [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)] com essa configuração, pois ela pode levar a erros imprevisíveis.
+> Se você possui o intervalo de endereços IP na internet que está configurada em sua rede virtual, esse alerta pode ser ignorado. No entanto, Azure AD Domain Services não pode confirmar o [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/) com essa configuração, pois ela pode levar a erros imprevisíveis.
 
 Para resolver esse alerta, exclua o domínio gerenciado existente e recrie-o em uma rede virtual com um intervalo de endereços IP privado. Esse processo é interrompido, pois o domínio gerenciado não está disponível e todos os recursos personalizados criados como UOs ou contas de serviço são perdidos.
 
@@ -130,7 +131,7 @@ O Azure AD DS requer uma assinatura ativa e não pode ser movido para uma assina
 
 O Azure AD DS cria recursos adicionais para funcionar corretamente, como endereços IP públicos, interfaces de rede virtual e um balanceador de carga. Se qualquer um desses recursos for excluído, o domínio gerenciado estará em um estado sem suporte e impedirá que o domínio seja gerenciado. Para obter mais informações sobre esses recursos, consulte [recursos de rede usados pelo Azure AD DS](network-considerations.md#network-resources-used-by-azure-ad-ds).
 
-Esse alerta é gerado quando um desses recursos necessários é excluído. Se o recurso foi excluído há menos de 4 horas, há uma chance de que a plataforma do Azure possa recriar automaticamente o recurso excluído. As etapas a seguir descrevem como verificar o status de integridade e o carimbo de data/hora para a exclusão de recursos:
+Esse alerta é gerado quando um desses recursos necessários é excluído. Se o recurso foi excluído há menos de 4 horas, há uma chance de que a plataforma Azure possa recriar automaticamente o recurso excluído. As etapas a seguir descrevem como verificar o status de integridade e o carimbo de data/hora para a exclusão de recursos:
 
 1. Na portal do Azure, procure e selecione serviços de **domínio**. Escolha o domínio gerenciado, como *aaddscontoso.com*.
 1. No painel de navegação à esquerda, selecione **integridade**.
@@ -147,7 +148,7 @@ Esse alerta é gerado quando um desses recursos necessários é excluído. Se o 
 
 ### <a name="resolution"></a>Resolução
 
-A sub-rede da rede virtual para o Azure AD DS precisa de endereços IP suficientes para os recursos criados automaticamente. Esse espaço de endereço IP inclui a necessidade de criar recursos de substituição se houver um evento de manutenção. Para minimizar o risco de ficar sem endereços IP disponíveis, não implante recursos adicionais, como suas próprias VMs, na mesma sub-rede de rede virtual que o Azure AD DS.
+A sub-rede da rede virtual para o Azure AD DS precisa de endereços IP suficientes para os recursos criados automaticamente. Esse espaço de endereço IP inclui a necessidade de criar recursos de substituição se houver um evento de manutenção. Para minimizar o risco de ficar sem endereços IP disponíveis, não implante recursos adicionais, como suas próprias VMs, na mesma sub-rede de rede virtual que o domínio gerenciado.
 
 Esse erro é irrecuperável. Para resolver o alerta, [exclua o domínio gerenciado existente](delete-aadds.md) e recrie-o. Se você tiver problemas ao excluir o domínio gerenciado, [abra uma solicitação de suporte do Azure][azure-support] para obter assistência de solução de problemas adicional.
 
@@ -172,14 +173,14 @@ Algumas entidades de serviço geradas automaticamente são usadas para gerenciar
 
 ### <a name="resolution"></a>Resolução
 
-A sub-rede da rede virtual para o Azure AD DS precisa de endereços IP suficientes para os recursos criados automaticamente. Esse espaço de endereço IP inclui a necessidade de criar recursos de substituição se houver um evento de manutenção. Para minimizar o risco de ficar sem endereços IP disponíveis, não implante recursos adicionais, como suas próprias VMs, na mesma sub-rede de rede virtual que o Azure AD DS.
+A sub-rede da rede virtual para o Azure AD DS precisa de endereços IP suficientes para os recursos criados automaticamente. Esse espaço de endereço IP inclui a necessidade de criar recursos de substituição se houver um evento de manutenção. Para minimizar o risco de ficar sem endereços IP disponíveis, não implante recursos adicionais, como suas próprias VMs, na mesma sub-rede de rede virtual que o domínio gerenciado.
 
 Para resolver esse alerta, exclua o domínio gerenciado existente e recrie-o em uma rede virtual com um grande intervalo de endereços IP suficiente. Esse processo é interrompido, pois o domínio gerenciado não está disponível e todos os recursos personalizados criados como UOs ou contas de serviço são perdidos.
 
 1. [Exclua o domínio gerenciado](delete-aadds.md) do seu diretório.
-1. Para atualizar o intervalo de endereços IP da rede virtual, procure e selecione *rede virtual* na portal do Azure. Selecione a rede virtual para AD DS do Azure que tem o pequeno intervalo de endereços IP.
+1. Para atualizar o intervalo de endereços IP da rede virtual, procure e selecione *rede virtual* na portal do Azure. Selecione a rede virtual para o domínio gerenciado que tem o pequeno intervalo de endereços IP.
 1. Em **configurações**, selecione *espaço de endereço*.
-1. Atualize o intervalo de endereços escolhendo o intervalo de endereços existente e editando-o ou adicionando um intervalo de endereços adicional. Verifique se o novo intervalo de endereços IP é grande o suficiente para o intervalo de sub-rede AD DS do Azure. Quando estiver pronto, **salve** as alterações.
+1. Atualize o intervalo de endereços escolhendo o intervalo de endereços existente e editando-o ou adicionando um intervalo de endereços adicional. Verifique se o novo intervalo de endereços IP é grande o suficiente para o intervalo de sub-rede do domínio gerenciado. Quando estiver pronto, **salve** as alterações.
 1. Selecione **sub-redes** no painel de navegação à esquerda.
 1. Escolha a sub-rede que você deseja editar ou crie uma sub-rede adicional.
 1. Atualize ou especifique um intervalo de endereços IP grande o suficiente e **salve** as alterações.
@@ -219,7 +220,7 @@ Os bloqueios de recursos podem ser aplicados aos recursos do Azure para evitar a
 
 Para verificar se há bloqueios de recursos nos componentes do AD DS do Azure e removê-los, conclua as seguintes etapas:
 
-1. Para cada um dos componentes de rede AD DS do Azure em seu grupo de recursos, como rede virtual, interface de rede ou endereço IP público, verifique os logs de operação no portal do Azure. Esses logs de operação devem indicar por que uma operação está falhando e onde um bloqueio de recurso é aplicado.
+1. Para cada um dos componentes de rede do domínio gerenciado em seu grupo de recursos, como rede virtual, interface de rede ou endereço IP público, verifique os logs de operação no portal do Azure. Esses logs de operação devem indicar por que uma operação está falhando e onde um bloqueio de recurso é aplicado.
 1. Selecione o recurso em que um bloqueio é aplicado e, em **bloqueios**, selecione e remova os bloqueios.
 
 ## <a name="aadds116-resources-are-unusable"></a>AADDS116: Os recursos são inutilizáveis
@@ -234,7 +235,7 @@ As políticas são aplicadas aos recursos do Azure e aos grupos de recursos que 
 
 Para verificar as políticas aplicadas nos componentes do AD DS do Azure e atualizá-los, conclua as seguintes etapas:
 
-1. Para cada um dos componentes de rede AD DS do Azure em seu grupo de recursos, como rede virtual, NIC ou endereço IP público, verifique os logs de operação no portal do Azure. Esses logs de operação devem indicar por que uma operação está falhando e onde uma política restritiva é aplicada.
+1. Para cada um dos componentes de rede do domínio gerenciado em seu grupo de recursos, como rede virtual, NIC ou endereço IP público, verifique os logs de operação no portal do Azure. Esses logs de operação devem indicar por que uma operação está falhando e onde uma política restritiva é aplicada.
 1. Selecione o recurso no qual uma política é aplicada e, em **políticas**, selecione e edite a política para que ela seja menos restritiva.
 
 ## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: A sincronização não é realizada há um tempo
@@ -249,7 +250,7 @@ Para verificar as políticas aplicadas nos componentes do AD DS do Azure e atual
 
 Os motivos comuns a seguir fazem com que a sincronização pare em um domínio gerenciado:
 
-* A conectividade de rede necessária está bloqueada. Para saber mais sobre como verificar se há problemas na rede virtual do Azure e o que é necessário, consulte [solucionar problemas de grupos de segurança de rede](alert-nsg.md) e os [requisitos de rede para Azure AD Domain Services](network-considerations.md).
+* A conectividade de rede necessária está bloqueada. Para saber mais sobre como verificar se há problemas na rede virtual do Azure e o que é necessário, consulte [solucionar problemas de grupos de segurança de rede](alert-nsg.md) e os [requisitos de rede para o Azure AD DS](network-considerations.md).
 *  A sincronização de senha não foi configurada ou concluída com êxito quando o domínio gerenciado foi implantado. Você pode configurar a sincronização de senha para [usuários somente de nuvem](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) ou [usuários híbridos no local](tutorial-configure-password-hash-sync.md).
 
 ## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: O backup não é realizado há algum tempo

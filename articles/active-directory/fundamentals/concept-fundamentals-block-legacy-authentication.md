@@ -12,11 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1799f676e8971726832cc50598e119f029bc331d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e17421b27082a079d078f53c38d0c942db7ae71
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196383"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200549"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloqueio da autenticação herdada
  
@@ -31,9 +32,9 @@ Hoje, a maioria de todas as tentativas de entrada comprometentes vêm da autenti
 
 Antes de poder bloquear a autenticação herdada em seu diretório, primeiro você precisará entender se os usuários têm aplicativos que usam autenticação herdada e como ele afeta o diretório geral. Os logs de entrada do Azure AD podem ser usados para entender se você está usando a autenticação herdada.
 
-1. Navegue até o **portal do Azure**   >  **Azure Active Directory**   >  **entradas**.
+1. Navegue até o **portal do Azure** > **Azure Active Directory** > **Entradas**.
 1. Adicione a coluna **aplicativo cliente** se ela não for exibida clicando em **colunas**   >  **aplicativo cliente**.
-1. Filtrar por **aplicativo cliente**  > verificar todas as opções de **clientes de autenticação herdadas** apresentadas.
+1. Filtrar por **aplicativo cliente** > verificar todas as opções de **clientes de autenticação herdadas** apresentadas.
 1. Filtrar por **status**de  >  **êxito**. 
 1. Expanda seu intervalo de datas, se necessário, usando o filtro de **Data** .
 

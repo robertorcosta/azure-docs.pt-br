@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 7fd716be397d9ef6b9d6132cd4470f653f3cea0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae3efec3722570e7e94316c5d874a74c523b1f05
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80655921"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86156737"
 ---
 ## <a name="for-users-in-your-directory"></a>Para usuários em seu diretório
 
@@ -194,7 +194,7 @@ Por exemplo, se você tiver listado Alice e Bob como os primeiros Aprovadores, l
 
 1. Na caixa **Avançar para aprovadores alternativos após a quantidade de dias** , coloque o número de dias que os aprovadores precisam aprovar ou negar uma solicitação. Se nenhum aprovador tiver aprovado ou negado a solicitação antes da duração da solicitação, a solicitação expirará (tempo limite) e o usuário precisará enviar outra solicitação para o pacote de acesso. 
 
-    As solicitações só podem ser encaminhadas a aprovadores alternativos por dia após a duração da solicitação chegar à metade da vida útil. Neste exemplo, a duração da solicitação é de 14 dias. Portanto, a duração da solicitação atinge a metade da vida no dia 7. Portanto, a solicitação não pode ser encaminhada antes do dia 8. Além disso, as solicitações não podem ser encaminhadas no último dia da duração da solicitação. Portanto, no exemplo, a última solicitação pode ser encaminhada é o dia 13.
+    As solicitações só podem ser encaminhadas a aprovadores alternativos por dia após a duração da solicitação chegar à metade da vida útil, e a decisão do (s) aprovador (es) principal deve expirar após pelo menos 4 dias. Se o tempo limite da solicitação for menor ou igual a 3, não haverá tempo suficiente para encaminhar a solicitação para os aprovadores alternativos. Neste exemplo, a duração da solicitação é de 14 dias. Portanto, a duração da solicitação atinge a metade da vida no dia 7. Portanto, a solicitação não pode ser encaminhada antes do dia 8. Além disso, as solicitações não podem ser encaminhadas no último dia da duração da solicitação. Portanto, no exemplo, a última solicitação pode ser encaminhada é o dia 13.
 
 ## <a name="enable-requests"></a>Habilitar solicitações
 

@@ -100,6 +100,8 @@
           href: event-grid-logicapps.md
         - name: Receber notificações por meio da Grade de Eventos do Azure e da Automação do Azure
           href: event-grid-tutorial.md
+        - name: Fazer backup de objetos individuais do Key Vault
+          href: backup.md
     - name: Seguro
       items:
         - name: Integrar ao serviço de Link Privado do Azure

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: e1dd20514fcb14e411fbb7efee4157b670d462b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a832fe4e212ce39ca423263ed2554c2682455002
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389693"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165645"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho de temporizador para o Azure Functions 
 
@@ -258,7 +258,7 @@ Azure Functions usa a biblioteca [NCronTab](https://github.com/atifaziz/NCrontab
 
 Cada campo pode ter um dos seguintes tipos de valores:
 
-|Tipo  |Exemplo  |Quando disparado  |
+|Type  |Exemplo  |Quando disparado  |
 |---------|---------|---------|
 |Um valor específico |<nobr>"0 5 * * * *"</nobr>|em hh:05:00, em que hh é cada hora (uma vez por hora)|
 |Todos os valores (`*`)|<nobr>"0 * 5 * * *"</nobr>|em 5:mm: 00 diariamente, em que mm é cada minuto da hora (60 vezes por dia)|
@@ -287,24 +287,7 @@ Aqui estão alguns exemplos de expressões NCRONTAB que você pode usar para o g
 
 Os números em uma expressão CRON se referem a uma hora e uma data, não a um período de tempo. Por exemplo, um 5 no campo `hour` se refere a 5h, não cada cinco horas.
 
-O fuso horário padrão usado com as expressões CRON é a Hora Universal Coordenada (UTC). Para que a expressão CRON se baseie em outro fuso horário, crie uma configuração de aplicativo para o aplicativo de funções denominada `WEBSITE_TIME_ZONE`. Defina o valor para o nome do fuso horário desejado, conforme mostrado no [Índice de fuso horário da Microsoft](https://technet.microsoft.com/library/cc749073).
-
-  > [!NOTE]
-  > `WEBSITE_TIME_ZONE`Não tem suporte no plano de consumo do Linux no momento.
-
-Por exemplo, a *Hora padrão da costa leste dos EUA* é UTC-05:00. Para que o gatilho do temporizador seja acionado às 10:00 AM EST todos os dias, use a seguinte expressão NCRONTAB que conta para o fuso horário UTC:
-
-```
-"0 0 15 * * *"
-``` 
-
-Ou criar uma configuração de aplicativo para seu aplicativo de funções denominada `WEBSITE_TIME_ZONE` e definir o valor como **Horário padrão da costa leste dos EUA**.  Em seguida, usa a seguinte expressão NCRONTAB: 
-
-```
-"0 0 10 * * *"
-``` 
-
-Quando você usa `WEBSITE_TIME_ZONE`, o horário é ajustado para as alterações de hora no fuso horário específico, como o horário de verão. 
+[!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
 ## <a name="timespan"></a>TimeSpan
 
@@ -329,7 +312,7 @@ Se um aplicativo de funções se expandir para várias instâncias, apenas uma �
 
 Se você estiver compartilhando contas de armazenamento entre aplicativos de funções que não são implantados no serviço de aplicativo, talvez seja necessário atribuir explicitamente a ID do host a cada aplicativo.
 
-| Versão do Functions | Setting                                              |
+| Versão do Functions | Configuração                                              |
 | ----------------- | ---------------------------------------------------- |
 | 2. x (e superior)  | A variável de ambiente `AzureFunctionsWebHost__hostid` |
 | 1.x               | `id`em *host.jsem*                                  |

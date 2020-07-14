@@ -5,13 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 6/2/2020
+ms.date: 7/9/2020
 ms.subservice: alerts
-ms.openlocfilehash: e9a1980eccb42342ebc5cb739b2c1f5a539e9f18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d8ec0c76259a8567906e9ac415864e2cd37a9cd
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299291"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187567"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 
@@ -1520,7 +1521,9 @@ Esta seção descreverá modelos do Azure Resource Manager para três cenários 
 
 > [!NOTE]
 >
-> Em uma regra de alerta de métrica que monitora vários recursos, apenas uma condição é permitida.
+> Em uma regra de alerta de métrica que monitora vários recursos, as seguintes limitações se aplicam:
+> - O escopo da regra de alerta deve conter pelo menos um recurso do tipo de recurso selecionado.
+> - A regra de alerta pode conter apenas uma condição.
 
 ### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Alerta de limite estático em todas as máquinas virtuais em um ou mais grupos de recursos
 

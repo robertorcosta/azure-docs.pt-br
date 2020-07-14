@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a50f2cf6fc00189c8cc764a132b550153b80b52e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b7b2a75bff21825a47f4364a8936ee7d5f122c1a
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144608"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223883"
 ---
 # <a name="what-is-single-sign-on-sso"></a>O que é SSO (logon único)?
 
@@ -40,7 +40,7 @@ Este fluxograma ajuda você a decidir qual método de logon único é melhor par
 
 A tabela a seguir resume os métodos de logon único e os links para obter mais detalhes.
 
-| Método de logon único | Tipos de aplicativo | Quando usar |
+| Método de logon único | Tipos de aplicativos | Quando usar |
 | :------ | :------- | :----- |
 | [OpenID Connect e OAuth](#openid-connect-and-oauth) | somente na nuvem | Use o OpenID Connect e o OAuth ao desenvolver um novo aplicativo. Esse protocolo simplifica a configuração de aplicativo, tem SDKs fáceis de usar e permite que seu aplicativo use o MS Graph.
 | [SAML](#saml-sso) | nuvem e local | Escolha SAML sempre que possível para aplicativos existentes que não usam o OpenID Connect nem o OAuth. O SAML funciona para aplicativos que são autenticados usando um dos protocolos SAML.|
@@ -54,7 +54,7 @@ A tabela a seguir resume os métodos de logon único e os links para obter mais 
 
 Ao desenvolver novos aplicativos, use protocolos modernos, como OpenID Connect e OAuth, para obter a melhor experiência de logon único para seu aplicativo em várias plataformas de dispositivo. O OAuth permite que usuários ou administradores [concedam consentimento](configure-user-consent.md) para recursos protegidos, como [Microsoft Graph](/graph/overview). Fornecemos [SDKs](../develop/reference-v2-libraries.md) fáceis de adotar para seu aplicativo e, além disso, seu aplicativo estará pronto para usar [Microsoft Graph](/graph/overview).
 
-Para obter mais informações, confira:
+Para obter mais informações, consulte:
 
 - [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md)
 - [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)
@@ -89,6 +89,9 @@ Escolha o logon único baseado em senha quando:
 
 - Um aplicativo não for compatível com o protocolo de logon único SAML.
 - Um aplicativo for autenticado com um nome de usuário e senha em vez de tokens de acesso e cabeçalhos.
+
+>[!NOTE]
+>Você não pode aplicar políticas de acesso condicional ou autenticação multifator para SSO baseado em senha.
 
 O logon único baseado em senha for compatível com qualquer aplicativo baseado em nuvem que tenha uma página de entrada baseada em HTML. O usuário pode usar qualquer um dos seguintes navegadores:
 
@@ -136,6 +139,9 @@ O logon vinculado permite que o Azure AD forneça o logon único para um aplicat
 O logon vinculado pode fornecer uma experiência de usuário consistente enquanto você migra aplicativos durante um período de tempo. Se estiver migrando aplicativos para Azure Active Directory, você poderá usar o logon vinculado para publicar links rapidamente para todos os aplicativos que pretende migrar.  Os usuários podem encontrar todos os links no [portal MyApps](../user-help/active-directory-saas-access-panel-introduction.md) ou no [iniciador de aplicativos do Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Os usuários não saberão que estão acessando um aplicativo vinculado ou migrado.  
 
 Depois que um usuário for autenticado com um aplicativo vinculado, um registro de conta precisa ser criado antes que o usuário final receba o acesso de logon único. O provisionamento deste registro de conta pode ocorrer automaticamente ou manualmente por um administrador.
+
+>[!NOTE]
+>Você não pode aplicar políticas de acesso condicional ou autenticação multifator a um aplicativo vinculado. Isso ocorre porque um aplicativo vinculado não fornece recursos de logon único por meio do Azure AD. Ao configurar um aplicativo vinculado, basta adicionar um link que aparecerá no portal de inicialização do aplicativo ou myapps. 
 
 ## <a name="disabled-sso"></a>SSO desabilitado
 
