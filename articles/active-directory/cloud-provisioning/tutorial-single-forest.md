@@ -1,30 +1,30 @@
 ---
-title: Tutorial – integrar uma única floresta a um único locatário do Azure AD
-description: Este tópico descreve os pré-requisitos e os requisitos de hardware do provisionamento de nuvem.
+title: Tutorial – Integrar uma floresta a um locatário do Azure AD
+description: Este tópico descreve os pré-requisitos e os requisitos de hardware para o provisionamento de nuvem.
 services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55dab553a93db4650a5d7126d7f1a0c3ca5f808f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0c922b95154f16a199660bcd5e58f792e46eade7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332226"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360598"
 ---
-# <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutorial: integrar uma única floresta a um único locatário do Azure AD
+# <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutorial: Integrar uma única floresta a um único locatário do Azure AD
 
-Este tutorial orienta você pela criação de um ambiente de identidade híbrida usando o provisionamento de nuvem do Azure Active Directory (Azure AD) Connect.
+Este tutorial orienta você pela criação de um ambiente de identidade híbrida usando o provisionamento de nuvem do Azure AD (Azure Active Directory) Connect.
 
 ![Criar](media/tutorial-single-forest/diagram1.png)
 
-Você pode usar o ambiente criado neste tutorial para teste ou para se familiarizar mais com o provisionamento na nuvem.
+Você pode usar o ambiente criado neste tutorial para testes ou para se familiarizar mais com o provisionamento de nuvem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 ### <a name="in-the-azure-active-directory-admin-center"></a>No centro de administração do Azure Active Directory
@@ -34,7 +34,7 @@ Você pode usar o ambiente criado neste tutorial para teste ou para se familiari
 
 ### <a name="in-your-on-premises-environment"></a>Em seu ambiente local
 
-1. Identificar um servidor de host ingressado no domínio que executa o Windows Server 2012 R2 ou superior com o mínimo de 4 GB de RAM e do tempo de execução do .NET 4.7.1 + 
+1. Identificar um servidor de host ingressado no domínio que executa o Windows Server 2012 R2 ou superior com pelo menos 4 GB de RAM e o runtime do .NET 4.7.1+ 
 
 2. Se houver um firewall entre os servidores e o Azure AD, configure os seguintes itens:
    - Certifique-se de que os agentes possam fazer solicitações de *saída* para o Azure AD nas seguintes portas:
@@ -46,19 +46,19 @@ Você pode usar o ambiente criado neste tutorial para teste ou para se familiari
      | **8080** (opcional) | Agentes relatarão seu status a cada 10 minutos através da porta 8080, se a porta 443 não estiver disponível. Esse status é exibido no portal do Azure Active Directory. |
      
      Se o firewall impõe as regras de acordo com os usuários originadores, abra essas portas para o tráfego proveniente dos serviços Windows que são executados como um serviço de rede.
-   - Se o seu firewall ou proxy permitir que você especifique os sufixos seguros, adicione as conexões t a ** \*. msappproxy.net** e ** \*. ServiceBus.Windows.net**. Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente.
+   - Se o firewall ou proxy permitir que você especifique sufixos seguros, adicione conexões a **\*.msappproxy.net** e **\*.servicebus.windows.net**. Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente.
    - Seus agentes devem acessar **login.windows.net** e **login.microsoftonline.com** para o registro inicial. Abra seu firewall para essas URLs também.
    - Para validação do certificado, desbloqueie as seguintes URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** e **www\.microsoft.com:80**. Uma vez que essas URLs são usadas para a validação de certificado com outros produtos da Microsoft, você talvez já tenha essas URLs desbloqueadas.
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Instalar o agente de provisionamento do Azure AD Connect
 1. Entre no servidor ingressado no domínio.  Se você estiver usando o tutorial [Ambiente básico do AD e Azure](tutorial-basic-ad-azure.md), será o DC1.
 2. Entre no portal do Azure usando credenciais de administrador global somente para nuvem.
-3. À esquerda, selecione **Azure Active Directory**, clique em **Azure ad Connect**e, no centro, selecione **gerenciar provisionamento (versão prévia)**.
+3. À esquerda, selecione **Azure Active Directory**, clique em **Azure AD Connect** e, no centro, selecione **Gerenciar provisionamento (versão prévia)** .
 
    ![Portal do Azure](media/how-to-install/install6.png)
 
-4. Clique em **baixar agente**.
-5. Execute o agente de provisionamento do Azure AD Connect.
+4. Clique em **Baixar agente**.
+5. Execute o agente de provisionamento Azure AD Connect.
 6. Na tela inicial, **Aceite** os termos de licenciamento e clique em **Instalar**.
 
    ![Tela de boas-vindas](media/how-to-install/install1.png)
