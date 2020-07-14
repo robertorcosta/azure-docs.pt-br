@@ -3,16 +3,16 @@ title: Instâncias reservadas de VM de EA do Azure
 description: Este artigo resume como as reservas do Azure para instâncias reservadas de VM podem ajudá-lo a economizar dinheiro com seu Registro Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/11/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: a06f416ed1d4df33cc6777eba878eee2b4f6b047
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: b78abeaac3066839636918923636f4b7bdf9ee35
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735414"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044848"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instâncias reservadas de VM de EA do Azure
 
@@ -20,7 +20,7 @@ Este artigo resume como as reservas do Azure para instâncias reservadas de VM p
 
 ## <a name="reservation-exchanges-and-refunds"></a>Trocas e reembolsos de reserva
 
-Você pode trocar uma reserva por outra do mesmo tipo. Também é possível pedir reembolso de uma reserva, de até US$ 50.000 por ano, se não precisar mais dela. O portal do Azure pode ser usado para trocar ou reembolsar uma reserva. Para obter mais informações, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](../reservations/exchange-and-refund-azure-reservations.md).
+Você pode trocar uma reserva por outra do mesmo tipo. Também é possível pedir reembolso de uma reserva, de até US$ 50.000 por ano, se não precisar mais dela. O portal do Azure pode ser usado para trocar ou reembolsar uma reserva. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](../reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="reservation-costs-and-usage"></a>Custos e uso de reserva
 
@@ -83,9 +83,9 @@ Se você não usou o benefício híbrido do Azure para comprar instâncias de VM
 
 ### <a name="reserved-instance-billing"></a>Cobrança de instância reservada
 
-Para clientes corporativos, o compromisso monetário é usado para comprar instâncias de VM reservadas do Azure. Se o seu registro tiver saldo suficiente de compromisso monetário para cobrir a compra de instância reservada, o valor será deduzido do saldo de compromisso monetário e você não receberá uma fatura da compra.
+Para clientes corporativos, o pagamento antecipado do Azure é usado para comprar instâncias de VM reservadas do Azure. Se o seu registro tiver saldo suficiente do pagamento antecipado do Azure para cobrir a compra da instância reservada, o valor será deduzido do seu saldo do pagamento antecipado do Azure e você não receberá uma fatura da compra.
 
-Nos cenários em que os clientes do Azure EA usaram todo o seu compromisso monetário, ainda é possível comprar instâncias reservadas e essas compras serão faturadas na sua próxima fatura como excedente. O excedente da instância reservada, se houver, fará parte da fatura de excedente regular.
+Nos cenários em que os clientes do Azure EA usaram todo o pagamento antecipado do Azure, ainda é possível comprar instâncias reservadas, e essas compras serão faturadas na sua próxima fatura de excedente. O excedente da instância reservada, se houver, fará parte da fatura de excedente regular.
 
 ### <a name="reserved-instance-expiration"></a>Expiração da instância reservada
 

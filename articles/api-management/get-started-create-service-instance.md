@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: acfa10ea506e063bf6b230386ca0722f1c959d18
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 63415b221b3980f3b6e3abc7d197cf9f61844f3f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75442569"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077465"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Criar uma nova instância do serviço de Gerenciamento de API do Azure
 
@@ -47,7 +47,7 @@ Entre no [portal do Azure](https://portal.azure.com).
    
    ![nova instância](./media/get-started-create-service-instance/get-started-create-service-instance-create-new.png)
    
-   | Configuração                 | Valor sugerido                               | DESCRIÇÃO                                                                                                                                                                                                                                                                                                                         |
+   | Configuração                 | Valor sugerido                               | Descrição                                                                                                                                                                                                                                                                                                                         |
 |-------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Nome**                | Um nome exclusivo para o serviço de gerenciamento de API | O nome não poderá ser alterado posteriormente. O nome do serviço é usado para gerar um nome de domínio padrão na forma de *{name}.azure-api.net.* Se você quiser usar um nome de domínio personalizado, consulte [Configurar um domínio personalizado](configure-custom-domain.md). <br/> O nome do serviço é usado para referir-se ao serviço e ao recurso do Azure correspondente. |
 | **Assinatura**        | Sua assinatura                             | A assinatura sob a qual essa nova instância de serviço será criada. Você pode selecionar a assinatura entre as diferentes assinaturas do Azure às quais você tem acesso.                                                                                                                                                            |
@@ -86,3 +86,8 @@ Quando não for mais necessário, você poderá remover o grupo de recursos e to
 
 > [!div class="nextstepaction"]
 > [Importar e publicar sua primeira API](import-and-publish.md)
+
+Deseja otimizar e reduzir seus gastos com a nuvem?
+
+> [!div class="nextstepaction"]
+> [Comece a analisar os custos com o Gerenciamento de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

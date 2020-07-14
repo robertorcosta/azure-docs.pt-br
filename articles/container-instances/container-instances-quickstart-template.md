@@ -1,35 +1,35 @@
 ---
-title: Guia de início rápido – Criar Registro replicado geograficamente – modelo do Resource Manager
+title: Guia de Início Rápido – Criar uma instância de contêiner – modelo do Azure Resource Manager
 description: Neste início rápido, você usa um modelo do Azure Resource Manager para implantar rapidamente um aplicativo Web em contêineres que é executado em uma instância de contêiner do Azure isolada.
 services: azure-resource-manager
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/30/2020
-ms.openlocfilehash: 17f71d1c383c72fab748a9bdb789158095616f2d
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 64f86611e8a60cd3d1463cd2845c034551277bb2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779865"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118453"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-a-resource-manager-template"></a>Início Rápido: Implantar uma instância de contêiner no Azure usando um modelo do Resource Manager
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-an-arm-template"></a>Início Rápido: Implantar uma instância de contêiner no Azure usando um modelo do Resource Manager
 
-Use as Instâncias de Contêiner do Azure para executar contêineres do Docker sem servidor no Azure de maneira simples e rápida. Implante um aplicativo em uma instância de contêiner sob demanda quando você não precisa de uma plataforma de orquestração de contêiner completa como o Serviço de Kubernetes do Azure. Neste guia de início rápido, você usa um modelo do Azure Resource Manager para implantar um contêiner do Docker isolado e disponibilizar seu aplicativo Web com um endereço IP público.
+Use as Instâncias de Contêiner do Azure para executar contêineres do Docker sem servidor no Azure de maneira simples e rápida. Implante um aplicativo em uma instância de contêiner sob demanda quando você não precisa de uma plataforma de orquestração de contêiner completa como o Serviço de Kubernetes do Azure. Neste guia de início rápido, você usará um modelo do Azure Resource Manager para implantar um contêiner isolado do Docker e disponibilizar o aplicativo Web dele com um endereço IP público.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aci-linuxcontainer-public-ip%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Nenhum.
+Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="create-a-container-instance"></a>Criar uma instância de contêiner
+## <a name="review-the-template"></a>Examinar o modelo
 
-### <a name="review-the-template"></a>Examinar o modelo
-
-O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-aci-linuxcontainer-public-ip/).
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-aci-linuxcontainer-public-ip/).
 
 :::code language="json" source="~/quickstart-templates/101-aci-linuxcontainer-public-ip/azuredeploy.json" range="1-107" highlight="61-100":::
 
@@ -39,7 +39,7 @@ O seguinte recurso é definido no modelo:
 
 Mais exemplos de modelo de Instâncias de Contêiner do Azure podem ser encontrados na [galeria de modelos de início rápido](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-the-template"></a>Implantar o modelo
 
  1. Selecione a imagem a seguir para entrar no Azure e abrir um modelo. O modelo cria um Registro e uma réplica em outra localização.
 
@@ -101,4 +101,4 @@ Neste início rápido, você criou uma instância de contêiner do Azure com bas
 Para obter um tutorial passo a passo que orienta você durante o processo de criação de um modelo, confira:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Criar e implantar seu primeiro modelo do Azure Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Tutorial: Criar e implantar seu primeiro modelo do Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

@@ -8,19 +8,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: b6ab34019207ccbeec5448b848e501e063707d16
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bdbd183ba161c96e0ed8e160ce602da2ec30dfb7
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81384922"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85940407"
 ---
 A biblioteca de clientes da Pesquisa na Web do Bing facilita a integração da Pesquisa na Web do Bing ao seu aplicativo Python. Neste início rápido, você aprenderá a enviar uma solicitação, receber uma resposta JSON e filtrar e analisar os resultados.
 
 Deseja ver o código agora mesmo? As amostras para as [bibliotecas de clientes da Pesquisa do Bing para Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/search) estão disponíveis no GitHub.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 O SDK de Pesquisa na Web do Bing é compatível com Python 2.7, 3.3, 3.4, 3.5 e 3.6. É recomendável usar um ambiente virtual para este início rápido.
 
 * Python 2.7, 3.3, 3.4, 3.5 ou 3.6
@@ -167,7 +167,7 @@ Se a resposta contiver páginas da Web, imagens, notícias ou vídeos, o primeir
 
 1. Substitua `SUBSCRIPTION_KEY` por uma chave de assinatura válida.
 
-1. Substitua `YOUR_ENDPOINT` pela URL de seu ponto de extremidade no portal.
+1. Substitua `YOUR_ENDPOINT` pela URL do ponto de extremidade no portal e remova a seção "bing/v7.0" do ponto de extremidade.
 
 1. Execute o programa. Por exemplo: `python your_program.py`.
 

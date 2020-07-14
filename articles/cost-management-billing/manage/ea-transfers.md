@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: a0846a07fd8107a87483753c8dbff1301fda4a0c
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: ff10d9ec9b92b85d057e556a21c144b9e8f155cf
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299903"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043267"
 ---
 # <a name="azure-enterprise-transfers"></a>Transferências do Azure Enterprise
 
@@ -49,7 +49,7 @@ Outros pontos para ter em mente antes de uma transferência de conta:
 
 Uma transferência de registro é considerada quando:
 
-- O termo de compromisso de um registro atual chegou ao fim.
+- O termo do pagamento antecipado de um registro atual chegou ao fim.
 - Um registro está no status expirado/estendido e um novo contrato é negociado.
 - Você tem vários registros e deseja combinar todas as contas e a cobrança em um só registro.
 
@@ -60,7 +60,7 @@ Quando você solicita a transferência de um Registro Enterprise inteiro para um
 - Todos os serviços, as assinaturas, as contas, os departamentos e toda a estrutura de registro do Azure, incluindo todos os administradores de departamento do EA, são transferidos para um novo registro de destino.
 - O status do registro é definido como _Transferido_. O registro transferido está disponível apenas para fins de relatório de uso histórico.
 - Você não pode adicionar funções nem assinaturas a um registro transferido. O status de transferido impede o uso adicional em relação ao registro.
-- Qualquer saldo de compromisso monetário restante no contrato é perdido, incluindo termos futuros.
+- Qualquer saldo restante do pagamento antecipado do Azure no contrato é perdido, incluindo termos futuros.
 -    Se o registro do qual você está fazendo a transferência tiver compras de RI, o valor de compra de RI permanecerá no registro de origem. No entanto, todos os benefícios de RI serão transferidos para serem utilizados no novo registro.
 -    O valor avulso de compra do Marketplace e todos os valores fixos mensais já incorridos no registro antigo não serão transferidos para o novo registro. As cobranças do Marketplace baseadas no consumo serão transferidas.
 
@@ -68,7 +68,7 @@ Quando você solicita a transferência de um Registro Enterprise inteiro para um
 
 A data de efetivação da transferência pode ser a data de início do registro de destino ou uma data posterior a ela.
 
-O uso do registro de origem é cobrado em relação ao compromisso monetário ou como excedente. O uso que ocorre após a data de início de vigência da transferência é transferido para o novo registro e cobrado de acordo.
+O uso do registro de origem é cobrado no pagamento antecipado do Azure ou como excedente. O uso que ocorre após a data de início de vigência da transferência é transferido para o novo registro e cobrado de acordo.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -84,9 +84,9 @@ Outros pontos para ter em mente antes de uma transferência de registro:
 - Se uma transferência de registro não atender aos seus requisitos, considere uma transferência de conta.
 - O status do registro de origem será atualizado para transferido e só estará disponível para fins de relatório de uso histórico.
 
-### <a name="monetary-commitment"></a>Compromisso monetário
+### <a name="azure-prepayment"></a>Pagamento antecipado do Azure
 
-O compromisso monetário não é transferível entre registros. Os saldos de compromisso monetário são associados contratualmente ao registro em que ele foi pedido. O compromisso monetário não é transferido como parte do processo de transferência do registro ou da conta.
+O pagamento antecipado do Azure não é transferível entre registros. Os saldos do pagamento antecipado do Azure são vinculados contratualmente ao registro em que ele foi solicitado. O pagamento antecipado do Azure não é transferido como parte do processo de transferência do registro ou da conta.
 
 ### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Nenhum serviço afetado para transferências de conta e registro
 

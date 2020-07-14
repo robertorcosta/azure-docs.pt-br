@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door | Microsoft Docs
-description: Este artigo fornece uma visão geral do Azure Front Door. Descubra se ele é a escolha certa para balancear a carga do tráfego de usuário para seu aplicativo.
+title: Porta da frente do Azure
+description: Este artigo fornece uma lista das várias ações que você pode executar com o mecanismo de regras do Azure Front Door.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 3e7c9606a17736ea45b09a4d6981b4d55fa6dee6
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: e11555e883a323bcb5b0be1c62b2825bce77524e
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515801"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313998"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Ações do mecanismo de regras do Azure Front Door
 
 No [Mecanismo de regras do AFD](front-door-rules-engine.md) uma regra consiste em zero ou mais condições de correspondência e ações. Este artigo fornece descrições detalhadas das ações que você pode usar no mecanismo de regras do AFD.
 
-Uma ação define o comportamento que é aplicado ao tipo de solicitação que uma condição de correspondência ou conjunto de condições de correspondência identifica. No mecanismo de regras do AFD, uma regra pode conter até cinco ações, apenas uma das quais pode ser uma ação de substituição de configuração de rota (encaminhar ou redirecionar). 
+Uma ação define o comportamento que é aplicado ao tipo de solicitação que uma condição de correspondência ou conjunto de condições de correspondência identifica. No mecanismo de regras do AFD, uma regra pode conter até cinco ações, apenas uma das quais pode ser uma ação de substituição de configuração de rota (encaminhar ou redirecionar).
 
 As ações a seguir estão disponíveis para uso no mecanismo de regras do Azure Front Door.  
 

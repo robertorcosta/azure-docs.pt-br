@@ -1,20 +1,14 @@
 ---
 title: O que é a Grade de Eventos do Azure?
 description: Envie dados de eventos de uma origem para manipuladores com a Grade de Eventos do Azure. Crie aplicativos baseados em eventos e integre com serviços do Azure.
-services: event-grid
-author: femila
-manager: timlt
-ms.service: event-grid
 ms.topic: overview
-ms.date: 02/20/2020
-ms.author: femila
-ms.custom: seodec18
-ms.openlocfilehash: 38f0218a7dedd243cccfab4b0b5ecfb73d3a626a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 07/07/2020
+ms.openlocfilehash: 95deeddbd7ae3f5ee07bef0c4ac73559d208c352
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560298"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116124"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é a Grade de Eventos do Azure?
 
@@ -103,7 +97,7 @@ A Grade de Eventos conecta fontes de dados e manipuladores de eventos. Por exemp
 
 ![Automação de operações](./media/overview/Ops_automation.png)
 
-A Grade de Eventos permite que você acelere a automação e simplifique a imposição de políticas. Por exemplo, use a Grade de Eventos para notificar a Automação do Azure quando uma máquina virtual ou um Banco de Dados SQL é criado. Use os eventos para verificar automaticamente se as configurações do serviço estão em conformidade, colocar os metadados em ferramentas de operações, marcar máquinas virtuais ou arquivar itens de trabalho.
+A Grade de Eventos permite que você acelere a automação e simplifique a imposição de políticas. Por exemplo, use a Grade de Eventos para notificar a Automação do Azure quando uma máquina virtual ou um banco de dados no SQL do Azure for criado. Use os eventos para verificar automaticamente se as configurações do serviço estão em conformidade, colocar os metadados em ferramentas de operações, marcar máquinas virtuais ou arquivar itens de trabalho.
 
 ### <a name="application-integration"></a>Integração de aplicativos
 

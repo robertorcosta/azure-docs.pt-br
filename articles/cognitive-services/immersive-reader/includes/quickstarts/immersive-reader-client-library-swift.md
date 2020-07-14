@@ -1,7 +1,7 @@
 ---
 title: Início rápido da biblioteca de clientes do Swift da Leitura Avançada
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, você cria um aplicativo Web do zero e adiciona a funcionalidade da API de Leitura Avançada.
+description: Neste guia de início rápido, você criará um aplicativo do iOS do zero e adicionará a funcionalidade da API de Leitura Avançada.
 services: cognitive-services
 author: pasta
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: 191d802064d477babd8aa1f782ad15876b821d11
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3d0a8444312f37b1f59817d50bdc50d3aff22164
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268682"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038101"
 ---
 A [Leitura Avançada](https://www.onenote.com/learningtools) é uma ferramenta projetada de forma inclusiva que implementa técnicas comprovadas para melhorar a compreensão da leitura.
 
@@ -573,4 +573,4 @@ Quando clicar no botão **Leitura Avançada**, você verá a Leitura Avançada i
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Explorar a [Referência do SDK da Leitura Avançada](../../reference.md)
+* Explore o [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk) e a [Referência de SDK da Leitura Avançada](../../reference.md)

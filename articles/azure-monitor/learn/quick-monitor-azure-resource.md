@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: c4b80e62d3800392b847a411dfc66c3278e72bba
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 597b12a584e7b4c17ec21635e18368f897ad168a
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77661857"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85443869"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Início Rápido: Monitorar um recurso do Azure com o Azure Monitor
 O [Azure Monitor](../overview.md) inicia a coleta de dados dos recursos do Azure no momento em que eles são criados. Este guia de início rápido apresenta uma breve explicação dos dados coletados automaticamente para um recurso e como exibi-los no portal do Azure para um recurso específico. Posteriormente, você pode adicionar a configuração para coletar dados adicionais e acessar o menu de Azure Monitor para usar as mesmas ferramentas para acessar os dados coletados para todos os recursos em sua assinatura.
@@ -67,7 +67,7 @@ Métricas são valores numéricos que descrevem algum aspecto de seu recurso em 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste guia de início rápido, você exibiu o log de atividades e as métricas de um recurso do Azure coletados automaticamente pelo Azure Monitor. Os logs de recursos fornecem informações sobre a operação detalhada do recurso, mas devem ser configurados para que sejam coletados. Continue no tutorial para coletar logs de recursos em um workspace do Log Analytics em que eles podem ser analisados usando consultas de log.
+Neste guia de início rápido, você exibiu o log de atividades e as métricas de um recurso do Azure coletados automaticamente pelo Azure Monitor. Prossiga para o próximo guia de início rápido, que mostra como coletar o log de atividades em um workspace do Log Analytics, em que ele poderá ser analisado por meio de [consultas de log](../log-query/log-query-overview.md).
 
 > [!div class="nextstepaction"]
-> [Coletar e analisar logs de recursos com o Azure Monitor](tutorial-resource-logs.md)
+> [Enviar o log de atividades do Azure para o workspace do Log Analytics](quick-monitor-azure-resource.md)

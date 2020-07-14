@@ -8,36 +8,39 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: cde8d6932400966ae22720b1e86f3c5164f25b30
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: fd3e541624c2375ed71fb9768bb0c42ec101f47b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81603440"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087700"
 ---
-# <a name="quickstart-create-ml-services-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Início Rápido: Criar um cluster do ML Services no Azure HDInsight usando o modelo do Resource Manager
+# <a name="quickstart-create-ml-services-cluster-in-azure-hdinsight-using-arm-template"></a>Início Rápido: Criar um cluster dos Serviços de ML no Azure HDInsight usando um modelo do Resource Manager
 
-Neste guia de início rápido, você usa um modelo do Azure Resource Manager para criar um cluster do [ML Services](./r-server-overview.md) no Azure HDInsight. O Microsoft Machine Learning Server está disponível como uma opção de implantação quando você cria clusters HDInsight no Azure. O tipo de cluster que fornece essa opção é chamado ML Services. Essa funcionalidade fornece aos cientistas de dados, estatísticos e programadores de R o acesso sob demanda a métodos escalonáveis e distribuídos de análise no HDInsight.
+Neste guia de início rápido, você usará um modelo do Azure Resource Manager para criar um cluster dos [Serviços de ML](./r-server-overview.md) no Azure HDInsight. O Microsoft Machine Learning Server está disponível como uma opção de implantação quando você cria clusters HDInsight no Azure. O tipo de cluster que fornece essa opção é chamado ML Services. Essa funcionalidade fornece aos cientistas de dados, estatísticos e programadores de R o acesso sob demanda a métodos escalonáveis e distribuídos de análise no HDInsight.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implantar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-rserver%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Pré-requisitos
+
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-an-ml-services-cluster"></a>Criar um cluster do ML Services
+## <a name="review-the-template"></a>Examinar o modelo
 
-### <a name="review-the-template"></a>Examinar o modelo
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
 
-O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-rserver).
-
-:::code language="json" source="~/quickstart-templates/101-hdinsight-rserver/azuredeploy.json" range="1-171":::
-
+:::code language="json" source="~/quickstart-templates/101-hdinsight-rserver/azuredeploy.json" range="1-171" highlight="49-85":::
 
 Há dois recursos do Azure definidos no modelo:
 
-* [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): crie uma Conta de Armazenamento do Azure.
-* [Microsoft.HDInsight/cluster](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/clusters): crie um cluster HDInsight.
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): crie uma Conta de Armazenamento do Azure.
+* [Microsoft.HDInsight/cluster](/azure/templates/microsoft.hdinsight/clusters): crie um cluster HDInsight.
 
-### <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-the-template"></a>Implantar o modelo
 
 1. Selecione o botão **Implantar no Azure** abaixo para entrar no Azure e abrir o modelo do Resource Manager.
 
@@ -76,7 +79,7 @@ Também é possível selecionar o nome do grupo de recursos para abrir a página
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você aprenderá a criar um cluster do ML Services no HDInsight usando um modelo do Resource Manager. No próximo artigo, você aprenderá a executar um script R com o RStudio Server que demonstra o uso do Spark para cálculos de R distribuídos.
+Neste guia de início rápido, você aprenderá a criar um cluster dos Serviços de ML no HDInsight usando um modelo do Resource Manager. No próximo artigo, você aprenderá a executar um script R com o RStudio Server que demonstra o uso do Spark para cálculos de R distribuídos.
 
 > [!div class="nextstepaction"]
 > [Executar um script de R em um cluster de serviços de ML no Azure HDInsight do usando o RStudio Server](./machine-learning-services-quickstart-job-rstudio.md)

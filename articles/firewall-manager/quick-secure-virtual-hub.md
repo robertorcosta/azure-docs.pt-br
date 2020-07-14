@@ -1,27 +1,27 @@
 ---
-title: 'Início Rápido: Proteger o hub virtual usando a Versão Prévia do Gerenciador de Firewall do Azure – modelo do Resource Manager'
-description: Saiba como proteger seu hub virtual usando a Versão Prévia do Gerenciador de Firewall do Azure.
+title: 'Início Rápido: Proteger o hub virtual usando o Gerenciador de Firewall do Azure – Modelo do Resource Manager'
+description: Saiba como proteger seu hub virtual usando o Gerenciador de Firewall do Azure.
 services: firewall-manager
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 05/19/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 9c51fdb5142159e390ac4fcf59a04aa3dd747469
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 6641cc29025d39ddff33e706dd9b1b0da517b884
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167189"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563694"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>Início Rápido: Proteger seu hub virtual usando o Gerenciador de Firewall do Azure – modelo do Resource Manager
 
-Neste início rápido, você usa um modelo do Resource Manager para proteger seu hub virtual usando a Versão Prévia do Gerenciador de Firewall do Azure. O firewall implantado tem uma regra de aplicativo que permite conexões com `www.microsoft.com`. Duas máquinas virtuais do Windows Server 2019 são implantadas para testar o firewall. Um servidor de salto é usado para se conectar ao servidor da carga de trabalho. No servidor da carga de trabalho, você só pode se conectar a `www.microsoft.com`.
+Neste guia de início rápido, você usará um modelo do Resource Manager para proteger seu hub virtual por meio do Gerenciador de Firewall do Azure. O firewall implantado tem uma regra de aplicativo que permite conexões com `www.microsoft.com`. Duas máquinas virtuais do Windows Server 2019 são implantadas para testar o firewall. Um servidor de salto é usado para se conectar ao servidor da carga de trabalho. No servidor da carga de trabalho, você só pode se conectar a `www.microsoft.com`.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Para obter mais informações sobre a versão prévia do Gerenciador de Firewall do Azure, confira [O que é a Versão Prévia do Gerenciador de Firewall do Azure?](overview.md).
+Para obter mais informações sobre o Gerenciador de Firewall do Azure, confira [O que é o Gerenciador de Firewall do Azure?](overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,7 +29,7 @@ Para obter mais informações sobre a versão prévia do Gerenciador de Firewall
 
 ## <a name="create-a-secured-virtual-hub"></a>Criar um hub virtual seguro
 
-Este modelo cria um hub virtual seguro usando a Versão Prévia do Gerenciador de Firewall do Azure, juntamente com os recursos necessários para dar suporte ao cenário.
+Este modelo cria um hub virtual seguro usando o Gerenciador de Firewall do Azure, juntamente com os recursos necessários para dar suporte ao cenário.
 
 ### <a name="review-the-template"></a>Examinar o modelo
 
@@ -101,4 +101,4 @@ Remove-AzResourceGroup -Name "<your resource group name>"
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre parceiros de segurança confiáveis](trusted-security-partners.md)
+> [Saiba mais sobre os provedores de parceiros de segurança](trusted-security-partners.md)

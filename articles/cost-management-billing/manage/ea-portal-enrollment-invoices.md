@@ -3,16 +3,16 @@ title: Faturas do Registro Enterprise do Azure
 description: Este artigo explica como gerenciar e usar sua fatura do Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5c26af74a392e3e6d3bb5557960b81604de7cdf3
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 5276780d06671b8358f615b1fcb6447c8e1310f9
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807789"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044865"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas do Registro Enterprise do Azure
 
@@ -46,14 +46,14 @@ O Azure Enterprise Portal gera automaticamente uma OC (ordem de compra) padrão,
 
 ## <a name="azure-enterprise-billing-frequency"></a>Frequência da cobrança do Azure Enterprise
 
-A Microsoft cobra uma vez ao ano na data de início de vigência do registro para qualquer compra de compromisso de serviços do Microsoft Azure. Para qualquer uso que exceda os valores do compromisso, a Microsoft cobra pelos débitos anteriores.
+A Microsoft faz a cobrança anualmente na data de início de vigência do registro por qualquer compra do pagamento antecipado dos serviços do Microsoft Azure. Para qualquer uso que exceda os valores do pagamento antecipado, a Microsoft faz a cobrança com atraso de pagamento.
 
-- Valores de compromisso são cotados com base em uma taxa mensal e cobradas anualmente com antecedência.
+- Os valores do pagamento antecipado são cotados com base em uma taxa mensal e cobrados anualmente com antecedência.
 - Valores excedentes são calculados mensalmente e cobrados posteriormente, no final do período de cobrança.
 
 ### <a name="billing-intervals"></a>Intervalos de cobrança
 
-O intervalo de cobrança depende de como você opta por fazer suas compras de compromisso. Seu compromisso anual é coextensivo com:
+O intervalo de cobrança depende de como você opta por fazer suas compras do pagamento antecipado. Seu pagamento antecipado anual é coextensivo com:
 
 - A data de aniversário do registro
 - A data de início de vigência da sua assinatura de aditamento de um ano.
@@ -62,12 +62,12 @@ A data em que você recebe a fatura excedente depende da data de início e da co
 
 - **Registros diretos com uma data de início anterior a 1º de maio de 2018**:
   - Se você estiver em um EA (Contrato Enterprise) direto, o ciclo de cobrança será anual para os serviços do Azure, exceto serviços do Azure Marketplace. Seu ciclo de cobrança é baseado na data de aniversário: a data em que seu contrato se tornou efetivo.
-  - Se ultrapassar 150% de seu limite de MC (compromisso monetário) do EA, você será automaticamente convertido em um ciclo de cobrança trimestral com base em sua data de aniversário. Você também receberá uma fatura de excedente do serviço do Azure.
-  - Se você não ultrapassar 150% do seu limite de MC, seu registro permanecerá em um ciclo de cobrança anual. A fatura de excedente será recebida no final do ano de compromisso.
+  - Se você ultrapassar 150% do seu limite do pagamento antecipado do Azure EA, será automaticamente convertido em um período de cobrança trimestral com base na sua data de aniversário. Você também receberá uma fatura de excedente do serviço do Azure.
+  - Se você não ultrapassar 150% do seu limite do pagamento antecipado do Azure, seu registro permanecerá em um período de cobrança anual. A fatura de excedente será recebida no final do ano do pagamento antecipado.
 
 - **Registros diretos com uma data de início posterior a 1º de maio de 2018**:
   - As faturas de consumo e cobranças do Azure cobradas separadamente estão em um ciclo de cobrança mensal.
-  - As cobranças não cobertas pelo seu compromisso monetário são devidas a um pagamento de excedente.  
+  - Os custos não cobertos pelo seu pagamento antecipado do Azure são devidos como um pagamento de excedente.  
 
 - **Registros indiretos com um registro iniciado antes de 1º de maio de 2018**:
 
@@ -77,21 +77,21 @@ A data em que você recebe a fatura excedente depende da data de início e da co
 
   Você está em um ciclo de cobrança mensal.  
 
-### <a name="increase-your-monetary-commitment"></a>Aumentar seu compromisso monetário
+### <a name="increase-your-azure-prepayment"></a>Aumentar o pagamento antecipado do Azure
 
-É possível aumentar seu compromisso a qualquer momento. A cobrança será realizada pelo número de meses restantes no período de compromisso deste ano. Por exemplo, se você se inscrever para uma assinatura de aditamento de um ano e, depois, aumentar seu compromisso durante o mês seis, será faturado pelos seis meses restantes desse período. Suas quantidades de compromisso serão atualizadas para os últimos seis meses de seu período de compromisso. Essas novas quantidades serão usadas para determinar cobranças excedentes.
+Você pode aumentar seu pagamento antecipado a qualquer momento. Você é cobrado pelo número de meses restantes no período do pagamento antecipado do ano em questão. Por exemplo, se você se inscrever em uma assinatura de aditamento de um ano e depois aumentar seu pagamento antecipado durante o sexto mês, será faturado pelos seis meses restantes desse termo. Suas quantidades do pagamento antecipado serão atualizadas para os últimos seis meses do termo do pagamento antecipado. Essas novas quantidades serão usadas para determinar cobranças excedentes.
 
 ### <a name="overage"></a>Excedente
 
-No caso de excedente, você será cobrado pelo uso ou pelas reservas que excederam seu compromisso durante o período de cobrança. Para exibir um detalhamento de como as quantidades excedentes de itens individuais foram calculadas, confira o relatório de resumo do uso ou fale com o parceiro de canal.
+No caso de excedente, você é cobrado pelo uso ou pelas reservas que excedem o pagamento antecipado durante o período de cobrança. Para exibir um detalhamento de como as quantidades excedentes de itens individuais foram calculadas, confira o relatório de resumo do uso ou fale com o parceiro de canal.
 
 Para cada item na fatura, você verá:
 
 - **Valor ampliado**: o total de cobranças
-- **Uso do compromisso**: a quantidade de seu compromisso usada para cobrir os encargos
-- **Valor líquido**: as cobranças que excedem seu compromisso
+- **Uso do pagamento antecipado**: o valor do pagamento antecipado usado para cobrir os custos
+- **Valor líquido**: os custos que excedem o pagamento antecipado
 
-Os tributos incidentes são computados somente no valor líquido que excede o compromisso.
+Os tributos incidentes são calculados somente sobre o valor líquido que excede o pagamento antecipado.
 
 O faturamento excedente é automatizado. O cronograma das notificações e das faturas depende da data de término do seu período de cobrança.
 
@@ -130,18 +130,18 @@ Para exibir créditos:
 1. No [Azure Enterprise Portal](https://ea.azure.com), selecione a seção **Relatórios**.
 1. Selecione **Resumo do Uso**.
 1. No canto superior direito, altere a exibição **M** para **C**.
-1. Aumente o campo de ajuste na tabela de compromisso do serviço do Azure.
+1. Estenda o campo de ajuste na tabela do pagamento antecipado do serviço do Azure.
 1. Você verá os créditos aplicados ao seu registro e uma breve explicação. Por exemplo:  Crédito do Contrato de Nível de Serviço.
 
-## <a name="pay-your-overage-with-your-monetary-commitment"></a>Pague seu excedente com compromisso monetário
+## <a name="pay-your-overage-with-your-azure-prepayment"></a>Pagar o excedente com o pagamento antecipado do Azure
 
-Para aplicar seu compromisso monetário a excedentes, você precisa atender aos seguintes critérios:
+Para aplicar o pagamento antecipado do Azure aos excedentes, você precisa atender aos seguintes critérios:
 
 - Ter incorrido cobranças de excedente que não foram pagas e estão no prazo de um ano da data de término do serviço cobrado.
-- O valor do compromisso monetário disponível cobre o valor total das cobranças incorridas, incluindo todas as faturas anteriores do Azure não pagas.
+- O valor do pagamento antecipado do Azure disponível cobre o valor total dos custos gerados, incluindo todas as faturas anteriores não pagas do Azure.
 - O termo de cobrança que você deseja concluir precisa estar totalmente encerrado. A cobrança se encerra totalmente após o quinto dia de cada mês.
 - O período de cobrança que você deseja compensar precisa estar totalmente encerrado.
-- O ACD (Desconto de Compromisso com o Azure) se baseia no novo compromisso real menos os fundos planejados para consumo anterior. Este requisito se aplica somente às cobranças de excedente incorridas. Isso só é válido para serviços que consomem compromisso monetário, então não é aplicável a cobranças do Azure Marketplace. As cobranças do Azure Marketplace são feitas separadamente.
+- O ACD (desconto do pagamento antecipado do Azure) se baseia no novo pagamento antecipado real menos os fundos planejados para o consumo anterior. Este requisito se aplica somente às cobranças de excedente incorridas. Ele só é válido para os serviços que consomem o pagamento antecipado do Azure e, portanto, não se aplica aos custos do Azure Marketplace. As cobranças do Azure Marketplace são feitas separadamente.
 
 Para concluir uma compensação de excedente, você ou a equipe de conta pode abrir uma solicitação de suporte. É necessária uma aprovação por email do administrador corporativo ou do Contato para Cobrança.
 
@@ -178,13 +178,13 @@ Para referência, a seguinte tabela mostra as fórmulas do Excel que você pode 
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Conversão entre o relatório de detalhes de uso e a página de resumo de uso
 
-No relatório de download de dados de uso, é possível ver o uso bruto de recursos de até seis casas decimais. No entanto, os dados de uso mostrados no Azure Enterprise Portal são arredondados para quatro casas decimais para unidades de compromisso e truncados para zero decimais para unidades excedentes. Os dados de uso brutos são arredondados primeiro para quatro dígitos antes da conversão para as unidades usadas no Azure Enterprise Portal. Em seguida, as unidades do Enterprise convertidas são arredondadas novamente para quatro dígitos. Só é possível ver as horas reais consumidas antes da conversão no relatório de download de uso e não no Azure Enterprise Portal.
+No relatório de download de dados de uso, é possível ver o uso bruto de recursos de até seis casas decimais. No entanto, os dados de uso mostrados no Azure Enterprise Portal são arredondados para quatro casas decimais para unidades do pagamento antecipado e truncados para zero decimal para unidades de excedente. Os dados de uso brutos são arredondados primeiro para quatro dígitos antes da conversão para as unidades usadas no Azure Enterprise Portal. Em seguida, as unidades do Enterprise convertidas são arredondadas novamente para quatro dígitos. Só é possível ver as horas reais consumidas antes da conversão no relatório de download de uso e não no Azure Enterprise Portal.
 
 Por exemplo:  Se 694,533404 horas SQL Server reais forem relatadas no relatório de detalhes de uso. Essas unidades são convertidas em 6,94533404 de 100 horas de computação que, em seguida, são arredondadas para 6,9453 e exibidas no Azure Enterprise Portal.
 
-- Para determinar o valor da cobrança estendida, as unidades exibidas são multiplicadas pelo preço unitário do compromisso e o resultado é truncado para dois decimais. Para o iene japonês (JPY) e o won coreano (KRW), o valor estendido é arredondado para zero decimais.
+- Para determinar o valor da cobrança estendida, as unidades exibidas são multiplicadas pelo preço unitário do pagamento antecipado, e o resultado é truncado para dois decimais. Para o iene japonês (JPY) e o won coreano (KRW), o valor estendido é arredondado para zero decimais.
 - No caso de excedente, as unidades faturáveis são truncadas para seis e, em seguida, multiplicadas pelo preço unitário excedente para determinar o valor da cobrança estendida.
-- Para a cobrança do MSP (provedor de serviços gerenciados), todo o uso associado a um departamento marcado como MSP é truncado para zero decimais após a conversão para a unidade de medida do EA. Como resultado, a soma desse uso pode ser menor do que a soma total de todos os usos relatados no Azure Enterprise Portal. Isso dependerá se o MSP estiver dentro do saldo do compromisso monetário ou estiver excedente.
+- Para a cobrança do MSP (provedor de serviços gerenciados), todo o uso associado a um departamento marcado como MSP é truncado para zero decimais após a conversão para a unidade de medida do EA. Como resultado, a soma desse uso pode ser menor do que a soma total de todos os usos relatados no Azure Enterprise Portal. Isso depende se o MSP está dentro do saldo do pagamento antecipado do Azure ou está em excedente.
 
 ### <a name="graduated-pricing"></a>Preços graduados
 
@@ -226,13 +226,13 @@ Para os serviços em que a zona e a região afetam os preços, confira a seguint
 
 Não há cobranças para saída de dados entre serviços hospedados no mesmo data center. Por exemplo, Microsoft 365 e Azure.
 
-### <a name="monetary-commitment-and-unbilled-usage"></a>Compromisso monetário e uso não faturado
+### <a name="azure-prepayment-and-unbilled-usage"></a>Pagamento antecipado do Azure e utilização não faturada
 
-O compromisso monetário do Azure é um valor pago adiantadamente pelos serviços do Azure. O compromisso monetário é consumido conforme os serviços são usados. Serviços internos do Azure são cobrados em relação ao compromisso monetário. No entanto, algumas cobranças são realizadas separadamente e os serviços do Azure Marketplace não consomem o compromisso monetário.
+O pagamento antecipado do Azure é um valor pago antecipadamente pelos serviços do Azure. O pagamento antecipado do Azure é consumido conforme os serviços são usados. Os serviços internos do Azure são cobrados no pagamento antecipado do Azure. No entanto, alguns custos são cobrados separadamente, e os serviços do Azure Marketplace não consomem o pagamento antecipado do Azure.
 
 ### <a name="charges-billed-separately"></a>Cobranças arrecadadas separadamente
 
-Alguns produtos e serviços fornecidos por fontes de terceiros não consomem o compromisso monetário do Azure. Ao invés disso, esses itens são cobrados separadamente como parte da fatura excedente do ciclo de cobrança padrão.
+Alguns produtos e serviços fornecidos por fontes de terceiros não consomem o pagamento antecipado do Azure. Ao invés disso, esses itens são cobrados separadamente como parte da fatura excedente do ciclo de cobrança padrão.
 
 Combinamos todas as cobranças do Azure e do Azure Marketplace em uma fatura que se alinha com o ciclo de cobrança do registro. A fatura combinada não se aplica aos clientes na Austrália, no Japão ou em Singapura.
 
@@ -266,7 +266,7 @@ As faturas serão lançadas no mês posterior ao término do período de cobran�
 
    | Title | Descrição | Nome do arquivo |
    | --- | --- | --- |
-   | [Nomes de serviços amigáveis](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Lista todos os serviços ativos e inclui: <br>  <ul><li>categoria de serviço</li>   <li>nome de serviço amigável</li>   <li>nome do compromisso e número da peça</li> <li>nome do consumo e número da peça</li>   <li>unidades de medida</li>   <li>fatores de conversão entre o uso relatado e o uso exibido no Enterprise Portal</li></ul> | Nomes\_Serviços\_Amigáveis.xlsx |
+   | [Nomes de serviços amigáveis](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Lista todos os serviços ativos e inclui: <br>  <ul><li>categoria de serviço</li>   <li>nome de serviço amigável</li>   <li>Nome do pagamento antecipado e número da peça</li> <li>nome do consumo e número da peça</li>   <li>unidades de medida</li>   <li>fatores de conversão entre o uso relatado e o uso exibido no Enterprise Portal</li></ul> | Nomes\_Serviços\_Amigáveis.xlsx |
    | [Campos de download do serviço](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | Esta planilha fornece uma lista de todas as combinações possíveis dos campos relacionados ao serviço no relatório Baixar uso. | Campos\_Download\_Serviço.xlsx |
 
 - Para saber mais sobre como funcionam as faturas e as cobranças, confira [Entender a fatura do Contrato Enterprise do Azure](../understand/review-enterprise-agreement-bill.md).

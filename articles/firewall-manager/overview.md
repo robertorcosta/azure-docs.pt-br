@@ -1,24 +1,22 @@
 ---
-title: O que é a Versão prévia do Gerenciador de Firewall do Azure?
+title: O que é o Gerenciador de Firewall do Azure?
 description: Saiba mais sobre os recursos do Gerenciador de Firewall do Azure
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/11/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: bef948def487e2b60764641e6cf38a3e122e2f87
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 8b457198655af50427545a0e93e2cfe6903131c8
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84792143"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563743"
 ---
-# <a name="what-is-azure-firewall-manager-preview"></a>O que é a Versão prévia do Gerenciador de Firewall do Azure?
+# <a name="what-is-azure-firewall-manager"></a>O que é o Gerenciador de Firewall do Azure?
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-A Versão prévia do Gerenciador de Firewall do Azure é um serviço de gerenciamento de segurança que fornece a política de segurança central e o gerenciamento de rotas para parâmetros de segurança baseados em nuvem. 
+O Gerenciador de Firewall do Azure é um serviço de gerenciamento de segurança que fornece gerenciamento central de rotas e políticas de segurança para os parâmetros de segurança baseados em nuvem. 
 
 O Gerenciador de Firewall pode fornecer gerenciamento de segurança para dois tipos de arquitetura de rede:
 
@@ -33,9 +31,9 @@ Para obter uma comparação detalhada dos tipos de arquitetura de *hub virtual s
 
 ![gerenciador de firewall](media/overview/trusted-security-partners.png)
 
-## <a name="azure-firewall-manager-preview-features"></a>Recursos da Versão prévia do Gerenciador de Firewall do Azure
+## <a name="azure-firewall-manager-features"></a>Recursos do Gerenciador de Firewall do Azure
 
-A Versão prévia do Gerenciador de Firewall do Azure oferece os seguintes recursos:
+O Gerenciador de Firewall do Azure oferece os seguintes recursos:
 
 ### <a name="central-azure-firewall-deployment-and-configuration"></a>Implantação e configuração central do Firewall do Azure
 
@@ -43,7 +41,7 @@ Você pode implantar e configurar centralmente várias instâncias do Firewall d
 
 ### <a name="hierarchical-policies-global-and-local"></a>Políticas hierárquicas (globais e locais)
 
-Você pode usar a Versão prévia do Gerenciador de Firewall do Azure para gerenciar de um só lugar as políticas de firewall do Azure em vários hubs virtuais seguros. Suas equipes de TI centralizadas podem criar políticas globais de firewall para impor políticas de firewall em toda a organização entre as equipes. As políticas de firewall criadas localmente proporcionam um modelo de autoatendimento do DevOps para oferecer maior agilidade.
+Use o Gerenciador de Firewall do Azure para gerenciar de maneira centralizada as políticas do Firewall do Azure em vários hubs virtuais seguros. Suas equipes de TI centralizadas podem criar políticas globais de firewall para impor políticas de firewall em toda a organização entre as equipes. As políticas de firewall criadas localmente proporcionam um modelo de autoatendimento do DevOps para oferecer maior agilidade.
 
 ### <a name="integrated-with-third-party-security-as-a-service-for-advanced-security"></a>Integração com a segurança como serviço de terceiros para oferecer segurança avançada
 
@@ -60,7 +58,7 @@ Esse recurso está disponível somente com implantações de hub virtual seguro.
 
    Aproveite a conectividade do Azure e a distribuição global para adicionar facilmente a filtragem de terceiros para cenários de branch para Internet.
 
-Para saber mais sobre provedores de segurança confiáveis, consulte [O que são parceiros de segurança confiáveis do Gerenciador de Firewall do Azure (versão prévia)?](trusted-security-partners.md)
+Para obter mais informações sobre os provedores de parceiros de segurança, confira [O que são provedores de parceiros de segurança do Gerenciador de Firewall do Azure?](trusted-security-partners.md)
 
 ### <a name="centralized-route-management"></a>Gerenciamento de rota centralizado
 
@@ -76,20 +74,17 @@ As Políticas de Firewall do Azure podem ser usadas entre regiões. Por exemplo,
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-A Versão prévia do Gerenciador de Firewall do Azure tem os seguintes problemas conhecidos:
+O Gerenciador de Firewall do Azure apresenta os seguintes problemas conhecidos:
 
 |Problema  |Descrição  |Atenuação  |
 |---------|---------|---------|
-|Limitações da filtragem de terceiros.|A filtragem de tráfego V2I com provedores de terceiros não tem suporte no Firewall do Azure B2V e V2V.|Investigando|
 |Divisão de tráfego sem suporte no momento.|A divisão de tráfego do Office 365 e PaaS público do Azure não tem suporte no momento. Dessa forma, selecionar um provedor de terceiros para V2I ou B2I também envia todo o tráfego de PaaS público do Azure e do Office 365 por meio do serviço do parceiro.|Investigando a divisão de tráfego no hub.
 |Um hub virtual seguro por região.|Você não pode ter mais de um hub virtual seguro por região.|Crie várias WANs virtuais em uma região.|
 |As políticas básicas devem estar na mesma região que a política local.|Crie todas as políticas locais na mesma região que a política básica. Você ainda pode aplicar uma política que foi criada em uma região em um hub seguro de outra região.|Investigando|
 |A comunicação entre os hubs não está funcionando com o hub virtual seguro|A comunicação do hub virtual seguro com o hub virtual seguro ainda não tem suporte.|Investigando|
 |Todos os Hubs Virtuais Seguros que compartilham a mesma WAN virtual devem estar no mesmo grupo de recursos.|Esse comportamento está alinhado aos Hubs da WAN Virtual hoje.|Crie várias WANs Virtuais para permitir que os Hubs Virtuais Seguros sejam criados em diferentes grupos de recursos.|
-|Grupos de IPs não são compatíveis com a Política de Firewall.|Os Grupos de IPs estão em versão prévia pública e atualmente só são compatíveis com regras de firewall tradicionais.|Conserto em andamento.
-|Não há suporte para as assinaturas de CSP (Provedor de solução de nuvem).|Atualmente, não há suporte para as [assinaturas de CSP](https://azure.microsoft.com/offers/ms-azr-0145p/).|Investigando
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine a [Visão geral sobre a implantação da Versão prévia do Gerenciador de Firewall do Azure](deployment-overview.md)
+- Examine [Visão geral da implantação do Gerenciador de Firewall do Azure](deployment-overview.md)
 - Saiba mais sobre [Hubs virtuais seguros](secured-virtual-hub.md).

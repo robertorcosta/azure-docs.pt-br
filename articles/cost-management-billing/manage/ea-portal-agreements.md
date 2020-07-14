@@ -3,16 +3,16 @@ title: Contratos e aditamentos de EA do Azure
 description: Este artigo explica como os contratos e aditamentos de EA do Azure afetam o uso do Portal do EA do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 4904390ce0642d0331e82610e8aef4b735b56f1f
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 50f7a1bab17b9a98b7ca282387def52b24d448c4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298135"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044899"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratos e aditamentos de EA do Azure
 
@@ -20,7 +20,7 @@ O artigo explica como os contratos e aditamentos do Azure EA podem afetar seu ac
 
 ## <a name="enrollment-provisioning-status"></a>Status de provisionamento do registro
 
-A data de início de um novo compromisso monetário é definida pela data em que o centro de operações regionais o processou. Como as ordens de compromisso monetário realizadas por meio do portal do Azure EA são processadas no fuso horário UTC, você poderá enfrentar algum atraso se sua ordem de compra de compromisso monetário tiver sido processada em uma região diferente. A data de início da cobertura na ordem de compra em https://www.explore.ms mostra o início do compromisso monetário. A data de início da cobertura é quando o compromisso monetário aparece no Portal do EA do Azure.
+A data de início de um novo pagamento antecipado do Azure é definida pela data em que o centro de operações regionais o processou. Como as ordens do pagamento antecipado do Azure realizadas por meio do portal do Azure EA são processadas no fuso horário UTC, poderá ocorrer algum atraso se a sua ordem de compra do pagamento antecipado do Azure tiver sido processada em outra região. A data de início da cobertura na ordem de compra em https://www.explore.ms mostra o início do pagamento antecipado do Azure. A data de início da cobertura é quando o pagamento antecipado do Azure é exibido no portal do Azure EA.
 
 ## <a name="support-for-enterprise-customers"></a>Compatibilidade com clientes empresariais
 
@@ -36,7 +36,7 @@ Um registro tem um dos valores de status a seguir. Cada valor determina como voc
 
 **Termo Estendido Indefinido** – o status de termo estendido indefinido ocorre depois que a data de término do Contrato Enterprise é atingida. Antes que o registro do EA atinja a data de término do Contrato Enterprise, o administrador do registro deve decidir:
 
-- Renovar o registro adicionando um compromisso monetário adicional
+- Renovar o registro adicionando outro pagamento antecipado do Azure
 - Transferir o registro existente para um novo registro
 - Migrar para o MOSP (Programa de Assinatura do Microsoft Online)
 - Confirmar a desabilitação de todos os serviços associados ao registro
@@ -51,7 +51,7 @@ Desde 1º de agosto de 2019, novos formulários de recusa não são aceitos para
 
 No Portal do EA do Azure, a marcação de preço do parceiro ajuda a habilitar relatórios de custo melhores para os clientes. O Portal do EA do Azure mostra o uso e os preços configurados por parceiros para os respectivos clientes.
 
-A marcação permite que os administradores de parceiros adicionem uma marcação percentual aos seus contratos empresariais indiretos. A marcação percentual aplica-se a todas as informações de serviço internas da Microsoft no portal do Azure EA, como taxas de medição, compromissos monetários e pedidos. Após a marcação ser publicada pelo parceiro, o cliente vê os custos do Azure no portal do Azure EA. Por exemplo, resumo de uso, listas de preços e relatórios de uso baixados.
+A marcação permite que os administradores de parceiros adicionem uma marcação percentual aos seus contratos empresariais indiretos. A marcação percentual aplica-se a todas as informações de serviço internas da Microsoft no portal do Azure EA, como taxas de medição, pagamento antecipado do Azure e ordens. Após a marcação ser publicada pelo parceiro, o cliente vê os custos do Azure no portal do Azure EA. Por exemplo, resumo de uso, listas de preços e relatórios de uso baixados.
 
 Desde setembro de 2019, os parceiros podem aplicar marcação a qualquer momento durante um termo. Eles não precisam aguardar até o próximo aniversário do termo para aplicarem a marcação.
 
@@ -61,7 +61,7 @@ A Microsoft não acessará nem utilizará a marcação e os preços associados f
 
 O LSP fornece um número percentual único no portal de EA.  Todas as informações comerciais no portal serão elevadas pelo percentual fornecido pelo LSP. Exemplo:
 
-- O cliente assina um EA com compromisso monetário de US$ 100.000,00.
+- O cliente assina um EA com o pagamento antecipado do Azure de US$ 100.000.
 - A taxa de medição para o Serviço A é de US$ 10/hora.
 - O LSP define a porcentagem de marcação de 10% no portal de EA.
 - O exemplo a seguir mostra como o cliente verá as informações comerciais:
@@ -72,10 +72,10 @@ O LSP fornece um número percentual único no portal de EA.  Todas as informaç
 
 ### <a name="when-to-use-a-markup"></a>Quando usar uma marcação
 
-Use o recurso se você definir a mesma porcentagem de marcação em TODAS as transações comerciais no EA. Ou seja, se você marcar as informações de compromisso monetário, as taxas de medição, as informações do pedido etc.
+Use o recurso se você definir a mesma porcentagem de marcação em TODAS as transações comerciais no EA. Ou seja, se você fizer a marcação das informações do pagamento antecipado do Azure, das taxas de medição, das informações de ordens etc.
 
 Não use o recurso de marcação se:
-- Você usar taxas diferentes entre o compromisso monetário e as taxas de medição.
+- Você usar taxas diferentes entre o pagamento antecipado do Azure e as taxas de medição.
 - Você usar taxas diferentes para medições diferentes.
 
 Se você usa taxas diferentes para medições diferentes, recomendamos que desenvolva uma solução personalizada com base na Chave de API, que pode ser fornecida pelo cliente para efetuar pull de dados de consumo e fornecer relatórios.
@@ -97,11 +97,11 @@ Revise as informações comerciais, como informação do saldo monetário, lista
 
 **Etapa 2: revisar e validar**
 
-Revise o preço de marcação em _Resumo do uso_ no termo de compromisso na exibição de cliente. O preço da Microsoft ainda estará disponível na exibição de parceiro. As exibições podem ser alternadas com a opção "pessoas" da marcação de parceiro no canto superior direito.
+Examine o preço de marcação em _Resumo do uso_ do termo do pagamento antecipado na exibição do cliente. O preço da Microsoft ainda estará disponível na exibição de parceiro. As exibições podem ser alternadas com a opção "pessoas" da marcação de parceiro no canto superior direito.
 
 1. Reveja os preços na tabela de preços.
 1. É possível fazer alterações antes da publicação selecionando **Editar** na guia _Exibir resumo de uso > Exibição de cliente_.  
-  Os preços de serviço e os saldos de compromisso serão marcados com as mesmas porcentagens. Se você tem porcentagens diferentes para o saldo monetário e taxas de medição ou percentuais diferentes para serviços diferentes, não use esse recurso.
+  Os preços de serviços e os saldos do pagamento antecipado serão marcados com os mesmos percentuais. Se você tem porcentagens diferentes para o saldo monetário e taxas de medição ou percentuais diferentes para serviços diferentes, não use esse recurso.
 
 **Etapa 3: publicar**
 
@@ -121,7 +121,7 @@ Após a publicação da marcação de parceiro, o cliente indireto terá acesso 
 Os parceiros podem usar o recurso de marcação (no Azure EA) após o processamento de uma Alteração do Parceiro de Canal; não é necessário aguardar o próximo vencimento.
 
 
-## <a name="resource-commitment-and-requesting-quota-increases"></a>Confirmação de recursos e solicitação de aumento de cota
+## <a name="resource-prepayment-and-requesting-quota-increases"></a>Pagamento antecipado de recursos e solicitação de aumentos de cota
 
 **O sistema impõe as seguintes cotas padrão por assinatura:**
 
@@ -135,11 +135,11 @@ Os parceiros podem usar o recurso de marcação (no Azure EA) após o processame
 | Controle de acesso | 50 namespaces por conta. 100 milhões de transações de Controle de Acesso por mês |   |
 | Barramento de Serviço | 50 namespaces por conta. 40 conexões de Barramento de Serviço | Os clientes que adquirem conexões do Barramento de Serviço por meio de pacotes de conexão terão cotas iguais ao ponto médio entre o pacote de conexão adquirido e o próximo valor mais alto do pacote de conexão. Os clientes que escolherem um Pacote de 500 terão uma cota de 750. |
 
-## <a name="resource-commitment"></a>Confirmação de recurso
+## <a name="resource-prepayment"></a>Pagamento antecipado de recursos
 
-A Microsoft fornecerá serviços para você pelo menos até o nível do uso associado incluído no compromisso mensal que você comprou (o Compromisso de Serviço), mas todos os outros aumentos nos níveis de utilização de recursos do serviço (por exemplo, aumento do número de instâncias de computação em execução ou aumento da quantidade de armazenamento em uso) estão sujeitos à disponibilidade desses recursos de serviço.
+A Microsoft fornecerá serviços a você, pelo menos, até o nível do uso associado incluído no pagamento antecipado mensal que você adquiriu (o Pagamento Antecipado de Serviço), mas todos os outros aumentos nos níveis de uso dos recursos do serviço (por exemplo, aumento do número de instâncias de computação em execução ou aumento da quantidade de armazenamento em uso) estão sujeitos à disponibilidade desses recursos de serviços.
 
-Qualquer cota descrita acima não é um Compromisso de Serviço. Para fins de determinação do número de pequenas instâncias de computação simultâneas (ou equivalente) que a Microsoft fornecerá como parte de um Compromisso de Serviço, isso é determinado pela divisão do número de horas de instância pequena de computação adquirido em um mês pelo número de horas do mês mais curto do ano (ou seja, fevereiro com 672 horas).
+Qualquer cota descrita acima não é um Pagamento Antecipado de Serviço. Com o objetivo de determinar o número de instâncias de computação pequenas simultâneas (ou o equivalente delas) que será fornecido pela Microsoft como parte de um Pagamento Antecipado de Serviço, isso é determinado pela divisão do número de horas da instância de computação pequena comprometida adquirida para um mês pelo número de horas do mês mais curto do ano (ou seja, fevereiro, com 672 horas).
 
 ## <a name="requesting-a-quota-increase"></a>Solicitar um aumento de cota
 

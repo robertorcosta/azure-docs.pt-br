@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 7ba8d201c29b5e3835fec52d8c479a388ca07f71
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: d457e911dec481e2b1a8bdae1ca05f80452bb883
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312988"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557175"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Início Rápido: Converter um modelo para renderização
 
@@ -70,7 +70,7 @@ Clicar nesse botão abrirá a seguinte tela com as propriedades do armazenamento
 Preencha o formulário da seguinte maneira:
 
 * Crie um Grupo de Recursos no link abaixo da caixa suspensa e dê o nome **ARR_Tutorial**
-* Para o **Nome da conta de armazenamento**, insira um nome exclusivo. **Esse nome deve ser globalmente exclusivo**, caso contrário, um prompt informará que o nome já foi fornecido. No escopo deste início rápido, nós o nomeamos **arrtutorialstorage**. Sendo assim, você precisa substituir esse nome pelo seu nome, para o caso de outra ocorrência neste início rápido.
+* Para o **Nome da conta de armazenamento**, insira um nome exclusivo. **Esse nome precisa ser globalmente exclusivo**, caso contrário, você verá um aviso informando que o nome já foi usado. No escopo deste início rápido, nós o nomeamos **arrtutorialstorage**. Sendo assim, você precisa substituir esse nome pelo seu nome, para o caso de outra ocorrência neste início rápido.
 * Escolha uma **localização** perto de você. O ideal é usar a mesma localização usada para configurar a renderização no outro início rápido.
 * **Desempenho** definido como 'Padrão'
 * **Tipo de conta** definido como 'StorageV2 (uso geral v2)'
@@ -113,7 +113,7 @@ Para facilitar a chamada do serviço de conversão de ativos, fornecemos um scri
 Em particular, esse script
 
 1. carrega todos os arquivos de um determinado diretório do disco local para o contêiner de armazenamento de entrada
-1. chama a [API REST de conversão de ativos](../how-tos/conversion/conversion-rest-api.md) que recuperará os dados do contêiner de armazenamento de entrada e iniciará uma conversão que retornará uma ID de conversão
+1. chama a [API REST de conversão de ativos](../how-tos/conversion/conversion-rest-api.md), que vai recuperar os dados do contêiner de armazenamento de entrada e iniciar uma conversão que retornará uma ID de conversão
 1. sonda a API de status de conversão com a ID de conversão recuperada até que o processo de conversão seja encerrado com êxito ou falha
 1. recupera um link do ativo convertido no armazenamento de saída
 
@@ -157,7 +157,7 @@ Altere **inputAssetPath** para o caminho do modelo a ser convertido – o caminh
 
 Depois que o modelo for convertido, ele será gravado no contêiner de armazenamento fornecido por **blobOutputContainerName**. Um subcaminho pode ser especificado fornecendo o **outputFolderPath** opcional. No exemplo acima, o "robot.arrAsset" resultante será copiado para o contêiner de blob de saída em "converted/robot".
 
-A definição de configuração **outputAssetFileName** determina o nome do ativo convertido – o parâmetro é opcional e, nesse caso, o nome de arquivo de saída será deduzido do nome do arquivo de entrada. 
+A definição de configuração **outputAssetFileName** determina o nome do ativo convertido – o parâmetro é opcional e, nesse caso, o nome de arquivo de saída será deduzido do nome do arquivo de entrada.
 
 Abra um PowerShell, confirme se instalou o *Azure PowerShell* conforme mencionado nos [pré-requisitos](#prerequisites). Em seguida, faça logon em sua assinatura com o seguinte comando e siga as instruções na tela:
 
@@ -175,6 +175,8 @@ Altere para o diretório `azure-remote-rendering\Scripts` e execute o script de 
 ```
 
 Você deverá ver algo assim: ![Conversion.ps1](./media/successful-conversion.png)
+
+## <a name="insert-new-model-into-quickstart-sample-app"></a>Inserir um novo modelo no aplicativo de exemplo do guia de início rápido
 
 O script de conversão gera um URI de *SAS (Assinatura de Acesso Compartilhado)* para o modelo convertido. Agora você pode copiar esse URI como o **Nome do Modelo** no aplicativo de exemplo do início rápido (consulte o [Início Rápido: Renderizar um modelo com o Unity](render-model.md)).
 
@@ -198,4 +200,4 @@ Agora que você conhece os conceitos básicos, veja nossos tutoriais para obter 
 Se você quiser aprender os detalhes da conversão de modelo, confira [a API REST de conversão de modelo](../how-tos/conversion/conversion-rest-api.md).
 
 > [!div class="nextstepaction"]
-> [Tutorial: Configuração de um projeto do Unity do zero](../tutorials/unity/project-setup.md)
+> [Tutorial: Como exibir modelos renderizados remotamente](../tutorials/unity/view-remote-models/view-remote-models.md)

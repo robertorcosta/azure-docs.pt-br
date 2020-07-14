@@ -1,5 +1,5 @@
 ---
-title: Guia de início rápido – Criar Registro replicado geograficamente – modelo do Resource Manager
+title: Guia de Início Rápido – Criar um registro com replicação geográfica – modelo do Azure Resource Manager
 description: Saiba como criar um registro de contêiner do Azure com replicação geográfica usando um modelo do Azure Resource Manager.
 services: azure-resource-manager
 author: dlepow
@@ -8,28 +8,28 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 05/26/2020
-ms.openlocfilehash: c94cd3b4b455691e85e7525007fcdf7a056a2b28
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 3ed160780e15cc36648f7e2ad77e726901ee86c3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558076"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119847"
 ---
-# <a name="quickstart-create-a-geo-replicated-container-registry-by-using-a-resource-manager-template"></a>Início Rápido: Criar um registro de contêiner do Azure com replicação geográfica usando um modelo do Resource Manager
+# <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Início Rápido: Criar um registro de contêiner com replicação geográfica usando um modelo do Resource Manager
 
-Este início rápido mostra como criar uma instância do Registro de Contêiner do Azure usando um modelo do Azure Resource Manager. O modelo configura um Registro [com replicação geográfica](container-registry-geo-replication.md), que sincroniza automaticamente o conteúdo do Registro em mais de uma região do Azure. A replicação geográfica permite acesso de fechamento de rede a imagens de implantações regionais, fornecendo, ao mesmo tempo, uma única experiência de gerenciamento. É um recurso da camada de serviço do Registro [Premium](container-registry-skus.md). 
+Este guia de início rápido mostra como criar uma instância do Registro de Contêiner do Azure usando um modelo do Azure Resource Manager. O modelo configura um Registro [com replicação geográfica](container-registry-geo-replication.md), que sincroniza automaticamente o conteúdo do Registro em mais de uma região do Azure. A replicação geográfica permite acesso de fechamento de rede a imagens de implantações regionais, fornecendo, ao mesmo tempo, uma única experiência de gerenciamento. É um recurso da camada de serviço do Registro [Premium](container-registry-skus.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Nenhum.
+Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="create-a-geo-replicated-registry"></a>Criar um Registro com replicação geográfica
-
-### <a name="review-the-template"></a>Examinar o modelo
+## <a name="review-the-template"></a>Examinar o modelo
 
 O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). O modelo configura um Registro e uma réplica regional adicional.
 
@@ -42,7 +42,7 @@ Os seguintes recursos do Azure estão definidos no modelo:
 
 Mais exemplos de modelo do Registro de Contêiner do Azure podem ser encontrados na [galeria de modelo de início rápido](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerregistry&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-the-template"></a>Implantar o modelo
 
  1. Selecione a imagem a seguir para entrar no Azure e abrir um modelo.
 
@@ -86,7 +86,7 @@ Quando você não precisar mais deles, exclua o grupo de recursos, o Registro e 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você criou um Registro de Contêiner do Azure com um modelo do Resource Manager e configurou uma réplica de Registro em outro local. Prossiga para os tutoriais de Registro de Contêiner do Azure para uma análise mais profunda do ACR.
+Neste guia de início rápido, você criou um Registro de Contêiner do Azure com um modelo do Resource Manager e configurou uma réplica do registro em outra localização. Prossiga para os tutoriais de Registro de Contêiner do Azure para uma análise mais profunda do ACR.
 
 > [!div class="nextstepaction"]
 > [Tutoriais de Registro de Contêiner do Azure](container-registry-tutorial-prepare-registry.md)
@@ -94,4 +94,4 @@ Neste guia de início rápido, você criou um Registro de Contêiner do Azure co
 Para obter um tutorial passo a passo que orienta você durante o processo de criação de um modelo, confira:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Criar e implantar seu primeiro modelo do Azure Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Tutorial: Criar e implantar seu primeiro modelo do Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

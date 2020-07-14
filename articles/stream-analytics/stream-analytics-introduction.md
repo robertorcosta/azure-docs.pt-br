@@ -7,17 +7,17 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/21/2019
-ms.openlocfilehash: f435a33befdde96a92c900663a2ddcca1d319260
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/6/2020
+ms.openlocfilehash: d62fd0a23a5f5553f27c7a399eb17d06d427a6f3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82201186"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108780"
 ---
 # <a name="what-is-azure-stream-analytics"></a>O que é o Azure Stream Analytics?
 
-O Azure Stream Analytics é um mecanismo de processamento de eventos complexos e análise em tempo real desenvolvido para analisar e processar simultaneamente altos volumes de dados de streaming rápido a partir de várias fontes. É possível identificar padrões e relações em informações extraídas de diversas fontes de entrada, incluindo dispositivos, sensores, sequências de cliques, feeds de mídias sociais e aplicativos. Esses padrões podem ser usados para disparar ações e iniciar fluxos de trabalho, como criação de alertas, informações de feed para uma ferramenta de relatórios ou para armazenar dados transformados para uso posterior. O Stream Analytics também está disponível no runtime do Azure IoT Edge e é compatível com a mesma linguagem ou sintaxe que a nuvem. 
+O Azure Stream Analytics é um mecanismo de processamento de eventos complexos e análise em tempo real desenvolvido para analisar e processar simultaneamente altos volumes de dados de streaming rápido a partir de várias fontes. É possível identificar padrões e relações em informações extraídas de diversas fontes de entrada, incluindo dispositivos, sensores, sequências de cliques, feeds de mídias sociais e aplicativos. Esses padrões podem ser usados para disparar ações e iniciar fluxos de trabalho, como criação de alertas, informações de feed para uma ferramenta de relatórios ou para armazenar dados transformados para uso posterior. Além disso, o Stream Analytics está disponível no runtime do Azure IoT Edge, permitindo o processamento de dados em dispositivos IoT. 
 
 Os cenários a seguir são exemplos de quando você pode usar o Azure Stream Analytics:
 
@@ -29,13 +29,13 @@ Os cenários a seguir são exemplos de quando você pode usar o Azure Stream Ana
 
 ## <a name="how-does-stream-analytics-work"></a>Como funciona o Stream Analytics?
 
-Um trabalho do Azure Stream Analytics consiste em uma entrada, uma consulta e uma saída. O Stream Analytics ingere dados dos Hubs de Eventos do Azure, do Hub IoT do Azure ou do Armazenamento de Blobs do Azure. A consulta, que tem como base a linguagem de consulta SQL, pode ser usada para filtrar, classificar, agregar e associar dados de streaming com facilidade por um período de tempo. Também é possível estender essa linguagem SQL com UDFs (funções definidas pelo usuário) de JavaScript e C#. Você pode ajustar com facilidade as opções de ordenação de eventos e a duração das janelas de tempo na execução de operações de agregação por configurações e/ou constructos de linguagem.
+Um trabalho do Azure Stream Analytics consiste em uma entrada, uma consulta e uma saída. O Stream Analytics ingere dados dos Hubs de Eventos do Azure (incluindo Hubs de Eventos do Azure do Apache Kafka), do Hub IoT do Azure ou do Armazenamento de Blobs do Azure. A consulta, que tem como base a linguagem de consulta SQL, pode ser usada para filtrar, classificar, agregar e associar dados de streaming com facilidade por um período de tempo. Também é possível estender essa linguagem SQL com UDFs (funções definidas pelo usuário) de JavaScript e C#. Você pode ajustar com facilidade as opções de ordenação de eventos e a duração das janelas de tempo na execução de operações de agregação por configurações e/ou constructos de linguagem.
 
-Cada trabalho tem uma saída para os dados transformados e você pode controlar o que deve ser feito em resposta às informações analisadas. Por exemplo, você pode:
+Cada trabalho tem uma ou várias saídas para os dados transformados, e você pode controlar o que acontece em resposta às informações analisadas. Por exemplo, você pode:
 
 * Enviar dados para serviços como Azure Functions, Filas ou Tópicos do Barramento de Serviço para disparar comunicações ou de fluxos de trabalho personalizados downstream.
 * Enviar dados a um painel do Power BI para painéis em tempo real.
-* Armazenar dados em outros serviços de armazenamento do Azure para treinar um modelo de machine learning com base em dados históricos ou para executar análise em lote.
+* Armazenar dados em outros serviços de armazenamento do Azure (por exemplo, Azure Data Lake, Azure Synapse Analytics etc.) para treinar um modelo de machine learning com base em dados históricos ou para executar a análise de lote.
 
 A imagem a seguir mostra como os dados são enviados ao Stream Analytics, analisados e enviados para outras ações, como armazenamento ou apresentação:
 
@@ -59,21 +59,21 @@ Para acessar toda a lista de saídas do Stream Analytics, confira [Compreender a
 
 O Azure Stream Analytics usa uma linguagem de consulta baseada em SQL simples que foi aumentada com restrições temporais avançadas para analisar os dados em movimento. Para definir as transformações de trabalho, use uma [Linguagem de consulta do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) simples e declarativa que permite criar consultas temporais e análises complexas usando constructos SQL simples. Como a linguagem de consulta do Stream Analytics é consistente com a linguagem SQL, basta estar familiarizado com a linguagem SQL para começar a criar trabalhos. Você também pode criar trabalhos usando ferramentas de desenvolvedor, como o Azure PowerShell, as [ferramentas do Visual Studio para o Stream Analytics](stream-analytics-tools-for-visual-studio-install.md), a [extensão do Visual Studio Code no Stream Analytics](quick-create-vs-code.md) ou modelos do Azure Resource Manager. O uso de ferramentas de desenvolvedor permite a você criar consultas de transformação offline e usar o [pipeline CI/CD](stream-analytics-tools-for-visual-studio-cicd.md) para enviar trabalhos ao Azure.
 
-A linguagem de consulta do Stream Analytics oferece uma ampla variedade de funções para analisar e processar os dados de streaming. Essa linguagem de consulta dá suporte a funções de manipulação de dados e de agregação simples e a funções geoespaciais complexas. Você pode editar consultas no portal e testá-las usando os dados de exemplo que são extraídos do fluxo ativo.
+A linguagem de consulta do Stream Analytics oferece uma ampla variedade de funções para analisar e processar os dados de streaming. Essa linguagem de consulta dá suporte a manipulação simples de dados, funções de agregação e análise, [funções geoespaciais](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-geospatial-functions), [correspondência de padrões](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics) e [detecção de anomalias](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection). Você pode editar consultas no portal e testá-las usando os dados de exemplo que são extraídos do fluxo ativo.
 
 Você pode estender os recursos da linguagem de consulta definindo e chamando funções adicionais. Você pode definir as chamadas de função no Azure Machine Learning para aproveitar as soluções desse serviço e integrar UDFs (funções definidas pelo usuário) de JavaScript ou C# ou agregações definidas pelo usuário para executar cálculos complexos como parte de uma consulta do Stream Analytics.
 
 ## <a name="fully-managed"></a>Totalmente gerenciado
 
-O Azure Stream Analytics é uma oferta sem servidor (PaaS) totalmente gerenciada no Azure. Você não precisa provisionar hardware nem gerenciar clusters para executar seus trabalhos. O Azure Stream Analytics gerencia seu trabalho integralmente, configurando clusters de computação complexos na nuvem e cuidando do ajuste do desempenho necessário para executar o trabalho. A integração com os Hubs de Eventos do Azure e o Hub IoT do Azure permite que seu trabalho ingira milhões de eventos por segundo, provenientes de diversas fontes, incluindo dispositivos conectados, cliques em fluxos e arquivos de log. Usando o recurso de partição dos Hubs de Eventos, você pode dividir os cálculos em etapas lógicas, cada um com a capacidade de ser mais particionado para aumentar a escalabilidade.
+O Azure Stream Analytics é uma oferta sem servidor (PaaS) totalmente gerenciada no Azure. Você não precisa provisionar nenhum hardware, gerenciar clusters para executar seus trabalhos nem atualizar o sistema operacional ou o software. O Azure Stream Analytics gerencia totalmente seu trabalho, de modo que você possa se concentrar na lógica de negócios e não na infraestrutura.
 
 ## <a name="run-in-the-cloud-or-on-the-intelligent-edge"></a>Executar na nuvem ou na borda inteligente
 
-O Azure Stream Analytics pode ser executado na nuvem, para uma análise em larga escala, ou no IoT Edge, para análise de latência extremamente baixa. O Azure Stream Analytics usa a mesma linguagem de consulta na nuvem e na borda, permitindo que os desenvolvedores criem arquiteturas realmente híbridas para processamento de fluxo. 
+O Azure Stream Analytics pode ser executado na nuvem, para uma análise em larga escala, ou no IoT Edge, para análise de latência extremamente baixa. O Azure Stream Analytics usa as mesmas ferramentas e linguagem de consulta na nuvem e na borda, permitindo que os desenvolvedores criem arquiteturas realmente híbridas para processamento de fluxo. 
 
 ## <a name="low-total-cost-of-ownership"></a>Custo total de propriedade baixo
 
-Como um serviço de nuvem, o Stream Analytics é otimizado para que você possa economizar custos. Não há nenhum custo inicial envolvido, você só paga pelas [unidades de streaming que consumir](stream-analytics-streaming-unit-consumption.md) e pela quantidade de dados processados. Não há nenhum compromisso ou provisionamento de cluster necessário e você pode aumentar ou reduzir verticalmente o trabalho com base em suas necessidades de negócios.
+Como um serviço de nuvem, o Stream Analytics é otimizado para que você possa economizar custos. Não há nenhum custo inicial envolvido; você só paga pelas [unidades de streaming consumidas](stream-analytics-streaming-unit-consumption.md). Não há nenhum compromisso ou provisionamento de cluster necessário e você pode aumentar ou reduzir verticalmente o trabalho com base em suas necessidades de negócios.
 
 ## <a name="mission-critical-ready"></a>Pronto para necessidades críticas
 

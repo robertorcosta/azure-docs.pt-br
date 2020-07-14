@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door | Microsoft Docs
-description: Este artigo fornece uma visão geral do Azure Front Door. Descubra se ele é a escolha certa para balancear a carga do tráfego de usuário para seu aplicativo.
+title: Porta da frente do Azure
+description: Este artigo fornece uma visão geral do recurso mecanismo de regras do Azure Front Door.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,27 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 19deb763c8e750490854892c90d0293d3e209c09
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: ee981d08e53765003e88870d35b291a5802e6848
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515791"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322005"
 ---
 # <a name="what-is-rules-engine-for-azure-front-door"></a>O que é o mecanismo de regras para o Azure Front Door? 
 
 O mecanismo de regras permite que você personalize como as solicitações HTTP são tratadas na borda e dá mais controle sobre o comportamento do seu aplicativo Web. O mecanismo de regras para o Azure Front Door é composto por vários recursos principais, incluindo:
 
-- Roteamento baseado em cabeçalho – roteie solicitações com base nos padrões no conteúdo de cabeçalhos de solicitação, cookies e cadeias de consulta.
-- Roteamento baseado em parâmetro – aproveite uma série de condições de correspondência, incluindo argumentos post, cadeias de caracteres de consulta, cookies e métodos de solicitação, para rotear solicitações com base nos parâmetros de solicitação HTTP. 
-- Substituições de configurações de rota: 
-    - use funcionalidades de redirecionamento para retornar redirecionamentos de 301/302/307/308 para o cliente para redirecionar para novos nomes de host, caminhos e protocolos. 
-    - Use os recursos de encaminhamento para reescrever o caminho da URL de solicitação sem fazer um redirecionamento tradicional e encaminhar a solicitação para o back-end apropriado em seu pool de back-end configurado. 
-    - Personalize sua configuração de cache e altere dinamicamente uma rota do encaminhamento para armazenamento em cache com base nas condições de correspondência. 
-
-> [!IMPORTANT]
-> Essa versão prévia pública é fornecida sem um SLA e não deve ser usada para cargas de trabalho de produção. Determinados recursos podem não ter suporte, podem ter restrição ou podem não estar disponíveis em todos os locais do Azure. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
->
+- Impor o HTTPS e garantir que todos os usuários finais interajam com o conteúdo em uma conexão segura.
+- Implementar cabeçalhos de segurança para impedir vulnerabilidades baseadas em navegador como HSTS (HTTP Strict-Transport-Security), X-XSS-Protection, Content-Security-Policy e X-Frame-Options, bem como cabeçalhos Access-Control-Allow-Origin para cenários do CORS (compartilhamento de recursos entre origens). Os atributos baseados em segurança também podem ser definidos com cookies.
+- Rotear solicitações para versões móveis ou de desktop do seu aplicativo com base nos padrões do conteúdo de cabeçalhos de solicitação, cookies ou cadeias de consulta.
+- Usar funcionalidades de redirecionamento para retornar redirecionamentos 301, 302, 307 e 308 ao cliente, a fim de redirecioná-lo para novos nomes de host, caminhos e protocolos.
+- Modificar dinamicamente a configuração de cache da rota com base nas solicitações de entrada.
+- Reescrever o caminho da URL de solicitação e encaminhar a solicitação para o back-end apropriado no seu pool de back-end configurado.
 
 ## <a name="architecture"></a>Arquitetura 
 
@@ -52,7 +48,7 @@ Em ambos os exemplos, quando nenhuma das condições de correspondência é aten
 
 Com o mecanismo de regras do AFD, você pode criar uma série de configurações de mecanismo de regras, cada uma composta por um conjunto de regras. Veja a seguir a descrição de algumas terminologias úteis que você encontrará ao configurar o mecanismo de regras. 
 
-- *Configuração do mecanismo de regras*: um conjunto de regras aplicadas a uma regra de rota. Cada configuração é limitada a cinco regras. Você pode criar até 10 configurações. 
+- *Configuração do mecanismo de regras*: um conjunto de regras aplicadas a uma regra de rota. Cada configuração é limitada a 25 regras. Você pode criar até 10 configurações. 
 - *Regra do mecanismo de regras*: uma regra composta por até 10 condições de correspondência e cinco ações.
 - *Condição de correspondência*: há várias condições de correspondência que podem ser utilizadas para analisar suas solicitações de entrada. Uma regra pode conter até 10 condições de correspondência. As condições de correspondência são avaliadas com um operador **AND**. Uma lista completa de condições de correspondência pode ser encontrada [aqui](front-door-rules-engine-match-conditions.md). 
 - *Ação*: as ações determinam o que acontece às suas solicitações de entrada – ações de cabeçalho de solicitação/resposta, encaminhamento, redirecionamentos e regravações estão disponíveis hoje. Uma regra pode conter até cinco ações; no entanto, uma regra pode conter apenas uma substituição de configuração de rota.  Uma lista completa de ações pode ser encontrada [aqui](front-door-rules-engine-actions.md).

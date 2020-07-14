@@ -2,15 +2,15 @@
 title: Implantar modelo – Portal do Azure
 description: Saiba como criar seu primeiro modelo do Azure Resource Manager usando o portal do Azure e como implantá-lo.
 author: mumian
-ms.date: 06/12/2019
+ms.date: 06/29/2020
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: dd3d9caa8184b8637b509fc3318851751b211405
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ff6c459f2f4178bee6b6b564e177c097d72592a3
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80131864"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557347"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Início Rápido: Criar e implantar modelos do ARM usando o portal do Azure
 
@@ -57,7 +57,7 @@ Muitos desenvolvedores de modelos experientes usam esse método para gerar model
 
     O painel principal mostra o modelo. É um arquivo JSON com seis elementos de nível superior – `schema`, `contentVersion`, `parameters`, `variables`, `resources` e `output`. Para obter mais informações, confira [Noções básicas de estrutura e da sintaxe dos modelos do ARM](./template-syntax.md)
 
-    Existem seis parâmetros definidos. Um deles é chamado **storageAccountName**. A segunda parte realçada na captura de tela anterior mostra como referenciar esse parâmetro no modelo. Na próxima seção, você deve editar o modelo para usar um nome gerado para a conta de armazenamento.
+    Há oito parâmetros definidos. Um deles é chamado **storageAccountName**. A segunda parte realçada na captura de tela anterior mostra como referenciar esse parâmetro no modelo. Na próxima seção, você deve editar o modelo para usar um nome gerado para a conta de armazenamento.
 
     No modelo, um recurso do Azure é definido. O tipo é `Microsoft.Storage/storageAccounts`. Examine como o recurso é definido e a estrutura de definição.
 1. Selecione **Baixar** na parte superior da tela.
@@ -77,12 +77,10 @@ O portal do Azure pode ser usado para executar uma edição básica do modelo. N
 
 O Azure exige que cada serviço do Azure tenha um nome exclusivo. A implantação poderá falhar se você inserir um nome de conta de armazenamento que já existe. Para evitar esse problema, você modificará o modelo, de modo que ele use uma chamada de função de modelo `uniquestring()` para gerar um nome exclusivo de conta de armazenamento.
 
-1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
-1. Em **Pesquisar no Marketplace**, digite **implantação de modelo** e pressione **ENTER**.
-1. Selecione **Implantação de modelo**.
+1. No menu do portal do Azure, na caixa de pesquisa, digite **implantar** e selecione **Implantar um modelo personalizado**.
 
     ![Biblioteca de modelos do Azure Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-library.png)
-1. Selecione **Criar**.
+
 1. Selecione **Criar seu próprio modelo no editor**.
 1. Selecione **Carregar arquivo** e, em seguida, siga as instruções para carregar o template.json que você baixou na última seção.
 1. Faça as três alterações a seguir no modelo:
@@ -107,66 +105,75 @@ O Azure exige que cada serviço do Azure tenha um nome exclusivo. A implantaçã
 
      ```json
      {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
-           "location": {
-               "type": "string"
-           },
-           "accountType": {
-               "type": "string"
-           },
-           "kind": {
-               "type": "string"
-           },
-           "accessTier": {
-               "type": "string"
-           },
-           "supportsHttpsTrafficOnly": {
-               "type": "bool"
-           }
+         "location": {
+           "type": "string"
+         },
+         "accountType": {
+           "type": "string"
+         },
+         "kind": {
+           "type": "string"
+         },
+         "accessTier": {
+           "type": "string"
+         },
+         "minimumTlsVersion": {
+           "type": "string"
+         },
+         "supportsHttpsTrafficOnly": {
+          "type": "bool"
+         },
+         "allowBlobPublicAccess": {
+           "type": "bool"
+         }
        },
        "variables": {
-           "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+         "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
        },
        "resources": [
-           {
-               "name": "[variables('storageAccountName')]",
-               "type": "Microsoft.Storage/storageAccounts",
-               "apiVersion": "2018-07-01",
-               "location": "[parameters('location')]",
-               "properties": {
-                   "accessTier": "[parameters('accessTier')]",
-                   "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
-               },
-               "dependsOn": [],
-               "sku": {
-                   "name": "[parameters('accountType')]"
-               },
-               "kind": "[parameters('kind')]"
-           }
+         {
+           "name": "[variables('storageAccountName')]",
+           "type": "Microsoft.Storage/storageAccounts",
+           "apiVersion": "2019-06-01",
+           "location": "[parameters('location')]",
+           "properties": {
+             "accessTier": "[parameters('accessTier')]",
+             "minimumTlsVersion": "[parameters('minimumTlsVersion')]",
+             "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]",
+             "allowBlobPublicAccess": "[parameters('allowBlobPublicAccess')]"
+           },
+           "dependsOn": [],
+           "sku": {
+             "name": "[parameters('accountType')]"
+           },
+           "kind": "[parameters('kind')]",
+           "tags": {}
+         }
        ],
        "outputs": {}
      }
      ```
+
 1. Clique em **Salvar**.
 1. Insira os valores a seguir:
 
     |Nome|Valor|
     |----|----|
     |**Grupo de recursos**|Selecione o nome do grupo de recursos criado na última seção. |
+    |**Região**|Selecione um local para o grupo de recursos. Por exemplo, **Centro dos EUA**. |
     |**Localidade**|Selecione um local para a conta de armazenamento. Por exemplo, **Centro dos EUA**. |
     |**Tipo de conta**|Insira **Standard_LRS** para este início rápido. |
     |**Tipo**|Insira **StorageV2** para este início rápido. |
     |**Camada de acesso**|Insira **Quente** para este início rápido. |
-    |**Somente tráfego HTTPS habilitado**| Selecione **true** para este início rápido. |
-    |**Concordo com os termos e condições acima**|(selecionar)|
+    |**Versão mínima do TLS**|Insira **TLS1_0**. |
+    |**Somente dá suporte ao Tráfego HTTPS**| Selecione **true** para este início rápido. |
+    |**Permitir Acesso Público ao Blob**| Selecione **false** para este início rápido. |
 
-    Veja uma captura de tela de uma implantação de exemplo:
-
-    ![Implantação de modelos do Azure Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-deploy.png)
-
-1. Selecione **Comprar**.
+1. Selecione **Examinar + criar**.
+1. Selecione **Criar**.
 1. Selecione o ícone de sino (notificações) na parte superior da tela para ver o status da implantação. Você deverá ver a mensagem **Implantação em andamento**. Aguarde até a conclusão da implantação.
 
     ![Notificação de implantação de modelos do Azure Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)

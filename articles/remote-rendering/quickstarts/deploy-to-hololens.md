@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 75b6629ea924ec17888ec2f981ff85ed917434c9
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: d6acc16780179654975d63ab2c0b04caf141510c
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677611"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557038"
 ---
 # <a name="quickstart-deploy-unity-sample-to-hololens"></a>Início Rápido: Implantar a amostra de Unity no HoloLens
 
@@ -36,12 +36,14 @@ Verifique se suas credenciais foram salvas corretamente com a cena e se você po
 1. Altere *Plataforma* para **Plataforma Universal do Windows**
 1. Defina o *Dispositivo de Destino* como **HoloLens**
 1. Defina *Arquitetura* como **ARM64**
-1. Defina *Tipo de Build* como **Projeto D3D** ![Configurações de build](./media/unity-build-settings.png)
+1. Defina *Tipo de Build* como **Projeto D3D**\
+    ![Configurações de build](./media/unity-build-settings.png)
 1. Selecione **Alterar para a Plataforma**
 1. Ao pressionar **Criar** (ou 'Criar e Executar'), você deverá selecionar alguma pasta na qual a solução deve ser armazenada
 1. Abra o **Quickstart.sln** gerado com o Visual Studio
 1. Altere a configuração para **Versão** e **ARM64**
-1. Alterne o modo do depurador para **Computador Remoto** ![Configuração da solução](media/unity-deploy-config.png)
+1. Alterne o modo do depurador para **Computador Remoto**\
+    ![Configuração da solução](media/unity-deploy-config.png)
 1. Criar a solução (F7)
 1. Para o projeto 'Início Rápido', acesse *Propriedades > Depuração*
     1. Verifique se a configuração *Versão* está ativa

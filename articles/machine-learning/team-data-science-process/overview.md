@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 1/10/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 10d6e562301e089700940ac5dfb212bcc4e09653
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4ffe00c3df4abd924fca202d2bcdd0ec458dd3eb
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79088080"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355328"
 ---
 # <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipe?
 
@@ -26,12 +26,12 @@ Este artigo fornece uma visão geral do TDSP e de seus principais componentes. F
 
 ## <a name="key-components-of-the-tdsp"></a>Principais componentes do TDSP
 
-O TDSP inclui os seguintes componentes principais:
+O TDSP tem os seguintes componentes principais:
 
 - Uma definição de **ciclo de vida de ciência de dados**
 - Uma **estrutura de projeto padronizada**
-- **Infraestrutura e recursos** para projetos de ciência de dados
-- **Ferramentas e utilitários** para execução do projeto
+- **Infraestrutura e recursos** recomendados para projetos de ciência de dados
+- **Ferramentas e utilitários** recomendados para a execução do projeto
 
 
 ## <a name="data-science-lifecycle"></a>Ciclo de vida de ciência de dados
@@ -48,7 +48,6 @@ O ciclo de vida descreve os estágios principais que os projetos normalmente exe
 * **Aquisição de dados e reconhecimento**
 * **Modelagem**
 * **Implantação**
-* **Aceitação do cliente**
 
 Esta é uma representação visual do **ciclo de vida do Processo de Ciência de Dados de Equipe**. 
 
@@ -58,7 +57,9 @@ As metas, tarefas e artefatos de documentação de cada estágio do ciclo de vid
 
 - Arquitetura da solução
 - Gerenciamento de projetos
+- Engenheiro de dados
 - Cientista de dados
+- Desenvolvedor de aplicativos
 - Líder de projeto 
 
 O diagrama a seguir fornece um modo de exibição de grade das tarefas (em azul), e os artefatos (em verde) associados a cada estágio do ciclo de vida (no eixo horizontal) para essas funções (no eixo vertical). 
@@ -87,7 +88,7 @@ O TDSP fornece recomendações para o gerenciamento de infraestrutura compartilh
 
 - sistemas de arquivos de nuvem para armazenar conjuntos de dados 
 - bancos de dados
-- clusters de big data (Hadoop ou Spark) 
+- clusters Big Data (SQL ou Spark) 
 - serviço de aprendizado de máquina 
 
 A infraestrutura de análise e armazenamento, em que os conjuntos de dados brutos e processados são armazenados, podem estar na nuvem ou ser locais. Essa infraestrutura permite a reprodução da análise. Também evita a duplicação, o que pode resultar em inconsistências e custos de infraestrutura desnecessários. As ferramentas são fornecidas para provisionar os recursos compartilhados, acompanhá-los e permitir que cada membro da equipe se conecte a esses recursos com segurança. Também é uma boa prática que os membros do projeto criem um ambiente de computação consistente. Assim, membros diferentes da equipe podem replicar e validar experiências.
@@ -99,9 +100,9 @@ Confira um exemplo de uma equipe que trabalha em vários projetos e compartilha 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Ferramentas e utilitários para execução do projeto
 
-A introdução de processos na maioria das organizações é um desafio. As ferramentas fornecidas para implementar o processo e o ciclo de vida de ciência de dados ajudam a diminuir as barreiras à adoção, e a aumentar sua consistência. O TDSP fornece um conjunto inicial de ferramentas e scripts para impulsionar a adoção do TDSP dentro de uma equipe. Ele também ajuda a automatizar algumas tarefas comuns do ciclo de vida de ciência de dados, como a exploração de dados e a modelagem de linha de base. Há uma estrutura bem definida para as pessoas contribuírem com ferramentas e utilitários compartilhados no repositório de código compartilhado da própria equipe. Esses recursos podem ser aproveitados por outros projetos dentro da equipe ou da organização. O TDSP também planeja habilitar as colaborações de ferramentas e utilitários para toda a comunidade. Os utilitários do TDSP podem ser clonados no [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
+A introdução de processos na maioria das organizações é um desafio. As ferramentas fornecidas para implementar o processo e o ciclo de vida de ciência de dados ajudam a diminuir as barreiras à adoção, e a aumentar sua consistência. O TDSP fornece um conjunto inicial de ferramentas e scripts para impulsionar a adoção do TDSP dentro de uma equipe. Ele também ajuda a automatizar algumas tarefas comuns do ciclo de vida de ciência de dados, como a exploração de dados e a modelagem de linha de base. Há uma estrutura bem definida para as pessoas contribuírem com ferramentas e utilitários compartilhados no repositório de código compartilhado da própria equipe. Esses recursos podem ser aproveitados por outros projetos dentro da equipe ou da organização. O TDSP também planeja habilitar as colaborações de ferramentas e utilitários para toda a comunidade. Os utilitários do TDSP podem ser clonados por meio do [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Processo de Ciência de Dados de Equipe: funções e tarefas](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) descreve as principais funções de equipe e suas tarefas associadas para uma equipe de ciência de dados que padroniza com base nesse processo. 
+[Processo de Ciência de Dados de Equipe: Funções e tarefas](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) Descreve as principais funções de equipe e suas tarefas associadas para uma equipe de ciência de dados que faz a padronização nesse processo. 

@@ -4,18 +4,22 @@ description: Aprenda rapidamente a executar um trabalho do Lote com a CLI do Azu
 ms.topic: quickstart
 ms.date: 05/19/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 5f26aeead41fa1ffcebefdeaabae84490dfdae2b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d92751d1463a20c8fb0cb83fe678789860957189
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959816"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086119"
 ---
-# <a name="quickstart-create-a-batch-account-by-using-azure-resource-manager-template"></a>Início Rápido: Criar uma conta do Lote usando um modelo do Azure Resource Manager
+# <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>Início Rápido: Criar uma conta do Lote usando um modelo do Resource Manager
 
-Você precisa de uma conta do Lote para criar recursos de computação (pools de nós de computação) e trabalhos do Lote. Você pode vincular uma conta do Armazenamento do Azure com sua conta do Lote, o que é útil para implantar aplicativos e armazenar dados de entrada e saída para a maioria das cargas de trabalho da vida real. Este guia de início rápido mostra como usar o modelo do Azure Resource Manager para criar uma conta do Lote, incluindo o armazenamento. Depois de concluir este guia de início rápido, você entenderá os conceitos principais do serviço Lote e estará pronto para experimentar o Lote com cargas de trabalho mais realistas em maior escala.
+Você precisa de uma conta do Lote para criar recursos de computação (pools de nós de computação) e trabalhos do Lote. Você pode vincular uma conta do Armazenamento do Azure com sua conta do Lote, o que é útil para implantar aplicativos e armazenar dados de entrada e saída para a maioria das cargas de trabalho da vida real. Este guia de início rápido mostra como usar um modelo do Azure Resource Manager para criar uma conta do Lote, incluindo o armazenamento. Depois de concluir este guia de início rápido, você entenderá os conceitos principais do serviço Lote e estará pronto para experimentar o Lote com cargas de trabalho mais realistas em maior escala.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-batchaccount-with-storage%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,9 +27,7 @@ Você precisa de uma conta do Lote para criar recursos de computação (pools de
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-batch-account-with-storage"></a>Criar uma conta do Lote com o armazenamento
-
-### <a name="review-the-template"></a>Examinar o modelo
+## <a name="review-the-template"></a>Examinar o modelo
 
 O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/).
 
@@ -36,7 +38,7 @@ Há dois recursos do Azure definidos no modelo:
 - [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): Cria uma conta de armazenamento.
 - [Microsoft.Batch/batchAccounts](/azure/templates/microsoft.batch/batchaccounts): Cria uma conta do Lote.
 
-### <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-the-template"></a>Implantar o modelo
 
 1. Selecione a imagem a seguir para entrar no Azure e abrir um modelo. O modelo cria uma conta do Lote do Azure e uma conta de Armazenamento.
 

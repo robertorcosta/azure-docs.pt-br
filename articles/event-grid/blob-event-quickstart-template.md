@@ -1,30 +1,28 @@
 ---
 title: Enviar eventos do Armazenamento de Blobs para o ponto de extremidade da Web – modelo
 description: Use a Grade de Eventos do Azure e um modelo do Azure Resource Manager para criar uma conta de Armazenamento de Blobs e assinar os eventos. Envie os eventos para um webhook.
-services: event-grid
-keywords: ''
-author: spelluru
-ms.author: spelluru
-ms.date: 06/03/2020
+ms.date: 07/07/2020
 ms.topic: quickstart
-ms.service: event-grid
-ms.custom: subject-armqs
-ms.openlocfilehash: 0cf880411a5c2a8eefd592a01de40b5098f31cda
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: 603d6bf11f2ec6988d52e69817bddf2fd3ccf3b3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424118"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103306"
 ---
-# <a name="route-blob-storage-events-to-web-endpoint-by-using-azure-resource-manager-template"></a>Rotear os eventos do Armazenamento de Blobs para o ponto de extremidade da Web usando um modelo do Azure Resource Manager
+# <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Rotear eventos do Armazenamento de Blobs para o ponto de extremidade da Web usando um modelo do Resource Manager
 
-A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você usará um **modelo do Azure Resource Manager** para criar uma conta de Armazenamento de Blobs, assinará os eventos desse Armazenamento de Blobs e disparará um evento para ver o resultado. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. No entanto, para simplificar este artigo, você enviará os eventos para um aplicativo Web que coleta e exibe as mensagens.
+A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você vai usar um modelo do Azure Resource Manager para criar uma conta do Armazenamento de Blobs, assinar os eventos desse armazenamento de blobs e disparar um evento para ver o resultado. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. No entanto, para simplificar este artigo, você enviará os eventos para um aplicativo Web que coleta e exibe as mensagens.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ### <a name="create-a-message-endpoint"></a>Criar um ponto de extremidade de mensagem
 
@@ -39,21 +37,19 @@ Antes de assinar eventos para o armazenamento de Blobs, vamos criar o ponto de e
 
    ![Exibir novo site](./media/blob-event-quickstart-portal/view-site.png)
 
-## <a name="create-a-storage-account-with-an-event-grid-subscription"></a>Criar uma conta de armazenamento com uma assinatura da Grade de Eventos
+## <a name="review-the-template"></a>Examinar o modelo
 
-### <a name="review-the-template"></a>Examinar o modelo
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-event-grid-subscription-and-storage/).
 
-O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage).
-
-[!code-json[<Azure Resource Manager template create Blob storage Event Grid subscription>](~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json" range="1-91" highlight="40-85":::
 
 Há dois recursos do Azure definidos no modelo:
 
 * [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts): crie uma conta de armazenamento do Azure.
-* [**Microsoft. EventGrid/systemTopics**](/azure/templates/microsoft.eventgrid/systemtopics): crie um tópico do sistema com o nome especificado para a conta de armazenamento. 
+* [**Microsoft. EventGrid/systemTopics**](/azure/templates/microsoft.eventgrid/systemtopics): crie um tópico do sistema com o nome especificado para a conta de armazenamento.
 * [**Microsoft.EventGrid/systemTopics/eventSubscriptions**](/azure/templates/microsoft.eventgrid/systemtopics/eventsubscriptions): crie uma assinatura da Grade de Eventos do Azure para o tópico do sistema.
 
-### <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-the-template"></a>Implantar o modelo
 
 1. Selecione o link a seguir para entrar no Azure e abrir um modelo. O modelo cria um cofre de chaves e um segredo.
 
@@ -65,7 +61,7 @@ Há dois recursos do Azure definidos no modelo:
   O portal do Azure é usado para implantar o modelo. Use também o Azure PowerShell, a CLI do Azure e a API REST. Para saber mais sobre outros métodos de implantação, confira [Implantar modelos](../azure-resource-manager/templates/deploy-powershell.md).
 
 > [!NOTE]
-> Encontre mais amostras de modelos da Grade de Eventos do Azure [aqui](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).
+> Encontre mais amostras de modelos da Grade de Eventos do Azure [aqui](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid&pageNumber=1&sort=Popular).
 
 ## <a name="validate-the-deployment"></a>Validar a implantação
 

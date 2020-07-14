@@ -10,18 +10,22 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs
 ms.date: 05/28/2020
-ms.openlocfilehash: 127a8550b7f4ca89b8b3a8e61880b295a806e5d0
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: b7217df7fe7ccedf2419480b1114fa1ef6c8e24a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449355"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043539"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-the-azure-resource-manager-template"></a>Início Rápido: Criar um trabalho do Azure Stream Analytics usando o modelo do Azure Resource Manager
+# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-an-arm-template"></a>Início Rápido: Criar um trabalho do Azure Stream Analytics usando um modelo do Resource Manager
 
-Neste início rápido, você usará um modelo do Azure Resource Manager para criar um trabalho do Azure Stream Analytics. Depois que o trabalho for criado, você validará a implantação.
+Neste guia de início rápido, você usará um modelo do Azure Resource Manager para criar um trabalho do Azure Stream Analytics. Depois que o trabalho for criado, você validará a implantação.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-streamanalytics-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,9 +33,7 @@ Para concluir este artigo, você precisará:
 
 * Ter uma assinatura do Azure: [crie uma gratuitamente](https://azure.microsoft.com/free/).
 
-## <a name="create-an-azure-stream-analytics-job"></a>Criar um trabalho do Azure Stream Analytics
-
-### <a name="review-the-template"></a>Examinar o modelo
+## <a name="review-the-template"></a>Examinar o modelo
 
 O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-streamanalytics-create/).
 
@@ -39,9 +41,9 @@ O modelo usado neste início rápido é proveniente dos [Modelos de Início Ráp
 
 O recurso do Azure definido no modelo é [Microsoft.StreamAnalytics/StreamingJobs](/azure/templates/microsoft.streamanalytics/streamingjobs): criar um trabalho do Azure Stream Analytics.
 
-### <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-the-template"></a>Implantar o modelo
 
-Nesta seção, você criará um trabalho do Azure Stream Analytics usando o modelo do Azure Resource Manager.
+Nesta seção, você criará um trabalho do Azure Stream Analytics usando o modelo do Resource Manager.
 
 1. Selecione a imagem a seguir para entrar no Azure e abrir um modelo. O modelo criar um trabalho do Azure Stream Analytics.
 
@@ -108,7 +110,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um trabalho do Azure Stream Analytics usando um modelo do Azure Resource Manager e validou a implantação. Avance para o próximo artigo para saber como exportar um modelo do Azure Resource Manager de um trabalho existente usando o VS Code.
+Neste guia de início rápido, você criou um trabalho do Azure Stream Analytics usando um modelo do Resource Manager e validou a implantação. Avance para o próximo artigo para saber como exportar um modelo do Resource Manager de um trabalho existente usando o VS Code.
 
 > [!div class="nextstepaction"]
-> [Exportar um modelo do Azure Resource Manager de um trabalho do Azure Stream Analytics](resource-manager-export.md)
+> [Exportar um modelo do Resource Manager de um trabalho do Azure Stream Analytics](resource-manager-export.md)

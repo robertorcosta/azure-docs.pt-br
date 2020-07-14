@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/27/2020
+ms.date: 07/07/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 70baddf86207c490d3b85e0f584525592f8a7ad7
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 64b4b0bd8c1e387229144e02293b573062ab196c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735786"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087819"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Funções de administrador da assinatura clássica, funções do Azure e funções do Azure AD
 
@@ -120,7 +120,7 @@ De maneira geral, as funções do Azure controlam permissões para gerenciar rec
 
 ### <a name="do-azure-roles-and-azure-ad-roles-overlap"></a>As funções do Azure e as funções do Azure AD se sobrepõem?
 
-Por padrão, as funções do Azure e do Azure AD não abrangem o Azure e o Azure AD. No entanto, se um Administrador global elevar o acesso ao escolher a opção **O Administrador global pode gerenciar assinaturas do Azure e grupos de gerenciamento** no portal do Azure, ele receberá a função [Administrador de acesso do usuário](built-in-roles.md#user-access-administrator) (uma função do Azure) em todas as assinaturas de um locatário específico. A função de Administrador de Acesso do Usuário permite que o usuário conceda a outros usuários o acesso aos recursos do Azure. Essa opção pode ser útil para recuperar o acesso a uma assinatura. Para obter mais informações, confira [Elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure](elevate-access-global-admin.md).
+Por padrão, as funções do Azure e do Azure AD não abrangem o Azure e o Azure AD. No entanto, se um Administrador global elevar o acesso escolhendo a opção **Gerenciamento de acesso para os recursos do Azure** no portal do Azure, ele receberá a função [Administrador de Acesso do Usuário](built-in-roles.md#user-access-administrator) (uma função do Azure) em todas as assinaturas de um locatário específico. A função de Administrador de Acesso do Usuário permite que o usuário conceda a outros usuários o acesso aos recursos do Azure. Essa opção pode ser útil para recuperar o acesso a uma assinatura. Para obter mais informações, confira [Elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure](elevate-access-global-admin.md).
 
 Várias funções do Azure AD englobam o Azure AD e o Microsoft Office 365, como as funções de Administrador global e Administrador de usuários. Por exemplo, se você for um membro da função de Administrador Global, terá recursos de administrador global no Azure AD e no Office 365, por exemplo, poderá fazer alterações no Microsoft Exchange e no Microsoft SharePoint. No entanto, por padrão, o Administrador Global não tem acesso aos recursos do Azure.
 

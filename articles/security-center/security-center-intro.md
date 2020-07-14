@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: f437205ae76feb36596b05ee0e320aaed0a37184
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: e9ed36971e157e67ede6573b9fdf9ff1fc6e05a0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846658"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044270"
 ---
 # <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
 
@@ -47,7 +47,7 @@ Para ajudá-lo a se proteger contra esses desafios, a Central de Segurança forn
 
 ## <a name="architecture"></a>Arquitetura
 
-Como a Central de Segurança nativamente faz parte do Azure, serviços de PaaS no Azure, incluindo o Service Fabric, bancos de dados SQL e contas de armazenamento, são monitoradas e protegidos pela Central de Segurança sem necessidade de qualquer implantação.
+Como a Central de Segurança nativamente faz parte do Azure, os serviços de PaaS no Azure, incluindo o Service Fabric, o Banco de Dados SQL, a Instância Gerenciada de SQL e as contas de armazenamento, são monitorados e protegidos pela Central de Segurança sem necessidade de nenhuma implantação.
 
 Além disso, a Central de Segurança protege servidores e máquinas virtuais que não são do Azure na nuvem ou localmente, em servidores Windows e Linux, instalando o agente do Log Analytics neles. Máquinas virtuais do Azure são provisionadas automaticamente na Central de Segurança.
 
@@ -111,7 +111,7 @@ A proteção contra ameaças da Central de Segurança inclui análise de cadeia 
 
 A Central de Segurança inclui a integração nativa e automática à Proteção Avançada contra Ameaças do Microsoft Defender. Isso significa que, sem qualquer configuração, seus computadores Windows e Linux são totalmente integrados com avaliações e recomendações da Central de Segurança.
 
-Além disso, a Central de Segurança permite automatizar as políticas de controle de aplicativo em ambientes de servidor. Os controles de aplicativo adaptáveis na Central de Segurança habilitam a lista de permissões do aplicativo de ponta a ponta entre os servidores do Windows. Você não precisa criar as regras e verificar as violações, tudo é feito automaticamente para você.
+Além disso, a Central de Segurança permite automatizar as políticas de controle de aplicativo em ambientes de servidor. Os controles de aplicativos adaptáveis da Central de Segurança habilitam a listagem de aprovação de aplicativo de ponta a ponta nos servidores Windows. Você não precisa criar as regras e verificar as violações, tudo é feito automaticamente para você.
 
 ### <a name="protect-paas"></a>Proteger PaaS
 
@@ -147,6 +147,6 @@ Ampla coleta de log – logs do Windows e do Linux são todos aproveitados no me
 
 - Para começar a usar a Central de Segurança, você precisa ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/free/).
 
-- O tipo de preço Gratuito da Central de Segurança é habilitado em todas as suas assinaturas atuais do Azure quando você visita o painel da Central de Segurança do Azure no portal do Azure pela primeira vez ou se habilitado programaticamente via API. Para obter vantagem do gerenciamento de segurança avançado e dos recursos de detecção de ameaças, você deve atualizar para o tipo de preço Standard. O nível Standard pode ser experimentado gratuitamente durante 30 dias. Consulte a [página de preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações.
+- O tipo de preço Gratuito da Central de Segurança é habilitado em todas as suas assinaturas atuais do Azure quando você acessa o painel da Central de Segurança do Azure no portal do Azure pela primeira vez ou se ele é habilitado de maneira programática por meio da API. Para obter vantagem do gerenciamento de segurança avançado e dos recursos de detecção de ameaças, você deve atualizar para o tipo de preço Standard. O nível Standard pode ser experimentado gratuitamente durante 30 dias. Consulte a [página de preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações.
 
 - Se você estiver pronto para habilitar a Central de Segurança Standard agora, o [Início Rápido: Integrar sua assinatura do Azure à Central de Segurança Standard](security-center-get-started.md) o orientará pelas etapas.

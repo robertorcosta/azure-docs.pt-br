@@ -3,13 +3,13 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
-ms.openlocfilehash: 61c5370bc8dd77babaaa79c814c0d7a9c8049d73
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.author: trbye
+ms.openlocfilehash: ad3e005f65b1660bd843bf2819f41eddbed44e9c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978802"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035841"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +41,7 @@ Crie um novo arquivo na pasta, chamada `index.html`, e abra este arquivo com um 
 Caso deseje hospedar a página da Web em um servidor Web, é possível fornecer opcionalmente uma origem do token para seu aplicativo de demonstração.
 Dessa forma, sua chave de assinatura nunca sairá do seu servidor, permitindo que seus usuários usem funcionalidades de fala sem inserir nenhum código de autorização por si próprios.
 
-Crie um arquivo chamado `token.php`. Neste exemplo, vamos supor seu servidor Web seja compatível com a linguagem de script PHP. Insira o seguinte código:
+Crie um arquivo chamado `token.php`. Neste exemplo, pressupomos que o seu servidor Web dê suporte à linguagem de script PHP com o cURL habilitado. Insira o seguinte código:
 
 ```php
 <?php
@@ -67,11 +67,11 @@ echo curl_exec($ch);
 
 ## <a name="build-and-run-the-sample-locally"></a>Criar e executar o exemplo localmente
 
-Para iniciar o aplicativo, clique duas vezes no arquivo index.html ou abra index.html com seu navegador da Web favorito. Ele apresentará uma GUI simples, permitindo que você insira sua chave de assinatura e [região](../../../../regions.md) e dispare a síntese do texto de entrada.
+Para iniciar o aplicativo, clique duas vezes no arquivo index.html ou abra index.html com seu navegador da Web favorito. Ele apresentará uma GUI simples, permitindo que você insira sua chave de assinatura e sua [região](../../../../regions.md) e dispare a transcrição do texto da fala de entrada.
 
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>Criar e executar o exemplo por meio de um servidor Web
 
-Para iniciar seu aplicativo, abra seu navegador da Web favorito e aponte-o para a URL pública na qual a pasta está hospedada, insira sua [região](../../../../regions.md) e dispare uma síntese do texto de entrada. Se configurado, ele adquirirá um token da origem do token.
+Para iniciar o aplicativo, abra seu navegador da Web favorito e aponte-o para a URL pública na qual a pasta está hospedada, insira sua [região](../../../../regions.md) e dispare a transcrição do texto da fala de entrada. Se configurado, ele adquirirá um token da origem do token.
 
 ## <a name="next-steps"></a>Próximas etapas
 

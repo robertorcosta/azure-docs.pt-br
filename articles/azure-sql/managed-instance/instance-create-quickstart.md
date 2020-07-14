@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: 906bcf97ad070eb8c2dfe3266bccf05db1598935
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: e4b4b6f21d158a758c2ff77db6660bbb44696d90
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84708885"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086680"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Início Rápido: criar uma instância gerenciada da Instância Gerenciada de SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -36,7 +36,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 1. No menu esquerdo do portal do Azure, selecione **SQL do Azure**. Se **SQL do Azure** não estiver na lista, selecione **Todos os serviços** e, em seguida, digite **SQL do Azure** na caixa de pesquisa.
-1. Selecione **+Adicionar** para abrir a página **Selecionar opção de implantação do SQL**. Veja mais informações sobre uma Instância Gerenciada de SQL do Azure selecionando **Mostrar detalhes** no bloco **Instância Gerenciada de SQL**.
+1. Selecione **+Adicionar** para abrir a página **Selecionar opção de implantação do SQL**. Veja mais informações sobre a Instância Gerenciada de SQL do Azure selecionando **Mostrar detalhes** no bloco **Instâncias gerenciadas de SQL**.
 1. Selecione **Criar**.
 
    ![Criar uma instância gerenciada](./media/instance-create-quickstart/create-managed-instance.png)
@@ -95,7 +95,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
    | ------ | --------------- | ----------- |
    | **Ordenação** | Escolha a ordenação que deseja usar para a instância gerenciada. Se estiver migrando bancos de dados do SQL Server, verifique a ordenação de origem usando `SELECT SERVERPROPERTY(N'Collation')` e use esse valor.| Para obter informações sobre ordenações, confira [Definir ou alterar a ordenação do servidor](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
    | **Fuso horário** | Selecione o fuso horário que sua instância gerenciada observará.|Para obter mais informações, confira [Fusos horários](timezones-overview.md).|
-   | **Usar como secundário de failover** | Selecione **Sim**. | Habilite esta opção para usar a instância gerenciada como o secundário de um grupo de failover.|
+   | **Usar como secundário de failover** | Selecione **Sim** na barra superior. | Habilite esta opção para usar a instância gerenciada como o secundário de um grupo de failover.|
    | **Instância Gerenciada Primária de SQL** (se a opção **Usar como secundário de failover** estiver definida como **Sim**) | Escolha uma instância gerenciada primária existente que será ingressada na mesma zona DNS que a instância gerenciada que você está criando. | Esta etapa habilitará a configuração pós-criação do grupo de failover. Para saber mais, confira [Tutorial: adicionar uma instância gerenciada a um grupo de failover](failover-group-add-instance-tutorial.md).|
 
 ## <a name="review--create"></a>Examinar + criar

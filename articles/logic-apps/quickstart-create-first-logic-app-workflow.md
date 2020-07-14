@@ -3,16 +3,16 @@ title: Criar seu primeiro fluxo de trabalho automatizado
 description: Início Rápido – Criar seu primeiro fluxo de trabalho automatizado usando os Aplicativos Lógicos do Azure para soluções de integração de sistema e EAI (integração de aplicativos empresariais)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 555230499ebda106cbca616b779ae632d65349ab
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 0b3559a27fe9fae6c34b07c648a289d205560bd8
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807865"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321591"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Início Rápido: Criar seu primeiro fluxo de trabalho usando os Aplicativos Lógicos do Azure – portal do Azure
 
@@ -74,13 +74,13 @@ Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app
 
    ![Selecione o gatilho "Quando um item do feed é publicado"](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
-1. Forneça essas informações para o gatilho como mostrado e descrito aqui:
+1. Forneça as informações do gatilho, conforme descrito na tabela:
 
    ![Configurar um gatilho com o RSS feed, frequência e intervalo](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **A URL do RSS feed** | `http://feeds.reuters.com/reuters/topNews` | O link do RSS feed do site que você deseja monitorar |
+   | **A URL do RSS feed** | <*RSS-feed-URL*> | O link do RSS feed que você deseja monitorar. Este exemplo usa o `http://feeds.reuters.com/reuters/topNews`. |
    | **Intervalo** | 1 | O número de intervalos de espera entre as verificações |
    | **Frequência** | Minuto | A unidade de tempo para cada intervalo entre verificações  |
    ||||

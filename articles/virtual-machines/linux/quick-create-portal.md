@@ -5,37 +5,21 @@ author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 11/05/2019
+ms.date: 06/25/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6bf9a89a4806db53797191336578ef9148886181
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5189a9dc8cd83877b4797fd828e9c9f6da8d1b93
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81759227"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392823"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Linux no portal do Azure
 
 As máquinas virtuais (VM) do Azure podem ser criadas por meio do Portal do Azure. O portal do Azure é uma interface de usuário baseada em navegador para criar recursos do Azure. Este início rápido mostra como usar o portal do Azure para implantar uma máquina virtual (VM) Linux que executa o Ubuntu 18.04 LTS. Para ver a VM em ação, você também habilita o SSH na VM e instala o servidor Web do NGINX.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-## <a name="create-ssh-key-pair"></a>Criar o par de chaves SSH
-
-Você precisa de um par de chaves SSH para concluir este início rápido. Se você já tiver um par de chaves SSH, você pode ignorar esta etapa.
-
-Abra um shell bash e use [ssh-keygen](https://www.ssh.com/ssh/keygen/) para criar um par de chaves SSH. Se você não tiver um shell bash no seu computador local, você pode usar o [Azure Cloud Shell](https://shell.azure.com/bash).
-
-
-1. Entre no [portal do Azure](https://portal.azure.com).
-1. No menu na parte superior da página, escolha o ícone `>_` para abrir o Cloud Shell.
-1. Verifique se o CloudShell diz **Bash** no canto superior esquerdo. Se ele disser PowerShell, use a lista suspensa para selecionar **Bash** e selecione **Confirmar** para alternar para o shell Bash.
-1. Digite `ssh-keygen -t rsa -b 2048` para criar a chave SSH. 
-1. Será solicitado que você insira um arquivo no qual salvar o par de chaves. Basta pressionar **Enter** para salvar no local padrão, listado entre colchetes. 
-1. Será solicitado que você insira uma frase secreta. Você pode digitar uma frase secreta para a chave SSH ou pressionar **Enter** para continuar sem uma frase secreta.
-1. O comando `ssh-keygen` gera as chaves públicas e privadas com o nome padrão do `id_rsa` no `~/.ssh directory`. O comando retorna o caminho completo para a chave pública. Use o caminho para a chave pública para exibir seu conteúdo com `cat` digitando `cat ~/.ssh/id_rsa.pub`.
-1. Copie a saída desse comando e salve-a em algum lugar para usá-la posteriormente neste artigo. Essa é sua chave pública e você precisará dela ao configurar sua conta de administrador para fazer logon em sua VM.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -54,7 +38,11 @@ Entre no [portal do Azure](https://portal.azure.com), se você ainda não fez is
 
     ![Seção de detalhes da instância](./media/quick-create-portal/instance-details.png)
 
-1. Em **Conta de administrador**, selecione **Chave pública SSH**, digite seu nome de usuário e, em seguida, cole a chave pública. Remova os espaços em branco à esquerda ou à direita em sua chave pública.
+1. Em **Conta do administrador**, selecione **Chave pública SSH**.
+
+1. Em **Nome de usuário**, digite *azureuser*.
+
+1. Em **Origem de chave pública SSH**, mantenha o padrão de **Gerar novo par de chaves** e digite *myKey* como o **Nome do par de chaves**.
 
     ![Conta de administrador](./media/quick-create-portal/administrator-account.png)
 
@@ -66,24 +54,29 @@ Entre no [portal do Azure](https://portal.azure.com), se você ainda não fez is
 
 1. Na página **Criar uma máquina virtual**, você pode ver os detalhes sobre a VM que você está prestes a criar. Quando estiver pronto, selecione **Criar**.
 
-Levará alguns minutos para que sua VM seja implantada. Quando a implantação for concluída, vá para a próxima seção.
+1. Quando a janela **Gerar novo par de chaves** for aberta, selecione **Baixar chave privada e criar recurso**. O arquivo de chave será baixado como **myKey.pem**. Verifique se você sabe o local de download do arquivo `.pem`, pois precisará do caminho para ele na próxima etapa.
 
-    
+1. Depois que a implantação for concluída, selecione **Ir para o recurso**.
+
+1. Na página da nova VM, selecione o endereço IP público e copie-o para a área de transferência.
+
+
+    ![Copiar o endereço IP público](./media/quick-create-portal/ip-address.png)
+
 ## <a name="connect-to-virtual-machine"></a>Conectar-se à máquina virtual
 
 Crie uma conexão SSH com a VM.
 
-1. Selecione o botão **Conectar** na página visão geral da sua VM. 
+1. Se estiver usando um computador Mac ou Linux, abra um prompt do Bash. Se estiver usando um computador Windows, abra um prompt do PowerShell. 
 
-    ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png)
+1. No prompt, abra uma conexão SSH com a máquina virtual. Substitua o endereço IP por aquele da VM e substitua o caminho para o `.pem` pelo caminho para o local de download do arquivo de chave.
 
-2. Na página **Conectar à máquina virtual**, mantenha as opções padrão para conectar-se com o endereço IP na porta 22. Em **Logon usando a conta local de VM** um comando de conexão é mostrado. Selecione o botão para copiar o comando. O exemplo a seguir mostra a aparência do comando de conexão SSH:
+```console
+ssh -i .\Downloads\myKey1.pem azureuser@10.111.12.123
+```
 
-    ```bash
-    ssh azureuser@10.111.12.123
-    ```
-
-3. Usando o mesmo shell bash que você usou para criar seu par de chaves SSH (você pode reabrir o Cloud Shell selecionando `>_` novamente ou indo para `https://shell.azure.com/bash`), cole o comando de conexão SSH no shell para criar uma sessão SSH.
+> [!TIP]
+> A chave SSH criada pode ser usada na próxima vez que você criar uma VM no Azure. Basta selecionar **Usar uma chave armazenada no Azure** em **Origem de chave pública SSH** na próxima vez que criar uma VM. Você já tem a chave privada no computador e, portanto, não precisará baixar nada.
 
 ## <a name="install-web-server"></a>Instalar servidor Web
 

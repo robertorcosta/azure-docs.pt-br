@@ -1,14 +1,14 @@
 ---
-title: Visão geral
+title: Visão geral do Azure Resource Manager
 description: Descreve como usar o Gerenciador de Recursos do Azure para implantação, gerenciamento e controle de acesso dos recursos do Azure.
 ms.topic: overview
 ms.date: 04/21/2020
-ms.openlocfilehash: 253fc2f296fa764a6c22fa1331221df60ca21bb5
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 089919e227b33859dbeabd98ecd75845a28a3f42
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81870483"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087020"
 ---
 # <a name="what-is-azure-resource-manager"></a>O que é o Azure Resource Manager?
 
@@ -68,7 +68,7 @@ Você pode implantar modelos a locatários, grupos de gerenciamento, assinaturas
 
 Existem alguns fatores importantes a considerar ao definir seu grupo de recursos:
 
-* Todos os recursos no grupo devem compartilhar o mesmo ciclo de vida. Você os implanta, atualiza e exclui juntos. Se um recurso, como um servidor de banco de dados, precisar existir em um ciclo de implantação diferente, ele deve ser de outro grupo de recursos.
+* Todos os recursos no grupo devem compartilhar o mesmo ciclo de vida. Você os implanta, atualiza e exclui juntos. Se um recurso, como um servidor, precisar existir em um ciclo de implantação diferente, ele deverá estar em outro grupo de recursos.
 
 * Cada recurso só pode existir em um grupo de recursos.
 

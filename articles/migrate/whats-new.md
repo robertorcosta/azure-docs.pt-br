@@ -4,12 +4,12 @@ description: Conheça as novidades e as atualizações recentes no serviço Migr
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: be617590ce0c96c3ec8ea705732534c8395ac0ce
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 58c77dccd1e43ed497cd56b2831eb2ab914d8d5d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052317"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85556926"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades nas Migrações para Azure
 
@@ -17,6 +17,7 @@ As [Migrações para Azure](migrate-services-overview.md) ajudam a descobrir, av
 
 ## <a name="update-june-2020"></a>Atualização (junho de 2020)
 
+- Agora há suporte às avaliações para migrar as VMs locais do VMware para a [AVS (Solução VMware no Azure)](https://go.microsoft.com/fwlink/?linkid=2132637). [Saiba mais](how-to-create-azure-vmware-solution-assessment.md)
 - Suporte para várias credenciais no dispositivo para descoberta de servidor físico.
 - Suporte para permitir o logon do Azure no dispositivo para o locatário em que a restrição de locatário foi configurada.
 - Novas versões do dispositivo das Migrações para Azure, conforme listado abaixo.

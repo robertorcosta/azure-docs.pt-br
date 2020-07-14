@@ -3,16 +3,16 @@ title: Administração do Portal do EA do Azure
 description: Este artigo explica as tarefas comuns que um administrador realiza no Portal do EA do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: eefd4a9ddf2150728578a4e058686a3204e34930
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 6169a18148b251540d66bce6e34374a16f697015
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456548"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044882"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Portal do EA do Azure
 
@@ -33,7 +33,7 @@ Os administradores corporativos podem associar contas existentes a Departamentos
 
 ## <a name="department-spending-quotas"></a>Cotas de gastos do departamento
 
-Os clientes do EA podem definir ou alterar as cotas de gastos para cada departamento em um registro. O valor da cota de gastos é definido para o termo do compromisso atual. No final do atual termo de compromisso, o sistema estenderá a cota de gastos existente para o próximo termo de compromisso, a não ser que os valores sejam atualizados.
+Os clientes do EA podem definir ou alterar as cotas de gastos para cada departamento em um registro. O valor da cota de gastos é definido para o termo do pagamento antecipado atual. No final do termo do pagamento antecipado atual, o sistema estenderá a cota de gastos existente para o próximo termo do pagamento antecipado, a menos que os valores sejam atualizados.
 
 O administrador do departamento pode exibir a cota de gastos, mas somente o administrador corporativo pode atualizar o valor da cota. O administrador corporativo e o administrador do departamento receberão notificações assim que a cota atingir 50%, 75%, 90% e 100%.
 
@@ -48,9 +48,9 @@ O administrador do departamento pode exibir a cota de gastos, mas somente o admi
     - As propriedades Nome do Departamento e Centro de Custo também podem ser editadas nesse momento.
  1. Clique em **Salvar**.
 
-A cota de gastos do departamento agora estará visível no modo de exibição Lista de Departamentos na guia Departamento. No final do compromisso atual, o Portal do EA do Azure manterá as cotas de gastos para o próximo termo de compromisso.
+A cota de gastos do departamento agora estará visível no modo de exibição Lista de Departamentos na guia Departamento. No final do pagamento antecipado atual, o Portal do Azure EA manterá as cotas de gastos para o próximo termo do pagamento antecipado.
 
-O valor da cota de departamento é independente do compromisso monetário atual e o valor e os alertas da cota se aplicam somente ao uso da primeira parte. A cota de gastos do departamento serve meramente para fins informativos e não impõe limites de gastos.
+O valor da cota de departamento é independente do pagamento antecipado do Azure atual, e o valor e os alertas da cota se aplicam somente ao uso interno. A cota de gastos do departamento serve meramente para fins informativos e não impõe limites de gastos.
 
 ### <a name="department-administrator-to-view-the-quota"></a>Para o administrador do departamento exibir a cota:
 
@@ -174,7 +174,7 @@ Este documento responde às perguntas frequentes relacionadas à propriedade da 
 
 ### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>Quantos proprietários da conta do Azure você pode ter por assinatura?
 
-Somente um proprietário de conta é permitido por assinatura.  Mais funções podem ser adicionadas por meio do Acesso baseado em função ou (Controle de acesso, IAM) na guia assinatura no canto superior esquerdo da página em [portal.azure.com]](https://portal.azure.com).
+Somente um proprietário de conta é permitido por assinatura.  Outras funções podem ser adicionadas por meio do acesso baseado em função ou do IAM (Controle de Acesso) na guia da assinatura no canto superior esquerdo da página do [portal do Azure](https://portal.azure.com).
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Um proprietário de conta do Azure pode ser listado em mais de um departamento?
 

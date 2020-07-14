@@ -8,12 +8,12 @@ ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: 56adfa2ddab011372783a7a7872b4f4c8d7fc050
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: e30bee23b634db12def62e906183c6087c6613e6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118433"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044287"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-core-and-azure-cosmos-db"></a>Início Rápido: Criar um aplicativo do Cassandra com o .NET Core e o Azure Cosmos DB
 
@@ -133,7 +133,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 1. No [portal do Azure](https://portal.azure.com/), selecione **Cadeia de Conexão**.
 
-1. Use o ![botão Copiar](./media/create-cassandra-dotnet/copy.png) no lado direito da tela para copiar o valor do NOME DE USUÁRIO.
+1. Use o botão :::image type="icon" source="./media/create-cassandra-dotnet/copy.png"::: no lado direito da tela para copiar o valor do NOME DE USUÁRIO.
 
    :::image type="content" source="./media/create-cassandra-dotnet/keys.png" alt-text="Exibir e copiar uma chave de acesso no portal do Azure, página Cadeia de Conexão":::
 

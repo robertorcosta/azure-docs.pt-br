@@ -11,20 +11,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: b696cdf2d54c42d3967041c5d10b1bd9bb5a3065
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: a055216634775254867421854aa0b456fa90c709
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84448675"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85551058"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes do Azure Load Balancer
 
-O Azure Load Balancer é composto por alguns componentes importantes. Eles podem ser configurados em sua assinatura por meio do portal do Azure, da CLI do Azure, do Azure PowerShell ou de modelos.
+O Azure Load Balancer inclui alguns componentes principais. Esses componentes podem ser configurados na sua assinatura por um dos seguintes meios:
+
+* Portal do Azure
+* CLI do Azure
+* Azure PowerShell
+* Modelos do Resource Manager
 
 ## <a name="frontend-ip-configuration"></a>Configuração do IP front-end <a name = "frontend-ip-configurations"></a>
 
-O endereço IP de seu Azure Load Balancer. É o ponto de contato para clientes. Esses endereços IP podem ser:
+O endereço IP de seu Azure Load Balancer. Trata-se do ponto de contato para os clientes. Esses endereços IP podem ser:
 
 - **Endereço IP público**
 - **Endereço IP privado**
@@ -51,7 +56,7 @@ Ao considerar como projetar seu pool de back-end, projete o menor número de rec
 
 ## <a name="health-probes"></a>Investigações de integridade
 
-Uma investigação de integridade é usada para determinar o status de integridade das instâncias no pool de back-end. Ao criar um Load Balancer, você precisa configurar uma investigação de integridade que o Load Balancer possa usar para determinar se uma instância está íntegra e rotear o tráfego para ela.
+Uma investigação de integridade é usada para determinar o status de integridade das instâncias no pool de back-end. Durante a criação do balanceador de carga, configure uma investigação de integridade para uso do balanceador de carga.  Essa investigação de integridade determinará se uma instância está íntegra e pode receber o tráfego.
 
 Você pode definir o limite não íntegro para suas investigações de integridade. Quando uma investigação não responde, o Balanceador de Carga interrompe o envio de novas conexões para as instâncias não íntegras. Uma falha de investigação não afeta as conexões existentes. A conexão continua até o aplicativo:
 
@@ -65,34 +70,57 @@ O Load Balancer básico não é compatível com investigações HTTPS. O Load Ba
 
 ## <a name="load-balancing-rules"></a>Regras de balanceamento de carga
 
-Uma regra do Load Balancer é usada para definir como o tráfego de entrada é distribuído para **todas** as instâncias dentro do pool de back-end. Uma regra de balanceamento de carga mapeia uma determinada configuração de porta e IP de front-end para várias portas e endereços IP de back-end.
+Uma regra do Load Balancer é usada para definir como o tráfego de entrada é distribuído para **todas** as instâncias dentro do pool de back-end. Uma regra de balanceamento de carga mapeia uma configuração especificada de porta e IP de front-end para várias portas e endereços IP de back-end.
 
-Por exemplo, se quisesse que o tráfego na porta 80 (ou em outra porta) de seu IP de front-end fosse roteado para a porta 80 de todas as suas instâncias de back-end, você usaria uma regra de balanceamento de carga para fazer isso.
+Por exemplo, use uma regra de balanceamento de carga para a porta 80 a fim de rotear o tráfego do IP de front-end para a porta 80 das instâncias de back-end.
 
-### <a name="high-availability-ports"></a>Portas de Alta Disponibilidade
+<p align="center">
+  <img src="./media/load-balancer-components/lbrules.svg" width="512" title="Regras de balanceamento de carga">
+</p>
 
-Uma regra do Load Balancer configurada com 'protocol – all e port – 0'. Isso permite fornecer uma única regra para balancear a carga de todos os fluxos TCP e UDP que chegam em todas as portas de um Standard Load Balancer interno. A decisão de balanceamento de carga é feita por fluxo. Essa ação se baseia na seguinte conexão de cinco tuplas: 
+*Figura: regras de balanceamento de carga*
+
+## <a name="high-availability-ports"></a>Portas de Alta Disponibilidade
+
+Uma regra do balanceador de carga configurada com **'protocolo – todos e porta – 0'** . 
+
+Essa regra permite que uma só regra faça o balanceamento de carga de todos os fluxos TCP e UDP recebidos em todas as portas de um Standard Load Balancer interno. 
+
+A decisão de balanceamento de carga é feita por fluxo. Essa ação se baseia na seguinte conexão de cinco tuplas: 
+
 1. endereço IP de origem
 2. porta de origem
 3. endereço IP de destino
 4. porta de destino
 5. protocolo
 
-As regras de balanceamento de carga de portas de HA o ajudam com cenários críticos, como alta disponibilidade e escala para NVAs (soluções de virtualização de rede) dentro de redes virtuais. O recurso também pode ajudar quando um grande número de portas precisar de balanceamento de carga.
+As regras de balanceamento de carga de portas de HA o ajudam com cenários críticos, como alta disponibilidade e escala para NVAs (soluções de virtualização de rede) dentro de redes virtuais. O recurso pode ser útil quando um grande número de portas precisa do balanceamento de carga.
 
-Você pode saber mais sobre [portas de HA](load-balancer-ha-ports-overview.md).
+<p align="center">
+  <img src="./media/load-balancer-components/harules.svg" width="512" title="Regras de portas HA">
+</p>
+
+*Figura: regras de portas HA*
+
+Saiba mais sobre as [portas HA](load-balancer-ha-ports-overview.md).
 
 ## <a name="inbound-nat-rules"></a>Regras NAT de entrada
 
-Uma regra NAT de entrada encaminha o tráfego de entrada enviado para uma combinação de endereço IP e porta de front-end selecionada a uma máquina virtual ou instância **específica** no pool de back-end. O encaminhamento de porta é realizado pela mesma distribuição baseada em hash que o balanceamento de carga.
+Uma regra NAT de entrada encaminha o tráfego de entrada enviado para a combinação de porta e endereço IP de front-end. O tráfego é enviado para uma máquina virtual ou uma instância **específica** no pool de back-end. O encaminhamento de porta é realizado pela mesma distribuição baseada em hash que o balanceamento de carga.
 
 Por exemplo, se você quiser que as sessões de protocolo RDP ou SSH (Secure Shell) separem as instâncias de VM dentro de um pool de back-end. É possível mapear vários pontos de extremidade internos para portas no mesmo endereço IP de Front-end. Você pode usar os endereços IP de Front-end para administrar remotamente suas VMs sem um jumpbox adicional.
 
-As regras NAT de entrada no contexto de VMSS (conjuntos de dimensionamento de máquinas virtuais) são pools NAT de entrada. Saiba mais sobre os componentes do [Load Balancer e VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
+<p align="center">
+  <img src="./media/load-balancer-components/inboundnatrules.svg" width="512" title="Regras NAT de entrada">
+</p>
+
+*Figura: Regras NAT de entrada*
+
+As regras NAT de entrada no contexto dos Conjuntos de Dimensionamento de Máquinas Virtuais são pools NAT de entrada. Saiba mais sobre os [componentes do Load Balancer e o conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
 
 ## <a name="outbound-rules"></a>Regras de saída
 
-uma regra de saída configura a NAT (conversão de endereços de rede) de saída para todas as máquinas virtuais identificadas pelo pool de back-end. Isso permite que as instâncias no back-end se comuniquem (saída) com a Internet ou com outros pontos de extremidade.
+uma regra de saída configura a NAT (conversão de endereços de rede) de saída para todas as máquinas virtuais identificadas pelo pool de back-end. Essa regra permite que as instâncias do back-end se comuniquem (saída) com a Internet ou com outros pontos de extremidade.
 
 Saiba mais sobre [conexões de saída e regras](load-balancer-outbound-connections.md).
 

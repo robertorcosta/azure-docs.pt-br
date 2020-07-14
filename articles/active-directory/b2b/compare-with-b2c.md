@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9006a70ae941abb700412a7c596627939c994028
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1c45aae35c7c1cf2fbde436303a2ac000dfdd5ec
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587503"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339605"
 ---
 # <a name="compare-solutions-for-external-identities-in-azure-active-directory"></a>Comparar soluções para Identidades Externas no Azure Active Directory
 
@@ -36,11 +36,11 @@ A tabela a seguir fornece uma comparação detalhada dos vários cenários que v
 
 | Aplicativos multilocatários  | Colaboração de usuário externo (B2B) | Aplicativos para consumidores ou clientes (B2C)  |
 | ---- | --- | --- |
-| Cenário principal: Software como um serviço (SaaS) corporativo | Cenário principal: Colaboração usando aplicativos da Microsoft (Office 365, Teams,...) ou seu próprio software de colaboração.  | Cenário principal: Aplicativos transacionais usando aplicativos desenvolvidos personalizados.   |
+| Cenário principal: Software como um serviço (SaaS) corporativo | Cenário principal: Colaboração por meio de aplicativos da Microsoft (Microsoft 365, Teams etc.) ou um software de colaboração próprio.  | Cenário principal: Aplicativos transacionais usando aplicativos desenvolvidos personalizados.   |
 | Destinado a: Organizações que desejam fornecer software a muitos clientes corporativos.    | Destinado a: organizações que desejam poder autenticar usuários de uma organização de parceiros, independentemente do provedor de identidade.    | Destinado a: Clientes convidados dos aplicativos Web e móveis, sejam indivíduos, clientes institucionais ou organizacionais, para um diretório do Azure AD separado do diretório da sua própria organização. |
 | Identidades com suporte: Funcionários com contas do Azure AD. | Identidades com suporte: funcionários com contas corporativas ou de estudante, parceiros com contas corporativas ou de estudante ou qualquer endereço de email. Em breve com suporte à federação direta.      | Identidades com suporte: os usuários do consumidor com contas de aplicativo locais (qualquer nome de usuário ou endereço de email) ou identidades sociais com suporte com federação direta.       |
 | Os usuários externos são gerenciados em seu próprio diretório, isolados do diretório onde o aplicativo foi registrado.    | Usuários externos são gerenciados no mesmo diretório que os funcionários, mas são anotados de maneira especial. Eles podem ser gerenciados da mesma forma que os funcionários, podem ser adicionados aos mesmos grupos e assim por diante.    | Usuários externos são gerenciados no diretório do aplicativo. Eles são gerenciados separadamente do diretório de parceiros e funcionários da organização (se houver).  |
-| Logon único: Há suporte para SSO (logon único) em todos os aplicativos conectados ao Azure AD.          | Logon único: Há suporte para SSO (logon único) em todos os aplicativos conectados ao Azure AD. Por exemplo, é possível fornecer acesso ao Office 365 ou a aplicativos locais, além de outros aplicativos SaaS, como o Salesforce ou Workday.    | Logon único: Há suporte para SSO para aplicativos de clientes dentro dos locatários do B2C do AD do Azure. O SSO não é compatível com o Office 365 nem com outros aplicativos SaaS da Microsoft.    |
+| Logon único: Há suporte para SSO (logon único) em todos os aplicativos conectados ao Azure AD.          | Logon único: Há suporte para SSO (logon único) em todos os aplicativos conectados ao Azure AD. Por exemplo, você pode fornecer acesso ao Microsoft 365 ou a aplicativos locais, além de outros aplicativos SaaS, como o Salesforce ou o Workday.    | Logon único: Há suporte para SSO para aplicativos de clientes dentro dos locatários do B2C do AD do Azure. Não há suporte para o SSO com o Microsoft 365 nem com outros aplicativos SaaS da Microsoft.    |
 | Ciclo de vida do cliente: gerenciado pela organização do próprio usuário.      | Ciclo de vida do parceiro: gerenciado pela organização convidada/host.    | Ciclo de vida do cliente: autoatendido ou gerenciado pelo aplicativo.      |
 | Política de segurança e conformidade: Gerenciada pela organização convidada/host (por exemplo, com [políticas de acesso condicional](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).           | Política de segurança e conformidade: Gerenciada pela organização convidada/host (por exemplo, com [políticas de acesso condicional](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)). | Política de segurança e conformidade: gerenciada pelo aplicativo.        |
 | Identidade visual: a marca da organização convidada/host é usada.   | Identidade visual: a marca da organização convidada/host é usada.    | Identidade visual: gerenciada pelo aplicativo. Geralmente, tende a ser da marca do produto com o esmaecimento da organização na tela de fundo.   |

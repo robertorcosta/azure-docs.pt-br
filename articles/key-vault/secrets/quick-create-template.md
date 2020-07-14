@@ -11,24 +11,28 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 02/27/2020
 ms.author: jgao
-ms.openlocfilehash: 273a467f5db2201015352aaf4a232f5a42e29673
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5206c73ac225f31ee8c40105e292726a9f951a79
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81618084"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478920"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando o modelo do Resource Manager
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-an-arm-template"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando um modelo do Resource Manager
 
-[O Azure Key Vault](../general/overview.md) é um serviço de nuvem que fornece um armazenamento seguro de segredos, como chaves, senhas e certificados, entre outros. Este Início Rápido concentra-se no processo de implantação de um modelo do Resource Manager para criar um cofre de chaves e um segredo.
+[O Azure Key Vault](../general/overview.md) é um serviço de nuvem que fornece um armazenamento seguro de segredos, como chaves, senhas e certificados, entre outros. Este guia de início rápido tem como foco o processo de implantação de um modelo do Azure Resource Manager para criação de um cofre de chaves e um segredo.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implantar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este artigo, você precisa do seguinte:
+Para concluir este artigo, será preciso:
+
+* Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 * Sua ID de objeto de usuário do Azure AD é necessária para o modelo configurar permissões. O procedimento a seguir obtém a ID do objeto (GUID).
 
@@ -53,22 +57,20 @@ Para concluir este artigo, você precisa do seguinte:
 
     2. Anote a ID do objeto. Você precisará dela na próxima seção deste início rápido.
 
-## <a name="create-a-vault-and-a-secret"></a>Criar um cofre e um segredo
+## <a name="review-the-template"></a>Examinar o modelo
 
-### <a name="review-the-template"></a>Examinar o modelo
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-key-vault-create/).
 
-O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-key-vault-create/).
-
-:::code language="json" source="~/quickstart-templates/101-key-vault-create/azuredeploy.json" range="1-150" highlight="107-148":::
+:::code language="json" source="~/quickstart-templates/101-key-vault-create/azuredeploy.json" range="1-150" highlight="106-148":::
 
 Há dois recursos do Azure definidos no modelo:
 
 * [**Microsoft.KeyVault/vaults**](/azure/templates/microsoft.keyvault/vaults): crie um Azure Key Vault.
 * [**Microsoft.KeyVault/vaults/secrets**](/azure/templates/microsoft.keyvault/vaults/secrets): crie um segredo do cofre de chaves.
 
-Mais exemplos de modelos do Azure Key Vault podem ser encontrados [aqui](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
+Encontre mais amostras de modelo do Azure Key Vault nos [Modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-the-template"></a>Implantar o modelo
 
 1. Selecione a imagem a seguir para entrar no Azure e abrir um modelo. O modelo cria um cofre de chaves e um segredo.
 
@@ -78,16 +80,16 @@ Mais exemplos de modelos do Azure Key Vault podem ser encontrados [aqui](https:/
 
     ![Modelo do Resource Manager, integração do Key Vault, portal de implantação](../media/quick-create-template/create-key-vault-using-template-portal.png)
 
-    A menos que seja especificado, use o valor padrão para criar o cofre de chaves e um segredo.
+    A menos que o valor seja especificado, use o valor padrão para criar o cofre de chaves e um segredo.
 
     * **Assinatura**: selecione uma assinatura do Azure.
     * **Grupo de recursos**: selecione **Criar novo**, insira um nome exclusivo para o grupo de recursos e, em seguida, clique em **OK**.
-    * **Local**: selecione um local.  Por exemplo, **Centro dos EUA**.
+    * **Local**: selecione um local. Por exemplo, **Centro dos EUA**.
     * **Nome do Key Vault**: insira um nome para o cofre de chaves, que precisa ser global exclusivo no namespace .vault.azure.net. Você precisará do nome na próxima seção ao validar a implantação.
-    * **ID de Locatário**: a função de modelo recupera automaticamente sua ID de locatário.  Não altere o valor padrão.
+    * **ID de Locatário**: a função de modelo recupera automaticamente sua ID de locatário. Não altere o valor padrão.
     * **ID de Usuário do AD**: insira sua ID de objeto de usuário do Azure AD que recuperou de [Pré-requisitos](#prerequisites).
-    * **Nome do segredo**: insira um nome para o segredo armazenado no cofre de chaves.  Por exemplo, **adminpassword**.
-    * **Valor do segredo**: insira o valor do segredo.  Para armazenar uma senha, é recomendável usar a senha gerada que você criou em Pré-requisitos.
+    * **Nome do segredo**: insira um nome para o segredo armazenado no cofre de chaves. Por exemplo, **adminpassword**.
+    * **Valor do segredo**: insira o valor do segredo. Se você armazenar uma senha, recomendaremos usar a senha gerada que você criou em Pré-requisitos.
     * **Concordo com os termos e condições declarados acima**: selecione.
 3. Selecione **Comprar**. Depois que o cofre de chaves for implantado com êxito, você receberá uma notificação:
 
@@ -129,6 +131,7 @@ A saída é semelhante à seguinte:
 ![Modelo do Resource Manager, integração do Key Vault, saída de validação do portal de implantação](../media/quick-create-template/resource-manager-template-portal-deployment-powershell-output.png)
 
 ---
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros tutoriais e inícios rápidos do Key Vault complementam este início rápido. Se você planeja continuar a trabalhar com os tutoriais e inícios rápidos subsequentes, deixe esses recursos onde estão.
@@ -155,7 +158,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um cofre de chaves e um segredo usando um modelo do Azure Resource Manager e validou a implantação. Para saber mais sobre o Key Vault e o Azure Resource Manager, continue com os artigos abaixo.
+Neste guia de início rápido, você criou um cofre de chaves e um segredo usando um modelo do Resource Manager e validou a implantação. Para saber mais sobre o Key Vault e o Azure Resource Manager, continue com os artigos abaixo.
 
 - Leia uma [Visão geral do Azure Key Vault](../general/overview.md)
 - Saiba mais sobre o [Azure Resource Manager](../../azure-resource-manager/management/overview.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: fa8bf79c047911ca283bf60261bba0cbdd6816a7
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 53cabaec21daafb910b958bb4b573dd033ca6283
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980096"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035689"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para JavaScript para uso com uma página da Web.
 
@@ -27,11 +27,12 @@ Crie uma nova pasta vazia. Caso deseje hospedar o exemplo em um servidor Web, ce
 
 ## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>Descompactar o SDK de Fala para JavaScript nessa pasta
 
-Baixe o SDK de Fala como um [pacote .zip](https://aka.ms/csspeech/jsbrowserpackage) e descompacte-o na pasta recém-criada. Isso resulta na descompactação de quatro arquivos:
+Baixe o SDK de Fala como um [pacote .zip](https://aka.ms/csspeech/jsbrowserpackage) e descompacte-o na pasta recém-criada. Isso resulta no desempacotamento de cinco arquivos:
 * `microsoft.cognitiveservices.speech.sdk.bundle.js` Uma versão legível por humanos do SDK de Fala.
 * `microsoft.cognitiveservices.speech.sdk.bundle.js.map` Um arquivo de mapa usado para depurar o código do SDK.
 * `microsoft.cognitiveservices.speech.sdk.bundle.d.ts` Definições de objeto para uso com TypeScript
 * `microsoft.cognitiveservices.speech.sdk.bundle-min.js` Uma versão reduzida do SDK de fala.
+* `speech-processor.js` Código para aprimorar o desempenho em alguns navegadores.
 
 ## <a name="create-an-indexhtml-page"></a>Criar uma página index.html
 

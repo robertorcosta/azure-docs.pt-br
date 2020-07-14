@@ -1,6 +1,6 @@
 ---
-title: Visão geral do banco de dados SQL | Microsoft Docs
-description: Visão geral do conteúdo da Ajuda para banco de dados SQL no portal do Azure
+title: Visão geral do Banco de Dados SQL | Microsoft Docs
+description: Visão geral do conteúdo da Ajuda para o Banco de Dados SQL no portal do Azure
 services: sql-database
 author: sewatson
 manager: lwelicki
@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 04/09/2019
 ms.author: ninarn
-ms.openlocfilehash: 99f19971eafaa1ddad1f96b187e18b79810560a2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6d4f0c50f57661576f97ddd3772d78b9fa293153
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "61244452"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040513"
 ---
 # <a name="sql-database-documentation"></a>Documentação do Banco de Dados SQL
 

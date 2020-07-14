@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b655fa2f12eac894e97c61cc931983aa58fff7a9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6c2ae9e7654fa468d499ca6ef8543b98b1e372ca
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74007921"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481384"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>O que são os relatórios do Azure Active Directory?
 
@@ -81,7 +81,7 @@ O [relatório dos logs de auditoria](concept-audit-logs.md) fornece logs de ativ
 
 #### <a name="what-azure-ad-license-do-you-need-to-access-the-audit-logs-report"></a>Qual é a licença do Azure AD necessária para acessar o relatório dos logs de auditoria?  
 
-O relatório dos logs de auditoria está disponível para os recursos para os quais você possui licenças. Se você tem uma licença para um recurso específico, também tem acesso às informações da trilha de auditoria dele. Para obter mais detalhes, veja [Recursos e funcionalidades do Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
+O relatório dos logs de auditoria está disponível para os recursos para os quais você possui licenças. Se você tem uma licença para um recurso específico, também tem acesso às informações da trilha de auditoria dele. Veja uma comparação detalhada dos recursos conforme os [diferentes tipos de licenças](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#what-are-the-azure-ad-licenses) na [página de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Para obter mais detalhes, veja [Recursos e funcionalidades do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#which-features-work-in-azure-ad).
 
 ### <a name="sign-ins-report"></a>Relatório de entradas
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 27f085543869b1a77db9c97ca2e7ae7d3d3b7b88
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 891e0c18b3f95dca905fbc14b957af773135eeec
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80046409"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557902"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicativo do Azure no Linux
 
@@ -54,7 +54,7 @@ Verifique o [Painel de Status do Azure](https://azure.microsoft.com/status).
 
 O portal do Azure mostra somente os recursos que funcionam atualmente para o Aplicativo Web para Contêineres. Conforme habilitarmos mais recursos, eles ficarão visíveis no portal.
 
-O Serviço de Aplicativo no Linux só tem suporte com os planos de serviço de aplicativo [Gratuito, Básico, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e não tem uma camada [Compartilhada](https://azure.microsoft.com/pricing/details/app-service/plans/). Não é possível criar o Aplicativo Web do Linux em um plano do Serviço de Aplicativo que já está hospedando Aplicativos Web não Linux.  
+Só há suporte para o Serviço de Aplicativo no Linux nos Planos do Serviço de Aplicativo [Gratuito, Básico, Standard, Premium e Isolado](https://azure.microsoft.com/pricing/details/app-service/plans/), e ele não tem uma camada [Compartilhada](https://azure.microsoft.com/pricing/details/app-service/plans/). Não é possível criar o Aplicativo Web do Linux em um plano do Serviço de Aplicativo que já está hospedando Aplicativos Web não Linux.  
 
 Com base em uma limitação atual, para o mesmo grupo de recursos, você não pode misturar aplicativos do Windows e do Linux na mesma região.
 

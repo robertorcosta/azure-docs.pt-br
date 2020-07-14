@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: 2b6f4bb707d6c5c07dd6a1205ce7be542a220f17
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a5bd7b3e6262fa21865f04a6b65d1a75faafefa4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268666"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038100"
 ---
 A [Leitura Avançada](https://www.onenote.com/learningtools) é uma ferramenta projetada de forma inclusiva que implementa técnicas comprovadas para melhorar a compreensão da leitura.
 
@@ -305,7 +305,8 @@ Ao clicar no botão "Leitura Avançada", você verá a Leitura Avançada iniciad
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Conferir o [Início rápido do Node.js](../../quickstart-nodejs.md) para ver o que mais você pode fazer com a biblioteca de clientes de Leitura Avançada usando o Node.js
+* Conferir o [Início rápido do Node.js](../../tutorial-nodejs.md) para ver o que mais você pode fazer com a biblioteca de clientes de Leitura Avançada usando o Node.js
+* Veja o [tutorial do Android](../../tutorial-android.md) para saber o que mais você pode fazer com o SDK de Leitura Avançada usando o Java ou o Kotlin para Android
+* Veja o [tutorial do iOS](../../tutorial-ios.md) para saber o que mais você pode fazer com o SDK de Leitura Avançada usando o Swift para iOS
 * Conferir o [tutorial do Python](../../tutorial-python.md) para ver o que mais você pode fazer com a biblioteca de clientes de Leitura Avançada usando Python
-* Conferir o [tutorial do iOS](../../tutorial-ios-picture-immersive-reader.md) para ver o que mais você pode fazer com a biblioteca de clientes de Leitura Avançada usando Swift
 * Explore o [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk) e a [Referência de SDK da Leitura Avançada](../../reference.md)

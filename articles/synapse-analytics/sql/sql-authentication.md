@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7295bb2e87373a80c6b105ab7284a43e6f0804da
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 280fea29b79db58d0974aaba961db9c7a7df3dad
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020765"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045783"
 ---
 # <a name="sql-authentication"></a>Autenticação SQL
 
@@ -45,7 +45,7 @@ As contas do **Administrador do servidor** e do **Administrador do Azure AD** t�
 - São as únicas contas que podem se conectar automaticamente a qualquer Banco de Dados SQL no servidor. (Para se conectar a um banco de dados do usuário, outras contas devem ser o proprietário do banco de dados, ou ter uma conta de usuário do banco de dados do usuário.)
 - Essas contas inserem bancos de dados de usuário, pois o usuário `dbo` e elas têm todas as permissões nos bancos de dados do usuário. (O proprietário de um banco de dados do usuário também insere o banco de dados como o usuário `dbo`.)
 - Não insira o banco de dados `master` como o usuário `dbo` e tenha permissões limitadas no mestre.
-- **Não** são membros da função de servidor fixo do SQL Server padrão `sysadmin`, que não está disponível no Banco de Dados SQL.  
+- **Não** são membros da função de servidor fixa `sysadmin` padrão do SQL Server, que não está disponível no Banco de Dados SQL.  
 - É possível criar, alterar e remover bancos de dados, logons, usuários nas regras de firewall de IP mestre e de nível de servidor.
 - Podem adicionar e remover membros das funções `dbmanager` e `loginmanager`.
 - Podem exibir a tabela do sistema `sys.sql_logins`.

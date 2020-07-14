@@ -3,16 +3,16 @@ title: Automatizar tarefas para integração empresarial
 description: Saiba mais sobre como automatizar os fluxos de trabalho que integram aplicativos, dados, serviços e sistemas com o mínimo de código para integração empresarial usando os Aplicativos Lógicos do Azure.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
-ms.openlocfilehash: 789ddf39e4493d11d63a07f2341ab36ac161f32d
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 08b3863ac9a03cda2659cf4934b781eeb9330e17
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659605"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563808"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Visão geral – O que são Aplicativos Lógicos do Azure?
 
@@ -32,7 +32,7 @@ Para criar soluções de integração empresarial com os Aplicativos Lógicos do
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
-## <a name="how-does-logic-apps-work"></a>Como funcionam os Aplicativos Lógicos? 
+## <a name="how-do-logic-apps-work"></a>Como funcionam os aplicativos lógicos? 
 
 Cada fluxo de trabalho do aplicativo lógico começa com um gatilho, que é acionado quando um evento específico ocorre, ou quando novos dados disponíveis atendem a critérios específicos. Vários gatilhos fornecidos pelos conectores nos Aplicativos Lógicos incluem recursos básicos de agendamento para que você possa configurar a regularidade das execuções das suas cargas de trabalho. Para um agendamento mais complexo ou recorrências avançadas, você pode usar um gatilho de recorrência como a primeira etapa em qualquer fluxo de trabalho. Saiba mais sobre [fluxos de trabalho baseados em agendamento](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
@@ -42,7 +42,7 @@ Cada vez que o disparador é acionado, o mecanismo de Aplicativo Lógico cria um
 
 Você pode criar seus aplicativos lógicos visualmente com o Designer de Aplicativos Lógicos, disponível no portal do Azure através do navegador e no Visual Studio. Para mais aplicativos lógicos personalizados, você pode criar ou editar definições de aplicativo lógico em JavaScript Object Notation (JSON) trabalhando no editor de “exibição de código”. Você também pode usar comandos do Azure PowerShell e modelos do Azure Resource Manager para selecionar tarefas. Os aplicativos lógicos implantam e são executados na nuvem no Azure. Para obter uma introdução mais detalhada, assista a este vídeo: [Usar o Azure Enterprise Integration Services para executar aplicativos de nuvem em escala](https://channel9.msdn.com/Events/Connect/2017/T119/)
 
-## <a name="why-use-logic-apps"></a>Por que usar Aplicativos Lógicos?
+## <a name="why-use-logic-apps"></a>Por que usar aplicativos lógicos?
 
 Com empresas migrando para a digitalização, os aplicativos lógicos ajudarão a conectar sistemas herdados, modernos e de última geração com mais facilidade e rapidez, fornecendo APIs pré-compiladas como conectores gerenciados pela Microsoft. Dessa forma, você pode se concentrar na lógica de negócios e na funcionalidade de seus aplicativos. Você não precisa se preocupar com a criação, a hospedagem, o dimensionamento, o gerenciamento, a manutenção e o monitoramento dos seus aplicativos. Os Aplicativos Lógicos tratam desses problemas para você. Além disso, você paga apenas pelo que usa com base no consumo de um [modelo de preços](../logic-apps/logic-apps-pricing.md).
 
