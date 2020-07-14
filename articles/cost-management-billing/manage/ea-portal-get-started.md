@@ -3,16 +3,16 @@ title: Introdução ao Azure Enterprise Portal
 description: Este artigo explica como os clientes do Azure EA (Contrato Enterprise do Azure) usam o Azure Enterprise Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/29/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 6b31f3cd8ca6baa2d20d0281de51ed83424eca17
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 2d4fbf90afa93f3dbde12a3bc5ce02f9a60b6c5d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560361"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044950"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introdução ao Azure Enterprise Portal
 
@@ -372,7 +372,7 @@ Se o Contrato Enterprise não tiver uma assinatura de suporte e você adicionar 
 
 ## <a name="view-usage-summary-and-download-reports"></a>Exibir resumo de uso e baixar relatórios
 
-Os administradores corporativos podem exibir um resumo dos dados de uso, do compromisso monetário consumido e das cobranças associadas ao uso adicional no Azure Enterprise Portal. As cobranças são apresentadas no nível do resumo em todas as contas e assinaturas.
+Os administradores corporativos podem exibir um resumo dos dados de uso, do pagamento antecipado do Azure consumido e das cobranças associadas ao uso adicional no Azure Enterprise Portal. As cobranças são apresentadas no nível do resumo em todas as contas e assinaturas.
 
 Para exibir o uso detalhado de contas específicas, baixe o relatório de detalhes de uso:
 
@@ -390,7 +390,7 @@ Para exibir os relatórios e os grafos de resumo de uso:
 
 1. Entre no Azure Enterprise Portal.
 
-1. Selecione um período de compromisso.
+1. Selecione uma condição de Pagamento antecipado.
 
    Para alterar o intervalo de datas do **Resumo de Uso**, você pode alternar de **M** (mensal) para **C** (personalizado) no canto superior direito da página e, em seguida, inserir as datas de início e término personalizadas.
 
@@ -455,7 +455,7 @@ O Azure Enterprise Portal filtra os registros inativos, deixando-os fora da exib
 - **Conta**: uma unidade organizacional no Azure Enterprise Portal. Ela é usada para administrar assinaturas e para relatórios.
 - **Proprietário da conta**: a pessoa que gerencia assinaturas e administradores de serviço no Azure. Ela pode exibir dados de uso nessa conta e suas assinaturas associadas.
 - **Assinatura de aditamento**: uma assinatura coincidente ou de um ano sob o aditamento do registro.
-- **Compromisso**: compromisso de um valor monetário anual para serviços do Azure a uma tarifa de compromisso reduzida para uso em relação a esse pagamento antecipado.
+- **Pagamento antecipado**: Pagamento antecipado de um valor monetário anual de serviços do Azure a uma tarifa de Pagamento antecipado reduzida para uso em relação a esse pagamento antecipado.
 - **Administrador de departamento**: a pessoa que gerencia departamentos, cria contas e proprietários de contas, exibe detalhes de uso dos departamentos que gerencia e pode exibir custos quando permissões forem concedidas.
 - **Número de registro**: um identificador exclusivo fornecido pela Microsoft para identificar o registro específico associado a um Contrato Enterprise.
 - **Administrador corporativo**: a pessoa que gerencia departamentos, proprietários de departamentos, contas e proprietários de contas no Azure. Ela tem a capacidade de gerenciar administradores corporativos e exibir dados de uso, quantidades cobradas e encargos não cobrados em todas as contas e assinaturas associadas ao registro corporativo.
@@ -478,7 +478,7 @@ O Azure Enterprise Portal filtra os registros inativos, deixando-os fora da exib
 
    Antes que o registro do EA do Azure atinja a data de término do Contrato Enterprise, o administrador do registro deve decidir dentre as seguintes opções:
 
-  - Renovar o registro adicionando um compromisso monetário adicional.
+  - Renovar o registro adicionando outro Pagamento antecipado do Azure.
   - Transferir para um novo registro.
   - Migrar para o MOSP (Programa de Assinatura do Microsoft Online).
   - Confirmar a desabilitação de todos os serviços associados ao registro.

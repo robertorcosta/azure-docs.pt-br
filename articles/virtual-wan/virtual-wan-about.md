@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 05/14/2020
+ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 8bdba64445212c564a3d4762bc8497be15f7d9a0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: bae8fa97d075784bba1d2f75cc06cfa3f801c052
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657001"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027198"
 ---
 # <a name="about-azure-virtual-wan"></a>Sobre a WAN Virtual do Azure
 
@@ -64,7 +64,7 @@ Para configurar uma WAN virtual de ponta a ponta, crie os seguintes recursos:
 
 **Recursos adicionais de WAN Virtual**
 
-  * **Site:** Esse recurso é usado apenas para conexões site a site. O recurso do site é **vpnsite**. Ele representa o dispositivo VPN local e as respectivas configurações. Ao trabalhar com um parceiro de WAN Virtual, você terá uma solução interna para exportar automaticamente essas informações para o Azure.
+* **Site:** Esse recurso é usado apenas para conexões site a site. O recurso do site é **vpnsite**. Ele representa o dispositivo VPN local e as respectivas configurações. Ao trabalhar com um parceiro de WAN Virtual, você terá uma solução interna para exportar automaticamente essas informações para o Azure.
 
 ## <a name="types-of-connectivity"></a><a name="connectivity"></a>Tipos de conectividade
 
@@ -72,21 +72,9 @@ A WAN Virtual permite os dois tipos de conectividade a seguir: VPN Site a Site, 
 
 ### <a name="site-to-site-vpn-connections"></a><a name="s2s"></a>Conexões VPN site a site
 
-![Diagrama de WAN virtual](./media/virtual-wan-about/virtualwan.png)
+Você pode se conectar aos seus recursos no Azure por meio de uma conexão IPsec/IKE (IKEv2) site a site. Para obter mais informações, consulte [Criar uma conexão site a site usando WAN Virtual](virtual-wan-site-to-site-portal.md). 
 
-Ao criar uma conexão site a site de WAN Virtual, você poderá trabalhar com um parceiro disponível. Se você não quiser usar um parceiro, poderá configurar a conexão manualmente. Para obter mais informações, consulte [Criar uma conexão site a site usando WAN Virtual](virtual-wan-site-to-site-portal.md).
-
-#### <a name="virtual-wan-partner-workflow"></a><a name="s2spartner"></a>Fluxo de trabalho do parceiro da WAN Virtual
-
-Ao trabalhar com um parceiro da WAN Virtual, o fluxo de trabalho será:
-
-1. O controlador do dispositivo de branch (VPN/SDWAN) é autenticado para exportar informações do site no Azure usando uma [Entidade de Serviço do Azure](../active-directory/develop/howto-create-service-principal-portal.md).
-2. O controlador do dispositivo de branch (VPN/SDWAN) obtém a configuração de conectividade do Azure e atualiza o dispositivo local. Isso automatiza o download da configuração, a edição e a atualização do dispositivo VPN local.
-3. Quando o dispositivo tiver a configuração do Azure correta, uma conexão site a site (dois túneis ativos) será estabelecida com a WAN do Azure. O Azure é compatível com IKEv1 e IKEv2. BGP é opcional.
-
-#### <a name="partners-for-site-to-site-virtual-wan-connections"></a><a name="partners"></a>Parceiros para conexões da WAN Virtual site a site
-
-Para obter uma lista dos parceiros e localizações disponíveis, consulte o artigo [Parceiros e localizações de WAN Virtual](virtual-wan-locations-partners.md).
+Esse tipo de conexão requer um dispositivo VPN ou um dispositivo de parceiro de WAN Virtual. Os parceiros de WAN Virtual fornecem automação para conectividade, que é a capacidade de exportar as informações do dispositivo para o Azure, baixar a configuração do Azure e estabelecer a conectividade com o hub da WAN Virtual do Azure. Para obter uma lista dos parceiros e localizações disponíveis, consulte o artigo [Parceiros e localizações de WAN Virtual](virtual-wan-locations-partners.md). Se o provedor de dispositivo VPN/SD-WAN não estiver listado no link mencionado, você poderá simplificar o uso da instrução passo a passo [Criar uma conexão site a site usando a WAN Virtual](virtual-wan-site-to-site-portal.md) para configurar a conexão.
 
 ### <a name="user-vpn-point-to-site-connections"></a><a name="uservpn"></a>Conexões (ponto a site) de VPN do usuário
 
@@ -95,9 +83,50 @@ Você pode conectar seus recursos no Azure por meio de uma conexão de IPsec/IKE
 ### <a name="expressroute-connections"></a><a name="er"></a>Conexões do ExpressRoute
 O ExpressRoute permite conectar a rede local ao Azure em uma conexão privada. Para criar a conexão, consulte [Criar uma conexão ExpressRoute usando WAN Virtual](virtual-wan-expressroute-portal.md).
 
+### <a name="hub-to-vnet-connections"></a><a name="hub"></a>Conexões de Hub para VNet
+
+Você pode conectar uma rede virtual do Azure a um hub virtual. Para obter mais informações, confira [Conectar sua VNet a um hub](virtual-wan-site-to-site-portal.md#vnet).
+
+### <a name="transit-connectivity"></a><a name="transit"></a>Conectividade de trânsito
+
+#### <a name="transit-connectivity-between-vnets"></a><a name="transit-vnet"></a>Conectividade de trânsito entre VNets
+
+A WAN Virtual permite a conectividade de trânsito entre VNets. As VNets conectam-se a um hub virtual por meio de uma conexão de rede virtual. A conectividade de trânsito entre VNets na **WAN Virtual Padrão** está habilitada devido à presença de um roteador em cada hub virtual. Esse roteador é instanciado quando o hub virtual é criado inicialmente.
+
+O roteador pode ter quatro status de roteamento: Provisionado, Provisionando, Falha ou Nenhum. O **Status de roteamento** está localizado no portal do Azure navegando até a página Hub Virtual.
+
+* Um status **Nenhum** indica que o hub virtual não provisionou o roteador. Isso poderá acontecer se a WAN Virtual for do tipo *Básico* ou se o hub virtual tiver sido implantado antes de o serviço ser disponibilizado.
+* Um status de **Falha** indica falha durante a instanciação. Para criar uma instância ou redefinir o roteador, você pode localizar a opção **Redefinir** do roteador navegando até a página Visão geral do hub virtual no portal do Azure.
+
+Cada roteador do hub virtual dá suporte a uma taxa de transferência agregada de até 50 Gbps. A conectividade entre as conexões de rede virtual assume uma carga de trabalho total de 2 mil VMs em todas as VNets em uma WAN Virtual.
+
+#### <a name="transit-connectivity-between-vpn-and-expressroute"></a><a name="transit-er"></a>Conectividade de trânsito entre VPN e ExpressRoute
+
+A WAN Virtual permite a conectividade de trânsito entre VPN e ExpressRoute. Isso implica que sites conectados à VPN ou usuários remotos podem se comunicar com sites conectados ao ExpressRoute. Há também uma suposição implícita de que o **Sinalizador branch a branch** está habilitado. Esse sinalizador pode estar localizado nas configurações de WAN Virtual do Azure no portal do Azure. Todo o gerenciamento de rota é fornecido pelo roteador do hub virtual, que também permite a conectividade de trânsito entre redes virtuais.
+
+### <a name="custom-routing"></a><a name="routing"></a>Roteamento personalizado
+
+A WAN Virtual fornece aprimoramentos de roteamento avançados. Capacidade de configurar tabelas de rotas personalizadas, otimizar o roteamento de rede virtual com associação e propagação de rota, agrupar logicamente tabelas de rotas com rótulos e simplificar vários cenários de roteamento de serviços compartilhados ou solução de virtualização de rede.
+
+### <a name="global-vnet-peering"></a><a name="global"></a>Emparelhamento VNET global
+
+O Emparelhamento VNET global fornece um mecanismo para conectar duas VNets em regiões diferentes. Na WAN Virtual, as conexões de rede virtual conectam as VNets a hubs virtuais. O usuário não precisa configurar o Emparelhamento VNET global explicitamente. As VNets conectadas ao hub virtual na mesma região geram encargos de Emparelhamento VNET. VNets conectadas ao hub virtual em uma região diferente geram encargos de Emparelhamento VNET global.
+
+### <a name="expressroute-traffic-encryption"></a><a name="encryption"></a>Criptografia de tráfego do ExpressRoute
+
+A WAN Virtual do Azure fornece a capacidade de criptografar o tráfego do ExpressRoute. A técnica fornece um trânsito criptografado entre as redes locais e as redes virtuais do Azure no ExpressRoute sem passar pela Internet pública nem usar endereços IP públicos. Para obter mais informações, confira [IPsec sobre ExpressRoute para WAN Virtual](vpn-over-expressroute.md).
+
 ## <a name="locations"></a><a name="locations"></a>Localizações
 
 Para obter informações de localização, consulte o artigo [Parceiros e localizações de WAN Virtual](virtual-wan-locations-partners.md).
+
+## <a name="route-tables-in-basic-and-standard-virtual-wans"></a><a name="route"></a>Tabelas de rotas em WANs virtuais Básicas e Standard
+
+As tabelas de rotas agora têm recursos para associação e propagação. Uma tabela de rotas preexistente é uma tabela de rotas que não tem esses recursos. Se você tiver rotas preexistentes no Roteamento de Hub e quiser usar as novas funcionalidades, considere o seguinte:
+
+* **Clientes de WAN Virtual Standard com rotas preexistentes no hub virtual**: Para usar as novas funcionalidades de tabela de rotas, aguarde até a semana de 3 de agosto para que a implantação seja concluída no Azure. Se você tiver rotas pré-existentes da seção Roteamento para o hub no portal do Azure, precisará primeiro excluí-las e depois tentar criar tabelas de rotas (disponíveis na seção Tabelas de Rotas do hub no portal do Azure).
+
+* **Clientes de WAN Virtual Básica com rotas preexistentes no hub virtual**: Para usar as novas funcionalidades de tabela de rotas, aguarde até a semana de 3 de agosto para que a implantação seja concluída no Azure. Se você tiver rotas pré-existentes da seção Roteamento para o hub no portal do Azure, precisará primeiro excluí-las e depois **atualizar** sua WAN Virtual Básica para a WAN Virtual Standard. Confira [Atualizar uma WAN Virtual de Básica para Standard](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a><a name="faq"></a>Perguntas frequentes
 

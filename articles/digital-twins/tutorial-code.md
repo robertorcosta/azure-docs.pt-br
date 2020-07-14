@@ -7,17 +7,14 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 170901f3410c85ab53a306529053e611b36fa8ec
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: deb69f6ca8f1499f43c12d606434719571a1f400
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298388"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027880"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Codificação com as APIs dos Gêmeos Digitais do Azure
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 É comum que os desenvolvedores que trabalham com os Gêmeos Digitais do Azure escrevam um aplicativo cliente para interagir com a instância do serviço Gêmeos Digitais do Azure. Este tutorial voltado para o desenvolvedor fornece uma introdução à programação no serviço Gêmeos Digitais do Azure usando a [biblioteca de clientes dos Gêmeos Digitais do IoT do Azure para .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Ele mostra como escrever um aplicativo cliente de console C# passo a passo do zero.
 
@@ -288,6 +285,7 @@ Adicione uma nova instrução `using` à parte superior, pois você precisará d
 
 ```csharp
 using System.Text.Json;
+using Azure.DigitalTwins.Core.Serialization;
 ```
 
 Em seguida, adicione o código a seguir ao final do método `Main` para criar e inicializar três gêmeos digitais com base nesse modelo.
@@ -318,7 +316,7 @@ Observe que nenhum erro é gerado quando os gêmeos são criados na segunda vez,
 
 Em seguida, você pode criar **relações** entre os gêmeos criados para conectá-los a um **grafo de gêmeos**. Os [grafos de gêmeos](concepts-twins-graph.md) são usados para representar todo o ambiente.
 
-Para criar relações, adicione uma instrução `using` para o tipo base de relação no SDK:
+Para criar relações, adicione uma instrução `using` para o tipo base de relação no SDK (ignore isso caso ela já tenha sido adicionada).
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
@@ -566,5 +564,5 @@ Prossiga para o próximo tutorial e explore as coisas que você pode fazer com u
 > [Tutorial: Explorar os conceitos básicos com um aplicativo cliente de exemplo](tutorial-command-line-app.md)
 
 Incremente também o código que você escreveu neste tutorial aprendendo mais operações de gerenciamento nos artigos de instruções ou comece examinando a documentação dos conceitos para saber mais sobre os elementos com os quais você trabalhou no tutorial.
-* [Instruções: Gerenciar um modelo de gêmeos](how-to-manage-model.md)
+* [Instruções: Gerenciar modelos personalizados](how-to-manage-model.md)
 * [Conceitos: Modelos personalizados](concepts-models.md)

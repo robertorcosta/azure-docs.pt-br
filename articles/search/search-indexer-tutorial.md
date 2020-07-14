@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: cf0c2c75b795fcca347439714e163d4022b79fa4
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: a3a7657aa83a675982adc304de01ba0fcc26d193
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261011"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045443"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Tutorial: Indexar dados SQL do Azure usando o SDK do .NET
 
-Configure um [indexador](search-indexer-overview.md) para extrair dados pesquisáveis do Banco de Dados SQL do Azure, enviando-os a um índice de pesquisa no Azure Cognitive Search. 
+Configure um [indexador](search-indexer-overview.md) para extrair dados pesquisáveis do Banco de Dados SQL do Azure, enviando-os para um índice de pesquisa no Azure Cognitive Search. 
 
 Este tutorial usa o C# e o [SDK do .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search) para executar as seguintes tarefas:
 
@@ -253,4 +253,4 @@ Encontre e gerencie recursos no portal usando o link Todos os recursos ou Grupos
 Agora que você está familiarizado com os conceitos básicos da indexação do Banco de Dados SQL, vamos examinar mais de perto a configuração do indexador.
 
 > [!div class="nextstepaction"]
-> [Configurar um indexador de Banco de Dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+> [Configurar um indexador de Banco de Dados SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

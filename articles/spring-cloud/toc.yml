@@ -5,39 +5,39 @@
   items:
     - name: O que é o Azure Spring Cloud?
       href: spring-cloud-overview.md
+    - name: Java e sistema operacional base para Aplicativos de microsserviços do Spring
+      href: spring-cloud-principles-microservice-apps.md
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Iniciar um aplicativo Spring Cloud usando o portal
+    - name: Iniciar um aplicativo Spring Cloud – Portal
       href: spring-cloud-quickstart-launch-app-portal.md
-    - name: Iniciar um aplicativo Spring Cloud usando a CLI do Azure
+    - name: Iniciar um aplicativo Spring Cloud – CLI do Azure
       href: spring-cloud-quickstart-launch-app-cli.md
-    - name: Iniciar um aplicativo Spring Cloud na origem
+    - name: Iniciar um aplicativo Spring Cloud – Origem
       href: spring-cloud-launch-from-source.md
-    - name: Iniciar um aplicativo Spring Cloud usando o Maven
+    - name: Iniciar um aplicativo Spring Cloud – Maven
       href: spring-cloud-quickstart-launch-app-maven.md
 - name: Tutoriais
   items:
-    - name: Configurar um Servidor de Configuração
-      href: spring-cloud-tutorial-config-server.md
-    - name: Dimensionar um aplicativo manualmente
+    - name: Escalar um aplicativo manualmente
       href: spring-cloud-tutorial-scale-manual.md
-    - name: Monitorar um aplicativo usando o rastreamento distribuído e o App Insights
-      href: spring-cloud-tutorial-distributed-tracing.md
-    - name: Monitorar recursos do Spring Cloud usando alertas e grupos de ações
+    - name: Alertas e grupos de ações
       href: spring-cloud-tutorial-alerts-action-groups.md
-    - name: Associar um aplicativo ao Azure Cosmos DB
-      href: spring-cloud-tutorial-bind-cosmos.md
-    - name: Associar um aplicativo ao Cache do Azure para Redis
-      href: spring-cloud-tutorial-bind-redis.md
-    - name: Associar um aplicativo ao MySQL do Azure
-      href: spring-cloud-tutorial-bind-mysql.md
-    - name: Painel de Disjuntor com o Azure Spring Cloud
+    - name: Usar o IntelliJ para implantar aplicativos
+      href: spring-cloud-tutorial-intellij-deploy-apps.md
+    - name: Painel do disjuntor
       href: spring-cloud-tutorial-circuit-breaker.md
-    - name: Mapear o nome DNS personalizado para o Azure Spring Cloud
+    - name: Nome DNS personalizado
       href: spring-cloud-tutorial-custom-domain.md
     - name: Usar o IntelliJ para implantar aplicativos do Azure Spring Cloud
       href: spring-cloud-tutorial-intellij-deploy-apps.md
+    - name: Provisionar uma instância do Azure Spring Cloud com o Terraform
+      href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
+    - name: CI/CD com Jenkins
+      href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
+    - name: Usar identidade gerenciada para conectar o Key Vault ao aplicativo do Azure Spring Cloud
+      href: spring-cloud-tutorial-managed-identities-key-vault.md
 - name: Exemplos
   items:
     - name: Itens internos do Azure Policy
@@ -45,15 +45,15 @@
       href: ./policy-samples.md
 - name: Conceitos
   items:
-    - name: Noções básicas sobre cotas e limites do Azure Spring Cloud
+    - name: Entender cotas e limites
       href: spring-cloud-quotas.md
-    - name: Noções básicas sobre métricas do Azure Spring Cloud
+    - name: Entender as métricas
       href: spring-cloud-concept-metrics.md
-    - name: Gerenciar e monitorar o aplicativo com o Azure Spring Boot Actuator
+    - name: Atuador do Spring Boot do Azure
       href: spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md
-    - name: Controles de segurança para o serviço do Azure Spring Cloud
+    - name: Controles de segurança
       href: spring-cloud-concept-security-controls.md
-    - name: Noções básicas sobre o status do aplicativo no Azure Spring Cloud
+    - name: Entender o status do aplicativo
       href: spring-cloud-concept-app-status.md
     - name: Planejar-se para a eventualidade de uma recuperação de desastre
       href: disaster-recovery.md
@@ -61,34 +61,48 @@
   items:
     - name: Preparar um aplicativo Spring Java para implantação
       href: spring-cloud-tutorial-prepare-app-deployment.md
-    - name: 'Como iniciar, parar e excluir um aplicativo do Azure Spring Cloud'
-      href: spring-cloud-howto-start-stop-delete.md
-    - name: Como configurar um ambiente de preparo
-      href: spring-cloud-howto-staging-environment.md
+    - name: Configurar um Servidor de Configuração
+      href: spring-cloud-tutorial-config-server.md
     - name: Habilitar o registro do serviço
       href: spring-cloud-service-registration.md
-    - name: Analisar as métricas e os logs do aplicativo
-      href: diagnostic-services.md
-    - name: Transmitir por streaming logs dos aplicativos do Azure Spring Cloud em tempo real
-      href: spring-cloud-howto-log-streaming.md
-    - name: Usar armazenamento persistente no Azure Spring Cloud
+    - name: Associar um aplicativo ao Azure CosmosDB
+      href: spring-cloud-tutorial-bind-cosmos.md
+    - name: Associar um aplicativo ao Cache do Azure para Redis
+      href: spring-cloud-tutorial-bind-redis.md
+    - name: Associar um aplicativo ao MySQL do Azure
+      href: spring-cloud-tutorial-bind-mysql.md
+    - name: 'Iniciar, parar e excluir um aplicativo'
+      href: spring-cloud-howto-start-stop-delete.md
+    - name: Configurar um ambiente de preparo
+      href: spring-cloud-howto-staging-environment.md
+    - name: Usar armazenamento persistente
       href: spring-cloud-howto-persistent-storage.md
-    - name: Integrar o Azure Spring Cloud com soluções de balanceamento de carga do Azure
+    - name: Integrar com soluções de balanceamento de carga do Azure
       href: spring-cloud-howto-integrate-azure-load-balancers.md
-    - name: Habilitar identidade gerenciada atribuída pelo sistema para o aplicativo Azure Spring Cloud
+    - name: Habilitar identidade gerenciada atribuída pelo sistema
       href: spring-cloud-howto-enable-system-assigned-managed-identity.md
-    - name: Auto-diagnosticar e resolver problemas no Azure Spring Cloud
+    - name: Autodiagnosticar e resolver problemas
       href: spring-cloud-howto-self-diagnose-solve.md
-- name: Implantação de DevOps no Azure Spring Cloud
-  items:
-    - name: CI/CD com o Azure DevOps
-      href: spring-cloud-howto-cicd.md
-    - name: CI/CD com GitHub Actions
-      href: spring-cloud-howto-github-actions.md
-    - name: Autenticação do Azure Spring Cloud com Key Vault em ações do GitHub
-      href: spring-cloud-github-actions-key-vault.md
-    - name: CI/CD com Jenkins
-      href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
+    - name: Monitoramento
+      items:
+        - name: Rastreamento distribuído e insights do aplicativo
+          href: spring-cloud-tutorial-distributed-tracing.md
+        - name: Analisar logs e métricas
+          href: diagnostic-services.md
+        - name: Transmitir logs em tempo real
+          href: spring-cloud-howto-log-streaming.md
+    - name: Implantação do DevOps
+      items:
+        - name: CI/CD com o Azure DevOps
+          href: spring-cloud-howto-cicd.md
+        - name: CI/CD com GitHub Actions
+          href: spring-cloud-howto-github-actions.md
+        - name: Autenticação com Key Vault no GitHub Actions
+          href: spring-cloud-github-actions-key-vault.md
+    - name: Solucionar problemas
+      items:
+        - name: Guia de solução de problemas
+          href: spring-cloud-troubleshoot.md
 - name: Referência
   items:
     - name: Plug-in da CLI do Azure
@@ -97,7 +111,5 @@
       href: spring-cloud-resources.md
     - name: Perguntas frequentes
       href: spring-cloud-faq.md
-    - name: Guia de solução de problemas
-      href: spring-cloud-troubleshoot.md
     - name: Referência da API REST
       href: 'https://docs.microsoft.com/rest/api/azurespringclould/'

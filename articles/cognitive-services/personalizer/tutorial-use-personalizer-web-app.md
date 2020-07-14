@@ -1,40 +1,40 @@
 ---
-title: Usar aplicativo Web-personalizador
-description: Personalize um aplicativo Web C# .NET com um loop personalizado para fornecer o conteúdo correto a um usuário com base em ações (com recursos) e recursos de contexto.
-ms.topic: troubleshooting
+title: Usar aplicativo Web – Personalizador
+description: Personalize um aplicativo Web .NET em C# com um loop Personalizador para fornecer o conteúdo correto a um usuário com base em ações (com recursos) e recursos de contexto.
+ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: diberry
-ms.openlocfilehash: 9def69a1540e81b99723c16ad34ba522d1737c7f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
-ms.translationtype: MT
+ms.openlocfilehash: 9514e92432c2be5441dec5ff998a9deede35d7f4
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84713912"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207606"
 ---
-# <a name="add-personalizer-to-a-net-web-app"></a>Adicionar personalizador a um aplicativo Web .NET
+# <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutorial: Adicionar Personalizador a um aplicativo Web .NET
 
-Personalize um aplicativo Web C# .NET com um loop personalizado para fornecer o conteúdo correto a um usuário com base em ações (com recursos) e recursos de contexto.
+Personalize um aplicativo Web .NET em C# com um loop Personalizador para fornecer o conteúdo correto a um usuário com base em ações (com recursos) e recursos de contexto.
 
 **Neste tutorial, você aprenderá a:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Configurar a chave e o ponto de extremidade do personalizador
+> * Configurar a chave e o ponto de extremidade do Personalizador
 > * Coletar recursos
-> * Chamar as APIs de classificação e recompensa
-> * Exibir a ação superior, designada como _rewardActionId_
+> * Chamar APIs de Classificação e Recompensa
+> * Exibir a melhor ação, designada como _rewardActionId_
 
 
 
 ## <a name="select-the-best-content-for-a-web-app"></a>Selecionar o melhor conteúdo para um aplicativo Web
 
-Um aplicativo Web deve usar o personalizador quando há uma lista de _ações_ (algum tipo de conteúdo) na página da Web que precisa ser personalizada para um único item superior (rewardActionId) a ser exibido. Exemplos de listas de ações incluem artigos de notícias, locais de posicionamento de botão e opções de palavras para nomes de produtos.
+Um aplicativo Web deve usar o Personalizador quando há uma lista de _ações_ (algum tipo de conteúdo) na página da Web que precisa ser personalizada para exibir o melhor item (rewardActionId). Exemplos de listas de ações incluem artigos de notícias, locais de posicionamento de botão e opções de palavras para nomes de produtos.
 
-Você envia a lista de ações, juntamente com os recursos de contexto, para o loop personalizador. O personalizador seleciona a melhor ação e, em seguida, seu aplicativo Web exibe essa ação.
+Você envia a lista de ações, juntamente com recursos de contexto, para o loop do Personalizador. O Personalizador seleciona a melhor ação e, em seguida, seu aplicativo Web exibe essa ação.
 
 Neste tutorial, as ações são tipos de alimentos:
 
-* parafuso
+* macarrão
 * sorvete
 * suco
 * salada
@@ -42,15 +42,15 @@ Neste tutorial, as ações são tipos de alimentos:
 * café
 * sopa
 
-Para ajudar o personalizado a aprender sobre suas ações, envie as duas_ações com recursos_ e _recursos de contexto_ com cada solicitação de API de classificação.
+Para ajudar o Personalizador a aprender com suas ações, envie as ações __ações com recursos_ e _recursos de contexto_ com cada solicitação à API de Classificação.
 
-Um **recurso** do modelo é uma informação sobre a ação ou o contexto que pode ser agregado (agrupado) entre membros da sua base de usuários do aplicativo Web. Um recurso _não é_ específico individualmente (como uma ID de usuário) ou altamente específico (como uma hora exata do dia).
+Um **recurso** do modelo consiste em informações sobre a ação ou o contexto que pode ser agregado (agrupado) entre membros da sua base de usuários do aplicativo Web. Um recurso _não é_ específico individualmente (como uma ID de usuário) ou altamente específico (como uma hora exata do dia).
 
 ### <a name="actions-with-features"></a>Ações com recursos
 
-Cada ação (item de conteúdo) tem recursos para ajudar a distinguir o item de alimentos.
+Cada ação (item de conteúdo) tem recursos para ajudar a distinguir o item de alimento.
 
-Os recursos não são configurados como parte da configuração de loop no portal do Azure. Em vez disso, eles são enviados como um objeto JSON com cada chamada à API de classificação. Isso permite flexibilidade para as ações e seus recursos para aumentar, alterar e reduzir ao longo do tempo, o que permite que o personalizado acompanhe as tendências.
+Os recursos não são configurados como parte da configuração de loop no portal do Azure. Em vez disso, eles são enviados como um objeto JSON em cada chamada à API de Classificação. Isso dá flexibilidade para que as ações e seus recursos aumentem, alterem e reduzam ao longo do tempo, permitindo que o Personalizador acompanhe as tendências.
 
 ```csharp
  /// <summary>
@@ -118,11 +118,11 @@ Os recursos não são configurados como parte da configuração de loop no porta
 
 ## <a name="context-features"></a>Recursos de contexto
 
-Recursos de contexto ajudam o personalizador a entender o contexto das ações. O contexto para este aplicativo de exemplo inclui:
+Os recursos de contexto ajudam o Personalizador a entender o contexto das ações. O contexto para este aplicativo de exemplo inclui:
 
-* hora do dia-manhã, tarde, noite, noite
-* preferência do usuário para gosto-Salty, doce, tive, Camin ou savory
-* contexto do navegador-agente do usuário, localização geográfica, referenciador
+* hora do dia: manhã, tarde, fim de tarde, noite
+* preferência de gosto do usuário: salgado, doce, amargo, ácido ou saboroso
+* contexto do navegador: agente do usuário, localização geográfica, referenciador
 
 ```csharp
 /// <summary>
@@ -150,32 +150,32 @@ private string GetUsersTastePreference()
 }
 ```
 
-## <a name="how-does-the-web-app-use-personalizer"></a>Como o aplicativo Web usa o personalizador?
+## <a name="how-does-the-web-app-use-personalizer"></a>Como o aplicativo Web usa o Personalizador?
 
-O aplicativo Web usa o personalizador para selecionar a melhor ação na lista de opções de alimentos. Ele faz isso enviando as seguintes informações com cada chamada à API de classificação:
-* **ações** com seus recursos, como `taste` e`spiceLevel`
-* recursos de **contexto** , como `time` do dia, preferência do usuário `taste` e informações do agente do usuário do navegador e recursos de contexto
-* **ações a serem excluídas** , como suco
-* **EventID**, que é diferente para cada chamada à API de classificação.
+O aplicativo Web usa o Personalizador para selecionar a melhor ação da lista de opções de alimentos. Ele faz isso enviando as seguintes informações em cada chamada à API de Classificação:
+* **ações** com seus recursos, como `taste` e `spiceLevel`
+* recursos de **contexto**, como `time` do dia, a preferência de `taste` do usuário e as informações do agente do usuário do navegador e os recursos de contexto
+* **ações a serem excluídas** como suco
+* **eventId**, que é diferente para cada chamada à API de Classificação.
 
-## <a name="personalizer-model-features-in-a-web-app"></a>Recursos do modelo personalizador em um aplicativo Web
+## <a name="personalizer-model-features-in-a-web-app"></a>Recursos de modelo do Personalizador em um aplicativo Web
 
-O personalizador precisa de recursos para as ações (conteúdo) e o contexto atual (usuário e ambiente). Os recursos são usados para alinhar ações ao contexto atual no modelo. O modelo é uma representação do conhecimento passado do personalizador sobre ações, contexto e seus recursos que permitem que ele tome decisões instruídas.
+O Personalizador precisa de recursos para as ações (conteúdo) e o contexto atual (usuário e ambiente). Os recursos são usados para alinhar ações ao contexto atual no modelo. O modelo é uma representação do conhecimento passado do Personalizador sobre ações, contexto e recursos que permitem que ele tome decisões instruídas.
 
-O modelo, incluindo recursos, é atualizado em uma agenda com base na configuração de **frequência de atualização do modelo** no portal do Azure.
+O modelo, incluindo os recursos, é atualizado em um agendamento com base na configuração **Frequência de atualização de modelo** no portal do Azure.
 
 > [!CAUTION]
-> Os recursos neste aplicativo destinam-se a ilustrar os recursos e os valores de recursos, mas não necessariamente aos melhores recursos a serem usados em um aplicativo Web.
+> Os recursos neste aplicativo destinam-se a ilustrar os recursos e os valores de recursos, mas não necessariamente os melhores recursos a serem usados em um aplicativo Web.
 
 ### <a name="plan-for-features-and-their-values"></a>Planejar recursos e seus valores
 
-Os recursos devem ser selecionados com o mesmo planejamento e design que você aplicaria a qualquer esquema ou modelo em sua arquitetura técnica. Os valores de recurso podem ser definidos com a lógica de negócios ou com sistemas de terceiros. Os valores de recurso não devem ser tão específicos que não se aplicam a um grupo ou uma classe de recursos.
+Os recursos devem ser selecionados com o mesmo planejamento e design que você aplicaria a qualquer esquema ou modelo em sua arquitetura técnica. Os valores de recurso podem ser definidos com lógica de negócios ou com sistemas de terceiros. Os valores de recurso não devem ser altamente específicos de modo que não se apliquem a um grupo ou uma classe de recursos.
 
 ### <a name="generalize-feature-values"></a>Generalizar valores de recurso
 
 #### <a name="generalize-into-categories"></a>Generalizar em categorias
 
-Esse aplicativo usa `time` como um recurso, mas agrupa o tempo em categorias como `morning` , `afternoon` , `evening` e `night` . Esse é um exemplo de como usar as informações de tempo, mas não de uma maneira altamente específica, como `10:05:01 UTC+2` .
+Esse aplicativo usa `time` como um recurso, mas agrupa o tempo em categorias como `morning`, `afternoon`, `evening` e `night`. Esse é um exemplo de como usar as informações de tempo, mas não de uma forma altamente específica, como `10:05:01 UTC+2`.
 
 #### <a name="generalize-into-parts"></a>Generalizar em partes
 
@@ -185,7 +185,7 @@ Esse aplicativo usa os recursos de solicitação HTTP do navegador. Isso começa
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/530.99 (KHTML, like Gecko) Chrome/80.0.3900.140 Safari/537.36
 ```
 
-A biblioteca de classes **HttpRequestFeatures** generaliza essa cadeia de caracteres em um objeto **userAgentInfo** com valores individuais. Todos os valores que são muito específicos são definidos como uma cadeia de caracteres vazia. Quando os recursos de contexto para a solicitação são enviados, ele tem o seguinte formato JSON:
+A biblioteca de classes **HttpRequestFeatures** generaliza essa cadeia de caracteres em um objeto **userAgentInfo** com valores individuais. Os valores muito específicos são definidos como uma cadeia de caracteres vazia. Quando os recursos de contexto para a solicitação são enviados, ele tem o seguinte formato JSON:
 
 ```JSON
 {
@@ -210,33 +210,33 @@ A biblioteca de classes **HttpRequestFeatures** generaliza essa cadeia de caract
 
 O aplicativo Web baseado em navegador de exemplo (todo o código é fornecido) precisa dos seguintes aplicativos instalados para executar o aplicativo.
 
-Instale o software a seguir:
+Instale o seguinte software:
 
-* [.Net core 2,1](https://dotnet.microsoft.com/download/dotnet-core/2.1) -o servidor de back-end de exemplo usa o .NET Core
-* [Node.js](https://nodejs.org/) -o cliente/front-end depende deste aplicativo
-* [Visual studio 2019](https://visualstudio.microsoft.com/vs/)ou [CLI do .NET Core](https://docs.microsoft.com/dotnet/core/tools/) -use o ambiente de desenvolvedor do Visual Studio 2019 ou o CLI do .NET Core para compilar e executar o aplicativo
+* [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1) – o servidor de back-end de exemplo usa o .NET Core
+* [Node.js](https://nodejs.org/) – o cliente/front-end depende deste aplicativo
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) ou [CLI do .NET Core](https://docs.microsoft.com/dotnet/core/tools/) – use o ambiente de desenvolvedor do Visual Studio 2019 ou a CLI do .NET Core para compilar e executar o aplicativo
 
 ### <a name="set-up-the-sample"></a>Configurar o exemplo
-1. Clone o repositório de exemplos do personalizador do Azure.
+1. Clone o repositório de exemplos do Personalizador do Azure.
 
     ```bash
     git clone https://github.com/Azure-Samples/cognitive-services-personalizer-samples.git
     ```
 
-1. Navegue até _Samples/HttpRequestFeatures_ para abrir a solução, `HttpRequestFeaturesExample.sln` .
+1. Navegue até _samples/HttpRequestFeatures_ para abrir a solução `HttpRequestFeaturesExample.sln`.
 
-    Se solicitado, permita que o Visual Studio atualize o pacote .NET para personalizador.
+    Se solicitado, permita que o Visual Studio atualize o pacote .NET para o Personalizador.
 
-### <a name="set-up-azure-personalizer-service"></a>Configurar o serviço personalizado do Azure
+### <a name="set-up-azure-personalizer-service"></a>Configurar o serviço Personalizador do Azure
 
-1. [Crie um recurso personalizado](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) no portal do Azure.
+1. [Crie um recurso do Personalizador](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) no portal do Azure.
 
-1. Na portal do Azure, localize o `Endpoint` e o `Key1` ou `Key2` (ambos funcionarão) na guia **chaves e pontos de extremidade** . Esses são seus `PersonalizerServiceEndpoint` e seus `PersonalizerApiKey` .
-1. Preencha o `PersonalizerServiceEndpoint` no **appsettings.jsem**.
-1. Configure o `PersonalizerApiKey` como um [segredo de aplicativo](https://docs.microsoft.com/aspnet/core/security/app-secrets) de uma das seguintes maneiras:
+1. Na portal do Azure, localize o `Endpoint` e `Key1` ou `Key2` (qualquer um funcionará) na guia **Chaves e Pontos de Extremidade**. Essas são o `PersonalizerServiceEndpoint` e a `PersonalizerApiKey`.
+1. Preencha o `PersonalizerServiceEndpoint` no **appsettings.json**.
+1. Configure a `PersonalizerApiKey` como um [segredo do aplicativo](https://docs.microsoft.com/aspnet/core/security/app-secrets) de uma das seguintes maneiras:
 
-    * Se você estiver usando o CLI do .NET Core, poderá usar o `dotnet user-secrets set "PersonalizerApiKey" "<API Key>"` comando.
-    * Se você estiver usando o Visual Studio, poderá clicar com o botão direito do mouse no projeto e selecionar a opção de menu **gerenciar segredos do usuário** para configurar as chaves personalizadas. Ao fazer isso, o Visual Studio abrirá um `secrets.json` arquivo no qual você pode adicionar as chaves da seguinte maneira:
+    * Se você estiver usando a CLI do .NET Core, use o comando `dotnet user-secrets set "PersonalizerApiKey" "<API Key>"`.
+    * Se você estiver usando o Visual Studio, clique com o botão direito do mouse no projeto e selecione a opção de menu **Gerenciar Segredos do Usuário** para configurar as chaves do Personalizador. Ao fazer isso, o Visual Studio abrirá um arquivo `secrets.json` no qual você poderá adicionar as chaves da seguinte maneira:
 
     ```JSON
     {
@@ -248,51 +248,51 @@ Instale o software a seguir:
 
 Compile e execute o HttpRequestFeaturesExample com um dos seguintes métodos:
 
-* Visual Studio 2019: pressione **F5**
-* CLI do .NET Core: `dotnet build` em seguida,`dotnet run`
+* Visual Studio 2019: Pressione **F5**
+* CLI do .NET Core: `dotnet build` e, em seguida, `dotnet run`
 
-Por meio de um navegador da Web, você pode enviar uma solicitação de classificação e uma solicitação de recompensa e ver suas respostas, bem como os recursos de solicitação HTTP extraídos do seu ambiente.
+Usando um navegador da Web, você pode enviar uma solicitação de Classificação e uma solicitação de Recompensa e ver as respostas, bem como os recursos de solicitação HTTP extraídos do seu ambiente.
 
 > [!div class="mx-imgBorder"]
 > ![Compile e execute o projeto HTTPRequestFeaturesExample. Uma janela do navegador é aberta para exibir o aplicativo de página única.](./media/tutorial-web-app/web-app-single-page.png)
 
-## <a name="demonstrate-the-personalizer-loop"></a>Demonstrar o loop personalizador
+## <a name="demonstrate-the-personalizer-loop"></a>Demonstrar o loop do Personalizador
 
-1. Selecione o botão **gerar nova solicitação de classificação** para criar um novo objeto JSON para a chamada à API de classificação. Isso cria as ações (com recursos) e os recursos de contexto e exibe os valores para que você possa ver a aparência do JSON.
+1. Selecione o botão **Gerar nova Solicitação de Classificação** para criar um objeto JSON para a chamada à API de Classificação. Isso cria as ações (com recursos) e os recursos de contexto e exibe os valores para que você possa ver como o JSON ficou.
 
-    Para seu próprio aplicativo futuro, a geração de ações e recursos pode ocorrer no cliente, no servidor, em uma combinação dos dois ou com chamadas para outros serviços.
+    Para seu aplicativo futuro, a geração de ações e recursos pode ocorrer no cliente, no servidor, em uma combinação dos dois ou com chamadas a outros serviços.
 
-1. Selecione **Enviar solicitação de classificação** para enviar o objeto JSON para o servidor. O servidor chama a API de classificação do personalizador. O servidor recebe a resposta e retorna a ação de classificação mais alta para o cliente a ser exibido.
+1. Selecione **Enviar Solicitação de Classificação** para enviar o objeto JSON para o servidor. O servidor chama a API de Classificação do Personalizador. O servidor recebe a resposta e retorna a ação de classificação mais alta para o cliente exibir.
 
-1. Defina o valor de recompensa e selecione o botão **Enviar solicitação de recompensa** . Se você não alterar o valor de recompensa, o aplicativo cliente sempre enviará o valor de `1` para o personalizador.
+1. Defina o valor de recompensa e selecione o botão **Enviar Solicitação de Recompensa**. Se você não alterar o valor de recompensa, o aplicativo cliente sempre enviará o valor igual a `1` para o Personalizador.
 
     > [!div class="mx-imgBorder"]
     > ![Compile e execute o projeto HTTPRequestFeaturesExample. Uma janela do navegador é aberta para exibir o aplicativo de página única.](./media/tutorial-web-app/reward-score-api-call.png)
 
-    Para seu próprio aplicativo futuro, a geração da Pontuação de recompensa pode ocorrer após a coleta de informações do comportamento do usuário no cliente, juntamente com a lógica de negócios no servidor.
+    Para seu aplicativo futuro, a geração da pontuação de recompensa pode ocorrer após a coleta de informações do comportamento do usuário no cliente, juntamente com a lógica de negócios no servidor.
 
 ## <a name="understand-the-sample-web-app"></a>Entender o aplicativo Web de exemplo
 
-O aplicativo Web de exemplo tem um servidor **.NET C#** , que gerencia a coleção de recursos e envia e recebe chamadas http para o ponto de extremidade personalizado.
+O aplicativo Web de exemplo tem um servidor **.NET de C#** que gerencia a coleção de recursos e envia e recebe chamadas HTTP para o ponto de extremidade do Personalizador.
 
-O aplicativo Web de exemplo usa um **aplicativo cliente de front-end de Knockout** para capturar recursos e processar ações de interface do usuário, como clicar em botões e enviar dados para o servidor .net.
+O aplicativo Web de exemplo usa um **aplicativo cliente front-end eliminatório** para capturar recursos e processar ações da interface do usuário, como cliques em botões e envio de dados para o servidor .NET.
 
-As seções a seguir explicam as partes do servidor e do cliente que um desenvolvedor precisa entender para usar o personalizador.
+As seções a seguir explicam as partes do servidor e do cliente que um desenvolvedor precisa entender para usar o Personalizador.
 
-## <a name="rank-api-client-application-sends-context-to-server"></a>API de classificação: o aplicativo cliente envia o contexto para o servidor
+## <a name="rank-api-client-application-sends-context-to-server"></a>API de Classificação: O aplicativo cliente envia contexto para o servidor
 
-O aplicativo cliente coleta o _agente do usuário_do navegador do usuário.
+O aplicativo cliente coleta o _agente do usuário_ do navegador do usuário.
 
 > [!div class="mx-imgBorder"]
 > ![Compile e execute o projeto HTTPRequestFeaturesExample. Uma janela do navegador é aberta para exibir o aplicativo de página única.](./media/tutorial-web-app/user-agent.png)
 
-## <a name="rank-api-server-application-calls-personalizer"></a>API de classificação: personalização de chamadas de aplicativo de servidor
+## <a name="rank-api-server-application-calls-personalizer"></a>API de Classificação: O aplicativo para servidores chama o Personalizador
 
-Este é um aplicativo Web .NET típico com um aplicativo cliente, grande parte do código de placa do preparador é fornecido para você. Qualquer código não específico do personalizador é removido dos trechos de código a seguir para que você possa se concentrar no código específico do personalizador.
+Este é um aplicativo Web .NET típico com um aplicativo cliente; grande parte do código padrão é fornecido para você. O código que não é específico do Personalizador é removido dos trechos de código a seguir para que você possa se concentrar no código específico do Personalizador.
 
-### <a name="create-personalizer-client"></a>Criar cliente personalizado
+### <a name="create-personalizer-client"></a>Criar cliente do Personalizador
 
-No **Startup.cs**do servidor, o ponto de extremidade e a chave do personalizador são usados para criar o cliente personalizado. O aplicativo cliente não precisa se comunicar com o personalizador neste aplicativo, em vez de depender do servidor para fazer essas chamadas do SDK.
+No **Startup.cs** do servidor, o ponto de extremidade e a chave do Personalizador são usados para criar o cliente do Personalizador. O aplicativo cliente não precisa se comunicar com o Personalizador neste aplicativo, mas precisa do servidor para fazer essas chamadas de SDK.
 
 O código de inicialização do .NET do servidor Web é:
 
@@ -336,15 +336,15 @@ namespace HttpRequestFeaturesExample
 }
 ```
 
-### <a name="select-best-action"></a>Selecione a melhor ação
+### <a name="select-best-action"></a>Selecionar a melhor ação
 
-No **PersonalizerController.cs**do servidor, a API do servidor **GenerateRank** resume a preparação para chamar a API de classificação
+No **PersonalizerController.cs** do servidor, a API do servidor **GenerateRank** resume a preparação para chamar a API de Classificação
 
-* Criar novo `eventId` para a chamada de classificação
-* Obter a lista de ações
-* Obter a lista de recursos do usuário e criar recursos de contexto
+* Crie um `eventId` para a chamada da Classificação
+* Obtenha a lista de ações
+* Obtenha a lista de recursos do usuário e crie recursos de contexto
 * Opcionalmente, defina as ações excluídas
-* API de classificação de chamada, retornar resultados para o cliente
+* Chame a API de Classificação e retorne os resultados para o cliente
 
 ```csharp
 /// <summary>
@@ -380,7 +380,7 @@ public RankRequest GenerateRank()
 }
 ```
 
-O JSON enviado ao personalizador, contendo ambas as ações (com recursos) e os recursos de contexto atuais, é semelhante a:
+O JSON enviado ao Personalizador, contendo as ações (com recursos) e os recursos de contexto atuais, é semelhante a:
 
 ```json
 {
@@ -511,11 +511,11 @@ O JSON enviado ao personalizador, contendo ambas as ações (com recursos) e os 
 }
 ```
 
-### <a name="return-personalizer-rewardactionid-to-client"></a>Retornar rewardActionId personalizado ao cliente
+### <a name="return-personalizer-rewardactionid-to-client"></a>Retornar a rewardActionId do Personalizador ao cliente
 
-A API de classificação retorna a melhor ação selecionada **rewardActionId** para o servidor.
+A API de Classificação retorna a melhor ação selecionada **rewardActionId** ao servidor.
 
-Exiba a ação retornada em **rewardActionId**.
+Exiba a ação retornada na **rewardActionId**.
 
 ```json
 {
@@ -554,28 +554,28 @@ Exiba a ação retornada em **rewardActionId**.
 }
 ```
 
-### <a name="client-displays-the-rewardactionid-action"></a>Cliente exibe a ação rewardActionId
+### <a name="client-displays-the-rewardactionid-action"></a>O cliente exibe a ação rewardActionId
 
-Neste tutorial, o `rewardActionId` valor é exibido.
+Neste tutorial, o valor da `rewardActionId` é exibido.
 
-Em seu próprio aplicativo futuro, esse pode ser um texto exato, um botão ou uma seção da página da Web realçada. A lista é retornada para qualquer análise posterior de pontuações, não uma ordem do conteúdo. Somente o `rewardActionId` conteúdo deve ser exibido.
+No seu aplicativo futuro, isso poderá ser um texto exato, um botão ou uma seção da página da Web realçada. A lista é retornada para análises posteriores de pontuações, não para uma ordenação do conteúdo. Somente o conteúdo da `rewardActionId` deve ser exibido.
 
-## <a name="reward-api-collect-information-for-reward"></a>API de recompensa: coletar informações para recompensa
+## <a name="reward-api-collect-information-for-reward"></a>API de Recompensa: coletar informações para recompensa
 
-A [Pontuação de recompensa](concept-rewards.md) deve ser cuidadosamente planejada, assim como os recursos são planejados. A pontuação de recompensa normalmente deve ser um valor de 0 a 1. O valor _pode_ ser calculado parcialmente no aplicativo cliente, com base nos comportamentos do usuário e parcialmente no servidor, com base na lógica e nas metas de negócios.
+A [pontuação de recompensa](concept-rewards.md) deve ser cuidadosamente planejada, assim como os recursos são planejados. A pontuação de recompensa normalmente é um valor de 0 a 1. O valor _pode_ ser calculado parcialmente no aplicativo cliente, com base nos comportamentos do usuário e parcialmente no servidor, com base nas metas e na lógica de negócios.
 
-Se o servidor não chamar a API de recompensa dentro do **tempo de espera de recompensa** configurado no portal do Azure para o recurso personalizador, a **recompensa padrão** (também configurada no portal do Azure) será usada para esse evento.
+Se o servidor não chamar a API de Recompensa dentro do **Tempo de espera de recompensa** configurado no portal do Azure para o recurso do Personalizador, a **Recompensa padrão** (também configurada no portal do Azure) será usada para esse evento.
 
 Neste aplicativo de exemplo, você pode selecionar um valor para ver como a recompensa afeta as seleções.
 
 ## <a name="additional-ways-to-learn-from-this-sample"></a>Outras maneiras de aprender com este exemplo
 
-O exemplo usa vários eventos baseados em tempo configurados no portal do Azure para o recurso personalizador. Jogue com esses valores, em seguida, retorne a este aplicativo Web de exemplo para ver como as alterações afetam as chamadas de classificação e recompensa:
+O exemplo usa vários eventos baseados em tempo configurados no portal do Azure para o recurso do Personalizador. Brinque com esses valores e retorne a este aplicativo Web de exemplo para ver como as alterações afetam as chamadas à Classificação e Recompensa:
 
 * Tempo de espera de recompensa
 * Frequência de atualização do modelo
 
-Configurações adicionais para brincar com incluem:
+As configurações adicionais para brincar incluem:
 * Recompensa padrão
 * Percentual de exploração
 
@@ -585,10 +585,10 @@ Configurações adicionais para brincar com incluem:
 Quando você concluir este tutorial, limpe os seguintes recursos:
 
 * Exclua o diretório do projeto de exemplo.
-* Excluir o recurso personalizado – considere um recurso personalizado como dedicado às ações e reutilize o recurso somente se você ainda estiver usando o domínio de assunto pratos as ações.
+* Exclua o recurso do Personalizador; considere um recurso do Personalizador como dedicado às ações e ao contexto; somente reutilize o recurso se você ainda estiver usando os alimentos como o domínio do tema das ações.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Como funciona o Personalizador](how-personalizer-works.md)
-* [Recursos](concepts-features.md): Aprenda conceitos sobre recursos usando com ações e contexto
-* [Recompensas](concept-rewards.md): Saiba mais sobre como calcular recompensas
+* [Recursos](concepts-features.md): aprenda conceitos sobre recursos usando ações e contexto
+* [Recompensas](concept-rewards.md): saiba mais sobre como calcular recompensas

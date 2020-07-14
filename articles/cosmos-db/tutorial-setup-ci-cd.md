@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: ba90bb89d731c343dfcb3778433d444f2d9a617a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 447f999f48edb9696c74ec5decb1109eefb964d7
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025855"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206979"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline de CI/CD com a tarefa de build do emulador do Azure Cosmos DB no Azure DevOps
 
@@ -37,7 +37,7 @@ Em seguida, escolha a organização na qual instalar a extensão.
 
 ## <a name="create-a-build-definition"></a>Criar a definição de build
 
-Agora que a extensão está instalada, entre em sua conta do Azure DevOps e encontre o projeto no painel de projetos. Você pode adicionar um [pipeline de build](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) ao projeto ou modificar um pipeline de build existente. Se você já tiver um pipeline de build, pule para [Adicionar a tarefa de build do Emulador a uma definição de build](#addEmulatorBuildTaskToBuildDefinition).
+Agora que a extensão está instalada, entre em sua organização do Azure DevOps e encontre o projeto no painel de projetos. Você pode adicionar um [pipeline de build](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) ao projeto ou modificar um pipeline de build existente. Se você já tiver um pipeline de build, pule para [Adicionar a tarefa de build do Emulador a uma definição de build](#addEmulatorBuildTaskToBuildDefinition).
 
 1. Para criar uma nova definição de build, navegue até a guia **Builds** no Azure DevOps. Selecione **+Novo.** \> **Novo pipeline de build**
 
@@ -68,6 +68,24 @@ Start-CosmosDbEmulator
    :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_3.png" alt-text="Adicionar a tarefa de build do Emulador à definição de build":::
 
 Neste tutorial, você adicionará a tarefa ao início para fazer com que o emulador esteja disponível antes da execução de nossos testes.
+
+### <a name="add-the-task-using-yaml"></a>Adicionar a tarefa usando YAML
+
+Essa etapa é opcional e só será necessária se você estiver configurando o pipeline de CI/CD usando uma tarefa de YAML. Nesses casos, defina a tarefa de YAML conforme mostrado no código a seguir:
+
+```yml
+- task: azure-cosmosdb.emulator-public-preview.run-cosmosdbemulatorcontainer.CosmosDbEmulator@2
+  displayName: 'Run Azure Cosmos DB Emulator'
+
+- script: yarn test
+  displayName: 'Run API tests (Cosmos DB)'
+  env:
+    HOST: $(CosmosDbEmulator.Endpoint)
+    # Hardcoded key for emulator, not a secret
+    AUTH_KEY: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+    # The emulator uses a self-signed cert, disable TLS auth errors
+    NODE_TLS_REJECT_UNAUTHORIZED: '0'
+```
 
 ## <a name="configure-tests-to-use-the-emulator"></a>Configurar testes para usar o emulador
 
@@ -155,24 +173,6 @@ Depois que o build tiver sido iniciado, observe que a tarefa do emulador do Cosm
 Depois que o build for concluído, observe que seus testes são aprovados, todos em execução no emulador do Cosmos DB da tarefa de build!
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/buildComplete_1.png" alt-text="Salvar e executar o build":::
-
-## <a name="set-up-using-yaml"></a>Configurar usando YAML
-
-Se você estiver configurando o pipeline de CI/CD usando uma tarefa YAML, poderá definir a tarefa YAML, conforme mostrado no código a seguir:
-
-```yml
-- task: azure-cosmosdb.emulator-public-preview.run-cosmosdbemulatorcontainer.CosmosDbEmulator@2
-  displayName: 'Run Azure Cosmos DB Emulator'
-
-- script: yarn test
-  displayName: 'Run API tests (Cosmos DB)'
-  env:
-    HOST: $(CosmosDbEmulator.Endpoint)
-    # Hardcoded key for emulator, not a secret
-    AUTH_KEY: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
-    # The emulator uses a self-signed cert, disable TLS auth errors
-    NODE_TLS_REJECT_UNAUTHORIZED: '0'
-```
 
 ## <a name="next-steps"></a>Próximas etapas
 

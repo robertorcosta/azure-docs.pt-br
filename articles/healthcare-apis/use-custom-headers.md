@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
-ms.openlocfilehash: d274160cc2ed1102dfc8fd11df358b34e40d9923
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 937be72bfec96119474e7effe9ba88a2cf253444
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "84870294"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081836"
 ---
 # <a name="add-data-to-audit-logs-by-using-custom-http-headers"></a>Adicionar dados a logs de auditoria usando cabeçalhos HTTP personalizados
 
@@ -36,7 +36,7 @@ Você pode usar cabeçalhos personalizados para capturar vários tipos de inform
 > [!IMPORTANT]
 > Lembre-se de que as informações enviadas em cabeçalhos personalizados são armazenadas em um sistema de registro interno da Microsoft por 30 dias depois de estarem disponíveis no Monitoramento de Log do Azure. É recomendável criptografar todas as informações antes de adicioná-las aos cabeçalhos personalizados. Você não deve passar nenhuma informação PHI por meio de cabeçalhos de cliente.
 
-Você deve usar a seguinte convenção de nomenclatura para seus cabeçalhos HTTP: X-MS-AZUREFHIR-AUDIT-AUDIT-\<name>.
+Você deve usar a seguinte convenção de nomenclatura para seus cabeçalhos HTTP: X-MS-AZUREFHIR-AUDIT-\<name>.
 
 Esses cabeçalhos HTTP são incluídos em um recipiente de propriedades que é adicionado ao log. Por exemplo:
 
@@ -63,7 +63,7 @@ Quando adicionado ao log, os valores são combinados a uma lista delimitada por 
  
 Você pode adicionar um máximo de 10 cabeçalhos exclusivos (as repetições do mesmo cabeçalho com valores diferentes só são contadas uma vez). O comprimento máximo total do valor para qualquer cabeçalho é de 2.048 caracteres.
 
-Se você estiver usando a biblioteca de API do cliente C# Firely, o código terá uma aparência semelhante a esta:
+Se você está usando a biblioteca de APIs cliente de Firely C#, o código se parece com este:
 
 ```C#
 FhirClient client;

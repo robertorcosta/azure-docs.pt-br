@@ -434,6 +434,8 @@
                   items:
                     - name: De uma VM
                       href: ../image-version-vm-powershell.md
+                    - name: De um VHD ou instantâneo
+                      href: ../image-version-snapshot-powershell.md
                     - name: Migrar de uma imagem gerenciada
                       href: ../image-version-managed-image-powershell.md
                     - name: Copiar de outra galeria
@@ -454,6 +456,8 @@
                   items:
                     - name: De uma VM
                       href: ../image-version-vm-cli.md
+                    - name: De um VHD ou instantâneo
+                      href: ../image-version-snapshot-cli.md
                     - name: Migrar de uma imagem gerenciada
                       href: ../image-version-managed-image-cli.md
                     - name: Copiar de outra galeria
@@ -508,6 +512,8 @@
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Como localizar e usar imagens
           href: cli-ps-findimage.md
+        - name: Informações do plano de compra
+          href: ../marketplace-images.md
         - name: Como preparar a VM para carregamento
           href: prepare-for-upload-vhd-image.md
         - name: Como capturar uma VM para imagem
@@ -853,10 +859,18 @@
           href: disks-incremental-snapshots-portal.md
         - name: Backup de discos não gerenciados
           href: incremental-snapshots.md
+        - name: Criptografia
+          items:
+            - name: Habilitar criptografia baseada em host – PowerShell
+              href: disks-enable-host-based-encryption-powershell.md
+            - name: Habilitar chaves gerenciadas pelo cliente – PowerShell
+              href: disks-enable-customer-managed-keys-powershell.md
+            - name: Habilitar chaves gerenciadas pelo cliente – Portal
+              href: disks-enable-customer-managed-keys-portal.md
+            - name: Habilitar criptografia dupla em repouso
+              href: disks-enable-double-encryption-at-rest-powershell.md
         - name: Migração e conversão
           items:
-            - name: Converter em criptografia do servidor
-              href: disks-ade-sse-conversion-powershell.md
             - name: Como converter disco entre Standard e Premium
               href: convert-disk-storage.md
             - name: Migrar para o armazenamento Premium com o Azure Site Recovery

@@ -1,17 +1,17 @@
 ---
-title: Tutorial – Usar o Rastreamento Distribuído com o Azure Spring Cloud
-description: Este tutorial mostra como usar o Rastreamento Distribuído do Spring Cloud por meio do Azure Application Insights
+title: Usar o rastreamento distribuído com o Azure Spring Cloud
+description: Saiba como usar o rastreamento distribuído do Spring Cloud por meio do Azure Application Insights
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
-ms.openlocfilehash: 0815aa084462d1b829d64cd7c5d6fa7cebf534fc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ccaf58465c1ade0228daea2b535d06fb6168d64f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78273204"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142116"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Usar o rastreamento distribuído com o Azure Spring Cloud
 
@@ -27,7 +27,7 @@ Neste artigo, você aprenderá a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisará de um serviço do Azure Spring Cloud que já esteja provisionado e em execução. Conclua o [início rápido sobre como implantar um aplicativo por meio da CLI do Azure](spring-cloud-quickstart-launch-app-cli.md) para provisionar e executar um serviço do Azure Spring Cloud.
+Para seguir estes procedimentos, você precisará de um serviço do Azure Spring Cloud que já esteja provisionado e em execução. Conclua o [início rápido sobre como implantar um aplicativo por meio da CLI do Azure](spring-cloud-quickstart-launch-app-cli.md) para provisionar e executar um serviço do Azure Spring Cloud.
     
 ## <a name="add-dependencies"></a>Adicionar dependências
 
@@ -102,7 +102,4 @@ O Application Insights fornece funcionalidades de monitoramento além do mapa do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a habilitar e entender o rastreamento distribuído no Azure Spring Cloud. Para saber como associar seu aplicativo a um banco de dados do Azure Cosmos DB, prossiga para o próximo tutorial.
-
-> [!div class="nextstepaction"]
-> [Saiba como fazer a associação a um banco de dados do Azure Cosmos DB](spring-cloud-tutorial-bind-cosmos.md)
+Neste artigo, você aprendeu a habilitar e entender o rastreamento distribuído no Azure Spring Cloud. Para saber como associar serviços a um aplicativo, confira [Associar um banco de dados do Azure Cosmos DB a um aplicativo do Azure Spring Cloud](spring-cloud-tutorial-bind-cosmos.md).

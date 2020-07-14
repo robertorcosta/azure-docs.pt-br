@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.reviewer: trbye, jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 04/15/2020
+ms.date: 06/23/2020
 ms.custom: Build2020, tracking-python
-ms.openlocfilehash: b26527321cf7fc5ca7fc4b061f11b86f8830ec29
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: e5665bd5ad2baa35b497c8b4fe19b0cb93bdb2a7
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552311"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86023356"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Executar inferência de lote em grandes quantidades de dados usando o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -112,9 +112,6 @@ Você pode alterar essa etapa para apontar para o contêiner de blob fornecendo 
 from azureml.core import Datastore
 from azureml.core import Workspace
 
-# Load workspace authorization details from config.json
-ws = Workspace.from_config()
-
 mnist_blob = Datastore.register_azure_blob_container(ws, 
                       datastore_name="mnist_datastore", 
                       container_name="sampledata", 
@@ -140,8 +137,6 @@ Para obter mais informações sobre conjuntos de dados do Azure Machine Learning
 
 ```python
 from azureml.core.dataset import Dataset
-
-mnist_ds_name = 'mnist_sample_data'
 
 path_on_datastore = mnist_blob.path('mnist/')
 input_mnist_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
@@ -210,7 +205,7 @@ O script *deve conter* duas funções:
 - `init()`: Use essa função para qualquer preparação dispendiosa ou comum para inferência posterior. Por exemplo, use-a para carregar o modelo em um objeto global. Essa função será chamada apenas uma vez no início do processo.
 -  `run(mini_batch)`: A função será executada para cada instância de `mini_batch`.
     -  `mini_batch`: ParallelRunStep invocará o método de execução e transmitirá uma lista ou o DataFrame do Pandas como um argumento para o método. Cada entrada em min_batch será – um caminho de arquivo se a entrada for um FileDataset, um DataFrame do Pandas se a entrada for um TabularDataset.
-    -  `response`: o método run() deve retornar um DataFrame Pandas ou uma matriz. Para append_row output_action, esses elementos retornados são acrescentados ao arquivo de saída comum. Para summary_only, o conteúdo dos elementos é ignorado. Para todas as ações de saída, cada elemento de saída retornado indica uma execução bem-sucedida do elemento de entrada no minilote de entrada. Você deve verificar se dados suficientes foram incluídos no resultado da execução para mapear a entrada para o resultado da saída da execução. A saída de execução será gravada no arquivo de saída e não haverá garantia de que esteja em ordem; você deverá usar uma chave na saída para mapeá-la para a entrada.
+    -  `response`: o método run() deve retornar um DataFrame Pandas ou uma matriz. Para append_row output_action, esses elementos retornados são acrescentados ao arquivo de saída comum. Para summary_only, o conteúdo dos elementos é ignorado. Para todas as ações de saída, cada elemento de saída retornado indica uma execução bem-sucedida do elemento de entrada no minilote de entrada. Verifique se dados suficientes foram incluídos no resultado da execução para mapear a entrada para o resultado da saída da execução. A saída de execução será gravada no arquivo de saída e não haverá garantia de que esteja em ordem; você deverá usar uma chave na saída para mapeá-la para a entrada.
 
 ```python
 # Snippets from a sample script.
@@ -218,6 +213,7 @@ O script *deve conter* duas funções:
 # (https://aka.ms/batch-inference-notebooks)
 # for the implementation script.
 
+%%writefile digit_identification.py
 import os
 import numpy as np
 import tensorflow as tf
@@ -266,7 +262,7 @@ file_path = os.path.join(script_dir, "<file_name>")
 
 ## <a name="build-and-run-the-pipeline-containing-parallelrunstep"></a>Compilar e executar o pipeline que contém ParallelRunStep
 
-Agora você tem tudo aquilo de que precisa: as entradas de dados, o modelo, a saída e o script de inferência. Vamos criar o pipeline de inferência de lote que contém ParallelRunStep.
+Agora você tem tudo o que precisa: as entradas de dados, o modelo, a saída e o script de inferência. Vamos criar o pipeline de inferência de lote que contém ParallelRunStep.
 
 ### <a name="prepare-the-environment"></a>Preparar o ambiente
 
@@ -311,12 +307,14 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 
 Você pode especificar `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` e `run_max_try` como `PipelineParameter` para que, ao reenviar uma execução de pipeline, você possa ajustar os valores de parâmetro. Neste exemplo, você usará PipelineParameter para `mini_batch_size` e `Process_count_per_node` e vai alterar esses valores ao reenviar uma execução mais tarde. 
 
+Este exemplo pressupõe que você esteja usando o script `digit_identification.py` que foi discutido anteriormente. Se você usar seu próprio script, altere os parâmetros `source_directory` e `entry_script` correspondentemente.
+
 ```python
 from azureml.pipeline.core import PipelineParameter
 from azureml.pipeline.steps import ParallelRunConfig
 
 parallel_run_config = ParallelRunConfig(
-    source_directory=scripts_folder,
+    source_directory='.',
     entry_script="digit_identification.py",
     mini_batch_size=PipelineParameter(name="batch_size_param", default_value="5"),
     error_threshold=10,
@@ -384,9 +382,8 @@ pipeline_run.wait_for_completion(show_output=True)
 Como você fez as entradas e várias configurações como `PipelineParameter`, você pode reenviar uma execução de inferência de lote com uma entrada de conjunto de dados diferente e ajustar os parâmetros sem precisar criar um pipeline. Você usará o mesmo armazenamento de dados, mas usará apenas uma única imagem como entradas de dados.
 
 ```python
-path_on_datastore = mnist_data.path('mnist/0.png')
+path_on_datastore = mnist_blob.path('mnist/0.png')
 single_image_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
-single_image_ds._ensure_saved(ws)
 
 pipeline_run_2 = experiment.submit(pipeline, 
                                    pipeline_parameters={"mnist_param": single_image_ds, 

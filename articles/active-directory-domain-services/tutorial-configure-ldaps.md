@@ -7,18 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: f532976e80c4284addcf09d81d8a32fd5f6f8827
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 995ca20ed264d78e93e04a6f54e4f691ec551e84
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733935"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024852"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar o LDAP Seguro para um domínio gerenciado do Azure Active Directory Domain Services
 
-Para se comunicar com o domínio gerenciado do Azure AD DS (Azure Active Directory Domain Services), o protocolo LDAP é usado. Por padrão, o tráfego do LDAP não é criptografado, o que é uma preocupação de segurança para muitos ambientes. Com o Azure AD DS, você pode configurar o domínio gerenciado para usar o LDAPS (protocolo LDAP Seguro). Quando você usa o LDAP Seguro, o tráfego é criptografado. O LDAP Seguro também é conhecido como LDAP sobre protocolo SSL/TLS.
+Para se comunicar com o domínio gerenciado do Azure AD DS (Azure Active Directory Domain Services), o protocolo LDAP é usado. Por padrão, o tráfego do LDAP não é criptografado, o que é uma preocupação de segurança para muitos ambientes.
+
+Com o Azure AD DS, você pode configurar o domínio gerenciado para usar o LDAPS (protocolo LDAP Seguro). Quando você usa o LDAP Seguro, o tráfego é criptografado. O LDAP Seguro também é conhecido como LDAP sobre protocolo SSL/TLS.
 
 Este tutorial mostra como configurar o LDAPS para um domínio gerenciado do Azure AD DS.
 
@@ -68,7 +70,11 @@ O certificado solicitado ou criado precisa atender aos requisitos a seguir. O do
 * **Uso de chave** – o certificado precisa ser configurado para *assinaturas digitais* e *codificação de chave*.
 * **Finalidade do certificado**: o certificado deve ser válido para autenticação de servidor TLS.
 
-Há várias ferramentas disponíveis para criar um certificado autoassinado, como OpenSSL, Keytool, MakeCert, o cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate] etc. Neste tutorial, vamos criar um certificado autoassinado para LDAP seguro usando o cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate]. Abra uma janela do PowerShell como **Administrador** e execute os comandos a seguir. Substitua a variável *$dnsName* pelo nome DNS usado pelo próprio domínio gerenciado, como *aaddscontoso.com*:
+Há várias ferramentas disponíveis para criar um certificado autoassinado, como OpenSSL, Keytool, MakeCert, o cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate] etc.
+
+Neste tutorial, vamos criar um certificado autoassinado para LDAP seguro usando o cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate].
+
+Abra uma janela do PowerShell como **Administrador** e execute os comandos a seguir. Substitua a variável *$dnsName* pelo nome DNS usado pelo próprio domínio gerenciado, como *aaddscontoso.com*:
 
 ```powershell
 # Define your own DNS name used by your managed domain
@@ -108,7 +114,9 @@ Para usar o LDAP Seguro, o tráfego de rede é criptografado usando a PKI (infra
     * Essa chave pública é usada para *criptografar* o tráfego LDAP Seguro. A chave pública pode ser distribuída aos computadores cliente.
     * Os certificados sem a chave privada usam o formato de arquivo *.CER*.
 
-Para essas duas chaves, as chaves *privada* e *pública*, garanta que apenas os computadores apropriados possam se comunicar com êxito entre si. Se você usar uma AC pública ou uma AC corporativa, será emitido um certificado para você que inclui a chave privada e pode ser aplicado a um domínio gerenciado. A chave pública já deve ser conhecida e confiável nos computadores cliente. Neste tutorial, você criou um certificado autoassinado com a chave privada, portanto, é necessário exportar os componentes públicos e privados apropriados.
+Para essas duas chaves, as chaves *privada* e *pública*, garanta que apenas os computadores apropriados possam se comunicar com êxito entre si. Se você usar uma AC pública ou uma AC corporativa, será emitido um certificado para você que inclui a chave privada e pode ser aplicado a um domínio gerenciado. A chave pública já deve ser conhecida e confiável nos computadores cliente.
+
+Neste tutorial, você criou um certificado autoassinado com a chave privada, portanto, é necessário exportar os componentes públicos e privados apropriados.
 
 ### <a name="export-a-certificate-for-azure-ad-ds"></a>Exportar um certificado para o Azure AD DS
 
@@ -148,7 +156,9 @@ Para usar o certificado digital criado na etapa anterior com o domínio gerencia
 
 ### <a name="export-a-certificate-for-client-computers"></a>Exportar um certificado para computadores cliente
 
-Os computadores cliente precisam confiar no emissor do certificado LDAP Seguro para poderem se conectar com êxito ao domínio gerenciado usando o LDAPS. Os computadores cliente precisam ter um certificado para criptografar com êxito os dados descriptografados pelo Azure AD DS. Se você usar uma AC pública, o computador deverá confiar automaticamente nesses emissores do certificado e ter um certificado correspondente. Neste tutorial, você usou um certificado autoassinado e gerou um certificado que inclui a chave privada na etapa anterior. Agora, vamos exportar e, em seguida, instalar o certificado autoassinado no repositório de certificados confiáveis no computador cliente:
+Os computadores cliente precisam confiar no emissor do certificado LDAP Seguro para poderem se conectar com êxito ao domínio gerenciado usando o LDAPS. Os computadores cliente precisam ter um certificado para criptografar com êxito os dados descriptografados pelo Azure AD DS. Se você usar uma AC pública, o computador deverá confiar automaticamente nesses emissores do certificado e ter um certificado correspondente.
+
+Neste tutorial, você usou um certificado autoassinado e gerou um certificado que inclui a chave privada na etapa anterior. Agora, vamos exportar e, em seguida, instalar o certificado autoassinado no repositório de certificados confiáveis no computador cliente:
 
 1. Volte ao MMC para o repositório *Certificados (Computador Local) > Pessoal > Certificados*. O certificado autoassinado criado em uma etapa anterior é mostrado, como *addscontoso.com*. Selecione o certificado com o botão direito do mouse e, em seguida, escolha **Todas as Tarefas > Exportar...**
 1. No **Assistente para Exportação de Certificados**, selecione **Avançar**.
@@ -186,7 +196,10 @@ Com um certificado digital criado e exportado que inclua a chave privada e o com
 
 1. Selecione o ícone de pasta ao lado do **arquivo .PFX com certificado LDAP seguro**. Procure o caminho do arquivo *.PFX* e, em seguida, selecione o certificado criado em uma etapa anterior que inclua a chave privada.
 
-    Conforme observado na seção anterior sobre requisitos de certificado, não é possível usar um certificado de uma AC pública com o domínio padrão *.onmicrosoft.com*. A Microsoft é proprietária do domínio *.onmicrosoft.com*, portanto, uma AC pública não emitirá um certificado. Verifique se o certificado está no formato apropriado. Caso contrário, a plataforma Azure gerará erros de validação de certificado quando você habilitar o LDAP Seguro.
+    > [!IMPORTANT]
+    > Conforme observado na seção anterior sobre requisitos de certificado, não é possível usar um certificado de uma AC pública com o domínio padrão *.onmicrosoft.com*. A Microsoft é proprietária do domínio *.onmicrosoft.com*, portanto, uma AC pública não emitirá um certificado.
+    >
+    > Verifique se o certificado está no formato apropriado. Caso contrário, a plataforma Azure gerará erros de validação de certificado quando você habilitar o LDAP Seguro.
 
 1. Insira a **Senha para descriptografar o arquivo .PFX** definida em uma etapa anterior quando o certificado foi exportado para um arquivo *.PFX*.
 1. Selecione **Salvar** para habilitar o LDAP Seguro.
@@ -195,7 +208,9 @@ Com um certificado digital criado e exportado que inclua a chave privada e o com
 
 Uma notificação é exibida, informando que o LDAP Seguro está sendo configurado para o domínio gerenciado. Você não poderá modificar outras configurações do domínio gerenciado enquanto essa operação não for concluída.
 
-São necessários alguns minutos para habilitar o LDAP Seguro para o domínio gerenciado. Se o certificado LDAP Seguro fornecido não corresponder aos critérios obrigatórios, a ação para habilitar o LDAP Seguro para o domínio gerenciado falhará. Alguns motivos comuns de falha incluem um nome de domínio incorreto ou um certificado já expirado ou prestes a expirar. Você pode recriar o certificado com parâmetros válidos e, em seguida, habilitar o LDAP Seguro usando esse certificado atualizado.
+São necessários alguns minutos para habilitar o LDAP Seguro para o domínio gerenciado. Se o certificado LDAP Seguro fornecido não corresponder aos critérios obrigatórios, a ação para habilitar o LDAP Seguro para o domínio gerenciado falhará.
+
+Alguns motivos comuns de falha incluem um nome de domínio incorreto ou um certificado já expirado ou prestes a expirar. Você pode recriar o certificado com parâmetros válidos e, em seguida, habilitar o LDAP Seguro usando esse certificado atualizado.
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Bloquear o acesso LDAP Seguro na Internet
 
@@ -230,7 +245,7 @@ Com o acesso LDAP Seguro habilitado na Internet, atualize a zona DNS para que os
 
 ![Veja o endereço IP externo do LDAP Seguro para o domínio gerenciado no portal do Azure](./media/tutorial-configure-ldaps/ldaps-external-ip-address.png)
 
-Configure o provedor DNS externo para criar um registro de host, como *ldaps*, para fazer a resolução para esse endereço IP externo. Para testar localmente no computador primeiro, crie uma entrada no arquivo de hosts do Windows. Para editar com êxito o arquivo de hosts no computador local, abra o *Bloco de notas* como administrador e, em seguida, abra o arquivo *C:\Windows\System32\drivers\etc*
+Configure o provedor DNS externo para criar um registro de host, como *ldaps*, para fazer a resolução para esse endereço IP externo. Para testar localmente no computador primeiro, crie uma entrada no arquivo de hosts do Windows. Para editar com êxito o arquivo de hosts no computador local, abra o *Bloco de notas* como administrador e abra o arquivo *C:\Windows\System32\drivers\etc\hosts*
 
 A seguinte entrada DNS de exemplo, com o provedor DNS externo ou no arquivo de hosts local, resolve o tráfego de *ldaps.aaddscontoso.com* para o endereço IP externo *168.62.205.103*:
 
@@ -269,7 +284,7 @@ Para consultar diretamente um contêiner específico, no menu **Exibir > Árvore
 Se você adicionou uma entrada DNS ao arquivo de hosts local do computador para testar a conectividade para este tutorial, remova essa entrada e adicione um registro formal na zona DNS. Para remover a entrada do arquivo de hosts local, conclua as seguintes etapas:
 
 1. No computador local, abra o *Bloco de notas* como administrador
-1. Procure e abra o arquivo *C:\Windows\System32\drivers\etc*
+1. Procure e abra o arquivo *C:\Windows\System32\drivers\etc\hosts*
 1. Exclua a linha do registro adicionado, como `168.62.205.103    ldaps.aaddscontoso.com`
 
 ## <a name="next-steps"></a>Próximas etapas

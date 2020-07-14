@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9135873b61abf5a5ebd0d9c4d7f52ae314ee12
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 17d0c91d31f7746c53d62af87670c40e9902554c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84674859"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026784"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Akamai
 
@@ -79,7 +79,7 @@ O aplicativo EAA do Akamai é configurado individualmente no portal do Azure AD.
 
 • Você pode definir Políticas de AC individuais
 
-• Todos os aplicativos são representados no 0365 Waffle e no painel myApps.microsoft.com.
+• Todos os aplicativos são representados no Waffle do O365 e no painel myApps.microsoft.com.
 
 **Contras**:
 
@@ -102,7 +102,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 #### <a name="important"></a>Importante
 
-Todas as configurações listadas abaixo são as mesmas para o **Cenário de integração 1** e para o **Cenário 2**. Para o **Cenário de integração 2**, você terá configurado o IDP individual no EAA do Akamai e a propriedade de URL precisará ser modificada para apontar para a URL do aplicativo.
+Todas as configurações listadas abaixo são as mesmas para o **Cenário de integração 1** e para o **Cenário 2**. Para o **Cenário de integração 2**, você precisa configurar o IDP individual no EAA do Akamai e a propriedade de URL precisará ser modificada para apontar para a URL do aplicativo.
 
 ![Importante](./media/header-akamai-tutorial/important.png)
 
@@ -194,7 +194,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 ## <a name="configure-akamai-sso"></a>Configurar o SSO do Akamai
 
-### <a name="setting-up-idp"></a>Como configurar o IDP
+### <a name="setting-up-idp"></a>Configurando IDP
 
 **Configuração de IDP do EAA do AKAMAI**
 

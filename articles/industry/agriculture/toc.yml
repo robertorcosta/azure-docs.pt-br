@@ -17,6 +17,8 @@
       href: integration-patterns-in-azure-farmbeats.md
     - name: Integração com parceiros de sensor
       href: sensor-partner-integration-in-azure-farmbeats.md
+    - name: Integração com parceiros de clima
+      href: weather-partner-integration-in-azure-farmbeats.md
     - name: Integração com parceiros de imagens
       href: imagery-partner-integration-in-azure-farmbeats.md
 - name: Guias de instruções
@@ -29,6 +31,8 @@
       href: manage-farms-in-azure-farmbeats.md
     - name: Obter dados de sensor
       href: get-sensor-data-from-sensor-partner.md
+    - name: Obter dados meteorológicos
+      href: get-weather-data-from-weather-partner.md
     - name: Gerar mapas
       href: generate-maps-in-azure-farmbeats.md
     - name: Configurar regras e gerenciar alertas

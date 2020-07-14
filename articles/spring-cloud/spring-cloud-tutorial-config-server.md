@@ -1,19 +1,19 @@
 ---
-title: Tutorial – Configurar a instância do Servidor de Configuração no Azure Spring Cloud
-description: Neste tutorial, você aprenderá como configurar uma instância do Servidor de Configuração do Spring Cloud para seu Azure Spring Cloud no portal do Azure
+title: Configurar a instância do Config Server no Azure Spring Cloud
+description: Saiba como configurar uma instância do Config Server do Spring Cloud para seu Azure Spring Cloud no portal do Azure
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
-ms.openlocfilehash: 4c8b2e92cd7e88dde434e42971d091db689bfbc9
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: bfce1ce54da9d9e8e7feaa8e8eb5cd676866a1cb
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791292"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142192"
 ---
-# <a name="tutorial-set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Tutorial: Configurar uma instância do Servidor de Configuração do Spring Cloud para seu serviço
+# <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurar uma instância do Servidor de Configuração do Spring Cloud para seu serviço
 
 Este artigo mostra como conectar uma instância do Servidor de Configuração do Spring Cloud ao seu serviço do Azure Spring Cloud.
 
@@ -190,7 +190,4 @@ Após salvar um arquivo de configuração, o botão **Excluir configuração de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como habilitar e configurar sua instância do Servidor de Configuração do Spring Cloud. Para saber mais sobre como gerenciar seu aplicativo, passe para o tutorial sobre como dimensionar manualmente seu aplicativo.
-
-> [!div class="nextstepaction"]
-> [Tutorial: Dimensionar um aplicativo no Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md)
+Neste artigo, você aprendeu como habilitar e configurar sua instância do Config Server do Spring Cloud. Para saber mais como gerenciar seu aplicativo, confira [Dimensionar um aplicativo no Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md).
