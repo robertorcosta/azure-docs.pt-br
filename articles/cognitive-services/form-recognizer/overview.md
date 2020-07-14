@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 8885f66b3501217ead302486d2e5ef7de63f5f47
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 2193bd85265103957c5cafad10a243b266f7e5bc
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563248"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026875"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecimento de Formulários?
 
@@ -57,18 +57,20 @@ O Reconhecimento de Formulários também pode extrair a estrutura de texto e tab
 
 Siga um início rápido para começar a extrair dados de seus formulários. Recomendamos usar o serviço gratuito quando estiver aprendendo a tecnologia. Lembre-se de que o número de páginas gratuitas é limitado a 500 por mês.
 
-* Personalizado – treinar um modelo para seus formulários
-  * Treinar sem rótulos
-    * [Início Rápido: treinar em um modelo do Reconhecimento de Formulários e extrair dados de formulário usando a API REST com o cURL](quickstarts/curl-train-extract.md)
-    * [Início Rápido: treinar em um modelo do Reconhecimento de Formulários e extrair dados de formulário usando a API REST com o Python](quickstarts/python-train-extract.md)
-  * Treinar com rótulos
-    * [Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo](quickstarts/label-tool.md)
-    * [Treinar um modelo do Reconhecimento de Formulários com rótulos usando a API REST e o Python](quickstarts/python-labeled-data.md)
-* Confirmações predefinidas – extrair dados de recibos de vendas dos EUA
-  * [Início Rápido: extrair dados de recibos usando cURL](quickstarts/curl-receipts.md)
-  * [Início Rápido: extrair dados de recibos usando Python](quickstarts/python-receipts.md)
-* Layout – extrair a estrutura de tabela e texto de formulários
-  * [Início Rápido: Extrair dados de layout usando o Python](quickstarts/python-layout.md)
+* [Início rápido da biblioteca de cliente](./quickstarts/client-library.md) (todos os idiomas, vários cenários)
+* Inícios rápidos da interface do usuário da Web
+  * [Treinar com rótulos – ferramenta de rotulação de amostra](quickstarts/label-tool.md)
+* Guias de início rápido do REST
+  * Treinar modelos personalizados e extrair dados de formulário
+    * [Treinar sem rótulos – cURL](quickstarts/curl-train-extract.md)
+    * [Treinar sem rótulos – Python](quickstarts/python-train-extract.md)
+    * [Treinar com rótulos – Python](quickstarts/python-labeled-data.md)
+  * Extrair dados de recibos de vendas dos EUA
+    * [Extrair dados de recibo – cURL](quickstarts/curl-receipts.md)
+    * [Extrair dados de recibo – Python](quickstarts/python-receipts.md)
+  * Extrair a estrutura de tabela e texto de formulários
+    * [Extrair dados de layout – Python](quickstarts/python-layout.md)
+
 
 ### <a name="review-the-rest-apis"></a>revisar as Especificações das APIs REST
 
@@ -81,7 +83,7 @@ Você usará as APIs a seguir para treinar modelos e extrair dados estruturados 
 | **Analisar Recibo** |Analise um único documento de recibo para extrair informações importantes e outros textos do recibo.|
 | **Analisar Layout** |Analise o layout de um formulário para extrair a estrutura de tabela e texto.|
 
-Explore a [documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) para saber mais. Se você estiver familiarizado com uma versão anterior da API, confira o artigo [O que há de novo](./whats-new.md) para saber mais sobre as alterações recentes.
+Explore a [documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) para saber mais. Se você estiver familiarizado com uma versão anterior da API, confira o artigo [O que há de novo](./whats-new.md) para saber mais sobre as alterações recentes.
 
 ## <a name="input-requirements"></a>Requisitos de entrada
 ### <a name="custom-model"></a>Modelo personalizado
@@ -104,4 +106,4 @@ Assim como ocorre com todos os serviços cognitivos, os desenvolvedores que usam
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Complete um [início rápido](quickstarts/curl-train-extract.md) para começar a usar as [APIs do Reconhecimento de Formulários](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm).
+Complete um [início rápido](quickstarts/curl-train-extract.md) para começar a usar as [APIs do Reconhecimento de Formulários](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm).
