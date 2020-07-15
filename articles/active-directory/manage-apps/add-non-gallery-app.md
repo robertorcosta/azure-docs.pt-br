@@ -1,58 +1,58 @@
 ---
-title: Adicionar um aplicativo não Galeria-plataforma de identidade da Microsoft | Microsoft Docs
-description: Adicione um aplicativo que não seja da galeria ao seu locatário do Azure AD.
+title: Adicionar um aplicativo inexistente na galeria – plataforma de identidade da Microsoft | Microsoft Docs
+description: Adicione um aplicativo inexistente na galeria ao seu locatário do Azure AD.
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: how-to
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbefcec884fcf179c182cd50efeb58a0fc357378
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 5db8aed0a47e7d8d928ef3287010d60efbc5e5da
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555127"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200444"
 ---
-# <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Adicionar um aplicativo não listado (não Galeria) à sua organização do Azure AD
+# <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Adicionar um aplicativo não listado (inexistente na galeria) à sua organização do Azure AD
 
-Além das opções na [Galeria de aplicativos do Azure ad](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/), você tem a opção de adicionar um **aplicativo inexistente na Galeria**. Você pode adicionar qualquer aplicativo que já existe em sua organização ou qualquer aplicativo de terceiros de um fornecedor que ainda não faz parte da galeria do Azure AD. Dependendo do seu [contrato de licença](https://azure.microsoft.com/pricing/details/active-directory/), os seguintes recursos estão disponíveis:
+Além das opções da [Galeria de aplicativos do Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/), você pode adicionar um **aplicativo inexistente na galeria**. É possível adicionar qualquer aplicativo que já exista em sua organização ou qualquer aplicativo de terceiros, de um fornecedor que ainda não faça parte da galeria do Azure AD. Dependendo do seu [contrato de licença](https://azure.microsoft.com/pricing/details/active-directory/), os seguintes recursos estão disponíveis:
 
-- Integração de autoatendimento de qualquer aplicativo que ofereça suporte a provedores de identidade [Security Assertion Markup Language (SAML) 2,0](https://wikipedia.org/wiki/SAML_2.0) (iniciado pelo SP ou pelo IDP)
+- Integração de autoatendimento de qualquer aplicativo compatível com provedores de identidade [SAML (Security Assertion Markup Language) 2.0](https://wikipedia.org/wiki/SAML_2.0) (iniciado por SP ou IdP)
 - Integração de autoatendimento de qualquer aplicativo Web que tenha uma página de entrada baseada em HTML usando o [SSO baseado em senha](what-is-single-sign-on.md#password-based-sso)
-- Conexão de autoatendimento de aplicativos que usam o [sistema para o protocolo scim (gerenciamento de identidade entre domínios) para provisionamento de usuário](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+- Conexão de autoatendimento para aplicativos que usam o [protocolo SCIM (Sistema de Gerenciamento de Usuários entre Domínios) para provisionamento de usuário](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 - Capacidade de adicionar links aos aplicativos no [inicializador de aplicativos do Office 365](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [Painel de acesso do Azure AD](what-is-single-sign-on.md#linked-sign-on)
 
-Este artigo descreve como adicionar um aplicativo que não seja da galeria a **aplicativos empresariais** no portal do Azure sem escrever código. Se, em vez disso, você estiver procurando orientação para desenvolvedores sobre como integrar aplicativos personalizados ao Azure AD, consulte [cenários de autenticação do Azure ad](../develop/authentication-scenarios.md). Ao desenvolver um aplicativo que usa um protocolo moderno como [OpenID Connect/OAuth](../develop/active-directory-v2-protocols.md) para autenticar usuários, você pode registrá-lo com a plataforma de identidade da Microsoft usando a experiência de [registros de aplicativo](../develop/quickstart-register-app.md) no portal do Azure.
+Este artigo descreve como adicionar um aplicativo inexistente na galeria aos **Aplicativos Empresariais** no portal do Azure sem escrever código. Se você estiver procurando diretrizes para desenvolvedores sobre como integrar aplicativos personalizados com o Azure AD, veja [Cenários de autenticação do Azure AD](../develop/authentication-scenarios.md). Ao desenvolver um aplicativo que usa um protocolo moderno como [OpenId Connect/OAuth](../develop/active-directory-v2-protocols.md) para autenticar usuários, você pode registrá-lo na plataforma de identidade da Microsoft usando a experiência de [Registros de aplicativo](../develop/quickstart-register-app.md) no portal do Azure.
 
 ## <a name="add-a-non-gallery-application"></a>Adicionar um aplicativo inexistente na galeria
 
-1. Entre no portal de [Azure Active Directory](https://aad.portal.azure.com/) usando sua conta de administrador da plataforma de identidade da Microsoft.
+1. Entre no [portal do Azure Active Directory](https://aad.portal.azure.com/) usando sua conta Administrador da plataforma de identidade da Microsoft.
 
-2. Selecione **aplicativos empresariais**  >  **novo aplicativo**.
+2. Selecione **Aplicativos Empresariais** > **Novo aplicativo**.
 
-3. (Opcional, mas recomendado) Na caixa de pesquisa **procurar na galeria do Azure ad** , insira o nome de exibição do aplicativo. 
+3. (Opcional, mas recomendado) Na caixa de pesquisa **Procurar na Galeria do Azure AD**, insira o nome de exibição do aplicativo. 
 
-4. Selecione **criar seu próprio aplicativo**. A página **criar seu próprio aplicativo** é exibida.
+4. Selecione **Criar seu próprio aplicativo**. A página **Criar seu próprio aplicativo** é exibida.
 
    ![Adicionar aplicativo](media/add-non-gallery-app/create-your-own-application.png)
 
-5. Comece a digitar o nome de exibição para o novo aplicativo. Se houver aplicativos de galeria com nomes semelhantes, eles aparecerão em uma lista de resultados da pesquisa.
+5. Comece a digitar o nome de exibição do seu novo aplicativo. Se houver aplicativos na galeria com nomes semelhantes, eles aparecerão em uma lista de resultados da pesquisa.
 
    > [!NOTE]
    > É recomendável usar a versão da galeria do seu aplicativo sempre que possível. Se o aplicativo que você deseja adicionar aparecer nos resultados da pesquisa, selecione o aplicativo e ignore o restante deste procedimento.
 
-6. Em **o que você está procurando fazer com seu aplicativo?** escolha **integrar qualquer outro aplicativo que você não encontre na Galeria**. Essa opção é normalmente usada para aplicativos SAML e WS-enalimentados.
+6. Em **O que você deseja fazer com o seu aplicativo?** escolha **Integrar qualquer outro aplicativo que você não encontrar na galeria**. Essa opção é normalmente usada para aplicativos SAML e WS-Fed.
 
    > [!NOTE]
    > As outras duas opções são usadas nos seguintes cenários:
-   >* **Configurar o proxy de aplicativo para acesso remoto seguro a um aplicativo local** abre a página de configuração para conectores e proxy de aplicativo do AD do Azure.
-   >* **Registrar um aplicativo no qual você está trabalhando para integrar com o Azure ad** abre a página **registros de aplicativo** . Essa opção é normalmente usada para aplicativos OpenID Connect.
+   >* **Configurar o Proxy de Aplicativo para acesso remoto seguro a um aplicativo local** abre a página de configuração para os conectores e o Proxy de Aplicativo do Azure AD.
+   >* **Registrar um aplicativo no qual você está trabalhando para se integrar ao Azure AD** abre a página **Registros de aplicativo**. Essa opção é normalmente usada para aplicativos OpenID Connect.
 
 7. Selecione **Criar**. A página **Visão Geral** do aplicativo será aberta.
 
@@ -65,7 +65,7 @@ Este artigo descreve como adicionar um aplicativo que não seja da galeria a **a
 2. Defina as opções a seguir para determinar como os usuários atribuídos ou não atribuídos ao aplicativo podem entrar no aplicativo e se um usuário pode ver o aplicativo no Painel de Acesso.
 
     - **Habilitado para que os usuários entrem** determina se os usuários atribuídos ao aplicativo podem entrar nele.
-    - **Atribuição de usuário necessária** determina se os usuários que não estão atribuídos ao aplicativo podem entrar.
+    - A **atribuição de usuário obrigatória** determina se os usuários não atribuídos ao aplicativo podem entrar nele.
     - **Visível para usuário** determina se os usuários atribuídos a um aplicativo podem vê-lo no painel de acesso e no inicializador do O365.
 
       Comportamento de usuários **atribuídos**:
@@ -102,7 +102,7 @@ Este artigo descreve como adicionar um aplicativo que não seja da galeria a **a
 
     ![Alterar o logotipo](media/add-non-gallery-app/change-logo.png)
 
-4. Quando tiver terminado, selecione **salvar**.
+4. Quando terminar, selecione **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
