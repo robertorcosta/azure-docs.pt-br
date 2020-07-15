@@ -1,25 +1,25 @@
 ---
 title: Definições de políticas internas para o Azure Arc para servidores
 description: Lista as definições de políticas internas do Azure Policy para o Azure Arc para servidores. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.topic: sample
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 ms.custom: subject-policy-samples
-ms.openlocfilehash: d4ae07ad44028d847ff43da955460bd11a6b7a6b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 6cbbfcd16ee0c256833cd600db91e26a3c68e618
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85316187"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86275641"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-arc-for-servers"></a>Definições internas do Azure Policy para o Azure Arc para servidores
 
 Esta página é um índice de definições de políticas internas do [Azure Policy](../../governance/policy/overview.md) para o Azure Arc para servidores. Para obter políticas internas adicionais do Azure Policy para outros serviços, confira [Definições internas do Azure Policy](../../governance/policy/samples/built-in-policies.md).
 
-O nome de cada definição de política interna leva à definição da política no portal do Azure. Use o link na coluna **Versão** para exibir a origem no [repositório GitHub do Azure Policy](https://github.com/Azure/azure-policy).
+O nome de cada definição de política interna leva à definição da política no portal do Azure. Use o link na coluna **Versão** para ver a origem no [repositório GitHub do Azure Policy](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-arc-for-servers"></a>Azure Arc para servidores
 

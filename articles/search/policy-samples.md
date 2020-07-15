@@ -1,24 +1,24 @@
 ---
 title: Definições de políticas internas para o Azure Cognitive Search
 description: Lista as definições de políticas internas do Azure Policy para o Azure Cognitive Search. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.topic: sample
 author: HeidiSteen
 ms.author: heidist
 ms.service: search
 ms.custom: subject-policy-samples
-ms.openlocfilehash: a5d33b9305446bd2db059c90939a860286a42afe
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 5e4a12af83fd81134b930103cd28377bf4185fa3
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85318532"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274282"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cognitive-search"></a>Definições internas do Azure Policy para o Azure Cognitive Search
 
 Esta página é um índice de definições de políticas internas do [Azure Policy](../governance/policy/overview.md) para o Azure Cognitive Search. Para obter políticas internas adicionais do Azure Policy para outros serviços, confira [Definições internas do Azure Policy](../governance/policy/samples/built-in-policies.md).
 
-O nome de cada definição de política interna leva à definição da política no portal do Azure. Use o link na coluna **Versão** para exibir a origem no [repositório GitHub do Azure Policy](https://github.com/Azure/azure-policy).
+O nome de cada definição de política interna leva à definição da política no portal do Azure. Use o link na coluna **Versão** para ver a origem no [repositório GitHub do Azure Policy](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-cognitive-search"></a>Pesquisa Cognitiva do Azure
 
