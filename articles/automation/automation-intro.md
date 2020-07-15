@@ -7,12 +7,12 @@ keywords: azure automation, DSC, powershell, state configuration, update managem
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: e02cfdaac602adfe455c26d9e87939586fd9738a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 30cfadcec1f0c28a463740ddaefa8fc76f04af3f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835267"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186173"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Uma introdução à Automação do Azure
 
@@ -53,14 +53,14 @@ A Automação do Azure oferece uma série de funcionalidades compartilhadas, inc
 
 A Automação do Azure é composta por um conjunto de recursos compartilhados que facilitam a automatização e configurar seu ambiente em escala.
 
-* **[Agendas](automation-schedules.md)** – disparam operações da Automação em horários predefinidos.
-* **[Módulos](automation-integration-modules.md)** – gerenciam o Azure e outros sistemas. É possível importar módulos na conta de Automação da Microsoft, de terceiros, da comunidade ou de cmdlets definidos personalizados e recursos de DSC.
+* **[Agendas](./shared-resources/schedules.md)** – disparam operações da Automação em horários predefinidos.
+* **[Módulos](./shared-resources/modules.md)** – gerenciam o Azure e outros sistemas. É possível importar módulos na conta de Automação da Microsoft, de terceiros, da comunidade ou de cmdlets definidos personalizados e recursos de DSC.
 * **[Galeria de módulos](automation-runbook-gallery.md)** – dá suporte à integração nativa à Galeria do PowerShell para exibir runbooks e importá-los para a conta de Automação. Com a galeria, é possível começar rapidamente a integrar e criar seus processos da galeria do PowerShell e do Microsoft Script Center.
 * **[Pacotes do Python 2](python-packages.md)** – dão suporte a runbooks do Python 2 para sua conta de Automação.
-* **[Credenciais](automation-credentials.md)** – armazenam com segurança informações confidenciais que podem ser usadas por runbooks e configurações em runtime.
+* **[Credenciais](./shared-resources/credentials.md)** – armazenam com segurança informações confidenciais que podem ser usadas por runbooks e configurações em runtime.
 * **[Conexões](automation-connections.md)** – armazenam pares nome-valor de informações comuns para conexões com sistemas. O autor do módulo define conexões em runbooks e configurações para uso em runtime.
-* **[Certificados](automation-certificates.md)** – definem informações a serem usadas na autenticação e na proteção de recursos implantados quando acessados por runbooks ou configurações de DSC em runtime. 
-* **[Variáveis](automation-variables.md)** – mantêm o conteúdo que pode ser usado em runbooks e configurações. É possível alterar valores de variável sem precisar modificar nenhum runbook ou nenhuma configuração que os referencia.
+* **[Certificados](./shared-resources/certificates.md)** – definem informações a serem usadas na autenticação e na proteção de recursos implantados quando acessados por runbooks ou configurações de DSC em runtime. 
+* **[Variáveis](./shared-resources/variables.md)** – mantêm o conteúdo que pode ser usado em runbooks e configurações. É possível alterar valores de variável sem precisar modificar nenhum runbook ou nenhuma configuração que os referencia.
 
 ### <a name="role-based-access-control"></a>Controle de acesso baseado em função
 

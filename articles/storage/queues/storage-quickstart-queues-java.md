@@ -7,12 +7,12 @@ ms.date: 12/4/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 013281db2821c99f6942edd1322f4978e100c144
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a4c873e7ec1867b6ce53cd9f4c3d5c54242a6f16
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81729844"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232331"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Início Rápido: Biblioteca de clientes do armazenamento de Filas do Azure v12 para Java
 
@@ -167,7 +167,7 @@ Esses snippets de código de exemplo mostram como executar ações a seguir com 
 * [Obter a cadeia de conexão](#get-the-connection-string)
 * [Criar uma fila](#create-a-queue)
 * [Adicionar mensagens a uma fila](#add-messages-to-a-queue)
-* [Espiar mensagens em uma fila](#peek-at-messages -in-a-queue)
+* [Espiar mensagens em uma fila](#peek-at-messages-in-a-queue)
 * [Atualizar uma mensagem em uma fila](#update-a-message-in-a-queue)
 * [Receber e excluir mensagens de uma fila](#receive-and-delete-messages-from-a-queue)
 * [Excluir uma fila](#delete-a-queue)

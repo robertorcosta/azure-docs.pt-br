@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 4361cee3d07408c3abb5031d2ab18c15c92c5e0a
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 047c4649da298e1dcb74ec1910a49353d8be534a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711248"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206644"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-heavy-via-nfs"></a>Tutorial: Copiar dados para o Azure Data Box Heavy por meio do NFS
 
@@ -55,7 +55,7 @@ Nos compartilhamentos dos Arquivos do Azure:
 
 A tabela a seguir mostra o caminho UNC para os compartilhamentos na URL de caminho do Data Box Heavy e do Armazenamento do Azure em que os dados são carregados. A URL final de caminho do Armazenamento do Azure pode ser derivada do caminho de compartilhamento UNC.
  
-|                   |                                                            |
+| Armazenamento           | Caminho UNC                                                                       |
 |-------------------|--------------------------------------------------------------------------------|
 | Blobs de blocos do Azure | <li>Caminho UNC para compartilhamentos: `//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>URL do Armazenamento do Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Blobs de páginas do Azure  | <li>Caminho UNC para compartilhamentos: `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>URL do Armazenamento do Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  

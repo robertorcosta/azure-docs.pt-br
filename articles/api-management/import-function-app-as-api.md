@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 6f4626a8c42f3a50fa273c55099158750241bfee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c6ec2be6daee931a4066ff5ce4f64fc949d497ac
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202913"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243419"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar um Aplicativo de funções do Azure como uma API no Gerenciamento de API do Azure
 
@@ -115,7 +115,7 @@ A importação de um Aplicativo de funções do Azure gera automaticamente:
 * A chave de host dentro do Aplicativo de funções com o nome apim-{*nome da instância de serviço do Gerenciamento de API do Azure*};
 * Valor nomeado dentro da instância do Gerenciamento de API do Azure com o nome {*nome da instância do Aplicativo de funções do Azure*}-key, que contém a chave de host criada.
 
-Para as APIs criadas após 4 de abril de 2019, a chave de host é passada em solicitações HTTP do Gerenciamento de API para o Aplicativo de funções em um cabeçalho. As APIs mais antigas passam a chave de host como [um parâmetro de consulta](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Esse comportamento pode ser alterado por meio da `PATCH Backend` [chamada à API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) na entidade *Back-end* associada ao Aplicativo de funções.
+Para as APIs criadas após 4 de abril de 2019, a chave de host é passada em solicitações HTTP do Gerenciamento de API para o Aplicativo de funções em um cabeçalho. As APIs mais antigas passam a chave de host como [um parâmetro de consulta](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Esse comportamento pode ser alterado por meio da `PATCH Backend` [chamada à API REST](/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) na entidade *Back-end* associada ao Aplicativo de funções.
 
 > [!WARNING]
 > A remoção ou alteração do valor da chave de host do Aplicativo de funções do Azure ou do valor nomeado do Gerenciamento de API interromperá a comunicação entre os serviços. Os valores não são sincronizados automaticamente.

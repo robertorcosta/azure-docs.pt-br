@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1ff1407400843fdb0f0ff997e2e0a3c1b7e67c7d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f7cb3f75dcaaeb6e0304784941dfcfc81ae6d68f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75494930"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248383"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implantar um aplicativo na Malha do Service Fabric usando um modelo
 
@@ -171,7 +171,7 @@ A saída anterior confirma a presença de `azure-mesh-todo-service:1.0-nanoserve
 ## <a name="retrieve-credentials-for-the-registry"></a>Recuperar credenciais para o registro
 
 > [!IMPORTANT]
-> Não é recomendável habilitar o usuário administrador em uma instância do ACR para cenários de produção. Isso é feito aqui para sua conveniência. Para cenários de produção, use uma [entidade de serviço](https://docs.microsoft.com/azure/container-registry/container-registry-auth-service-principal) para autenticação de usuário e do sistema em cenários de produção.
+> Não é recomendável habilitar o usuário administrador em uma instância do ACR para cenários de produção. Isso é feito aqui para sua conveniência. Para cenários de produção, use uma [entidade de serviço](../container-registry/container-registry-auth-service-principal.md) para autenticação de usuário e do sistema em cenários de produção.
 
 Para implantar uma instância de contêiner do registro que foi criado usando um modelo, você deve fornecer as credenciais de registro durante a implantação. Primeiro, permita o usuário administrador no seu registro com o seguinte comando:
 
@@ -191,7 +191,7 @@ Use os valores de nome do servidor de logon do ACR, nome de usuário e senha ret
 
 ## <a name="download-and-explore-the-template-and-parameters-files"></a>Baixar e explorar os arquivos de modelo e parâmetros
 
-Um aplicativo de Malha do Serviço Fabric é um recurso do Azure que você pode implantar e gerenciar usando modelos do Azure Resource Manager (RM). Se você não estiver familiarizado com os conceitos de implantação e gerenciamento de soluções do Azure, consulte [Visão geral do Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) e [Compreender a estrutura e sintaxe de modelos do RM](/azure/azure-resource-manager/resource-group-authoring-templates).
+Um aplicativo de Malha do Serviço Fabric é um recurso do Azure que você pode implantar e gerenciar usando modelos do Azure Resource Manager (RM). Se você não estiver familiarizado com os conceitos de implantação e gerenciamento de soluções do Azure, consulte [Visão geral do Azure Resource Manager](../azure-resource-manager/management/overview.md) e [Compreender a estrutura e sintaxe de modelos do RM](../azure-resource-manager/templates/template-syntax.md).
 
 Este tutorial usa o exemplo de lista de tarefas como um exemplo.  Em vez de criar novos arquivos de modelo e parâmetros, baixe os arquivos [modelo de implantação mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) e [parâmetros mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 

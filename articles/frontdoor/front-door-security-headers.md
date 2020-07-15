@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/22/2020
 ms.author: mebeatty
-ms.openlocfilehash: 4d698375488d4dac551f0028883fc4e18a10d8ef
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: d489186dc1c012fe8c181f17e00bcdb999e230dd
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323466"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232127"
 ---
 # <a name="add-security-headers-with-rules-engine"></a>Adicionar cabeçalhos de segurança com o Mecanismo de Regras
 
 Implemente cabeçalhos de segurança para impedir vulnerabilidades baseadas em navegador como HSTS (HTTP Strict-Transport-Security), X-XSS-Protection, Content-Security-Policy ou X-Frame-Options. Os atributos baseados em segurança também podem ser definidos com cookies.
 
-O exemplo a seguir mostra como adicionar um cabeçalho Content-Security-Policy a todas as solicitações de entrada que correspondem ao caminho definido na rota à qual a configuração do mecanismo de regras está associada. Aqui, só permitiremos a execução de scripts do nosso site confiável, **https://apis.contoso.com** , no aplicativo.
+O exemplo a seguir mostra como adicionar um cabeçalho Content-Security-Policy a todas as solicitações de entrada que correspondem ao caminho definido na rota à qual a configuração do mecanismo de regras está associada. Aqui, só permitiremos a execução de scripts do nosso site confiável, **https://apiphany.portal.azure-api.net** , no aplicativo.
 
 ## <a name="add-a-content-security-policy-header-in-azure-portal"></a>Adicionar um cabeçalho Content-Security-Policy no portal do Azure
 
@@ -33,7 +33,7 @@ O exemplo a seguir mostra como adicionar um cabeçalho Content-Security-Policy a
 
 3. Defina o Operador como **Acréscimo** para adicionar esse cabeçalho como uma resposta a todas as solicitações de entrada para essa rota.
 
-4. Adicione o nome do cabeçalho: **Content-Security-Policy** e defina os valores que esse cabeçalho deverá aceitar. Nesse cenário, escolhemos *"script-src 'self' https://apis.contoso.com".*
+4. Adicione o nome do cabeçalho: **Content-Security-Policy** e defina os valores que esse cabeçalho deverá aceitar. Nesse cenário, escolhemos *"script-src 'self' https://apiphany.portal.azure-api.net".*
 
 5. Depois de adicionar todas as regras desejadas à configuração, não se esqueça de acessar sua rota preferencial e associar a configuração do mecanismo de regras à regra de rota. Essa etapa é necessária para permitir que a regra funcione. 
 

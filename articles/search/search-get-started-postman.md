@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
-ms.openlocfilehash: c68c813c9c9ecdcb7c7b75102940aa1f1a57b4f0
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 07c5e73ecd53bad0e5d5ec7959b288e0b6237a87
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562158"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171917"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure no Postman usando APIs REST
 > [!div class="op_single_selector"]
@@ -57,14 +57,16 @@ Nesta seção, use a sua ferramenta da Web de sua escolha para configurar as con
 
 Para qualquer uma dessas ferramentas, você precisa escolher um comando (GET, POST, PUT e assim por diante) fornecer um ponto de extremidade de URL e para algumas tarefas, fornecer o JSON no corpo da solicitação. Substitua o nome do serviço de pesquisa (YOUR-SEARCH-SERVICE-NAME) por um valor válido. Adicione `$select=name` para retornar apenas o nome de cada índice. 
 
-    https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name
+> `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name`
 
 Observe o prefixo HTTPS, o nome do serviço, o nome de um objeto (nesse caso, a coleção de índices) e a [versão da API](search-api-versions.md). A versão da API é uma cadeia de caracteres em minúsculas obrigatória especificada como `?api-version=2020-06-30` para a versão atual. As versões de API são atualizadas regularmente. Incluir a versão de API em cada solicitação lhe dá controle total sobre qual é usada.  
 
 A composição do cabeçalho da solicitação inclui dois elementos, o tipo de conteúdo e a chave de API usada para autenticar a Pesquisa Cognitiva do Azure. Substitua a chave de API de administração (SUA-CHAVE-DE-API-DE-ADMINISTRAÇÃO-DO-AZURE-SEARCH) por um valor válido. 
 
-    api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
-    Content-Type: application/json
+```http
+api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
+Content-Type: application/json
+```
 
 No Postman, formule uma solicitação semelhante à captura de tela a seguir. Escolha **GET** como o verbo, forneça a URL e clique em **Enviar**. Esse comando se conecta à Pesquisa Cognitiva do Azure, lê a coleção de índices e retorna o código de status HTTP 200 em uma conexão bem-sucedida. Se o serviço já tiver índices, a resposta também incluirá as definições de índice.
 

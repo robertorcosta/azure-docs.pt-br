@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 9951610732cbb1c5884a7b7e830033f427db0ab1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4cd21669b30b8ec83d6a0538c90d4cec5cafe32a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75646000"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244983"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implantar um aplicativo do Service Fabric em um cluster no Azure
 
@@ -53,7 +53,7 @@ Abra o aplicativo no Visual Studio executando como administrador e crie-o.
 
 ## <a name="create-a-cluster"></a>Criar um cluster
 
-Agora que o aplicativo está pronto, crie um cluster do Service Fabric e, em seguida, implante o aplicativo no cluster. Um [cluster do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere) é um conjunto de máquinas físicas ou virtuais conectadas em rede, no qual os microsserviços são implantados e gerenciados.
+Agora que o aplicativo está pronto, crie um cluster do Service Fabric e, em seguida, implante o aplicativo no cluster. Um [cluster do Service Fabric](./service-fabric-deploy-anywhere.md) é um conjunto de máquinas físicas ou virtuais conectadas em rede, no qual os microsserviços são implantados e gerenciados.
 
 Neste tutorial, você criará um cluster de teste de três nós no IDE do Visual Studio e, em seguida, publicará o aplicativo nesse cluster. Confira o [tutorial Criar e gerenciar um cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) para obter informações sobre como criar um cluster de produção. Implante também o aplicativo em um cluster existente que você criou anteriormente por meio do [portal do Azure](https://portal.azure.com), usando scripts do [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) ou da [CLI do Azure](./scripts/cli-create-cluster.md) ou com base em um [modelo do Azure Resource Manager](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 

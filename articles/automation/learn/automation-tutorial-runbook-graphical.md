@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: 3cd5db3736d5eda88e7cad7bda1966efb2b00977
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 53031efa831f788fe0fe58146496b427f4cfb4db
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744747"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185527"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Tutorial: Criar runbook gráfico
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 Para concluir este tutorial, você precisará do seguinte:
 
 * Assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Conta de automação](../automation-offering-get-started.md) para manter o runbook e se autenticar nos recursos do Azure. Esta conta deve ter permissão para iniciar e parar a máquina virtual.
+* [Conta de automação](../index.yml) para manter o runbook e se autenticar nos recursos do Azure. Esta conta deve ter permissão para iniciar e parar a máquina virtual.
 * Uma máquina virtual do Azure. Já que você para e inicia essa máquina, portanto, ela não deve ser uma VM de produção.
 
 ## <a name="step-1---create-runbook"></a>Etapa 1: criar o runbook
@@ -146,7 +146,7 @@ Você testou e publicou seu runbook, mas, até o momento, ele não faz nada úti
 
 ## <a name="step-6---add-authentication"></a>Etapa 6 – Adicionar a autenticação
 
-Agora que você tem uma variável para manter a ID da assinatura, você pode configurar o runbook para autenticar usando as credenciais Executar Como da sua assinatura. Faça isso adicionando a conexão Executar Como do Azure como um ativo. Você também deve adicionar o cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount?view=azps-3.5.0) e o cmdlet [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/Set-AzContext?view=azps-3.5.0) à tela.
+Agora que você tem uma variável para manter a ID da assinatura, você pode configurar o runbook para autenticar usando as credenciais Executar Como da sua assinatura. Faça isso adicionando a conexão Executar Como do Azure como um ativo. Você também deve adicionar o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount?view=azps-3.5.0) e o cmdlet [Set-AzContext](/powershell/module/az.accounts/Set-AzContext?view=azps-3.5.0) à tela.
 
 >[!NOTE]
 >Para runbooks do PowerShell, `Add-AzAccount` e `Add-AzureRMAccount` são aliases para `Connect-AzAccount`. Observe que esses aliases não estão disponíveis para seus runbooks gráficos. Um runbook gráfico só pode usar `Connect-AzAccount`ele próprio.
@@ -213,7 +213,7 @@ Agora que você tem uma variável para manter a ID da assinatura, você pode con
 
 ## <a name="step-7---add-activity-to-start-a-virtual-machine"></a>Etapa 7: adicionar a atividade para iniciar uma máquina virtual
 
-Agora você precisa adicionar uma atividade `Start-AzVM` para iniciar uma máquina virtual. Você pode escolher qualquer VM em sua assinatura do Azure e, por enquanto, você está codificando o nome dessa assinatura no cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/az.compute/start-azvm?view=azps-3.5.0).
+Agora você precisa adicionar uma atividade `Start-AzVM` para iniciar uma máquina virtual. Você pode escolher qualquer VM em sua assinatura do Azure e, por enquanto, você está codificando o nome dessa assinatura no cmdlet [Start-AzVM](/powershell/module/az.compute/start-azvm?view=azps-3.5.0).
 
 1. No controle Biblioteca, digite `Start-Az` no campo de pesquisa.
 
@@ -270,7 +270,7 @@ Seu runbook atualmente inicia a VM no grupo de recursos que você especificou pa
 
 ## <a name="step-9---create-a-conditional-link"></a>Etapa 9: criar um link condicional
 
-Agora, você poderá modificar o runbook para que ele tente iniciar a VM apenas se ela ainda não tiver iniciado. Faça isso adicionando um cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) que recupera o status de nível de instância da VM. Em seguida, adicione um módulo de código do Fluxo de Trabalho do PowerShell chamado `Get Status` com um snippet de código do PowerShell para determinar se o estado da VM é em execução ou parado. Um link condicional do módulo `Get Status` apenas executa `Start-AzVM` se o estado de execução atual é interrompido. No final deste procedimento, o runbook usa o cmdlet `Write-Output` para gerar uma mensagem para informá-lo se a VM foi iniciada com êxito.
+Agora, você poderá modificar o runbook para que ele tente iniciar a VM apenas se ela ainda não tiver iniciado. Faça isso adicionando um cmdlet [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) que recupera o status de nível de instância da VM. Em seguida, adicione um módulo de código do Fluxo de Trabalho do PowerShell chamado `Get Status` com um snippet de código do PowerShell para determinar se o estado da VM é em execução ou parado. Um link condicional do módulo `Get Status` apenas executa `Start-AzVM` se o estado de execução atual é interrompido. No final deste procedimento, o runbook usa o cmdlet `Write-Output` para gerar uma mensagem para informá-lo se a VM foi iniciada com êxito.
 
 1. Abra o **MyFirstRunbook-Graphical** no editor gráfico.
 
@@ -354,5 +354,4 @@ Agora, você poderá modificar o runbook para que ele tente iniciar a VM apenas 
 * Para saber mais sobre a criação de gráficos, confira [Criar um runbook gráfico na Automação do Azure](../automation-graphical-authoring-intro.md).
 * Para começar a usar os runbooks do PowerShell, confira [Criar um runbook do PowerShell](automation-tutorial-runbook-textual-powershell.md).
 * Para começar a usar runbooks de Fluxo de Trabalho do PowerShell, confira [Criar um runbook de Fluxo de Trabalho do PowerShell](automation-tutorial-runbook-textual.md).
-* Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

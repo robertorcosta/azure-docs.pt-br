@@ -7,12 +7,12 @@ keywords: alteração, controle, controle de alterações, inventário, automaç
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 211b34b4424fa5bc9b82dc1cc2a2da574ffc5d96
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 63fe36a51b69648039c3a16be4267fc0c72e8a58
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743683"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185799"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Solucionar problemas com alterações em uma VM do Azure
 
@@ -35,7 +35,7 @@ Neste tutorial, você aprenderá a:
 Para concluir este tutorial, você precisará:
 
 * Uma assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Uma [Conta de Automação](automation-offering-get-started.md) para manter os runbooks inspetor e de ação e a tarefa do Observador.
+* Uma [Conta de Automação](./index.yml) para manter os runbooks inspetor e de ação e a tarefa do Observador.
 * Uma [máquina virtual](../virtual-machines/windows/quick-create-portal.md) a ser habilitada para o recurso.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
@@ -54,7 +54,7 @@ Primeiro, é necessário habilitar o Controle de Alterações e Inventário para
 
     ![Habilitar alteração](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
 
-3. Escolha o workspace do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json). Esse workspace coleta dados gerados por recursos como o Controle de Alterações e o Inventário. O workspace fornece um único local para examinar e analisar dados de várias fontes.
+3. Escolha o workspace do [Log Analytics](../azure-monitor/log-query/log-query-overview.md). Esse workspace coleta dados gerados por recursos como o Controle de Alterações e o Inventário. O workspace fornece um único local para examinar e analisar dados de várias fontes.
 
     [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -238,4 +238,4 @@ Neste tutorial, você aprendeu a:
 Passe para a visão geral do recurso de Controle de Alterações e Inventário para saber mais sobre ela.
 
 > [!div class="nextstepaction"]
-> [Visão geral do Controle de Alterações e Inventário](automation-change-tracking.md)
+> [Visão geral do Controle de Alterações e Inventário](./change-tracking.md)

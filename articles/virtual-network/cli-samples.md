@@ -15,18 +15,18 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 7193a186359de2e19f1e1c56a7c2ee3ac2695e1d
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 03041f7c0172312828487d934ab540972dc5e2c9
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707558"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232093"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>Exemplos de CLI do Azure para rede virtual
 
 A tabela a seguir inclui links para bash scripts com comandos de CLI do Azure:
 
-| | |
+| Script | Descrição |
 |----|----|
 | [Criar uma rede virtual para aplicativos de várias camadas](./scripts/virtual-network-cli-sample-multi-tier-application.md) | Cria uma rede virtual com sub-redes de front-end e back-end. O tráfego para a sub-rede de front-end é limitado a HTTP e SSH, enquanto o tráfego para a sub-rede de back-end é limitado a MySQL, porta 3306. |
 | [Emparelhar duas redes virtuais](./scripts/virtual-network-cli-sample-peer-two-virtual-networks.md) | Cria e conecta duas redes virtuais na mesma região. |

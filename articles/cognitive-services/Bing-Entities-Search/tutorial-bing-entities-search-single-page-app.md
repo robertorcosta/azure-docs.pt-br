@@ -10,18 +10,18 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: a376c5d223121774b6c707b3bdc8edce42649e42
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 53731540c4a2861c77c02b1a4b25b60fd0e23872
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800050"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184133"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicativo Web de página única
 
 A API de Pesquisa de Entidade do Bing permite pesquisar na Web informações sobre *entidades* e *locais.* É possível solicitar qualquer tipo de resultado, ou ambos, em uma determinada consulta. As definições de entidades e locais são fornecidas abaixo.
 
-|||
+| Result | Descrição |
 |-|-|
 |Entidades|Pessoas conhecidas, locais e coisas que você localiza pelo nome|
 |Locais|Restaurantes, hotéis e outras empresas locais que você encontra por nome *ou* por tipo (restaurantes italianos)|
@@ -141,7 +141,7 @@ A marca HTML `<body>` inclui um atributo `onload` que chama `getSearchSubscripti
 
 O formulário HTML inclui os seguintes controles:
 
-| | |
+| Control | Descrição |
 |-|-|
 |`where`|Um menu suspenso para selecionar o mercado (local e idioma) usado para a pesquisa.|
 |`query`|O campo de texto no qual inserir os termos de pesquisa.|
@@ -411,7 +411,7 @@ Por fim. `sidebar` refere-se aos resultados da pesquisa auxiliares. Eles podem s
 
 Cada item em uma coleção `rankingResponse` refere-se aos itens do resultado da pesquisa real de duas formas diferentes, mas equivalentes.
 
-| | |
+| Item | Descrição |
 |-|-|
 |`id`|O tipo `id` é semelhante a uma URL, mas não deve ser usado para links. O tipo `id` de um resultado de classificação corresponde à `id` de um item de resultado da pesquisa em uma coleção de respostas *ou* a uma coleção inteira de respostas (como `Entities`).
 |`answerType`<br>`resultIndex`|O `answerType` refere-se à coleção de respostas de nível superior que contém o resultado (por exemplo, `Entities`). O `resultIndex` refere-se ao índice do resultado nessa coleção. Se `resultIndex` estiver omitido, o resultado da classificação refere-se à coleção inteira.
@@ -452,7 +452,7 @@ searchItemRenderers = {
 
 Uma função de renderizador pode aceitar os seguintes parâmetros:
 
-| | |
+| Parâmetro | Descrição |
 |-|-|
 |`item`|O objeto do JavaScript que contém as propriedades do item, como a URL e a descrição.|
 |`index`|O índice do item de resultado na coleção.|

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: f4ba3754467efda852573989aa89bc8a4a99c469
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 1e1bac855ef943bdddcc82966ff3b824bcbe2ad0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84688257"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232212"
 ---
 # <a name="azure-powershell-samples-for-virtual-network"></a>Exemplos de Azure PowerShell para rede virtual
 
 A tabela a seguir inclui links para scripts de Azure PowerShell:
 
-| | |
+| Script | Descrição |
 |----|----|
 | [Criar uma rede virtual para aplicativos de várias camadas](./scripts/virtual-network-powershell-sample-multi-tier-application.md) | Cria uma rede virtual com sub-redes de front-end e back-end. O tráfego para a sub-rede de front-end é limitado a HTTP, enquanto o tráfego para a sub-rede de back-end é limitado a SQL, porta 1433. |
 | [Emparelhar duas redes virtuais](./scripts/virtual-network-powershell-sample-peer-two-virtual-networks.md) | Cria e conecta duas redes virtuais na mesma região. |

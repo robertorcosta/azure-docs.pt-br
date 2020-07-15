@@ -3,7 +3,7 @@ title: Tutorial de aplicativo de página única Angular – Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como aplicativos SPA Angular podem chamar uma API que exige tokens de acesso do ponto de extremidade da plataforma de identidade da Microsoft.
 services: active-directory
-author: hahamil
+author: hamiltonha
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6d869243f7f125ef7a795d6049d0b4f70fc51361
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 7cd2d5d8728e2a0539d5f106ab39c563e6e7c382
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322763"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231685"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo de página única Angular
 
@@ -138,7 +138,7 @@ Registre o valor **URI de Redirecionamento** como **http://localhost:4200/** e h
 3. Adicione as seguintes instruções de importação à parte superior de `src/app/app.component.ts`:
 
     ```javascript
-    import { MsalService } from '@azure/msal-angular';
+    import { MsalService, BroadcastService } from '@azure/msal-angular';
     import { Component, OnInit } from '@angular/core';
     ```
 ## <a name="sign-in-a-user"></a>Conectar um usuário
@@ -148,6 +148,8 @@ Adicione o seguinte código a `AppComponent` para conectar um usuário:
 ```javascript
 export class AppComponent implements OnInit {
     constructor(private broadcastService: BroadcastService, private authService: MsalService) { }
+    
+    ngOnInit() { }
 
     login() {
         const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;

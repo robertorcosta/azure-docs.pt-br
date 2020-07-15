@@ -4,16 +4,16 @@ description: Neste tutorial, você aprenderá a implantar um cluster do Service 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: dfcee93ffa5eea0b2aa0b9a93ff53ad7b61ea245
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: a7390858e55a456ec5fb2f851be1a7443be97082
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611655"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245017"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implantar um cluster do Service Fabric executando o Windows em uma rede virtual do Azure
 
-Este tutorial é a primeira parte de uma série. Você aprenderá como implantar um cluster do Microsoft Azure Service Fabric executando o Windows em uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) e em [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md) usando o PowerShell e um modelo. Ao terminar, você terá um cluster em execução na nuvem no qual você poderá implantar aplicativos. Para criar um cluster do Linux usando a CLI do Azure, consulte [Criar um cluster seguro do Linux no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Este tutorial é a primeira parte de uma série. Você aprenderá como implantar um cluster do Microsoft Azure Service Fabric executando o Windows em uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) e em [grupo de segurança de rede](../virtual-network/virtual-network-vnet-plan-design-arm.md) usando o PowerShell e um modelo. Ao terminar, você terá um cluster em execução na nuvem no qual você poderá implantar aplicativos. Para criar um cluster do Linux usando a CLI do Azure, consulte [Criar um cluster seguro do Linux no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 Este tutorial descreve um cenário de produção. Se você quiser criar um cluster pequeno para fins de teste, consulte [Criar um cluster de teste](./scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
@@ -48,7 +48,7 @@ Antes de começar este tutorial:
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Instale o [SDK do Service Fabric e o módulo do PowerShell](service-fabric-get-started.md).
-* Instale o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* Instale o [Azure PowerShell](/powershell/azure/install-az-ps).
 * Examine os conceitos principais dos [clusters do Azure](service-fabric-azure-clusters-overview.md).
 * [Planejar e preparar](service-fabric-cluster-azure-deployment-preparation.md) para uma implantação de cluster de produção.
 
@@ -111,7 +111,7 @@ As regras de tráfego de entrada a seguir estão habilitadas no recurso **Micros
 Se forem necessárias outras portas de aplicativo, você precisará ajustar o recurso **Microsoft.Network/loadBalancers** e o recurso **Microsoft.Network/networkSecurityGroups** para permitir o tráfego de entrada.
 
 ### <a name="windows-defender"></a>Windows Defender
-Por padrão, o [Windows Defender Antivírus](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) está instalado e funcional no Windows Server 2016. A interface do usuário é instalada por padrão em alguns SKUs, mas não é necessária. Para cada tipo de nó/conjunto de dimensionamento de VMs declarado no modelo, a [extensão Antimalware de VM do Azure](/azure/virtual-machines/extensions/iaas-antimalware-windows) é usada para excluir os diretórios e os processos do Service Fabric:
+Por padrão, o [Windows Defender Antivírus](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) está instalado e funcional no Windows Server 2016. A interface do usuário é instalada por padrão em alguns SKUs, mas não é necessária. Para cada tipo de nó/conjunto de dimensionamento de VMs declarado no modelo, a [extensão Antimalware de VM do Azure](../virtual-machines/extensions/iaas-antimalware-windows.md) é usada para excluir os diretórios e os processos do Service Fabric:
 
 ```json
 {
@@ -145,8 +145,8 @@ O arquivo de parâmetros [azuredeploy.parameters.json][parameters] declara muito
 
 **Parâmetro** | **Valor de exemplo** | **Observações** 
 |---|---|---|
-|adminUserName|vmadmin| Um nome de usuário de administrador para as VMs do cluster. [Requisitos de nome de usuário para máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
-|adminPassword|Password#1234| Uma senha de administrador para as VMs do cluster. [Requisitos de senha para máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
+|adminUserName|vmadmin| Um nome de usuário de administrador para as VMs do cluster. [Requisitos de nome de usuário para máquina virtual](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm). |
+|adminPassword|Password#1234| Uma senha de administrador para as VMs do cluster. [Requisitos de senha para máquina virtual](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 |clusterName|mysfcluster123| Nome do cluster. Pode conter apenas letras e números. O comprimento deve ter entre 3 e 23 caracteres.|
 |local|southcentralus| Localização do cluster. |
 |certificateThumbprint|| <p>O valor deve estar vazio se for criado um certificado auto-assinado ou for fornecido um arquivo de certificado.</p><p>Para usar um certificado existente que já foi carregado em um cofre de chaves, preencha o valor da impressão digital SHA1 do certificado. Por exemplo, "6190390162C988701DB5676EB81083EA608DCCF3".</p> |
@@ -703,7 +703,7 @@ Get-ServiceFabricClusterHealth
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Os outros artigos nesta série de tutoriais usam o cluster que você criou. Se você não for imediatamente para o próximo artigo, [exclua o cluster](service-fabric-cluster-delete.md) para evitar a cobrança de encargos.
+Os outros artigos nesta série de tutoriais usam o cluster que você criou. Se você não for imediatamente para o próximo artigo, [exclua o cluster](./service-fabric-tutorial-delete-cluster.md) para evitar a cobrança de encargos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

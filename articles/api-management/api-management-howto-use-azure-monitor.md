@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 989608b9a087599ab73864ae2605fbffcf3221d9
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 7f6c7a651e133122dab86d6ed81572f239718b43
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84982043"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243232"
 ---
 # <a name="monitor-published-apis"></a>Monitorar APIs publicadas
 
@@ -43,7 +43,7 @@ O vídeo a seguir mostra como monitorar o Gerenciamento de API usando o Azure Mo
 
 ## <a name="view-metrics-of-your-apis"></a>Exibir métricas das APIs
 
-O Gerenciamento de API emite métricas a cada minuto, permitindo uma visibilidade quase em tempo real do estado e da integridade de suas APIs. Abaixo estão as duas métricas usadas com mais frequência. Para obter uma lista de todas as métricas disponíveis, confira [métricas com suporte](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftapimanagementservice).
+O Gerenciamento de API emite métricas a cada minuto, permitindo uma visibilidade quase em tempo real do estado e da integridade de suas APIs. Abaixo estão as duas métricas usadas com mais frequência. Para obter uma lista de todas as métricas disponíveis, confira [métricas com suporte](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice).
 
 * Capacidade: ajuda a tomar decisões relacionadas a atualizar/fazer downgrade de seus serviços do APIM. A métrica é emitida por minuto e reflete a capacidade do gateway no momento da emissão dos relatórios. A métrica varia de 0 a 100 e é calculada com base nos recursos corretos do gateway, como a utilização da CPU e a memória.
 * Solicitações: ajuda você a analisar o tráfego de API que passa pelos serviços de APIM. A métrica é emitida por minuto e relata o número de solicitações de gateway com dimensões, incluindo códigos de resposta, localização, nome de host e erros. 

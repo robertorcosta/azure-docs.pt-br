@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 6a88ca1f028efcb3b9614df532b6d2dcc9dcfac8
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 3d4ccc6ecf18eb2eecc3ccc69ed97bf1094b2035
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800897"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206466"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutorial: criar um aplicativo de página única usando a API de Pesquisa de Imagem do Bing
 
@@ -118,7 +118,7 @@ Por padrão, o manipulador `onsubmit` retorna `false`, o que impede o envio do f
 
 A API de Pesquisa de Imagem do Bing oferece vários [parâmetros de consulta de filtro](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters) para restringir e filtrar os resultados da pesquisa. O formulário HTML neste aplicativo usa e exibe as seguintes opções de parâmetro:
 
-|              |                                                                                                                                                                                    |
+| Opção | Descrição |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `where`      | Um menu suspenso para selecionar o mercado (local e idioma) usado para a pesquisa.                                                                                             |
 | `query`      | O campo de texto no qual inserir os termos de pesquisa.                                                                                                                                 |

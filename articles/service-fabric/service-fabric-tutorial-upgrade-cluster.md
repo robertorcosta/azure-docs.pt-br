@@ -4,12 +4,12 @@ description: Neste tutorial, você aprende a usar o PowerShell para atualizar o 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: a21de9d76a010b01da95b050a521178d8808bbdf
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 23b3aabf8e991e512ef9a5c07d725c3084ea7f83
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756081"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244728"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Atualizar o runtime de um cluster do Service Fabric no Azure
 
@@ -42,7 +42,7 @@ Nesta série de tutoriais, você aprenderá a:
 Antes de começar este tutorial:
 
 * Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Instale o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou a [CLI do Azure](/cli/azure/install-azure-cli).
+* Instale o [Azure PowerShell](/powershell/azure/install-az-ps) ou a [CLI do Azure](/cli/azure/install-azure-cli).
 * Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro no Azure
 * Configurar um ambiente de desenvolvimento do Windows. Instale o [Visual Studio 2019](https://www.visualstudio.com) e as cargas de trabalho **Desenvolvimento do Azure**, **Desenvolvimento para a Web e ASP.NET** e **Desenvolvimento multiplataforma do .NET Core**.  Em seguida, configure um [ambiente de desenvolvimento .NET](service-fabric-get-started.md).
 

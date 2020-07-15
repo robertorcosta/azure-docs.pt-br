@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: b4ce4cd53f9dda3d0f96e892128d543e59c83b26
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fce613da352e55bae64db2912af23a07f4bf954f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100355"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200679"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Tutorial: Saiba mais sobre o gerenciamento de máquina virtual do Windows com o Azure PowerShell
 
@@ -63,7 +63,7 @@ New-AzRoleAssignment -ObjectId $adgroup.id `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-Se você receber um erro informando: **A Entidade de Segurança \<guid> não existe no diretório**, o novo grupo ainda não foi propagado por todo o Azure Active Directory. Tente executar o comando novamente.
+Se você receber um erro informando **Entidade de segurança \<guid> não existe no diretório**, o novo grupo ainda não foi propagado em todo o Azure Active Directory. Tente executar o comando novamente.
 
 Normalmente, você repete o processo para *Colaborador de Rede* e *Colaborador da Conta de Armazenamento*, visando certificar-se de que os usuários serão designados para gerenciar os recursos implantados. Neste artigo, você pode ignorar essas etapas.
 
@@ -217,6 +217,10 @@ Quando não forem mais necessários, você poderá usar o comando [Remove-AzReso
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup
 ```
+
+## <a name="manage-costs"></a>Gerenciar os custos
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

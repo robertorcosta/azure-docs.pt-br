@@ -4,12 +4,12 @@ description: Neste tutorial, você aprende a excluir um cluster do Service Fabri
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 802fdfc46344929930b1ffb015b364b4e2360cca
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 38ddc7173f54a34d68c41ce1180c8dbeaf3d7962
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75465374"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244952"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Tutorial: remover um cluster do Service Fabric em execução no Azure
 
@@ -37,7 +37,7 @@ Nesta série de tutoriais, você aprenderá a:
 Antes de começar este tutorial:
 
 * Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Instale o [Azure PowerShell](https://docs.microsoft.com/powershell/azure//install-Az-ps) ou a [CLI do Azure](/cli/azure/install-azure-cli).
+* Instale o [Azure PowerShell](/powershell/azure//install-az-ps) ou a [CLI do Azure](/cli/azure/install-azure-cli).
 * Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro no Azure
 
 ## <a name="delete-the-resource-group-containing-the-service-fabric-cluster"></a>Excluir o grupo de recursos que contém o cluster do Service Fabric
