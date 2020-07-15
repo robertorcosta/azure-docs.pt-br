@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: ea625fbe28dad08ec2c3e2a64bada96460a04225
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6c43906468ee0124187dc5ce6d6f1405e3b96b2e
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81415562"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231226"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparar o Azure Data Factory com a versão 1 do Data Factory
 
@@ -33,7 +33,7 @@ A tabela a seguir compara os recursos do Data Factory com os recursos da versão
 | Pipelines | Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um agrupamento lógico de atividades que juntas executam uma tarefa. Você utiliza startTime, endTime, isPaused para agendar e executar pipelines. | Pipelines são grupos de atividades que são realizadas nos dados. No entanto, o agendamento das atividades no pipeline foi separado em novos recursos de gatilho. Pense em pipelines na versão atual do Data Factory mais como "unidades de fluxo de trabalho" que você agenda separadamente por meio de gatilhos. <br/><br/>Os pipelines não possuem “períodos” de execução de tempo na versão atual do Data Factory. Os conceitos de startTime, endTime e isPaused do Data Factory V1 não estão mais presentes na versão atual do Data Factory. Para saber mais, consulte [Execução e gatilhos de pipelines](concepts-pipeline-execution-triggers.md) e [Pipelines e atividades](concepts-pipelines-activities.md). |
 | Atividades | Atividades definem ações a serem executadas em seus dados dentro de um pipeline. Há suporte para atividades de movimentação de dados (atividade de cópia) e atividades de transformação de dados (como Hive, Pig e MapReduce). | Na versão atual do Data Factory, as atividades ainda são ações definidas em um pipeline. A versão atual do data Factory introduz novas [atividades de fluxo de controle](concepts-pipelines-activities.md#control-flow-activities). Você pode usar essas atividades no fluxo de controle (loop e ramificação). Atividades de movimentação de dados e de transformação de dados com suporte na V1 também têm suporte na versão atual. Você pode definir as atividades de transformação sem usar conjuntos de dados na versão atual. |
 | Movimentação de dados híbridos e distribuição de atividades | Agora chamado de Integration Runtime, o [Gateway de Gerenciamento de Dados](v1/data-factory-data-management-gateway.md), oferecia suporte para a movimentação de dados entre o ambiente local e a nuvem.| O Gateway de Gerenciamento de Dados agora é chamado de Integration Runtime auto-hospedado. Ele fornece a mesma funcionalidade da versão 1. <br/><br/> O Integration Runtime do Azure-SSIS na versão atual do Data Factory também dá suporte à implantação e execução de pacotes SSIS (SQL Server Integration Services) na nuvem. Para obter mais informações, consulte [runtime de integração no Azure Data Factory](concepts-integration-runtime.md).|
-| parâmetros | NA | Parâmetros são pares de chave-valor de configurações somente leitura definidos em pipelines. Você pode passar argumentos para os parâmetros ao executar manualmente o pipeline. Se você estiver usando um gatilho de agendador, o gatilho também poderá passar valores para os parâmetros. As atividades no pipeline consomem os valores de parâmetro.  |
+| Parâmetros | NA | Parâmetros são pares de chave-valor de configurações somente leitura definidos em pipelines. Você pode passar argumentos para os parâmetros ao executar manualmente o pipeline. Se você estiver usando um gatilho de agendador, o gatilho também poderá passar valores para os parâmetros. As atividades no pipeline consomem os valores de parâmetro.  |
 | Expressões | O Data Factory V1 permite que você use funções e variáveis de sistema em consultas de seleção de dados e propriedades de atividade/conjunto de dados. | Na versão atual do Data Factory, você pode usar expressões em qualquer lugar em um valor de cadeia de caracteres JSON. Para saber mais, confira [Expressões e funções na versão atual do Data Factory](control-flow-expression-language-functions.md).|
 | Execuções de pipeline | NA | Uma instância única da uma execução do pipeline. Por exemplo, digamos que você tem um pipeline que é executado às 8h, 9h e 10h. Haveria três execuções de pipeline separadas nesse caso. Cada execução de pipeline possui uma ID de execução de pipeline exclusiva. A ID de execução de pipeline é um GUID que define exclusivamente essa execução de pipeline específica. As execuções de pipeline normalmente são instanciadas por meio da passagem de argumentos para parâmetros que são definidos nos pipelines. |
 | Execuções de atividade | NA | Uma instância de uma execução de atividade em um pipeline. | 
@@ -42,7 +42,7 @@ A tabela a seguir compara os recursos do Data Factory com os recursos da versão
 
 As seções a seguir fornecem mais informações sobre os recursos da versão atual. 
 
-## <a name="control-flow"></a>Controlar fluxo  
+## <a name="control-flow"></a>Fluxo de controle  
 Para dar suporte a diferentes fluxos e padrões de integração no data warehouse moderno, a versão atual do Data Factory habilitou um novo modelo de pipeline de dados flexível que não está mais vinculado aos dados de série temporal. Alguns dos fluxos comuns que agora estão disponíveis antes não eram possíveis. Eles estão descritos nas seções a seguir.   
 
 ### <a name="chaining-activities"></a>Encadeando atividades
@@ -51,7 +51,7 @@ Na versão 1, você precisava configurar a saída de uma atividade como uma entr
 ### <a name="branching-activities"></a>Atividades de ramificação
 Na versão atual, você pode ramificar atividades dentro de um pipeline. A [atividade If-Condition](control-flow-if-condition-activity.md) fornece a mesma funcionalidade que uma instrução `if` fornece em linguagens de programação. Ela avalia um conjunto de atividades quando a condição é avaliada como `true` e outro conjunto de atividades quando a condição é avaliada como `false`. Para obter exemplos de ramificação de atividades, confira o tutorial [Ramificação e encadeamento de atividades](tutorial-control-flow.md).
 
-### <a name="parameters"></a>parâmetros 
+### <a name="parameters"></a>Parâmetros 
 É possível definir parâmetros no nível do pipeline e passar argumentos enquanto você invoca o pipeline sob demanda ou de um gatilho. As atividades podem consumir os argumentos passados para o pipeline. Para saber mais, consulte [Pipelines e gatilhos](concepts-pipeline-execution-triggers.md). 
 
 ### <a name="custom-state-passing"></a>Passagem de estado personalizada
@@ -130,14 +130,14 @@ Os SDKs que foram atualizados para a versão atual não são retrocompatíveis c
 
 ## <a name="authoring-experience"></a>Experiência de criação
 
-| &nbsp; | V2 | V1 |
+| | Versão 2 | Versão 1 |
 | ------ | -- | -- | 
-| Portal do Azure | [Sim](quickstart-create-data-factory-portal.md) | Não |
-| Azure PowerShell | [Sim](quickstart-create-data-factory-powershell.md) | [Sim](data-factory-build-your-first-pipeline-using-powershell.md) |
-| SDK .NET | [Sim](quickstart-create-data-factory-dot-net.md) | [Sim](data-factory-build-your-first-pipeline-using-vs.md) |
-| API REST | [Sim](quickstart-create-data-factory-rest-api.md) | [Sim](data-factory-build-your-first-pipeline-using-rest-api.md) |
-| SDK do Python | [Sim](quickstart-create-data-factory-python.md) | Não |
-| Modelo do Resource Manager | [Sim](quickstart-create-data-factory-resource-manager-template.md) | [Sim](data-factory-build-your-first-pipeline-using-arm.md) | 
+| **Azure portal** | [Sim](quickstart-create-data-factory-portal.md) | Não |
+| **PowerShell do Azure** | [Sim](quickstart-create-data-factory-powershell.md) | [Sim](data-factory-build-your-first-pipeline-using-powershell.md) |
+| **SDK .NET** | [Sim](quickstart-create-data-factory-dot-net.md) | [Sim](data-factory-build-your-first-pipeline-using-vs.md) |
+| **REST API** | [Sim](quickstart-create-data-factory-rest-api.md) | [Sim](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| **SDK do Python** | [Sim](quickstart-create-data-factory-python.md) | Não |
+| **Modelo do Resource Manager** | [Sim](quickstart-create-data-factory-resource-manager-template.md) | [Sim](data-factory-build-your-first-pipeline-using-arm.md) | 
 
 ## <a name="roles-and-permissions"></a>Funções e permissões
 

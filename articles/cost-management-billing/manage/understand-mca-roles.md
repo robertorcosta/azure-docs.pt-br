@@ -6,12 +6,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 1003e26fa670a804328d5e34def7c9d78eced9c0
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 76aa21aea647e5096ba47fb691622ea5146d9901
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84702594"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207209"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Entender as funções administrativas do Contrato de Cliente da Microsoft no Azure
 
@@ -23,7 +23,7 @@ Este artigo aplica-se a uma conta de cobrança para um Contrato de Cliente da Mi
 
 A tabela a seguir descreve as funções de cobrança usadas para gerenciar sua conta de cobrança, os perfis de cobrança e as seções da fatura.
 
-|Função|DESCRIÇÃO|
+|Função|Descrição|
 |---|---|
 |Proprietário da conta de cobrança|Gerencia tudo para a conta de cobrança|
 |Colaborador da conta de cobrança|Gerencia tudo, exceto as permissões na conta de cobrança|
@@ -141,12 +141,12 @@ As tabelas a seguir mostram a função que você precisa para concluir tarefas n
 
 ### <a name="manage-invoice-section-permissions-and-properties"></a>Gerencia permissões e propriedades da seção da fatura
 
-|Tarefas|Proprietário da seção da fatura|Colaborador da seção da fatura|Leitor da seção da fatura|Criador de assinatura do Azure|Proprietário da conta de cobrança|Colaborador da conta de cobrança|Leitor da conta de cobrança | |
-|---|---|---|---|---|---|---|---|---|
-|Exibir todas as permissões na seção da fatura|✔|✔|✔|✔|✔|✔|✔| |
-|Concede a outros usuários as permissões para exibir e gerenciar a seção da fatura|✔|✘|✘|✘|✘|✘|✘| |
-|Exibir propriedades da seção da fatura|✔|✔|✔|✔|✔|✔|✔| |
-|Atualizar propriedades da seção da fatura|✔|✔|✘|✘|✘|✘|✘|✘|
+|Tarefas|Proprietário da seção da fatura|Colaborador da seção da fatura|Leitor da seção da fatura|Criador de assinatura do Azure|Proprietário da conta de cobrança|Colaborador da conta de cobrança|Leitor da conta de cobrança |
+|---|---|---|---|---|---|---|---|
+|Exibir todas as permissões na seção da fatura|✔|✔|✔|✔|✔|✔|✔|
+|Concede a outros usuários as permissões para exibir e gerenciar a seção da fatura|✔|✘|✘|✘|✘|✘|✘|
+|Exibir propriedades da seção da fatura|✔|✔|✔|✔|✔|✔|✔|
+|Atualizar propriedades da seção da fatura|✔|✔|✘|✘|✘|✘|✘|
 
 ### <a name="manage-products-for-invoice-section"></a>Gerencia produtos da seção da fatura
 

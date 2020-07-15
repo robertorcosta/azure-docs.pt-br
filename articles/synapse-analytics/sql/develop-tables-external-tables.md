@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c795e6077bc5a7b755a388a6f50848ad6094d48
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 070d933394b19ea38a9632f25909812943f7bff8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921804"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255823"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Usar tabelas externas com Synapse SQL
 
@@ -101,10 +101,9 @@ LOCATION = `'<prefix>://<path>'` – Fornece o protocolo de conectividade e o ca
 | Fonte de dados externa        | Prefixo de local | Caminho de local                                         |
 | --------------------------- | --------------- | ----------------------------------------------------- |
 | Armazenamento do Blobs do Azure          | `wasb[s]`       | `<container>@<storage_account>.blob.core.windows.net` |
-|                             | `https`         | `<storage_account>.blob.core.windows.net/<container>/subfolders` |
-| Azure Data Lake Storage Gen 1 | `adl`           | `<storage_account>.azuredatalake.net`                 |
-| Azure Data Lake Storage Gen 2 | `abfs[s]`       | `<container>@<storage_account>.dfs.core.windows.net`  |
-|                             | `https`         | `<storage_account>.dfs.core.windows.net/<container>/subfolders`  |
+| Armazenamento do Blobs do Azure          | `http[s]`       | `<storage_account>.blob.core.windows.net/<container>/subfolders` |
+| Azure Data Lake Storage Gen 1 | `http[s]`       | `<storage_account>.azuredatalakestore.net/webhdfs/v1` |
+| Azure Data Lake Storage Gen 2 | `http[s]`       | `<storage_account>.dfs.core.windows.net/<container>/subfolders`  |
 
 O prefixo `https:` permite que você use subpasta no caminho.
 
