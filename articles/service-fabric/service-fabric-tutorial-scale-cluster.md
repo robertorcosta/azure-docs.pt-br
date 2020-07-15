@@ -4,12 +4,12 @@ description: Neste tutorial, você aprenderá a reduzir horizontalmente e expand
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: ed212083a29836e1da593ec42c31bbf86b907546
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 05fd29f874d59601942216f907010b94bb7c4058
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611638"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257097"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
 
@@ -38,7 +38,7 @@ Nesta série de tutoriais, você aprenderá a:
 Antes de começar este tutorial:
 
 * Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Instale o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou a [CLI do Azure](/cli/azure/install-azure-cli).
+* Instale o [Azure PowerShell](/powershell/azure/install-az-ps) ou a [CLI do Azure](/cli/azure/install-azure-cli).
 * Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro no Azure
 
 ## <a name="important-considerations-and-guidelines"></a>Considerações e diretrizes importantes
@@ -64,7 +64,7 @@ Para obter mais informações, consulte [diretrizes de capacidade de cluster](se
 
 ## <a name="export-the-template-for-the-resource-group"></a>Exportar o modelo para o grupo de recursos
 
-Após criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) e configurar o grupo de recursos com êxito, exporte o modelo do Resource Manager para o grupo de recursos. A exportação do modelo permitirá que você automatize futuras implantações do cluster e seus recursos, pois o modelo contém toda a infraestrutura completa.  Para obter mais informações sobre como exportar modelos, leia [Gerenciar grupos de recursos do Azure Resource Manager usando o portal do Azure](/azure/azure-resource-manager/manage-resource-groups-portal).
+Após criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) e configurar o grupo de recursos com êxito, exporte o modelo do Resource Manager para o grupo de recursos. A exportação do modelo permitirá que você automatize futuras implantações do cluster e seus recursos, pois o modelo contém toda a infraestrutura completa.  Para obter mais informações sobre como exportar modelos, leia [Gerenciar grupos de recursos do Azure Resource Manager usando o portal do Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 1. No [portal do Azure](https://portal.azure.com), vá para o grupo de recursos que contém o cluster (**sfclustertutorialgroup**, se você estiver seguindo este tutorial). 
 

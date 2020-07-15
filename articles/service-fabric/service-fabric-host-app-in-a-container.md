@@ -3,16 +3,16 @@ title: Implantar um aplicativo .NET em um contêiner do Azure Service Fabric
 description: Saiba como colocar um aplicativo existente do .NET em um contêiner usando o Visual Studio e depure os contêineres no Service Fabric localmente. O aplicativo colocado em um contêiner é enviado por push para um registro de contêiner do Azure e implantado em um cluster do Service Fabric. Quando implantado no Azure, o aplicativo usa o Banco de Dados SQL do Azure para manter os dados.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: aa99897da99ff1a1443e548e98ae415b6a8d49f5
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 4970cf6492da38ad76a51df88eeb73538c850c67
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234230"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258870"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implantar um aplicativo .NET em um contêiner do Windows no Azure Service Fabric
 
-Este tutorial mostra como colocar um aplicativo ASP.NET existente em um contêiner e empacotá-lo como um aplicativo do Service Fabric.  Execute os contêineres localmente no cluster de desenvolvimento do Service Fabric e, em seguida, implante o aplicativo no Azure.  O aplicativo persiste os dados no [Banco de Dados SQL do Azure](/azure/sql-database/sql-database-technical-overview).
+Este tutorial mostra como colocar um aplicativo ASP.NET existente em um contêiner e empacotá-lo como um aplicativo do Service Fabric.  Execute os contêineres localmente no cluster de desenvolvimento do Service Fabric e, em seguida, implante o aplicativo no Azure.  O aplicativo persiste os dados no [Banco de Dados SQL do Azure](../azure-sql/database/sql-database-paas-overview.md).
 
 Neste tutorial, você aprenderá como:
 
@@ -55,7 +55,7 @@ Neste tutorial, você aprenderá como:
 
 Ao executar o aplicativo da Fabrikam Fiber CallCenter em produção, os dados precisam ser mantidos em um banco de dados. Atualmente, não existe uma maneira de garantir a persistência de dados em um contêiner. Portanto, não é possível armazenar dados de produção no SQL Server em um contêiner.
 
-Recomendamos o [Banco de Dados SQL do Azure](/azure/sql-database/sql-database-get-started-powershell). Para configurar e executar um banco de dados gerenciado do SQL Server no Azure, execute o script a seguir.  Modificar as variáveis de script conforme necessário. *clientIP* é o endereço IP do seu computador de desenvolvimento. Anote o nome do servidor produzido pelo script.
+Recomendamos o [Banco de Dados SQL do Azure](../azure-sql/database/powershell-script-content-guide.md). Para configurar e executar um banco de dados gerenciado do SQL Server no Azure, execute o script a seguir.  Modificar as variáveis de script conforme necessário. *clientIP* é o endereço IP do seu computador de desenvolvimento. Anote o nome do servidor produzido pelo script.
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -126,7 +126,7 @@ Pressione **F5** para executar e depurar o aplicativo em um contêiner no cluste
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
 
-Agora que o aplicativo é executado localmente, comece a preparar a implantação no Azure.  As imagens de contêiner precisam ser armazenadas em um registro de contêiner.  Criar um [registro de contêiner do Azure](/azure/container-registry/container-registry-intro) usando o script a seguir. O nome do registro de contêiner é visível por outras assinaturas do Azure, portanto ele deve ser exclusivo.
+Agora que o aplicativo é executado localmente, comece a preparar a implantação no Azure.  As imagens de contêiner precisam ser armazenadas em um registro de contêiner.  Criar um [registro de contêiner do Azure](../container-registry/container-registry-intro.md) usando o script a seguir. O nome do registro de contêiner é visível por outras assinaturas do Azure, portanto ele deve ser exclusivo.
 Antes de implantar o aplicativo no Azure, você pode enviar por push a imagem de contêiner para esse registro.  Quando o aplicativo for implantado no cluster no Azure, a imagem de contêiner é extraída desse registro.
 
 ```powershell
@@ -179,7 +179,7 @@ Ao criar o cluster:
 
 ## <a name="allow-your-application-running-in-azure-to-access-sql-database"></a>Permita que o aplicativo em execução no Azure acesse o Banco de Dados SQL
 
-Anteriormente, você criou uma regra de firewall do SQL para conceder acesso ao seu aplicativo em execução localmente.  Em seguida, você precisa habilitar o aplicativo em execução no Azure para acessar o Banco de Dados SQL.  Crie um [ponto de extremidade de serviço de rede virtual](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) para o cluster do Service Fabric e, em seguida, crie uma regra para permitir que esse ponto de extremidade acesse o Banco de Dados SQL. Especifique a variável de grupo de recursos de cluster que você observou ao criar o cluster.
+Anteriormente, você criou uma regra de firewall do SQL para conceder acesso ao seu aplicativo em execução localmente.  Em seguida, você precisa habilitar o aplicativo em execução no Azure para acessar o Banco de Dados SQL.  Crie um [ponto de extremidade de serviço de rede virtual](../azure-sql/database/vnet-service-endpoint-rule-overview.md) para o cluster do Service Fabric e, em seguida, crie uma regra para permitir que esse ponto de extremidade acesse o Banco de Dados SQL. Especifique a variável de grupo de recursos de cluster que você observou ao criar o cluster.
 
 ```powershell
 # Create a virtual network service endpoint

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ad25ab219cdb83227d39f86109d18b2c8402c38f
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 035fc4840b08a0a9807c228cb5f63c191efc524a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612343"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256876"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Tutorial: Configurar alertas de serviço
 
@@ -58,4 +58,4 @@ Para configurar os alertas de serviço:
 Neste tutorial, você aprendeu a configurar e usar a Integridade do Serviço do Azure para monitorar problemas de serviço e consultorias de integridade da Área de Trabalho Virtual do Windows. Para saber mais sobre como entrar na Área de Trabalho Virtual do Windows, continue com as instruções de Conectar-se à Área de Trabalho Virtual do Windows.
 
 > [!div class="nextstepaction"]
-> [Conectar-se ao cliente da Área de Trabalho Remota no Windows 7 e no Windows 10](./connect-windows-7-and-10.md)
+> [Conectar-se ao cliente da Área de Trabalho Remota no Windows 7 e no Windows 10](./connect-windows-7-10.md)

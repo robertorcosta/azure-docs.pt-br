@@ -12,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: a45160db09b3f6bf68bda3f25e40a29a1154099d
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 19c94a4807b8958fa8b1ec46ccae660c7cbe92de
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308482"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256689"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Início Rápido: Configurar um locatário
 
@@ -34,7 +34,7 @@ Há dois tipos de ambientes que você pode criar. A decisão de qual você preci
 * Contas corporativas ou de estudante (contas do Azure AD) ou as contas Microsoft (como o outlook.com e o live.com)
 * Contas locais e sociais (Azure AD B2C)
 
-O guia de Início Rápido é dividido em dois cenários, dependendo do tipo de aplicativo que você deseja criar. Se você precisa de mais ajuda para direcionar um tipo de identidade, confira [Sobre a plataforma de identidade da Microsoft](about-microsoft-identity-platform.md)
+O guia de Início Rápido é dividido em dois cenários, dependendo do tipo de aplicativo que você deseja criar.
 
 ## <a name="work-and-school-accounts-or-personal-microsoft-accounts"></a>Contas corporativas ou de estudante ou contas pessoais da Microsoft
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: e6195409a08498527ec40a2ddd2f909a092c9d19
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 28b055cb343b7f894a28eee5fbe452d037fd6b0e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202818"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249483"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importar um aplicativo de API como uma API
 
@@ -33,7 +33,7 @@ Neste artigo, você aprenderá como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
-+ Verifique se há um aplicativo de API em sua assinatura. Para saber mais, veja a [Documentação do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/)
++ Verifique se há um aplicativo de API em sua assinatura. Para saber mais, veja a [Documentação do Serviço de Aplicativo](../app-service/index.yml)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

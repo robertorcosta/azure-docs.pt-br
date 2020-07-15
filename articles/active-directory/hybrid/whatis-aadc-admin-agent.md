@@ -11,12 +11,12 @@ ms.date: 09/04/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79f68635820125161ed4f5777e27a20de9e6fbe8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 43b69deb242fd1ad80d9cdc4667070d2dbfefcd5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80049390"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255601"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>O que é o Agente Administrativo do Azure AD Connect? 
 O Agente Administrativo do Azure AD Connect é um novo componente do Azure Active Directory Connect que pode ser instalado em um servidor do Azure Active Directory Connect. Ele é usado para coletar dados específicos de seu ambiente do Active Directory que ajudam um engenheiro de suporte da Microsoft a solucionar problemas quando você abre um caso de suporte. 
@@ -56,8 +56,8 @@ O engenheiro de Suporte da Microsoft não pode alterar nenhum dado do seu sistem
 ## <a name="what-if-i-dont-want-the-microsoft-support-engineer-to-access-my-data"></a>E se eu não quiser que o engenheiro de suporte da Microsoft acesse meus dados? 
 Depois que o agente for instalado, se você não quiser que o engenheiro de serviços da Microsoft acesse seus dados em uma chamada de suporte, poderá desabilitar a funcionalidade modificando o arquivo de configuração do serviço, conforme descrito abaixo: 
 
-1.    Abra **C:\Program Files\Microsoft Azure AD Connect Administration Agent\AzureADConnectAdministrationAgentService.exe.config** no bloco de notas.
-2.    Desabilite a configuração **UserDataEnabled**, conforme mostrado abaixo. Se a configuração **UserDataEnabled** existir e estiver definida como true, defina-a como false. Se a configuração não existir, adicione a configuração conforme mostrado abaixo.    
+1. Abra **C:\Program Files\Microsoft Azure AD Connect Administration Agent\AzureADConnectAdministrationAgentService.exe.config** no bloco de notas.
+2. Desabilite a configuração **UserDataEnabled**, conforme mostrado abaixo. Se a configuração **UserDataEnabled** existir e estiver definida como true, defina-a como false. Se a configuração não existir, adicione a configuração conforme mostrado abaixo.    
 
     ```xml
     <appSettings>
@@ -66,8 +66,8 @@ Depois que o agente for instalado, se você não quiser que o engenheiro de serv
     </appSettings>
     ```
 
-3.    Salve o arquivo de configuração.
-4.    Reinicie o serviço do Agente de Administração do Azure AD Connect, conforme mostrado abaixo
+3. Salve o arquivo de configuração.
+4. Reinicie o serviço do Agente de Administração do Azure AD Connect, conforme mostrado abaixo
 
 ![agente administrativo](media/whatis-aadc-admin-agent/adminagent2.png)
 

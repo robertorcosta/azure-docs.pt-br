@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c36d45919ae8a17026fc91f8e9040f3bb11d3eb0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 586641d721d0c29bcd6d7b42fc8ca9141df96c66
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75494951"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261308"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Tutorial: Depurar um aplicativo da Malha do Service Fabric em execução em seu cluster de desenvolvimento local
 
@@ -77,7 +77,7 @@ Atualmente, há um problema que faz com que a chamada para `using (HttpResponseM
 
 Se você receber o erro **Não há um cluster local do Service Fabric em execução**, verifique se o LCM (Gerenciador de Cluster Local) do Service Fabric está em execução e clique com o botão direito no ícone do LCM na barra de tarefas, depois clique em **Iniciar Cluster Local**. Depois de iniciado, retorne ao Visual Studio e pressione **F5**.
 
-Se você receber um erro **404** quando o aplicativo for iniciado, talvez suas variáveis de ambiente em **service.yaml** estejam incorretas. Certifique-se de que `ApiHostPort` e `ToDoServiceName` estejam definidas corretamente de acordo com as instruções em [Criar variáveis de ambiente](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables).
+Se você receber um erro **404** quando o aplicativo for iniciado, talvez suas variáveis de ambiente em **service.yaml** estejam incorretas. Certifique-se de que `ApiHostPort` e `ToDoServiceName` estejam definidas corretamente de acordo com as instruções em [Criar variáveis de ambiente](./service-fabric-mesh-tutorial-create-dotnetcore.md#create-environment-variables).
 
 Se você receber erros de compilação em **service.yaml**, use espaços, e não guias, para recuar linhas. Além disso, por enquanto, você deve compilar o aplicativo usando a localidade de inglês.
 

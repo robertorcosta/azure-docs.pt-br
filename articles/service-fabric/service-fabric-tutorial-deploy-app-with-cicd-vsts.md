@@ -4,12 +4,12 @@ description: Neste tutorial, você aprende a configurar a integração e a impla
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 11485d22abcf0b8e1eb13d8123ff21c7fe0079f8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 992d720d86fc2e7fedd8e7fd4b559220ff3c0512
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614130"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260357"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implantar um aplicativo com CI/CD em um cluster do Service Fabric
 
@@ -39,7 +39,7 @@ Antes de começar este tutorial:
 * [Instale o Visual Studio 2019](https://www.visualstudio.com/) e as cargas de trabalho **Desenvolvimento do Azure** e **Desenvolvimento para a Web e ASP.NET**.
 * [Instalar o SDK do Service Fabric](service-fabric-get-started.md)
 * Crie um cluster do Service Fabric do Windows no Azure; você pode [seguir este tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md) como exemplo
-* Criar uma [organização do Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student). Isso permite que você crie um projeto no Azure DevOps e use Azure Pipelines.
+* Criar uma [organização do Azure DevOps](/azure/devops/organizations/accounts/create-organization-msa-or-work-student). Isso permite que você crie um projeto no Azure DevOps e use Azure Pipelines.
 
 ## <a name="download-the-voting-sample-application"></a>Baixar o aplicativo de exemplo Votação
 

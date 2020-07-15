@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 10/1/2018
 ms.topic: overview
-ms.openlocfilehash: d6522d417556104a1ece703c725f3fbeab49d683
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e64cc158a18e604cbd022be5c91350c95258272c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75458977"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257800"
 ---
 # <a name="what-is-service-fabric-mesh"></a>O que é a Malha do Service Fabric?
 
@@ -42,7 +42,7 @@ Com a Malha do Service Fabric, você pode:
 
 - Implante e gerencie aplicativos sem a necessidade de provisionar e gerenciar explicitamente a infraestrutura.  A Malha do Service Fabric provisiona, atualiza, corrige e mantém a infraestrutura subjacente para você.
 - Configure a integração contínua usando as ferramentas integradas para empacotar e implantar facilmente os aplicativos.
-- Aproveite todos os recursos do Azure Resource Manager. Entre os exemplos desses recursos estão a trilha de auditoria e [controle de acesso baseado em função](/azure/role-based-access-control/overview)). Todos os recursos que você implanta no serviço de Malha do Azure Service Fabric são recursos do Azure Resource Manager. Esses recursos incluem aplicativos, serviços, segredos etc.
+- Aproveite todos os recursos do Azure Resource Manager. Entre os exemplos desses recursos estão a trilha de auditoria e [controle de acesso baseado em função](../role-based-access-control/overview.md)). Todos os recursos que você implanta no serviço de Malha do Azure Service Fabric são recursos do Azure Resource Manager. Esses recursos incluem aplicativos, serviços, segredos etc.
 - Implante e gerencie recursos usando o [Portal do Azure](https://portal.azure.com), modelos do Resource Manager ou bibliotecas da CLI do Azure/Azure PowerShell.
 - Configure o monitoramento operacional e alertas usando o [Application Insights](/azure/application-insights/) (ou a ferramenta de sua escolha) para capturar rastreamentos operacionais e de diagnóstico da plataforma.
 - Acessar as informações de diagnóstico de aplicativo emitidas do modelo de aplicativo usando [Application Insights](/azure/application-insights/) ou sua ferramenta preferida.
@@ -50,14 +50,14 @@ Com a Malha do Service Fabric, você pode:
 
 ## <a name="mission-critical-platform-capabilities"></a>Recursos de plataforma fundamentais
 
-A Malha do Service Fabric cria uma coleção de clusters que abrange [Zonas de Disponibilidade do Azure](/azure/availability-zones/az-overview) e/ou limites regionais geopolíticos. A Malha do Service Fabric descreve aplicativos com um conjunto de intenções como dimensionamento, requisitos de hardware, requisitos de durabilidade e políticas de segurança.  Quando o aplicativo é implantado, a Malha do Service Fabric localiza o lugar ideal para executá-lo.
+A Malha do Service Fabric cria uma coleção de clusters que abrange [Zonas de Disponibilidade do Azure](../availability-zones/az-overview.md) e/ou limites regionais geopolíticos. A Malha do Service Fabric descreve aplicativos com um conjunto de intenções como dimensionamento, requisitos de hardware, requisitos de durabilidade e políticas de segurança.  Quando o aplicativo é implantado, a Malha do Service Fabric localiza o lugar ideal para executá-lo.
 
 Com a Malha do Service Fabric, você pode:
 
 - Aproveite a alta disponibilidade, dimensionamento horizontal/vertical, detectabilidade, orquestração, roteamento de mensagens, mensagens confiáveis, atualizações sem tempo de inatividade, gerenciamento de segurança/segredos, recuperação de desastres, gerenciamento de estado, gerenciamento de configuração e transações distribuídas.
 - Escolha entre vários modelos de aplicativo durante a criação de aplicativos.
 - Use os recursos de plataforma expostos por meio de pontos de extremidade REST consumindo associações específicas a um idioma geradas usando o Swagger.
-- Implante aplicativos em toda [Zonas de Disponibilidade](/azure/availability-zones/az-overview) e em várias regiões para gerar confiabilidade geográfica.
+- Implante aplicativos em toda [Zonas de Disponibilidade](../availability-zones/az-overview.md) e em várias regiões para gerar confiabilidade geográfica.
 - Use todos os recursos de segurança e conformidade fornecidos pelo Azure.
 
 ## <a name="next-steps"></a>Próximas etapas

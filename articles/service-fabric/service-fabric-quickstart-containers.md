@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 477d47fabc59c5718c449418f225d6a38838b270
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: da50fb9f331e91089bb6bf0fb373cab8045639f0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75466274"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260502"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Início Rápido: Implantar contêineres do Windows no Service Fabric
 
@@ -148,7 +148,7 @@ Abra um navegador e navegue até o endereço que você colocou no campo **Ponto 
 
 ## <a name="clean-up"></a>Limpar
 
-Você continuará incorrendo em encargos enquanto o cluster estiver em execução. Considere [excluir o cluster](service-fabric-cluster-delete.md).
+Você continuará incorrendo em encargos enquanto o cluster estiver em execução. Considere [excluir o cluster](./service-fabric-tutorial-delete-cluster.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
