@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69c7a7a8fe0ef346cb26e3b0b4f14d3dae7211b9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 654abe0900cd1cecd4964c344a01dafe40caeb85
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67372629"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166971"
 ---
 # <a name="tutorial-integrate-ungerboeck-software-with-azure-active-directory"></a>Tutorial: Integrar o Ungerboeck Software ao Azure Active Directory
 
@@ -84,23 +84,17 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     1. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão:
     
-       **Para o ambiente de produção**:
+    *  **Para o ambiente de produção**:
 
-       | |
-       |-|
-       | `https://<SUBDOMAIN>.ungerboeck.com/prod` |
-       | `https://<SUBDOMAIN>.ungerboeck.net/prod` |
-       | `https://<SUBDOMAIN>.ungerboeck.io/prod` |
-       | |
+       - `https://<SUBDOMAIN>.ungerboeck.com/prod`
+       - `https://<SUBDOMAIN>.ungerboeck.net/prod`
+       - `https://<SUBDOMAIN>.ungerboeck.io/prod`
 
-        **Para o ambiente de teste**:
+   * **Para o ambiente de teste**:
 
-       | |
-       |-|
-       | `https://<SUBDOMAIN>.ungerboeck.com/test` |
-       | `https://<SUBDOMAIN>.ungerboeck.net/test` |
-       | `https://<SUBDOMAIN>.ungerboeck.io/test` |
-       | |
+     - `https://<SUBDOMAIN>.ungerboeck.com/test`
+     - `https://<SUBDOMAIN>.ungerboeck.net/test`
+     - `https://<SUBDOMAIN>.ungerboeck.io/test`
 
    > [!NOTE]
    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais, o que é explicado mais adiante na seção **Configurar o logon único do Ungerboeck Software** do tutorial.

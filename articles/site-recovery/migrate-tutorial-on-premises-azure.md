@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: b978190776aee3c89d3beadde76d20c4327b012f
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.openlocfilehash: ccf83bacedb667e52e9865b6d451641faa0ac414
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80388909"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131189"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas locais para o Azure
 
@@ -132,21 +132,21 @@ Algumas etapas podem ser automatizadas como parte do processo de migração usan
 
 - Execute todos os ajustes no aplicativo após a migração, como atualizar as cadeias de conexão de banco de dados e as configurações do servidor Web. 
 - Execute o aplicativo final e o teste de aceitação da migração no aplicativo migrado que está sendo executado no Azure.
-- O [agente de VM do Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) gerencia a interação entre uma VM do Azure e o controlador de malha do Azure. É necessário para alguns serviços do Azure, como o Backup do Azure, Site Recovery e Segurança do Azure.
+- O [agente de VM do Azure](../virtual-machines/extensions/agent-windows.md) gerencia a interação entre uma VM do Azure e o controlador de malha do Azure. É necessário para alguns serviços do Azure, como o Backup do Azure, Site Recovery e Segurança do Azure.
     - Se você estiver migrando máquinas VMware e servidores físicos, o instalador do Serviço de Mobilidade instalará o agente de VM do Azure disponível nos computadores Windows. Em VMs do Linux, é recomendável instalar o agente após o failover.
     - Se você estiver migrando VMs do Azure para uma região secundária, o agente de VM do Azure precisará ser provisionado na VM antes da migração.
     - Se você estiver migrando VMs Hyper-V para o Azure, instale o agente de VM do Azure na VM do Azure após a migração.
 - Remova manualmente todos os provedores/agentes do Site Recovery da VM. Se você migrar VMs VMware ou servidores físicos, desinstale o Serviço de mobilidade do VM.
 - Para aumentar a resiliência:
-    - Proteja os dados fazendo backup das VMs do Azure por meio do serviço Backup do Azure. [Saiba mais]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
+    - Proteja os dados fazendo backup das VMs do Azure por meio do serviço Backup do Azure. [Saiba mais](../backup/quick-backup-vm-portal.md).
     - Mantenha as cargas de trabalho em execução e continuamente disponíveis ao replicar as VMs do Azure em uma região secundária com o Site Recovery. [Saiba mais](azure-to-azure-quickstart.md).
 - Para aumentar a segurança:
-    - Bloqueie e limite o acesso ao tráfego de entrada com a Central de Segurança do Azure [Administração just-in-time]( https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
-    - Restrinja o tráfego de rede a pontos de extremidade com os [Grupos de Segurança de Rede](https://docs.microsoft.com/azure/virtual-network/security-overview).
-    - Implante o [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) para manter os discos em segurança e proteger os dados contra roubo e acesso não autorizado.
+    - Bloqueie e limite o acesso ao tráfego de entrada com a Central de Segurança do Azure [Administração just-in-time](../security-center/security-center-just-in-time.md)
+    - Restrinja o tráfego de rede a pontos de extremidade com os [Grupos de Segurança de Rede](../virtual-network/security-overview.md).
+    - Implante o [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para manter os discos em segurança e proteger os dados contra roubo e acesso não autorizado.
     - Leia mais sobre [como proteger recursos IaaS]( https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/ ) e acesse a [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/ ).
 - Para monitoramento e gerenciamento:
-    - Considere implantar o [Gerenciamento de Custos do Azure](https://docs.microsoft.com/azure/cost-management/overview) para monitorar o uso de recursos e os gastos.
+    - Considere implantar o [Gerenciamento de Custos do Azure](../cost-management-billing/cloudyn/overview.md) para monitorar o uso de recursos e os gastos.
 
 ### <a name="post-migration-steps-on-premises"></a>Etapas locais após a migração
 

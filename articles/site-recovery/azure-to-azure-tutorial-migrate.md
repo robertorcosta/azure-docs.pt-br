@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 4882206692c334d6ab6af28feb5d2cba5277eea1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 09a00d2c6a889f396e5c18da29530c94a624568b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78303929"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134437"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -37,7 +37,7 @@ Neste tutorial, você irá:
 ## <a name="prerequisites"></a>Prerequisites
 
 - Verifique se as VMs do Azure estão na região do Azure a partir da qual você quer mover.
-- Verifique se [há suporte para sua escolha de combinação de região de origem – região de destino](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) e tome uma decisão informada sobre a região de destino.
+- Verifique se [há suporte para sua escolha de combinação de região de origem – região de destino](./azure-to-azure-support-matrix.md#region-support) e tome uma decisão informada sobre a região de destino.
 - Verifique se você entende os [componentes e a arquitetura do cenário](azure-to-azure-architecture.md).
 - Examine os [requisitos e limitações com suporte](azure-to-azure-support-matrix.md).
 - Verificar permissões da conta. Se você criou a conta gratuita do Azure, você será o administrador da assinatura. Se você não for o administrador da assinatura, trabalhe com o administrador para atribuir as permissões necessárias. Para habilitar a replicação de uma VM e essencialmente copiar dados usando o Azure Site Recovery, você deverá ter:
@@ -70,10 +70,10 @@ Neste tutorial, você irá:
      > O Azure Site Recovery descobre e cria automaticamente uma rede virtual quando você habilita a replicação para a VM de origem. Você também pode pré-criar uma rede e atribuí-la à VM no fluxo do usuário para habilitar a replicação. Conforme mencionado posteriormente, será necessário criar manualmente outros recursos na região de destino.
 
     Para criar os recursos de rede mais utilizados e relevantes com base na configuração da VM de origem, consulte a documentação a seguir:
-    - [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer)
+    - [Grupos de segurança de rede](../virtual-network/manage-network-security-group.md)
+    - [Balanceadores de carga](../load-balancer/index.yml)
     -  [IP público](../virtual-network/virtual-network-public-ip-address.md)
-    - Para quaisquer outros componentes de rede, consulte a [documentação da rede](https://docs.microsoft.com/azure/?pivot=products&panel=network).
+    - Para quaisquer outros componentes de rede, consulte a [documentação da rede](../index.yml?pivot=products&panel=network).
 
 
 
@@ -146,4 +146,3 @@ Neste tutorial, você moveu uma VM do Azure para uma região do Azure diferente.
 
 > [!div class="nextstepaction"]
 > [Configurar a recuperação de desastres após a migração](azure-to-azure-quickstart.md)
-

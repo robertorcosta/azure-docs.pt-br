@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: acaf16e7469b3ea4e5e391db91e37dc76be3b261
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d99a5feb344f970b10925b596726520b9dba9464
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78298523"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134021"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Mover VMs do Azure entre regiões públicas e do Azure Governamental 
 
@@ -32,7 +32,7 @@ Este tutorial mostra como mover VMs do Azure entre regiões públicas e do Azure
 > * Descartar os recursos na região de origem
 
 > [!IMPORTANT]
-> Este tutorial mostra como mover VMs do Azure entre regiões públicas e do Azure Governamental, ou entre pares de regiões que não são compatíveis com a solução de recuperação de desastre comum para VMs do Azure. Se seus pares de regiões de origem e destino são [compatíveis](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support), consulte esse [documento](azure-to-azure-tutorial-migrate.md) para informações sobre a movimentação. Se o requisito for melhorar a disponibilidade movendo as VMs em um conjunto de disponibilidade para VMs fixas em zonas em outra região, veja o tutorial [aqui](move-azure-VMs-AVset-Azone.md).
+> Este tutorial mostra como mover VMs do Azure entre regiões públicas e do Azure Governamental, ou entre pares de regiões que não são compatíveis com a solução de recuperação de desastre comum para VMs do Azure. Se seus pares de regiões de origem e destino são [compatíveis](./azure-to-azure-support-matrix.md#region-support), consulte esse [documento](azure-to-azure-tutorial-migrate.md) para informações sobre a movimentação. Se o requisito for melhorar a disponibilidade movendo as VMs em um conjunto de disponibilidade para VMs fixas em zonas em outra região, veja o tutorial [aqui](move-azure-VMs-AVset-Azone.md).
 
 > [!IMPORTANT]
 > Não é aconselhável usar esse método para configurar recuperação de desastre entre pares de região não compatíveis, pois os pares são definidos com latência de dados em mente, o que é essencial para um cenário de recuperação de desastre.
@@ -96,13 +96,13 @@ O serviço de mobilidade deve ser instalado em cada servidor que você deseja re
 
      Consulte os documentos a seguir para criar os recursos de rede mais comumente usados que são relevantes para você, com base na configuração da VM de origem.
 
-    - [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer)
+    - [Grupos de segurança de rede](../virtual-network/manage-network-security-group.md)
+    - [Balanceadores de carga](../load-balancer/index.yml)
     - [IP público](../virtual-network/virtual-network-public-ip-address.md)
     
-    Para outros componentes de rede, veja a [documentação](https://docs.microsoft.com/azure/?pivot=products&panel=network) da rede.
+    Para outros componentes de rede, veja a [documentação](../index.yml?pivot=products&panel=network) da rede.
 
-4. [Crie uma rede de não produção](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) manualmente na região de destino caso deseje testar a configuração antes de realizar a substituição final para a região de destino. Isso criará interferência mínima com a produção e é recomendado.
+4. [Crie uma rede de não produção](../virtual-network/quick-create-portal.md) manualmente na região de destino caso deseje testar a configuração antes de realizar a substituição final para a região de destino. Isso criará interferência mínima com a produção e é recomendado.
 
 ## <a name="copy-data-to-the-target-region"></a>Copiar os dados para a região de destino
 As etapas abaixo mostrarão como usar o Azure Site Recovery para copiar dados para a região de destino.
@@ -136,7 +136,7 @@ Defina o servidor de configuração, registre-o no cofre e descubra VMs.
 Antes de começar, faça o seguinte: 
 
 #### <a name="verify-time-accuracy"></a>Verificar a precisão de tempo
-Na máquina do servidor de configuração, certifique-se de que o relógio do sistema esteja sincronizado com um [Servidor de Horário](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). Ele deve ser correspondente. Se ele estiver 15 minutos adiantado ou atrasado, a instalação poderá falhar.
+Na máquina do servidor de configuração, certifique-se de que o relógio do sistema esteja sincronizado com um [Servidor de Horário](/windows-server/networking/windows-time-service/windows-time-service-top). Ele deve ser correspondente. Se ele estiver 15 minutos adiantado ou atrasado, a instalação poderá falhar.
 
 #### <a name="verify-connectivity"></a>Verificar conectividade
 Verifique se o computador pode acessar estas URLs com base no ambiente: 

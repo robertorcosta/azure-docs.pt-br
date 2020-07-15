@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 03826abf6da94859c510f4c127dfce035aa79370
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b46a2ea12a697afde8223cc3595365c1286512c7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75498164"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132451"
 ---
 # <a name="fail-over-hyper-v-vms-to-azure"></a>Fazer failover de VMs do Hyper-V no Azure
 
@@ -27,8 +27,8 @@ Este tutorial descreve como fazer failover de VMs do Hyper-V no Azure com o [Azu
 Este tutorial é o quinto tutorial de uma série. Presume-se que você já tenha concluído as tarefas nos tutoriais anteriores.    
 
 1. [Preparar o Azure](tutorial-prepare-azure.md)
-2. [Preparar Hyper-V local](tutorial-prepare-on-premises-hyper-v.md)
-3. Configurar a recuperação de desastres para as [VMs do Hyper-V](tutorial-hyper-v-to-azure.md) ou para [VMs do Hyper-V gerenciadas em nuvens do System Center VMM](tutorial-hyper-v-vmm-to-azure.md)
+2. [Preparar Hyper-V local](./hyper-v-prepare-on-premises-tutorial.md)
+3. Configurar a recuperação de desastres para as [VMs do Hyper-V](./hyper-v-azure-tutorial.md) ou para [VMs do Hyper-V gerenciadas em nuvens do System Center VMM](./hyper-v-vmm-azure-tutorial.md)
 4. [Realizar uma simulação de recuperação de desastre](tutorial-dr-drill-azure.md)
 
 [Saiba mais sobre](failover-failback-overview.md#types-of-failover) diferentes tipos de failover. Se você quiser fazer failover de várias VMs em um plano de recuperação, examine [este artigo](site-recovery-failover.md).

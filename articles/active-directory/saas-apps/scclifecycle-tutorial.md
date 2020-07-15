@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 83974a57fe080e76dee26781abaddf2b0b884839
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e60e1680b0155ed089eeb08fc41cb0b1ac6cb515
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67091484"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86168602"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Tutorial: Integração do Active Directory do Azure com o SCC LifeCycle
 
@@ -109,10 +109,8 @@ Para configurar o logon único do Azure AD com o SCC LifeCycle, execute as segui
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão:
     
-    | |
-    |--|
-    | `https://bs1.scc.com/<entity>`|
-    | `https://lifecycle.scc.com/<entity>`|
+    - `https://bs1.scc.com/<entity>`
+    - `https://lifecycle.scc.com/<entity>`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do SCC LifeCycle](mailto:lifecycle.support@scc.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

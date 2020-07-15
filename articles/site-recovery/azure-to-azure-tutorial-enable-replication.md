@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 145ae5f6f9204366052d9a182c61d76ff7ffa715
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: e7f7535cf66da721e1738da6d0efbf335d97a6da
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871500"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134497"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurar a recuperação de desastre para VMs do Azure
 
@@ -31,8 +31,8 @@ Este tutorial mostra como configurar a recuperação de desastre para o VMs do A
 
 Para concluir este tutorial:
 
-- Examine os [componentes e a arquitetura do cenário](concepts-azure-to-azure-architecture.md).
-- Analise os [requisitos de suporte](site-recovery-support-matrix-azure-to-azure.md) antes de começar.
+- Examine os [componentes e a arquitetura do cenário](./azure-to-azure-architecture.md).
+- Analise os [requisitos de suporte](./azure-to-azure-support-matrix.md) antes de começar.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
@@ -137,7 +137,7 @@ O Site Recovery cria as configurações padrão e a política de replicação pa
    | **Local de destino** | A região de destino usada para recuperação de desastre.<br/><br/> É recomendável que a localização de destino corresponda à localização do cofre do Site Recovery. |
    | **Grupo de recursos de destino** | O grupo de recursos na região de destino que contém as VMs do Azure após o failover.<br/><br/> Por padrão, o Site Recovery cria um grupo de recursos na região de destino com um sufixo `asr`. O local do grupo de recursos de destino pode ser qualquer região exceto a região em que as máquinas virtuais de origem estão hospedadas. |
    | **Rede virtual de destino** | A rede na região de destino na qual as VMs estarão localizadas após o failover.<br/><br/> Por padrão, o Site Recovery cria uma rede virtual (e sub-redes) na região de destino com um sufixo `asr`. |
-   | **Contas de armazenamento de cache** | O Site Recovery utiliza uma conta de armazenamento na região de origem. As alterações às VMs de origem são enviadas para essa conta, antes da replicação para a localização de destino.<br/><br/> Caso esteja usando a conta de armazenamento em cache habilitado para firewall, habilite a opção **Permitir serviços confiáveis da Microsoft**. [Saiba mais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions). Além disso, permita acesso a, pelo menos, uma sub-rede da VNet de origem. |
+   | **Contas de armazenamento de cache** | O Site Recovery utiliza uma conta de armazenamento na região de origem. As alterações às VMs de origem são enviadas para essa conta, antes da replicação para a localização de destino.<br/><br/> Caso esteja usando a conta de armazenamento em cache habilitado para firewall, habilite a opção **Permitir serviços confiáveis da Microsoft**. [Saiba mais](../storage/common/storage-network-security.md#exceptions). Além disso, permita acesso a, pelo menos, uma sub-rede da VNet de origem. |
    | **Contas de armazenamento de destino (a VM de origem não usa discos gerenciados)** | Por padrão, o Site Recovery cria uma nova conta de armazenamento na região de destino, para espelhar a conta de armazenamento da VM de origem.<br/><br/> Caso esteja usando a conta de armazenamento de cache com firewall habilitado, assegure-se de **Permitir serviços confiáveis da Microsoft**. |
    | **Discos gerenciados de réplica (se a VM de origem usar discos gerenciados)** | Por padrão, o Site Recovery cria discos gerenciados de réplica na região de destino para espelhar os discos gerenciados da VM de origem com o mesmo tipo de armazenamento (Standard ou Premium) do disco gerenciado da VM de origem. Só é possível personalizar o tipo de Disco. |
    | **Conjuntos de disponibilidade de destino** | Por padrão, o Azure Site Recovery cria um conjunto de disponibilidade na região de destino com um nome que tenha um sufixo `asr` para a parte de VMs de um conjunto de disponibilidade na região de origem. Caso o conjunto de disponibilidade criado pelo Azure Site Recovery já exista, ele será reutilizado. |

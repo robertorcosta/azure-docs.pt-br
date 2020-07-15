@@ -5,12 +5,12 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 12/16/2019
 ms.custom: MVC
-ms.openlocfilehash: 8501bb1a998eb08984a118bfa5d52d1e3f3e4f84
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bf47f08ac555cf60f59ba2b1a84750b6a9e2e0a1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75498087"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131997"
 ---
 # <a name="fail-over--vmware-vms"></a>Fazer failover de VMs do VMware
 
@@ -87,7 +87,7 @@ Em alguns cenários, o failover requer um processamento adicional que leva cerca
 
 ## <a name="connect-to-failed-over-vm"></a>Conectar-se à VM cujo failover foi realizado
 
-1. Se você quiser se conectar a VMs do Azure após fazer failover usando o protocolo RDP e o SSH (Secure Shell), [verifique se os requisitos foram atendidos]((ailover-failback-overview.md#connect-to-azure-after-failover).
+1. Se você quiser se conectar a VMs do Azure após fazer failover usando o protocolo RDP e o SSH (Secure Shell), [verifique se os requisitos foram atendidos](failover-failback-overview.md#connect-to-azure-after-failover).
 2. Após o failover, vá para a VM e valide [conectando](../virtual-machines/windows/connect-logon.md)-se a ela.
 3. Use **Alterar ponto de recuperação** se você quiser usar um ponto de recuperação diferente após o failover. Após você confirmar o failover na próxima etapa, essa opção não estará mais disponível.
 4. Após a validação, selecione **Confirmar** para finalizar o ponto de recuperação da VM após o failover.

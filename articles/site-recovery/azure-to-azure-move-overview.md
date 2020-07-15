@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 3f715af835df6783ae5d59dd073a042a553fba4d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0c7efc94bcde18e7b6ff43726602fa87641f3e76
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75498052"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130626"
 ---
 # <a name="moving-azure-vms-to-another-azure-region"></a>Mover máquinas virtuais do Azure para outra região do Azure
 
@@ -51,11 +51,11 @@ Esta seção descreve as arquiteturas de implantação mais comuns para um aplic
 
      ![Implantação de VM de instância única em camadas](media/move-vm-overview/regular-deployment.png)
 
-* **VMs em cada camada implantadas em conjuntos de disponibilidade**: Cada VM em uma camada é configurada em um conjunto de disponibilidade. Os [conjuntos de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) garantem que as VMs implantadas no Azure sejam distribuídas entre vários nós de hardware isolados em um cluster. Isso garante que, se ocorrer uma falha de hardware ou de software no Azure, apenas um subconjunto de suas VMs será afetado e a solução geral permanecerá disponível e operacional.
+* **VMs em cada camada implantadas em conjuntos de disponibilidade**: Cada VM em uma camada é configurada em um conjunto de disponibilidade. Os [conjuntos de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) garantem que as VMs implantadas no Azure sejam distribuídas entre vários nós de hardware isolados em um cluster. Isso garante que, se ocorrer uma falha de hardware ou de software no Azure, apenas um subconjunto de suas VMs será afetado e a solução geral permanecerá disponível e operacional.
 
      ![Implantação da VM em conjuntos de disponibilidade](media/move-vm-overview/avset.png)
 
-* **VMs em cada camada implantadas em Zonas de Disponibilidade**: Cada VM em uma camada é configurada em [Zonas de Disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Uma Zona de Disponibilidade em uma região do Azure é uma combinação de um domínio de falha e um domínio de atualização. Por exemplo, se você criar três ou mais VMs em três zonas em uma região do Azure, as VMs serão efetivamente distribuídas em três domínios de falha e três domínios de atualização. A plataforma do Azure reconhece essa distribuição nos domínios de atualização para garantir que as VMs em diferentes zonas não sejam atualizadas ao mesmo tempo.
+* **VMs em cada camada implantadas em Zonas de Disponibilidade**: Cada VM em uma camada é configurada em [Zonas de Disponibilidade](../availability-zones/az-overview.md). Uma Zona de Disponibilidade em uma região do Azure é uma combinação de um domínio de falha e um domínio de atualização. Por exemplo, se você criar três ou mais VMs em três zonas em uma região do Azure, as VMs serão efetivamente distribuídas em três domínios de falha e três domínios de atualização. A plataforma do Azure reconhece essa distribuição nos domínios de atualização para garantir que as VMs em diferentes zonas não sejam atualizadas ao mesmo tempo.
 
      ![Implantação de Zona de Disponibilidade](media/move-vm-overview/zone.png)
 

@@ -12,18 +12,18 @@ ms.date: 05/26/2020
 ms.author: erhopf
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 07f66edc19a9be202ee2e73de02f814a1afde38a
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: c3c3e2badfb9fe1678f09262e02809e9fa06560e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84611096"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147185"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>Início Rápido: Procure palavras com o dicionário bilíngue
 
 Neste início rápido, você aprenderá a obter traduções alternativas para um termo e também exemplos de uso dessas traduções alternativas usando o Tradutor.
 
-Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso Tradutor. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de assinatura.
+Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso Tradutor.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/dictionary-csharp.md)]

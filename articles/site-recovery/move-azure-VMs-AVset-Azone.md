@@ -7,15 +7,15 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 3efa8da87ac15495900dd264a9c37143f5e08181
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 7d92311dfa699247995c7ded3e3930e19a9a537a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84699712"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135468"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Mover as VMs do Azure para Zonas de Disponibilidade
-As Zonas de Disponibilidade do Azure ajudam a proteger seus aplicativos e seus dados contra falhas do datacenter. Cada Zona de disponibilidade é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física das Zonas de Disponibilidade dentro de uma região ajuda a proteger os aplicativos e os dados contra falhas do datacenter. Com as Zonas de Disponibilidade, o Azure oferece um SLA (contrato de nível de serviço) de 99,99% de tempo de atividade de VMs (máquinas virtuais). As Zonas de Disponibilidade são compatíveis com regiões selecionadas, conforme mencionado em [Regiões compatíveis com Zonas de Disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-region).
+As Zonas de Disponibilidade do Azure ajudam a proteger seus aplicativos e seus dados contra falhas do datacenter. Cada Zona de disponibilidade é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física das Zonas de Disponibilidade dentro de uma região ajuda a proteger os aplicativos e os dados contra falhas do datacenter. Com as Zonas de Disponibilidade, o Azure oferece um SLA (contrato de nível de serviço) de 99,99% de tempo de atividade de VMs (máquinas virtuais). As Zonas de Disponibilidade são compatíveis com regiões selecionadas, conforme mencionado em [Regiões compatíveis com Zonas de Disponibilidade](../availability-zones/az-region.md).
 
 Em um cenário em que você implantou as VMs como *instância única* em uma região específica e deseja melhorar a disponibilidade movendo-as para uma Zona de Disponibilidade, faça isso usando o Azure Site Recovery. Essa ação pode ser categorizada mais detalhadamente em:
 
@@ -23,11 +23,11 @@ Em um cenário em que você implantou as VMs como *instância única* em uma reg
 - Mover as VMs em um conjunto de disponibilidade para Zonas de Disponibilidade em uma região de destino
 
 > [!IMPORTANT]
-> Atualmente, o Azure Site Recovery dá suporte à movimentação de VMs de uma região para outra. Ele só dá suporte à movimentação entre zonas dentro de uma região em algumas regiões. [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery).
+> Atualmente, o Azure Site Recovery dá suporte à movimentação de VMs de uma região para outra. Ele só dá suporte à movimentação entre zonas dentro de uma região em algumas regiões. [Saiba mais](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
 
 ## <a name="check-prerequisites"></a>Verificar pré-requisitos
 
-- Verifique se a região de destino é [compatível com Zonas de Disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-region). Verifique se sua opção de [combinação de região de destino/região de origem é compatível](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support). Tome uma decisão informada na região de destino.
+- Verifique se a região de destino é [compatível com Zonas de Disponibilidade](../availability-zones/az-region.md). Verifique se sua opção de [combinação de região de destino/região de origem é compatível](./azure-to-azure-support-matrix.md#region-support). Tome uma decisão informada na região de destino.
 - Verifique se você entende os [componentes e a arquitetura do cenário](azure-to-azure-architecture.md).
 - Examine os [requisitos e limitações com suporte](azure-to-azure-support-matrix.md).
 - Verifique as permissões de conta. Se acabou de criar sua conta gratuita do Azure, você é o administrador da assinatura. Se você não for o administrador da assinatura, peça para o administrador atribuir as permissões necessárias. Para habilitar a replicação em uma VM e, mais tarde, copiar os dados para o destino usando o Azure Site Recovery, é necessário ter:
@@ -41,7 +41,7 @@ Em um cenário em que você implantou as VMs como *instância única* em uma reg
 
 ## <a name="prepare-the-source-vms"></a>Preparar as VMs de origem
 
-1. As VMs deverão usar discos gerenciados caso você deseje movê-las para uma Zona de Disponibilidade usando o Site Recovery. Você pode converter VMs do Windows existentes que usam discos não gerenciados para que passem a usar discos gerenciados. Siga as etapas em [Converter uma máquina virtual do Windows de discos não gerenciados em discos gerenciados](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks). Verifique se o conjunto de disponibilidade está configurado como *gerenciado*.
+1. As VMs deverão usar discos gerenciados caso você deseje movê-las para uma Zona de Disponibilidade usando o Site Recovery. Você pode converter VMs do Windows existentes que usam discos não gerenciados para que passem a usar discos gerenciados. Siga as etapas em [Converter uma máquina virtual do Windows de discos não gerenciados em discos gerenciados](../virtual-machines/windows/convert-unmanaged-to-managed-disks.md). Verifique se o conjunto de disponibilidade está configurado como *gerenciado*.
 2. Verifique se todos os certificados raiz mais recentes estão presentes nas VMs do Azure que deseja mover. Se os certificados raiz mais recentes não estiverem presentes, a cópia de dados para a região de destino não poderá ser habilitada devido a restrições de segurança.
 
 3. Para VMs Windows, instale todas as atualizações do Windows mais recentes na VM para que todos os certificados raiz confiáveis estejam no computador. Em um ambiente desconectado, siga os processos padrão de atualização e de atualização de certificado do Windows para sua organização.
@@ -66,16 +66,16 @@ Em um cenário em que você implantou as VMs como *instância única* em uma reg
 
      Os documentos a seguir informam como criar os recursos de rede mais comumente usados que são relevantes para você, com base na configuração da VM de origem.
 
-    - [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer)
+    - [Grupos de segurança de rede](../virtual-network/manage-network-security-group.md)
+    - [Balanceadores de carga](../load-balancer/index.yml)
     - [IP público](../virtual-network/virtual-network-public-ip-address.md)
     
-   Para outros componentes de rede, veja a [documentação](https://docs.microsoft.com/azure/?pivot=products&panel=network) da rede.
+   Para outros componentes de rede, veja a [documentação](../index.yml?pivot=products&panel=network) da rede.
 
     > [!IMPORTANT]
-    > Use um balanceador de carga com redundância de zona no destino. Você pode ler mais sobre isso em [Standard Load Balancer e Zonas de Disponibilidade](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
+    > Use um balanceador de carga com redundância de zona no destino. Você pode ler mais sobre isso em [Standard Load Balancer e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md).
 
-4. [Crie uma rede de não produção](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) manualmente na região de destino caso deseje testar a configuração antes de realizar a substituição para a região de destino. Recomendamos essa abordagem porque ela resulta em uma interferência mínima no ambiente de produção.
+4. [Crie uma rede de não produção](../virtual-network/quick-create-portal.md) manualmente na região de destino caso deseje testar a configuração antes de realizar a substituição para a região de destino. Recomendamos essa abordagem porque ela resulta em uma interferência mínima no ambiente de produção.
 
 ## <a name="enable-replication"></a>Habilitar a replicação
 As etapas a seguir orientarão você pelo uso do Azure Site Recovery para habilitar a replicação de dados para a região de destino antes que, mais tarde, eles sejam movidos para as Zonas de Disponibilidade.
@@ -85,7 +85,7 @@ As etapas a seguir orientarão você pelo uso do Azure Site Recovery para habili
 
 1. No portal do Azure, selecione **Máquinas virtuais** e selecione a VM que deseja mover para as Zonas de Disponibilidade.
 2. Em **Operações**, clique em **Recuperação de desastre**.
-3. Em **Configurar recuperação de desastre** > **Região de destino**, selecione a região de destino para a qual será replicada. Garanta que essa região [dê suporte](https://docs.microsoft.com/azure/availability-zones/az-region) às Zonas de Disponibilidade.
+3. Em **Configurar recuperação de desastre** > **Região de destino**, selecione a região de destino para a qual será replicada. Garanta que essa região [dê suporte](../availability-zones/az-region.md) às Zonas de Disponibilidade.
 
     ![Seleção de região de destino](media/azure-vms-to-zones/enable-rep-1.PNG)
 
@@ -149,5 +149,3 @@ Neste tutorial, você aumentou a disponibilidade de uma VM do Azure movendo-a pa
 
 > [!div class="nextstepaction"]
 > [Configurar a recuperação de desastres após a migração](azure-to-azure-quickstart.md)
-
-

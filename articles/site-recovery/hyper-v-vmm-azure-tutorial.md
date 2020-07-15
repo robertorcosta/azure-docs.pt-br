@@ -4,12 +4,12 @@ description: Saiba como configurar a recuperação de desastre de VMs locais do 
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.custom: MVC
-ms.openlocfilehash: a391d8eb3cf7bc43b52883cbf2e76170338c44c6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f32103adce184a67cec9e5a778ac1d1e6f330f4d
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067587"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130231"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurar a recuperação de desastre de VMs locais do Hyper-V em nuvens do VMM para o Azure
 
@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá como:
 > * Habilitar a replicação para uma VM.
 
 > [!NOTE]
-> Os tutoriais mostram o caminho de implantação mais simples para um cenário. Eles usam opções padrão quando possível e não mostram todas as possíveis configurações e caminhos. Para obter instruções detalhadas, leia o artigo na seção **Guias de Instruções** da [documentação do Site Recovery](/azure/site-recovery/).
+> Os tutoriais mostram o caminho de implantação mais simples para um cenário. Eles usam opções padrão quando possível e não mostram todas as possíveis configurações e caminhos. Para obter instruções detalhadas, leia o artigo na seção **Guias de Instruções** da [documentação do Site Recovery](./index.yml).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

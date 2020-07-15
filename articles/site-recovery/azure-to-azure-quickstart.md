@@ -4,12 +4,12 @@ description: Configure rapidamente a recuperação de desastres em outra região
 ms.topic: quickstart
 ms.date: 03/27/2020
 ms.custom: mvc
-ms.openlocfilehash: e26c2a1f24a88dc979f4ec68de65afc618740c00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8681ccaac30402927005e5e8802d7da2bddc2c5c
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371901"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135702"
 ---
 # <a name="quickstart-set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Início Rápido: Configurar a recuperação de desastre para uma região secundária do Azure para uma VM do Azure
 
@@ -22,7 +22,7 @@ Este início rápido descreve como configurar a recuperação de desastre para u
 Para concluir este tutorial, você precisa de uma assinatura do Azure e de uma VM.
 
 - Caso não tenha uma conta do Azure com uma assinatura ativa, [crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- É recomendável uma VM com um mínimo de 1 GB de RAM. [Saiba mais](/azure/virtual-machines/windows/quick-create-portal) sobre como criar uma VM.
+- É recomendável uma VM com um mínimo de 1 GB de RAM. [Saiba mais](../virtual-machines/windows/quick-create-portal.md) sobre como criar uma VM.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 

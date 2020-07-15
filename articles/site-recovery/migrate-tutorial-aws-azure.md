@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 929bc0695bda2e64f77f7e9286e06cee787822ba
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.openlocfilehash: 1070230d968a6239a5a4aab5ac412280393d17da
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80388960"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133173"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar das VMs do AWS (Amazon Web Services) para o Azure
 
@@ -133,7 +133,7 @@ Em **Você concluiu o planejamento de implantação?** , selecione **Farei isso 
 Na página **Preparar fonte**, selecione **+ Servidor de Configuração**.
 
 1. Use uma instância de EC2 em execução no Windows Server 2012 R2 para criar um servidor de configuração e registre-o no cofre de recuperação.
-2. Configure o proxy na VM da instância de EC2 que está usando como o servidor de configuração para poder acessar as [URLs de serviço](site-recovery-support-matrix-to-azure.md).
+2. Configure o proxy na VM da instância de EC2 que está usando como o servidor de configuração para poder acessar as [URLs de serviço](./vmware-physical-azure-support-matrix.md).
 3. Baixe a [Configuração Unificada do Microsoft Azure Site Recovery](https://aka.ms/unifiedinstaller_wus). Você pode baixá-lo no computador local e copiá-lo para a VM que está sendo utilizada como o servidor de configuração.
 4. Selecione o botão **Baixar** para baixar a chave de registro do cofre. Copie o arquivo baixado para a VM que está sendo utilizada como o servidor de configuração.
 5. Na VM, clique com o botão direito do mouse no instalador que você baixou para a Configuração Unificada do Microsoft Azure Site Recovery e, em seguida, selecione **Executar como administrador**.

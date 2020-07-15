@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94012a6830e59658562ed3e7485dad698f74974f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 155222dcbc3fed33ba4f9098986e3fb4f74a3dc3
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67091114"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86168772"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Tutorial: integração do Azure Active Directory com o Sedgwick CMS
 
@@ -108,17 +108,13 @@ Para configurar o logon único do Microsoft Azure Active Directory com o Sedgwic
 
     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
-    | |
-    |--|
-    | `expresspreview.sedgwickcms.net/voe/sso` |
-    | `claimlookup.com/Voe/sso` |
+    - `expresspreview.sedgwickcms.net/voe/sso`
+    - `claimlookup.com/Voe/sso`
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
 
-    | |
-    |--|
-    | `https://<subdomain>.sedgwickcms.net/voe/sso` |
-    | `https://claimlookup.com/Voe/sso` |
+    - `https://<subdomain>.sedgwickcms.net/voe/sso`
+    - `https://claimlookup.com/Voe/sso`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do cliente do Sedgwick CMS](https://www.sedgwick.com/help) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

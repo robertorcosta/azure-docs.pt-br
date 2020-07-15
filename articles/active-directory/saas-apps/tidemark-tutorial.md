@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: cb9a6a79aa75f646370d05a6a55ec75533d42038
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2fd26acfd857ab868c003d0de901f6d168d63078
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67088715"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86167514"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Tutorial: integração do Active Directory do Azure com o Tidemark
 
@@ -107,19 +107,14 @@ Para configurar o logon único do Azure AD com o Tidemark, realize as seguintes 
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
 
-    | |
-    |--|
-    | `https://<subdomain>.tidemark.com/login` |
-    | `https://<subdomain>.tidemark.net/login` |
-    | |
+    - `https://<subdomain>.tidemark.com/login`
+    - `https://<subdomain>.tidemark.net/login`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão:
 
-    | |
-    |--|
-    | `https://<subdomain>.tidemark.com/saml` |
-    | `https://<subdomain>.tidemark.net/saml` |
-    | |
+
+    - `https://<subdomain>.tidemark.com/saml`
+    - `https://<subdomain>.tidemark.net/saml`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do Tidemark](http://www.tidemark.com/contact-us) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

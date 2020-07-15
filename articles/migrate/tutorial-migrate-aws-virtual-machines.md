@@ -4,12 +4,12 @@ description: Este artigo descreve como migrar VMs AWS para o Azure com as Migra�
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: MVC
-ms.openlocfilehash: 6eeff73bdcac214eb3836731fcbfd2f9410c6045
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5d697c2146144ca7f4b9a8739b6863ba31845f4e
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102796"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165423"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Descubra, avalie e migre as VMs AWS (Amazon Web Services) para o Azure
 
@@ -77,9 +77,9 @@ Preparar o Azure para a migração com a ferramenta Migrações para Azure: Ferr
 
 Atribua a função Colaborador da Máquina Virtual à conta do Azure. Isso fornece permissões para:
 
-    - Criar uma VM no grupo de recursos selecionado.
-    - Criar uma VM na rede virtual selecionada.
-    - Gravar em um disco gerenciado do Azure. 
+- Criar uma VM no grupo de recursos selecionado.
+- Criar uma VM na rede virtual selecionada.
+- Gravar em um disco gerenciado do Azure. 
 
 ### <a name="create-an-azure-network"></a>Criar uma rede do Azure
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d26e8a21865304b2065a28da5e241f58cb5ab34c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 76ded60421c1f6d39328ec88e964876e3eb64d78
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68383227"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169044"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Tutorial: integração do Azure Active Directory com o Reflektive
 
@@ -107,11 +107,8 @@ Para configurar o logon único do Azure AD com o Reflektive, execute as seguinte
 
     Na caixa de texto **Identificador**, use uma das URLs abaixo de acordo com a confirmação da equipe de suporte do Reflektive:
 
-    | |
-    |--|
-    | `reflektive.com` |
-    | `https://www.reflektive.com/saml/metadata` |
-    | |
+    - `reflektive.com`
+    - `https://www.reflektive.com/saml/metadata`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 

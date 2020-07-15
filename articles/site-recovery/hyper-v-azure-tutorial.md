@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9a2bb636ba749cae50195cefeb8e7237d382fb99
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: afa8375805ebc5d52ac716126adca86850147166
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82182337"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134091"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar a recuperação de desastre de VMs locais do Hyper-V para o Azure
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Habilitar a replicação para uma VM.
 
 > [!NOTE]
-> Os tutoriais mostram o caminho de implantação mais simples para um cenário. Eles usam opções padrão quando possível e não mostram todas as possíveis configurações e caminhos. Para obter instruções detalhadas, leia o artigo na seção **Guias de Instruções** da [documentação do Site Recovery](https://docs.microsoft.com/azure/site-recovery).
+> Os tutoriais mostram o caminho de implantação mais simples para um cenário. Eles usam opções padrão quando possível e não mostram todas as possíveis configurações e caminhos. Para obter instruções detalhadas, leia o artigo na seção **Guias de Instruções** da [documentação do Site Recovery](./index.yml).
 
 
 
@@ -39,7 +39,7 @@ Neste tutorial, você aprenderá como:
 Este é o terceiro tutorial de uma série. Presume-se que você já tenha concluído as tarefas nos tutoriais anteriores:
 
 1. [Preparar o Azure](tutorial-prepare-azure.md)
-2. [Preparar Hyper-V local](tutorial-prepare-on-premises-hyper-v.md)
+2. [Preparar Hyper-V local](./hyper-v-prepare-on-premises-tutorial.md)
 
 ## <a name="select-a-replication-goal"></a>Selecione uma meta de replicação
 

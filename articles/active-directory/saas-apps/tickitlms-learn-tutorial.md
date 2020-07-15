@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df5c4cef9c2334328dc1291db95cfed3994d1709
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 0c860d821ff67b5eb95735e33dd0fda267f9c3bf
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80669012"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86167327"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tickitlms-learn"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao TickitLMS Learn
 
@@ -95,13 +95,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Além do indicado acima, o aplicativo TickitLMS Learn espera que mais alguns atributos sejam passados novamente na resposta SAML, os quais são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
     
-    | Nome |   |  Atributo de Origem|
-    | ---------------| --------------- | --------- |
-    | samlaccount |  | user.samlaccount |
-    | employeeid |  | user.employeeid |
-    | função |  | user.role |
-    | department |  | user.department |
-    | reportsto |  | user.reportsto |
+    | Nome | Atributo de Origem|
+    | ---- | --------------- |
+    | samlaccount | user.samlaccount |
+    | employeeid | user.employeeid |
+    | função | user.role |
+    | department | user.department |
+    | reportsto | user.reportsto |
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no computador.
 

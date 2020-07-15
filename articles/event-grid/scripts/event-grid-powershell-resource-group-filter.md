@@ -1,22 +1,15 @@
 ---
 title: Azure PowerShell – assinar o grupo de recursos
 description: Este artigo fornece um script de exemplo do Azure PowerShell que mostra como assinar eventos da Grade de Eventos para um grupo de recursos e filtrar um recurso.
-services: event-grid
-documentationcenter: na
-author: spelluru
-ms.service: event-grid
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: 5d41bfec5978d1baf38eaf1608f50375170d9929
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/08/2020
+ms.openlocfilehash: ebb9b1ce729d5a2690492401bc4fd351e86f3462
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76720598"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171203"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-powershell"></a>Assinar eventos de um grupo de recursos e filtrar por um recurso com o PowerShell
 

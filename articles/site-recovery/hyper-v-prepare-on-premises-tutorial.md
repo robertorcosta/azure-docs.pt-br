@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b36e4688ebd6e929a56869a6bb191d98b2f1f432
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6f24a259d2d71aa6599f6dd417d5e9fc99734e99
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84691094"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135647"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Preparar servidores Hyper-V locais para recuperação de desastre no Azure
 
@@ -56,12 +56,12 @@ Se os hosts do Hyper-V forem gerenciados pelo VMM, você precisará preparar o s
 
 ### <a name="prepare-vmm-for-network-mapping"></a>Preparar VMM para mapeamento de rede
 
-Se você estiver usando o VMM, o [mapeamento de rede](site-recovery-network-mapping.md) mapeará entre as redes de VM do VMM local e as redes virtuais do Azure. O mapeamento garante que as VMs do Azure serão conectadas à rede certa quando elas forem criadas após o failover.
+Se você estiver usando o VMM, o [mapeamento de rede](./hyper-v-vmm-network-mapping.md) mapeará entre as redes de VM do VMM local e as redes virtuais do Azure. O mapeamento garante que as VMs do Azure serão conectadas à rede certa quando elas forem criadas após o failover.
 
 Prepare o VMM para o mapeamento de rede da seguinte maneira:
 
-1. Verifique se você tem uma [rede lógica do VMM](https://docs.microsoft.com/system-center/vmm/network-logical) associada à nuvem em que os hosts do Hyper-V estão localizados.
-2. Verifique se você tem uma [rede de VM](https://docs.microsoft.com/system-center/vmm/network-virtual) vinculada à rede lógica.
+1. Verifique se você tem uma [rede lógica do VMM](/system-center/vmm/network-logical) associada à nuvem em que os hosts do Hyper-V estão localizados.
+2. Verifique se você tem uma [rede de VM](/system-center/vmm/network-virtual) vinculada à rede lógica.
 3. No VMM, conecte as VMs à rede de VM.
 
 ## <a name="verify-internet-access"></a>Verifique o acesso à Internet
@@ -94,5 +94,5 @@ Após o failover, você pode acessar as VMs do Azure usando o mesmo endereço IP
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Configurar a recuperação de desastres do Azure para VMs Hyper-V](tutorial-hyper-v-to-azure.md)
-> [Configurar a recuperação de desastres do Azure para VMs Hyper-V em nuvens do VMM](tutorial-hyper-v-vmm-to-azure.md)
+> [Configurar a recuperação de desastres do Azure para VMs Hyper-V](./hyper-v-azure-tutorial.md)
+> [Configurar a recuperação de desastres do Azure para VMs Hyper-V em nuvens do VMM](./hyper-v-vmm-azure-tutorial.md)

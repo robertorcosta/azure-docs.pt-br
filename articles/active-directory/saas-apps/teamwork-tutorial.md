@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0b407f29e4dda532ef12019f8d0a2a273832987
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a62bdc0f23f6769dca9914381a81674e470e695d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67595246"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86167769"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Tutorial: Integração do Azure Active Directory com o Teamwork.com
 
@@ -110,10 +110,8 @@ Para configurar o logon único do Azure AD com o Teamwork.com, execute as seguin
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite a URL:
 
-    | | |
-    |-|-|
-    | `https://teamwork.com/saml`|
-    | `https://eu.teamwork.com/saml`|
+    - `https://teamwork.com/saml`
+    - `https://eu.teamwork.com/saml`
 
     > [!NOTE]
     > Esse valor de URL de Entrada não é real. Atualize esse valor com a URL de Logon real. Para obter esse valor, entre em contato com a [equipe de suporte do Teamwork.com](mailto:support@teamwork.com). Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

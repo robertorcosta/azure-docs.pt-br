@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 30fc55cb608189e1be82c2b28393c5e242e262fd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: cfe2825915e52e1cbe1cb3d1015e0239e88d15e0
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160868"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86167191"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-webmethods-integration-suite"></a>Tutorial: Integração do Azure Active Directory ao webMethods Integration Suite
 
@@ -109,19 +109,16 @@ Para configurar o logon único do Azure AD com o webMethods Integration Suite, e
 
     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
-    | |
-    |--|
-    | `<SUBDOMAIN>.webmethodscloud.com` |
-    | `<SUBDOMAIN>.webmethodscloud.eu` |
-    | `<SUBDOMAIN>.webmethodscloud.de` |
+    - `<SUBDOMAIN>.webmethodscloud.com`
+    - `<SUBDOMAIN>.webmethodscloud.eu`
+    - `<SUBDOMAIN>.webmethodscloud.de`
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
 
-    | |
-    |--|
-    | `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoResponse` |
-    | `https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoResponse` |
-    | `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoResponse` |
+
+    - `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoResponse`
+    - `https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoResponse`
+    - `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoResponse`
 
     c. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
@@ -129,11 +126,9 @@ Para configurar o logon único do Azure AD com o webMethods Integration Suite, e
 
     d. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão:
 
-    | |
-    |--|
-    | `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoRequest` |
-    | `https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoRequest` |
-    | `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoRequest` |
+    - `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoRequest`
+    - `https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoRequest`
+    - `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoRequest`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao cliente do webMethods Integration Suite](https://empower.softwareag.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -144,19 +139,15 @@ Para configurar o logon único do Azure AD com o webMethods Integration Suite, e
 
     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
-    | |
-    |--|
-    | `<SUBDOMAIN>.webmethodscloud.com` |
-    | `<SUBDOMAIN>.webmethodscloud.eu` |
-    | `<SUBDOMAIN>.webmethodscloud.de` |
+    - `<SUBDOMAIN>.webmethodscloud.com`
+    - `<SUBDOMAIN>.webmethodscloud.eu`
+    - `<SUBDOMAIN>.webmethodscloud.de`
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
 
-    | |
-    |--|
-    | `https://<SUBDOMAIN>.webmethodscloud.com/umc/rest/saml/initsso` |
-    | `https://<SUBDOMAIN>.webmethodscloud.eu/umc/rest/saml/initsso` |
-    | `https://<SUBDOMAIN>.webmethodscloud.de/umc/rest/saml/initsso` |
+    - `https://<SUBDOMAIN>.webmethodscloud.com/umc/rest/saml/initsso`
+    - `https://<SUBDOMAIN>.webmethodscloud.eu/umc/rest/saml/initsso`
+    - `https://<SUBDOMAIN>.webmethodscloud.de/umc/rest/saml/initsso`
 
     c. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
@@ -164,11 +155,9 @@ Para configurar o logon único do Azure AD com o webMethods Integration Suite, e
 
     d. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão:
 
-    | |
-    |--|
-    | `https://api.webmethodscloud.com/umc/rest/saml/initsso/?tenant=<TENANTID>` |
-    | `https://api.webmethodscloud.eu/umc/rest/saml/initsso/?tenant=<TENANTID>` |
-    | `https://api.webmethodscloud.de/umc/rest/saml/initsso/?tenant=<TENANTID>` |
+    - `https://api.webmethodscloud.com/umc/rest/saml/initsso/?tenant=<TENANTID>`
+    - `https://api.webmethodscloud.eu/umc/rest/saml/initsso/?tenant=<TENANTID>`
+    - `https://api.webmethodscloud.de/umc/rest/saml/initsso/?tenant=<TENANTID>`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao cliente do webMethods Integration Suite](https://empower.softwareag.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

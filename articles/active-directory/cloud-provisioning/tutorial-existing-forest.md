@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2612c765140d838ddf441894d7fd068b7d66ccfc
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: d369395cc06902f31bdf17b427ecbb9f71f42001
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360632"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146822"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrar uma floresta existente e uma nova com um único locatário do Azure AD
 
@@ -104,14 +104,14 @@ Para verificar se o agente está em execução, siga estas etapas:
 1.  Entre no Portal do Azure AD.
 2.  Clique em **Azure Active Directory**
 3.  Clique em **Azure AD Connect**
-4.  Selecione **Gerenciar provisionamento (Versão Prévia)** 
-![](media/how-to-configure/manage1.png)
+4.  Selecione **Gerenciar provisionamento (versão prévia)** 
+![Captura de tela mostrando o link "Gerenciar provisionamento (versão prévia)".](media/how-to-configure/manage1.png)
 5.  Clique em **Nova Configuração**
-![](media/tutorial-single-forest/configure1.png)
+![Captura de tela do Provisionamento do Azure AD (versão prévia) com o link "Nova configuração" realçado.](media/tutorial-single-forest/configure1.png)
 7.  Na tela configuração, insira um **Email de notificação**, mova o seletor para **Habilitar** e clique em **Salvar**.
-![](media/tutorial-single-forest/configure2.png)
+![Captura de tela da tela Configurar com email de notificação preenchido e Habilitar selecionado.](media/tutorial-single-forest/configure2.png)
 1.  O status de configuração agora deve ser **Íntegro**.
-![](media/how-to-configure/manage4.png)
+![Captura de tela do Provisionamento do Azure AD (versão prévia) que mostra o status Íntegro.](media/how-to-configure/manage4.png)
 
 ## <a name="verify-users-are-created-and-synchronization-is-occurring"></a>Verificar se os usuários foram criados e a sincronização está ocorrendo
 Agora, você verificará se os usuários que você tinha em nosso diretório local foram sincronizados e se eles existem no locatário do Azure AD.  Esteja ciente de que isso pode levar algumas horas para ser concluído.  Para verificar se os usuários estão sincronizados, faça o seguinte.

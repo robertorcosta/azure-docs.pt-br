@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fd01c86086c7491d22f655fcba5da237286412f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: dbe6aed8ae0403f6ab4a7f9e0ba8b9a2c5d61617
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68347787"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86168551"
 ---
 # <a name="tutorial-integrate-sap-analytics-cloud-with-azure-active-directory"></a>Tutorial: integração do SAP Analytics Cloud com o Azure Active Directory
 
@@ -85,17 +85,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
 
-    | |
-    |-|-|
-    | `https://<sub-domain>.sapanalytics.cloud/` |
-    | `https://<sub-domain>.sapbusinessobjects.cloud/` |
+    - `https://<sub-domain>.sapanalytics.cloud/`
+    - `https://<sub-domain>.sapbusinessobjects.cloud/`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão:
-    
-    | |
-    |-|-|
-    | `<sub-domain>.sapbusinessobjects.cloud` |
-    | `<sub-domain>.sapanalytics.cloud` |
+
+    - `<sub-domain>.sapbusinessobjects.cloud`
+    - `<sub-domain>.sapanalytics.cloud`
 
     > [!NOTE] 
     > Os valores nessas URLs são apenas para demonstração. Atualize os valores com a verdadeira URL de entrada e a URL do identificador. Para obter a URL de entrada, entre em contato com a [equipe de Suporte ao cliente do SAP Analytics Cloud](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). Você pode obter a URL do identificador ao baixar os metadados do SAP Analytics Cloud do console do administrador. Isso é explicado mais adiante no tutorial.

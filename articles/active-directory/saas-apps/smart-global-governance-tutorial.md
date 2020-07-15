@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c3b2f5332f3dc94f10a7822068b165db13b3d33
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 91200ba4561aa6b715149d91beee8ac9d0375657
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456752"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170455"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smart-global-governance"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Smart Global Governance
 
@@ -85,26 +85,20 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure:
 
     a. Na caixa **Identificador**, insira uma destas URLs:
 
-    | | |
-    |-|-|
-    | `https://eu-fr-south.console.smartglobalprivacy.com/platform/authentication-saml2/metadata`|
-    | `https://eu-fr-south.console.smartglobalprivacy.com/dpo/authentication-saml2/metadata`|
+    - `https://eu-fr-south.console.smartglobalprivacy.com/platform/authentication-saml2/metadata`
+    - `https://eu-fr-south.console.smartglobalprivacy.com/dpo/authentication-saml2/metadata`
 
     b. Na caixa **URL de resposta**, insira uma destas URLs:
 
-    | | |
-    |-|-|
-    | `https://eu-fr-south.console.smartglobalprivacy.com/platform/authentication-saml2/acs`|
-    | `https://eu-fr-south.console.smartglobalprivacy.com/dpo/authentication-saml2/acs`|
+    - `https://eu-fr-south.console.smartglobalprivacy.com/platform/authentication-saml2/acs`
+    - `https://eu-fr-south.console.smartglobalprivacy.com/dpo/authentication-saml2/acs`
 
 1. Caso deseje configurar o aplicativo no modo iniciado por SP, selecione **Definir URLs adicionais** e realize a etapa a seguir.
 
    - Na caixa **URL de logon**, insira uma destas URLs:
 
-    | | |
-    |-|-|
-    | `https://eu-fr-south.console.smartglobalprivacy.com/dpo`|
-    | `https://eu-fr-south.console.smartglobalprivacy.com/platform`|
+    - `https://eu-fr-south.console.smartglobalprivacy.com/dpo`
+    - `https://eu-fr-south.console.smartglobalprivacy.com/platform`
 
 1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, selecione o link **Download** para **Certificado (Bruto)** para baixar o certificado e salvá-lo no computador:
 

@@ -4,18 +4,18 @@ description: Modelos do Azure Resource Manager para uso nos cofres dos Serviços
 ms.topic: sample
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 3c05f345c6c5df5d0350c75e52381c24b0609501
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 09962a37f36621950189e9446099c349de9430bb
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74172173"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170982"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Modelos do Azure Resource Manager para o Backup do Azure
 
 A tabela a seguir contém links para modelos do Azure Resource Manager para uso nos cofres dos Serviços de Recuperação e nos recursos do Backup do Azure. Para saber mais sobre a sintaxe JSON e as propriedades, confira [Tipos de recurso de Microsoft.RecoveryServices](/azure/templates/microsoft.recoveryservices/allversions).
 
-|   |   |
+| Modelo | Descrição |
 |---|---|
 |**Cofre dos Serviços de Recuperação** | |
 | [Criar um cofre dos Serviços de Recuperação](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vault-create)| Crie um cofre dos Serviços de Recuperação. O cofre pode ser usado no Backup do Azure e no Azure Site Recovery. |

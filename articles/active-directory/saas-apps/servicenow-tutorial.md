@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e99b860f4f75e142a8df09bb538ebee3f2eac6d3
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 41f42b053181f4115770cd9973621706b248baab
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297470"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86168296"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ServiceNow
 
@@ -101,10 +101,8 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     c. Para a **URL de Resposta**, insira uma das seguintes URLs:
 
-    |||
-    |-|-|
-    | `https://instancename.service-now.com/navpage.do` |
-    | `https://instancename.service-now.com/customer.do` | 
+    - `https://instancename.service-now.com/navpage.do`
+    - `https://instancename.service-now.com/customer.do`
 
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon e o Identificador reais, que são explicados mais adiante no tutorial. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -173,10 +171,8 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
     c. Para a **URL de Resposta**, insira uma das seguintes URLs:
 
-    |||
-    |-|-|
-    | `https://instancename.service-now.com/navpage.do` |
-    | `https://instancename.service-now.com/customer.do` |
+    - `https://instancename.service-now.com/navpage.do`
+    - `https://instancename.service-now.com/customer.do`
 
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon e o Identificador reais, que são explicados mais adiante no tutorial. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

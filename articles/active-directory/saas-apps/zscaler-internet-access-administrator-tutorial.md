@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a149527c6e00972991bf0b18e6f7c599799a0c91
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d7623373be1aded29cb022f1d5080ed94d96b719
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73161024"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170081"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Tutorial: Integração do Azure Active Directory ao Administrador do Zscaler Internet Access
 
@@ -108,25 +108,21 @@ Para configurar o logon único do Azure AD com o Administrador do Zscaler Intern
 
     a. Na caixa de texto **Identificador**, digite uma URL de acordo com seus requisitos:
 
-    | |
-    |--|
-    | `https://admin.zscaler.net` |
-    | `https://admin.zscalerone.net` |
-    | `https://admin.zscalertwo.net` |
-    | `https://admin.zscalerthree.net` |
-    | `https://admin.zscloud.net` |
-    | `https://admin.zscalerbeta.net` |
+    - `https://admin.zscaler.net`
+    - `https://admin.zscalerone.net`
+    - `https://admin.zscalertwo.net`
+    - `https://admin.zscalerthree.net`
+    - `https://admin.zscloud.net`
+    - `https://admin.zscalerbeta.net`
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL de acordo com seus requisitos:
 
-    | |
-    |--|
-    | `https://admin.zscaler.net/adminsso.do` |
-    | `https://admin.zscalerone.net/adminsso.do` |
-    | `https://admin.zscalertwo.net/adminsso.do` |
-    | `https://admin.zscalerthree.net/adminsso.do` |
-    | `https://admin.zscloud.net/adminsso.do` |
-    | `https://admin.zscalerbeta.net/adminsso.do` |
+    - `https://admin.zscaler.net/adminsso.do`
+    - `https://admin.zscalerone.net/adminsso.do`
+    - `https://admin.zscalertwo.net/adminsso.do`
+    - `https://admin.zscalerthree.net/adminsso.do`
+    - `https://admin.zscloud.net/adminsso.do`
+    - `https://admin.zscalerbeta.net/adminsso.do`
 
 5. O aplicativo de Administrador do Zscaler Internet Access espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **Atributos e reivindicações do usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Atributos e Declarações do Usuário**.
 

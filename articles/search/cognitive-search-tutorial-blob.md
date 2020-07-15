@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/26/2020
-ms.openlocfilehash: ef19c8eb747432a2eea3880b094f77747890c0d9
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 663d6659acf5c1e5abc8be56156af84167c51797
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984004"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146944"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use o REST e a IA para gerar conteúdo pesquisável em blobs do Azure
 
@@ -451,7 +451,7 @@ Lembre-se de que começamos com o conteúdo do blob, em que todo o documento é 
 1. Use **GET** e a URL a seguir, substituindo NOME-DO-SERVIÇO pelo nome real do serviço, para pesquisar instâncias de um termo ou uma frase, retornando o campo `content` e uma contagem dos documentos correspondentes.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?search=*&$count=true&$select=content?api-version=2020-06-30
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=content&api-version=2020-06-30
    ```
    
    Os resultados dessa consulta retornam o conteúdo do documento, que é o mesmo resultado que você obterá se usar o indexador de blob sem o pipeline da pesquisa cognitiva. Esse campo é pesquisável, mas não funcionará se você quiser usar facetas, filtros ou o Preenchimento automático.
@@ -461,7 +461,7 @@ Lembre-se de que começamos com o conteúdo do blob, em que todo o documento é 
 1. Para a segunda consulta, retorne alguns dos campos criados pelo pipeline (pessoas, organizações, localizações e languageCode). Estamos omitindo as keyPhrases por questões de brevidade, mas você deverá incluí-las se quiser ver esses valores.
 
    ```http
-   https://mydemo.search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=metadata_storage_name,persons,organizations,locations,languageCode&api-version=2020-06-30
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=metadata_storage_name,persons,organizations,locations,languageCode&api-version=2020-06-30
    ```
    Os campos na instrução $select contêm informações criadas com base nas funcionalidades de processamento de idioma natural dos Serviços Cognitivos. Como você pode esperar, há algum ruído nos resultados e na variação entre documentos, mas, em muitas instâncias, os modelos analíticos produzem resultados precisos.
 
@@ -483,7 +483,7 @@ Lembre-se de que começamos com o conteúdo do blob, em que todo o documento é 
 1. Neste exemplo final, aplique um filtro na coleção de organizações, retornando duas correspondências para critérios de filtragem com base na NASDAQ.
 
    ```http
-   cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
    ```
 
 Essas consultas ilustram algumas das maneiras pelas quais você pode trabalhar com a sintaxe de consulta e os filtros em campos criados pela pesquisa cognitiva. Para obter mais exemplos de consulta, confira [Exemplos em documentos de pesquisa da API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [Exemplos de consulta de sintaxe simples](search-query-simple-examples.md) e [Exemplos de consulta completas do Lucene](search-query-lucene-examples.md).
