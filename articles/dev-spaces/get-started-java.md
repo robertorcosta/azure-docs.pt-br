@@ -8,12 +8,12 @@ ms.topic: tutorial
 description: Este tutorial mostra como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente um aplicativo Java no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: c71471d1a89188a065bafef2c5b6372aeff35851
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 5616e92d64854d145c30aa3fd32bf61d65ca4221
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80240534"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224308"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Criar um espaço de desenvolvimento do Kubernetes: Visual Studio Code e Java com o Azure Dev Spaces
 
@@ -171,7 +171,7 @@ Mas existe um *método ainda mais rápido* para desenvolver código, que você i
 
 Nesta seção, você usará o VS Code para depurar diretamente depurar nosso contêiner em execução no Azure. Você também aprenderá a obter um loop de edição, execução e teste mais rápido.
 
-![](media/common/edit-refresh-see.png)
+![Diagrama mostrando o ciclo Editar Código, Atualizar Contêiner e Conferir Atualização.](media/common/edit-refresh-see.png)
 
 > [!Note]
 > **Caso tenha problemas** a qualquer momento, consulte a seção [Solução de problemas](troubleshooting.md) ou poste um comentário nesta página.
@@ -183,13 +183,13 @@ Abra a **Paleta de Comandos** (usando o menu **Exibir | Paleta de Comandos**) e 
 
 Isso adiciona a configuração de depuração para o Azure Dev Spaces na pasta `.vscode`. Esse comando não é deve ser confundido com o `azds prep`, que configura o projeto para a implantação.
 
-![](media/common/command-palette.png)
+![Captura de tela mostrando a opção Azure Dev Spaces na paleta de comandos do VS Code](media/common/command-palette.png)
 
 ### <a name="select-the-azds-debug-configuration"></a>Selecionar a configuração de depuração AZDS
 1. Para abrir o modo de exibição Depuração, clique no ícone Depuração na **Barra de Atividades** no lado do VS Code.
 1. Selecione **Iniciar Programa Java (AZDS)** como a configuração de depuração ativa.
 
-![](media/get-started-java/debug-configuration.png)
+![Captura de tela do recurso de depuração do VS Code com a opção Iniciar Programa em Java delineada em vermelho.](media/get-started-java/debug-configuration.png)
 
 > [!Note]
 > Se você não vir comandos do Azure Dev Spaces na Paleta de Comandos, verifique se instalou a extensão do VS Code para o Azure Dev Spaces. Verifique se o workspace que você abriu no VS Code é a pasta que contém `azds.yaml`.
@@ -202,7 +202,7 @@ Assim como acontece com o comando `up`, o código está sincronizado com o espa�
 > [!Tip]
 > A barra de status do VS Code ficará laranja, indicando que o depurador foi anexado. Ela também exibirá uma URL clicável, que pode ser usada para abrir o aplicativo.
 
-![](media/common/vscode-status-bar-url.png)
+![Captura de tela da barra de status do VS Code após ela ter ficado laranja.](media/common/vscode-status-bar-url.png)
 
 Defina um ponto de interrupção em um arquivo de código do lado do servidor, por exemplo, dentro da função `greeting()` no arquivo de origem `src/main/java/com/ms/sample/webfrontend/Application.java`. A atualização da página do navegador gera o ponto de interrupção.
 
@@ -220,7 +220,7 @@ public String greeting()
 
 Salve o arquivo e, no **painel Ações de depuração**, clique no botão **Reiniciar**.
 
-![](media/common/debug-action-refresh.png)
+![Captura de tela do painel de ações de Depuração do VS Code com a opção de reinicialização delineada em vermelho.](media/common/debug-action-refresh.png)
 
 Em vez de recompilar e reimplantar uma nova imagem de contêiner sempre que houver edições de código, o que geralmente levará um tempo considerável, o Azure Dev Spaces recompilará incrementalmente o código dentro do contêiner existente para fornecer um loop de edição/depuração mais rápido.
 

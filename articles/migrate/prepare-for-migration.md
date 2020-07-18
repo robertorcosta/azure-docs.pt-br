@@ -4,12 +4,12 @@ description: Saiba como preparar computadores locais para migração com as Migr
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: e6840b75d58bf19f742f94caad74e10aebe24666
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: aec2e95b65be2e3c69b2d29111fa1cfdbd66674e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044151"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223611"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparar computadores locais para migração para Azure
 
@@ -122,7 +122,7 @@ Para outras versões, prepare os computadores conforme resumido na tabela.
 --- | --- | ---
 **Instalar o Integration Services do Linux para Hyper-V** | Recompile a imagem de inicialização do Linux, de modo que ela contenha os drivers necessários do Hyper-V. A recompilação da imagem de inicialização verifica se a VM será inicializada no Azure. | A maioria das novas versões das distribuições do Linux tem isso incluído por padrão.<br/><br/> Se não estiver incluído, instale manualmente para todas as versões, exceto aquelas informadas acima.
 **Habilitar o log do Console Serial do Azure** | A habilitação do log do console ajuda a solucionar problemas. Não é necessário reinicializar a VM. A VM do Azure será inicializada com a imagem de disco. A inicialização da imagem de disco é equivalente a uma reinicialização para a nova VM.<br/><br/> Siga [estas instruções](../virtual-machines/troubleshooting/serial-console-linux.md) para habilitar.
-**Atualizar arquivo do mapa do dispositivo** | Atualize o arquivo do mapa do dispositivo com as associações nome do dispositivo/volume, a fim de usar identificadores de dispositivo persistentes. | Instale manualmente para todas as versões, exceto aquelas informadas acima.
+**Atualizar arquivo do mapa do dispositivo** | Atualize o arquivo do mapa do dispositivo com as associações nome do dispositivo/volume, a fim de usar identificadores de dispositivo persistentes. | Instale manualmente para todas as versões, exceto aquelas informadas acima. (Aplicável somente em cenário do VMware baseado em agente)
 **Atualizar entradas fstab** |  Atualize entradas para usar identificadores de volume persistentes.    | Atualize manualmente para todas as versões, exceto aquelas informadas acima.
 **Remover regra udev** | Remova as regras udev que reservam os nomes de interface em endereços MAC etc. | Remova manualmente para todas as versões, exceto aquelas informadas acima.
 **Atualizar adaptadores de rede** | Atualizar os adaptadores de rede para receber endereço IP baseado em DHCP.nst | Atualize manualmente para todas as versões, exceto aquelas informadas acima.

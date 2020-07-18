@@ -10,16 +10,18 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 2906734a37fbb5516596d456386929c11c8dc1e4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6272d050e6a71032f32c72be696d8c3918fc3d61
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588285"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223747"
 ---
 # <a name="what-are-azure-cognitive-services"></a>O que são os Serviços Cognitivos do Azure?
 
 Os Serviços Cognitivos do Azure são APIs, SDKs e serviços disponíveis para ajudar os desenvolvedores a criarem aplicativos inteligentes, sem precisar de habilidades de IA direta, ciência de dados nem conhecimento. Os Serviços Cognitivos do Azure permitem que os desenvolvedores adicionem recursos cognitivos facilmente a seus aplicativos. O objetivo dos Serviços Cognitivos do Azure é ajudar os desenvolvedores a criar aplicativos que podem ver, ouvir, falar, entender e até mesmo começar a raciocinar. O catálogo de serviços incluído nos Serviços Cognitivos do Azure pode ser categorizado em cinco pilares principais – Visão, Fala, Idioma, Pesquisa na Web e Decisão.
+
+Deseja ver as novidades e a documentação atualizada dos Serviços Cognitivos? Confira as [Novidades nos documentos dos Serviços Cognitivos](whats-new-docs.md).
 
 ## <a name="vision-apis"></a>APIs de visão
 
@@ -42,7 +44,7 @@ Os Serviços Cognitivos do Azure são APIs, SDKs e serviços disponíveis para a
 |[Tradução de Fala](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Conversor de Fala") (desativação)|A Tradução de Fala é um serviço de tradução automática.|
 
 > [!NOTE]
-> Procurando a [Azure Cognitive Search](https://docs.microsoft.com/azure/search/)? Embora ele use Serviços Cognitivos para algumas tarefas, é uma tecnologia de pesquisa diferente com suporte a outros cenários.
+> Procurando a [Azure Cognitive Search](https://docs.microsoft.com/azure/search/)? Embora ele use os Serviços Cognitivos para algumas tarefas, é uma tecnologia de pesquisa diferente, que dá suporte a outros cenários.
 
 
 ## <a name="language-apis"></a>APIs de Linguagem
@@ -78,17 +80,13 @@ Os Serviços Cognitivos do Azure são APIs, SDKs e serviços disponíveis para a
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|O Content Moderator fornece monitoramento para um possível conteúdo ofensivo, indesejável e arriscado.|
 |[Personalizador](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizador")|O Personalizador permite escolher a melhor experiência a ser mostrada aos usuários, aprendendo com o comportamento deles em tempo real.|
 
-## <a name="use-free-trials"></a>Use as avaliações gratuitas
-
-Para [inscrever-se gratuitamente para avaliações gratuitas](https://azure.microsoft.com/try/cognitive-services/ "Ajuda para Inscrição") são necessários apenas um email e algumas etapas simples. Você precisa de uma Conta Microsoft, caso ainda não tenha uma. Você receberá um par exclusivo de chaves para cada API solicitada. A segunda é apenas uma reserva. Não compartilhe as chaves secretas com ninguém. As avaliações têm um limite de taxa, transações por segundo ou minuto, e um limite de uso mensal. Uma transação é simplesmente uma chamada à API. Você pode atualizar para as camadas pagas para desbloquear as restrições.
-
 ## <a name="subscription-management"></a>Gerenciamento de assinaturas
 
 Depois de fazer logon na sua conta Microsoft, você pode acessar [Minhas assinaturas](https://www.microsoft.com/cognitive-services/subscriptions "Minhas assinaturas") para mostrar os produtos que você está usando, a cota restante e a capacidade de adicionar produtos à sua assinatura.
 
 ## <a name="upgrade-to-unlock-limits"></a>Atualizar para desbloquear os limites
 
-Todas as APIs têm um plano de avaliação gratuita que tem limites de uso e de taxa de transferência.  É possível aumentar esses limites usando uma oferta paga e selecionando a opção de tipo de preço adequada ao implantar o serviço no portal do Azure. [Saiba mais sobre as ofertas e os preços](https://azure.microsoft.com/pricing/details/cognitive-services/ "ofertas e preços"). Você precisará configurar uma conta de assinante do Azure com um cartão de crédito e um número de telefone. Caso você tenha um requisito especial ou apenas deseje falar com a equipe de vendas, clique no botão "Fale conosco" na parte superior da página de preços.
+Todas as APIs têm uma camada gratuita com limites de uso e de taxa de transferência.  É possível aumentar esses limites usando uma oferta paga e selecionando a opção de tipo de preço adequada ao implantar o serviço no portal do Azure. [Saiba mais sobre as ofertas e os preços](https://azure.microsoft.com/pricing/details/cognitive-services/ "ofertas e preços"). Você precisará configurar uma conta de assinante do Azure com um cartão de crédito e um número de telefone. Caso você tenha um requisito especial ou apenas deseje falar com a equipe de vendas, clique no botão "Fale conosco" na parte superior da página de preços.
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 

@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: overview
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: 51b00119a5cb7e49a04f02978613678a5144f8b9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f1718de6bc9a86f85cadf4531386e663d5a420d3
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113965"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273754"
 ---
 # <a name="backend-pool-management"></a>Gerenciamento de pools de back-end
 O pool de back-end é um componente crítico do balanceador de carga. O pool de back-end define o grupo de recursos que receberá o tráfego para determinada regra de balanceamento de carga.
@@ -22,9 +22,9 @@ Há duas maneiras de configurar um pool de back-end:
 * NIC (placa de adaptador de rede)
 * Combinação de endereço IP e identificação do recurso da VNET (Rede Virtual)
 
-Configure o pool de back-end pela NIC ao usar máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais. Esse método cria o link mais direto entre o recurso e o pool de back-end. 
+Configure o pool de back-end pela NIC ao usar máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais existentes. Esse método cria o link mais direto entre o recurso e o pool de back-end. 
 
-Nos cenários em que uma NIC não está disponível, como contêineres ou pods do Kubernetes, configure o pool de back-end pela combinação de endereço IP e ID da VNET.
+Ao alocar previamente o seu pool de back-end com um intervalo de endereços IP com o qual você planeja criar posteriormente máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais, configure o pool de back-end por endereço IP e por combinação de ID de VNET.
 
 As seções de configuração deste artigo terão como foco:
 
@@ -249,7 +249,7 @@ Corpo da solicitação JSON:
 Siga este [modelo do Resource Manager do guia de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) para implantar um balanceador de carga e máquinas virtuais e adicionar as máquinas virtuais ao pool de back-end por meio do adaptador de rede.
 
 ## <a name="configure-backend-pool-by-ip-address-and-virtual-network"></a>Configurar o pool de back-end por endereço IP e rede virtual
-Em cenários que apresentem contêineres ou um pool de back-end previamente preenchido com IPs, use o IP e a rede virtual.
+Em cenários com pools de back-end previamente preenchidos, use o IP e a rede virtual.
 
 Todo o gerenciamento de pools de back-end é feito diretamente no objeto de pool de back-end, conforme realçado nos exemplos abaixo.
 

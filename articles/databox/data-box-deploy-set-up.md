@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 850144e4835b43e219fa059bbc1c92bb3ef412f4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c74b5ba5101dae9165898aeb4f265d449988ecab
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200510"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205244"
 ---
 ::: zone target="docs"
 
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: cabear e conectar-se ao Azure Data Box
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Cabear e conectar-se ao Azure Data Box
 
 ::: zone-end
 
@@ -38,21 +38,23 @@ Neste tutorial, você aprenderá como:
 > * Cabear seu Data Box
 > * Conectar-se ao seu Data Box
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se:
 
-1. Você concluiu o [Tutorial: solicitar o Azure Data Box](data-box-deploy-ordered.md).
-2. Você recebeu seu Data Box e o status do pedido no portal está como **Entregue**. 
+1. Você realizou o pedido para o Azure Data Box.
+    - Para uma ordem de importação, confira [Tutorial: Solicitar o Azure Data Box](data-box-deploy-ordered.md).
+    - Para uma ordem de exportação, confira [Tutorial: Solicitar o Azure Data Box](data-box-deploy-export-ordered.md)
+1. Você recebeu seu Data Box e o status do pedido no portal está como **Entregue**. 
     - Há uma etiqueta de remessa na bolsa transparente afixada ao dispositivo sob o rótulo atual. Mantenha essa etiqueta segura, pois você a usará para remessa de devolução.
     - Algumas regiões da Europa podem receber o dispositivo empacotado em uma caixa. Retire o dispositivo do pacote e guarde a caixa para devolução da remessa.
-3. Você analisou as [diretrizes de segurança do Data Box](data-box-safety.md).
-4. Você recebeu um cabo de alimentação com aterramento para usar com seu dispositivo de armazenamento de 100 TB.
-5. Você tem um computador host que tem os dados que você deseja copiar para o Data Box. O computador host deve
+1. Você analisou as [diretrizes de segurança do Data Box](data-box-safety.md).
+1. Você recebeu um cabo de alimentação com aterramento para usar com seu dispositivo de armazenamento de 100 TB.
+1. Você tem um computador host que é usado para copiar dados para (ordem de importação) ou copiar dados de (ordem de exportação) seu Data Box. O computador host deve
     - Executar um [Sistema operacional com suporte](data-box-system-requirements.md).
     - Estar conectado a uma rede de alta velocidade. É altamente recomendável que você tenha pelo menos uma conexão de 10 GbE. Se uma conexão de 10 GbE não estiver disponível, um link de dados de 1 GbE poderá ser usado, mas as velocidades de cópia serão afetadas. 
-6. Você deve ter acesso a uma superfície plana na qual possa colocar o Data Box. Caso deseje colocar o dispositivo em uma prateleira de rack padrão, você precisará de um slot 7U no rack de seu datacenter. Você pode colocar o dispositivo no rack na posição horizontal ou vertical.
-7. Você comprou os cabos a seguir para conectar o Data Box ao computador host.
+1. Você deve ter acesso a uma superfície plana na qual possa colocar o Data Box. Caso deseje colocar o dispositivo em uma prateleira de rack padrão, você precisará de um slot 7U no rack de seu datacenter. Você pode colocar o dispositivo no rack na posição horizontal ou vertical.
+1. Você comprou os cabos a seguir para conectar o Data Box ao computador host.
     - Um ou mais cabos de cobre SFP+ Twinax de 10 GbE ou cabos de fibra ótica SFP+ (usar com adaptadores de rede DATA 1 ou DATA 2). O Data Box tem os Adaptadores Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T com adaptador de rede PCI Express 3.0; portanto, os cabos compatíveis com esse adaptador devem funcionar. Por exemplo, um cabo CISCO SFP-H10GB-CU3M 10GBASE-CU TWINAX SFP +3M foi usado para teste interno. Para obter mais informações, confira a [lista de cabos e comutadores compatíveis da Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - Um cabo de rede RJ-45 CAT 6 (usar com adaptador de rede MGMT)
     - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (usar com adaptador de rede DATA 3 configurado como 10 Gbps ou 1 Gbps respectivamente)
@@ -135,7 +137,7 @@ Execute as etapas a seguir para configurar seu dispositivo usando a interface do
 
 Depois que os adaptadores de rede de dados forem configurados, você também pode usar o endereço IP de qualquer um dos adaptadores DATA 1 a DATA 3 para acessar a interface do usuário da Web local em `https://<IP address of a data network interface>`. 
 
-Após a configuração do dispositivo ser concluída, é possível se conectar aos compartilhamentos de dispositivo e copiar os dados do seu computador para o dispositivo. 
+Após a configuração do dispositivo ser concluída, é possível se conectar aos compartilhamentos de dispositivo e copiar os dados. 
 
 ::: zone-end
 
@@ -161,10 +163,15 @@ Neste tutorial, você aprendeu sobre tópicos do Azure Data Box como:
 > * Cabear seu Data Box
 > * Conectar-se ao seu Data Box
 
-Avance para o próximo tutorial para saber como copiar dados no seu Data Box.
+Avance para o próximo tutorial para saber como copiar dados.
 
 > [!div class="nextstepaction"]
-> [Copiar seus dados para o Disco do Azure Data Box](./data-box-deploy-copy-data.md)
+> [Copiar seus dados para o Azure Data Box para uma ordem de importação](./data-box-deploy-copy-data.md)
+
+Ou
+
+> [!div class="nextstepaction"]
+> [Copiar seus dados do Azure Data Box para uma ordem de exportação](./data-box-deploy-export-copy-data.md)
 
 ::: zone-end
 

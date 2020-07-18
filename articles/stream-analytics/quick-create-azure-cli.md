@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/01/2020
-ms.openlocfilehash: 8406c556ecaa0cea968fc1976d709b4f3c51c78b
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 1613486880885a3b7838b1bf806c17f88e3be06d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852450"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231243"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Início Rápido: Criar um trabalho do Azure Stream Analytics usando a CLI do Azure
 
@@ -49,7 +49,7 @@ Neste guia de início rápido, você usa a CLI do Azure para definir um trabalho
     az extension add --name stream-analytics
     ```
 
-   Instale a [extensão para o Azure IoT](/cli/azure/ext/azure-iot/azure-iot) executando o seguinte comando:
+   Instale a [extensão para o Azure IoT](/cli/azure/ext/azure-iot) executando o seguinte comando:
 
     ```azurecli
     az extension add --name azure-iot
@@ -198,7 +198,7 @@ az stream-analytics input create
 
 Adicione uma saída ao seu trabalho usando o cmdlet [az stream-analytics output create](/cli/azure/ext/stream-analytics/stream-analytics/output?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-output-create). Esse cmdlet usa o nome do trabalho, o nome de saída do trabalho, o nome do grupo de recursos e a definição da saída do trabalho como parâmetros. A definição de saída do trabalho é um arquivo JSON que contém as propriedades necessárias para configurar a saída do trabalho. Este exemplo usa o armazenamento de blobs como saída.
 
-Em seu computador local, crie um arquivo chamado `datasink.json` e adicione os seguintes dados JSON a ele. Substitua o valor de `accountKey` pela chave de acesso da sua conta de armazenamento, que é o valor armazenado em $storageAccountKey.
+Em seu computador local, crie um arquivo chamado `datasink.json` e adicione os seguintes dados JSON a ele. Substitua o valor de `accountKey` pela chave de acesso da sua conta de armazenamento, que é o valor armazenado no valor $storageAccountKey.
 
 ```json
 {

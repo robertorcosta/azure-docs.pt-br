@@ -2,20 +2,20 @@
 title: Marcar imagens em um projeto de rotulagem
 title.suffix: Azure Machine Learning
 description: Saiba como usar as ferramentas de marcação de dados em um projeto de rotulagem do Azure Machine Learning.
-author: lobrien
-ms.author: laobri
+author: sdgilley
+ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 0421e5ad164c440c1b841cae66e7dafc5deadb81
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 90ef75c704459ca726480e6950ba748162c66b8e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025124"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147011"
 ---
-# <a name="tag-images-in-a-labeling-project-preview"></a>Marcar imagens em um projeto de rotulagem (versão prévia)
+# <a name="tag-images-in-a-labeling-project"></a>Marcar imagens em um projeto de rotulagem 
 
 Depois que o administrador de projeto [criar um projeto de rotulagem](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) no Azure Machine Learning, você poderá usar a ferramenta de rotulagem (versão prévia pública) para preparar rapidamente os dados para um projeto do Machine Learning. Este artigo descreve:
 
@@ -64,7 +64,7 @@ O Azure habilitará o botão **Enviar** quando você tiver marcado todas as imag
 
 Depois que você enviar marcas para os dados à disposição, o Azure atualizará a página com um novo conjunto de imagens da fila de trabalho.
 
-### <a name="assisted-machine-learning"></a>Aprendizado de máquina assistido 
+### <a name="assisted-machine-learning-preview"></a>Machine learning assistido (versão prévia) 
 
 Os algoritmos de machine learning poderão ser disparados. Se esses algoritmos estiverem habilitados no seu projeto, você poderá ver o seguinte:
 

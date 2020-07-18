@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17d0c91d31f7746c53d62af87670c40e9902554c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 9ea2c20a7720cc80b36ff88595aa6ca5c57f6b9a
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026784"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232365"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Akamai
 
@@ -61,13 +61,13 @@ O EAA do Akamai é configurado como um único aplicativo no Azure AD. O administ
 
 **Prós**:
 
-• Você precisa configurar o IDP apenas uma vez
+* Você precisa configurar o IDP apenas uma vez
 
 **Contras**:
 
-• Os usuários acabam tendo dois portais de aplicativos
+* Os usuários acabam tendo dois portais de aplicativos
 
-• Cobertura da Política de AC única comum para todos os aplicativos.
+* Cobertura da Política de AC única comum para todos os aplicativos.
 
 ![Cenário de integração 1](./media/header-akamai-tutorial/scenario1.png)
 
@@ -77,13 +77,14 @@ O aplicativo EAA do Akamai é configurado individualmente no portal do Azure AD.
 
 **Prós**:
 
-• Você pode definir Políticas de AC individuais
+* Você pode definir Políticas de AC individuais
 
-• Todos os aplicativos são representados no Waffle do O365 e no painel myApps.microsoft.com.
+* Todos os aplicativos são representados no 0365 Waffle e no painel myApps.microsoft.com.
+
 
 **Contras**:
 
-• Você precisa configurar vários IDPs.
+* Você precisa configurar vários IDPs.
 
 ![Cenário de integração 2](./media/header-akamai-tutorial/scenario2.png)
 
@@ -450,7 +451,7 @@ Clique em Salvar e ir para a Implantação
 
 ### <a name="kerberos-authentication"></a>Autenticação Kerberos
 
-No exemplo abaixo, publicaremos um servidor Web interno [http://frp-app1.superdemo.live](http://frp-app1.superdemo.live/) e habilitaremos o SSO usando o KCD
+No exemplo abaixo, publicaremos um servidor Web interno <code>http://frp-app1.superdemo.live</code> e habilitaremos o SSO usando o KCD
 
 #### <a name="general-tab"></a>Guia Geral
 

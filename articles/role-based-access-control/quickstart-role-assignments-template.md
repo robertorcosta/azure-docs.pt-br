@@ -10,34 +10,34 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 05/21/2020
 ms.author: rolyon
-ms.openlocfilehash: da25f4bc585da26b9765fd36d65a8b5e0689f725
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 9320a68684a25949e8a0b4e2c7d72a6267401add
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300657"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252344"
 ---
-# <a name="quickstart-add-an-azure-role-assignment-using-an-azure-resource-manager-template"></a>Início Rápido: Adicione uma atribuição de função do Azure usando um modelo do Azure Resource Manager
+# <a name="quickstart-add-an-azure-role-assignment-using-an-arm-template"></a>Início Rápido: Adicione uma atribuição de função do Azure usando um modelo do ARM
 
-O [Azure RBAC (controle de acesso baseado em função do Azure)](overview.md) é a maneira usada para gerenciar o acesso aos recursos no Azure. Neste início rápido, você cria um grupo de recursos e permite acesso a um usuário para criar e gerenciar máquinas virtuais no grupo de recursos. Este início rápido usa um modelo do Resource Manager para permitir acesso.
+O [Azure RBAC (controle de acesso baseado em função do Azure)](overview.md) é a maneira usada para gerenciar o acesso aos recursos no Azure. Neste início rápido, você cria um grupo de recursos e permite acesso a um usuário para criar e gerenciar máquinas virtuais no grupo de recursos. Este guia de início rápido usa um modelo do ARM (Azure Resource Manager) para permitir o acesso.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-rbac-builtinrole-resourcegroup%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para adicionar as atribuições de função, você precisa ter:
 
-* as permissões `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, como [Administrador de Acesso do Usuário](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
+- Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- as permissões `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, como [Administrador de Acesso do Usuário](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
+- Para adicionar uma atribuição de função você precisa especificar três elementos: entidade de segurança, definição de função e escopo. Para este início rápido, a entidade de segurança é você ou outro usuário no seu diretório, a definição de função é [Colaborador de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) e o escopo é um grupo de recursos especificado por você.
 
-## <a name="create-a-role-assignment"></a>Criar uma atribuição de função
+## <a name="review-the-template"></a>Examinar o modelo
 
-Para adicionar uma atribuição de função você precisa especificar três elementos: entidade de segurança, definição de função e escopo. Para este início rápido, a entidade de segurança é você ou outro usuário no seu diretório, a definição de função é [Colaborador de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) e o escopo é um grupo de recursos especificado por você.
-
-### <a name="review-the-template"></a>Examinar o modelo
-
-O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). O modelo tem três parâmetros e uma seção de recursos. Na seção de recursos, observe se ele tem os três elementos de uma atribuição de função: entidade de segurança, definição de função e escopo. 
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). O modelo tem três parâmetros e uma seção de recursos. Na seção de recursos, observe se ele tem os três elementos de uma atribuição de função: entidade de segurança, definição de função e escopo.
 
 :::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json" highlight="30-32":::
 
@@ -45,7 +45,7 @@ O recurso definido no modelo inclui:
 
 - [Microsoft.Authorization/roleAssignments](/azure/templates/Microsoft.Authorization/roleAssignments)
 
-### <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-the-template"></a>Implantar o modelo
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 

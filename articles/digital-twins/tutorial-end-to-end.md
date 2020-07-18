@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: faad1f812fc5c2cde6847a5208ee4b385f28ab3e
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9c07db575827254de833fc0b2390be823ebc4e57
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391920"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206540"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Criar uma solução de ponta a ponta
 
@@ -205,8 +205,9 @@ Isso abrirá a página *Criar Assinatura de Evento*.
 
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Portal do Azure: criar assinatura de evento":::
 
-Preencha os campos da seguinte maneira:
+Preencha os campos da seguinte maneira (os campos preenchidos por padrão não são mencionados):
 * *DETALHES DA ASSINATURA DE EVENTO* > **Nome**: dê um nome à assinatura de evento.
+* *DETALHES DO TÓPICO* > **Nome do Tópico do Sistema**: especifique um nome a ser usado para o tópico do sistema. 
 * *TIPOS DE EVENTO* > **Filtro para Tipos de Evento**: selecione *Telemetria de Dispositivo* nas opções de menu.
 * *DETALHES DO PONTO DE EXTREMIDADE* > **Tipo de Ponto de Extremidade**: selecione *Função do Azure* nas opções de menu.
 * *DETALHES DO PONTO DE EXTREMIDADE* > **Ponto de Extremidade**: clique no link *Selecionar um ponto de extremidade*. Isso abrirá uma janela *Selecionar Função do Azure*: :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Assinatura de evento do portal do Azure: selecionar Função do Azure" border="false":::
@@ -361,11 +362,9 @@ No [portal do Azure](https://portal.azure.com/), navegue até o tópico da grade
 
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Portal do Azure: assinatura de evento da Grade de Eventos":::
 
-As etapas para criar essa assinatura de evento são semelhantes a quando você assinou a primeira função do Azure para o Hub IoT anteriormente neste tutorial. A diferença é que, desta vez, você não precisa especificar *Telemetria do Dispositivo* como o tipo de evento a ser escutado, e você se conectará a outra função do Azure.
+As etapas para criar essa assinatura de evento são semelhantes a quando você assinou a primeira função do Azure para o Hub IoT anteriormente neste tutorial. Desta vez, você não precisa especificar *Telemetria do Dispositivo* como o tipo de evento a ser escutado e você se conectará a outra função do Azure.
 
-Estas são as etapas de assinatura novamente:
-
-Na página *Criar Assinatura de Evento*, preencha os campos da seguinte maneira:
+Na página *Criar Assinatura de Evento*, preencha os campos da seguinte maneira (os campos preenchidos por padrão não são mencionados):
 * *DETALHES DA ASSINATURA DE EVENTO* > **Nome**: dê um nome à assinatura de evento.
 * *DETALHES DO PONTO DE EXTREMIDADE* > **Tipo de Ponto de Extremidade**: selecione *Função do Azure* nas opções de menu.
 * *DETALHES DO PONTO DE EXTREMIDADE* > **Ponto de Extremidade**: clique no link *Selecionar um ponto de extremidade*. Isso abrirá uma janela *Selecionar Função do Azure*:

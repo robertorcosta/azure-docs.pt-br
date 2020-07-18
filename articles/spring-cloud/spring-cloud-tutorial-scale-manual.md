@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Dimensionar um aplicativo no Azure Spring Cloud | Microsoft Docs'
-description: Neste tutorial, você aprenderá a dimensionar um aplicativo com o Azure Spring Cloud no portal do Azure
+description: Aprende a dimensionar um aplicativo com o Azure Spring Cloud no portal do Azure
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
-ms.openlocfilehash: 93cefd0c71e2d51187e68c6f5f02777d158e95a4
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: ca889e48510ec20b4823c6ec5e4e0149d5aaaa62
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84792057"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86141887"
 ---
-# <a name="scale-an-application-in-azure-spring-cloud"></a>Dimensionar um aplicativo no Azure Spring Cloud
+# <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Tutorial: Dimensionar um aplicativo no Azure Spring Cloud
 
 Este tutorial demonstra como dimensionar qualquer aplicativo de microsserviço usando o painel do Azure Spring Cloud no portal do Azure.
 
@@ -23,10 +23,10 @@ Quando terminar, você saberá como fazer alterações manuais rápidas em cada 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisará:
+Para seguir estes procedimentos, você precisará:
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
-* Uma instância de serviço do Azure Spring Cloud implantada.  Siga nosso [início rápido sobre como implantar um aplicativo por meio da CLI do Azure](spring-cloud-quickstart-launch-app-cli.md) para obter uma introdução.
+* Uma instância de serviço do Azure Spring Cloud implantada.  Seguir o [início rápido sobre como implantar um aplicativo por meio da CLI do Azure](spring-cloud-quickstart-launch-app-cli.md) para obter uma introdução.
 * Pelo menos um aplicativo já criado na instância de serviço.
 
 ## <a name="navigate-to-the-scale-page-in-the-azure-portal"></a>Navegue até a página Dimensionar no portal do Azure
@@ -64,7 +64,7 @@ Se você estiver na camada básica e restringido por um ou mais desses [limites]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como dimensionar manualmente seus aplicativos do Azure Spring Cloud. Para saber como monitorar o aplicativo, passe para o próximo tutorial.
+Neste tutorial, você aprendeu a dimensionar manualmente um aplicativo Azure Spring Cloud. Para aprender a monitorar um aplicativo configurando alertas, prossiga para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Saiba como monitorar um aplicativo](spring-cloud-tutorial-distributed-tracing.md)
+> [Aprenda a configurar alertas](spring-cloud-tutorial-alerts-action-groups.md)

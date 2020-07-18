@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 93a7181a3b720a3b313bb75855b2564c4cd33bc1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ff57a67d5e6d617d6d51c924161f586f90f92c3c
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214319"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231532"
 ---
 ::: zone target="docs"
 
@@ -111,7 +111,7 @@ Execute as seguintes etapas para fazer a conexão e copiar dados do computador p
     |/ NFL                | Especifica que os nomes de arquivo não devem ser registrados.        |
     |/NDL                | Especifica que os nomes de diretório não devem ser registrados.        |
     |/FFT                | Pressupõe tempos de arquivo FAT (precisão de dois segundos).        |
-    |/Log:\<arquivo de log>     | Grava a saída de status no arquivo de log (substitui o arquivo de log existente).         |
+    |/Log:\<Log File>     | Grava a saída de status no arquivo de log (substitui o arquivo de log existente).         |
 
     Vários discos podem ser usados em paralelo com vários trabalhos em execução em cada disco.
 
@@ -273,7 +273,7 @@ Depois que a cópia de dados for concluída, você poderá prosseguir para a val
 
 Se você não tiver usado a ferramenta Split Copy para copiar dados, será necessário validar seus dados. Para verificar os dados, execute as seguintes etapas.
 
-1. Execute `DataBoxDiskValidation.cmd` para validação de soma de verificação na pasta *DataBoxDiskImport* da unidade.
+1. Execute `DataBoxDiskValidation.cmd` para validação de soma de verificação na pasta *DataBoxDiskImport* da unidade. Isso está disponível somente para o ambiente Windows. Os usuários do Linux precisam validar que os dados de origem que são copiados para o disco atendem aos [pré-requisitos](https://docs.microsoft.com/azure/databox/data-box-disk-limits).
     
     ![Saída da ferramenta de validação do Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 

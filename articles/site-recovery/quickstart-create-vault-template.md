@@ -1,33 +1,31 @@
 ---
 title: Guia de início rápido para criar um cofre dos Serviços de Recuperação do Azure usando um modelo do Azure Resource Manager.
-description: Neste guia de início rápido, você aprende a criar um cofre dos Serviços de Recuperação do Azure usando um modelo do Azure Resource Manager.
+description: Neste guia de início rápido, você aprende a criar um cofre dos Serviços de Recuperação do Azure usando um modelo do ARM (Azure Resource Manager).
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/29/2020
-author: davidsmatlak
-ms.author: v-dasmat
-ms.openlocfilehash: cf85939a1dbaf8d3e8a90a3acf10bda9faac83bc
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 9112841f6f07808d80fa2b8b61e612d57d0ec20e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217291"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248818"
 ---
-# <a name="quickstart-create-a-recovery-services-vault-using-a-resource-manager-template"></a>Início Rápido: Criar um cofre dos Serviços de Recuperação usando um modelo do Resource Manager
+# <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Início Rápido: Criar um cofre dos Serviços de Recuperação usando um modelo do ARM
 
-Este guia de início rápido descreve como configurar um cofre dos Serviços de Recuperação usando um modelo do Azure Resource Manager. O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de BCDR (continuidade dos negócios e recuperação de desastres) para que seus aplicativos de negócios se mantenham online durante interrupções planejadas e não planejadas. O Site Recovery gerencia a recuperação de desastre de máquinas locais e de VMs (máquinas virtuais) do Azure, incluindo replicação, failover e recuperação.
+Este guia de início rápido descreve como configurar um cofre dos Serviços de Recuperação usando um modelo do ARM (Azure Resource Manager). O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de BCDR (continuidade dos negócios e recuperação de desastres) para que seus aplicativos de negócios se mantenham online durante interrupções planejadas e não planejadas. O Site Recovery gerencia a recuperação de desastre de máquinas locais e de VMs (máquinas virtuais) do Azure, incluindo replicação, failover e recuperação.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se você não tiver uma assinatura ativa do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Nenhum.
+Se você não tiver uma assinatura ativa do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
-
-### <a name="review-the-template"></a>Examinar o modelo
+## <a name="review-the-template"></a>Examinar o modelo
 
 O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
 
@@ -42,7 +40,7 @@ O modelo inclui parâmetros opcionais para a configuração do backup do cofre. 
 
 Para obter mais modelos de Serviços de Recuperação do Azure, confira [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-the-template"></a>Implantar o modelo
 
 Para implantar o modelo, a **Assinatura**, o **Grupo de recursos** e o **Nome do cofre** são necessários.
 

@@ -8,14 +8,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: e20b7b447797a957f860c6b1dd9679519960ebc5
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8c0aabc3242bf9576de917ad63ce4f71bec9905e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025175"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146542"
 ---
-# <a name="create-a-data-labeling-project-preview-and-export-labels"></a>Criar um projeto de rotulagem de dados (versão prévia) e exportar rótulos 
+# <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e exportar rótulos 
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -144,7 +144,7 @@ Com relação às caixas delimitadoras, entre as perguntas importantes se inclue
 >[!NOTE]
 > Observe que os rotuladores poderão selecionar os nove primeiros rótulos usando as teclas numéricas 1 a 9.
 
-## <a name="use-ml-assisted-labeling"></a>Usar a rotulagem assistida por ML
+## <a name="use-ml-assisted-labeling-preview"></a>Usar a rotulagem assistida por ML (versão prévia)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 

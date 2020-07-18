@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 4b53c4d1a26d8e4b8d784087dcb9b9feba9c7ded
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2b6c61c5c144923ece80fddf8a1412d68f35ad52
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191764"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242859"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Mapas?
 
@@ -165,13 +165,21 @@ O Azure Mapas foi criado para a mobilidade e podem ajudar a desenvolver aplicati
 
 Além disso, o Azure Mapas oferece um [controle de mapeamento JavaScript](https://docs.microsoft.com/javascript/api/azure-maps-control) conveniente com um modelo de programação simples. O desenvolvimento é rápido e fácil para aplicativos Web e móveis.
 
+## <a name="power-bi-visual"></a>Visual do Power BI
+
+O visual do Azure Mapas para Power BI fornece um rico conjunto de visualizações de dados para dados espaciais sobre um mapa. É estimado que mais de 80% dos dados corporativos tenham um contexto de localização. O visual do Azure Mapas oferece uma solução sem código para obter informações sobre como esse contexto de localização se relaciona aos seus dados corporativos e os influencia.
+
+![O Power BI Desktop com o visual do Azure Mapas exibindo dados corporativos](media/power-bi-visual/azure-maps-visual-hero.png)
+
+Para obter mais informações, confira a documentação Introdução ao [visual do Azure Mapas do Power BI](power-bi-visual-getting-started.md).
+
 ## <a name="usage"></a>Uso
 
 Para acessar os serviços do Azure Mapas, basta acessar o [portal do Azure](https://portal.azure.com) e criar uma conta do Azure Mapas.
 
 Os Mapas do Azure usam um esquema de autenticação baseado em chave. Sua conta vem com duas chaves previamente geradas para você. Use as duas. Comece a integrar esses recursos de localização em seu aplicativo e faça solicitações para o serviço do Azure Mapas.
 
-Observação: o Azure Mapas compartilha consultas de endereço/local fornecidas pelo cliente ("Consultas") com o TomTom de terceiros para fins de funcionalidade de mapeamento. As consultas não estão vinculadas a nenhum cliente ou usuário final quando compartilhadas com o TomTom e não podem ser usadas para identificar indivíduos. No momento, a Microsoft está no processo de adição do TomTom à lista de Subcontratados do Online Services. Observe que os Serviços de Mobilidade e de Clima que incluem a integração com o Moovit e o AccuWeather estão atualmente em [VERSÃO PRÉVIA](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Observação: o Azure Mapas compartilha consultas de endereço/localização fornecidas pelo cliente ("Consultas") com o TomTom de terceiros para fins de funcionalidade de mapeamento. As consultas não estão vinculadas a nenhum cliente ou usuário final quando compartilhadas com o TomTom e não podem ser usadas para identificar indivíduos. No momento, a Microsoft está no processo de adição do TomTom à lista de Subcontratados do Online Services. Observe que os Serviços de Mobilidade e de Clima que incluem a integração com o Moovit e o AccuWeather estão atualmente em [VERSÃO PRÉVIA](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="supported-regions"></a>Regiões com suporte
 

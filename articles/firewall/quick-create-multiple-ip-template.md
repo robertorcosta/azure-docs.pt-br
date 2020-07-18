@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Criar um Firewall do Azure com vários endereços IP públicos – modelo do Resource Manager'
-description: Aprenda a usar um modelo do Resource Manager para criar um Firewall do Azure com vários endereços IP públicos.
+description: Aprenda a usar um modelo do ARM (Azure Resource Manager) para criar um Firewall do Azure com vários endereços IP públicos.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: b81362f191e6317aa7ffa974a6d432b0c7514d8f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 7e89188e7ebc979c403b86ee26c876e8c40aa208
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680535"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260560"
 ---
-# <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---resource-manager-template"></a>Início Rápido: Criar um Firewall do Azure com vários endereços IP públicos – modelo do Resource Manager
+# <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---arm-template"></a>Início Rápido: Criar um Firewall do Azure com vários endereços IP públicos – Modelo do ARM
 
-Neste guia de início rápido, você usará um modelo do Resource Manager para implantar um Firewall do Azure com vários endereços IP públicos. O firewall implantado tem regras de coleção de regras NAT que permitem conexões RDP com duas máquinas virtuais do Windows Server 2019.
+Neste guia de início rápido, você usará um modelo do ARM (Azure Resource Manager) para implantar um Firewall do Azure com vários endereços IP públicos. O firewall implantado tem regras de coleção de regras NAT que permitem conexões RDP com duas máquinas virtuais do Windows Server 2019.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Para obter mais informações sobre o Firewall do Azure com vários endereços IP públicos, confira [Implantar um Firewall do Azure com vários endereços IP públicos usando o Azure PowerShell](deploy-multi-public-ip-powershell.md).
 
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffw-docs-qs%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-an-azure-firewall"></a>Criar um Firewall do Azure
+## <a name="review-the-template"></a>Examinar o modelo
 
 Este modelo cria um Firewall do Azure com dois endereços IP públicos, juntamente com os recursos necessários para dar suporte ao Firewall do Azure.
 
-### <a name="review-the-template"></a>Examinar o modelo
-
-O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/fw-docs-qs).
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/fw-docs-qs).
 
 :::code language="json" source="~/quickstart-templates/fw-docs-qs/azuredeploy.json" range="001-391" highlight="238-370":::
 
@@ -48,9 +50,9 @@ Vários recursos do Azure são definidos no modelo:
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
 - [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
-### <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-the-template"></a>Implantar o modelo
 
-Implantar o modelo do Resource Manager no Azure:
+Implantar o modelo ARM no Azure:
 
 1. Selecione **Implantar no Azure** para entrar no Azure e abrir o modelo. O modelo cria um Firewall do Azure, a infraestrutura de rede e duas máquinas virtuais.
 

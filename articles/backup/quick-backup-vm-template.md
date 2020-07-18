@@ -5,28 +5,28 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: d6fb73801f0f460daf2ed70f8dc88187e41ea887
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4e54ca6452a219dedca56885bda28ed43991ad37
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81458838"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248927"
 ---
-# <a name="back-up-a-virtual-machine-in-azure-with-resource-manager-template"></a>Fazer backup de uma máquina virtual no Azure com o modelo do Resource Manager
+# <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Início Rápido: Fazer backup de uma máquina virtual no Azure com um modelo do ARM
 
-O [Backup do Azure](backup-overview.md) faz backup de aplicativos e computadores locais e VMs do Azure. Este artigo mostra como fazer backup de uma VM do Azure com o modelo do Resource Manager e Azure PowerShell. Este início rápido concentra-se no processo de implantação de um modelo do Resource Manager para criar um cofre dos Serviços de Recuperação. Para obter mais informações sobre como desenvolver modelos do Resource Manager, confira [documentação do Resource Manager](/azure/azure-resource-manager/) e a [referência de modelo](/azure/templates/microsoft.recoveryservices/allversions).
+O [Backup do Azure](backup-overview.md) faz backup de aplicativos e computadores locais e VMs do Azure. Este artigo mostra como fazer backup de uma VM do Azure com o modelo do ARM (Azure Resource Manager) e o Azure PowerShell. Este início rápido concentra-se no processo de implantação de um modelo do ARM para criar um cofre dos Serviços de Recuperação. Para obter mais informações sobre como desenvolver modelos do ARM, confira a [documentação do Azure Resource Manager](/azure/azure-resource-manager/) e a [referência de modelo](/azure/templates/microsoft.recoveryservices/allversions).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Como alternativa, é possível fazer backup de uma VM usando o [Azure PowerShell](./quick-backup-vm-powershell.md), a [CLI do Azure](quick-backup-vm-cli.md) ou no [portal do Azure](quick-backup-vm-portal.md).
+Um [cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) é um contêiner lógico que armazena dados de backup para recursos protegidos, como VMs do Azure. Quando um trabalho de backup executa, ele cria um ponto de recuperação dentro do cofre dos Serviços de Recuperação. Você pode usar um desses pontos de recuperação para restaurar dados para um determinado ponto no tempo. Como alternativa, é possível fazer backup de uma VM usando o [Azure PowerShell](./quick-backup-vm-powershell.md), a [CLI do Azure](quick-backup-vm-cli.md) ou no [portal do Azure](quick-backup-vm-portal.md).
 
-## <a name="create-a-vm-and-recovery-services-vault"></a>Criar uma VM e o cofre dos Serviços de Recuperação
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
 
-Um [cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) é um contêiner lógico que armazena dados de backup para recursos protegidos, como VMs do Azure. Quando um trabalho de backup executa, ele cria um ponto de recuperação dentro do cofre dos Serviços de Recuperação. Você pode usar um desses pontos de recuperação para restaurar dados para um determinado ponto no tempo.
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-create-vm-and-configure-backup%2Fazuredeploy.json)
 
-### <a name="review-the-template"></a>Examinar o modelo
+## <a name="review-the-template"></a>Examinar o modelo
 
-O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/). Este modelo permite que você implante a VM do Windows simples e o cofre dos Serviços de Recuperação configurados com o DefaultPolicy for Protection.
+O modelo usado neste início rápido é proveniente dos [Modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/). Este modelo permite que você implante a VM do Windows simples e o cofre dos Serviços de Recuperação configurados com o DefaultPolicy for Protection.
 
 :::code language="json" source="~/quickstart-templates/101-recovery-services-create-vm-and-configure-backup/azuredeploy.json" range="1-247" highlight="221-245":::
 
@@ -39,9 +39,9 @@ Os recursos definidos no modelo são:
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
 - [**Microsoft.Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines)
 - [**Microsoft.RecoveryServices/vaults**](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults)
-- [**Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems**](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults/backupfabrics/protectioncontainers/protecteditems)
+- [**Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems**](/azure/templates/microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protecteditems)
 
-### <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-the-template"></a>Implantar o modelo
 
 Para implantar o modelo, selecione **Experimentar** para abrir o Azure Cloud Shell e, em seguida, cole o script do PowerShell a seguir na janela do shell. Para colar o código, clique com o botão direito do mouse na janela do shell e, em seguida, selecione **Colar**.
 
@@ -59,7 +59,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -adminUsername $adminUsername -adminPassword $adminPassword -dnsLabelPrefix $dnsPrefix
 ```
 
-Neste início rápido, o Azure PowerShell é usado para implantar o modelo do Resource Manager. O [Portal do Azure](../azure-resource-manager/templates/deploy-portal.md), a [CLI do Azure](../azure-resource-manager/templates/deploy-cli.md) e a [API Rest](../azure-resource-manager/templates/deploy-rest.md) também podem ser usados para implantar modelos.
+Neste início rápido, o Azure PowerShell é usado para implantar o modelo do ARM. O [Portal do Azure](../azure-resource-manager/templates/deploy-portal.md), a [CLI do Azure](../azure-resource-manager/templates/deploy-cli.md) e a [API Rest](../azure-resource-manager/templates/deploy-rest.md) também podem ser usados para implantar modelos.
 
 ## <a name="validate-the-deployment"></a>Validar a implantação
 
@@ -71,7 +71,7 @@ O modelo cria uma VM e ativa a VM novamente. Após implantar o modelo, você pre
 
 Para monitorar o trabalho de backup, confira [Monitorar o trabalho de backup](./quick-backup-vm-powershell.md#monitor-the-backup-job).
 
-## <a name="clean-up-the-deployment"></a>Limpar a implantação
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não precisar mais fazer backup da VM, poderá limpá-la.
 
@@ -93,4 +93,4 @@ Neste início rápido, você criou um cofre dos Serviços de Recuperação, habi
 
 - [Saiba como](tutorial-backup-vm-at-scale.md) fazer backup de VMs no portal do Azure.
 - [Saiba como](tutorial-restore-disk.md) restaurar rapidamente uma VM
-- [Saiba como](../azure-resource-manager/templates/template-tutorial-create-first-template.md) criar modelos do Azure Resource Manager.
+- [Saiba como](../azure-resource-manager/templates/template-tutorial-create-first-template.md) criar modelos do ARM.

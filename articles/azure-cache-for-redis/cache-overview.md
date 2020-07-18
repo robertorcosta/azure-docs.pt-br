@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 09a7a28716e437bab71c7386bd332712a4d192dd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 75c6f8ec8410ff90b3da4fb6a50c9ef8ba7d1618
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196366"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184611"
 ---
 # <a name="azure-cache-for-redis"></a>Cache Redis do Azure
 
@@ -40,7 +40,7 @@ O Cache do Azure para Redis está disponível nas seguintes camadas:
 | Camada | Descrição |
 |---|---|
 Basic | Um cache de nó único. Essa camada dá suporte a vários tamanhos de memória (250 MB a 53 GB) e é ideal para o desenvolvimento/teste e para cargas de trabalho não críticas. A camada Básica não tem nenhum SLA (Contrato de Nível de Serviço) |
-| Standard | Um cache replicado em uma configuração primária/secundária de dois nós gerenciado pelo Azure com um SLA de alta disponibilidade (99,9%) |
+| Standard | Um cache replicado em uma configuração primária/réplica de dois nós gerenciado pelo Azure com um SLA de alta disponibilidade (99,9%) |
 | Premium | A camada Premium é a camada pronta para Empresas. Os Caches da camada Premium dão suporte a mais recursos e têm uma maior taxa de transferência com latências menores. Os caches na camada Premium são implantados em um hardware mais potente, fornecendo um melhor desempenho em comparação com a camada Básica ou Standard. Essa vantagem significa que a taxa de transferência para um cache do mesmo tamanho será maior na camada Premium comparado à camada Standard. |
 
 > [!TIP]

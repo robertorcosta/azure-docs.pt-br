@@ -4,12 +4,12 @@ description: Neste tutorial, você aprenderá como criar uma imagem de contêine
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 82b539ba8f275755ee31a00c2127a0dba7c38d9f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7178d7171d4c9c0183eb744f19776f6b2fac09ef
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78398506"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259496"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: criar e implantar imagens de contêineres na nuvem com as Tarefas do Registro de Contêiner do Azure
 
@@ -50,7 +50,7 @@ Crie fork para este repositório: https://github.com/Azure-Samples/acr-build-hel
 
 Depois que você tiver criado o fork do repositório, clone o fork e entre no diretório que contém o clone local.
 
-Clone o repositório com `git`, substitua **\<your-github-username\>** pelo seu nome de usuário do GitHub:
+Clone o repositório com `git` e substitua **\<your-github-username\>** pelo seu nome de usuário do GitHub:
 
 ```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
@@ -70,7 +70,7 @@ Os comandos nesta série de tutoriais são formatados para o shell de Bash. Se v
 
 Agora que você efetuou pull do código-fonte para o seu computador, siga estas etapas para compilar um registro de contêiner e a imagem de contêiner com as Tarefas do ACR.
 
-Para tornar a execução dos comandos de exemplo mais fácil, os tutoriais desta série usam variáveis de ambiente de shell. Execute o seguinte comando para definir a variável `ACR_NAME`. Substitua **\<registry-name\>** por um nome exclusivo para seu novo registro de contêiner. O nome do Registro precisa ser exclusivo no Azure, conter apenas letras minúsculas e conter de 5 a 50 caracteres alfanuméricos. Os outros recursos que você cria no tutorial se baseiam nesse nome, e você precisará modificar apenas essa primeira variável.
+Para tornar a execução dos comandos de exemplo mais fácil, os tutoriais desta série usam variáveis de ambiente de shell. Execute o seguinte comando para definir a variável `ACR_NAME`. Substitua **\<registry-name\>** por um nome exclusivo para o seu novo registro de contêiner. O nome do Registro precisa ser exclusivo no Azure, conter apenas letras minúsculas e conter de 5 a 50 caracteres alfanuméricos. Os outros recursos que você cria no tutorial se baseiam nesse nome, e você precisará modificar apenas essa primeira variável.
 
 [![Inserir inicialização](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
 
@@ -176,7 +176,7 @@ Todos os cenários de produção devem usar [entidades de serviço][service-prin
 
 #### <a name="create-a-key-vault"></a>Criar um cofre de chave
 
-Se você ainda não tiver um cofre no [Azure Key Vault](/azure/key-vault/), crie um com a CLI do Azure usando os comandos a seguir.
+Se você ainda não tiver um cofre no [Azure Key Vault](../key-vault/index.yml), crie um com a CLI do Azure usando os comandos a seguir.
 
 ```azurecli-interactive
 AKV_NAME=$ACR_NAME-vault

@@ -1,12 +1,12 @@
 ---
-title: Visão geral de usuários, grupos, licenciamento e funções – Azure AD | Microsoft Docs
+title: Usuários, grupos, licenciamento e funções no Azure Active Directory
 description: A relação entre usuários e licenças atribuídas, funções de administrador, associação de grupo no Azure Active Directory
 keywords: ''
 author: curtand
 manager: daveba
 ms.author: curtand
 ms.reviewer: vincesm
-ms.date: 11/08/2019
+ms.date: 06/16/2020
 ms.topic: overview
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -14,14 +14,14 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8052bb44df6d29e17304763051fa2099009b9701
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 89c96da30411705bf33b1c63f79a9beef11962a1
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583009"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223815"
 ---
-# <a name="users-groups-licensing-and-roles-for-large-organizations"></a>Usuários, grupos, licenciamento e funções para organizações de grandes porte
+# <a name="what-is-enterprise-user-management"></a>O que é o gerenciamento de usuários empresariais?
 
 Este artigo apresenta ao administrador do Azure AD a relação entre as principais tarefas de [gerenciamento de identidade](/azure/active-directory/fundamentals/identity-fundamentals?context=azure/active-directory/users-groups-roles/context/ugr-context) para os usuários em termos de seus grupos, licenças, aplicativos empresariais implantados e as funções de administrador. À medida que sua organização cresce, você pode usar grupos do Azure AD e as funções de administrador para:
 

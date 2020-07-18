@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 42098d54725cc12691839b63c508efbecf042aa0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6727a2c45187e0e6bb583bb65e176024067d81e2
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80064411"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86219973"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>Tutorial: Usar um modelo de funcionalidade do dispositivo para criar um dispositivo IoT Plug and Play (versão prévia) e conectá-lo ao aplicativo do IoT Central
 
@@ -86,7 +86,9 @@ Para conectar um dispositivo a um aplicativo do IoT Central, é necessário ter 
 
 1. Acesse a página **Administração** e selecione **Conexão do Dispositivo**.
 
-1. Anote a **ID do Escopo** e a **Chave Primária** você vê ao selecionar **Exibir Chaves**. Você usará esses valores mais adiante neste tutorial.
+1. Anote a **ID do Escopo**. Você usará esse valor posteriormente neste tutorial.
+
+1. Selecione o grupo de registro **SAS-IoT-Devices**. Anote o valor da **Chave Primária**. Você usará esse valor posteriormente neste tutorial.
 
     ![Conexão de dispositivo](./media/tutorial-connect-pnp-device/device-connection.png)
 

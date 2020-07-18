@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 61b6ad0bedb4817c262b4269a6e9f6930a6caa6c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: b78364cef6bfd6cf91e6edf81fd57fa5912125db
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985681"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260672"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Criar um cluster do Red Hat OpenShift 4 no Azure
 
@@ -87,11 +87,26 @@ Quando executar o comando `az aro create`, você pode fazer referência ao segre
 
 Se você estiver copiando o segredo de pull ou fazendo referência a ele em outros scripts, o segredo de pull deverá ser formatado como uma cadeia de caracteres JSON válida.
 
+### <a name="prepare-a-custom-domain-for-your-cluster-optional"></a>Preparar um domínio personalizado para o seu cluster (opcional)
+
+Ao executar o comando `az aro create`, você pode especificar um domínio personalizado para o cluster usando o parâmetro `--domain foo.example.com`.
+
+Se você fornecer um domínio personalizado para o seu cluster, observe os seguintes pontos:
+
+* Após criar o cluster, você precisará criar dois registros DNS A no servidor DNS para o `--domain` especificado:
+    * **api** – apontando para o servidor de API
+    * **\*.apps** – apontando para a entrada
+    * Recupere esses valores executando o seguinte comando: `az aro show -n -g --query '{api:apiserverProfile.ip, ingress:ingressProfiles[0].ip}'`.
+
+* O console do OpenShift estará disponível em uma URL, como `https://console-openshift-console.apps.foo.example.com`, em vez de no domínio interno `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
+
+* Por padrão, o OpenShift usa certificados autoassinados para todas as rotas criadas em `*.apps.<random>.<location>.aroapp.io`.  Se você optar por usar o DNS personalizado após a conexão com o cluster, será necessário seguir a documentação do OpenShift para [configurar uma AC personalizada para o controlador de entrada](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) e uma [AC personalizada para o servidor de API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
+
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Criar uma rede virtual contendo duas sub-redes vazias
 
 Em seguida, você criará uma rede virtual contendo duas sub-redes vazias.
 
-1. **Defina as variáveis a seguir.**
+1. **Defina as variáveis a seguir no ambiente de shell no qual você executará os comandos `az`.**
 
    ```console
    LOCATION=eastus                 # the location of your cluster
@@ -99,9 +114,9 @@ Em seguida, você criará uma rede virtual contendo duas sub-redes vazias.
    CLUSTER=cluster                 # the name of your cluster
    ```
 
-1. **Criar um grupo de recursos**
+1. **Crie um grupo de recursos.**
 
-    Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados. Ao criar um grupo de recursos, você é solicitado a especificar um local. Essa é a localização na qual os metadados do grupo de recursos são armazenados e na qual os recursos são executados no Azure, caso você não especifique outra região durante a criação de recursos. Crie um grupo de recursos usando o comando [az group create][az-group-create].
+    Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados. Ao criar um grupo de recursos, você é solicitado a especificar um local. Essa é a localização na qual os metadados do grupo de recursos são armazenados e na qual os recursos são executados no Azure, caso você não especifique outra região durante a criação de recursos. Crie um grupo de recursos usando o comando [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create).
 
     ```azurecli-interactive
     az group create --name $RESOURCEGROUP --location $LOCATION
@@ -126,7 +141,7 @@ Em seguida, você criará uma rede virtual contendo duas sub-redes vazias.
 
     Os clusters do Red Hat OpenShift no Azure que executam o OpenShift 4 exigem uma rede virtual com duas sub-redes vazias para os nós mestre e de trabalho.
 
-    Crie uma rede virtual no mesmo grupo de recursos que você criou anteriormente.
+    Crie uma rede virtual no mesmo grupo de recursos que você criou anteriormente:
 
     ```azurecli-interactive
     az network vnet create \
@@ -189,10 +204,12 @@ Em seguida, você criará uma rede virtual contendo duas sub-redes vazias.
 
 ## <a name="create-the-cluster"></a>Criar o cluster
 
-Execute o comando a seguir para criar um cluster. Opcionalmente, você pode [passar o segredo de pull do Red Hat](#get-a-red-hat-pull-secret-optional) que permite que o cluster acesse registros de contêiner do Red Hat juntamente com conteúdo adicional.
+Execute o comando a seguir para criar um cluster. Se você optar por usar uma das seguintes opções, modifique o comando adequadamente:
+* Opcionalmente, você pode [passar o segredo de pull do Red Hat](#get-a-red-hat-pull-secret-optional) que permite que o cluster acesse registros de contêiner do Red Hat juntamente com conteúdo adicional. Adicione o argumento `--pull-secret @pull-secret.txt` ao comando.
+* Opcionalmente, você pode [usar um domínio personalizado](#prepare-a-custom-domain-for-your-cluster-optional). Adicione o argumento `--domain foo.example.com` ao comando, substituindo `foo.example.com` pelo seu domínio personalizado.
 
->[!NOTE]
-> Se você estiver copiando/colando comandos e usando um dos parâmetros opcionais, exclua as hashtags iniciais e o texto do comentário à direita. Além de isso, feche o argumento na linha anterior do comando com uma barra invertida à direita.
+> [!NOTE]
+> Se você estiver adicionando argumentos opcionais ao comando, feche o argumento na linha anterior do comando com uma barra invertida à direita.
 
 ```azurecli-interactive
 az aro create \
@@ -201,17 +218,9 @@ az aro create \
   --vnet aro-vnet \
   --master-subnet master-subnet \
   --worker-subnet worker-subnet
-  # --domain foo.example.com # [OPTIONAL] custom domain
-  # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
 
 Depois de executar o comando `az aro create`, normalmente leva cerca de 35 minutos para criar um cluster.
-
->[!IMPORTANT]
-> Se você optar por especificar um domínio personalizado, por exemplo **foo.example.com**, o console do OpenShift estará disponível em uma URL como `https://console-openshift-console.apps.foo.example.com`, em vez de no domínio interno `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
->
-> Por padrão, o OpenShift usa certificados autoassinados para todas as rotas criadas em `*.apps.<random>.<location>.aroapp.io`.  Se você optar por usar o DNS personalizado após a conexão com o cluster, será necessário seguir a documentação do OpenShift para [configurar uma AC personalizada para o controlador de entrada](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) e uma [AC personalizada para o servidor de API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
->
 
 ## <a name="next-steps"></a>Próximas etapas
 

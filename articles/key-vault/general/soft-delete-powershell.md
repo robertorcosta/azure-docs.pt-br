@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 452dd99ae58858b661892e3f962fce8086d4503c
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 022e6eb517987207755d31fdb1820e35197d8dc6
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85444651"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202129"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como usar a exclusão reversível do Key Vault com o PowerShell
 
@@ -267,7 +267,7 @@ A listagem de objetos de cofre de chaves excluídos também mostra quando eles e
 
 Quando a proteção de limpeza está ativada, um cofre ou um objeto no estado excluído não pode ser limpo até que tenha passado o período de retenção. Ainda é possível recuperar tal cofre ou objeto. Esse recurso fornece uma garantia extra de que um cofre ou objeto não pode ser excluído permanentemente até que tenha passado o período de retenção. O período de retenção padrão é de 90 dias, mas durante a criação do cofre de chaves, é possível definir o intervalo da política de retenção para um valor de 7 a 90 dias. A política de retenção de proteção de limpeza usa o mesmo intervalo. Uma vez definido, o intervalo da política de retenção não pode ser alterado.
 
-Você poderá habilitar a proteção de limpeza somente se a exclusão reversível também estiver habilitada. No momento, não há suporte para desabilitar a proteção contra limpeza. 
+Você poderá habilitar a proteção de limpeza somente se a exclusão reversível também estiver habilitada. Não há suporte para desabilitar a proteção contra limpeza. 
 
 Para ativar a exclusão reversível e a proteção de limpeza ao criar um cofre, use o cmdlet [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0):
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: faf77411abca63516b00ac953bc7203da69f3ca9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: d08d7a81fddfe70593c31ac3ebd2191679ea1220
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854096"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206362"
 ---
 # <a name="azure-load-balancer-skus"></a>SKUs do Azure Load Balancer
 
@@ -34,19 +34,19 @@ VMs autônomas, conjuntos de disponibilidade e conjuntos de dimensionamento de m
 
 | | Standard Load Balancer | Load Balancer Básico |
 | --- | --- | --- |
-| [Tamanho do pool de back-end](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer) | Dá suporte a até 1.000 instâncias. | Dá suporte a até 300 instâncias. |
-| Pontos de extremidade de pool de back-end | Máquinas virtuais ou conjuntos de dimensionamento de máquinas virtuais em uma rede virtual única. | Máquinas virtuais em um conjunto de disponibilidade ou conjunto de dimensionamento da máquina virtual. |
-| [Investigações de integridade](./load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Comportamento de investigação de integridade inoperante](./load-balancer-custom-probe-overview.md#probedown) | As conexões TCP permanecem ativas com uma instância de investigação inoperante __e__ todas as investigações inoperantes. | As conexões TCP permanecem ativas com uma instância de investigação inoperante. Todas as conexões TCP terminam com todas as investigações inoperantes. |
-| Zonas de Disponibilidades | Front-ends com zonas e redundância de zonas para tráfego de entrada e de saída. | Não disponível |
-| Diagnósticos | [Métricas multidimensionais do Azure Monitor](./load-balancer-standard-diagnostics.md) | [Logs do Azure Monitor](./load-balancer-monitor-log.md) |
-| Portas de alta disponibilidade | [Disponível para o Balanceador de Carga Interno](./load-balancer-ha-ports-overview.md) | Não disponível |
-| Segurança por padrão | Fechado para fluxos de entrada, a menos que permitido por um grupo de segurança de rede. Observe que o tráfego interno da VNet para o balanceador de carga interno é permitido. | Abertos por padrão. Grupo de segurança de rede opcional. |
-| Regras de saída | [Configuração de NAT de saída declarativa](./load-balancer-outbound-rules-overview.md) | Não disponível |
-| Redefinição de TCP quando ocioso | [Disponível em qualquer regra](./load-balancer-tcp-reset.md) | Não disponível |
-| [Vários front-ends](./load-balancer-multivip-overview.md) | Entrada e [saída](./load-balancer-outbound-connections.md) | Somente entrada |
-| Operações de Gerenciamento | Maioria das operações < 30 segundos | 60-90+ segundos típicos |
-| Contrato de Nível de Serviço | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Não disponível | 
+| **[Tamanho do pool de back-end](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)** | Dá suporte a até 1.000 instâncias. | Dá suporte a até 300 instâncias. |
+| **Pontos de extremidade de pool de back-end** | Máquinas virtuais ou conjuntos de dimensionamento de máquinas virtuais em uma rede virtual única. | Máquinas virtuais em um conjunto de disponibilidade ou conjunto de dimensionamento da máquina virtual. |
+| **[Investigações de integridade](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[Comportamento de investigação de integridade inoperante](./load-balancer-custom-probe-overview.md#probedown)** | As conexões TCP permanecem ativas com uma instância de investigação inoperante __e__ todas as investigações inoperantes. | As conexões TCP permanecem ativas com uma instância de investigação inoperante. Todas as conexões TCP terminam com todas as investigações inoperantes. |
+| **Zonas de Disponibilidade** | Front-ends com zonas e redundância de zonas para tráfego de entrada e de saída. | Não disponível |
+| **Diagnóstico** | [Métricas multidimensionais do Azure Monitor](./load-balancer-standard-diagnostics.md) | [Logs do Azure Monitor](./load-balancer-monitor-log.md) |
+| **Portas de HA** | [Disponível para o Balanceador de Carga Interno](./load-balancer-ha-ports-overview.md) | Não disponível |
+| **Seguro por padrão** | Fechado para fluxos de entrada, a menos que permitido por um grupo de segurança de rede. Observe que o tráfego interno da VNet para o balanceador de carga interno é permitido. | Abertos por padrão. Grupo de segurança de rede opcional. |
+| **Regras de saída** | [Configuração de NAT de saída declarativa](./load-balancer-outbound-rules-overview.md) | Não disponível |
+| **Redefinição de TCP quando ocioso** | [Disponível em qualquer regra](./load-balancer-tcp-reset.md) | Não disponível |
+| **[Vários front-ends](./load-balancer-multivip-overview.md)** | Entrada e [saída](./load-balancer-outbound-connections.md) | Somente entrada |
+| **Operações de gerenciamento** | Maioria das operações < 30 segundos | 60-90+ segundos típicos |
+| **SLA** | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Não disponível | 
 
 Para saber mais, confira [Limites do balanceador de carga](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Para obter detalhes sobre o Load Balancer Standard, confira [visão geral](load-balancer-standard-overview.md), [preços](https://aka.ms/lbpricing) e [SLA](https://aka.ms/lbsla).
 

@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 1d86749a4e6071213ba5e229765bb6391affb199
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 05a3fc7524b16033c48170b6cf0fa4e004c9eb9b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737114"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257994"
 ---
 # <a name="what-is-azure-digital-twins"></a>O que são Gêmeos Digitais do Azure?
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Os **Gêmeos Digitais do Azure** são uma plataforma IoT que permite a criação de modelos digitais abrangentes para ambientes inteiros. Esses ambientes podem ser edifícios, fábricas, fazendas, redes de energia, ferrovias, estádios e muito mais – até mesmo cidades inteiras. Esses modelos digitais podem ser usados para obter insights que impulsionam melhores produtos, operações otimizadas, custos reduzidos e experiências de clientes inovadoras.
 
@@ -46,6 +43,12 @@ A DTDL é usada para modelos de dados em todos os outros serviços de IoT do Azu
 ### <a name="live-execution-environment"></a>Ambiente de execução ao vivo
 
 Os modelos digitais dos Gêmeos Digitais do Azure são representações ao vivo e atualizadas do mundo real. Usando as relações dos modelos DTDL personalizados, você conectará os gêmeos a um **grafo ao vivo** que representa o seu ambiente.
+
+Você pode exibir uma visualização do seu grafo de Gêmeos Digitais do Azure com a ajuda de um aplicativo de exemplo, o [**Explorador dos Gêmeos Digitais do Azure**](https://github.com/Azure-Samples/digital-twins-explorer).
+
+Veja abaixo qual é a aparência da visualização de exemplo:
+
+:::image type="content" source="media/includes/azure-digital-twins-explorer.png" alt-text="Captura de tela do aplicativo de exemplo do explorador dos Gêmeos Digitais do Azure que mostra um grafo de nós representando os gêmeos digitais" lightbox="media/includes/azure-digital-twins-explorer.png":::
 
 Os Gêmeos Digitais do Azure fornecem um **sistema de eventos** avançado para manter esse grafo atualizado com o processamento de dados e a lógica de negócios. Você poderá conectar recursos externos de computação, como o [Azure Functions](../azure-functions/functions-overview.md), a fim de impulsionar esse processamento de dados de maneiras flexíveis e personalizadas.
 
@@ -103,4 +106,4 @@ Se você trabalhou com a versão prévia anterior dos Gêmeos Digitais do Azure,
 Ou aprofunde-se no trabalho com os Gêmeos Digitais do Azure por meio do primeiro tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: codificar um aplicativo cliente](tutorial-code.md)
+> [Tutorial: Codificar um aplicativo cliente](tutorial-code.md)

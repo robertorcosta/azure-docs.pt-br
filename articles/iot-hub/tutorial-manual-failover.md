@@ -11,16 +11,16 @@ ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 86b39beb2958194f7c86409c5d78992616234b05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 26679a7111e11eaf48e948fa6d3622814327433a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769902"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252565"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Tutorial: Executar failover manual para um Hub IoT
 
-Failover manual é um recurso do serviço Hub IoT que permite que os clientes façam [failover](https://en.wikipedia.org/wiki/Failover) das operações de seu hub de uma região primária para a região do Azure com emparelhamento geográfico correspondente. O failover manual pode ser feito em caso de um desastre regional ou uma interrupção de serviço estendida. Você também pode executar um failover planejado para testar recursos de recuperação de desastre, embora seja recomendável usar um hub IoT de teste em vez de um na produção. O recurso de failover manual é oferecido aos clientes sem custo adicional.
+Failover manual é um recurso do serviço Hub IoT que permite que os clientes façam [failover](https://en.wikipedia.org/wiki/Failover) das operações de seu hub de uma região primária para a região do Azure com emparelhamento geográfico correspondente. O failover manual pode ser feito em caso de um desastre regional ou uma interrupção de serviço estendida. Você também pode executar um failover planejado para testar recursos de recuperação de desastre, embora seja recomendável usar um hub IoT de teste em vez de um na produção. O recurso de failover manual é oferecido aos clientes sem custo adicional para os hubs IoT criados após 18 de maio de 2017.
 
 Neste tutorial, você executa as seguintes tarefas:
 

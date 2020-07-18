@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 06/29/2020
+ms.date: 07/09/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 13949bef7b26058c577a3ab85b4fb2e736bba8f5
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 219551f2bba229fb627092548fe5c5f5ff8798b9
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562981"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220586"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma conexão site a site usando a WAN Virtual do Azure
 
@@ -87,17 +87,7 @@ Nesta etapa, você conecta o site VPN ao hub.
 
 ## <a name="connect-the-vnet-to-the-hub"></a><a name="vnet"></a>Conectar a VNet ao hub
 
-Nesta etapa, você pode criar a conexão entre uma VNET e seu hub. Repita as etapas para cada VNET que você deseja se conectar.
-
-1. Na página da WAN virtual, clique em **Conexões de rede virtual**.
-2. Na página de conexão de rede virtual, clique em **+Adicionar conexão**.
-3. Na página **Adicionar conexão**, preencha os seguintes campos:
-
-    * **Nome da Conexão**: nomeie sua conexão.
-    * **Hubs**: selecione o hub que você deseja associar a essa conexão.
-    * **Assinatura**: verifique a assinatura.
-    * **Rede virtual:** selecione a rede virtual que você deseja conectar a esse hub. A rede virtual não pode ter um gateway de rede virtual já existente.
-4. Clique em **OK** para criar a conexão de rede virtual.
+[!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
 ## <a name="download-vpn-configuration"></a><a name="device"></a>Baixar configuração de VPN
 
@@ -262,7 +252,7 @@ Na página **Editar o Gateway de VPN**, você pode ver as seguintes configuraç�
 * Endereço IP Público do Gateway de VPN (atribuído pelo Azure)
 * Endereço IP Privado do Gateway de VPN (atribuído pelo Azure)
 * Endereço IP BGP Padrão do Gateway de VPN (atribuído pelo Azure)
-* Opção de configuração para o Endereço IP BGP Personalizado: Esse campo é reservado para APIPA (Endereçamento IP Privado Automático). O Azure dá suporte a IP BGP nos intervalos 169.254.21.* e 169.254.22.*
+* Opção de configuração para o Endereço IP BGP Personalizado: Esse campo é reservado para APIPA (Endereçamento IP Privado Automático). O Azure dá suporte a IP BGP nos intervalos 169.254.21.* e 169.254.22.*. O Azure aceita conexões BGP nesses intervalos, mas discará a conexão com o IP BGP padrão.
 
    :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Exibir configuração" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 

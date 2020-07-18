@@ -17,12 +17,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 914ccc2ac74048abb2a66b61aa65b771f8141d5e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a8a939f0d0c3575adec147c1942ddbbef334cb65
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71212064"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220143"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Tutorial: Enviar notificações para usuários específicos usando o Hubs de Notificação do Microsoft Azure
 
@@ -331,11 +331,11 @@ Nesta seção, você atualizará o código no projeto concluído no [Tutorial: E
 2. Insira um **Nome de Usuário** e **Senha** conforme mostrado na tela abaixo. Eles devem diferir do nome de usuário e senha que você insere no Windows Phone.
 3. Clique em **Fazer logon e registrar** e verifique se um diálogo mostra que você fez logon. Esse código também habilita o botão **Enviar por Push**.
 
-    ![][14]
+    ![Captura de tela do aplicativo de Hubs de Notificação mostrando o nome de usuário e a senha preenchidos.][14]
 5. Em seguida, no campo **Marca de Nome de Usuário do Destinatário**, insira o nome de usuário registrado. Digite uma mensagem de notificação e clique em **Enviar notificação por push**.
 6. Apenas os dispositivos que foram registrados com o nome de usuário correspondente recebem a mensagem de notificação.
 
-    ![][15]
+    ![Captura de tela do aplicativo Hubs de Notificação mostrando a ‘mensagem que foi enviada por push.][15]
 
 ## <a name="next-steps"></a>Próximas etapas
 

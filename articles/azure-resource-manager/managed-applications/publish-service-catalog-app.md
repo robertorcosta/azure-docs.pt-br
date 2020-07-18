@@ -3,14 +3,15 @@ title: Publicar um aplicativo gerenciado do catálogo de serviços
 description: Mostra como criar um aplicativo gerenciado do Azure destinado aos membros de sua organização.
 author: tfitzmac
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 47eda62810b1098fcaca5b734be4f74edc0db49a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: d0a3e2a435be679a2a35941dfa24978ae77291b0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609350"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249029"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Início Rápido: Criar e publicar uma definição de aplicativo gerenciado
 
@@ -20,15 +21,15 @@ Para publicar um aplicativo gerenciado no catálogo de serviços, você precisa:
 
 * Crie um modelo que define os recursos para implantar com o aplicativo gerenciado.
 * Defina os elementos da interface do usuário para o portal ao implantar o aplicativo gerenciado.
-* Criar um pacote .zip que contenha os arquivos de modelo necessários.
+* Crie um pacote _.zip_ que contenha os arquivos de modelo necessários.
 * Decidir qual usuário, grupo ou aplicativo precisa de acesso ao grupo de recursos na assinatura do usuário.
-* Criar a definição de aplicativo gerenciado que aponta para o pacote .zip e solicita o acesso à identidade.
+* Crie a definição de aplicativo gerenciado que aponta para o pacote _.zip_ e solicita o acesso à identidade.
 
 ## <a name="create-the-arm-template"></a>Criar um modelo do ARM
 
-Cada definição de aplicativo gerenciado contém um arquivo chamado **mainTemplate.json**. Nele, você pode definir os recursos do Azure que serão implantados. O modelo não é diferente de um modelo normal do ARM (Azure Resource Manager).
+Cada definição de aplicativo gerenciado contém um arquivo chamado _mainTemplate.json_. Nele, você pode definir os recursos do Azure que serão implantados. O modelo não é diferente de um modelo do ARM normal.
 
-Crie um arquivo chamado **mainTemplate.json**. O nome diferencia maiúsculas de minúsculas.
+Crie um arquivo chamado _mainTemplate.json_. O nome diferencia maiúsculas de minúsculas.
 
 Adicione o seguinte JSON ao seu arquivo. Ele define os parâmetros para a criação de uma conta de armazenamento e especifica as propriedades dela.
 
@@ -73,13 +74,13 @@ Adicione o seguinte JSON ao seu arquivo. Ele define os parâmetros para a criaç
 }
 ```
 
-Salve o arquivo mainTemplate.json.
+Salve o arquivo _mainTemplate.json_.
 
 ## <a name="define-your-create-experience"></a>Definir a experiência de criação
 
-Como editor, você define a experiência do portal para criar o aplicativo gerenciado. O arquivo **createUiDefinition.json** gera a interface do portal. Você define como os usuários fornecem a entrada para cada parâmetro usando [elementos de controle](create-uidefinition-elements.md), incluindo menus suspensos, caixas de texto e caixas de senha.
+Como editor, você define a experiência do portal para criar o aplicativo gerenciado. O arquivo _createUiDefinition.json_ gera a interface do portal. Você define como os usuários fornecem a entrada para cada parâmetro usando [elementos de controle](create-uidefinition-elements.md), incluindo menus suspensos, caixas de texto e caixas de senha.
 
-Criar um arquivo chamado **createUiDefinition.json** (esse nome diferencia maiúsculas de minúsculas)
+Criar um arquivo chamado _createUiDefinition.json_ (esse nome diferencia maiúsculas de minúsculas)
 
 Adicione o JSON inicial a seguir ao arquivo e salve-o.
 
@@ -136,7 +137,7 @@ Para saber mais, consulte [Introdução a CreateUiDefinition](create-uidefinitio
 
 ## <a name="package-the-files"></a>Empacote os arquivos
 
-Adicione os dois arquivos em um arquivo zip chamado app.zip. Os dois arquivos devem estar no nível raiz do arquivo .zip. Se você colocá-los em uma pasta, receberá um erro ao criar a definição de aplicativo gerenciado que indica que os arquivos necessários não estão presentes.
+Adicione os dois arquivos em um arquivo _.zip_ chamado _app.zip_. Os dois arquivos precisam estar no nível raiz do arquivo _.zip_. Se você colocá-los em uma pasta, receberá um erro ao criar a definição de aplicativo gerenciado que indica que os arquivos necessários não estão presentes.
 
 Carregue o pacote em um local acessível no qual ele pode ser consumido. Você precisará fornecer um nome exclusivo para a conta de armazenamento.
 
@@ -291,7 +292,7 @@ Alguns dos parâmetros usados no exemplo anterior são:
 * **grupo de recursos**: o nome do grupo de recursos no qual a definição de aplicativo gerenciado é criada.
 * **nível de bloqueio**: o tipo de bloqueio colocado no grupo de recursos gerenciados. Ela impede que o cliente execute operações indesejáveis no grupo de recursos. Atualmente, ReadOnly é o único nível de bloqueio com suporte. Quando ReadOnly é especificado, o cliente pode ler somente os recursos presentes no grupo de recursos gerenciados. As identidades do publicador que concedem acesso ao grupo de recursos gerenciado são isentas de bloqueio.
 * **authorizations**: descreve a ID da entidade e a ID de definição de função que são usadas para conceder permissão ao grupo de recursos gerenciados. Ele é especificado no formato `<principalId>:<roleDefinitionId>`. Se for necessário mais de um valor, especifique-os no formato `<principalId1>:<roleDefinitionId1>,<principalId2>:<roleDefinitionId2>`. Os valores são separados por uma vírgula.
-* **URI do arquivo de pacote**: o local de um pacote .zip que contém os arquivos necessários.
+* **URI do arquivo de pacote**: A localização de um pacote _.zip_ que contém os arquivos necessários.
 
 ## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Traga seu próprio armazenamento para a definição de aplicativo gerenciado
 
@@ -317,9 +318,9 @@ Antes que a definição de aplicativo gerenciado possa ser implantada em sua con
 1. Em **Selecionar**, pesquise a função **Provedor de Recursos do Dispositivo** e selecione-a.
 1. Salve a atribuição de função.
 
-### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Implantar a definição de aplicativo gerenciado com um modelo de ARM 
+### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Implantar a definição de aplicativo gerenciado com um modelo do ARM
 
-Use o modelo de ARM a seguir para implantar o aplicativo gerenciado empacotado como uma nova definição de aplicativo gerenciado no Catálogo de Serviços cujos arquivos de definição são armazenados e mantidos em sua conta de armazenamento:
+Use o seguinte modelo do ARM para implantar o aplicativo gerenciado empacotado como uma nova definição de aplicativo gerenciado no Catálogo de Serviços cujos arquivos de definição são armazenados e mantidos na sua conta de armazenamento:
    
 ```json
     {
@@ -391,9 +392,9 @@ Use o modelo de ARM a seguir para implantar o aplicativo gerenciado empacotado c
 }
 ```
 
-Adicionamos uma nova propriedade chamada **storageAccountId** às propriedades de sua applicationDefinition e fornecemos a ID da conta de armazenamento na qual você deseja armazenar sua definição como o valor dessa propriedade:
+Adicionamos uma nova propriedade chamada `storageAccountId` às suas propriedades `applicationDefinitions` e fornecemos a ID da conta de armazenamento na qual você deseja armazenar a sua definição como o valor dessa propriedade:
 
-Você pode verificar se os arquivos de definição de aplicativo são salvos em sua conta de armazenamento fornecida em um contêiner intitulado **applicationdefinitions**.
+Você pode verificar se os arquivos de definição de aplicativo estão salvos na sua conta de armazenamento fornecida em um contêiner intitulado `applicationDefinitions`.
 
 > [!NOTE]
 > Para aumentar a segurança, você pode criar uma definição de aplicativos gerenciados armazenando-a em um [blob de conta de Armazenamento do Azure em que a criptografia está habilitada](../../storage/common/storage-service-encryption.md). O conteúdo da definição é criptografado por meio das opções de criptografia da conta de armazenamento. Somente os usuários com permissões para o arquivo podem ver a definição no Catálogo de Serviços.

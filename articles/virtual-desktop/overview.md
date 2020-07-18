@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 05/07/2020
+ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 289cc463732ee6b612b67f6c408d9d7260016137
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 473e3d52b1757faebd60c14966b425e9390a2685
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125797"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248604"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows? 
 
@@ -87,47 +87,7 @@ As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windo
 >[!NOTE]
 >Caso precise de uma assinatura do Azure, [inscreva-se em uma avaliação gratuita de um mês](https://azure.microsoft.com/free/). Se estiver usando a versão de avaliação gratuita do Azure, use o Azure AD Domain Services para manter o Windows Server Active Directory em sincronia com o Azure Active Directory.
 
-As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windows precisam ter acesso às seguintes URLs:
-
-|Endereço|Porta TCP de saída|Finalidade|Marca de serviço|
-|---|---|---|---|
-|*.wvd.microsoft.com|443|Tráfego de serviço|WindowsVirtualDesktop|
-|mrsglobalsteus2prod.blob.core.windows.net|443|Atualizações do agente e da pilha de SXS|AzureCloud|
-|*.core.windows.net|443|Tráfego de agente|AzureCloud|
-|*.servicebus.windows.net|443|Tráfego de agente|AzureCloud|
-|prod.warmpath.msftcloudes.com|443|Tráfego de agente|AzureCloud|
-|catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
-|kms.core.windows.net|1688|Ativação do Windows|Internet|
-|wvdportalstorageblob.blob.core.windows.net|443|Suporte do portal do Azure|AzureCloud|
-
->[!IMPORTANT]
->Agora, a Área de Trabalho Virtual do Windows dá suporte à marca FQDN. Para obter mais informações, confira [Usar o Firewall do Azure para proteger implantações da Área de Trabalho Virtual do Windows](../firewall/protect-windows-virtual-desktop.md).
->
->Recomendamos que você use marcas de FQDN ou marcas de serviço, em vez de URLs, para evitar problemas de serviço. As URLs e as marcas listadas correspondem apenas aos sites e aos recursos da Área de Trabalho Virtual do Windows. Não incluem URLs para outros serviços, como Azure Active Directory.
-
-A seguinte tabela lista as URLs opcionais às quais suas máquinas virtuais do Azure podem ter acesso:
-
-|Endereço|Porta TCP de saída|Finalidade|Marca de serviço|
-|---|---|---|---|
-|*.microsoftonline.com|443|Autenticação no Microsoft Online Services|Nenhum|
-|*.events.data.microsoft.com|443|Serviço de telemetria|Nenhum|
-|www.msftconnecttest.com|443|Detecta se o sistema operacional está conectado à Internet|Nenhum|
-|*.prod.do.dsp.mp.microsoft.com|443|Windows Update|Nenhum|
-|login.windows.net|443|Entrar nos Serviços Online da Microsoft, Microsoft 365|Nenhum|
-|*.sfx.ms|443|Atualizações do software cliente do OneDrive|Nenhum|
-|*.digicert.com|443|Verificação de revogação do certificado|Nenhum|
-
-
->[!NOTE]
->No momento, a Área de Trabalho Virtual do Windows não tem uma lista de intervalos de endereços IP que você pode adicionar à lista de permissões para permitir o tráfego de rede. Neste momento, só damos suporte à adição de URLs específicas à lista de permissões.
->
->Para obter uma lista de URLs relacionadas ao Office, incluindo as URLs obrigatórias relacionadas ao Azure Active Directory, confira [URLs e intervalos de endereços IP do Office 365](/office365/enterprise/urls-and-ip-address-ranges).
->
->Você precisa usar o caractere curinga (*) para URLs que envolvem tráfego de serviço. Se preferir não usar * para o tráfego relacionado ao agente, encontre as URLs sem curinga da seguinte forma:
->
->1. Registre suas máquinas virtuais no pool de hosts da Área de Trabalho Virtual do Windows.
->2. Abra o **Visualizador de eventos** e navegue até os **logs do Windows** > **Aplicativo** > **WVD-Agent** e pesquise a ID de Evento 3702.
->3. Inclua na lista de permissões as URLs encontradas com a ID de Evento 3702. As URLs com a ID de Evento 3702 são específicas da região. Você precisará repetir o processo de inclusão na lista de permissões com as URLs relevantes para cada região em que quiser implantar suas máquinas virtuais.
+Para obter uma lista de URLs que você deve desbloquear para que a implantação de Área de Trabalho Virtual do Windows funcione como pretendida, confira nossa [Lista de URLs seguras](safe-url-list.md).
 
 A Área de Trabalho Virtual do Windows é composta por áreas de trabalho e aplicativos do Windows que você fornece aos usuários e pela solução de gerenciamento, que é hospedada pela Microsoft como um serviço no Azure. As áreas de trabalho e os aplicativos podem ser implantados em VMs (máquinas virtuais) em qualquer região do Azure. A solução de gerenciamento e os dados dessas VMs residirão nos Estados Unidos. Isso poderá resultar na transferência de dados para os Estados Unidos.
 
@@ -141,7 +101,7 @@ Para otimizar o desempenho, verifique se a rede atende aos seguintes requisitos:
 
 Os seguintes clientes da Área de Trabalho Remota são compatíveis com a Área de Trabalho Virtual do Windows:
 
-* [Área de trabalho do Windows](connect-windows-7-and-10.md)
+* [Área de trabalho do Windows](connect-windows-7-10.md)
 * [Web](connect-web.md)
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
@@ -153,20 +113,7 @@ Os seguintes clientes da Área de Trabalho Remota são compatíveis com a Área 
 > [!IMPORTANT]
 > No momento, a Área de Trabalho Virtual do Windows não dá suporte ao cliente da Área de Trabalho Remota da Microsoft Store. O suporte para esse cliente será adicionado em uma versão futura.
 
-Os clientes da Área de Trabalho Remota precisam ter acesso às seguintes URLs:
-
-|Endereço|Porta TCP de saída|Finalidade|Cliente(s)|
-|---|---|---|---|
-|*.wvd.microsoft.com|443|Tráfego de serviço|Todos|
-|*.servicebus.windows.net|443|Solucionar problemas de dados|Todos|
-|go.microsoft.com|443|FWLinks da Microsoft|Todos|
-|aka.ms|443|Redutor de URL da Microsoft|Todos|
-|docs.microsoft.com|443|Documentação|Todos|
-|privacy.microsoft.com|443|Política de privacidade|Todos|
-|query.prod.cms.rt.microsoft.com|443|Atualizações do cliente|Área de Trabalho do Windows|
-
->[!IMPORTANT]
->Abrir essas URLs é essencial para ter uma experiência do cliente confiável. Não há suporte ao bloqueio do acesso a essas URLs e isso afetará a funcionalidade do serviço. Essas URLs correspondem apenas aos sites e recursos do cliente e não incluem URLs para outros serviços, como o Azure Active Directory.
+Para saber mais sobre as URLs que você precisa desbloquear para usar os Clientes Remotos, confira a [Lista de URLs seguras](safe-url-list.md).
 
 ## <a name="supported-virtual-machine-os-images"></a>Imagens compatíveis do sistema operacional da máquina virtual
 

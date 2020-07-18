@@ -3,12 +3,12 @@ title: Usar o portal para carregar, codificar e transmitir o conteúdo – Azure
 description: Este início rápido mostra como usar o portal para carregar, codificar e transmitir o conteúdo com os Serviços de Mídia do Azure.
 ms.topic: quickstart
 ms.date: 06/08/2020
-ms.openlocfilehash: b023a4ed68aa7cfa41661e986dcd4ad6819b810d
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 374e8a22bf8fdcb14101bffc26f9d1b27480ce88
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84988726"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232467"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Início Rápido: Carregar, codificar e transmitir o conteúdo com o portal
 
@@ -58,7 +58,7 @@ Este início rápido mostra como usar o portal do Azure para carregar, codificar
 1. Localize e clique na sua conta dos Serviços de Mídia.
 1. Selecione **Ativos (novo)** .
 1. Selecione **Carregar** na parte superior da janela. 
-1. Arraste e solte um arquivo ou navegue até um que deseje carregar.
+1. Arraste e solte um arquivo ou navegue até um arquivo que deseje carregar.
 
 Se você navegar até a janela de ativos, verá que um novo ativo foi adicionado à lista:
 
@@ -106,7 +106,7 @@ Ou então, copie a URL de streaming e use-a no player cliente.
 > [!NOTE]
 > Verifique se o [ponto de extremidade de streaming](streaming-endpoint-concept.md) está em execução. Quando você cria uma conta dos Serviços de Mídia pela primeira vez, o ponto de extremidade de streaming padrão é criado e é mostrado em um estado parado; portanto, você precisará iniciá-lo para transmitir o conteúdo.<br/>Você só é cobrado quando o ponto de extremidade de streaming está no estado de execução.
 
-## <a name="cleanup-resources"></a>Limpar os recursos
+## <a name="cleanup-resources"></a>Recursos de limpeza
 
 Se você pretende experimentar outros guias de início rápido, deve ater-se aos recursos criados. Caso contrário, acesse o portal do Azure, navegue até os grupos de recursos, selecione o grupo de recursos no qual você executou este guia de início rápido e exclua todos os recursos.
 

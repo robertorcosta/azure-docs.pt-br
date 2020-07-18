@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 0abe443521b928dd087e23b5491635b02cd832e8
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: ff37a3ecb55c6ee034d3fd2558909c3b4ef1d375
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592019"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223424"
 ---
 # <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>Tutorial: Enviar notificações por push baseadas em localização com os Hubs de Notificação e o Bing Spatial Data
 
@@ -49,10 +49,10 @@ Neste tutorial, você deve executar as seguintes etapas:
 1. Faça logon no [Centro de Desenvolvimento do Bing Mapas](https://www.bingmapsportal.com/).
 2. Na barra de navegação superior, selecione **Fontes de dados** e selecione **Gerenciar Fontes de Dados**.
 
-    ![](./media/notification-hubs-geofence/bing-maps-manage-data.png)
+    ![Captura de tela do Centro de Desenvolvimento do Bing Mapas, na página gerenciar fontes de dados, com a opção Carregar dados como uma fonte de dados delineada em vermelho.](./media/notification-hubs-geofence/bing-maps-manage-data.png)
 3. Se você não tiver uma fonte de dados, você verá um link para criar uma fonte de dados. Selecione **Carregar os dados como uma fonte de dados**. Você também pode usar o menu **Fontes de dados** > **Carregar dados**.
 
-    ![](./media/notification-hubs-geofence/bing-maps-create-data.png)
+    ![Captura de tela da caixa de diálogo Carregar uma fonte de dados.](./media/notification-hubs-geofence/bing-maps-create-data.png)
 4. Crie um arquivo `NotificationHubsGeofence.pipe` no disco rígido com o seguinte conteúdo: Neste tutorial, use um arquivo de exemplo baseado em pipe que enquadra uma área da orla marítima de São Francisco:
 
     ```text
@@ -63,7 +63,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 
     O arquivo de pipe representa esta entidade:
 
-    ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
+    ![Captura de tela de uma fotografia aérea da orla marítima de São Francisco (EUA) com um polígono vermelho delineando uma área dos píeres.](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. Na página **Carregar uma fonte de dados**, execute as seguintes ações:
    1. Selecione **pipe** para **Formato de dados**.
    2. Procure e selecione o arquivo `NotificationHubGeofence.pipe` que você criou na etapa anterior.
@@ -74,18 +74,18 @@ Neste tutorial, você deve executar as seguintes etapas:
 6. Depois que você carregar o arquivo de dados, você deve certificar-se de que publicou a fonte de dados. Selecione **Fontes de dados** -> **Gerenciar Fontes de Dados** como você fez antes.
 7. Selecione a fonte de dados na lista e escolha **Publicar** na coluna **Ações**.
 
-    ![](./media/notification-hubs-geofence/publish-button.png)
+    ![Captura de tela do Centro de Desenvolvimento do Bing Mapas, na página gerenciar fontes de dados, com a guia Dados com Codificação Geográfica selecionada e a opção Publicar delineada em vermelho.](./media/notification-hubs-geofence/publish-button.png)
 8. Altere para a guia **Fontes de Dados Publicadas** e confirme se você vê sua fonte de dados na lista.
 
-    ![](./media/notification-hubs-geofence/bing-maps-published-data.png)
+    ![Captura de tela do Centro de Desenvolvimento do Bing Mapas na página Gerenciar Fontes de Dados com a guia Fontes de Dados Publicadas selecionada.](./media/notification-hubs-geofence/bing-maps-published-data.png)
 9. Selecione **Editar**. Você vê (em um relance) locais que você introduziu nos dados.
 
-    ![](./media/notification-hubs-geofence/bing-maps-data-details.png)
+    ![Captura de tela da página Editar dados de entidade, mostrando um mapa da parte ocidental dos Estados Unidos e um ponto magenta sobre a orla marítima de São Francisco.](./media/notification-hubs-geofence/bing-maps-data-details.png)
 
     Neste ponto, o portal não mostrará os limites geográficos que criamos. Tudo o que você precisa é de uma confirmação de que o local especificado está na vizinhança certa.
 10. Agora você tem todos os requisitos da fonte de dados. Para obter os detalhes na URL de solicitação para a chamada à API, no Centro de Desenvolvimento do Bing Mapas, escolha **Fontes de dados** e selecione **Informações da Fonte de Dados**.
 
-    ![](./media/notification-hubs-geofence/bing-maps-data-info.png)
+    ![Captura de tela do Centro de Desenvolvimento do Bing Mapas na página de Informações da fonte de dados.](./media/notification-hubs-geofence/bing-maps-data-info.png)
 
     A **URL de consulta** é o ponto de extremidade no qual você pode executar consultas para verificar se o dispositivo ainda está dentro dos limites de um local ou não. Para realizar essa verificação, simplesmente execute uma chamada GET na URL de consulta, com os seguintes parâmetros anexados:
 
@@ -95,17 +95,17 @@ Neste tutorial, você deve executar as seguintes etapas:
 
     O Bing Mapas executa automaticamente os cálculos para ver se o dispositivo está dentro do geofence. Depois de executar a solicitação por meio de um navegador (ou cURL), você obterá uma resposta JSON padrão:
 
-    ![](./media/notification-hubs-geofence/bing-maps-json.png)
+    ![Captura de tela da resposta JSON padrão.](./media/notification-hubs-geofence/bing-maps-json.png)
 
     Essa resposta só acontece quando o ponto está realmente dentro dos limites designados. Caso contrário, você obterá um bucket vazio de **resultados**:
 
-    ![](./media/notification-hubs-geofence/bing-maps-nores.png)
+    ![Captura de tela de uma resposta JSON com um bucket de resultados vazio.](./media/notification-hubs-geofence/bing-maps-nores.png)
 
 ## <a name="set-up-the-uwp-application"></a>Configurar o aplicativo UWP
 
 1. No Visual Studio, inicie um novo projeto do tipo **Aplicativo em Branco (Universal do Windows)** .
 
-    ![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
+    ![Captura de tela de uma caixa de diálogo de Novo Projeto do Visual Studio, com a opção de Aplicativo em Branco (Universal do Windows) para Visual C# realçada.](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
 
     Uma vez concluída a criação do projeto, você deverá ter o agente para o próprio aplicativo. Agora vamos configurar tudo para a infraestrutura de isolamento geográfico. Como você vai usar os serviços do Bing para essa solução, há um ponto de extremidade de API REST público que permite consultar quadros de local específico:
 
@@ -121,13 +121,13 @@ Neste tutorial, você deve executar as seguintes etapas:
      Agora que a fonte de dados está pronta, você pode começar a trabalhar no aplicativo UWP.
 2. Habilite serviços de localização para o seu aplicativo. Abra o arquivo `Package.appxmanifest` no **Gerenciador de Soluções**.
 
-    ![](./media/notification-hubs-geofence/vs-package-manifest.png)
+    ![Captura de tela de Gerenciador de Soluções, com o arquivo Package.appxmanifest realçado.](./media/notification-hubs-geofence/vs-package-manifest.png)
 3. Na guia de propriedades do pacote que acabou de abrir, alterne para a guia **Recursos** e selecione **Local**.
 
-    ![](./media/notification-hubs-geofence/vs-package-location.png)
+    ![Captura de tela da caixa de diálogo Propriedades do Pacote, mostrando a guia Funcionalidades com a opção Localização realçada.](./media/notification-hubs-geofence/vs-package-location.png)
 4. Crie uma nova pasta na solução denominada `Core` e adicione um novo arquivo a ela, chamado `LocationHelper.cs`:
 
-    ![](./media/notification-hubs-geofence/vs-location-helper.png)
+    ![Captura de tela do Gerenciador de Soluções, com a nova pasta Núcleo realçada.](./media/notification-hubs-geofence/vs-location-helper.png)
 
     A classe `LocationHelper` tem um código para obter o local do usuário por meio da API do sistema:
 
@@ -191,10 +191,10 @@ Neste tutorial, você deve executar as seguintes etapas:
     ```
 6. Executar o aplicativo e permitir que ele acesse seu local.
 
-    ![](./media/notification-hubs-geofence/notification-hubs-location-access.png)
+    ![Captura de tela da caixa de diálogo Permitir que os Hubs de Notificação Limitem Geograficamente o acesso à sua localização.](./media/notification-hubs-geofence/notification-hubs-location-access.png)
 7. Assim que o aplicativo for iniciado, você deverá ser capaz de ver as coordenadas na janela **Saída** :
 
-    ![](./media/notification-hubs-geofence/notification-hubs-location-output.png)
+    ![Captura de tela da Janela de Saída exibindo as coordenadas.](./media/notification-hubs-geofence/notification-hubs-location-output.png)
 
     Agora você sabe que a aquisição de localização funciona, você pode remover o manipulador de eventos carregado se desejar, porque você não o usará mais.
 8. A próxima etapa é capturar as alterações de localização. Na classe `LocationHelper`, adicione o manipulador de eventos para `PositionChanged`:
@@ -221,7 +221,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 2. Quando o download for concluído, abra a pasta `NotifyUsers` e depois o arquivo `NotifyUsers.sln` no Visual Studio.
 3. Defina o projeto `AppBackend` como o **Projeto de Inicialização** e inicie-o.
 
-    ![](./media/notification-hubs-geofence/vs-startup-project.png)
+    ![Captura de tela do menu de clique com o botão direito do mouse da solução com a opção Definir como Projeto de Inicialização realçada.](./media/notification-hubs-geofence/vs-startup-project.png)
 
     O projeto já está configurado para enviar notificações por push para dispositivos de destino e, portanto, você precisa fazer somente duas coisas – especificar a cadeia de conexão correta para o hub de notificação e adicionar identificação de limite para enviar a notificação somente quando o usuário estiver dentro do limite geográfico.
 
@@ -351,18 +351,18 @@ Neste tutorial, você deve executar as seguintes etapas:
     > Defina o `POST_URL` para o local do seu aplicativo web implantado. Por enquanto, é possível executá-lo localmente, mas à medida que você trabalhar na implantação de uma versão pública, precisará hospedá-lo em um provedor externo.
 2. Registre o aplicativo UWP para notificações por push. No Visual Studio, escolha **Projeto** > **Loja** > **Associar aplicativo à loja**.
 
-    ![](./media/notification-hubs-geofence/vs-associate-with-store.png)
+    ![Captura de tela do menu de clique com o botão direito do mouse da solução com as opções Loja e Associar o Aplicativo à Loja realçadas.](./media/notification-hubs-geofence/vs-associate-with-store.png)
 3. Depois que você entrar em sua conta de desenvolvedor, selecione um aplicativo existente ou crie um novo e associe o pacote a ele.
 4. Vá para o Centro de Desenvolvimento e abra o aplicativo que você criou. Escolha **Serviços** > **Notificações por Push** > **Site do Live Services**.
 
-    ![](./media/notification-hubs-geofence/ms-live-services.png)
+    ![Captura de tela do Centro de Desenvolvimento do Windows exibindo a página Notificações por push com o site do Live Services realçado.](./media/notification-hubs-geofence/ms-live-services.png)
 5. No site, anote o **Segredo do Aplicativo** e o **SID do Pacote**. Você precisa deles no portal do Azure – abra seu hub de notificação, escolha **Configurações** > **Serviços de Notificação** > **Windows (WNS)** e insira as informações nos campos obrigatórios.
 
-    ![](./media/notification-hubs-geofence/notification-hubs-wns.png)
+    ![Captura de tela mostrando a página de Configurações com as opções WNS (Notification Services e Windows) realçadas e os valores de Chave de Segurança e SID do Pacote preenchidos.](./media/notification-hubs-geofence/notification-hubs-wns.png)
 6. Escolha **Salvar**.
 7. Abra **Referências** no **Gerenciador de Soluções** e selecione **Gerenciar Pacotes NuGet**. Adicione uma referência à **biblioteca gerenciada do Barramento de Serviço do Microsoft Azure** – basta procurar `WindowsAzure.Messaging.Managed` e adicioná-lo ao seu projeto.
 
-    ![](./media/notification-hubs-geofence/vs-nuget.png)
+    ![Captura de tela da caixa de diálogo Gerenciar Pacotes NuGet com o pacote WindowsAzure.Messaging.Managed realçado.](./media/notification-hubs-geofence/vs-nuget.png)
 8. Para fins de teste, crie o manipulador de eventos `MainPage_Loaded` novamente e adicionar este snippet de código a ele:
 
     ```csharp
@@ -387,7 +387,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 
 10. Como você não está passando as coordenadas reais (que podem não estar nos limites no momento) e como estamos usando valores predefinidos de teste, você verá uma notificação sobre atualização:
 
-    ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
+    ![Captura de tela de uma área de trabalho do Windows exibindo a mensagem TESTE.](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

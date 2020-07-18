@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 6641cc29025d39ddff33e706dd9b1b0da517b884
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 1917bed7727b97de27e560a0f2d8032a8ae08996
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563694"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242008"
 ---
-# <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>Início Rápido: Proteger seu hub virtual usando o Gerenciador de Firewall do Azure – modelo do Resource Manager
+# <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---arm-template"></a>Início Rápido: Proteger seu hub virtual usando o Gerenciador de Firewall do Azure – modelo ARM
 
-Neste guia de início rápido, você usará um modelo do Resource Manager para proteger seu hub virtual por meio do Gerenciador de Firewall do Azure. O firewall implantado tem uma regra de aplicativo que permite conexões com `www.microsoft.com`. Duas máquinas virtuais do Windows Server 2019 são implantadas para testar o firewall. Um servidor de salto é usado para se conectar ao servidor da carga de trabalho. No servidor da carga de trabalho, você só pode se conectar a `www.microsoft.com`.
+Neste guia de início rápido, você usará um modelo ARM (modelo do Azure Resource Manager) para proteger seu hub virtual por meio do Gerenciador de Firewall do Azure. O firewall implantado tem uma regra de aplicativo que permite conexões com `www.microsoft.com`. Duas máquinas virtuais do Windows Server 2019 são implantadas para testar o firewall. Um servidor de salto é usado para se conectar ao servidor da carga de trabalho. No servidor da carga de trabalho, você só pode se conectar a `www.microsoft.com`.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Para obter mais informações sobre o Gerenciador de Firewall do Azure, confira [O que é o Gerenciador de Firewall do Azure?](overview.md).
 
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffwm-docs-qs%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-secured-virtual-hub"></a>Criar um hub virtual seguro
+## <a name="review-the-template"></a>Examinar o modelo
 
 Este modelo cria um hub virtual seguro usando o Gerenciador de Firewall do Azure, juntamente com os recursos necessários para dar suporte ao cenário.
 
-### <a name="review-the-template"></a>Examinar o modelo
-
-O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
 
 :::code language="json" source="~/quickstart-templates/fwm-docs-qs/azuredeploy.json" range="001-477" highlight="47-76":::
 
@@ -51,9 +53,9 @@ Vários recursos do Azure são definidos no modelo:
 - [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
-### <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-the-template"></a>Implantar o modelo
 
-Implantar o modelo do Resource Manager no Azure:
+Implantar o modelo ARM no Azure:
 
 1. Selecione **Implantar no Azure** para entrar no Azure e abrir o modelo. O modelo cria um Firewall do Azure, uma WAN virtual e um hub virtual, a infraestrutura de rede e duas máquinas virtuais.
 
@@ -86,7 +88,7 @@ Agora, teste as regras de firewall para confirmar se elas funcionam conforme o e
 
 Agora que você verificou se as regras de firewall estão funcionando:
 
-* Você pode navegar para o FQDN permitido, mas não para os outros.
+- Você pode navegar para o FQDN permitido, mas não para os outros.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

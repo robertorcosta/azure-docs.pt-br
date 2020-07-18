@@ -4,30 +4,32 @@ description: Neste guia de início rápido, você usa um modelo do ARM (modelo d
 ms.date: 07/06/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 3cdcff4898a8644008193943a243be4a2ef9e8c4
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: a05be04064df81373f856ea0e8ca59664078695f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969798"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252361"
 ---
-# <a name="quickstart-create-a-shared-query-by-using-an-azure-resource-manager-template"></a>Início Rápido: Criar uma consulta compartilhada usando um modelo do Azure Resource Manager
+# <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Início Rápido: Criar uma consulta compartilhada usando um modelo do ARM
 
 As consultas do Resource Graph podem ser salvas como uma _consulta privada_ ou uma _consulta compartilhada_. Uma consulta privada é salva no perfil do portal dos indivíduos e não fica visível a outras pessoas. Uma consulta compartilhada é um objeto do Resource Manager que pode ser compartilhado com outras pessoas por meio de permissões e acesso baseado em função. Uma consulta compartilhada fornece execução consistente e comum da descoberta de recursos. Este guia de início rápido usa um modelo do ARM (modelo do Azure Resource Manager) para criar uma consulta compartilhada.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Implantar o modelo ARM para criar uma consulta compartilhada para o Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="create-a-shared-query"></a>Criar uma consulta compartilhada
+## <a name="review-the-template"></a>Examinar o modelo
 
 Neste guia de início rápido, você cria uma consulta compartilhada chamada _Contar VMs por SO_. Para testar essa consulta no SDK ou no portal com o Resource Graph Explorer, confira [Exemplos – Contar máquinas virtuais por tipo SO](./samples/starter.md#count-os).
 
-### <a name="review-the-template"></a>Examinar o modelo
-
-O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
 
 :::code language="json" source="~/quickstart-templates/resourcegraph-sharedquery-countos/azuredeploy.json" highlight="28-37":::
 
@@ -35,7 +37,7 @@ O recurso definido no modelo inclui:
 
 - [Microsoft.ResourceGraph/queries](/azure/templates/microsoft.resourcegraph/queries)
 
-### <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-the-template"></a>Implantar o modelo
 
 > [!NOTE]
 > O serviço do Azure Resource Graph é gratuito. Para saber mais, confira [Visão geral do Azure Resource Graph](./overview.md).
@@ -60,7 +62,7 @@ O recurso definido no modelo inclui:
 
 Alguns recursos adicionais:
 
-- para encontrar mais exemplos de modelo, confira [Modelo de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
+- Para encontrar mais modelos de exemplo, confira o [Modelo de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Para ver a referência de modelo, acesse [Referência de modelo do Azure](/azure/templates/microsoft.resourcegraph/allversions).
 - Para saber como desenvolver modelos do ARM, confira a [documentação do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 - Para conhecer a implantação de nível de assinatura, confira [Create resource groups and resources at the subscription level](../../azure-resource-manager/templates/deploy-to-subscription.md) (Criar grupos de recursos e recursos no nível da assinatura).

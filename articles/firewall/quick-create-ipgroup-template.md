@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Criar um Firewall do Azure e Grupos de IP – modelo do Resource Manager'
-description: Saiba como usar um modelo do Resource Manager para criar um Firewall do Azure e Grupos de IP.
+description: Saiba como usar um modelo do ARM (Azure Resource Manager) para criar um Firewall do Azure e Grupos de IP.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,30 +8,32 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/06/2020
 ms.author: victorh
-ms.openlocfilehash: 403aaafebcae680f337aeff551b81a80a9549252
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 5ac1248ddcdf8c0eef68b7c32e322398fa01a6f2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680552"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260575"
 ---
-# <a name="quickstart-create-an-azure-firewall-and-ip-groups---resource-manager-template"></a>Início Rápido: Criar um Firewall do Azure e Grupos de IP – modelo do Resource Manager
+# <a name="quickstart-create-an-azure-firewall-and-ip-groups---arm-template"></a>Início Rápido: Criar um Firewall do Azure e Grupos de IP – Modelo do ARM
 
-Neste início rápido, você usará um modelo do Resource Manager para implantar um Firewall do Azure com os Grupos de IP de exemplo usados em uma regra de rede e em uma regra de aplicativo. Um Grupo de IP é um recurso de nível superior que permite que você defina e agrupe endereços IP, intervalos e sub-redes em um só objeto. Isso é útil para o gerenciamento de endereços IP em regras do Firewall do Azure. Você pode inserir manualmente os endereços IP ou importá-los de um arquivo.
+Neste início rápido, você usará um modelo do ARM (Azure Resource Manager) para implantar um Firewall do Azure com os Grupos de IP de exemplo usados em uma regra de rede e em uma regra de aplicativo. Um Grupo de IP é um recurso de nível superior que permite que você defina e agrupe endereços IP, intervalos e sub-redes em um só objeto. Isso é útil para o gerenciamento de endereços IP em regras do Firewall do Azure. Você pode inserir manualmente os endereços IP ou importá-los de um arquivo.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-an-azure-firewall-and-ip-groups"></a>Criar um Firewall do Azure e Grupos de IP
+## <a name="review-the-template"></a>Examinar o modelo
 
 Este modelo cria um Firewall do Azure e Grupos de IP, juntamente com os recursos necessários para dar suporte ao Firewall do Azure.
 
-### <a name="review-the-template"></a>Examinar o modelo
-
-O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox).
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox).
 
 :::code language="json" source="~/quickstart-templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json" range="001-512" highlight="118-141":::
 
@@ -47,9 +49,9 @@ Vários recursos do Azure são definidos no modelo:
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
 
-### <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-the-template"></a>Implantar o modelo
 
-Implantar o modelo do Resource Manager no Azure:
+Implantar o modelo ARM no Azure:
 
 1. Selecione **Implantar no Azure** para entrar no Azure e abrir o modelo. O modelo cria um Firewall do Azure, a infraestrutura de rede e duas máquinas virtuais.
 
@@ -76,7 +78,7 @@ No portal do Azure, examine os recursos implantados, principalmente as regras de
 
 :::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Regras de rede.":::
 
-Para saber mais sobre a sintaxe e as propriedades de JSON para um firewall em um modelo, confira [referência de modelo Microsoft.Network/azureFirewalls](https://docs.microsoft.com/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
+Para saber mais sobre a sintaxe e as propriedades de JSON para um firewall em um modelo, confira [referência de modelo Microsoft.Network/azureFirewalls](/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 9f9fcc0b3d8dfe19961668e77da91bc9f14ff2d1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: be490c5ec11ab4bafcd68731a535483d1803a8c7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81453890"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146426"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicionar um certificado TLS/SSL ao Serviço de Aplicativo do Azure
 
@@ -64,7 +64,7 @@ O Certificado gratuito gerenciado pelo Serviço de Aplicativo é uma solução i
 - Não oferece suporte a certificados curinga.
 - Não oferece suporte a domínios raiz.
 - Não pode ser exportado.
-- Não dá suporte a registros DNS do tipo A.
+- Não oferece suporte a registros A. Por exemplo, a renovação automática não funciona com registros A.
 
 > [!NOTE]
 > O certificado gratuito é emitido pela DigiCert. Para alguns domínios de nível superior, é necessário permitir explicitamente a DigiCert como um emissor do certificado criando um [registro de domínio CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) com o valor `0 issue digicert.com`.
@@ -72,7 +72,7 @@ O Certificado gratuito gerenciado pelo Serviço de Aplicativo é uma solução i
 
 Para criar um Certificado gratuito gerenciado pelo Serviço de Aplicativo:
 
-No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no menu à esquerda, selecione **Serviços de Aplicativos** >  **\<nome_do_aplicativo>** .
+No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no menu à esquerda, selecione **Serviços de Aplicativos** >  **\<app-name>** .
 
 No painel de navegação à esquerda em seu aplicativo, selecione **Configurações de TLS/SSL** > **Certificados de Chave Privada (.pfx)**  > **Criar Certificado Gerenciado do Serviço de Aplicativo**.
 
@@ -163,7 +163,7 @@ Selecione **Verificação do Serviço de Aplicativo**. Uma vez que você já map
 
 ### <a name="import-certificate-into-app-service"></a>Importar o certificado para o Serviço de Aplicativo
 
-No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no menu à esquerda, selecione **Serviços de Aplicativos** >  **\<nome_do_aplicativo>** .
+No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no menu à esquerda, selecione **Serviços de Aplicativos** >  **\<app-name>** .
 
 No painel de navegação à esquerda de seu aplicativo, selecione **Configurações de TLS/SSL** > **Certificados de Chave Privada (.pfx)**  > **Importar Certificado do Serviço de Aplicativo**.
 
@@ -183,7 +183,7 @@ Quando a operação for concluída, você verá o certificado na lista **Certifi
 
 Se você usa o Azure Key Vault para gerenciar seus certificados, pode importar um certificado PKCS12 do Key Vault para o Serviço de Aplicativo, contanto que ele [atenda aos requisitos](#private-certificate-requirements).
 
-No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no menu à esquerda, selecione **Serviços de Aplicativos** >  **\<nome_do_aplicativo>** .
+No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no menu à esquerda, selecione **Serviços de Aplicativos** >  **\<app-name>** .
 
 No painel de navegação à esquerda de seu aplicativo, selecione **Configurações de TLS/SSL** > **Certificados de Chave Privada (.pfx)**  > **Importar Certificado do Key Vault**.
 
@@ -253,7 +253,7 @@ Se você usou o IIS ou o _Certreq.exe_ para gerar a solicitação de certificado
 
 Agora você está pronto para carregar o certificado no Serviço de Aplicativo.
 
-No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no menu à esquerda, selecione **Serviços de Aplicativos** >  **\<nome_do_aplicativo>** .
+No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no menu à esquerda, selecione **Serviços de Aplicativos** >  **\<app-name>** .
 
 No painel de navegação à esquerda de seu aplicativo, selecione **Configurações de TLS/SSL** > **Certificados de Chave Privada (.pfx)**  > **Carregar Certificado**.
 
@@ -273,7 +273,7 @@ Quando a operação for concluída, você verá o certificado na lista **Certifi
 
 Há suporte para certificados públicos no formato *.cer*. 
 
-No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no menu à esquerda, selecione **Serviços de Aplicativos** >  **\<nome_do_aplicativo>** .
+No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no menu à esquerda, selecione **Serviços de Aplicativos** >  **\<app-name>** .
 
 No painel de navegação à esquerda de seu aplicativo, clique em **Configurações de TLS/SSL** > **Certificados Públicos (.cer)**  > **Carregar o Certificado de Chave Pública**.
 

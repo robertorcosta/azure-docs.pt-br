@@ -1,6 +1,6 @@
 ---
 title: 'Azure Resource Manager: Criar um banco de dados individual'
-description: Crie um banco de dados individual no Banco de Dados SQL do Azure usando o modelo do Azure Resource Manager.
+description: Criar um banco de dados individual no Banco de Dados SQL do Azure usando um modelo do Azure Resource Manager.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,20 +11,20 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 ms.date: 06/24/2020
-ms.openlocfilehash: 2975b98306b7019022799d5ba69b9d7af5797a2b
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: a766d61c49fe23645c232432198eb4aa0eedb98b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368032"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135637"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Início Rápido: Crie um banco de dados individual no Banco de Dados SQL do Azure usando o modelo do Azure Resource Manager
+# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-an-arm-template"></a>Início Rápido: Criar um banco de dados individual no Banco de Dados SQL do Azure usando um modelo do ARM
 
-A criação de um [banco de dados individual](single-database-overview.md) é a opção mais rápida e simples para a criação de um banco de dados no Banco de Dados SQL do Azure. Este início rápido mostra como criar um banco de dados individual usando o modelo do Azure Resource Manager.
+A criação de um [banco de dados individual](single-database-overview.md) é a opção mais rápida e simples para a criação de um banco de dados no Banco de Dados SQL do Azure. Este início rápido mostra como criar um banco de dados individual usando um modelo do ARM (modelo do Azure Resource Manager).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos do Resource Manager, selecione o botão Implantar no Azure. O modelo será aberto no portal do Azure.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implantar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-database%2Fazuredeploy.json)
 
@@ -36,7 +36,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Um banco de dados individual tem um conjunto definido de recursos de computação, memória, E/S e armazenamento usando um dos dois [modelos de compra](purchasing-models.md). Quando você cria um banco de dados individual, você também define um [servidor](logical-servers.md) para gerenciá-lo e colocá-lo no [grupo de recursos do Azure](../../active-directory-b2c/overview.md) em uma região especificada.
 
-O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-sql-logical-server/).
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-sql-database/).
 
 :::code language="json" source="~/quickstart-templates/101-sql-database/azuredeploy.json" range="1-67" highlight="41-65":::
 
@@ -88,4 +88,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
   - [Conectar e consultar usando o Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Para criar um banco de dados individual usando a CLI do Azure, confira [Amostras da CLI do Azure](az-cli-script-samples-content-guide.md).
 - Para criar um banco de dados individual usando o Azure PowerShell, confira [Amostras do Azure PowerShell](powershell-script-content-guide.md).
-- Para saber como criar modelos do Resource Manager, consulte [Criar seu primeiro modelo](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).
+- Para saber como criar modelos do ARM, confira [Criar seu primeiro modelo](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).

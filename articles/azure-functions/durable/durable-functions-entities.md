@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4f45ac40e7df865bdb4722d086325096c377cd59
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 496b315e23beeb97d08befca13e05c4797268f36
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877535"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341555"
 ---
 # <a name="entity-functions"></a>Funções de entidade
 
@@ -18,7 +18,7 @@ As funções de entidade definem operações para leitura e atualização de peq
 As entidades fornecem um meio para escalar horizontalmente os aplicativos, distribuindo o trabalho entre várias entidades, cada uma com um estado de tamanho modesto.
 
 > [!NOTE]
-> As funções de entidade e a funcionalidade relacionada estão disponíveis apenas nas Durable Functions 2.0 e superior.
+> As funções de entidade e a funcionalidade relacionada estão disponíveis apenas nas Durable Functions 2.0 e superior. Atualmente, são compatíveis com .NET e JavaScript.
 
 ## <a name="general-concepts"></a>Conceitos gerais
 

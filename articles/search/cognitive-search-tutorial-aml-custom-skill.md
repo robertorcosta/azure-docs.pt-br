@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: f673fd4b49a33c2faf6bc8b489520f2a877b0689
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 69618604c38d82567260e45d651df523055c5f7b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513802"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245323"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Tutorial: Criar e implantar uma habilidade personalizada com o Azure Machine Learning 
 
@@ -29,6 +29,9 @@ Dois conjuntos de dados são fornecidos. Se você quiser treinar o modelo por co
 > * Treinar e implantar um modelo em um cluster Kubernetes do Azure
 > * Vincular um pipeline de enriquecimento de IA ao modelo implantado
 > * Ingerir a saída do modelo implantado como uma habilidade personalizada
+
+> [!IMPORTANT] 
+> Essa habilidade está atualmente em versão prévia pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Atualmente, o SDK do .NET não é compatível.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -17,12 +17,12 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: c2d3789082130cbbc42021a0706249dd3966b9ef
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 16191dfd33d5211fbd082bc1f7e458a238bb2138
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75531115"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224206"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Tutorial: Enviar notificações por push para aplicativos Android específicos usando os Hubs de Notificação do Azure
 
@@ -151,7 +151,7 @@ A próxima etapa é atualizar o aplicativo Android criado na [Tutorial: Enviar n
 
     Os layouts geográficos `main_activity.xml` agora devem ter a aparência como a da seguinte imagem:
 
-    ![][A1]
+    ![Captura de tela de um emulador que exibe qual será a aparência da atividade principal X M L do layout gráfico.][A1]
 3. Crie uma classe chamada `RegisterClient` no mesmo pacote que a classe `MainActivity`. Use o código a seguir para o novo arquivo de classe.
 
     ```java
@@ -487,7 +487,7 @@ A próxima etapa é atualizar o aplicativo Android criado na [Tutorial: Enviar n
 2. No aplicativo Android, insira um nome de usuário e uma senha. Eles devem ter o mesmo valor de cadeia de caracteres e não devem conter espaços ou caracteres especiais.
 3. No aplicativo Android, clique em **Entrar**. Aguarde uma mensagem de notificação do sistema que afirma **Conectado e registrado**. Isso habilita o botão **Enviar Notificação**.
 
-    ![][A2]
+    ![Captura de tela de um emulador que mostra a aparência do aplicativo Notificar Usuários dos Hubs de Notificação após fazer logon.][A2]
 4. Clique nos botões de alternância para habilitar todas as plataformas onde você executou o aplicativo e registrou um usuário.
 5. Insira o nome do usuário que recebe a mensagem de notificação. Esse usuário deverá estar registrados para notificações nos dispositivos de destino.
 6. Insira uma mensagem para o usuário a ser recebida como uma mensagem de notificação por push.

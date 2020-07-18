@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ae6ddac61ecbcef41704f71ed5188fc547a996a3
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: f98df33b3efc697e349ddeae31439dd2fb701d91
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81616589"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202017"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Como usar a exclusão reversível do Key Vault com a CLI
 
@@ -229,7 +229,7 @@ A listagem de objetos de cofre de chaves excluídos também mostra quando eles e
 
 Quando a proteção de limpeza está ativada, um cofre ou um objeto no estado excluído não pode ser limpo até que tenha passado o período de retenção de 90 dias. Ainda é possível recuperar tal cofre ou objeto. Esse recurso fornece uma garantia extra de que um cofre ou objeto não pode ser excluído permanentemente até que tenha passado o período de retenção.
 
-Você poderá habilitar a proteção de limpeza somente se a exclusão reversível também estiver habilitada. 
+Você poderá habilitar a proteção de limpeza somente se a exclusão reversível também estiver habilitada. Não há suporte para desabilitar a proteção contra limpeza.
 
 Para ativar a exclusão reversível e a proteção de limpeza ao criar um cofre, use o comando [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create):
 
