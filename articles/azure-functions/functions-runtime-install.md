@@ -5,11 +5,12 @@ author: apwestgarth
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 7ad748aa9a5b45af10121648a668344548484cf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73b9533fa00c783e1cfb85270198f5c00c66afd5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74226733"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540376"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Instale a versão prévia 2 do Azure Functions Runtime
 
@@ -45,7 +46,7 @@ O instalador da versão prévia do Azure Functions Runtime orienta você durante
 
     ![Instalador da versão prévia do Azure Functions Runtime][1]
 
-1. Clique em **Próximo**.
+1. Clique em **Avançar**.
 1. Depois de ler os termos do **EULA**, **marque a caixa** para aceitar os termos e clique em **Avançar** para avançar.
 1. Selecione as funções que você deseja instalar no computador **Função de Gerenciamento do Functions** e/ou **Função de Trabalho do Functions** e clique em **Avançar**.
 
@@ -70,7 +71,7 @@ Para concluir a instalação do Azure Functions Runtime, você deverá concluir 
 
     ![Ferramenta de configuração da versão prévia do Azure Functions Runtime][7]
 
-1. Clique na guia **Banco de Dados**, insira os detalhes de conexão para a instância do SQL Server, incluindo a especificação de uma [chave mestra de banco de dados](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine)e clique em **Aplicar**.  A conectividade com uma instância do SQL Server é necessária para que o Azure Functions Runtime crie um banco de dados a fim de dar suporte ao Runtime.
+1. Clique na guia **Banco de Dados**, insira os detalhes de conexão para a instância do SQL Server, incluindo a especificação de uma [chave mestra de banco de dados](/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine)e clique em **Aplicar**.  A conectividade com uma instância do SQL Server é necessária para que o Azure Functions Runtime crie um banco de dados a fim de dar suporte ao Runtime.
 
     ![Configuração de banco de dados da versão prévia do Azure Functions Runtime][8]
 

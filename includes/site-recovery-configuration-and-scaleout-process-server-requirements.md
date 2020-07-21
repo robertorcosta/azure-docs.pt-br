@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 06/23/2020
+ms.date: 07/08/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: c8c51d671cd98a606c11a39b6cf489aa288d71b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60012f79c3c04a4ff14c4a7f0609b6940d3402c4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85292139"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544176"
 ---
 **Requisitos do servidor de configuração e processo**
 
@@ -60,6 +60,9 @@ time.windows.com | Usado para verificar a sincronização de horário entre o si
 | <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https: \/ /login.Live.com </li><li> https: \/ /Graph.Windows.net </li><li> https:\//login.windows.net </li><li> *. services.visualstudio.com (opcional) </li><li> https: \/ /www.Live.com </li><li> https: \/ /www.Microsoft.com </li></ul> | A instalação do OVF precisa de acesso a essas URLs adicionais. Eles são usados para controle de acesso e gerenciamento de identidade por Azure Active Directory.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Para concluir o download do MySQL. </br> Em algumas regiões, o download pode ser redirecionado para a URL da CDN. Verifique se a URL da CDN também está na lista de permissões, se necessário.
 |
+
+> [!NOTE]
+> Se você tiver [conectividade de links particulares](../articles/site-recovery/hybrid-how-to-enable-replication-private-endpoints.md) para site Recovery cofre, não será necessário nenhum acesso adicional à Internet para o servidor de configuração. Uma exceção a isso é durante a configuração do computador CS usando o modelo OVA, você precisará de acesso às URLs a seguir e acima do acesso de link privado-e https://management.azure.com https://www.live.com https://www.microsoft.com . Se você não quiser permitir o acesso a essas URLs, configure o CS usando o Unified Installer.
 
 ## <a name="required-software"></a>Software necessário
 

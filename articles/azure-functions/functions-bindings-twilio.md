@@ -6,11 +6,12 @@ ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1426d6e770cca566c4b77ca4742e2f8a0fbb5465
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8116abda71ae78b05786ede03256eb9e9bb59345
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76715067"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540257"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Associação de Twilio para o Azure Functions
 
@@ -240,7 +241,7 @@ def main(req: func.HttpRequest, twilioMessage: func.Out[str]) -> func.HttpRespon
 
 # <a name="java"></a>[Java](#tab/java)
 
-O exemplo a seguir mostra como usar a anotação [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) para enviar uma mensagem SMS. Os valores para `to` , `from` e `body` são necessários na definição de atributo mesmo se você os substituir programaticamente.
+O exemplo a seguir mostra como usar a anotação [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) para enviar uma mensagem SMS. Os valores para `to` , `from` e `body` são necessários na definição de atributo mesmo se você os substituir programaticamente.
 
 ```java
 package com.function;
@@ -318,7 +319,7 @@ O Python não dá suporte a atributos.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Coloque a anotação [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) em um [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.outputbinding) parâmetro `T` , em que pode ser qualquer tipo Java nativo, como `int` , `String` , `byte[]` ou um tipo POJO.
+Coloque a anotação [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) em um [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) parâmetro `T` , em que pode ser qualquer tipo Java nativo, como `int` , `String` , `byte[]` ou um tipo POJO.
 
 ---
 
@@ -328,7 +329,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 | propriedade function.json v1 | propriedade function.json v2 | Propriedade de atributo |Descrição|
 |---------|---------|---------|----------------------|
-|**tipo**|**type**| deve ser definido como `twilioSms`.|
+|**tipo**|**tipo**| deve ser definido como `twilioSms`.|
 |**direction**|**direction**| deve ser definido como `out`.|
 |**name**|**name**| Nome da variável usada no código de função para a mensagem de texto SMS do Twilio. |
 |**accountSid**|**accountSidSetting**| **AccountSidSetting**| Esse valor deve ser definido como o nome de uma configuração de aplicativo que contém o SID da conta do twilio ( `TwilioAccountSid` ). Se não configurado, o nome da configuração do aplicativo padrão será "AzureWebJobsTwilioAccountSid". |

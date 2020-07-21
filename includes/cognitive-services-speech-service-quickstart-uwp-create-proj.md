@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: a24c0a3129a851eb94c43158424f786b1df5a532
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 8f7723ecaf6587eb61474304b0b5784413ac6f86
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414344"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544288"
 ---
 Para criar um projeto do Visual Studio para desenvolvimento da UWP (Plataforma Universal do Windows), você precisa configurar as opções de desenvolvimento do Visual Studio, criar o projeto, selecionar a arquitetura de destino, configurar a captura de áudio e instalar o SDK de Fala.
 
@@ -66,7 +66,7 @@ Em seguida, crie seu projeto:
 Agora, selecione a arquitetura da plataforma de destino. Na barra de ferramentas do Visual Studio, localize a caixa suspensa **Plataformas de Solução**. (Caso não a veja, escolha **Exibir** > **Barras de Ferramentas** > **Padrão** para exibir a barra de ferramentas que contém a caixa **Plataformas de Solução**.) Se você estiver executando o Windows de 64 bits, escolha **x64** na caixa suspensa. O Windows de 64 bits também pode executar aplicativos de 32 bits. Portanto, você poderá escolher **x86**, se preferir.
 
 > [!NOTE]
-> O SDK de Fala dá suporte somente a processadores compatíveis com Intel. Processadores ARM não são compatíveis no momento.
+> O SDK de fala dá suporte a todos os processadores compatíveis com Intel, mas apenas a versões **x64** de processadores ARM.
 
 ### <a name="set-up-audio-capture"></a>Configurar a captura de áudio
 
@@ -80,13 +80,13 @@ Permitir que o projeto Capture a entrada de áudio:
 
 1. Selecione a caixa da funcionalidade **Microfone**.
 
-1. Na barra de menus, escolha **Arquivo** > **Salvar Package.appxmanifest** para salvar suas alterações.
+1. Na barra de menus, escolha **arquivo**  >  **salvar pacote. appxmanifest** para salvar suas alterações.
 
 ### <a name="install-the-speech-sdk"></a>Instalar o SDK de Fala
 
 Por fim, instale o [pacote NuGet do SDK de Fala](https://aka.ms/csspeech/nuget) e referencie o SDK de Fala no seu projeto:
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse na solução e escolha **Gerenciar Pacotes NuGet para Solução** a fim de acessar a janela **NuGet – Solução**.
+1. Em **Gerenciador de soluções**, clique com o botão direito do mouse em sua solução e escolha **gerenciar pacotes NuGet para solução** para ir para a janela **NuGet-solução** .
 
 1. Selecione **Procurar**.
 

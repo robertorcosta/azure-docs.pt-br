@@ -5,12 +5,12 @@ author: chenyl
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: chenyl
-ms.openlocfilehash: c2ad9b6c4410a62d5652050406e05be4cde5fab0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec2952a3093661f0f6ef32908307a8a82c6367ed
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830699"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540223"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Associação de gatilho de serviço signalr para Azure Functions
 
@@ -43,7 +43,7 @@ public class SignalRTestHub : ServerlessHub
 
 ### <a name="with-traditional-model"></a>Com modelo tradicional
 
-O modelo tradicional obedece à Convenção da função do Azure desenvolvida pelo C#. Se você não estiver familiarizado com ele, poderá aprender com os [documentos](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library).
+O modelo tradicional obedece à Convenção da função do Azure desenvolvida pelo C#. Se você não estiver familiarizado com ele, poderá aprender com os [documentos](./functions-dotnet-class-library.md).
 
 ```cs
 [FunctionName("SignalRTest")]
@@ -190,17 +190,17 @@ InvocationContext contém todo o conteúdo da mensagem enviar do serviço Signal
 |Propriedade em InvocationContext | Descrição|
 |------------------------------|------------|
 |Argumentos| Disponível para a categoria de *mensagens* . Contém *argumentos* na [mensagem de invocação](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding)|
-|Erro| Disponível para evento *desconectado* . Ele poderá ficar vazio se a conexão for fechada sem erro ou contiver as mensagens de erro.|
+|Erro do| Disponível para evento *desconectado* . Ele poderá ficar vazio se a conexão for fechada sem erro ou contiver as mensagens de erro.|
 |Hub| O nome do Hub ao qual a mensagem pertence.|
 |Categoria| A categoria da mensagem.|
 |Evento| O evento da mensagem.|
 |ConnectionId| A ID de conexão do cliente que envia a mensagem.|
 |UserId| A identidade do usuário do cliente que envia a mensagem.|
-|headers| Os cabeçalhos da solicitação.|
+|Cabeçalhos| Os cabeçalhos da solicitação.|
 |Consulta| A consulta da solicitação quando os clientes se conectam ao serviço.|
 |Declarações| As declarações do cliente.|
 
-## <a name="using-parameternames"></a>Como usar `ParameterNames`
+## <a name="using-parameternames"></a>Usando `ParameterNames`
 
 A propriedade `ParameterNames` no `SignalRTrigger` permite que você vincule argumentos de mensagens de invocação aos parâmetros de funções. Isso oferece uma maneira mais conveniente de acessar argumentos do `InvocationContext` .
 

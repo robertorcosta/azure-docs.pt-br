@@ -4,12 +4,12 @@ description: Saiba como codificar e configurar funções durável para executar 
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ad498bdbc4e6dc9745c6ef45b3dc601ad36c0a62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 826e475eb71563b52d687903aeac4ec936e267f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82733406"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540291"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Como executar Durable Functions como trabalhos Web
 
@@ -31,7 +31,7 @@ Este artigo pressupõe que você está familiarizado com os conceitos básicos d
 
 Para completar as etapas neste artigo:
 
-* [Instale o Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/) com a carga de trabalho de **Desenvolvimento do Azure**.
+* [Instale o Visual Studio 2019](/visualstudio/install/) com a carga de trabalho de **Desenvolvimento do Azure**.
 
   Se você já tiver o Visual Studio, mas não tiver essa carga de trabalho, adicione a carga de trabalho selecionando **ferramentas**  >  **obter ferramentas e recursos**.
 
@@ -224,7 +224,7 @@ A principal alteração introduzida é o uso do .NET Core em vez de .NET Framewo
     * `Microsoft.Azure.WebJobs.Extensions.Storage`
     * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
-1. Defina a cadeia de conexão de armazenamento e a chave de instrumentação de Application Insights em um *appsettings.jsno* arquivo, usando a estrutura de configuração do .NET Core. Aqui está um exemplo:
+1. Defina a cadeia de conexão de armazenamento e a chave de instrumentação de Application Insights em um *appsettings.jsno* arquivo, usando a estrutura de configuração do .NET Core. Este é um exemplo:
 
     ```json
         {

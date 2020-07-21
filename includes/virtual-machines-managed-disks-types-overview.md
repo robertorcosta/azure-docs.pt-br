@@ -8,26 +8,26 @@ ms.topic: include
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 45b611144d5a62171061febfd4efa98db69bacb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbca8798af83108ca5e8bdfe5918a25423fd934d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84436079"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544343"
 ---
 Atualmente, o Azure Managed disks oferece quatro tipos de disco, cada tipo destina-se a cenários de clientes específicos.
 
-## <a name="disk-comparison"></a>Comparação de disco
+## <a name="disk-comparison"></a>Comparação de discos
 
 A tabela a seguir fornece uma comparação de ultra discos, unidades de estado sólido Premium (SSD), SSD padrão e unidades de disco rígido padrão (HDD) para discos gerenciados para ajudá-lo a decidir o que usar.
 
-|   | Disco Ultra   | SSD Premium   | SSD Standard   | HDD Standard   |
-|---------|---------|---------|---------|---------|
+| Detalhes | Disco Ultra | SSD Premium | SSD Standard | HDD Standard |
+| ------ | ---------- | ----------- | ------------ | ------------ |
 |Tipo de disco   |SSD   |SSD   |SSD   |HDD   |
-|Cenário   |Cargas de trabalho com uso intensivo de e/s, como [SAP Hana](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), bancos de dados de camada superior (por exemplo, SQL, Oracle) e outras cargas de trabalho de transações pesadas.   |Cargas de trabalho confidenciais produção e desempenho   |Servidores Web, aplicativos empresariais pouco usados e desenvolvimento/teste   |Backup, não crítico, acesso não frequente   |
-|Tamanho máximo do disco   |65.536 GiB (GibiByte)    |32,767 GiB    |32,767 GiB   |32,767 GiB   |
+|Cenário   |Cargas de trabalho com uso intensivo de e/s, como [SAP Hana](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), bancos de dados de camada superior (por exemplo, SQL, Oracle) e outras cargas de trabalho de transações pesadas.   |Cargas de trabalho sensíveis à produção e ao desempenho   |Servidores Web, aplicativos empresariais pouco usados e desenvolvimento/teste   |Backup, não crítico, acesso não frequente   |
+|Tamanho máximo do disco   |65.536 GiB (GibiByte)    |32.767 GiB    |32.767 GiB   |32.767 GiB   |
 |Taxa de transferência máxima   |2\.000 MB/s    |900 MB/s   |750 MB/s   |500 MB/s   |
-|IOPS Máxima   |160.000    |20,000   |6\.000   |2\.000   |
+|IOPS Máxima   |160.000    |20.000   |6.000   |2\.000   |
 
 ## <a name="ultra-disk"></a>Disco Ultra
 
@@ -53,10 +53,10 @@ Alguns dos principais recursos dos ultra discos são:
 |16     |4.800         |1.200         |
 |32     |9.600         |2\.000         |
 |64     |19.200         |2\.000         |
-|128     |38.400         |2\.000         |
+|128     |38.400         |2.000         |
 |256     |76.800         |2\.000         |
 |512     |80.000         |2\.000         |
-|1.024 a 65.536 (os tamanhos nesse intervalo aumentam em incrementos de 1 TiB)     |160.000         |2\.000         |
+|1.024 a 65.536 (os tamanhos nesse intervalo aumentam em incrementos de 1 TiB)     |160.000         |2.000         |
 
 ### <a name="ga-scope-and-limitations"></a>Limitações e escopo de GA
 
