@@ -8,11 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 0b966b10c5bbc7bb90a4226d94dda8b75e25c3af
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 015feac819467cf60bfb2faab27af769fadc3cfa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84247464"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522866"
 ---
 # <a name="data-access-strategies"></a>Estratégias de acesso a dados
 
@@ -21,6 +22,7 @@ ms.locfileid: "84247464"
 Um objetivo de segurança primordial de uma organização é proteger os armazenamentos de dados contra o acesso aleatório pela Internet, seja um armazenamento de dados local ou em nuvem/SaaS. 
 
 Normalmente, um armazenamento de dados em nuvem controla o acesso usando os mecanismos abaixo:
+* Link privado de uma rede virtual para fontes de dados habilitadas para ponto de extremidade privado
 * Regras de firewall que limitam a conectividade por endereço IP
 * Mecanismos de autenticação que exigem que os usuários comprovem sua identidade
 * Mecanismos de autorização que restringem os usuários a ações e dados específicos
@@ -29,12 +31,13 @@ Normalmente, um armazenamento de dados em nuvem controla o acesso usando os meca
 > Com a [introdução do intervalo de endereço IP Estático](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses), agora você pode permitir a lista de intervalos de IP para a região de tempo de execução de integração do Azure específica, para garantir que você não precise permitir todos os endereços IP do Azure nos armazenamentos de dados em nuvem. Dessa forma, você pode restringir os endereços IP que têm permissão para acessar os armazenamentos de dados.
 
 > [!NOTE] 
-> Os intervalos de endereços IP são bloqueados para o tempo de execução de integração do Azure e, no momento, são usados apenas para movimentação de dados, pipeline e atividades externas. Agora os fluxos de dados não usam esses intervalos de IP. 
+> Os intervalos de endereços IP são bloqueados para Azure Integration Runtime e, no momento, são usados apenas para movimentação de dados, pipeline e atividades externas. Os fluxos de e Azure Integration Runtime que habilitam a rede virtual gerenciada agora não usam esses intervalos de IP. 
 
 Isso deve funcionar em muitos cenários e entendemos que um endereço IP Estático exclusivo por tempo de execução de integração seria desejável, mas atualmente não seria possível usando o Azure Integration Runtime, que é sem servidor. Se necessário, você sempre pode configurar um Runtime de Integração Auto-Hospedada e usar o IP Estático com ele. 
 
 ## <a name="data-access-strategies-through-azure-data-factory"></a>Estratégias de acesso a dados por meio do Azure Data Factory
 
+* **[Link privado](https://docs.microsoft.com/azure/private-link/private-link-overview)** – você pode criar um Azure Integration Runtime em Azure data Factory rede virtual gerenciada e utilizará pontos de extremidade privados para se conectar com segurança a armazenamentos de dados com suporte. O tráfego entre a rede virtual gerenciada e as fontes de dados viaja pela rede de backbone da Microsoft e não é uma exposição à rede pública.
 * **[Serviço Confiável](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)** - O Armazenamento do Microsoft Azure (Blob, ADLS Gen2) dá suporte à configuração do firewall que permite selecionar serviços confiáveis da plataforma Azure para acessar a conta de armazenamento com segurança. Os Serviços Confiáveis aplicam a autenticação de Identidade Gerenciada, o que garante que nenhum outro data factory possa se conectar a esse armazenamento, a menos que a lista de permissões faça isso usando a identidade gerenciada. Você pode encontrar mais detalhes **[neste blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . Portanto, é extremamente seguro e recomendado. 
 * **IP Estático Exclusivo** - Você precisará configurar um runtime de integração auto-hospedada para obter um IP Estático para conectores de Data Factory. Esse mecanismo garante que você possa bloquear o acesso de todos os outros endereços IP. 
 * **[Intervalo de IP Estático](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses)** - Você pode usar os endereços IP do Azure Integration Runtime para permitir listá-los no armazenamento (digamos S3, Salesforce, etc.). Certamente, ele restringe os endereços IP que podem se conectar aos armazenamentos de dados, mas também se baseia em regras de Autenticação/Autorização.
@@ -44,19 +47,19 @@ Isso deve funcionar em muitos cenários e entendemos que um endereço IP Estáti
 Para obter mais informações sobre os mecanismos de segurança de rede com suporte em armazenamentos de dados no Azure Integration Runtime e Runtime de Integração Auto-Hospedada, confira as duas tabelas abaixo.  
 * **Azure Integration Runtime**
 
-    | Armazenamentos de dados                  | Mecanismo de segurança de rede com suporte em armazenamentos de dados         | Serviço confiável     | Intervalo de IP estático | Marcas de serviço | Permitir serviços do Azure |
-    |------------------------------|-------------------------------------------------------------|---------------------|-----------------|--------------|----------------------|
-    | Armazenamentos de dados do Azure PaaS       | Azure Cosmos DB                                             | -                   | Sim             | -            | Sim                  |
-    |                              | Azure Data Explorer                                         | -                   | Sim*            | Sim*         | -                    |
-    |                              | Azure Data Lake Gen1                                        | -                   | Sim             | -            | Sim                  |
-    |                              | Banco de Dados do Azure para MariaDB, MySQL, PostgreSQL               | -                   | Sim             | -            | Sim                  |
-    |                              | Armazenamento de Arquivos do Azure                                          | -                   | Sim             | -            | .                    |
-    |                              | Armazenamento do Microsoft Azure (Blog, ADLS Gen2)                             | Sim (somente autenticação MSI) | Sim             | -            | .                    |
-    |                              | Azure SQL DB, SQL DW (Synapse Analytics), SQL Ml          | -                   | Sim             | -            | Sim                  |
-    |                              | Azure Key Vault (para buscar segredos/cadeia de conexão) | Sim                 | Sim             | -            | -                    |
-    | Outros armazenamentos de dados PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage, etc.            | -                   | Sim             | -            | -                    |
-    | Azure laaS                   | SQL Server, Oracle, etc.                                  | -                   | Sim             | Sim          | -                    |
-    | laaS no local              | SQL Server, Oracle, etc.                                  | -                   | Sim             | -            | -                    |
+    | Armazenamentos de dados                  | Mecanismo de segurança de rede com suporte em armazenamentos de dados | Link Privado     | Serviço confiável     | Intervalo de IP estático | Marcas de serviço | Permitir serviços do Azure |
+    |------------------------------|-------------------------------------------------------------|---------------------|-----------------|--------------|----------------------|-----------------|
+    | Armazenamentos de dados do Azure PaaS       | Azure Cosmos DB                                     | Sim              | -                   | Sim             | -            | Sim                  |
+    |                              | Azure Data Explorer                                 | -                | -                   | Sim*            | Sim*         | -                    |
+    |                              | Azure Data Lake Gen1                                | -                | -                   | Sim             | -            | Sim                  |
+    |                              | Banco de Dados do Azure para MariaDB, MySQL, PostgreSQL       | -                | -                   | Sim             | -            | Sim                  |
+    |                              | Armazenamento de Arquivos do Azure                                  | Sim              | -                   | Sim             | -            | .                    |
+    |                              | Armazenamento do Azure (BLOB, ADLS Gen2)                     | Sim              | Sim (somente autenticação MSI) | Sim             | -            | .                    |
+    |                              | Azure SQL DB, SQL DW (Synapse Analytics), SQL Ml  | Sim (somente banco de BD SQL do Azure/DW)        | -                   | Sim             | -            | Sim                  |
+    |                              | Azure Key Vault (para buscar segredos/cadeia de conexão) | sim      | Sim                 | Sim             | -            | -                    |
+    | Outros armazenamentos de dados PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage, etc.    | -                | -                   | Sim             | -            | -                    |
+    | Azure laaS                   | SQL Server, Oracle, etc.                          | -                | -                   | Sim             | Sim          | -                    |
+    | laaS no local              | SQL Server, Oracle, etc.                          | -                | -                   | Sim             | -            | -                    |
     
     **Aplicável apenas quando o Azure Data Explorer é injetado em rede virtual e o intervalo de IP pode ser aplicado no NSG/Firewall.* 
 

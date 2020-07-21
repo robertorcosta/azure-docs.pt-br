@@ -10,12 +10,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 907579d44575de56f95e0828c3313d0d1682b29c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: d67a050ccd590e220c51e02b827013ace7707ee2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513887"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523240"
 ---
 # <a name="copy-data-to-and-from-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copiar dados de e para o Azure SQL Instância Gerenciada usando Azure Data Factory
 
@@ -58,7 +59,7 @@ As seções a seguir fornecem detalhes sobre as propriedades que são usadas par
 
 As propriedades a seguir têm suporte para o serviço vinculado do SQL Instância Gerenciada:
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type deve ser definida como **AzureSqlMI**. | Sim |
 | connectionString |Essa propriedade especifica as informações de **ConnectionString** necessárias para se conectar ao SQL instância gerenciada usando a autenticação do SQL. Para obter mais informações, consulte os exemplos a seguir. <br/>A porta padrão é a 1433. Se você estiver usando o SQL Instância Gerenciada com um ponto de extremidade público, especifique explicitamente a porta 3342.<br> Você também pode colocar uma senha em Azure Key Vault. Se for a autenticação do SQL, extraia a `password` configuração da cadeia de conexão. Para obter mais informações, consulte o exemplo de JSON após a tabela e [armazenar as credenciais em Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
@@ -73,7 +74,7 @@ Para diferentes tipos de autenticação, consulte as seções a seguir sobre pr�
 - [Autenticação de token de aplicativo do Azure AD: entidade de serviço](#service-principal-authentication)
 - [Autenticação de token de aplicativo do Azure AD: identidades gerenciadas para recursos do Azure](#managed-identity)
 
-### <a name="sql-authentication"></a>Autenticação SQL
+### <a name="sql-authentication"></a>Autenticação do SQL
 
 **Exemplo 1: usar a autenticação do SQL**
 
@@ -227,7 +228,7 @@ Para obter uma lista completa das seções e das propriedades disponíveis para 
 
 Para copiar dados de e para o SQL Instância Gerenciada, há suporte para as seguintes propriedades:
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida como **AzureSqlMITable**. | Sim |
 | esquema | Nome do esquema. |Não para fonte, Sim para o coletor  |
@@ -263,7 +264,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para uso 
 
 Para copiar dados do SQL Instância Gerenciada, as propriedades a seguir têm suporte na seção origem da atividade de cópia:
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como **SqlMISource**. | Sim |
 | sqlReaderQuery |Essa propriedade usa a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. |Não |
@@ -370,11 +371,11 @@ GO
 
 Para copiar dados para o SQL Instância Gerenciada, as propriedades a seguir têm suporte na seção coletor de atividade de cópia:
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type do coletor da atividade de cópia deve ser definida como **SqlMISink**. | Sim |
 | preCopyScript |Esta propriedade especifica uma consulta SQL para que a atividade de cópia seja executada antes de gravar dados no SQL Instância Gerenciada. É chamado apenas uma vez por execução de cópia. Você pode usar essa propriedade para limpar os dados previamente carregados. |Não |
-| tableOption | Especifica se a tabela do coletor deve ser criada automaticamente caso ela não exista com base no esquema de origem. Não há suporte para a criação automática de tabela quando o coletor especifica o procedimento armazenado ou a cópia preparada está configurada na atividade de cópia. Os valores permitidos são `none` (padrão) e `autoCreate`. |Não |
+| tableOption | Especifica se a [tabela do coletor deve ser criada automaticamente](copy-activity-overview.md#auto-create-sink-tables) se não existir com base no esquema de origem. Não há suporte para a criação automática de tabela quando o coletor especifica o procedimento armazenado ou a cópia preparada está configurada na atividade de cópia. Os valores permitidos são `none` (padrão) e `autoCreate`. |Não |
 | sqlWriterStoredProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem em uma tabela de destino. <br/>Este procedimento armazenado é *chamado por lote*. Para operações que são executadas apenas uma vez e não têm nada a ver com os dados de origem, por exemplo, excluir ou truncar, use a `preCopyScript` propriedade.<br>Consulte o exemplo de [invocar um procedimento armazenado de um coletor SQL](#invoke-a-stored-procedure-from-a-sql-sink). | Não |
 | storedProcedureTableTypeParameterName |O nome do parâmetro do tipo de tabela especificado no procedimento armazenado.  |Não |
 | sqlWriterTableType |O nome do tipo de tabela a ser usado no procedimento armazenado. A atividade de cópia disponibiliza aqueles dados sendo movidos em uma tabela temporária com esse tipo de tabela. O código de procedimento armazenado pode mesclar os dados que estão sendo copiados com os dados existentes. |Não |

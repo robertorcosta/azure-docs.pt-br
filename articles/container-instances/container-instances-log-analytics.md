@@ -2,14 +2,14 @@
 title: Coletar & analisar logs de recursos
 description: Saiba como enviar logs de recursos e dados de eventos de grupos de contêineres em instâncias de contêiner do Azure para Azure Monitor logs
 ms.topic: article
-ms.date: 07/02/2020
+ms.date: 07/13/2020
 ms.author: danlep
-ms.openlocfilehash: d9f3e844e9d82e540776cdcf821770929d238e3f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: efd71d181059ab395aeec4da364110a42d2cccd3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259614"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524005"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Log de instância e grupo de contêineres com logs de Azure Monitor
 
@@ -38,11 +38,10 @@ As Instâncias de Contêiner do Azure precisam de permissão para enviar dados a
 Para obter a ID do espaço de trabalho do Log Analytics e a chave primária:
 
 1. Navegue até o espaço de trabalho do Log Analytics no portal do Azure
-1. Em **configurações**, selecione **Configurações avançadas**
-1. Selecione **fontes conectadas**  >  **servidores Windows** (ou **servidores Linux**--a ID e as chaves são as mesmas para ambos)
+1. Em **configurações**, selecione **Gerenciamento de agentes**
 1. Anote:
-   * **ID DO ESPAÇO DE TRABALHO**
-   * **CHAVE PRIMÁRIA**
+   * **ID do Workspace**
+   * **Chave primária**
 
 ## <a name="create-container-group"></a>Criar grupo de contêineres
 
@@ -102,7 +101,9 @@ Você deverá receber uma resposta do Azure contendo detalhes da implantação, 
 
 ## <a name="view-logs"></a>Exibir logs
 
-Após implantar o grupo de contêineres, poderá demorar vários minutos (até 10) para que as primeiras entradas de log apareçam no portal do Azure. Para exibir logs do grupo de contêineres na tabela `ContainerInstanceLog_CL`:
+Após implantar o grupo de contêineres, poderá demorar vários minutos (até 10) para que as primeiras entradas de log apareçam no portal do Azure. 
+
+Para exibir logs do grupo de contêineres na tabela `ContainerInstanceLog_CL`:
 
 1. Navegue até o espaço de trabalho do Log Analytics no portal do Azure
 1. Em **geral**, selecione **logs**  

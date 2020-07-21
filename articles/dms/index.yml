@@ -3,17 +3,19 @@ title: Documentação do Serviço de Migração de Banco de Dados do Azure
 summary: O Serviço de Migração de Banco de Dados do Azure permite a migração perfeita de várias fontes de banco de dados para as plataformas de dados do Azure com um tempo de inatividade mínimo. O serviço usa o Assistente de Migração de Dados para gerar relatórios de avaliação que fornecem recomendações para orientar você durante as alterações necessárias antes de executar uma migração. Quando você estiver pronto para iniciar o processo de migração, o Serviço de Migração de Banco de Dados do Azure executará todas as etapas necessárias.
 metadata:
   description: Saiba como habilitar a migração perfeita de várias fontes de banco de dados para as plataformas de dados do Azure com um tempo de inatividade mínimo usando o Serviço de Migração de Banco de Dados do Azure.
+  keywords: azure database migration services, dms service, azure data migration, data migration service, database migration service
   author: HJToland3
   ms.author: jtoland
   ms.date: 12/19/2019
   ms.service: dms
   ms.topic: landing-page
-  ms.openlocfilehash: 9a37c850426cab0d940ab546084c1c64811ccb64
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.custom: azure-migrate-seo
+  ms.openlocfilehash: 732870bef2311ac13afb9a6e2a1a329fdd3905e2
+  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78164552"
+  ms.lasthandoff: 07/20/2020
+  ms.locfileid: "86522305"
 landingContent:
 - title: Serviço de Migração de Banco de Dados do Azure
   linkLists:

@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: 81f072822226e4a573cf0086cac7e64ca1cfe45f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6baea73c0c4964bb3937304603a2a92a13d52b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628156"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522713"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Mover arquivos com Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Este artigo descreve um modelo de solução que você pode usar para mover arquivos de uma pasta para outra entre repositórios baseados em arquivo. Um dos cenários comuns de uso deste modelo: os arquivos são continuamente descartados para uma pasta de aterrissagem do seu repositório de origem. Ao criar um gatilho de agendamento, o pipeline do ADF pode mover periodicamente esses arquivos da origem para o repositório de destino.  A maneira como o pipeline do ADF atinge "movendo arquivos" está obtendo os arquivos da pasta de aterrissagem, copiando cada um deles para outra pasta no repositório de destino e, em seguida, excluindo os mesmos arquivos da pasta de aterrissagem no repositório de origem.
+A atividade de cópia do ADF tem suporte interno no cenário de "movimentação" ao copiar arquivos binários entre repositórios de armazenamento.  A maneira de habilitá-lo é definir "deleteFilesAfterCompletion" como verdadeiro na atividade de cópia. Ao fazer isso, a atividade de cópia excluirá arquivos do repositório de fonte de dados após a conclusão do trabalho. 
+
+Este artigo descreve um modelo de solução como outra abordagem que aproveita o fluxo de controle flexível do ADF, além da atividade de cópia e da atividade de exclusão para obter o mesmo cenário. Um dos cenários comuns de uso deste modelo: os arquivos são continuamente descartados para uma pasta de aterrissagem do seu repositório de origem. Ao criar um gatilho de agendamento, o pipeline do ADF pode mover periodicamente esses arquivos da origem para o repositório de destino.  A maneira como o pipeline do ADF atinge "movendo arquivos" está obtendo os arquivos da pasta de aterrissagem, copiando cada um deles para outra pasta no repositório de destino e, em seguida, excluindo os mesmos arquivos da pasta de aterrissagem no repositório de origem.
 
 > [!NOTE]
 > Lembre-se de que esse modelo foi projetado para mover arquivos em vez de mover pastas.  Se você quiser mover a pasta alterando o conjunto de um para que ela contenha apenas um caminho de pasta e, em seguida, usando a atividade de cópia e excluir a referência ao mesmo conjunto de um que representa uma pasta, você precisa ter muito cuidado. Isso porque você tem que ter certeza de que NÃO haverá novos arquivos entrando na pasta entre as operações de cópia e exclusão. Se houver novos arquivos chegando à pasta no momento em que a atividade de cópia tiver acabado o trabalho de cópia, mas a atividade de exclusão ainda não tiver sido iniciada, é possível que a atividade Excluir exclua esse novo arquivo que esteja entrando e que ainda NÃO foi copiado para o destino ao excluir a pasta inteira.
@@ -64,7 +66,7 @@ O modelo define quatro parâmetros:
 
     ![Executar o pipeline](media/solution-template-move-files/move-files5.png)
 
-6. Revise o resultado.
+6. Examine o resultado.
 
     ![Revisar o resultado](media/solution-template-move-files/move-files6.png)
 

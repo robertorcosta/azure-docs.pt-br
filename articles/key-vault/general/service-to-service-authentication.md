@@ -9,12 +9,12 @@ ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 132663ed26eab41747f6fce25bdb2beabe286322
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 83c4a48f8c177cf84078966bae32126102b45c3b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232603"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521013"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação serviço a serviço no Azure Key Vault usando o .NET
 
@@ -230,7 +230,7 @@ Por padrão, `AzureServiceTokenProvider` o tenta os seguintes métodos de autent
 
 - [Uma identidade gerenciada para recursos do Azure](../..//active-directory/managed-identities-azure-resources/overview.md)
 - Autenticação do Visual Studio
-- [Autenticação CLI do Azure](/azure/authenticate-azure-cli?view=azure-cli-latest)
+- [Autenticação CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 - [Autenticação integrada do Windows](/aspnet/web-api/overview/security/integrated-windows-authentication)
 
 Para controlar o processo, use uma cadeia de conexão passada para o construtor `AzureServiceTokenProvider` ou especificada na variável de ambiente *AzureServicesAuthConnectionString*.  Há suporte para as seguintes opções:

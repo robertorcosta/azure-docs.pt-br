@@ -8,11 +8,12 @@ ms.author: jehollan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: e300bf9c9aa0acf0bed6426eb73f690f9a38bd74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fae7d2526e6c95efe83ca8fa742a6d92457b897
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75980435"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520742"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Criar de um painel de informações do cliente em streaming com Aplicativos Lógicos do Azure e Azure Functions
 
@@ -21,7 +22,7 @@ O Azure oferece ferramentas [sem servidor](https://azure.microsoft.com/solutions
 Para esta solução, você deve usar esses componentes-chave do Azure para aplicativos sem servidor: [Azure Functions](https://azure.microsoft.com/services/functions/) e [Aplicativos Lógicos do Azure](https://azure.microsoft.com/services/logic-apps/).
 Aplicativos Lógicos do Azure fornecem um mecanismo de fluxo de trabalho sem servidor na nuvem para que você possa criar orquestrações entre componentes sem servidor e se conectar a mais de 200 serviços e APIs. O Azure Functions fornece computação sem servidor na nuvem. Essa solução usa o Azure Functions para sinalizar tweets de cliente com base em palavras-chave predefinidas.
 
-Nesse cenário, você cria um aplicativo lógico que terá como gatilho encontrar os comentários dos clientes. Alguns conectores que ajudam a responder aos comentários dos clientes incluem Outlook.com, Office 365, Survey Monkey, Twitter e uma [solicitação HTTP de um formulário web](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). O fluxo de trabalho que você cria monitora um hashtag no Twitter.
+Nesse cenário, você cria um aplicativo lógico que terá como gatilho encontrar os comentários dos clientes. Alguns conectores que ajudam a responder aos comentários dos clientes incluem Outlook.com, Office 365, Survey Monkey, Twitter e uma [solicitação HTTP de um formulário web](/archive/blogs/logicapps/calling-a-logic-app-from-an-html-form). O fluxo de trabalho que você cria monitora um hashtag no Twitter.
 
 Você pode [criar toda a solução no Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) e [implantar a solução com o modelo do Azure Resource Manager](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). Para obter uma explicação de vídeo que mostra como criar essa solução, [Assista a este vídeo do Channel 9](https://aka.ms/logicappsdemo). 
 
@@ -66,7 +67,7 @@ Você também pode criar uma função do Azure para que você possa executar pro
 
 ## <a name="process-data-with-azure-functions"></a>Processar dados com o Azure Functions
 
-Antes de criar uma função, crie um aplicativo de funções na sua assinatura do Azure. Além disso, para seu aplicativo lógico chamar diretamente uma função, a função deve ter um associação de gatilho HTTP, por exemplo, use o modelo **HttpTrigger**. Saiba [como criar seu primeiro aplicativo de funções e função no portal do Azure](../azure-functions/functions-create-first-azure-function-azure-portal.md).
+Antes de criar uma função, crie um aplicativo de funções na sua assinatura do Azure. Além disso, para seu aplicativo lógico chamar diretamente uma função, a função deve ter um associação de gatilho HTTP, por exemplo, use o modelo **HttpTrigger**. Saiba [como criar seu primeiro aplicativo de funções e função no portal do Azure](../azure-functions/functions-create-first-azure-function.md).
 
 Para esse cenário, use o texto do tweet como corpo da solicitação para sua função do Azure. No seu código de função, defina a lógica que determina se o texto do tweet contém uma palavra-chave ou frase. Manter a função como simples ou complexa conforme necessário para o cenário.
 No final da função, retornar uma resposta para o aplicativo lógico com alguns dados, por exemplo, um valor booliano simples como `containsKeyword` ou um objeto complexo.

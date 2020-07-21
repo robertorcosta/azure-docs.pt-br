@@ -72,6 +72,10 @@
           href: how-to-manage-routes.md
         - name: Integração com os Azure Mapas
           href: how-to-integrate-maps.md
+    - name: Solucionar problemas
+      items:
+        - name: Problemas conhecidos
+          href: troubleshoot-known-issues.md
 - name: Referência
   items:
     - name: Limites de serviço dos Gêmeos Digitais

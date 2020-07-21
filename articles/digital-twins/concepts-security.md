@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0f1f9e17646c4432d9c1103b3c579fc6bb0d2f13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a1447e64b606170601e6df6a443f53e3132294d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833157"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522254"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Proteger o gêmeos digital do Azure com o controle de acesso baseado em função
 
@@ -58,7 +58,7 @@ Você pode atribuir funções de duas maneiras:
 * por meio do painel controle de acesso (IAM) para o gêmeos digital do Azure no portal do Azure (consulte [Adicionar ou remover atribuições de função usando o RBAC do Azure e o portal do Azure](../role-based-access-control/role-assignments-portal.md))
 * por meio de comandos da CLI para adicionar ou remover uma função
 
-Para obter etapas mais detalhadas sobre como fazer isso, experimente no [tutorial do gêmeos digital do Azure: conectar uma solução de ponta a ponta](tutorial-end-to-end.md).
+Para obter etapas mais detalhadas sobre como fazer isso, experimente no [tutorial do gêmeos digital do Azure: *conectar uma solução de ponta a ponta*](tutorial-end-to-end.md).
 
 ## <a name="permission-scopes"></a>Escopos de permissão
 
@@ -73,6 +73,6 @@ A lista a seguir descreve os níveis nos quais você pode fazer o escopo de aces
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Veja como percorrer essas etapas com um aplicativo cliente de exemplo em [como autenticar um aplicativo cliente](how-to-authenticate-client.md).
+* Veja como percorrer essas etapas com um aplicativo cliente de exemplo em [*como autenticar um aplicativo cliente*](how-to-authenticate-client.md).
 
 * Leia mais sobre o [RBAC para Azure](../role-based-access-control/overview.md).

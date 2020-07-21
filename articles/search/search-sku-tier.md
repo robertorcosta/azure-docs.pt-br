@@ -7,12 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.openlocfilehash: 1f65feee8806b0c8dc85e14cdcd6e2687e040456
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: 00080322b4fa474e5095d40afb041134e1a85fe7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84119216"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519724"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um tipo de preço para o Azure Pesquisa Cognitiva
 
@@ -22,14 +23,17 @@ A maioria dos clientes começa com a camada gratuita para que eles possam avalia
 
 ## <a name="feature-availability-by-tier"></a>Disponibilidade de recursos por camada
 
-Quase todos os recursos estão disponíveis em todas as camadas, incluindo as gratuitas, mas um recurso ou fluxo de trabalho que consome muitos recursos pode não funcionar bem, a menos que você forneça capacidade suficiente. Por exemplo, o [enriquecimento de ia](cognitive-search-concept-intro.md) tem habilidades de longa execução que atingirão o tempo limite em um serviço gratuito, a menos que o conjunto de informações seja pequeno.
-
 A tabela a seguir descreve as restrições de recurso relacionadas à camada.
 
 | Recurso | Limitações |
 |---------|-------------|
 | [indexadores](search-indexer-overview.md) | Os indexadores não estão disponíveis no S3 HD. |
+| [Enriquecimento de IA](search-security-manage-encryption-keys.md) | É executado na camada gratuita, mas não é recomendado. |
 | [Chaves de criptografia gerenciadas pelo cliente](search-security-manage-encryption-keys.md) | Não disponível na camada gratuita. |
+| [Acesso de firewall IP](service-configure-firewall.md) | Não disponível na camada gratuita. |
+| [Integração com o link privado do Azure](service-create-private-endpoint.md) | Não disponível na camada gratuita. |
+
+A maioria dos recursos está disponível em todas as camadas, incluindo recursos gratuitos, mas que usam muitos recursos podem não funcionar bem, a menos que você forneça capacidade suficiente. Por exemplo, o [enriquecimento de ia](cognitive-search-concept-intro.md) tem habilidades de longa execução que atingirão o tempo limite em um serviço gratuito, a menos que o conjunto de informações seja pequeno.
 
 ## <a name="tiers-skus"></a>Camadas (SKUs)
 
@@ -56,10 +60,10 @@ Você pode saber mais sobre as várias camadas na [página de preços](https://a
 
 Uma solução criada no Azure Pesquisa Cognitiva pode gerar custos das seguintes maneiras:
 
-+ Custo fixo do serviço em si, executando 24x7, na configuração mínima (uma partição e réplica)
-+ Custo incremental ao escalar verticalmente (adicionar réplicas ou partições)
++ Custo do próprio serviço, executando 24x7, na configuração mínima (uma partição e réplica)
++ Adicionando capacidade (réplicas ou partições)
 + Encargos de largura de banda (transferência de dados de saída) 
-+ Pesquisa cognitiva (anexando serviços cognitivas para enriquecimento de AI ou usando o armazenamento do Azure para armazenamento de conhecimento)
++ Serviços de complemento, como o enriquecimento de AI (anexando serviços cognitivas no habilidades que definem o processamento de ia ou usando o armazenamento do Azure para armazenamento de conhecimento) ou implantando um serviço de pesquisa em uma rede virtual privada
 
 ### <a name="service-costs"></a>Custos de serviço
 
@@ -71,7 +75,7 @@ Quando estiver estimando o custo de uma solução de pesquisa, tenha em mente qu
 
 ### <a name="bandwidth-charges"></a>Cobranças de largura de banda
 
-O uso de [indexadores do Azure pesquisa cognitiva](search-indexer-overview.md) pode afetar a cobrança, dependendo do local de seus serviços. Você pode eliminar os encargos de saída de dados inteiramente se criar o serviço de Pesquisa Cognitiva do Azure na mesma região que seus dados. Aqui estão algumas informações da [página de preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/):
+O uso de [indexadores](search-indexer-overview.md) pode afetar a cobrança, dependendo do local dos seus serviços. Você pode eliminar os encargos de saída de dados inteiramente se criar o serviço de Pesquisa Cognitiva do Azure na mesma região que seus dados. Aqui estão algumas informações da [página de preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/):
 
 + A Microsoft não cobra por nenhum dado de entrada para nenhum serviço no Azure, ou para qualquer dado de saída do Azure Pesquisa Cognitiva.
 + Em soluções de multiatendimento, não há nenhum encargo para dados que cruzam a conexão quando todos os serviços estão na mesma região.
@@ -84,7 +88,7 @@ Para [aprimorar o ia](cognitive-search-concept-intro.md), você deve planejar [a
 
 | Operação | Impacto de cobrança |
 |-----------|----------------|
-| Quebra de documentos, extração de texto | Grátis |
+| Quebra de documentos, extração de texto | Gratuita |
 | Quebra de documento, extração de imagem | Cobrado de acordo com o número de imagens extraídas dos seus documentos. Em uma [configuração de indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters), **imageaction** é o parâmetro que dispara a extração de imagem. Se **imageaction** for definido como "None" (o padrão), você não será cobrado pela extração de imagem. A taxa de extração de imagem está documentada na página de [detalhes de preços](https://azure.microsoft.com/pricing/details/search/) do Azure pesquisa cognitiva.|
 | [Habilidades cognitivas internas](cognitive-search-predefined-skills.md) | Cobrado na mesma taxa que se você executou a tarefa usando serviços cognitivas diretamente. |
 | Habilidades personalizadas | Uma habilidade personalizada é A funcionalidade que você fornece. O custo de usar uma habilidade personalizada depende totalmente de se o código personalizado está chamando outros serviços medidos. |
@@ -107,7 +111,7 @@ A maioria dos clientes coloca apenas uma parte da capacidade total online, mante
 
 ## <a name="how-to-manage-costs"></a>Como gerenciar custos
 
-As sugestões a seguir podem ajudá-lo a manter os custos no mínimo:
+As sugestões a seguir podem ajudá-lo a reduzir os custos ou gerenciar custos com mais eficiência:
 
 + Crie todos os recursos na mesma região, ou no menor número de regiões possível, para minimizar ou eliminar encargos de largura de banda.
 
@@ -140,7 +144,7 @@ A capacidade e os custos de executar o serviço são disponibilizados em mãos. 
 
 Os requisitos de negócios normalmente ditam o número de índices que você precisará. Por exemplo, você pode precisar de um índice global para um repositório de documentos grande. Ou talvez você precise de vários índices com base na região, no aplicativo ou no nicho de negócios.
 
-Para determinar o tamanho de um índice, você precisa [compilar um](search-create-index-portal.md). Seu tamanho será baseado em dados importados e na configuração de índice, como se você habilitar sugestores, filtragem e classificação. Para obter mais informações sobre o impacto da configuração no tamanho, consulte [criar um índice básico ](search-what-is-an-index.md).
+Para determinar o tamanho de um índice, você precisa [compilar um](search-what-is-an-index.md). Seu tamanho será baseado em dados importados e na configuração de índice, como se você habilitar sugestores, filtragem e classificação.
 
 Para pesquisa de texto completo, a estrutura de dados primária é uma estrutura de [índice invertida](https://en.wikipedia.org/wiki/Inverted_index) , que tem características diferentes dos dados de origem. Para um índice invertido, o tamanho e a complexidade são determinados pelo conteúdo, não necessariamente pela quantidade de dados que você feedu nele. Uma fonte de dados grande com alta redundância pode resultar em um índice menor do que um conjunto de dado menor que contém conteúdo altamente variável. Portanto, raramente é possível inferir o tamanho do índice com base no tamanho do conjunto de datas original.
 
@@ -154,7 +158,7 @@ Uma abordagem para calcular a capacidade é iniciar com a camada Livre. Lembre-s
 
 + [Crie um serviço gratuito](search-create-service-portal.md).
 + Prepare um DataSet pequeno e representativo.
-+ [Crie um índice inicial no portal](search-create-index-portal.md) e anote seu tamanho. Os recursos e atributos têm um impacto no armazenamento. Por exemplo, a adição de sugestores (consultas de pesquisa conforme o tipo) aumentará os requisitos de armazenamento. Usando o mesmo conjunto de dados, você pode tentar criar várias versões de um índice, com atributos diferentes em cada campo, para ver como os requisitos de armazenamento variam. Para obter mais informações, consulte ["implicações de armazenamento" em criar um índice básico](search-what-is-an-index.md#index-size).
++ [Crie um índice inicial no portal](search-get-started-portal.md) e anote seu tamanho. Os recursos e atributos têm um impacto no armazenamento. Por exemplo, a adição de sugestores (consultas de pesquisa conforme o tipo) aumentará os requisitos de armazenamento. Usando o mesmo conjunto de dados, você pode tentar criar várias versões de um índice, com atributos diferentes em cada campo, para ver como os requisitos de armazenamento variam. Para obter mais informações, consulte ["implicações de armazenamento" em criar um índice básico](search-what-is-an-index.md#index-size).
 
 Com uma estimativa aproximada em mãos, você pode dobrar esse valor para o orçamento de dois índices (desenvolvimento e produção) e, em seguida, escolher a camada adequadamente.
 
@@ -170,7 +174,7 @@ Os recursos dedicados podem acomodar grandes períodos de amostragem e processam
     + Comece de alto, em S2 ou mesmo S3, se você souber que vai ter carregamentos de consulta e indexação em larga escala.
     + Comece com o armazenamento otimizado, em L1 ou L2, se você estiver indexando uma grande quantidade de dados e a carga de consulta for relativamente baixa, assim como com um aplicativo de negócios interno.
 
-1. [Criar um índice inicial](search-create-index-portal.md) para determinar como a fonte de dados traduz para um índice. Essa é a única maneira de estimar o tamanho do índice.
+1. [Criar um índice inicial](search-what-is-an-index.md) para determinar como a fonte de dados traduz para um índice. Essa é a única maneira de estimar o tamanho do índice.
 
 1. [Monitorar armazenamento, limites de serviço, volume de consulta e latência](search-monitor-usage.md) no portal. O portal mostra as consultas por segundo, as consultas limitadas e a latência de pesquisa. Todos esses valores podem ajudá-lo a decidir se selecionou a camada certa. 
 

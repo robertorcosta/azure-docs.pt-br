@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: 5390915436d38939b83a1599f8fb564cfbd11bdb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e882035af3ac0a086c58b4886fd6999970712df1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738236"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521659"
 ---
 # <a name="troubleshooting-network-performance"></a>Solução de problemas de desempenho de rede
 ## <a name="overview"></a>Visão geral
@@ -177,17 +177,16 @@ Configuração do teste:
 >
 >
 
-| | | | | | |
-|-|-|-|-|-|-|
-|ExpressRoute<br/>Location|Azure<br/>Região|Estimada (km)<br/>Distância|Latency|Sessão 1<br/>Largura de banda|Máximo<br/>Largura de banda|
+| ExpressRoute<br/>Localização|Azure<br/>Região | Estimada (km)<br/>Distância | Latência|Sessão 1<br/>Largura de banda | Máximo<br/>Largura de banda |
+| ------------------------------------------ | --------------------------- |  - | - | - | - |
 | Seattle | Oeste dos EUA 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s |
 | Seattle | Oeste dos EUA          |  1.094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s |
 | Seattle | Centro dos EUA       |  2.357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s |
-| Seattle | Centro-Sul dos Estados Unidos |  2.877 km |  51 ms |  30,6 Mbits/s |  2,49 Gbits/s |
+| Seattle | South Central US |  2.877 km |  51 ms |  30,6 Mbits/s |  2,49 Gbits/s |
 | Seattle | Centro-Norte dos EUA |  2.792 km |  55 ms |  27,7 Mbits/s |  2,19 Gbits/s |
 | Seattle | Leste dos EUA 2        |  3.769 km |  73 ms |  21,3 Mbits/s |  1,79 Gbits/s |
-| Seattle | Leste dos EUA          |  3.699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbits/s |
-| Seattle | Leste do Japão       |  7.705 km | 106 ms |  14,6 Mbits/s |  1,22 Gbits/s |
+| Seattle | East US          |  3.699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbits/s |
+| Seattle | Japan East       |  7.705 km | 106 ms |  14,6 Mbits/s |  1,22 Gbits/s |
 | Seattle | Sul do Reino Unido         |  7.708 km | 146 ms |  10,6 Mbits/s |   896 Mbits/s |
 | Seattle | Europa Ocidental      |  7.834 km | 153 ms |  10,2 Mbits/s |   761 Mbits/s |
 | Seattle | Leste da Austrália   | 12.484 km | 165 ms |   9,4 Mbits/s |   794 Mbits/s |

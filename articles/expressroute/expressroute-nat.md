@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9f5c5cc3a943ad4a8882a91ffdcee89c2ad39743
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62effa04fd6130c35d3e2e64a401c124fe383200
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79272962"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521914"
 ---
 # <a name="expressroute-nat-requirements"></a>Requisitos de NAT do ExpressRoute
 Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisará configurar e gerenciar NATs. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de NAT como um serviço gerenciado. Verifique se seu provedor de conectividade oferece esse serviço. Caso contrário, você deverá atender aos requisitos descritos abaixo. 
@@ -21,7 +22,7 @@ Consulte a página [Circuitos e domínios de roteamento do ExpressRoute](express
 ## <a name="nat-requirements-for-microsoft-peering"></a>Requisitos de NAT para emparelhamento da Microsoft
 O caminho de emparelhamento da Microsoft permite que você se conecte a serviços de nuvem da Microsoft que não têm suporte por meio do caminho de emparelhamento público do Azure. A lista de serviços inclui serviços do Office 365, como o Exchange Online, o SharePoint Online e o Skype for Business. A Microsoft espera dar suporte à conectividade bidirecional no emparelhamento da Microsoft. O tráfego destinado aos serviços de nuvem da Microsoft deve estar no modo SNAT para endereços IPv4 públicos válidos antes de entrar na rede da Microsoft. O tráfego destinado à sua rede proveniente dos serviços de nuvem da Microsoft deve estar no modo SNAT na borda da Internet para evitar um [roteamento assimétrico](expressroute-asymmetric-routing.md). A figura abaixo fornece uma imagem de alto nível de como o NAT deve ser configurado para emparelhamento da Microsoft.
 
-![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
+![Diagrama de alto nível de como o NAT deve ser configurado para o emparelhamento da Microsoft.](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
 ### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Tráfego com origem em sua rede e destinado à Microsoft
 * Você deve garantir que o tráfego esteja entrando no caminho de emparelhamento da Microsoft com um endereço IPv4 público válido. A Microsoft deve ser capaz de validar a propriedade do pool de endereços NAT IPv4 com base no registro regional de roteamento da Internet (RIR) ou em um registro de roteamento da Internet (IRR). Uma verificação será executada com base no número de AS emparelhados e nos endereços IP usados para NAT. Consulte a página [Requisitos de roteamento do ExpressRoute](expressroute-routing.md) para obter informações sobre registros de roteamento.
@@ -52,7 +53,7 @@ O caminho do emparelhamento público do Azure permite que você se conecte a tod
 
 O tráfego destinado ao Microsoft Azure no emparelhamento público deve estar no modo SNAT para endereços IPv4 públicos válidos antes que eles entrem na rede da Microsoft. A figura abaixo fornece uma imagem de alto nível de como a NAT deve ser configurada para atender ao requisito acima.
 
-![](./media/expressroute-nat/expressroute-nat-azure-public.png) 
+![Diagrama de alto nível de como o NAT pode ser configurado para ser no modo snatdo para endereços IPv4 públicos válidos antes que eles entrem na rede da Microsoft.](./media/expressroute-nat/expressroute-nat-azure-public.png) 
 
 ### <a name="nat-ip-pool-and-route-advertisements"></a>Pool de IP de NAT e anúncios de rota
 Você deve garantir que o tráfego esteja entrando no caminho de emparelhamento público do Azure com o endereço IPv4 público válido. A Microsoft deve ser capaz de validar a propriedade do pool de endereços NAT IPv4 com base em um registro regional de roteamento da Internet (RIR) ou em um registro de roteamento da Internet (IRR). Uma verificação será executada com base no número de AS emparelhados e nos endereços IP usados para NAT. Consulte a página [Requisitos de roteamento do ExpressRoute](expressroute-routing.md) para obter informações sobre registros de roteamento.

@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 08c7fa6abac7ed369347f1f496c70174b06edf02
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 65f9ee8f67ac4efb6ab26fa0912d11d7be7c571d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831566"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520894"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Executar ações com base no status do grupo usando os escopos nos Aplicativos Lógicos do Azure
 
@@ -70,13 +71,13 @@ Primeiro, crie esse aplicativo lógico de exemplo para que seja possível adicio
 
       ![Configurar a ação "Bing Mapas - Obter rota"](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
 
-      Para saber mais sobre esses parâmetros, consulte [Calcular uma rota](https://msdn.microsoft.com/library/ff701717.aspx).
+      Para saber mais sobre esses parâmetros, consulte [Calcular uma rota](/bingmaps/rest-services/routes/calculate-a-route).
 
       | Configuração | Valor | Descrição |
       | ------- | ----- | ----------- |
       | **Localizador 1** | <*iniciar*> | Insira a origem da rota. | 
       | **Localizador 2** | <*finalizar*> | Insira o destino da rota. | 
-      | **Evitar** | Nenhum | Insira os itens a serem evitados na rota, como rodovias, pedágios, e assim por diante. Para possíveis valores, consulte [Calcular uma rota](https://msdn.microsoft.com/library/ff701717.aspx). | 
+      | **Evitar** | Nenhum | Insira os itens a serem evitados na rota, como rodovias, pedágios, e assim por diante. Para possíveis valores, consulte [Calcular uma rota](/bingmaps/rest-services/routes/calculate-a-route). | 
       | **Otimizar** | timeWithTraffic | Selecione um parâmetro para otimizar a rota, como distância, tempo com informações de trânsito atuais, e assim por diante. Esse exemplo usa este valor: "timeWithTraffic" | 
       | **Unidades de distância** | <*your-preference*> | Insira a unidade de distância para calcular a rota. Esse exemplo usa o seguinte valor: "Milha" | 
       | **Modo de navegação** | Automóvel | Insira o modo de viagem para a rota. Esse exemplo usa este valor "Automóvel" | 
@@ -387,7 +388,7 @@ Se você estiver trabalhando na exibição de código, será possível definir u
 
 ## <a name="get-support"></a>Obtenha suporte
 
-* Em caso de dúvidas, visite a [página de perguntas e respostas da Microsoft sobre os Aplicativos Lógicos do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Em caso de dúvidas, visite a [página de perguntas e respostas da Microsoft sobre os Aplicativos Lógicos do Azure](/answers/topics/azure-logic-apps.html).
 * Para enviar ou votar em recursos e sugestões, visite o [site de comentários do usuário de Aplicativos Lógicos do Azure](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Próximas etapas

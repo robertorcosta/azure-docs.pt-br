@@ -3,12 +3,12 @@ title: Escalabilidade-hubs de eventos do Azure | Microsoft Docs
 description: Este artigo fornece informações sobre como dimensionar os hubs de eventos do Azure usando partições e unidades de produtividade.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6d1c7bc5a0206b634e5a85243f25b2c926762d7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dacb24ace2332f590db54959cbf1f06694b982b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315473"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521948"
 ---
 # <a name="scaling-with-event-hubs"></a>Dimensionamento com hubs de eventos
 
@@ -23,7 +23,7 @@ A capacidade de taxa de transferência dos hubs de eventos é controlada por *un
 * Entrada: até 1 MB por segundo ou 1000 eventos por segundo (o que ocorrer primeiro).
 * Entrada: até 2 MB por segundo ou 4096 eventos por segundo.
 
-Além da capacidade de unidades de transferência adquiridas, a entrada está limitada e uma [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) é retornada. A saída não gera exceções de limitação, mas ainda é limitada à capacidade das unidades de produtividade adquiridas. Se você receber exceções de taxa de publicação ou estiver esperando ver mais saída, verifique quantas unidades de transferência você comprou para o namespace. Você pode gerenciar unidades de produtividade na folha **Escala** dos namespaces no [portal do Azure](https://portal.azure.com). Você também pode gerenciar unidades de produtividade programaticamente usando as [APIs de Hubs de Eventos](event-hubs-api-overview.md).
+Além da capacidade de unidades de transferência adquiridas, a entrada está limitada e uma [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) é retornada. A saída não gera exceções de limitação, mas ainda é limitada à capacidade das unidades de produtividade adquiridas. Se você receber exceções de taxa de publicação ou estiver esperando ver mais saída, verifique quantas unidades de transferência você comprou para o namespace. Você pode gerenciar unidades de produtividade na folha **Escala** dos namespaces no [portal do Azure](https://portal.azure.com). Você também pode gerenciar unidades de produtividade programaticamente usando as [APIs de Hubs de Eventos](./event-hubs-samples.md).
 
 As unidades de taxa de transferência são pré-adquiridas e cobradas por hora. Depois de adquiridas, as unidades de taxa de transferência são cobradas por um mínimo de uma hora. Até 20 unidades de produtividade podem ser adquiridas para um namespace de Hubs de Eventos e elas são compartilhadas entre todos os Hubs de Eventos no namespace.
 
@@ -50,4 +50,4 @@ O editor de eventos só está ciente da sua chave de partição, não da partiç
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
 - [Dimensionar automaticamente unidades de transferência](event-hubs-auto-inflate.md)
-- [Visão geral do serviço dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+- [Visão geral do serviço dos Hubs de Eventos](./event-hubs-about.md)

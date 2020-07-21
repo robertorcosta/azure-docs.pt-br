@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: anbene
 ms.author: mingshen
 ms.date: 06/17/2020
-ms.openlocfilehash: f97692b604408437bc2ee457bb04ad9b855c7290
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 11deb9b8146924d1a493872219ad85556d13c405
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119286"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520265"
 ---
 # <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Criar, configurar e publicar uma oferta de módulo do IoT Edge no Azure Marketplace
 
@@ -286,13 +286,13 @@ Selecione **Salvar rascunho** antes de prosseguir para a próxima seção, Visã
 
 ### <a name="plan-overview"></a>Visão geral do plano
 
-Essa guia permite que você forneça opções de plano diferentes na mesma oferta no Partner Center. Anteriormente, esses planos foram chamados de SKUs ou unidades de manutenção de estoque. Os planos podem conter diferenças quanto a quais nuvens estão disponíveis, como nuvens globais, nuvens governamentais e a imagem referenciada pelo plano. Para listar sua oferta no marketplace, você precisa configurar pelo menos um plano.
+Essa guia permite que você forneça opções de plano diferentes na mesma oferta no Partner Center. Os planos (anteriormente chamados de SKUs) podem diferir em termos de quais nuvens estão disponíveis, como nuvens globais, nuvens governamentais e a imagem referenciada pelo plano. Para listar sua oferta no marketplace, você precisa configurar pelo menos um plano.
 
 Depois de criar seus planos, a guia **Visão geral do plano** exibe:
 
 - Nomes de plano
 - Modelo de preços
-- Disponibilidade da nuvem (global ou governamental)
+- Regiões do Azure (global ou governamental)
 - Status da publicação atual
 - Nenhuma ação disponível
 
@@ -329,7 +329,7 @@ Selecione a opção [Azure governamental](../../azure-government/documentation-g
 
 #### <a name="azure-government-certifications"></a>Certificações do Azure Government
 
-Essa opção só estará visível se o **Azure governamental** estiver selecionado em **disponibilidade de nuvem**.
+Essa opção só estará visível se o **Azure governamental** estiver selecionado em **regiões do Azure**.
 
 Os serviços do Azure Governamental manipulam os dados que estão sujeitos a determinadas normas e requisitos governamentais. Por exemplo, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS. Para oferecer reconhecimento das suas certificações para esses programas, você pode fornecer até 100 links que as descrevem. Eles podem ser links diretos para suas listagens no programa ou para seu próprio site. Esses links são visíveis somente para clientes do Azure Governamental.
 

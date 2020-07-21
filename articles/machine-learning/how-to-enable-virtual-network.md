@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 06/30/2020
+ms.date: 07/07/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 35938ca3b9d8f3aedd0892740a3dbfa0fb5b036a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 2193584996ed9f2c4cf5e858b8855c6878159a84
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186853"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520691"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento de rede durante o treinamento & inferência com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -109,6 +109,24 @@ Depois de adicionar seu espaço de trabalho e a conta de serviço de armazenamen
 
 Para o __armazenamento de BLOBs do Azure__, a identidade gerenciada do espaço de trabalho também é adicionada como um [leitor de dados de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) para que possa ler dados do armazenamento de BLOBs.
 
+
+### <a name="azure-machine-learning-designer-default-datastore"></a>Repositório de armazenamento padrão do Azure Machine Learning designer
+
+O designer usa a conta de armazenamento anexada ao seu espaço de trabalho para armazenar a saída por padrão. No entanto, você pode especificá-lo para armazenar a saída em qualquer repositório de armazenamento ao qual você tenha acesso. Se seu ambiente usa redes virtuais, você pode usar esses controles para garantir que seus dados permaneçam seguros e acessíveis.
+
+Para definir um novo armazenamento padrão para um pipeline:
+
+1. Em um rascunho de pipeline, selecione o **ícone de engrenagem configurações** próximo ao título do seu pipeline.
+1. Selecione **selecionar repositório de armazenamento padrão**.
+1. Especifique um novo repositório de armazenamento.
+
+Você também pode substituir o repositório de armazenamento padrão por módulo. Isso lhe dá controle sobre o local de armazenamento de cada módulo individual.
+
+1. Selecione o módulo cuja saída você deseja especificar.
+1. Expanda a seção **configurações de saída** .
+1. Selecione **Substituir configurações de saída padrão**.
+1. Selecione **definir configurações de saída**.
+1. Especifique um novo datstore.
 
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Controle de acesso Azure Data Lake Storage Gen2
 
@@ -286,8 +304,8 @@ Se você não quiser usar as regras de saída padrão e quiser limitar o acesso 
 - Negue a conexão de Internet de saída usando as regras de NSG.
 
 - Para uma __instância de computação__ ou um __cluster de cálculo__, limite o tráfego de saída para os seguintes itens:
-   - Armazenamento do Azure que usa a __Marca de serviço__ de __Storage.RegionName__. Em que `{RegionName}` é o nome de uma região do Azure.
-   - Registro de Contêiner do Azure, usando __Marca de serviço__ de __AzureContainerRegistry.RegionName__. Em que `{RegionName}` é o nome de uma região do Azure.
+   - Armazenamento do Azure, usando a __marca de serviço__ do __armazenamento__.
+   - Registro de contêiner do Azure, usando a __marca de serviço__ de __AzureContainerRegistry__.
    - Azure Machine Learning, usando a __Marca de serviço__ de __AzureMachineLearning__
    - Azure Resource Manager, usando a __Marca de serviço__ de __AzureResourceManager__
    - Azure Active Directory, usando a __Marca de serviço__ de __AzureActiveDirectory__
@@ -326,11 +344,15 @@ A configuração da regra de NSG no portal do Azure é mostrada na seguinte imag
 > run = exp.submit(est)
 > ```
 
-### <a name="user-defined-routes-for-forced-tunneling"></a>Rotas definidas pelo usuário para o túnel forçado
+### <a name="forced-tunneling"></a>Túnel forçado
 
-Se você estiver usando o túnel forçado com a Computação do Machine Learning, adicione [UDRs (rotas definidas pelo usuário)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) à sub-rede que contém o recurso de computação.
+Se você estiver usando o [túnel forçado](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm) com Azure Machine Learning computação, deverá permitir a comunicação com a Internet pública da sub-rede que contém o recurso de computação. Essa comunicação é usada para agendamento de tarefas e acesso ao armazenamento do Azure.
 
-* Estabeleça uma UDR para cada endereço IP usado pelo serviço do Lote do Azure na região onde existem seus recursos. Essas UDRs permitem que o serviço de Lote se comunique com os nós de computação para agendamento de tarefas. Adicione também o endereço IP para o serviço do Azure Machine Learning onde estão os recursos, já que isso é necessário para acessar as Instâncias de Computação. Use um dos seguintes métodos para obter uma lista de endereços IP do serviço de Lote e do serviço do Azure Machine Learning:
+Há duas maneiras de fazer isso:
+
+* Use um [NAT de rede virtual](../virtual-network/nat-overview.md). Um gateway NAT fornece conectividade de Internet de saída para uma ou mais sub-redes em sua rede virtual. Para obter informações, consulte [Designing Virtual Networks with NAT gateway Resources](../virtual-network/nat-gateway-resource.md).
+
+* Adicione [UDRs (rotas definidas pelo usuário)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) à sub-rede que contém o recurso de computação. Estabeleça uma UDR para cada endereço IP usado pelo serviço do Lote do Azure na região onde existem seus recursos. Essas UDRs permitem que o serviço de Lote se comunique com os nós de computação para agendamento de tarefas. Adicione também o endereço IP para o serviço do Azure Machine Learning onde estão os recursos, já que isso é necessário para acessar as Instâncias de Computação. Use um dos seguintes métodos para obter uma lista de endereços IP do serviço de Lote e do serviço do Azure Machine Learning:
 
     * Baixe os [Intervalos de IP do Azure e as Marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519) e pesquise `BatchNodeManagement.<region>` e `AzureMachineLearning.<region>` no arquivo, em que `<region>` é a sua região do Azure.
 
@@ -340,14 +362,15 @@ Se você estiver usando o túnel forçado com a Computação do Machine Learning
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
         ```
+    
+    Quando você adicionar as UDRs, defina a rota para cada prefixo de endereço IP do Lote relacionado e defina __Próximo tipo de salto__ como __Internet__. A imagem a seguir mostra um exemplo dessa UDR no portal do Azure:
 
-* O tráfego de saída para o Armazenamento do Azure não deve ser bloqueado pelo seu dispositivo de rede local. Especificamente, as URLs estão no formulário `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`e `<account>.blob.core.windows.net`.
+    ![Exemplo de uma UDR para um prefixo de endereço](./media/how-to-enable-virtual-network/user-defined-route.png)
 
-Quando você adicionar as UDRs, defina a rota para cada prefixo de endereço IP do Lote relacionado e defina __Próximo tipo de salto__ como __Internet__. A imagem a seguir mostra um exemplo dessa UDR no portal do Azure:
+    Além de qualquer UDRs que você definir, o tráfego de saída para o armazenamento do Azure deve ser permitido por meio de seu dispositivo de rede local. Especificamente, as URLs para esse tráfego estão nas seguintes formas: `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` e `<account>.blob.core.windows.net` . 
 
-![Exemplo de uma UDR para um prefixo de endereço](./media/how-to-enable-virtual-network/user-defined-route.png)
+    Para obter mais informações, consulte [Criar um pool de Lote do Azure em uma rede virtual](../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling).
 
-Para obter mais informações, consulte [Criar um pool de Lote do Azure em uma rede virtual](../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling).
 
 ### <a name="create-a-compute-cluster-in-a-virtual-network"></a>Criar um cluster de cálculo em uma rede virtual
 
@@ -480,6 +503,40 @@ Por padrão, um endereço IP público é atribuído às implantações do AKS. A
 
 Um endereço IP particular é habilitado configurando o AKS para usar um _balanceador de carga interno_. 
 
+#### <a name="network-contributor-role"></a>Função de colaborador de rede
+
+> [!IMPORTANT]
+> Se você criar ou anexar um cluster AKS fornecendo uma rede virtual criada anteriormente, deverá conceder a entidade de serviço (SP) ou a identidade gerenciada para seu cluster AKS a função de _colaborador de rede_ para o grupo de recursos que contém a rede virtual. Isso deve ser feito antes de tentar alterar o balanceador de carga interno para o IP privado.
+>
+> Para adicionar a identidade como colaborador de rede, use as seguintes etapas:
+
+1. Para localizar a entidade de serviço ou a ID de identidade gerenciada para AKS, use os seguintes comandos de CLI do Azure. Substitua `<aks-cluster-name>` pelo nome do cluster. Substitua `<resource-group-name>` pelo nome do grupo de recursos que _contém o cluster AKs_:
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
+    ``` 
+
+    Se esse comando retornar um valor de `msi` , use o seguinte comando para identificar a ID da entidade de segurança para a identidade gerenciada:
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
+    ```
+
+1. Para localizar a ID do grupo de recursos que contém sua rede virtual, use o comando a seguir. Substitua `<resource-group-name>` pelo nome do grupo de recursos que _contém a rede virtual_:
+
+    ```azurecli-interactive
+    az group show -n <resource-group-name> --query id
+    ```
+
+1. Para adicionar a entidade de serviço ou a identidade gerenciada como um colaborador de rede, use o comando a seguir. Substituir `<SP-or-managed-identity>` pela ID retornada para a entidade de serviço ou identidade gerenciada. Substituir `<resource-group-id>` pela ID retornada para o grupo de recursos que contém a rede virtual:
+
+    ```azurecli-interactive
+    az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
+    ```
+Para obter mais informações sobre como usar o balanceador de carga interno com o AKS, consulte [Usar o balanceador de carga interno com o Serviço de Kubernetes do Azure](/azure/aks/internal-lb).
+
+#### <a name="enable-private-ip"></a>Habilitar IP privado
+
 > [!IMPORTANT]
 > Você não pode habilitar o IP particular ao criar o cluster do Serviço de Kubernetes do Azure. Ele deve estar habilitado como uma atualização de um cluster existente.
 
@@ -570,38 +627,6 @@ aks_target.update(update_config)
 aks_target.wait_for_completion(show_output = True)
 ```
 
-__Função de colaborador de rede__
-
-> [!IMPORTANT]
-> Se você criar ou anexar um cluster AKS fornecendo uma rede virtual criada anteriormente, deverá conceder a entidade de serviço (SP) ou a identidade gerenciada para seu cluster AKS a função de _colaborador de rede_ para o grupo de recursos que contém a rede virtual. Isso deve ser feito antes de tentar alterar o balanceador de carga interno para o IP privado.
->
-> Para adicionar a identidade como colaborador de rede, use as seguintes etapas:
-
-1. Para localizar a entidade de serviço ou a ID de identidade gerenciada para AKS, use os seguintes comandos de CLI do Azure. Substitua `<aks-cluster-name>` pelo nome do cluster. Substitua `<resource-group-name>` pelo nome do grupo de recursos que _contém o cluster AKs_:
-
-    ```azurecli-interactive
-    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
-    ``` 
-
-    Se esse comando retornar um valor de `msi` , use o seguinte comando para identificar a ID da entidade de segurança para a identidade gerenciada:
-
-    ```azurecli-interactive
-    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
-    ```
-
-1. Para localizar a ID do grupo de recursos que contém sua rede virtual, use o comando a seguir. Substitua `<resource-group-name>` pelo nome do grupo de recursos que _contém a rede virtual_:
-
-    ```azurecli-interactive
-    az group show -n <resource-group-name> --query id
-    ```
-
-1. Para adicionar a entidade de serviço ou a identidade gerenciada como um colaborador de rede, use o comando a seguir. Substituir `<SP-or-managed-identity>` pela ID retornada para a entidade de serviço ou identidade gerenciada. Substituir `<resource-group-id>` pela ID retornada para o grupo de recursos que contém a rede virtual:
-
-    ```azurecli-interactive
-    az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
-    ```
-Para obter mais informações sobre como usar o balanceador de carga interno com o AKS, consulte [Usar o balanceador de carga interno com o Serviço de Kubernetes do Azure](/azure/aks/internal-lb).
-
 ## <a name="use-azure-container-instances-aci"></a>Usar Instâncias de Contêiner do Azure (ACI)
 
 As Instâncias de Contêiner do Azure são criadas dinamicamente durante a implantação de um modelo. Para habilitar a Azure Machine Learning para criar ACI dentro da rede virtual, você deve habilitar a __delegação de sub-rede__ para a sub-rede usada pela implantação.
@@ -630,6 +655,7 @@ Para obter informações sobre como usar o Azure Machine Learning com o Firewall
 > O ACR (Registro de Contêiner do Azure) pode ser colocado dentro de uma rede virtual. No entanto, você deve atender aos seguintes pré-requisitos:
 >
 > * Seu workspace do Azure Machine Learning deve ser da edição Enterprise. Para obter mais informações sobre a atualização, consulte [Atualizar para a edição Enterprise](how-to-manage-workspace.md#upgrade).
+> * Sua região de espaço de trabalho do Azure Machine Learning deve ser uma [região habilitada para link privado](https://docs.microsoft.com/azure/private-link/private-link-overview#availability). 
 > * Seu Registro de Contêiner do Azure deve ser a versão Premium. Para obter mais informações sobre atualização, consulte [Como alterar SKUs](/azure/container-registry/container-registry-skus#changing-skus).
 > * Seu Registro de Contêiner do Azure deve estar na mesma rede virtual e sub-rede que a conta de armazenamento e os destinos de computação usados para treinamento ou inferência.
 > * Seu workspace do Azure Machine Learning deve conter um [cluster de cálculo do Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute).

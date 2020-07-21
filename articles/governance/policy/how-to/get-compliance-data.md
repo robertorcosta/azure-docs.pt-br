@@ -1,14 +1,14 @@
 ---
 title: Obter dados de conformidade da política
 description: Efeitos e avaliações do Azure Policy determinam a conformidade. Saiba como obter os detalhes de conformidade dos seus recursos do Azure.
-ms.date: 05/20/2020
+ms.date: 07/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 53c946c59862451859616cb87d1101ae8fd5f15b
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 8da1876842e89e806b61bba611db74795a6710d1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045188"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521527"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obter dados de conformidade de recursos do Azure
 
@@ -44,7 +44,19 @@ As avaliações de políticas atribuídas e iniciativas ocorrem como resultado d
 
 ### <a name="on-demand-evaluation-scan"></a>Exame de avaliação sob demanda
 
-Um exame de avaliação de uma assinatura ou de um grupo de recursos pode ser iniciado com Azure PowerShell ou uma chamada para a API REST. Essa verificação é um processo assíncrono.
+Uma verificação de avaliação para uma assinatura ou um grupo de recursos pode ser iniciada com CLI do Azure, Azure PowerShell ou uma chamada para a API REST. Essa verificação é um processo assíncrono.
+
+#### <a name="on-demand-evaluation-scan---azure-cli"></a>Varredura de avaliação sob demanda-CLI do Azure
+
+A verificação de conformidade é iniciada com o comando [AZ Policy estado Trigger-Scan](/cli/azure/policy/state#az-policy-state-trigger-scan) .
+
+Por padrão, `az policy state trigger-scan` inicia uma avaliação para todos os recursos na assinatura atual. Para iniciar uma avaliação em um grupo de recursos específico, use o parâmetro **grupo de recursos** . O exemplo a seguir inicia uma verificação de conformidade na assinatura atual do grupo de recursos _MyRG_:
+
+```azurecli-interactive
+az policy state trigger-scan --resource-group "MyRG"
+```
+
+Você pode optar por não aguardar a conclusão do processo assíncrono antes de continuar com o parâmetro **sem espera** .
 
 #### <a name="on-demand-evaluation-scan---azure-powershell"></a>Varredura de avaliação sob demanda - Azure PowerShell
 
@@ -53,7 +65,7 @@ A verificação de conformidade é iniciada com o cmdlet [Start-AzPolicyComplian
 Por padrão, `Start-AzPolicyComplianceScan` inicia uma avaliação para todos os recursos na assinatura atual. Para iniciar uma avaliação em um grupo de recursos específico, use o parâmetro **ResourceGroupName**. O exemplo a seguir inicia uma verificação de conformidade na assinatura atual do grupo de recursos _MyRG_:
 
 ```azurepowershell-interactive
-Start-AzPolicyComplianceScan -ResourceGroupName MyRG
+Start-AzPolicyComplianceScan -ResourceGroupName 'MyRG'
 ```
 
 Você pode fazer com que o PowerShell aguarde até que a chamada assíncrona seja concluída antes de fornecer a saída dos resultados ou que ela seja executada em segundo plano como um [trabalho](/powershell/module/microsoft.powershell.core/about/about_jobs). Para usar um trabalho do PowerShell para executar a verificação de conformidade em segundo plano, use o parâmetro **AsJob** e defina o valor para um objeto, como `$job` neste exemplo:
@@ -184,8 +196,7 @@ Quando determina-se que um recurso **não está em conformidade**, há muitos mo
 
 ## <a name="command-line"></a>Linha de comando
 
-As mesmas informações disponíveis no portal podem ser recuperadas com a API REST (incluindo com [ARMClient](https://github.com/projectkudu/ARMClient)), Azure PowerShell e CLI do Azure (versão prévia).
-Para obter detalhes completos sobre a API REST, consulte a referência [Insights do Azure Policy](/rest/api/policy-insights/). As páginas de referência da API REST têm um botão verde "Experimente" em cada operação, permitindo que você experimente diretamente no navegador.
+As mesmas informações disponíveis no portal podem ser recuperadas com a API REST (incluindo with [ARMClient](https://github.com/projectkudu/ARMClient)), Azure PowerShell e CLI do Azure. Para obter detalhes completos sobre a API REST, consulte a referência [Insights do Azure Policy](/rest/api/policy-insights/). As páginas de referência da API REST têm um botão verde "Experimente" em cada operação, permitindo que você experimente diretamente no navegador.
 
 Use o ARMClient ou uma ferramenta semelhante para lidar com a autenticação do Azure para os exemplos da API REST.
 
@@ -207,7 +218,7 @@ A saída resume a assinatura. No exemplo abaixo, a conformidade resumida está s
         "@odata.id": null,
         "@odata.context": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/$metadata#summary/$entity",
         "results": {
-            "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false",
+            "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=ComplianceState eq 'NonCompliant'",
             "nonCompliantResources": 15,
             "nonCompliantPolicies": 1
         },
@@ -215,7 +226,7 @@ A saída resume a assinatura. No exemplo abaixo, a conformidade resumida está s
             "policyAssignmentId": "/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77",
             "policySetDefinitionId": "",
             "results": {
-                "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77'",
+                "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=ComplianceState eq 'NonCompliant' and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77'",
                 "nonCompliantResources": 15,
                 "nonCompliantPolicies": 1
             },
@@ -224,7 +235,7 @@ A saída resume a assinatura. No exemplo abaixo, a conformidade resumida está s
                 "policyDefinitionId": "/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
                 "effect": "deny",
                 "results": {
-                    "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'",
+                    "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=ComplianceState eq 'NonCompliant' and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'",
                     "nonCompliantResources": 15
                 }
             }]
@@ -235,10 +246,10 @@ A saída resume a assinatura. No exemplo abaixo, a conformidade resumida está s
 
 ### <a name="query-for-resources"></a>Pesquisar recursos
 
-No exemplo acima, **value.policyAssignments.policyDefinitions.results.queryResultsUri** fornece um URI de exemplo para obter todos os recursos sem conformidade de uma definição de política específica. Observando o valor **$filter**, IsCompliant é igual (eq) a false, PolicyAssignmentId é especificado para a definição de política e, em seguida, o próprio PolicyDefinitionId. O motivo para incluir o PolicyAssignmentId no filtro é porque PolicyDefinitionId pode existir em várias atribuições ou iniciativas de política com diferentes escopos. Ao especificar o PolicyAssignmentId e o PolicyDefinitionId, podemos ser explícitos com relação aos resultados que procuramos. Anteriormente, para PolicyStates usamos o **mais recente**, que define automaticamente uma janela de tempo **de** e **até** das últimas 24 horas.
+No exemplo acima, **value.policyAssignments.policyDefinitions.results.queryResultsUri** fornece um URI de exemplo para obter todos os recursos sem conformidade de uma definição de política específica. Observando o valor de **$Filter** , compliancestate é igual (EQ) para ' não compatível ', PolicyAssignmentId é especificado para a definição de política e, em seguida, o próprio PolicyDefinitionId. O motivo para incluir o PolicyAssignmentId no filtro é porque PolicyDefinitionId pode existir em várias atribuições ou iniciativas de política com diferentes escopos. Ao especificar o PolicyAssignmentId e o PolicyDefinitionId, podemos ser explícitos com relação aos resultados que procuramos. Anteriormente, para PolicyStates usamos o **mais recente**, que define automaticamente uma janela de tempo **de** e **até** das últimas 24 horas.
 
 ```http
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=ComplianceState eq 'NonCompliant' and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'
 ```
 
 A resposta de exemplo abaixo foi reduzida para um único recurso não compatível para ter brevidade. A resposta detalhada tem várias partes de dados sobre o recurso, a política ou a iniciativa e a atribuição. Observe que você também pode ver quais parâmetros de atribuição foram passados para a definição de política.
@@ -255,7 +266,7 @@ A resposta de exemplo abaixo foi reduzida para um único recurso não compatíve
         "policyAssignmentId": "/subscriptions/{subscriptionId}/resourceGroups/rg-tags/providers/Microsoft.Authorization/policyAssignments/37ce239ae4304622914f0c77",
         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
         "effectiveParameters": "",
-        "isCompliant": false,
+        "ComplianceState": "NonCompliant",
         "subscriptionId": "{subscriptionId}",
         "resourceType": "/Microsoft.Compute/virtualMachines",
         "resourceLocation": "westus2",
@@ -303,10 +314,207 @@ Seus resultados devem se parecer com o exemplo a seguir:
 
 Para obter mais informações sobre como consultar os eventos de política, consulte o artigo de referência de [Eventos do Azure Policy](/rest/api/policy-insights/policyevents).
 
+### <a name="azure-cli"></a>CLI do Azure
+
+O grupo de comandos [CLI do Azure](/cli/azure/what-is-azure-cli) para Azure Policy abrange a maioria das operações que estão disponíveis em REST ou Azure PowerShell. Para obter a lista completa de comandos disponíveis, consulte [visão geral de CLI do Azure Azure Policy](/cli/azure/policy).
+
+Exemplo: obter o estado de resumo da política superior atribuída com o maior número de recursos sem conformidade.
+
+```azurecli-interactive
+az policy state summarize --top 1
+```
+
+A parte superior da resposta é semelhante a este exemplo:
+
+```json
+{
+    "odatacontext": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/$metadata#summary/$entity",
+    "odataid": null,
+    "policyAssignments": [{
+            "policyAssignmentId": "/subscriptions/{subscriptionId}/providers/microsoft.authorization/policyassignments/e0704696df5e4c3c81c873e8",
+            "policyDefinitions": [{
+                "effect": "audit",
+                "policyDefinitionGroupNames": [
+                    ""
+                ],
+                "policyDefinitionId": "/subscriptions/{subscriptionId}/providers/microsoft.authorization/policydefinitions/2e3197b6-1f5b-4b01-920c-b2f0a7e9b18a",
+                "policyDefinitionReferenceId": "",
+                "results": {
+                    "nonCompliantPolicies": null,
+                    "nonCompliantResources": 398,
+                    "policyDetails": [{
+                        "complianceState": "noncompliant",
+                        "count": 1
+                    }],
+                    "policyGroupDetails": [{
+                        "complianceState": "noncompliant",
+                        "count": 1
+                    }],
+                    "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2020-07-14 14:01:22Z&$to=2020-07-15 14:01:22Z and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/providers/microsoft.authorization/policyassignments/e0704696df5e4c3c81c873e8' and PolicyDefinitionId eq '/subscriptions/{subscriptionId}/providers/microsoft.authorization/policydefinitions/2e3197b6-1f5b-4b01-920c-b2f0a7e9b18a'",
+                    "resourceDetails": [{
+                            "complianceState": "noncompliant",
+                            "count": 398
+                        },
+                        {
+                            "complianceState": "compliant",
+                            "count": 4
+                        }
+                    ]
+                }
+            }],
+    ...
+```
+
+Exemplo: obter o registro de estado para o recurso avaliada mais recentemente (o padrão é pelo carimbo de data/hora em ordem decrescente).
+
+```azurecli-interactive
+az policy state list --top 1
+```
+
+```json
+[
+  {
+    "complianceReasonCode": "",
+    "complianceState": "Compliant",
+    "effectiveParameters": "",
+    "isCompliant": true,
+    "managementGroupIds": "{managementgroupId}",
+    "odatacontext": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+    "odataid": null,
+    "policyAssignmentId": "/subscriptions/{subscriptionId}/providers/microsoft.authorization/policyassignments/securitycenterbuiltin",
+    "policyAssignmentName": "SecurityCenterBuiltIn",
+    "policyAssignmentOwner": "tbd",
+    "policyAssignmentParameters": "",
+    "policyAssignmentScope": "/subscriptions/{subscriptionId}",
+    "policyAssignmentVersion": "",
+    "policyDefinitionAction": "auditifnotexists",
+    "policyDefinitionCategory": "tbd",
+    "policyDefinitionGroupNames": [
+      ""
+    ],
+    "policyDefinitionId": "/providers/microsoft.authorization/policydefinitions/aa633080-8b72-40c4-a2d7-d00c03e80bed",
+    "policyDefinitionName": "aa633080-8b72-40c4-a2d7-d00c03e80bed",
+    "policyDefinitionReferenceId": "identityenablemfaforownerpermissionsmonitoring",
+    "policyDefinitionVersion": "",
+    "policyEvaluationDetails": null,
+    "policySetDefinitionCategory": "security center",
+    "policySetDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
+    "policySetDefinitionName": "1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
+    "policySetDefinitionOwner": "",
+    "policySetDefinitionParameters": "",
+    "policySetDefinitionVersion": "",
+    "resourceGroup": "",
+    "resourceId": "/subscriptions/{subscriptionId}",
+    "resourceLocation": "",
+    "resourceTags": "tbd",
+    "resourceType": "Microsoft.Resources/subscriptions",
+    "subscriptionId": "{subscriptionId}",
+    "timestamp": "2020-07-15T08:37:07.903433+00:00"
+  }
+]
+```
+
+Exemplo: obter os detalhes para todos os recursos de rede virtual sem conformidade.
+
+```azurecli-interactive
+az policy state list --filter "ResourceType eq 'Microsoft.Network/virtualNetworks'"
+```
+
+```json
+[
+  {
+    "complianceReasonCode": "",
+    "complianceState": "NonCompliant",
+    "effectiveParameters": "",
+    "isCompliant": false,
+    "managementGroupIds": "{managementgroupId}",
+    "odatacontext": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+    "odataid": null,
+    "policyAssignmentId": "/subscriptions/{subscriptionId}/providers/microsoft.authorization/policyassignments/e0704696df5e4c3c81c873e8",
+    "policyAssignmentName": "e0704696df5e4c3c81c873e8",
+    "policyAssignmentOwner": "tbd",
+    "policyAssignmentParameters": "",
+    "policyAssignmentScope": "/subscriptions/{subscriptionId}",
+    "policyAssignmentVersion": "",
+    "policyDefinitionAction": "audit",
+    "policyDefinitionCategory": "tbd",
+    "policyDefinitionGroupNames": [
+      ""
+    ],
+    "policyDefinitionId": "/subscriptions/{subscriptionId}/providers/microsoft.authorization/policydefinitions/2e3197b6-1f5b-4b01-920c-b2f0a7e9b18a",
+    "policyDefinitionName": "2e3197b6-1f5b-4b01-920c-b2f0a7e9b18a",
+    "policyDefinitionReferenceId": "",
+    "policyDefinitionVersion": "",
+    "policyEvaluationDetails": null,
+    "policySetDefinitionCategory": "",
+    "policySetDefinitionId": "",
+    "policySetDefinitionName": "",
+    "policySetDefinitionOwner": "",
+    "policySetDefinitionParameters": "",
+    "policySetDefinitionVersion": "",
+    "resourceGroup": "RG-Tags",
+    "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Microsoft.Network/virtualNetworks/RG-Tags-vnet",
+    "resourceLocation": "westus2",
+    "resourceTags": "tbd",
+    "resourceType": "Microsoft.Network/virtualNetworks",
+    "subscriptionId": "{subscriptionId}",
+    "timestamp": "2020-07-15T08:37:07.901911+00:00"
+  }
+]
+```
+
+Exemplo: obter eventos relacionados aos recursos de rede virtual sem conformidade que ocorreram após uma data específica.
+
+```azurecli-interactive
+az policy state list --filter "ResourceType eq 'Microsoft.Network/virtualNetworks'" --from '2020-07-14T00:00:00Z'
+```
+
+```json
+[
+  {
+    "complianceReasonCode": "",
+    "complianceState": "NonCompliant",
+    "effectiveParameters": "",
+    "isCompliant": false,
+    "managementGroupIds": "{managementgroupId}",
+    "odatacontext": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+    "odataid": null,
+    "policyAssignmentId": "/subscriptions/{subscriptionId}/providers/microsoft.authorization/policyassignments/e0704696df5e4c3c81c873e8",
+    "policyAssignmentName": "e0704696df5e4c3c81c873e8",
+    "policyAssignmentOwner": "tbd",
+    "policyAssignmentParameters": "",
+    "policyAssignmentScope": "/subscriptions/{subscriptionId}",
+    "policyAssignmentVersion": "",
+    "policyDefinitionAction": "audit",
+    "policyDefinitionCategory": "tbd",
+    "policyDefinitionGroupNames": [
+      ""
+    ],
+    "policyDefinitionId": "/subscriptions/{subscriptionId}/providers/microsoft.authorization/policydefinitions/2e3197b6-1f5b-4b01-920c-b2f0a7e9b18a",
+    "policyDefinitionName": "2e3197b6-1f5b-4b01-920c-b2f0a7e9b18a",
+    "policyDefinitionReferenceId": "",
+    "policyDefinitionVersion": "",
+    "policyEvaluationDetails": null,
+    "policySetDefinitionCategory": "",
+    "policySetDefinitionId": "",
+    "policySetDefinitionName": "",
+    "policySetDefinitionOwner": "",
+    "policySetDefinitionParameters": "",
+    "policySetDefinitionVersion": "",
+    "resourceGroup": "RG-Tags",
+    "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Microsoft.Network/virtualNetworks/RG-Tags-vnet",
+    "resourceLocation": "westus2",
+    "resourceTags": "tbd",
+    "resourceType": "Microsoft.Network/virtualNetworks",
+    "subscriptionId": "{subscriptionId}",
+    "timestamp": "2020-07-15T08:37:07.901911+00:00"
+  }
+]
+```
+
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-O módulo do Azure PowerShell para o Azure Policy está disponível na Galeria do PowerShell como [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights).
-Usando o PowerShellGet, você pode instalar o módulo usando `Install-Module -Name Az.PolicyInsights` (verifique se você tem a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps) instalada):
+O módulo do Azure PowerShell para o Azure Policy está disponível na Galeria do PowerShell como [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights). Usando o PowerShellGet, você pode instalar o módulo usando `Install-Module -Name Az.PolicyInsights` (verifique se você tem a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps) instalada):
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet
@@ -351,7 +559,7 @@ ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-T
 PolicyAssignmentId         : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
                              crosoft.Authorization/policyAssignments/37ce239ae4304622914f0c77
 PolicyDefinitionId         : /providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62
-IsCompliant                : False
+ComplianceState            : NonCompliant
 SubscriptionId             : {subscriptionId}
 ResourceType               : /Microsoft.Network/networkInterfaces
 ResourceLocation           : westus2
@@ -377,7 +585,7 @@ ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-T
 PolicyAssignmentId         : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
                              crosoft.Authorization/policyAssignments/37ce239ae4304622914f0c77
 PolicyDefinitionId         : /providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62
-IsCompliant                : False
+ComplianceState            : NonCompliant
 SubscriptionId             : {subscriptionId}
 ResourceType               : /Microsoft.Network/virtualNetworks
 ResourceLocation           : westus2
@@ -403,7 +611,7 @@ ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-T
 PolicyAssignmentId         : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
                              crosoft.Authorization/policyAssignments/37ce239ae4304622914f0c77
 PolicyDefinitionId         : /providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62
-IsCompliant                : False
+ComplianceState            : NonCompliant
 SubscriptionId             : {subscriptionId}
 ResourceType               : /Microsoft.Network/virtualNetworks
 ResourceLocation           : eastus

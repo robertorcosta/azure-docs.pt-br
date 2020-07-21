@@ -3,12 +3,12 @@ title: Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge – Azu
 description: Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo ao vivo em seu dispositivo IoT Edge. Você faria isso, por exemplo, se tiver acesso a um computador Linux local e/ou tiver criado anteriormente uma conta dos serviços de mídia do Azure.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: eaaa793bb5b84ac4ae352f242215b8d3e7d56cf1
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 415d22a47e6563e10a1880429537ab182d1ff7a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026960"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519891"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge
 
@@ -24,7 +24,7 @@ Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo
 * [Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
 * [Criar uma conta de Serviços de Mídia do Azure](../latest/create-account-howto.md)
     * Use uma destas regiões: leste dos EUA 2, EUA Central, norte EUA Central, leste do Japão, oeste dos EUA 2, Oeste EUA Central, leste do Canadá, Sul do Reino Unido, França central, sul da França, Norte da Suíça, Oeste da Suíça e oeste do Japão.
-    * É recomendável que você use contas de armazenamento de uso geral v2 (GPv2).
+    * É recomendável que você use contas de armazenamento de uso geral v2 (GPv2)
 
 ## <a name="configuring-azure-resources-for-using-live-video-analytics"></a>Configurando recursos do Azure para usar a análise de vídeo ao vivo
 
@@ -34,7 +34,7 @@ Consulte [criar função de Azure Resource Manager personalizada](create-custom-
 
 ### <a name="set-up-a-premium-streaming-endpoint"></a>Configurar um ponto de extremidade de streaming Premium
 
-Se você pretende usar a análise de vídeo ao vivo para gravar vídeo na nuvem e, subsequentemente, reproduzi-lo novamente, você deve atualizar seu serviço de mídia para usar um [ponto de extremidade de streaming Premium](../latest/streaming-endpoint-concept.md#types).  
+Se você pretende usar a análise de vídeo ao vivo para gravar vídeo continuamente na nuvem e, subsequentemente, usar [APIs de consulta](playback-recordings-how-to.md#query-api) antes de reproduzi-lo novamente, é recomendável atualizar seu serviço de mídia para usar um [ponto de extremidade de streaming Premium](../latest/streaming-endpoint-concept.md#types).  
 
 Esta é uma etapa opcional. Você pode usar este CLI do Azure comando para fazer isso:
 
@@ -84,7 +84,7 @@ sudo chown -R edgeuser /var/media
 <!-- (To JuliaKo: this is similar to https://docs.microsoft.com/azure/iot-edge/how-to-deploy-blob)-->
 A análise de vídeo ao vivo em IoT Edge expõe as propriedades de módulo '/' que estão documentadas no [esquema de configuração do módulo](module-twin-configuration-schema.md)/. 
 
-### <a name="deploy-using-the-azure-portal"></a>Implantar usando o Portal do Azure
+### <a name="deploy-using-the-azure-portal"></a>Implantar usando o portal do Azure
 
 O portal do Azure orienta você durante a criação de um manifesto de implantação e o envio por push da implantação para um dispositivo IoT Edge.
 Selecionar o dispositivo

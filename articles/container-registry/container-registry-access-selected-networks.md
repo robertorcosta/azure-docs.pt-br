@@ -3,11 +3,12 @@ title: Configurar o acesso ao Registro público
 description: Configure as regras de IP para habilitar o acesso a um registro de contêiner do Azure de endereços IP públicos selecionados ou intervalos de endereços.
 ms.topic: article
 ms.date: 05/19/2020
-ms.openlocfilehash: dc0514fbe7d3e01914965cee5dc547172d4435a4
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 967f27c05301ff339765706d0b3088ffcbaed1f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702076"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523818"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configurar regras de rede IP pública
 
@@ -100,6 +101,13 @@ az acr update --name myContainerRegistry --public-network-enabled true
 1. Na guia **Acesso público**, em **Permitir acesso da rede pública**, selecione **Todas as redes**. Em seguida, selecione **Salvar**.
 
 ![Acesso público de todas as redes][acr-access-all-networks]
+
+## <a name="troubleshoot"></a>Solucionar problemas
+
+Se uma regra de rede pública estiver definida ou o acesso público ao registro for negado, as tentativas de logon no registro de uma rede pública não permitida falharão. O acesso de cliente por trás de um proxy HTTPS também falhará se uma regra de acesso para o proxy não estiver definida. Você verá uma mensagem de erro semelhante a `Error response from daemon: login attempt failed with status: 403 Forbidden` ou `Looks like you don't have access to registry` .
+
+Esses erros também podem ocorrer se você usar um proxy HTTPS permitido por uma regra de acesso à rede, mas o proxy não estiver configurado corretamente no ambiente do cliente. Verifique se o cliente do Docker e o daemon do Docker estão configurados para o comportamento do proxy. Para obter detalhes, consulte [proxy http/https](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) na documentação do Docker.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

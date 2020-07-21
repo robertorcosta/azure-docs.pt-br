@@ -8,11 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: ac6081f02ad532b512ecca335b949eec71c060ff
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 568739ebdce632ae955da5e1cec12635c86af57c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836151"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522849"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Solucionar problemas do Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -122,6 +123,14 @@ Para problemas de conector, como encontrar um erro ao usar a atividade de cópia
 - **Causa**: Mensagens de erro indicam vários problemas, como um estado de cluster inesperado ou uma atividade específica. Geralmente, nenhuma mensagem de erro é exibida.
 
 - **Recomendação**: N/D
+
+### <a name="error-code-3208"></a>Código de erro: 3208
+
+- **Mensagem**: `An error occurred while sending the request.`
+
+- **Causa**: a conexão de rede com o serviço databricks foi interrompida.
+
+- **Recomendação**: se você estiver usando um tempo de execução de integração auto-hospedado, verifique se a conexão de rede é confiável dos nós do tempo de execução de integração. Se você estiver usando o tempo de execução de integração do Azure, a nova tentativa normalmente funcionará.
  
 ## <a name="azure-data-lake-analytics"></a>Análise Azure Data Lake
 
@@ -1047,9 +1056,9 @@ Para saber mais, confira [Introdução ao Fiddler](https://docs.telerik.com/fidd
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais ajuda para solução de problemas, experimente estes recursos:
+Para obter mais ajuda com a solução de problemas, experimente estes recursos:
 
-* [Blog do Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+* [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 * [Solicitações de recurso do Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 * [Fórum do Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Informações do Twitter sobre o Data Factory](https://twitter.com/hashtag/DataFactory)

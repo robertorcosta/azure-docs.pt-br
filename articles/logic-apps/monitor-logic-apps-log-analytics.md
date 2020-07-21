@@ -6,15 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 3e41f92f9e41f7a05102e8c0e1c2edb81fa50bf3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a39e27c0a9fc7999d7f363767ad62513d383192
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708035"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520725"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configurar logs de Azure Monitor e coletar dados de diagnóstico para aplicativos lógicos do Azure
 
-Para obter informações de depuração mais avançadas sobre seus aplicativos lógicos durante o tempo de execução, você pode configurar e usar [os logs de Azure monitor](../azure-monitor/platform/data-platform-logs.md) para registrar e armazenar informações sobre dados de tempo de execução e eventos, como eventos de gatilho, eventos de execução e eventos de ação em um [espaço de trabalho log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md). [Azure monitor](../azure-monitor/overview.md) ajuda a monitorar seus ambientes locais e de nuvem para que você possa manter a disponibilidade e o desempenho com mais facilidade. Usando logs de Azure Monitor, você pode criar [consultas de log](../azure-monitor/log-query/log-query-overview.md) que ajudam a coletar e examinar essas informações. Você também pode [usar esses dados de diagnóstico com outros serviços do Azure](#extend-data), como o armazenamento do Azure e os hubs de eventos do Azure.
+Para obter informações de depuração mais avançadas sobre seus aplicativos lógicos durante o tempo de execução, você pode configurar e usar [os logs de Azure monitor](../azure-monitor/platform/data-platform-logs.md) para registrar e armazenar informações sobre dados de tempo de execução e eventos, como eventos de gatilho, eventos de execução e eventos de ação em um [espaço de trabalho log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). [Azure monitor](../azure-monitor/overview.md) ajuda a monitorar seus ambientes locais e de nuvem para que você possa manter a disponibilidade e o desempenho com mais facilidade. Usando logs de Azure Monitor, você pode criar [consultas de log](../azure-monitor/log-query/log-query-overview.md) que ajudam a coletar e examinar essas informações. Você também pode [usar esses dados de diagnóstico com outros serviços do Azure](#extend-data), como o armazenamento do Azure e os hubs de eventos do Azure.
 
 Para configurar o registro em log para seu aplicativo lógico, você pode [habilitar log Analytics quando você cria seu aplicativo lógico](#logging-for-new-logic-apps)ou pode [instalar a solução de gerenciamento de aplicativos lógicos](#install-management-solution) em seu espaço de trabalho log Analytics para aplicativos lógicos existentes. Essa solução fornece informações agregadas para suas execuções de aplicativo lógico e inclui detalhes específicos, como status, tempo de execução, status de reenvio e IDs de correlação. Em seguida, para habilitar o registro em log e criar consultas para essas informações, [configure Azure monitor logs](#set-up-resource-logs).
 
@@ -22,7 +23,7 @@ Este artigo mostra como habilitar Log Analytics quando você cria aplicativos l�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, você precisa de um [espaço de trabalho log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md). Se você não tiver um espaço de trabalho, saiba [como criar um log Analytics espaço de trabalho](../azure-monitor/learn/quick-create-workspace.md).
+Antes de começar, você precisa de um [espaço de trabalho log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Se você não tiver um espaço de trabalho, saiba [como criar um log Analytics espaço de trabalho](../azure-monitor/learn/quick-create-workspace.md).
 
 <a name="logging-for-new-logic-apps"></a>
 
@@ -175,15 +176,15 @@ Depois que o aplicativo lógico for executado, você poderá exibir os dados sob
 
 Juntamente com os logs de Azure Monitor, você pode estender como usar os dados de diagnóstico do aplicativo lógico com outros serviços do Azure, por exemplo:
 
-* [Arquivar logs de recursos do Azure na conta de armazenamento](../azure-monitor/platform/resource-logs-collect-storage.md)
-* [Transmitir logs da plataforma Azure para os hubs de eventos do Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+* [Arquivar logs de recursos do Azure na conta de armazenamento](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+* [Transmitir logs da plataforma Azure para os hubs de eventos do Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
 
 Depois, obtenha o monitoramento em tempo real usando a telemetria e a análise de outros serviços, como o [Stream Analytics do Azure](../stream-analytics/stream-analytics-introduction.md) e o [Power BI](../azure-monitor/platform/powerbi.md). Por exemplo:
 
 * [Transmitir dados dos Hubs de Eventos para o Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analisar dados de streaming com o Stream Analytics e criar um painel de análise em tempo real no Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
 
-Com base nos locais em que você deseja enviar dados de diagnóstico, certifique-se de primeiro [criar uma conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md) ou [criar um hub de eventos do Azure](../event-hubs/event-hubs-create.md). Em seguida, você pode selecionar os destinos para os quais deseja enviar esses dados. Os períodos de retenção se aplicam somente quando você usa uma conta de armazenamento.
+Com base nos locais em que você deseja enviar dados de diagnóstico, certifique-se de primeiro [criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md) ou [criar um hub de eventos do Azure](../event-hubs/event-hubs-create.md). Em seguida, você pode selecionar os destinos para os quais deseja enviar esses dados. Os períodos de retenção se aplicam somente quando você usa uma conta de armazenamento.
 
 ![Enviar dados para uma conta de armazenamento do Azure ou um hub de eventos](./media/monitor-logic-apps-log-analytics/diagnostics-storage-event-hub-log-analytics.png)
 
@@ -191,7 +192,7 @@ Com base nos locais em que você deseja enviar dados de diagnóstico, certifique
 
 ## <a name="azure-monitor-diagnostics-events"></a>Azure Monitor eventos de diagnóstico
 
-Cada evento de diagnóstico contém detalhes sobre o aplicativo lógico e o evento, por exemplo, o status, a hora de início, a hora de término e assim por diante. Para configurar o monitoramento, o rastreamento e o log de forma programática, você pode usar essas informações com a [API REST para aplicativos lógicos do Azure](https://docs.microsoft.com/rest/api/logic) e a [api REST para Azure monitor](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows). Você também pode usar as `clientTrackingId` `trackedProperties` Propriedades e, que aparecem em 
+Cada evento de diagnóstico contém detalhes sobre o aplicativo lógico e o evento, por exemplo, o status, a hora de início, a hora de término e assim por diante. Para configurar o monitoramento, o rastreamento e o log de forma programática, você pode usar essas informações com a [API REST para aplicativos lógicos do Azure](/rest/api/logic) e a [api REST para Azure monitor](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows). Você também pode usar as `clientTrackingId` `trackedProperties` Propriedades e, que aparecem em 
 
 * `clientTrackingId`: se não for fornecido, o Azure gerará essa ID automaticamente e correlacionará eventos em uma execução do aplicativo lógico, incluindo os fluxos de trabalho aninhados que são chamados no aplicativo lógico. Você pode especificar manualmente essa ID em um gatilho passando um `x-ms-client-tracking-id` cabeçalho com seu valor de ID personalizado na solicitação do gatilho. Use um gatilho de solicitação, gatilho HTTP ou gatilho de webhook.
 

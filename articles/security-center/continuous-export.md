@@ -8,11 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: c30fef5c82f831365a11bcb14559b0914a9eda4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b0fbb7c4f680f9d732a63fff7b0b317c6cf1511
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299937"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519690"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exporte alertas e recomendações
 
@@ -28,7 +29,6 @@ Usando essas ferramentas, você pode:
 
 
 
-
 ## <a name="availability"></a>Disponibilidade
 
 - Estado da versão: **Disponível para o público geral**
@@ -36,10 +36,7 @@ Usando essas ferramentas, você pode:
     - **Leitor** na assinatura que contém a configuração de exportação
     - **Função de administrador de segurança** no grupo de recursos (ou **proprietário**)
     - Também deve ter permissões de gravação para o recurso de destino
-- Nuvens: 
-    - ✔ Nuvens comerciais
-    - ✔ US Gov
-    - ✘ China gov, outros gov
+- Nuvens: ✔ nuvens comerciais ✔ US Gov ✘ China gov, outros gov
 
 
 ## <a name="setting-up-a-continuous-export"></a>Configurando uma exportação contínua

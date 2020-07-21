@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 6a3b463196142691a59f625429953d1e82502f3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6aaa02c2e14cfc31a11da260da38705ba064ba79
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255527"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523308"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurar o Microsoft Integration Runtime do Azure-SSIS para alto desempenho
 
@@ -104,11 +104,15 @@ Caso não tenha muitos pacotes para executar e deseja que os pacotes sejam execu
 
 Esses dados representam uma única execução de pacote em um nó de trabalho único. O pacote carrega 3 milhões registros com as colunas First Name e Last Name do armazenamento de BLOBs do Azure, gera uma coluna Full Name e grava os registros que têm o nome completo com mais de 20 caracteres para o armazenamento de BLOBs do Azure.
 
+O eixo y é o número de pacotes que concluíram a execução em uma hora. Observe que isso é apenas um resultado de teste de um pacote que consome memória. Se você quiser saber a taxa de transferência do pacote, é recomendável executar o teste por conta própria.
+
 ![Velocidade de execução do pacote Integration Runtime do SSIS](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
 
 ### <a name="configure-for-overall-throughput"></a>Configurar a taxa de transferência geral
 
 Caso você tenha muitos lotes de pacotes para executar, e se preocupa mais com a taxa de transferência geral, utilize as informações no gráfico a seguir para escolher um tipo de máquina virtual adequado ao seu cenário.
+
+O eixo y é o número de pacotes que concluíram a execução em uma hora. Observe que isso é apenas um resultado de teste de um pacote que consome memória. Se você quiser saber a taxa de transferência do pacote, é recomendável executar o teste por conta própria.
 
 ![Taxa de transferência geral máxima do Integration Runtime do SSIS](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png)
 

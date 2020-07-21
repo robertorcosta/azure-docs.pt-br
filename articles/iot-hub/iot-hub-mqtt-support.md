@@ -10,11 +10,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c3fa56daee5d2dba98fa9fd420524a9b7e4c60ba
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 2f1f059f3abfd04ae78d9a2a19cff2929e84b8a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726104"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521115"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar com o hub IoT usando o protocolo MQTT
 
@@ -303,7 +304,21 @@ Para receber mensagens do Hub IoT, um dispositivo deve fazer uma assinatura usan
 
 O dispositivo só receberá mensagens do Hub IoT depois de assinar com êxito o ponto de extremidade específico ao dispositivo, representado pelo filtro de tópico `devices/{device_id}/messages/devicebound/#`. Depois que uma assinatura é estabelecida, o dispositivo receberá mensagens de nuvem para dispositivo que foram enviadas após o horário da assinatura. Se o dispositivo se conectar com o sinalizador **CleanSession** definido como **0**, a assinatura será persistida entre as diferentes sessões. Neste caso, a próxima vez que o dispositivo conectar-se com **CleanSession 0**, ele receberá todas as mensagens pendentes enviadas a ele enquanto estava desconectado. Se o dispositivo usar o sinalizador **CleanSession** definido como **1**, não receberá todas as mensagens do Hub IoT até que ele se inscreva no ponto de extremidade do dispositivo.
 
-O Hub IoT entrega mensagens com o **Nome do Tópico**`devices/{device_id}/messages/devicebound/` ou `devices/{device_id}/messages/devicebound/{property_bag}` quando há propriedades de mensagens. `{property_bag}` contém pares de chave/valor codificados de URL das propriedades da mensagem. Somente propriedades de aplicativo e propriedades do sistema definível pelo usuário (como **messageId** ou **correlationId**) estão incluídas no recipiente de propriedades. Os nomes de propriedade do sistema têm o prefixo **$** ; as propriedades de aplicativo usam o nome da propriedade original sem prefixo.
+O Hub IoT entrega mensagens com o **Nome do Tópico**`devices/{device_id}/messages/devicebound/` ou `devices/{device_id}/messages/devicebound/{property_bag}` quando há propriedades de mensagens. `{property_bag}` contém pares de chave/valor codificados de URL das propriedades da mensagem. Somente propriedades de aplicativo e propriedades do sistema definível pelo usuário (como **messageId** ou **correlationId**) estão incluídas no recipiente de propriedades. Os nomes de propriedade do sistema têm o prefixo **$** ; as propriedades de aplicativo usam o nome da propriedade original sem prefixo. Para obter detalhes adicionais sobre o formato do recipiente de propriedades, consulte [enviando mensagens do dispositivo para a nuvem](#sending-device-to-cloud-messages).
+
+Em mensagens da nuvem para o dispositivo, os valores no recipiente de propriedades são representados como na tabela a seguir:
+
+| Valor da propriedade | Representação | Descrição |
+|----|----|----|
+| `null` | `key` | Somente a chave aparece no recipiente de propriedades |
+| cadeia de caracteres vazia | `key=` | A chave seguida por um sinal de igual sem valor |
+| valor não nulo e não vazio | `key=value` | A chave seguida por um sinal de igual e o valor |
+
+O exemplo a seguir mostra um recipiente de propriedades que contém três propriedades de aplicativo: **Prop1** com um valor de `null` ; **prop2**, uma cadeia de caracteres vazia (""); e **prop3** com um valor de "uma cadeia de caracteres".
+
+```mqtt
+/?prop1&prop2=&prop3=a%20string
+```
 
 Quando um aplicativo do dispositivo assina um tópico com o **QoS 2**, o Hub IoT concede, no máximo, o nível 1 do QoS no pacote **SUBACK**. Depois disso, o Hub IoT entrega mensagens ao dispositivo usando QoS 1.
 

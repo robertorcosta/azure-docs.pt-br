@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: 59c8b31dcc8594d2cafb2db7832e290b01026f60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bb7fd69073dbc960904e8f7b44459ed85e98cdb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79367577"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523512"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Dados geoespaciais e de localização geojson em Azure Cosmos DB
 
@@ -20,9 +21,19 @@ Este artigo é uma introdução à funcionalidade geoespacial no Azure Cosmos DB
 * Como fazer para consultar dados geoespaciais no Azure Cosmos DB, no SQL e no LINQ?
 * Como fazer para habilitar ou desabilitar a indexação espacial no Azure Cosmos DB?
 
+## <a name="spatial-data-use-cases"></a>Casos de uso de dados espaciais
+
+Os dados geoespaciais geralmente envolvem consultas de proximidade, por exemplo, "encontrar todas as cafeterias próximas ao local atual". Os casos de uso comuns são:
+
+* Análise de geolocalização, conduzindo iniciativas específicas de marketing localizadas.
+* Personalização baseada na localização, para vários setores, como varejo e saúde.
+* Aprimoramento de logística para otimização de transporte.
+* Análise de riscos, especialmente para empresas de seguros e finanças.
+* Reconhecimento de situação, para alertas e notificações.
+
 ## <a name="introduction-to-spatial-data"></a>Introdução aos dados espaciais
 
-Os dados espaciais descrevem a posição e a forma dos objetos no espaço. Na maioria dos aplicativos, eles correspondem aos objetos na Terra e dados geoespaciais. Os dados espaciais podem ser usados para representar a localização de uma pessoa, um lugar de interesse ou a divisa de uma cidade ou de um lago. Com frequência, os casos de uso comum envolvem consultas de proximidade, por exemplo, “encontre todas as cafeterias próximas ao local atual”.
+Os dados espaciais descrevem a posição e a forma dos objetos no espaço. Na maioria dos aplicativos, eles correspondem aos objetos na Terra e dados geoespaciais. Os dados espaciais podem ser usados para representar a localização de uma pessoa, um lugar de interesse ou a divisa de uma cidade ou de um lago.
 
 A API do SQL do Azure Cosmos DB dá suporte a dois tipos de dados espaciais: o tipo de dados **Geometry** e o tipo de dados **geography** .
 

@@ -4,18 +4,20 @@ description: API para recuperar todas as operações na oferta ou para obter uma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: c0611cb3cbc24e2b105cdef134e30a7c2fbdd445
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 90ff7c4a85fd9e48ac3aa49ace99f43eb0244603
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113455"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520282"
 ---
 # <a name="retrieve-operations"></a>Recuperar operações
 
 > [!NOTE]
-> As APIs de Portal do Cloud Partner são integradas ao Partner Center e continuarão funcionando depois que suas ofertas forem migradas para o Partner Center. A integração apresenta pequenas alterações. Examine as alterações listadas em [portal do Cloud Partner referência de API](./cloud-partner-portal-api-overview.md) para garantir que seu código continue a funcionar após a migração para o Partner Center.
+> As APIs de Portal do Cloud Partner são integradas ao e continuarão funcionando no Partner Center. A transição apresenta pequenas alterações. Examine as alterações listadas em [portal do Cloud Partner referência de API](./cloud-partner-portal-api-overview.md) para garantir que seu código continue funcionando após a transição para o Partner Center. As APIs de CPP só devem ser usadas para produtos existentes que já foram integrados antes da transição para o Partner Center; os novos produtos devem usar as APIs de envio do Partner Center.
 
 Recuperar todas as operações na oferta ou obter uma operação específica para a operationId especificada. O cliente pode usar parâmetros de consulta para filtrar as operações em execução.
 
@@ -27,26 +29,23 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
 
 ```
 
-
 ## <a name="uri-parameters"></a>Parâmetros do URI
 
 |  **Nome**          |      **Descrição**                                                                                           | **Data type** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identificador do editor, por exemplo `Contoso`                                                                   |  String       |
-|  offerId           |  Identificador da oferta                                                                                              |  String       |
+|  publisherId       |  Identificador do editor, por exemplo `Contoso`                                                                   |  Cadeia de caracteres       |
+|  offerId           |  Identificador da oferta                                                                                              |  Cadeia de caracteres       |
 |  operationId       |  GUID que identifica exclusivamente a operação na oferta. A operationId pode ser recuperada usando essa API e também é retornada no cabeçalho HTTP da resposta para qualquer operação longa, como a API [Publicar oferta](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
 |  api-version       | Última versão da API |    Data      |
 |  |  |  |
 
-## <a name="header"></a>parâmetro
-
+## <a name="header"></a>Cabeçalho
 
 |  **Nome**          |  **Valor**           |
 |  ---------------   | -------------------- |
 |  Tipo de conteúdo      | `application/json`   |
 |  Autorização     | `Bearer YOUR_TOKEN`  |
 |  |  |
-
 
 ## <a name="body-example"></a>Exemplo de corpo
 
@@ -177,7 +176,7 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
 |  createdDateTime             | Data e hora em UTC quando a operação foi criada                                                       |
 |  lastActionDateTime          | Data e hora em UTC quando a última atualização foi feita na operação                                       |
 |  status                      | Status da operação, seja `not started` \| `running` \| `failed` \| `completed` . Apenas uma operação pode ter um status `running` por vez. |
-|  erro                       | Mensagem de erro para operações com falha                                                               |
+|  error                       | Mensagem de erro para operações com falha                                                               |
 |  |  |
 
 ### <a name="response-step-properties"></a>Propriedades da etapa de resposta

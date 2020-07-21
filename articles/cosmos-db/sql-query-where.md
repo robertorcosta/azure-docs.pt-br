@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
-ms.openlocfilehash: 483a0533eafc81ef8698d260a753062ae074f6d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ceffb203ccc2cca1ff6e1c53644cde955c2e0acb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78898760"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523495"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Cláusula WHERE em Azure Cosmos DB
 
@@ -72,9 +73,9 @@ Você pode usar os seguintes operadores binários com suporte:
 |---------|---------|
 |Aritmético | +,-,*,/,% |
 |Bit a bit    | \|, &, ^, <<, >>, >>> (deslocamento à direita com preenchimento com zero) |
-|Logical    | AND, OR, NOT      |
+|Lógica    | AND, OR, NOT      |
 |Comparação | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|String     |  \|\| (concatenar) |
+|Cadeia de caracteres     |  \|\| (concatenar) |
 
 As consultas a seguir usam operadores binários:
 
@@ -104,7 +105,7 @@ Você também pode usar os operadores unários +,-, ~, e não em consultas, conf
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-Você também pode usar referências de propriedade em consultas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` retorna o item JSON que contém a propriedade `isRegistered` com valor igual a `true` . Qualquer outro valor, como,,,, `false` `null` `Undefined` `<number>` `<string>` , `<object>` ou `<array>` , exclui o item do resultado.
+Você também pode usar referências de propriedade em consultas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` retorna o item JSON que contém a propriedade `isRegistered` com valor igual a `true` . Qualquer outro valor, como,,,, `false` `null` `Undefined` `<number>` `<string>` , `<object>` ou `<array>` , exclui o item do resultado. Além disso, você pode usar a `IS_DEFINED` função de verificação de tipo para consultar com base na presença ou ausência de uma determinada propriedade JSON. Por exemplo, `SELECT * FROM Families f WHERE NOT IS_DEFINED(f.isRegistered)` retorna qualquer item JSON que não tenha um valor para `isRegistered` .
 
 ## <a name="next-steps"></a>Próximas etapas
 

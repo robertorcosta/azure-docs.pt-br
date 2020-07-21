@@ -3,12 +3,12 @@ title: Segurança de rede para hubs de eventos do Azure
 description: Este artigo descreve como configurar o acesso de pontos de extremidade privados
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: de4c5c6ddc658aab549ccf6960edbca3285e338d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddb816e872625da06e370a7e130b4dd444de8de7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312851"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521846"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Segurança de rede para hubs de eventos do Azure 
 Este artigo descreve como usar os seguintes recursos de segurança com os hubs de eventos do Azure: 
@@ -32,7 +32,7 @@ Você pode usar marcas de serviço para definir os controles de acesso à rede e
 ## <a name="ip-firewall"></a>Firewall de IP 
 Por padrão, os namespaces dos Hubs de Eventos são acessíveis da Internet, desde que a solicitação acompanhe autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
-Esse recurso é útil em cenários nos quais os Hubs de Eventos do Azure devem ser acessíveis apenas de determinados sites conhecidos. As regras de firewall permitem que você configure regras para aceitar o tráfego originado de endereços IPv4 específicos. Por exemplo, se você usa os Hubs de Eventos com o [Azure ExpressRoute](/azure/expressroute/expressroute-faqs#supported-services), é possível criar uma **regra de firewall** para permitir o tráfego apenas de seus endereços IP da infraestrutura local. 
+Esse recurso é útil em cenários nos quais os Hubs de Eventos do Azure devem ser acessíveis apenas de determinados sites conhecidos. As regras de firewall permitem que você configure regras para aceitar o tráfego originado de endereços IPv4 específicos. Por exemplo, se você usa os Hubs de Eventos com o [Azure ExpressRoute](../expressroute/expressroute-faqs.md#supported-services), é possível criar uma **regra de firewall** para permitir o tráfego apenas de seus endereços IP da infraestrutura local. 
 
 As regras de firewall de IP são aplicadas no nível do namespace dos Hubs de Eventos. Portanto, as regras se aplicam a todas as conexões de clientes que usam qualquer protocolo com suporte. Qualquer tentativa de conexão de um endereço IP que não corresponda a uma regra IP permitida no namespace dos Hubs de Eventos será rejeitada como não autorizada. A resposta não menciona a regra IP. As regras de filtro IP são aplicadas na ordem e a primeira regra que corresponde ao endereço IP determina a ação de aceitar ou rejeitar.
 
