@@ -5,20 +5,20 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 76ccd6f42f2cfd83512a2e817e8c2ac9aa61a28b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21d910fb0e0992b35aa19ce65fc216734e30265c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391462"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515828"
 ---
 ### <a name="functional-limits"></a>Limites funcionais
 
 A tabela a seguir lista os limites funcionais do Azure digital gêmeos na visualização atual.
 
-| Área | Funcionalidade | Limite padrão | Ajustá? |
+| Área | Recurso | Limite padrão | Ajustá? |
 | --- | --- | --- | --- |
-| Recursos do Azure | Número de instâncias de gêmeos digitais do Azure em uma região, por assinatura | 10 | Sim |
+| Recurso do Azure | Número de instâncias de gêmeos digitais do Azure em uma região, por assinatura | 10 | Sim |
 | Gêmeos digital | Número de gêmeos em uma instância de gêmeos digital do Azure | 200.000 | Sim |
 | Roteamento | Número de pontos de extremidade para uma única instância de gêmeos digital do Azure | 6 | Não |
 | Roteamento | Número de rotas para uma única instância de gêmeos digital do Azure | 6 | Sim |
@@ -35,7 +35,7 @@ A tabela a seguir lista os limites funcionais do Azure digital gêmeos na visual
 
 Esta tabela reflete os limites de taxa de APIs diferentes.
 
-| API | Funcionalidade | Limite padrão | Ajustá? |
+| API | Recurso | Limite padrão | Ajustá? |
 | --- | --- | --- | --- |
 | API de modelos | Número de solicitações por segundo | 100 | Sim |
 | API gêmeos digital | Número de solicitações por segundo | 1,000 | Sim |
@@ -47,4 +47,4 @@ Esta tabela reflete os limites de taxa de APIs diferentes.
 
 Os limites em tipos de dados e campos em documentos de DTDL para modelos de gêmeos digitais do Azure podem ser encontrados em sua documentação de especificações no GitHub: [DTDL (digital gêmeos Definition Language)-versão 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
  
-Detalhes de latência de consulta e outras diretrizes sobre como escrever consultas durante a visualização podem ser encontrados em [instruções: consultar o grafo de entrelaçamento](../articles/digital-twins/how-to-query-graph.md).
+Detalhes de latência de consulta e outras diretrizes sobre como escrever consultas durante a visualização podem ser encontrados em [*instruções: consultar o grafo de entrelaçamento*](../articles/digital-twins/how-to-query-graph.md).

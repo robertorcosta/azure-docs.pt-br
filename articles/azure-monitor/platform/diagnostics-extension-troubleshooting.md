@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: 043369bd6112c4cac36539bbd764393d889439c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de42a70cf2950aca3dbe151407671306c793ed10
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696959"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515488"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas do Diagnóstico do Azure
 Este artigo descreve informações de solução de problemas relevantes para o uso do Diagnóstico do Azure. Para mais informações sobre o Diagnóstico do Azure, consulte [Visão geral do Diagnóstico do Azure](diagnostics-extension-overview.md).
@@ -49,7 +50,7 @@ A seguir, são apresentados os caminhos para alguns logs e artefatos importantes
 | **Arquivo de log MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<DiagnosticsVersion> \WAD0107\Configuration\MonAgentHost. <seq_num>. log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Os dados de métrica não aparecem no Portal do Azure
-O Diagnóstico do Azure fornece dados de métrica que podem ser exibidos no Portal do Azure. Se você tiver problemas para ver os dados no portal, verifique a \* tabela WADMetrics na conta de armazenamento diagnóstico do Azure para ver se os registros de métrica correspondentes estão lá e certifique-se de que o [provedor de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) Microsoft. insights está registrado.
+O Diagnóstico do Azure fornece dados de métrica que podem ser exibidos no Portal do Azure. Se você tiver problemas para ver os dados no portal, verifique a \* tabela WADMetrics na conta de armazenamento diagnóstico do Azure para ver se os registros de métrica correspondentes estão lá e certifique-se de que o [provedor de recursos](../../azure-resource-manager/management/resource-providers-and-types.md) Microsoft. insights está registrado.
 
 Aqui, o **PartitionKey** da tabela é a ID de recurso, máquina virtual ou conjunto de dimensionamento de máquinas virtuais. **RowKey** é o nome da métrica (também conhecido como o nome do contador de desempenho).
 
@@ -229,7 +230,7 @@ O plug-in retorna os seguintes códigos de saída:
 
 | Código de saída | Descrição |
 | --- | --- |
-| 0 |Êxito. |
+| 0 |Sucesso. |
 | -1 |Erro genérico. |
 | -2 |Não foi possível carregar o arquivo rcf.<p>Este erro interno somente deverá ocorrer se o iniciador do plug-in do agente convidado for invocado manualmente e incorretamente na VM. |
 | -3 |Não é possível carregar o arquivo de configuração do Diagnóstico.<p><p>Solução: causado por um arquivo de configuração que não passa pela validação do esquema. A solução é fornecer um arquivo de configuração que cumpre com o esquema. |
@@ -296,4 +297,3 @@ A experiência do portal nas máquinas virtuais mostra determinados contadores d
 - Se os dados armazenados possuem nomes dos contadores no idioma inglês. Se os nomes dos contadores não estiverem em inglês, o gráfico de métrica do portal não será capaz de reconhecê-los. **Mitigação**: altera o idioma do computador para inglês para as contas do sistema. Para fazer isso, selecione região do **painel de controle**  >  **Region**  >  **Administrative**  >  **configurações de cópia**administrativa. Em seguida, desmarque **Tela de boas-vindas e contas do sistema** de modo que o idioma personalizado não seja aplicado à conta do sistema.
 
 - Se estiver utilizando caracteres curinga (\*) nos nomes do contador de desempenho, o portal não poderá correlacionar o contador coletado e configurado quando os contadores de desempenho são enviados ao coletor do armazenamento do Azure. **Mitigação**: para garantir que você possa usar curingas e fazer com que o portal expanda o ( \* ), encaminhe seus contadores de desempenho para o coletor de Azure monitor.
-

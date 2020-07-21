@@ -3,11 +3,13 @@ title: Matriz de suporte de backup do Azure para SQL Server Backup em VMs do Azu
 description: Fornece um resumo das configurações de suporte e limitações ao fazer backup de SQL Server em VMs do Azure com o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: f9594b9157f84a0536ffd4b62f792fd86fb1c243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 4d197f8b3c1ed74ef45c1f7942ead52ccef0c14a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234241"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513176"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de suporte para backup SQL Server em VMs do Azure
 
@@ -26,7 +28,7 @@ Você pode usar o backup do Azure para fazer backup de bancos de dados SQL Serve
 ## <a name="feature-consideration-and-limitations"></a>Considerações e limitações de recurso
 
 * O Backup do SQL Server pode ser configurado no portal do Azure ou **PowerShell**. Não há suporte para a CLI.
-* A solução é compatível em ambos os tipos de [implantações](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) – VMs do Azure Resource Manager e VMs clássicas.
+* A solução é compatível em ambos os tipos de [implantações](../azure-resource-manager/management/deployment-models.md) – VMs do Azure Resource Manager e VMs clássicas.
 * VM que executa o SQL Server exige conectividade com a Internet para acessar os endereços IP públicos do Azure.
 * Não há suporte para SQL Server **FCI (instância de cluster de failover)** .
 * Não há suporte para as operações de backup e de restauração para bancos de dados de espelho e instantâneos do banco de dados.

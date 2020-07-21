@@ -3,12 +3,12 @@ title: Balancear a carga de partição em várias instâncias – hubs de evento
 description: Descreve como balancear a carga de partição entre várias instâncias do seu aplicativo usando um processador de eventos e o SDK dos hubs de eventos do Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: d5db1e877c1bfa6fac177e1ff8ed137e0301b709
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff68408be15d8160ea7ecd878a05441d82700f99
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314993"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512309"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Balancear a carga de partição entre várias instâncias do seu aplicativo
 Para dimensionar seu aplicativo de processamento de eventos, você pode executar várias instâncias do aplicativo e fazer com que ele Equilibre a carga entre si. Nas versões mais antigas, o [EventProcessorHost](event-hubs-event-processor-host.md) permitia que você balanceie a carga entre várias instâncias do programa e eventos de ponto de verificação ao receber. Nas versões mais recentes (5,0 em diante), **EventProcessorClient** (.net e Java) ou **EventHubConsumerClient** (Python e JavaScript) permite que você faça o mesmo. O modelo de desenvolvimento é simplificado com o uso de eventos. Você assina os eventos nos quais está interessado registrando um manipulador de eventos.
@@ -16,7 +16,7 @@ Para dimensionar seu aplicativo de processamento de eventos, você pode executar
 Este artigo descreve um cenário de exemplo para usar várias instâncias para ler eventos de um hub de eventos e fornecer detalhes sobre os recursos do cliente do processador de eventos, que permite receber eventos de várias partições ao mesmo tempo e balancear a carga com outros consumidores que usam o mesmo grupo de consumidores e de Hub de eventos.
 
 > [!NOTE]
-> A chave para reduzir os Hubs de Eventos horizontalmente é o modelo de consumidor particionado. Em contraste com o [consumidores concorrentes](https://msdn.microsoft.com/library/dn568101.aspx) padrão, o padrão de consumidor particionado permite alta escala, removendo o gargalo de contenção e promovendo o paralelismo de ponta a ponta.
+> A chave para reduzir os Hubs de Eventos horizontalmente é o modelo de consumidor particionado. Em contraste com o [consumidores concorrentes](/previous-versions/msp-n-p/dn568101(v=pandp.10)) padrão, o padrão de consumidor particionado permite alta escala, removendo o gargalo de contenção e promovendo o paralelismo de ponta a ponta.
 
 ## <a name="example-scenario"></a>Cenário de exemplo
 
@@ -66,7 +66,7 @@ Ao criar um processador de eventos, você especifica as funções que processar�
 
 É recomendável que você faça coisas de forma relativamente rápida. Ou seja, faça o menor processamento possível. Se você precisar gravar no armazenamento e fazer algum roteamento, é melhor usar dois grupos de consumidores e ter dois processadores de eventos.
 
-## <a name="checkpointing"></a>Ponto de verificação
+## <a name="checkpointing"></a>Definindo o ponto de verificação
 
 O *ponto de verificação* é um processo pelo qual um processador de eventos marca ou confirma a posição do último evento processado com êxito em uma partição. Marcar um ponto de verificação normalmente é feito dentro da função que processa os eventos e ocorre em uma base por partição dentro de um grupo de consumidores. 
 
@@ -75,7 +75,7 @@ Se um processador de eventos se desconectar de uma partição, outra instância 
 Quando o ponto de verificação é executado para marcar um evento como processado, uma entrada no repositório de ponto de verificação é adicionada ou atualizada com o deslocamento e o número de sequência do evento. Os usuários devem decidir a frequência de atualização do ponto de verificação. A atualização após cada evento processado com êxito pode ter implicações de desempenho e custo, pois dispara uma operação de gravação para o armazenamento de ponto de verificação subjacente. Além disso, o ponto de verificação de cada evento único é um indício de um padrão de mensagens em fila para o qual uma fila do barramento de serviço pode ser uma opção melhor do que um hub de eventos. A ideia por trás dos Hubs de eventos é que você obtenha entregas "pelo menos uma vez" em grande escala. Tornando seus sistemas downstream idempotentes, é fácil de se recuperar de falhas ou reinicia que resultam nos mesmos eventos que está sendo recebidos várias vezes.
 
 > [!NOTE]
-> Se você estiver usando o armazenamento de BLOBs do Azure como o armazenamento de ponto de verificação em um ambiente que dá suporte a uma versão diferente do SDK do Storage BLOB que os normalmente estão disponíveis no Azure, você precisará usar o código para alterar a versão da API do serviço de armazenamento para a versão específica com suporte desse ambiente. Por exemplo, se você estiver executando os [hubs de eventos em um hub de Azure Stack versão 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), a versão mais alta disponível para o serviço de armazenamento é a versão 2017-11-09. Nesse caso, você precisa usar o código para direcionar a versão da API do serviço de armazenamento para 2017-11-09. Para obter um exemplo de como direcionar uma versão de API de armazenamento específica, consulte estes exemplos no GitHub: 
+> Se você estiver usando o armazenamento de BLOBs do Azure como o armazenamento de ponto de verificação em um ambiente que dá suporte a uma versão diferente do SDK do Storage BLOB que os normalmente estão disponíveis no Azure, você precisará usar o código para alterar a versão da API do serviço de armazenamento para a versão específica com suporte desse ambiente. Por exemplo, se você estiver executando os [hubs de eventos em um hub de Azure Stack versão 2002](/azure-stack/user/event-hubs-overview), a versão mais alta disponível para o serviço de armazenamento é a versão 2017-11-09. Nesse caso, você precisa usar o código para direcionar a versão da API do serviço de armazenamento para 2017-11-09. Para obter um exemplo de como direcionar uma versão de API de armazenamento específica, consulte estes exemplos no GitHub: 
 > - [.Net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
 > - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) ou [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)

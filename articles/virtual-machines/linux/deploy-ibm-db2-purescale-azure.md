@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 98e912894a4d93a057a2f6a2153d0690deaed250
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e2ec4bfe04112d300a63e6326f0391968e385f7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78968888"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510714"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Implantar o IBM DB2 pureScale no Azure
 
@@ -25,7 +26,7 @@ Para implantar essa arquitetura, faça o download e execute o script deploy.sh l
 O repositório também tem scripts para configurar um painel do Grafana. Você pode usar o painel para consultar o Prometheus, o sistema de monitoramento e alerta de código-fonte aberto incluso no DB2.
 
 > [!NOTE]
-> O script deploy.sh no cliente cria chaves SSH privadas e as passa para o modelo de implantação por HTTPS. Para maior segurança, recomendamos o uso do [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) para armazenar segredos, chaves e senhas.
+> O script deploy.sh no cliente cria chaves SSH privadas e as passa para o modelo de implantação por HTTPS. Para maior segurança, recomendamos o uso do [Azure Key Vault](../../key-vault/general/overview.md) para armazenar segredos, chaves e senhas.
 
 ## <a name="how-the-deployment-script-works"></a>Como funciona o script de implantação
 
@@ -76,7 +77,7 @@ O repositório do GitHub inclui o DB2server.rsp, um arquivo de resposta (.rsp) q
 | Escolha um produto          |                                              | Versão do DB2 11.1.3.3. Edições de servidor com o DB2 pureScale                                              |
 | Configuração             | Diretório                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | Selecione o tipo de instalação                 | Típico                                                                                               |
-|                           | Eu concordo com os termos da IBM                     | Verificado                                                                                               |
+|                           | Eu concordo com os termos da IBM                     | Marcado                                                                                               |
 | Proprietário da instância            | Usuário Existente Por Instância, Nome do Usuário        | DB2sdin1                                                                                              |
 | Usuário Isolado               | Usuário existente, nome de usuário                     | DB2sdfe1                                                                                              |
 | Sistema de arquivos do cluster       | Caminho de dispositivo de partição de disco de compartilhado            | /dev/dm-2                                                                                             |

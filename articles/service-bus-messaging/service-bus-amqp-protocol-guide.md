@@ -3,12 +3,12 @@ title: AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eve
 description: Guia de protocolo para expressões e a descrição do AMQP 1.0 no Barramento de Serviço e nos Hubs de Eventos do Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 79132ef7105de8de2261c35258006af3f0a665a5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 5957e2d36b57be7db1af279736e8859d1a69b66b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186904"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511306"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
 
@@ -48,7 +48,7 @@ A fonte mais confiável para saber mais sobre o funcionamento do AMQP é a espec
 
 O AMQP chama os programas de comunicação de *contêiners*; eles contêm *nós*, que são as entidades de comunicação dentro desses contêineres. Uma fila pode ser um nó assim. O AMQP permite multiplexação, para que uma única conexão possa ser usada para vários caminhos de comunicação entre os nós. Por exemplo, um cliente de aplicativo pode receber de uma fila e enviar para outra fila na mesma conexão de rede simultaneamente.
 
-![][1]
+![Diagrama mostrando sessões e conexões entre contêineres.][1]
 
 A conexão de rede, portanto, está ancorada no contêiner. Ele é iniciado pelo contêiner na função de cliente, fazendo uma conexão de soquete TCP de saída para um contêiner na função de destinatário que escuta e aceita conexões de TCP de entrada. O handshake da conexão inclui negociar a versão do protocolo, declarando ou negociando o uso de TLS/SSL (Transport Level Security) e um handshake de autenticação/autorização no escopo de conexão que se baseia em SASL.
 
@@ -84,7 +84,7 @@ Um cliente .NET falharia com uma SocketException ("foi feita uma tentativa de ac
 
 O AMQP transfere mensagens sobre links. Um link é um caminho de comunicação criado em uma sessão que permite transferir mensagens em uma direção; a negociação de status de transferência é feita no link e é bidirecional entre as partes conectadas.
 
-![][2]
+![Captura de tela mostrando uma sessão carryign uma conexão de link entre dois contêineres.][2]
 
 Os links podem ser criados por um contêiner a qualquer momento e em uma sessão existente, o que torna AMQP diferente de muitos outros protocolos, incluindo HTTP e MQTT, em que a inicialização de transferências e o caminho de transferência são um privilégio exclusivo da parte ao criar a conexão de soquete.
 
@@ -100,7 +100,7 @@ O cliente de conexão também é necessário para usar um nome de nó local para
 
 Após o estabelecimento de um link, as mensagens podem ser transferidas sobre esse link. No AMQP, uma transferência é executada com um gesto de protocolo explícito (a *transferência* performativa) que move uma mensagem do remetente ao destinatário sobre um link. Uma transferência é concluída quando é "liquidada", o que significa que as duas partes estabeleceram uma compreensão geral do resultado dessa transferência.
 
-![][3]
+![Um diagrama que mostra a transferência de uma mensagem entre o remetente e o destinatário e a disposição que resulta dele.][3]
 
 No caso mais simples, o remetente pode optar por enviar mensagens "previamente liquidadas", o que significa que o cliente não está interessado no resultado e o receptor não fornece comentários sobre o resultado da operação. Esse modo é compatível com o Barramento de Serviço no nível do protocolo AMQP, mas não é exposto em nenhuma uma das APIs de cliente.
 
@@ -120,7 +120,7 @@ Para compensar possíveis envios de duplicidades, o Barramento de Serviço dá s
 
 Além do modelo de controle de fluxo no nível de sessão discutido anteriormente, cada link tem seu próprio modelo de fluxo de controle. O controle de fluxo de nível de sessão protege o contêiner de ter que lidar com muitos quadros de uma vez, o controle de fluxo no nível de link torna o aplicativo responsável por quantas mensagens ele deseja tratar de um link e quando.
 
-![][4]
+![Captura de tela de um log que mostra a origem, o destino, a porta de origem, a porta de destino e o nome do protocolo. Na linha Fiest, a porta de destino 10401 (0x28 A 1) é descrita em preto.][4]
 
 Em um link, as transferências só podem acontecer quando o remetente tem *crédito de link*suficiente. O crédito de link é um contador definido pelo destinatário usando a performativa *fluxo*, que tem como escopo um link. Quando o remetente recebe o crédito de link, ele tenta usar esse crédito ao entregar mensagens. Cada entrega de mensagem decrementa o crédito de link restante em um. Quando o crédito de link acabar, as entregas serão interrompidas.
 
@@ -360,7 +360,7 @@ A mensagem de solicitação tem as seguintes propriedades de aplicativo:
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
 | operação |Não |string |**put-token** |
-| tipo |Não |string |O tipo do token colocado. |
+| type |Não |string |O tipo do token colocado. |
 | name |Não |string |O "público" ao qual o token se aplica. |
 | expiração |Sim |timestamp |A hora de expiração do token. |
 
@@ -378,7 +378,7 @@ A mensagem de resposta tem os seguintes valores de *application-properties*
 
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| status-code |Não |int |Código de resposta HTTP **[RFC2616]**. |
+| status-code |Não |INT |Código de resposta HTTP **[RFC2616]**. |
 | status-description |Sim |string |A descrição do status. |
 
 O cliente pode chamar *put-token* repetidamente e para qualquer entidade na infraestrutura de mensagens. Os tokens estão no escopo do cliente atual e ancorados na conexão atual, o que significa que o servidor cancela todos os tokens retidos quando a conexão cair.

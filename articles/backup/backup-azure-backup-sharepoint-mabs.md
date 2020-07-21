@@ -3,11 +3,12 @@ title: Fazer backup de um farm do SharePoint no Azure com o MABS
 description: Use o Servidor de Backup do Azure para fazer backup e restaurar seus dados do SharePoint. Este artigo fornece informações para configurar seu farm do SharePoint para que os dados desejados possam ser armazenados no Azure. Você pode restaurar dados protegidos do SharePoint do disco ou do Azure.
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.openlocfilehash: 62fcb434ef00df43ce2950a5df569e346a06903a
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 40997ad2153cdec867fb36ba3475829e18519592
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234799"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514230"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Fazer backup de um farm do SharePoint no Azure com o MABS
 
@@ -17,7 +18,7 @@ Fazer backup do SharePoint no Azure com o MABS é semelhante ao processo de faze
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Versões do SharePoint com suporte e cenários de proteção relacionados
 
-Para obter uma lista de versões do SharePoint com suporte e as versões do MABS necessárias para fazer backup, consulte a [matriz de proteção do MABS](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix)
+Para obter uma lista de versões do SharePoint com suporte e as versões do MABS necessárias para fazer backup, consulte a [matriz de proteção do MABS](./backup-mabs-protection-matrix.md)
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -99,7 +100,7 @@ Para fazer backup do farm do SharePoint, configure a proteção do SharePoint us
 
 1. Em **Especificar política de retenção online**, você pode especificar como os pontos de recuperação criados nos backups diários, semanais, mensais e anuais são mantidos no Azure.
 
-1. Em **Escolher replicação online**, especifique como ocorrerá a replicação inicial completa de dados. Você pode replicar pela rede ou fazer um backup offline (propagação offline). O backup offline usa a funcionalidade de importação do Azure. [Leia mais](https://azure.microsoft.com/documentation/articles/backup-azure-backup-import-export/).
+1. Em **Escolher replicação online**, especifique como ocorrerá a replicação inicial completa de dados. Você pode replicar pela rede ou fazer um backup offline (propagação offline). O backup offline usa a funcionalidade de importação do Azure. [Leia mais](./backup-azure-backup-import-export.md).
 
 1. Na página **Resumo**, examine as configurações. Depois de clicar em **Criar Grupo**, ocorre a replicação inicial dos dados. Quando a replicação terminar, o status do grupo de proteção será exibido como **OK** na página **Status**. Em seguida, ocorre o backup em linha com as configurações do grupo de proteção.
 

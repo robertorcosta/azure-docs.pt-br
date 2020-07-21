@@ -3,11 +3,12 @@ title: Instalar Servidor de Backup do Azure no Azure Stack
 description: Neste artigo, saiba como usar o Servidor de Backup do Azure para proteger ou fazer backup de cargas de trabalho no Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 7a1f48c0987ed0eaea70d887709e52b9a1f1fe1d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 634f560174413dd75bebdee6513160a3700df9a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747446"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513890"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Servidor de Backup do Azure no Azure Stack
 
@@ -88,9 +89,9 @@ A máquina virtual do Servidor de Backup do Azure deve ser ingressada em um dom�
 
 ## <a name="using-an-iaas-vm-in-azure-stack"></a>Usando uma VM de IaaS no Azure Stack
 
-Ao escolher um servidor para o Servidor de Backup do Azure, comece com uma imagem da galeria do Windows Server 2012 R2 Datacenter ou Windows Server 2016 Datacenter. O artigo [Criar sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), fornece um tutorial para começar a trabalhar com a máquina virtual recomendada no Azure. Os requisitos mínimos recomendados para a máquina virtual (VM) do servidor devem ser: Standard A2 com 2 núcleos e 3.5 GB de RAM.
+Ao escolher um servidor para o Servidor de Backup do Azure, comece com uma imagem da galeria do Windows Server 2012 R2 Datacenter ou Windows Server 2016 Datacenter. O artigo [Criar sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/windows/quick-create-portal.md?toc=/azure/virtual-machines/windows/toc.json), fornece um tutorial para começar a trabalhar com a máquina virtual recomendada no Azure. Os requisitos mínimos recomendados para a máquina virtual (VM) do servidor devem ser: Standard A2 com 2 núcleos e 3.5 GB de RAM.
 
-Proteger as cargas de trabalho com o Servidor de Backup do Azure tem muitas nuanças. A [matriz de proteção para MABS](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) ajuda a explicar essas nuances. Antes de implantar o computador, leia este artigo na íntegra.
+Proteger as cargas de trabalho com o Servidor de Backup do Azure tem muitas nuanças. A [matriz de proteção para MABS](./backup-mabs-protection-matrix.md) ajuda a explicar essas nuances. Antes de implantar o computador, leia este artigo na íntegra.
 
 > [!NOTE]
 > O Servidor de Backup do Azure foi projetado para ser executado em uma máquina virtual dedicada de finalidade única. Você não pode instalar o Servidor de Backup do Azure em:
@@ -106,7 +107,7 @@ Sempre ingresse o Servidor de Backup do Azure em um domínio. Se você precisa m
 
 ### <a name="set-storage-replication"></a>Definir replicação de armazenamento
 
-A opção de replicação de armazenamento de cofre dos Serviços de Recuperação permite que você escolha entre o armazenamento com redundância geográfica e o armazenamento com redundância local. Por padrão, os cofres dos Serviços de Recuperação usam armazenamento com redundância geográfica. Se este cofre for o primário, deixe a opção de armazenamento definida como armazenamento com redundância geográfica. Escolha o armazenamento com redundância local se quiser uma opção mais barata que seja menos durável. Leia mais sobre as opções de armazenamento com [redundância geográfica](../storage/common/storage-redundancy-grs.md) e [redundância local](../storage/common/storage-redundancy-lrs.md) na [Visão geral da replicação do Armazenamento do Azure](../storage/common/storage-redundancy.md).
+A opção de replicação de armazenamento de cofre dos Serviços de Recuperação permite que você escolha entre o armazenamento com redundância geográfica e o armazenamento com redundância local. Por padrão, os cofres dos Serviços de Recuperação usam armazenamento com redundância geográfica. Se este cofre for o primário, deixe a opção de armazenamento definida como armazenamento com redundância geográfica. Escolha o armazenamento com redundância local se quiser uma opção mais barata que seja menos durável. Leia mais sobre as opções de armazenamento com [redundância geográfica](../storage/common/storage-redundancy.md) e [redundância local](../storage/common/storage-redundancy.md) na [Visão geral da replicação do Armazenamento do Azure](../storage/common/storage-redundancy.md).
 
 Para editar a configuração de replicação de armazenamento:
 
@@ -242,7 +243,7 @@ O Servidor de Backup do Azure compartilha código com o Data Protection Manager.
 
     ![Pré-requisito 2 do Backup do Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    O local temporário é um requisito para o backup no Azure. Verifique se o tamanho do local temporário é equivalente a pelo menos 5% dos dados planejados para fazer backup no Azure. Para proteção de disco, será necessário configurar discos separados após a conclusão da instalação. Para obter mais informações sobre pools de armazenamento, consulte [Preparar armazenamento de dados](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
+    O local temporário é um requisito para o backup no Azure. Verifique se o tamanho do local temporário é equivalente a pelo menos 5% dos dados planejados para fazer backup no Azure. Para proteção de disco, será necessário configurar discos separados após a conclusão da instalação. Para obter mais informações sobre pools de armazenamento, consulte [Preparar armazenamento de dados](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
 
 6. Na tela **Configurações de Segurança**, forneça uma senha forte para as contas de usuário local restritas e clique em **Avançar**.
 
@@ -308,7 +309,7 @@ O Servidor de Backup do Azure compartilha código com o Data Protection Manager.
 
 ## <a name="add-backup-storage"></a>Adicionar armazenamento de backup
 
-A primeira cópia de backup é mantida no armazenamento anexado ao computador do Servidor de Backup do Azure. Para obter mais informações sobre adicionar discos, consulte [Adicionar armazenamento de Backup Moderno](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-1801).
+A primeira cópia de backup é mantida no armazenamento anexado ao computador do Servidor de Backup do Azure. Para obter mais informações sobre adicionar discos, consulte [Adicionar armazenamento de Backup Moderno](/system-center/dpm/add-storage).
 
 > [!NOTE]
 > Você precisará adicionar armazenamento de backup mesmo se planejar enviar dados para o Azure. Na arquitetura do Servidor de Backup do Azure, o cofre dos Serviços de Recuperação mantém a *segunda* cópia dos dados, enquanto o armazenamento local mantém a primeira (e obrigatória) cópia de backup.
@@ -358,10 +359,10 @@ Você também pode consultar as [Perguntas frequentes relacionadas ao Backup do 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O artigo [Preparando seu ambiente para o DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801), contém informações sobre as configurações compatíveis do Servidor de Backup do Azure.
+O artigo [Preparando seu ambiente para o DPM](/system-center/dpm/prepare-environment-for-dpm), contém informações sobre as configurações compatíveis do Servidor de Backup do Azure.
 
 Você pode usar os seguintes artigos para obter um entendimento mais profundo sobre a proteção da carga de trabalho usando o Servidor de Backup do Microsoft Azure.
 
-- [Backup do SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
-- [Backup do servidor do SharePoint](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Backup do SQL Server](./backup-mabs-sql-azure-stack.md)
+- [Backup do servidor do SharePoint](./backup-mabs-sharepoint-azure-stack.md)
 - [Backup do servidor alternativo](backup-azure-alternate-dpm-server.md)

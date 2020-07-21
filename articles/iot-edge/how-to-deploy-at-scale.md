@@ -9,12 +9,12 @@ ms.date: 4/21/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e55d3f704c76d2783c3e442a90c829448129a4d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0952f31bf6e327ff6d9f632f242919139ed6cae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82134410"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512003"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implantar módulos IoT Edge em escala usando o portal do Azure
 
@@ -61,7 +61,7 @@ Há cinco etapas para criar uma implantação. As seções a seguir explicam cad
 
 ### <a name="step-2-modules"></a>Etapa 2: módulos
 
-Você pode adicionar até 20 módulos a uma implantação. Se você criar uma implantação sem módulos, ela removerá os módulos atuais dos dispositivos de destino.
+Você pode adicionar até 30 módulos a uma implantação. Se você criar uma implantação sem módulos, ela removerá os módulos atuais dos dispositivos de destino.
 
 Em implantações, você pode gerenciar as configurações para os módulos agente de IoT Edge e IoT Edge Hub. Selecione **configurações de tempo de execução** para configurar os dois módulos de tempo de execução. Em implantação em camadas, os módulos de tempo de execução não são incluídos, portanto não podem ser configurados.
 
@@ -209,7 +209,7 @@ Quando você exclui uma implantação, todos os dispositivos implantados assumem
 
 1. Use a caixa de seleção para selecionar a implantação que deseja excluir.
 1. Selecione **Excluir**.
-1. Um prompt informará que essa ação excluirá essa implantação e reverterá para o estado anterior de todos os dispositivos.Uma implantação com prioridade mais baixa será aplicada.Se nenhuma outra implantação for direcionada, nenhum módulo será removido. Se desejar remover todos os módulos do seu dispositivo, crie uma implantação com zero módulos e implante-a nos mesmos dispositivos.Selecione **Sim** para continuar.
+1. Um prompt informará que essa ação excluirá essa implantação e reverterá para o estado anterior de todos os dispositivos.Uma implantação com prioridade mais baixa será aplicada.Se nenhuma outra implantação for direcionada, nenhum módulo será removido. Se desejar remover todos os módulos do seu dispositivo, crie uma implantação com zero módulos e implante-a nos mesmos dispositivos.Clique em **Sim** para continuar.
 
 ## <a name="next-steps"></a>Próximas etapas
 

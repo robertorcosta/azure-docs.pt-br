@@ -12,6 +12,7 @@
         - name: Portal
           href: quickstart-create-data-migration-service-portal.md
         - name: Modelo de ARM
+          displayName: Resource Manager
           href: create-dms-resource-manager-template.md
         - name: no modo híbrido (Portal)
           href: quickstart-create-data-migration-service-hybrid-portal.md

@@ -13,15 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 4ec81ef69f21fc74864e437a3c6de46550a70c18
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: dc73b5b9f05d24de206b25095ea7eaf93f035298
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891653"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511153"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensão de configuração de estado desejado com os modelos do Azure Resource Manager
 
-Este artigo descreve o modelo do Azure Resource Manager para o [manipulador de extensão da Configuração de Estado Desejado (DSC)](dsc-overview.md). Muitos dos exemplos usam **RegistrationURL** (fornecido como cadeia de caracteres) e **RegistrationKey** (fornecido como [PSCredential](/dotnet/api/system.management.automation.pscredential)) para fazer a integração com a Automação do Azure. Consulte os detalhes para obtenção desses valores em [Integração de computadores para gerenciamento pela Configuração de Estado de Automação do Azure – registro seguro](/azure/automation/automation-dsc-onboarding#onboarding-securely-using-registration).
+Este artigo descreve o modelo do Azure Resource Manager para o [manipulador de extensão da Configuração de Estado Desejado (DSC)](dsc-overview.md). Muitos dos exemplos usam **RegistrationURL** (fornecido como uma cadeia de caracteres) e **RegistrationKey** (fornecido como um [PSCredential](/dotnet/api/system.management.automation.pscredential) para integração com a automação do Azure. Consulte os detalhes para obtenção desses valores em [Integração de computadores para gerenciamento pela Configuração de Estado de Automação do Azure – registro seguro](../../automation/automation-dsc-onboarding.md#enable-machines-securely-using-registration).
 
 > [!NOTE]
 > Você pode encontrar exemplos de esquema ligeiramente diferente. A alteração no esquema ocorreu na versão de outubro de 2016. Para obter detalhes, confira [Atualizar de um formato anterior](#update-from-a-previous-format).

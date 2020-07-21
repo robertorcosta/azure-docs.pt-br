@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: bf94631c821c8a7ba5e2870af0bf1ecfd268e888
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: d0bbde0ee4fd0eaf7387abaf6d548dc563e5b715
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203579"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515437"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Criar e configurar um workspace do Log Analytics no Azure Monitor usando o PowerShell
 Este artigo fornece dois exemplos de código que mostram como criar e configurar um workspace do Log Analytics no Azure Monitor.  
@@ -193,7 +193,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 
 > [!NOTE]
-> O formato do parâmetro **CustomLogRawJson** que define a configuração de um log personalizado pode ser complexo. Use [Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) para recuperar a configuração de um log personalizado existente. A propriedade **Properties** é a configuração necessária para o parâmetro **CustomLogRawJson**.
+> O formato do parâmetro **CustomLogRawJson** que define a configuração de um log personalizado pode ser complexo. Use [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) para recuperar a configuração de um log personalizado existente. A propriedade **Properties** é a configuração necessária para o parâmetro **CustomLogRawJson**.
 
 No exemplo acima, regexDelimiter foi definido como "\\n" para nova linha. O delimitador de log também pode ser um carimbo de data/hora.  Estes são os formatos compatíveis:
 
@@ -212,14 +212,13 @@ No exemplo acima, regexDelimiter foi definido como "\\n" para nova linha. O deli
 | `yyyy-MM-ddTHH:mm:ss` <br> O T é uma letra literal T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
 
 ## <a name="troubleshooting"></a>Solução de problemas
-Quando você cria um workspace que foi excluído nos últimos 14 dias e está no [estado de exclusão reversível](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior), a operação pode ter um resultado diferente, dependendo da configuração do seu workspace:
+Quando você cria um workspace que foi excluído nos últimos 14 dias e está no [estado de exclusão reversível](./delete-workspace.md#soft-delete-behavior), a operação pode ter um resultado diferente, dependendo da configuração do seu workspace:
 1. Se você fornecer o mesmo nome do workspace, grupo de recursos, assinatura e região como no workspace excluído, seu workspace será recuperado, incluindo os dados, a configuração e os agentes conectados.
 2. Se você usar o mesmo nome de workspace, mas outro grupo de recursos, assinatura ou região, receberá o erro *O nome do workspace 'workspace-name' não é exclusivo* ou erro de *conflito*. Para substituir a exclusão reversível, excluir permanentemente o workspace e criar um workspace com o mesmo nome, siga estas etapas para recuperar o workspace primeiro e depois executar a exclusão permanente:
-   * [Recuperar](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) seu workspace
-   * [Excluir permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) seu espaço de trabalho
+   * [Recuperar](./delete-workspace.md#recover-workspace) seu workspace
+   * [Excluir permanentemente](./delete-workspace.md#permanent-workspace-delete) seu espaço de trabalho
    * Criar um workspace usando o mesmo nome
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Examinar cmdlets do PowerShell do Log Analytics](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para obter informações adicionais sobre como usar o PowerShell para a configuração do Log Analytics.
-
+* [Examinar cmdlets do PowerShell do Log Analytics](/powershell/module/az.operationalinsights/) para obter informações adicionais sobre como usar o PowerShell para a configuração do Log Analytics.

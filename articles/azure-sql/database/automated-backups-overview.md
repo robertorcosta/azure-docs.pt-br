@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-ms.date: 06/04/2020
-ms.openlocfilehash: 340f4310da5131ea0d2576e7c77d8f6cd0a731b3
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/20/2020
+ms.openlocfilehash: 0eea1b696d8eae8606c0b6009f248a215d12db57
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983096"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515097"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados – banco de dados SQL do Azure & SQL Instância Gerenciada
 
@@ -101,7 +101,7 @@ O consumo de armazenamento de backup até o tamanho máximo de dados de um banco
 
 ## <a name="backup-retention"></a>Retenção de backup
 
-Para todos os bancos de dados novos, restaurados e copiados, o Azure SQL Database e o Azure SQL Instância Gerenciada retêm backups suficientes para permitir PITR nos últimos 7 dias por padrão. Com exceção dos bancos de dados de hiperescala, você pode [alterar o período de retenção de backup](#change-the-pitr-backup-retention-period) por banco de dados no intervalo de 1-35 dias. Conforme descrito em [consumo de armazenamento de backup](#backup-storage-consumption), os backups armazenados para habilitar PITR podem ser mais antigos do que o período de retenção.
+Para todos os bancos de dados novos, restaurados e copiados, o Azure SQL Database e o Azure SQL Instância Gerenciada retêm backups suficientes para permitir PITR nos últimos 7 dias por padrão. Com exceção dos bancos de dados de hiperescala, você pode [alterar o período de retenção de backup](#change-the-pitr-backup-retention-period) por cada banco de dados ativo no intervalo de 1-35 dias. Conforme descrito em [consumo de armazenamento de backup](#backup-storage-consumption), os backups armazenados para habilitar PITR podem ser mais antigos do que o período de retenção. Somente para o Azure SQL Instância Gerenciada, é possível definir a taxa de retenção de backup PITR quando um banco de dados tiver sido excluído no intervalo de 0-35 dias. 
 
 Se você excluir um banco de dados, o sistema manterá os backups da mesma forma que faria com um banco de dados online com seu período de retenção específico. Não é possível alterar o período de retenção de backup de um banco de dados excluído.
 
@@ -192,7 +192,7 @@ Você pode alterar o período de retenção de backup de PITR padrão usando o p
 
 ### <a name="change-the-pitr-backup-retention-period-by-using-the-azure-portal"></a>Alterar o período de retenção de backup de PITR usando o portal do Azure
 
-Para alterar o período de retenção de backup PITR usando o portal do Azure, vá para o servidor ou instância gerenciada com os bancos de dados cujo período de retenção você deseja alterar. 
+Para alterar o período de retenção de backup PITR para bancos de dados ativos usando o portal do Azure, vá para o servidor ou instância gerenciada com os bancos de dados cujo período de retenção você deseja alterar. 
 
 #### <a name="sql-database"></a>[Banco de Dados SQL](#tab/single-database)
 
@@ -200,7 +200,7 @@ Alterações na retenção de backup PITR para banco de dados SQL são feitas na
 
 ![Alterar a retenção de PITR, nível de servidor](./media/automated-backups-overview/configure-backup-retention-sqldb.png)
 
-#### <a name="sql-managed-instance"></a>[Instância Gerenciada do SQL](#tab/managed-instance)
+#### <a name="sql-managed-instance"></a>[Instância Gerenciada de SQL](#tab/managed-instance)
 
 As alterações na retenção de backup PITR para o SQL Instância Gerenciada são feitas em um nível de banco de dados individual. Para alterar a retenção de backup de PITR para um banco de dados de instância no portal do Azure, vá para a folha de visão geral do banco de dados individual. Em seguida, selecione **Configurar retenção de backup** na parte superior da tela:
 
@@ -214,9 +214,54 @@ As alterações na retenção de backup PITR para o SQL Instância Gerenciada s�
 > [!IMPORTANT]
 > O módulo AzureRM do PowerShell ainda tem suporte do banco de dados SQL e do SQL Instância Gerenciada, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para obter mais informações, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az são substancialmente idênticos aos dos módulos AzureRm.
 
+#### <a name="sql-database"></a>[Banco de Dados SQL](#tab/single-database)
+
+Para alterar a retenção de backup do PITR para bancos de dados SQL do Azure ativos, use o seguinte exemplo do PowerShell.
+
 ```powershell
+# SET new PITR backup retention period on an active individual database
+# Valid backup retention must be between 1 and 35 days
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
+
+#### <a name="sql-managed-instance"></a>[Instância Gerenciada de SQL](#tab/managed-instance)
+
+Para alterar a retenção de backup do PITR de um banco de dados ativo do SQL Instância Gerenciada **individual** , use o seguinte exemplo do PowerShell.
+
+```powershell
+# SET new PITR backup retention period on an active individual database
+# Valid backup retention must be between 1 and 35 days
+Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -InstanceName testserver -DatabaseName testDatabase -RetentionDays 1
+```
+
+Para alterar a retenção de backup do PITR para **todos os** bancos de dados do SQL instância gerenciada ativos, use o seguinte exemplo do PowerShell.
+
+```powershell
+# SET new PITR backup retention period for ALL active databases
+# Valid backup retention must be between 1 and 35 days
+Get-AzSqlInstanceDatabase -ResourceGroupName resourceGroup -InstanceName testserver | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 1
+```
+
+Para alterar a retenção de backup PITR de um banco de dados SQL Instância Gerenciada **excluído individual** , use o seguinte exemplo do PowerShell.
+ 
+```powershell
+# SET new PITR backup retention on an individual deleted database
+# Valid backup retention must be between 0 (no retention) and 35 days. Valid retention rate can only be lower than the period of the retention period when database was active, or remaining backup days of a deleted database.
+Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -InstanceName testserver -DatabaseName testDatabase | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 0
+```
+
+Para alterar a retenção de backup PITR de **todos os** bancos de dados do SQL instância gerenciada excluídos, use o seguinte exemplo do PowerShell.
+
+```powershell
+# SET new PITR backup retention for ALL deleted databases
+# Valid backup retention must be between 0 (no retention) and 35 days. Valid retention rate can only be lower than the period of the retention period when database was active, or remaining backup days of a deleted database
+Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -InstanceName testserver | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 0
+```
+
+Zero (0) dias de retenção indicaria que o backup é imediatamente excluído e não é mais mantido para um banco de dados excluído.
+Depois que a retenção de backup do PITR foi reduzida para um banco de dados excluído, ele não pode mais ser aumentado.
+
+---
 
 ### <a name="change-the-pitr-backup-retention-period-by-using-the-rest-api"></a>Alterar o período de retenção de backup de PITR usando a API REST
 
@@ -260,3 +305,4 @@ Para obter mais informações, confira [API REST de retenção de backup](https:
 - Obtenha mais informações sobre como [restaurar um banco de dados para um momento determinado usando o PowerShell](scripts/restore-database-powershell.md).
 - Para obter informações sobre como configurar, gerenciar e restaurar a retenção de longo prazo de backups automatizados no armazenamento de Blobs do Azure usando o portal do Azure, consulte [Gerenciar a retenção de backup de longo prazo usando o portal do Azure](long-term-backup-retention-configure.md).
 - Para obter informações sobre como configurar, gerenciar e restaurar a retenção de longo prazo de backups automatizados no armazenamento de Blobs do Azure usando o PowerShell, consulte [Gerenciar a retenção de backup de longo prazo usando o PowerShell](long-term-backup-retention-configure.md).
+- Para saber como ajustar a retenção e os custos de armazenamento de backup para o Azure SQL Instância Gerenciada, consulte ajustar [os custos de armazenamento de backup em instância gerenciada](https://aka.ms/mi-backup-tuning).

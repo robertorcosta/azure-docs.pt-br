@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 05eb92e2fb887b5c64e2c73576fe85a4543ac1b7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: da9ec0fc421f0cb2f2a1e6fa65d8c936cfd5a3c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184490"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515420"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Contas de armazenamento de propriedade do cliente para ingestão de logs no Azure Monitor
 
-O Azure Monitor usa contas de armazenamento no processo de ingestão de alguns tipos de dados, como [logs personalizados](data-sources-custom-logs.md) e alguns [logs do Azure](azure-storage-iis-table.md). Durante o processo de ingestão, os logs são enviados primeiro a uma conta de armazenamento e, posteriormente, ingeridos no Log Analytics ou Application Insights. Se você quiser controlar seus dados durante a ingestão, poderá usar suas contas de armazenamento em vez do armazenamento gerenciado pelo serviço. Usar sua própria conta de armazenamento lhe dá controle sobre o acesso, o conteúdo, a criptografia e a retenção dos logs durante a ingestão. Nós nos referimos a isso como Traga seu armazenamento ou BYOS. 
+O Azure Monitor usa contas de armazenamento no processo de ingestão de alguns tipos de dados, como [logs personalizados](data-sources-custom-logs.md) e alguns [logs do Azure](./diagnostics-extension-logs.md). Durante o processo de ingestão, os logs são enviados primeiro a uma conta de armazenamento e, posteriormente, ingeridos no Log Analytics ou Application Insights. Se você quiser controlar seus dados durante a ingestão, poderá usar suas contas de armazenamento em vez do armazenamento gerenciado pelo serviço. Usar sua própria conta de armazenamento lhe dá controle sobre o acesso, o conteúdo, a criptografia e a retenção dos logs durante a ingestão. Nós nos referimos a isso como Traga seu armazenamento ou BYOS. 
 
 Um cenário que requer BYOS é o isolamento de rede por meio de Links Privados. Ao usar uma VNet, o isolamento de rede é geralmente um requisito, e o acesso à Internet pública é limitado. Nesses casos, o acesso ao armazenamento do serviço Azure Monitor para ingestão de logs é completamente bloqueado ou considerado uma prática inadequada. Em vez disso, os logs devem ser ingeridos por meio de uma conta de armazenamento de propriedade do cliente dentro da VNet ou facilmente acessados a partir dela.
 
@@ -23,7 +23,7 @@ Outro cenário é a criptografia de logs com CMK (chaves gerenciadas pelo client
 
 ## <a name="data-types-supported"></a>Tipos de dados compatíveis
 
-Os tipos de dados que são ingeridos de uma conta de armazenamento incluem os apresentados a seguir. Confira [Coletar dados da extensão de diagnóstico do Azure para logs do Azure Monitor](azure-storage-iis-table.md) para obter mais informações sobre a ingestão desses tipos de dados.
+Os tipos de dados que são ingeridos de uma conta de armazenamento incluem os apresentados a seguir. Confira [Coletar dados da extensão de diagnóstico do Azure para logs do Azure Monitor](./diagnostics-extension-logs.md) para obter mais informações sobre a ingestão desses tipos de dados.
 
 | Type | Informações da tabela |
 |:-----|:------------------|
@@ -53,8 +53,8 @@ O único método disponível para criar e remover links é por meio da API REST.
 
 ## <a name="command-line-and-rest-api"></a>Linha de comando e API REST
 
-### <a name="command-line"></a>Linha de Comando
-Para criar e gerenciar contas de armazenamento vinculadas, use [AZ monitor log-Analytics espaço de trabalho vinculado-Storage](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage). Esse comando pode vincular e desvincular contas de armazenamento de um espaço de trabalho e listar as contas de armazenamento vinculadas.
+### <a name="command-line"></a>Linha de comando
+Para criar e gerenciar contas de armazenamento vinculadas, use [AZ monitor log-Analytics espaço de trabalho vinculado-Storage](/cli/azure/monitor/log-analytics/workspace/linked-storage). Esse comando pode vincular e desvincular contas de armazenamento de um espaço de trabalho e listar as contas de armazenamento vinculadas.
 
 ### <a name="request-and-cli-values"></a>Valores de solicitação e CLI
 

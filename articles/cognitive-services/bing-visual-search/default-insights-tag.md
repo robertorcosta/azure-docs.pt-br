@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: scottwhi
-ms.openlocfilehash: b6bc323f4e8deaf975c292f92d862b1fbe0e2714
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a11bf408f06b5c4e621f0af1f71f23c335dc2069
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60510115"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512632"
 ---
 # <a name="default-insights-tag"></a>Marcação de insights padrão
 
@@ -100,7 +100,7 @@ A marcação de insights padrão é aquela com o campo `displayName` definido co
 
 ## <a name="pagesincluding-insight"></a>Insight PagesIncluding
 
-O insight PagesIncluding fornece uma lista das páginas da Web que incluem essa imagem. Na verdade, é uma lista `Image` de objetos, e `hostPageUrl` o campo contém a URL para a página da Web que inclui a imagem. Por exemplo, para uso, consulte o [exemplo do PagesIncluding Insight](./bing-insights-usage.md#pagesincluding-insight-example).
+O insight PagesIncluding fornece uma lista das páginas da Web que incluem essa imagem. Na verdade, é uma lista de `Image` objetos, e o `hostPageUrl` campo contém a URL para a página da Web que inclui a imagem. Por exemplo, para uso, consulte o [exemplo do PagesIncluding Insight](./bing-insights-usage.md#pagesincluding-insight-example).
 
 ```json
       {
@@ -278,7 +278,7 @@ O insight Recipes fornece uma lista das páginas da Web que incluem uma receita 
 
 ## <a name="imagebyid-insight"></a>Insight ImageById
 
-O ImageById Insight fornece `Image` um objeto da imagem para a qual você solicitou informações:
+O ImageById Insight fornece um `Image` objeto da imagem para a qual você solicitou informações:
 
 ```json
       {
@@ -425,4 +425,12 @@ O DocumentLevelSuggestions Insight fornece uma lista de termos de pesquisa suger
 
 Confira [exemplos de uso do Bing insights](bing-insights-usage.md) para ver como o Bing pode exibir as informações visuais.
 
-Para começar rapidamente com sua primeira solicitação, consulte os guias de início rápido: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node. js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
+Para uma introdução rápida à primeira solicitação, consulte os guias de início rápido:
+
+* [C#](quickstarts/csharp.md)
+
+* [Java](quickstarts/java.md)
+
+* [node.js](quickstarts/nodejs.md)
+
+* [Python](quickstarts/python.md).

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: ffdfeacad2fcfa7f77f3bcb55e8b1edaea865202
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: e8bae2062051156d6de378e54bc354b3f785e403
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145167"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515454"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatíveis com o Azure Monitor
 
@@ -21,7 +21,7 @@ ms.locfileid: "86145167"
 
 O Azure Monitor fornece várias maneiras de interagir com as métricas, incluindo a criação de gráficos para os mesmos no portal, acessá-las por meio da API REST ou consultá-las usando o PowerShell ou a CLI. 
 
-Este artigo é uma lista completa de todas as métricas de plataforma (ou seja, coletadas automaticamente) atualmente disponíveis com o pipeline de métrica consolidado do Azure Monitor. A lista foi atualizada pela última vez em 27 de março de 2020. As métricas alteradas ou adicionadas após essa data podem não aparecer abaixo. Para consultar e acessar a lista de métricas programaticamente, use a [versão de api 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions). Outras métricas que não estão nessa lista podem estar disponíveis no portal ou usando APIs herdadas.
+Este artigo é uma lista completa de todas as métricas de plataforma (ou seja, coletadas automaticamente) atualmente disponíveis com o pipeline de métrica consolidado do Azure Monitor. A lista foi atualizada pela última vez em 27 de março de 2020. As métricas alteradas ou adicionadas após essa data podem não aparecer abaixo. Para consultar e acessar a lista de métricas programaticamente, use a [versão de api 2018-01-01](/rest/api/monitor/metricdefinitions). Outras métricas que não estão nessa lista podem estar disponíveis no portal ou usando APIs herdadas.
 
 As métricas são organizadas por provedores de recursos e tipo de recurso. Para obter uma lista de serviços e os provedores de recursos que pertencem a eles, consulte [provedores de recursos para serviços do Azure](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
@@ -516,7 +516,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |FileShareCount|Contagem de Compartilhamentos de Arquivos|Contagem|Média|O número de compartilhamentos de arquivos no serviço de arquivo da conta de armazenamento.|Nenhum|
 |FileShareSnapshotCount|Contagem de Instantâneos do Compartilhamento de Arquivo|Contagem|Média|O número de instantâneos presentes no serviço compartilhamento de arquivos da conta de armazenamento.|FileShare|
 |FileShareSnapshotSize|Tamanho do Instantâneo do Compartilhamento de Arquivo|Bytes|Média|A quantidade de armazenamento usada pelos instantâneos no serviço de arquivo da conta de armazenamento, em bytes.|FileShare|
-|FileShareQuota|Tamanho da cota do compartilhamento de arquivo|Bytes|Média|O limite superior da quantidade de armazenamento que pode ser usada pelo serviço de arquivos do Azure em bytes.|FileShare|
+|FileShareCapacityQuota|Tamanho da cota do compartilhamento de arquivo|Bytes|Média|O limite superior da quantidade de armazenamento que pode ser usada pelo serviço de arquivos do Azure em bytes.|FileShare|
 |Transações|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação, FileShare|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Esse número inclui a entrada de um cliente externo no Armazenamento do Azure, bem como a entrada no Azure.|Geotipo, ApiName, autenticação, FileShare|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Esse número inclui a saída de um cliente externo no Armazenamento do Azure, bem como a saída no Azure. Como resultado, esse número não reflete a saída faturável.|Geotipo, ApiName, autenticação, FileShare|
@@ -748,21 +748,6 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |BytesUploadedToCloud|Bytes Carregados na Nuvem (Dispositivo)|Bytes|Média|O número total de bytes que são carregados no Azure de um dispositivo durante o período de relatório.|Nenhum|
 |HyperVVirtualProcessorUtilization|Computação de Borda – Percentual de CPU|Porcentagem|Média|Porcentagem de uso da CPU|InstanceName|
 |HyperVMemoryUtilization|Computação de Borda – Uso de Memória|Porcentagem|Média|Quantidade de RAM em uso|InstanceName|
-
-
-## <a name="microsoftdatacatalogdatacatalogs"></a>Microsoft. datacatalog/datacatalogs
-
-|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
-|---|---|---|---|---|---|
-|AssetDistributionByClassification|Distribuição de ativos por classificação|Contagem|Total|Indica o número de ativos com uma determinada classificação atribuída, ou seja, eles são classificados com esse rótulo.|Classificação, origem|
-|AssetDistributionByStorageType|Distribuição de ativos por tipo de armazenamento|Contagem|Total|Indica o número de ativos com um determinado tipo de armazenamento.|StorageType|
-|NumberOfAssetsWithClassifications|Número de ativos com pelo menos uma classificação|Contagem|Média|Indica o número de ativos com pelo menos uma classificação de marca.|Nenhum|
-|ScanCancelled|Verificação cancelada|Contagem|Total|Indica o número de verificações canceladas.|Nenhum|
-|ScanCompleted|Verificação concluída|Contagem|Total|Indica o número de verificações concluídas com êxito.|Nenhum|
-|ScanFailed|Falha na verificação|Contagem|Total|Indica o número de verificações que falharam.|Nenhum|
-|ScanTimeTaken|Tempo de verificação tomado|Segundos|Total|Indica o tempo total de verificação em segundos.|Nenhum|
-|CatalogActiveUsers|Usuários ativos diariamente|Contagem|Total|Número de usuários ativos diariamente|Nenhum|
-|CatalogUsage|Distribuição de uso por operação|Contagem|Total|Indique o número de operações que o usuário faz no catálogo, ou seja, acessar, Pesquisar, Glossário.|Operação|
 
 
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
@@ -1320,7 +1305,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |StreamingIngestDuration|Duração da Ingestão de Streaming|Milissegundos|Média|Duração da ingestão de streaming em milissegundos|Nenhum|
 |StreamingIngestDataRate|Taxa de Dados de Ingestão de Streaming|Contagem|Média|Taxa de dados de ingestão de streaming (MB por segundo)|Nenhum|
 |SteamingIngestRequestRate|Taxa de Solicitação de Ingestão de Streaming|Contagem|RateRequestsPerSecond|Taxa de solicitação de ingestão de streaming (solicitações por segundo)|Nenhum|
-|StreamingIngestResults|Resultado da Ingestão de Streaming|Contagem|Média|Resultado de ingestão de streaming|Resultado|
+|StreamingIngestResults|Resultado da Ingestão de Streaming|Contagem|Média|Resultado de ingestão de streaming|Result|
 |TotalNumberOfConcurrentQueries|Número total de consultas simultâneas|Contagem|Total|Número total de consultas simultâneas|Nenhum|
 |TotalNumberOfThrottledQueries|Número total de consultas limitadas|Contagem|Total|Número total de consultas limitadas|Nenhum|
 |TotalNumberOfThrottledCommands|Número total de comandos regulados|Contagem|Total|Número total de comandos regulados|CommandType|
@@ -1856,7 +1841,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |Average_Bytes Total/sec|Bytes Totais/s|Contagem|Média|Average_Bytes Total/sec|Computador, ObjectName, InstanceName, caminho, SourceSystem|
 |Average_Processor Queue Length|Tamanho da fila do processador|Contagem|Média|Average_Processor Queue Length|Computador, ObjectName, InstanceName, caminho, SourceSystem|
 |Pulsação|Pulsação|Contagem|Total|Pulsação|Computador, OSType, versão, SourceComputerId|
-|Atualizar|Atualizar|Contagem|Média|Atualizar|Computador, produto, classificação, UpdateState, opcional, aprovado|
+|Atualização|Atualizar|Contagem|Média|Atualização|Computador, produto, classificação, UpdateState, opcional, aprovado|
 |Evento|Evento|Contagem|Média|Evento|Origem, EventLog, computador, EventCategory, EventLevel, EventLevelName, EventID|
 
 ## <a name="microsoftpeeringpeeringservices"></a>Microsoft. emparelhamento/peeringServices
@@ -2145,7 +2130,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |FileShareCount|Contagem de Compartilhamentos de Arquivos|Contagem|Média|O número de compartilhamentos de arquivos no serviço de arquivo da conta de armazenamento.|Nenhum|
 |FileShareSnapshotCount|Contagem de instantâneos do compartilhamento de arquivo|Contagem|Média|O número de instantâneos presentes no serviço compartilhamento de arquivos da conta de armazenamento.|FileShare|
 |FileShareSnapshotSize|Tamanho do instantâneo do compartilhamento de arquivo|Bytes|Média|A quantidade de armazenamento usada pelos instantâneos no serviço de arquivo da conta de armazenamento, em bytes.|FileShare|
-|FileShareQuota|Tamanho da cota do compartilhamento de arquivo|Bytes|Média|O limite superior da quantidade de armazenamento que pode ser usada pelo serviço de arquivos do Azure em bytes.|FileShare|
+|FileShareCapacityQuota|Tamanho da cota do compartilhamento de arquivo|Bytes|Média|O limite superior da quantidade de armazenamento que pode ser usada pelo serviço de arquivos do Azure em bytes.|FileShare|
 |Transações|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação, FileShare|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Esse número inclui a entrada de um cliente externo no Armazenamento do Azure, bem como a entrada no Azure.|Geotipo, ApiName, autenticação, FileShare|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Esse número inclui a saída de um cliente externo no Armazenamento do Azure, bem como a saída no Azure. Como resultado, esse número não reflete a saída faturável.|Geotipo, ApiName, autenticação, FileShare|
@@ -2266,8 +2251,8 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |OrchestrationPipelineRunsEnded|Execuções de pipeline finalizadas|Contagem|Total|Contagem de execuções do pipeline de orquestração que tiveram êxito, falharam ou foram canceladas|Resultado, FailureType, pipeline|
 |OrchestrationActivityRunsEnded|Execuções de atividades encerradas|Contagem|Total|Contagem de atividades de orquestração que tiveram êxito, falharam ou foram canceladas|Resultado, FailureType, atividade, ActivityType, pipeline|
 |OrchestrationTriggersEnded|Gatilhos encerrados|Contagem|Total|Contagem de gatilhos de orquestração que foram bem-sucedidos, com falha ou foram cancelados|Resultado, FailureType, gatilho|
-|SQLOnDemandLoginAttempts|Tentativas de logon|Contagem|Total|Contagem de tentativas de logon que êxito na ou com falha|Resultado|
-|SQLOnDemandQueriesEnded|Consultas encerradas|Contagem|Total|Contagem de consultas que tiveram êxito, falharam ou foram canceladas|Resultado|
+|SQLOnDemandLoginAttempts|Tentativas de logon|Contagem|Total|Contagem de tentativas de logon que êxito na ou com falha|Result|
+|SQLOnDemandQueriesEnded|Consultas encerradas|Contagem|Total|Contagem de consultas que tiveram êxito, falharam ou foram canceladas|Result|
 |SQLOnDemandQueryProcessedBytes|Dados processados|Bytes|Total|Quantidade de dados processados por consultas|Nenhum|
 
 ## <a name="microsoftsynapseworkspacesbigdatapools"></a>Microsoft. Synapse/Workspaces/bigDataPools
@@ -2290,7 +2275,7 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 |AdaptiveCacheUsedPercent|Percentual de cache adaptável usado|Porcentagem|Máximo|Mede o quão bem as cargas de trabalho estão utilizando o cache adaptável. Use essa métrica com a métrica percentual usada do cache para determinar se deve ser dimensionada para capacidade adicional ou executar novamente as cargas de trabalho para hidratar o cache|Nenhum|
 |LocalTempDBUsedPercent|Percentual de uso do tempdb local|Porcentagem|Máximo|Utilização de tempdb local em todos os nós de computação-os valores são emitidos a cada cinco minutos|Nenhum|
 |MemoryUsedPercent|Porcentagem de utilização da memória|Porcentagem|Máximo|Utilização de memória em todos os nós no pool de SQL|Nenhum|
-|conexões|conexões|Contagem|Total|Contagem de logons totais para o pool do SQL|Resultado|
+|conexões|conexões|Contagem|Total|Contagem de logons totais para o pool do SQL|Result|
 |WLGActiveQueries|Consultas ativas do grupo de carga de trabalho|Contagem|Total|As consultas ativas no grupo de cargas de trabalho. Usar essa métrica não filtrada e a divisão exibe todas as consultas ativas em execução no sistema|IsUserDefined, de carga de trabalho|
 |WLGActiveQueriesTimeouts|Tempos limite de consulta do grupo de carga de trabalho|Contagem|Total|Consultas para o grupo de cargas de trabalho que atingiram o tempo limite. Os tempos limite de consulta relatados por essa métrica são apenas uma vez que a consulta começou a ser executada (ela não inclui o tempo de espera devido a esperas de bloqueio ou de recursos)|IsUserDefined, de carga de trabalho|
 |WLGAllocationBySystemPercent|Percentual de alocação do grupo de carga de trabalho por sistema|Porcentagem|Máximo|A alocação percentual de recursos em relação a todo o sistema|IsUserDefined, de carga de trabalho|
@@ -2534,4 +2519,3 @@ Há algumas limitações no que pode ser roteado e no formulário em que eles s�
 * [Leia sobre as métricas no Azure Monitor](data-platform.md)
 * [Criar alertas nas métricas](alerts-overview.md)
 * [Exportar as métricas de armazenamento, Hub de eventos ou Log Analytics](platform-logs-overview.md)
-

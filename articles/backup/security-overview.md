@@ -3,11 +3,12 @@ title: Visão geral de recursos de segurança
 description: Saiba mais sobre as funcionalidades de segurança no Backup do Azure que ajudam a proteger seus dados de backup e a atender às necessidades de segurança de sua empresa.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 178518f9f04a789f3cb634797cab650e24864337
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ce6d8a43b48be5189f0459c9f82c69354f40689f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653792"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513194"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Visão geral dos recursos de segurança no Backup do Azure
 
@@ -15,17 +16,17 @@ Um dos passos mais importantes que você pode dar para proteger seus dados é te
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>Gerenciamento e controle de identidade e acesso de usuário
 
-As contas de armazenamento usadas pelos cofres dos Serviços de Recuperação são isoladas e não podem ser acessadas por usuários para fins mal-intencionados. O acesso é permitido somente por meio de operações de gerenciamento do Backup do Azure, como a restauração. O Backup do Azure permite que você controle as operações gerenciadas por meio de acesso refinado usando o [RBAC (Controle de Acesso Baseado em Função) do Azure](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault). O RBAC permite a você separar as tarefas dentro de sua equipe e conceder somente o nível de acesso de que os membros dela precisam para realizar os respectivos trabalhos.
+As contas de armazenamento usadas pelos cofres dos Serviços de Recuperação são isoladas e não podem ser acessadas por usuários para fins mal-intencionados. O acesso é permitido somente por meio de operações de gerenciamento do Backup do Azure, como a restauração. O Backup do Azure permite que você controle as operações gerenciadas por meio de acesso refinado usando o [RBAC (Controle de Acesso Baseado em Função) do Azure](./backup-rbac-rs-vault.md). O RBAC permite a você separar as tarefas dentro de sua equipe e conceder somente o nível de acesso de que os membros dela precisam para realizar os respectivos trabalhos.
 
-O Backup do Azure oferece três [funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) para controlar as operações de gerenciamento de backups:
+O Backup do Azure oferece três [funções internas](../role-based-access-control/built-in-roles.md) para controlar as operações de gerenciamento de backups:
 
 * Colaborador de Backup: para criar e gerenciar backups, exceto criar o cofre dos Serviços de Recuperação e fornecer acesso a outras pessoas
 * Operador de Backup: fazer tudo que um colaborador faz, exceto remover backups e gerenciar políticas de backup
 * Leitor de Backup: permissões para exibir todas as operações de gerenciamento de backups
 
-Saiba mais sobre o [controle de acesso baseado em função para gerenciar o Backup do Azure](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
+Saiba mais sobre o [controle de acesso baseado em função para gerenciar o Backup do Azure](./backup-rbac-rs-vault.md).
 
-O Backup do Azure tem vários controles de segurança incorporados ao serviço para impedir, detectar e responder a vulnerabilidades de segurança. Saiba mais sobre [controles de segurança para o Backup do Azure](https://docs.microsoft.com/azure/backup/backup-security-controls).
+O Backup do Azure tem vários controles de segurança incorporados ao serviço para impedir, detectar e responder a vulnerabilidades de segurança. Saiba mais sobre [controles de segurança para o Backup do Azure](./backup-security-controls.md).
 
 ## <a name="separation-between-guest-and-azure-storage"></a>Separação entre o convidado e o Armazenamento do Azure
 
@@ -37,9 +38,9 @@ O backup de VMs do Azure requer a movimentação de dados do disco da máquina v
 
 ## <a name="private-endpoints-for-azure-backup"></a>Pontos de extremidade privados para o Backup do Azure
 
-Agora, você pode usar [Pontos de Extremidade Privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) para fazer backup de dados de maneira segura de servidores dentro de uma rede virtual para seu cofre dos Serviços de Recuperação. O ponto de extremidade privado usa um IP do espaço de endereço de VNET para seu cofre, portanto, você não precisa expor suas redes virtuais para nenhum IP público. Os Pontos de Extremidade Privados podem ser usados para fazer backup e restaurar os bancos de dados SQL e SAP HANA executados dentro de suas VMs do Azure. Eles também podem ser usados para servidores locais que usam o agente MARS.
+Agora, você pode usar [Pontos de Extremidade Privados](../private-link/private-endpoint-overview.md) para fazer backup de dados de maneira segura de servidores dentro de uma rede virtual para seu cofre dos Serviços de Recuperação. O ponto de extremidade privado usa um IP do espaço de endereço de VNET para seu cofre, portanto, você não precisa expor suas redes virtuais para nenhum IP público. Os Pontos de Extremidade Privados podem ser usados para fazer backup e restaurar os bancos de dados SQL e SAP HANA executados dentro de suas VMs do Azure. Eles também podem ser usados para servidores locais que usam o agente MARS.
 
-Leia mais sobre pontos de extremidade privados para o Backup do Azure [aqui](https://docs.microsoft.com/azure/backup/private-endpoints).
+Leia mais sobre pontos de extremidade privados para o Backup do Azure [aqui](./private-endpoints.md).
 
 ## <a name="encryption-of-data-in-transit-and-at-rest"></a>Criptografia de dados em trânsito e em repouso
 
@@ -47,7 +48,7 @@ A criptografia protege seus dados e ajuda a atender aos compromissos de conformi
 
 * Os dados de backup são criptografados automaticamente usando chaves gerenciadas pela Microsoft. Você também pode criptografar suas VMs de disco gerenciado de backup no cofre dos Serviços de Recuperação usando [chaves gerenciadas pelo cliente](backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys) armazenadas no Azure Key Vault. Você não precisa tomar nenhuma ação explícita para habilitar essa criptografia. Ele se aplica a todas as cargas de trabalho cujo backup está sendo feito em seu cofre dos Serviços de Recuperação.
 
-* O Backup do Azure dá suporte ao backup e restauração de VMs do Azure que têm os respectivos discos de sistema operacional/dados criptografados com o ADE (Azure Disk Encryption). [Saiba mais sobre as VMs do Azure criptografadas e o Backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
+* O Backup do Azure dá suporte ao backup e restauração de VMs do Azure que têm os respectivos discos de sistema operacional/dados criptografados com o ADE (Azure Disk Encryption). [Saiba mais sobre as VMs do Azure criptografadas e o Backup do Azure](./backup-azure-vms-encryption.md).
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>Proteção de dados de backup de exclusões não intencionais
 
@@ -55,15 +56,15 @@ O Backup do Azure fornece recursos de segurança para ajudar a proteger os dados
 
 ## <a name="monitoring-and-alerts-of-suspicious-activity"></a>Monitoramento e alertas de atividade suspeita
 
-O Backup do Azure fornece [funcionalidades internas de monitoramento e alerta](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor) para exibir e configurar ações para eventos relacionados ao Backup do Azure. Os [Relatórios de Backup](https://docs.microsoft.com/azure/backup/configure-reports) funcionam como um destino único para controlar o uso, auditar backups e restaurações e identificar as principais tendências em níveis diferentes de granularidade. Usar as ferramentas de monitoramento e relatório do Backup do Azure pode alertá-lo sobre qualquer atividade não autorizada, suspeita ou mal-intencionada assim que ela ocorrer.
+O Backup do Azure fornece [funcionalidades internas de monitoramento e alerta](./backup-azure-monitoring-built-in-monitor.md) para exibir e configurar ações para eventos relacionados ao Backup do Azure. Os [Relatórios de Backup](./configure-reports.md) funcionam como um destino único para controlar o uso, auditar backups e restaurações e identificar as principais tendências em níveis diferentes de granularidade. Usar as ferramentas de monitoramento e relatório do Backup do Azure pode alertá-lo sobre qualquer atividade não autorizada, suspeita ou mal-intencionada assim que ela ocorrer.
 
 ## <a name="security-features-to-help-protect-hybrid-backups"></a>Recursos de segurança para ajudar a proteger backups híbridos
 
 O serviço de Backup do Azure usa o agente de MARS (Serviços de Recuperação do Microsoft Azure) para fazer backup e restaurar arquivos, pastas e o estado do volume ou do sistema de um computador local para o Azure. O MARS agora fornece recursos de segurança para ajudar a proteger backups híbridos. Esses recursos incluem:
 
-* Uma camada adicional de autenticação será adicionada sempre que uma operação crítica, como a alteração de senha, for executada. Essa validação é garantir que essas operações possam ser realizadas apenas por usuários com credenciais válidas do Azure. [Saiba mais sobre os recursos que impedem ataques](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#prevent-attacks).
+* Uma camada adicional de autenticação será adicionada sempre que uma operação crítica, como a alteração de senha, for executada. Essa validação é garantir que essas operações possam ser realizadas apenas por usuários com credenciais válidas do Azure. [Saiba mais sobre os recursos que impedem ataques](./backup-azure-security-feature.md#prevent-attacks).
 
-* Os dados de backup excluídos são retidos por mais 14 dias desde a data da exclusão. Isso garante a capacidade de recuperação de dados em um determinado período de tempo de maneira que não haja perda de dados mesmo se houver um ataque. Além disso, mais pontos de recuperação mínimos são mantidos para proteção contra dados corrompidos. [Saiba mais sobre a recuperação de dados de backup excluídos](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#recover-deleted-backup-data).
+* Os dados de backup excluídos são retidos por mais 14 dias desde a data da exclusão. Isso garante a capacidade de recuperação de dados em um determinado período de tempo de maneira que não haja perda de dados mesmo se houver um ataque. Além disso, mais pontos de recuperação mínimos são mantidos para proteção contra dados corrompidos. [Saiba mais sobre a recuperação de dados de backup excluídos](./backup-azure-security-feature.md#recover-deleted-backup-data).
 
 * Para backup de dados usando o agente de MARS (Serviços de Recuperação do Microsoft Azure), uma frase secreta é usada para garantir que os dados sejam criptografados antes do carregamento para o Backup do Azure e descriptografados somente após o download do Backup do Azure. Os detalhes da frase secreta estão disponíveis somente para o usuário que criou a senha e o agente que está configurado com ele. Nada é transmitido nem compartilhado com o serviço. Isso garante a segurança total de seus dados, pois todos os dados expostos inadvertidamente (como um ataque man-in-the-middle na rede) não são utilizáveis sem a frase secreta, que não é enviada na rede.
 

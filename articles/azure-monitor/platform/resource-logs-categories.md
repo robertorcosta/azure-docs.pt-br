@@ -4,11 +4,12 @@ description: Referência de Azure Monitor entender os serviços com suporte e o 
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
-ms.openlocfilehash: 6156b9d311859534160258256ff6315b037f3a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ceca6b0a230de6d3eeab47e60d90767b33b5ac59
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418586"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515386"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorias com suporte para logs de recursos do Azure
 
@@ -104,7 +105,7 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 |WebApplicationFirewallLogs|Logs de firewall do aplicativo Web|
 
 
-## <a name="microsoftcdnprofiles"></a>Microsoft. CDN/Profiles
+## <a name="microsoftcdnprofiles"></a>Microsoft.Cdn/profiles
 
 |Categoria|Nome de exibição da categoria|
 |---|---|
@@ -711,6 +712,6 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba mais sobre os logs de recursos](../../azure-monitor/platform/platform-logs-overview.md)
-* [Transmitir logs de recurso de recurso para **hubs de eventos**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-* [Alterar as configurações de diagnóstico do log de recursos usando a API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
-* [Analisar logs do Armazenamento do Azure com o Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+* [Transmitir logs de recurso de recurso para **hubs de eventos**](./resource-logs.md#send-to-azure-event-hubs)
+* [Alterar as configurações de diagnóstico do log de recursos usando a API REST do Azure Monitor](/rest/api/monitor/diagnosticsettings)
+* [Analisar logs do Armazenamento do Azure com o Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 58f542238c952088777ed9809b57dae3cdb9cf12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 68e88ec90625f34e5bc8ae1b70c75e3cfe9a53ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457256"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515522"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de dados do Azure Monitor
 
@@ -49,7 +49,7 @@ Os logs do Azure Monitor são armazenados em um workspace do Log Analytics basea
 > É importante diferenciar os Logs do Azure Monitor e as origens de dados de log no Azure. Por exemplo, os eventos de nível de assinatura no Azure são gravados em um [log de atividades](platform-logs-overview.md) que pode ser visto no menu do Azure Monitor. A maioria dos recursos gravam informações operacionais em um [log de recursos](platform-logs-overview.md) que pode ser encaminhado para diferentes locais. Os Logs do Azure Monitor são uma plataforma de dados de log que coleta logs de atividade e de recursos junto com outros dados de monitoramento para fornecer uma análise profunda de todo o seu conjunto de recursos.
 
 
- Trabalhe com as [consultas de log](../log-query/log-query-overview.md) de maneira interativa com o [Log Analytics](../log-query/portals.md) no portal do Azure ou adicione os resultados a um [painel do Azure](../learn/tutorial-app-dashboards.md) para visualização, em combinação com outros dados. Crie também [alertas de log](alerts-log.md), que disparam um alerta com base nos resultados de uma consulta de agendamento.
+ Trabalhe com as [consultas de log](../log-query/log-query-overview.md) de maneira interativa com o [Log Analytics](../log-query/log-query-overview.md) no portal do Azure ou adicione os resultados a um [painel do Azure](../learn/tutorial-app-dashboards.md) para visualização, em combinação com outros dados. Crie também [alertas de log](alerts-log.md), que disparam um alerta com base nos resultados de uma consulta de agendamento.
 
 Leia mais sobre os Logs do Azure Monitor, incluindo as fontes de dados em [Logs no Azure Monitor](data-platform-logs.md).
 
@@ -81,7 +81,7 @@ Confira [Métricas no Azure Monitor](data-platform-metrics.md) e [Logs no Azure 
 
 
 ## <a name="stream-data-to-external-systems"></a>Transmitir dados para sistemas externos
-Além de usar as ferramentas no Azure para analisar os dados de monitoramento, pode haver a exigência de encaminhá-los para uma ferramenta externa, como um produto SIEM (gerenciamento de eventos e informações de segurança). Esse encaminhamento normalmente é feito diretamente de recursos monitorados por meio dos [Hubs de Eventos](/azure/event-hubs/). Algumas fontes podem ser configuradas para enviar dados diretamente a um hub de eventos, embora você possa usar outro processo, como um aplicativo lógico, para recuperar os dados necessários. Confira [Transmitir os dados de monitoramento do Azure para um hub de eventos para consumo por meio de uma ferramenta externa](stream-monitoring-data-event-hubs.md) para obter detalhes.
+Além de usar as ferramentas no Azure para analisar os dados de monitoramento, pode haver a exigência de encaminhá-los para uma ferramenta externa, como um produto SIEM (gerenciamento de eventos e informações de segurança). Esse encaminhamento normalmente é feito diretamente de recursos monitorados por meio dos [Hubs de Eventos](../../event-hubs/index.yml). Algumas fontes podem ser configuradas para enviar dados diretamente a um hub de eventos, embora você possa usar outro processo, como um aplicativo lógico, para recuperar os dados necessários. Confira [Transmitir os dados de monitoramento do Azure para um hub de eventos para consumo por meio de uma ferramenta externa](stream-monitoring-data-event-hubs.md) para obter detalhes.
 
 
 

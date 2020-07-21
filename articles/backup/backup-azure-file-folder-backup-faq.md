@@ -1,18 +1,18 @@
 ---
-title: Fazendo backup de arquivos e pastas-perguntas comuns
+title: Agente de Serviços de Recuperação do Microsoft Azure (MARS) – perguntas frequentes
 description: Aborda perguntas comuns sobre como fazer backup de arquivos e pastas com o backup do Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 0ecff00fdfaf9b0ca494cd1c78d0a5e16b198995
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: fb6290124aa9ee0335083c5a505c005a387c0cd7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056167"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514060"
 ---
-# <a name="common-questions-about-backing-up-files-and-folders"></a>Perguntas frequentes sobre como fazer backup de arquivos e pastas
+# <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Agente de perguntas frequentes – Serviços de Recuperação do Microsoft Azure (MARS)
 
-Este artigo responde a perguntas comuns abound backup de arquivos e pastas com o agente de Serviços de Recuperação do Microsoft Azure (MARS) no serviço de [backup do Azure](backup-overview.md) .
+Este artigo responde a perguntas comuns sobre como fazer backup de dados com o agente de Serviços de Recuperação do Microsoft Azure (MARS) no serviço de [backup do Azure](backup-overview.md) .
 
 ## <a name="configure-backups"></a>Configurar backups
 
@@ -74,11 +74,11 @@ Quando você renomeia um computador Windows, todos os backups atualmente configu
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>Qual é o comprimento máximo do caminho de arquivo para backup?
 
-O agente MARS depende do NTFS e usa a especificação de comprimento FilePath limitada pela API do [Windows](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths). Se os arquivos que você deseja proteger forem maiores do que o valor permitido, faça backup da pasta pai ou da unidade de disco.  
+O agente MARS depende do NTFS e usa a especificação de comprimento FilePath limitada pela API do [Windows](/windows/win32/FileIO/naming-a-file#fully-qualified-vs-relative-paths). Se os arquivos que você deseja proteger forem maiores do que o valor permitido, faça backup da pasta pai ou da unidade de disco.  
 
 ### <a name="what-characters-are-allowed-in-file-paths"></a>Quais caracteres são permitidos em caminhos de arquivo?
 
-O agente MARS depende do NTFS e permite [caracteres com suporte](/windows/desktop/FileIO/naming-a-file#naming-conventions) em nomes/caminhos de arquivo.
+O agente MARS depende do NTFS e permite [caracteres com suporte](/windows/win32/FileIO/naming-a-file#naming-conventions) em nomes/caminhos de arquivo.
 
 ### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>O aviso "backups do Azure não foram configurados para este servidor" aparece
 
@@ -91,11 +91,11 @@ Esse aviso pode aparecer mesmo que você tenha configurado uma política de back
 
 ### <a name="whats-the-minimum-size-requirement-for-the-cache-folder"></a>Qual é o requisito de tamanho mínimo para a pasta de cache?
 
-O tamanho da pasta de cache determina a quantidade de dados submetida a backup.
+O tamanho da pasta de cache determina a quantidade de dados que você está fazendo backup.
 
 * Os volumes da pasta de cache devem ter espaço livre igual a pelo menos 5-10% do tamanho total dos dados de backup.
 * Se o volume tiver menos de 5% de espaço livre, aumente o tamanho do volume ou mova a pasta de cache para um volume com espaço suficiente seguindo [estas etapas](#how-do-i-change-the-cache-location-for-the-mars-agent).
-* Se você fazer backup do estado do sistema do Windows, precisará de mais 30-35 GB de espaço livre no volume que contém a pasta de cache.
+* Se você fizer backup do estado do sistema do Windows, precisará de mais 30-35 GB de espaço livre no volume que contém a pasta de cache.
 
 ### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Como verificar se a pasta de rascunho é válida e acessível?
 
@@ -141,7 +141,7 @@ Os seguintes locais para a pasta de cache não são recomendados:
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-arent-supported"></a>Há algum atributo da pasta de cache que não tem suporte?
 
-Os atributos a seguir, ou suas combinações, não têm suporte para a pasta de cache:
+Os seguintes atributos ou suas combinações não têm suporte para a pasta de cache:
 
 * Criptografado
 * Eliminação de duplicação
@@ -165,17 +165,17 @@ O agente de backup do Azure requer uma frase secreta (que você forneceu durante
 
 | Computador original <br> *(computador de origem onde os backups foram feitos)* | Senha | Opções Disponíveis |
 | --- | --- | --- |
-| Disponível |Excluído |Se o computador original (em que os backups foram feitos) estiver disponível e ainda estiver registrado no mesmo cofre dos serviços de recuperação, você poderá regenerar a senha seguindo estas [etapas](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase).  |
+| Disponível |Excluído |Se o computador original (em que os backups foram feitos) estiver disponível e ainda estiver registrado no mesmo cofre dos serviços de recuperação, você poderá regenerar a senha seguindo estas [etapas](./backup-azure-manage-mars.md#re-generate-passphrase).  |
 | Excluído |Excluído |Não é possível recuperar os dados ou os dados não estão disponíveis |
 
 Considere as seguintes condições:
 
-* Se você desinstalar e registrar novamente o agente no mesmo computador original com
-  * *Mesma frase secreta*, você poderá restaurar os dados de backups.
-  * *Senha diferente*. em seguida, você não poderá restaurar os dados de backup.
-* Se você instalar o agente em um *computador diferente* com
-  * *Mesma frase secreta* (usada no computador original), você poderá restaurar os dados de backups.
-  * Uma *senha diferente*, você não poderá restaurar os dados de backup.
+* Se você desinstalar e registrar novamente o agente no mesmo computador original com três
+  * *Mesma senha*, você pode restaurar os dados de backup.
+  * *Senha diferente*. em seguida, você não pode restaurar os dados de backup.
+* Se você instalar o agente em um *computador diferente* com o
+  * *Mesma senha* (usada no computador original), você pode restaurar os dados de backup.
+  * *Senha diferente*, você não pode restaurar os dados de backup.
 * Se o computador original estiver corrompido (impedindo a regeneração da senha por meio do console do MARS), mas você puder restaurar ou acessar a pasta de rascunho original usada pelo agente MARS, poderá restaurar (se você esqueceu a senha). Para obter mais assistência, entre em contato com o atendimento ao cliente.
 
 #### <a name="how-do-i-recover-if-i-lost-my-original-machine-where-backups-were-taken"></a>Como fazer recuperar se eu perder minha máquina original (onde os backups foram feitos)?
@@ -184,7 +184,7 @@ Se você tiver a mesma senha (que você forneceu durante o registro) da máquina
 
 | Computador original | Senha | Opções Disponíveis |
 | --- | --- | --- |
-| Excluído |Disponível |Você pode instalar e registrar o agente MARS em outro computador com a mesma senha que você forneceu durante o registro do computador original. Escolha a **opção de recuperação**  >  **outro local** para executar a restauração. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Excluído |Disponível |Você pode instalar e registrar o agente MARS em outro computador com a mesma senha que você forneceu durante o registro do computador original. Escolha a **opção de recuperação**  >  **outro local** para executar a restauração. Para obter mais informações, consulte este [artigo](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Excluído |Excluído |Não é possível recuperar os dados ou os dados não estão disponíveis |
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Meus trabalhos de backup estavam falhando ou não em execução há muito tempo. Estou além do período de retenção. Ainda posso restaurar?

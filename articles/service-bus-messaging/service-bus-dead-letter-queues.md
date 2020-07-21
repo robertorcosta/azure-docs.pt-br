@@ -3,11 +3,13 @@ title: Filas de mensagens mortas do Barramento de Serviço | Microsoft Docs
 description: Descreve as filas de mensagens mortas no Barramento de Serviço do Azure. As filas e as assinaturas de tópico do Barramento de Serviço fornecem uma subfila secundária chamada fila de mensagens mortas.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 62db4e71d99d1242cfbb69bdb7979bf9e5dc67ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 7078a7889947c4121713e9374d1487f408fed871
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337576"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511204"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Visão geral das filas de mensagens mortas do Barramento de Serviço
 
@@ -56,7 +58,7 @@ Esse comportamento não pode ser desabilitado, mas você pode definir [MaxDelive
 
 Quando a propriedade [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) ou [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) for definida como **true** (o padrão é **false**), todas as mensagens expiradas serão movidas para a DLQ, especificando o código de motivo `TTLExpiredException`.
 
-As mensagens expiradas só são limpas e movidas para a DLQ quando há pelo menos um receptor ativo extraindo da assinatura ou fila principal; esse comportamento é intencional.
+As mensagens expiradas só são limpas e movidas para o DLQ quando há pelo menos uma recepção de receptor ativa da fila principal ou da assinatura, e [as mensagens adiadas](./message-deferral.md) também não serão limpas e movidas para a fila de mensagens mortas depois que elas expirarem. Esses comportamentos são por design.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Erros ao processar as regras de assinatura
 

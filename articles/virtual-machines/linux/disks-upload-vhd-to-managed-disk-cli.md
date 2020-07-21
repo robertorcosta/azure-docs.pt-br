@@ -8,12 +8,12 @@ ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 259b46d21cee4c1106e1d307eeb325a4c430613f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8656f0396aff7f20c867a5fae3d929236a3aa0d5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945623"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510439"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Carregar um VHD no Azure ou copiar um disco gerenciado para outra região-CLI do Azure
 
@@ -34,7 +34,7 @@ Para carregar o VHD no Azure, você precisará criar um disco gerenciado vazio q
 
 Esse tipo de disco gerenciado tem dois Estados exclusivos:
 
-- ReadToUpload, que significa que o disco está pronto para receber um upload, mas nenhuma [assinatura de acesso seguro](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS) foi gerada.
+- ReadToUpload, que significa que o disco está pronto para receber um upload, mas nenhuma [assinatura de acesso seguro](../../storage/common/storage-sas-overview.md) (SAS) foi gerada.
 - ActiveUpload, o que significa que o disco está pronto para receber um upload e a SAS foi gerada.
 
 > [!NOTE]
@@ -132,4 +132,3 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você carregou com êxito um VHD em um disco gerenciado, é possível anexar o disco como um [disco de dados a uma VM existente](add-disk.md) ou [anexar o disco a uma VM como um disco do sistema operacional](upload-vhd.md#create-the-vm), para criar uma nova VM. 
-

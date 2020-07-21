@@ -3,12 +3,12 @@ title: Fazer backup de máquinas virtuais do Hyper-V com MABS
 description: Este artigo contém os procedimentos para fazer backup e recuperação de máquinas virtuais usando o Backup do Microsoft Azure Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 71cf446472ef0cf4f50bf64e47d359ea08ccc087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf267285e47f6695f2c6104cbc1817f5e733fa29
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80420410"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514537"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Fazer backup de máquinas virtuais do Hyper-V com Servidor de Backup do Azure
 
@@ -54,7 +54,7 @@ O MABS executa o backup com VSS da seguinte maneira. As etapas nessa descrição
 
 >[!NOTE]
 >
->A partir do Windows Server 2016, os discos rígidos virtuais do Hyper-V têm controle de alterações interno conhecido como RCT (controle de alterações resiliente). O MABS usa RCT (o controle de alterações nativo no Hyper-V), que diminui a necessidade de verificações de consistência demoradas em cenários como falhas de VM. O RCT fornece melhor resiliência do que o rastreamento de alterações fornecido pelos backups baseados em instantâneos do VSS. O MABS V3 otimiza ainda mais o consumo de rede e armazenamento, transferindo apenas os dados alterados durante as verificações de consistência.
+>A partir do Windows Server 2016, os discos rígidos virtuais do Hyper-V têm controle de alterações interno conhecido como RCT (controle de alterações resiliente). O MABS usa RCT (o controle de alterações nativo no Hyper-V), que diminui a necessidade de verificações de consistência demoradas em cenários como falhas de VM. O RCT fornece melhor resiliência que o controle de alterações fornecido pelos backups baseados em instantâneos do VSS. O MABS V3 otimiza ainda mais o consumo de rede e armazenamento, transferindo apenas os dados alterados durante as verificações de consistência.
 
 ## <a name="backup-prerequisites"></a>Pré-requisitos de backup
 
@@ -155,4 +155,4 @@ Quando for possível recuperar uma máquina virtual do backup, use o Assistente 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Recuperar dados do Servidor de Backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server)
+[Recuperar dados do Servidor de Backup do Azure](./backup-azure-alternate-dpm-server.md)

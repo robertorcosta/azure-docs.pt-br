@@ -3,17 +3,18 @@ title: Solucionar Problemas do System Center Data Protection Manager
 description: Neste artigo, descubra soluções para problemas que você pode encontrar ao usar o System Center Data Protection Manager.
 ms.topic: troubleshooting
 ms.date: 01/30/2019
-ms.openlocfilehash: bcb30fa7eb3e05099761fc751b09a9fb16134e34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84646f34d905b570855f655465529eb19b717cab
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75664760"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513805"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Solucionar Problemas do System Center Data Protection Manager
 
 Este artigo descreve soluções para problemas que você pode encontrar ao usar o Data Protection Manager.
 
-Para obter as notas de versão mais recentes para o System Center Data Protection Manager, veja a [documentação do System Center](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). Você pode aprender mais sobre o suporte para o Data Protection Manager [nesta matriz](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
+Para obter as notas de versão mais recentes para o System Center Data Protection Manager, veja a [documentação do System Center](/system-center/dpm/dpm-release-notes). Você pode aprender mais sobre o suporte para o Data Protection Manager [nesta matriz](/system-center/dpm/dpm-protection-matrix).
 
 ## <a name="error-replica-is-inconsistent"></a>Erro: a réplica é inconsistente
 

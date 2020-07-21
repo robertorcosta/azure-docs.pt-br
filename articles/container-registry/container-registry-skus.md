@@ -3,11 +3,12 @@ title: Recursos e camadas de serviço do registro
 description: Saiba mais sobre os recursos e limites nas camadas de serviço Básico, Standard e Premium (SKUs) do Registro de Contêiner do Azure.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 35f5d4ebd4a2b427aadc6e82e265a7da9b6409f8
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 66cb5d7c3cdca45f7a44f0f23bfa449d5ade6dbf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683440"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512598"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Criar camadas de serviço do Registro de Contêiner do Azure
 
@@ -23,7 +24,7 @@ Todas as camadas Básica, Standard e Premium fornecem os mesmos recursos de prog
 
 ## <a name="service-tier-features-and-limits"></a>Recursos e limites de camada de serviço
 
-A tabela a seguir fornece detalhes sobre os recursos e os limites das camadas de serviço Básico, Standard e Premium.
+A tabela a seguir detalha os recursos e limites de registro das camadas de serviço Basic, Standard e Premium.
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 

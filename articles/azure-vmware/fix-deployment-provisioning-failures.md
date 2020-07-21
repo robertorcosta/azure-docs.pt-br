@@ -3,11 +3,12 @@ title: Obtenha ajuda com a implantação de solução do Azure VMware ou falhas 
 description: Como obter as informações de que você precisa de sua nuvem privada da AVS (solução VMware) do Azure para arquivar uma solicitação de serviço para implantação de AVS ou falhas de provisionamento.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 3032c01d48617347c454d71498571b0e6b789e32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05c9dee088b37c37cdcdee7e745cdcd2222b63e0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986885"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514570"
 ---
 # <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Obtenha ajuda com a implantação de solução do Azure VMware ou falhas de provisionamento
 
@@ -28,8 +29,8 @@ Copie e salve essa ID de correlação para incluir na solicitação de serviço.
 
 Se a falha ocorrer nos estágios de validação prévia, antes da implantação de uma nuvem privada, nenhuma ID de correlação será gerada. Nesse caso, você pode simplesmente fornecer as informações que usou ao criar a nuvem privada da AVS, incluindo:
 
-- Location
-- Resource group
+- Localização
+- Grupo de recursos
 - Nome do recurso
  
 ### <a name="collect-a-summary-of-errors"></a>Coletar um resumo de erros
@@ -71,7 +72,7 @@ Cole a ID do ExpressRoute no campo apropriado na nova solicitação de suporte. 
 
 ## <a name="create-your-support-request"></a>Criar sua solicitação de suporte
 
-Para obter diretrizes gerais sobre como criar sua solicitação de suporte, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
+Para obter diretrizes gerais sobre como criar sua solicitação de suporte, consulte [como criar uma solicitação de suporte do Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
 Aqui estão as diretrizes adicionais específicas para a criação de uma implantação do SR for AVS ou falhas de provisionamento.
 

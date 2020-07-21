@@ -10,15 +10,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/30/2020
+ms.date: 07/13/2020
 ms.author: rolyon
-ms.openlocfilehash: a7be51cfceee3bb445b085efd780463c8b6f49be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791190"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511714"
 ---
-# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Criar ou atualizar funções personalizadas do Azure usando o portal do Azure
+# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Criar ou atualizar as funções personalizadas do Azure usando o portal do Azure
 
 Se as [funções internas do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas do Azure. Assim como as funções internas, você pode atribuir funções personalizadas a usuários, grupos e entidades de serviço em escopos de grupo de recursos e assinatura. As funções personalizadas são armazenadas em um diretório do Azure AD (Azure Active Directory) e podem ser compartilhadas entre assinaturas. Cada diretório pode ter até 5000 funções personalizadas. As funções personalizadas podem ser criadas usando o portal do Azure, Azure PowerShell, CLI do Azure ou a API REST. Este artigo descreve como criar funções personalizadas usando o portal do Azure.
 
@@ -203,17 +204,7 @@ Siga estas etapas para adicionar ou remover permissões para sua função person
 
 ### <a name="add-wildcard-permissions"></a>Adicionar permissões curinga
 
-Dependendo de como você optou por iniciar, você pode ter permissões com curingas ( \* ) na sua lista de permissões. Um curinga ( \* ) estende uma permissão para tudo que corresponde à cadeia de caracteres que você fornece. Por exemplo, suponha que você quisesse adicionar todas as permissões relacionadas ao gerenciamento de custos e às exportações do Azure. Você pode adicionar todas essas permissões:
-
-```
-Microsoft.CostManagement/exports/action
-Microsoft.CostManagement/exports/read
-Microsoft.CostManagement/exports/write
-Microsoft.CostManagement/exports/delete
-Microsoft.CostManagement/exports/run/action
-```
-
-Em vez de adicionar todas essas permissões, basta adicionar uma permissão de caractere curinga. Por exemplo, a seguinte permissão de curinga é equivalente às cinco permissões anteriores. Isso também incluiria permissões de exportação futuras que possam ser adicionadas.
+Dependendo de como você optou por iniciar, você pode ter permissões com curingas ( `*` ) na sua lista de permissões. Um curinga ( `*` ) estende uma permissão para tudo que corresponde à cadeia de caracteres de ação que você fornece. Por exemplo, a cadeia de caracteres curinga a seguir adiciona todas as permissões relacionadas ao gerenciamento de custos e às exportações do Azure. Isso também incluiria permissões de exportação futuras que possam ser adicionadas.
 
 ```
 Microsoft.CostManagement/exports/*
@@ -223,7 +214,7 @@ Se você quiser adicionar uma nova permissão de caractere curinga, não poderá
 
 ### <a name="exclude-permissions"></a>Excluir permissões
 
-Se sua função tiver uma permissão curinga ( \* ) e você quiser excluir ou subtrair permissões específicas dessa permissão de curinga, você poderá excluí-las. Por exemplo, digamos que você tenha a seguinte permissão de curinga:
+Se sua função tiver uma permissão curinga ( `*` ) e você quiser excluir ou subtrair permissões específicas dessa permissão de curinga, você poderá excluí-las. Por exemplo, digamos que você tenha a seguinte permissão de curinga:
 
 ```
 Microsoft.CostManagement/exports/*
@@ -268,7 +259,7 @@ Na guia **escopos atribuíveis** , especifique onde sua função personalizada e
 
 ## <a name="step-6-json"></a>Etapa 6: JSON
 
-Na guia **JSON** , você vê sua função personalizada formatada em JSON. Se desejar, você pode editar diretamente o JSON. Se você quiser adicionar uma permissão curinga ( \* ), deverá usar essa guia.
+Na guia **JSON** , você vê sua função personalizada formatada em JSON. Se desejar, você pode editar diretamente o JSON. Se você quiser adicionar uma permissão curinga ( `*` ), deverá usar essa guia.
 
 1. Para editar o JSON, clique em **Editar**.
 
@@ -348,4 +339,4 @@ Siga estas etapas para exibir suas funções personalizadas.
 
 - [Tutorial: Criar uma função personalizada do Azure usando o Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Funções personalizadas do Azure](custom-roles.md)
-- [Operações do provedor de recursos Azure Resource Manager](resource-provider-operations.md)
+- [Operações do provedor de recursos do Azure Resource Manager](resource-provider-operations.md)

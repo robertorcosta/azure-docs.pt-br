@@ -1,5 +1,5 @@
 ---
-title: Lógica de processamento de regra do Firewall do Azure
+title: Lógica de processamento de regra do Gerenciador de firewall do Azure
 description: Saiba mais sobre a lógica de processamento de regra do Firewall do Azure
 services: firewall-manager
 author: vhorne
@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 70026173d1cb932d30a59ea2b876ef22217a81bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9184bf7baa85420e067edb4c0aafccb7e6711225
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563678"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512173"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Lógica de processamento de regra do Firewall do Azure
 
@@ -28,9 +28,9 @@ A conectividade de entrada pode ser habilitada configurando a DNAT (conversão d
 
 ## <a name="inherited-rules"></a>Regras herdadas
 
-As coleções de regras de rede herdadas de uma política pai sempre são priorizadas acima das coleções de regras de rede que são definidas como parte de sua nova política. A mesma lógica também se aplica às coleções de regras de aplicativo. No entanto, as coleções de regras de rede são sempre processadas antes das coleções de regras de aplicativo, independentemente da herança.
+As coleções de regras de rede herdadas de uma política pai sempre são priorizadas acima das coleções de regras de rede que são definidas como parte de sua nova política. A mesma lógica também se aplica às coleções de regras de aplicativo. No entanto, as coleções de regras de rede são sempre processadas antes de coleções de regras de aplicativo, independentemente da herança.
 
-Por padrão, sua política herda seu modo de inteligência contra ameaças da política pai. Você pode substituir isso definindo seu modo de inteligência contra ameaças para um valor diferente na página de configurações de política. Só é possível substituir por um valor mais estrito. Por exemplo, se a política pai estiver definida como *alerta somente*, você poderá configurar essa política local para *alertar e negar*, mas não poderá desativá-la.
+Por padrão, sua política herda seu modo de inteligência contra ameaças da política pai. Você pode substituir isso definindo seu modo de inteligência contra ameaças para um valor diferente na página de configurações de política. Só é possível substituí-lo por um valor mais estrito. Por exemplo, se a política pai estiver definida como *alerta somente*, você poderá configurar essa política local para *alertar e negar*, mas não poderá desativá-la.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,11 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: fc460abe65709f90ff22e1ec6f8e47b315db7f67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 402fd8da8e29e8f3fec6747be5d9480ca176fc55
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84555245"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511391"
 ---
 # <a name="add-custom-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicionar analisadores personalizados a campos de cadeia de caracteres em um índice de Pesquisa Cognitiva do Azure
 
@@ -199,16 +200,16 @@ Para os analisadores, os atributos de índice variam dependendo se você estiver
 
 #### <a name="predefined-analyzers"></a>Analisadores predefinidos
 
-|||  
-|-|-|  
+| Tipo | Descrição |
+| ---- | ----------- |  
 |Nome|Deve conter apenas letras, números, espaços, traços ou sublinhados, pode começar e terminar apenas com caracteres alfanuméricos e está limitado a 128 caracteres.|  
 |Tipo|Tipo de analisador da lista de analisadores com suporte. Confira a coluna **analyzer_type** na tabela [Analisadores](#AnalyzerTable) abaixo.|  
 |Opções|Devem ser opções válidas de um analisador predefinido listado na tabela [Analisadores](#AnalyzerTable) abaixo.|  
 
 #### <a name="custom-analyzers"></a>Analisadores personalizados
 
-|||  
-|-|-|  
+| Tipo | Descrição |
+| ---- | ----------- |  
 |Nome|Deve conter apenas letras, números, espaços, traços ou sublinhados, pode começar e terminar apenas com caracteres alfanuméricos e está limitado a 128 caracteres.|  
 |Tipo|Deve ser "#Microsoft.Azure.Search.CustomAnalyzer".|  
 |CharFilters|Defina como um dos filtros de caracteres predefinidos listados na tabela [Filtros de caracteres](#char-filters-reference) ou um filtro de caracteres personalizado especificado na definição do índice.|  
@@ -224,8 +225,8 @@ Para os analisadores, os atributos de índice variam dependendo se você estiver
 
  Um filtro de caracteres é usado para preparar o texto de entrada antes de ser processado pelo criador de tokens. Por exemplo, ele pode substituir certos caracteres ou símbolos. Você pode ter vários filtros de caracteres em um analisador personalizado. Filtros de caracteres são executados na ordem em que estão listados.  
 
-|||  
-|-|-|  
+| Tipo | Descrição |
+| ---- | ----------- | 
 |Nome|Deve conter apenas letras, números, espaços, traços ou sublinhados, pode começar e terminar apenas com caracteres alfanuméricos e está limitado a 128 caracteres.|  
 |Tipo|Tipo de filtro de caracteres da lista de filtros de caracteres com suporte. Confira a coluna **char_filter_type** na tabela [Filtros de caracteres](#char-filters-reference) abaixo.|  
 |Opções|Deve ser uma opção válida de um determinado tipo de [Filtros de caracteres](#char-filters-reference).|  
@@ -237,8 +238,8 @@ Para os analisadores, os atributos de índice variam dependendo se você estiver
  Você pode especificar exatamente um criador de token por analisador personalizado. Se precisar de mais de um criador de token, você pode criar vários analisadores personalizados e atribuí-los campo por campo em seu esquema de índice.  
 Um analisador personalizado pode usar um criador de token predefinido com opções personalizadas ou padrão.  
 
-|||  
-|-|-|  
+| Tipo | Descrição |
+| ---- | ----------- | 
 |Nome|Deve conter apenas letras, números, espaços, traços ou sublinhados, pode começar e terminar apenas com caracteres alfanuméricos e está limitado a 128 caracteres.|  
 |Tipo|Nome do criador de token da lista de criadores de token com suporte. Confira a coluna **tokenizer_type** na tabela [Criadores de token](#Tokenizers) abaixo.|  
 |Opções|Deve ser uma opção válida de um determinado tipo de criador de token listado na tabela [Criadores de token](#Tokenizers) abaixo.|  
@@ -248,8 +249,8 @@ Um analisador personalizado pode usar um criador de token predefinido com opçõ
  Um filtro de token é usado para filtrar ou modificar os tokens gerados por um criador de token. Por exemplo, você pode especificar um filtro de minúsculas que converte todos os caracteres em letras minúsculas.   
 Você pode ter vários filtros de token em um analisador personalizado. Os filtros de token são executados na ordem em que estão listados.  
 
-|||  
-|-|-|  
+| Tipo | Descrição |
+| ---- | ----------- |  
 |Nome|Deve conter apenas letras, números, espaços, traços ou sublinhados, pode começar e terminar apenas com caracteres alfanuméricos e está limitado a 128 caracteres.|  
 |Tipo|Nome do filtro de token da lista de filtros de token com suporte. Confira a coluna **token_filter_type** na tabela [Filtros de token](#TokenFilters) abaixo.|  
 |Opções|Deve ser [Filtros de token](#TokenFilters) de um determinado tipo de filtro de token.|  
@@ -360,7 +361,7 @@ Na tabela abaixo, os filtros de token que são implementados usando o Apache Luc
 |stemmer|StemmerTokenFilter|Filtro de lematização específica de idioma.<br /><br /> **Opções**<br /><br /> language (tipo: cadeia de caracteres) — entre os valores permitidos estão: <br /> -   [árabe](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ar/ArabicStemmer.html)<br />-   [armênio](https://snowballstem.org/algorithms/armenian/stemmer.html)<br />-   [Basco](https://snowballstem.org/algorithms/basque/stemmer.html)<br />-   [(](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/br/BrazilianStemmer.html)<br />-"búlgaro"<br />-   [Catalão](https://snowballstem.org/algorithms/catalan/stemmer.html)<br />-   [tcheco](https://portal.acm.org/citation.cfm?id=1598600)<br />-   [dinamarquês](https://snowballstem.org/algorithms/danish/stemmer.html)<br />-   [holandesas](https://snowballstem.org/algorithms/dutch/stemmer.html)<br />-   ["dutchKp"](https://snowballstem.org/algorithms/kraaij_pohlmann/stemmer.html)<br />-   [portuguesa](https://snowballstem.org/algorithms/porter/stemmer.html)<br />-   ["lightEnglish"](https://ciir.cs.umass.edu/pubfiles/ir-35.pdf)<br />-   ["minimalEnglish"](https://www.researchgate.net/publication/220433848_How_effective_is_suffixing)<br />-   ["possessiveEnglish"](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/en/EnglishPossessiveFilter.html)<br />-   ["porter2"](https://snowballstem.org/algorithms/english/stemmer.html)<br />-   ["lovins"](https://snowballstem.org/algorithms/lovins/stemmer.html)<br />-   [finlandesa](https://snowballstem.org/algorithms/finnish/stemmer.html)<br />- "lightFinnish"<br />-   [francesa](https://snowballstem.org/algorithms/french/stemmer.html)<br />-   ["lightFrench"](https://dl.acm.org/citation.cfm?id=1141523)<br />-   ["minimalFrench"](https://dl.acm.org/citation.cfm?id=318984)<br />-"Galego"<br />- "minimalGalician"<br />-   [alemão](https://snowballstem.org/algorithms/german/stemmer.html)<br />-   ["german2"](https://snowballstem.org/algorithms/german2/stemmer.html)<br />-   ["lightGerman"](https://dl.acm.org/citation.cfm?id=1141523)<br />- "minimalGerman"<br />-   [Ipsum](https://sais.se/mthprize/2007/ntais2007.pdf)<br />-"híndi"<br />-   [Húngaro](https://snowballstem.org/algorithms/hungarian/stemmer.html)<br />-   ["lightHungarian"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   [Indonésio](https://www.illc.uva.nl/Publications/ResearchReports/MoL-2003-02.text.pdf)<br />-   [Libra](https://snowballstem.org/otherapps/oregan/)<br />-   [italiano](https://snowballstem.org/algorithms/italian/stemmer.html)<br />-   ["lightItalian"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   ["sorani"](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ckb/SoraniStemmer.html)<br />-   [Letão](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/lv/LatvianStemmer.html)<br />-   [noruegues](https://snowballstem.org/algorithms/norwegian/stemmer.html)<br />-   ["lightNorwegian"](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNorwegian"](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   ["lightNynorsk"](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNynorsk"](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   [Portugal](https://snowballstem.org/algorithms/portuguese/stemmer.html)<br />-   ["lightPortuguese"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   ["minimalPortuguese"](https://www.inf.ufrgs.br/~buriol/papers/Orengo_CLEF07.pdf)<br />-   ["portugueseRslp"](https://www.inf.ufrgs.br//~viviane/rslp/index.htm)<br />-   [Romeno](https://snowballstem.org/otherapps/romanian/)<br />-   [Rússia](https://snowballstem.org/algorithms/russian/stemmer.html)<br />-   ["lightRussian"](https://doc.rero.ch/lm.php?url=1000%2C43%2C4%2C20091209094227-CA%2FDolamic_Ljiljana_-_Indexing_and_Searching_Strategies_for_the_Russian_20091209.pdf)<br />-   [espanhol](https://snowballstem.org/algorithms/spanish/stemmer.html)<br />-   ["lightSpanish"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   [sueca](https://snowballstem.org/algorithms/swedish/stemmer.html)<br />- "lightSwedish"<br />-   [Lira](https://snowballstem.org/algorithms/turkish/stemmer.html)|  
 |[stemmer_override](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/StemmerOverrideFilter.html)|StemmerOverrideTokenFilter|Quaisquer termos com base no dicionário são marcados como palavras-chave, o que evita a lematização da cadeia. Deve ser colocado antes de qualquer filtro de lematização.<br /><br /> **Opções**<br /><br /> rules (tipo: cadeia de caracteres) — regras de stemming rules no seguinte formato "word => stem", por exemplo, "ran => run". O padrão é uma lista vazia.  Obrigatórios.|  
 |[stopwords](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/StopFilter.html)|StopwordsTokenFilter|Remove palavras irrelevantes de um fluxo de tokens. Por padrão, o filtro usa uma lista de palavras irrelevantes predefinida para inglês.<br /><br /> **Opções**<br /><br /> stopwords (tipo: matriz de cadeia de caracteres) — uma lista de palavras irrelevantes. Não pode ser especificado se a opção stopwordsList for especificada.<br /><br /> stopwordsList (tipo: matriz de cadeia de caracteres) — uma lista predefinida de palavras irrelevantes. Não pode ser especificado se a opção stopwords for especificada. Entre os valores permitidos estão:"arabic", "armenian", "basque", "brazilian", "bulgarian", "catalan", "czech", "danish", "dutch", "english", "finnish", "french", "galician", "german", "greek", "hindi", "hungarian", "indonesian", "irish", "italian", "latvian", "norwegian", "persian", "portuguese", "romanian", "russian", "sorani", "spanish", "swedish", "thai", "turkish", padrão: "english". Não pode ser especificado se a opção stopwords for especificada. <br /><br /> ignoreCase (tipo: bool) — se true, primeiro todas as palavras são alteradas para minúsculas. O padrão é false.<br /><br /> removeTrailing (tipo: bool) — se true, ignora o último termo de pesquisa se for uma palavra irrelevante. O padrão é true.
-|[forneça](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/synonym/SynonymFilter.html)|SynonymTokenFilter|Corresponde sinônimos de palavras simples ou múltiplas em um fluxo de token.<br /><br /> **Opções**<br /><br /> synonyms (tipo: cadeia de caracteres) — obrigatório. Lista de sinônimos em um dos dois formatos a seguir:<br /><br /> -incrível, inacreditável, fabuloso => maravilhoso — todos os termos no lado esquerdo da => são substituídos por todos os termos do lado direito.<br /><br /> -incrível, inacreditável, fabuloso, maravilhoso — uma lista separada por vírgulas de palavras equivalentes. Defina a opção de expansão para alterar como essa lista é interpretada.<br /><br /> ignoreCase (tipo: bool) — entrada e maiúscula/minúscula para correspondência. O padrão é false.<br /><br /> expand (tipo: bool) — se true, todas as palavras na lista de sinônimos (se a notação => não for usada) mapeiam uma a outra. <br />A lista a seguir: incrível, inacreditável, fabuloso, maravilhoso é quivalente a: incrível, inacreditável, fabuloso, maravilhoso => incrível, inacreditável, fabuloso, maravilhoso<br /><br />- Se false, a lista a seguir: incrível, inacreditável, fabuloso, maravilhoso é quivalente a: incrível, inacreditável, fabuloso, maravilhoso => incrível, inacreditável, fabuloso, maravilhoso => incrível.|  
+|[sinônimo](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/synonym/SynonymFilter.html)|SynonymTokenFilter|Corresponde sinônimos de palavras simples ou múltiplas em um fluxo de token.<br /><br /> **Opções**<br /><br /> synonyms (tipo: cadeia de caracteres) — obrigatório. Lista de sinônimos em um dos dois formatos a seguir:<br /><br /> -incrível, inacreditável, fabuloso => maravilhoso — todos os termos no lado esquerdo da => são substituídos por todos os termos do lado direito.<br /><br /> -incrível, inacreditável, fabuloso, maravilhoso — uma lista separada por vírgulas de palavras equivalentes. Defina a opção de expansão para alterar como essa lista é interpretada.<br /><br /> ignoreCase (tipo: bool) — entrada e maiúscula/minúscula para correspondência. O padrão é false.<br /><br /> expand (tipo: bool) — se true, todas as palavras na lista de sinônimos (se a notação => não for usada) mapeiam uma a outra. <br />A lista a seguir: incrível, inacreditável, fabuloso, maravilhoso é quivalente a: incrível, inacreditável, fabuloso, maravilhoso => incrível, inacreditável, fabuloso, maravilhoso<br /><br />- Se false, a lista a seguir: incrível, inacreditável, fabuloso, maravilhoso é quivalente a: incrível, inacreditável, fabuloso, maravilhoso => incrível, inacreditável, fabuloso, maravilhoso => incrível.|  
 |[cortar](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/TrimFilter.html)|(o tipo aplica-se somente quando há opções disponíveis)  |Corta o espaço em branco à esquerda e à direita de uma cadeia de tokens. |  
 |[truncar](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/TruncateTokenFilter.html)|TruncateTokenFilter|Trunca os termos em um comprimento específico.<br /><br /> **Opções**<br /><br /> comprimento (tipo: int)-padrão: 300, máximo: 300. Obrigatórios.|  
 |[unique](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/RemoveDuplicatesTokenFilter.html)|UniqueTokenFilter|Filtra os tokens com o mesmo texto como o token anterior.<br /><br /> **Opções**<br /><br /> onlyOnSamePosition (tipo: bool) — se definido, remova duplicatas apenas na mesma posição. O padrão é true.|  

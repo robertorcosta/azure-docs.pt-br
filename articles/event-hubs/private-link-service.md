@@ -3,17 +3,17 @@ title: Integração dos Hubs de Eventos do Azure com o Serviço de Link Privado 
 description: Saiba como integrar os Hubs de Eventos do Azure com o Serviço de Link Privado do Azure
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: aa1eb4df425d83a37fbf4ac69e0e256c464dc5c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfed3f8e4c19463e10b721006d742726cf916900
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312823"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512241"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integração dos Hubs de Eventos do Azure com o Link Privado do Azure
 O Serviço de Link Privado do Azure permite acessar os Serviços do Azure (por exemplo, os Hubs de Eventos do Azure, o Armazenamento do Azure e o Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um **ponto de extremidade privado** em sua rede virtual.
 
-O ponto de extremidade privado é uma interface de rede que conecta você de forma privada e segura a um serviço com tecnologia do Link Privado do Azure. O ponto de extremidade privado usa um endereço IP privado de sua VNet, colocando efetivamente em sua VNet. Todo o tráfego para o serviço pode ser roteado por meio do ponto de extremidade privado; assim, nenhum gateway, nenhum dispositivo NAT, nenhuma conexão ExpressRoute ou VPN e nenhum endereço IP público é necessário. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você pode se conectar a uma instância de um recurso do Azure, fornecendo o nível mais alto de granularidade no controle de acesso.
+O ponto de extremidade privado é uma interface de rede que conecta você de forma privada e segura a um serviço com tecnologia do Link Privado do Azure. O ponto de extremidade privado usa um endereço IP privado de sua rede virtual, efetivamente colocando o serviço em sua rede virtual. Todo o tráfego para o serviço pode ser roteado por meio do ponto de extremidade privado; assim, nenhum gateway, nenhum dispositivo NAT, nenhuma conexão ExpressRoute ou VPN e nenhum endereço IP público é necessário. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você pode se conectar a uma instância de um recurso do Azure, fornecendo o nível mais alto de granularidade no controle de acesso.
 
 Para obter mais informações, confira [O que é o Link Privado do Azure?](../private-link/private-link-overview.md)
 
@@ -58,10 +58,13 @@ Se você já tem um namespace do Hubs de Eventos, crie uma conexão de link priv
 2. Na barra de pesquisa, digite **hubs de eventos**.
 3. Selecione o **namespace** na lista à qual você deseja adicionar um ponto de extremidade privado.
 4. Selecione a guia **Rede** em **Configurações**.
-5. Selecione a guia **Conexões de ponto de extremidade privado** na parte superior da página. 
-6. Selecione o botão **+ Ponto de Extremidade Privado** na parte superior da página.
 
-    ![Imagem](./media/private-link-service/private-link-service-3.png)
+    > [!NOTE]
+    > Você vê a guia **rede** somente para namespaces **padrão** ou **dedicados** . 
+1. Selecione a guia **Conexões de ponto de extremidade privado** na parte superior da página. 
+1. Selecione o botão **+ Ponto de Extremidade Privado**, na parte superior da página.
+
+    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Página rede – guia conexões de ponto de extremidade privado – adicionar link de ponto de extremidade privado":::
 7. Na página **Básico**, siga estas etapas: 
     1. Selecione a **Assinatura do Azure** na qual você quer criar o ponto de extremidade privado. 
     2. Selecione o **grupo de recursos** para o recurso de ponto de extremidade privado.
@@ -214,7 +217,7 @@ Há quatro estados de provisionamento:
 2. Selecione o **ponto de extremidade privado** que você deseja aprovar
 3. Selecione o botão **Aprovar**.
 
-    ![Image](./media/private-link-service/approve-private-endpoint.png)
+    ![Imagem](./media/private-link-service/approve-private-endpoint.png)
 4. Na página **Aprovar conexão**, adicione um comentário (opcional) e selecione **Sim**. Se selecionar **Não**, nada acontecerá. 
 5. O status da conexão de ponto de extremidade privado exibido na lista muda para **Aprovado**. 
 

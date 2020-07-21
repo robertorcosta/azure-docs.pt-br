@@ -4,11 +4,12 @@ description: Neste artigo, saiba como atualizar a configuração do cofre usando
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: eadcebdaf4db3dbe6c0a62b8631ff7d76fa50fad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f0fee505443b15ba2ea97710efc220ef05df738
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248219"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513108"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar as configurações do cofre dos serviços de recuperação do Azure usando a API REST
 
@@ -24,7 +25,7 @@ Portanto, você precisa escolher cuidadosamente se deseja ou não desabilitar a 
 
 ### <a name="fetch-soft-delete-state-using-rest-api"></a>Buscar o estado de exclusão reversível usando a API REST
 
-Por padrão, o estado de exclusão reversível será habilitado para qualquer cofre de serviços de recuperação criado recentemente. Para buscar/atualizar o estado de exclusão reversível para um cofre, use o [documento da API REST](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs) relacionada à configuração do cofre de backup
+Por padrão, o estado de exclusão reversível será habilitado para qualquer cofre de serviços de recuperação criado recentemente. Para buscar/atualizar o estado de exclusão reversível para um cofre, use o [documento da API REST](/rest/api/backup/backupresourcevaultconfigs) relacionada à configuração do cofre de backup
 
 Para buscar o estado atual de exclusão reversível para um cofre, use a seguinte operação *Get*
 
@@ -44,7 +45,7 @@ A resposta bem-sucedida para a operação ' GET ' é mostrada abaixo:
 
 |Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
 ##### <a name="example-response"></a>Exemplo de resposta
 
@@ -80,13 +81,13 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 As seguintes definições comuns são usadas para criar um corpo de solicitação
 
-Para obter mais detalhes, consulte [a documentação da API REST](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body)
+Para obter mais detalhes, consulte [a documentação da API REST](/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
 |Nome  |Obrigatório  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
-|eTag     |         |   String      |  eTag Opcional       |
-|local     |  true       |String         |   Localização do recurso      |
-|properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
+|eTag     |         |   Cadeia de caracteres      |  eTag Opcional       |
+|local     |  true       |Cadeia de caracteres         |   Localização do recurso      |
+|properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
 |marcas     |         | Objeto        |     Marcações de recursos    |
 
 #### <a name="example-request-body"></a>Exemplo do corpo de solicitação
@@ -108,7 +109,7 @@ A resposta bem-sucedida para a operação ' PATCH ' é mostrada abaixo:
 
 |Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
 ##### <a name="example-response"></a>Exemplo de resposta
 

@@ -3,12 +3,13 @@ title: Barramento de serviço do Azure-adiamento de mensagem
 description: Este artigo explica como adiar a entrega de mensagens do barramento de serviço do Azure. A mensagem permanece na fila ou assinatura, mas é reservada.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f4fe231c56a1bcdea4f15de90cb0e9406f0284a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 7c9ec55de24c97df3530d80deef55ed87be84077
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341214"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511272"
 ---
 # <a name="message-deferral"></a>Adiamento de mensagens
 
@@ -19,6 +20,9 @@ O adiamento é um recurso criado especificamente para cenários de processamento
 Um exemplo ilustrativo simples é uma sequência de processamento de ordem em que uma notificação de pagamento de um provedor de pagamento externo aparece em um sistema antes que a ordem de compra correspondente tenha sido propagada da frente da loja para o sistema de atendimento. Nesse caso, o sistema de atendimento pode adiar o processamento da notificação de pagamento até que haja um pedido ao qual associá-la. Em cenários de reunião, em que mensagens de origens diferentes movem o fluxo de trabalho adiante, a ordem de execução em tempo real pode realmente estar correta, mas as mensagens refletindo os resultados podem chegar fora de ordem.
 
 Por fim, o adiamento ajuda na reordenação das mensagens da ordem de chegada em uma ordem na qual elas possam ser processadas, deixando essas mensagens com segurança no repositório de mensagens para as quais o processamento precisa ser adiado.
+
+> [!NOTE]
+> As mensagens adiadas não serão automaticamente movidas para a fila da mensagem de mensagens mortas [depois que elas expirarem](./service-bus-dead-letter-queues.md#exceeding-timetolive). Esse comportamento é por design.
 
 ## <a name="message-deferral-apis"></a>APIs de adiamento de mensagens
 

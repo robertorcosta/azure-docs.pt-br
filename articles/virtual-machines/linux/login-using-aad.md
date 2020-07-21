@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 2731693667d2129a72da72455c6bbdd74c277697
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5275a979cbffe7fb6600978487454ac11cd2002
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80366486"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510422"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Versão prévia: faça logon em uma máquina virtual Linux no Azure usando Azure Active Directory autenticação
 
@@ -46,7 +46,7 @@ No momento, há suporte para as seguintes distribuições do Linux durante a ver
 | CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
 | openSUSE | openSUSE Leap 42.3 |
-| RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
+| Red Hat Enterprise Linux | RHEL 6, RHEL 7 | 
 | SUSE Linux Enterprise Server | SLES 12 |
 | Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 e Ubuntu Server 18.04 |
 
@@ -77,7 +77,7 @@ Para habilitar a autenticação do Azure AD para suas VMs do Linux no Azure, voc
 > [!NOTE]
 > Atualmente, os grupos de segurança de rede do Azure não podem ser configurados para VMs habilitadas com a autenticação do Azure AD.
 
-## <a name="create-a-linux-virtual-machine"></a>Criar uma máquina virtual Linux
+## <a name="create-a-linux-virtual-machine"></a>Criar uma máquina virtual do Linux
 
 Crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create) e, em seguida, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create) usando uma distribuição com suporte em uma região com suporte. O exemplo a seguir implanta uma VM denominada *myVM* que usa o *Ubuntu 16.04 LTS* em um grupo de recursos denominado *myResourceGroup* na região *southcentralus*. Nos exemplos a seguir, você pode fornecer seu próprio grupo de recursos e seus próprios nomes de VM, conforme o necessário.
 
@@ -109,7 +109,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-O *provisioningState* de *Succeeded* é mostrado depois que a extensão é instalada com êxito na VM. A VM precisa de um agente de VM em execução para instalar a extensão. Para obter mais informações, consulte [visão geral do agente de VM](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
+O *provisioningState* de *Succeeded* é mostrado depois que a extensão é instalada com êxito na VM. A VM precisa de um agente de VM em execução para instalar a extensão. Para obter mais informações, consulte [visão geral do agente de VM](../extensions/agent-windows.md).
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configurar atribuições de função para a VM
 
@@ -138,7 +138,7 @@ az role assignment create \
 
 Para obter mais informações sobre como usar o RBAC para gerenciar o acesso aos recursos da sua assinatura do Azure, confira o uso da [CLI do Azure](../../role-based-access-control/role-assignments-cli.md), do [portal do Azure](../../role-based-access-control/role-assignments-portal.md) ou do [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-Você também pode configurar o Azure AD para exigir a autenticação multifator de um usuário específico para que ele entre na máquina virtual do Linux. Para obter mais informações, confira [Introdução ao Servidor de Autenticação Multifator do Microsoft Azure na nuvem](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+Você também pode configurar o Azure AD para exigir a autenticação multifator de um usuário específico para que ele entre na máquina virtual do Linux. Para obter mais informações, confira [Introdução ao Servidor de Autenticação Multifator do Microsoft Azure na nuvem](../../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## <a name="log-in-to-the-linux-virtual-machine"></a>Fazer logon na máquina virtual do Linux
 

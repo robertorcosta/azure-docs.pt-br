@@ -3,16 +3,16 @@ title: Backup offline usando Azure Data Box
 description: Saiba como você pode usar Azure Data Box para propagar grandes dados de backup inicial offline do agente MARS para um cofre dos serviços de recuperação.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: e45b8e26d332019b03ac41c3993e311480494040
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a60d749f270c9efab0649b49b5c0c41945faddf5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82160948"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513686"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Backup offline do Backup do Azure usando Azure Data Box
 
-Você pode usar [Azure data Box](https://docs.microsoft.com/azure/databox/data-box-overview) para propagar seus BACKUPs MARS (serviços de recuperação do Microsoft Azure inicial) grandes offline (sem usar a rede) para um cofre dos serviços de recuperação. Esse processo poupa tempo e largura de banda de rede que, de outra forma, seriam consumidos movendo grandes quantidades de dados de backup online em uma rede de alta latência. No momento, esse aprimoramento está em versão prévia. O backup offline baseado em Azure Data Box fornece duas vantagens distintas sobre [o backup offline com base no serviço de importação/exportação do Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export):
+Você pode usar [Azure data Box](../databox/data-box-overview.md) para propagar seus BACKUPs MARS (serviços de recuperação do Microsoft Azure inicial) grandes offline (sem usar a rede) para um cofre dos serviços de recuperação. Esse processo poupa tempo e largura de banda de rede que, de outra forma, seriam consumidos movendo grandes quantidades de dados de backup online em uma rede de alta latência. No momento, esse aprimoramento está em versão prévia. O backup offline baseado em Azure Data Box fornece duas vantagens distintas sobre [o backup offline com base no serviço de importação/exportação do Azure](./backup-azure-backup-import-export.md):
 
 - Não é necessário adquirir seus próprios discos e conectores compatíveis com o Azure. Azure Data Box envia os discos associados à SKU de [Data Box](https://azure.microsoft.com/services/databox/data/)selecionada.
 - O backup do Azure (agente MARS) pode gravar dados de backup diretamente nas SKUs com suporte do Azure Data Box. Esse recurso elimina a necessidade de provisionar um local de preparo para os dados de backup iniciais. Você também não precisa de utilitários para formatar e copiar esses dados nos discos.
@@ -21,7 +21,7 @@ Você pode usar [Azure data Box](https://docs.microsoft.com/azure/databox/data-b
 
 Este artigo explica como você pode usar Azure Data Box para propagar grandes dados de backup inicial offline do agente MARS para um cofre dos serviços de recuperação.
 
-## <a name="supported-platforms"></a>Plataformas com Suporte
+## <a name="supported-platforms"></a>Plataformas compatíveis
 
 O processo para propagar dados do agente MARS usando Azure Data Box tem suporte nas seguintes SKUs do Windows.
 
@@ -47,8 +47,8 @@ O processo para propagar dados do agente MARS usando Azure Data Box tem suporte 
 
 | Tamanho dos dados de backup (pós-compactação por MARS) * por servidor | SKU Azure Data Box com suporte                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <= 7,2 TB                                                    | [Azure Data Box disco](https://docs.microsoft.com/azure/databox/data-box-disk-overview) |
-| >7,2 TB e <= 80 TB * *                                      | [Azure Data Box (100 TB)](https://docs.microsoft.com/azure/databox/data-box-overview) |
+| <= 7,2 TB                                                    | [Azure Data Box disco](../databox/data-box-disk-overview.md) |
+| >7,2 TB e <= 80 TB * *                                      | [Azure Data Box (100 TB)](../databox/data-box-overview.md) |
 
 * As taxas de compactação típicas variam entre 10% e 20%. <br>
 * * Se você espera ter mais de 80 TB de dados de backup inicial para um único servidor MARS, entre em contato com [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
@@ -113,7 +113,7 @@ Azure PowerShell também pode ter sido instalado usando um arquivo MSI. Para rem
 
 ### <a name="order-and-receive-the-data-box-device"></a>Solicitar e receber o dispositivo Data Box
 
-O processo de backup offline usando MARS e Azure Data Box requer que os dispositivos Data Box estejam em um estado entregue antes de disparar o backup offline usando o agente MARS. Para solicitar o SKU mais adequado para seu requisito, consulte [backup data size e data Box SKUs com suporte](#backup-data-size-and-supported-data-box-skus). Siga as etapas em [tutorial: encomendar um disco Azure data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered) para solicitar e receber seus dispositivos de data box.
+O processo de backup offline usando MARS e Azure Data Box requer que os dispositivos Data Box estejam em um estado entregue antes de disparar o backup offline usando o agente MARS. Para solicitar o SKU mais adequado para seu requisito, consulte [backup data size e data Box SKUs com suporte](#backup-data-size-and-supported-data-box-skus). Siga as etapas em [tutorial: encomendar um disco Azure data Box](../databox/data-box-disk-deploy-ordered.md) para solicitar e receber seus dispositivos de data box.
 
 > [!IMPORTANT]
 > Não selecione *BlobStorage* para o **tipo de conta**. O agente MARS requer uma conta que ofereça suporte a blobs de página, que não tem suporte quando *BlobStorage* é selecionado. Selecione **armazenamento v2 (uso geral v2)** como o **tipo de conta** ao criar a conta de armazenamento de destino para seu trabalho de Azure data box.
@@ -124,7 +124,7 @@ O processo de backup offline usando MARS e Azure Data Box requer que os disposit
 
 1. Certifique-se de desinstalar todas as instalações anteriores do agente MARS.
 1. Baixe o agente MARS mais recente deste [site](https://aka.ms/azurebackup_agent).
-1. Execute *MARSAgentInstaller.exe*e execute *apenas* as etapas para [instalar e registrar o agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) no cofre dos serviços de recuperação em que você deseja que os backups sejam armazenados.
+1. Execute *MARSAgentInstaller.exe*e execute *apenas* as etapas para [instalar e registrar o agente](./install-mars-agent.md#install-and-register-the-agent) no cofre dos serviços de recuperação em que você deseja que os backups sejam armazenados.
 
    > [!NOTE]
    > O cofre dos serviços de recuperação deve estar na mesma assinatura que o trabalho de Azure Data Box.
@@ -137,14 +137,14 @@ Dependendo do SKU Azure Data Box que você solicitou, execute as etapas abordada
 
 ### <a name="set-up-azure-data-box-disks"></a>Configurar discos Azure Data Box
 
-Se você solicitou um ou mais discos de Azure Data Box (até 8 TB cada), siga as etapas mencionadas aqui para [desempacotar, conectar e desbloquear seu disco de data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up).
+Se você solicitou um ou mais discos de Azure Data Box (até 8 TB cada), siga as etapas mencionadas aqui para [desempacotar, conectar e desbloquear seu disco de data Box](../databox/data-box-disk-deploy-set-up.md).
 
 >[!NOTE]
 >É possível que o servidor com o agente MARS não tenha uma porta USB. Nessa situação, você pode conectar o disco Azure Data Box a outro servidor ou cliente e expor a raiz do dispositivo como um compartilhamento de rede.
 
 ### <a name="set-up-azure-data-box"></a>Configurar Azure Data Box
 
-Se você solicitou uma instância de Azure Data Box (até 100 TB), siga as etapas aqui [para configurar sua instância de data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up).
+Se você solicitou uma instância de Azure Data Box (até 100 TB), siga as etapas aqui [para configurar sua instância de data Box](../databox/data-box-deploy-set-up.md).
 
 #### <a name="mount-your-azure-data-box-instance-as-a-local-system"></a>Montar sua instância de Azure Data Box como um sistema local
 
@@ -160,8 +160,8 @@ Para garantir que você possa montar seu dispositivo de Data Box como um sistema
     psexec.exe  -s  -i  cmd.exe
     ```
 
-   A janela de comando que é aberta como resultado do comando anterior está no contexto do sistema local. Use esta janela de comando para executar as etapas para montar o compartilhamento de blob de páginas do Azure como uma unidade de rede no seu Windows Server.
-1. Siga as etapas em [conectar-se a data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-nfs#connect-to-data-box) para conectar o servidor com o agente Mars ao dispositivo de data Box via NFS. Execute o comando a seguir no prompt de comando do sistema local para montar o compartilhamento de blobs de páginas do Azure.
+   A janela de comando que é aberta devido ao comando anterior está no contexto do sistema local. Use esta janela de comando para executar as etapas para montar o compartilhamento de blob de páginas do Azure como uma unidade de rede no seu Windows Server.
+1. Siga as etapas em [conectar-se a data Box](../databox/data-box-deploy-copy-data-via-nfs.md#connect-to-data-box) para conectar o servidor com o agente Mars ao dispositivo de data Box via NFS. Execute o comando a seguir no prompt de comando do sistema local para montar o compartilhamento de blobs de páginas do Azure.
 
     ```cmd
     mount -o nolock \\<DeviceIPAddress>\<StorageAccountName_PageBlob X:  
@@ -238,9 +238,9 @@ Depois que o backup dos dados for concluído, você verá uma página no agente 
 
 Esta seção explica as etapas a serem executadas depois que o backup dos dados para o Disco do Azure Data Box for bem-sucedido.
 
-- Siga as etapas neste artigo para [enviar o disco Azure data box para o Azure](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up). Se você usou um dispositivo Azure Data Box 100-TB, siga estas etapas para [enviar o dispositivo de Azure data box para o Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
+- Siga as etapas neste artigo para [enviar o disco Azure data box para o Azure](../databox/data-box-disk-deploy-picked-up.md). Se você usou um dispositivo Azure Data Box 100-TB, siga estas etapas para [enviar o dispositivo de Azure data box para o Azure](../databox/data-box-deploy-picked-up.md).
 
-- [Monitore o trabalho de data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) no portal do Azure. Depois que o trabalho de Azure Data Box for concluído, o agente MARS moverá automaticamente os dados da conta de armazenamento para o cofre dos serviços de recuperação no momento do próximo backup agendado. Em seguida, ele marcará o trabalho de backup como *trabalho concluído* se um ponto de recuperação for criado com êxito.
+- [Monitore o trabalho de data Box](../databox/data-box-disk-deploy-upload-verify.md) no portal do Azure. Depois que o trabalho de Azure Data Box for concluído, o agente MARS moverá automaticamente os dados da conta de armazenamento para o cofre dos serviços de recuperação no momento do próximo backup agendado. Em seguida, ele marcará o trabalho de backup como *trabalho concluído* se um ponto de recuperação for criado com êxito.
 
     >[!NOTE]
     >O agente MARS dispara backups nos horários agendados durante a criação da política. Esses trabalhos sinalizam "aguardando Azure Data Box trabalho seja concluído" até a hora em que o trabalho for concluído.
@@ -249,7 +249,7 @@ Esta seção explica as etapas a serem executadas depois que o backup dos dados 
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-O agente de Backup do Microsoft Azure (MAB) cria um aplicativo Azure Active Directory (Azure AD) para você em seu locatário. Esse aplicativo requer um certificado para autenticação que é criado e carregado quando você configura uma política de propagação offline. Usamos Azure PowerShell para criar e carregar o certificado para o aplicativo do Azure AD.
+O agente de Serviços de Recuperação do Microsoft Azure (MARS) cria um aplicativo Azure Active Directory (Azure AD) para você em seu locatário. Esse aplicativo requer um certificado para autenticação que é criado e carregado quando você configura uma política de propagação offline. Usamos Azure PowerShell para criar e carregar o certificado para o aplicativo do Azure AD.
 
 ### <a name="problem"></a>Problema
 

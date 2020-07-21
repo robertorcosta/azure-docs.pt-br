@@ -4,16 +4,17 @@ description: Alertas clássicos estão sendo preteridos. Alerta para permitir qu
 ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: e9c269db870f582c176783a4654b5de251e24412
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d120550d17dcac7410a259e131ad81feb0afdf9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114496"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515947"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>O que são alertas clássicos no Microsoft Azure?
 
 > [!NOTE]
-> Este artigo descreve como criar alertas de métrica clássicos mais antigos. O Azure Monitor agora dá suporte [a alertas de métrica quase em tempo real mais recentes e uma nova experiência de alertas](../../azure-monitor/platform/alerts-overview.md). Os alertas clássicos são [desativados](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement), embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas. 
+> Este artigo descreve como criar alertas de métrica clássicos mais antigos. O Azure Monitor agora dá suporte [a alertas de métrica quase em tempo real mais recentes e uma nova experiência de alertas](../../azure-monitor/platform/alerts-overview.md). Os alertas clássicos são [desativados](./monitoring-classic-retirement.md), embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas. 
 >
 
 Os alertas permitem que você configure condições sobre dados e seja notificado quando as condições corresponderem aos dados de monitoramento mais recentes.
@@ -88,7 +89,7 @@ Obter informações sobre as regras de alerta e sobre como configurá-las usando
 * Configurar [alertas de métrica clássicos por meio do portal do Azure](alerts-classic-portal.md)
 * Configurar [PowerShell de alertas de métrica clássicos](alerts-classic-portal.md)
 * Configurar a [CLI (interface de linha de comando) de alertas de métrica clássicos](alerts-classic-portal.md)
-* Configurar a [API REST do Azure Monitor de alertas de métrica clássicos](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* Configurar a [API REST do Azure Monitor de alertas de métrica clássicos](/rest/api/monitor/alertrules)
 * Saiba mais sobre o [log de atividades](platform-logs-overview.md)
 * Configurar [alertas do Log de Atividades por meio do Portal do Azure](activity-log-alerts.md)
 * Configurar [alertas do Log de Atividades por meio do Resource Manager](alerts-activity-log.md)

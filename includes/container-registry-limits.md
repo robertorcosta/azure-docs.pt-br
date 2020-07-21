@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 643cf8fd400adf06bf61f070947bd78ba7be50eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f68ca0fc577e6cf3f896ede0418f11f59756701
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85242081"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512599"
 ---
 | Recurso | Basic | Standard | Premium |
 |---|---|---|---|
@@ -28,6 +28,7 @@ ms.locfileid: "85242081"
 | Replicação geográfica | N/D | N/D | [Com suporte][geo-replication] |
 | Confiança em conteúdo | N/D | N/D | [Com suporte][content-trust] |
 | Link privado com pontos de extremidade privados | N/D | N/D | [Com suporte][plink] |
+| &bull;Pontos de extremidade privados | N/D | N/D | 10 |
 | Acesso VNet do ponto de extremidade de serviço | N/D | N/D | [Visualização][vnet] |
 | Chaves gerenciadas pelo cliente | N/D | N/D | [Com suporte][cmk] |
 | Permissões no escopo do repositório | N/D | N/D | [Visualização][token]|

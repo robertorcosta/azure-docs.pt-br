@@ -15,11 +15,12 @@ ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 3dc2834af501d3ecc2ff44c2511916447f27cfae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c6f9203385c47da9803fb05358889d00d77d3e5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82996607"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511629"
 ---
 # <a name="understand-azure-role-definitions"></a>Entender as definições de função do Azure
 
@@ -27,7 +28,7 @@ Se você estiver tentando entender como uma função do Azure funciona ou se voc
 
 ## <a name="role-definition"></a>Definição de função
 
-Uma *definição de função* é um conjunto de permissões. Às vezes, é chamada apenas de *função*. Uma definição de função lista as operações que podem ser executadas, como leitura, gravação e exclusão. Ele também pode listar as operações que são excluídas das operações permitidas ou operações relacionadas aos dados subjacentes.
+Uma *definição de função* é um conjunto de permissões. Às vezes, é chamado apenas de *função*. Uma definição de função lista as operações que podem ser executadas, como leitura, gravação e exclusão. Ele também pode listar as operações que são excluídas das operações permitidas ou operações relacionadas aos dados subjacentes.
 
 Veja a seguir um exemplo das propriedades em uma definição de função quando exibida usando Azure PowerShell:
 
@@ -59,7 +60,7 @@ assignableScopes []
 
 A tabela a seguir descreve o que significam as propriedades de função.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 | --- | --- |
 | `Name`</br>`roleName` | O nome de exibição da função. |
 | `Id`</br>`name` | A ID exclusiva da função. |
@@ -89,7 +90,7 @@ A parte `{action}` de uma cadeia de caracteres de operação especifica o tipo d
 
 ### <a name="role-definition-example"></a>Exemplo de definição de função
 
-Aqui está a definição da função [colaborador](built-in-roles.md#contributor) , conforme exibido em Azure PowerShell e CLI do Azure. A operação curinga (`*`) em `Actions` indica que a entidade de segurança atribuída a essa função pode executar todas as ações ou, em outras palavras, pode gerenciar tudo. Isso inclui ações definidas no futuro, conforme o Azure adiciona novos tipos de recurso. As operações em `NotActions` são subtraídas de `Actions`. No caso da função [Contribuidor](built-in-roles.md#contributor), `NotActions` remove a capacidade de essa função gerenciar o acesso a recursos e também atribuir acesso aos recursos.
+Aqui está a definição da função [colaborador](built-in-roles.md#contributor) , conforme exibido em Azure PowerShell e CLI do Azure. A operação curinga (`*`) em `Actions` indica que a entidade de segurança atribuída a essa função pode executar todas as ações ou, em outras palavras, pode gerenciar tudo. Isso inclui ações definidas no futuro, conforme o Azure adiciona novos tipos de recurso. As operações em `NotActions` são subtraídas de `Actions`. No caso da função de [colaborador](built-in-roles.md#contributor) , o `NotActions` Remove a capacidade dessa função de gerenciar o acesso a recursos e também gerenciar atribuições de Azure Blueprint.
 
 Função de colaborador, conforme exibido na Azure PowerShell:
 
@@ -161,11 +162,11 @@ O acesso de gerenciamento não é herdado para seus dados desde que o método de
 
 Anteriormente, o controle de acesso baseado em função não foi usado para operações de dados. Autorização para operações de dados variadas em provedores de recursos. O mesmo modelo de autorização de controle de acesso baseado em função usado para operações de gerenciamento foi estendido para operações de dados.
 
-Para dar suporte a operações de dados, novas propriedades de dados foram adicionadas à definição de função. Operações de dados são especificadas no `DataActions` e `NotDataActions` propriedades. Adicionando essas propriedades de dados, a separação entre o gerenciamento e de dados é mantida. Isso impede que as atribuições de função atual com curingas (`*`) de repente ter acesso a dados. Aqui estão algumas operações de dados que podem ser especificadas em `DataActions` e `NotDataActions`:
+Para dar suporte a operações de dados, novas propriedades de dados foram adicionadas à definição de função. Operações de dados são especificadas nas propriedades `DataActions` e `NotDataActions`. Adicionando essas propriedades de dados, a separação entre o gerenciamento e de dados é mantida. Isso impede que as atribuições de função atuais com curingas (`*`) tenham acesso a dados repentinamente. Estas são algumas operações de dados que podem ser especificadas em `DataActions` e `NotDataActions`:
 
-- Leia uma lista de blobs em um contêiner
+- Ler uma lista de blobs em um contêiner
 - Gravar um blob de armazenamento em um contêiner
-- Deletar uma mensagem em uma fila
+- Excluir uma mensagem em uma fila
 
 Aqui está a definição da função de [leitor de dados do blob de armazenamento](built-in-roles.md#storage-blob-data-reader) , que inclui operações nas `Actions` `DataActions` Propriedades e. Essa função permite que você leia o contêiner de blob e também os dados blob subjacentes.
 
@@ -221,7 +222,7 @@ Função de leitor de dados de blob de armazenamento, conforme exibido no CLI do
 }
 ```
 
-Apenas operações de dados podem ser adicionadas para o `DataActions` e `NotDataActions` propriedades. Provedores de recursos identificam quais operações são operações de dados, definindo o `isDataAction` propriedade `true`. Para ver uma lista das operações em que `isDataAction` é `true`, consulte [ Operações do provedor de recursos ](resource-provider-operations.md). Funções que não têm as operações de dados não precisam ter `DataActions` e `NotDataActions` propriedades dentro da definição de função.
+Apenas operações de dados podem ser adicionadas às propriedades `DataActions` e `NotDataActions`. Provedores de recursos identificam quais operações são operações de dados, definindo o `isDataAction` propriedade `true`. Para ver uma lista das operações em que `isDataAction` é `true`, consulte [ Operações do provedor de recursos ](resource-provider-operations.md). Funções que não têm as operações de dados não precisam ter `DataActions` e `NotDataActions` propriedades dentro da definição de função.
 
 Autorização para todas as chamadas de API de operação de gerenciamento é tratada pelo Gerenciador de recursos do Azure. A autorização para chamadas de API de operação de dados é tratada por um provedor de recursos ou o Gerenciador de recursos do Azure.
 
@@ -263,7 +264,7 @@ Para visualizar e trabalhar com operações de dados, você deve ter as versões
 
 | Ferramenta  | Versão  |
 |---------|---------|
-| [PowerShell do Azure](/powershell/azure/install-az-ps) | 1.1.0 ou posterior |
+| [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 ou posterior |
 | [CLI do Azure](/cli/azure/install-azure-cli) | 2.0.30 ou posterior |
 | [Azure para .NET](/dotnet/azure/) | 2.8.0-versão prévia ou posterior |
 | [SDK do Azure para ir](/azure/go/azure-sdk-go-install) | 15.0.0 ou posterior |
@@ -338,4 +339,4 @@ Para obter informações sobre as `AssignableScopes` funções personalizadas, c
 
 * [Funções internas do Azure](built-in-roles.md)
 * [Funções personalizadas do Azure](custom-roles.md)
-* [Operações do provedor de recursos Azure Resource Manager](resource-provider-operations.md)
+* [Operações do provedor de recursos do Azure Resource Manager](resource-provider-operations.md)

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: dbeaa58da109c5afceb03a560e69e0c8bf63ad42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 240a261f8dd401f36ef763e4c1274a1c0760f2dd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81768122"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515641"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics espaço de trabalho usando modelos de Azure Resource Manager
 
@@ -39,11 +40,11 @@ A tabela a seguir lista a versão de API para os recursos usados neste exemplo.
 | Recurso | Tipo de recurso | Versão da API |
 |:---|:---|:---|
 | Workspace   | workspaces    | 2017-03-15-preview |
-| Search      | savedSearches | 2015-03-20 |
+| Pesquisar      | savedSearches | 2015-03-20 |
 | Fonte de dados | datasources   | 2015-11-01-preview |
 | Solução    | solutions     | 2015-11-01-preview |
 
-## <a name="create-a-log-analytics-workspace"></a>Criar um espaço de trabalho do Log Analytics
+## <a name="create-a-log-analytics-workspace"></a>Criar um workspace do Log Analytics
 
 O exemplo a seguir cria um espaço de trabalho usando um modelo de seu computador local. O modelo JSON está configurado para exigir apenas o nome e o local do novo espaço de trabalho. Ele usa valores especificados para outros parâmetros de espaço de trabalho, como [modo de controle de acesso](design-logs-deployment.md#access-control-mode), tipo de preço, retenção e nível de reserva de capacidade.
 
@@ -152,7 +153,7 @@ Para a reserva de capacidade, você define uma reserva de capacidade selecionada
    >* "Name": "CapacityReservation",
    >* "capacityReservationLevel": 100
 
-2. Edite o modelo para atender às suas necessidades. Considere a criação de um [arquivo de parâmetros do Resource Manager](../../azure-resource-manager/templates/parameter-files.md) em vez de passar parâmetros como valores embutidos. Revisão de referência[Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) para saber quais propriedades e os valores são suportados. 
+2. Edite o modelo para atender às suas necessidades. Considere a criação de um [arquivo de parâmetros do Resource Manager](../../azure-resource-manager/templates/parameter-files.md) em vez de passar parâmetros como valores embutidos. Revisão de referência[Microsoft.OperationalInsights/workspaces](/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) para saber quais propriedades e os valores são suportados. 
 
 3. Salve esse arquivo como **deploylaworkspacetemplate.json** para uma pasta local.
 
@@ -662,7 +663,7 @@ Para implantar o modelo de exemplo:
 New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
-#### <a name="command-line"></a>Linha de Comando
+#### <a name="command-line"></a>Linha de comando
 
 ```cmd
 azure config mode arm

@@ -3,11 +3,12 @@ title: Sessões de mensagens do Barramento de Serviço do Azure | Microsoft Docs
 description: Este artigo explica como usar as sessões para habilitar a manipulação ordenada e conjunta de sequências não associadas de mensagens relacionadas.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c1b714df1df7e2c3ba39c63581dc3c40a2ff9d1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05efc550e119186a2925c13d3fcfed11bec17251
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341194"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511289"
 ---
 # <a name="message-sessions"></a>Sessões de mensagem
 As sessões do Barramento de Serviço do Microsoft Azure permitem o tratamento conjunto e ordenado de sequências não associadas de mensagens relacionadas. As sessões podem ser usadas em padrões **PEPS (primeiro a entrar, primeiro a sair)** e **solicitação-resposta**. Este artigo mostra como usar sessões para implementar esses padrões ao usar o Barramento de Serviço. 
@@ -30,7 +31,7 @@ O recurso de sessão no Barramento de Serviço habilita uma operação de recebi
 
 No portal, defina o sinalizador com a caixa de seleção a seguir:
 
-![][2]
+![Captura de tela da caixa de diálogo Criar fila com a opção habilitar sessões selecionada e descrita em vermelho.][2]
 
 > [!NOTE]
 > Quando as sessões são habilitadas em uma fila ou em uma assinatura, os aplicativos cliente podem ***deixar de*** enviar/receber mensagens comuns. Todas as mensagens devem ser enviadas como parte de uma sessão (definindo a ID de sessão) e recebidas por meio do recebimento da sessão.
@@ -41,7 +42,7 @@ As APIs para sessões existem em clientes de fila e assinatura. Há um modelo im
 
 As sessões fornecem a demultiplexação simultânea de fluxos de mensagens intercaladas enquanto preserva e garante a entrega ordenada.
 
-![][1]
+![Um diagrama que mostra como o recurso de sessões preserva a entrega ordenada.][1]
 
 Um destinatário de [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) é criado pelo cliente aceitando uma sessão. O cliente chama [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) ou [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) no C#. No modelo de retorno de chamada reativo, ele registra um manipulador de sessão.
 
