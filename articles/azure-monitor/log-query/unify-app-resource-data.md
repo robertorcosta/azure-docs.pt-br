@@ -7,11 +7,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2020
-ms.openlocfilehash: ce58aae3b1db1f0f338d353025d4f277aeb6944f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9f41a99f6cf21574c3c26950d5c9f048d85a468
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77137491"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539509"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificar vários recursos do Application Insights do Azure Monitor 
 Este artigo descreve como consultar e exibir todos os seus Application Insights dados de log em um único local, mesmo quando eles estão em assinaturas diferentes do Azure, como uma substituição para a reprovação da Conector do Application Insights. O número de recursos de Application Insights que você pode incluir em uma única consulta é limitado a 100.
@@ -56,7 +57,7 @@ A consulta usa o esquema do Application Insights, embora ela seja executada no w
 ![Exemplo de resultados de consulta cruzada](media/unify-app-resource-data/app-insights-query-results.png)
 
 >[!NOTE]
->A [consulta de recursos cruzados](../log-query/cross-workspace-query.md) nos alertas de log é compatível com a nova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Por padrão, o Azure Monitor usa a [API herdada de alertas do Log Analytics](../platform/api-alerts.md) para a criação de novas regras de alertas de log do portal do Azure, mas você pode mudar para a [API herdada de alertas de log](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Após a mudança, a nova API torna-se o padrão para novas regras de alerta no portal do Azure e permite criar regras de alertas de log de consulta de recursos cruzados. Você pode criar regras de alerta de log de [consulta de recursos cruzados](../log-query/cross-workspace-query.md) sem fazer a mudança com o [modelo do ARM para a API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template), mas essa regra de alerta pode ser gerenciada na [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e não no portal do Azure.
+>A [consulta de recursos cruzados](../log-query/cross-workspace-query.md) nos alertas de log é compatível com a nova [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Por padrão, o Azure Monitor usa a [API herdada de alertas do Log Analytics](../platform/api-alerts.md) para a criação de novas regras de alertas de log do portal do Azure, mas você pode mudar para a [API herdada de alertas de log](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Após a mudança, a nova API torna-se o padrão para novas regras de alerta no portal do Azure e permite criar regras de alertas de log de consulta de recursos cruzados. Você pode criar regras de alerta de log de [consulta de recursos cruzados](../log-query/cross-workspace-query.md) sem fazer a mudança com o [modelo do ARM para a API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template), mas essa regra de alerta pode ser gerenciada na [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) e não no portal do Azure.
 
 ## <a name="application-insights-and-log-analytics-workspace-schema-differences"></a>Diferenças de esquema de espaço de trabalho do Application Insights e do Log Analytics
 A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o Application Insights.  
@@ -87,7 +88,7 @@ A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o App
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
 | ExceptionMessage | message | 
-| ExceptionType | tipo |
+| ExceptionType | type |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
 | Sistema operacional | client_OS | 
@@ -105,7 +106,7 @@ A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o App
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
-| TelemetryTYpe | tipo |
+| TelemetryTYpe | type |
 | URL | url |
 | UserAccountId | user_AccountId |
 

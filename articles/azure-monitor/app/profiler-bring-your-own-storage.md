@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: d84010fd62d753fafd7edffab833b203657f74c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50dcd3f438645c99e0ed3cfdded7a101ee5f1852
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361931"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539849"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configure o BYOS (Traga seu próprio armazenamento) para Application Insights Profiler e Depurador de Instantâneos
 
@@ -21,9 +21,9 @@ Quando você usa Application Insights Profiler ou Depurador de Instantâneos, os
 Com o traga seu próprio armazenamento, esses artefatos são carregados em uma conta de armazenamento que você controla. Isso significa que você controla a política de criptografia em repouso, a política de gerenciamento de tempo de vida e o acesso à rede. No entanto, você será responsável pelos custos associados a essa conta de armazenamento.
 
 > [!NOTE]
-> Se você estiver habilitando o link privado, traga seu próprio armazenamento é um requisito. Para obter mais informações sobre o link privado para Application Insights, [consulte a documentação.](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)
+> Se você estiver habilitando o link privado, traga seu próprio armazenamento é um requisito. Para obter mais informações sobre o link privado para Application Insights, [consulte a documentação.](../platform/private-link-security.md)
 >
-> Se você estiver habilitando chaves gerenciadas pelo cliente, traga seu próprio armazenamento é um requisito. Para obter mais informações sobre chaves gerenciadas pelo cliente para Application Insights, [consulte a documentação.](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys)
+> Se você estiver habilitando chaves gerenciadas pelo cliente, traga seu próprio armazenamento é um requisito. Para obter mais informações sobre chaves gerenciadas pelo cliente para Application Insights, [consulte a documentação.](../platform/customer-managed-keys.md)
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>Como minha conta de armazenamento será acessada?
 1. Os agentes em execução em suas máquinas virtuais ou no serviço de aplicativo carregarão artefatos (perfis, instantâneos e símbolos) para contêineres de BLOB em sua conta. Esse processo envolve entrar em contato com o serviço de Application Insights Profiler ou Depurador de Instantâneos para obter um token SAS (assinatura de acesso compartilhado) para um novo BLOB em sua conta de armazenamento.
@@ -31,7 +31,7 @@ Com o traga seu próprio armazenamento, esses artefatos são carregados em uma c
 1. Quando você exibir os rastreamentos do criador de perfil ou a análise do depurador de instantâneo, o serviço buscará os resultados da análise do armazenamento de BLOBs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Certifique-se de criar sua conta de armazenamento no mesmo local que o recurso de Application Insights. Ex. Se o recurso de Application Insights estiver no oeste dos EUA 2, sua conta de armazenamento também deverá estar no oeste dos EUA 2. 
+* Certifique-se de criar sua conta de armazenamento no mesmo local que o recurso de Application Insights. Ex.: Se o recurso de Application Insights estiver no oeste dos EUA 2, sua conta de armazenamento também deverá estar no oeste dos EUA 2. 
 * Conceda a função "colaborador de dados de blob de armazenamento" ao aplicativo do AAD "acesso de armazenamento confiável dos serviços de diagnóstico" em sua conta de armazenamento por meio da interface de usuário do controle de acesso (IAM).
 * Se o link privado estiver habilitado, defina a configuração adicional para permitir a conexão com o nosso serviço confiável da Microsoft de sua rede virtual. 
 
@@ -60,7 +60,7 @@ Depois de adicionar a função, ela será exibida na seção "atribuições de f
 _ ![ Figura 1,1](media/profiler-bring-your-own-storage/figure-11.png)_ 
  _Figura 1,1_ 
 
-Se você também estiver usando o link privado, será necessária uma configuração adicional para permitir a conexão com o nosso serviço confiável da Microsoft de sua rede virtual. Consulte a [documentação de segurança de rede de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services).
+Se você também estiver usando o link privado, será necessária uma configuração adicional para permitir a conexão com o nosso serviço confiável da Microsoft de sua rede virtual. Consulte a [documentação de segurança de rede de armazenamento](../../storage/common/storage-network-security.md#trusted-microsoft-services).
 
 ### <a name="link-your-storage-account-with-your-application-insights-resource"></a>Vincular sua conta de armazenamento com o recurso Application Insights
 Para configurar o BYOS para diagnósticos de nível de código (criador de perfil/depurador), há duas opções:
@@ -73,7 +73,7 @@ Para configurar o BYOS para diagnósticos de nível de código (criador de perfi
 
 1. Verifique se você instalou o AZ PowerShell 4.2.0 ou superior.
 
-    Para instalar o Azure PowerShell, consulte a [documentação oficial do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+    Para instalar o Azure PowerShell, consulte a [documentação oficial do Azure PowerShell](/powershell/azure/install-az-ps).
 
 1. Instale a extensão Application Insights PowerShell.
     ```powershell
@@ -85,7 +85,7 @@ Para configurar o BYOS para diagnósticos de nível de código (criador de perfi
     Connect-AzAccount -Subscription "{subscription_id}"
     ```
 
-    Para obter mais informações sobre como entrar, consulte a documentação do [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+    Para obter mais informações sobre como entrar, consulte a documentação do [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 1. Remova a conta de armazenamento anterior vinculada ao recurso Application Insights.
 
@@ -121,7 +121,7 @@ Para configurar o BYOS para diagnósticos de nível de código (criador de perfi
 
 1. Verifique se você instalou o CLI do Azure.
 
-    Para instalar o CLI do Azure, consulte a [documentação oficial do CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+    Para instalar o CLI do Azure, consulte a [documentação oficial do CLI do Azure](/cli/azure/install-azure-cli).
 
 1. Instale a extensão da CLI do Application Insights.
     ```powershell
@@ -152,7 +152,7 @@ Para configurar o BYOS para diagnósticos de nível de código (criador de perfi
     ```
 
     > [!NOTE]
-    > Para executar atualizações nas contas de armazenamento vinculadas para o recurso Application Insights, consulte a [documentação da CLI do Application insights](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage).
+    > Para executar atualizações nas contas de armazenamento vinculadas para o recurso Application Insights, consulte a [documentação da CLI do Application insights](/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage).
 
 #### <a name="configure-using-azure-resource-manager-template"></a>Configurar usando o modelo de Azure Resource Manager
 
@@ -276,7 +276,7 @@ Para solucionar problemas gerais do criador de perfil, consulte a [documentaçã
 
 Para obter uma solução de problemas de Depurador de Instantâneos geral, consulte a [documentação de solução de problemas do depurador de instantâneos](snapshot-debugger-troubleshoot.md). 
 
-## <a name="faqs"></a>Perguntas frequentes
+## <a name="faqs"></a>Perguntas Frequentes
 * Se eu tiver o criador de perfil ou o instantâneo habilitado e, em seguida, eu habilitar o BYOS, meus dados serão migrados para minha conta de armazenamento?
     _Não, não vai._
 

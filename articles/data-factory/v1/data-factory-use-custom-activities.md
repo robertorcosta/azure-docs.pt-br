@@ -12,13 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 2cea9cd1439bce0c55d701539471c463acb8f7e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f0d60d1f76523beca6567517ef44d50b910b221
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84020125"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537608"
 ---
-# <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
+# <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Usar atividades personalizadas em um pipeline Azure Data Factory versão 1
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](data-factory-use-custom-activities.md)
 > * [Versão 2 (versão atual)](../transform-data-using-dotnet-custom-activity.md)
@@ -48,7 +49,7 @@ O passo a passo a seguir fornece instruções para criar uma atividade personali
 ### <a name="azure-batch-prerequisites"></a>Pré-requisitos de Lote do Azure
 No passo a passo, você executa suas atividades personalizadas do .NET usando o Lote do Azure como um recurso de computação. O **Lote do Azure** é um serviço de plataforma para execução de aplicativos paralelos em grande escala e aplicativos HPC (computação de alto desempenho) com eficiência na nuvem. O lote do Azure agenda o trabalho de computação intensiva para ser executado em uma coleção gerenciada **de máquinas virtuais**e pode dimensionar automaticamente os recursos de computação para atender às necessidades de seus trabalhos. Consulte o artigo [Noções básicas de Lote do Azure][batch-technical-overview] para obter uma visão geral do serviço de Lote do Azure.
 
-Para o tutorial, crie uma conta do Lote do Azure com um pool de VMs. Aqui estão as etapas para fazer isso:
+Para o tutorial, crie uma conta do Lote do Azure com um pool de VMs. Siga estas etapas:
 
 1. Crie uma **conta do lote do Azure** usando o [portal do Azure](https://portal.azure.com). Consulte o artigo [Criar e gerenciar uma conta do Lote do Azure][batch-create-account] para obter instruções.
 2. Anote o nome, a chave, o URI e o nome do pool da conta do Lote do Azure. Você vai precisar destes dados para criar um serviço vinculado do Lote do Azure.
@@ -1024,7 +1025,7 @@ O exemplo do [Azure Data Factory – ambiente local](https://github.com/gbrueckl
 | --- | --- |
 | [HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample). |Baixa dados de um ponto de extremidade de HTTP para o Armazenamento de Blobs do Azure usando uma atividade de C# personalizada no Data Factory. |
 | [Exemplo de análise de opinião no Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Invoca um modelo do Azure Machine Learning Studio e faz análise de sentimento, pontuação, previsão, etc. |
-| [Executar Script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). |Invoca o script de R executando o RScript.exe no seu cluster do HDInsight que já tem o R instalado nele. |
+| [Execute o script do R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). |Invoca o script de R executando o RScript.exe no seu cluster do HDInsight que já tem o R instalado nele. |
 | [Atividade cruzada do .NET no AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Usa versões de assembly diferente daquelas usadas pelo iniciador do Data Factory |
 | [Reprocessar um modelo no Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample) |  Reprocessar um modelo no Azure Analysis Services. |
 

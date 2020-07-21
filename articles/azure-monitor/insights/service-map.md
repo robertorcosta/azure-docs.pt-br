@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 637db3a0749b5a0738b0ccc5136d26e435a03c7b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bfd25c2572e91c2984f2845e08941614fff65570
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203128"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539764"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Usando a solução Mapa do Serviço no Azure
 
@@ -241,7 +241,7 @@ O Mapa do Serviço integra-se à Pesquisa de Logs para mostrar uma contagem de t
 
 ## <a name="service-desk-integration"></a>Integração da Central de Serviços
 
-A integração do Mapa do Serviço com o Conector de Gerenciamento de Serviços de TI é automática quando as duas soluções estão habilitadas e configuradas no espaço de trabalho do Log Analytics. A integração no Mapa do Serviço é rotulada "Central de Serviços." Para obter mais informações, consulte [Gerenciar itens de trabalho de ITSM de forma centralizada usando o Conector de Gerenciamento de Serviço de TI](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+A integração do Mapa do Serviço com o Conector de Gerenciamento de Serviços de TI é automática quando as duas soluções estão habilitadas e configuradas no espaço de trabalho do Log Analytics. A integração no Mapa do Serviço é rotulada "Central de Serviços." Para obter mais informações, consulte [Gerenciar itens de trabalho de ITSM de forma centralizada usando o Conector de Gerenciamento de Serviço de TI](../platform/itsmc-overview.md).
 
 O painel **Central de Serviços do Computador** lista todos os eventos de Gerenciamento de Serviço de TI para o servidor selecionado no intervalo de tempo selecionado. Se houver itens atuais, o servidor exibirá um ícone e o painel da Central de Serviços do Computador irá listá-los.
 
@@ -270,7 +270,7 @@ O painel **Desempenho do Computador** exibe métricas de desempenho padrão para
 
 ![Painel Desempenho do Computador](media/service-map/machine-performance.png)
 
-Para ver os dados de desempenho, talvez seja necessário [habilitar os contadores de desempenho apropriados do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Os contadores que você desejará habilitar:
+Para ver os dados de desempenho, talvez seja necessário [habilitar os contadores de desempenho apropriados do Log Analytics](../platform/data-sources-performance-counters.md).  Os contadores que você desejará habilitar:
 
 Windows:
 - Processador(*)\\% Tempo do Processador
@@ -540,7 +540,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 ## <a name="rest-api"></a>API REST
 
-Todos os dados do servidor, do processo e de dependência no Mapa do Serviço estão disponíveis por meio da [API REST do Mapa do Serviço](https://docs.microsoft.com/rest/api/servicemap/).
+Todos os dados do servidor, do processo e de dependência no Mapa do Serviço estão disponíveis por meio da [API REST do Mapa do Serviço](/rest/api/servicemap/).
 
 ## <a name="diagnostic-and-usage-data"></a>Dados de uso e de diagnóstico
 

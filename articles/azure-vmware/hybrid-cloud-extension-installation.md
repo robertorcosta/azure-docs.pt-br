@@ -2,19 +2,19 @@
 title: Instalar HCX (Extensão de Nuvem Híbrida)
 description: Configurar a solução de HCX (Extensão de Nuvem Híbrida) do VMware para sua nuvem privada da AVS (Solução VMware do Azure)
 ms.topic: how-to
-ms.date: 05/19/2020
-ms.openlocfilehash: 3037d12ebbb036098cfc00a42521513bc2df6170
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: b897a44fb6811c4e3564c59a8ab2c064506f0a4f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367539"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539152"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Instalar a HCX na Solução VMware do Azure
 
 Neste artigo, percorreremos procedimentos para configurar a solução de HCX (extensão de nuvem híbrida) do VMWare para sua nuvem privada da AVS (solução VMWare) do Azure. O HCX permite a migração de suas cargas de trabalho do VMware para a nuvem e outros sites conectados por meio de vários tipos de migração com suporte HCX internos.
 
-O HCX Advanced, a instalação padrão, oferece suporte a até três sites externos. Se mais de três sites forem necessários, os clientes terão a opção de ativar o complemento HCX Enterprise por meio do Suporte. A instalação do HCX Enterprise transporta cobranças adicionais para os clientes após a disponibilidade geral (GA), mas fornece [recursos adicionais](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+O HCX Advanced, a instalação padrão, dá suporte a até três vCenters. Se mais de três forem necessários, os clientes terão a opção de habilitar o complemento do HCX Enterprise por meio do suporte. A instalação do HCX Enterprise transporta cobranças adicionais para os clientes após a disponibilidade geral (GA), mas fornece [recursos adicionais](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 
 [Antes de começar](#before-you-begin), analise detalhadamente os [Requisitos de versão do software](#software-version-requirements) e os [Pré-requisitos](#prerequisites). 

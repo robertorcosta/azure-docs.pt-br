@@ -3,11 +3,12 @@ title: Sobre o backup do compartilhamento de arquivos do Azure
 description: Saiba como fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 0a03871b61ab00f2dae18ba11a5a9127680a646b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40cb9ca0bd34fd65ab1983af6384d617db26e996
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299223"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539084"
 ---
 # <a name="about-azure-file-share-backup"></a>Sobre o backup do compartilhamento de arquivos do Azure
 
@@ -20,7 +21,7 @@ O backup de compartilhamento de arquivos do Azure é uma solução de backup nat
 * **Recursos de gerenciamento internos**: você pode agendar backups e especificar o período de retenção desejado sem a sobrecarga adicional de remoção de dados.
 * **Restauração instantânea**: o backup de compartilhamento de arquivos do Azure usa instantâneos de compartilhamento de arquivos, para que você possa selecionar apenas os arquivos que deseja restaurar instantaneamente.
 * **Alertas e relatórios**: você pode configurar alertas para falhas de backup e restauração e usar a solução de relatórios fornecida pelo backup do Azure para obter informações sobre backups em seus compartilhamentos de arquivos.
-* **Proteção contra exclusão acidental de compartilhamentos de arquivos**: o backup do Azure habilita o [recurso de exclusão reversível](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) em um nível de conta de armazenamento com um período de retenção de 14 dias. Mesmo que um ator mal-intencionado exclua o compartilhamento de arquivos, o conteúdo e os pontos de recuperação (instantâneos) do compartilhamento de arquivos são mantidos para um período de retenção configurável, permitindo a recuperação bem-sucedida e completa de conteúdo de origem e instantâneos sem perda de dados.
+* **Proteção contra exclusão acidental de compartilhamentos de arquivos**: o backup do Azure habilita o [recurso de exclusão reversível](../storage/files/storage-files-prevent-file-share-deletion.md) em um nível de conta de armazenamento com um período de retenção de 14 dias. Mesmo que um ator mal-intencionado exclua o compartilhamento de arquivos, o conteúdo e os pontos de recuperação (instantâneos) do compartilhamento de arquivos são mantidos para um período de retenção configurável, permitindo a recuperação bem-sucedida e completa de conteúdo de origem e instantâneos sem perda de dados.
 
 ## <a name="architecture"></a>Arquitetura
 

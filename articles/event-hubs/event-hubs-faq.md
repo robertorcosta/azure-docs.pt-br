@@ -3,12 +3,12 @@ title: Perguntas frequentes - Hubs de Eventos | Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para os Hubs de Eventos do Azure e suas respostas.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0094be0eef4595662477ef1c7914ae9f118b8e25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bec50da97bc826eb1bd26452e8f69f5c11f2d65d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320576"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537173"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas frequentes sobre os Hubs de Eventos
 
@@ -261,7 +261,7 @@ Os Hubs de Eventos dão suporte a dois tipos de [logs de diagnóstico](event-hub
 
 ### <a name="support-and-sla"></a>Suporte e SLA
 
-O suporte técnico para Hubs de Eventos está disponível por meio da [Página de perguntas e respostas da Microsoft para o Barramento de Serviço do Azure.](https://docs.microsoft.com/answers/topics/azure-service-bus.html) O suporte para gerenciamento de assinaturas e cobranças é fornecido sem custo adicional.
+O suporte técnico para Hubs de Eventos está disponível por meio da [Página de perguntas e respostas da Microsoft para o Barramento de Serviço do Azure.](/answers/topics/azure-service-bus.html) O suporte para gerenciamento de assinaturas e cobranças é fornecido sem custo adicional.
 
 Para saber mais sobre nosso SLA, veja a página [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/) .
 
@@ -269,6 +269,6 @@ Para saber mais sobre nosso SLA, veja a página [Contratos de Nível de Serviço
 
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Eventos](./event-hubs-about.md)
 * [Criar um Hub de Eventos](event-hubs-create.md)
 * [Inflar automaticamente de Hubs de Eventos](event-hubs-auto-inflate.md)

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9f44cbd9b735839640702970a65de239b36b3f30
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a8f5aaa7b2a054aa31198779414387cebf0f0fbd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209206"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537030"
 ---
 # <a name="about-upgrading-expressroute-circuit-bandwidth"></a>Sobre a atualização da largura de banda do circuito do ExpressRoute
 
@@ -34,7 +34,7 @@ Se a capacidade estiver disponível, você poderá atualizar o circuito usando o
 
 Se o parceiro ExpressRoute não tiver capacidade suficiente, você precisará criar um novo circuito, configurado para a largura de banda desejada. Para manter a conectividade, não exclua o circuito antigo até que o circuito recém-criado seja provisionado, o emparelhamento tenha sido configurado e (em relação ao emparelhamento privado) o objeto de conexão com o gateway de rede virtual ExpressRoute foi provisionado.
 
-Se o seu parceiro do ExpressRoute não tiver capacidade suficiente disponível, você precisará solicitar capacidade adicional no local de emparelhamento desejado. Depois que a nova capacidade for provisionada, você poderá usar as etapas contidas nos artigos na seção [Atualizar largura de banda do circuito](#upgrade) para criar um novo circuito, configurar a conectividade e excluir o circuito antigo:
+Se o seu parceiro do ExpressRoute não tiver capacidade suficiente disponível, você precisará solicitar capacidade adicional no local de emparelhamento desejado. Depois que a nova capacidade for provisionada, você poderá usar as etapas contidas nos artigos da seção [Atualizar largura de banda do circuito](#upgrade) para criar um novo circuito, configurar a conectividade e excluir o circuito antigo.
 
 
 ### <a name="insufficient-expressroute-direct-bandwidth"></a><a name="bandwidth"></a>Largura de banda direta do ExpressRoute insuficiente

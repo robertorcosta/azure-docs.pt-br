@@ -3,11 +3,12 @@ title: Fazer backup de um farm do SharePoint no Azure Stack
 description: Use o Servidor de Backup do Azure para fazer backup e restaurar seus dados do SharePoint no Azure Stack. Este artigo fornece informações para configurar seu farm do SharePoint para que os dados desejados possam ser armazenados no Azure. Você pode restaurar dados protegidos do SharePoint do disco ou do Azure.
 ms.topic: conceptual
 ms.date: 06/07/2020
-ms.openlocfilehash: 8b9257c1d175c350df06f9421b31a9e7b8e2bb80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd94b24479631f9fbbe4070529d76fe6442faae2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84657934"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538778"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Fazer backup de um farm do SharePoint no Azure Stack
 
@@ -101,7 +102,7 @@ Para fazer backup do farm do SharePoint, configure a proteção do SharePoint us
 
 1. Em **Especificar política de retenção online**, você pode especificar como os pontos de recuperação criados nos backups diários, semanais, mensais e anuais são mantidos no Azure.
 
-1. Em **Escolher replicação online**, especifique como ocorrerá a replicação inicial completa de dados. Você pode replicar pela rede ou fazer um backup offline (propagação offline). O backup offline usa a funcionalidade de importação do Azure. [Leia mais](https://azure.microsoft.com/documentation/articles/backup-azure-backup-import-export/).
+1. Em **Escolher replicação online**, especifique como ocorrerá a replicação inicial completa de dados. Você pode replicar pela rede ou fazer um backup offline (propagação offline). O backup offline usa a funcionalidade de importação do Azure. [Leia mais](./backup-azure-backup-import-export.md).
 
 1. Na página **Resumo**, examine as configurações. Depois de clicar em **Criar Grupo**, ocorre a replicação inicial dos dados. Quando a replicação terminar, o status do grupo de proteção será exibido como **OK** na página **Status**. Em seguida, ocorre o backup em linha com as configurações do grupo de proteção.
 
@@ -147,7 +148,7 @@ No exemplo a seguir, o *item Recuperando SharePoint* foi excluído acidentalment
 5. Você também pode navegar pelos diversos pontos de recuperação e selecionar um banco de dados ou item para recuperar. Selecione **Data > Hora da recuperação** e escolha o **Banco de Dados > Farm do SharePoint > Ponto de recuperação > Item** correto.
 
     ![Proteção do SharePoint do MABS 7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. Clique com o botão direito do mouse no item e selecione **Recuperar** para abrir o **Assistente de Recuperação**. Clique em **Próximo**.
+6. Clique com o botão direito do mouse no item e selecione **Recuperar** para abrir o **Assistente de Recuperação**. Clique em **Avançar**.
 
     ![Rever Seleção de Recuperação](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
 7. Selecione o tipo de recuperação que você deseja executar e clique em **Avançar**.

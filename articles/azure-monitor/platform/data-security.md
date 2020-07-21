@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
-ms.openlocfilehash: 63d8d8d3701a9adca4bd01e6e061877f5d0bd245
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 540e824f301c402e1f65f6186b26ad1672e21d37
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80333351"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539339"
 ---
 # <a name="log-analytics-data-security"></a>Segurança de dados do Log Analytics
-Este documento destina-se a fornecer informações específicas do Log Analytics, que é um recurso do Azure Monitor, para complementar as informações na [Central de Confiabilidade do Azure](../../security/fundamentals/trust-center.md).  
+Este documento destina-se a fornecer informações específicas do Log Analytics, que é um recurso do Azure Monitor, para complementar as informações na [Central de Confiabilidade do Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
 
 Este artigo explica como os dados são coletados, processados e protegidos pelo Log Analytics no OMS (Operations Management Suite). Você pode usar agentes para se conectar ao serviço Web, usar o System Center Operations Manager para coletar dados operacionais ou recuperar dados de diagnóstico do Azure para uso pelo Log Analytics. 
 
@@ -42,9 +42,9 @@ Não é recomendável definir explicitamente seu agente para usar somente o TLS 
 |Plataforma/linguagem | Suporte | Mais informações |
 | --- | --- | --- |
 |Linux | Distribuições do Linux tendem a depender do [OpenSSL](https://www.openssl.org) para suporte a TLS 1.2.  | Verifique as [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) para confirmar a sua versão do OpenSSL é suportada.|
-| Windows 8.0 - 10 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012 - 2016 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando as [configurações padrão](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
-| Windows Server 7 SP1 e Windows Server 2008 R2 SP1 | Com suporte, mas não habilitado por padrão. | Consulte a página [configurações do registro de segurança de camada de transporte (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) para obter detalhes sobre como habilitar.  |
+| Windows 8.0 - 10 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 - 2016 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando as [configurações padrão](/windows-server/security/tls/tls-registry-settings) |
+| Windows Server 7 SP1 e Windows Server 2008 R2 SP1 | Com suporte, mas não habilitado por padrão. | Consulte a página [configurações do registro de segurança de camada de transporte (TLS)](/windows-server/security/tls/tls-registry-settings) para obter detalhes sobre como habilitar.  |
 
 ## <a name="data-segregation"></a>Segregação de dados
 Depois que seus dados são ingeridos pelo serviço Log Analytics, os dados são mantidos separados logicamente em cada componente no serviço. Todos os dados são marcados por workspace. Essa marcação persiste em todo o ciclo de vida dos dados e é imposta em cada camada do serviço. Os dados ficam armazenados em um banco de dados dedicado no cluster de armazenamento na região selecionada.
@@ -175,4 +175,3 @@ Para acessar seu espaço de trabalho do Log Analytics, entre no portal do Azure 
 * Saiba como coletar dados com o Log Analytics para as VMs do Azure seguindo o [guia de início rápido da VM do Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
 *  Se você estiver querendo coletar dados de computadores físicos ou virtuais Windows ou Linux em seu ambiente, confira o [Guia de início rápido para computadores Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) ou o [Guia de início rápido para computadores Windows](../../azure-monitor/learn/quick-collect-windows-computer.md)
-

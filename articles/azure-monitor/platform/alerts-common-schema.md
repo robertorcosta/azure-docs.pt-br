@@ -4,11 +4,12 @@ description: Compreendendo o esquema de alerta comum, por que você deve usá-lo
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 1445e8cf38b2694146fc8749ba5e77f2297de969
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: faf9975e2795623305583d061d1af7f5eb0cfbe0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710925"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539475"
 ---
 # <a name="common-alert-schema"></a>Esquema comum de alertas
 
@@ -51,8 +52,8 @@ Você pode aceitar ou recusar o esquema de alerta comum por meio de grupos de a�
 > 1. Os seguintes tipos de alerta dão suporte ao esquema comum por padrão (não é necessário aceitar):
 >     * Alertas de detecção inteligente
 > 1. Atualmente, os seguintes tipos de alertas não dão suporte ao esquema comum:
->     * Alertas gerados pelo [Azure monitor para VMs](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
->     * Alertas gerados pelo [Gerenciamento de custos do Azure](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
+>     * Alertas gerados pelo [Azure monitor para VMs](../insights/vminsights-overview.md)
+>     * Alertas gerados pelo [Gerenciamento de custos do Azure](../../cost-management-billing/manage/cost-management-budget-scenario.md)
 
 ### <a name="through-the-azure-portal"></a>Por meio do portal do Azure
 
@@ -63,9 +64,9 @@ Você pode aceitar ou recusar o esquema de alerta comum por meio de grupos de a�
 
 ### <a name="through-the-action-groups-rest-api"></a>Por meio da API REST dos grupos de ação
 
-Você também pode usar a [API de grupos de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups) para aceitar o esquema de alerta comum. Ao fazer a chamada [criar ou atualizar](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) a API REST, você pode definir o sinalizador "useCommonAlertSchema" como "true" (para aceitar) ou "false" (para recusar) para qualquer um dos seguintes ações: email/webhook/aplicativo lógico/Azure function/Automation runbook.
+Você também pode usar a [API de grupos de ação](/rest/api/monitor/actiongroups) para aceitar o esquema de alerta comum. Ao fazer a chamada [criar ou atualizar](/rest/api/monitor/actiongroups/createorupdate) a API REST, você pode definir o sinalizador "useCommonAlertSchema" como "true" (para aceitar) ou "false" (para recusar) para qualquer um dos seguintes ações: email/webhook/aplicativo lógico/Azure function/Automation runbook.
 
-Por exemplo, o corpo da solicitação a seguir feita para [criar ou atualizar](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) a API REST fará o seguinte:
+Por exemplo, o corpo da solicitação a seguir feita para [criar ou atualizar](/rest/api/monitor/actiongroups/createorupdate) a API REST fará o seguinte:
 
 * Habilite o esquema de alerta comum para a ação de email "email de João da Silva"
 * Desabilite o esquema de alerta comum para a ação de email "email de Jane Smith"
@@ -120,7 +121,4 @@ Por exemplo, o corpo da solicitação a seguir feita para [criar ou atualizar](h
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Definições comuns de esquema de alerta para WebHooks/aplicativos lógicos/Azure Functions/Runbooks de automação.](https://aka.ms/commonAlertSchemaDefinitions)
-- [Saiba como criar um aplicativo lógico que aproveita o esquema de alerta comum para lidar com todos os seus alertas.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
-
-
-
+- [Saiba como criar um aplicativo lógico que aproveita o esquema de alerta comum para lidar com todos os seus alertas.](./alerts-common-schema-integrations.md) 

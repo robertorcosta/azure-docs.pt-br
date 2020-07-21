@@ -3,12 +3,12 @@ title: Mover um namespace de hubs de eventos do Azure para outra região | Micro
 description: Este artigo mostra como mover um namespace de hubs de eventos do Azure da região atual para outra região.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: a70397772d22a65046f87877deab6263d4b2104f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51b02c34b0c28420a7e27da56b107ed3925a761b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312966"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537064"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Mover um namespace de hubs de eventos do Azure para outra região
 Há vários cenários em que você deseja mover o namespace de seus hubs de eventos existentes de uma região para outra. Por exemplo, talvez você queira criar um namespace com a mesma configuração para teste. Você também pode querer criar um namespace secundário em outra região como parte do [planejamento de recuperação de desastre](event-hubs-geo-dr.md#setup-and-failover-flow).
@@ -54,7 +54,7 @@ Implante o modelo para criar um namespace de hubs de eventos na região de desti
 
 4. Selecione **Criar**.
 
-5. Selecione **criar seu próprio modelo no editor**.
+5. Selecione **Criar seu próprio modelo no editor**.
 
 6. Selecione **carregar arquivo**e siga as instruções para carregar o **template.jsno** arquivo que você baixou na última seção.
 
@@ -108,5 +108,5 @@ Para excluir um namespace de hubs de eventos (origem ou destino) usando o portal
 Neste tutorial, você moveu um namespace de hubs de eventos do Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, confira:
 
 
-- [Mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Mover as VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Mover as VMs do Azure para outra região](../site-recovery/azure-to-azure-tutorial-migrate.md)

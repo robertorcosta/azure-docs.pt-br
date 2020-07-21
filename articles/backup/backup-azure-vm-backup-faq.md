@@ -4,15 +4,16 @@ description: Neste artigo, descubra respostas para perguntas comuns sobre como f
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 5705b70dd210c336fc2baa4da07f96f2ad249f64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68f85b3d5da811f78ba398093db5a65ee5c49ab1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82800644"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538761"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-fazer backup de VMs do Azure
 
-Este artigo responde a perguntas comuns sobre o backup de VMs do Azure com o serviço de [backup do Azure](backup-introduction-to-azure-backup.md) .
+Este artigo responde a perguntas comuns sobre o backup de VMs do Azure com o serviço de [backup do Azure](./backup-overview.md) .
 
 ## <a name="backup"></a>Backup
 
@@ -82,7 +83,7 @@ Os instantâneos não podem ser criados no disco habilitado pelo Acelerador de G
 
 O Backup do Azure não pode fazer backup do disco habilitado pelo Acelerador de Gravação, mas pode excluí-lo do backup. No entanto, o backup não fornecerá a consistência do banco de dados porque não são feitos backups de informações do disco habilitado pelo Acelerador de Gravação. Você pode fazer backup de discos com essa configuração se desejar o backup em disco do sistema operacional e o backup dos discos que não são habilitados pelo Acelerador de Gravação.
 
-O backup do Azure fornece uma solução de backup de streaming para bancos de dados SAP HANA com um RPO de 15 minutos. BACKINT certificado pela SAP para fornecer um suporte de backup nativo, aproveitando as APIs nativas do SAP HANA. Saiba mais [sobre como fazer backup de bancos de dados SAP Hana em VMs do Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-about).
+O backup do Azure fornece uma solução de backup de streaming para bancos de dados SAP HANA com um RPO de 15 minutos. BACKINT certificado pela SAP para fornecer um suporte de backup nativo, aproveitando as APIs nativas do SAP HANA. Saiba mais [sobre como fazer backup de bancos de dados SAP Hana em VMs do Azure](./sap-hana-db-about.md).
 
 ### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>Qual é o atraso máximo que posso esperar na hora de início do backup a partir do horário agendado, defini em minha política de backup da VM?
 
@@ -128,7 +129,11 @@ O processo de restauração permanece o mesmo. Se o ponto de recuperação for d
 
 [Saiba mais](backup-azure-vms-automation.md#restore-an-azure-vm) sobre como fazer isso no PowerShell.
 
-### <a name="can-i-restore-the-vm-thats-been-deleted"></a>Posso restaurar a VM que foi excluída?
+### <a name="if-the-restore-fails-to-create-the-vm-what-happens-to-the-disks-included-in-the-restore"></a>Se a restauração não conseguir criar a VM, o que acontecerá com os discos incluídos na restauração?
+
+No caso de uma restauração de VM gerenciada, mesmo que a criação da VM falhe, os discos ainda serão restaurados.
+
+### <a name="can-i-restore-a-vm-thats-been-deleted"></a>Posso restaurar uma VM que foi excluída?
 
 Sim. Mesmo se você excluir a VM, poderá ir para o item de backup correspondente no cofre e restaurar de um ponto de recuperação.
 
@@ -142,13 +147,13 @@ A capacidade de [restauração instantânea](backup-instant-restore-capability.m
 
 ### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>O que acontece quando alteramos as configurações do cofre de chaves para a VM criptografada?
 
-Depois de alterar as configurações do cofre de chaves para a VM criptografada, os backups continuarão a funcionar com o novo conjunto de detalhes. No entanto, após a restauração de um ponto de recuperação antes da alteração, você precisará restaurar os segredos em um cofre de chaves antes de poder criar a VM a partir dele. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret).
+Depois de alterar as configurações do cofre de chaves para a VM criptografada, os backups continuarão a funcionar com o novo conjunto de detalhes. No entanto, após a restauração de um ponto de recuperação antes da alteração, você precisará restaurar os segredos em um cofre de chaves antes de poder criar a VM a partir dele. Para obter mais informações, consulte este [artigo](./backup-azure-restore-key-secret.md).
 
-Operações como segredo/chave de sobreposição não exigem essa etapa e o mesmo keyvault pode ser usado após a restauração.
+Operações como segredo/chave de sobreposição não exigem essa etapa e o mesmo cofre de chaves pode ser usado após a restauração.
 
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>Posso acessar a VM uma vez restaurada devido a uma VM que está tendo uma relação quebrada com o controlador de domínio?
 
-Sim, você acessa a VM uma vez restaurada devido a uma VM que tem uma relação quebrada com o controlador de domínio. Para obter mais informações, confira este [artigo](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)
+Sim, você acessa a VM uma vez restaurada devido a uma VM que tem uma relação quebrada com o controlador de domínio. Para obter mais informações, confira este [artigo](./backup-azure-arm-restore-vms.md#post-restore-steps)
 
 ## <a name="manage-vm-backups"></a>Gerenciar backups de VM
 

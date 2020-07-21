@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 409e8667f03843ae1b1bad56f189ff17b29d549a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7324bfec32368e952af8f24afabe893011454df
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506558"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538166"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Recursos e ferramentas do Azure Cloud Shell
 
@@ -49,19 +49,19 @@ A unidade do Azure permite a fácil detecção e navegação de recursos do Azur
 Você pode continuar usando os [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure) comuns para gerenciar esses recursos, independentemente da unidade em que estiver.
 Todas as alterações feitas nos recursos do Azure, diretamente no portal do Azure ou por meio de cmdlets do Azure PowerShell, são refletidas na unidade do Azure.  Você pode executar `dir -Force` para atualizar seus recursos.
 
-![](media/features-powershell/azure-drive.png)
+![Captura de tela de um Azure Cloud Shell que está sendo inicializado e uma lista de recursos de diretório.](media/features-powershell/azure-drive.png)
 
 ### <a name="manage-exchange-online"></a>Gerenciar o Exchange Online
 
 O PowerShell no Cloud Shell contém uma compilação particular do módulo do Exchange Online.  Execute `Connect-EXOPSSession` para obter seus cmdlets do Exchange.
 
-![](media/features-powershell/exchangeonline.png)
+![Captura de tela de um Azure Cloud Shell executando os comandos Connect-EXOPSSession e Get-User.](media/features-powershell/exchangeonline.png)
 
  Execute `Get-Command -Module tmp_*`
 > [!NOTE]
 > O nome do módulo deve começar com `tmp_` , se você tiver instalado módulos com o mesmo prefixo, seus cmdlets também serão exibidos. 
 
-![](media/features-powershell/exchangeonlinecmdlets.png)
+![Captura de tela de um Azure Cloud Shell executando o comando Get-Command-module tmp_ *.](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>Ampla integração com ferramentas de software livre
 
@@ -73,9 +73,9 @@ O Cloud Shell inclui autenticação pré-configurada para ferramentas de softwar
 |---|---|
 |Ferramentas do Linux            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
 |Ferramentas do Azure            |[CLI do Azure](https://github.com/Azure/azure-cli) e [CLI clássica do Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)<br> [CLI do Azure Functions](https://github.com/Azure/azure-functions-core-tools)<br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Shipyard de lote](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
-|Editores de texto           |código (editor do Cloud Shell)<br> vim<br> nano<br> emacs    |
-|Controle do código-fonte         |git                    |
-|Ferramentas de build            |make<br> maven<br> npm<br> pip         |
+|Editores de texto           |código (editor do Cloud Shell)<br> Vim<br> Nano<br> Emacs    |
+|Controle do código-fonte         |Git                    |
+|Ferramentas de build            |Make<br> Maven<br> npm<br> pip         |
 |Contêineres             |[Computador do Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [CLI do DC/OS](https://github.com/dcos/dcos-cli)         |
 |Bancos de dados              |Cliente do MySQL<br> Cliente do PostgreSql<br> [Utilitário sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
 |Outros                  |Cliente do iPython<br> [CLI do Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Puppet](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Pack](https://www.packer.io/)<br> [CLI do Office 365](https://pnp.github.io/office365-cli/)|

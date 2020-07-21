@@ -3,11 +3,12 @@ title: Fazer backup de computadores Windows usando o agente MARS
 description: Use o agente de Serviços de Recuperação do Microsoft Azure (MARS) para fazer backup de computadores Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 4f0e605185be6db8629144e05f5f39309a3831ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34fa0906ec63eb51d37c192f9dadddc57dbf1cdf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604838"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538625"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Fazer backup de arquivos e pastas do Windows Server no Azure
 
@@ -103,7 +104,7 @@ Para fazer uma transferência offline:
 1. Grave os dados de backup em um local de preparo.
 1. Use a ferramenta AzureOfflineBackupDiskPrep para copiar os dados do local de preparo para um ou mais discos SATA.
 
-    A ferramenta cria um trabalho de importação do Azure. Para obter mais informações, consulte [o que é o serviço de importação/exportação do Azure](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+    A ferramenta cria um trabalho de importação do Azure. Para obter mais informações, consulte [o que é o serviço de importação/exportação do Azure](../storage/common/storage-import-export-service.md).
 1. Envie os discos SATA para um datacenter do Azure.
 
     No datacenter, os dados do disco são copiados para uma conta de armazenamento do Azure. O backup do Azure copia os dados da conta de armazenamento para o cofre e os backups incrementais são agendados.
@@ -114,7 +115,7 @@ Para obter mais informações sobre a propagação offline, consulte [usar Azure
 
 Você pode controlar como o agente MARS usa a largura de banda de rede habilitando a limitação de rede. A limitação será útil se você precisar fazer backup de dados durante o horário de trabalho, mas quiser controlar a quantidade de largura de banda que a atividade de backup e restauração usa.
 
-A limitação de rede no backup do Azure usa [QoS (qualidade de serviço)](https://docs.microsoft.com/windows-server/networking/technologies/qos/qos-policy-top) no sistema operacional local.
+A limitação de rede no backup do Azure usa [QoS (qualidade de serviço)](/windows-server/networking/technologies/qos/qos-policy-top) no sistema operacional local.
 
 A limitação de rede para backups está disponível no Windows Server 2012 e posterior e no Windows 8 e posterior. Os sistemas operacionais devem estar executando os service packs mais recentes.
 
@@ -124,7 +125,7 @@ Para habilitar a limitação de rede:
 1. Na guia **limitação** , selecione **habilitar limitação de uso de largura de banda da Internet para operações de backup**.
 
     ![Configurar a limitação de rede para operações de backup](./media/backup-configure-vault/throttling-dialog.png)
-1. Especifique a largura de banda permitida durante as horas de trabalho e as horas não úteis. Os valores de largura de banda começam em 512 kbps e vão até 1.023 MBps. Depois, selecione **OK**.
+1. Especifique a largura de banda permitida durante as horas de trabalho e as horas não úteis. Os valores de largura de banda começam em 512 kbps e vão até 1.023 MBps. Em seguida, selecione **OK**.
 
 ## <a name="run-an-on-demand-backup"></a>Executar um backup sob demanda
 

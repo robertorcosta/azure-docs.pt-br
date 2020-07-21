@@ -3,11 +3,12 @@ title: Visão geral de cofres de Serviços de Recuperação
 description: Uma visão geral e a comparação entre os cofres de Serviços de Recuperação e os cofres de Backup do Azure.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 798f49629ad1012e8cc9ac3ed43f5beddd6eefeb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11a218badfab141c41430c3f48a5e930bfa1af8b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248899"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539033"
 ---
 # <a name="recovery-services-vaults-overview"></a>Visão geral dos cofres dos Serviços de Recuperação
 
@@ -35,9 +36,9 @@ Os cofres dos serviços de recuperação são baseados no modelo de Azure Resour
 
 Um cofre dos Serviços de Recuperação é uma entidade que armazena os backups e os pontos de recuperação criados ao longo do tempo. O cofre dos Serviços de Recuperação também contém as políticas de backup associadas às máquinas virtuais protegidas.
 
-O backup do Azure manipula automaticamente o armazenamento para o cofre. Veja como [as configurações de armazenamento podem ser alteradas](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy).
+O backup do Azure manipula automaticamente o armazenamento para o cofre. Veja como [as configurações de armazenamento podem ser alteradas](./backup-create-rs-vault.md#set-storage-redundancy).
 
-Para saber mais sobre a redundância de armazenamento, consulte estes artigos sobre redundância [geográfica](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) e [local](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs) .
+Para saber mais sobre a redundância de armazenamento, consulte estes artigos sobre redundância [geográfica](../storage/common/storage-redundancy.md) e [local](../storage/common/storage-redundancy.md) .
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Gerenciando os cofres de Serviços de Recuperação no portal
 
@@ -61,7 +62,7 @@ As seções a seguir contêm links para artigos que explicam como usar um cofre 
 ### <a name="back-up-data"></a>Fazer backup de dados
 
 - [Fazer backup de uma VM do Azure](backup-azure-vms-first-look-arm.md)
-- [Fazer backup do Windows Server ou da estação de trabalho do Windows](backup-try-azure-backup-in-10-mins.md)
+- [Fazer backup do Windows Server ou da estação de trabalho do Windows](./backup-windows-with-mars-agent.md)
 - [Fazer backup de cargas de trabalho do DPM para o Azure](backup-azure-dpm-introduction.md)
 - [Preparar-se para fazer backup de cargas de trabalho usando o Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md)
 
@@ -81,9 +82,9 @@ As seções a seguir contêm links para artigos que explicam como usar um cofre 
 
 ## <a name="azure-advisor"></a>Assistente do Azure
 
-O [Azure Advisor](https://docs.microsoft.com/azure/advisor/) é um consultor de nuvem personalizado que ajuda a otimizar o uso do Azure. Ele analisa o uso do Azure e fornece recomendações oportunas para ajudar a otimizar e proteger suas implantações. Ele fornece recomendações em quatro categorias: alta disponibilidade, segurança, desempenho e custo.
+O [Azure Advisor](../advisor/index.yml) é um consultor de nuvem personalizado que ajuda a otimizar o uso do Azure. Ele analisa o uso do Azure e fornece recomendações oportunas para ajudar a otimizar e proteger suas implantações. Ele fornece recomendações em quatro categorias: alta disponibilidade, segurança, desempenho e custo.
 
-O assistente do Azure fornece [recomendações](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations#protect-your-virtual-machine-data-from-accidental-deletion) por hora para VMs que não são submetidas a backup, portanto, você nunca perde o backup de VMs importantes. Você também pode controlar as recomendações adiando-as.  Você pode clicar na recomendação e habilitar o backup em VMs em linha especificando o cofre (em que os backups serão armazenados) e a política de backup (agendamento de backups e retenção de cópias de backup).
+O assistente do Azure fornece [recomendações](../advisor/advisor-high-availability-recommendations.md#protect-your-virtual-machine-data-from-accidental-deletion) por hora para VMs que não são submetidas a backup, portanto, você nunca perde o backup de VMs importantes. Você também pode controlar as recomendações adiando-as.  Você pode clicar na recomendação e habilitar o backup em VMs em linha especificando o cofre (em que os backups serão armazenados) e a política de backup (agendamento de backups e retenção de cópias de backup).
 
 ![Assistente do Azure](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 

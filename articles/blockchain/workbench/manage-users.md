@@ -1,14 +1,15 @@
 ---
 title: Gerenciar usuários no Azure Blockchain Workbench
 description: Como gerenciar usuários no Azure Blockchain Workbench.
-ms.date: 05/09/2019
+ms.date: 07/15/2020
 ms.topic: how-to
-ms.reviewer: brendal
-ms.openlocfilehash: 78841ca830ae56f6c07f796bdde85f6a6ba9c921
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: ravastra
+ms.openlocfilehash: 541d5b2fa3d1a0cd5c4beba65cfe5ff3bdc3124a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212727"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538200"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Gerenciar usuários no Azure Blockchain Workbench
 
@@ -24,14 +25,11 @@ O Workbench de Blockchain do Azure usa o Microsoft Azure Active Directory (AD do
 
 Usuários Blockchain Workbench precisam existir no locatário do Microsoft Azure Active Directory e antes de atribuí-los para aplicativos e funções. Para adicionar usuários ao Microsoft Azure Active Directory, use as seguintes etapas:
 
-1.  Entre no [portal do Azure](https://portal.azure.com).
-2.  Selecione sua conta no canto superior direito e alterne para o locatário do Microsoft Azure Active Directory associado ao Blockchain Workbench.
-3.  Selecione **Microsoft Azure Active Directory > Usuários**. Você verá uma lista de usuários em seu diretório.
-4.  Para adicionar usuários ao diretório, selecione **Novo usuário**. Para usuários externos, selecione **Novo usuário convidado**.
-
-    ![Novo usuário](./media/manage-users/add-ad-user.png)
-
-5.  Preencha os campos obrigatórios para o novo usuário. Selecione **Criar**.
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Selecione sua conta no canto superior direito e alterne para o locatário do Microsoft Azure Active Directory associado ao Blockchain Workbench.
+1. Selecione **Microsoft Azure Active Directory > Usuários**. Você verá uma lista de usuários em seu diretório.
+1. Para adicionar usuários ao diretório, selecione **Novo usuário**. Para usuários externos, selecione **Novo usuário convidado**.
+1. Preencha os campos obrigatórios para o novo usuário. Selecione **Criar**.
 
 Visite a documentação [Microsoft Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md) para obter mais detalhes sobre como gerenciar os usuários no Azure AD.
 
@@ -41,20 +39,21 @@ Depois que os usuários foram adicionados ao diretório, a próxima etapa é esc
 
 Para adicionar usuários ao grupo **Administrador** no diretório do Microsoft Azure Active Directory:
 
-1.  Entre no [portal do Azure](https://portal.azure.com).
-2.  Verifique se você está no locatário do Azure AD associado ao Blockchain Workbench selecionando sua conta no canto superior direito.
-3.  Selecione **Azure Active Directory > aplicativos empresariais**.
-4.  Selecione o aplicativo de cliente do Azure Active Directory para o Blockchain Workbench
-    
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Verifique se você está no locatário do Azure AD associado ao Blockchain Workbench selecionando sua conta no canto superior direito.
+1. Selecione **Azure Active Directory > aplicativos empresariais**.
+1. Altere o filtro suspenso de **tipo de aplicativo** para **todos os aplicativos** e selecione **aplicar**.
+1. Selecione o aplicativo cliente do Azure AD para o Azure Blockchain Workbench
+
     ![Todos os registros do aplicativo](./media/manage-users/select-blockchain-client-app.png)
 
-5.  Selecionar **Usuários e grupos > Adicionar usuário**.
-6.  Em **Adicionar atribuição**, selecione **Usuários**. Escolha ou pesquise o usuário que você deseja adicionar como administrador. Clique em **Selecionar** quando terminar de escolher.
+1. Selecionar **Usuários e grupos > Adicionar usuário**.
+1. Em **Adicionar atribuição**, selecione **Usuários**. Escolha ou pesquise o usuário que você deseja adicionar como administrador. Clique em **Selecionar** quando terminar de escolher.
 
     ![Adicionar atribuição](./media/manage-users/add-user-assignment.png)
 
-9.  Verifique se a **Função** é definida como **Administrador**
-10. Selecione **atribuir**. Os usuários adicionados são exibidos na lista com a função de administrador atribuída.
+1. Verifique se a **Função** é definida como **Administrador**
+1. Selecione **Atribuir**. Os usuários adicionados são exibidos na lista com a função de administrador atribuída.
 
     ![Usuários do aplicativo de cliente Blockchain](./media/manage-users/blockchain-admin-list.png)
 
@@ -68,7 +67,7 @@ Use o aplicativo Blockchain Workbench para gerenciar usuários e organizações 
 
     Os membros são adicionados a cada aplicativo. Os membros podem ter uma ou mais funções de aplicativo de contratos para iniciar ou executar ações.
 
-2. Para gerenciar membros de um aplicativo, selecione um bloco de aplicativo no painel **Aplicativos**.
+1. Para gerenciar membros de um aplicativo, selecione um bloco de aplicativo no painel **Aplicativos**.
 
     O número de membros associados ao aplicativo selecionado é refletido no bloco de membros.
 
@@ -78,31 +77,31 @@ Use o aplicativo Blockchain Workbench para gerenciar usuários e organizações 
 #### <a name="add-member-to-application"></a>Adicionar membro ao aplicativo
 
 1. Selecione o bloco de membro para exibir uma lista de membros atuais.
-2. Selecione **adicionar membros**.
+1. Selecione **adicionar membros**.
 
     ![Adicionar membros](./media/manage-users/application-add-members.png)
 
-3. Procure o nome do usuário.  Somente usuários do Microsoft Azure AD que existem no locatário Blockchain Workbench estão listados. Se o usuário não for encontrado, você precisará [Adicionar usuários do Azure ad](#add-azure-ad-users).
+1. Procure o nome do usuário.  Somente usuários do Microsoft Azure AD que existem no locatário Blockchain Workbench estão listados. Se o usuário não for encontrado, você precisará [Adicionar usuários do Azure ad](#add-azure-ad-users).
 
     ![Adicionar membros](./media/manage-users/find-user.png)
 
-4. Selecione um **VHD** no menu suspenso.
+1. Selecione um **VHD** no menu suspenso.
 
     ![Selecione os membros da função](./media/manage-users/application-select-role.png)
 
-5. Selecione **Adicionar** para adicionar o membro com a função associada ao aplicativo.
+1. Selecione **Adicionar** para adicionar o membro com a função associada ao aplicativo.
 
 #### <a name="remove-member-from-application"></a>Remover membro do aplicativo
 
 1. Selecione o bloco de membro para exibir uma lista de membros atuais.
-2. Para o usuário que deseja remover, escolha **Remover** da função de lista suspensa.
+1. Para o usuário que deseja remover, escolha **Remover** da função de lista suspensa.
 
     ![Remover membro](./media/manage-users/application-remove-member.png)
 
 #### <a name="change-or-add-role"></a>Alterar ou adicionar função
 
 1. Selecione o bloco de membro para exibir uma lista de membros atuais.
-2. Para o usuário que você deseja alterar, clique na lista suspensa e selecione a nova função.
+1. Para o usuário que você deseja alterar, clique na lista suspensa e selecione a nova função.
 
     ![Alterar a função](./media/manage-users/application-change-role.png)
 

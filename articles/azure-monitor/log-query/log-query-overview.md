@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 6cd2a28ddbe970385ff44deec2158c257937982e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e8e2015e7d0798542ff0c80d8eb39461918ad67
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82591645"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539594"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Visão geral das consultas de log no Azure Monitor
 As consultas de log ajudam você a aproveitar totalmente o valor dos dados coletados nos [logs de Azure monitor](../platform/data-platform-logs.md). Uma linguagem de consulta eficiente permite unir dados de várias tabelas, agregar grandes conjuntos de dados e executar operações complexas com o mínimo de código. Praticamente qualquer pergunta pode ser respondida e a análise realizada desde que os dados de suporte tenham sido coletados e você entenda como construir a consulta correta.
 
-Alguns recursos em Azure Monitor como [informações](../insights/insights-overview.md) e [soluções](../insights/solutions-inventory.md) processam dados de log sem expor você às consultas subjacentes. Para aproveitar totalmente outros recursos do Azure Monitor, você deve entender como as consultas são construídas e como usá-las para analisar interativamente os dados nos logs do Azure Monitor.
+Alguns recursos em Azure Monitor como [informações](../insights/insights-overview.md) e [soluções](../monitor-reference.md) processam dados de log sem expor você às consultas subjacentes. Para aproveitar totalmente outros recursos do Azure Monitor, você deve entender como as consultas são construídas e como usá-las para analisar interativamente os dados nos logs do Azure Monitor.
 
 Use este artigo como um ponto de partida para aprender sobre consultas de log no Azure Monitor. Ele responde a perguntas comuns e fornece links para outras documentações que fornecem mais detalhes e lições.
 

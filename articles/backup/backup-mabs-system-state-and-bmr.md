@@ -3,12 +3,12 @@ title: Proteção de recuperação bare-metal e estado do sistema
 description: Use Servidor de Backup do Azure para fazer backup do estado do sistema e fornecer proteção de BMR (recuperação bare-metal).
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: bab55ca607e0641ea0cc597de686f3abbb387598
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82192358"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538693"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Fazer backup do estado do sistema e restaurar para bare-metal usando Servidor de Backup do Azure
 
@@ -98,12 +98,12 @@ Quando o backup for concluído, o arquivo será transferido para o computador do
 ## <a name="before-you-begin"></a>Antes de começar
 
 1. **Implantar o Servidor de Backup do Azure**. Verifique se o Servidor de Backup é implantado corretamente. Para obter mais informações, consulte:
-    * [Requisitos de sistema para o Servidor de Backup do Azure](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
+    * [Requisitos de sistema para o Servidor de Backup do Azure](/system-center/dpm/install-dpm#setup-prerequisites)
     * [Matriz de proteção do Servidor de Backup](backup-mabs-protection-matrix.md)
 
-1. **Configure o armazenamento**. Você pode armazenar dados de backup em disco, fita e na nuvem com o Azure. Para obter mais informações, consulte [Preparar dados de armazenamento](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage).
+1. **Configure o armazenamento**. Você pode armazenar dados de backup em disco, fita e na nuvem com o Azure. Para obter mais informações, consulte [Preparar dados de armazenamento](/system-center/dpm/plan-long-and-short-term-data-storage).
 
-1. **Configurar o agente de proteção**. Instale o agente de proteção no computador que você deseja fazer backup. Para obter mais informações, consulte [Implantar o agente de proteção do DPM](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent).
+1. **Configurar o agente de proteção**. Instale o agente de proteção no computador que você deseja fazer backup. Para obter mais informações, consulte [Implantar o agente de proteção do DPM](/system-center/dpm/deploy-dpm-protection-agent).
 
 ## <a name="back-up-system-state-and-bare-metal"></a>Fazer backup do estado do sistema e bare-metal
 
@@ -115,7 +115,7 @@ Para fazer backup do estado do sistema e bare-metal:
 
 1. Na página **Selecionar membros do grupo**, expanda o computador e, em seguida, selecione **BMR** ou **o estado do sistema**.
 
-    Observe que você não pode proteger o estado do sistema e BMR para o mesmo computador em grupos diferentes. Além disso, quando você seleciona a BMR, o estado do sistema é habilitado automaticamente. Para obter mais informações, consulte [Implantar Grupos de proteção](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups).
+    Observe que você não pode proteger o estado do sistema e BMR para o mesmo computador em grupos diferentes. Além disso, quando você seleciona a BMR, o estado do sistema é habilitado automaticamente. Para obter mais informações, consulte [Implantar Grupos de proteção](/system-center/dpm/create-dpm-protection-groups).
 
 1. Na página **selecionar método de proteção de dados** , escolha como lidar com backup de curto prazo e backup de longo prazo.
 

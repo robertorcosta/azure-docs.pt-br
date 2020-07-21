@@ -6,11 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 664d6eb377185613a1a5670daf6747b482c79d9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d63d932756495584b2870c597d3332077f8e86c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671606"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539832"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Criar perfil de aplicativos ativos do Azure Service Fabric com o Application Insights
 
@@ -25,9 +26,9 @@ O Application Insights Profiler está incluído com o Diagnóstico do Azure. Voc
 
 Para configurar seu ambiente, faça o seguinte:
 
-1. O criador de perfil dá suporte a .NET Framework e .Net Core. Se você estiver usando .NET Framework, verifique se está usando [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou posterior. É suficiente confirmar que o sistema operacional implantado é `Windows Server 2012 R2` ou posterior. O criador de perfil dá suporte ao .NET Core 2,1 e a aplicativos mais recentes.
+1. O criador de perfil dá suporte a .NET Framework e .Net Core. Se você estiver usando .NET Framework, verifique se está usando [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou posterior. É suficiente confirmar que o sistema operacional implantado é `Windows Server 2012 R2` ou posterior. O criador de perfil dá suporte ao .NET Core 2,1 e a aplicativos mais recentes.
 
-1. Pesquise a extensão [Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) no arquivo de modelo de implantação.
+1. Pesquise a extensão [Diagnóstico do Azure](../platform/diagnostics-extension-overview.md) no arquivo de modelo de implantação.
 
 1. Adicione a seguinte seção `SinksConfig` como um elemento filho de `WadCfg`. Substitua o valor da propriedade `ApplicationInsightsProfiler` pela sua própria chave de instrumentação do Application Insights:  
 
@@ -42,7 +43,7 @@ Para configurar seu ambiente, faça o seguinte:
       }
       ```
 
-      Para obter informações sobre como adicionar a extensão de Diagnóstico em seu modelo de implantação, consulte [Usar monitoramento e diagnóstico com uma VM Windows e modelos do Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+      Para obter informações sobre como adicionar a extensão de Diagnóstico em seu modelo de implantação, consulte [Usar monitoramento e diagnóstico com uma VM Windows e modelos do Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json).
 
 1. Usando o modelo do Azure Resource Manager, implante seu cluster do Service Fabric.  
   Se as configurações estiverem corretas, o Application Insights Profiler será instalado e habilitado quando a extensão do Diagnóstico do Azure for instalada. 

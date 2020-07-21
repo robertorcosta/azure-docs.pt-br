@@ -7,23 +7,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 07/14/2020
 ms.author: aahi
-ms.openlocfilehash: a014628a9664e33aa855cc4fbf40979236d765f9
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 6190653934dede1fa042beca8dbd2d7c06f43cfc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85355600"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538013"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalar e executar contêineres do reconhecedor de formulário (versão prévia)
+
+[!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
 
 O Reconhecimento de Formulários do Azure aplica tecnologia de aprendizado de máquina para identificar e extrair pares chave-valor e tabelas de formulários. Ele associa valores e entradas de tabelas a pares chave-valor e, em seguida, gera dados estruturados que incluem as relações no arquivo original. 
 
 Para reduzir a complexidade e integrar facilmente um modelo de Reconhecimento de Formulários personalizado ao seu processo de automação de fluxo de trabalho ou a outro aplicativo, você pode chamar o modelo usando uma API REST simples. Somente cinco documentos de formulário (ou um formulário vazio e dois formulários preenchidos) são necessários, para que você possa obter resultados de forma rápida, precisa e adaptada ao seu conteúdo específico. Não é necessária intervenção manual intensa nem ampla experiência em ciência de dados. E não é necessária rotulagem nem anotação de dados.
-
-> [!IMPORTANT]
-> No momento, os contêineres do reconhecedor de formulário usam a versão 1,0 da API do reconhecedor de formulário. Você pode acessar a versão mais recente da API usando o serviço gerenciado em vez disso.
 
 | Função | Recursos |
 |----------|----------|
@@ -37,7 +36,7 @@ Antes de usar contêineres de Reconhecimento de Formulários, é necessário ate
 
 | Necessária | Finalidade |
 |----------|---------|
-| Mecanismo Docker | É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> No Windows, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br> |
+| Mecanismo do Docker | É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> No Windows, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br> |
 | Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como Registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`. |
 | A CLI do Azure | Instale a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) no host. |
 | Recurso da API de Pesquisa Visual Computacional | Para processar imagens e documentos digitalizados, é necessário ter um recurso da Pesquisa Visual Computacional. Acesse o recurso de Reconhecimento de Texto como um recurso do Azure (API REST ou SDK) ou como um *contêiner do * [cognitive-services-recognize-text](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull). Os valores de cobrança normais se aplicam. <br><br>Transmita a chave de API e os pontos de extremidade para seu recurso de Pesquisa Visual Computacional (contêiner de nuvem do Azure ou serviços cognitivas). Use essa chave de API e o ponto de extremidade como **{COMPUTER_VISION_API_KEY}** e **{COMPUTER_VISION_ENDPOINT_URI}**.<br><br> Se você usar o contêiner *cognitive-services-recognize-text*, certifique-se de que:<br><br>A chave da Pesquisa Visual Computacional para o contêiner do Reconhecimento de Formulários seja a chave especificada no comando `docker run` da Pesquisa Visual Computacional para o contêiner do *cognitive-services-recognize-text*.<br>O ponto de extremidade de cobrança é o ponto de extremidade do contêiner (por exemplo, `http://localhost:5000`). Se você usar os contêineres da Pesquisa Visual Computacional e do Reconhecimento de Formulários juntos no mesmo host, eles não poderão ser iniciados com a porta padrão *5000*. |
@@ -65,14 +64,6 @@ Essa chave é usada para iniciar o contêiner e está disponível na página cha
 > [!IMPORTANT]
 > Essas chaves de assinatura são usadas para acessar sua API de serviço cognitiva. Não compartilhe suas chaves. Armazene-os com segurança, por exemplo, usando Azure Key Vault. Também recomendamos regenerar essas chaves regularmente. Apenas uma chave é necessária para fazer uma chamada à API. Ao regenerar a primeira chave, você pode usar a segunda chave para obter acesso contínuo ao serviço.
 
-## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao Registro de contêiner
-
-Preencha e envie o [formulário de solicitação](https://aka.ms/cognitivegate) para solicitar acesso ao contêiner.
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
-
 ## <a name="the-host-computer"></a>O computador host
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
@@ -81,7 +72,7 @@ Preencha e envie o [formulário de solicitação](https://aka.ms/cognitivegate) 
 
 Os núcleos de CPU e a memória mínimos e recomendados a serem alocados para cada contêiner do Reconhecimento de Formulários são descritos na tabela a seguir:
 
-| Contêiner | Mínimo | Recomendadas |
+| Contêiner | Mínimo | Recomendado |
 |-----------|---------|-------------|
 | Reconhecimento de Formulários | 2 núcleos, 4 GB de memória | 4 núcleos, 8 GB de memória |
 | Reconhecimento de Texto | 1 núcleo, 8 GB de memória | 2 núcleos, 8 GB de memória |

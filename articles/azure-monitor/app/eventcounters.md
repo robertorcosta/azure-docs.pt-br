@@ -3,15 +3,16 @@ title: Contadores de eventos no Application Insights | Microsoft Docs
 description: Monitore o sistema e os EventCounters do .NET/.NET Core personalizados no Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 37d0e1e741548986788be78860830f36add1f5a8
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 06bf15bf60b1ee5e2c301935a30b3981d5233a08
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700440"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539934"
 ---
 # <a name="eventcounters-introduction"></a>Introdução ao EventCounters
 
-`EventCounter` é o mecanismo do .NET/.NET Core para publicar e consumir contadores ou estatísticas. [Este](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) documento fornece uma visão geral de `EventCounters` e exemplos sobre como publicá-los e consumi-los. Os EventCounters têm suporte em todas as plataformas de sistema operacional: Windows, Linux e macOS. Pode ser pensado como um equivalente multiplataforma para o [PerformanceCounters](https://docs.microsoft.com/dotnet/api/system.diagnostics.performancecounter) que só tem suporte em sistemas Windows.
+`EventCounter` é o mecanismo do .NET/.NET Core para publicar e consumir contadores ou estatísticas. [Este](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) documento fornece uma visão geral de `EventCounters` e exemplos sobre como publicá-los e consumi-los. Os EventCounters têm suporte em todas as plataformas de sistema operacional: Windows, Linux e macOS. Pode ser pensado como um equivalente multiplataforma para o [PerformanceCounters](/dotnet/api/system.diagnostics.performancecounter) que só tem suporte em sistemas Windows.
 
 Embora os usuários possam publicar qualquer `EventCounters` personalizado para atender às suas necessidades, o runtime do .NET Core 3.0 publica um conjunto desses contadores por padrão. O documento percorrerá as etapas necessárias para coletar e exibir `EventCounters` (definido pelo sistema ou pelo usuário) no Azure Application Insights.
 
@@ -90,14 +91,14 @@ O exemplo a seguir mostra como adicionar/remover contadores. Essa personalizaç�
 
 ## <a name="event-counters-in-metric-explorer"></a>Contadores de eventos no Metric Explorer
 
-Para exibir as métricas do EventCounter no [Metric Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), selecione o recurso Application Insights e escolha Métricas baseadas em log como namespace da métrica. Em seguida, as métricas EventCounter são exibidas em Categoria personalizada.
+Para exibir as métricas do EventCounter no [Metric Explorer](../platform/metrics-charts.md), selecione o recurso Application Insights e escolha Métricas baseadas em log como namespace da métrica. Em seguida, as métricas EventCounter são exibidas em Categoria personalizada.
 
 > [!div class="mx-imgBorder"]
 > ![Contadores de evento relatados no Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## <a name="event-counters-in-analytics"></a>Contadores de evento no Analytics
 
-Você também pode pesquisar e exibir relatórios de contador de eventos no [Analytics](../../azure-monitor/app/analytics.md), na tabela **customMetrics**.
+Você também pode pesquisar e exibir relatórios de contador de eventos no [Analytics](../log-query/log-query-overview.md), na tabela **customMetrics**.
 
 Por exemplo, execute a consulta a seguir para ver quais contadores são coletados e estão disponíveis para consulta:
 
@@ -143,7 +144,7 @@ O EventCounter não exige nenhuma permissão especial e é compatível com todas
 
 ### <a name="i-have-enabled-application-insights-from-azure-web-app-portal-but-i-cant-see-eventcounters"></a>Habilitei o Application Insights no portal de aplicativo Web do Azure. Mas não consigo ver o EventCounters?
 
- A [extensão do Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps) para ASP.NET Core ainda não é compatível com esse recurso. Este documento será atualizado quando esse recurso for compatível.
+ A [extensão do Application Insights](./azure-web-apps.md) para ASP.NET Core ainda não é compatível com esse recurso. Este documento será atualizado quando esse recurso for compatível.
 
 ## <a name="next-steps"></a><a name="next"></a>Próximas etapas
 

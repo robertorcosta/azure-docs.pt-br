@@ -3,17 +3,18 @@ title: Detectar vazamento de memória-detecção inteligente de insights de Apli
 description: Monitorar aplicativos com o Azure Application Insights para possíveis perdas de memória.
 ms.topic: conceptual
 ms.date: 12/12/2017
-ms.openlocfilehash: 85d138518dfb1313a810657016e9fe3143887b6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3fe58cd7d61246c5565cd89fa782c8a977f09499
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671691"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539883"
 ---
 # <a name="memory-leak-detection-preview"></a>Detecção de perda de memória (visualização)
 
 O Application Insights analisa automaticamente o consumo de memória de cada processo em seu aplicativo e avisa sobre possíveis perdas de memória ou maior consumo de memória.
 
-Este recurso não exige nenhuma configuração especial, diferente de [configurar contadores de desempenho](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) para seu aplicativo. Ele está ativo quando seu aplicativo gera telemetria de contadores de desempenho de memória suficiente (por exemplo, Bytes particulares).
+Este recurso não exige nenhuma configuração especial, diferente de [configurar contadores de desempenho](./performance-counters.md) para seu aplicativo. Ele está ativo quando seu aplicativo gera telemetria de contadores de desempenho de memória suficiente (por exemplo, Bytes particulares).
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quando eu receberia este tipo de notificação de detecção inteligente?
 Uma notificação típica seguirá um aumento consistente no consumo de memória por um longo período de tempo (algumas horas), em um ou mais processos e/ou em um ou mais computadores, que fazem parte do seu aplicativo. Algoritmos de aprendizado de máquina são usados para detectar o aumento do consumo de memória que corresponde ao padrão de um vazamento de memória.

@@ -11,11 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 80c789f955b279e7771fe39c20087baa465b3293
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88f1e40101b807e82eaf69be6c167cd4aa2e2831
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84027647"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539186"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Provisionar e catalogar novos locatários em um aplicativo SaaS usando um banco de dados SQL do Azure com vários locatários fragmentado
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +30,7 @@ Este artigo tem duas partes principais:
 - [Tutorial](#goto_1_tutorial) que destaca o código de script do PowerShell que realiza o provisionamento e a catalogação.
   - O tutorial usa o aplicativo de SaaS de Wingtip Tickets, adaptado para o padrão de banco de dados fragmentado multilocatário.
 
-<a name="goto_2_conceptual"/>
+<a name="goto_2_conceptual"></a>
 
 ## <a name="database-pattern"></a>Padrão de banco de dados
 
@@ -110,11 +111,11 @@ Os scripts de provisionamento de locatário neste tutorial são compatíveis com
 
 Os dados de locatário são inicializados e registrados no mapa de fragmentos de catálogo. No aplicativo de exemplo, os bancos de dados que contêm vários locatários recebem um nome genérico, como *tenants1* ou *tenants2*. Os bancos de dados que contêm um único locatário recebem o nome do locatário. As convenções de nomenclatura específicas usadas no exemplo não são uma parte crítica do padrão, uma vez que o uso de um catálogo permite que qualquer nome seja atribuído ao banco de dados.
 
-<a name="goto_1_tutorial"/>
+<a name="goto_1_tutorial"></a>
 
 ## <a name="tutorial-begins"></a>Início do tutorial
 
-Neste tutorial, você aprenderá como:
+Neste tutorial, você aprende a:
 
 > [!div class="checklist"]
 > * Provisionar um locatário em um banco de dados multilocatário

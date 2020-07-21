@@ -2,13 +2,13 @@
 title: Mover suporte de operação por tipo de recurso
 description: Lista os tipos de recursos do Azure que podem ser movidos para um novo grupo de recursos ou assinatura.
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 785243676040fc86d42e3125684239ebe6da2061
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.date: 07/13/2020
+ms.openlocfilehash: 7b7f6f05c9cae80cffb64245a3fc8a6b0890d577
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134670"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539220"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 
@@ -2188,7 +2188,7 @@ Pule para um namespace de provedor de recursos:
 > | locations/usages | Não | Não |
 > | locations/validateresourceownership | Não | Não |
 > | locations/virtualnetworkavailableendpointservices | Não | Não |
-> | natgateways | Sim | Sim |
+> | natgateways | Não | Não |
 > | networkexperimentprofiles | Não | Não |
 > | networkintentpolicies | Sim | Sim |
 > | networkinterfaces | Sim | Sim |

@@ -3,12 +3,12 @@ title: Exportar para o SQL do Azure Application Insights | Microsoft Docs
 description: Exportar dados continuamente do Application Insights para o SQL usando o Stream Analytics
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 3c8586e8a6950e827d1078ca7d9cc3792fa58ae0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4975d91cc20b81de302a1dd0cb7b3326878a96a1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087207"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540087"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Passo a passo: exportar para SQL do Application Insights usando o Stream Analytics
 Este artigo mostra como mover os dados de telemetria do [aplicativo Azure insights][start] para o Azure SQL Database usando a exportação e a [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) [contínuas][export] . 
@@ -82,7 +82,7 @@ Verifique se o servidor permite acesso aos serviços do Azure:
 ![Navegar, Servidores, seu servidor, Configurações, Firewall, Permitir Acesso ao Azure](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
 ## <a name="create-a-table-in-azure-sql-database"></a>Criar uma tabela no banco de dados SQL do Azure
-Conecte-se ao banco de dados criado na seção anterior com sua ferramenta de gerenciamento preferida. Neste passo a passo, usaremos as SSMS ( [Ferramentas de Gerenciamento do SQL Server](https://msdn.microsoft.com/ms174173.aspx) ).
+Conecte-se ao banco de dados criado na seção anterior com sua ferramenta de gerenciamento preferida. Neste passo a passo, usaremos as SSMS ( [Ferramentas de Gerenciamento do SQL Server](/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15) ).
 
 ![Conectar-se ao Banco de Dados SQL do Azure](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
 
@@ -255,4 +255,3 @@ FROM [dbo].[PageViewsTable]
 [metrics]: ../../azure-monitor/platform/metrics-charts.md
 [portal]: https://portal.azure.com/
 [start]: ../../azure-monitor/app/app-insights-overview.md
-

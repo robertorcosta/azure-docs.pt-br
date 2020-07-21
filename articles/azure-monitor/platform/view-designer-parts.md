@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
-ms.openlocfilehash: 7dc4164cac1998a02ae62d7682f9630aa4faa619
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e674bf157d55c9b5f7cf49e8df5e17acb99ee3a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658550"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539390"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guia de referência para exibir partes de visualização do designer no Azure Monitor
 Usando o designer de exibição no Azure Monitor, você pode criar uma variedade de exibições personalizadas na portal do Azure que podem ajudá-lo a Visualizar dados em seu espaço de trabalho do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
@@ -45,7 +46,7 @@ A parte da lista de consultas exibe uma lista de consultas de log. Você pode se
 
 ![Lista da exibição de consultas](media/view-designer-parts/view-list-queries.png)
 
-| Setting | Descrição |
+| Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título |O texto que é exibido na parte superior da exibição. |
@@ -61,12 +62,12 @@ O cabeçalho exibe um único número que mostra uma contagem de registros de uma
 
 ![Lista da exibição de consultas](media/view-designer-parts/view-number-list.png)
 
-| Setting | Descrição |
+| Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título do Grupo |O texto que é exibido na parte superior da exibição. |
 | Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
-| Ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
+| ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
 | Usar Ícone |Selecione este link para exibir o ícone. |
 | **Título** | |
 | Legenda |O texto que é exibido na parte superior do cabeçalho. |
@@ -90,12 +91,12 @@ O cabeçalho tem dois números que exibem uma contagem de registros de consultas
 
 ![Exibição de dois números e lista](media/view-designer-parts/view-two-numbers-list.png)
 
-| Setting | Descrição |
+| Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título do Grupo |O texto que é exibido na parte superior da exibição. |
 | Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
-| Ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
+| ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
 | Usar Ícone |Selecione este link para exibir o ícone. |
 | **Navegação de título** | |
 | Navegação clickthrough | Ação executada quando você clica no cabeçalho.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
@@ -121,12 +122,12 @@ O cabeçalho exibe um único número que resume uma coluna de valor em uma consu
 
 ![Exibição da lista e rosca](media/view-designer-parts/view-donut-list.png)
 
-| Setting | Descrição |
+| Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título do Grupo |O texto que é exibido na parte superior do bloco. |
 | Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
-| Ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
+| ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
 | Usar Ícone |Selecione este link para exibir o ícone. |
 | **Cabeçalho** | |
 | Título |O texto que é exibido na parte superior do cabeçalho. |
@@ -162,12 +163,12 @@ O cabeçalho exibe os resultados de duas consultas de log ao longo do tempo como
 
 ![Duas linhas do tempo e exibição da lista](media/view-designer-parts/view-two-timelines-list.png)
 
-| Setting | Descrição |
+| Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título do Grupo |O texto que é exibido na parte superior do bloco. |
 | Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
-| Ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
+| ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
 | Usar Ícone |Selecione este link para exibir o ícone. |
 | **Navegação de título** | |
 | Navegação clickthrough | Ação executada quando você clica no cabeçalho.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
@@ -194,14 +195,14 @@ O cabeçalho exibe texto estático e um link opcional. A lista exibe um ou mais 
 
 ![Exibição de informações](media/view-designer-parts/view-information.png)
 
-| Setting | Descrição |
+| Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título do Grupo |O texto que é exibido na parte superior do bloco. |
 | Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
 | Cor |A cor da tela de fundo do cabeçalho. |
 | **Cabeçalho** | |
-| Image |O arquivo de imagem que é exibido no cabeçalho. |
+| Imagem |O arquivo de imagem que é exibido no cabeçalho. |
 | Rotular |O texto que é exibido no cabeçalho. |
 | **Cabeçalho** |**> Link** |
 | Rotular |O texto do link. |
@@ -215,12 +216,12 @@ O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de 
 
 ![Gráfico de linhas, balão e exibição da lista](media/view-designer-parts/view-line-chart-callout-list.png)
 
-| Setting | Descrição |
+| Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título do Grupo |O texto que é exibido na parte superior do bloco. |
 | Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
-| Ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
+| ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
 | Usar Ícone |Selecione este link para exibir o ícone. |
 | **Cabeçalho** | |
 | Título |O texto que é exibido na parte superior do cabeçalho. |
@@ -255,12 +256,12 @@ O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de 
 
 ![Gráfico de linhas e exibição da lista](media/view-designer-parts/view-line-chart-callout-list.png)
 
-| Setting | Descrição |
+| Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título do Grupo |O texto que é exibido na parte superior do bloco. |
 | Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
-| Ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
+| ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
 | Usar Ícone |Selecione este link para exibir o ícone. |
 | **Cabeçalho** | |
 | Título |O texto que é exibido na parte superior do cabeçalho. |
@@ -291,12 +292,12 @@ A pilha de gráficos de linha exibe três gráficos de linhas separados com vár
 
 ![Pilha de gráficos de linha](media/view-designer-parts/view-stack-line-charts.png)
 
-| Setting | Descrição |
+| Configuração | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título do Grupo |O texto que é exibido na parte superior do bloco. |
 | Novo Grupo |Selecione este link para criar um novo grupo na exibição, iniciando na exibição atual. |
-| Ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
+| ícone |O arquivo de imagem que é exibido ao lado do resultado no cabeçalho. |
 | **Gráfico 1<br>Gráfico 2<br>Gráfico 3** |**> Cabeçalho** |
 | Título |O texto que é exibido na parte superior do gráfico. |
 | Subtítulo |O texto que é exibido sob o título na parte superior do gráfico. |
@@ -317,15 +318,15 @@ O separador de valor e nome é o delimitador de caractere único a ser usado par
 Por exemplo, considere uma propriedade chamada *Localização* que incluía valores como *Redmond-Building 41* e *Bellevue-Building12*. Você poderia especificar um traço (-) para o separador de valor e nome e *City-Building* para o nome. Essa abordagem analisa cada valor em duas propriedades chamadas *Cidade* e *Edifício*.
 
 ### <a name="click-through-navigation"></a><a name="click-through-navigation"></a>Navegação clickthrough
-A navegação clickthrough define qual ação será tomada quando você clicar em um cabeçalho ou item de lista em uma exibição.  Isso abrirá uma consulta no [log Analytics](../../azure-monitor/log-query/portals.md) ou iniciará outra exibição.
+A navegação clickthrough define qual ação será tomada quando você clicar em um cabeçalho ou item de lista em uma exibição.  Isso abrirá uma consulta no [log Analytics](../log-query/log-query-overview.md) ou iniciará outra exibição.
 
 A tabela a seguir descreve as configurações de navegação clickthrough.
 
-| Setting           | Descrição |
+| Configuração           | Descrição |
 |:--|:--|
 | Pesquisa de Logs (Automática) | Consulta de log a ser executada quando você seleciona um item de cabeçalho.  Essa é a mesma consulta de log na qual o item se baseia.
 | Pesquisa de log        | Consulta de log a ser executada quando você seleciona um item em uma lista.  Digite a consulta na caixa **Consulta de navegação**.   Use *{selected item}* para incluir a sintaxe para o item selecionado pelo usuário.  Por exemplo, se a consulta tiver uma coluna denominada *Computer* e a consulta de navegação for *{selected item}*, uma consulta como *Computer="MyComputer"* é executada quando você seleciona um computador. Se a consulta de navegação for do tipo *Type=Event {selected item}*, a consulta *Type=Event Computer="MyComputer"* é executada. |
-| Exibir              | Modo de exibição para abrir quando você seleciona um item de cabeçalho ou um item em uma lista.  Selecione o nome de uma exibição no seu workspace na caixa **Nome de exibição**. |
+| Visualizar              | Modo de exibição para abrir quando você seleciona um item de cabeçalho ou um item em uma lista.  Selecione o nome de uma exibição no seu workspace na caixa **Nome de exibição**. |
 
 
 
@@ -334,7 +335,7 @@ Um minigráfico é um pequeno gráfico de linha que ilustra o valor de uma entra
 
 A tabela a seguir descreve as configurações de minigráficos:
 
-| Setting | Descrição |
+| Configuração | Descrição |
 |:--- |:--- |
 | Habilitar minigráficos |Selecione este link para exibir um minigráfico em vez de uma barra horizontal. |
 | Operação |Se os minigráficos estiverem habilitados, essa será a operação a ser executada em cada propriedade na lista para calcular os valores do minigráfico.<ul><li>Última Amostra: O último valor da série durante o intervalo.</li><li>Máx: O valor máximo da série durante o intervalo.</li><li>Min: O valor mínimo da série durante o intervalo.</li><li>Soma: A soma dos valores da série durante o intervalo.</li><li>Resumo: Usa o mesmo comando `measure` da consulta no cabeçalho.</li></ul> |
@@ -348,7 +349,7 @@ Cada conjunto de limite tem um limite com um valor de **Padrão**. Essa é a cor
 
 A tabela a seguir descreve as configurações de limites:
 
-| Setting | Descrição |
+| Configuração | Descrição |
 |:--- |:--- |
 | Habilitar limites |Clique neste link para exibir um ícone de cor à esquerda de cada valor. O ícone indica a integridade do valor em relação a limites especificados. |
 | Nome |O nome do valor limite. |

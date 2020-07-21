@@ -3,11 +3,12 @@ title: Matriz de suporte para o agente MARS
 description: Este artigo resume o suporte ao backup do Azure ao fazer backup de computadores que executam o agente de Serviços de Recuperação do Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ff9510dfa31bb947d50b1a91fb7f73c2d767471
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709871"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538642"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente MARS (Serviços de Recuperação do Microsoft Azure)
 
@@ -29,7 +30,7 @@ Suas opções de backup dependem de onde o agente está instalado. Para obter ma
 **Instalação** | **Detalhes**
 --- | ---
 Baixe o agente MARS mais recente | Você pode baixar do cofre a versão mais recente do agente ou [baixá-lo diretamente](https://aka.ms/azurebackup_agent).
-Instalar diretamente em um computador | Você pode instalar o agente MARS diretamente em um Windows Server local ou em uma VM do Windows que esteja executando qualquer um dos [sistemas operacionais com suporte](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Instalar diretamente em um computador | Você pode instalar o agente MARS diretamente em um Windows Server local ou em uma VM do Windows que esteja executando qualquer um dos [sistemas operacionais com suporte](./backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 Instalar em um servidor de backup | Ao configurar o DPM ou MABS para fazer backup no Azure, você baixa e instala o agente MARS no servidor. Você pode instalar o agente em [sistemas operacionais com suporte](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) na matriz de suporte do servidor de backup.
 
 > [!NOTE]
@@ -43,7 +44,7 @@ Quando você usa o agente MARS para fazer backup de dados, o agente tira um inst
 **Cache** | **Detalhes**
 --- | ---
 Tamanho |  O espaço livre na pasta de cache deve ter pelo menos 5 a 10% do tamanho geral dos dados de backup.
-Location | A pasta de cache deve ser armazenada localmente no computador que está sendo submetido a backup e deve estar online. A pasta de cache não deve estar em um compartilhamento de rede, em mídia removível ou em um volume offline.
+Localização | A pasta de cache deve ser armazenada localmente no computador que está sendo submetido a backup e deve estar online. A pasta de cache não deve estar em um compartilhamento de rede, em mídia removível ou em um volume offline.
 Pasta | A pasta de cache não deve ser criptografada em um volume com eliminação de duplicação ou em uma pasta compactada, que seja esparsa ou que tenha um ponto de nova análise.
 Alterações de local | Você pode alterar o local do cache interrompendo o mecanismo de backup ( `net stop bengine` ) e copiando a pasta de cache para uma nova unidade. (Verifique se a nova unidade tem espaço suficiente.) Em seguida, atualize duas entradas de registro em **HKLM\Software\Microsoft\Windows Azure backup** (**config/ScratchLocation** e **config/CloudBackupProvider/ScratchLocation**) para o novo local e reinicie o mecanismo.
 
@@ -84,7 +85,7 @@ Com o emparelhamento da Microsoft, selecione os seguintes serviços/regiões e o
 - Região Microsoft Azure (de acordo com o local do cofre dos serviços de recuperação)
 - Armazenamento do Azure (de acordo com o local do cofre dos serviços de recuperação)
 
-Para obter mais informações, consulte os [requisitos de roteamento do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Para obter mais informações, consulte os [requisitos de roteamento do ExpressRoute](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >O emparelhamento público foi preterido para novos circuitos.
@@ -127,7 +128,7 @@ Os sistemas operacionais a seguir estão no final do suporte e é altamente reco
 
 Se os compromissos existentes impedirem a atualização do sistema operacional, considere migrar os servidores do Windows para as VMs do Azure e aproveitar os backups de VM do Azure para continuar mantendo a proteção. Visite a [página de migração aqui](https://azure.microsoft.com/migration/windows-server/) para obter mais informações sobre como migrar seu Windows Server.
 
-Para ambientes locais ou hospedados, em que você não pode atualizar o sistema operacional ou migrar para o Azure, ative as atualizações de segurança estendidas para os computadores para continuar a manter a proteção e o suporte. Observe que apenas edições específicas são elegíveis para atualizações de segurança estendidas. Visite a [página de perguntas frequentes](https://www.microsoft.com/cloud-platform/extended-security-updates) para saber mais.
+Para ambientes locais ou hospedados, em que você não pode atualizar o sistema operacional ou migrar para o Azure, ative as atualizações de segurança estendidas para os computadores para continuar a manter a proteção e o suporte. Observe que apenas edições específicas são elegíveis para atualizações de segurança estendidas. Visite a [página de perguntas frequentes](https://www.microsoft.com/windows-server/extended-security-updates) para saber mais.
 
 | **Sistema Operacional**                                       | **Arquivos/pastas** | **Estado do sistema** | **Requisitos de software/módulo**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |

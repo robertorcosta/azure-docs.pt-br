@@ -1,5 +1,5 @@
 ---
-title: Criar um alerta de métrica com um modelo do Resource Manager
+title: Criar um alerta de métrica mais recente com o modelo de Azure Resource Manager
 description: Saiba como criar um modelo do Resource Manager para criar um alerta de métrica.
 author: harelbr
 ms.author: harelbr
@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 7/9/2020
 ms.subservice: alerts
-ms.openlocfilehash: 4d8ec0c76259a8567906e9ac415864e2cd37a9cd
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 043ecc07c521f9c1c79835bcd67ff1d81cacfa34
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187567"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539458"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 
@@ -27,7 +27,7 @@ As etapas básicas são as seguintes:
 
 1. Use um dos modelos abaixo como arquivo JSON que descreva como criar o alerta.
 2. Edite e use o arquivo de parâmetros correspondente como um JSON para personalizar o alerta.
-3. Para o `metricName` parâmetro, consulte as métricas disponíveis em [Azure monitor métricas com suporte](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+3. Para o `metricName` parâmetro, consulte as métricas disponíveis em [Azure monitor métricas com suporte](./metrics-supported.md).
 4. Implantar o modelo usando [qualquer método de implantação](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>Modelo para um alerta de métrica de limite estático simples
@@ -204,7 +204,7 @@ Salve o json abaixo como simplestaticmetricalert.json para usar neste passo a pa
 }
 ```
 
-Uma explicação do esquema e das propriedades para uma regra de alerta [está disponível aqui](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+Uma explicação do esquema e das propriedades para uma regra de alerta [está disponível aqui](/rest/api/monitor/metricalerts/createorupdate).
 
 Você pode definir os valores para os parâmetros na linha de comando ou através de um arquivo de parâmetro. Um arquivo de parâmetro de exemplo é fornecido abaixo.
 
@@ -477,7 +477,7 @@ Salve o json abaixo como simpledynamicmetricalert.json para usar neste passo a p
 }
 ```
 
-Uma explicação do esquema e das propriedades para uma regra de alerta [está disponível aqui](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+Uma explicação do esquema e das propriedades para uma regra de alerta [está disponível aqui](/rest/api/monitor/metricalerts/createorupdate).
 
 Você pode definir os valores para os parâmetros na linha de comando ou através de um arquivo de parâmetro. Um arquivo de parâmetro de exemplo é fornecido abaixo. 
 
@@ -1248,7 +1248,7 @@ az group deployment create \
 
 Você pode usar o modelo a seguir para criar uma regra de alerta de métrica de limite estático mais avançada em uma métrica personalizada.
 
-Para saber mais sobre as métricas personalizadas no Azure Monitor, confira [Métricas personalizadas no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
+Para saber mais sobre as métricas personalizadas no Azure Monitor, confira [Métricas personalizadas no Azure Monitor](./metrics-custom-overview.md).
 
 Ao criar uma regra de alerta em uma métrica personalizada, você precisará especificar o nome da métrica e o namespace da métrica. Verifique também se a métrica personalizada já está sendo relatada, pois não é possível criar uma regra de alerta em uma métrica personalizada que ainda não existe.
 
@@ -1504,7 +1504,7 @@ az group deployment create \
 
 >[!NOTE]
 >
-> Você pode encontrar o namespace de métrica de uma métrica personalizada específica [pesquisando as suas métricas personalizadas por meio do portal do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)
+> Você pode encontrar o namespace de métrica de uma métrica personalizada específica [pesquisando as suas métricas personalizadas por meio do portal do Azure](./metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
 
 
 ## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>Modelo para um alerta de métrica que monitora vários recursos

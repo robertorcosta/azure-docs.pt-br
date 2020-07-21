@@ -3,11 +3,12 @@ title: Restaurar arquivos do Azure com o PowerShell
 description: Neste artigo, saiba como restaurar os arquivos do Azure usando o serviço de backup do Azure e o PowerShell.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 63c318b66ec8f876a260b3c5b8db38bb088fb862
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23de6e1e352a1b72d1435fc65d6a59ab37d838b0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201976"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538540"
 ---
 # <a name="restore-azure-files-with-powershell"></a>Restaurar arquivos do Azure com o PowerShell
 
@@ -23,7 +24,7 @@ Você pode restaurar um compartilhamento de arquivos inteiro ou arquivos especí
 
 ## <a name="fetch-recovery-points"></a>Buscar pontos de recuperação
 
-Use [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint?view=azps-1.4.0) para listar todos os pontos de recuperação para o item de backup.
+Use [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) para listar todos os pontos de recuperação para o item de backup.
 
 No script a seguir:
 
@@ -62,7 +63,7 @@ Depois que o ponto de recuperação relevante é selecionado, você restaura o c
 
 ## <a name="restore-an-azure-file-share-to-an-alternate-location"></a>Restaurar um compartilhamento de arquivos do Azure para um local alternativo
 
-Use o [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) para restaurar para o ponto de recuperação selecionado. Especifique esses parâmetros para identificar o local alternativo:
+Use o [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) para restaurar para o ponto de recuperação selecionado. Especifique esses parâmetros para identificar o local alternativo:
 
 * **TargetStorageAccountName**: a conta de armazenamento para a qual o conteúdo de backup é restaurado. A conta de armazenamento de destino deve estar no mesmo local que o cofre.
 * **TargetFileShareName**: os compartilhamentos de arquivos dentro da conta de armazenamento de destino para a qual o conteúdo de backup é restaurado.
@@ -85,7 +86,7 @@ testAzureFS        Restore              InProgress           12/10/2018 9:56:38 
 
 ## <a name="restore-an-azure-file-to-an-alternate-location"></a>Restaurar um arquivo do Azure para um local alternativo
 
-Use o [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) para restaurar para o ponto de recuperação selecionado. Especifique esses parâmetros para identificar o local alternativo e para identificar exclusivamente o arquivo que você deseja restaurar.
+Use o [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) para restaurar para o ponto de recuperação selecionado. Especifique esses parâmetros para identificar o local alternativo e para identificar exclusivamente o arquivo que você deseja restaurar.
 
 * **TargetStorageAccountName**: a conta de armazenamento para a qual o conteúdo de backup é restaurado. A conta de armazenamento de destino deve estar no mesmo local que o cofre.
 * **TargetFileShareName**: os compartilhamentos de arquivos dentro da conta de armazenamento de destino para a qual o conteúdo de backup é restaurado.
@@ -120,7 +121,7 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -SourceFileType File 
 
 ## <a name="restore-multiple-files-or-folders-to-original-or-alternate-location"></a>Restaurar vários arquivos ou pastas para o local original ou alternativo
 
-Use o comando [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) passando o caminho de todos os arquivos ou pastas que você deseja restaurar como um valor para o parâmetro **MultipleSourceFilePath** .
+Use o comando [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) passando o caminho de todos os arquivos ou pastas que você deseja restaurar como um valor para o parâmetro **MultipleSourceFilePath** .
 
 ### <a name="restore-multiple-files"></a>Restaurar vários arquivos
 

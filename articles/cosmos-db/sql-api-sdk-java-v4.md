@@ -8,11 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
-ms.openlocfilehash: aa5e741d8578253b8b3e8e5c692873c39cec8f79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccc872b24c78fbdf6e55673f9d1f78efc0647895
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412627"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537877"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>SDK do Java v4 do Azure Cosmos DB para API do Core (SQL): notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -60,6 +61,17 @@ O SDK do Java v4 do Azure Cosmos DB para Core (SQL) combina uma API assíncrona 
 | **Workshops e laboratórios do Azure Cosmos DB** |[Home page dos workshops do Cosmos DB](https://aka.ms/cosmosworkshop)
 
 ## <a name="release-history"></a>Histórico de versões
+
+### <a name="420-2020-07-14"></a>4.2.0 (2020-07-14)
+* API habilitada para log de script adicionada ao `CosmosStoredProcedureRequestOptions` .
+* Atualizado o `DirectConnectionConfig` padrão `idleEndpointTimeout` para 1h e o padrão `connectTimeout` para 5s.
+#### <a name="key-bug-fixes"></a>Correções de bug de chave
+* Corrigido o problema em que o `GatewayConnectionConfig` `idleConnectionTimeout` estava substituindo `DirectConnectionConfig` `idleConnectionTimeout` .
+* Corrigidas as `responseContinuationTokenLimitInKb` APIs Get e Set no `CosmosQueryRequestOptions` .
+* Corrigido o problema na consulta e no feed de alterações ao recriar a coleção com o mesmo nome.
+* Corrigido o problema com a primeira consulta que gera ClassCastException.
+* Corrigido o problema com a consulta order by lançando NullPointerException.
+* Corrigido o problema na manipulação de solicitações canceladas no modo direto, fazendo com que o reator `onErrorDropped` seja chamado. 
 
 ### <a name="410-2020-06-25"></a>4.1.0 (2020-06-25)
 #### <a name="new-features"></a>Novos recursos

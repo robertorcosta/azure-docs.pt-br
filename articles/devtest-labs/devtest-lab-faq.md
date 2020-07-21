@@ -2,13 +2,13 @@
 title: Perguntas frequentes sobre o Azure DevTest Labs | Microsoft Docs
 description: Este artigo dá respostas para algumas das perguntas frequentes sobre o Azure DevTest Labs.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: b687ae5c7b64239387dad7a51e124fa2f507f2b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: 707b66fadab482a31ac02f10460d581997931a0b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481656"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537472"
 ---
 # <a name="azure-devtest-labs-faq"></a>Perguntas frequentes sobre o Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre o Azure DevTest Labs.
@@ -200,7 +200,7 @@ Para copiar suas VMs existentes para o DevTest Labs:
 Sim, você pode anexar vários discos a suas VMs.
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>As imagens de Gen 2 são compatíveis com o DevTest Labs?
-Não. O serviço DevTest Labs não dá suporte a [imagens de Gen 2](../virtual-machines/windows/generation-2.md). Se as versões Gen 1 e Gen 2 estiverem disponíveis para uma imagem, o DevTest Labs mostrará apenas a versão Gen 1 da imagem ao criar uma VM. Você não verá uma imagem se houver apenas a versão Gen 2 dela disponível. 
+Sim. O serviço DevTest Labs dá suporte a [imagens de Gen 2](../virtual-machines/windows/generation-2.md). No entanto, se as versões 1 e Gen 2 estiverem disponíveis para uma imagem, o DevTest Labs mostrará apenas a versão Gen 1 da imagem ao criar uma VM. Você verá a imagem se houver apenas a versão Gen 2 dela disponível. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Se eu quiser usar uma imagem do sistema operacional Windows para o meu teste, preciso comprar uma assinatura do MSDN?
 Para usar imagens do sistema operacional do cliente Windows (Windows 7 ou posterior) para desenvolvimento ou teste no Azure, realize uma das seguintes ações:
@@ -212,7 +212,7 @@ Para obter mais informações sobre os créditos Azure para cada oferta do MSDN,
 
 
 ### <a name="how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab"></a>Como posso automatizar o processo de exclusão de todas as VMs em meu laboratório?
-Como proprietário, você pode excluir VMs do seu laboratório no portal do Azure. Você também pode excluir todas as VMs no laboratório usando um script do PowerShell. No exemplo a seguir, no comentário **valores a serem alterados**, modifique os valores de parâmetro. Você pode recuperar os valores subscriptionId, labResourceGroup e labName no painel de laboratório do portal do Azure.
+Como proprietário, você pode excluir VMs do seu laboratório no portal do Azure. Você também pode excluir todas as VMs no laboratório usando um script do PowerShell. No exemplo a seguir, no comentário **valores a serem alterados**, modifique os valores de parâmetro. Você pode recuperar os valores `subscriptionId`, `labResourceGroup` e `labName` do painel do laboratório no Portal do Azure.
 
 ```powershell
 # Delete all the VMs in a lab.
@@ -340,9 +340,9 @@ Para outras cadeias de ferramentas de CI (integração contínua)/CD (entrega co
 ## <a name="networking"></a>Rede
 
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>Quando devo criar uma nova rede virtual para meu ambiente de Laboratórios de Desenvolvimento/Teste versus o uso de uma rede virtual existente?
-Se as suas VMs precisarem interagir com a infraestrutura atual, considere usar uma rede virtual existente dentro do ambiente do DevTest Labs. Caso você use o ExpressRoute, pode ser conveniente minimizar a quantidade de VNets/sub-redes para não fragmentar o espaço de endereços IP atribuído para uso nas assinaturas.
+Se as suas VMs precisarem interagir com a infraestrutura atual, considere usar uma rede virtual existente dentro do ambiente do DevTest Labs. Se você usar o ExpressRoute, convém minimizar o número de redes virtuais/sub-redes para não fragmentar o espaço de endereço IP que é atribuído para uso nas assinaturas.
 
-Considere usar o padrão de emparelhamento VNet aqui ([modelo Hub-Spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) também. Essa abordagem permite a comunicação de vnet/sub-rede entre assinaturas. Caso contrário, cada ambiente de Laboratórios de Desenvolvimento/Teste pode ter sua própria rede virtual.
+Considere usar o padrão de emparelhamento de rede virtual aqui ([modelo hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) também. Essa abordagem permite a comunicação de vnet/sub-rede entre assinaturas. Caso contrário, cada ambiente de Laboratórios de Desenvolvimento/Teste pode ter sua própria rede virtual.
 
 Há [limites](../azure-resource-manager/management/azure-subscription-service-limits.md) quanto ao número de redes virtuais por assinatura. O valor padrão é 50, embora esse limite possa ser aumentado para 100.
 

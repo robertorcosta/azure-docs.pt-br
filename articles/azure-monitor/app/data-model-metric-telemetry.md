@@ -4,11 +4,12 @@ description: Modelo de dados do Application Insights para telemetria de métrica
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 3e4a1fc3de58b8e65ab9c7a288bdf3eb37e7bae0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44f0b070a7c0da416002d9bf7e509d643a96dc7a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671963"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540002"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetria de métricas: modelo de dados do Application Insights
 
@@ -23,7 +24,7 @@ Métrica representando os contadores de processo e de sistema:
 | **Nome do .NET**             | **Nome independente de plataforma** | **Nome da API REST** | **Descrição**
 | ------------------------- | -------------------------- | ----------------- | ---------------- 
 | `\Processor(_Total)\% Processor Time` | Trabalho em andamento... | [processorCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessorCpuPercentage) | total de CPU do computador
-| `\Memory\Available Bytes`                 | Trabalho em andamento... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | Mostra a quantidade de memória física, em bytes, disponível para processos em execução no computador. É calculado, somando a quantidade de espaço nas listas de memória em espera, livre e zero. A memória livre está pronta para uso; a memória zero é constituída por páginas de memória preenchidas com zeros para impedir que processos posteriores vejam dados usados por um processo anterior; a memória em espera é a memória que foi removida do conjunto de trabalho de um processo (a memória física) em rota para o disco, mas ainda está disponível para ser recuperado. Consulte [Objeto de Memória](https://msdn.microsoft.com/library/ms804008.aspx)
+| `\Memory\Available Bytes`                 | Trabalho em andamento... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | Mostra a quantidade de memória física, em bytes, disponível para processos em execução no computador. É calculado, somando a quantidade de espaço nas listas de memória em espera, livre e zero. A memória livre está pronta para uso; a memória zero é constituída por páginas de memória preenchidas com zeros para impedir que processos posteriores vejam dados usados por um processo anterior; a memória em espera é a memória que foi removida do conjunto de trabalho de um processo (a memória física) em rota para o disco, mas ainda está disponível para ser recuperado. Consulte [Objeto de Memória](/previous-versions/ms804008(v=msdn.10))
 | `\Process(??APP_WIN32_PROC??)\% Processor Time` | Trabalho em andamento... | [processCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessCpuPercentage) | CPU do processo que hospeda o aplicativo
 | `\Process(??APP_WIN32_PROC??)\Private Bytes`      | Trabalho em andamento... | [processPrivateBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessPrivateBytes) | memória usada pelo processo que hospeda o aplicativo
 | `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | Trabalho em andamento... | [processIOBytesPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessIOBytesPerSecond) | taxa de execuções de operações de E/S pelo processo que hospeda o aplicativo
@@ -48,7 +49,7 @@ Peso da métrica agregada. Não deve ser definido para uma medida.
 
 Valor mínimo da métrica agregada. Não deve ser definido para uma medida.
 
-## <a name="max"></a>Max
+## <a name="max"></a>Máx
 
 Valor máximo da métrica agregada. Não deve ser definido para uma medida.
 

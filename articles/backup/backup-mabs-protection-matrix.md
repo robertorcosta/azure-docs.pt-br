@@ -3,11 +3,12 @@ title: Matriz de proteção UR1 MABS (Servidor de Backup do Azure) v3
 description: Este artigo fornece uma matriz de suporte listando todas as cargas de trabalho, tipos de dados e instalações que o Servidor de Backup do Azure protege.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: f950c7be28a4ff0dd0caa12d1327c2a0e2ac4fc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cfcb8fbf9f793cfbe11d2c25b3d2caa7018d0fd4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677314"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538727"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>Matriz de proteção UR1 MABS (Servidor de Backup do Azure) v3
 
@@ -53,7 +54,7 @@ As seções a seguir detalham a matriz de suporte à proteção para MABS:
 
 | **Carga de trabalho** | **Versão**                               | **Instalação do Servidor de Backup do Azure**                      | **Servidor de Backup do Azure com suporte** | **Proteção e recuperação**                                 |
 | ------------ | ----------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Linux        | Linux em execução como Hyper-V ou convidado do VMware | Servidor físico, VM Hyper-V local, VM do Windows no VMWare | UR1 V3                             | O Hyper-V deve estar em execução no Windows Server 2012 R2 ou no Windows Server 2016. Proteger: máquina virtual inteira   <br><br>   Recupera: a máquina virtual inteira   <br><br>    Somente os instantâneos consistentes de arquivos têm suporte.    <br><br>   Para obter uma lista completa de distribuições e versões do Linux com suporte, consulte o artigo [Linux em distribuições endossadas pelo Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros). |
+| Linux        | Linux em execução como Hyper-V ou convidado do VMware | Servidor físico, VM Hyper-V local, VM do Windows no VMWare | UR1 V3                             | O Hyper-V deve estar em execução no Windows Server 2012 R2 ou no Windows Server 2016. Proteger: máquina virtual inteira   <br><br>   Recupera: a máquina virtual inteira   <br><br>    Somente os instantâneos consistentes de arquivos têm suporte.    <br><br>   Para obter uma lista completa de distribuições e versões do Linux com suporte, consulte o artigo [Linux em distribuições endossadas pelo Azure](../virtual-machines/linux/endorsed-distros.md). |
 
 ## <a name="azure-expressroute-support"></a>Suporte do Azure ExpressRoute
 
@@ -73,7 +74,7 @@ Com o emparelhamento da Microsoft, selecione os seguintes serviços/regiões e o
 * Região Microsoft Azure (de acordo com o local do cofre dos serviços de recuperação)
 * Armazenamento do Azure (de acordo com o local do cofre dos serviços de recuperação)
 
-Para obter mais informações, consulte os [requisitos de roteamento do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Para obter mais informações, consulte os [requisitos de roteamento do ExpressRoute](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >O emparelhamento público foi preterido para novos circuitos.

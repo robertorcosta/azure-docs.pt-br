@@ -1,16 +1,16 @@
 ---
-title: Habilitar conexão do navegador em máquinas virtuais Azure DevTest Labs | Microsoft Docs
+title: Habilitar a conexão do navegador em máquinas virtuais Azure DevTest Labs
 description: O DevTest Labs agora se integra à bastiões do Azure, como proprietário do laboratório, você pode habilitar o acesso a todas as máquinas virtuais do laboratório por meio de um navegador.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 23fb43fa7295006d8d3784d1dbb5d80c48411431
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ff55aa033ee9a024c8bc89cc9d39bc8d3ad25da
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85484121"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537514"
 ---
-# <a name="enable-browser-connection-on-lab-virtual-machines"></a>Habilitar conexão do navegador em máquinas virtuais do laboratório 
+# <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Habilitar a conexão do navegador em máquinas virtuais Azure DevTest Labs 
 O DevTest Labs integra-se à [bastiões do Azure](https://docs.microsoft.com/azure/bastion/), que permite que você se conecte às suas máquinas virtuais por meio de um navegador. Primeiro, você precisa habilitar a conexão do navegador em máquinas virtuais do laboratório.
 
 Como proprietário de um laboratório, você pode habilitar o acesso a todas as máquinas virtuais do laboratório por meio de um navegador. Não é preciso um cliente, agente ou software adicional. A bastiões do Azure fornece conectividade RDP/SSH segura e direta para suas máquinas virtuais diretamente no portal do Azure sobre TLS. Quando você se conecta por meio de bastiões do Azure, suas máquinas virtuais não precisam de um endereço IP público. Para obter mais informações, consulte [o que é a bastiões do Azure?](../bastion/bastion-overview.md)

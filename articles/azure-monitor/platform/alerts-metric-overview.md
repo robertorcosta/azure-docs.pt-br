@@ -1,15 +1,15 @@
 ---
 title: Entender como funcionam os alertas de métrica no Azure Monitor.
 description: Obtenha uma visão geral do que você pode fazer com alertas de métrica e como eles funcionam no Azure Monitor.
-ms.date: 07/09/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: cd8c28b2c26e8859eda1634d2441982336cdd460
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 05e25a67279786ef4679552503e577b1b1a382ea
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187516"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539424"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entender como funcionam os alertas de métrica no Azure Monitor
 
@@ -119,6 +119,15 @@ Digamos que você tenha um aplicativo Web com muitas instâncias e não sabe qua
 Essa regra monitora se o uso médio da CPU nos últimos 5 minutos excede o comportamento esperado para cada instância. Com a mesma regra, você pode monitorar instâncias à medida que elas surgem, sem precisar modificar novamente a regra de alerta de métrica. Cada instância obtêm um limite que se ajusta ao padrão de comportamento da série de métricas e que muda continuamente com base nos novos dados para tornar o limite mais preciso. Como antes, cada instância é monitorada individualmente e você obtém notificações individualmente.
 
 Aumentar os períodos de retrocesso e o número de violações também pode permitir filtrar alertas apenas para o alerta na sua definição de um desvio significativo. [Saiba mais sobre as opções avançadas de Limites Dinâmicos](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
+
+> [!NOTE]
+>
+> É recomendável escolher uma *granularidade de agregação (período)* maior do que a *frequência de avaliação*, para reduzir a probabilidade de falta da primeira avaliação da série temporal adicionada nos seguintes casos:
+> - Regra de alerta de métrica que monitora várias dimensões – quando uma nova combinação de valor de dimensão é adicionada
+> - Regra de alerta de métrica que monitora vários recursos – quando um novo recurso é adicionado ao escopo
+> - Regra de alerta de métrica que monitora uma métrica que não é emitida continuamente (métrica esparsa) – quando a métrica é emitida após um período de mais de 24 horas em que ela não foi emitida
+
+
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Monitoramento em escala usando alertas de métrica no Azure Monitor
 

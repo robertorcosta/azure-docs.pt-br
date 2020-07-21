@@ -3,12 +3,12 @@ title: Fazer backup e restaurar VMs do Azure criptografadas
 description: Descreve como fazer backup e restaurar VMs do Azure criptografadas com o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 0800a15b215b37ceb75abc0d6480331d642dc746
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1689ff89f15248f6771ccdce525cc136221e5577
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124496"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538897"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Fazer backup e restaurar a VM do Azure criptografada
 
@@ -27,11 +27,11 @@ O backup do Azure pode fazer backup e restaurar VMs do Azure usando ADE com e se
 
 **Tipo de disco da VM** | **ADE (BEK/DM-cript.)** | **ADE e KEK**
 --- | --- | ---
-**Não Gerenciado** | Sim | Sim
-**Gerenciada**  | Sim | Sim
+**Não gerenciado** | Sim | Sim
+**Gerenciado**  | Sim | Sim
 
-- Saiba mais sobre [Ade](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/general/overview.md)e [KEKs](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek).
-- Leia as [perguntas frequentes](../security/azure-security-disk-encryption-faq.md) sobre a criptografia de disco de VM do Azure.
+- Saiba mais sobre [Ade](../security/fundamentals/azure-disk-encryption-vms-vmss.md), [Key Vault](../key-vault/general/overview.md)e [KEKs](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
+- Leia as [perguntas frequentes](../security/fundamentals/azure-disk-encryption-vms-vmss.md) sobre a criptografia de disco de VM do Azure.
 
 ### <a name="limitations"></a>Limitações
 
@@ -45,7 +45,7 @@ O backup do Azure pode fazer backup e restaurar VMs do Azure usando ADE com e se
 
 Antes de começar, faça o seguinte:
 
-1. Verifique se você tem uma ou mais VMs do [Windows](../security/azure-security-disk-encryption-windows.md) ou [Linux](../virtual-machines/linux/disk-encryption-overview.md) com o Ade habilitado.
+1. Verifique se você tem uma ou mais VMs do [Windows](../virtual-machines/linux/disk-encryption-overview.md) ou [Linux](../virtual-machines/linux/disk-encryption-overview.md) com o Ade habilitado.
 2. [Examinar a matriz de suporte para o](backup-support-matrix-iaas.md) backup de VM do Azure
 3. [Crie](backup-azure-arm-vms-prepare.md#create-a-vault) um cofre de backup dos serviços de recuperação se você não tiver um.
 4. Se você habilitar a criptografia para VMs que já estão habilitadas para backup, bastará fornecer backup com permissões para acessar o Key Vault para que os backups possam continuar sem interrupções. [Saiba mais](#provide-permissions) sobre como atribuir essas permissões.

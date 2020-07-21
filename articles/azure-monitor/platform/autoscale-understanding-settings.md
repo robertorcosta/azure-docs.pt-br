@@ -4,11 +4,12 @@ description: Uma análise detalhada das configurações de dimensionamento autom
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03019b35a85d8d511e3ada131eff890a60fd57f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75364298"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539373"
 ---
 # <a name="understand-autoscale-settings"></a>Compreender configurações de Autoescala
 As configurações de Autoescala ajudam a garantir que você tenha a quantidade certa de recursos em execução para lidar com a carga flutuante do seu aplicativo. Você pode definir as configurações de Autoescala para serem disparadas com base em métricas que indicam carga ou desempenho ou para serem disparadas em uma data e hora agendadas. Este artigo analisa detalhadamente a anatomia de uma configuração de Autoescala. O artigo começa com o esquema e as propriedades de uma configuração e, em seguida, percorre os diferentes tipos de perfil que podem ser configurados. Por fim, o artigo aborda como o recurso de Autoescala no Azure decide qual o perfil a ser executado em um determinado momento.
@@ -86,9 +87,9 @@ Para ilustrar o esquema de configuração de Autoescala, a seguinte configuraç�
 
 | Seção | Nome do elemento | Descrição |
 | --- | --- | --- |
-| Setting | ID | A ID do recurso da configuração de dimensionamento automático. As configurações de dimensionamento automático são um recurso do Azure Resource Manager. |
-| Setting | name | O nome da configuração de dimensionamento automático. |
-| Setting | local | O local da configuração de dimensionamento automático. Esse local pode ser diferente do local em que o recurso está sendo dimensionado. |
+| Configuração | ID | A ID do recurso da configuração de dimensionamento automático. As configurações de dimensionamento automático são um recurso do Azure Resource Manager. |
+| Configuração | name | O nome da configuração de dimensionamento automático. |
+| Configuração | local | O local da configuração de dimensionamento automático. Esse local pode ser diferente do local em que o recurso está sendo dimensionado. |
 | properties | targetResourceUri | A ID do recurso que está sendo dimensionado. Você só pode ter uma configuração de dimensionamento automático por recurso. |
 | properties | perfis | Uma configuração de dimensionamento automático é composta de um ou mais perfis. Cada vez que o mecanismo de dimensionamento automático é executado, ele executa um perfil. |
 | perfil | name | O nome do perfil. Escolha qualquer nome que o ajude a identificar o perfil. |
@@ -304,5 +305,4 @@ Saiba mais sobre a Autoescala consultando o seguinte:
 * [Métricas comuns de dimensionamento automático do Azure Monitor](../../azure-monitor/platform/autoscale-common-metrics.md)
 * [Práticas recomendadas para dimensionamento automático do Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook](../../azure-monitor/platform/autoscale-webhook-email.md)
-* [API REST do Dimensionamento Automático](https://msdn.microsoft.com/library/dn931953.aspx)
-
+* [API REST do Dimensionamento Automático](/rest/api/monitor/autoscalesettings)

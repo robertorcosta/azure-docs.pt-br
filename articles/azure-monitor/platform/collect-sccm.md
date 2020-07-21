@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 3140c0de6fbe090e3d040202cd581c455f03b6d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5984cbf8cf618a938ee85638d981f7867c6ec8b5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77655249"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539356"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Conectar Configuration Manager ao Azure Monitor
 Você pode conectar seu ambiente de Configuration Manager de ponto de extremidade da Microsoft para Azure Monitor para sincronizar dados de coleta de dispositivos e fazer referência a essas coleções no Azure Monitor e na automação do Azure.  
@@ -20,7 +21,7 @@ Você pode conectar seu ambiente de Configuration Manager de ponto de extremidad
 O Azure Monitor dá suporte Configuration Manager Branch atual, versão 1606 e superior.
 
 >[!NOTE]
->O recurso para se conectar Configuration Manager com um espaço de trabalho de Log Analytics é opcional e não é habilitado por padrão. É necessário habilitar esse recurso antes de usá-lo. Para obter mais informações, consulte [Enable optional features from updates (Habilitar recursos opcionais de atualizações)](https://docs.microsoft.com/configmgr/core/servers/manage/install-in-console-updates#bkmk_options).
+>O recurso para se conectar Configuration Manager com um espaço de trabalho de Log Analytics é opcional e não é habilitado por padrão. É necessário habilitar esse recurso antes de usá-lo. Para obter mais informações, consulte [Enable optional features from updates (Habilitar recursos opcionais de atualizações)](/configmgr/core/servers/manage/install-in-console-updates#bkmk_options).
 
 ## <a name="configuration-overview"></a>Visão geral de configuração
 
@@ -65,7 +66,7 @@ Examine o artigo [conectar computadores Windows ao Azure monitor no Azure](agent
 ## <a name="connect-configuration-manager-to-log-analytics-workspace"></a>Conectar Configuration Manager ao espaço de trabalho Log Analytics
 
 >[!NOTE]
-> Para adicionar uma conexão de Log Analytics, seu ambiente de Configuration Manager deve ter um [ponto de conexão de serviço](https://docs.microsoft.com/configmgr/core/servers/deploy/configure/about-the-service-connection-point) configurado para o modo online.
+> Para adicionar uma conexão de Log Analytics, seu ambiente de Configuration Manager deve ter um [ponto de conexão de serviço](/configmgr/core/servers/deploy/configure/about-the-service-connection-point) configurado para o modo online.
 
 > [!NOTE]
 > Você deve conectar o site de camada superior em sua hierarquia para Azure Monitor. Se você conectar um site primário autônomo a Azure Monitor e, em seguida, adicionar um site de administração central ao seu ambiente, será necessário excluir e recriar a conexão na nova hierarquia.

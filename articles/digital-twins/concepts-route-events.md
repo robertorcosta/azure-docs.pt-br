@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7c1f0c18fc8b867e16ce539a24839637e1d14379
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d62777f73a92768b1ede3fb9b7e0cb97951823
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390781"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537473"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotear eventos dentro e fora do Azure digital gêmeos
 
@@ -46,7 +46,7 @@ Como alternativa, a mensagem de evento também contém a ID da fonte de mensagen
 
 O recurso de computação também precisa estabelecer permissões de segurança e de acesso de forma independente.
 
-Para percorrer o processo de configuração de uma função do Azure para processar eventos de alta segurança digital, consulte [como: configurar uma função do Azure para processar dados](how-to-create-azure-function.md).
+Para percorrer o processo de configuração de uma função do Azure para processar eventos de alta segurança digital, consulte [*como: configurar uma função do Azure para processar dados*](how-to-create-azure-function.md).
 
 ## <a name="create-an-endpoint"></a>Criar um ponto de extremidade
 
@@ -90,7 +90,7 @@ Tipos diferentes de eventos no Hub IoT e no Azure digital gêmeos produzem difer
 ## <a name="next-steps"></a>Próximas etapas
 
 Consulte como configurar e gerenciar uma rota de eventos:
-* [Como: gerenciar pontos de extremidade e rotas](how-to-manage-routes.md)
+* [*Como: gerenciar pontos de extremidade e rotas*](how-to-manage-routes.md)
 
 Ou, consulte como usar Azure Functions para rotear eventos no Azure digital gêmeos:
-* [Como: configurar uma função do Azure para processar dados](how-to-create-azure-function.md)
+* [*Como: configurar uma função do Azure para processar dados*](how-to-create-azure-function.md)

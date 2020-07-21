@@ -6,11 +6,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9eb753981821a6b53d81b1d03e65abf68e0064dc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80892250"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539985"
 ---
 # <a name="what-is-distributed-tracing"></a>O que é o Rastreamento distribuído?
 
@@ -20,9 +21,9 @@ Em arquiteturas monolíticos, estamos acostumados a depurar com pilhas de chamad
 
 É aí que entra o rastreamento distribuído.  
 
-O rastreamento distribuído é o equivalente às pilhas de chamadas nas arquiteturas modernas de nuvem e microsserviços, com a adição de um criador de perfil de desempenho simplista. No Azure Monitor, fornecemos duas experiências para consumo dos dados de rastreamento distribuído. A primeira é nossa exibição de [diagnóstico de transação](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics), que é como uma pilha de chamadas com uma dimensão de tempo adicionada. A exibição de diagnóstico de transação fornece visibilidade de uma única transação/solicitação, e é útil para encontrar a causa raiz de problemas de confiabilidade e gargalos de desempenho de cada solicitação.
+O rastreamento distribuído é o equivalente às pilhas de chamadas nas arquiteturas modernas de nuvem e microsserviços, com a adição de um criador de perfil de desempenho simplista. No Azure Monitor, fornecemos duas experiências para consumo dos dados de rastreamento distribuído. A primeira é nossa exibição de [diagnóstico de transação](./transaction-diagnostics.md), que é como uma pilha de chamadas com uma dimensão de tempo adicionada. A exibição de diagnóstico de transação fornece visibilidade de uma única transação/solicitação, e é útil para encontrar a causa raiz de problemas de confiabilidade e gargalos de desempenho de cada solicitação.
 
-O Azure Monitor também oferece uma exibição de [mapa de aplicativo](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) que agrega muitas transações para mostrar uma exibição topológica de como os sistemas interagem e quais são as taxas média de desempenho e erro. 
+O Azure Monitor também oferece uma exibição de [mapa de aplicativo](./app-map.md) que agrega muitas transações para mostrar uma exibição topológica de como os sistemas interagem e quais são as taxas média de desempenho e erro. 
 
 ## <a name="how-to-enable-distributed-tracing"></a>Como habilitar o rastreamento distribuído
 
@@ -32,16 +33,16 @@ Habilitar o rastreamento distribuído entre os serviços em um aplicativo é tã
 
 Os agentes de Application Insights e/ou SDKs para .NET, .NET Core, Java, Node.js e JavaScript oferecem suporte ao rastreamento distribuído nativamente. Veja abaixo as instruções para instalar e configurar cada SDK do Application Insights:
 
-* [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
-* [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
-* [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
-* [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
-* [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [.NET](../learn/quick-monitor-portal.md)
+* [.NET Core](../learn/dotnetcore-quick-start.md)
+* [Java](./java-in-process-agent.md)
+* [Node.js](../learn/nodejs-quick-start.md)
+* [JavaScript](./javascript.md)
 * [Python](opencensus-python.md)
 
-Com SDK adequado do Application Insights instalado e configurado, as informações de rastreamento são coletadas automaticamente para estruturas, bibliotecas e tecnologias populares pelos coletores automáticos de dependência do SDK. A lista completa de tecnologias com suporte está disponível na [documentação de coleta automática de dependência](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
+Com SDK adequado do Application Insights instalado e configurado, as informações de rastreamento são coletadas automaticamente para estruturas, bibliotecas e tecnologias populares pelos coletores automáticos de dependência do SDK. A lista completa de tecnologias com suporte está disponível na [documentação de coleta automática de dependência](./auto-collect-dependencies.md).
 
- Além disso, qualquer tecnologia pode ser rastreada manualmente com uma chamada para [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) sobre o [TelemetryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics).
+ Além disso, qualquer tecnologia pode ser rastreada manualmente com uma chamada para [TrackDependency](./api-custom-events-metrics.md) sobre o [TelemetryClient](./api-custom-events-metrics.md).
 
 ## <a name="enable-via-opencensus"></a>Habilitar por meio do OpenCensus
 

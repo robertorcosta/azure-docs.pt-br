@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 569731faffd97e816567af3f6ed1cf8cdf49f240
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 7d8998b450613e097230d7692a8ad1990830993b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83740443"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539322"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Diretrizes para dados pessoais armazenados no Log Analytics e no Application Insights
 
@@ -66,8 +67,8 @@ O Log Analytics é um armazenamento flexível que, enquanto prescreve um esquema
     | where timestamp > ago(1d)
     | project $table, timestamp, name, customDimensions 
     ```
-* *Dados na memória e em trânsito*: O Application Insights acompanhará exceções, solicitações, chamadas de dependência e rastreamentos. Dados privados podem frequentemente ser coletados no código e no nível de chamada HTTP. Examine as exceções, solicitações, dependências e tabelas de rastreamento para identificar quaisquer dados desse tipo. Use [inicializadores de telemetria](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) sempre que possível para ofuscar esses dados.
-* *Capturas do Depurador de Instantâneos*: O recurso [Depurador de Instantâneos](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) do Application Insights permite coletar instantâneos de depuração sempre que uma exceção é capturada na instância de produção do aplicativo. Instantâneos vão expor o rastreamento de pilha completo levando às exceções, bem como os valores de variáveis locais em cada etapa na pilha. Infelizmente, esse recurso não permite a exclusão seletiva de pontos de alinhamento, nem o acesso programático aos dados no instantâneo. Portanto, se a taxa de retenção de instantâneo padrão não atende a seus requisitos de conformidade, a recomendação é desativar o recurso.
+* *Dados na memória e em trânsito*: O Application Insights acompanhará exceções, solicitações, chamadas de dependência e rastreamentos. Dados privados podem frequentemente ser coletados no código e no nível de chamada HTTP. Examine as exceções, solicitações, dependências e tabelas de rastreamento para identificar quaisquer dados desse tipo. Use [inicializadores de telemetria](../app/api-filtering-sampling.md) sempre que possível para ofuscar esses dados.
+* *Capturas do Depurador de Instantâneos*: O recurso [Depurador de Instantâneos](../app/snapshot-debugger.md) do Application Insights permite coletar instantâneos de depuração sempre que uma exceção é capturada na instância de produção do aplicativo. Instantâneos vão expor o rastreamento de pilha completo levando às exceções, bem como os valores de variáveis locais em cada etapa na pilha. Infelizmente, esse recurso não permite a exclusão seletiva de pontos de alinhamento, nem o acesso programático aos dados no instantâneo. Portanto, se a taxa de retenção de instantâneo padrão não atende a seus requisitos de conformidade, a recomendação é desativar o recurso.
 
 ## <a name="how-to-export-and-delete-private-data"></a>Como exportar e excluir dados privados
 
@@ -100,7 +101,7 @@ Depois que a função do Azure Resource Manager for atribuída, dois novos camin
 
 #### <a name="log-data"></a>Dados de log
 
-* [Limpeza POST](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/purge) – obtém um objeto especificando parâmetros de dados para excluir e retorna um GUID de referência 
+* [Limpeza POST](/rest/api/loganalytics/workspacepurge/purge) – obtém um objeto especificando parâmetros de dados para excluir e retorna um GUID de referência 
 * Status de limpeza GET – a chamada de limpeza POST retornará um cabeçalho 'x-ms-status-location' que incluirá uma URL que você poderá chamar para determinar o status da API de limpeza. Por exemplo:
 
     ```
@@ -112,7 +113,7 @@ Depois que a função do Azure Resource Manager for atribuída, dois novos camin
 
 #### <a name="application-data"></a>Dados do aplicativo
 
-* [Limpeza POST](https://docs.microsoft.com/rest/api/application-insights/components/purge) – obtém um objeto especificando parâmetros de dados para excluir e retorna um GUID de referência
+* [Limpeza POST](/rest/api/application-insights/components/purge) – obtém um objeto especificando parâmetros de dados para excluir e retorna um GUID de referência
 * Status de limpeza GET – a chamada de limpeza POST retornará um cabeçalho 'x-ms-status-location' que incluirá uma URL que você poderá chamar para determinar o status da API de limpeza. Por exemplo:
 
    ```

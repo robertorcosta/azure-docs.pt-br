@@ -4,11 +4,12 @@ description: Visão geral de alertas no Azure. Alertas, alertas clássicos e a i
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: e02c23623062f5cb3e4c597b0bb257b30aa9f44a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c4432300319c02cd7b1e31dec566f6e65ea9580
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81769780"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539560"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Visão geral dos alertas no Microsoft Azure 
 
@@ -67,7 +68,7 @@ Antes, as métricas do Azure Monitor, o Application Insights, o Log Analytics e 
 
 | **Origem do monitor** | **Tipo de sinal**  | **Descrição** |
 |-------------|----------------|-------------|
-| Integridade do serviço | Log de atividades  | Sem suporte. Consulte [Criar alertas do log de atividades em notificações de serviço](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Integridade do serviço | Log de atividades  | Sem suporte. Consulte [Criar alertas do log de atividades em notificações de serviço](../../service-health/alerts-activity-log-service-notifications-portal.md).  |
 | Application Insights | Testes de disponibilidade na Web | Sem suporte. Consulte [Alertas de teste da Web](../../azure-monitor/app/monitor-web-app-availability.md). Disponível para qualquer site que seja instrumentado para enviar dados ao Application Insights. Receba uma notificação quando a disponibilidade ou capacidade de resposta de um site estiver abaixo das expectativas. |
 
 ## <a name="manage-alerts"></a>Gerenciar alertas
@@ -104,8 +105,8 @@ Você pode filtrar essa exibição selecionando valores nos menus suspensos na p
 
 | Coluna | Descrição |
 |:---|:---|
-| Subscription | Selecione as assinaturas do Azure para as quais você deseja exibir os alertas. Opcionalmente, você pode optar por selecionar todas as suas assinaturas. Somente os alertas aos quais você tem acesso nas assinaturas selecionadas são incluídos na exibição. |
-| Resource group | Selecione um único grupo de recursos. Somente alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
+| Assinatura | Selecione as assinaturas do Azure para as quais você deseja exibir os alertas. Opcionalmente, você pode optar por selecionar todas as suas assinaturas. Somente os alertas aos quais você tem acesso nas assinaturas selecionadas são incluídos na exibição. |
+| Grupo de recursos | Selecione um único grupo de recursos. Somente alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
 | Intervalo de horas | Somente os alertas acionados no intervalo de tempo selecionado são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. |
 
 Selecione os seguintes valores na parte superior da página alertas para abrir outra página:
@@ -150,11 +151,11 @@ Você pode filtrar a exibição selecionando os seguintes valores nos menus susp
 
 | Coluna | Descrição |
 |:---|:---|
-| Subscription | Selecione as assinaturas do Azure para as quais você deseja exibir os alertas. Opcionalmente, você pode optar por selecionar todas as suas assinaturas. Somente os alertas aos quais você tem acesso nas assinaturas selecionadas são incluídos na exibição. |
-| Resource group | Selecione um único grupo de recursos. Somente alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
+| Assinatura | Selecione as assinaturas do Azure para as quais você deseja exibir os alertas. Opcionalmente, você pode optar por selecionar todas as suas assinaturas. Somente os alertas aos quais você tem acesso nas assinaturas selecionadas são incluídos na exibição. |
+| Grupo de recursos | Selecione um único grupo de recursos. Somente alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
 | Tipo de recurso | Selecione um ou mais tipos de recurso. Somente alertas com destinos do tipo selecionado são incluídos na exibição. Essa coluna somente estará disponível depois que um grupo de recursos for especificado. |
 | Recurso | Selecione um recurso. Apenas alertas com esse recurso como um destino são incluídos na exibição. Essa coluna somente estará disponível depois que um tipo de recurso for especificado. |
-| Severity | Selecione uma severidade de alerta ou selecione **tudo** para incluir alertas de todas as severidades. |
+| Severidade | Selecione uma severidade de alerta ou selecione **tudo** para incluir alertas de todas as severidades. |
 | Monitorar condição | Selecione uma condição de monitor ou selecione **tudo** para incluir alertas de todas as condições. |
 | Estado de alerta | Selecione um estado de alerta ou selecione **todos** para incluir alertas de todos os Estados. |
 | Monitorar serviço | Selecione um serviço ou selecione **todos** para incluir todos os serviços. Apenas alertas criados por regras que usam o serviço como um destino são incluídos. |
@@ -177,7 +178,7 @@ A página detalhes do alerta inclui as seguintes seções:
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>RBAC (controle de acesso baseado em função) para suas instâncias de alerta
 
-O consumo e o gerenciamento de instâncias de alerta exigem que o usuário tenha as funções RBAC internas de [monitorar o colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) ou o [leitor de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Essas funções têm suporte em qualquer escopo de Azure Resource Manager, do nível de assinatura para atribuições granulares em um nível de recurso. Por exemplo, se um usuário só tiver acesso de colaborador de monitoramento para a máquina virtual `ContosoVM1` , esse usuário poderá consumir e gerenciar somente alertas gerados no `ContosoVM1` .
+O consumo e o gerenciamento de instâncias de alerta exigem que o usuário tenha as funções RBAC internas de [monitorar o colaborador](../../role-based-access-control/built-in-roles.md#monitoring-contributor) ou o [leitor de monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-reader). Essas funções têm suporte em qualquer escopo de Azure Resource Manager, do nível de assinatura para atribuições granulares em um nível de recurso. Por exemplo, se um usuário só tiver acesso de colaborador de monitoramento para a máquina virtual `ContosoVM1` , esse usuário poderá consumir e gerenciar somente alertas gerados no `ContosoVM1` .
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Gerencie suas instâncias de alerta programaticamente
 
@@ -209,11 +210,5 @@ Use a [API REST do gerenciamento de alertas](https://aka.ms/alert-management-api
 - [Saiba mais sobre os grupos inteligentes](https://aka.ms/smart-groups)
 - [Saiba mais sobre grupos de ação](../../azure-monitor/platform/action-groups.md)
 - [Gerenciar suas instâncias de alertas no Azure](https://aka.ms/managing-alert-instances)
-- [Gerenciar grupos inteligentes](https://aka.ms/managing-smart-groups)
+- [Gerenciando grupos inteligentes](https://aka.ms/managing-smart-groups)
 - [Saiba mais sobre os preços dos alertas do Azure](https://azure.microsoft.com/pricing/details/monitor/)
-
-
-
-
-
-

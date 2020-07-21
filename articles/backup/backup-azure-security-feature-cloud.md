@@ -3,17 +3,18 @@ title: Exclusão reversível para o backup do Azure
 description: Saiba como usar recursos de segurança no backup do Azure para tornar os backups mais seguros.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 2b0d7a00bce8dfa427958f6db6d7174b9d5f7a79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79df345858d89d032b826a0fa8b677195a785df2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84116412"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538829"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Exclusão reversível para o backup do Azure
 
 Preocupações sobre problemas de segurança, como malware, ransomware e invasão, estão aumentando. Esses problemas de segurança podem ser dispendiosos em termos de dinheiro e dados. Para se proteger contra tais ataques, o backup do Azure agora fornece recursos de segurança para ajudar a proteger os dados de backup mesmo após a exclusão.
 
-Um desses recursos é exclusão reversível. Com a exclusão reversível, mesmo que um ator mal-intencionado exclua um backup (ou os dados de backup sejam excluídos acidentalmente), os dados de backup são mantidos por 14 dias adicionais, permitindo a recuperação desse item de backup sem perda de dados. A retenção adicional de 14 dias dos dados de backup no estado de "exclusão reversível" não incorre em nenhum custo para o cliente.
+Um desses recursos é exclusão reversível. Com a exclusão reversível, mesmo que um ator mal-intencionado exclua um backup (ou os dados de backup sejam excluídos acidentalmente), os dados de backup são mantidos por 14 dias adicionais, permitindo a recuperação desse item de backup sem perda de dados. Os 14 dias adicionais de retenção para dados de backup no estado de "exclusão reversível" não incorrem em nenhum custo para o cliente.
 
 A proteção de exclusão reversível está disponível para esses serviços:
 
@@ -28,7 +29,7 @@ Este gráfico de fluxo mostra as diferentes etapas e Estados de um item de backu
 
 A exclusão reversível é habilitada por padrão em cofres recém-criados para proteger dados de backup de exclusões acidentais ou mal-intencionadas.  Não é recomendável desabilitar esse recurso. A única circunstância em que você deve considerar a desabilitação da exclusão reversível é se você planeja mover seus itens protegidos para um novo cofre e não pode aguardar os 14 dias necessários antes de excluir e proteger novamente (como em um ambiente de teste). Somente o proprietário do cofre pode desabilitar esse recurso. Se você desabilitar esse recurso, todas as exclusões futuras de itens protegidos resultarão na remoção imediata, sem a capacidade de restaurar. Os dados de backup que existem no estado de exclusão reversível antes de desabilitar esse recurso permanecerão no estado de exclusão reversível pelo período de 14 dias. Se você quiser excluí-las permanentemente imediatamente, será necessário restaurar e excluí-las novamente para que sejam excluídas permanentemente.
 
- É importante lembrar que, quando a exclusão reversível estiver desabilitada, o recurso estará desabilitado para todos os tipos de cargas de trabalho, incluindo as cargas de trabalho do SQL Server e do SAP HANA. Por exemplo, depois que a [visualização de SQL Server/SAP Hana](https://docs.microsoft.com/azure/backup/soft-delete-sql-saphana-in-azure-vm#steps-to-enroll-in-preview) estiver habilitada para uma assinatura, não será possível desabilitar a exclusão reversível somente para bancos de SAP Hana ou SQL Server, mantendo-o habilitado para máquinas virtuais no mesmo cofre. Você pode criar cofres separados para o controle granular.
+ É importante lembrar que, quando a exclusão reversível estiver desabilitada, o recurso estará desabilitado para todos os tipos de cargas de trabalho, incluindo as cargas de trabalho do SQL Server e do SAP HANA. Por exemplo, depois que a [visualização de SQL Server/SAP Hana](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) estiver habilitada para uma assinatura, não será possível desabilitar a exclusão reversível somente para bancos de SAP Hana ou SQL Server, mantendo-o habilitado para máquinas virtuais no mesmo cofre. Você pode criar cofres separados para o controle granular.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Desabilitando a exclusão reversível usando o portal do Azure
 
@@ -45,7 +46,7 @@ Para desabilitar a exclusão reversível, siga estas etapas:
 > [!IMPORTANT]
 > A versão AZ. Recoveryservices necessária para usar a exclusão reversível usando o Azure PS é min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
 
-Para desabilitar, use o cmdlet [set-AzRecoveryServicesVaultBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0) do PS.
+Para desabilitar, use o cmdlet [set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) do PS.
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
@@ -86,11 +87,11 @@ Siga estas etapas:
 
 5. Escolha **excluir dados de backup** para excluir permanentemente os dados de backup.
 
-   ![Escolha excluir dados de backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Escolha excluir dados de backup](/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
 
 6. Digite o nome do item de backup para confirmar que você deseja excluir os pontos de recuperação.
 
-   ![Digite o nome do item de backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Digite o nome do item de backup](/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
 
 7. Para excluir os dados de backup do item, selecione **excluir**. Uma mensagem de notificação permite que você saiba que os dados de backup foram excluídos.
 

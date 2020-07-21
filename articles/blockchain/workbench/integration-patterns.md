@@ -4,12 +4,12 @@ description: Visão geral dos padrões de integração do contrato inteligente n
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
-ms.openlocfilehash: 716255f5e71ec19b5b9c5a0a32740abc39f1a40b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dae63e16356e825d3be31380df1648749e59d8bd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254626"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538288"
 ---
 # <a name="smart-contract-integration-patterns"></a>Padrões de integração e contratos inteligentes
 
@@ -134,7 +134,7 @@ Esse padrão geralmente é implementado usando a abordagem a seguir:
 -   A alteração de estado é exposta como um evento com um consumidor de downstream.
 -   O consumidor de downstream recebe o evento e dispara a execução de código externo.
 
-![Controle de transição para o processo externo](./media/integration-patterns/transition-external-process.png)
+![O diagrama mostra uma alteração de estado dentro do contrato, fazendo com que um evento vá para o razão distribuído. Em seguida, o Blockchain Workbench pega o evento e o publica.](./media/integration-patterns/transition-external-process.png)
 
 #### <a name="return-of-control-from-the-smart-contract"></a>Retorno de controle do contrato inteligente
 
@@ -142,7 +142,7 @@ Dependendo da capacidade de personalizar o sistema externo pode ou não ser capa
 
 ##### <a name="direct-delivery-of-an-azure-blockchain-workbench-in-the-expected-format"></a>Entrega direta de um Azure Blockchain Workbench no formato esperado
 
-![](./media/integration-patterns/direct-delivery.png)
+![O diagrama mostra uma mensagem P I do sistema externo que está sendo coletado pelo Blockchain Workbench por meio do barramento de serviço. Em seguida, o Blockchain Workbench envia uma mensagem como uma transação para o razão distribuído, em nome do agente. Ele é passado para Contract, onde causa uma alteração de estado.](./media/integration-patterns/direct-delivery.png)
 
 Neste modelo, a comunicação com o contrato e alteração de estado subsequente ocorre seguindo o processo acima, em que:
 

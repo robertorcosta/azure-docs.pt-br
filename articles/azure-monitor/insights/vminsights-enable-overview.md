@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 261e5f17e787fd96697b06a9b338e74ea0409454
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 072f8fd44fa45648afd15cb40cba26bb427c7b56
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507068"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539611"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Habilitar Azure Monitor para VMs visão geral
 
 Este artigo fornece uma visão geral das opções disponíveis para permitir que o Azure Monitor para VMs monitore a integridade e o desempenho do seguinte:
 
-- Máquinas Virtuais do Azure 
+- Máquinas virtuais do Azure 
 - Conjuntos de dimensionamento de máquinas virtuais do Azure
 - Máquinas virtuais híbridas conectadas com o arco do Azure
 - Máquinas virtuais locais
@@ -44,8 +44,8 @@ O Azure Monitor para VMs dá suporte a um espaço de trabalho do Log Analytics n
 - Centro-Oeste dos EUA
 - Oeste dos EUA
 - Oeste dos EUA 2
-- Centro-Sul dos Estados Unidos
-- Leste dos EUA
+- South Central US
+- East US
 - Leste dos EUA 2
 - Centro dos EUA
 - Centro-Norte dos EUA
@@ -68,7 +68,7 @@ O Azure Monitor para VMs dá suporte a um espaço de trabalho do Log Analytics n
 
 Se você não tiver um espaço de trabalho Log Analytics, poderá criar um usando um dos recursos:
 * [CLI do Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)
-* [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
+* [PowerShell](../platform/powershell-workspace-configuration.md)
 * [Azure portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
@@ -184,7 +184,7 @@ Você pode baixar o Dependency Agent nestes locais:
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.4.10090 | B4E1FF9C1E5CD254AA709AEF9723A81F04EC0763C327567C582CE99C0C5A0BAE  |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.4.10090 | A56E310D297CE3B343AE8F4A6F72980F1C3173862D6169F1C713C2CA09660A9F |
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em função
+## <a name="role-based-access-control"></a>Controle de acesso baseado em funções
 
 Para habilitar e acessar os recursos no Azure Monitor para VMs, você deve ter a função de *colaborador de log Analytics* . Para exibir o desempenho, a integridade e os dados do mapa, você deve ter a função *leitor de monitoramento* para a VM do Azure. O espaço de trabalho do Log Analytics precisa ser configurado para o Azure Monitor para VMs.
 

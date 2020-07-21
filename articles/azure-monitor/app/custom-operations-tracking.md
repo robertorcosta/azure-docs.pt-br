@@ -4,12 +4,12 @@ description: Acompanhar operações personalizadas com o SDK do .NET do Azure Ap
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 316c1b7ea32f661b009bfee7a89cb7e5ed082f3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49c2ad44dab5e4f57db2f11c17c269289e56d2d5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82690857"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540036"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhar operações personalizadas com o SDK do .NET do Application Insights
 
@@ -169,7 +169,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>Processar
+#### <a name="process"></a>Processo
 ```csharp
 public async Task Process(BrokeredMessage message)
 {
@@ -300,7 +300,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>Processar
+#### <a name="process"></a>Processo
 
 No exemplo a seguir, uma mensagem de entrada é rastreada de forma parecida com a solicitação HTTP de entrada:
 
@@ -346,7 +346,7 @@ Ao instrumentar a exclusão de mensagem, verifique se você definiu os identific
 
 ### <a name="dependency-types"></a>Tipos de dependência
 
-Application Insights usa o tipo de dependência para personalizar experiências de interface do usuário. Para filas, ele reconhece os seguintes tipos de `DependencyTelemetry` que melhoram a [experiência de diagnóstico de transação](/azure/azure-monitor/app/transaction-diagnostics):
+Application Insights usa o tipo de dependência para personalizar experiências de interface do usuário. Para filas, ele reconhece os seguintes tipos de `DependencyTelemetry` que melhoram a [experiência de diagnóstico de transação](./transaction-diagnostics.md):
 - `Azure queue`para filas do armazenamento do Azure
 - `Azure Event Hubs`para hubs de eventos do Azure
 - `Azure Service Bus`para o barramento de serviço do Azure
@@ -425,7 +425,7 @@ public async Task RunMyTaskAsync()
 
 Descartar a operação faz com que ela seja interrompida, portanto, você pode fazer isso em vez de chamar `StopOperation`.
 
-*Aviso*: em alguns casos, uma exceção não tratada [impede](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` de ser chamado para que operações não possam ser rastreadas.
+*Aviso*: em alguns casos, uma exceção não tratada [impede](/dotnet/csharp/language-reference/keywords/try-finally) `finally` de ser chamado para que operações não possam ser rastreadas.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Rastreamento e processamento de operações paralelas
 

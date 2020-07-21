@@ -11,11 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 1922e92f9314e48ae4e3106a53cf750da5daf5e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ca106e076bc789e8435b9e67d6bffa20af8a635
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84037947"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539169"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Camadas de serviço no modelo de compra baseado em DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -58,7 +59,7 @@ Escolher uma camada de serviço depende principalmente da continuidade dos negó
 
 Os tamanhos da computação são expressos em termos de DTUs (unidades de transação de banco de dados) para bancos de dados individuais e de eDTUs (unidades de transação do banco de dados elástico) para pools elásticos. Para obter mais informações sobre DTUs e eDTUs, consulte [modelo de compra baseado em DTU](purchasing-models.md#dtu-based-purchasing-model).
 
-||Basic|Standard|Premium|
+|Basic|Standard|Premium|
 | :-- | --: | --: | --: |
 | Tamanho máximo de armazenamento | 2 GB | 1 TB | 4 TB  |
 | Máximo de DTUs | 5 | 3000 | 4000 | 
@@ -69,7 +70,7 @@ Os tamanhos da computação são expressos em termos de DTUs (unidades de transa
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>EDTU de pool elástico, armazenamento e limites de banco de dados em pool
 
-| | **Basic** | **Standard** | **Premium** |
+| **Basic** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
 | Tamanho máximo de armazenamento por banco de dados  | 2 GB | 1 TB | 1 TB |
 | Tamanho máximo de armazenamento por pool | 156 GB | 4 TB | 4 TB |
@@ -107,7 +108,7 @@ Um programa de geração de dados gera os dados para o banco de dados inicial. O
 
 O banco de dados é dimensionado com base em um "fator de escala". O fator de escala (abreviado como SF) determina a cardinalidade das tabelas em escala e crescentes. Conforme descrito abaixo na seção Usuários e Definição, o tamanho do banco de dados, o número de usuários e o desempenho máximo são dimensionados proporcionalmente entre si.
 
-### <a name="transactions"></a>Transactions
+### <a name="transactions"></a>Transações
 
 A carga de trabalho consiste em nove tipos de transação, conforme mostrado na tabela a seguir. Cada transação é projetada para realçar um conjunto de características do sistema em particular no mecanismo de banco de dados e no hardware do sistema, com alto contraste em relação às outras transações. Essa abordagem facilita a avaliação do impacto dos diferentes componentes no desempenho geral. Por exemplo, a transação "Leitura Intensa" gera um número significativo de operações de leitura do disco.
 
@@ -174,7 +175,7 @@ As principais métricas no parâmetro de comparação são a taxa de transferên
 | --- | --- | --- |
 | Premium |Transações por segundo |95º percentil em 0,5 segundo |
 | Standard |Transações por minuto |90º percentil em 1,0 segundo |
-| Basic |Transações por hora |80º percentil em 2,0 segundos |
+| Básico |Transações por hora |80º percentil em 2,0 segundos |
 
 ## <a name="next-steps"></a>Próximas etapas
 

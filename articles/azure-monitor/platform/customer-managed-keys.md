@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: 4fb593f303eea0f4866dc248412af2f261993e92
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: ad2e6a05fa8459d8e5a53d9bb8b8e08790a7d8ec
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170336"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539407"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave do Azure Monitor gerenciada pelo cliente 
 
@@ -21,17 +21,17 @@ Recomendamos revisar [Limitações e restrições](#limitationsandconstraints) a
 
 ## <a name="customer-managed-key-cmk-overview"></a>Visão geral da chave gerenciada pelo cliente (CMK)
 
-[Criptografia em Repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) é um requisito comum de privacidade e segurança em organizações. Você pode permitir que o Azure gerencie completamente a Criptografia em Repouso, enquanto você tem várias opções para gerenciar de forma rigorosa a criptografia ou as chaves de criptografia.
+[Criptografia em Repouso](../../security/fundamentals/encryption-atrest.md) é um requisito comum de privacidade e segurança em organizações. Você pode permitir que o Azure gerencie completamente a Criptografia em Repouso, enquanto você tem várias opções para gerenciar de forma rigorosa a criptografia ou as chaves de criptografia.
 
-Azure Monitor garante que todos os dados e consultas salvas sejam criptografadas em repouso usando chaves gerenciadas pela Microsoft (MMK). O Azure Monitor também fornece uma opção de criptografia usando sua própria chave armazenada em seu [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) e acessada pelo armazenamento usando a autenticação de [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) atribuída pelo sistema. Essa chave (CMK) pode ser um [software ou hardware-HSM protegido](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Azure Monitor garante que todos os dados e consultas salvas sejam criptografadas em repouso usando chaves gerenciadas pela Microsoft (MMK). O Azure Monitor também fornece uma opção de criptografia usando sua própria chave armazenada em seu [Azure Key Vault](../../key-vault/general/overview.md) e acessada pelo armazenamento usando a autenticação de [identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) atribuída pelo sistema. Essa chave (CMK) pode ser um [software ou hardware-HSM protegido](../../key-vault/general/overview.md).
 
-O Azure Monitor usa a criptografia de modo idêntico à [operação da criptografia de Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption) .
+O Azure Monitor usa a criptografia de modo idêntico à [operação da criptografia de Armazenamento do Microsoft Azure](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) .
 
 A CMK permite controlar o acesso aos seus dados e revogá-lo a qualquer momento. O armazenamento do Azure Monitor sempre respeita as alterações nas permissões de chave em uma hora. Os dados ingeridos nos últimos 14 dias também são mantidos no cache de acesso frequente (com suporte de SSD) para uma operação de mecanismo de consulta eficiente. Esses dados permanecem criptografados com chaves da Microsoft, independentemente da configuração da CMK, mas seu controle sobre os dados SSD segue a  [revogação de chave](#cmk-kek-revocation). Estamos trabalhando para ter dados SSD criptografados com a CMK no segundo semestre de 2020.
 
 O recurso CMK é fornecido em clusters dedicados do Log Analytics. Para verificar se temos a capacidade necessária em sua região, exigimos que sua assinatura seja permitida antecipadamente. Use seu contato da Microsoft para obter a assinatura permitida antes de começar a configurar o CMK.
 
-O  [modelo de preços de clusters do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters)  usa reservas de capacidade que começam no nível de 1000 GB/dia.
+O  [modelo de preços de clusters do Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters)  usa reservas de capacidade que começam no nível de 1000 GB/dia.
 
 ## <a name="how-cmk-works-in-azure-monitor"></a>Como a CMK funciona no Azure Monitor
 
@@ -91,7 +91,7 @@ Onde *eyJ0eXAiO...* representa o token de autorização completo.
 
 Você pode adquirir o token usando um destes métodos:
 
-1. Usar método de [Registros de aplicativo](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens).
+1. Usar método de [Registros de aplicativo](/graph/auth/auth-concepts#access-tokens).
 2. No portal do Azure
     1. Navegue até portal do Azure enquanto estiver na "ferramenta de desenvolvedor" (F12)
     1. Procure a cadeia de caracteres de autorização em "Cabeçalhos de solicitação" em uma das instâncias de "batch?api-version". Ele é semelhante a: "authorization: Bearer eyJ0eXAiO....". 
@@ -185,15 +185,16 @@ Crie ou use um Azure Key Vault que você já tem para gerar ou importe uma chave
 
 ![Configurações de exclusão temporária e proteção contra limpeza](media/customer-managed-keys/soft-purge-protection.png)
 
-Essas configurações estão disponíveis por meio da CLI e do PowerShell:
-- [Exclusão Reversível](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-- A [proteção contra limpeza](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) protege contra a exclusão forçada do segredo/cofre mesmo após a exclusão temporária
+Essas configurações podem ser atualizadas por meio da CLI e do PowerShell:
+
+- [Exclusão Reversível](../../key-vault/general/overview-soft-delete.md)
+- A [proteção contra limpeza](../../key-vault/general/overview-soft-delete.md#purge-protection) protege contra a exclusão forçada do segredo/cofre mesmo após a exclusão temporária
 
 ### <a name="create-cluster-resource"></a>Criar recurso de *cluster*
 
 Esse recurso é usado como uma conexão de identidade intermediária entre seu Key Vault e seus workspaces do Log Analytics. Depois de receber a confirmação de que suas assinaturas foram permitidas, crie um Log Analytics recurso de *cluster* na região em que os espaços de trabalho estão localizados.
 
-Você deve especificar o nível de *reserva de capacidade* (SKU) ao criar um recurso de *cluster*. O nível de *reserva de capacidade* pode estar no intervalo de 1.000 a 2.000 GB por dia e você pode atualizá-lo em etapas de 100 posteriormente. Se você precisar de um nível de reserva de capacidade maior que 2.000 GB por dia, escreva para LAIngestionRate@microsoft.com. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
+Você deve especificar o nível de *reserva de capacidade* (SKU) ao criar um recurso de *cluster*. O nível de *reserva de capacidade* pode estar no intervalo de 1.000 a 2.000 GB por dia e você pode atualizá-lo em etapas de 100 posteriormente. Se você precisar de um nível de reserva de capacidade maior que 2.000 GB por dia, escreva para LAIngestionRate@microsoft.com. [Saiba mais](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 
 A propriedade *billingType* determina atribuição de cobrança para o recurso de *cluster* e seus dados:
 - *Cluster* (padrão)--os custos de reserva de capacidade para o cluster são atribuídos ao recurso de *cluster* .
@@ -210,7 +211,7 @@ Esta operação é assíncrona e pode um tempo para ser concluída.
 > 
 
 ```powershell
-New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity "daily-ingestion-gigabyte" 
+New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity daily-ingestion-gigabyte 
 ```
 
 ```rst
@@ -408,7 +409,7 @@ Content-type: application/json
 Os dados ingeridos são armazenados criptografados com a chave gerenciada após a operação de associação, que pode levar até 90 minutos para ser concluída. Você pode verificar o estado de associação do workspace de duas maneiras:
 
 1. Copie o valor da URL de Azure-AsyncOperation da resposta e siga a [verificação de status de operações assíncronas](#asynchronous-operations-and-status-check).
-2. Envie uma solicitação [Workspaces - Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) e observe a resposta. O workspace associado terá um clusterResourceId em "recursos".
+2. Envie uma solicitação [Workspaces - Get](/rest/api/loganalytics/workspaces/get) e observe a resposta. O workspace associado terá um clusterResourceId em "recursos".
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
@@ -468,13 +469,13 @@ A linguagem de consulta usada em Log Analytics é expressiva e pode conter infor
 > [!NOTE]
 > O CMK para consultas usadas em pastas de trabalho e painéis do Azure ainda não tem suporte. Essas consultas permanecem criptografadas com a chave da Microsoft.  
 
-Quando você [coloca seu próprio armazenamento](https://docs.microsoft.com/azure/azure-monitor/platform/private-storage) (BYOS) e o associa ao seu espaço de trabalho, o serviço carrega as consultas *salvas* e *alertas de log* para sua conta de armazenamento. Isso significa que você controla a conta de armazenamento e a [política de criptografia em repouso](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) usando a mesma chave usada para criptografar dados no cluster log Analytics ou em uma chave diferente. No entanto, você será responsável pelos custos associados a essa conta de armazenamento. 
+Quando você [coloca seu próprio armazenamento](./private-storage.md) (BYOS) e o associa ao seu espaço de trabalho, o serviço carrega as consultas *salvas* e *alertas de log* para sua conta de armazenamento. Isso significa que você controla a conta de armazenamento e a [política de criptografia em repouso](../../storage/common/encryption-customer-managed-keys.md) usando a mesma chave usada para criptografar dados no cluster log Analytics ou em uma chave diferente. No entanto, você será responsável pelos custos associados a essa conta de armazenamento. 
 
 **Considerações antes de definir CMK para consultas**
 * Você precisa ter permissões de ' gravação ' no espaço de trabalho e na conta de armazenamento
 * Certifique-se de criar sua conta de armazenamento na mesma região que o espaço de trabalho Log Analytics está localizado
 * As *pesquisas salvas* no armazenamento são consideradas como artefatos de serviço e seu formato pode ser alterado
-* As *pesquisas de gravações* existentes são removidas do seu espaço de trabalho. Copie e *salve as pesquisas* necessárias antes da configuração. Você pode exibir as *pesquisas salvas* usando o [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch)
+* As *pesquisas de gravações* existentes são removidas do seu espaço de trabalho. Copie e *salve as pesquisas* necessárias antes da configuração. Você pode exibir as *pesquisas salvas* usando o [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch)
 * Não há suporte para o histórico de consulta e você não poderá ver as consultas que executou
 * Você pode associar uma única conta de armazenamento ao espaço de trabalho com a finalidade de salvar consultas, mas pode ser usado partir as *pesquisas salvas* e consultas de *alertas de log*
 * Não há suporte para fixar no painel
@@ -484,7 +485,7 @@ Quando você [coloca seu próprio armazenamento](https://docs.microsoft.com/azur
 Associar a conta de armazenamento para *consulta* ao seu espaço de trabalho – as consultas *salvas de pesquisas* são salvas em sua conta de armazenamento. 
 
 ```powershell
-$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
+$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
 ```
 
@@ -511,7 +512,7 @@ Após a configuração, qualquer nova consulta de *pesquisa salva* será salva n
 Associar a conta de armazenamento para *alertas* ao seu espaço de trabalho-as consultas de *alertas de log* são salvas em sua conta de armazenamento. 
 
 ```powershell
-$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
+$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
 ```
 
@@ -659,7 +660,7 @@ Após a configuração, qualquer consulta de alerta nova será salva no armazena
   Dados ingeridos após a operação de desassociação são armazenados no armazenamento do Log Analytics. Isso pode levar 90 minutos para ser concluído. Você pode verificar o estado de desassociação do workspace de duas maneiras:
 
   1. Copie o valor da URL de Azure-AsyncOperation da resposta e siga a [verificação de status de operações assíncronas](#asynchronous-operations-and-status-check).
-  2. Envie uma solicitação [Workspaces - Obter](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) e observe a resposta, o workspace desassociado não terá *clusterResourceId* em *recursos*.
+  2. Envie uma solicitação [Workspaces - Obter](/rest/api/loganalytics/workspaces/get) e observe a resposta, o workspace desassociado não terá *clusterResourceId* em *recursos*.
 
 - **Verificar o status da associação do espaço de trabalho**
   
@@ -694,26 +695,25 @@ Após a configuração, qualquer consulta de alerta nova será salva no armazena
 
 ## <a name="limitationsandconstraints"></a>Limitações e restrições
 
-\- A CMK tem suporte no cluster dedicado do Log Analytics e é adequada para clientes que enviam 1 TB por dia ou mais.
+- O CMK tem suporte no cluster Log Analytics dedicado e é adequado para clientes que enviam 1 TB por dia ou mais.
 
-\- O número máximo de recursos de  *cluster*  por região e assinatura é 2
+- O número máximo de recursos de *cluster* por região e assinatura é 2
 
-\- Você pode associar um workspace ao seu recurso de  *cluster* e, em seguida, desassociá-lo se a CMK não for necessária para o workspace. O número de associações de workspace em um workspace específico em um período de 30 dias é limitado a 2
+- Você pode associar um espaço de trabalho ao recurso de *cluster* e, em seguida, desassociá-lo se CMK não for necessário para o espaço de trabalho.  O número de associações de workspace em um workspace específico em um período de 30 dias é limitado a 2
 
-\- A associação do workspace ao recurso de  *cluster* deve ser feita SOMENTE depois de verificar se o provisionamento do cluster do Log Analytics foi concluído. Os dados enviados ao seu workspace antes da conclusão serão removidos e não poderão ser recuperados.
+- A associação de espaço de trabalho ao recurso de *cluster* deve ser executada somente depois que você tiver verificado que o provisionamento de cluster log Analytics foi concluído.  Os dados enviados ao seu workspace antes da conclusão serão removidos e não poderão ser recuperados.
 
-\- A criptografia de CMK se aplica a dados recentemente ingeridos após a     configuração de CMK. Os dados que foram ingeridos antes da     configuração de CMK, permanecem criptografados com a chave da Microsoft. Você pode consultar     dados ingeridos antes e depois da configuração do CMK sem problemas.
+- A criptografia CMK se aplica a dados recentemente incluídos após a configuração do CMK.  Os dados que foram ingeridos antes da configuração de CMK, permanecem criptografados com a chave da Microsoft.  Você pode consultar dados ingeridos antes e depois da configuração do CMK sem problemas.
 
-\- O Azure Key Vault deve ser configurado como recuperável.Essas propriedades não são habilitadas por padrão e devem ser configuradas usando a CLI ou o PowerShell:
+- O Azure Key Vault deve ser configurado como recuperável. Essas propriedades não são habilitadas por padrão e devem ser configuradas usando a CLI ou o PowerShell:<br>
+  - [Exclusão Reversível](../../key-vault/general/overview-soft-delete.md)
+  - A [proteção de limpeza](../../key-vault/general/overview-soft-delete.md#purge-protection) deve ser ativada para proteção contra a exclusão forçada do segredo/cofre mesmo após a exclusão reversível.
 
-  - [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) 
- Exclusão      reversível deve ser ativado na    -  [proteção](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)   de limpeza deve ser ativado para proteção contra a exclusão forçada do segredo/cofre mesmo após a exclusão reversível.
+- A movimentação de recursos de *cluster* para outro grupo de recursos ou assinatura não tem suporte no momento.
 
-A transferência do recurso de - *cluster* para outro grupo de recursos ou assinatura     não tem suporte no momento.
+- Seu Azure Key Vault, recurso de *cluster* e espaços de trabalho associados devem estar na mesma região e no mesmo locatário do Azure Active Directory (AD do Azure), mas podem estar em assinaturas diferentes.
 
-\- Seu Azure Key Vault, recurso de  *cluster*  e workspaces associados precisam estar na mesma região, no mesmo locatário do Azure Active Directory, mas podem estar em assinaturas diferentes.
-
-\- A associação de workspace a um recurso de  *cluster* falhará se ele estiver     associado a outro recurso de  *cluster* 
+- A associação de espaço de trabalho ao recurso de *cluster* falhará se estiver associada a outro recurso de *cluster*
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
@@ -743,3 +743,41 @@ A transferência do recurso de - *cluster* para outro grupo de recursos ou ass
   2. Enviar solicitação GET para *cluster* ou espaço de trabalho e observar a resposta. Por exemplo, o espaço de trabalho desassociado não terá o *clusterResourceId* em *recursos*.
 
 - Para obter suporte e ajuda relacionados à chave gerenciada pelo cliente, use seus contatos na Microsoft.
+
+- Mensagens de erro
+  
+  Criação de recurso de *cluster* :
+  -  400--o nome do cluster não é válido. O nome do cluster pode conter caracteres de a-z, A-Z, 0-9 e comprimento de 3-63.
+  -  400--o corpo da solicitação é nulo ou está em formato inadequado.
+  -  400--o nome do SKU é inválido. Defina o nome do SKU como capacityReservation.
+  -  400--a capacidade foi fornecida, mas o SKU não é capacityReservation. Defina o nome do SKU como capacityReservation.
+  -  400--capacidade ausente no SKU. Defina o valor de capacidade para 1000 ou superior em etapas de 100 (GB).
+  -  400--a capacidade no SKU não está no intervalo. Deve ser no mínimo 1000 e até a capacidade máxima permitida, que está disponível em ' uso e custo estimado ' em seu espaço de trabalho.
+  -  400--a capacidade está bloqueada por 30 dias. A redução da capacidade é permitida 30 dias após a atualização.
+  -  400--nenhum SKU foi definido. Defina o nome do SKU como capacityReservation e o valor da capacidade como 1000 ou superior em etapas de 100 (GB).
+  -  400--a identidade é nula ou está vazia. Defina a identidade com o tipo systemAssigned.
+  -  400--keyvaultproperties está definido na criação. Atualize keyvaultproperties após a criação do cluster.
+  -  400--a operação não pode ser executada agora. A operação assíncrona está em um estado diferente de Succeeded. O cluster deve concluir sua operação antes que qualquer operação de atualização seja executada.
+
+  Atualização de recurso de *cluster*
+  -  400--o cluster está em estado de exclusão. A operação assíncrona está em andamento. O cluster deve concluir sua operação antes que qualquer operação de atualização seja executada.
+  -  400--keyvaultproperties não está vazio, mas tem um formato inválido. Consulte [atualização do identificador de chave](#update-cluster-resource-with-key-identifier-details).
+  -  400--falha ao validar a chave no Key Vault. Pode ser devido à falta de permissões ou quando a chave não existe. Verifique se você [definiu a política de acesso e chave](#grant-key-vault-permissions) no Key Vault.
+  -  400--a chave não é recuperável. Key Vault deve ser definido como exclusão reversível e proteção de limpeza. Consulte a [documentação do Key Vault](../../key-vault/general/overview-soft-delete.md)
+  -  400--a operação não pode ser executada agora. Aguarde a conclusão da operação assíncrona e tente novamente.
+  -  400--o cluster está em estado de exclusão. Aguarde a conclusão da operação assíncrona e tente novamente.
+
+    Obtenção de recurso de *cluster* :
+    -  404--cluster não encontrado, o cluster pode ter sido excluído. Se você tentar criar um cluster com esse nome e entrar em conflito, o cluster estará em exclusão reversível por 14 dias. Você pode contatar o suporte para recuperá-lo ou usar outro nome para criar um novo cluster. 
+
+  Exclusão de recurso de *cluster*
+    -  409--não é possível excluir um cluster no estado de provisionamento. Aguarde a conclusão da operação assíncrona e tente novamente.
+
+  Associação de espaço de trabalho:
+  -  404--espaço de trabalho não encontrado. O espaço de trabalho especificado não existe ou foi excluído.
+  -  409--operação de desassociação ou associação do espaço de trabalho em andamento.
+  -  400--cluster não encontrado, o cluster especificado não existe ou foi excluído. Se você tentar criar um cluster com esse nome e entrar em conflito, o cluster estará em exclusão reversível por 14 dias. Você pode contatar o suporte para recuperá-lo.
+
+  Desassociação de espaço de trabalho:
+  -  404--espaço de trabalho não encontrado. O espaço de trabalho especificado não existe ou foi excluído.
+  -  409--operação de desassociação ou associação do espaço de trabalho em andamento.

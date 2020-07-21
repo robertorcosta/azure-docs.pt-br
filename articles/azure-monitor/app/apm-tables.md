@@ -5,15 +5,16 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/09/2020
-ms.openlocfilehash: 21f387a87224615ea6afbdce620c56e3ad2cc6ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3175e43a841334719de80f44a226b1c7b87690d9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83210535"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540104"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Alterações de recursos com base no espaço de trabalho (versão prévia)
 
-Antes da introdução dos [recursos de Application insights baseados em espaço de trabalho](create-workspace-resource.md), Application insights dados eram armazenados separados de outros dados de log no Azure monitor. Ambos são baseados no Azure Data Explorer e usam a mesma linguagem de consulta Kusto (KQL). Isso é descrito em [logs em Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs).
+Antes da introdução dos [recursos de Application insights baseados em espaço de trabalho](create-workspace-resource.md), Application insights dados eram armazenados separados de outros dados de log no Azure monitor. Ambos são baseados no Azure Data Explorer e usam a mesma linguagem de consulta Kusto (KQL). Isso é descrito em [logs em Azure monitor](../platform/data-platform-logs.md).
 
 Com os dados de recursos Application Insights baseados em espaço de trabalho são armazenados em um espaço de trabalho Log Analytics com outros dados de monitoramento e dados de aplicativos. Isso simplifica sua configuração, permitindo que você analise dados com mais facilidade em várias soluções e aproveite os recursos dos espaços de trabalho.
 
@@ -64,8 +65,8 @@ Tabela herdada: disponibilidade
 |iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
 |itemId|string|\_ItemId|string|
-|itemType|string|Tipo|String|
-|local|string|Location|string|
+|itemType|string|Tipo|Cadeia de caracteres|
+|local|string|Localização|string|
 |message|string|Mensagem|string|
 |name|string|Nome|cadeia de caracteres|
 |operation_Id|string|OperationId|string|
@@ -153,7 +154,7 @@ Tabela herdada: dependências
 |iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
 |itemId|string|\_ItemId|string|
-|itemType|string|Tipo|String|
+|itemType|string|Tipo|Cadeia de caracteres|
 |name|string|Nome|cadeia de caracteres|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
@@ -166,7 +167,7 @@ Tabela herdada: dependências
 |sucesso|string|Êxito|Bool|
 |destino|string|Destino|string|
 |timestamp|DATETIME|TimeGenerated|DATETIME|
-|tipo|string|DependencyType|string|
+|type|string|DependencyType|string|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
@@ -275,7 +276,7 @@ Tabela herdada: pageViews
 |iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
 |itemId|string|\_ItemId|string|
-|itemType|string|Tipo|String|
+|itemType|string|Tipo|Cadeia de caracteres|
 |name|string|Nome|cadeia de caracteres|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
@@ -351,24 +352,24 @@ Tabela herdada: solicitações
 |customDimensions|dinâmico|Propriedades|Dinâmico|
 |customMeasurements|dinâmico|Medidas|Dinâmico|
 |duration|real|DurationMs|Real|
-|`id`|string|`Id`|String|
+|`id`|string|`Id`|Cadeia de caracteres|
 |iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
 |itemId|string|\_ItemId|string|
-|itemType|string|Tipo|String|
-|name|string|Nome|String|
+|itemType|string|Tipo|Cadeia de caracteres|
+|name|string|Nome|Cadeia de caracteres|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperationParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
-|performanceBucket|string|PerformanceBucket|String|
-|resultCode|string|ResultCode|String|
+|performanceBucket|string|PerformanceBucket|Cadeia de caracteres|
+|resultCode|string|ResultCode|Cadeia de caracteres|
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
-|source|string|Origem|String|
+|source|string|Fonte|Cadeia de caracteres|
 |sucesso|string|Êxito|Bool|
 |timestamp|DATETIME|TimeGenerated|DATETIME|
-|url|string|Url|String|
+|url|string|Url|Cadeia de caracteres|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
@@ -420,7 +421,7 @@ Tabela herdada: exceções
 |session_Id|string|SessionId|string|
 |Nível|INT|SeverityLevel|INT|
 |timestamp|DATETIME|TimeGenerated|DATETIME|
-|tipo|cadeia de caracteres|ExceptionType|string|
+|type|cadeia de caracteres|ExceptionType|string|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
@@ -466,4 +467,4 @@ Tabela herdada: rastreamentos
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Explorar métricas](../../azure-monitor/platform/metrics-charts.md)
-* [Escrever consultas do Analytics](../../azure-monitor/app/analytics.md)
+* [Escrever consultas do Analytics](../log-query/log-query-overview.md)

@@ -3,11 +3,12 @@ title: O que o Servidor de Backup do Azure v3 RTM pode fazer backup
 description: Este artigo fornece uma matriz de proteção que lista todas as cargas de trabalho, tipos de dados e instalações que o backup do Azure serve para a versão v3 RTM.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 742b43d748fbd4c1235d0555ac3bd4419880db5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aebd1d1f90a2c0b84d7a6e1cb77d0e50915b091e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84631672"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538559"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Matriz de proteção RTM do Servidor de Backup do Azure v3
 
@@ -97,7 +98,7 @@ Com o emparelhamento da Microsoft, selecione os seguintes serviços/regiões e o
 * Região Microsoft Azure (de acordo com o local do cofre dos serviços de recuperação)
 * Armazenamento do Azure (de acordo com o local do cofre dos serviços de recuperação)
 
-Para obter mais detalhes, consulte os [requisitos de roteamento do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Para obter mais detalhes, consulte os [requisitos de roteamento do ExpressRoute](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >O emparelhamento público foi preterido para novos circuitos.

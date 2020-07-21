@@ -2,12 +2,13 @@
 title: Mover recursos para uma nova assinatura ou grupo de recursos
 description: Use o Azure Resource Manager para mover recursos para um novo grupo de recursos ou uma nova assinatura.
 ms.topic: conceptual
-ms.date: 03/02/2020
-ms.openlocfilehash: 036def01ef8ae5732d372dd995ad8f425c36cad9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/15/2020
+ms.openlocfilehash: 2fe4fc956f52ab5229469e1f230aec056295f19a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057833"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539271"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou assinatura
 
@@ -16,6 +17,8 @@ Este artigo mostra como mover recursos do Azure para outra assinatura do Azure o
 O grupo de origem e o grupo de destino ficam bloqueados durante a operação de movimentação. As operações de gravação e exclusão são bloqueadas nos grupos de recursos até que a migração seja concluída. Esse bloqueio significa que você não pode adicionar, atualizar ou excluir recursos nos grupos de recursos. Não significa que os recursos estão congelados. Por exemplo, se você mover um SQL Server e seu banco de dados para um novo grupo de recursos, um aplicativo que usa o banco de dados não terá nenhuma inatividade. Ele ainda poderá ler e gravar no banco de dados. O bloqueio pode durar por um máximo de quatro horas, mas a maioria das mudanças é concluída em muito menos tempo.
 
 Mover um recurso só o move para um novo grupo de recursos ou assinatura. Não altera o local do recurso.
+
+Se você estiver usando Azure Stack Hub, não será possível mover recursos entre grupos.
 
 ## <a name="checklist-before-moving-resources"></a>Lista de verificação antes de mover recursos
 
