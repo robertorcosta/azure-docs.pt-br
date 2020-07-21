@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: Documentação do Hub de Educação do Azure
+summary: Use o Hub de Educação para fornecer aos alunos de modo rápido e fácil todos os serviços de software, de aprendizado e do Azure necessários para que eles se tornem proficientes na nuvem.
+metadata:
+  title: Documentação do Hub de Educação do Azure
+  description: Use o Hub de Educação para fornecer aos alunos de modo rápido e fácil todos os serviços de software, de aprendizado e do Azure necessários para que eles se tornem proficientes na nuvem.
+  ms.service: azure-education .
+  ms.subservice: education-hub
+  ms.topic: landing-page
+  author: tfosmark
+  ms.author: rymend
+  ms.date: 07/14/2020
+  ms.openlocfilehash: be96b241c3ca784043ac3203fd1cb100b05178b8
+  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 07/20/2020
+  ms.locfileid: "86540393"
+landingContent:
+- title: Hub de Educação
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Sobre o Hub de Educação
+      url: about-education-hub.md
+  - linkListType: quickstart
+    links:
+    - text: Usar o Hub de Educação
+      url: access-education-hub.md
+- title: Azure Dev Tools for Teaching
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure Dev Tools for Teaching?
+      url: ./azure-dev-tools-teaching/about-program.md
+  - linkListType: tutorial
+    links:
+    - text: Registrar-se no Azure Dev Tools for Teaching
+      url: ./azure-dev-tools-teaching/enroll-renew-subscription.md
+    - text: Configurar o acesso
+      url: ./azure-dev-tools-teaching/set-up-access.md
+  - linkListType: how-to-guide
+    links:
+    - text: Como gerenciar os alunos
+      url: ./azure-dev-tools-teaching/manage-students.md
+    - text: Como baixar o software
+      url: ./azure-dev-tools-teaching/download-software.md

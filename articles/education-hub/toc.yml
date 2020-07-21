@@ -1,0 +1,56 @@
+- name: Documentação do Hub de Educação do Azure
+  href: ./index.yml
+- name: Visão geral
+  items:
+    - name: O que é o Hub de Educação?
+      href: about-education-hub.md
+- name: Inícios rápidos
+  items:
+    - name: Acessar o Hub de Educação
+      href: access-education-hub.md
+    - name: Introdução ao Hub de Educação
+      href: get-started-education-hub.md
+    - name: Configurar um curso e criar uma sala de aula
+      href: set-up-course-classroom.md
+- name: Guias de instruções
+  items:
+    - name: Gerenciar a sua bolsa acadêmica
+      href: hub-overview-page.md
+    - name: Criar uma atribuição e alocar crédito
+      href: create-assignment-allocate-credit.md
+- name: Suporte
+  items:
+    - name: Central de serviços
+      href: educator-service-desk.md
+- name: Azure Dev Tools for Teaching
+  items:
+    - name: Visão geral
+      items:
+        - name: O que é o Azure Dev Tools for Teaching?
+          href: azure-dev-tools-teaching/about-program.md
+        - name: Azure for Students
+          href: azure-dev-tools-teaching/azure-students-program.md
+        - name: Azure for Students Starter
+          href: azure-dev-tools-teaching/azure-students-starter-program.md
+    - name: Inícios rápidos
+      items:
+        - name: Registrar-se ou renovar uma assinatura
+          href: azure-dev-tools-teaching/enroll-renew-subscription.md
+        - name: Configurar o acesso
+          href: azure-dev-tools-teaching/set-up-access.md
+    - name: Guias de instruções
+      items:
+        - name: Como gerenciar os alunos
+          href: azure-dev-tools-teaching/manage-students.md
+        - name: Como baixar o software
+          href: azure-dev-tools-teaching/download-software.md
+    - name: Solução de problemas
+      items:
+        - name: Erros de logon
+          href: azure-dev-tools-teaching/troubleshoot-login.md
+- name: Recursos
+  items:
+    - name: Perguntas frequentes
+      href: azure-dev-tools-teaching/program-faq.md
+    - name: Suporte
+      href: azure-dev-tools-teaching/program-support.md

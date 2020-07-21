@@ -323,11 +323,11 @@
               href: azure-policy-configure-diagnostics.md
         - name: PowerShell
           items:
-            - name: Restaurar VMs no portal do Azure
+            - name: VMs do Azure
               href: backup-azure-vms-automation.md
-            - name: DPM no portal do Azure
+            - name: DPM (Data Protection Manager)
               href: backup-dpm-automation.md
-            - name: Windows Server no portal do Azure
+            - name: Windows Server usando o agente MARS
               href: backup-client-automation.md
             - name: SQL nos backups de VM do Azure
               href: backup-azure-sql-automation.md
@@ -422,7 +422,7 @@
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Página de perguntas de P e R da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-backup.html'
+      href: /answers/topics/azure-backup.html
     - name: Calculadora de preço
       href: azure-backup-pricing.md
     - name: Atualizações de serviço

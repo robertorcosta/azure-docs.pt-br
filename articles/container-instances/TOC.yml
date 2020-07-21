@@ -16,6 +16,8 @@
     - name: Implantar uma instância de contêiner – Modelo do Resource Manager
       displayName: Resource Manager
       href: container-instances-quickstart-template.md
+    - name: Implantar uma instância de contêiner – CLI do Docker
+      href: container-instances-quickstart-docker-cli.md
 - name: Tutoriais
   items:
     - name: Criar e implantar uma imagem de contêiner
@@ -94,8 +96,10 @@
           href: container-instances-gpu.md
         - name: Habilitar ponto de extremidade SSL no sidecar
           href: container-instances-container-group-ssl.md
-        - name: Expor endereço IP estático
+        - name: Expor o IP estático com o Gateway de Aplicativo
           href: container-instances-application-gateway.md
+        - name: Usar o Firewall do Azure para entrada e saída
+          href: container-instances-egress-ip-address.md
     - name: Montar volumes de dados
       items:
         - name: Compartilhamento de arquivos do Azure

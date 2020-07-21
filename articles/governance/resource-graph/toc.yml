@@ -29,6 +29,9 @@
     - name: Execute sua primeira consulta – Python
       displayName: 'library, azure-mgmt, cli'
       href: ./first-query-python.md
+    - name: Executar a sua primeira consulta – Ruby
+      displayName: 'gem, azure-mgmt'
+      href: ./first-query-ruby.md
     - name: Execute sua primeira consulta – REST
       displayName: 'armclient, postman'
       href: ./first-query-rest-api.md
