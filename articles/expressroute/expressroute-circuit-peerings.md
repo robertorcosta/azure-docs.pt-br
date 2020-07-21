@@ -7,24 +7,24 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: mialdrid
-ms.openlocfilehash: c68ffd019937f902567c3deda8d879448dc082da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2c730906e8dcb31c3365259088240c74e416855
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847047"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537013"
 ---
 # <a name="expressroute-circuits-and-peering"></a>Circuitos e emparelhamento do ExpressRoute
 
 Os circuitos do ExpressRoute conectam sua infraestrutura local à Microsoft por meio de um provedor de conectividade. Este artigo ajuda você a reconhecer os circuitos e os domínios de roteamento/emparelhamento do ExpressRoute. A figura abaixo mostra uma representação lógica de conectividade entre sua WAN e a Microsoft.
 
-![](./media/expressroute-circuit-peerings/expressroute-basic.png)
+![Diagrama mostrando como os circuitos do ExpressRoute conectam sua infraestrutura local à Microsoft por meio de um provedor de conectividade.](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 > [!IMPORTANT]
 > O emparelhamento público do Azure foi preterido e não está disponível para novos circuitos do ExpressRoute. Novos circuitos dão suporte ao emparelhamento da Microsoft e ao emparelhamento privado.  
 >
 
-## <a name="expressroute-circuits"></a><a name="circuits"></a> Circuitos do ExpressRoute
+## <a name="expressroute-circuits"></a><a name="circuits"></a>Circuitos do ExpressRoute
 
 Um circuito do ExpressRoute representa uma conexão lógica entre a infraestrutura local e os serviços de nuvem da Microsoft por meio de um provedor de conectividade. É possível solicitar vários circuitos do ExpressRoute. Os circuitos podem estar na mesma região ou em regiões diferentes, bem como podem ser conectados aos seus locais por meio de diferentes provedores de conectividade.
 
@@ -42,7 +42,7 @@ Cotas e limites padrão aplicam-se a todos os circuitos do ExpressRoute. Consult
 
 Um circuito do ExpressRoute tem vários domínios/emparelhamentos de roteamento associados a ele: Azure público, privado do Azure e Microsoft. Cada emparelhamento é configurado de modo idêntico em um par de roteadores (na configuração ativo-ativo ou de compartilhamento de carga) para alta disponibilidade. Os serviços do Azure estão categorizados como *público do Azure* e *privado do Azure* para representar os esquemas de endereçamento IP.
 
-![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
+![Diagrama mostrando como o Azure Public, o Azure Private e os emparelhamentos da Microsoft são configurados em um circuito do ExpressRoute.](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
 ### <a name="azure-private-peering"></a><a name="privatepeering"></a>Emparelhamento privado do Azure
 
