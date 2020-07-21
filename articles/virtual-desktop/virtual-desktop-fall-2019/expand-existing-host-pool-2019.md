@@ -1,5 +1,5 @@
 ---
-title: Expandir o pool de hosts existente com novos hosts de sessão-Azure
+title: Expandir o pool de hosts existente com novos hosts de sessão cair de 2019 – Azure
 description: Como expandir um pool de hosts existente com novos hosts de sessão na área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 956934bd536d8eb5e692ed193cad1424929db24b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 291dc32453001dd1e188bacae8be372bb3645ece
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260769"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527533"
 ---
-# <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir um pool de hosts existente com novos hosts de sessão
+# <a name="expand-an-existing-host-pool-with-new-session-hosts-fall-2019"></a>Expandir um pool de hosts existente com novos hosts de sessão (Outono de 2019)
 
 >[!IMPORTANT]
 >Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../expand-existing-host-pool.md).

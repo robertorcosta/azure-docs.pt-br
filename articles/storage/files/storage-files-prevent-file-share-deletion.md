@@ -8,19 +8,20 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 6ee38dd6f9a2e254c57d6f79c09eee7bccfcd0aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11940a43438b72eb8a2e9391d56806744c4c27fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204677"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527805"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Impedir exclusão acidental de compartilhamentos de arquivo do Azure
 
-O armazenamento do Azure agora oferece exclusão reversível para compartilhamentos de arquivos (versão prévia). A exclusão temporária permite recuperar seus dados quando eles são excluídos de forma incorreta por um aplicativo ou outro usuário da conta de armazenamento.
+O armazenamento do Azure agora oferece exclusão reversível para compartilhamentos de arquivos (versão prévia). A exclusão reversível permite recuperar o compartilhamento de arquivos quando ele é excluído erroneamente por um aplicativo ou outro usuário da conta de armazenamento.
 
 ## <a name="how-soft-delete-preview-works"></a>Como funciona a exclusão reversível (versão prévia)
 
-Quando a exclusão reversível para compartilhamentos de arquivos do Azure estiver habilitada, se um compartilhamento de arquivos for excluído, ele faz a transição para um estado de exclusão reversível em vez de ser apagado permanentemente. Você pode configurar o tempo durante o qual os dados com exclusão temporária podem ser recuperados antes de serem excluídos permanentemente.
+Quando a exclusão reversível para compartilhamentos de arquivos do Azure estiver habilitada, se um compartilhamento de arquivos for excluído, ele faz a transição para um estado de exclusão reversível em vez de ser apagado permanentemente. Você pode configurar a quantidade de tempo que os dados com exclusão reversível são recuperáveis antes de serem excluídos permanentemente e restaurar o compartilhamento a qualquer momento durante esse período de retenção. Após a exclusão, o compartilhamento e todo o conteúdo, incluindo instantâneos, serão restaurados para o estado em que estava antes da exclusão. A exclusão reversível funciona apenas em um nível de compartilhamento de arquivos-arquivos individuais que são excluídos ainda serão apagados permanentemente.
 
 A exclusão reversível pode ser habilitada em compartilhamentos de arquivos novos ou existentes. A exclusão temporária também é compatível com versões anteriores. Você não precisa alterar nada nos aplicativos para aproveitar as proteções da exclusão temporária. 
 

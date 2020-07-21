@@ -1,5 +1,5 @@
 ---
-title: Personalizar propriedades RDP com o PowerShell – Azure
+title: Personalizar propriedades RDP com o PowerShell Outono de 2019 – Azure
 description: Como personalizar as propriedades de RDP para a área de trabalho virtual do Windows com cmdlets do PowerShell.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: eeab433bbbfc9db0f1c5f5546ae80434899a91dc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 844c59c6e5ea6d730c64fea5fb2dee51f602c382
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259209"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527618"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalizar propriedades de protocolo RDP para um pool de hosts
 
@@ -36,7 +36,7 @@ Por padrão, os arquivos RDP publicados contêm as seguintes propriedades:
 
 |Propriedades de RDP | Desktops | RemoteApps |
 |---|---| --- |
-| Modo de vários monitores | Habilitada | N/D |
+| Modo de vários monitores | habilitado | N/D |
 | Redirecionamentos de unidade habilitados | Unidades, área de transferência, impressoras, portas COM, dispositivos USB e cartões inteligentes| Unidades, área de transferência e impressoras |
 | Modo de áudio remoto | Reproduzir localmente | Reproduzir localmente |
 

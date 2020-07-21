@@ -2,24 +2,28 @@
 title: Configurar link privado
 description: Configure um ponto de extremidade privado em um registro de contêiner e habilite o acesso em um link privado em uma rede virtual local. O acesso ao link privado é um recurso da camada de serviço Premium.
 ms.topic: article
-ms.date: 05/19/2020
-ms.openlocfilehash: f25f7b94a3008b829340cdaaed247d7ab1203c19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 06/26/2020
+ms.openlocfilehash: 713b19e4a60e5dcad6cfd92d65f97af2e921c0e9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509331"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523835"
 ---
-# <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Configurar o Link Privado do Azure para um registro de contêiner do Azure 
+# <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Conectar-se de forma privada a um registro de contêiner do Azure usando o link privado do Azure
 
-Limite o acesso a um registro atribuindo endereços IP privados de rede virtual aos pontos de extremidade do registro usando o [Link Privado do Azure](../private-link/private-link-overview.md). O tráfego de rede entre os clientes na rede virtual e o registro atravessa a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição da Internet pública.
 
-Você pode [definir as configurações de DNS](../private-link/private-endpoint-overview.md#dns-configuration) para seu ponto de extremidade privado, para que as configurações sejam resolvidas no endereço IP privado alocado do registro. Com a configuração de DNS, clientes e serviços na rede podem continuar acessando o registro no nome de domínio totalmente qualificado do registro, como *myregistry.azurecr.io*.
+Limite o acesso a um registro atribuindo endereços IP privados da rede virtual aos pontos de extremidade do registro e usando o [link privado do Azure](../private-link/private-link-overview.md). O tráfego de rede entre os clientes na rede virtual e os pontos de extremidade privados do registro atravessa a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição da Internet pública. O vínculo privado também habilita o acesso de registro privado do local por meio do emparelhamento privado [do Azure ExpressRoute](../expressroute/expressroute-introduction.MD) ou um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+
+Você pode [definir as configurações de DNS](../private-link/private-endpoint-overview.md#dns-configuration) para os pontos de extremidade particulares do registro, para que as configurações sejam resolvidas para o endereço IP privado alocado do registro. Com a configuração de DNS, clientes e serviços na rede podem continuar acessando o registro no nome de domínio totalmente qualificado do registro, como *myregistry.azurecr.io*. 
 
 Esse recurso está disponível na camada de serviço **Premium** do registro de contêiner. Para obter informações sobre os limites e as camadas de serviço do registro, confira [Camadas do Registro de Contêiner do Azure](container-registry-skus.md).
+
 
 ## <a name="things-to-know"></a>Observações importantes
 
 * Atualmente, o exame de imagem usando a Central de Segurança do Azure não está disponível em um registro configurado com um ponto de extremidade privado.
+* No momento, um máximo de 10 pontos de extremidade privados podem ser configurados para um registro.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -209,7 +213,7 @@ Configure um link privado ao criar um registro, ou adicione um link privado a um
 1. Em **Conectividade de rede**, selecione **Ponto de extremidade privado** >  **+ Adicionar**.
 1. Insira ou selecione as seguintes informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Subscription | Selecione sua assinatura. |
     | Resource group | Insira o nome de um grupo existente ou crie um novo.|
@@ -245,7 +249,7 @@ Configure um link privado ao criar um registro, ou adicione um link privado a um
 5. Selecione **Avançar: Recurso**.
 6. Insira ou selecione as seguintes informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     |Método de conexão  | Selecione **Conectar-se a um recurso do Azure em meu diretório**.|
     | Subscription| Selecione sua assinatura. |

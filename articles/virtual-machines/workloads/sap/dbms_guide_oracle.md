@@ -15,11 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15f94e93c270c8d62436b81a7caedbf181c1aeb8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5b6879d11a4b47c0090f13baa0a15dcc696c8534
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022535"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525374"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação do DBMS de Máquinas Virtuais do Azure para carga de trabalho do SAP
 
@@ -306,7 +307,7 @@ ms.locfileid: "84022535"
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 
 
-Este documento aborda várias áreas diferentes a serem consideradas ao implantar o Oracle Database para carga de trabalho do SAP no IaaS do Azure. Antes de ler este documento, é recomendável que você leia [Considerações para implantação do DBMS de Máquinas Virtuais do Azure para carga de trabalho do SAP](dbms_guide_general.md). Também recomendamos que você leia outros guias na [documentação do Azure sobre carga de trabalho do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+Este documento aborda várias áreas diferentes a serem consideradas ao implantar o Oracle Database para carga de trabalho do SAP no IaaS do Azure. Antes de ler este documento, é recomendável que você leia [Considerações para implantação do DBMS de Máquinas Virtuais do Azure para carga de trabalho do SAP](dbms_guide_general.md). Também recomendamos que você leia outros guias na [documentação do Azure sobre carga de trabalho do SAP](./get-started.md). 
 
 Você pode encontrar informações sobre versões do Oracle e do SO correspondentes compatíveis para executar o SAP em Oracle no Azure na nota SAP [2039619].
 
@@ -347,14 +348,14 @@ De acordo com o manual de instalação do SAP, os arquivos relacionados ao Oracl
 
 Se você tiver VMs menores, é recomendável instalar/localizar a página inicial, o estágio, "saptrace", "saparch", "sapbackup", "sapcheck" ou "sapreorg" do Oracle no disco do SO. Essas partes dos componentes do DBMS do Oracle não fazem uso intenso de E/S e da taxa de transferência de E/S. Isso significa que o disco do SO pode lidar com os requisitos de E/S. O tamanho padrão do disco do SO é de 127 GB. 
 
-Se não houver espaço livre disponível suficiente, o disco poderá ser [redimensionado](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk) para 2.048 GB. Os arquivos do Oracle Database e de log da fase refazer precisam ser armazenados em discos de dados separados. Há uma exceção no espaço de tabela temporária do Oracle. Tempfiles podem ser criados em D:/ (unidade não persistente). A unidade D:\ não persistente também oferece melhor latência de e/s e taxa de transferência (com exceção de VMs da série). 
+Se não houver espaço livre disponível suficiente, o disco poderá ser [redimensionado](../../windows/expand-os-disk.md) para 2.048 GB. Os arquivos do Oracle Database e de log da fase refazer precisam ser armazenados em discos de dados separados. Há uma exceção no espaço de tabela temporária do Oracle. Tempfiles podem ser criados em D:/ (unidade não persistente). A unidade D:\ não persistente também oferece melhor latência de e/s e taxa de transferência (com exceção de VMs da série). 
 
 Para determinar a quantidade certa de espaço para os tempfiles, você pode verificar os tamanhos dos tempfiles nos sistemas existentes.
 
 ### <a name="storage-configuration"></a>Configuração de armazenamento
-Apenas a instância única do Oracle usando discos formatados em NTFS é compatível. Todos os arquivos de banco de dados devem ser armazenados no sistema de arquivos NTFS em Managed Disks (recomendado) ou em VHDs. Esses discos são montados na VM do Azure e são baseados no [Armazenamento de blob de página do Azure](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) ou nos [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+Apenas a instância única do Oracle usando discos formatados em NTFS é compatível. Todos os arquivos de banco de dados devem ser armazenados no sistema de arquivos NTFS em Managed Disks (recomendado) ou em VHDs. Esses discos são montados na VM do Azure e são baseados no [Armazenamento de blob de página do Azure](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) ou nos [Azure Managed Disks](../../windows/managed-disks-overview.md). 
 
-É altamente recomendável usar o [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). Também é altamente recomendável usar o [SSDs premium](../../windows/disks-types.md) para suas implantações do Oracle Database.
+É altamente recomendável usar o [Azure Managed Disks](../../windows/managed-disks-overview.md). Também é altamente recomendável usar o [SSDs premium](../../windows/disks-types.md) para suas implantações do Oracle Database.
 
 As unidades de rede ou de compartilhamentos remoto como os serviços de arquivo do Azure não são compatíveis com os arquivos do Oracle Database. Para obter mais informações, consulte:
 
@@ -403,19 +404,19 @@ Se mais IOPS forem necessários, é recomendável usar pools de armazenamento do
 
 
 #### <a name="write-accelerator"></a>Acelerador de Gravação
-Para as VMs da série M do Azure, a latência de gravação nos logs online da fase refazer pode ser reduzida por fatores quando comparados ao Armazenamento Premium do Azure. Habilite o Acelerador de Gravação do Azure para os discos (VHDs) com base no Armazenamento Premium do Azure que são usados para arquivos de log de restauração online. Para saber mais, confira [Acelerador de Gravação](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
+Para as VMs da série M do Azure, a latência de gravação nos logs online da fase refazer pode ser reduzida por fatores quando comparados ao Armazenamento Premium do Azure. Habilite o Acelerador de Gravação do Azure para os discos (VHDs) com base no Armazenamento Premium do Azure que são usados para arquivos de log de restauração online. Para saber mais, confira [Acelerador de Gravação](../../linux/how-to-enable-write-accelerator.md).
 
 
 ### <a name="backuprestore"></a>Backup/restauração
 Para a funcionalidade de backup/restauração, o SAP BR*Tools para Oracle recebe suporte da mesma maneira que nos sistemas operacionais Windows Server padrão. O RMAN (Gerenciador de Recuperação) da Oracle também tem suporte para backups em disco e restaurações do disco.
 
-Você também pode usar Backup do Azure para executar um backup de VM consistente do aplicativo. O artigo [Planejar sua infraestrutura de backup de VM no Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) explica como o Backup do Azure usa a funcionalidade do VSS do Windows para executar backups consistentes de aplicativos. As versões do DBMS do Oracle que têm suporte no Azure pela SAP podem aproveitar a funcionalidade do VSS para backups. Para saber mais, confira a documentação do Oracle [Conceitos básicos de backup de banco de dados e recuperação com o VSS](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701).
+Você também pode usar Backup do Azure para executar um backup de VM consistente do aplicativo. O artigo [Planejar sua infraestrutura de backup de VM no Azure](../../../backup/backup-azure-vms-introduction.md) explica como o Backup do Azure usa a funcionalidade do VSS do Windows para executar backups consistentes de aplicativos. As versões do DBMS do Oracle que têm suporte no Azure pela SAP podem aproveitar a funcionalidade do VSS para backups. Para saber mais, confira a documentação do Oracle [Conceitos básicos de backup de banco de dados e recuperação com o VSS](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701).
 
 
 ### <a name="high-availability"></a>Alta disponibilidade
 O Oracle Data Guard tem suporte para fins de recuperação de desastre e alta disponibilidade. Para fazer o failover automático no Data Guard, é necessário usar o FSFA (Failover de início rápido). O observador (FSFA) dispara o failover. Se você não usar o FSFA, só poderá usar uma configuração de failover manual.
 
-Para saber mais sobre a recuperação de desastres para bancos de dados Oracle no Azure, confira [Recuperação de desastre para um banco de dados Oracle Database 12c em um ambiente do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
+Para saber mais sobre a recuperação de desastres para bancos de dados Oracle no Azure, confira [Recuperação de desastre para um banco de dados Oracle Database 12c em um ambiente do Azure](../oracle/oracle-disaster-recovery.md).
 
 ### <a name="accelerated-networking"></a>Redes aceleradas
 Para implantações do Oracle no Windows, é altamente recomendável usar a rede acelerada, como descrito em [Rede acelerada do Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Também considere as recomendações feitas em [Considerações para implantação de DBMS de Máquinas Virtuais do Azure para a carga de trabalho SAP](dbms_guide_general.md). 
@@ -443,7 +444,7 @@ Nesse caso, é recomendável instalar/localizar a página inicial, o estágio, s
 
 Há suporte para os sistemas de arquivos ext4, xfs ou Oracle ASM em arquivos do Oracle Database no Azure. Todos os arquivos de banco de dados devem ser armazenados no sistemas de arquivos baseados em VHDs ou Managed Disks. Esses discos são montados na VM do Azure e são baseados no [Armazenamento de blob de página do Azure](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou nos [Azure Managed Disks](../../windows/managed-disks-overview.md).
 
-Para os kernels do Oracle Linux UEK, a versão mínima 4 do UEK é necessária para dar suporte aos [SSDs premium do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-caching).
+Para os kernels do Oracle Linux UEK, a versão mínima 4 do UEK é necessária para dar suporte aos [SSDs premium do Azure](../../windows/premium-storage-performance.md#disk-caching).
 
 É altamente recomendável usar os [Azure Managed Disks](../../windows/managed-disks-overview.md). Também é altamente recomendável usar os [SSDs premium do Azure](../../windows/disks-types.md) para suas implantações do Oracle Database.
 
@@ -497,19 +498,19 @@ Se mais IOPS forem necessários, é recomendável usar LVM (Gerenciador de Volum
 
 
 #### <a name="write-accelerator"></a>Acelerador de Gravação
-Para as VMs da série M do Azure, ao usar o Acelerador de Gravação do Azure, a latência de gravação nos logs online de refazer pode ser reduzida por fatores, comparados ao desempenho do Armazenamento Premium do Azure. Habilite o Acelerador de Gravação do Azure para os discos (VHDs) com base no Armazenamento Premium do Azure que são usados para arquivos de log de restauração online. Para saber mais, confira [Acelerador de Gravação](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
+Para as VMs da série M do Azure, ao usar o Acelerador de Gravação do Azure, a latência de gravação nos logs online de refazer pode ser reduzida por fatores, comparados ao desempenho do Armazenamento Premium do Azure. Habilite o Acelerador de Gravação do Azure para os discos (VHDs) com base no Armazenamento Premium do Azure que são usados para arquivos de log de restauração online. Para saber mais, confira [Acelerador de Gravação](../../linux/how-to-enable-write-accelerator.md).
 
 
 ### <a name="backuprestore"></a>Backup/restauração
 Para funcionalidade de backup/restauração, há suporte para SAP BR*Tools para Oracle da mesma maneira que para Hyper-V e bare-metal. O RMAN (Gerenciador de Recuperação) da Oracle também tem suporte para backups em disco e restaurações do disco.
 
-Para saber mais sobre como usar os serviços de Backup e Recuperação do Azure para fazer backup e recuperar bancos de dados Oracle, confira [Fazer backup e recuperar um banco de dados Oracle Database 12c em uma máquina virtual do Azure Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-backup-recovery).
+Para saber mais sobre como usar os serviços de Backup e Recuperação do Azure para fazer backup e recuperar bancos de dados Oracle, confira [Fazer backup e recuperar um banco de dados Oracle Database 12c em uma máquina virtual do Azure Linux](../oracle/oracle-backup-recovery.md).
 
 ### <a name="high-availability"></a>Alta disponibilidade
-O Oracle Data Guard tem suporte para fins de recuperação de desastre e alta disponibilidade. Para fazer o failover automático no Data Guard, é necessário usar o FSFA (Failover de início rápido). A funcionalidade de Observador (FSFA) dispara o failover. Se você não usar o FSFA, só poderá usar uma configuração de failover manual. Para saber mais, confira [Implementando o Oracle Data Guard em uma máquina virtual do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard).
+O Oracle Data Guard tem suporte para fins de recuperação de desastre e alta disponibilidade. Para fazer o failover automático no Data Guard, é necessário usar o FSFA (Failover de início rápido). A funcionalidade de Observador (FSFA) dispara o failover. Se você não usar o FSFA, só poderá usar uma configuração de failover manual. Para saber mais, confira [Implementando o Oracle Data Guard em uma máquina virtual do Linux no Azure](../oracle/configure-oracle-dataguard.md).
 
 
-Aspectos da recuperação de desastres para bancos de dados Oracle no Azure são apresentados no artigo [recuperação de desastre para um banco de dados banco de dados Oracle 12c em um ambiente do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
+Aspectos da recuperação de desastres para bancos de dados Oracle no Azure são apresentados no artigo [recuperação de desastre para um banco de dados banco de dados Oracle 12c em um ambiente do Azure](../oracle/oracle-disaster-recovery.md).
 
 ### <a name="accelerated-networking"></a>Redes aceleradas
 Suporte para rede acelerada do Azure no Oracle Linux é fornecido com o Oracle Linux 7 atualização 5 (Oracle Linux 7.5). Se você não puder atualizar para a versão mais recente do Oracle Linux 7.5, poderá haver uma solução alternativa usando o RHCK (RedHat Compatible Kernel) em vez do kernel da Oracle UEK. 

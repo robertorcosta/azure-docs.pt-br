@@ -1,5 +1,5 @@
 ---
-title: Acesso delegado na área de trabalho virtual do Windows – Azure
+title: Acesso delegado na área de trabalho virtual do Windows Outono de 2019 – Azure
 description: Como delegar recursos administrativos em uma implantação de área de trabalho virtual do Windows, incluindo exemplos.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 899e42e3b592ce1bc92d7d47578e10355b1c6de7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91be20de49f549f3530e6c817906f1abf8f106b6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82614428"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527550"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop"></a>Acesso delegado na Área de Trabalho Virtual do Windows
+# <a name="delegated-access-in-windows-virtual-desktop-fall-2019"></a>Acesso delegado na área de trabalho virtual do Windows Outono de 2019
 
 >[!IMPORTANT]
 >Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../delegated-access-virtual-desktop.md).

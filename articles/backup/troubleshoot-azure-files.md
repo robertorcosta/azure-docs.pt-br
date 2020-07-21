@@ -3,12 +3,12 @@ title: Solucionar problemas de backup de compartilhamento de arquivos do Azure
 description: Este artigo tem informações sobre a solução de problemas que ocorrem ao proteger seus compartilhamentos de arquivos no Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d09c89433be17e16ad768e2d28305819146e6b5e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7b007a9ef893bb772929584eb3137c7a5200d756
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079880"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524481"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Solucionar problemas ao fazer backup de compartilhamentos de arquivos do Azure
 
@@ -57,6 +57,9 @@ Na portal do Azure, abra seu **cofre**  >  **infraestrutura de backup**  >  **co
 >Um cofre dos serviços de recuperação só pode ser excluído após o cancelamento do registro de todas as contas de armazenamento registradas no cofre.
 
 ## <a name="common-backup-or-restore-errors"></a>Erros comuns de backup ou restauração
+
+>[!NOTE]
+>Consulte [este documento](./backup-rbac-rs-vault.md#minimum-role-requirements-for-the-azure-file-share-backup) para garantir que você tenha permissões suficientes para executar operações de backup ou restauração.
 
 ### <a name="filesharenotfound--operation-failed-as-the-file-share-is-not-found"></a>FileShareNotFound-a operação falhou porque o compartilhamento de arquivos não foi encontrado
 
@@ -313,7 +316,7 @@ Código de erro: UserErrorBackupAFSInDeleteState
 
 Mensagem de erro: falha de backup porque o compartilhamento de arquivos do Azure associado é excluído permanentemente
 
-Verifique se o compartilhamento de arquivos com backup é excluído permanentemente. Em caso afirmativo, pare o backup do compartilhamento de arquivos para evitar falhas de backup repetidas. Para saber como interromper a proteção, consulte [interromper a proteção para o compartilhamento de arquivos do Azure](https://docs.microsoft.com/azure/backup/manage-afs-backup#stop-protection-on-a-file-share)
+Verifique se o compartilhamento de arquivos com backup é excluído permanentemente. Em caso afirmativo, pare o backup do compartilhamento de arquivos para evitar falhas de backup repetidas. Para saber como interromper a proteção, consulte [interromper a proteção para o compartilhamento de arquivos do Azure](./manage-afs-backup.md#stop-protection-on-a-file-share)
 
 ## <a name="next-steps"></a>Próximas etapas
 

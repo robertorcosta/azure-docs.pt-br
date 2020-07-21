@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: d2a14a501ebcf0913804ce39019a3fa4018ca141
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 9363f400754a38d4cc6efd29ac48d7a0476de66f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362366"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524294"
 ---
 # <a name="add-parameters-to-commands"></a>Adicionar parâmetros a comandos
 
@@ -62,8 +62,11 @@ Edite o comando de **ativação** existente para ativar e desativar vários disp
        
         
    1. Para adicionar valores de entrada predefinidos, selecione **Adicionar uma entrada predefinida** e na janela **novo item** , digite o **nome** conforme fornecido na tabela acima. Nesse caso, não estamos usando aliases, portanto, você pode deixá-lo em branco. 
+
     > [!div class="mx-imgBorder"]
-        > ![Criar parâmetro](media/custom-commands/create-on-off-parameter.png)
+
+    > ![Criar parâmetro](media/custom-commands/create-on-off-parameter.png)
+
    1. Selecione **salvar** para salvar todas as configurações do parâmetro.
  
  ### <a name="add-subjectdevice-parameter"></a>Adicionar parâmetro SubjectDevice 
@@ -123,7 +126,7 @@ Modifique a regra de conclusão existente **ConfirmationResponse**.
     ```
 1. Selecione **Salvar**.
 
-### <a name="try-it-out"></a>Experimentar
+### <a name="try-it-out"></a>Experimente
 1. Selecione o ícone de **treinamento** presente na parte superior do painel direito.
 
 1. Quando o treinamento for concluído, selecione **testar**. Uma janela **testar seu aplicativo** será exibida.
@@ -168,7 +171,7 @@ Edite as regras de conclusão existentes de acordo com a configuração a seguir
 | Condições         | Temperatura > parâmetro obrigatório           |
 | Ações           | Enviar > de resposta de fala`Ok, setting temperature to {Temperature} degrees` |
 
-### <a name="try-it-out"></a>Experimentar
+### <a name="try-it-out"></a>Experimente
 
 **Treine** e **teste** as alterações com algumas interações.
 
@@ -210,7 +213,7 @@ Edite as regras de conclusão existentes de acordo com a configuração a seguir
    | Ações    | Enviar resposta de fala-`Ok, alarm set for {DateTime}`  |
 
 
-### <a name="try-it-out"></a>Experimentar
+### <a name="try-it-out"></a>Experimente
 
 **Treine** e **teste** as alterações.
 - Entrada: Definir alarme para amanhã às 12h

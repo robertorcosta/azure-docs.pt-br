@@ -3,12 +3,12 @@ title: Limites – QnA Maker
 description: O QnA Maker tem limites de meta para partes do serviço e da base de dados de conhecimento. É importante manter sua base de dados de conhecimento dentro desses limites para testar e publicar.
 ms.topic: reference
 ms.date: 02/14/2020
-ms.openlocfilehash: 6a600bcb25bc524cda38d1e35a777d23d47b15c9
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: cce95574c8ffc245818b61e9843c5f7984de972f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855564"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524430"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites e limites de base de dados de conhecimento do QnA Maker
 
@@ -37,7 +37,7 @@ Os nomes de arquivo não podem incluir os seguintes caracteres:
 
 ### <a name="maximum-file-size"></a>Tamanho máximo do arquivo
 
-|Formatar|Tamanho máximo do arquivo (MB)|
+|Format|Tamanho máximo do arquivo (MB)|
 |--|--|
 |`.docx`|10|
 |`.pdf`|25|
@@ -79,7 +79,8 @@ O comprimento e os caracteres aceitáveis para o nome e o valor dos metadados s�
 Limites gerais sobre o conteúdo na base de dados de conhecimento:
 * Comprimento do texto de resposta: 25.000
 * Comprimento do texto da pergunta: 1.000
-* Tamanho do texto de chave/valor dos metadados: 100
+* Comprimento do texto da chave de metadados: 100
+* Comprimento do texto do valor de metadados: 500
 * Caracteres com suporte para nome de metadados: alfabetos, dígitos e`_`
 * Caracteres com suporte para valor de metadados: todos exceto `:` e`|`
 * Tamanho do nome do arquivo: 200

@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: f7e2b70b111cd195f688e236bf8f05b077acb000
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5ab1262def78da4971ea6e5535f3ac915a38ec8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678759"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526751"
 ---
 # <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>O desligamento de VM do Windows do Azure está preso em "reinicializando", "desligando" ou "interrompendo serviços"
 
@@ -24,7 +25,7 @@ Este artigo fornece etapas para resolver os problemas de mensagens de "reinicial
 
 ## <a name="symptoms"></a>Sintomas
 
-Ao usar o [diagnóstico de inicialização](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para exibir a captura de tela da VM, você pode ver que a captura de tela exibe a mensagem "reiniciando", "desligando" ou "interrompendo serviços".
+Ao usar o [diagnóstico de inicialização](./boot-diagnostics.md) para exibir a captura de tela da VM, você pode ver que a captura de tela exibe a mensagem "reiniciando", "desligando" ou "interrompendo serviços".
 
 ![Reiniciando, desligando e interrompendo telas de serviços](./media/boot-error-troubleshooting-windows/restart-shut-down-stop-service.png)
  
@@ -40,7 +41,7 @@ O Windows usa o processo de desligamento para executar operações de manutenç�
 
 2. Desanexe o disco que contém os arquivos necessários da VM de trabalho e anexe o disco à VM quebrada. Estamos ligando para esse disco o **disco do utilitário**.
 
-Use o [console serial](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) para concluir as seguintes etapas:
+Use o [console serial](./serial-console-windows.md) para concluir as seguintes etapas:
 
 1. Abra um PowerShell administrativo e verifique o serviço que para de responder após a interrupção.
 
@@ -80,13 +81,13 @@ Se o problema não for resolvido depois de aguardar as alterações serem proces
 
 **Anexar o disco do sistema operacional a uma VM de recuperação**
 
-1. Tire um instantâneo do disco do SO da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+1. Tire um instantâneo do disco do SO da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
 
-2. [Anexe o disco do sistema operacional a uma VM de recuperação](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+2. [Anexe o disco do sistema operacional a uma VM de recuperação](./troubleshoot-recovery-disks-portal-windows.md).
 
 3. Área de trabalho remota para a VM de recuperação.
 
-4. Se o disco do sistema operacional for criptografado, você deverá desligar a criptografia antes de passar para a próxima etapa. Para obter mais informações, consulte [descriptografar o disco do sistema operacional criptografado na VM que não pode ser inicializada](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error#solution).
+4. Se o disco do sistema operacional for criptografado, você deverá desligar a criptografia antes de passar para a próxima etapa. Para obter mais informações, consulte [descriptografar o disco do sistema operacional criptografado na VM que não pode ser inicializada](./troubleshoot-bitlocker-boot-error.md#solution).
 
 **Localize o arquivo de despejo e envie um tíquete de suporte**
 
@@ -141,7 +142,7 @@ Para habilitar o log de despejo e o Console Serial, execute o script a seguir.
    reg unload HKLM\BROKENSYSTEM
    ```
 
-5. [Desanexe o disco do sistema operacional e, em seguida, anexe novamente o disco do sistema operacional à VM afetada](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+5. [Desanexe o disco do sistema operacional e, em seguida, anexe novamente o disco do sistema operacional à VM afetada](./troubleshoot-recovery-disks-portal-windows.md).
 
 6. Inicie a VM e acesse o console serial.
 

@@ -10,15 +10,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 1cf6c7417aa86d47e59e08786e7807e32c175a25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08d32e4b7806ec53f48389b127ab34371271cf07
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759583"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527227"
 ---
 # <a name="configure-prerequisites"></a>Configurar pré-requisitos
 
-Antes de usar a oferta do Marketplace para implantar um cluster da plataforma de contêiner do OpenShift autogerenciada 3,11 no Azure, alguns pré-requisitos devem ser configurados.  Leia o artigo [pré-requisitos do OpenShift](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites) para obter instruções para criar uma chave SSH (sem uma frase secreta), cofre de chaves do Azure, segredo do cofre de chaves e uma entidade de serviço.
+Antes de usar a oferta do Marketplace para implantar um cluster da plataforma de contêiner do OpenShift autogerenciada 3,11 no Azure, alguns pré-requisitos devem ser configurados.  Leia o artigo [pré-requisitos do OpenShift](./openshift-container-platform-3x-prerequisites.md) para obter instruções para criar uma chave SSH (sem uma frase secreta), cofre de chaves do Azure, segredo do cofre de chaves e uma entidade de serviço.
 
  
 ## <a name="deploy-using-the-marketplace-offer"></a>Implantar usando a oferta do Marketplace
@@ -62,9 +63,9 @@ Insira valores para os parâmetros de entrada e clique em **OK**.
 |-----------------------|-----------------|
 | Nome de usuário do administrador da VM | O usuário administrador a ser criado em todas as instâncias de VM |
 | Chave pública SSH para usuário administrador | Chave pública SSH usada para fazer logon na VM-não deve ter uma frase secreta |
-| Subscription | Assinatura do Azure na qual implantar o cluster |
-| Grupo de recursos | Criar um novo grupo de recursos ou selecionar um grupo de recursos vazio existente para recursos de cluster |
-| Location | Região do Azure na qual implantar o cluster |
+| Assinatura | Assinatura do Azure na qual implantar o cluster |
+| Grupo de Recursos | Criar um novo grupo de recursos ou selecionar um grupo de recursos vazio existente para recursos de cluster |
+| Localização | Região do Azure na qual implantar o cluster |
 
    ![Folha noções básicas da oferta](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>
@@ -190,7 +191,7 @@ Quando a implantação for concluída, recupere a conexão da seção de saída 
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group) para remover o grupo de recursos, o cluster OpenShift e todos os recursos relacionados.
 

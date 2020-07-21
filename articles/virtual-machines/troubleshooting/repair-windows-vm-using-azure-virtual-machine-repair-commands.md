@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: f23df5924354fa688743d29919095413ec12ce18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7addc87f3096a75a55d0ea3b5804fd0006d5cb8c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444345"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526479"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparar uma VM do Windows usando os comandos de reparo da Máquina Virtual do Azure
 
 Se sua máquina virtual (VM) do Windows no Azure encontrar um erro de inicialização ou disco, talvez seja necessário executar a atenuação no próprio disco. Um exemplo comum seria uma atualização de aplicativo com falha que impede a inicialização bem-sucedida da VM. Este artigo detalha como usar os comandos de reparo da VM do Azure para conectar o disco a outra VM do Windows para corrigir erros e, em seguida, reconstruir sua VM original.
 
 > [!IMPORTANT]
-> * Os scripts neste artigo se aplicam somente às VMs que usam [Disco Gerenciado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> * Os scripts neste artigo se aplicam somente às VMs que usam [Disco Gerenciado](../../azure-resource-manager/management/overview.md).
 > * A conectividade de saída da VM (porta 443) é necessária para que o script seja executado.
 > * Somente um script pode ser executado de cada vez.
 > * Não é possível cancelar um script em execução.
@@ -46,7 +46,7 @@ Siga estas etapas para solucionar o problema da VM:
 4. Execute az vm repair run.
 5. Execute az vm repair restore.
 
-Para obter a documentação e as instruções adicionais, confira [az vm repair](https://docs.microsoft.com/cli/azure/ext/vm-repair/vm/repair).
+Para obter a documentação e as instruções adicionais, confira [az vm repair](/cli/azure/ext/vm-repair/vm/repair).
 
 ## <a name="repair-process-example"></a>Exemplo de processo de reparo
 
@@ -58,9 +58,9 @@ Para obter a documentação e as instruções adicionais, confira [az vm repair]
 
    Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e selecione **Enter** para executá-lo.
 
-   Se preferir instalar e usar a CLI localmente, este início rápido exigirá a CLI do Azure versão 2.0.30 ou posterior. Execute ``az --version`` para encontrar a versão. Se você precisar instalar ou atualizar sua CLI do Azure, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+   Se preferir instalar e usar a CLI localmente, este início rápido exigirá a CLI do Azure versão 2.0.30 ou posterior. Execute ``az --version`` para encontrar a versão. Se você precisar instalar ou atualizar sua CLI do Azure, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
    
-   Se você precisar fazer logon em Cloud Shell com uma conta diferente do que está conectado no momento ao portal do Azure com, você pode usar ``az login`` [AZ login Reference](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).  Para alternar entre as assinaturas associadas à sua conta, você pode usar a ``az account set --subscription`` [referência do conjunto de contas AZ](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
+   Se você precisar fazer logon em Cloud Shell com uma conta diferente da que está conectada no momento ao portal do Azure com você pode usar ``az login`` [AZ login Reference](/cli/azure/reference-index?view=azure-cli-latest#az-login).  Para alternar entre as assinaturas associadas à sua conta, você pode usar a ``az account set --subscription`` [referência do conjunto de contas AZ](/cli/azure/account?view=azure-cli-latest#az-account-set).
 
 2. Se esta é a primeira vez que você usa os comandos `az vm repair`, adicione a extensão da CLI vm-repair.
 
@@ -104,6 +104,6 @@ az vm boot-diagnostics enable --name myVMDeployed --resource-group myResourceGro
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Se estiver tendo problemas para se conectar à VM, consulte [Troubleshoot RDP connections to an Azure VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection) (Solucionar conexões RDP a uma VM do Azure).
-* Para problemas com o acesso a aplicativos em execução na sua VM, consulte [Solucionar problemas de conectividade de aplicativos em máquinas virtuais no Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-app-connection).
-* Para obter mais informações sobre como usar o Resource Manager, consulte [Visão geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+* Se estiver tendo problemas para se conectar à VM, consulte [Troubleshoot RDP connections to an Azure VM](./troubleshoot-rdp-connection.md) (Solucionar conexões RDP a uma VM do Azure).
+* Para problemas com o acesso a aplicativos em execução na sua VM, consulte [Solucionar problemas de conectividade de aplicativos em máquinas virtuais no Azure](./troubleshoot-app-connection.md).
+* Para obter mais informações sobre como usar o Resource Manager, consulte [Visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md).

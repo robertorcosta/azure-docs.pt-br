@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6c621219bc424b7e0df6de286a066fd5b94af4a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a836f4ce40f4d2e0871f99122d25bb6c6f346d05
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514961"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527873"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferir dados com o AzCopy e o Armazenamento de Arquivos 
 
@@ -22,7 +23,7 @@ Antes de começar, consulte o artigo [introdução ao AzCopy](storage-use-azcopy
 > [!TIP]
 > Os exemplos neste artigo incluem argumentos de caminho com aspas simples (' '). Use aspas simples em todos os shells de comando, exceto pelo shell de comando do Windows (cmd.exe). Se você estiver usando um shell de comando do Windows (cmd.exe), coloque os argumentos de caminho com aspas duplas ("") em vez de aspas simples (' ').
 
-## <a name="create-file-shares"></a>Criar compartilhamentos de arquivos
+## <a name="create-file-shares"></a>Criar compartilhamentos de arquivo
 
 Você pode usar o comando [azcopy Make](storage-ref-azcopy-make.md) para criar um compartilhamento de arquivos. O exemplo nesta seção cria um compartilhamento de arquivos chamado `myfileshare` .
 
@@ -40,7 +41,7 @@ Você pode usar o comando [azcopy Copy](storage-ref-azcopy-copy.md) para carrega
 Esta seção contém os seguintes exemplos:
 
 > [!div class="checklist"]
-> * Carregar um arquivo
+> * Fazer upload de um arquivo
 > * Carregar um diretório
 > * Carregar o conteúdo de um diretório
 > * Carregar um arquivo específico
@@ -60,7 +61,7 @@ Esta seção contém os seguintes exemplos:
 > [!NOTE]
 > AzCopy não calcula e armazena automaticamente o código hash MD5 do arquivo. Se você quiser que o AzCopy faça isso, anexe o `--put-md5` sinalizador a cada comando de cópia. Dessa forma, quando o arquivo for baixado, AzCopy calculará um hash MD5 para dados baixados e verificará se o hash MD5 armazenado na Propriedade do arquivo `Content-md5` corresponde ao hash calculado.
 
-### <a name="upload-a-file"></a>Carregar um arquivo
+### <a name="upload-a-file"></a>Fazer upload de um arquivo
 
 |    |     |
 |--------|-----------|
@@ -117,7 +118,7 @@ Você também pode excluir arquivos usando a `--exclude-path` opção. Para sabe
 
 #### <a name="use-wildcard-characters"></a>Usar caracteres curinga
 
-Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-pattern` opção. Especifique nomes parciais que incluam os caracteres curinga. Separe os nomes usando um semicolin ( `;` ).
+Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-pattern` opção. Especifique nomes parciais que incluam os caracteres curinga. Separe os nomes usando um ponto-e-vírgula ( `;` ).
 
 |    |     |
 |--------|-----------|
@@ -188,7 +189,7 @@ Você pode especificar nomes de arquivo completos ou usar nomes parciais com car
 
 #### <a name="specify-multiple-complete-file-names"></a>Especificar vários nomes de arquivo completos
 
-Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-path` opção. Separe os nomes de arquivo individuais usando um semicolin ( `;` ).
+Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-path` opção. Separe os nomes de arquivo individuais usando um ponto-e-vírgula ( `;` ).
 
 |    |     |
 |--------|-----------|
@@ -201,7 +202,7 @@ Você também pode excluir arquivos usando a `--exclude-path` opção. Para sabe
 
 #### <a name="use-wildcard-characters"></a>Usar caracteres curinga
 
-Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-pattern` opção. Especifique nomes parciais que incluam os caracteres curinga. Separe os nomes usando um semicolin ( `;` ).
+Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-pattern` opção. Especifique nomes parciais que incluam os caracteres curinga. Separe os nomes usando um ponto-e-vírgula ( `;` ).
 
 |    |     |
 |--------|-----------|

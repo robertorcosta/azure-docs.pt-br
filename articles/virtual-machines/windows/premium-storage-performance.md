@@ -1,5 +1,5 @@
 ---
-title: 'Armazenamento Premium do Azure: Design para desempenho em VMs do Windows | Microsoft Docs'
+title: Armazenamento Premium do Azure-design para alto desempenho
 description: Crie aplicativos de alto desempenho usando os Managed Disks SSD Premium do Azure. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure.
 author: roygara
 ms.service: virtual-machines-windows
@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 06ac680ef48d9602f6e7487eb9ebecee9f3ae080
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 46c917a2d27f5efaa1e902db0d5da5375578b8b8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017589"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526021"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: projeto para alto desempenho
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]

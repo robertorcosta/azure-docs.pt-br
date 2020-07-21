@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 91d3dd2eee6f771df23b72eae7a33122c42f1690
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd2e5a4d057e1074c6cce0f374846bc9e0a64950
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869328"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525085"
 ---
 # <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>Acesse a solução VMware pelo portal do CloudSimple da portal do Azure
 
@@ -20,9 +21,9 @@ O logon único tem suporte para acesso ao portal do CloudSimple. Depois de entra
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Usuários com funções de **colaborador** e **proprietário** interno podem acessar o portal do CloudSimple.  As funções devem ser configuradas no grupo de recursos em que o serviço CloudSimple está implantado.  As funções também podem ser configuradas no objeto de serviço CloudSimple.  Para obter mais informações sobre como verificar sua função, consulte o artigo [exibir atribuições de função](https://docs.microsoft.com/azure/role-based-access-control/check-access) . Somente os usuários com funções de **proprietário** e **colaborador** internas podem acessar o portal do CloudSimple.  As funções devem ser configuradas na assinatura.  Para obter mais informações sobre como verificar sua função, consulte o artigo [exibir atribuições de função](https://docs.microsoft.com/azure/role-based-access-control/check-access) .
+Usuários com funções de **colaborador** e **proprietário** interno podem acessar o portal do CloudSimple.  As funções devem ser configuradas no grupo de recursos em que o serviço CloudSimple está implantado.  As funções também podem ser configuradas no objeto de serviço CloudSimple.  Para obter mais informações sobre como verificar sua função, consulte o artigo [exibir atribuições de função](../role-based-access-control/check-access.md) . Somente os usuários com funções de **proprietário** e **colaborador** internas podem acessar o portal do CloudSimple.  As funções devem ser configuradas na assinatura.  Para obter mais informações sobre como verificar sua função, consulte o artigo [exibir atribuições de função](../role-based-access-control/check-access.md) .
 
-Se você estiver usando funções personalizadas, a função deverá ter qualquer uma das operações a seguir em ```Actions``` .  Para obter mais informações sobre funções personalizadas, consulte [funções personalizadas para recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  Se qualquer uma das operações fizer parte do ```NotActions``` , o usuário não poderá acessar o portal do CloudSimple.
+Se você estiver usando funções personalizadas, a função deverá ter qualquer uma das operações a seguir em ```Actions``` .  Para obter mais informações sobre funções personalizadas, consulte [funções personalizadas para recursos do Azure](../role-based-access-control/custom-roles.md).  Se qualquer uma das operações fizer parte do ```NotActions``` , o usuário não poderá acessar o portal do CloudSimple.
 
 ```
 Microsoft.VMwareCloudSimple/*
@@ -70,5 +71,5 @@ Se suas permissões não permitirem acesso ao portal do CloudSimple, entre em co
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba como [criar uma nuvem privada](https://docs.microsoft.com/azure/vmware-cloudsimple/create-private-cloud/)
+* Saiba como [criar uma nuvem privada](./create-private-cloud.md)
 * Saiba como [configurar um ambiente de nuvem privada](quickstart-create-private-cloud.md)

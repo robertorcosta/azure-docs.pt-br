@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 6db43300632ec5b2c4f6c18848442901a40561b0
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 8d49d9b9d29116d95173c1daf5133622c3694de6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996991"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523988"
 ---
 # <a name="customize-your-text-translations"></a>Personalizar suas traduções de texto
 
@@ -27,7 +27,7 @@ O recurso também pode ser usado para personalizar a tradução de fala quando u
 
 Com o Tradutor Personalizado, você pode compilar sistemas de tradução neural que entendam a terminologia usada na sua própria empresa e setor. O sistema de tradução personalizada então se integrará aos aplicativos, fluxos de trabalho e sites existentes.
 
-### <a name="how-does-it-work"></a>Como funciona?
+### <a name="how-does-it-work"></a>Como ele funciona?
 
 Use seus documentos traduzidos anteriormente (leaflets, páginas da Web, documentação, etc.) para criar um sistema de tradução que reflita sua terminologia e estilo específicos de domínio, melhor do que um sistema de tradução padrão. Os usuários podem fazer upload de documentos TMX XLIFF, TXT, DOCX e XLSX.  
 
@@ -47,8 +47,8 @@ Para obter mais detalhes sobre os vários níveis de personalização com base n
 
 ## <a name="custom-translator-versus-hub"></a>Tradutor Personalizado versus Hub
 
-|   | **Hub** | **Tradutor personalizado**|
-|:-----|:----:|:----:|
+| Recurso | Hub | Tradutor personalizado |
+| ------- | :-: | :---------------: |
 |Status do recurso de personalização    | Disponibilidade geral    | Disponibilidade geral |
 | Versão da API de texto    | Somente V2    | Somente V3 |
 | Personalização de SMT    | Sim    | Não |

@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas do host de sessão de área de trabalho virtual do Windows
+title: Solucionar problemas do 2019 host de sessão de área de trabalho virtual do Windows
 description: Como resolver problemas quando estiver configurando máquinas virtuais do host de sessão de área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0dd03508a745a231f10cfc6d09953067618043e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2f4a288ab83ca9f20434c55a180c2d9b30be5d4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362502"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527652"
 ---
-# <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do host da sessão
+# <a name="troubleshoot-session-host-virtual-machine-configuration"></a>Solucionar problemas de configuração de máquina virtual do host de sessão
 
 >[!IMPORTANT]
 >Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../troubleshoot-vm-configuration.md).

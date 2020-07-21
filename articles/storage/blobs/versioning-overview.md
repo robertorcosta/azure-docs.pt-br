@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 89d69547d793599fc669927b1a500716a858cc89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd620e253e661f986f67a440272937026cb4ff7f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433596"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528393"
 ---
 # <a name="blob-versioning-preview"></a>Controle de versão de blob (versão prévia)
 
@@ -75,7 +76,7 @@ Gravar novos dados no blob cria uma nova versão do blob. As versões existentes
 
 :::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagrama mostrando a recriação de blob com versão após a exclusão":::
 
-### <a name="blob-types"></a>Tipos de blob
+### <a name="blob-types"></a>Tipos de blobs
 
 Quando o controle de versão de blob está habilitado para uma conta de armazenamento, todas as operações de gravação e exclusão em blobs de bloco disparam a criação de uma nova versão, com exceção da operação [Put Block](/rest/api/storageservices/put-block) .
 
@@ -194,6 +195,10 @@ A tabela a seguir mostra a permissão necessária em uma SAS para excluir uma ve
 
 O controle de versão de blob está disponível na visualização nas seguintes regiões:
 
+- Leste dos EUA 2
+- Centro dos EUA
+- Norte da Europa
+- Europa Ocidental
 - França Central
 - Leste do Canadá
 - Canadá Central

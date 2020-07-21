@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 13496a18f4c99b69a5b8095caf5b74a04d1bba88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0aff8298ac2335e5216252eb2cbd5a393cc37d5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869294"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524989"
 ---
 # <a name="manage-private-cloud-resources-and-activity"></a>Gerenciar recursos e a atividade da Nuvem Privada
 
@@ -36,13 +37,13 @@ Selecione uma Nuvem Privada para obter mais informações e ações.
 
 ## <a name="private-cloud-summary"></a>Resumo da Nuvem Privada
 
-Veja um resumo abrangente da Nuvem Privada selecionada.  A página Resumo inclui os servidores DNS implantados na Nuvem Privada.  É possível configurar o encaminhamento de DNS de servidores DNS locais para seus servidores DNS da Nuvem Privada.  Para obter mais informações sobre o encaminhamento de DNS, confira [Configurar o DNS para resolução de nomes para o vCenter de Nuvem Privada local](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-dns-setup/).
+Veja um resumo abrangente da Nuvem Privada selecionada.  A página Resumo inclui os servidores DNS implantados na Nuvem Privada.  É possível configurar o encaminhamento de DNS de servidores DNS locais para seus servidores DNS da Nuvem Privada.  Para obter mais informações sobre o encaminhamento de DNS, confira [Configurar o DNS para resolução de nomes para o vCenter de Nuvem Privada local](./on-premises-dns-setup.md).
 
 ![Resumo da Nuvem Privada](media/private-cloud-summary.png)
 
 ### <a name="available-actions"></a>Ações disponíveis
 
-* [Iniciar cliente vSphere](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access). Acessar o vCenter para esta Nuvem Privada.
+* [Iniciar cliente vSphere](./vcenter-access.md). Acessar o vCenter para esta Nuvem Privada.
 * [Comprar nós](create-nodes.md). Adicionar nós a esta Nuvem Privada.
 * [Expandir](expand-private-cloud.md). Adicionar nós a esta Nuvem Privada.
 * **Atualizar**. Atualizar as informações sobre esta página.
@@ -57,10 +58,10 @@ Veja a lista de VLANs/sub-redes definidas para a Nuvem Privada selecionada.  A l
 
 ### <a name="available-actions"></a>Ações disponíveis
 
-* [Adicionar VLANS/sub-redes](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/). Adicionar uma VLAN/sub-rede a esta Nuvem Privada.
+* [Adicionar VLANS/sub-redes](./create-vlan-subnet.md). Adicionar uma VLAN/sub-rede a esta Nuvem Privada.
 
 Selecionar uma VLAN/sub-rede para as ações a seguir
-* [Anexar tabela de firewall](https://docs.microsoft.com/azure/vmware-cloudsimple/firewall/). Anexar uma tabela de firewall a esta Nuvem Privada.
+* [Anexar tabela de firewall](./firewall.md). Anexar uma tabela de firewall a esta Nuvem Privada.
 * **Editar**
 * **Excluir** (apenas VLANs/sub-redes definidas pelo usuário)
 

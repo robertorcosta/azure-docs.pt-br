@@ -9,11 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer
-ms.openlocfilehash: 756e0d62927b67d26ae75af90c64facfe9c92d31
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 70d7eb000ed2d50bc22bb005621ee7515e5a2a61
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310556"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527448"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VMs do Azure Spot para conjuntos de dimensionamento de máquinas virtuais 
 
@@ -114,12 +115,12 @@ Para excluir a instância depois que ela tiver sido removida, altere o parâmetr
 
 **P:** Como a cota é gerenciada para o Spot?
 
-**R:** As instâncias do Spot e as instâncias padrão terão pools de cotas separados. A cota do Spot será compartilhada entre as VMs e as instâncias do conjunto de dimensionamento. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+**R:** As instâncias do Spot e as instâncias padrão terão pools de cotas separados. A cota do Spot será compartilhada entre as VMs e as instâncias do conjunto de dimensionamento. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 **P:** Posso solicitar uma cota adicional para o Spot?
 
-**R:** Sim, você poderá enviar a solicitação para aumentar sua cota de VMs do Spot por meio do [processo de solicitação de cota padrão](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+**R:** Sim, você poderá enviar a solicitação para aumentar sua cota de VMs do Spot por meio do [processo de solicitação de cota padrão](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **P:** É possível converter os conjuntos de dimensionamento existentes para conjuntos de dimensionamento do Spot?
@@ -157,7 +158,7 @@ Para excluir a instância depois que ela tiver sido removida, altere o parâmetr
 |------------------------------|-----------------------------------|
 | Contrato Enterprise         | Sim                               |
 | Pré-pago                | Sim                               |
-| Provedor de Serviços de Nuvem (CSP) | [Entre em contato com seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Provedor de Serviços de Nuvem (CSP) | [Entre em contato com seu parceiro](/partner-center/azure-plan-get-started) |
 | Benefícios                     | Não disponível                     |
 | Patrocinado                    | Sim                               |
 | Avaliação gratuita                   | Não disponível                     |
@@ -165,7 +166,7 @@ Para excluir a instância depois que ela tiver sido removida, altere o parâmetr
 
 **P:** Onde posso postar perguntas?
 
-**R:** Você pode postar e marcar sua pergunta com `azure-spot` em [Perguntas e respostas](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**R:** Você pode postar e marcar sua pergunta com `azure-spot` em [Perguntas e respostas](/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

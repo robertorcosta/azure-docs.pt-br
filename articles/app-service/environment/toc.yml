@@ -46,6 +46,8 @@
       href: forced-tunnel-support.md
     - name: Integração do firewall
       href: firewall-integration.md
+    - name: Redundância de zona
+      href: zone-redundancy.md
 - name: Referência
   items:
     - name: Endereços de gerenciamento
@@ -83,7 +85,7 @@
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Informações de cota
-      href: '../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
+      href: ../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
     - name: Atualizações do serviço
       href: 'https://azure.microsoft.com/updates/?product=app-service'
     - name: Práticas recomendadas
@@ -104,7 +106,7 @@
       items:
         - name: Scripts de Implantação
           href: 'https://azure.microsoft.com/documentation/scripts/'
-    - name: solução de problemas
+    - name: Solução de problemas
       items:
         - name: Solucionar problemas com o Visual Studio
           href: ../troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json

@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: 19b2fcaed2c80d4ca52ada9f9f0898479e73bcf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13e4c7a981124aba22dcb324d60e075d1d552bf8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79266982"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526792"
 ---
 # <a name="how-to-use-perfinsights"></a>Como usar o PerfInsights
 
@@ -43,7 +44,7 @@ Esse cenário coleta informações básicas, como a configuração de armazename
 
 - Informações de armazenamento
 
-- Configuração de máquina virtual do Azure (coletada usando o [serviço de metadados de instância do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service))
+- Configuração de máquina virtual do Azure (coletada usando o [serviço de metadados de instância do Azure](../windows/instance-metadata-service.md))
 
 - Lista de processos em execução, disco, memória e uso da CPU
 
@@ -60,7 +61,7 @@ Esse cenário é semelhante à análise rápida de desempenho, mas permite captu
 
 ## <a name="what-kind-of-information-is-collected-by-perfinsights"></a>Que tipo de informação é coletada pelo PerfInsights
 
-Informações sobre a máquina virtual Linux, sistema operacional, dispositivos de bloco, consumidores de recursos altos, configuração e vários logs são coletados. Estes são mais detalhes:
+Informações sobre a máquina virtual Linux, sistema operacional, dispositivos de bloco, consumidores de recursos altos, configuração e vários logs são coletados. Aqui estão mais detalhes:
 
 - Sistema operacional
   - Distribuição e versão do Linux
@@ -108,7 +109,7 @@ Informações sobre a máquina virtual Linux, sistema operacional, dispositivos 
   - waagent.config/etc/
   - Saída de journalctl dos últimos cinco dias
 
-- [Metadados da instância de máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+- [Metadados da instância de máquina virtual do Azure](../windows/instance-metadata-service.md)
 
 >[!Note]
 >[ `*` ] As informações de PCI ainda não foram coletadas em distribuições Debian e SLES

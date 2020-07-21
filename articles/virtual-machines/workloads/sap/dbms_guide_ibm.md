@@ -12,11 +12,12 @@ ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb9d46adf63f9cd0f4b19e4eace0a2f4a7129226
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 110e8d3be88fb2e1bd958f40d5defa23f8c679f3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022600"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525391"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação do DBMS de Máquinas Virtuais do IBM Db2 Azure para carga de trabalho do SAP
 
@@ -25,7 +26,7 @@ As informações gerais sobre como executar o SAP Business Suite no IBM Db2 para
 
 Para obter mais informações e atualizações sobre o SAP no Db2 para LUW no Azure, confira a Nota SAP [2233094]. 
 
-Há vários artigos na carga de trabalho do SAP no Azure.  É recomendável iniciar em [carga de trabalho do SAP no Azure – Introdução](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) e, em seguida, escolha a área de interesses
+Há vários artigos na carga de trabalho do SAP no Azure.  É recomendável iniciar em [carga de trabalho do SAP no Azure – Introdução](./get-started.md) e, em seguida, escolha a área de interesses
 
 As seguintes notas SAP estão relacionadas ao SAP no Azure em relação à área de abordados neste documento:
 
@@ -43,7 +44,7 @@ As seguintes notas SAP estão relacionadas ao SAP no Azure em relação à área
 | [2002167] |Red Hat Enterprise Linux 7.x: Instalação e atualização |
 | [1597355] |Recomendação de troca de espaço para Linux |
 
-Como uma pré-leitura para este documento, você deve ler o documento [Considerações para implantação de DBMS de Máquinas Virtuais do Azure para carga de trabalho do SAP](dbms_guide_general.md), bem como outros guias de [carga de trabalho do SAP na documentação do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+Como uma pré-leitura para este documento, você deve ler o documento [Considerações para implantação de DBMS de Máquinas Virtuais do Azure para carga de trabalho do SAP](dbms_guide_general.md), bem como outros guias de [carga de trabalho do SAP na documentação do Azure](./get-started.md). 
 
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>Suporte de versão do IBM Db2 para Linux, UNIX e Windows
@@ -72,7 +73,7 @@ Como alternativa, você pode usar Pools de Armazenamento do Windows (disponívei
 
 Para os discos que contém os caminhos de armazenamento do Db2 para os sapdata e saptmp, você precisa especificar um tamanho de setor do disco físico de 512 KB. Ao usar Pools de Armazenamento do Windows, você deve criá-los manualmente por meio da interface de linha de comando usando o parâmetro `-LogicalSectorSizeDefault`. Para obter mais informações, consulte <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
-Para a VM da série M do Azure, a latência de gravação nos logs de transação pode ser reduzida por fatores, comparados ao desempenho do armazenamento Premium do Azure, ao usar o Acelerador de gravação do Azure. Portanto, você deve implantar o Acelerador de Gravação do Azure para os VHDs que formam o volume para os logs de transação do Db2. Detalhes podem ser lidos no documento [Acelerador de Gravação](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
+Para a VM da série M do Azure, a latência de gravação nos logs de transação pode ser reduzida por fatores, comparados ao desempenho do armazenamento Premium do Azure, ao usar o Acelerador de gravação do Azure. Portanto, você deve implantar o Acelerador de Gravação do Azure para os VHDs que formam o volume para os logs de transação do Db2. Detalhes podem ser lidos no documento [Acelerador de Gravação](../../windows/how-to-enable-write-accelerator.md).
 
 ### <a name="backuprestore"></a>Backup/restauração
 A funcionalidade de backup/restauração para o IBM Db2 para LUW é compatível da mesma maneira que no Hyper-V e em sistemas operacionais Windows Server standard.

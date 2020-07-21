@@ -8,12 +8,12 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 84da8993bd1b0a61ef885d03f7c2bc80b92d47cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f432c544d8632a548c397b63ffa8066f63424f67
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510822"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528376"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Habilitar exclusão reversível nos compartilhamentos de arquivo do Azure
 
@@ -33,7 +33,7 @@ As seguintes seções mostram como habilitar e usar a exclusão reversível para
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para habilitar a exclusão reversível, você precisa atualizar as propriedades do serviço do cliente de um arquivo. O seguinte exemplo habilita a exclusão reversível para todos os compartilhamentos de arquivo em uma conta de armazenamento:
+Os cmdlets de exclusão reversível estão disponíveis na versão 2.1.1-preview do módulo AZ. Storage. Para habilitar a exclusão reversível, você precisa atualizar as propriedades do serviço do cliente de um arquivo. O seguinte exemplo habilita a exclusão reversível para todos os compartilhamentos de arquivo em uma conta de armazenamento:
 
 ```azurepowershell-interactive
 $rgName = "yourResourceGroupName"
@@ -70,7 +70,7 @@ Para restaurar um compartilhamento de arquivo com exclusão reversível:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para restaurar um compartilhamento de arquivo excluído de modo reversível, use o seguinte comando:
+Os cmdlets de exclusão reversível estão disponíveis na versão 2.1.1-preview do módulo AZ. Storage. Para restaurar um compartilhamento de arquivo excluído de modo reversível, use o seguinte comando:
 
 ```azurepowershell-interactive
 Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -DeletedShareVersion 01D5E2783BDCDA97
@@ -91,7 +91,7 @@ Se você quiser parar de usar a exclusão reversível ou excluir permanentemente
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Você pode usar o seguinte comando para desabilitar a exclusão reversível em sua conta de armazenamento:
+Os cmdlets de exclusão reversível estão disponíveis na versão 2.1.1-preview do módulo AZ. Storage. Você pode usar o seguinte comando para desabilitar a exclusão reversível em sua conta de armazenamento:
 
 ```azurepowershell-interactive
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false

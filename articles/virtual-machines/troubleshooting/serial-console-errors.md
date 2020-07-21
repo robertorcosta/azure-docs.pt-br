@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
-ms.openlocfilehash: 61ae0ef92fe522a2a038a6076a5e0c0a10ee47b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cad12a55332a6c7898f9709776c58d7dba8dd81a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80060702"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526428"
 ---
 # <a name="common-errors-within-the-azure-serial-console"></a>Erros comuns no console serial do Azure
 Há um conjunto de erros conhecidos no console serial do Azure. Esta é uma lista desses erros e etapas de mitigação para eles.
@@ -40,7 +40,7 @@ Não é possível determinar o grupo de recursos para a conta de armazenamento d
 O provisionamento para esta VM ainda não foi bem-sucedido. Verifique se a VM está totalmente implantada e repita a conexão do console serial. | Sua VM ou conjunto de dimensionamento de máquinas virtuais ainda pode estar Provisionando. Aguarde algum tempo e tente novamente.
 O soquete da Web está fechado ou não pôde ser aberto. | Talvez seja necessário adicionar acesso de firewall ao `*.console.azure.com` . Uma abordagem mais detalhada, mas mais longa, é permitir o acesso de firewall aos [intervalos de IP do datacenter Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são alterados com bastante frequência.
 Console serial não funciona com uma conta de armazenamento usando Azure Data Lake Storage Gen2 com namespaces hierárquicos. | Esse é um problema conhecido com namespaces hierárquicos. Para atenuar, verifique se a conta de armazenamento do diagnóstico de inicialização da VM não foi criada usando Azure Data Lake Storage Gen2. Essa opção só pode ser definida na criação da conta de armazenamento. Talvez seja necessário criar uma conta de armazenamento de diagnóstico de inicialização separada sem Azure Data Lake Storage Gen2 habilitado para atenuar esse problema.
-A conexão do console serial com a VM encontrou um erro: ' proibido ' (SubscriptionNotEnabled)-nome da assinatura indefinido; a ID \<subscription id> está no estado não habilitado indefinido | Esse problema pode ocorrer se a assinatura em que um usuário criou sua conta de armazenamento Cloud Shell foi desabilitada. Para mitigar, inicie Cloud Shell e [Execute as etapas necessárias](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#unmount-clouddrive-1) para reprovisionar uma conta de armazenamento de backup para Cloud Shell na assinatura atual.
+A conexão do console serial com a VM encontrou um erro: ' proibido ' (SubscriptionNotEnabled)-nome da assinatura indefinido; a ID \<subscription id> está no estado não habilitado indefinido | Esse problema pode ocorrer se a assinatura em que um usuário criou sua conta de armazenamento Cloud Shell foi desabilitada. Para mitigar, inicie Cloud Shell e [Execute as etapas necessárias](../../cloud-shell/persisting-shell-storage.md#unmount-clouddrive-1) para reprovisionar uma conta de armazenamento de backup para Cloud Shell na assinatura atual.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre o [console serial do Azure para VMs Linux](./serial-console-linux.md)

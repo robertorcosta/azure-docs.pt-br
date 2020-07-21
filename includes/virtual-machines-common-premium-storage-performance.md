@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e10d1d5aa5b45c0ea0e31df4d5d847f8541838b9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 60053f24aa4231f1100d0b00cb6cf70b851b1939
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86218339"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526020"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho de aplicativo
 
@@ -138,7 +138,7 @@ Para obter mais informações sobre tamanhos de VM e sobre o IOPS, taxa de trans
 Uma solicitação de E/S é uma unidade da operação de entrada/saída que seu aplicativo executará. Identificar a natureza das solicitações de E/S, aleatória ou sequencial, leitura ou gravação, grande ou pequena, ajudará você a determinar os requisitos de desempenho do aplicativo. É importante entender a natureza das solicitações de E/S para tomar das decisões certas ao projetar a infraestrutura do aplicativo. O IOs deve ser distribuído uniformemente para obter o melhor desempenho possível.
 
 O tamanho de E/S é um dos fatores mais importantes. O tamanho de E/S é o tamanho da solicitação de operação de entrada/saída gerada pelo aplicativo. O tamanho de E/S tem um impacto significativo no desempenho, especificamente na IOPS e na largura de banda que o aplicativo é capaz de atingir. A fórmula a seguir mostra a relação entre IOPS, tamanho de E/S e Largura de Banda/Taxa de Transferência.  
-    ![](media/premium-storage-performance/image1.png)
+    ![Um diagrama que mostra a equação I o P S vezes o tamanho de e/s é igual à taxa de transferência.](media/premium-storage-performance/image1.png)
 
 Alguns aplicativos permitem a você alterar o tamanho de E/S, enquanto outros aplicativos, não. Por exemplo, o SQL Server determina por si só o tamanho ideal de E/S e não fornece aos usuários nenhum botão para alterá-lo. Por outro lado, o Oracle oferece um parâmetro chamado [DB\_BLOCK\_SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) com o qual você pode configurar o tamanho da solicitação de E/S do banco de dados.
 
@@ -371,13 +371,13 @@ Por exemplo, no SQL Server, configurar o valor MAXDOP de uma consulta para "4" i
 
 *Profundidade ideal de fila*  
 Um valor muito alto de profundidade de fila também tem suas desvantagens. Se o valor de profundidade da fila for muito alto, o aplicativo tentará impulsionar uma IOPS muito alta. A menos que o aplicativo tenha discos persistentes com provisão suficiente de IOPS, isso pode afetar negativamente as latências do aplicativo. A fórmula a seguir mostra a relação entre a IOPS, a latência e a profundidade da fila.  
-    ![](media/premium-storage-performance/image6.png)
+    ![Um diagrama que mostra a equação I S vezes a latência é igual à profundidade da fila.](media/premium-storage-performance/image6.png)
 
 Você não deve configurar a profundidade da fila para algum valor alto, mas para um valor ideal, o que pode fornecer IOPS suficiente ao aplicativo sem afetar as latências. Por exemplo, se a latência do aplicativo precisa ser de 1 milissegundo, a profundidade da fila necessária para alcançar 5.000 IOPS será, QD = 5000 x 0,001 = 5.
 
 *Profundidade da fila para volume distribuído*  
 Para um volume distribuído, mantenha uma profundidade de fila alta o suficiente, de tal forma que cada disco tenha uma profundidade de fila de pico individualmente. Por exemplo, considere um aplicativo que envia uma profundidade de fila de dois e tenha quatro discos na distribuição. As duas solicitações de E/S vão para os dois discos e os dois discos restantes ficarão ociosos. Sendo assim, configure a profundidade da fila para que todos os discos possam estar ocupados. A fórmula abaixo mostra como determinar a profundidade da fila de volumes distribuídos.  
-    ![](media/premium-storage-performance/image7.png)
+    ![Um diagrama que mostra a equação Q D por tempo de disco número de colunas por volume é igual a Q D de volume distribuído.](media/premium-storage-performance/image7.png)
 
 ## <a name="throttling"></a>Limitação
 

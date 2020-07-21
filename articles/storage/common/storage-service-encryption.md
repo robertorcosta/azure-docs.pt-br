@@ -4,17 +4,17 @@ description: O armazenamento do Azure protege seus dados criptografando-os autom
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 06/17/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 8b4236e40e8dfbe6ce67bca007be0b6737a6e0c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6244b3ab72f7fa8ea375ff67a08e8d1d241df4a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945572"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527890"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Criptografia do Armazenamento do Azure para dados em repouso
 
@@ -32,6 +32,8 @@ Todos os blobs de blocos, BLOB de acréscimo ou BLOB de páginas que foram grava
 
 Para obter mais informações sobre os módulos de criptografia subjacentes à criptografia de armazenamento do Azure, consulte [API de criptografia: próxima geração](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
+Para obter informações sobre criptografia e gerenciamento de chaves para Azure Managed disks, consulte [criptografia do lado do servidor de Azure Managed disks](../../virtual-machines/windows/disk-encryption.md) para VMs do Windows ou [criptografia do lado do servidor de Azure Managed disks](../../virtual-machines/linux/disk-encryption.md) para VMs do Linux.
+
 ## <a name="about-encryption-key-management"></a>Sobre o gerenciamento de chaves de criptografia
 
 Os dados em uma nova conta de armazenamento são criptografados com chaves gerenciadas pela Microsoft. Você pode contar com chaves gerenciadas pela Microsoft para a criptografia de seus dados ou pode gerenciar a criptografia com suas próprias chaves. Se você optar por gerenciar a criptografia com suas próprias chaves, terá duas opções:
@@ -41,18 +43,56 @@ Os dados em uma nova conta de armazenamento são criptografados com chaves geren
 
 A tabela a seguir compara as principais opções de gerenciamento de criptografia do armazenamento do Azure.
 
-|                                        |    Chaves gerenciadas pela Microsoft                             |    Chaves gerenciadas pelo cliente                                                                                                                        |    Chaves fornecidas pelo cliente                                                          |
-|----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-|    Operações de criptografia/descriptografia    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
-|    Serviços de armazenamento do Azure com suporte    |    Tudo                                                |    Armazenamento de BLOBs, arquivos do Azure<sup>1, 2</sup>                                                                                                               |    Armazenamento de blob                                                                  |
-|    Armazenamento de chave                         |    Repositório de chaves da Microsoft    |    Cofre de Chave do Azure                                                                                                                              |    Repositório de chaves próprio do cliente                                                                 |
-|    Responsabilidade de rotação de chave         |    Microsoft                                          |    Cliente                                                                                                                                     |    Cliente                                                                      |
-|    Controle de chave                          |    Microsoft                                     |    Cliente                                                                                                                    |    Cliente                                                                 |
+| Parâmetro de gerenciamento de chaves | Chaves gerenciadas pela Microsoft | Chaves gerenciadas pelo cliente | Chaves fornecidas pelo cliente |
+|--|--|--|--|
+| Operações de criptografia/descriptografia | Azure | Azure | Azure |
+| Serviços de armazenamento do Azure com suporte | Tudo | Armazenamento de BLOBs, arquivos do Azure<sup>1, 2</sup> | Armazenamento de blob |
+| Armazenamento de chave | Repositório de chaves da Microsoft | Cofre de Chave do Azure | Repositório de chaves próprio do cliente |
+| Responsabilidade de rotação de chave | Microsoft | Cliente | Cliente |
+| Controle de chave | Microsoft | Cliente | Cliente |
 
 <sup>1</sup> para obter informações sobre como criar uma conta que ofereça suporte ao uso de chaves gerenciadas pelo cliente com o armazenamento de filas, consulte [criar uma conta que dê suporte a chaves gerenciadas pelo cliente para filas](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).<br />
 <sup>2</sup> para obter informações sobre como criar uma conta que ofereça suporte ao uso de chaves gerenciadas pelo cliente com o armazenamento de tabelas, consulte [criar uma conta que dê suporte a chaves gerenciadas pelo cliente para tabelas](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
 
-Para obter informações sobre criptografia e gerenciamento de chaves para Azure Managed disks, consulte [criptografia do lado do servidor de Azure Managed disks](../../virtual-machines/windows/disk-encryption.md) para VMs do Windows ou [criptografia do lado do servidor de Azure Managed disks](../../virtual-machines/linux/disk-encryption.md) para VMs do Linux.
+## <a name="encryption-scopes-for-blob-storage-preview"></a>Escopos de criptografia para armazenamento de BLOBs (visualização)
+
+Por padrão, uma conta de armazenamento é criptografada com uma chave que tem o escopo definido para a conta de armazenamento. Você pode optar por usar chaves gerenciadas pela Microsoft ou chaves gerenciadas pelo cliente armazenadas em Azure Key Vault para proteger e controlar o acesso à chave que criptografa os dados.
+
+Os escopos de criptografia permitem que você gerencie opcionalmente a criptografia no nível do contêiner ou de um blob individual. Você pode usar escopos de criptografia para criar limites seguros entre os dados que residem na mesma conta de armazenamento, mas que pertencem a clientes diferentes.
+
+Você pode criar um ou mais escopos de criptografia para uma conta de armazenamento usando o provedor de recursos de armazenamento do Azure. Ao criar um escopo de criptografia, você especifica se o escopo é protegido com uma chave gerenciada pela Microsoft ou com uma chave gerenciada pelo cliente que é armazenada em Azure Key Vault. Escopos de criptografia diferentes na mesma conta de armazenamento podem usar chaves gerenciadas pela Microsoft ou gerenciadas pelo cliente.
+
+Depois de criar um escopo de criptografia, você pode especificar esse escopo de criptografia em uma solicitação para criar um contêiner ou um blob. Para obter mais informações sobre como criar um escopo de criptografia, consulte [criar e gerenciar escopos de criptografia (versão prévia)](../blobs/encryption-scope-manage.md).
+
+> [!NOTE]
+> Não há suporte para escopos de criptografia com contas de armazenamento com redundância geográfica com acesso de leitura (RA-GRS) durante a visualização.
+
+> [!IMPORTANT]
+> A visualização dos escopos de criptografia é destinada somente ao uso de não produção. SLAs (Contratos de Nível de Serviço) não estão disponíveis atualmente.
+>
+> Para evitar custos inesperados, certifique-se de desabilitar os escopos de criptografia que não são necessários no momento.
+
+### <a name="create-a-container-or-blob-with-an-encryption-scope"></a>Criar um contêiner ou BLOB com um escopo de criptografia
+
+Os BLOBs criados sob um escopo de criptografia são criptografados com a chave especificada para esse escopo. Você pode especificar um escopo de criptografia para um blob individual ao criar o BLOB ou pode especificar um escopo de criptografia padrão ao criar um contêiner. Quando um escopo de criptografia padrão é especificado no nível de um contêiner, todos os BLOBs nesse contêiner são criptografados com a chave associada ao escopo padrão.
+
+Quando você cria um blob em um contêiner que tem um escopo de criptografia padrão, você pode especificar um escopo de criptografia que substitui o escopo de criptografia padrão se o contêiner estiver configurado para permitir substituições do escopo de criptografia padrão. Para evitar substituições do escopo de criptografia padrão, configure o contêiner para negar substituições para um blob individual.
+
+As operações de leitura em um blob que pertence a um escopo de criptografia ocorrem de forma transparente, desde que o escopo de criptografia não esteja desabilitado.
+
+### <a name="disable-an-encryption-scope"></a>Desabilitar um escopo de criptografia
+
+Quando você desabilita um escopo de criptografia, todas as operações de leitura ou gravação subsequentes feitas com o escopo de criptografia falharão com o código de erro HTTP 403 (proibido). Se você reabilitar o escopo de criptografia, as operações de leitura e gravação continuarão normalmente novamente.
+
+Quando um escopo de criptografia estiver desabilitado, você não será mais cobrado por ele. Desabilite os escopos de criptografia que não são necessários para evitar encargos desnecessários.
+
+Se o escopo de criptografia estiver protegido com chaves gerenciadas pelo cliente para Azure Key Vault, você também poderá excluir a chave associada no cofre de chaves para desabilitar o escopo de criptografia. Tenha em mente que as chaves gerenciadas pelo cliente no Azure Key Vault são protegidas pela exclusão reversível e pela proteção de limpeza, e uma chave excluída está sujeita ao comportamento definido por essas propriedades. Para obter mais informações, consulte um dos seguintes tópicos na documentação do Azure Key Vault:
+
+- [Como usar a exclusão reversível com o PowerShell](../../key-vault/general/soft-delete-powershell.md)
+- [Como usar a exclusão temporária com a CLI](../../key-vault/general/soft-delete-cli.md)
+
+> [!NOTE]
+> Não é possível excluir um escopo de criptografia.
 
 ## <a name="next-steps"></a>Próximas etapas
 

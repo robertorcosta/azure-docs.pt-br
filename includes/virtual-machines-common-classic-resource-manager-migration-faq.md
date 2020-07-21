@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: fa97935c10b2a5df70c9babf031a889a9c1e9f34
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d05386f1dfbab28d5fe42d02b8e9be0f257afafd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837862"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527194"
 ---
 ## <a name="what-is-the-time-required-for-migration"></a>Qual é o tempo necessário para a migração?
 
@@ -29,7 +29,7 @@ Os clientes que tinham VMs de IaaS (clássicas) ativas ou paradas, mas alocadas,
 
 ## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>Por que estou recebendo um erro informando "NewClassicVMCreationNotAllowedForSubscription"?
 
-Como parte do processo de desativação, a VM de IaaS (clássica) não está mais disponível para novos clientes. Identificamos você como novo cliente e, portanto, sua operação não foi autorizada. É altamente recomendável usar [Máquinas Virtuais do Azure usando o ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Se você não puder usar VMs do Azure usando o ARM, entre em contato com o suporte para entrar na lista de permissões de assinatura.
+Como parte do processo de desativação, a VM de IaaS (clássica) não está mais disponível para novos clientes. Identificamos você como novo cliente e, portanto, sua operação não foi autorizada. É altamente recomendável usar [Máquinas Virtuais do Azure usando o ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Se você não puder usar VMs do Azure usando o ARM, entre em contato com o suporte para adicionar sua assinatura à lista de permissões.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Este plano de migração afeta qualquer um de meus serviços existentes ou aplicativos executados em máquinas virtuais do Azure? 
 
