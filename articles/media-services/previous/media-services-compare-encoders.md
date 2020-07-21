@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 4767f7bb5ba02c838c0e21721e55a6564a14acd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca17ffdc2a54b25bbfd855834a366ed381a54678
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69016649"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530381"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Comparação de codificadores de mídia sob demanda do Azure  
 
@@ -34,8 +34,8 @@ A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard
 |---|---|---|
 |Aplicar a lógica condicional durante a codificação<br/>(por exemplo, se a entrada for HD, codificar como áudio 5.1)|Não|Sim|
 |Legendagem oculta|Não|[Sim](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
-|[Dolby® Professional Loudness Correction](https://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> com Dialogue Intelligence™|Não|Sim|
-|Desentrelaçamento, telecine inverso|Basic|Qualidade de difusão|
+|[Correção de intensidade do Dolby &reg; Professional](https://professional.dolby.com/product/broadcast/vm600/)<br/> com inteligência de diálogo&trade;|Não|Sim|
+|Desentrelaçamento, telecine inverso|Básico|Qualidade de difusão|
 |Detectar e remover bordas pretas <br/>(formatos pillarbox e letterbox)|Não|Sim|
 |Geração de miniaturas|[Sim](media-services-dotnet-generate-thumbnail-with-mes.md)|[Sim](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
 |Distorção/filtragem e costura de vídeos|[Sim](media-services-advanced-encoding-with-mes.md#trim_video)|Sim|
@@ -52,7 +52,7 @@ A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard
 ## <a name="input-containerfile-formats"></a>Formatos de contêiner/arquivo de entrada
 | Formatos de arquivo/contêiner de entrada | Media Encoder Standard | Fluxo de trabalho do Media Encoder Premium |
 | --- | --- | --- |
-| Adobe® Flash® F4V |Sim |Sim |
+| Adobe &reg; flash &reg; F4V |Sim |Sim |
 | MXF/SMPTE 377M |Sim |Sim |
 | GXF |Sim |Sim |
 | Fluxos de transporte de MPEG-2 |Sim |Sim |
@@ -73,7 +73,7 @@ A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard
 | DNxHD ávido (em MXF) |Sim |Sim |
 | DVCPro/DVCProHD (em MXF) |Sim |Sim |
 | JPEG2000 |Sim |Sim |
-| MPEG-2 (até perfil e de alto nível 422; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs ® e D10) |Até perfil 422 |Sim |
+| MPEG-2 (até 422 de perfil e alto nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs &reg; e D10) |Até perfil 422 |Sim |
 | MPEG-1 |Sim |Sim |
 | Windows Media Video/VC-1 |Sim |Sim |
 | Canopus HQ/HQX |Não |Não |
@@ -91,9 +91,9 @@ A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard
 | Codecs de áudio de entrada | Media Encoder Standard | Fluxo de trabalho do Media Encoder Premium |
 | --- | --- | --- |
 | AES (SMPTE 331M e 302M, AES3-2003) |Não |Sim |
-| Dolby® E |Não |Sim |
-| Dolby® Digital (AC3) |Não |Sim |
-| Dolby® Digital Plus (E-AC3) |Não |Sim |
+| Dolby &reg; E |Não |Sim |
+| Dolby &reg; digital (AC3) |Não |Sim |
+| Dolby &reg; Digital Plus (E-AC3) |Não |Sim |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |Sim |
 | MPEG Layer 2 |Sim |Sim |
 | MP3 (MPEG-1 Audio Layer 3) |Sim |Sim |
@@ -106,7 +106,7 @@ A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard
 ## <a name="output-containerfile-formats"></a>Formatos de contêiner/arquivo de saída
 | Formatos de contêiner/arquivo de saída | Media Encoder Standard | Fluxo de trabalho do Media Encoder Premium |
 | --- | --- | --- |
-| Adobe® Flash® F4V |Não |Sim |
+| Adobe &reg; flash &reg; F4V |Não |Sim |
 | MXF (OP1a, XDCAM e AS02) |Não |Sim |
 | DPP (incluindo AS11) |Não |Sim |
 | GXF |Não |Sim |
@@ -122,7 +122,7 @@ A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard
 | AVC (H. 264; 8 bits; até perfil, nível elevado 5.2; 4K Ultra HD; Intra AVC) |Somente 8 bits 4:2:0 |Sim |
 | HEVC (H.265; 8 bits e 10 bits;)  |Não |Sim |
 | DNxHD ávido (em MXF) |Não |Sim |
-| MPEG-2 (até perfil e de alto nível 422; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs ® e D10) |Não |Sim |
+| MPEG-2 (até 422 de perfil e alto nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs &reg; e D10) |Não |Sim |
 | MPEG-1 |Não |Sim |
 | Windows Media Video/VC-1 |Não |Sim |
 | Criação de miniaturas JPEG |Sim |Sim |
@@ -133,15 +133,15 @@ A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard
 | Codecs de áudio de saída | Media Encoder Standard | Fluxo de trabalho do Media Encoder Premium |
 | --- | --- | --- |
 | AES (SMPTE 331M e 302M, AES3-2003) |Não |Sim |
-| Dolby® Digital (AC3) |Não |Sim |
-| Dolby ® Digital Plus (E-AC3) até 7.1 |Não |Sim |
+| Dolby &reg; digital (AC3) |Não |Sim |
+| Dolby &reg; Digital Plus (E-AC3) até 7,1 |Não |Sim |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |Sim |
 | MPEG Layer 2 |Não |Sim |
 | MP3 (MPEG-1 Audio Layer 3) |Não |Sim |
 | Áudio do Windows Media |Não |Sim |
 
 >[!NOTE]
->Se você codificar para Dolby® Digital (AC3), a saída só poderá ser gravada em um arquivo ISO MP4.
+>Se você codificar para Dolby &reg; digital (AC3), a saída só poderá ser gravada em um arquivo. mp4 ISO.
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

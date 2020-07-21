@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.custom: seoapril2019, tracking-python
-ms.openlocfilehash: 57e1ecb080d816898b862951846b15a4b5709e38
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: ee116d668b9c351ecf5b130a39e418a3da8fc053
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146558"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536378"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -441,9 +441,9 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 Neste exemplo, a configuração especifica as seguintes configurações:
 
-* Se o modelo requer Python.
-* O [script de entrada](#script), que é usado para manipular solicitações da Web enviadas ao serviço implantado.
-* O arquivo Conda que descreve os pacotes do python necessários para a inferência.
+* Se o modelo requer Python
+* O [script de entrada](#script), que é usado para manipular solicitações da Web enviadas ao serviço implantado
+* O arquivo Conda que descreve os pacotes do python necessários para a inferência
 
 Para obter informações sobre como usar uma imagem personalizada do Docker com uma configuração de inferência, consulte [como implantar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md).
 
@@ -537,7 +537,7 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 
 ## <a name="deploy-to-target"></a>Implantar no destino
 
-A implantação usa a configuração de implantação de configuração de inferência para implantar os modelos. O processo de implantação é semelhante, independentemente do destino de computação. A implantação em AKS é um pouco diferente, pois você deve fornecer uma referência ao cluster AKS.
+A implantação usa a configuração de implantação de configuração de inferência para implantar os modelos. O processo de implantação é semelhante, independentemente do destino de computação. A implantação no AKS (serviço kubernetes do Azure) é um pouco diferente porque você deve fornecer uma referência ao cluster AKS.
 
 ### <a name="choose-a-compute-target"></a>Escolher um destino de computação
 
@@ -613,7 +613,7 @@ A tabela a seguir descreve os diferentes Estados de serviço:
 | Transição | O serviço está em processo de implantação. | Não |
 | Não Íntegro | O serviço foi implantado, mas está inacessível no momento.  | Não |
 | Não agendável | O serviço não pode ser implantado no momento devido à falta de recursos. | Não |
-| Com falha | O serviço falhou ao ser implantado devido a um erro ou falha. | Sim |
+| Failed (Falha) | O serviço falhou ao ser implantado devido a um erro ou falha. | Sim |
 | Healthy | O serviço está íntegro e o ponto de extremidade está disponível. | Sim |
 
 ### <a name="compute-instance-web-service-devtest"></a><a id="notebookvm"></a>Serviço Web de instância de computação (desenvolvimento/teste)
@@ -629,7 +629,7 @@ Consulte [implantar em instâncias de contêiner do Azure](how-to-deploy-azure-c
 Consulte [implantar no serviço kubernetes do Azure](how-to-deploy-azure-kubernetes-service.md).
 
 ### <a name="ab-testing-controlled-rollout"></a>Teste A/B (distribuição controlada)
-Consulte [distribuição controlada de modelos de ml](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) para obter mais informações.
+Para obter mais informações, consulte [distribuição controlada de modelos de ml](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) para obter mais informações.
 
 ## <a name="consume-web-services"></a>Consumir serviços Web
 
@@ -914,6 +914,12 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
+Para pontuar um modelo, consulte [consumir um modelo de Azure Machine Learning implantado como um serviço Web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service). Muitos projetos de ONNX usam arquivos protobuf para armazenar compactar dados de treinamento e validação, o que pode dificultar o conhecimento do formato de dados esperado pelo serviço. Como desenvolvedor de modelo, você deve documentar seus desenvolvedores:
+
+* Formato de entrada (JSON ou binário)
+* Tipo e forma de dados de entrada (por exemplo, uma matriz de floats de Shape [100,100, 3])
+* Informações de domínio (por exemplo, para uma imagem, o espaço de cores, a ordem dos componentes e se os valores são normalizados)
+
 Se você estiver usando o Pytorch, a [exportação de modelos de Pytorch para ONNX](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) terá os detalhes de conversão e limitações. 
 
 ### <a name="scikit-learn-models"></a>Modelos do Scikit-learn
@@ -939,7 +945,7 @@ service_name = 'my-sklearn-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-Observação: os modelos que dão suporte a predict_proba usarão esse método por padrão. Para substituir isso para usar Predict, você pode modificar o corpo da POSTAgem como abaixo:
+Observação: modelos que dão suporte a predict_proba usarão esse método por padrão. Para substituir isso para usar Predict, você pode modificar o corpo da POSTAgem como abaixo:
 ```python
 import json
 
@@ -1104,7 +1110,7 @@ Para parar o contêiner, use o seguinte comando de um shell ou linha de comando 
 docker kill mycontainer
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para excluir um serviço Web implantado, use `service.delete()`.
 Para excluir um modelo registrado, use `model.delete()`.

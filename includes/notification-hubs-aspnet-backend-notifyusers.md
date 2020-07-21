@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 6911f769b95967aac933dd9762263e7506aef4b5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3db9811322d27ab287fa568eeeffcb5f4d57bdf7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77192540"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530157"
 ---
 ## <a name="create-the-webapi-project"></a>Criar o projeto WebAPI
 
@@ -30,7 +30,7 @@ Crie um novo back-end WebAPI ASP.NET executando estas ações:
 >
 >Para verificar, inicie o Visual Studio. No menu **Ferramentas**, selecione **Extensões e Atualizações**. Pesquise por **Gerenciador de Pacotes NuGet** na sua versão do Visual Studio e verifique se a versão mais recente está instalada. Se a versão não for a versão mais recente, desinstale-a e reinstale o Gerenciador de Pacotes NuGet.
 
-![][B4]
+![Captura de tela da caixa de diálogo extensões e atualizações com o pacote NuGet Manage para Visual estúdios Package realçado.][B4]
 
 > [!NOTE]
 > Verifique se você instalou o [SDK do Azure](https://azure.microsoft.com/downloads/) do Visual Studio para implantação de site.
@@ -40,7 +40,7 @@ Crie um novo back-end WebAPI ASP.NET executando estas ações:
 2. Selecione **Gerenciador de Servidores** e entre na sua conta do Azure. Para criar os recursos de site na sua conta, você precisará estar conectado.
 
 3. No Visual Studio, clique com o botão direito na solução do Visual Studio, aponte para **Adicionar** e clique em **Novo Projeto**.
-4. Expanda **Visual C#** , selecione **Web** e clique em **Aplicativo Web do ASP.NET**.
+4. Expanda **Visual C#**, selecione **Web** e clique em **Aplicativo Web do ASP.NET**.
 
 5. Na caixa **Nome** , digite **AppBackend**e selecione **OK**.
 
@@ -160,7 +160,7 @@ Nesta seção, você adiciona um novo controlador ao back-end WebAPI para manipu
 
     Essa ação adiciona uma referência ao SDK dos Hubs de Notificação do Azure usando o [pacote NuGet Microsoft.Azure.Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-4. Crie um novo arquivo de classe que representa a conexão com o hub de notificação usado para enviar notificações. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Modelos**, selecione **Adicionar** e {7}Classe{8}. Nomeie a nova classe como **Notifications.cs** e selecione **Adicionar** para gerar a classe.
+4. Crie um novo arquivo de classe que representa a conexão com o hub de notificação usado para enviar notificações. No Gerenciador de Soluções, clique com o botão direito do mouse na pasta Modelos, selecione Adicionar e Classe. Nomeie a nova classe como **Notifications.cs** e selecione **Adicionar** para gerar a classe.
 
     ![A janela Adicionar Novo Item][B6]
 
@@ -329,7 +329,7 @@ Nesta seção, você adiciona um novo controlador que expõe uma maneira de os d
     using System.Threading.Tasks;
     using System.Web;
     ```
-3. Adicione o seguinte método à classe **NotificationsController**:
+3. Adicione o seguinte método à classe **NotificationsController** :
 
     Esse código envia um tipo de notificação com base no parâmetro `pns` do PNS (Platform Notification Service). O valor de `to_tag` é usado para definir a marca *username* na mensagem. Essa marca deve corresponder a uma marca de nome de usuário de um registro de hub de notificação ativo. A mensagem de notificação é recuperada do corpo da solicitação POST e formatada para o PNS de destino.
 
@@ -386,11 +386,11 @@ Em seguida, implante o aplicativo em um site do Azure para poder ser acessado po
 
 1. Clique com o botão direito do mouse no projeto **AppBackend** e selecione **Publicar**.
 
-2. Escolha **Serviço de Aplicativo do Microsoft Azure** como destino de publicação e selecione **Publicar. A janela Criar Serviço de Aplicativo é aberta. Aqui, você pode criar todos os recursos do Azure necessários para executar o aplicativo Web ASP.NET no Azure.
+2. Selecione **Microsoft Azure serviço de aplicativo** como o destino de publicação e, em seguida, selecione * * publicar. A janela Criar Serviço de Aplicativo é aberta. Aqui, você pode criar todos os recursos do Azure necessários para executar o aplicativo Web ASP.NET no Azure.
 
     ![O bloco Serviço de Aplicativo do Azure][B15]
 
-3. Na janela **Criar Serviço de Aplicativo**, selecione sua conta do Azure. Selecione **Alterar Tipo** > **Aplicativo Web**. Mantenha o **Nome do Aplicativo Web** padrão e selecione a **Assinatura**, o **Grupo de Recursos** e o **Plano do Serviço de Aplicativo**.
+3. Na janela **Criar Serviço de Aplicativo**, selecione sua conta do Azure. Selecione **alterar tipo**  >  **aplicativo Web**. Mantenha o **Nome do Aplicativo Web** padrão e selecione a **Assinatura**, o **Grupo de Recursos** e o **Plano do Serviço de Aplicativo**.
 
 4. Selecione **Criar**.
 

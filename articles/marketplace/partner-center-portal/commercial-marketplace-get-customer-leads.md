@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 03/30/2020
-ms.openlocfilehash: ca6e9a66d6c4daa4706813f945850b51505adeca
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 9ee433f226b37c8ffd6ad466cca7cbd844d53524
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133451"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535970"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Vendas potenciais do cliente da sua oferta do marketplace comercial
 
@@ -106,7 +106,7 @@ A resposta depende do tipo de oferta que você está publicando. SaaS (software 
 
 ### <a name="how-can-i-find-the-test-lead"></a>Como encontrar a venda potencial de teste?
 
-Pesquise `"MSFT_TEST"` em seu destino de venda potencial. Aqui está um exemplo de venda potencial de teste da Microsoft:
+Pesquise `"MSFT_TEST"` em seu destino de venda potencial. Veja abaixo um exemplo de líder de teste da Microsoft. Observe que o formato do Lead de teste varia dependendo do destino do cliente potencial.
 
 ```
 {

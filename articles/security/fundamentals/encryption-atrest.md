@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1e08e758fbba911d3391794f5bab31aaf6a5fc73
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd54c8f7e8a3784672f5364efc6f6b51186f911d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81454672"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529277"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados em repouso no Azure
 
@@ -258,24 +258,23 @@ A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte p
 
 #### <a name="encryption-model-and-key-management-table"></a>Modelo de criptografia e tabela de gerenciamento de chaves
 
-|                                  |                    | **Modelo de criptografia e gerenciamento de chaves** |                    |
+| Produto, recurso ou serviço | Lado do servidor usando chave de serviço gerenciado   | Lado do servidor usando chave gerenciada pelo cliente | Lado do cliente usando chave gerenciada pelo cliente  |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Lado do servidor usando chave de serviço gerenciado**     | **Lado do servidor usando chave gerenciada pelo cliente**             | **Lado do cliente usando chave gerenciada pelo cliente**      |
 | **IA e Machine Learning**      |                    |                    |                    |
-| Pesquisa Cognitiva do Azure           | Sim                | Sim                | -                  |
+| Azure Cognitive Search           | Sim                | Sim                | -                  |
 | Serviços Cognitivos do Azure         | Sim                | Sim                | -                  |
 | Azure Machine Learning           | Sim                | Sim                | -                  |
 | Azure Machine Learning Studio    | Sim                | Versão prévia, RSA de 2048 bits | -               |
 | Content Moderator                | Sim                | Sim                | -                  |
-| Detecção Facial                             | Sim                | Sim                | -                  |
+| Face                             | Sim                | Sim                | -                  |
 | Reconhecimento Vocal           | Sim                | Sim                | -                  |
 | Personalizador                     | Sim                | Sim                | -                  |
 | QnA Maker                        | Sim                | Sim                | -                  |
 | Serviços de Fala                  | Sim                | Sim                | -                  |
 | Tradução de Texto                  | Sim                | Sim                | -                  |
 | Power BI                         | Sim                | Versão prévia, RSA de 2048 bits | -                  |
-| **Analytics**                    |                    |                    |                    |
-| Stream Analytics do Azure           | Sim                | N/D\*            | -                  |
+| **Análise**                    |                    |                    |                    |
+| Azure Stream Analytics           | Sim                | N/D\*            | -                  |
 | Hubs de Eventos                       | Sim                | Sim, todos os comprimentos RSA. | -                  |
 | Funções                        | Sim                | Sim, todos os comprimentos RSA. | -                  |
 | Azure Analysis Services          | Sim                | -                  | -                  |

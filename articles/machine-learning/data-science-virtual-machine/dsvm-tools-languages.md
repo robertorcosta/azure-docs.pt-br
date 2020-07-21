@@ -11,11 +11,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: c81f2a23474ff98c202cdbe5b455dd3d15535c96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d3ab058d76186f73fa1a985d7e8af38dbd7a6f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557464"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536174"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Linguagens com suporte na Máquina Virtual de Ciência de Dados 
 
@@ -23,7 +24,7 @@ O Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens predef
 
 ## <a name="python-windows-server-2016-edition"></a>Python (Windows Server 2016 Edition)
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | Versões de idioma com suporte | Python 2,7 e 3,7 |
 | Edições DSVM com suporte      | Windows Server 2016     |
@@ -67,13 +68,14 @@ O Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens predef
 
 ## <a name="python-linux-edition"></a>Python (edição Linux)
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | Versões de idioma com suporte | Python 2,7 e 3,5 |
 | Edições DSVM com suporte      | Linux   |
 | Como é configurado/instalado no DSVM?  | Dois `conda` ambientes globais são criados: <br /> * `root`o ambiente localizado em `/anaconda/` é Python 2,7. <br/> * `py35`o ambiente localizado em `/anaconda/envs/py35` é Python 3,5.       |
 | Links para exemplos      | Os notebooks Jupyter de exemplo para Python estão incluídos.     |
 | Ferramentas relacionadas no DSVM      | PySpark, R, Julia      |
+
 ### <a name="how-to-use-and-run-it"></a>Como usá-lo e executá-lo    
 
 * Executar em um terminal:
@@ -105,13 +107,14 @@ O Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens predef
 
 ## <a name="r"></a>R
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | Versões de idioma com suporte | Microsoft R Open 3. x (100% compatível com CRAN-R)<br /> Microsoft R Server 9. x Developer Edition (uma plataforma de R pronta para empresas escalonável)|
 | Edições DSVM com suporte      | Linux, Windows     |
 | Como é configurado/instalado no DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: `/usr/lib64/microsoft-r/3.3/lib64/R`    |
 | Links para exemplos      | Os notebooks Jupyter de exemplo para R estão incluídos.     |
 | Ferramentas relacionadas no DSVM      | SparkR, Python, Julia      |
+
 ### <a name="how-to-use-and-run-it"></a>Como usá-lo e executá-lo    
 
 **Windows**:
@@ -153,13 +156,14 @@ O Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens predef
 
 ## <a name="julia"></a>Julia
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | Versões de idioma com suporte | 0,6 |
 | Edições DSVM com suporte      | Linux, Windows     |
 | Como é configurado/instalado no DSVM?  | Windows: instalado em `C:\JuliaPro-VERSION`<br /> Linux: instalado em `/opt/JuliaPro-VERSION`    |
 | Links para exemplos      | Os notebooks Jupyter de exemplo para Julia estão incluídos.     |
 | Ferramentas relacionadas no DSVM      | Python, R      |
+
 ### <a name="how-to-use-and-run-it"></a>Como usá-lo e executá-lo    
 
 **Windows**:

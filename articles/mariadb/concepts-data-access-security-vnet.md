@@ -5,12 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 777febb86e6a1fa719b6a7d74c32defebcf3b58c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/17/2020
+ms.openlocfilehash: 4cfbc757b33c10ac559e7f8d6b62b9ccdaed404e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85099815"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536089"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados do Azure para MariaDB
 
@@ -22,6 +23,8 @@ Para criar uma regra da rede virtual, deve haver primeiro uma VNet ([rede virtua
 
 > [!NOTE]
 > Esse recurso está disponível em todas as regiões do Azure nas quais o Banco de Dados do Azure para MariaDB é implantado para servidores de Uso Geral e Otimizado por Memória.
+
+Você também pode considerar o uso de [link privado](concepts-data-access-security-private-link.md) para conexões. O link privado fornece um endereço IP privado em sua VNet para o banco de dados do Azure para o servidor MariaDB.
 
 <a name="anch-terminology-and-description-82f"></a>
 
@@ -49,7 +52,7 @@ Uma regra da rede virtual instrui o servidor do Banco de Dados do Azure para Mar
 
 Até que você execute uma ação, as VMs em suas sub-redes não podem se comunicar com seu servidor do Banco de Dados do Azure para MariaDB. Uma ação que estabelece a comunicação é a criação de uma regra da rede virtual. A lógica para escolher a abordagem de regra da VNet requer uma discussão de comparação e contraste que envolve as opções de segurança concorrentes oferecidas pelo firewall.
 
-### <a name="a-allow-access-to-azure-services"></a>a. Permitir o acesso aos serviços do Azure
+### <a name="a-allow-access-to-azure-services"></a>a. Permitir acesso aos serviços do Azure
 
 O painel de segurança de conexão tem um botão de **ON/OFF** rotulado como **Permitir acesso aos serviços do Azure**. A configuração **ON** permite as comunicações de todos os endereços IP do Azure e todas as sub-redes do Azure. Esses IPs ou sub-redes do Azure não podem pertencer a você. Essa configuração **ON** é provavelmente mais aberta do que você deseja que seu Banco de Dados do Azure para MariaDB seja. O recurso de regra da rede virtual oferece um maior controle granular.
 
@@ -61,11 +64,6 @@ Você pode recuperar a opção de IP obtendo um endereço IP *estático* para a 
 
 No entanto, a abordagem de IP estático pode se tornar difícil de gerenciar e é cara quando realizada em escala. Regras da rede virtual são mais fáceis de estabelecer e gerenciar.
 
-### <a name="c-cannot-yet-have-azure-database-for-mariadb-on-a-subnet-without-defining-a-service-endpoint"></a>C. Ainda não é possível ter o Banco de Dados do Azure para MariaDB em uma sub-rede sem definir um ponto de extremidade de serviço
-
-Se seu servidor **Microsoft.Sql** fosse um nó em uma sub-rede em sua rede virtual, todos os nós dentro da rede virtual poderiam se comunicar com seu servidor do Banco de Dados do Azure para MariaDB. Nesse caso, suas VMs podem se comunicar com o Banco de Dados do Azure para MariaDB sem a necessidade de nenhuma regra da rede virtual ou regras de IP.
-
-No entanto, a partir de agosto de 2018, o serviço do Banco de Dados do Azure para MariaDB ainda não está entre os serviços que podem ser atribuídos diretamente a uma sub-rede.
 
 <a name="anch-details-about-vnet-rules-38q"></a>
 
@@ -118,6 +116,8 @@ Para o Banco de Dados do Azure para MariaDB, o recurso de regras da rede virtual
 
 - O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizados para Memória.
 
+- Se **o Microsoft. SQL** estiver habilitado em uma sub-rede, isso indica que você só deseja usar regras de VNet para se conectar. [Regras de firewall não VNet](concepts-firewall-rules.md) de recursos nessa sub-rede não funcionarão.
+
 - No firewall, os intervalos de endereços IP se aplicam aos seguintes itens de rede, mas as regras da rede virtual não:
     - [Rede privada virtual (VPN) de site a site (S2S)][vpn-gateway-indexmd-608y]
     - Local via [ExpressRoute][expressroute-indexmd-744v]
@@ -128,9 +128,9 @@ Se sua rede estiver conectada à rede do Azure através do [ExpressRoute][expres
 
 Para permitir a comunicação do seu circuito com o Banco de Dados do Azure para MariaDB, é necessário criar regras de rede IP para os endereços IP públicos dos seus circuitos. Para localizar os endereços IP públicos do seu circuito do ExpressRoute, abra um tique de suporte com o ExpressRoute por meio do Portal do Azure.
 
-## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionando uma regra de Firewall da VNET ao servidor sem a ativação de pontos de extremidade de serviço da VNET
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionando uma regra de firewall de VNET ao seu servidor sem ativar os pontos de extremidade de serviço de VNET
 
-Simplesmente definir uma regra de firewall não ajuda a proteger o servidor para a VNet. Você também deve **ativar** os pontos de extremidade de serviço da VNet para que a segurança entre em vigor. Quando você **ativa** endpoints de serviço, sua sub-rede VNet passa por um período de inatividade até concluir a transição de **Desativado** para **Ativado**. Isso é especialmente verdadeiro no contexto de VNETs grandes. Use o sinalizador **IgnoreMissingServiceEndpoint** para reduzir ou eliminar o tempo de inatividade durante a transição.
+Simplesmente definir uma regra de firewall de VNet não ajuda a proteger o servidor para a VNet. Você também deve **ativar** os pontos de extremidade de serviço da VNet para que a segurança entre em vigor. Quando você **ativa** endpoints de serviço, sua sub-rede VNet passa por um período de inatividade até concluir a transição de **Desativado** para **Ativado**. Isso é especialmente verdadeiro no contexto de VNETs grandes. Use o sinalizador **IgnoreMissingServiceEndpoint** para reduzir ou eliminar o tempo de inatividade durante a transição.
 
 Você pode definir o sinalizador **IgnoreMissingServiceEndpoint** usando a CLI do Azure ou o portal.
 

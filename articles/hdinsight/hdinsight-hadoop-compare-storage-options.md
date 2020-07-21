@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: ed93ba937a843618f36bac6e88b15ff77355ca75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce1c6bdfb38e37c18a18cf970d2dd08683967da3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610693"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536741"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparar opções de armazenamento para uso com clusters do Azure HDInsight
 
@@ -63,6 +63,12 @@ Você pode criar clusters usando combinações de serviços para armazenamento p
 > [!NOTE]
 > Não há suporte para o armazenamento primário Data Lake Storage Gen2 para clusters Spark 2,1 ou 2,2.
 
+## <a name="data-replication"></a>Replicação de dados
+
+O Azure HDInsight não armazena dados do cliente. O principal meio de armazenamento para um cluster são suas contas de armazenamento associadas. Você pode anexar o cluster a uma conta de armazenamento existente ou criar uma nova conta de armazenamento durante o processo de criação do cluster. Se uma nova conta for criada, ela será criada como uma conta de LRS (armazenamento com redundância local) e atenderá aos requisitos de residência de dados em região, incluindo aqueles especificados na [central de confiabilidade](https://azuredatacentermap.azurewebsites.net).
+
+Você pode validar se o HDInsight está configurado corretamente para armazenar dados em uma única região, garantindo que a conta de armazenamento associada ao HDInsight seja LRS ou outra opção de armazenamento mencionada na [central de confiabilidade](https://azuredatacentermap.azurewebsites.net).
+ 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral do Armazenamento do Azure](./overview-azure-storage.md)

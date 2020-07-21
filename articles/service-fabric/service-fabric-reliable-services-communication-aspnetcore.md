@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: c8866714ca1736b3ba785b560cb5a7aea451fdf1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 73ba08406e224d6c2a0d5dcaba7e7896dcb4d740
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253330"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529294"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core no Service Fabric do Azure Reliable Services
 
@@ -470,8 +470,8 @@ Kestrel é o servidor Web sugerido para serviços de front-end que expõem ponto
  
 Quando exposto à Internet, um serviço sem estado deve usar um ponto de extremidade bem conhecido e estável acessível por meio de um balanceador de carga. Você fornecerá essa URL para os usuários do seu aplicativo. Recomendamos a seguinte configuração:
 
-|  |  | **Observações** |
-| --- | --- | --- |
+| Tipo | Recomendação | Observações |
+| ---- | -------------- | ----- |
 | Servidor Web | Kestrel | Kestrel é o servidor Web preferencial, pois tem suporte no Windows e no Linux. |
 | Configuração de portas | static | Uma porta estática conhecida deve ser configurada na configuração do `Endpoints` de ServiceManifest.XML, como 80 para HTTP ou 443 para HTTPS. |
 | ServiceFabricIntegrationOptions | Nenhum | Use a `ServiceFabricIntegrationOptions.None` opção ao configurar o middleware de integração Service Fabric, para que o serviço não tente validar solicitações de entrada para um identificador exclusivo. Os usuários externos do seu aplicativo não saberão as informações exclusivas de identificação que o middleware usa. |
@@ -495,8 +495,8 @@ Se vários serviços expostos externamente compartilharem o mesmo conjunto de n�
 ### <a name="internal-only-stateless-aspnet-core-service"></a>Serviço do Núcleo do ASP.NET sem estado somente para uso interno
 Os serviços sem monitoração de estado que são chamados apenas de dentro do cluster devem usar URLs exclusivas e portas atribuídas dinamicamente para garantir a cooperação entre vários serviços. Recomendamos a seguinte configuração:
 
-|  |  | **Observações** |
-| --- | --- | --- |
+| Tipo | Recomendação | Observações |
+| ---- | -------------- | ----- |
 | Servidor Web | Kestrel | Embora você possa usar HTTP.sys para serviços sem estado internos, o Kestrel é o melhor servidor para permitir que várias instâncias de serviço compartilhem um host.  |
 | Configuração de portas | atribuídas dinamicamente | Várias réplicas de um serviço com estado podem compartilhar um processo de host ou sistema operacional do host e, portanto, precisarão de portas exclusivas. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Com a atribuição dinâmica de portas essa configuração impede o problema de confusão de identidade descrito anteriormente. |
@@ -505,8 +505,8 @@ Os serviços sem monitoração de estado que são chamados apenas de dentro do c
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Somente interno serviço com estado do Núcleo do ASP.NET
 Os serviços com monitoração de estado que são chamados apenas de dentro do cluster devem usar portas atribuídas dinamicamente para garantir a cooperação entre vários serviços. Recomendamos a seguinte configuração:
 
-|  |  | **Observações** |
-| --- | --- | --- |
+| Tipo | Recomendação | Observações |
+| ---- | -------------- | ----- |
 | Servidor Web | Kestrel | O `HttpSysCommunicationListener` não é projetado para uso por serviços com estado em que as réplicas compartilham um processo de host. |
 | Configuração de portas | atribuídas dinamicamente | Várias réplicas de um serviço com estado podem compartilhar um processo de host ou sistema operacional do host e, portanto, precisarão de portas exclusivas. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Com a atribuição dinâmica de portas essa configuração impede o problema de confusão de identidade descrito anteriormente. |

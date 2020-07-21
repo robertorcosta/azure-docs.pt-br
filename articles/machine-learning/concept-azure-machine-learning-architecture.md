@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/13/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 8cfa7a7b251f2aa74230d8883a0335582387aa06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 749a2366438bd1abfef4ca0cf2a195f23529d6a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602509"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536293"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como o Azure Machine Learning funciona: Arquitetura e conceitos
 
@@ -43,6 +43,10 @@ O fluxo de trabalho do modelo de machine learning geralmente segue esta sequênc
 ## <a name="tools-for-azure-machine-learning"></a>Ferramentas para o Azure Machine Learning
 
 Use estas ferramentas para o Azure Machine Learning:
+
+> [!IMPORTANT]
+> As ferramentas marcadas (visualização) abaixo estão atualmente em visualização pública.
+> A versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 +  Interaja com o serviço em qualquer ambiente Python com o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Interaja com o serviço em qualquer ambiente do R com o [SDK do Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (versão prévia).

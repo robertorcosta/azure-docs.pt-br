@@ -3,14 +3,14 @@ title: Painel Pedidos do Partner Center na análise do Marketplace Comercial
 description: Saiba como acessar relatórios de análise sobre seus pedidos de oferta do Marketplace em um formato gráfico e baixável.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 4f5e18a2cebc309475c4fbcf84d7baaa28c6e61d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/01/2020
+ms.openlocfilehash: fe1f64994d344ad9b23895823b846da62d895128
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118351"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536123"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Painel de pedidos na análise do marketplace comercial
 
@@ -29,12 +29,9 @@ O **painel Pedidos** do menu **Analisar** exibe os pedidos atuais de todas as su
 - [Pedidos por geografia](#orders-by-geography)
 - [Pedidos por ofertas](#orders-by-offers)
 - [Tendência de pedidos por site versus por estação](#orders-trend-per-site-versus-per-seat)
-- [Pedidos por SKUs](#orders-by-skus)
+- [Pedidos por planos](#orders-by-plans)
 - [Tendência de pedidos e estações](#orders-and-seats-trend)
 - [Tabela de detalhes do pedido](#order-details-table)
-
-> [!NOTE]
-> Há diferenças entre o modo como os relatórios de análise são exibidos no CPP (Portal do Cloud Partner) e no novo programa de marketplace comercial no Partner Center. Uma maneira específica é que **Insights de Vendas** no CPP tem uma guia **Pedidos e uso** que exibe dados para ofertas baseadas em uso e ofertas não baseadas em uso. No Partner Center, a página **Pedidos** tem uma guia separada para Ofertas de SaaS.
 
 ## <a name="order-dashboard-details"></a>Detalhes do painel Pedido
 
@@ -76,16 +73,16 @@ O gráfico de rosca **Pedidos por ofertas** organiza os pedidos (incluindo pedid
 
 O gráfico de rosca **Por site versus por estação** representa o detalhamento de SaaS por site e pedidos de SaaS por estação adquiridos pelos clientes (o gráfico inclui pedidos cancelados). O gráfico de colunas representa a tendência de SaaS por site e pedidos de SaaS por estação adquiridos pelos clientes (o gráfico inclui pedidos cancelados).
 
-### <a name="orders-by-skus"></a>Pedidos por SKUs
+### <a name="orders-by-plans"></a>Pedidos por planos
 
-O grafo **Pedidos por SKUs** representa a tendência de pedidos no nível de SKU (unidade de manutenção de estoque) para todas as suas ofertas (isso inclui pedidos cancelados). O gráfico de rosca representa o detalhamento dos cinco principais pedidos de SKU e o gráfico de colunas representa a tendência de pedidos das cinco SKUs principais.
+O gráfico **pedidos por planos** representa a tendência de pedidos no nível de plano para todas as suas ofertas (isso inclui pedidos cancelados). O gráfico de rosca representa a divisão das cinco principais ordens de plano e o gráfico de colunas representa a tendência de pedidos para os cinco planos principais.
 
 ### <a name="orders-and-seats-trend"></a>Tendência de pedidos e estações
 
 O grafo **Tendência de pedidos e estações** apresenta as 50 principais ofertas com o maior número de pedidos. Elas são exibidas em um placar de líderes e são classificadas por contagem de pedidos e porcentagem de pedidos mais altas.
 
-- **Pedidos por SKUs**: selecione uma oferta para exibir o detalhamento da contagem de pedidos das cinco principais SKUs no grafo.
-- **Estações por SKUs**: a tendência mensal de estações para as cinco principais SKUs. Se a oferta selecionada não for uma oferta por estação, você não verá nenhum dado nesse gráfico de área.
+- **Pedidos por planos** – selecione uma oferta para exibir a divisão da contagem de pedidos dos cinco primeiros planos no gráfico.
+- **Estações por planos** – a tendência mensal de estações para os cinco principais planos. Se a oferta selecionada não for uma oferta por estação, você não verá nenhum dado nesse gráfico de área.
 
 ### <a name="canceled-orders-by-offers"></a>Pedidos cancelados por ofertas
 

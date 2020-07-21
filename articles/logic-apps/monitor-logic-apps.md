@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: c2a609266a77293a0e3a5cb9c973a6eb3f7f72a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69d018db26a42c331ff41d242eae54d6fcc43990
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82731995"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536242"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitorar o status de execução, examinar o histórico de gatilho e configurar alertas para aplicativos lógicos do Azure
 
@@ -71,7 +71,7 @@ Cada vez que o gatilho é acionado para um item ou evento, o mecanismo de aplica
 
    ![Examine os detalhes sobre cada etapa na execução](./media/monitor-logic-apps/review-logic-app-run-details.png)
 
-   Por exemplo, você pode obter a propriedade de **ID de correlação** da execução, que pode ser necessária ao usar a [API REST para aplicativos lógicos](https://docs.microsoft.com/rest/api/logic).
+   Por exemplo, você pode obter a propriedade de **ID de correlação** da execução, que pode ser necessária ao usar a [API REST para aplicativos lógicos](/rest/api/logic).
 
 1. Para obter mais informações sobre uma etapa específica, selecione uma das opções:
 
@@ -138,7 +138,7 @@ Cada execução de aplicativo lógico começa com um gatilho. O histórico de ga
 
 ## <a name="set-up-monitoring-alerts"></a>Configurar alertas de monitoramento
 
-Para obter alertas com base em métricas específicas ou limites excedidos para seu aplicativo lógico, configure [alertas no Azure monitor](../azure-monitor/platform/alerts-overview.md). Saiba mais sobre as [métricas no Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). Para configurar alertas sem usar [Azure monitor](../log-analytics/log-analytics-overview.md), siga estas etapas.
+Para obter alertas com base em métricas específicas ou limites excedidos para seu aplicativo lógico, configure [alertas no Azure monitor](../azure-monitor/platform/alerts-overview.md). Saiba mais sobre as [métricas no Azure](../azure-monitor/platform/data-platform.md). Para configurar alertas sem usar [Azure monitor](../azure-monitor/log-query/log-query-overview.md), siga estas etapas.
 
 1. No menu do aplicativo lógico, em **monitoramento**, selecione **alertas**  >  **nova regra de alerta**.
 

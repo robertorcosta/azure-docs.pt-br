@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: mayg
-ms.openlocfilehash: 3db3d619118be74ec1429ace70f580558c0a6c9d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: e4f1931aab056306ac5e9f9e9ef402ca26ec2d19
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134356"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528937"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Saiba mais sobre o Planejador de Implantações do Azure Site Recovery para recuperação de desastre do Hyper-V para o Azure
 
@@ -70,7 +70,7 @@ A ferramenta fornece os seguintes detalhes:
 
 ## <a name="support-matrix"></a>Matriz de suporte
 
-| | **VMware no Azure** |**Hyper-V para Azure**|**Azure para Azure**|**Hyper-V para site secundário**|**VMware para o site secundário**
+|**Categorias** | **VMware no Azure** |**Hyper-V para Azure**|**Azure para Azure**|**Hyper-V para site secundário**|**VMware para o site secundário**
 --|--|--|--|--|--
 Cenários com suporte |Sim|Sim|Não|Sim*|Não
 Versão com suporte | vCenter 6,7, 6,5, 6,0 ou 5,5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA
@@ -90,19 +90,24 @@ A ferramenta tem três fases principais para o Hyper-v: obter lista de VMs, aná
  |
 
 ## <a name="steps-to-add-servers-into-trustedhosts-list"></a>Etapas para adicionar servidores à lista TrustedHosts
-1.  A VM de onde a ferramenta deve ser implantada sempre deverá ter todos os hosts a serem analisados em sua lista TrustedHosts. Para adicionar o cliente à lista de Trustedhosts, execute o seguinte comando de um PowerShell elevado na VM. A VM pode ser um Windows Server 2012 R2 ou um Windows Server 2016. 
+1. A VM de onde a ferramenta deve ser implantada sempre deverá ter todos os hosts a serem analisados em sua lista TrustedHosts. Para adicionar o cliente à lista de Trustedhosts, execute o seguinte comando de um PowerShell elevado na VM. A VM pode ser um Windows Server 2012 R2 ou um Windows Server 2016. 
 
-            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
-
-1.  Cada host do Hyper-V a ser analisado deve ter:
+   ```powershell
+   set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
+   ```
+1. Cada host do Hyper-V a ser analisado deve ter:
 
     a. A máquina virtual na qual a ferramenta vai ser executado em sua lista TrustedHosts. Execute o comando a seguir em uma sessão do PowerShell com privilégios elevados no host do Hyper-V.
 
-            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
+      ```powershell
+      set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
+      ```
 
     b. Comunicação remota do PowerShell habilitada.
 
-            Enable-PSRemoting -Force
+      ```powershell
+      Enable-PSRemoting -Force
+      ```
 
 ## <a name="download-and-extract-the-deployment-planner-tool"></a>Baixe e extraia a ferramenta de planejamento de implantação
 

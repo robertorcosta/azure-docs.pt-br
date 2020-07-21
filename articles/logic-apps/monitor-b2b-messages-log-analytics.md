@@ -6,15 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: e9ba5a516293eb72a715dc9d0df7db4d5a4ea3c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5baa4d4d968adb25b5520ca91149970f5c5578e9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76907975"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536245"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Configurar logs de Azure Monitor e coletar dados de diagnóstico para mensagens B2B em aplicativos lógicos do Azure
 
-Depois de configurar a comunicação B2B entre parceiros comerciais em sua conta de integração, esses parceiros podem trocar mensagens usando protocolos como AS2, X12 e EDIFACT. Para verificar se essa comunicação funciona da maneira esperada, você pode configurar [os logs de Azure monitor](../azure-monitor/platform/data-platform-logs.md) para sua conta de integração. [Azure monitor](../azure-monitor/overview.md) ajuda a monitorar seus ambientes locais e de nuvem para que você possa manter a disponibilidade e o desempenho com mais facilidade. Usando logs de Azure Monitor, você pode registrar e armazenar dados sobre dados de tempo de execução e eventos, como eventos de gatilho, eventos de execução e eventos de ação em um [espaço de trabalho log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md). Para mensagens, o log também coleta informações como:
+Depois de configurar a comunicação B2B entre parceiros comerciais em sua conta de integração, esses parceiros podem trocar mensagens usando protocolos como AS2, X12 e EDIFACT. Para verificar se essa comunicação funciona da maneira esperada, você pode configurar [os logs de Azure monitor](../azure-monitor/platform/data-platform-logs.md) para sua conta de integração. [Azure monitor](../azure-monitor/overview.md) ajuda a monitorar seus ambientes locais e de nuvem para que você possa manter a disponibilidade e o desempenho com mais facilidade. Usando logs de Azure Monitor, você pode registrar e armazenar dados sobre dados de tempo de execução e eventos, como eventos de gatilho, eventos de execução e eventos de ação em um [espaço de trabalho log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Para mensagens, o log também coleta informações como:
 
 * Status e contagem de mensagens
 * Status de confirmações
@@ -162,7 +163,7 @@ Depois que o aplicativo lógico for executado, você poderá exibir o status e o
 
    * To search results with prebuilt queries, select **Favorites**.
 
-   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
+   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
 
    * To change query in the search box, update the query with the columns and values that you want to use as filters.
 -->
@@ -179,11 +180,11 @@ Para cada tipo de mensagem, estas são as descrições de propriedade e os forma
 
 Estas são as descrições das propriedades de cada mensagem AS2.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |----------|-------------|
 | **Remetente** | O parceiro convidado especificado em **Configurações de Recebimento** ou o parceiro host especificado em **Configurações de Envio** de um contrato do AS2 |
 | **Distância** | O parceiro host especificado em **Configurações de Recebimento** ou o parceiro convidado em **Configurações de Envio** de um contrato do AS2 |
-| **Aplicativo lógico** | O aplicativo lógico no qual as ações do AS2 são configuradas |
+| **Aplicativo Lógico** | O aplicativo lógico no qual as ações do AS2 são configuradas |
 | **Status** | O status da mensagem AS2 <br>Êxito = recebimento ou envio de uma mensagem AS2 válida. Nenhum MDN está configurado. <br>Êxito = recebimento ou envio de uma mensagem AS2 válida. O MDN está configurado e é recebido ou o MDN é enviado. <br>Com Falha = recebimento de uma mensagem AS2 inválida. Nenhum MDN está configurado. <br>Pendente = recebimento ou envio de uma mensagem AS2 válida. O MDN está configurado e o MDN é esperado. |
 | **PACOTE** | O status da mensagem MDN <br>Aceito = recebimento ou envio de um MDN positivo. <br>Pendente = aguardando recebimento ou envio de um MDN. <br>Rejeitado = recebimento ou envio de um MDN negativo. <br>Não Obrigatório = o MDN não está configurado no contrato. |
 | **Direção** | A direção da mensagem AS2 |
@@ -212,11 +213,11 @@ Here are the name formats for each downloaded AS2 message folder and files.
 
 Estas são as descrições das propriedades de cada mensagem X12.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |----------|-------------|
 | **Remetente** | O parceiro convidado especificado em **Configurações de Recebimento** ou o parceiro host especificado em **Configurações de Envio** de um contrato do X12 |
 | **Distância** | O parceiro host especificado em **Configurações de Recebimento** ou o parceiro convidado especificado em **Configurações de Envio** de um contrato do X12 |
-| **Aplicativo lógico** | O aplicativo lógico no qual as ações do X12 são configuradas |
+| **Aplicativo Lógico** | O aplicativo lógico no qual as ações do X12 são configuradas |
 | **Status** | O status da mensagem X12 <br>Êxito = recebimento ou envio de uma mensagem X12 válida. Nenhuma confirmação funcional está configurada. <br>Êxito = recebimento ou envio de uma mensagem X12 válida. Uma confirmação funcional está configurada e é recebida ou uma confirmação funcional é enviada. <br>Com Falha = recebimento ou envio de uma mensagem X12 inválida. <br>Pendente = recebimento ou envio de uma mensagem X12 válida. Uma confirmação funcional está configurada e uma confirmação funcional é esperada. |
 | **PACOTE** | Status da Confirmação Funcional (997) <br>Aceito = recebimento ou envio de uma confirmação funcional positiva. <br>Rejeitado = recebimento ou envio de uma confirmação funcional negativa. <br>Pendente = aguardando uma confirmação funcional, mas não recebida. <br>Pendente = geração de uma confirmação funcional, mas não foi possível enviá-la ao parceiro. <br>Não Obrigatório = uma confirmação funcional não está configurada. |
 | **Direção** | A direção da mensagem X12 |
@@ -247,11 +248,11 @@ Here are the name formats for each downloaded X12 message folder and files.
 
 Estas são as descrições das propriedades de cada mensagem EDIFACT.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |----------|-------------|
 | **Remetente** | O parceiro convidado especificado em **Configurações de Recebimento** ou o parceiro host especificado em **Configurações de Envio** de um contrato do EDIFACT |
 | **Distância** | O parceiro host especificado em **Configurações de Recebimento** ou o parceiro convidado especificado em **Configurações de Envio** de um contrato do EDIFACT |
-| **Aplicativo lógico** | O aplicativo lógico no qual as ações do EDIFACT são configuradas |
+| **Aplicativo Lógico** | O aplicativo lógico no qual as ações do EDIFACT são configuradas |
 | **Status** | O status da mensagem EDIFACT <br>Êxito = recebimento ou envio de uma mensagem EDIFACT válida. Nenhuma confirmação funcional está configurada. <br>Êxito = recebimento ou envio de uma mensagem EDIFACT válida. Uma confirmação funcional está configurada e é recebida ou uma confirmação funcional é enviada. <br>Com Falha = recebimento ou envio de uma mensagem EDIFACT inválida <br>Pendente = recebimento ou envio de uma mensagem EDIFACT válida. Uma confirmação funcional está configurada e uma confirmação funcional é esperada. |
 | **PACOTE** | Status de ACK funcional (CONTRL) <br>Aceito = recebimento ou envio de uma confirmação funcional positiva. <br>Rejeitado = recebimento ou envio de uma confirmação funcional negativa. <br>Pendente = aguardando uma confirmação funcional, mas não recebida. <br>Pendente = geração de uma confirmação funcional, mas não foi possível enviá-la ao parceiro. <br>Não Obrigatório = uma confirmação funcional não está configurada. |
 | **Direção** | A direção da mensagem EDIFACT |

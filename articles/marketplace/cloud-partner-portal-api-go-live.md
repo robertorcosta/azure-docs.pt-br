@@ -4,18 +4,20 @@ description: A API do Go Live inicia o processo de listagem de ofertas em tempo 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: f356291662851172a3c6917b44891ce901546dfa
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 5c5448a853447a0eacc8d974a5b00d5d1e8f4be2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115699"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535936"
 ---
 # <a name="go-live"></a>Go Live
 
 > [!NOTE]
-> As APIs de Portal do Cloud Partner são integradas ao Partner Center e continuarão funcionando depois que suas ofertas forem migradas para o Partner Center. A integração apresenta pequenas alterações. Examine as alterações listadas em [portal do Cloud Partner referência de API](./cloud-partner-portal-api-overview.md) para garantir que seu código continue a funcionar após a migração para o Partner Center.
+> As APIs de Portal do Cloud Partner são integradas ao e continuarão funcionando no Partner Center. A transição apresenta pequenas alterações. Examine as alterações listadas em [portal do Cloud Partner referência de API](./cloud-partner-portal-api-overview.md) para garantir que seu código continue funcionando após a transição para o Partner Center. As APIs de CPP só devem ser usadas para produtos existentes que já foram integrados antes da transição para o Partner Center; os novos produtos devem usar as APIs de envio do Partner Center.
 
 Essa API inicia o processo de envio de um aplicativo para produção. Essa operação geralmente é demorada. Essa chamada usa a lista de email de notificação da operação da API [Publicar](./cloud-partner-portal-api-publish-offer.md).
 
@@ -26,12 +28,12 @@ Essa API inicia o processo de envio de um aplicativo para produção. Essa opera
 
 |  **Nome**      |   **Descrição**                                                           | **Data type** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | Identificador do publicador da oferta a ser recuperada, por exemplo `contoso`       |  String       |
-| offerId        | O identificador da oferta a ser recuperada                                   |  String       |
+| publisherId    | Identificador do publicador da oferta a ser recuperada, por exemplo `contoso`       |  Cadeia de caracteres       |
+| offerId        | O identificador da oferta a ser recuperada                                   |  Cadeia de caracteres       |
 | api-version    | Última versão da API                                                   |  Data         |
 |  |  |  |
 
-## <a name="header"></a>parâmetro
+## <a name="header"></a>Cabeçalho
 ------
 
 |  **Nome**       |     **Valor**       |
@@ -56,7 +58,7 @@ Essa API inicia o processo de envio de um aplicativo para produção. Essa opera
 
 |  **Nome**             |      **Valor**                                                            |
 |  --------             |      ----------                                                           |
-| Location    |  O caminho relativo para recuperar o status da operação            |
+| Localização    |  O caminho relativo para recuperar o status da operação            |
 |  |  |
 
 ### <a name="response-status-codes"></a>Códigos de status de resposta

@@ -7,16 +7,17 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: debc5d91478d0a5c3cc16c7b09f5713ba09b467e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37c8b760ada12bd8f54c78ac6a0ea228d113b6c2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74080091"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536979"
 ---
 # <a name="expressroute-qos-requirements"></a>Requisitos de QoS para o ExpressRoute
 Skype for Business tem várias cargas de trabalho que exigem tratamento de QoS diferenciado. Se você planeja utilizar serviços de voz por meio de ExpressRoute, siga os requisitos descritos abaixo.
 
-![](./media/expressroute-qos/expressroute-qos.png)
+![Diagrama que mostra os serviços de voz que passam pelo ExpressRoute.](./media/expressroute-qos/expressroute-qos.png)
 
 > [!NOTE]
 > Os requisitos de QoS aplicam-se somente ao emparelhamento Microsoft. Os valores de DSCP no tráfego de rede recebido no emparelhamento público e no emparelhamento privado do Azure serão redefinidos como 0. 
@@ -30,7 +31,7 @@ A tabela a seguir fornece uma lista de marcações DSCP usadas pelo Microsoft Te
 | **Voz** |EF (46) |Skype/Microsoft Teams/Lync Voice |
 | **Interativo** |AF41 (34) |Vídeo, VBSS |
 | |AF21 (18) |Compartilhamento de aplicativo | 
-| **Padrão** |AF11 (10) |Transferência de arquivo |
+| **Default** |AF11 (10) |Transferência de arquivo |
 | |CS0 (0) |Qualquer outra coisa |
 
 * Você deve classificar as cargas de trabalho e marcar os valores DSCP corretos. Siga as orientações fornecidas [aqui](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/configuring-port-ranges-for-your-skype-clients#configure-quality-of-service-policies-for-clients-running-on-windows-10) sobre como definir as marcações de DSCP em sua rede.

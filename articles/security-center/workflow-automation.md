@@ -8,11 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: c97dafa80adedd64d45666eb98ef6b1e69850719
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0eac72832d75c0c26addaef283015155c09b3935
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629402"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529362"
 ---
 # <a name="workflow-automation"></a>Automação do fluxo de trabalho
 
@@ -33,16 +34,13 @@ Este artigo descreve o recurso de automação de fluxo de trabalho da central de
     - **Função de administrador de segurança** no grupo de recursos (ou **proprietário**)
     - Também deve ter permissões de gravação para o recurso de destino
     - Além disso, para trabalhar com fluxos de trabalho de aplicativos lógicos do Azure, você deve ter as seguintes funções/permissões de aplicativos lógicos:
-
-        * Permissões de [operador de aplicativo lógico](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) são necessárias ou acesso de leitura/gatilho do aplicativo lógico (essa função não pode criar ou editar aplicativos lógicos; *executar* apenas os existentes)
-
-        * As permissões de [colaborador do aplicativo lógico](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) são necessárias para a criação e modificação do aplicativo lógico
-
-        * Se você quiser usar conectores de aplicativos lógicos, talvez precise de credenciais adicionais para entrar em seus respectivos serviços (por exemplo, suas instâncias de Outlook/equipes/margem de atraso)
+        - Permissões de [operador de aplicativo lógico](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) são necessárias ou acesso de leitura/gatilho do aplicativo lógico (essa função não pode criar ou editar aplicativos lógicos; *executar* apenas os existentes)
+        - As permissões de [colaborador do aplicativo lógico](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) são necessárias para a criação e modificação do aplicativo lógico
+        - Se você quiser usar conectores de aplicativos lógicos, talvez precise de credenciais adicionais para entrar em seus respectivos serviços (por exemplo, suas instâncias de Outlook/equipes/margem de atraso)
 - Nuvens: 
     - ✔ Nuvens comerciais
-    - ✔ US Gov
-    - ✘ China gov, outros gov
+    - ✔ Nuvem do governo dos EUA
+    - Nuvem do governo ✘ na China, outras nuvens gov
 
 
 ## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Criar um aplicativo lógico e definir quando ele deve ser executado automaticamente 
@@ -113,5 +111,5 @@ Para obter outros materiais relacionados, consulte:
 - [Recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md)
 - [Alertas na Central de Segurança do Azure](security-center-alerts-overview.md)
 - [Sobre os Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
-- [Conectores de Aplicativos Lógicos](https://docs.microsoft.com/connectors/)
+- [Conectores dos Aplicativos Lógicos](https://docs.microsoft.com/connectors/)
 - [Esquemas de tipos de dados de automação de fluxo de trabalho](https://aka.ms/ASCAutomationSchemas)

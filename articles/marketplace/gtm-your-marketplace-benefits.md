@@ -7,32 +7,32 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: c954e3c685a795942f78bdb19b59ca817252d26b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: c305a2513a5ace241fe697766b851cd2851e8b78
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135524"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536008"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Benefícios do marketplace comercial
 
-Você publicou no marketplace e agora deseja ver se sua oferta foi bem-sucedida. Fornecemos a você benefícios de vendas, marketing e técnicos necessários para acelerar o crescimento da sua oferta.
+Você publicou no Microsoft Commercial Marketplace, agora deseja ver que sua oferta foi bem-sucedida. Fornecemos a você benefícios de vendas, marketing e técnicos necessários para acelerar o crescimento da sua oferta.
 
-Quando sua oferta estiver ativa no Azure Marketplace ou no AppSource, vá para o [Partner Center](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) para acessar e ativar seus benefícios qualificados de marketing, vendas e técnicos. Os benefícios das Recompensas do Marketplace se acumulam com base na sua participação e vendas no marketplace comercial. Quanto mais você participar, mais você obterá de volta.
+Quando sua oferta estiver ativa no Microsoft AppSource ou no Azure Marketplace, vá para o [Partner Center](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) para acessar e ativar seus benefícios técnicos, de marketing e vendas qualificados. Os benefícios das Recompensas do Marketplace se acumulam com base na sua participação e vendas no marketplace comercial. Quanto mais você participar, mais você obterá de volta.
 
 ## <a name="marketplace-rewards"></a>Recompensas do Marketplace
 
-As Recompensas do Marketplace foram projetadas para dar suporte a você em seu estágio específico de crescimento, começando com as atividades de reconhecimento para ajudá-lo a obter seus primeiros clientes. Conforme você cresce no Marketplace, você desbloqueia novos benefícios projetados para ajudá-lo a converter clientes e a fechar negócios. 
+As Recompensas do Marketplace foram projetadas para dar suporte a você em seu estágio específico de crescimento, começando com as atividades de reconhecimento para ajudá-lo a obter seus primeiros clientes. Conforme você cresce no mercado comercial, você desbloqueia novos benefícios projetados para ajudá-lo a converter clientes e a fechar negócios.
 
-O programa cria um loop de comentários positivo: os benefícios em cada estágio de crescimento são projetados para você avançar para o próximo estágio, permitindo que seu negócio cresça com os clientes da Microsoft, com o campo da Microsoft e por meio do canal da Microsoft, utilizando o marketplace comercial como sua plataforma. 
+O programa cria um loop de comentários positivo: os benefícios em cada estágio de crescimento são projetados para você avançar para o próximo estágio, permitindo que seu negócio cresça com os clientes da Microsoft, com o campo da Microsoft e por meio do canal da Microsoft, utilizando o marketplace comercial como sua plataforma.
 
 Seus benefícios são diferenciados com base no seu tipo de oferta: [Lista, Avaliação ou Transação](determine-your-listing-type.md#choose-a-publishing-option).
 
-Com base em sua qualificação, você será contatado por um membro da equipe de recompensas quando sua oferta ficar ativa. 
+Com base em sua qualificação, você será contatado por um membro da equipe de recompensas quando sua oferta ficar ativa.
 
-Para parceiros de Transação, à medida que você aumenta suas vendas cobradas por meio da plataforma do marketplace, você desbloqueia mais benefícios por camada. 
+Para parceiros do Transact, à medida que você aumenta suas vendas cobradas por meio da plataforma do Marketplace comercial, você desbloqueia maiores benefícios por camada.
 
-O requisito mínimo para publicar nas vitrines é um MPNID, portanto, esses benefícios estão disponíveis para todos os parceiros, independentemente do status de competência do MPN ou do tipo de parceiro. Cada parceiro é capacitado para aumentar seus negócios por meio do marketplace como plataforma.
+O requisito mínimo para publicar nas vitrines é um MPNID, portanto, esses benefícios estão disponíveis para todos os parceiros, independentemente do status de competência do MPN ou do tipo de parceiro. Cada parceiro é capacitado a aumentar seus negócios por meio do Marketplace comercial como uma plataforma.
 
 Você terá suporte para entender os recursos disponíveis para você e implementar as práticas recomendadas, que você também pode [examinar por conta própria](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
@@ -42,7 +42,7 @@ Descrições detalhadas de todos os benefícios do programa podem ser encontrada
 
 1. Publicar uma oferta no Microsoft AppSource ou no Azure Marketplace.
 2. Acesse as [recompensas do Marketplace](https://partner.microsoft.com/en-us/dashboard/mpn/program/commercialmarketplace) no Partner Center e selecione **registrar no programa de recompensas do Marketplace**.
-3. Para ativar o benefício de vendas e marketing, atribua um contato de marketing da empresa. Este contato receberá comunicações de acompanhamento sobre suas recompensas do Marketplace.
+3. Para ativar os benefícios de vendas e marketing, atribua um contato de marketing da empresa. Este contato receberá comunicações de acompanhamento sobre suas recompensas do Marketplace.
 4. Para adicionar ou atualizar suas informações de contato de marketing, acesse a parte superior da guia de benefícios de vendas e marketing na página de recompensas do Marketplace e, em seguida, selecione **Adicionar, atualizar ou alterar**.  Em seguida, faça o seguinte:
 
     1. Selecione um usuário na lista. Se o usuário que você deseja atribuir não estiver na lista, poderá adicionar novos usuários nas **Configurações da conta**.
@@ -52,19 +52,19 @@ Descrições detalhadas de todos os benefícios do programa podem ser encontrada
 
 **Benefícios técnicos**
 
-1. Você pode usar seu benefício técnico para solicitar assistência técnica durante as fases de pré-vendas, design, implantação e desenvolvimento de aplicativos de sua nuvem e soluções híbridas. Para solicitar assistência, preencha o formulário de solicitação e, em seguida, selecione **Enviar solicitação**.
+1. Você pode usar seus benefícios técnicos para solicitar assistência técnica durante as fases de pré-vendas, design, implantação e desenvolvimento de aplicativos de sua nuvem e soluções híbridas. Para solicitar assistência, preencha o formulário de solicitação e, em seguida, selecione **Enviar solicitação**.
 2. Como fazer uso dos benefícios de patrocínio do Azure, que será compartilhado por meio de um email à medida que você desbloquear esses benefícios.
 
 >[!NOTE]
 >Se sua oferta esteve ativa por mais de quatro semanas e você não recebeu uma mensagem, verifique em sua organização quem é o proprietário da oferta em questão, examinando o Partner Center. Eles devem conter a comunicação e as próximas etapas.<br><br>Se você não puder determinar o proprietário ou se o proprietário tiver deixado sua empresa, você poderá gerar um tíquete de suporte em [Ajuda e Suporte](https://aka.ms/marketplacepublishersupport).
 
-O escopo das atividades disponíveis para você se expande conforme o crescimento de suas ofertas no Marketplace. Todas as listagens recebem um nível básico de recomendações de otimização e promoção como parte de um email de recursos de autoatendimento e melhores práticas.
+O escopo das atividades disponíveis se expande à medida que você cresce suas ofertas no mercado comercial. Todas as listagens recebem um nível básico de recomendações de otimização e promoção como parte de um email de recursos de autoatendimento e melhores práticas.
 
 ## <a name="list-trial-and-consulting-benefits"></a>Benefícios de lista, avaliação e consultoria
 
 Se você publicar uma prova de conceito, implementação ou workshop de avaliação ou consultoria, será atribuído um gerente de envolvimento por três meses, que ajudará você com orientações para elaborar um plano de entrada no mercado bem-sucedido. Você pode repetir esse contrato de três meses sempre que publicar uma nova oferta, para ajudar a obter cada uma de suas novas ofertas iniciadas com êxito.
 
-A tabela a seguir resume os requisitos de qualificação para ofertas de lista e avaliação:
+A tabela a seguir resume os requisitos de qualificação para as ofertas de lista, avaliação e consultoria:
 
 ![Benefícios de Entrada no Mercado](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
@@ -72,14 +72,14 @@ Descrições detalhadas de todos os esses benefícios podem ser encontradas no [
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Recompensas do Marketplace para parceiros de transação
 
-Quando você lança sua oferta no Azure Marketplace ou no Microsoft AppSource, é possível acessar benefícios adicionais à medida que você aumenta suas transações de vendas cobradas ou estações vendidas por meio do marketplace comercial. 
+Quando você entra em funcionamento com sua oferta do Microsoft AppSource ou do Azure Marketplace, é possível acessar benefícios adicionais à medida que você aumenta suas transações de vendas cobradas ou estações vendidas por meio do Marketplace comercial.
 
 >[!NOTE]
->O limite de estações vendidas só se aplica a aplicativos Microsoft 365 (aplicativos SaaS que têm integrações com Microsoft Teams, Office, Outlook ou SharePoint) e os benefícios devem ter sido concluídos até 30 de junho de 2020.
+>O limite de estações vendidas só se aplica a aplicativos Microsoft 365 (aplicativos SaaS que têm integrações com Microsoft Teams, Office, Outlook ou SharePoint) e os benefícios devem ter sido concluídos até 30 de junho de 2021.
 
 Esses benefícios foram criados para dar suporte a você com marketing, vendas e atividades técnicas e, assim, ajudar você a obter mais visitantes, receber mais clientes potenciais e converter mais negócios.
 
-Todos os parceiros que têm uma oferta ativa têm de trabalhar com um gerente de envolvimento dedicado para escolher as atividades de valor mais alto para seu portfólio de ofertas do marketplace. Esse envolvimento dura pelo tempo da oferta, o que significa que você pode escolher suas atividades e o tempo de duração delas de acordo com a duração das estratégias de marketing e vendas mais amplas de sua empresa. 
+Todos os parceiros que têm uma oferta ativa têm de trabalhar com um gerente de envolvimento dedicado para escolher as atividades de maior valor para seu portfólio de ofertas do Marketplace comercial. Esse envolvimento dura pelo tempo da oferta, o que significa que você pode escolher suas atividades e o tempo de duração delas de acordo com a duração das estratégias de marketing e vendas mais amplas de sua empresa. 
 
 ![Benefícios de marketing](./media/marketplace-publishers-guide/marketing-benefit.png)
 
@@ -87,7 +87,7 @@ Todos os parceiros que têm uma oferta ativa têm de trabalhar com um gerente de
 
 ![Benefícios técnicos](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\* O limite de estações vendidas aplica-se somente a aplicativos do Microsoft 365 (aplicativos SaaS que têm integrações com o Microsoft Teams, Office, Outlook ou SharePoint) e os benefícios devem ser concluídos até 30 de junho de 2020.
+\*O limite de estações vendidas aplica-se somente a aplicativos Microsoft 365s (aplicativos SaaS que têm integrações com Microsoft Teams, Office, Outlook ou SharePoint) e os benefícios devem ser concluídos até 30 de junho de 2021.
 
 Descrições detalhadas de todos os esses benefícios podem ser encontradas no [Conjunto do programa de Recompensas do Marketplace](https://aka.ms/marketplacerewards).
 
@@ -118,7 +118,9 @@ As transações comprovadas como fraudulentas não serão consideradas como uma 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você criou sua oferta no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview), entre para criar ou configurar sua oferta.
+Entre no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) para criar ou configurar sua oferta.
+
+Ative os benefícios de recompensas do Marketplace no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
 Examine os [recursos de autoatendimento disponíveis para você](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 

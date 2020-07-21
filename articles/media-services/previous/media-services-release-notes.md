@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 63b3def9c37f53ebf68642faf3f45cee6602bbe5
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: b25d6c33aa2bd50cbf96fb09f0de03354d24f2da
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057289"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530347"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure
 
@@ -29,8 +29,8 @@ Estas notas de versão para os Serviços de Mídia do Azure resumem as alteraç�
 
 Queremos ouvir nossos clientes para que possamos focar na correção de problemas que afetam você. Para relatar um problema ou fazer uma pergunta, faça uma postagem no [Fórum MSDN de Serviços de Mídia do Azure]. 
 
-## <a name="known-issues"></a><a id="issues"/>Problemas conhecidos
-### <a name="media-services-general-issues"></a><a id="general_issues"/>Problemas gerais dos Serviços de Mídia
+## <a name="known-issues"></a><a name="issues"></a>Problemas conhecidos
+### <a name="media-services-general-issues"></a><a name="general_issues"></a>Problemas gerais dos Serviços de Mídia
 
 | Problema | Descrição |
 | --- | --- |
@@ -43,7 +43,7 @@ Queremos ouvir nossos clientes para que possamos focar na correção de problema
 | Os objetos do SDK do .NET dos Serviços de Mídia não podem ser serializados e, por isso, não funcionam com o Cache para Redis do Azure. |Se você tentar serializar o objeto AssetCollection do SDK para adicioná-lo ao Cache para Redis do Azure, uma exceção será lançada. |
 |A API REST responde com a mensagem de erro "O filtro não pode ser acessado por esta versão da API REST" ao tentar obter um filtro de nível de Conta ou Ativo.|O filtro foi criado ou modificado com uma versão de API mais recente da que está sendo usada para tentar obter o filtro. Isso pode acontecer se duas versões da API estiverem sendo usadas pelo código ou por ferramentas que estão sendo usadas pelo cliente.  A melhor solução aqui é atualizar o código ou as ferramentas para usar as duas versões de API mais recentes.|
 
-## <a name="rest-api-version-history"></a><a id="rest_version_history"/>Histórico de versão da API REST
+## <a name="rest-api-version-history"></a><a name="rest_version_history"></a>Histórico de versão da API REST
 Para obter informações sobre o histórico de versões da API REST dos Serviços de Mídia, consulte a [Referência da API REST dos Serviços de Mídia do Azure].
 
 ## <a name="february-2020"></a>Fevereiro de 2020
@@ -159,7 +159,7 @@ Para obter mais informações sobre essas propriedades, consulte [StreamingEndpo
 
  Você agora pode usar os Serviços de Mídia para acessar dados de telemetria/métricas de seus serviços. A versão atual dos Serviços de Mídia permite a coleta de dados de telemetria para entidades de canal ao vivo, arquivo e ponto de extremidade de streaming. Para obter mais informações, consulte [Telemetria dos Serviços de Mídia](media-services-telemetry-overview.md).
 
-## <a name="july-2016-release"></a><a id="july_changes16"/>Versão de julho de 2016
+## <a name="july-2016-release"></a><a name="july_changes16"></a>Versão de julho de 2016
 ### <a name="updates-to-the-manifest-file-ism-generated-by-encoding-tasks"></a>Atualizações do arquivo de manifesto (*.ISM) gerado por tarefas de codificação
 Quando uma tarefa de codificação for enviada para o Media Encoder Standard ou o Media Encoder Premium, a tarefa de codificação gerará um [arquivo de manifesto de streaming](media-services-deliver-content-overview.md) (*.ism) no ativo de saída. Com a versão mais recente do serviço, a sintaxe desse arquivo de manifesto de streaming foi atualizada.
 

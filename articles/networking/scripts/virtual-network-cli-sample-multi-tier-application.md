@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
-ms.openlocfilehash: 97e26eaed72bc15ebc46a893d269b05484d8a064
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bcfe82dedcac01c60e93788b78fec779f0da7dbc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80521533"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530245"
 ---
-# <a name="create-a-network-for-multi-tier-applications"></a>Criar uma rede para aplicativos de várias camadas
+# <a name="use-an-azure-cli-script-sample-to-create-a-network-for-multi-tier-applications"></a>Use um exemplo de script CLI do Azure para criar uma rede para aplicativos de várias camadas
 
 Este exemplo de script cria uma rede virtual com sub-redes de front-end e back-end. O tráfego para a sub-rede de front-end é limitado a HTTP e SSH, enquanto o tráfego para a sub-rede de back-end é limitado a MySQL, porta 3306. Depois de executar o script, você terá duas máquinas virtuais, um em cada sub-rede, nas quais você pode implantar o servidor Web e o software MySQL.
 

@@ -1,23 +1,20 @@
 ---
-title: Referências
-description: ''
+title: APIs FarmBeats do Azure
+description: Saiba mais sobre as APIs do Azure FarmBeats, que fornecem aos agricultural empresas uma interface RESTful padronizada com respostas baseadas em JSON.
 author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: c3a70ed905edfcf1dc60e0a12f50aca19060230f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f15bee7e802b04d04a3c87d7f84fc975b88bf260
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488028"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536565"
 ---
-# <a name="references"></a>Referências
+# <a name="azure-farmbeats-apis"></a>APIs FarmBeats do Azure
 
-Este artigo descreve as APIs FarmBeats do Azure.
-
-## <a name="rest-api"></a>API REST
-
-As APIs do Azure FarmBeats fornecem aos agricultural empresas uma interface RESTful padronizada com respostas baseadas em JSON para ajudá-lo a aproveitar os recursos do Azure FarmBeats, como:
+Este artigo descreve as APIs FarmBeats do Azure. As APIs do Azure FarmBeats fornecem aos agricultural empresas uma interface RESTful padronizada com respostas baseadas em JSON para ajudá-lo a aproveitar os recursos do Azure FarmBeats, como:
 
 - APIs para obter os dados de sensor, câmera, drone, clima, satélite e terra organizada.
 - Normalização e concontexto de dados entre provedores de dados comuns.
@@ -26,7 +23,7 @@ As APIs do Azure FarmBeats fornecem aos agricultural empresas uma interface REST
 - Agregações de sequência de tempo geradas automaticamente para criação rápida de modelos.
 - O mecanismo de Azure Data Factory integrado para criar facilmente pipelines de processamento de dados personalizados.
 
-## <a name="application-development"></a>Desenvolvimento de aplicativo
+## <a name="application-development"></a>Desenvolvimento do aplicativo
 
 As APIs FarmBeats contêm documentação técnica do Swagger. Para obter informações sobre todas as APIs e suas solicitações ou respostas correspondentes, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
@@ -62,7 +59,7 @@ Para fazer uma solicitação autenticada para as APIs REST, o código do cliente
 
 O token de acesso deve ser enviado em solicitações de API subsequentes, na seção de cabeçalho, como:
 
-```
+```http
 headers = {"Authorization": "Bearer " + **access_token**}
 ```
 
@@ -181,6 +178,6 @@ Depois de concluir as etapas anteriores, seu registro de aplicativo (cliente) po
 
 Use o token de acesso para enviá-lo em solicitações de API subsequentes na seção de cabeçalho como:
 
-```
+```http
 headers = {"Authorization": "Bearer " + **access_token**, "Content-Type" : "application/json" }
 ```

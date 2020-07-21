@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: bc41152bb39b0f5022d51dbefe16e3d56107c457
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 56acddda2cf5ae2ef2a94353ec11c3ddf6990e1c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223451"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536106"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conhecidos e solução de problemas no Azure Machine Learning
 
@@ -96,6 +96,22 @@ Para obter mais informações sobre solução de problemas, consulte [próximas 
     ```bash
     automl_setup
     ```
+    
+* **Keyerro: ' marca ' ao executar AutoML na computação local ou Azure Databricks cluster**
+
+    Se um novo ambiente foi criado após 10 de junho de 2020, usando o SDK 1.7.0 ou anterior, o treinamento poderá falhar com esse erro devido a uma atualização no pacote py-cpuinfo. (Ambientes criados em ou antes de 10 de junho de 2020, não são afetados, já que as experiências são executadas na computação remota porque as imagens de treinamento em cache são usadas.) Para contornar esse problema, execute uma das duas etapas a seguir:
+    
+    * Atualize a versão do SDK para 1.8.0 ou posterior (isso também faz o downgrade de py-cpuinfo para 5.0.0):
+    
+      ```bash
+      pip install --upgrade azureml-sdk[automl]
+      ```
+    
+    * Faça o downgrade da versão instalada do py-cpuinfo para 5.0.0:
+    
+      ```bash
+      pip install py-cpuinfo==5.0.0
+      ```
   
 * **Mensagem de erro: não é possível desinstalar 'PyYAML'**
 
@@ -147,11 +163,17 @@ Para obter mais informações sobre solução de problemas, consulte [próximas 
 
 * **Portal do Azure**: se você for diretamente para exibir seu espaço de trabalho em um link de compartilhamento no SDK ou no portal, você não poderá exibir a página de **visão geral** normal com as informações de assinatura na extensão. Você também não poderá alternar para outro workspace. Se você precisar exibir outro espaço de trabalho, vá diretamente para [Azure Machine Learning Studio](https://ml.azure.com) e pesquise o nome do espaço de trabalho.
 
+* **Navegadores com suporte no portal da Web do Azure Machine Learning Studio**: Recomendamos que você use o navegador mais atualizado que é compatível com seu sistema operacional. Há suporte para os seguintes navegadores:
+  * Microsoft Edge (o novo Microsoft Edge, versão mais recente. Não é herdado do Microsoft Edge)
+  * Safari (última versão, apenas Mac)
+  * Chrome (última versão)
+  * Firefox (última versão)
+
 ## <a name="set-up-your-environment"></a>Configure seu ambiente
 
 * **Problemas ao criar AmlCompute**: há uma chance rara de que alguns usuários que criaram seu espaço de trabalho Azure Machine Learning do portal do Azure antes da versão GA talvez não possam criar AmlCompute nesse espaço de trabalho. Você pode gerar uma solicitação de suporte em relação ao serviço ou criar um novo espaço de trabalho por meio do portal ou do SDK para desbloquear-se imediatamente.
 
-## <a name="work-with-data"></a>Trabalhar com dados
+## <a name="work-with-data"></a>Trabalhar usando dados
 
 ### <a name="overloaded-azurefile-storage"></a>Armazenamento do Azurefile sobrecarregado
 
@@ -217,9 +239,16 @@ Limitações e problemas conhecidos para monitores de descompasso de dados:
 
 ## <a name="azure-machine-learning-designer"></a>Azure Machine Learning Designer
 
-Problemas conhecidos:
+* **Tempo de preparação de computação longa:**
 
-* **Tempo de preparação de computação longa**: pode ser de alguns minutos ou mais, quando você se conecta pela primeira vez ou cria um destino de computação. 
+Pode ser de alguns minutos ou ainda mais quando você se conecta pela primeira vez ao ou cria um destino de computação. 
+
+No coletor de dados de modelo, pode levar até (mas geralmente menos de) 10 minutos para que os dados cheguem em sua conta de armazenamento de BLOBs. Aguarde 10 minutos para garantir que as células abaixo sejam executadas.
+
+```python
+import time
+time.sleep(600)
+```
 
 ## <a name="train-models"></a>Treinar modelos
 
@@ -278,7 +307,7 @@ Problemas conhecidos:
 
 Execute estas ações para os seguintes erros:
 
-|Erro  | Resolução  |
+|Erro do  | Resolução  |
 |---------|---------|
 |Falha na criação da imagem ao implantar o serviço Web     |  Adicionar "pynacl = = 1.2.1" como uma dependência Pip ao arquivo Conda para configuração de imagem       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Altere a SKU para VMs usadas em sua implantação para uma que tenha mais memória. |

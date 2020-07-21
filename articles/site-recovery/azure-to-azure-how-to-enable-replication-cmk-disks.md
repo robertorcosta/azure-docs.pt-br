@@ -1,5 +1,5 @@
 ---
-title: Habilitar a replicação para VMs do Azure criptografadas no Azure Site Recovery
+title: Habilitar a replicação de VMs do Azure criptografadas no Azure Site Recovery
 description: Este artigo descreve como configurar a replicação para VMs com discos habilitados para CMK (chave gerenciada pelo cliente) de uma região do Azure para outra usando Site Recovery.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: mayg
-ms.openlocfilehash: 92b35284fd7bbb3d4f1196ee0d9bae4ce42d7c9e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 2dc7bbd060d77b8f90d16e2a336edc1eb6dbf651
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224104"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528988"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replicar máquinas com discos habilitados para CMK (chaves gerenciadas pelo cliente)
 
@@ -72,7 +72,7 @@ Siga estas etapas para modificar as Site Recovery configurações de destino pad
 >[!NOTE]
 >Durante a replicação inicial, o status pode levar algum tempo para ser atualizado, sem um progresso aparente. Clique em **Atualizar** para obter o status mais recente.
 
-## <a name="faqs"></a>Perguntas frequentes
+## <a name="faqs"></a>Perguntas Frequentes
 
 * Eu habilitei o CMK em um item replicado existente, como posso garantir que o CMK também seja aplicado na região de destino?
 

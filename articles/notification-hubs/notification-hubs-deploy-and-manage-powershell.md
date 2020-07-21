@@ -16,11 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e6334659d41ba201cfdde190ccc9bfa0d58009e3
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: d45b98f291a7524dac2927fc74c5dc52400209f5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891191"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529974"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Implantar e gerenciar hubs de notificação usando o PowerShell
 
@@ -31,7 +32,7 @@ Este artigo mostra como usar Criar e Gerenciar Hubs de Notificação de Azure us
 - Criar um hub de notificação
 - Definir credenciais
 
-Se você também precisar criar um novo namespace de barramento de serviço para os hubs de notificação, confira [Gerenciar o Barramento de Serviço com o PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md).
+Se você também precisar criar um novo namespace de barramento de serviço para os hubs de notificação, confira [Gerenciar o Barramento de Serviço com o PowerShell](../service-bus-messaging/service-bus-manage-with-ps.md).
 
 O gerenciamento de hubs de notificação não tem suporte direto dos cmdlets incluídos com o PowerShell do Azure. A melhor abordagem do PowerShell e fazer referência ao assembly Microsoft.Azure.NotificationHubs.dll. O assembly é distribuído com o [pacote NuGet de Hubs de Notificações do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
@@ -147,9 +148,9 @@ else
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Gerenciar o Barramento de Serviço com o PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
-- [Como criar filas, tópicos e assinaturas do Barramento de Serviço usando um script do PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
-- [Como criar um namespace do Barramento de Serviço e um Hub de Eventos usando um script do PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
+- [Gerenciar o Barramento de Serviço com o PowerShell](../service-bus-messaging/service-bus-manage-with-ps.md)
+- [Como criar filas, tópicos e assinaturas do Barramento de Serviço usando um script do PowerShell](/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+- [Como criar um namespace do Barramento de Serviço e um Hub de Eventos usando um script do PowerShell](/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 
 Alguns scripts prontos também estão disponíveis para download:
 
@@ -159,7 +160,7 @@ Alguns scripts prontos também estão disponíveis para download:
 [Ofertas para membros]: https://azure.microsoft.com/pricing/member-offers/
 [Teste Gratuito]: https://azure.microsoft.com/pricing/free-trial/
 [Instalar e configurar o PowerShell do Azure]: /powershell/azureps-cmdlets-docs
-[API do .NET para Hubs de Notificação]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
-[Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace
-[New-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace
-[Get-AzureSBAuthorizationRule]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbauthorizationrule
+[API do .NET para Hubs de Notificação]: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+[Get-AzureSBNamespace]: /powershell/module/servicemanagement/azure/get-azuresbnamespace
+[New-AzureSBNamespace]: /powershell/module/servicemanagement/azure/new-azuresbnamespace
+[Get-AzureSBAuthorizationRule]: /powershell/module/servicemanagement/azure/get-azuresbauthorizationrule

@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 71d55471de6fc8681f19a56cd67bb9ba7390e026
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f5bc9827919c18e327dc263384f0d4b6a01c5bc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85248795"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530158"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: enviar notificações por push para usuários específicos usando os hubs de notificação do Azure
 
@@ -41,7 +41,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial pressupõe que você criou e configurou seu hub de notificação conforme descrito em [enviar notificações por push para aplicativos Ios usando os hubs de notificação do Azure](ios-sdk-get-started.md). Este tutorial também é um pré-requisito para o tutorial [Push Seguro (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) .
-Se desejar usar os Aplicativos Móveis como seu serviço de back-end, veja [Mobile Apps Get Started with Push](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
+Se desejar usar os Aplicativos Móveis como seu serviço de back-end, veja [Mobile Apps Get Started with Push](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -497,7 +497,7 @@ Se desejar usar os Aplicativos Móveis como seu serviço de back-end, veja [Mobi
 Neste tutorial, você aprendeu como enviar notificações por push para usuários específicos que têm tags associadas seus registros. Para saber como enviar notificações por push, vá para o tutorial a seguir: 
 
 > [!div class="nextstepaction"]
->[Notificações por push baseadas em localização](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
+>[Notificações por push com base no local](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
 
 [1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png
 [2]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png

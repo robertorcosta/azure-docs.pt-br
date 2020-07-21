@@ -234,7 +234,7 @@ Para executar o código dentro do depurador do Visual Studio Code, configure o a
 Para configurar a extensão do depurador no Visual Studio Code:
 
 1. Selecione **Executar > Adicionar Configuração**
-2. Selecione **Edge**, **Chrome** ou **Firefox**, dependendo de qual extensão você instalou anteriormente na seção [Pré-requisitos](#prerequisites).
+2. Selecione **Microsoft Edge**, **Chrome** ou **Firefox**, dependendo de qual extensão você instalou anteriormente na seção [Pré-requisitos](#prerequisites).
 
 A adição de uma nova configuração cria um arquivo *launch.json* e abre-o no editor. Modifique o arquivo *launch.json* para que o valor `url` seja `http://localhost:1234/index.html` conforme mostrado aqui:
 

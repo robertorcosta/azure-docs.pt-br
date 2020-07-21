@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: edf669eb813240505cba8faef41e166785cc5b18
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: b0ab1e2e43210ecd7a61b7dffcb12d2c7c5c1c46
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232059"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536599"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrar o Azure Time Series Insights com o Monitoramento Remoto
 
@@ -62,7 +62,7 @@ Em seguida, implante os Insights do Time Series como um recurso adicional em sua
     | Nome do ambiente | A captura de tela a seguir usa o nome **contorosrmtsi**. Ao concluir esta etapa, escolha seu próprio nome exclusivo. |
     | Subscription | Na lista suspensa, selecione sua assinatura do Azure. |
     | Resource group | **Use existente**. Selecione o nome do seu grupo de recursos existente de Monitoramento Remoto. |
-    | Location | Estamos usando **Leste dos EUA**. Crie seu ambiente na mesma região da sua solução de monitoramento remoto, se possível. |
+    | Localização | Estamos usando **Leste dos EUA**. Crie seu ambiente na mesma região da sua solução de monitoramento remoto, se possível. |
     | Sku |**S1** |
     | Capacity | **1** |
 
@@ -244,7 +244,7 @@ Configure o ambiente da implementação de `basic` para os microsserviços atual
 
 Configurar o ambiente de `standard` implantação para os serviços de micro atualizados acima
 
-1. Na linha de comando, execute `kubectl proxy`. Para mais informações, consulte [acessando a API do Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/).
+1. Na linha de comando, execute `kubectl proxy`. Para mais informações, consulte [acessando a API do Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/#using-kubectl-to-start-a-proxy-server).
 
 1. Abra o console de gerenciamento do Kubernetes.
 

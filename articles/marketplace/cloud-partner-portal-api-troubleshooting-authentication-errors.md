@@ -3,19 +3,21 @@ title: Solucionando problemas de erros comuns de autenticação | Azure Marketpl
 description: Fornece assistência com erros de autenticação comuns ao usar as APIs do Portal do Cloud Partner.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: 8c9bd6dbe54f797090c5f7405ad709db954f8fb9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: reference
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: bfcee6a6d9a8448315d59009ea8a6ef62fa71da0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115461"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535987"
 ---
 # <a name="troubleshooting-common-authentication-errors"></a>Solução de problemas de erros de autenticação comuns
 
 > [!NOTE]
-> As APIs de Portal do Cloud Partner são integradas ao Partner Center e continuarão funcionando depois que suas ofertas forem migradas para o Partner Center. A integração apresenta pequenas alterações. Examine as alterações listadas em [portal do Cloud Partner referência de API](./cloud-partner-portal-api-overview.md) para garantir que seu código continue a funcionar após a migração para o Partner Center.
+> As APIs de Portal do Cloud Partner são integradas ao e continuarão funcionando no Partner Center. A transição apresenta pequenas alterações. Examine as alterações listadas em [portal do Cloud Partner referência de API](./cloud-partner-portal-api-overview.md) para garantir que seu código continue funcionando após a transição para o Partner Center. As APIs de CPP só devem ser usadas para produtos existentes que já foram integrados antes da transição para o Partner Center; os novos produtos devem usar as APIs de envio do Partner Center.
 
 Este artigo fornece assistência para erros de autenticação comuns ao usar as APIs do Portal do Cloud Partner.
 
@@ -24,7 +26,6 @@ Este artigo fornece assistência para erros de autenticação comuns ao usar as 
 Se você constantemente receber erros `401 unauthorized`, verifique se há um token de acesso válido.  Se ainda não fez isso, crie um aplicativo básico do Azure AD (Azure Active Directory) e uma entidade de serviço, conforme descrito em [Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que possa acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md). Em seguida, use o aplicativo ou uma solicitação HTTP POST simples para verificar o acesso.  Você incluirá a ID do Locatário, ID do Aplicativo, ID de Objeto e a chave secreta para obter o token de acesso, conforme mostrado na imagem a seguir:
 
 ![Solução de problemas de erro 401](./media/cloud-partner-portal-api-troubleshooting-authentication-errors/troubleshooting-401-error.jpg)
-
 
 ## <a name="forbidden-error"></a>Erro "Proibido"
 

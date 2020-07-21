@@ -1,0 +1,136 @@
+---
+title: Perguntas frequentes sobre área de trabalho virtual do Windows-Azure
+description: Perguntas frequentes e práticas recomendadas para a área de trabalho virtual do Windows.
+services: virtual-desktop
+author: Heidilohr
+ms.service: virtual-desktop
+ms.topic: conceptual
+ms.date: 07/13/2020
+ms.author: helohr
+manager: lizross
+ms.openlocfilehash: b7ab9e63bfe92967eca22b60dceec0de882768a6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86531005"
+---
+# <a name="windows-virtual-desktop-faq"></a>FAQ sobre área de trabalho virtual do Windows
+
+Este artigo responde às perguntas frequentes e explica as práticas recomendadas para a área de trabalho virtual do Windows.
+
+## <a name="what-are-the-minimum-admin-permissions-i-need-to-manage-objects"></a>Quais são as permissões de administrador mínimas necessárias para gerenciar objetos?
+
+Se você quiser criar pools de hosts e outros objetos, deverá ser atribuída a função Colaborador na assinatura ou no grupo de recursos com o qual você está trabalhando.
+
+Você deve ser atribuído à função de administrador de acesso do usuário em um grupo de aplicativos para publicar grupos de aplicativos para usuários ou grupos de usuários.
+
+Para restringir um administrador a gerenciar apenas sessões de usuário, como enviar mensagens para usuários, desconectar usuários e assim por diante, você pode criar funções personalizadas. Por exemplo: 
+
+```powershell
+"actions": [
+"Microsoft.Resources/deployments/operations/read",
+"Microsoft.Resources/tags/read",
+"Microsoft.Authorization/roleAssignments/read",
+"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
+"Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
+"Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
+"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/write",
+"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete"
+],
+"notActions": [],
+"dataActions": [],
+"notDataActions": []
+}
+```
+
+## <a name="does-windows-virtual-desktop-support-split-azure-active-directory-models"></a>O Windows Virtual Desktop dá suporte a modelos de Azure Active Directory divididos?
+
+Quando um usuário é atribuído a um grupo de aplicativos, o serviço faz uma simples atribuição de função RBAC (controle de acesso baseado em função) do Azure. Como resultado, o Azure Active Directory do usuário (AD) e o Azure AD do grupo de aplicativos devem estar no mesmo local. Todos os objetos de serviço, como pools de hosts, grupos de aplicativos e espaços de trabalho, também devem estar no mesmo Azure AD que o usuário.
+
+Você pode criar VMs (máquinas virtuais) em um Azure AD diferente, contanto que sincronize o Active Directory com o Azure AD do usuário na mesma rede virtual (VNET).
+
+O Azure Lighthouse não dá suporte completo ao gerenciamento do ambiente de área de trabalho virtual do Windows. Como o Lighthouse atualmente não dá suporte ao gerenciamento de usuários de locatários do Azure AD, os clientes do Lighthouse ainda precisam entrar no Azure AD que os clientes usam para gerenciar usuários.
+
+## <a name="what-are-location-restrictions"></a>O que são restrições de local?
+
+Todos os recursos de serviço têm um local associado a eles. O local de um pool de hosts determina a qual geografia os metadados de serviço para o pool de hosts são armazenados. Um grupo de aplicativos não pode existir sem um pool de hosts. Se você adicionar aplicativos a um grupo de aplicativos do RemoteApp, também precisará de um host de sessão para determinar os aplicativos do menu iniciar. Para qualquer ação de grupo de aplicativos, você também precisará de um acesso de dados relacionado no pool de hosts. Para garantir que os dados não sejam transferidos entre vários locais, o local do grupo de aplicativos deve ser o mesmo que o pool de hosts.
+
+Os espaços de trabalho também devem estar no mesmo local que seus grupos de aplicativos. Sempre que o espaço de trabalho é atualizado, o grupo de aplicativos relacionado é atualizado junto com ele. Assim como os grupos de aplicativos, o serviço requer que todos os espaços de trabalho estejam associados aos grupos de aplicativos criados no mesmo local.
+
+## <a name="how-do-you-expand-an-objects-properties-in-powershell"></a>Como expandir as propriedades de um objeto no PowerShell?
+
+Ao executar um cmdlet do PowerShell, você verá apenas o nome do recurso e o local.
+
+Por exemplo:
+
+```powershell
+Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg
+
+Location Name   Type
+-------- ----   ----
+westus   0224hp Microsoft.DesktopVirtualization/hostpools
+```
+
+Para ver todas as propriedades de um recurso, adicione um `format-list` ou `fl` ao final do cmdlet.
+
+Por exemplo:
+
+```powershell
+Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
+```
+
+Para ver propriedades específicas, adicione os nomes de propriedade específicos após `format-list` ou `fl` .
+
+Por exemplo:
+
+```powershell
+Get-AzWvdHostPool -Name demohp -ResourceGroupName 0414rg |fl CustomRdpProperty
+
+CustomRdpProperty : audiocapturemode:i:0;audiomode:i:0;drivestoredirect:s:;redirectclipboard:i:1;redirectcomports:i:0;redirectprinters:i:1;redirectsmartcards:i:1;screen modeid:i:2;
+```
+
+## <a name="does-windows-virtual-desktop-support-guest-users"></a>O Windows Virtual Desktop dá suporte a usuários convidados?
+
+A área de trabalho virtual do Windows não dá suporte a contas de usuário convidado do Azure AD. Por exemplo, digamos que um grupo de usuários convidados tenha licenças Microsoft 365 E3 por usuário, Windows E3 por usuário ou WIN VDA em sua própria empresa, mas que sejam usuários convidados no Azure AD de uma empresa diferente. A outra empresa gerenciaria os objetos de usuário dos usuários convidados no Azure AD e Active Directory como contas locais.
+
+Você não pode usar suas próprias licenças para o benefício de terceiros. Além disso, a área de trabalho virtual do Windows não suporta a conta da Microsoft (MSA) no momento.
+
+## <a name="why-dont-i-see-the-client-ip-address-in-the-wvdconnections-table"></a>Por que não vejo o endereço IP do cliente na tabela WVDConnections?
+
+Atualmente, não temos uma maneira confiável de coletar os endereços IP do cliente Web, portanto, não incluímos esse valor na tabela.
+
+## <a name="how-does-windows-virtual-desktop-handle-backups"></a>Como a área de trabalho virtual do Windows lida com backups?
+
+Há várias opções no Azure para lidar com o backup. Você pode usar o backup do Azure, Site Recovery e instantâneos.
+
+## <a name="does-windows-virtual-desktop-support-third-party-collaboration-apps"></a>A área de trabalho virtual do Windows dá suporte a aplicativos de colaboração de terceiros?
+
+A área de trabalho virtual do Windows está atualmente otimizada para equipes. A Microsoft atualmente não dá suporte a aplicativos de colaboração de terceiros como o zoom. As organizações de terceiros são responsáveis por fornecer diretrizes de compatibilidade para seus clientes. A área de trabalho virtual do Windows também não dá suporte ao Skype for Business.
+
+## <a name="can-i-change-from-pooled-to-personal-host-pools"></a>Posso mudar do pool para pools de hosts pessoais?
+
+Depois de criar um pool de hosts, você não pode alterar seu tipo. No entanto, você pode mover quaisquer VMs registradas para um pool de hosts para um tipo diferente de pool de hosts.
+
+## <a name="whats-the-largest-profile-size-fslogix-can-handle"></a>Qual é o maior tamanho de perfil que o FSLogix pode manipular?
+
+As limitações ou cotas no FSLogix dependem da malha de armazenamento usada para armazenar arquivos VHD (X) do perfil do usuário.
+
+A tabela a seguir fornece um exemplo de como os recursos de um perfil de FSLogix precisam dar suporte a cada usuário. Os requisitos podem variar amplamente dependendo do usuário, dos aplicativos e da atividade em cada perfil. 
+
+| Recurso | Requisito |
+|---|---|
+| IOPS de estado estável | 10 |
+| Entrar/sair do IOPS | 5 |
+
+O exemplo nesta tabela é de um único usuário, mas pode ser usado para estimar os requisitos para o número total de usuários em seu ambiente. Por exemplo, você precisaria de cerca de 1.000 IOPS para 100 usuários e cerca de 5.000 IOPS durante o logon e a saída.
+
+## <a name="is-there-a-scale-limit-for-host-pools-created-in-the-azure-portal"></a>Há um limite de escala para pools de hosts criados no portal do Azure?
+
+Esses fatores podem afetar o limite de escala para pools de hosts:
+
+- O modelo do Azure é limitado a 800 objetos. Para saber mais, confira [assinatura e limites de serviço, cotas e restrições do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#template-limits). Cada VM também cria cerca de seis objetos, de modo que isso significa que você pode criar em torno de 132 VMs sempre que executar o modelo.
+
+- Há restrições quanto à quantidade de núcleos que você pode criar por região e por assinatura. Por exemplo, se você tiver uma assinatura Enterprise Agreement, poderá criar núcleos de 350. Você precisará dividir 350 pelo número padrão de núcleos por VM ou seu próprio limite de núcleos para determinar quantas VMs você pode criar cada vez que executar o modelo. Saiba mais em [limites de máquinas virtuais-Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
+
+- O nome do prefixo da VM e o número de VMs têm menos de 15 caracteres. Para saber mais, consulte [regras e restrições de nomenclatura para recursos do Azure](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).

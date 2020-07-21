@@ -3,20 +3,21 @@ title: Registrar em log experimentos e métricas de ML
 titleSuffix: Azure Machine Learning
 description: Monitore seus experimentos do Azure ML e monitore as métricas de execução para aprimorar o processo de criação de modelo. Adicione o registro em log ao script de treinamento e exiba os resultados registrados de uma execução.  Use execute.log, Run.start_logging ou ScriptRunConfig.
 services: machine-learning
-author: sdgilley
-ms.author: sgilley
-ms.reviewer: sgilley
+author: likebupt
+ms.author: keli19
+ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 07/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 426c79c19b599127e2235f61e8c917062ede3b79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a4f58423206a812dd94cc14d32aa52114c147d1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675195"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536317"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitorar métricas e execuções de experimento do Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -107,7 +108,7 @@ Este exemplo expande o modelo básico do sklearn Ridge acima. Ele faz uma limpez
 
 Use o módulo __Executar script Python__ para adicionar o registro em log lógico aos experimentos do designer. Você pode registrar em log qualquer valor usando esse fluxo de trabalho, mas é especialmente útil para registrar em log métricas do módulo __Avaliar Modelo__ para acompanhar o desempenho do modelo entre diferentes execuções.
 
-1. Conecte um módulo __Executar script Python__ à saída do módulo __Avaliar Modelo__.
+1. Conecte um módulo __Executar script Python__ à saída do módulo __Avaliar Modelo__. O __modelo Evaluate__ pode gerar resultados de avaliação de 2 modelos. O exemplo a seguir mostra como registrar em log as métricas de 2 portas de saída no nível de execução pai. 
 
     ![Conectar o módulo Executar script Python ao módulo Avaliar Modelo](./media/how-to-track-experiments/designer-logging-pipeline.png)
 
@@ -115,23 +116,29 @@ Use o módulo __Executar script Python__ para adicionar o registro em log lógic
 
     ```python
     # dataframe1 contains the values from Evaluate Model
-    def azureml_main(dataframe1 = None, dataframe2 = None):
+    def azureml_main(dataframe1=None, dataframe2=None):
         print(f'Input pandas.DataFrame #1: {dataframe1}')
-
+    
         from azureml.core import Run
-
+    
         run = Run.get_context()
-
-        # Log the mean absolute error to the current run to see the metric in the module detail pane.
-        run.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
-
+    
         # Log the mean absolute error to the parent run to see the metric in the run details page.
         # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
         # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
-        run.parent.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
+
+        # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
+        run.parent.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
+
+        # Log right output port result of Evaluate Model.
+        run.parent.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
     
         return dataframe1,
     ```
+
+1. Depois que a execução do pipeline for concluída, você poderá ver o *Mean_Absolute_Error* na página experimento.
+
+    ![Conectar o módulo Executar script Python ao módulo Avaliar Modelo](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
 
 ## <a name="manage-a-run"></a>Gerenciar uma execução
 

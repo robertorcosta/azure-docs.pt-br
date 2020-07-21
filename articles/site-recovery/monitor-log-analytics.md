@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 0cf0ed943dd2135a3e8d545b76eda35285dae24d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 047b689b10d03cf92e5cc744aa707b3f70fe77bd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300783"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529022"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorar Site Recovery com os logs do Azure Monitor
 
@@ -67,8 +68,8 @@ Você pode capturar as informações de taxa de variação de dados e informaç�
 7. Quando a instalação for concluída, vá para Log Analytics espaço de trabalho e clique em **Configurações avançadas**. Vá para a página de **dados** e clique mais em **contadores de desempenho do Windows**. 
 8. Clique em **' + '** para adicionar os dois contadores a seguir com o intervalo de amostragem de 300 segundos:
 
-        ASRAnalytics(*)\SourceVmChurnRate 
-        ASRAnalytics(*)\SourceVmThrpRate 
+    - ASRAnalytics(*)\SourceVmChurnRate
+    - ASRAnalytics(*)\SourceVmThrpRate
 
 Os dados da taxa de rotatividade e upload começarão a alimentar no espaço de trabalho.
 

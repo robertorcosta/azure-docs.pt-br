@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 1a522193e9e704dce967daeeef70f82a6c0b1378
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 723329022d748ee18a07fcaeaecc2aff0e5f707b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135723"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528971"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Habilitar a recuperação de desastre de zona para zona para máquinas virtuais do Azure
 
@@ -22,6 +22,7 @@ Este artigo descreve como replicar, fazer failover e failback de máquinas virtu
 >
 >- Atualmente, Site Recovery não oferece suporte a planos de recuperação para recuperação de desastre de zona para zona por meio do Portal. Use o PowerShell ou a API REST para aproveitar os planos de recuperação para a recuperação de desastre de zona para zona. 
 >- O suporte para a recuperação de desastre de zona para zona está limitado atualmente a duas regiões: Sudeste Asiático e Sul do Reino Unido.  
+>- Site Recovery não move nem armazena os dados do cliente fora da região em que ele é implantado quando o cliente está usando a recuperação de desastre de zona para zona. Os clientes poderão selecionar um cofre dos serviços de recuperação em uma região diferente, se escolherem. O cofre dos serviços de recuperação contém metadados, mas não dados reais do cliente.
 
 Site Recovery serviço contribui para sua estratégia de recuperação de desastre e continuidade de negócios mantendo seus aplicativos de negócios em funcionamento, durante interrupções planejadas e não planejadas. É a opção de recuperação de desastre recomendada para manter seus aplicativos em funcionamento, se houver interrupções regionais.
 
@@ -104,7 +105,7 @@ Faça logon no portal do Azure.
 
 7. Clique em ' Avançar: revisar + iniciar replicação ' e ' Iniciar replicação '.
 
-## <a name="faqs"></a>Perguntas frequentes
+## <a name="faqs"></a>Perguntas Frequentes
 
 **1. como o preço funciona para a recuperação de desastre de zona para zona?**
 Os preços da recuperação de desastre de zona para zona são idênticos aos preços da recuperação de desastre do Azure para o Azure. Você pode encontrar mais detalhes na página de preços [aqui](https://azure.microsoft.com/pricing/details/site-recovery/) e [aqui](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/). Observe que os encargos de egresso que você veria na recuperação de desastre de zona para zona seriam menores do que a recuperação de desastre da região para a região.

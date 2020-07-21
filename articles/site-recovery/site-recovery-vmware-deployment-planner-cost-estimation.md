@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: b03ac554ed578633b55ffa2fde4838c691d04d59
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d7ee72b5f6441f2b3b3ea9a7eaa41a3e1b650745
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132211"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528954"
 ---
 # <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Examinar estimativas de custo no Planejador de Implantações VMware 
 
@@ -104,7 +104,7 @@ Para adicionar manualmente as máquinas virtuais:
 * Tamanho de armazenamento total da VM (GB) do computador de origem
 * Número de detalhamentos de recuperação de desastre em um ano 
 * Duração de cada detalhamento de recuperação de desastre (Dias) 
-* Tipo de SO
+* Tipo de sistema operacional
 * Redundância de dados 
 * Benefício Híbrido do Azure
 
@@ -150,16 +150,16 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Moedas com suporte
 O Planejador de Implantações do Azure Site Recovery pode gerar o relatório de custo com qualquer uma das moedas a seguir.
 
-|Currency|Nome||Currency|Nome||Currency|Nome|
+|Currency|Nome|Currency|Nome|Currency|Nome|
 |---|---|---|---|---|---|---|---|
-|ARS|Peso argentino ($)||AUD|Dólar australiano ($)||BRL|Real brasileiro (R$)|
-|CAD|Dólar canadense ($)||CHF|Franco suíço. (chf)||DKK|Coroa dinamarquesa (kr)|
-|EUR|Euro (€)||GBP|Libras esterlinas (£)||HKD|Dólar de Hong Kong (HK$)|
-|IDR|Rúpia da Indonésia (Rp)||INR|Rúpia indiana (₹)||JPY|Iene japonês (¥)|
-|KRW|Won coreano (₩)||MXN|Peso mexicano (MXN$)||MYR|Ringgit malaio (RM$)|
-|NOK|Coroa norueguesa (kr)||NZD|Dólar neozelandês ($)||RUB|Rublo russo (руб)|
-|SAR|Rial saudita (SR)||SEK|Coroa sueca (kr)||TWD|Dólar taiwanês (NT$)|
-|TRY|Lira turca (TL)||USD| Dólar americano (US$)||ZAR|Rand da África do Sul (R)|
+|ARS|Peso argentino ($)|AUD|Dólar australiano ($)|BRL|Real brasileiro (R$)|
+|CAD|Dólar canadense ($)|CHF|Franco suíço. (chf)|DKK|Coroa dinamarquesa (kr)|
+|EUR|Euro (€)|GBP|Libras esterlinas (£)|HKD|Dólar de Hong Kong (HK$)|
+|IDR|Rúpia da Indonésia (Rp)|INR|Rúpia indiana (₹)|JPY|Iene japonês (¥)|
+|KRW|Won coreano (₩)|MXN|Peso mexicano (MXN$)|MYR|Ringgit malaio (RM$)|
+|NOK|Coroa norueguesa (kr)|NZD|Dólar neozelandês ($)|RUB|Rublo russo (руб)|
+|SAR|Rial saudita (SR)|SEK|Coroa sueca (kr)|TWD|Dólar taiwanês (NT$)|
+|TRY|Lira turca (TL)|USD| Dólar americano (US$)|ZAR|Rand da África do Sul (R)|
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre como proteger [VMs do VMware para o Azure usando o Azure Site Recovery](./vmware-azure-tutorial.md).
