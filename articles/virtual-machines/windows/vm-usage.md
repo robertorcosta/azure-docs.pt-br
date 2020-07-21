@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: 62880542e2cc4a93585011837b4cc962c8e79c0e
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: d480b9309c9028d8f55ab50c72a86889f320810b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773779"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500108"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Noções básicas sobre o uso de máquina virtual do Azure
 Ao analisar os dados de uso do Azure, podem ser obtidas informações poderosas sobre o consumo - insights que podem permitir um melhor gerenciamento e alocação de custos em toda a sua organização. Este documento fornece um aprofundamento em seus detalhes de consumo de Computação do Azure. Para obter mais detalhes sobre o uso geral do Azure, navegue até [Entendendo sua fatura](../../cost-management-billing/understand/review-individual-bill.md).
@@ -137,10 +138,9 @@ As VMs com capacidade de armazenamento Premium são cobradas na mesma taxa que a
 
 Há 3 locais possíveis nas APIs que podem retornar o sistema operacional em execução na VM:
 
-1) Executar VMs que incluem o agente convidado (todas as VMs do Linux e a maioria das VMs do Windows) mostrará o nome e a versão do sistema operacional na exibição de Instâncias de VM. Isso é preciso em todos os momentos, mas devido ao fato de as informações virem do agente convidado, elas não estarão disponíveis para todas as VMs. Documentação da API [aqui](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview#virtualmachineagentinstanceview).
-2) As VMs implantadas a partir de uma imagem de plataforma conterão os detalhes da imagem que podem indicar a versão do sistema operacional nos nomes selecionados pelo editor para Oferta ou SKU. No entanto, eles são selecionados pelo editor; portanto, não há garantia de que o sistema operacional será detectável na nomenclatura. Documentação da API [aqui](https://docs.microsoft.com/rest/api/compute/images/get#operatingsystemtypes).
-3) Cada disco do sistema operacional terá um valor especificado para Windows ou Linux. Esse valor é herdado da imagem quando o disco do sistema operacional foi criado a partir de uma imagem. Quando um disco do sistema operacional é carregado diretamente na plataforma, o valor do sistema operacional é definido quando o disco do sistema operacional é criado. Esse valor está sempre presente, mas a plataforma do Azure não garante que ele esteja correto. Documentação da API [aqui](https://docs.microsoft.com/rest/api/compute/virtualmachineimages/get#operatingsystemtypes).
+1) Executar VMs que incluem o agente convidado (todas as VMs do Linux e a maioria das VMs do Windows) mostrará o nome e a versão do sistema operacional na exibição de Instâncias de VM. Isso é preciso em todos os momentos, mas devido ao fato de as informações virem do agente convidado, elas não estarão disponíveis para todas as VMs. Documentação da API [aqui](/rest/api/compute/virtualmachines/instanceview#virtualmachineagentinstanceview).
+2) As VMs implantadas a partir de uma imagem de plataforma conterão os detalhes da imagem que podem indicar a versão do sistema operacional nos nomes selecionados pelo editor para Oferta ou SKU. No entanto, eles são selecionados pelo editor; portanto, não há garantia de que o sistema operacional será detectável na nomenclatura. Documentação da API [aqui](/rest/api/compute/images/get#operatingsystemtypes).
+3) Cada disco do sistema operacional terá um valor especificado para Windows ou Linux. Esse valor é herdado da imagem quando o disco do sistema operacional foi criado a partir de uma imagem. Quando um disco do sistema operacional é carregado diretamente na plataforma, o valor do sistema operacional é definido quando o disco do sistema operacional é criado. Esse valor está sempre presente, mas a plataforma do Azure não garante que ele esteja correto. Documentação da API [aqui](/rest/api/compute/virtualmachineimages/get#operatingsystemtypes).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre seus detalhes de uso, consulte [Entenda sua cobrança do Microsoft Azure.](../../cost-management-billing/understand/review-individual-bill.md)
-

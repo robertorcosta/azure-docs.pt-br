@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: 8d4b57fb2fee3849e102868c86fe3cab465fc70d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e85ae50321b9aa034f6a6d2cadcc329a24dafa62
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67707789"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500011"
 ---
 # <a name="known-issues-with-hb-series-and-hc-series-vms"></a>Problemas comuns com VMs série HB e série HC
 
@@ -89,4 +89,4 @@ Você pode ignorar este aviso. Isso ocorre devido a uma limitação conhecida do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre [a computação de alto desempenho](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) no Azure.
+Saiba mais sobre [a computação de alto desempenho](/azure/architecture/topics/high-performance-computing/) no Azure.

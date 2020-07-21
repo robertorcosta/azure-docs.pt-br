@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 4bcd2349913c1823e80d46565dfa869d9efe955f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ab95223d084436d1bf39ba557ec3b01c0b534d8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260654"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503380"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Use a biblioteca .NET do executor em massa para executar operações em massa no Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Atualmente, a biblioteca de executores em massa é suportada apenas pela API do 
 
 Agora, vamos mudar para trabalhar com código baixando um aplicativo .NET de exemplo do GitHub. Esse aplicativo executa operações em massa nos dados armazenados em sua conta do Azure Cosmos. Para clonar o aplicativo, abra um prompt de comando, navegue até o diretório onde você deseja copiá-lo e execute o seguinte comando:
 
-```
+```bash
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 

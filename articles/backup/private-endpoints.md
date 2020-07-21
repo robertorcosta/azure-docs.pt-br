@@ -3,16 +3,16 @@ title: Pontos de extremidade privados
 description: Entenda o processo de criação de pontos de extremidade privados para o backup do Azure e os cenários em que o uso de pontos de extremidade privados ajuda a manter a segurança de seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 8ce767073e9acfe271e6e57f9e6d1237910b33e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9c8f142e9781946f572f6f3a744d8bc2736a3de
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124248"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503754"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos de extremidade privados para o backup do Azure
 
-O backup do Azure permite que você faça backup e restaure seus dados de seus cofres de serviços de recuperação usando [pontos de extremidade privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview). Os pontos de extremidade privados usam um ou mais endereços IP privados de sua VNet, colocando efetivamente o serviço em sua VNet.
+O backup do Azure permite que você faça backup e restaure seus dados de seus cofres de serviços de recuperação usando [pontos de extremidade privados](../private-link/private-endpoint-overview.md). Os pontos de extremidade privados usam um ou mais endereços IP privados de sua VNet, colocando efetivamente o serviço em sua VNet.
 
 Este artigo o ajudará a entender o processo de criação de pontos de extremidade privados para o backup do Azure e os cenários em que o uso de pontos de extremidade privados ajuda a manter a segurança de seus recursos.
 
@@ -45,7 +45,7 @@ Esta seção aborda as etapas envolvidas na criação e no uso de pontos de extr
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-Consulte [esta seção](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) para saber como criar um cofre usando o cliente Azure Resource Manager. Isso cria um cofre com sua identidade gerenciada já habilitada. Saiba mais sobre os cofres dos serviços de recuperação [aqui](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview).
+Consulte [esta seção](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) para saber como criar um cofre usando o cliente Azure Resource Manager. Isso cria um cofre com sua identidade gerenciada já habilitada. Saiba mais sobre os cofres dos serviços de recuperação [aqui](./backup-azure-recovery-services-vault-overview.md).
 
 ## <a name="enable-managed-identity-for-your-vault"></a>Habilitar identidade gerenciada para seu cofre
 
@@ -111,9 +111,9 @@ Consulte [esta lista](https://download.microsoft.com/download/1/2/6/126a410b-0e0
 
 Para convenções de nomenclatura de URL em regiões nacionais:
 
-- [China](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [Alemanha](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
-- [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
+- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [Alemanha](../germany/germany-developer-guide.md#endpoint-mapping)
+- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 ### <a name="linking-private-dns-zones-with-your-virtual-network"></a>Vinculando zonas DNS privadas com sua rede virtual
 

@@ -7,11 +7,12 @@ ms.topic: article
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 413f53feedc4fee0877694e3f3a3a509c4d38001
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ce816aba6bee36cd20eed6d31b0642dc8931e0b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783535"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503023"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Tamanhos de VM do Azure sem disco temporário local 
 Este artigo fornece respostas para perguntas frequentes sobre tamanhos de VM do Azure que não têm um disco temporário local (ou seja, não local temp Desk). Para obter mais informações sobre esses tamanhos de VM, consulte [especificações para dv4 e Dsv4 (cargas de trabalho uso geral)](dv4-dsv4-series.md) ou [especificações para as séries Ev4 e Esv4 (cargas de trabalho com otimização de memória)](ev4-esv4-series.md).
@@ -22,7 +23,7 @@ Este artigo fornece respostas para perguntas frequentes sobre tamanhos de VM do 
 ## <a name="what-does-no-local-temp-disk-mean"></a>O que não significa disco temporário local? 
 Tradicionalmente, tivemos tamanhos de VM (por exemplo, Standard_D2s_v3, Standard_E48_v3) que incluem um pequeno disco local (ou seja, uma unidade D:). Agora com esses novos tamanhos de VM, esse pequeno disco local não existe mais; no entanto, você ainda pode anexar HDD Standard, SSD Premium ou SSD Ultra.
 
-## <a name="what-if-i-still-want-local-temp-disk"></a>E se eu ainda quiser um disco temporário local?
+## <a name="what-if-i-still-want-a-local-temp-disk"></a>E se eu ainda quiser um disco temporário local?
 Se sua carga de trabalho exigir um disco temporário local, também temos novos tamanhos [de VM Ddv4 e Ddsv4](ddv4-ddsv4-series.md) ou [Edv4 e Edsv4](edv4-edsv4-series.md) disponíveis. Esses tamanhos oferecem 50% de disco temporário maior em comparação com os tamanhos v3 anteriores.
 
 > [!NOTE]

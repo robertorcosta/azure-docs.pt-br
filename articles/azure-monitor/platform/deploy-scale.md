@@ -4,11 +4,12 @@ description: Implante Azure Monitor recursos em escala usando Azure Policy.
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4be403f8efc8e328548b6ef38b36be78a8fb96d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbfc0cafe83f53bd7cab2b93899e9c2cb02d52e3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678691"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505203"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Implantar Azure Monitor em escala usando Azure Policy
 Embora alguns recursos de Azure Monitor sejam configurados uma vez ou um número limitado de vezes, outros devem ser repetidos para cada recurso que você deseja monitorar. Este artigo descreve métodos para usar o Azure Policy para implementar Azure Monitor em escala para garantir que o monitoramento seja configurado de forma consistente e precisa para todos os seus recursos do Azure.
@@ -30,7 +31,7 @@ Azure Policy consiste nos objetos na tabela a seguir. Consulte [Azure Policy obj
 | Atribuição | Uma definição ou iniciativa de política não entrará em vigor até ser atribuída a um escopo. Por exemplo, atribua uma política a um grupo de recursos para aplicá-la a todos os recursos criados nesse recurso ou aplique-a a uma assinatura para aplicá-la a todos os recursos nessa assinatura.  Para obter mais detalhes, consulte [Azure Policy estrutura de atribuição](../../governance/policy/concepts/assignment-structure.md). |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Definições de política internas para o Azure Monitor
-Azure Policy inclui várias definições predefinidas relacionadas a Azure Monitor. Você pode atribuir essas definições de política à sua assinatura existente ou usá-las como base para criar suas próprias definições personalizadas. Para obter uma lista completa do política interna na categoria **monitoramento** , consulte [Azure Policy definições de política internas para Azure monitor](../policy-samples.md).
+Azure Policy inclui várias definições predefinidas relacionadas a Azure Monitor. Você pode atribuir essas definições de política à sua assinatura existente ou usá-las como base para criar suas próprias definições personalizadas. Para obter uma lista completa do política interna na categoria **monitoramento** , consulte [Azure Policy definições de política internas para Azure monitor](../samples/policy-samples.md).
 
 Para exibir as definições de política internas relacionadas ao monitoramento, faça o seguinte:
 
@@ -41,7 +42,7 @@ Para exibir as definições de política internas relacionadas ao monitoramento,
   ![Definições de política internas](media/deploy-scale/builtin-policies.png)
 
 
-## <a name="diagnostic-settings"></a>Configurações de Diagnóstico
+## <a name="diagnostic-settings"></a>Configurações de diagnóstico
 [As configurações de diagnóstico](../platform/diagnostic-settings.md) coletam logs de recursos e métricas de recursos do Azure para vários locais, normalmente para um espaço de trabalho log Analytics que permite que você analise os dados com [consultas de log](../log-query/log-query-overview.md) e [alertas de log](alerts-log.md). Use a política para criar automaticamente uma configuração de diagnóstico cada vez que você criar um recurso.
 
 Cada tipo de recurso do Azure tem um conjunto exclusivo de categorias que precisam ser listadas na configuração de diagnóstico. Por isso, cada tipo de recurso requer uma definição de política separada. Alguns tipos de recursos têm definições de políticas internas que você pode atribuir sem modificação. Para outros tipos de recursos, você precisa criar uma definição personalizada.
@@ -59,7 +60,7 @@ Para tipos de recursos que não têm uma política interna, você precisa criar 
 O script [Create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create-AzDiagPolicy) cria arquivos de política para um tipo de recurso específico que você pode instalar usando o PowerShell ou a CLI. Use o procedimento a seguir para criar uma definição de política personalizada para configurações de diagnóstico.
 
 
-1. Verifique se você tem [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) instalado.
+1. Verifique se você tem [Azure PowerShell](/powershell/azure/install-az-ps) instalado.
 2. Instale o script com o seguinte comando:
   
     ```azurepowershell
@@ -112,7 +113,7 @@ Usando parâmetros de iniciativa, você pode especificar o espaço de trabalho o
 
 ![Parâmetros de iniciativa](media/deploy-scale/initiative-parameters.png)
 
-### <a name="remediation"></a>Remediação
+### <a name="remediation"></a>Correção
 A iniciativa será aplicada a cada máquina virtual à medida que ela for criada. Uma [tarefa de correção](../../governance/policy/how-to/remediate-resources.md) implanta as definições de política na iniciativa para recursos existentes, portanto, isso permite que você crie configurações de diagnóstico para todos os recursos que já foram criados. Ao criar a atribuição usando o portal do Azure, você tem a opção de criar uma tarefa de correção ao mesmo tempo. Consulte [corrigir recursos sem conformidade com Azure Policy](../../governance/policy/how-to/remediate-resources.md) para obter detalhes sobre a correção.
 
 ![Correção da iniciativa](media/deploy-scale/initiative-remediation.png)

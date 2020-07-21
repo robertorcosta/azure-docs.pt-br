@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 2d0030549acdb55ce2be94534ec59bb07b11869d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: c2dffe576bfb52981b331c02b3f24ec2507ec349
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221622"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501944"
 ---
 A Galeria de imagens compartilhadas é um serviço que ajuda você a criar estrutura e organização em suas imagens. A Galeria de Imagens Compartilhadas fornece:
 
@@ -83,7 +83,7 @@ As VMs especializadas não passaram por um processo para remover informações e
 
 ## <a name="regional-support"></a>Suporte regional
 
-Todas as regiões públicas podem ser regiões de destino, mas para replicar para Austrália Central e Austrália Central 2, é necessário incluir a sua assinatura na lista de permissões. Para solicitar a inclusão na lista de permissões, acesse: https://azure.microsoft.com/global-infrastructure/australia/contact/
+Todas as regiões públicas podem ser regiões de destino, mas para replicação na Austrália Central e na Austrália Central 2, você precisa ter sua assinatura adicionada à lista de permissões. Para solicitar que uma assinatura seja adicionada à lista de permissões, vá para:https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 ## <a name="limits"></a>limites 
 

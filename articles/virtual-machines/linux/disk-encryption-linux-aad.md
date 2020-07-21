@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: c1349052488cb520f5866b5b0d238a223f2ceb68
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 274dda338fca1dae1940dd4a0fe66df617195544
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135098"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502615"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Habilitar Azure Disk Encryption com o Azure AD em VMs do Linux (versão anterior)
 
@@ -209,7 +209,7 @@ Use o cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set
 - Adicione os discos de dados que irão compor a VM.
 - Formatar, montar e adicionar esses discos ao arquivo fstab.
 
-    1. Formate o disco adicionado recentemente. Usamos symlinks gerados pelo Azure aqui. O uso de symlinks evita problemas relacionados à alteração de nomes de dispositivos. Para obter mais informações, consulte [solucionar problemas de nomes de dispositivo](troubleshoot-device-names-problems.md).
+    1. Formate o disco adicionado recentemente. Usamos symlinks gerados pelo Azure aqui. O uso de symlinks evita problemas relacionados à alteração de nomes de dispositivos. Para obter mais informações, consulte [solucionar problemas de nomes de dispositivo](../troubleshooting/troubleshoot-device-names-problems.md).
     
         ```console
         mkfs -t ext4 /dev/disk/azure/scsi1/lun0
@@ -265,7 +265,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 Você pode adicionar um novo disco de dados usando [AZ VM Disk Attach](add-disk.md) ou [por meio do portal do Azure](attach-disk-portal.md). Antes de poder criptografar, primeiro será necessário montar o disco de dados anexado recentemente. Você deve solicitar a criptografia da unidade de dados porque a unidade será inutilizável enquanto a criptografia estiver em andamento. 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-the-azure-cli"></a>Habilitar a criptografia em um disco recém-adicionado com o CLI do Azure
- Se a VM tiver sido criptografada anteriormente com "All", o parâmetro--volume-Type deverá permanecer todos. Todos inclui o sistema operacional e os discos de dados. Se a VM tiver sido criptografada anteriormente com um tipo de volume de "OS", o parâmetro--volume-Type deverá ser alterado para All, de modo que o so e o novo disco de dados serão incluídos. Se a VM tiver sido criptografada apenas com o tipo de volume de "dados", ela poderá permanecer com os dados, conforme demonstrado aqui. Adicionar e anexar um novo disco de dados a uma VM não é uma preparação suficiente para a criptografia. O disco recentemente anexado também deve ser formatado e montado corretamente na VM antes de habilitar a criptografia. No Linux, o disco deve ser montado em/etc/fstab com um [nome de dispositivo de bloqueio persistente](troubleshoot-device-names-problems.md). 
+ Se a VM tiver sido criptografada anteriormente com "All", o parâmetro--volume-Type deverá permanecer todos. Todos inclui o sistema operacional e os discos de dados. Se a VM tiver sido criptografada anteriormente com um tipo de volume de "OS", o parâmetro--volume-Type deverá ser alterado para All, de modo que o so e o novo disco de dados serão incluídos. Se a VM tiver sido criptografada apenas com o tipo de volume de "dados", ela poderá permanecer com os dados, conforme demonstrado aqui. Adicionar e anexar um novo disco de dados a uma VM não é uma preparação suficiente para a criptografia. O disco recentemente anexado também deve ser formatado e montado corretamente na VM antes de habilitar a criptografia. No Linux, o disco deve ser montado em/etc/fstab com um [nome de dispositivo de bloqueio persistente](../troubleshooting/troubleshoot-device-names-problems.md). 
 
 Ao contrário da sintaxe do PowerShell, a CLI não exige que você forneça uma versão de sequência exclusiva ao habilitar a criptografia. A CLI gera e usa automaticamente o próprio valor de versão de sequência exclusivo.
 

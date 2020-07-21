@@ -9,11 +9,12 @@ ms.subservice: visual-studio
 ms.date: 09/09/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 826dc1858984508e54e160675dd10f6dfad88af8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2db281f1b3278e37deca8486971a7f7a83f85ccf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124356"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503074"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Como criar um Conjunto de Dimensionamento de Máquinas Virtuais com o Visual Studio
 
@@ -21,7 +22,7 @@ Este artigo mostra como implantar um conjunto de dimensionamento de máquinas vi
 
 Os [conjuntos de dimensionamento de máquinas virtuais do Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) são um recurso de computação do Azure para implantar e gerenciar uma coleção de máquinas virtuais semelhantes com dimensionamento automático e balanceamento de carga. É possível provisionar e implantar os Conjuntos de Dimensionamento de Máquinas Virtuais usando os [Modelos do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates). Azure Resource Manager modelos podem ser implantados usando CLI do Azure, PowerShell, REST e também diretamente do Visual Studio. O Visual Studio fornece um conjunto de modelos de exemplo, que você pode implantar como parte de um projeto de implantação do grupo de recursos do Azure.
 
-As implantações de Grupo de Recursos do Azure são uma maneira de agrupar e publicar um conjunto de recursos relacionados do Azure em uma única operação de implantação. Para obter mais informações, consulte [criando e implantando grupos de recursos do Azure por meio do Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+As implantações de Grupo de Recursos do Azure são uma maneira de agrupar e publicar um conjunto de recursos relacionados do Azure em uma única operação de implantação. Para obter mais informações, consulte [criando e implantando grupos de recursos do Azure por meio do Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -65,7 +66,7 @@ Implante o modelo de Azure Resource Manager para criar o recurso de conjunto de 
 
 1. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto e escolha **implantar**  >  **novo**.
 
-    ![Implante o seu projeto](media/virtual-machine-scale-sets-vs-create/deploy-new-project.png)
+    ![Implantar o projeto](media/virtual-machine-scale-sets-vs-create/deploy-new-project.png)
 
 1. Em **implantar no grupo de recursos**, escolha qual assinatura deve ser usada e selecione um grupo de recursos. Você pode criar um grupo de recursos, se necessário.
 

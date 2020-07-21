@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 8ff24d508eb35c4f2a04c7d024254fa6f1875da8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b9624313716081a039b12c73e54b9f7afc2a323
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659275"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505305"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importar Azure Monitor dados de log para Power BI
 
@@ -20,12 +21,12 @@ ms.locfileid: "77659275"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="overview"></a>Visão geral
-Para importar dados de um [espaço de trabalho log Analytics](manage-access.md) no Azure Monitor para Power bi, você cria um conjunto de dados no Power bi com base em uma [consulta de log](../log-query/log-query-overview.md) no Azure monitor.  A consulta é executada cada vez que o conjunto de dados é atualizado.  Depois você pode compilar relatórios do Power BI que usam dados do conjunto de dados.  Para criar o conjunto de dados no Power BI, exporte sua consulta do Log Analytics para a [linguagem do Power Query (M)](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification).  Depois use-a para criar uma consulta no Power BI Desktop e publicá-la no Power BI como um conjunto de dados.  Os detalhes para esse processo são descritos abaixo.
+Para importar dados de um [espaço de trabalho log Analytics](manage-access.md) no Azure Monitor para Power bi, você cria um conjunto de dados no Power bi com base em uma [consulta de log](../log-query/log-query-overview.md) no Azure monitor.  A consulta é executada cada vez que o conjunto de dados é atualizado.  Depois você pode compilar relatórios do Power BI que usam dados do conjunto de dados.  Para criar o conjunto de dados no Power BI, exporte sua consulta do Log Analytics para a [linguagem do Power Query (M)](/powerquery-m/power-query-m-language-specification).  Depois use-a para criar uma consulta no Power BI Desktop e publicá-la no Power BI como um conjunto de dados.  Os detalhes para esse processo são descritos abaixo.
 
 ![Log Analytics para Power BI](media/powerbi/overview.png)
 
 ## <a name="export-query"></a>Consulta de exportação
-Comece criando uma [consulta de log](../log-query/log-query-overview.md) que retorne os dados que você deseja que preencham o Power bi DataSet.  Depois exporte essa consulta para a [linguagem do Power Query (M)](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification) que pode ser usado pelo Power BI Desktop.
+Comece criando uma [consulta de log](../log-query/log-query-overview.md) que retorne os dados que você deseja que preencham o Power bi DataSet.  Depois exporte essa consulta para a [linguagem do Power Query (M)](/powerquery-m/power-query-m-language-specification) que pode ser usado pelo Power BI Desktop.
 
 1. [Crie a consulta de log no log Analytics](../log-query/get-started-portal.md) para extrair os dados para seu conjunto.
 2. Selecione **Exportar**  >  **consulta de Power bi (M)**.  Isso exporta a consulta para um arquivo de texto chamado **PowerBIQuery.txt**. 
@@ -52,7 +53,7 @@ O Power BI Desktop é um aplicativo de área de trabalho que permite criar conju
 ## <a name="publish-to-power-bi"></a>Publicar no Power BI
 Ao publicar no Power BI, serão criados um conjunto de dados e um relatório.  Se você criar um relatório no Power BI Desktop, isso será publicado com seus dados.  Se não, será criado um relatório em branco.  É possível modificar o relatório no Power BI ou criar um novo com base no conjunto de dados.
 
-1. Crie um relatório baseado nos seus dados.  Use a [documentação do Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-report-view) se não estiver familiarizado com ele.  
+1. Crie um relatório baseado nos seus dados.  Use a [documentação do Power BI Desktop](/power-bi/desktop-report-view) se não estiver familiarizado com ele.  
 1. Quando você estiver pronto para enviá-lo ao Power BI, clique em **Publicar**.  
 1. Quando solicitado, selecione um destino em sua conta do Power BI.  A menos que tenha um destino específico em mente, use **Meu workspace**.
 

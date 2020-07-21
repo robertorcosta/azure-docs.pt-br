@@ -11,11 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 65331136b5b137c44577fd09f3914e8869cc2dcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1567d38f8e582c062aa024b40cf0ede1d8b691f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84027897"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504316"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Restaurar um único locatário com um aplicativo de banco de dados por locatário SaaS
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +29,7 @@ Neste tutorial, você aprenderá dois padrões de recuperação de dados:
 > * Restaurar um banco de dados em um banco de dados paralelo (lado a lado).
 > * Restaurar um banco de dados no local substituindo o banco de dados existente.
 
-|||
+| Padrão | Descrição |
 |:--|:--|
 | Restaurar em um banco de dados paralelo | Esse padrão pode ser usado para tarefas como revisão, auditoria e conformidade para permitir que um locatário inspecione os dados de um ponto anterior. O banco de dados atual do locatário permanece inalterado e online. |
 | Restaurar no local | Esse padrão geralmente é usado para recuperar um locatário para um ponto anterior, depois que ele exclui ou corrompe dados acidentalmente. O banco de dados original é colocado off-line e substituído pelo banco de dados restaurado. |

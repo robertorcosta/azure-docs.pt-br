@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: a037eddb13645036fcbe501ecba33923733b6d03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a9eaeb9b77c7b4dd7e0b2347c66de3a325a66ee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84944365"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505169"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes
 [Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo o log de atividades do Azure e os logs de recursos, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem. As [métricas de plataforma](data-platform-metrics.md) são coletadas por padrão e normalmente armazenadas no banco de dados de métricas Azure monitor. Este artigo fornece detalhes sobre como criar e definir configurações de diagnóstico para enviar métricas de plataforma e logs de plataforma para destinos diferentes.
@@ -27,6 +27,9 @@ Cada recurso do Azure requer sua própria configuração de diagnóstico, que de
 
 Uma única configuração de diagnóstico pode definir, no máximo, um de cada um dos destinos. Se você quiser enviar dados para mais de um tipo de destino específico (por exemplo, dois workspaces do Log Analytics diferentes), crie várias configurações. Cada recurso pode ter até cinco configurações de diagnóstico.
 
+O vídeo a seguir orienta você pelos logs da plataforma de roteamento com configurações de diagnóstico.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AvVO]
+
 > [!NOTE]
 > As [métricas de plataforma](metrics-supported.md) são enviadas automaticamente para [Azure monitor métricas](data-platform-metrics.md). As configurações de diagnóstico podem ser usadas para enviar métricas para determinados serviços do Azure em Azure Monitor logs para análise com outros dados de monitoramento usando [consultas de log](../log-query/log-query-overview.md) com determinadas limitações. 
 >  
@@ -34,7 +37,7 @@ Uma única configuração de diagnóstico pode definir, no máximo, um de cada u
 > Atualmente, não há suporte para o envio da métrica multidimensional por meio das configurações de diagnóstico. As métricas com dimensões são exportadas como métricas dimensionais simples, agregadas nos valores da dimensão. *Por exemplo*: a métrica ' IOReadBytes ' em um Blockchain pode ser explorada e grafada em um nível por nó. No entanto, quando exportadas por meio de configurações de diagnóstico, a métrica exportada representa como todos os bytes de leitura de todos os nós Além disso, devido a limitações internas, nem todas as métricas são exportáveis para Azure Monitor logs/Log Analytics. Para obter mais informações, consulte a [lista de métricas exportáveis](metrics-supported-export-diagnostic-settings.md). 
 >  
 >  
-> Para contornar essas limitações para métricas específicas, sugerimos extraí-las manualmente usando a [API REST de métricas](https://docs.microsoft.com/rest/api/monitor/metrics/list) e importá-las em Logs de Azure monitor usando a [API do coletor de dados Azure monitor](data-collector-api.md).  
+> Para contornar essas limitações para métricas específicas, sugerimos extraí-las manualmente usando a [API REST de métricas](/rest/api/monitor/metrics/list) e importá-las em Logs de Azure monitor usando a [API do coletor de dados Azure monitor](data-collector-api.md).  
 
 
 ## <a name="destinations"></a>Destinos
@@ -80,15 +83,15 @@ Você pode definir as configurações de diagnóstico no portal do Azure no menu
 
    - Para um único recurso, clique em **configurações de diagnóstico** em **Monitor** no menu do recurso.
 
-        ![Configurações de Diagnóstico](media/diagnostic-settings/menu-resource.png)
+        ![Configurações de diagnóstico](media/diagnostic-settings/menu-resource.png)
 
    - Para um ou mais recursos, clique em **configurações de diagnóstico** em **configurações** no menu Azure monitor e clique no recurso.
 
-      ![Configurações de Diagnóstico](media/diagnostic-settings/menu-monitor.png)
+      ![Configurações de diagnóstico](media/diagnostic-settings/menu-monitor.png)
 
-   - Para o log de atividades, clique em **log de atividades** no menu **Azure monitor** e, em seguida, **configurações de diagnóstico**. Certifique-se de desabilitar qualquer configuração herdada para o log de atividades. Consulte [desabilitar configurações existentes](/azure/azure-monitor/platform/activity-log-collect#collecting-activity-log) para obter detalhes.
+   - Para o log de atividades, clique em **log de atividades** no menu **Azure monitor** e, em seguida, **configurações de diagnóstico**. Certifique-se de desabilitar qualquer configuração herdada para o log de atividades. Consulte [desabilitar configurações existentes](./activity-log.md#legacy-collection-methods) para obter detalhes.
 
-        ![Configurações de Diagnóstico](media/diagnostic-settings/menu-activity-log.png)
+        ![Configurações de diagnóstico](media/diagnostic-settings/menu-activity-log.png)
 
 2. Se nenhuma configuração existir no recurso que você selecionou, será solicitada a criação de uma configuração. Clique em **Adicionar configuração de diagnóstico**.
 
@@ -141,7 +144,7 @@ Após alguns instantes, a nova configuração aparecerá na lista de configuraç
 
 ## <a name="create-using-powershell"></a>Criar usando o PowerShell
 
-Use o cmdlet [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) para criar uma configuração de diagnóstico com [Azure PowerShell](powershell-quickstart-samples.md). Consulte a documentação deste cmdlet para obter descrições de seus parâmetros.
+Use o cmdlet [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) para criar uma configuração de diagnóstico com [Azure PowerShell](../samples/powershell-samples.md). Consulte a documentação deste cmdlet para obter descrições de seus parâmetros.
 
 > [!IMPORTANT]
 > Você não pode usar esse método para o log de atividades do Azure. Em vez disso, use a [configuração criar diagnóstico no Azure monitor usando um modelo do Resource Manager](diagnostic-settings-template.md) para criar um modelo do Resource Manager e implantá-lo com o PowerShell.
@@ -154,7 +157,7 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 
 ## <a name="create-using-azure-cli"></a>Criar usando CLI do Azure
 
-Use o comando [AZ monitor Diagnostics-Settings Create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) para criar uma configuração de diagnóstico com [CLI do Azure](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). Consulte a documentação deste comando para obter descrições de seus parâmetros.
+Use o comando [AZ monitor Diagnostics-Settings Create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) para criar uma configuração de diagnóstico com [CLI do Azure](/cli/azure/monitor?view=azure-cli-latest). Consulte a documentação deste comando para obter descrições de seus parâmetros.
 
 > [!IMPORTANT]
 > Você não pode usar esse método para o log de atividades do Azure. Em vez disso, use a [configuração criar diagnóstico no Azure monitor usando um modelo do Resource Manager](diagnostic-settings-template.md) para criar um modelo do Resource Manager e implantá-lo com a CLI.
@@ -176,7 +179,7 @@ az monitor diagnostic-settings create  \
 Consulte [exemplos de modelo do Resource Manager para configurações de diagnóstico em Azure monitor](../samples/resource-manager-diagnostic-settings.md) para criar ou atualizar configurações de diagnóstico com um modelo do Resource Manager.
 
 ## <a name="create-using-rest-api"></a>Criar usando a API REST
-Consulte [configurações de diagnóstico](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) para criar ou atualizar as configurações de diagnóstico usando a [API REST do Azure monitor](https://docs.microsoft.com/rest/api/monitor/).
+Consulte [configurações de diagnóstico](/rest/api/monitor/diagnosticsettings) para criar ou atualizar as configurações de diagnóstico usando a [API REST do Azure monitor](/rest/api/monitor/).
 
 ## <a name="create-using-azure-policy"></a>Criar usando Azure Policy
 Como uma configuração de diagnóstico precisa ser criada para cada recurso do Azure, Azure Policy pode ser usada para criar automaticamente uma configuração de diagnóstico à medida que cada recurso é criado. Consulte [implantar Azure monitor em escala usando Azure Policy](deploy-scale.md) para obter detalhes.

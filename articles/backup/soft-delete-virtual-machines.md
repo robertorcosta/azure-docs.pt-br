@@ -1,16 +1,17 @@
 ---
-title: Exclusão reversível para máquinas virtuais
+title: Exclusão temporária para máquinas virtuais
 description: Saiba como a exclusão reversível para máquinas virtuais torna os backups mais seguros.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: ba00b235ea70bcc2dabbd5a91a3f7003f9bbed49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: e447db2c3f862d2f577a9e7d8767946375abf4e0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82765767"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503533"
 ---
-# <a name="soft-delete-for-virtual-machines"></a>Exclusão reversível para máquinas virtuais
+# <a name="soft-delete-for-virtual-machines"></a>Exclusão temporária para máquinas virtuais
 
 A exclusão reversível para VMs protege os backups de suas VMs contra exclusão não intencional. Mesmo depois que os backups são excluídos, eles são preservados no estado de exclusão reversível por 14 dias adicionais.
 
@@ -67,7 +68,7 @@ Conforme descrito acima para portal do Azure, a sequência de etapas é a mesma 
 
 ### <a name="delete-the-backup-item-using-azure-powershell"></a>Excluir o item de backup usando Azure PowerShell
 
-Exclua o item de backup usando o cmdlet [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) do PS.
+Exclua o item de backup usando o cmdlet [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) do PS.
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -94,7 +95,7 @@ VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
 ```
 
-Em seguida, execute a operação de desfazer exclusão usando o cmdlet [Undo-AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion?view=azps-3.1.0) do PS.
+Em seguida, execute a operação de desfazer exclusão usando o cmdlet [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) do PS.
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
@@ -104,7 +105,7 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
 ```
 
-O ' Deletestate ' do item de backup será revertido para ' candeleted '. Mas a proteção ainda está parada. [Retome o backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) para reabilitar a proteção.
+O ' Deletestate ' do item de backup será revertido para ' candeleted '. Mas a proteção ainda está parada. [Retome o backup](./backup-azure-vms-automation.md#change-policy-for-backup-items) para reabilitar a proteção.
 
 ## <a name="soft-delete-for-vms-using-rest-api"></a>Exclusão reversível para VMs usando a API REST
 

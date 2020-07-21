@@ -9,11 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d05902f47dff3dd2f8a63ae240c0b8825a5c441f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 443751ee974dae3c426f36cbc262bc1a3af65bd0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658023"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504930"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Azure Monitor visualizações da pasta de trabalho
 
@@ -50,7 +51,7 @@ As pastas de trabalho dão suporte a gráficos para logs e fontes de dados de m�
 1. Alterne a pasta de trabalho para o modo de edição clicando no item **Editar** barra de ferramentas.
 2. Use o link **Adicionar consulta** para adicionar um controle de consulta de log à pasta de trabalho.
 3. Selecione o tipo de consulta como **log**, tipo de recurso (por exemplo, Application insights) e os recursos a serem direcionados.
-4. Use o editor de consultas para inserir o [KQL](https://docs.microsoft.com/azure/kusto/query/) para sua análise (por exemplo, tendência de solicitações).
+4. Use o editor de consultas para inserir o [KQL](/azure/kusto/query/) para sua análise (por exemplo, tendência de solicitações).
 5. Defina a visualização como uma das: **área**, **barra**, **barra (categórico)**, **linha**, **pizza**, **dispersão**ou **hora**.
 6. Defina outros parâmetros, se necessário, como intervalo de tempo, visualização, tamanho, paleta de cores e legenda.
 

@@ -7,11 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5541dec748f31818a0e9485fc0c56b7926ccaae7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a9ced48295fa4c396ed6c72fe021ed1e1be484b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758491"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501884"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Use o Console Serial para chamadas SysRq e NMI
 
@@ -22,11 +23,11 @@ Depois que a sequência SysRq for entregue, a configuração de kernel irá cont
 
 O Console Serial do Azure pode ser usado para enviar um SysRq para uma máquina virtual do Azure usando o ícone de teclado na barra de comandos mostrada abaixo.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
+![Captura de tela do console serial do Azure. O ícone de teclado é realçado e seu menu fica visível. Esse menu contém um item de comando Send SysRq.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
 Escolher "Enviar Comando de SysRq" abrirá uma caixa de diálogo, que fornecerá opções comuns de SysRq ou aceitará uma sequência de comandos de SysRq inseridos na caixa de diálogo.  Isso permite que a série de SysRqs execute uma operação de alto nível, como uma reinicialização segura usando: `REISUB`.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
+![Captura de tela da caixa de diálogo Enviar comando SysRq para o convidado. A opção para inserir comandos é selecionada e a caixa de comando contém REISUB.](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
 O comando SysRq não pode ser usado em máquinas virtuais que estão paradas ou cujo kernel está em um estado não responsivo. (por exemplo, um pânico de kernel).
 
@@ -95,7 +96,7 @@ Uma interrupção não mascarável (NMI) foi projetada para criar um sinal que o
 
 O Console Serial pode ser usado para enviar uma NMI a uma máquina virtual do Azure usando o ícone de teclado na barra de comandos mostrada abaixo. Depois que a NMI for entregue, a configuração de máquina virtual irá controlar como o sistema responde.  Os sistemas operacionais Linux poderão ser configurados para parar e criar um despejo de memória quando o sistema operacional receber uma NMI.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
+![Captura de tela do console serial. O ícone de teclado é realçado e seu menu fica visível. Esse menu contém um item de interrupção de envio não mascarado.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 
 Para sistemas Linux que dão suporte a sysctl para configurar parâmetros de kernel, você pode habilitar um pânico ao receber essa NMI usando o seguinte:
 1. Adicionar esta linha a */etc/sysctl.conf* <br>
@@ -120,7 +121,7 @@ Para obter mais informações sobre configurações de kernel do Linux, incluind
 - [Coletar logs de falha](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="next-steps"></a>Próximas etapas
-* A página principal da documentação do Linux do Console Serial está localizada [aqui](serial-console.md).
+* A página principal da documentação do Linux do Console Serial está localizada [aqui](../troubleshooting/serial-console-linux.md).
 * Usar o Console Serial para inicializar em [GRUB e entrar no modo de usuário único](serial-console-grub-single-user-mode.md)
-* O console serial também está disponível para VMs do [Windows](../windows/serial-console.md)
-* Saiba mais sobre o [diagnóstico de inicialização](boot-diagnostics.md)
+* O console serial também está disponível para VMs do [Windows](../troubleshooting/serial-console-windows.md)
+* Saiba mais sobre o [diagnóstico de inicialização](../troubleshooting/boot-diagnostics.md)

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: b90189c6ba5e51a24d0c248b5aa08e9a5e4bbd9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8ac13c612840b930eb374971f3419af64cb48a6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82082842"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500711"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implantar VMs em hosts dedicados usando o Azure PowerShell
 
@@ -171,7 +171,7 @@ Você pode adicionar uma VM existente a um host dedicado, mas a VM deve primeiro
 
 - O tamanho da VM deve estar na mesma família de tamanho que o host dedicado. Por exemplo, se o host dedicado for DSv3, o tamanho da VM poderá ser Standard_D4s_v3, mas não poderá ser um Standard_A4_v2. 
 - A VM precisa estar localizada na mesma região que o host dedicado.
-- A VM não pode fazer parte de um grupo de posicionamento de proximidade. Remova a VM do grupo de posicionamento de proximidade antes de movê-la para um host dedicado. Para obter mais informações, consulte [mover uma VM para fora de um grupo de posicionamento de proximidade](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- A VM não pode fazer parte de um grupo de posicionamento de proximidade. Remova a VM do grupo de posicionamento de proximidade antes de movê-la para um host dedicado. Para obter mais informações, consulte [mover uma VM para fora de um grupo de posicionamento de proximidade](./proximity-placement-groups.md#move-an-existing-vm-out-of-a-proximity-placement-group)
 - A VM não pode estar em um conjunto de disponibilidade.
 - Se a VM estiver em uma zona de disponibilidade, ela deverá ser a mesma zona de disponibilidade que o grupo de hosts. As configurações de zona de disponibilidade para a VM e o grupo de hosts devem corresponder.
 

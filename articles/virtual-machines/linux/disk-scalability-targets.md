@@ -7,11 +7,12 @@ ms.date: 11/15/2017
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 7298b54d94effaa5bd7e600ec2d8d1045aa263ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0345df783a3bf3398c8be6b04dbc5671855f6be
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78970441"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502632"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Escalabilidade e metas de desempenho para discos de máquina virtual no Linux
 
@@ -32,4 +33,4 @@ Tamanhos demarcados com um asterisco estão atualmente em visualização. Consul
 
 ## <a name="see-also"></a>Consulte também
 
-[Assinatura do Azure e limite de serviços, cotas e restrições](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
+[Assinatura do Azure e limite de serviços, cotas e restrições](../../azure-resource-manager/management/azure-subscription-service-limits.md)

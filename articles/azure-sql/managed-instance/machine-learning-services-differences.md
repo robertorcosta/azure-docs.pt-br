@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: carlrab, davidph
 manager: cgronlun
 ms.date: 05/27/2020
-ms.openlocfilehash: da97938736e7a3719da9d280e60e6a636b86e0e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f267b155fe21e5dee1a7c488c999fe194ed38eb1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254741"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504111"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Principais diferenças entre os Serviços de Machine Learning na Instância Gerenciada de SQL do Azure e SQL Server
 
@@ -43,9 +43,9 @@ Serviços de Machine Learning no SQL Instância Gerenciada e SQL Server oferecem
 
 - As versões iniciais do Python e do R são diferentes entre Serviços de Machine Learning no SQL Instância Gerenciada e SQL Server:
 
-  |                      | Python | R     |
+  | Sistema               | Python | R     |
   |----------------------|--------|-------|
-  | Instância Gerenciada do SQL | 3.7.1  | 3.5.2 |
+  | Instância Gerenciada de SQL | 3.7.1  | 3.5.2 |
   | SQL Server           | 3.5.2  | 3.3.3 |
 
 - Não é necessário configurar `external scripts enabled` por meio de `sp_configure`. Quando você se [inscreveu](machine-learning-services-overview.md#signup) para a versão prévia, o Machine Learning está habilitado para o Azure SQL instância gerenciada.

@@ -9,11 +9,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: 7d6cd4c6ce7991ae83f6f4a1dd6d8b86fe7eedbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc30275b2ee24af7bb526b3b43618c706bc027ca
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81757892"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502088"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Implantar a plataforma de contêiner OpenShift 3,11 no Azure
 
@@ -242,7 +243,7 @@ Versões diferentes podem ter parâmetros diferentes. Portanto, verifique os par
 
 ### <a name="azuredeployparametersjson-file-explained"></a>azuredeploy.Parameters.jsno arquivo explicado
 
-| Property | Descrição | Opções válidas | Valor padrão |
+| Propriedade | Descrição | Opções válidas | Valor padrão |
 |----------|-------------|---------------|---------------|
 | `_artifactsLocation`  | URL para artefatos (JSON, scripts, etc.) |  |  https: \/ /RAW.githubusercontent.com/Microsoft/openshift-container-Platform/Master  |
 | `location` | Região do Azure para implantar recursos |  |  |
@@ -276,7 +277,7 @@ Versões diferentes podem ter parâmetros diferentes. Portanto, verifique os par
 | `enableAzure` | Habilitar o provedor de nuvem do Azure | true <br> false | true |
 | `aadClientId` | Azure Active Directory ID do cliente também conhecida como ID do aplicativo para a entidade de serviço |  |  |
 | `domainName` | Nome do nome de domínio personalizado a ser usado (se aplicável). Defina como "nenhum" se não estiver implantando um cluster totalmente privado |  | nenhum |
-| `masterClusterDnsType` | Tipo de domínio do console Web do OpenShift. ' default ' usará o rótulo DNS do IP de infraestrutura principal. ' Custom ' permite que você defina seu próprio nome | default <br> custom | default |
+| `masterClusterDnsType` | Tipo de domínio do console Web do OpenShift. ' default ' usará o rótulo DNS do IP de infraestrutura principal. ' Custom ' permite que você defina seu próprio nome | padrão <br> custom | padrão |
 | `masterClusterDns` | O nome DNS personalizado a ser usado para acessar o console Web OpenShift se você selecionou ' Custom ' para`masterClusterDnsType` |  | console.contoso.com |
 | `routingSubDomainType` | Se definido como ' nipio ', `routingSubDomain` usará Nip.IO.  Use ' Custom ' se você tiver seu próprio domínio que deseja usar para roteamento | nipio <br> custom | nipio |
 | `routingSubDomain` | O nome DNS do curinga que você deseja usar para roteamento se você selecionou ' personalizado ' para`routingSubDomainType` |  | apps.contoso.com |
@@ -306,7 +307,7 @@ Versões diferentes podem ter parâmetros diferentes. Portanto, verifique os par
 ### <a name="deploy-using-azure-cli"></a>Implantar usando a CLI do Azure
 
 > [!NOTE] 
-> O comando a seguir requer a CLI do Azure 2.0.8 ou posterior. Você pode verificar a versão CLI com o comando `az --version`. Para atualizar a versão da CLI, consulte [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
+> O comando a seguir requer a CLI do Azure 2.0.8 ou posterior. Você pode verificar a versão CLI com o comando `az --version`. Para atualizar a versão da CLI, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
 O exemplo a seguir implanta o cluster do OpenShift e todos os recursos relacionados em um grupo de recursos denominado openshiftrg, com um nome de implantação de myOpenShiftCluster. O modelo é referenciado diretamente do repositório GitHub e um arquivo de parâmetros local chamado azuredeploy.parameters.json é usado.
 
@@ -335,7 +336,7 @@ Quando a implantação for concluída, recupere a conexão da seção de saída 
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group) para remover o grupo de recursos, o cluster OpenShift e todos os recursos relacionados.
 

@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62d16bc9ca6c4238ff7c6304c5e1964c2956c898
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847397"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505288"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Conectar Operations Manager ao Azure Monitor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Para manter seu investimento existente em [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) e usar recursos estendidos com o Azure monitor, você pode integrar Operations Manager ao seu espaço de trabalho do log Analytics. Isso permite que você aproveite as oportunidades de logs em Azure Monitor enquanto continua a usar Operations Manager para:
+Para manter seu investimento existente em [System Center Operations Manager](/system-center/scom/key-concepts?view=sc-om-1807) e usar recursos estendidos com o Azure monitor, você pode integrar Operations Manager ao seu espaço de trabalho do log Analytics. Isso permite que você aproveite as oportunidades de logs em Azure Monitor enquanto continua a usar Operations Manager para:
 
 * Monitorar a integridade dos seus serviços de TI com o Operations Manager
 * Manter a integração com suas soluções de ITSM com suporte ao gerenciamento de incidentes e problemas
@@ -47,11 +47,11 @@ Antes de começar, revise os seguintes requisitos.
     - Centro-Oeste dos EUA
     - Sudeste da Austrália
     - Europa Ocidental
-    - Leste dos EUA
+    - East US
     - Sudeste da Ásia
     - Leste do Japão
     - Sul do Reino Unido
-    - Índia Central
+    - Central India
     - Canadá Central
     - Oeste dos EUA 2
 
@@ -76,7 +76,7 @@ As informações abaixo listam as informações de configuração de proxy e fir
 |\*.oms.opinsights.azure.com| 443|Sim|  
 |\*.blob.core.windows.net| 443|Sim|  
 |\*.azure-automation.net| 443|Sim|  
-|**Servidor de gerenciamento**|||  
+|**Servidor de Gerenciamento**|||  
 |\*.service.opinsights.azure.com| 443||  
 |\*.blob.core.windows.net| 443| Sim|  
 |\*.ods.opinsights.azure.com| 443| Sim|  
@@ -154,7 +154,7 @@ Se o servidor proxy exigir autenticação, execute as etapas a seguir para confi
 1. Abra o console do Operations Manager e selecione o workspace **Administração**.
 1. Em **Configuração RunAs**, selecione **Perfis**.
 1. Abra o perfil **System Center Advisor executado como Proxy de perfil** .
-1. No Assistente de perfil Executar como, clique em Adicionar para usar uma conta Executar como. Você pode criar uma conta [Executar Como](https://technet.microsoft.com/library/hh321655.aspx) ou usar uma conta existente. Essa conta deve ter permissões suficientes para passar pelo servidor proxy.
+1. No Assistente de perfil Executar como, clique em Adicionar para usar uma conta Executar como. Você pode criar uma conta [Executar Como](/previous-versions/system-center/system-center-2012-R2/hh321655(v=sc.12)) ou usar uma conta existente. Essa conta deve ter permissões suficientes para passar pelo servidor proxy.
 1. Para definir a conta para gerenciar, escolha **Uma classe, grupo ou objeto selecionado** e clique em **Selecione...** e, em seguida, clique em **Grupo...** para abrir a caixa **Pesquisa de Grupo**.
 1. Procure e selecione o **Grupo de Servidores de Monitoramento do Microsoft System Center Advisor**. Clique em **OK** depois de selecionar o grupo para fechar a caixa **Pesquisa de Grupo**.
 1. Clique em **OK** para fechar a caixa **Adicionar uma conta Executar como**.
@@ -173,7 +173,7 @@ Após a conclusão da configuração, o grupo de gerenciamento Operations Manage
 * **Microsoft.SystemCenter. Advisor. MPUpdate** -atualiza os pacotes de gerenciamento de Azure monitor de base. Executada a cada 12 horas por padrão.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** - atualiza os pacotes de gerenciamento de solução habilitados no seu workspace. Executada a cada cinco (5) minutos por padrão.
 
-Você pode substituir essas duas regras para impedir o download automático desabilitando-os ou modificar a frequência com que o servidor de gerenciamento é sincronizado com Azure Monitor para determinar se um novo pacote de gerenciamento está disponível e deve ser baixado. Siga as etapas em [Como substituir uma regra ou monitor](https://technet.microsoft.com/library/hh212869.aspx) para modificar o parâmetro **Frequency** com um valor em segundos para alterar o agendamento de sincronização ou modificar o parâmetro **Enabled** para desabilitar as regras. Direcionar as substituições a todos os objetos da classe Grupo de Gerenciamento do Operations Manager.
+Você pode substituir essas duas regras para impedir o download automático desabilitando-os ou modificar a frequência com que o servidor de gerenciamento é sincronizado com Azure Monitor para determinar se um novo pacote de gerenciamento está disponível e deve ser baixado. Siga as etapas em [Como substituir uma regra ou monitor](/previous-versions/system-center/system-center-2012-R2/hh212869(v=sc.12)) para modificar o parâmetro **Frequency** com um valor em segundos para alterar o agendamento de sincronização ou modificar o parâmetro **Enabled** para desabilitar as regras. Direcionar as substituições a todos os objetos da classe Grupo de Gerenciamento do Operations Manager.
 
 Para continuar seguindo seu processo de controle de alterações existente para controlar as versões do pacote de gerenciamento em seu grupo de gerenciamento de produção, é possível desativar as regras e ativá-las durante horários específicos em que as atualizações são permitidas. Se você tiver um desenvolvimento ou um grupo de gerenciamento de garantia de qualidade em seu ambiente e ele tiver conectividade com a Internet, configure esse grupo de gerenciamento com um espaço de trabalho do Log Analytics para dar suporte a esse cenário. Isso permite que você examine e avalie as versões iterativas dos pacotes de gerenciamento do Azure Monitor antes de liberá-los para o grupo de gerenciamento de produção.
 

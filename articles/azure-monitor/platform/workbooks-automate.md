@@ -9,11 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 76ecc3ee17353ebd0bbead1bba959f85d521d0df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2463c2ea4044af0b20a1dee91b30870639dc7ce
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82982132"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504913"
 ---
 # <a name="programmatically-manage-workbooks"></a>Gerenciar pastas de trabalho programaticamente
 
@@ -77,7 +78,7 @@ Há dois tipos de recursos de pasta de trabalho que podem ser gerenciados progra
     }
     ```
 1. No `galleries` objeto, preencha as `name` chaves e `category` com seus valores. Saiba mais sobre os [parâmetros](#parameters) na próxima seção.
-2. Implante esse modelo de Azure Resource Manager usando a [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template), a [interface de linha de comando](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), o [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell), etc.
+2. Implante esse modelo de Azure Resource Manager usando a [portal do Azure](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), a [interface de linha de comando](../../azure-resource-manager/templates/deploy-cli.md), o [PowerShell](../../azure-resource-manager/templates/deploy-powershell.md), etc.
 3. Abra o portal do Azure e navegue até a Galeria de pastas de trabalho escolhida no modelo de Azure Resource Manager. No modelo de exemplo, navegue até a Galeria de pastas de trabalho do Azure Monitor:
     1. Abra o portal do Azure e navegue até Azure Monitor
     2. Abrir `Workbooks` do Sumário

@@ -3,18 +3,18 @@ title: Restaurar bancos de dados SAP HANA em VMs do Azure
 description: Neste artigo, descubra como restaurar SAP HANA bancos de dados que estão em execução em máquinas virtuais do Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: a3db88ca3c995c3c190da051dbf9df6ae5e29530
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: c62ea68683355fc703a5258e6e5fa0f3795f7e34
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851406"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503584"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Restaurar bancos de dados SAP HANA em VMs do Azure
 
 Este artigo descreve como restaurar SAP HANA bancos de dados em execução em uma VM (máquina virtual) do Azure, na qual o serviço de backup do Azure fez backup em um cofre dos serviços de recuperação. As restaurações podem ser usadas para criar cópias dos dados para cenários de desenvolvimento/teste ou para retornar a um estado anterior.
 
-Para obter mais informações, sobre como fazer backup de bancos de dados do SAP HANA, consulte fazer backup de [bancos de dados do SAP Hana em VMs do Azure](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database).
+Para obter mais informações, sobre como fazer backup de bancos de dados do SAP HANA, consulte fazer backup de [bancos de dados do SAP Hana em VMs do Azure](./backup-azure-sap-hana-database.md).
 
 ## <a name="restore-to-a-point-in-time-or-to-a-recovery-point"></a>Restaurar para um ponto no tempo ou para um ponto de recuperação
 
@@ -128,7 +128,7 @@ Para restaurar, você precisa das seguintes permissões:
 
 ### <a name="restore-as-files"></a>Restaurar como arquivos
 
-Para restaurar os dados de backup como arquivos em vez de um banco de dados, escolha **restaurar como arquivos**. Depois que os arquivos são despejados em um caminho especificado, você pode pegar esses arquivos em qualquer SAP HANA computador em que deseja restaurá-los como um banco de dados. Como você pode mover esses arquivos para qualquer computador, agora é possível restaurar os dados entre assinaturas e regiões.
+Para restaurar os dados de backup como arquivos em vez de um banco de dados, escolha **restaurar como arquivos**. Depois que os arquivos são despejados em um caminho especificado, você pode pegar esses arquivos em qualquer computador SAP HANA em que queira restaurá-los como um banco de dados. Como você pode mover esses arquivos para qualquer computador, agora é possível restaurar os dados entre assinaturas e regiões.
 
 1. No menu **configuração de restauração** , em **onde e como restaurar**, selecione **restaurar como arquivos**.
 1. Selecione o nome do servidor do **host** /Hana para o qual você deseja restaurar os arquivos de backup.
@@ -136,14 +136,14 @@ Para restaurar os dados de backup como arquivos em vez de um banco de dados, esc
 
     Os arquivos que são despejados são:
 
-    * Arquivos de backup do banco de dados
+    * Arquivos de backup de banco de dados
     * Arquivos de catálogo
     * Arquivos de metadados JSON (para cada arquivo de backup envolvido)
 
-    Normalmente, um caminho de compartilhamento de rede, ou caminho de um compartilhamento de arquivos do Azure montado quando especificado como o caminho de destino, permite o acesso mais fácil a esses arquivos por outros computadores na mesma rede ou com o mesmo compartilhamento de arquivos do Azure montado neles.
+    Normalmente, um caminho de compartilhamento de rede (ou caminho de um compartilhamento de arquivo do Azure montado quando especificado como o caminho de destino) permite o acesso mais fácil a esses arquivos por outros computadores na mesma rede ou com o mesmo compartilhamento de arquivo do Azure montado neles.
 
     >[!NOTE]
-    >Para restaurar os arquivos de backup de banco de dados em um compartilhamento de arquivos do Azure montado na VM registrada de destino, verifique se a conta raiz tem permissões de leitura/gravação no compartilhamento de arquivos do Azure.
+    >Para restaurar os arquivos de backup de banco de dados em um compartilhamento de arquivo do Azure montado na VM registrada de destino, verifique se a conta raiz tem permissões de leitura/gravação no compartilhamento de arquivo do Azure.
 
     ![Escolher caminho de destino](media/sap-hana-db-restore/restore-as-files.png)
 
@@ -152,16 +152,16 @@ Para restaurar os dados de backup como arquivos em vez de um banco de dados, esc
     ![Folha Selecionar ponto de restauração](media/sap-hana-db-restore/select-restore-point.png)
 
 1. Todos os arquivos de backup associados ao ponto de restauração selecionado são despejados no caminho de destino.
-1. Com base no tipo de ponto de restauração escolhido (**ponto no tempo** ou **diferencial de & completo**), você verá uma ou mais pastas criadas no caminho de destino. Uma das pastas nomeadas `Data_<date and time of restore>` contém os backups completo e diferencial, e a outra pasta chamada `Log` contém os backups de log.
-1. Mova esses arquivos restaurados para o servidor de SAP HANA onde você deseja restaurá-los como um banco de dados.
-1. Depois, siga estas etapas:
+1. Com base no tipo de ponto de restauração escolhido (**Ponto no tempo** ou **Completo e Diferencial**), você verá uma ou mais pastas criadas no caminho de destino. Uma das pastas chamada `Data_<date and time of restore>` contém os backups completo e diferencial e a outra pasta chamada `Log` contém os backups de log.
+1. Mova esses arquivos restaurados para o servidor de SAP HANA no qual você deseja restaurá-los como um banco de dados.
+1. Depois, execute estas etapas:
     1. Defina permissões na pasta/diretório em que os arquivos de backup são armazenados usando o seguinte comando:
 
         ```bash
         chown -R <SID>adm:sapsys <directory>
         ```
 
-    1. Executar o próximo conjunto de comandos como`<SID>adm`
+    1. Execute o próximo conjunto de comandos como `<SID>adm`
 
         ```bash
         su - <sid>adm
@@ -175,15 +175,15 @@ Para restaurar os dados de backup como arquivos em vez de um banco de dados, esc
 
         No comando acima:
 
-        * `<DataFileDir>`-a pasta que contém os backups completos
-        * `<LogFilesDir>`-a pasta que contém os backups de log
-        * `<PathToPlaceCatalogFile>`-a pasta na qual o arquivo de catálogo gerado deve ser colocado
+        * `<DataFileDir>` – a pasta que contém os backups completos
+        * `<LogFilesDir>` – a pasta que contém os backups de log
+        * `<PathToPlaceCatalogFile>` – a pasta na qual o arquivo de catálogo gerado deve ser colocado
 
-    1. Restaure usando o arquivo de catálogo recém-gerado por meio do HANA Studio ou execute a consulta HDBSQL Restore com esse catálogo recém-gerado. As consultas HDBSQL estão listadas abaixo:
+    1. Restaure usando o arquivo de catálogo recém-gerado por meio do HANA Studio ou execute a consulta de restauração do HDBSQL com esse catálogo que acaba de ser gerado. As consultas HDBSQL estão listadas abaixo:
 
-    * Para restaurar para um ponto no tempo:
+    * Para restaurar para um momento determinado:
 
-        Se você estiver criando um novo banco de dados restaurado, execute o comando HDBSQL para criar um novo banco de dados `<DatabaseName>` e, em seguida, interrompa o banco de dados para restauração. No entanto, se você estiver restaurando apenas um banco de dados existente, execute o comando HDBSQL para interromper o banco de dados.
+        Se você estiver criando um banco de dados restaurado, execute o comando HDBSQL para criar um banco de dados `<DatabaseName>` e interrompa o banco de dados para restauração. No entanto, se você estiver restaurando apenas um banco de dados existente, execute o comando HDBSQL para interromper o banco de dados.
 
         Em seguida, execute o seguinte comando para restaurar o banco de dados:
 
@@ -191,28 +191,28 @@ Para restaurar os dados de backup como arquivos em vez de um banco de dados, esc
         RECOVER DATABASE FOR <DatabaseName> UNTIL TIMESTAMP '<TimeStamp>' CLEAR LOG USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING LOG PATH (' <LogFileDir>') USING DATA PATH ('<DataFileDir>') USING BACKUP_ID <BackupIdFromJsonFile> CHECK ACCESS USING FILE
         ```
 
-        * `<DatabaseName>`-Nome do novo banco de dados ou banco de dados existente que você deseja restaurar
-        * `<Timestamp>`-Carimbo de data/hora exato da restauração pontual
-        * `<DatabaseName@HostName>`-Nome do banco de dados cujo backup é usado para restauração e o nome do servidor **host** /SAP Hana em que esse banco de dados reside. A `USING SOURCE <DatabaseName@HostName>` opção especifica que o backup de dados (usado para restauração) é de um banco de dado com um SID ou nome diferente do computador de SAP Hana de destino. Portanto, ele não precisa ser especificado para restaurações feitas no mesmo servidor HANA de onde o backup é feito.
+        * `<DatabaseName>` – nome do novo banco de dados ou banco de dados existente que você deseja restaurar
+        * `<Timestamp>` – carimbo de data/hora exato da restauração pontual
+        * `<DatabaseName@HostName>` – nome do banco de dados cujo backup é usado para restauração e o nome do servidor de **host**/SAP HANA em que esse banco de dados reside. A opção `USING SOURCE <DatabaseName@HostName>` especifica que o backup de dados (usado para restauração) é de um banco de dados com um SID ou nome diferente do computador de SAP HANA de destino. Portanto, ele não precisa ser especificado para restaurações feitas no mesmo servidor HANA de onde o backup é feito.
         * `<PathToGeneratedCatalogInStep3>`-Caminho para o arquivo de catálogo gerado na **etapa C**
-        * `<DataFileDir>`-a pasta que contém os backups completos
-        * `<LogFilesDir>`-a pasta que contém os backups de log
+        * `<DataFileDir>` – a pasta que contém os backups completos
+        * `<LogFilesDir>` – a pasta que contém os backups de log
         * `<BackupIdFromJsonFile>`- **BackupId** extraído na **etapa C**
 
     * Para restaurar para um backup completo ou diferencial específico:
 
-        Se você estiver criando um novo banco de dados restaurado, execute o comando HDBSQL para criar um novo banco de dados `<DatabaseName>` e, em seguida, interrompa o banco de dados para restauração. No entanto, se você estiver restaurando apenas um banco de dados existente, execute o comando HDBSQL para interromper o banco de dados:
+        Se você estiver criando um banco de dados restaurado, execute o comando HDBSQL para criar um banco de dados `<DatabaseName>` e interrompa o banco de dados para restauração. No entanto, se você estiver restaurando apenas um banco de dados existente, execute o comando HDBSQL para interromper o banco de dados:
 
         ```hdbsql
         RECOVER DATA FOR <DatabaseName> USING BACKUP_ID <BackupIdFromJsonFile> USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING DATA PATH ('<DataFileDir>')  CLEAR LOG
         ```
 
-        * `<DatabaseName>`-o nome do novo banco de dados ou banco de dados existente que você deseja restaurar
-        * `<Timestamp>`-o carimbo de data/hora exato da restauração pontual
-        * `<DatabaseName@HostName>`-o nome do banco de dados cujo backup é usado para restauração e o nome do servidor **host** /SAP Hana em que esse banco de dados reside. A `USING SOURCE <DatabaseName@HostName>` opção especifica que o backup de dados (usado para restauração) é de um banco de dado com um SID ou nome diferente do computador de SAP Hana de destino. Portanto, ele não precisa ser especificado para restaurações feitas no mesmo servidor HANA de onde o backup é feito.
+        * `<DatabaseName>` – o nome do novo banco de dados ou banco de dados existente que você deseja restaurar
+        * `<Timestamp>` – o carimbo de data/hora exato da restauração pontual
+        * `<DatabaseName@HostName>` – o nome do banco de dados cujo backup é usado para restauração e o nome do servidor de **host**/SAP HANA em que esse banco de dados reside. A opção `USING SOURCE <DatabaseName@HostName>` especifica que o backup de dados (usado para restauração) é de um banco de dados com um SID ou nome diferente do computador de SAP HANA de destino. Portanto, ele não precisa ser especificado para restaurações feitas no mesmo servidor HANA do qual o backup é feito.
         * `<PathToGeneratedCatalogInStep3>`-o caminho para o arquivo de catálogo gerado na **etapa C**
-        * `<DataFileDir>`-a pasta que contém os backups completos
-        * `<LogFilesDir>`-a pasta que contém os backups de log
+        * `<DataFileDir>` – a pasta que contém os backups completos
+        * `<LogFilesDir>` – a pasta que contém os backups de log
         * `<BackupIdFromJsonFile>`- **BackupId** extraído na **etapa C**
 
 ### <a name="restore-to-a-specific-point-in-time"></a>Restaurar a um ponto específico no tempo

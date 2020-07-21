@@ -5,29 +5,33 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/10/2020
+ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2589c2abf13edc19b930d597a4d75a2be823f45d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cafde6ed66e5b636be60533abafcd6f221fe33a1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86277801"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502497"
 ---
-Os discos compartilhados do Azure (versão prévia) são um novo recurso para discos gerenciados do Azure que permitem anexar um disco gerenciado a várias VMs (máquinas virtuais) simultaneamente. Anexar um disco gerenciado a várias VMs permite implantar novos aplicativos clusterizados ou migrar os existentes para o Azure.
+Os discos compartilhados do Azure são um novo recurso para discos gerenciados do Azure que permite anexar um disco gerenciado a várias VMs (máquinas virtuais) simultaneamente. Anexar um disco gerenciado a várias VMs permite implantar novos aplicativos clusterizados ou migrar os existentes para o Azure.
 
 ## <a name="how-it-works"></a>Como ele funciona
 
-As VMs no cluster podem ler ou gravar no disco anexado com base na reserva escolhida pelo aplicativo clusterizado usando [Reservas Persistentes de SCSI](https://www.t10.org/members/w_spc3.htm) (PR SCSI). A PR SCSI é um padrão do setor utilizado por aplicativos executados na Rede de Área de Armazenamento (SAN) local. Habilitar a PR SCSI em um disco gerenciado permite migrar esses aplicativos para o Azure no estado em que se encontram.
+As VMs no cluster podem ler ou gravar no disco anexado com base na reserva escolhida pelo aplicativo clusterizado usando [reservas persistentes de SCSI](https://www.t10.org/members/w_spc3.htm) (PR. SCSI). A PR SCSI é um padrão do setor utilizado por aplicativos executados na Rede de Área de Armazenamento (SAN) local. Habilitar a PR SCSI em um disco gerenciado permite migrar esses aplicativos para o Azure no estado em que se encontram.
 
-O compartilhamento de discos gerenciados oferece armazenamento em bloco compartilhado que pode ser acessado de várias VMs. Eles são expostos como LUNs (números de unidade lógica). Os LUNs são apresentados a um iniciador (VM) de um destino (disco). Esses LUNs são semelhantes ao DAS (armazenamento de conexão direta) ou a uma unidade local para a VM.
+Os Managed disks compartilhados oferecem armazenamento de bloco compartilhado que pode ser acessado de várias VMs, eles são expostos como LUNs (números de unidade lógica). Os LUNs são apresentados a um iniciador (VM) de um destino (disco). Esses LUNs são semelhantes ao DAS (armazenamento de conexão direta) ou a uma unidade local para a VM.
 
-Os discos gerenciados compartilhados não oferecem nativamente um sistema de arquivos totalmente gerenciado que pode ser acessado usando SMB/NFS. É necessário usar um gerenciador de cluster, como o WSFC (cluster de failover do Windows Server) ou Pacemaker, que lida com a comunicação do nó de cluster, bem como o bloqueio de gravação.
+Os discos gerenciados compartilhados não oferecem nativamente um sistema de arquivos totalmente gerenciado que pode ser acessado usando SMB/NFS. Você precisa usar um Gerenciador de cluster, como o WSFC (cluster de failover do Windows Server) ou pacemaker, que manipula a comunicação do nó de cluster e o bloqueio de gravação.
 
 ## <a name="limitations"></a>Limitações
 
 [!INCLUDE [virtual-machines-disks-shared-limitations](virtual-machines-disks-shared-limitations.md)]
+
+### <a name="operating-system-requirements"></a>Requisitos do sistema operacional
+
+Os discos compartilhados dão suporte a vários sistemas operacionais. Consulte as seções do [Windows](#windows) ou [Linux](#linux) para os sistemas operacionais com suporte.
 
 ## <a name="disk-sizes"></a>Tamanhos do disco
 
@@ -37,23 +41,25 @@ Os discos gerenciados compartilhados não oferecem nativamente um sistema de arq
 
 ### <a name="windows"></a>Windows
 
-A maioria dos clusters baseados em Windows é criada no WSFC, que lida com toda a infraestrutura básica para comunicação de nó de cluster, permitindo que seus aplicativos aproveitem os padrões de acesso paralelo. O WSFC permite opções de CSV e não baseadas em CSV, dependendo da sua versão do Windows Server. Para obter mais detalhes, consulte [Criar um cluster de failover](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
+Os discos compartilhados do Azure têm suporte no Windows Server 2008 e mais recentes. A maioria dos clusters baseados em Windows se baseia no WSFC, que lida com toda a infraestrutura básica para comunicação de nó de cluster, permitindo que seus aplicativos aproveitem os padrões de acesso paralelo. O WSFC permite opções de CSV e não baseadas em CSV, dependendo da sua versão do Windows Server. Para obter mais detalhes, consulte [Criar um cluster de failover](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
 
 Alguns aplicativos populares em execução no WSFC incluem:
 
 - [Criar um FCI com discos compartilhados do Azure (SQL Server em VMs do Azure)](../articles/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
-- Servidor de arquivos de expansão (SoFS)
+- Servidor de arquivos de escalabilidade horizontal (SoFS) [modelo] (https://aka.ms/azure-shared-disk-sofs-template)
+- SAP ASCS/SCS [modelo] (https://aka.ms/azure-shared-disk-sapacs-template)
 - Servidor de arquivos para uso geral (Carga de trabalho de IW)
 - Disco de perfil de usuário do servidor da área de trabalho remota (RDS UPD)
-- SAP ASCS/SCS
 
 ### <a name="linux"></a>Linux
 
-Os clusters do Linux podem utilizar os gerenciadores de cluster, como o [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). O Pacemaker se baseia no [Corosync](http://corosync.github.io/corosync/), o que permite a comunicação de cluster para aplicativos implantados em ambientes altamente disponíveis. Alguns sistemas de arquivos clusterizados comuns incluem [ocfs2](https://oss.oracle.com/projects/ocfs2/) e [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Você pode manipular reservas e registros usando utilitários como [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) e [sg_persist](https://linux.die.net/man/8/sg_persist).
+Os discos compartilhados do Azure têm suporte em:
+- [SUSE EPU para SAP e SUSE EPU HA 15 SP1 e superior](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html)
+- [Ubuntu 18, 4 e superior](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
+- [Versão prévia de desenvolvedor do RHEL em qualquer uma das versões RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index)
+- [Oracle Enterprise Linux] (https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
 
-#### <a name="ubuntu"></a>Ubuntu
-
-Para obter informações sobre como configurar a alta disponibilidade do Ubuntu com o Corosync e o Pacemaker nos Discos Compartilhados do Azure, confira [Discurso da Comunidade Ubuntu](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874).
+Os clusters do Linux podem utilizar os gerenciadores de cluster, como o [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). O Pacemaker se baseia no [Corosync](http://corosync.github.io/corosync/), o que permite a comunicação de cluster para aplicativos implantados em ambientes altamente disponíveis. Alguns sistemas de arquivos clusterizados comuns incluem [ocfs2](https://oss.oracle.com/projects/ocfs2/) e [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Você pode usar os modelos de clustering de reserva persistente de SCSI (RP) e/ou SBD (dispositivo de bloco STONITH) para arbitrar o acesso ao disco. Ao usar o SCSI PR, você pode manipular reservas e registros usando utilitários como [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) e [sg_persist](https://linux.die.net/man/8/sg_persist).
 
 ## <a name="persistent-reservation-flow"></a>Fluxo de reserva persistente
 
@@ -85,11 +91,12 @@ O fluxo é da seguinte maneira:
 
 Os discos ultra oferecem uma restrição adicional, para um total de duas restrições. Em virtude disso, o fluxo de reserva de discos ultra pode funcionar conforme descrito na seção anterior ou pode restringir e distribuir o desempenho de forma mais granular.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Uma imagem de uma tabela que descreve o acesso Somente Leitura ou Leitura/Gravação para Titular de Reserva, Registrado e Outros.":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Uma imagem de uma tabela que descreve o acesso ' ReadOnly ' ou ' leitura/gravação ' para o detentor da reserva, registrado e outros.":::
 
 ## <a name="performance-throttles"></a>Acelerações de desempenho
 
-### <a name="premium-ssd-performance-throttles"></a>Acelerações de desempenho de SSD Premium
+### <a name="premium-ssd-performance-throttles"></a>SSD Premium acelerações de desempenho
+
 Com o SSD Premium, o IOPS de disco e a taxa de transferência são fixos, por exemplo, IOPS de um p30 é 5000. Esse valor permanece se o disco é compartilhado entre duas VMs ou 5 VMs. Os limites de disco podem ser alcançados de uma única VM ou divididas em duas ou mais VMs. 
 
 ### <a name="ultra-disk-performance-throttles"></a>Restrições de desempenho de discos ultra
@@ -101,8 +108,8 @@ Os discos ultra têm o recurso exclusivo de permitir que você defina seu desemp
 |---------|---------|
 |DiskIOPSReadWrite     |O número total de IOPS permitido em todas as VMs que montam o disco de compartilhamento com acesso de gravação.         |
 |DiskMBpsReadWrite     |A taxa de transferência total (MB/s) permitida em todas as VMs que montam o disco compartilhado com acesso de gravação.         |
-|DiskIOPSReadOnly*     |O número total de IOPS permitidos em todas as VMs que montam o disco compartilhado como Somente Leitura.         |
-|DiskMBpsReadOnly*     |A taxa de transferência total (MB/s) permitida em todas as VMs que montam o disco compartilhado como Somente Leitura.         |
+|DiskIOPSReadOnly*     |O número total de IOPS permitidos em todas as VMs que montam o disco compartilhado como `ReadOnly` .         |
+|DiskMBpsReadOnly*     |A taxa de transferência total (MB/s) permitida em todas as VMs que montam o disco compartilhado como `ReadOnly` .         |
 
 \* Aplica-se somente aos discos ultra compartilhados
 
@@ -122,18 +129,22 @@ Os exemplos a seguir descrevem alguns cenários que mostram como a restrição p
 
 ##### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Cluster de dois nós usando volumes compartilhados do cluster
 
-Veja a seguir um exemplo de um WSFC de dois nós usando volumes compartilhados clusterizados. Com essa configuração, ambas as VMs têm acesso de gravação simultâneo no disco, o que faz com que a restrição Leitura e Gravação seja dividida entre as duas VMs e a restrição Somente Leitura não seja usada.
+Veja a seguir um exemplo de um WSFC de dois nós usando volumes compartilhados clusterizados. Com essa configuração, ambas as VMs têm acesso simultâneo de gravação ao disco, o que resulta na `ReadWrite` divisão da limitação entre as duas VMs e a `ReadOnly` limitação não ser usada.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Exemplo de ultra de dois nós do CSV":::
 
 ##### <a name="two-node-cluster-without-cluster-share-volumes"></a>Cluster de dois nós sem volumes de compartilhamento de cluster
 
-Este é um exemplo de um WSFC de 2 nós que não está usando volumes compartilhados clusterizados. Com essa configuração, apenas uma VM tem acesso de gravação no disco. Isso faz com que a restrição Leitura e Gravação seja usada exclusivamente para a VM primária e a restrição Somente Leitura seja usada pela secundária.
+Este é um exemplo de um WSFC de 2 nós que não está usando volumes compartilhados clusterizados. Com essa configuração, apenas uma VM tem acesso de gravação no disco. Isso faz com que o `ReadWrite` acelerador esteja sendo usado exclusivamente para a VM primária e a `ReadOnly` limitação somente seja usada pelo secundário.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Exemplo de dois nós de CSV sem disco ultra csv":::
 
 ##### <a name="four-node-linux-cluster"></a>Cluster Linux de quatro nós
 
-Este é um exemplo de um cluster Linux de 4 nós com um único gravador e três leitores de expansão. Com essa configuração, apenas uma VM tem acesso de gravação no disco. Isso faz com que a restrição Leitura e Gravação seja usada exclusivamente para a VM primária e a restrição Somente Leitura seja dividida pelas VMs secundárias.
+Este é um exemplo de um cluster Linux de 4 nós com um único gravador e três leitores de expansão. Com essa configuração, apenas uma VM tem acesso de gravação no disco. Isso faz com que o `ReadWrite` acelerador esteja sendo usado exclusivamente para a VM primária e o `ReadOnly` acelerador que está sendo dividido pelas VMs secundárias.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Exemplo de restrição ultra de quatro nós":::
+
+#### <a name="ultra-pricing"></a>Ultra preços
+
+Os discos ultra compartilhados são cobrados com base na capacidade provisionada, total de IOPS provisionadas (diskIOPSReadWrite + diskIOPSReadOnly) e total de taxa de transferência provisionada (diskMBpsReadWrite + diskMBpsReadOnly). Não há custo adicional para cada montagem de VM adicional. Por exemplo, um disco ultra compartilhado com a seguinte configuração (diskSizeGB: 1024, DiskIOPSReadWrite: 10000, DiskMBpsReadWrite: 600, DiskIOPSReadOnly: 100, DiskMBpsReadOnly: 1) é cobrado com 1024 GiB, 10100 IOPS e 601 MBps, independentemente de ser montado em duas VMs ou cinco VMs.

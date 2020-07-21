@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 06c344130156ae5f72f6e65baa519c11adff2bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57eb005109b97a423f9218ee6a47ce5bb06c3853
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186434"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505339"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Coletar métricas personalizadas para uma VM do Linux com o Agente InfluxData Telegraf
 
@@ -25,7 +25,7 @@ O [Telegraf](https://docs.influxdata.com/telegraf/) é um agente controlado por 
  ![Visão Geral do Agente Telegraf](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
 > [!NOTE]  
-> Não há suporte para métricas personalizadas em todas as regiões. As regiões com suporte estão listadas [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#supported-regions)
+> Não há suporte para métricas personalizadas em todas as regiões. As regiões com suporte estão listadas [aqui](./metrics-custom-overview.md#supported-regions)
 
 ## <a name="send-custom-metrics"></a>Enviar métricas personalizadas 
 
@@ -44,7 +44,7 @@ Crie uma nova VM do Linux:
 1. Forneça um nome de VM como **MyTelegrafVM**.  
 1. Deixe o tipo de disco como **SSD**. Em seguida, forneça um **nome de usuário**, como **azureuser**. 
 1. Para **tipo de autenticação**, selecione **senha**. Insira uma senha que você usará posteriormente para SSH para essa VM. 
-1. Escolha **criar novo grupo de recursos**. Em seguida, forneça um nome, como **MyResource**. Escolha seu **local**. Depois, selecione **OK**. 
+1. Escolha **criar novo grupo de recursos**. Em seguida, forneça um nome, como **MyResource**. Escolha seu **local**. Em seguida, selecione **OK**. 
 
     ![Criar uma VM do Ubuntu](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 
@@ -111,7 +111,7 @@ Agora o agente coletará as métricas de cada um dos plug-ins de entrada especif
 
 ## <a name="plot-your-telegraf-metrics-in-the-azure-portal"></a>Plotar as métricas do Telegraf no portal do Azure 
 
-1. Abra o [Portal do Azure](https://portal.azure.com). 
+1. Abra o [portal do Azure](https://portal.azure.com). 
 
 1. Navegue até a nova guia **Monitor** . Em seguida, selecione **métricas**.  
 
@@ -137,6 +137,3 @@ Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados 
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
-
-
-

@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 46716cf5bd810225cbfc3b54d246917c9559f78f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ff76ea3bd39f31880d0140e182ad99f293689e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124425"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505356"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Enviar as métricas do SO convidado aos Serviços de Nuvem clássicos de armazenamento de métricas do Azure Monitor 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Com a [Extensão de diagnóstico](diagnostics-extension-overview.md) do Azure Monitor, você pode coletar logs e métricas do SO (sistema operacional) convidado executado como parte de uma máquina virtual, do serviço de nuvem ou do cluster do Service Fabric. A extensão pode enviar telemetria para [muitos locais diferentes.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
+Com a [Extensão de diagnóstico](diagnostics-extension-overview.md) do Azure Monitor, você pode coletar logs e métricas do SO (sistema operacional) convidado executado como parte de uma máquina virtual, do serviço de nuvem ou do cluster do Service Fabric. A extensão pode enviar telemetria para [muitos locais diferentes.](./data-platform.md?toc=/azure/azure-monitor/toc.json)
 
 Este artigo descreve o processo para enviar métricas de desempenho do SO convidado dos Serviços de Nuvem clássicos do Azure para o armazenamento de métricas do Azure Monitor. A partir da versão 1.11 do Diagnostics, você pode gravar métricas diretamente no repositório de métricas do Monitor do Azure, onde métricas de plataforma padrão já foram coletadas. 
 
@@ -30,9 +30,9 @@ O processo descrito neste artigo só funciona para contadores de desempenho nos 
 
 - Você deve ser um [administrador ou co-administrador de serviços](../../cost-management-billing/manage/add-change-subscription-administrator.md) em sua assinatura do Azure. 
 
-- Sua assinatura deve ser registrada com [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- Sua assinatura deve ser registrada com [Microsoft. Insights](../../azure-resource-manager/management/resource-providers-and-types.md). 
 
-- Você precisará ter o [Azure PowerShell](/powershell/azure) ou o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
+- Você precisará ter o [Azure PowerShell](/powershell/azure) ou o [Azure Cloud Shell](../../cloud-shell/overview.md) instalado.
 
 - Seu serviço de nuvem deve estar em uma [região que dá suporte a métricas personalizadas](metrics-custom-overview.md#supported-regions).
 
@@ -42,11 +42,11 @@ O processo descrito neste artigo só funciona para contadores de desempenho nos 
 
 2. É possível usar uma conta de armazenamento existente ou implantar uma nova. É melhor se a conta de armazenamento estiver na mesma região que o serviço de nuvem clássico que você criou. No portal do Azure, vá até a folha de recursos **Contas de armazenamento** e escolha **Chaves**. Anote o nome da conta de armazenamento e a chave da conta de armazenamento. Você precisará dessas informações em etapas posteriores.
 
-   ![Chaves da conta de armazenamento](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/storage-keys.png)
+   ![Chaves de conta de armazenamento](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/storage-keys.png)
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço 
 
-Crie uma entidade de serviço em seu locatário do Azure Active Directory usando as instruções em [usar o portal para criar um aplicativo Azure Active Directory e uma entidade de serviço que possa acessar recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Observe o seguinte ao percorrer esse processo: 
+Crie uma entidade de serviço em seu locatário do Azure Active Directory usando as instruções em [usar o portal para criar um aplicativo Azure Active Directory e uma entidade de serviço que possa acessar recursos](../../active-directory/develop/howto-create-service-principal-portal.md). Observe o seguinte ao percorrer esse processo: 
 
 - Você pode colocar qualquer URL na URL de entrada.  
 - Crie um novo segredo de cliente para este aplicativo.  
@@ -171,7 +171,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 ## <a name="plot-metrics-in-the-azure-portal"></a>Plotar métricas no portal do Azure 
 
-1. Vá para o portal do Azure. 
+1. Acesse o portal do Azure. 
 
    ![Métricas do portal do Azure](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
 
@@ -192,4 +192,3 @@ Use a filtragem de dimensão e os recursos de divisão para exibir a memória to
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
-

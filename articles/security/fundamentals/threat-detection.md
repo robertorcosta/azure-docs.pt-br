@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 43a5360965c13df3227ecbc0c716327346244ebd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 93b63450d65f55e96897f91a5c0c9fae1b0b47f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653629"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503278"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detecção avançada de ameaças do Azure
 
@@ -339,14 +340,13 @@ A API de detecção de anomalias é uma solução efetiva e eficiente para uma a
 
 Com as ferramentas que ajudam a descobrir sombra IT, avaliar os riscos, políticas, investigar atividades e evitar ameaças, sua organização com mais segurança pode mudar para a nuvem, mantendo o controle dos dados críticos.
 
-| | |
-|---|---|
+| Categoria | Descrição |
+| -------- | ----------- |
 | Descobrir | Descobrir a TI de sombra com o sombra IT com a Segurança de Aplicativo de Nuvem. Ganhe visibilidade, detectando aplicativos, atividades, usuários, dados e arquivos em seu ambiente de nuvem. Descubra os aplicativos de terceiros conectados à sua nuvem.|
 |Investigar | Investigue os seus aplicativos de nuvem usando as ferramentas de análise forense de nuvem para aprofundar em aplicativos arriscados, usuários específicos e arquivos em sua rede. Localize padrões nos dados coletados da nuvem. Gere relatórios para monitorar sua nuvem. |
 | Control | Reduza o risco ao definir políticas e alertas para obter o máximo controle sobre o tráfego de rede na nuvem. Use a Segurança de Aplicativo de Nuvem para migrar seus usuários para alternativas de aplicativo de nuvem seguros e sancionados. |
 | Proteger | Usar segurança de aplicativo de nuvem para aprovar ou impedir que os aplicativos, aplicar prevenção de perda de dados, as permissões de controle e de compartilhamento e gerar alertas e relatórios personalizados. |
 | Control | Reduza o risco ao definir políticas e alertas para obter o máximo controle sobre o tráfego de rede na nuvem. Use a Segurança de Aplicativo de Nuvem para migrar seus usuários para alternativas de aplicativo de nuvem seguros e sancionados. |
-| | |
 
 
 ![Diagrama do Cloud App Security](./media/threat-detection/azure-threat-detection-fig14.png)
