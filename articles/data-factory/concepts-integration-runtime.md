@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/26/2020
-ms.openlocfilehash: 8b3dba7996b098ec398c9fe94705c18190b30ba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: 0da3a0bec79ab6f60b1e69c490124e95a4b7c365
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753561"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497634"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime no Azure Data Factory 
 
@@ -124,7 +124,11 @@ Confira estes artigos para obter mais informações sobre o runtime do Azure-SSI
 
 ## <a name="integration-runtime-location"></a>Localização do Integration Runtime
 
-É na localização do Data Factory que os metadados do data factory são armazenados e é dela que o disparo do pipeline é iniciado. No entanto, um data factory pode acessar armazenamentos de dados e serviços de computação em outras regiões do Azure para mover dados entre armazenamentos de dados ou processar dados usando os serviços de computação. Esse comportamento é realizado por meio do [IR disponível globalmente](https://azure.microsoft.com/global-infrastructure/services/) para garantir a conformidade de dados, a eficiência e os custos de saída de rede reduzidos.
+### <a name="relationship-between-factory-location-and-ir-location"></a>Relação entre o local de fábrica e o local de IR
+
+Quando o cliente cria uma instância de data factory, ele precisa especificar o local para o data factory. É na localização do Data Factory que os metadados do data factory são armazenados e é dela que o disparo do pipeline é iniciado. Os metadados para a fábrica são armazenados somente na região da escolha do cliente e não serão armazenados em outras regiões.
+
+No entanto, um data factory pode acessar armazenamentos de dados e serviços de computação em outras regiões do Azure para mover dados entre armazenamentos de dados ou processar dados usando os serviços de computação. Esse comportamento é realizado por meio do [IR disponível globalmente](https://azure.microsoft.com/global-infrastructure/services/) para garantir a conformidade de dados, a eficiência e os custos de saída de rede reduzidos.
 
 A localização do IR define a localização da respectiva computação de back-end e, essencialmente, a localização em que a movimentação de dados, a expedição de atividades e a execução de pacotes SSIS são executadas. A localização de IR pode ser diferente da localização do data factory ao qual ele pertence. 
 

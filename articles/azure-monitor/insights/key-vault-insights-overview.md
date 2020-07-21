@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 97bea90e67b9449a8f5fd7b333b9ac149abef2f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b52a1ee67c22fb3bded49a80d35305bdf612f10
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945453"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498943"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitoramento do serviço do Key Vault com Azure Monitor para Key Vault (versão prévia)
 O Azure Monitor para Key Vault (versão prévia) fornece monitoramento abrangente de key vaults, fornecendo uma exibição unificada das solicitações, desempenho, falhas e latência do Key Vault.
@@ -24,7 +24,7 @@ Antes de saltar para a experiência, você deve entender como ela apresenta e vi
 -   **Análise de busca detalhada** de um key vault específico para realizar uma análise detalhada.
 -    **Personalizável**, onde você pode alterar quais métricas deseja ver, modificar ou definir limites que se alinham aos limites e salvar sua própria pasta de trabalho. Os gráficos na pasta de trabalho podem ser fixados a painéis do Azure.
 
-O Azure Monitor para Key Vault combina logs e métricas para fornecer uma solução de monitoramento global. Todos os usuários podem acessar os dados de monitoramento baseados em métricas, no entanto, a inclusão de visualizações baseadas em logs pode exigir que os usuários [habilitem o registro do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-logging).
+O Azure Monitor para Key Vault combina logs e métricas para fornecer uma solução de monitoramento global. Todos os usuários podem acessar os dados de monitoramento baseados em métricas, no entanto, a inclusão de visualizações baseadas em logs pode exigir que os usuários [habilitem o registro do Azure Key Vault](../../key-vault/general/logging.md).
 
 ## <a name="configuring-your-key-vaults-for-monitoring"></a>Configuração dos key vaults para monitoramento
 
@@ -39,7 +39,7 @@ O Azure Monitor para Key Vault combina logs e métricas para fornecer uma soluç
 
 3. Depois que as configurações de diagnóstico forem salvas, você pode exibir todos os gráficos baseados em log e as visualizações abaixo do Key Vault Insights. Observe que pode levar de vários minutos a horas para começar o preenchimento dos logs.
 
-4. Para obter assistência adicional sobre como habilitar os logs de diagnóstico para o serviço de Key Vault, leia o [guia completo](https://docs.microsoft.com/azure/key-vault/key-vault-logging).
+4. Para obter assistência adicional sobre como habilitar os logs de diagnóstico para o serviço de Key Vault, leia o [guia completo](../../key-vault/general/logging.md).
 
 ## <a name="view-from-azure-monitor"></a>Exibir no Azure Monitor
 
@@ -75,7 +75,7 @@ Há codificação de cor condicional ou mapas de calor para colunas na pasta de 
 
 A pasta de trabalho exibe Sucessos (códigos de status 2xx), Erros de autenticação (códigos de status 401/403), Limitação (códigos de status 429) e Outras falhas (códigos de status 4xx).
 
-Para entender melhor o que cada um dos códigos de status representa, recomendamos ler a documentação em [Status e códigos de resposta do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/authentication-requests-and-responses).
+Para entender melhor o que cada um dos códigos de status representa, recomendamos ler a documentação em [Status e códigos de resposta do Azure Key Vault](../../key-vault/general/authentication-requests-and-responses.md).
 
 ## <a name="operations--latency-workbook"></a>Pasta de trabalho Operações e latência
 
@@ -120,7 +120,7 @@ A pasta de trabalho Operações permite aprofundar-se nos detalhes completos de 
 Os usuários também podem explorar as exibições com base em tipos de transação específicos na tabela superior, que atualiza dinamicamente a tabela inferior, na qual os usuários podem exibir detalhes completos da operação em um painel de contexto pop-up.
 
 >[!NOTE]
-> Observe que os usuários devem ter as configurações de diagnóstico habilitadas para exibir esta pasta de trabalho. Para saber mais sobre como habilitar a configuração de diagnóstico, leia mais sobre [Registro do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/logging).
+> Observe que os usuários devem ter as configurações de diagnóstico habilitadas para exibir esta pasta de trabalho. Para saber mais sobre como habilitar a configuração de diagnóstico, leia mais sobre [Registro do Azure Key Vault](../../key-vault/general/logging.md).
 
 ## <a name="pin-and-export"></a>Fixar e exportar
 
@@ -164,7 +164,7 @@ Esta seção ajuda no diagnóstico e na solução de alguns dos problemas mais c
 
 ### <a name="resolving-performance-issues-or-failures"></a>Resolução de problemas ou falhas de desempenho
 
-Para ajudar a solucionar os problemas relacionados ao key vault identificados com o Azure Monitor para Key Vault (versão prévia), confira a documentação [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
+Para ajudar a solucionar os problemas relacionados ao key vault identificados com o Azure Monitor para Key Vault (versão prévia), confira a documentação [Azure Key Vault](../../key-vault/index.yml).
 
 ### <a name="why-can-i-only-see-200-key-vaults"></a>Por que só posso ver os cofres de chaves 200
 
@@ -208,4 +208,4 @@ Você pode editar a pasta de trabalho existente usando o modo de edição e, em 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Conheça os cenários aos quais as pastas de trabalho foram projetadas para dar suporte, como criar relatórios, personalizar relatórios existentes e muito mais, examinando [Criar relatórios interativos com pastas de trabalho do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
+Conheça os cenários aos quais as pastas de trabalho foram projetadas para dar suporte, como criar relatórios, personalizar relatórios existentes e muito mais, examinando [Criar relatórios interativos com pastas de trabalho do Azure Monitor](../platform/workbooks-overview.md).

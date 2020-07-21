@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 1a983fd65a4934f53643bb21c8751e90dcb9eb21
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 92660063a5699855b9ae2d745136327cf8bf287a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223526"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494693"
 ---
 # <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Criar uma versão de imagem de uma VM no Azure usando o CLI do Azure
 
@@ -56,11 +56,11 @@ Os nomes das definições de imagem podem ser compostos por letras maiúsculas o
 
 Verifique se a definição da imagem é do tipo correto. Se tiver generalizado a VM (usando o Sysprep para Windows ou waagent -deprovision para Linux), você precisará criar uma definição de imagem generalizada usando `--os-state generalized`. Se quiser usar a VM sem remover contas de usuário existentes, crie uma definição de imagem especializada usando `--os-state specialized`.
 
-Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](./linux/shared-image-galleries.md#image-definitions).
 
 Crie uma definição de imagem na galeria usando [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-Neste exemplo, a definição da imagem se chama *myImageDefinition* e é referente a uma imagem [especializada](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) do SO Linux. Para criar uma definição para imagens usando um SO Windows, use `--os-type Windows`. 
+Neste exemplo, a definição da imagem se chama *myImageDefinition* e é referente a uma imagem [especializada](./linux/shared-image-galleries.md#generalized-and-specialized-images) do SO Linux. Para criar uma definição para imagens usando um SO Windows, use `--os-type Windows`. 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -99,7 +99,7 @@ az sig image-version create \
 > [!NOTE]
 > Você precisa esperar que a versão da imagem seja compilada e replicada completamente antes de poder usar a mesma imagem gerenciada para criar outra versão da imagem.
 >
-> Você também pode armazenar a imagem no armazenamento Premium adicionando `--storage-account-type  premium_lrs`, ou no [Armazenamento com redundância de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando `--storage-account-type  standard_zrs` ao criar a versão da imagem.
+> Você também pode armazenar a imagem no armazenamento Premium adicionando `--storage-account-type  premium_lrs`, ou no [Armazenamento com redundância de zona](../storage/common/storage-redundancy.md) adicionando `--storage-account-type  standard_zrs` ao criar a versão da imagem.
 >
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -1,5 +1,5 @@
 ---
-title: Provisionar e proteger um serviço vinculado no Azure Synapse Analytics
+title: Proteger um serviço vinculado
 description: Saiba como provisionar e proteger um serviço vinculado com vnet gerenciada
 services: synapse-analytics
 author: acomet
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 435c3fd6b1e6444fa3a31c68b4d74c2553d2e634
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c7cf8ec7297b3c0ef855936becc3c06a5120a38
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81430546"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496070"
 ---
 # <a name="securing-a-linked-service-with-private-links"></a>Protegendo um serviço vinculado com links privados 
 
@@ -56,7 +56,7 @@ Caso você não tenha clicado no hiperlink ao testar a conexão acima, siga o ca
 1. Selecione o ponto de extremidade privado que você criou acima. Você pode ver um hiperlink que permitirá aprovar o ponto de extremidade privado no nível da conta de armazenamento. *Uma alternativa é ir diretamente para a conta de armazenamento portal do Azure e ir para a folha **conexões de ponto de extremidade privado** .*
 1. Marque o ponto de extremidade privado que você criou no estúdio e selecione **aprovar**.
 1. Adicione uma descrição e clique em **Sim**
-1. Volte para o Synapse Studio na seção **redes virtuais gerenciadas** da guia **gerenciar**.
+1. Volte para o Synapse Studio na seção **redes virtuais gerenciadas** da guia **gerenciar** .
 1. Deve levar cerca de 1 minuto para que a aprovação seja refletida para seu ponto de extremidade particular.
 
 ## <a name="check-the-connection-works"></a>Verificar a conexão funciona

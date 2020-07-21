@@ -5,14 +5,14 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6527ee8be64d57b42d7753c266a5c416ceeef589
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 110fef2dcb4c1581d49fcb776276ebd9c4ae2235
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187703"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497056"
 ---
-# <a name="troubleshoot"></a>Solucionar problemas
+# <a name="troubleshoot-azure-farmbeats"></a>Solução de problemas do Azure FarmBeats
 
 Este artigo fornece soluções para problemas comuns do FarmBeats do Azure. Para obter ajuda adicional, entre em contato com nosso [Fórum de Suporte](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) ou envie um email para farmbeatssupport@microsoft.com.
 
@@ -58,8 +58,8 @@ Entre em contato com os seguintes detalhes:
 
 **Ação corretiva**
 
-1. Vá até o grupo de recursos do Datahub do FarmBeats.
-2. Selecione a **Hub de eventos** (DatafeedEventHubNamespace) e, em seguida, verifique o número de mensagens de entrada.
+1. Vá para o grupo de recursos do FarmBeats.
+2. Selecione o namespace do **Hub de eventos** ("sensor-Partner-eh-namespace-xxxx"), clique em "hubs de eventos" e verifique o número de mensagens de entrada no Hub de eventos atribuído ao parceiro
 3. Execute um destes procedimentos:
 
    - Se não houver *mensagem de entrada*, entre em contato com o parceiro do dispositivo.  

@@ -1,5 +1,5 @@
 ---
-title: Melhorar o desempenho do índice columnstore
+title: Melhorar o desempenho do índice columnstore (visualização de espaços de trabalho)
 description: Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas que um índice columnstore compacta em cada rowgroup.
 services: synapse-analytics
 author: kevinvngo
@@ -11,14 +11,14 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f1f3667c088c5f7300317ea02ca19a72e4e62905
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c885bce5ca17d5919ec134d179f6009e91a969cc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81431027"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495475"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizando a qualidade do grupo de linhas para o columnstore
+# <a name="maximizing-rowgroup-quality-for-columnstore-index-performance"></a>Maximizando a qualidade do rowgroup para o desempenho do índice columnstore
 
 A qualidade do grupo de linhas é determinada pelo número de linhas em um grupo de linhas. Aumentar a memória disponível pode maximizar o número de linhas que um índice columnstore compacta em cada rowgroup.  Use estes métodos para melhorar as taxas de compactação e o desempenho da consulta em índices columnstore.
 

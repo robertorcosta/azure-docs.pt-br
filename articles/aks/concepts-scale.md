@@ -4,12 +4,12 @@ description: Saiba mais sobre como dimensionar no AKS (Serviço de Kubernetes do
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 41d4088a0942eb408d3d3c9eeb2d13ff38fc0362
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1a14615e96d5be4fbc8994073d66677997281131
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244507"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499878"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções dimensionamento para aplicativos no AKS (Serviço de Kubernetes do Azure)
 
@@ -19,7 +19,7 @@ Este artigo apresenta os principais conceitos que ajudam você a dimensionar apl
 
 - [Dimensionamento manual](#manually-scale-pods-or-nodes)
 - [HPA (dimensionador automático de pod horizontal)](#horizontal-pod-autoscaler)
-- [Dimensionador automático do cluster](#cluster-autoscaler)
+- [Dimensionador automático de cluster](#cluster-autoscaler)
 - [Integração de ACI (instância de contêiner do Azure) com AKS](#burst-to-azure-container-instances)
 
 ## <a name="manually-scale-pods-or-nodes"></a>Dimensionar manualmente os pods ou os nós
@@ -48,7 +48,7 @@ Para minimizar os eventos de corrida, um valor de atraso é definido. Esse valor
 
 No momento, não é possível ajustar esses valores de cooldown do padrão.
 
-## <a name="cluster-autoscaler"></a>Dimensionador automático do cluster
+## <a name="cluster-autoscaler"></a>Dimensionador automático de cluster
 
 Para responder à alteração das demandas de Pod, o kubernetes tem um conjunto de dimensionamento automática de cluster, que ajusta o número de nós com base nos recursos de computação solicitados no pool de nós. Por padrão, o dimensionador automática do cluster verifica o servidor de API de métrica a cada 10 segundos para todas as alterações necessárias na contagem de nós. Se o dimensionamento automático de cluster determinar que uma alteração é necessária, o número de nós no cluster do AKS aumentará ou diminuirá de acordo. O dimensionador automático de cluster funciona com clusters AKS habilitados para RBAC que executam o Kubernetes 1.10.x ou superior.
 
@@ -58,7 +58,7 @@ O dimensionador automático do cluster normalmente é usado junto com o dimensio
 
 Para começar a usar o dimensionador automático de cluster no AKS, confira [Dimensionador automático de cluster no AKS][aks-cluster-autoscaler].
 
-### <a name="scale-up-events"></a>Eventos de aumento
+### <a name="scale-out-events"></a>Eventos de expansão
 
 Se um nó não tiver recursos de computação suficientes para executar um pod solicitado, esse Pod não poderá progredir pelo processo de agendamento. O Pod não pode iniciar, a menos que recursos de computação adicionais estejam disponíveis no pool de nós.
 
@@ -66,7 +66,7 @@ Quando o dimensionador automática do cluster observa pods que não pode ser age
 
 Se o aplicativo precisar ser dimensionado rapidamente, alguns compartimentos poderão permanecer em um estado aguardando agendamento até que os nós adicionais implantados pelo dimensionador automático de cluster possam aceitar os pods agendados. Para aplicativos que têm altas demandas de intermitência, você pode dimensionar com nós virtuais e Instâncias de Contêiner do Azure.
 
-### <a name="scale-down-events"></a>Reduzir eventos verticalmente
+### <a name="scale-in-events"></a>Reduzir em eventos
 
 O autoescalar do cluster também monitora o status de agendamento do pod para nós que não receberam novas solicitações de agendamento recentemente. Esse cenário indica que o pool de nós tem mais recursos de computação que os necessários e o número de nós pode ser reduzido.
 

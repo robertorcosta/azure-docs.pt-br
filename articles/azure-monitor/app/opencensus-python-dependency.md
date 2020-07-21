@@ -6,15 +6,16 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: tracking-python
-ms.openlocfilehash: d12db3ab046d115b60b67a9c22bf4e885cd0ef02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e99ea1d5a90455a4c470346fbbe5d1095c426e81
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782561"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499453"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>Acompanhar dependências com Python OpenCensus
 
-Uma dependência é um componente externo que é chamado pelo seu aplicativo. Os dados de dependência são coletados usando o OpenCensus Python e suas várias integrações. Os dados são enviados para Application Insights em Azure Monitor como `dependencies` telemetria.
+Uma dependência é um componente externo que é chamado por seu aplicativo. Os dados de dependência são coletados usando o OpenCensus Python e suas várias integrações. Os dados são enviados para Application Insights em Azure Monitor como `dependencies` telemetria.
 
 Primeiro, instrumentar seu aplicativo Python com o [SDK do Python OpenCensus](../../azure-monitor/app/opencensus-python.md)mais recente.
 
@@ -85,7 +86,7 @@ conn.close()
 Acompanhe suas solicitações de Django de saída com a `django` integração do OpenCensus.
 
 > [!NOTE]
-> As únicas solicitações de Django de saída que são rastreadas são chamadas feitas a um banco de dados. Para solicitações feitas ao aplicativo Django, consulte [solicitações de entrada](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-request#tracking-django-applications).
+> As únicas solicitações de Django de saída que são rastreadas são chamadas feitas a um banco de dados. Para solicitações feitas ao aplicativo Django, consulte [solicitações de entrada](./opencensus-python-request.md#tracking-django-applications).
 
 Baixe e instale `opencensus-ext-django` do [PyPI](https://pypi.org/project/opencensus-ext-django/) e adicione a seguinte linha à `MIDDLEWARE` seção no `settings.py` arquivo Django.
 

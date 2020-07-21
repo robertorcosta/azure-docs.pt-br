@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
-ms.openlocfilehash: 406b02ee2e9c2f4e78ce50fc7160b382b9662303
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a4aa4cc545d6941f144ce0657ede7199d4f8f57
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737420"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497107"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gerenciar e analisar os logs de fluxo do grupo de segurança de rede no Azure usando o Observador de Rede e o Graylog
 
@@ -190,7 +190,7 @@ Agora que você criou uma conexão para os logs de fluxo usando o Logstash e con
 
    Assim que você abrir a entrada, você verá ela aparecer sob a seção **Entradas locais**, conforme mostrado na figura a seguir:
 
-   ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
+   ![Captura de tela que mostra a seção entradas locais que contém a entrada que você iniciou.](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
 
    Para saber mais sobre as entradas de mensagens do Graylog, consulte a [documentação](https://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
 
@@ -212,13 +212,13 @@ Por padrão, todos os campos de mensagem são incluídos na pesquisa se você n�
 
 Agora que o Graylog está configurado e em execução, você pode usar algumas das suas funcionalidades para entender melhor os dados de log do fluxo. Um modo é usar os painéis para criar exibições específicas de seus dados.
 
-### <a name="create-a-dashboard"></a>Criar um painel
+### <a name="create-a-dashboard"></a>Criar um dashboard
 
 1. Na barra de navegação superior, selecione **Painéis** ou navegue até `http://<graylog-server-ip>:9000/dashboards/`
 
 2. A partir daí, clique no botão verde **Criar painel** e preencha o formulário curto com o título e a descrição do seu painel. Clique no botão **Salvar** para criar um novo painel. Você verá um painel semelhante à seguinte imagem:
 
-    ![Dashboards](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
+    ![Painéis](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
 
 ### <a name="add-widgets"></a>Adicionar widgets
 

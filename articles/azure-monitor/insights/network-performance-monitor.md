@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 9660e87f3ee4e1c1c6a270f14928fdd111664e66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51111d92e85c6ddbdfac85c333293c2af8b31fbe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480871"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498949"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução do Monitor de Desempenho de Rede no Azure
 
@@ -31,7 +32,7 @@ O Monitor de Desempenho de Rede oferece três recursos abrangentes:
 
 * [Monitor do ExpressRoute](network-performance-monitor-expressroute.md): monitore desempenho e conectividade ponta a ponta entre as filiais e o Azure por meio do Azure ExpressRoute.  
 
-Mais informações sobre os diversos recursos de suporte do [Monitor de Desempenho de Rede](https://docs.microsoft.com/azure/networking/network-monitoring-overview) estão disponíveis online.
+Mais informações sobre os diversos recursos de suporte do [Monitor de Desempenho de Rede](../../networking/network-monitoring-overview.md) estão disponíveis online.
  
 ## <a name="supported-regions"></a>Regiões com Suporte
 O NPM pode monitorar a conectividade entre redes e aplicativos em qualquer parte do mundo, de um workspace que está hospedado em uma das seguintes regiões:
@@ -60,7 +61,7 @@ O NPM pode monitorar a conectividade entre redes e aplicativos em qualquer parte
 * Leste da China 2
 
 
-A lista de regiões de suporte para Monitor do ExpressRoute está disponível na [documentação](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117).
+A lista de regiões de suporte para Monitor do ExpressRoute está disponível na [documentação](../../expressroute/how-to-npm.md?utm_swu=8117).
 
 
 ## <a name="set-up-and-configure"></a>Instalar e configurar
@@ -255,9 +256,9 @@ Todos os dados expostos graficamente por meio do painel de Monitor de Desempenho
 
 ## <a name="alerts"></a>Alertas
 
-O Monitor de Desempenho de Rede usa os recursos de alertas do [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
+O Monitor de Desempenho de Rede usa os recursos de alertas do [Azure Monitor](../platform/alerts-overview.md).
 
-Isso significa que todas as notificações são gerenciadas usando [grupos de ação](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups).  
+Isso significa que todas as notificações são gerenciadas usando [grupos de ação](../platform/action-groups.md).  
 
 Se você é um usuário do NPM criando um alerta por meio do Log Analytics: 
 1. Você verá um link que o redirecionará para portal do Azure. Clique nele para acessar o portal.
@@ -268,7 +269,7 @@ Se você é um usuário do NPM criando um alerta por meio do Log Analytics:
 Se você for um usuário do NPM criando um alerta por meio do portal do Azure:  
 1. Você pode optar por inserir seu email diretamente ou criar alertas por meio de grupos de ação.
 2. Se você optar por inserir seu email diretamente, um grupo de ação com o nome **ActionGroup de Email NPM** é criado e a ID de email é adicionada a esse grupo de ação.
-3. Se optar por usar grupos de ação, você precisará selecionar um grupo criado anteriormente. Você pode aprender a criar um grupo de ação [aqui.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
+3. Se optar por usar grupos de ação, você precisará selecionar um grupo criado anteriormente. Você pode aprender a criar um grupo de ação [aqui.](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
 4. Quando o alerta for criado com êxito, você poderá usar o link Gerenciar Alertas para gerenciar seus alertas. 
 
 Cada vez que você cria um alerta, o NPM cria uma regra de alerta de log de consulta com base no Azure Monitor. Essa consulta é disparada a cada 5 minutos por padrão. O monitor do Azure não cobra pelas primeiras 250 regras de alerta criadas de log e quaisquer regras de alerta acima limitam de 250 regras de alerta de log serão cobradas de acordo com os [alertas de preços na página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).

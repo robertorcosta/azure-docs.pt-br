@@ -3,17 +3,17 @@ title: Monitorar um aplicativo Web ASP.NET dinâmico com o Azure Application Ins
 description: Monitore o desempenho do site sem implantá-lo novamente. Funciona com aplicativos Web ASP.NET hospedado localmente ou em máquinas virtuais.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: f4ce01ea8fc7b6bf1f294071f04e2bebce3e1d27
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 93b150b831a01989093fd916d17e31aee27beb3a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166375"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499521"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentar aplicativos Web em tempo de execução com Application Insights anexação sem código
 
 > [!IMPORTANT]
-> O Status Monitor não é mais recomendado para uso e a **partir de 1º de junho de 2021** esta versão do monitor de status não terá suporte. Ele foi substituído pelo agente de Application Insights de Azure Monitor (anteriormente denominado Status Monitor v2). Consulte nossa documentação para [implantações de servidor local](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) ou [máquinas virtuais do Azure e implantações do conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
+> O Status Monitor não é mais recomendado para uso e a **partir de 1º de junho de 2021** esta versão do monitor de status não terá suporte. Ele foi substituído pelo agente de Application Insights de Azure Monitor (anteriormente denominado Status Monitor v2). Consulte nossa documentação para [implantações de servidor local](./status-monitor-v2-overview.md) ou [máquinas virtuais do Azure e implantações do conjunto de dimensionamento de máquinas virtuais](./azure-vm-vmss-apps.md).
 
 Você pode instrumentar um aplicativo Web ativo com o Application Insights do Azure, sem a necessidade de modificar ou reimplantar o código. É necessário ter uma assinatura do [Microsoft Azure](https://azure.com) .
 
@@ -97,7 +97,7 @@ Estas são algumas etapas que você pode executar para confirmar se a instalaç�
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
 
-- Se você precisar confirmar se o Application Insights foi anexado com êxito, poderá executar o [identificador do Sysinternals](https://docs.microsoft.com/sysinternals/downloads/handle) em uma janela de comando para confirmar que applicationinsights.dll foi carregado pelo IIS.
+- Se você precisar confirmar se o Application Insights foi anexado com êxito, poderá executar o [identificador do Sysinternals](/sysinternals/downloads/handle) em uma janela de comando para confirmar que applicationinsights.dll foi carregado pelo IIS.
 
   ```console
   handle.exe /p w3wp.exe
@@ -145,7 +145,7 @@ Estamos acompanhando esse problema [aqui](https://github.com/Microsoft/Applicati
 * Para produzir logs detalhados, modifique o arquivo de configuração: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` e adicione `<add key="TraceLevel" value="All" />` ao `appsettings`.
 Em seguida, reinicie o monitor de status.
 
-* Como Status Monitor é um aplicativo .NET, você também pode habilitar [o rastreamento do .net adicionando o diagnóstico apropriado ao arquivo de configuração](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Por exemplo, em alguns cenários, pode ser útil ver o que está acontecendo no nível da rede [Configurando o rastreamento de rede](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
+* Como Status Monitor é um aplicativo .NET, você também pode habilitar [o rastreamento do .net adicionando o diagnóstico apropriado ao arquivo de configuração](/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Por exemplo, em alguns cenários, pode ser útil ver o que está acontecendo no nível da rede [Configurando o rastreamento de rede](/dotnet/framework/network-programming/how-to-configure-network-tracing)
 
 ### <a name="insufficient-permissions"></a>Permissões insuficientes
   
@@ -311,7 +311,7 @@ Para aplicativos já instrumentados em tempo de compilação:
 
 ## <a name="download-status-monitor"></a><a name="download"></a>Baixar o Status Monitor
 
-- Usar o novo [módulo do PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview)
+- Usar o novo [módulo do PowerShell](./status-monitor-v2-overview.md)
 - Baixar e executar o [instalador do status monitor](https://go.microsoft.com/fwlink/?LinkId=506648)
 - Ou execute o [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) e pesquise o Application Insights Status Monitor.
 
@@ -321,7 +321,7 @@ Exiba sua telemetria:
 
 * [Explore as métricas](../../azure-monitor/platform/metrics-charts.md) para monitorar o desempenho e o uso
 * [Pesquise eventos e logs][diagnostic] para diagnosticar problemas
-* [Analise](../../azure-monitor/app/analytics.md) para obter mais consultas avançadas
+* [Analise](../log-query/log-query-overview.md) para obter mais consultas avançadas
 
 Adicione mais telemetria:
 
@@ -336,6 +336,6 @@ Adicione mais telemetria:
 [client]: ../../azure-monitor/app/javascript.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [roles]: ../../azure-monitor/app/resources-roles-access-control.md
 [usage]: ../../azure-monitor/app/javascript.md

@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6b6f98f3c7f540e00743ae27b532b24d2310453e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9d9cc377ead0c297e8334d34255bd2c7c7cd39fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205721"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499402"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurar o Profiler do Application Insights
 
@@ -41,7 +41,7 @@ Sessões de criação de perfil recentes | Exibe informações sobre sessões de
 ## <a name="profile-now"></a>Perfil agora
 Essa opção permite que você inicie uma sessão de criação de perfil sob demanda. Quando você clica nesse link, todos os agentes do criador de perfil que estão enviando dados para esse Application Insights instância começarão a capturar um perfil. Após 5 a 10 minutos, a sessão de perfil será mostrada na lista abaixo.
 
-Para que um usuário acione manualmente uma sessão de criador de perfil, ele precisa de pelo menos acesso de "gravação" em sua função para o componente de Application Insights. Na maioria dos casos, você obtém esse acesso automaticamente e nenhum trabalho adicional é necessário. Se você estiver tendo problemas, a função de escopo da assinatura a ser adicionada seria a função "colaborador do componente do Application Insights". [Veja mais sobre o controle de acesso de função com o monitoramento do Azure](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
+Para que um usuário acione manualmente uma sessão de criador de perfil, ele precisa de pelo menos acesso de "gravação" em sua função para o componente de Application Insights. Na maioria dos casos, você obtém esse acesso automaticamente e nenhum trabalho adicional é necessário. Se você estiver tendo problemas, a função de escopo da assinatura a ser adicionada seria a função "colaborador do componente do Application Insights". [Veja mais sobre o controle de acesso de função com o monitoramento do Azure](./resources-roles-access-control.md).
 
 ## <a name="trigger-settings"></a>Configurações do gatilho
 ![Submenu configurações do gatilho][trigger-settings-flyout]
@@ -52,7 +52,7 @@ Clicar no botão gatilhos na barra de menus abre a caixa configurações do gati
 |-|-|
 Botão ligar/desligar | Em: o profiler pode ser iniciado por este gatilho; Desativada: o criador de perfil não será iniciado por este gatilho.
 Limite de memória | Quando esse percentual de memória estiver em uso, o criador de perfil será iniciado.
-Duração | Define o período de tempo que o profiler executará quando for disparado.
+Duration | Define o período de tempo que o profiler executará quando for disparado.
 Resfriamento | Define o período de tempo que o profiler aguardará antes de verificar a memória ou o uso da CPU novamente depois que ele for disparado.
 
 ## <a name="recent-profiling-sessions"></a>Sessões de criação de perfil recentes
@@ -63,7 +63,7 @@ Esta seção da página mostra informações sobre as sessões de criação de p
 Disparado por | Como a sessão foi iniciada por um gatilho, perfil agora ou amostragem padrão. 
 Nome do Aplicativo | Nome do aplicativo cujo perfil foi criado.
 Instância do computador | Nome do computador no qual o agente do criador de perfil foi executado.
-Carimbo de data/hora | Hora em que o perfil foi capturado.
+Timestamp | Hora em que o perfil foi capturado.
 Rastrear | Número de rastreamentos que foram anexados a solicitações individuais.
 CPU (%) | Porcentagem da CPU que estava sendo usada enquanto o criador de perfil estava em execução.
 Memória | Porcentagem de memória que estava sendo usada enquanto o criador de perfil estava em execução.

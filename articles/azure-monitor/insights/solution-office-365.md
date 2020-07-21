@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 4d89c64b7ceea730dab61ffe1254d838d219b785
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 14f7b5546d30d98adf4a14408882c972687a2d71
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971038"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498790"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gerenciamento do Office 365 no Microsoft Azure | (Versão prévia)
 
@@ -228,7 +228,7 @@ Suas credenciais serão solicitadas. Forneça as credenciais para seu espaço de
 
 ## <a name="data-collection"></a>Coleta de dados
 
-Talvez demore algumas horas para coletar os dados pela primeira vez. Após o início da coleta, o Office 365 envia uma [notificação webhook](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) com dados detalhados para o Azure Monitor sempre que um registro é criado. O registro fica disponível no Azure Monitor alguns minutos após o recebimento.
+Talvez demore algumas horas para coletar os dados pela primeira vez. Após o início da coleta, o Office 365 envia uma [notificação webhook](/office/office-365-management-api/office-365-management-activity-api-reference#receiving-notifications) com dados detalhados para o Azure Monitor sempre que um registro é criado. O registro fica disponível no Azure Monitor alguns minutos após o recebimento.
 
 ## <a name="using-the-solution"></a>Usando a solução
 
@@ -261,7 +261,7 @@ Todos os registros criados no espaço de trabalho do Log Analytics no Azure Moni
 
 As propriedades a seguir são comuns a todos os registros do Office 365.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | Type | *OfficeActivity* |
 | ClientIP | O endereço IP do dispositivo que foi usado quando a atividade foi registrada. O endereço IP é exibido no formato de endereço IPv4 ou IPv6. |
@@ -272,14 +272,14 @@ As propriedades a seguir são comuns a todos os registros do Office 365.
 | ResultStatus | Indica se a ação (especificada na propriedade Operation) foi bem-sucedida ou não. Os valores possíveis são Succeeded, PartiallySucceeded ou Failed. Para a atividade de administração do Exchange, o valor é True ou False. |
 | UserId | O nome UPN do usuário que executou a ação que resultou em o registro ser incluído em log. Por exemplo, my_name@my_domain_name. Observe que os registros para a atividade realizada por contas do sistema (como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também são incluídos. | 
 | UserKey | Uma ID alternativa para o usuário identificado na propriedade UserId.  Por exemplo, essa propriedade é preenchida com a PUID (ID exclusiva do passport) para eventos executadas por usuários no SharePoint, no OneDrive for Business e no Exchange. Essa propriedade também pode especificar o mesmo valor que a propriedade UserID para eventos que ocorrem em outros serviços e eventos executados por contas do sistema|
-| UserType | O tipo de usuário que realizou a operação.<br><br>Administrador<br>Aplicativo<br>DcAdmin<br>Regular<br>Reservado<br>ServicePrincipal<br>Sistema |
+| UserType | O tipo de usuário que realizou a operação.<br><br>Admin<br>Aplicativo<br>DcAdmin<br>Regular<br>Reservado<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base do Azure Active Directory
 
 As propriedades a seguir são comuns a todos os registros do Azure Active Directory.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -291,7 +291,7 @@ As propriedades a seguir são comuns a todos os registros do Azure Active Direct
 
 Esses registros são criados quando um usuário do Active Directory tenta fazer logon.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | `OfficeWorkload` | AzureActiveDirectory |
 | `RecordType`     | AzureActiveDirectoryAccountLogon |
@@ -305,7 +305,7 @@ Esses registros são criados quando um usuário do Active Directory tenta fazer 
 
 Esses registros são criados quando adições ou alterações são feitas aos objetos do Azure Active Directory.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -323,7 +323,7 @@ Esses registros são criados quando adições ou alterações são feitas aos ob
 
 Esses registros são criados de dados de auditoria de Segurança do Data Center.  
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | EffectiveOrganization | O nome do locatário ao qual o cmdlet \elevation foi direcionado. |
 | ElevationApprovedTime | O carimbo de data/hora de quando a elevação foi aprovada. |
@@ -339,7 +339,7 @@ Esses registros são criados de dados de auditoria de Segurança do Data Center.
 
 Esses registros são criados quando são feitas alterações à configuração do Exchange.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
@@ -354,7 +354,7 @@ Esses registros são criados quando são feitas alterações à configuração d
 
 Esses registros são criados quando alterações ou adições são feitas às caixas de correio do Exchange.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -377,7 +377,7 @@ Esses registros são criados quando alterações ou adições são feitas às ca
 
 Esses registros são criados quando é criada uma entrada de auditoria de caixa de correio.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -392,7 +392,7 @@ Esses registros são criados quando é criada uma entrada de auditoria de caixa 
 
 Esses registros são criados quando alterações ou adições são feitas a grupos do Exchange.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
@@ -411,7 +411,7 @@ Esses registros são criados quando alterações ou adições são feitas a grup
 
 Essas propriedades são comuns a todos os registros do SharePoint.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -428,7 +428,7 @@ Essas propriedades são comuns a todos os registros do SharePoint.
 
 Esses registros são criados quando são feitas alterações de configuração do SharePoint.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -441,7 +441,7 @@ Esses registros são criados quando são feitas alterações de configuração d
 
 Esses registros são criados em resposta às operações de arquivo no SharePoint.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |

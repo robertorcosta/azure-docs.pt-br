@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: dd3279db67fb45aee43cf1b0ef1bebf49433eef4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cecf24f4ba086feba5ab87b5752fd665c540dff
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77663225"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498671"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Direcionamento de soluções de monitoramento no Azure Monitor (versão prévia)
 Quando você adiciona uma solução de monitoramento à sua assinatura, ela é implantada automaticamente por padrão em todos os agentes do Windows e do Linux conectados ao seu espaço de trabalho do Log Analytics.  Talvez você queira gerenciar os custos e limitar a quantidade de dados coletados de uma solução limitando-a a determinado conjunto de agentes.  Este artigo descreve como usar o **Direcionamento de Solução**, que é um recurso que permite aplicar um escopo às suas soluções.
@@ -58,7 +59,7 @@ Aplique uma configuração de escopo usando o processo a seguir.
 Veja a seguir os critérios para agentes e soluções que não podem ser usados com o direcionamento de solução.
 
 - O direcionamento de solução se aplica somente às soluções implantadas em agentes.
-- O direcionamento de solução se aplica somente às soluções fornecidas pela Microsoft.  Ele não se aplica às soluções [criadas por você ou por parceiros](solutions-creating.md).
+- O direcionamento de solução se aplica somente às soluções fornecidas pela Microsoft.  Ele não se aplica às soluções [criadas por você ou por parceiros](./solutions.md).
 - Você pode filtrar somente os agentes que se conectam diretamente ao Azure Monitor.  As soluções serão implantadas automaticamente em todos os agentes que fazem parte de um grupo de gerenciamento conectado do Operations Manager, independentemente de estarem incluídas ou não em uma configuração de escopo.
 
 ### <a name="exceptions"></a>Exceções

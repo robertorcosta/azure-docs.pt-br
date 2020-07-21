@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: mimckitt
 ms.custom: include file
-ms.openlocfilehash: 5c898721102177a0d796db3b8b0f194c4ec3efae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed1341a323d947441fa2cb3c239fcdf99c447a97
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84793710"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494472"
 ---
 Algumas cargas de trabalho de banco de dados como o SQL Server ou Oracle exigem alto de memória, armazenamento e largura de banda I/O, mas não número alto de núcleos. Muitas cargas de trabalho do banco de dados não são de uso intensivo de CPU. O Azure oferece determinados tamanhos de VM, onde você pode restringir a contagem de vCPU VM para reduzir o custo de licenciamento de software, mantendo a mesma memória, armazenamento e largura de banda I/O.
 
@@ -74,3 +74,5 @@ Os valores de licenciamento cobrados para SQL Server ou Oracle são restritos à
 | Standard_DS13-2_v2  | 2    | O mesmo que DS13_v2 |
 | Standard_DS14-8_v2  | 8    | O mesmo que DS14_v2 |
 | Standard_DS14-4_v2  | 4    | O mesmo que DS14_v2 |
+| Standard_M416-208s_v2 | 208    | O mesmo que M416s_v2|
+| Standard_M416-208ms_v2 | 208    | O mesmo que M416ms_v2 |

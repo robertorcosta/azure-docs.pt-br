@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 113ab07af8ada16c0779da510c5f5b1f1f5a290b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 707b432a4cb3918aa2dfbe460fc3cdcd53761bf1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80398227"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497073"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obter dados de sensor de parceiros de sensor
 
@@ -66,7 +66,13 @@ Siga as etapas abaixo para gerar as informações acima:
     cd  
     ```
 
-6. Execute o comando a seguir. Isso baixará um script em seu diretório base.
+6. Execute o comando a seguir. Isso conecta uma conta autenticada a ser usada para solicitações do Azure AD
+
+    ```azurepowershell-interactive 
+    Connect-AzureAD
+    ```
+    
+7. Execute o comando a seguir. Isso baixará um script em seu diretório base.
 
     ```azurepowershell-interactive 
 
@@ -74,7 +80,7 @@ Siga as etapas abaixo para gerar as informações acima:
 
     ```
 
-7. Execute o seguinte script. O script solicita a ID do locatário, que pode ser obtida na **Azure Active Directory**  >  página de**visão geral** Azure Active Directory.
+8. Execute o seguinte script. O script solicita a ID do locatário, que pode ser obtida na **Azure Active Directory**  >  página de**visão geral** Azure Active Directory.
 
     ```azurepowershell-interactive 
 
@@ -82,7 +88,7 @@ Siga as etapas abaixo para gerar as informações acima:
 
     ```
 
-8. Siga as instruções na tela para capturar os valores para **o ponto de extremidade da API**, ID do **locatário**, **ID do cliente**, segredo do **cliente**e cadeia de **conexão do EventHub**.
+9. Siga as instruções na tela para capturar os valores para **o ponto de extremidade da API**, ID do **locatário**, **ID do cliente**, segredo do **cliente**e cadeia de **conexão do EventHub**.
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integrar dados do dispositivo usando as credenciais geradas
 

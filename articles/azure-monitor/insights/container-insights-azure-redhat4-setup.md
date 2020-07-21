@@ -3,11 +3,12 @@ title: Configurar o Azure Red Hat OpenShift v4. x com Azure Monitor para contêi
 description: Este artigo descreve como configurar o monitoramento de um cluster kubernetes com Azure Monitor hospedado no Azure Red Hat OpenShift versão 4 ou posterior.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 49097d96ecf58d7c5bf7d1a60ff01fc7182587c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91b5644c13ac560910703454c4052e223f958014
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801471"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499164"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Configurar o Azure Red Hat OpenShift v4. x com Azure Monitor para contêineres
 
@@ -19,7 +20,7 @@ Azure Monitor para contêineres fornece uma experiência de monitoramento avanç
 
 Você pode habilitar Azure Monitor para contêineres para uma ou mais implantações existentes do Azure Red Hat OpenShift v4. x usando os métodos com suporte descritos neste artigo.
 
-Para um cluster existente, execute esse [script de bash na CLI do Azure](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
+Para um cluster existente, execute esse [script de bash na CLI do Azure](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
 
 ## <a name="supported-and-unsupported-features"></a>Recursos com e sem suporte
 
@@ -171,4 +172,4 @@ A exibição de vários clusters no Azure Monitor para contêineres realça os c
 
 - Para revisar e analisar as métricas de Prometheus do seu cluster, examine [Configurar a recorte de métricas do Prometheus](container-insights-prometheus-integration.md).
 
-- Para saber como parar de monitorar o cluster usando Azure Monitor para contêineres, consulte [como parar de monitorar o cluster do Azure Red Hat OpenShift](container-insights-optout-openshift.md).
+- Para saber como parar de monitorar o cluster usando Azure Monitor para contêineres, consulte [como parar de monitorar o cluster do Azure Red Hat OpenShift](./container-insights-optout-openshift-v3.md).

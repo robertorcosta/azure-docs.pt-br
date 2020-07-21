@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 46c46faf8f7ee52978ae5542ab7ebd72a41b8357
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd04e92804a1d37afd8ee2cefb159c1e686748d4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536415"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496172"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de desempenho e escalabilidade do Arquivos do Azure
 
@@ -74,7 +74,7 @@ Para sincronização de arquivos do Azure, o desempenho for crítico em dois est
 
 Para ajudá-lo a planejar a implantação para cada um dos estágios, abaixo são os resultados observados durante o teste interno em um sistema com uma configuração
 
-| Configuração do sistema |  |
+| Configuração do sistema | Detalhes |
 |-|-|
 | CPU | 64 núcleos virtuais com o cache de MiB L3 64 |
 | Memória | 128 GiB |
@@ -82,7 +82,7 @@ Para ajudá-lo a planejar a implantação para cada um dos estágios, abaixo sã
 | Rede | Rede de 1 Gbps |
 | Carga de trabalho | Servidor de arquivos de uso geral|
 
-| Provisionamento inicial de uso único  |  |
+| Provisionamento inicial de uso único  | Detalhes |
 |-|-|
 | Número de objetos | 25 milhões de objetos |
 | Tamanho do conjunto de dados| ~ 4,7 TiB |
@@ -92,7 +92,7 @@ Para ajudá-lo a planejar a implantação para cada um dos estágios, abaixo sã
 
 * Quando um novo ponto de extremidade do servidor é criado, o agente do Azure File Sync não faz o download de nenhum conteúdo do arquivo. Sincronizar primeiro namespace completo e, em seguida, os gatilhos em segundo plano Lembre-se de fazer o download dos arquivos, em sua totalidade ou, se camadas na nuvem está habilitado para a política de camadas de nuvem definido no ponto de extremidade do servidor.
 
-| Sincronização contínua  |   |
+| Sincronização contínua  | Detalhes  |
 |-|--|
 | Número de objetos sincronizados| 125.000 objetos (aproximadamente 1% rotatividade) |
 | Tamanho do conjunto de dados| 50 GiB |
@@ -112,5 +112,5 @@ Como um guia geral para sua implantação, você deve manter alguns pontos em me
 
 ## <a name="see-also"></a>Consulte também
 
-- [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
-- [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
+- [Como planejar uma implantação de Arquivos do Azure](storage-files-planning.md)
+- [Planejar uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)

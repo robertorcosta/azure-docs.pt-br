@@ -1,5 +1,5 @@
 ---
-title: Criando e atualizando estatísticas
+title: Criar e atualizar estatísticas em tabelas usando o SQL Synapse do Azure
 description: Recomendações e exemplos para criar e atualizar estatísticas de otimização de consulta em tabelas no pool de SQL do Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 257b1e26127186fce07e402e58f98660005a97fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15ba0d4b77461d77a2d0b89ecc9e411a105d49d2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800759"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495628"
 ---
 # <a name="table-statistics-in-synapse-sql-pool"></a>Estatísticas de tabela no pool de SQL Synapse
 

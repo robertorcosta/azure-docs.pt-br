@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: d3fe5257b3db2057e805d2f2cd0c6e2a2973e211
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.date: 07/15/2020
+ms.openlocfilehash: 424f858fff0ad050286122fcbbd03fdef78c11f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223050"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497668"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiar e transformar dados no banco de dados SQL do Azure usando Azure Data Factory
 
@@ -79,9 +79,9 @@ Para diferentes tipos de autenticação, consulte as seções a seguir sobre pr�
 >[!TIP]
 >Se você encontrar um erro com o código de erro "UserErrorFailedToConnectToSqlServer" e uma mensagem como "o limite de sessão para o banco de dados é XXX e foi atingido", adicione `Pooling=false` à sua cadeia de conexão e tente novamente.
 
-### <a name="sql-authentication"></a>Autenticação SQL
+### <a name="sql-authentication"></a>Autenticação do SQL
 
-#### <a name="linked-service-example-that-uses-sql-authentication"></a>Exemplo de serviço vinculado que usa autenticação SQL
+**Exemplo: usando a autenticação do SQL**
 
 ```json
 {
@@ -99,7 +99,7 @@ Para diferentes tipos de autenticação, consulte as seções a seguir sobre pr�
 }
 ```
 
-**Senha em Azure Key Vault**
+**Exemplo: senha em Azure Key Vault**
 
 ```json
 {
@@ -368,7 +368,7 @@ Para copiar os dados para o Azure SQL Database, há suporte para as seguintes pr
 |:--- |:--- |:--- |
 | type | A propriedade **Type** do coletor da atividade de cópia deve ser definida como **AzureSqlSink**. O tipo "sqlsink" ainda tem suporte para compatibilidade com versões anteriores. | Sim |
 | preCopyScript | Especifique uma consulta SQL para que a atividade de cópia seja executada antes de gravar os dados no Azure SQL Database. É chamado apenas uma vez por execução de cópia. Use essa propriedade para limpar os dados pré-carregados. | Não |
-| tableOption | Especifica se a tabela do coletor deve ser criada automaticamente caso ela não exista com base no esquema de origem. <br>Não há suporte para a criação automática de tabela quando o coletor especifica o procedimento armazenado ou a cópia preparada está configurada na atividade de cópia. <br>Os valores permitidos são `none` (padrão) e `autoCreate`. | Não |
+| tableOption | Especifica se a [tabela do coletor deve ser criada automaticamente](copy-activity-overview.md#auto-create-sink-tables) se não existir com base no esquema de origem. <br>Não há suporte para a criação automática de tabela quando o coletor especifica o procedimento armazenado ou a cópia preparada está configurada na atividade de cópia. <br>Os valores permitidos são `none` (padrão) e `autoCreate`. | Não |
 | sqlWriterStoredProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem em uma tabela de destino. <br/>Este procedimento armazenado é *chamado por lote*. Para operações que são executadas apenas uma vez e não têm nada a ver com os dados de origem, por exemplo, excluir ou truncar, use a `preCopyScript` propriedade.<br>Consulte o exemplo de [invocar um procedimento armazenado de um coletor SQL](#invoke-a-stored-procedure-from-a-sql-sink). | Não |
 | storedProcedureTableTypeParameterName |O nome do parâmetro do tipo de tabela especificado no procedimento armazenado.  |Não |
 | sqlWriterTableType |O nome do tipo de tabela a ser usado no procedimento armazenado. A atividade de cópia disponibiliza aqueles dados sendo movidos em uma tabela temporária com esse tipo de tabela. O código de procedimento armazenado pode mesclar os dados que estão sendo copiados com os dados existentes. |Não |
@@ -634,7 +634,7 @@ Quando os dados são copiados do ou para o banco de dados SQL do Azure, os segui
 | SMALLINT |Int16 |
 | SMALLMONEY |Decimal |
 | sql_variant |Objeto |
-| texto |String, Char[] |
+| text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | TINYINT |Byte |

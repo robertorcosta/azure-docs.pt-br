@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: d55bcf921d5bddb1612f9cfb884b339f837c7aa2
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 315c635ba0864dc1565fd7ba5ccc450223d87ac9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225034"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494710"
 ---
 # <a name="create-an-image-from-a-vhd-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>Criar uma imagem de um VHD ou instantâneo em uma galeria de imagens compartilhada usando o PowerShell
 
@@ -90,9 +90,9 @@ As definições de imagem criam um agrupamento lógico para as imagens. Eles sã
 
 Ao fazer a definição de imagem, verifique se o tem todas as informações corretas. Neste exemplo, supomos que o instantâneo ou VHD seja de uma VM em uso e não tenha sido generalizado. Se o VHD ou o instantâneo foram tirados de um sistema operacional generalizado (depois de executar o Sysprep para Windows ou [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` ou `-deprovision+user` para Linux), altere o `-OsState` para `generalized` . 
 
-Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](./windows/shared-image-galleries.md#image-definitions).
 
-Crie a definição de imagem usando [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). Neste exemplo, a definição de imagem é chamada *myImageDefinition*e é para um sistema operacional Windows especializado. Para criar uma definição para imagens usando um sistema operacional Linux, use `-OsType Linux` . 
+Crie a definição de imagem usando [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). Neste exemplo, a definição de imagem é chamada *myImageDefinition*e é para um sistema operacional Windows especializado. Para criar uma definição para imagens usando um sistema operacional Linux, use `-OsType Linux` . 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -114,7 +114,7 @@ Em alguns casos, você precisa passar informações do plano de compra no ao cri
 
 ## <a name="create-an-image-version"></a>Criar uma versão de imagem
 
-Crie uma versão de imagem a partir do instantâneo usando [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Crie uma versão de imagem a partir do instantâneo usando [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). 
 
 Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -148,7 +148,7 @@ $job.State
 > [!NOTE]
 > Você precisa aguardar que a versão da imagem termine completamente de ser compilada e replicada antes de poder usar o mesmo instantâneo para criar outra versão de imagem. 
 >
-> Você também pode armazenar a versão da imagem no [armazenamento com redundância de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando `-StorageAccountType Standard_ZRS` ao criar a versão da imagem.
+> Você também pode armazenar a versão da imagem no [armazenamento com redundância de zona](../storage/common/storage-redundancy.md) adicionando `-StorageAccountType Standard_ZRS` ao criar a versão da imagem.
 >
 
 ## <a name="delete-the-source"></a>Excluir a origem

@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 07/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 6512edd26b59dac11f046e82940db4877728943c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 99784e43130b70554c05ff79a10993f2b6eebbde
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243585"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499606"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -53,7 +53,7 @@ Use a política `cross-domain` para tornar a API acessível por clientes baseado
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Obrigatório|
+|Nome|Descrição|Necessária|
 |----------|-----------------|--------------|
 |cross-domain|Elemento raiz. Elementos filho devem estar de acordo com a [Especificação de arquivo de política entre domínios do Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sim|
 
@@ -67,6 +67,8 @@ Essa política pode ser usada nas [seções](./api-management-howto-policies.md#
 A política `cors` adiciona suporte do CORS (compartilhamento de recurso entre origens) a uma operação ou API para permitir chamadas entre domínios de clientes baseados em navegador.
 
 O CORS permite que um navegador e um servidor interajam e determina e solicitações entre origens específicas devem ou não ser aceitas (por exemplo, chamadas XMLHttpRequests feitas por meio de JavaScript em uma página da Web para outros domínios). Isso permite maior flexibilidade do que permitir somente solicitações com a mesma origem, mas é mais seguro do que permitir todas as solicitações entre origens.
+
+Você precisa aplicar a política CORS para habilitar o console interativo no portal do desenvolvedor. Consulte a [documentação do portal do desenvolvedor](./api-management-howto-developer-portal.md#cors) para obter detalhes.
 
 ### <a name="policy-statement"></a>Declaração de política
 
@@ -122,7 +124,7 @@ Este exemplo demonstra como dar suporte a solicitações preliminares, como as c
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Obrigatório|Padrão|
+|Nome|Descrição|Necessária|Padrão|
 |----------|-----------------|--------------|-------------|
 |cors|Elemento raiz.|Sim|N/D|
 |allowed-origins|Contém elementos `origin` que descrevem as origens permitidas para solicitações entre domínios. `allowed-origins` pode conter um único elemento `origin` que especifica `*` para permitir qualquer origem, ou um ou mais elementos `origin` que contêm uma URI.|Sim|N/D|
@@ -135,7 +137,7 @@ Este exemplo demonstra como dar suporte a solicitações preliminares, como as c
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Obrigatório|Padrão|
+|Nome|Descrição|Necessária|Padrão|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|O `Access-Control-Allow-Credentials` cabeçalho na resposta de simulação será definido como o valor desse atributo e afetará a capacidade do cliente de enviar credenciais em solicitações entre domínios.|Não|false|
 |preflight-result-max-age|O `Access-Control-Max-Age` cabeçalho na resposta de simulação será definido como o valor desse atributo e afetará a capacidade do agente do usuário de armazenar em cache a resposta de simulação.|Não|0|
@@ -167,13 +169,13 @@ Se você adicionar o parâmetro de retorno de chamada `?cb=XXX`, será retornado
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Obrigatório|
+|Nome|Descrição|Necessária|
 |----------|-----------------|--------------|
 |jsonp|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Obrigatório|Padrão|
+|Nome|Descrição|Necessária|Padrão|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|A chamada da função JavaScript entre domínios, prefixada com o nome do domínio onde a função reside totalmente qualificado.|Sim|N/D|
 

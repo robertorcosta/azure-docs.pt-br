@@ -3,11 +3,12 @@ title: Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de 
 description: Descreve como fazer backup de VMs do Azure em um cofre dos Serviços de Recuperação no Backup do Azure
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: cba042efb08f121d4cd9fa5693edd69c827f1465
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 88e7be7e2238637f1e6d5ac84abebdca0b9e1674
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83727005"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497923"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação
 
@@ -66,10 +67,10 @@ Depois que o cofre é criado, ele aparece na lista de cofres dos Serviços de Re
 
 ### <a name="modify-storage-replication"></a>Modificar a replicação de armazenamento
 
-Por padrão, os cofres usam [GRS (armazenamento com redundância geográfica)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+Por padrão, os cofres usam [GRS (armazenamento com redundância geográfica)](../storage/common/storage-redundancy.md).
 
 * Se o cofre for seu mecanismo de backup primário, recomendamos que você use GRS.
-* Você pode usar [LRS (armazenamento com redundância local)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para ter uma opção mais barata.
+* Você pode usar [LRS (armazenamento com redundância local)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) para ter uma opção mais barata.
 
 Modifique o tipo de replicação de armazenamento da seguinte maneira:
 
@@ -188,7 +189,7 @@ O Backup do Azure faz backup de VMs do Azure instalando uma extensão para o age
 **VM** | **Detalhes**
 --- | ---
 **Windows** | 1. [Baixe e instale](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) o arquivo MSI do agente.<br/><br/> 2. Instale com permissões de administrador no computador.<br/><br/> 3. Verifique a instalação. Em *C:\WindowsAzure\Packages* na VM, clique com o botão direito do mouse em **WaAppAgent.exe** > **Propriedades**. Na guia **Detalhes**, a **Versão do Produto** deve ser 2.6.1198.718 ou posterior.<br/><br/> Se você estiver atualizando o agente, verifique se nenhuma operação de backup está em execução e [reinstale o agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
-**Linux** | Instale usando um pacote RPM ou DEB do repositório de pacotes de sua distribuição. Esse é o método preferencial para instalar e atualizar o agente Linux do Azure. Todos os [provedores de distribuição aprovados](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integram o pacote do agente Linux do Azure em suas imagens e repositórios. O agente está disponível no [GitHub](https://github.com/Azure/WALinuxAgent), mas não recomendamos instalá-lo a partir daí.<br/><br/> Se você estiver atualizando o agente, verifique se nenhuma operação de backup está em execução e atualize os binários.
+**Linux** | Instale usando um pacote RPM ou DEB do repositório de pacotes de sua distribuição. Esse é o método preferencial para instalar e atualizar o agente Linux do Azure. Todos os [provedores de distribuição aprovados](../virtual-machines/linux/endorsed-distros.md) integram o pacote do agente Linux do Azure em suas imagens e repositórios. O agente está disponível no [GitHub](https://github.com/Azure/WALinuxAgent), mas não recomendamos instalá-lo a partir daí.<br/><br/> Se você estiver atualizando o agente, verifique se nenhuma operação de backup está em execução e atualize os binários.
 
 >[!NOTE]
 > **O Backup do Azure agora dá suporte a backup e restauração de disco seletivo usando a solução de backup de Máquina Virtual do Azure.**

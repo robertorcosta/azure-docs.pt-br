@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 1754e166cd5c5a3d7309bc8c6f6459cdd0852396
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69e60c3e4ac91a5d0ca9a0245dc61f090c625c60
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762897"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499847"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Acessar o painel da Web do Kubernetes no AKS (Serviço de Kubernetes do Azure)
 
@@ -28,7 +28,7 @@ Para obter mais informações sobre o painel do Kubernetes, consulte [Painel de 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-As etapas detalhadas neste documento pressupõem que você criou um cluster AKS e estabeleceu uma `kubectl` conexão com o cluster. Se você precisar criar um cluster AKS, consulte o [Início rápido do AKS][aks-quickstart].
+As etapas detalhadas neste documento pressupõem que você criou um cluster AKS e estabeleceu uma `kubectl` conexão com o cluster. Se você precisar criar um cluster AKS, consulte [início rápido: implantar um cluster do serviço kubernetes do Azure usando o CLI do Azure][aks-quickstart].
 
 Você também precisa do CLI do Azure versão 2.6.0 ou posterior instalada e configurada. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 

@@ -2,12 +2,13 @@
 title: Como atualizar Azure Monitor para contêineres para métricas | Microsoft Docs
 description: Este artigo descreve como você atualiza Azure Monitor para contêineres para habilitar o recurso de métricas personalizadas que dá suporte à exploração e aos alertas em métricas agregadas.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: d299fc5e6b0c41188fac1fa19bb66387263c12e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: 78a6612e522accce8c934885a090e66a51850c97
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84298254"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498977"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Como atualizar o Azure Monitor para contêineres para habilitar as métricas
 
@@ -21,21 +22,23 @@ As seguintes métricas são habilitadas como parte desse recurso:
 
 | Namespace da métrica | Métrica | Descrição |
 |------------------|--------|-------------|
-| informações. contêiner/nós | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Essas são as métricas de *nó* e incluem *host* como uma dimensão e também incluem o<br> nome do nó como valor para a dimensão do *host* . |
-| percepções. Container/pods | podCount | Essas são métricas de *Pod* e incluem as seguintes como dimensões-ControllerName, namespace kubernetes, nome, fase. |
+| Informações. contêiner/nós | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | Como as métricas de *nó* , elas incluem o *host* como uma dimensão. Eles também incluem o<br> nome do nó como valor para a dimensão do *host* . |
+| Percepções. Container/pods | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | Como métricas de *Pod* , eles incluem o seguinte como Dimensions-ControllerName, namespace kubernetes, nome, fase. |
+| Informações. contêiner/contêineres | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
 
-A atualização do cluster para dar suporte a esses novos recursos pode ser executada no portal do Azure, Azure PowerShell ou com CLI do Azure. Com Azure PowerShell e CLI, você pode habilitar esse por cluster ou para todos os clusters em sua assinatura. As novas implantações do AKS incluirão automaticamente essa alteração de configuração e os recursos.
+Para dar suporte a esses novos recursos, um novo agente em contêineres, versão **Microsoft/OMS: ciprod02212019**, está incluído na versão. As novas implantações do AKS incluem automaticamente essa alteração e recursos de configuração. A atualização do cluster para dar suporte a esse recurso pode ser executada no portal do Azure, Azure PowerShell ou com CLI do Azure. Com Azure PowerShell e CLI. Você pode habilitar esse por cluster ou para todos os clusters em sua assinatura.
 
 Qualquer processo atribui a função de **Editor de métricas de monitoramento** à entidade de serviço do cluster ou à MSI atribuída pelo usuário para o complemento de monitoramento para que os dados coletados pelo agente possam ser publicados no recurso de clusters. O monitoramento de métricas Publisher tem permissão apenas para enviar métricas por push para o recurso, ele não pode alterar nenhum estado, atualizar o recurso ou ler dados. Para obter mais informações sobre a função, consulte [monitorando métricas de função de editor](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, confirme o seguinte:
+Antes de atualizar o cluster, confirme o seguinte:
 
 * As métricas personalizadas só estão disponíveis em um subconjunto de regiões do Azure. Uma lista de regiões com suporte está documentada [aqui](../platform/metrics-custom-overview.md#supported-regions).
-* Você é membro da função **[proprietário](../../role-based-access-control/built-in-roles.md#owner)** no recurso de cluster AKs para habilitar a coleta de métricas de desempenho personalizadas de nó e Pod. 
 
-Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.59 ou posterior. Para identificar sua versão, execute `az --version`. Caso precise instalar ou atualizar a CLI do Azure, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+* Você é membro da função **[proprietário](../../role-based-access-control/built-in-roles.md#owner)** no recurso de cluster AKs para habilitar a coleta de métricas de desempenho personalizadas de nó e Pod.
+
+Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.59 ou posterior. Para identificar sua versão, execute `az --version`. Caso precise instalar ou atualizar a CLI do Azure, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Atualizar um cluster do portal do Azure
 
@@ -121,4 +124,4 @@ Execute as etapas a seguir para atualizar um cluster específico usando Azure Po
 
 ## <a name="verify-update"></a>Verificar atualização
 
-Depois de iniciar a atualização usando um dos métodos descritos anteriormente, você pode usar Azure Monitor métricas Explorer e verificar no **namespace de métrica** que o **insights** está listado. Se for, isso indicará que você pode começar a configurar alertas de [métrica](../platform/alerts-metric.md) ou fixar seus gráficos nos [painéis](../../azure-portal/azure-portal-dashboards.md).  
+Depois de iniciar a atualização usando um dos métodos descritos anteriormente, você pode usar Azure Monitor métricas Explorer e verificar no **namespace de métrica** que o **insights** está listado. Se for, você pode começar a configurar [alertas de métrica](../platform/alerts-metric.md) ou fixar seus gráficos nos [painéis](../../azure-portal/azure-portal-dashboards.md).  

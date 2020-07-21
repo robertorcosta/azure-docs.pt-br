@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: e7e1480d00280fc567a69556f25db8ffab800f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31c3c02f2b32594e5b20450d0bb519f4cdf82807
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262626"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497753"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Como usar o Kubernetes do Azure com o Azure Cosmos DB (versão prévia)
 
@@ -33,7 +33,7 @@ Para saber mais sobre a API do etcd no Azure Cosmos DB, veja o artigo de [visão
 
    O Mecanismo do Kubernetes do Azure (**aks-engine**) gera os modelos do Azure Resource Manager para clusters do Kubernetes no Azure. A entrada para o aks-engine é um arquivo de definição de cluster que descreve o cluster desejado, incluindo orquestrador, recursos e agentes. A estrutura dos arquivos de entrada é semelhante à API pública do Serviço de Kubernetes do Azure.
 
-1. A API do etcd no Azure Cosmos DB está atualmente em versão prévia. Inscreva-se para usar a versão prévia em: https://aka.ms/cosmosetcdapi-signup. Depois de enviar o formulário, sua assinatura será colocada na lista de permissões para usar a API do etcd do Azure Cosmos. 
+1. A API do etcd no Azure Cosmos DB está atualmente em versão prévia. Inscreva-se para usar a versão prévia em: https://aka.ms/cosmosetcdapi-signup. Depois de enviar o formulário, sua assinatura terá permissão para usar a API etcd do Azure Cosmos. 
 
 ## <a name="deploy-the-cluster-with-azure-cosmos-db"></a>Implantar o cluster com o Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Para saber mais sobre a API do etcd no Azure Cosmos DB, veja o artigo de [visão
    az login 
    ```
 
-1. Se você tiver mais de uma assinatura, alterne para a assinatura que foi colocada na lista de permissões da API do etcd do Azure Cosmos DB. Você pode alternar para a assinatura necessária usando o seguinte comando:
+1. Se você tiver mais de uma assinatura, alterne para a assinatura que foi permitida para Azure Cosmos DB API etcd. Você pode alternar para a assinatura necessária usando o seguinte comando:
 
    ```azurecli-interactive
    az account set --subscription "<Name of your subscription>"

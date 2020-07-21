@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 3fd4bcd13b4d92d2c6e61d10ae9e62996b5dfcf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8043dfb7fdda972d4ede6798d07355936b23bf93
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945487"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498909"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Explorar o Azure Monitor para o Azure Cosmos DB
 
@@ -78,7 +78,7 @@ Selecione **Falhas** na parte superior da página e a parte **Falhas** do modelo
 | `201 Created` | Uma operação POST para criar um recurso foi bem-sucedida. |
 | `404 Not Found` | A operação está tentando atuar em um recurso que não existe mais. Por exemplo, o recurso pode já ter sido excluído. |
 
-Para obter uma lista completa de códigos de status, consulte o [artigo de código de status HTTP do Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+Para obter uma lista completa de códigos de status, consulte o [artigo de código de status HTTP do Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 ### <a name="capacity"></a>Capacity
 
@@ -98,7 +98,7 @@ Portanto, no exemplo abaixo, você verá que `eastus-billingint` está predomina
 
 ## <a name="pin-export-and-expand"></a>Fixar, exportar e expandir
 
-Você pode fixar qualquer uma das seções de métrica em um [Painel do Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) selecionando o ícone de alfinete na parte superior direita da seção.
+Você pode fixar qualquer uma das seções de métrica em um [Painel do Azure](../../azure-portal/azure-portal-dashboards.md) selecionando o ícone de alfinete na parte superior direita da seção.
 
 ![Exemplo de fixação no painel na seção de métrica](./media/cosmosdb-insights-overview/pin.png)
 
@@ -126,6 +126,6 @@ Para obter diretrizes de solução de problemas, consulte o artigo dedicado de s
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Configure [alertas de métrica](../platform/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications.md) para configurar alertas automatizados a fim de auxiliar na detecção de problemas.
+* Configure [alertas de métrica](../platform/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications-portal.md) para configurar alertas automatizados a fim de auxiliar na detecção de problemas.
 
 * Conheça os cenários aos quais as pastas de trabalho foram projetadas para dar suporte, como criar relatórios, personalizar relatórios existentes e muito mais, examinando [Criar relatórios interativos com pastas de trabalho do Azure Monitor](../platform/workbooks-overview.md).

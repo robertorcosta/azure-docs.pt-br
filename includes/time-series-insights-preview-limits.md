@@ -4,54 +4,37 @@ description: incluir arquivo
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 02/07/2020
+ms.date: 07/09/2020
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 1171c07a754b056fb9df2cee73ddf224427037cc
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: cd6ea6d4967e024ddf88fb9572d5efae8b7a7815
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86277907"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495322"
 ---
-### <a name="general-availability-and-preview-comparison"></a>Disponibilidade geral e comparação de visualização
-
-A tabela a seguir resume várias diferenças importantes entre Azure Time Series Insights GA (disponibilidade geral) e instâncias de visualização.
-
-| | GA | Versão Prévia |
-| --- | --- | ---|
-| **Cidadão de primeira classe** | Centrado em evento | Centrado em série temporal |
-| **Raciocínio semântico** | Nível baixo (dados de referência) | Alto nível (modelos) |
-| **Contexto de dados** | Não nível de dispositivo | Dispositivo e não nível de dispositivo |
-| **Armazenamento lógico de computação** | Não | Armazenado na parte de variáveis de tipo do modelo |
-| **Armazenamento e controle de acesso** | Não | Habilitado por meio do modelo |
-| **Agregações/amostragem** | Não | Ponderado do evento e tempo demorado |
-| **Reconstrução de sinal** | Não | Interpola |
-| **Produção de série temporal derivada** | Não | Sim, mesclagens e junções |
-| **Flexibilidade da linguagem** | Não combinável | Combinável |
-| **Linguagem de expressão** | Cadeia de predicado | Expressões de série temporal (cadeias de caracteres de predicado, valores, expressões e funções) |
-
 ### <a name="property-limits"></a>Limites de propriedade
 
-Time Series Insights os limites de propriedade aumentaram para 1.000 de um limite máximo de 800 no GA. As propriedades de evento fornecidas têm as colunas JSON, CSV e de gráfico correspondentes que você pode exibir dentro do [Time Series insights Gerenciador de visualização](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
+Azure Time Series Insights os limites de propriedade aumentaram para 1.000 de um limite máximo de 800 em Gen1. As propriedades de evento fornecidas têm as colunas JSON, CSV e de gráfico correspondentes que você pode exibir dentro do [Azure Time Series insights Gen2 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
 
 | SKU | Propriedades máximas |
 | --- | --- |
-| Visualizar PAYG | Propriedades de 1.000 (colunas) |
-| S1 GA | Propriedades de 600 (colunas) |
-| S2 GA | Propriedades de 800 (colunas) |
+| Gen2 (L1) | Propriedades de 1.000 (colunas) |
+| Gen1 (S1) | Propriedades de 600 (colunas) |
+| Gen1 (S2) | Propriedades de 800 (colunas) |
 
 ### <a name="event-sources"></a>Origens de eventos
 
-Há suporte para no máximo duas origens de evento por instância. 
+Há suporte para no máximo duas origens de evento por instância.
 
 * Saiba como [Adicionar uma origem do hub de eventos](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 * Configurar [uma origem do Hub IOT](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
 
-Por padrão, os [ambientes de visualização dão suporte a tarifas de entrada](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress#ingress-scale-and-preview-limitations) de até **1 megabyte por segundo (MB/s) por ambiente**. Os clientes podem dimensionar seus ambientes de visualização de até **16 MB/s** de taxa de transferência, se necessário. Também há um limite por partição de **0,5 MB/s**. 
+Por padrão, os [ambientes Gen2 dão suporte a tarifas de entrada](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-throughput-limitations) de até **1 megabyte por segundo (MB/s) por ambiente**. Os clientes podem dimensionar seus ambientes de até **16 MB/s** de taxa de transferência, se necessário. Também há um limite por partição de **0,5 MB/s**.
 
 ### <a name="api-limits"></a>Limites de API
 
-Os limites da API REST para Time Series Insights versão prévia são especificados na [documentação de referência da API REST](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#limits).
+Os limites da API REST para Azure Time Series Insights Gen2 são especificados na [documentação de referência da API REST](https://docs.microsoft.com/rest/api/time-series-insights/preview#limits-1).

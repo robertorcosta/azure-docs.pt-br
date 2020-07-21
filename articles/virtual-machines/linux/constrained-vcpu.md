@@ -6,11 +6,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: mimckitt
-ms.openlocfilehash: 70e6d043b3ad033e1a43c566e5d1da49a1447c6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 136a097f3b2c0267ee71dfbb916b8a52adaf4e80
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81273555"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494473"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Tamanhos de VM compatíveis com vCPU restrita
 
@@ -19,12 +20,11 @@ ms.locfileid: "81273555"
 
 
 ## <a name="other-sizes"></a>Outros tamanhos
-- [Computação otimizada](../windows/sizes-compute.md)
-- [Memória otimizada](sizes-memory.md)
-- [Armazenamento otimizado](sizes-storage.md)
-- [GPU](sizes-gpu.md)
-- [Computação de alto desempenho](sizes-hpc.md)
+- [Computação otimizada](../sizes-compute.md)
+- [Memória otimizada](../sizes-memory.md)
+- [Armazenamento otimizado](../sizes-storage.md)
+- [GPU](../sizes-gpu.md)
+- [Computação de alto desempenho](../sizes-hpc.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre como as [ACUs (unidade de computação do Azure)](acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.
-
+Saiba mais sobre como as [ACUs (unidade de computação do Azure)](../acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.

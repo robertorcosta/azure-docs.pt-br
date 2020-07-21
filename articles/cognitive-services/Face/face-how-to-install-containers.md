@@ -9,16 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: 611ab503dfea44e8287e95cf607ce6af3b447d1f
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: a74b77ac59ece98f1a64839fd5000f4ab5d638f7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83815784"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497872"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Instalar e executar contêineres de face (visualização)
+
+> [!IMPORTANT]
+> O limite para usuários de contêiner facial foi atingido. No momento, não estamos aceitando novos aplicativos para o contêiner facial.
 
 O rosto dos serviços cognitivas do Azure fornece um contêiner Linux padronizado para o Docker que detecta faces humanas em imagens. Ele também identifica atributos, que incluem pontos de referência de face, como narizs e olhos, sexo, idade e outros recursos faciais previstos por máquina. Além da detecção, a face pode verificar se duas faces na mesma imagem ou em imagens diferentes são as mesmas usando uma pontuação de confiança. A face também pode comparar rostos com um banco de dados para ver se já existe uma face semelhante ou idêntica. Ele também pode organizar faces semelhantes em grupos usando características visuais compartilhadas.
 
@@ -28,19 +31,13 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Você deve atender aos seguintes pré-requisitos antes de usar os contêineres de serviço de face.
 
-|Obrigatório|Finalidade|
+|Necessária|Finalidade|
 |--|--|
-|Mecanismo Docker| O mecanismo do Docker deve ser instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> No Windows, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
+|Mecanismo do Docker| O mecanismo do Docker deve ser instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> No Windows, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | Você precisa de uma compreensão básica dos conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner. Você também precisa de conhecimento dos `docker` comandos básicos.| 
 |Recurso facial |Para usar o contêiner, você deve ter:<br><br>Um recurso de **face** do Azure e a chave de API associada e o URI do ponto de extremidade. Os dois valores estão disponíveis nas páginas **visão geral** e **chaves** do recurso. Eles são necessários para iniciar o contêiner.<br><br>**{Api_key}**: uma das duas chaves de recurso disponíveis na página **chaves**<br><br>**{ENDPOINT_URI}**: o ponto de extremidade conforme fornecido na página **visão geral**
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
-
-## <a name="request-access-to-the-private-container-registry"></a>Solicitar acesso ao registro de contêiner privado
-
-Preencha e envie o [formulário de solicitação](https://aka.ms/cognitivegate) para solicitar acesso ao contêiner. 
-
-[!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### <a name="the-host-computer"></a>O computador host
 
@@ -113,9 +110,9 @@ Há outros [exemplos](./face-resource-container-config.md#example-docker-run-com
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão do contêiner
 
-O contêiner fornece APIs de ponto de extremidade de previsão de consulta com base em REST. 
+O contêiner fornece APIs de ponto de extremidade de previsão de consulta baseadas em REST. 
 
-Use o host, `http://localhost:5000`, para APIs de contêiner.
+Use o host, `http://localhost:5000`, para as APIs do contêiner.
 
 
 <!--  ## Validate container is running -->

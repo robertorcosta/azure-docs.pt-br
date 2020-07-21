@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 67af4eae03b773fad9cf38964152c1fb9d623bd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55eb9a0bca3f142c1065f867cebd840cc7958b7e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72025944"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499912"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Instalar o ambiente de desenvolvimento/teste do IBM zD&T no Azure
 
@@ -56,13 +56,13 @@ Este artigo mostra como configurar o ambiente de desenvolvimento e teste do Z (z
 
 ## <a name="create-the-base-image-and-connect"></a>Criar a imagem base e conectar
 
-1. Em portal do Azure, [crie uma VM](/azure/virtual-machines/linux/quick-create-portal) com a configuração do sistema operacional desejada. Este artigo pressupõe uma VM B4ms (com 4 vCPUs e 16 GB de memória) executando o Ubuntu 16, 4.
+1. Em portal do Azure, [crie uma VM](../../../linux/quick-create-portal.md) com a configuração do sistema operacional desejada. Este artigo pressupõe uma VM B4ms (com 4 vCPUs e 16 GB de memória) executando o Ubuntu 16, 4.
 
 2. Depois que a VM for criada, abra as portas de entrada 22 para SSH, 21 para FTP e 9443 para o servidor Web.
 
 3. Obtenha as credenciais SSH mostradas na folha **visão geral** da VM por meio do botão **conectar** . Selecione a guia **SSH** e copie o comando logon SSH para a área de transferência.
 
-4. Faça logon em um [shell bash](/azure/cloud-shell/quickstart) do seu computador local e cole o comando. Ele estará no formato **SSH \<user id\> \@ \<IP Address\> **. Quando solicitado a fornecer suas credenciais, insira-as para estabelecer uma conexão com o diretório base.
+4. Faça logon em um [shell bash](../../../../cloud-shell/quickstart.md) do seu computador local e cole o comando. Ele estará no formato **SSH \<user id\> \@ \<IP Address\> **. Quando solicitado a fornecer suas credenciais, insira-as para estabelecer uma conexão com o diretório base.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Copiar o arquivo de instalação para o servidor
 

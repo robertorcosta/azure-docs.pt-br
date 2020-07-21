@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: f4f5c5d9a77353f36119b77601b88f9dab01ccc0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7eb77b9ffae49c7d8d3e5612b685e5725829898f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243606"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499776"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure
 
@@ -50,7 +50,7 @@ Este guia mostra como configurar sua instância de serviço de Gerenciamento de 
     > [!NOTE]
     > Esses campos são usados para identificar o servidor de autorização OAuth 2.0 dentro da instância do serviço de Gerenciamento de API atual e seus valores não vêm do servidor OAuth 2.0.
 
-3. Digite a **URL da página de registro do cliente**. Essa página é onde os usuários podem criar e gerenciar suas contas e varia de acordo com o provedor OAuth 2.0 usado. A **URL de página de registro do cliente** aponta para a página que os usuários podem usar para criar e configurar suas próprias contas para provedores OAuth 2.0 que dão suporte a gerenciamento de contas por usuários. Algumas organizações não configuram nem usam essa funcionalidade, mesmo se o provedor OAuth 2.0 dá suporte a ele. Se seu provedor OAuth 2.0 não tem o gerenciamento de contas por usuários configurado, insira uma URL de espaço reservado aqui, como a URL da sua empresa, ou uma URL como `https://placeholder.contoso.com`.
+3. Digite a **URL da página de registro do cliente**. Essa página é onde os usuários podem criar e gerenciar suas contas e varia de acordo com o provedor OAuth 2.0 usado. A **URL da página de registro do cliente** aponta para a página que os usuários podem usar para criar e configurar suas próprias contas para provedores OAuth 2,0 que dão suporte ao gerenciamento de contas de usuário, por exemplo, `https://contoso.com/login` . Algumas organizações não configuram nem usam essa funcionalidade, mesmo se o provedor OAuth 2.0 dá suporte a ele. Se seu provedor OAuth 2.0 não tem o gerenciamento de contas por usuários configurado, insira uma URL de espaço reservado aqui, como a URL da sua empresa, ou uma URL como `https://placeholder.contoso.com`.
 
     ![Novo servidor OAuth 2.0](./media/api-management-howto-oauth2/oauth-02.png)
 
@@ -75,6 +75,11 @@ Este guia mostra como configurar sua instância de serviço de Gerenciamento de 
     A configuração padrão para os **métodos de autenticação do cliente** é **Básica** e o **método de envio do token de acesso** é **Cabeçalho de autorização**. Esses valores são configurados nesta seção da forma, junto com o **Escopo padrão**.
 
 6. A seção **Credenciais do cliente** contém a **ID do cliente** e a **Senha do cliente**, que são obtidas durante o processo de criação e de configuração do seu servidor OAuth 2.0. Uma vez que a **ID do cliente** e a **Senha do cliente** são especificadas, o **redirect_uri** para o **código de autorização** é gerado. Essa URI é usada para configurar a URL de resposta em sua configuração do servidor OAuth 2.0.
+
+    No novo portal do desenvolvedor, o sufixo URI é do formato:
+
+    - `/signin-oauth/code/callback/{authServerName}`para o fluxo de concessão de código de autorização
+    - `/signin-oauth/implicit/callback`para o fluxo de concessão implícita
 
     ![Novo servidor OAuth 2.0](./media/api-management-howto-oauth2/oauth-04.png)
 

@@ -13,18 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 2f04b5ecb2019a77bbb38e97c3869cc0a9447955
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a33d74c01771c2b60ac8667a1494ebe80271a8ac
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698505"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494778"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensão de DSC para Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
 A DSC (configuração de estado desejado) é uma plataforma de gerenciamento que você pode usar para gerenciar sua infraestrutura de ti e de desenvolvimento com a configuração como código.
 
 > [!NOTE]
-> A extensão de DSC para Linux e a [extensão de máquina virtual Azure monitor para Linux](/azure/virtual-machines/extensions/oms-linux) atualmente apresentam um conflito e não tem suporte em uma configuração lado a lado. Não use as duas soluções juntas na mesma VM.
+> A extensão de DSC para Linux e a [extensão de máquina virtual Azure monitor para Linux](./oms-linux.md) atualmente apresentam um conflito e não tem suporte em uma configuração lado a lado. Não use as duas soluções juntas na mesma VM.
 
 A extensão DSCForLinux é publicada e tem suporte da Microsoft. A extensão instala o agente OMI e DSC em máquinas virtuais do Azure. A extensão de DSC também pode executar as seguintes ações:
 
@@ -41,7 +42,7 @@ A extensão DSCForLinux é publicada e tem suporte da Microsoft. A extensão ins
 
 ### <a name="operating-system"></a>Sistema operacional
 
-A extensão DSC Linux dá suporte a todas as [distribuições do Linux endossadas no Azure](/azure/virtual-machines/linux/endorsed-distros) exceto:
+A extensão DSC Linux dá suporte a todas as [distribuições do Linux endossadas no Azure](../linux/endorsed-distros.md) exceto:
 
 | Distribuição | Versão |
 |---|---|

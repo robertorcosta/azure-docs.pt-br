@@ -12,11 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/31/2019
-ms.openlocfilehash: 1d8261d05f59c7f40ba6b1e2d59d2b15ad56de95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3163d414e940d843489a34f319996b1b8ed6f4a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424492"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497346"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Executar pacotes do SSIS no Azure do SSDT
 
@@ -81,6 +82,30 @@ Conectando seus projetos habilitados para o Azure ao SSIS no ADF, você pode car
    ![Selecione Armazenamento do Azure](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard3.png)
 
 4. Clique no botão **conectar** para concluir a conexão.  Exibiremos o Azure-SSIS IR selecionado e a conta de armazenamento do Azure no nó **recursos vinculados do Azure** no painel Gerenciador de soluções do SSDT.  Também atualizaremos o status de seu Azure-SSIS IR, enquanto você pode gerenciá-lo clicando com o botão direito do mouse em seu nó para exibir um menu e, em seguida, selecionando o item de menu **Start\Stop\Manage** que leva você ao portal/aplicativo do ADF para fazer isso.
+
+## <a name="assess-ssis-projectpackages-for-executions-in-azure"></a>Avaliar project\packages do SSIS para execuções no Azure
+### <a name="assess-ssis-project-or-package"></a>Avaliar o pacote ou projeto do SSIS
+Antes de executar seus pacotes no Azure, você pode avaliar seu pacote para avaliar se há algum bloqueador de migração potencial ou informações de que você precisa estar ciente. 
+-  Você pode avaliar todos os pacotes em projeto ou pacote único.
+
+   ![Avaliar o ](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assess-project.png)
+    ![ pacote de avaliação do projeto](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assess-package.png)
+
+-  Você pode obter o relatório de avaliação para verificar cada problema de avaliação e cada problema terá uma descrição e recomendação detalhadas. Você também pode exportar o relatório de avaliação como arquivo CSV. 
+
+   ![Avaliar resultado do projeto](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assess-project-result.png)
+
+### <a name="suppress-assessment-rule"></a>Suprimir regra de avaliação
+Se você tiver certeza de que alguma regra de avaliação não foi aplicada ao pacote, poderá optar por suprimir. 
+-  Você pode clicar diretamente no link **Configurar a supressão da regra de avaliação** no relatório de avaliação.
+
+   ![Configurações de supressão da regra de avaliação](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assessment-rule-suppression-settings.png)
+
+-  Você também pode configurar por meio **de configurações habilitadas para o Azure**.
+
+   ![Configurações habilitadas para o Azure](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-azure-enabled-setting.png)
+
+   ![Configurações de supressão de regra de avaliação por meio de configurações habilitadas para Azure](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assessment-rule-suppression-settings-via-azure-enabled-settings.png)
 
 ## <a name="execute-ssis-packages-in-azure"></a>Executar pacotes SSIS no Azure
 ### <a name="azure-enabled-setting"></a>Configuração habilitada para o Azure
@@ -159,6 +184,9 @@ Para alternar ambientes de execução de pacote com projetos habilitados para o 
 6. Execute este pacote no Azure. Você pode alternar facilmente o ambiente de volta para o local, alternando a configuração atual do Visual Studio.
 
    ![Alternar Configuração do Visual Studio](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-switch-configurations.png)
+
+## <a name="current-limitations"></a>Limitações atuais
+-  Este recurso de SSDT não dá suporte à nuvem nacional no momento.
 
 ## <a name="next-steps"></a>Próximas etapas
 Quando estiver satisfeito com a execução de seus pacotes no Azure do SSDT, você poderá implantá-los e executá-los como executar atividades de pacote SSIS em pipelines do ADF, ver [executar pacotes do SSIS como executar atividades de pacote do SSIS em pipelines do ADF](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).

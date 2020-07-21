@@ -1,18 +1,18 @@
 ---
-title: Integração de parceiros meteorológicos
+title: Integração com parceiros de clima
 description: Este artigo descreve como um provedor de dados meteorológicos pode se integrar ao FarmBeats
 author: sunasing
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
-ms.openlocfilehash: d4ceb25b9b81c831ed1b285a875742ebfaa6d24f
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: a2677b5343b2d65a39e7c9f6d5006db599c1ac73
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232637"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496988"
 ---
-# <a name="weather-partner-integration"></a>Integração de parceiros meteorológicos
+# <a name="weather-partner-integration"></a>Integração com parceiros de clima
 
 Este artigo fornece informações sobre o componente Docker do **conector** do Azure FarmBeats que os provedores de dados de clima podem desenvolver para integrar com o FarmBeats aproveitando suas APIs e enviar dados meteorológicos para o FarmBeats. Depois que os dados estiverem disponíveis no FarmBeats, eles poderão ser usados para a fusão de dados e para a criação de modelos de inteligência artificial/aprendizado de máquina.
 
@@ -36,10 +36,10 @@ Usando as informações acima do Docker, o cliente registrará um parceiro meteo
 
 As APIs FarmBeats contêm documentação técnica do Swagger. Para obter informações sobre todas as APIs e suas solicitações ou respostas correspondentes, consulte [FarmBeats Swagger](https://aka.ms/farmbeatsswagger). 
 
-Se você tiver instalado o FarmBeats, poderá acessar seu Swagger do FarmBeats em[https://yourfarmbeatswebsitename-api.azurewebsites.net](https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger)
+Se você tiver instalado o FarmBeats, poderá acessar seu Swagger do FarmBeats em`https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
 
 Observe que "-API" é anexado ao nome do site FarmBeats.
-O ponto de extremidade da API será:[https://yourfarmbeatswebsitename-api.azurewebsites.net](https://yourfarmbeatswebsitename-api.azurewebsites.net)
+O ponto de extremidade da API será:`https://yourfarmbeatswebsitename-api.azurewebsites.net`
 
 ### <a name="datahub-lib"></a>Datahub lib
 
@@ -134,7 +134,7 @@ Esse componente será invocado toda vez que um usuário FarmBeats executar um tr
 
 ### <a name="details-of-the-objects"></a>Detalhes dos objetos
 
-  **WeatherDataModel** |  |
+  WeatherDataModel | Descrição |
   --- | ---
   Nome  | Nome do modelo de dados meteorológicos |
   Descrição  | Fornece uma descrição significativa da configuração. |
@@ -147,7 +147,7 @@ Esse componente será invocado toda vez que um usuário FarmBeats executar um tr
   Agregatype de > weatherMeasures  | Qualquer de nenhum, média, máximo, mínimo, i, soma, total
   Profundidade de > de weatherMeasures  | A profundidade do sensor em centímetros. Por exemplo, a medida da umidade de 10 cm sob o solo.
   Descrição de > weatherMeasures  | Fornece uma descrição significativa da medida. |
-  **JobType** |  |
+  **JobType** | **Descrição** |
   Nome  | nome do trabalho-por exemplo Get_Daily_Forecast; o trabalho que o cliente executará para obter dados meteorológicos|
   pipelineDetails > parâmetros > nome  | nome do parâmetro |
   pipelineDetails > > tipo de parâmetros | qualquer cadeia de caracteres, int, float, bool, array |
@@ -156,7 +156,7 @@ Esse componente será invocado toda vez que um usuário FarmBeats executar um tr
   pipelineDetails > parâmetros > descrição | Descrição do parâmetro |
   Propriedades  | Propriedades adicionais do fabricante.
   Propriedades > **programRunCommand** | comando Docker execute – esse comando será executado quando o cliente executar o trabalho meteorológico. |
-  **WeatherDataLocation** |  |
+  **WeatherDataLocation** | **Descrição** |
   weatherDataModelId  | ID do WeatherDataModel correspondente que foi criado durante a inicialização|
   local  | representa latitude, longitude e elevação |
   Nome | Nome do objeto |

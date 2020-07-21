@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: c71e4120d127277e8b46f59bfef7fca403847c2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62df01a02feacb8311d14e0bae7ceccb44d47a5a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253752"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497642"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
 
@@ -50,7 +50,7 @@ O Azure Data Factory dá suporte às seguintes atividades de transformação, qu
 Atividades de transformação de dados | Ambiente de computação
 ---------------------------- | -------------------
 [Fluxo de Dados](control-flow-execute-data-flow-activity.md) | Azure Databricks gerenciado por Azure Data Factory
-[Azure Function](control-flow-azure-function-activity.md) | Funções do Azure
+[Azure Function](control-flow-azure-function-activity.md) | Verificação de
 [Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
@@ -81,7 +81,7 @@ Atividade de controle | Descrição
 [Definir variável](control-flow-set-variable-activity.md) | Defina o valor de uma variável existente.
 [Atividade Until](control-flow-until-activity.md) | Implementa o loop Do-Until, que é semelhante à estrutura de looping Do-Until em linguagens de programação. Ela executa um conjunto de atividades em um loop até que a condição associada à atividade seja avaliada como verdadeira. Especifique um valor de tempo limite para a atividade Until no Data Factory.
 [Atividade de validação](control-flow-validation-activity.md) | Certifique-se de que um pipeline continue a execução somente se um conjunto de uma referência existir, atender a um critério especificado ou se um tempo limite for atingido.
-[Atividade Wait](control-flow-wait-activity.md) | Quando você usa uma atividade Wait em um pipeline, o pipeline aguarda o tempo especificado antes de continuar com a execução de atividades subsequentes.
+[Atividade de espera](control-flow-wait-activity.md) | Quando você usa uma atividade Wait em um pipeline, o pipeline aguarda o tempo especificado antes de continuar com a execução de atividades subsequentes.
 [Atividade da Web](control-flow-web-activity.md) | A atividade da Web pode ser usada para chamar um ponto de extremidade REST personalizado de um pipeline do Data Factory. Você pode passar conjuntos de dados e serviços vinculados a serem consumidos e acessados pela atividade.
 [Atividade de webhook](control-flow-webhook-activity.md) | Usando a atividade webhook, chame um ponto de extremidade e passe uma URL de retorno de chamada. A execução do pipeline aguarda a chamada do retorno de chamada antes de prosseguir para a próxima atividade.
 
@@ -106,12 +106,12 @@ Veja como um pipeline é definido no formato JSON:
 }
 ```
 
-Marca | Descrição | Type | Obrigatório
+Marca | Descrição | Tipo | Obrigatório
 --- | ----------- | ---- | --------
 name | Nome do pipeline. Especifique um nome que represente a ação executada pelo pipeline. <br/><ul><li>Número máximo de caracteres: 140</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" </li></ul> | String | Sim
-descrição | Especifique o texto descrevendo para que o pipeline é usado. | String | Não
+descrição | Especifique o texto descrevendo para que o pipeline é usado. | Cadeia de caracteres | Não
 atividades | A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. Confira a seção [Atividade JSON](#activity-json) para obter detalhes sobre o elemento das atividades JSON. | Array | Sim
-parâmetros | A seção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando seu pipeline flexível para reutilização. | Lista | Não
+parameters | A seção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando seu pipeline flexível para reutilização. | Lista | Não
 simultaneidade | O número máximo de execuções simultâneas que o pipeline pode ter. Por padrão, não há nenhum máximo. Se o limite de simultaneidade for atingido, as execuções de pipeline adicionais serão enfileiradas até que as anteriores sejam concluídas | Número | Não 
 annotations | Uma lista de marcas associadas ao pipeline | Array | Não
 
@@ -182,11 +182,11 @@ Políticas afetam o comportamento de tempo de execução de uma atividade, ofere
 }
 ```
 
-Nome JSON | Descrição | Valores Permitidos | Obrigatório
+Nome JSON | Descrição | Valores Permitidos | Necessária
 --------- | ----------- | -------------- | --------
 tempo limite | Especifica o tempo limite para a atividade ser executada. | Timespan | Não. O tempo limite padrão é 7 dias.
-tentar novamente | Número máximo de novas tentativas | Integer | Não. O padrão é 0
-retryIntervalInSeconds | O intervalo entre tentativas de repetição em segundos | Integer | Não. O padrão é de 30 segundos
+tentar novamente | Número máximo de novas tentativas | Inteiro | Não. O padrão é 0
+retryIntervalInSeconds | O intervalo entre tentativas de repetição em segundos | Inteiro | Não. O padrão é de 30 segundos
 secureOutput | Quando definido como true, a saída da atividade é considerada como segura e não é registrada para monitoramento. | Boolean | Não. O padrão é false.
 
 ### <a name="control-activity"></a>Atividade de controle
@@ -265,10 +265,10 @@ Por exemplo, se um pipeline tem atividade A -> atividade B, os diferentes cenár
     }
 }
 
-`"
+```
 
-## Sample copy pipeline
-In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to a database in Azure SQL Database.
+## <a name="sample-copy-pipeline"></a>Pipeline de cópia de exemplo
+No pipeline de exemplo a seguir, há uma atividade do tipo **Cópia** in the **atividades** . Neste exemplo, a [atividade de cópia](copy-activity-overview.md) copia dados de um armazenamento de BLOBs do Azure para um banco de dado no Azure SQL Database.
 
 ```json
 {

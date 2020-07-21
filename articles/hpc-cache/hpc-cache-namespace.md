@@ -1,17 +1,17 @@
 ---
-title: Criar uma instância de cache do HPC do Azure
-description: Como criar uma instância do Azure HPC Cache
+title: Usar o namespace agregado do cache do HPC do Azure
+description: Como planejar o namespace virtual para o cache do Azure HPC
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
-ms.author: rohogue
-ms.openlocfilehash: be09d8b903d63b9fb2b57f8b9b7486b02a60085c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: v-erkel
+ms.openlocfilehash: c16d2f9e9c94603361d9a096f33d559105f2d28d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045800"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497022"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planejar o namespace agregado
 
@@ -30,7 +30,7 @@ Por exemplo, considere um sistema em que uma instância de cache do Azure HPC es
 Os dados do modelo são armazenados em um datacenter e as informações necessárias para esse trabalho são armazenadas nesses subdiretórios:
 
 * */goldline/templates/acme2017/sku798*
-* */goldline/templates/acme2017/sku980* 
+* */goldline/templates/acme2017/sku980*
 
 O sistema de armazenamento do datacenter expõe essas exportações:
 
@@ -52,10 +52,10 @@ Um destino de armazenamento NFS pode ter vários caminhos de namespace virtual, 
 
 Como os caminhos de origem do NFS são subdiretórios da mesma exportação, você precisará definir vários caminhos de namespace do mesmo destino de armazenamento.
 
-| Nome de host do destino de armazenamento  | Caminho de exportação do NFS      | Caminho do subdiretório | Caminho do namespace    |
-|--------------------------|----------------------|-------------------|-------------------|
-| *Endereço IP ou nome do host* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
-| *Endereço IP ou nome do host* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
+| Nome de host do destino de armazenamento  | Caminho de exportação do NFS     | Caminho do subdiretório | Caminho do namespace    |
+|--------------------------|---------------------|-------------------|-------------------|
+| *Endereço IP ou nome do host* | /goldline/templates | acme2017/sku798   | /templates/sku798 |
+| *Endereço IP ou nome do host* | /goldline/templates | acme2017/sku980   | /templates/sku980 |
 
 Um aplicativo cliente pode montar o cache e acessar facilmente os caminhos de arquivo de namespace agregados ``/source`` , ``/templates/sku798`` e ``/templates/sku980`` .
 

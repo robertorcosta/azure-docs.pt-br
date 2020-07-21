@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes (FAQ)
+title: Perguntas frequentes
 titleSuffix: Azure SQL Managed Instance
 description: Perguntas frequentes sobre o Azure SQL Instância Gerenciada
 services: sql-database
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: b5fad1e287ffca569546092893c4f1a6501a3b7b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 6713a1fbbbbca0aa212461cc966b42aaf2daa47e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224410"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498433"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -66,11 +66,11 @@ Você pode considerar a migração para outros tipos do Azure que atendam à sua
 **Onde posso migrar se tiver requisitos de hardware específicos, como uma taxa de RAM maior para a proporção vCore ou mais CPUs?**
 Você pode considerar a migração para [SQL Server em máquinas virtuais do Azure](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) ou memória/CPU [do banco de dados SQL do Azure](../database/sql-database-paas-overview.md) otimizada.
 
-## <a name="known-issues--bugs"></a>Problemas conhecidos e bugs
+## <a name="known-issues-and-defects"></a>Problemas conhecidos e defeitos
 
-**Onde posso encontrar problemas conhecidos e bugs?**
+**Onde posso encontrar problemas conhecidos e defeitos?**
 
-Para bugs e problemas conhecidos, consulte [problemas conhecidos](../database/doc-changes-updates-release-notes.md#known-issues).
+Para defeitos de produto e problemas conhecidos, consulte [problemas conhecidos](../database/doc-changes-updates-release-notes.md#known-issues).
 
 ## <a name="new-features"></a>Novos recursos
 
@@ -127,7 +127,7 @@ Para usar outra zona DNS em vez do padrão, por exemplo, *.contoso.com*:
 **Como migrar do banco de dados SQL do Azure um pool elástico ou único para o SQL Instância Gerenciada?**
 
 A instância gerenciada oferece os mesmos níveis de desempenho por computação e tamanho de armazenamento que outras opções de implantação do Banco de Dados SQL do Azure. Se você quiser consolidar dados em uma única instância ou se simplesmente precisar de um recurso com suporte exclusivo na instância gerenciada, poderá migrar seus dados usando a funcionalidade de exportação/importação (BACPAC). Aqui estão outras maneiras de considerar a migração do banco de dados SQL para o SQL Instância Gerenciada: 
-- Usando a [fonte de dados externa]()
+- Usando a [fonte de dados externa](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-129-using-data-source-external-from-azure-sql/ba-p/1443210)
 - Usando o [SqlPackage](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-migrate-azure-sql-database-to-azure-sql-managed-instance/ba-p/369182)
 - Usando [bcp](https://medium.com/azure-sqldb-managed-instance/migrate-from-azure-sql-managed-instance-using-bcp-674c92efdca7)
 
@@ -349,21 +349,6 @@ Para reduzir os riscos de vazamento de dados, é recomendável que os clientes a
 - Ative a [auditoria do SQL](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) e integre-a nos mecanismos de alerta.
 - Ative a [detecção de ameaças](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) do pacote do [ADS (Advanced Data Security)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) .
 
-
-## <a name="cost-saving-use-cases"></a>Casos de uso de economia de custos
-
-**Onde posso encontrar casos de uso e economias de custos resultantes com o SQL Instância Gerenciada?**
-
-Estudos de caso do SQL Instância Gerenciada:
-
-- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
-- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
-- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
-
-Para entender melhor os benefícios, os custos e os riscos associados à implantação do Azure SQL Instância Gerenciada, há também um estudo da Forrester: [o impacto econômico total de Banco de Dados SQL do Microsoft Azure instância gerenciada](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
-
-
 ## <a name="dns"></a>DNS
 
 **Posso configurar um DNS personalizado para o SQL Instância Gerenciada?**
@@ -442,7 +427,7 @@ Para se qualificar para o benefício da instância reservada, o tipo de assinatu
 
 **É possível cancelar, trocar ou reembolsar reservas?**
 
-Você pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+Você pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
 
 ## <a name="billing-for-managed-instance-and-backup-storage"></a>Cobrança para armazenamento de Instância Gerenciada e backup
 
@@ -468,6 +453,19 @@ Você pode monitorar o custo de armazenamento de backup por meio do portal do Az
 
 Para otimizar os custos de armazenamento de backup, consulte [ajuste de backup fino no SQL instância gerenciada](https://techcommunity.microsoft.com/t5/azure-sql-database/fine-tuning-backup-storage-costs-on-managed-instance/ba-p/1390935).
 
+## <a name="cost-saving-use-cases"></a>Casos de uso de economia de custos
+
+**Onde posso encontrar casos de uso e economias de custos resultantes com o SQL Instância Gerenciada?**
+
+Estudos de caso do SQL Instância Gerenciada:
+
+- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
+- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
+- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
+
+Para entender melhor os benefícios, os custos e os riscos associados à implantação do Azure SQL Instância Gerenciada, há também um estudo da Forrester: [o impacto econômico total de Banco de Dados SQL do Microsoft Azure instância gerenciada](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
+
 ## <a name="password-policy"></a>Política de senha 
 
 **Quais políticas de senha são aplicadas para os logons do SQL Instância Gerenciada SQL?**
@@ -486,7 +484,7 @@ Cada logon deve definir sua senha no logon e alterar sua senha depois que atingi
 | Duração máxima da senha | 42 dias |
 | Duração mínima da senha | 1 dia |
 | Comprimento mínimo da senha | 10 caracteres |
-| A senha deve atender aos requisitos de complexidade | Habilitada |
+| A senha deve atender aos requisitos de complexidade | habilitado |
 
 **É possível desabilitar a complexidade e a expiração de senha no SQL Instância Gerenciada no nível de logon?**
 

@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 1e53a6a5c024fe58eae00dcda785ff9622061654
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 41cf83a3d9c756d69df2e2e9777ebd8eb54d4d74
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135313"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494727"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opções de resolução de nomes DNS para máquinas virtuais Linux no Azure
 O Azure fornece resolução de nomes DNS por padrão para todas as máquinas virtuais que estão em uma única rede virtual. Você pode implementar sua própria solução de resolução de nomes DNS configurando seus próprios serviços DNS em suas máquinas virtuais que o Azure hospeda. Os cenários a seguir devem ajudá-lo a escolher a que funciona para sua situação.
@@ -43,7 +43,7 @@ Junto com a resolução de nomes DNS públicos, o Azure fornece uma resolução 
 * A resolução de nomes é fornecida entre máquinas virtuais em redes virtuais sem a necessidade de FQDN.
 * Você pode usar nomes de host que descrevem melhor as suas implantações, em vez de trabalhar com nomes gerados automaticamente.
 
-**Considere**
+**Considerações:**
 
 * O sufixo DNS que o Azure cria não pode ser modificado.
 * Não é possível registrar manualmente seus próprios registros.
@@ -121,7 +121,7 @@ O encaminhamento de DNS também habilita a resolução de DNS entre redes virtua
 
 Quando você usa a resolução de nomes que o Azure fornece, o sufixo DNS interno é fornecido para cada máquina virtual usando o DHCP. Quando você usa sua própria solução de resolução de nomes, esse sufixo não será fornecido para as máquinas virtuais porque o sufixo interfere com outras arquiteturas de DNS. Para fazer referência a máquinas pelo FQDN, ou para configurar o sufixo em suas máquinas virtuais, você pode usar o PowerShell ou a API para determinar o sufixo:
 
-* Para redes virtuais que são gerenciadas pelo Azure Resource Manager, o sufixo está disponível por meio do recurso [placa de adaptador de rede](https://msdn.microsoft.com/library/azure/mt163668.aspx). Você também pode executar o comando `azure network public-ip show <resource group> <pip name>` para exibir os detalhes de seu IP público, que inclui o FQDN da NIC.
+* Para redes virtuais que são gerenciadas pelo Azure Resource Manager, o sufixo está disponível por meio do recurso [placa de adaptador de rede](/rest/api/virtualnetwork/networkinterfaces). Você também pode executar o comando `azure network public-ip show <resource group> <pip name>` para exibir os detalhes de seu IP público, que inclui o FQDN da NIC.
 
 Se o encaminhamento de consultas para o Azure não atender às suas necessidades, você precisará fornecer sua própria solução DNS.  A solução do DNS precisa:
 
@@ -131,6 +131,6 @@ Se o encaminhamento de consultas para o Azure não atender às suas necessidades
 * Ter proteção contra acesso da Internet, para atenuar as ameaças impostas por agentes externos.
 
 > [!NOTE]
-> Para obter o melhor desempenho, quando usar máquinas virtuais em servidores DNS do Azure, desabilite o IPv6 e atribua um [IP público em nível de instância](../../virtual-network/virtual-networks-instance-level-public-ip.md) para cada máquina virtual do servidor DNS.  
+> Para obter o melhor desempenho, quando usar máquinas virtuais em servidores DNS do Azure, desabilite o IPv6 e atribua um [IP público em nível de instância](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) para cada máquina virtual do servidor DNS.  
 >
 >

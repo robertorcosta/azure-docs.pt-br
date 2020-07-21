@@ -1,14 +1,14 @@
 ---
 title: Práticas recomendadas
 description: Conheça as melhores práticas e dicas úteis para desenvolver sua solução de Lote do Azure.
-ms.date: 06/22/2020
+ms.date: 07/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7a66fb383195a7de347b5e6ce83ad89fa3706e96
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 32610f54cc41bd5d7feb965b9a82903acc23c33c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954142"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497770"
 ---
 # <a name="azure-batch-best-practices"></a>Melhores práticas do Lote do Azure
 
@@ -146,6 +146,10 @@ As junções de diretório, às vezes chamadas de links físicos de diretório, 
 ### <a name="collect-the-batch-agent-logs"></a>Coletar logs de agente do Lote
 
 Se você notar um problema envolvendo o comportamento de um nó ou de tarefas em execução em um nó, colete os logs do agente do Lote antes de desalocar os nós em questão. Os logs de agente do Lote podem ser coletados usando a API de logs de serviço Carregar Lote. Esses logs podem ser fornecidos como parte de um tíquete de suporte à Microsoft e ajudarão com a solução de problemas.
+
+### <a name="manage-os-upgrades"></a>Gerenciar atualizações do sistema operacional
+
+Para contas do lote no modo de assinatura do usuário, as atualizações automatizadas do sistema operacional podem interromper o andamento da tarefa, especialmente se as tarefas forem de execução longa. A [criação de tarefas idempotentes](#build-durable-tasks) pode ajudar a reduzir erros causados por essas interrupções. Também recomendamos o [agendamento de atualizações de imagem do sistema operacional para horários em que não se espera que as tarefas sejam executadas](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
 
 ## <a name="isolation-security"></a>Segurança de isolamento
 
