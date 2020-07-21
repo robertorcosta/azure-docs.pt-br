@@ -6,11 +6,12 @@ ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: 5a868167f80aaa735e4fbeab32fd1d308dd6da1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fef975c9822cd44b94074874621e1c87a60ed27d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114425"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505441"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica clássico com um modelo do Gerenciador de Recursos
 > [!WARNING]
@@ -175,7 +176,7 @@ Para criar um alerta usando um modelo do Resource Manager, você cria um recurso
 }
 ```
 
-Uma explicação do esquema e das propriedades para uma regra de alerta [está disponível aqui](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Uma explicação do esquema e das propriedades para uma regra de alerta [está disponível aqui](/rest/api/monitor/alertrules).
 
 ## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Modelo do Resource Manager para um recurso com alerta clássico de métrica
 Um alerta em um modelo do Resource Manager geralmente é mais útil ao criar um alerta durante a criação de um recurso. Por exemplo, você talvez queira garantir que uma regra "CPU % > 80" esteja configurada sempre que implantar uma Máquina Virtual. Para tanto, você pode adicionar a regra de alerta como um recurso no conjunto de recursos para o modelo de VM e adicionar uma dependência usando a propriedade `dependsOn` à ID do recurso da VM. Aqui está um exemplo completo que cria uma VM do Windows e adiciona um alerta que notifica os administradores da assinatura quando a utilização da CPU fica acima de 80%.
@@ -401,4 +402,3 @@ Um alerta em um modelo do Resource Manager geralmente é mais útil ao criar um 
 * [Saiba mais sobre os Alertas](alerts-overview.md)
 * [Adicionar Configurações de Diagnóstico](../../azure-monitor/platform/diagnostic-settings-template.md) ao modelo do Resource Manager
 * Para obter a sintaxe JSON e as propriedades, confira a referência de modelo [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules).
-

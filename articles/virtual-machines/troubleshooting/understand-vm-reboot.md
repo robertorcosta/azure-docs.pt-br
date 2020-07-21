@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e94ffb3d34082745c3d7ca86cfda2b93c0ed08da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08fb794839adf9e8a986f53da00b4855e5535af5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77919406"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508858"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Entender uma reinicialização do sistema para VM do Azure
 
@@ -33,7 +34,7 @@ Para obter mais informações sobre conjuntos de disponibilidade, consulte [gere
 
 ## <a name="resource-health-information"></a>Informações do Resource Health
 
-O Azure Resource Health é um serviço que expõe a integridade de recursos individuais do Azure e fornece diretrizes acionáveis para solucionar problemas. Em um ambiente de nuvem em que não é possível acessar diretamente os servidores ou elementos de infraestrutura, a meta do Resource Health é reduzir o tempo gasto com solução de problemas. O objetivo é, especificamente, reduzir o tempo gasto determinando se a causa do problema está no aplicativo ou em um evento da plataforma Azure. Para obter mais informações, consulte [entender e usar Resource Health](../../resource-health/resource-health-overview.md).
+O Azure Resource Health é um serviço que expõe a integridade de recursos individuais do Azure e fornece diretrizes acionáveis para solucionar problemas. Em um ambiente de nuvem em que não é possível acessar diretamente os servidores ou elementos de infraestrutura, a meta do Resource Health é reduzir o tempo gasto com solução de problemas. O objetivo é, especificamente, reduzir o tempo gasto determinando se a causa do problema está no aplicativo ou em um evento da plataforma Azure. Para obter mais informações, consulte [entender e usar Resource Health](../../service-health/resource-health-overview.md).
 
 ## <a name="actions-and-events-that-can-cause-the-vm-to-reboot"></a>Ações e eventos que podem fazer a VM reiniciar
 
@@ -45,8 +46,8 @@ No entanto, algumas atualizações requerem uma reinicialização. Nesses casos,
 
 Para compreender o que é a manutenção planejada do Azure e como ela pode afetar a disponibilidade de suas VMs Linux, confira os artigos listados aqui. Os artigos fornecem informações detalhadas sobre o processo de manutenção planejada do Azure e como agendar a manutenção planejada para reduzir ainda mais o impacto.
 
-- [Manutenção planejada para VMs no Azure](../windows/planned-maintenance.md)
-- [Como agendar a manutenção planejada em VMs do Azure](../windows/classic/planned-maintenance-schedule.md)
+- [Manutenção planejada para VMs no Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json)
+- [Como agendar a manutenção planejada em VMs do Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json)
 
 ### <a name="memory-preserving-updates"></a>Atualizações que preservam a memória
 
@@ -71,7 +72,7 @@ Outro cenário que geralmente faz com que a VM reinicie inclui várias ações d
 
 ### <a name="azure-security-center-and-windows-update"></a>Central de Segurança do Azure e Windows Update
 
-A Central de Segurança do Azure monitora diariamente VMs Windows e Linux para saber se faltam atualizações do sistema operacional. A Central de Segurança recupera uma lista de atualizações críticas e de segurança disponíveis no Windows Update ou no WSUS (Windows Server Update Services), dependendo de qual serviço está configurado em uma VM do Windows. A Central de Segurança também verifica as atualizações mais recentes para sistemas Linux. Se faltar uma atualização do sistema em sua VM, a Central de Segurança recomendará que você aplique as atualizações do sistema. A aplicação dessas atualizações do sistema é controlada pela Central de Segurança no portal do Azure. Depois de aplicar algumas atualizações, pode ser necessário reiniciar algumas VMs. Para saber mais, confira [Aplicar atualizações do sistema na Central de Segurança do Azure](../../security-center/security-center-apply-system-updates.md).
+A Central de Segurança do Azure monitora diariamente VMs Windows e Linux para saber se faltam atualizações do sistema operacional. A Central de Segurança recupera uma lista de atualizações críticas e de segurança disponíveis no Windows Update ou no WSUS (Windows Server Update Services), dependendo de qual serviço está configurado em uma VM do Windows. A Central de Segurança também verifica as atualizações mais recentes para sistemas Linux. Se faltar uma atualização do sistema em sua VM, a Central de Segurança recomendará que você aplique as atualizações do sistema. A aplicação dessas atualizações do sistema é controlada pela Central de Segurança no portal do Azure. Depois de aplicar algumas atualizações, pode ser necessário reiniciar algumas VMs. Para saber mais, confira [Aplicar atualizações do sistema na Central de Segurança do Azure](../../security-center/security-center-virtual-machine-protection.md).
 
 Assim como os servidores locais, o Azure não efetua push de atualizações do Windows Update para VMs do Windows porque essas máquinas devem ser gerenciadas pelos próprios usuários. No entanto, é recomendável que os clientes deixem a configuração automática do Windows Update habilitada. A instalação automática de atualizações do Windows Update pode causar reinicializações após a aplicação. Para saber mais, confira [Perguntas frequentes sobre o Windows Update](https://support.microsoft.com/help/12373/windows-update-faq).
 
@@ -114,7 +115,7 @@ A duração do desligamento pode demorar mais de cinco minutos, mas também pode
 
 **Ultrapassando limites de E/S**
 
-As VMs podem ser desligadas temporariamente quando as solicitações de E/S são limitadas consistentemente porque o volume de operações de IOPS (E/S por segundo) excede os limites de E/S do disco. (O armazenamento em disco padrão é limitado a 500 IOPS.) Para atenuar esse problema, use a distribuição de disco ou configure o espaço de armazenamento dentro da VM convidada, dependendo da carga de trabalho. Para obter detalhes, consulte [Configurando VMs do Azure para otimizar o desempenho de armazenamento](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
+As VMs podem ser desligadas temporariamente quando as solicitações de E/S são limitadas consistentemente porque o volume de operações de IOPS (E/S por segundo) excede os limites de E/S do disco. (O armazenamento em disco padrão é limitado a 500 IOPS.) Para atenuar esse problema, use a distribuição de disco ou configure o espaço de armazenamento dentro da VM convidada, dependendo da carga de trabalho. 
 
 ### <a name="other-incidents"></a>Outros incidentes
 

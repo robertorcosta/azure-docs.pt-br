@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: cf8d4cd3c70e28a6c70ab9321a8f55271ead754f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3aa4a7db9982d41cf32c1ddc4de6762bf1fdecf4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807495"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508790"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Criar uma imagem gerenciada de uma VM generalizada no Azure
 
@@ -23,9 +24,9 @@ Uma imagem gerenciada dá suporte a até 20 implantações simultâneas. A tenta
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizar a VM Windows usando Sysprep
 
-O Sysprep remove todas as informações pessoais e de segurança da conta e prepara a máquina para ser usada como uma imagem. Para obter informações sobre o Sysprep, confira [Visão geral do Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+O Sysprep remove todas as informações pessoais e de segurança da conta e prepara a máquina para ser usada como uma imagem. Para obter informações sobre o Sysprep, confira [Visão geral do Sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Verifique se as funções de servidor em execução no computador são suportadas pelo Sysprep. Para saber mais, confira [Suporte do Sysprep para funções de servidor](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) e [Cenários sem suporte](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). O Sysprep requer que as unidades sejam totalmente descriptografadas antes da execução. Se você habilitou a criptografia em sua VM, desabilite a criptografia antes de executar o Sysprep.
+Verifique se as funções de servidor em execução no computador são suportadas pelo Sysprep. Para saber mais, confira [Suporte do Sysprep para funções de servidor](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) e [Cenários sem suporte](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). O Sysprep requer que as unidades sejam totalmente descriptografadas antes da execução. Se você habilitou a criptografia em sua VM, desabilite a criptografia antes de executar o Sysprep.
 
 > [!IMPORTANT]
 > Depois que o Sysprep for executado em uma VM, essa VM será considerada *generalizada* e não poderá ser reiniciada. O processo de generalização de uma VM não é reversível. Se você precisar manter o funcionamento da VM original, crie uma [cópia da VM](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) e generalize a cópia. 
@@ -51,7 +52,7 @@ Para generalizar a VM do Windows, siga estas etapas:
 6. Quando o Sysprep for concluído, ele desligará a VM. Não reinicie a VM.
 
 > [!TIP]
-> **Opcional** – use [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) para otimizar a imagem e reduzir a primeira hora de inicialização da VM.
+> **Opcional** – use [DISM](/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) para otimizar a imagem e reduzir a primeira hora de inicialização da VM.
 >
 > Para otimizar a imagem, monte o VHD clicando duas vezes nele no Windows Explorer e, em seguida, execute o DISM com o parâmetro `/optimize-image`.
 >
@@ -246,4 +247,3 @@ Para criar uma imagem gerenciada de uma VM que não usa discos gerenciados, é n
     
 ## <a name="next-steps"></a>Próximas etapas
 - [Criar uma VM de uma imagem gerenciada](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    
-

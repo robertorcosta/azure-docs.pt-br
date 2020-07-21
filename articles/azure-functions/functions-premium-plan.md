@@ -5,12 +5,13 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: d59335c5c4ebd2688097539594f11ea349939eff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 5ab506c57a78c67b33b888f1f50d83fe9813d0af
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298507"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506189"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions plano Premium
 
@@ -112,22 +113,22 @@ Veja a disponibilidade regional completa das funções aqui: [Azure.com](https:/
 |Austrália Central| 20 | Não disponível |
 |Austrália Central 2| 20 | Não disponível |
 |Leste da Austrália| 100 | 20 |
-|Sudeste da Austrália | 100 | 20 |
-|Sul do Brasil| 60 | 20 |
+|Australia Southeast | 100 | 20 |
+|Brazil South| 60 | 20 |
 |Canadá Central| 100 | 20 |
 |Centro dos EUA| 100 | 20 |
 |Leste da Ásia| 100 | 20 |
-|Leste dos EUA | 100 | 20 |
+|East US | 100 | 20 |
 |Leste dos EUA 2| 100 | 20 |
 |França Central| 100 | 20 |
 |Centro-Oeste da Alemanha| 100 | Não disponível |
-|Leste do Japão| 100 | 20 |
+|Japan East| 100 | 20 |
 |Oeste do Japão| 100 | 20 |
 |Coreia Central| 100 | 20 |
 |Centro-Norte dos EUA| 100 | 20 |
 |Norte da Europa| 100 | 20 |
 |Leste da Noruega| 20 | 20 |
-|Centro-Sul dos Estados Unidos| 100 | 20 |
+|South Central US| 100 | 20 |
 |Sul da Índia | 100 | Não disponível |
 |Sudeste Asiático| 100 | 20 |
 |Sul do Reino Unido| 100 | 20 |

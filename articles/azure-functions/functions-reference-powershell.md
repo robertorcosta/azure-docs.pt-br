@@ -4,11 +4,12 @@ description: Entenda como desenvolver funções usando o PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: 41f977e7e7c23c2f49fd656461b7a3920802997e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b8c84583bd80a7c3cbadde1caba231eed801c1f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697265"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506121"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia do desenvolvedor do PowerShell do Azure Functions
 
@@ -18,7 +19,7 @@ Uma função do PowerShell do Azure (função) é representada como um script do
 
 Assim como outros tipos de funções, as funções de script do PowerShell assumem parâmetros que correspondem aos nomes de todas as associações de entrada definidas no `function.json` arquivo. `TriggerMetadata`Também é passado um parâmetro que contém informações adicionais sobre o gatilho que iniciou a função.
 
-Este artigo pressupõe que você já tenha lido a [Referência do desenvolvedor do Azure Functions](functions-reference.md). Você também deve ter concluído o guia de [início rápido do Functions para o PowerShell](functions-create-first-function-powershell.md) para criar sua primeira função do PowerShell.
+Este artigo pressupõe que você já tenha lido a [Referência do desenvolvedor do Azure Functions](functions-reference.md). Você também deve ter concluído o guia de [início rápido do Functions para o PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) para criar sua primeira função do PowerShell.
 
 ## <a name="folder-structure"></a>Estrutura de pastas
 
@@ -72,7 +73,7 @@ O `TriggerMetadata` parâmetro é usado para fornecer informações adicionais s
 $TriggerMetadata.sys
 ```
 
-| Property   | Descrição                                     | Type     |
+| Propriedade   | Descrição                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | Quando, em UTC, a função foi disparada        | Datetime |
 | MethodName | O nome da função que foi disparada     | string   |
@@ -225,15 +226,15 @@ MyQueue                        myData
 
 Há suporte para caracteres curinga (*) no `Get-OutputBinding` .
 
-## <a name="logging"></a>Registro em log
+## <a name="logging"></a>Registrando em log
 
 O registro em log nas funções do PowerShell funciona como log normal do PowerShell. Você pode usar os cmdlets de log para gravar em cada fluxo de saída. Cada cmdlet é mapeado para um nível de log usado pelas funções.
 
 | Nível de log de funções | Cmdlet de registro em log |
 | ------------- | -------------- |
-| Erro | **`Write-Error`** |
+| Erro do | **`Write-Error`** |
 | Aviso | **`Write-Warning`**  | 
-| Informações | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informações | Grava no log do nível de _informações_ . |
+| Informação | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informação | Grava no log do nível de _informações_ . |
 | Depurar | **`Write-Debug`** |
 | Trace | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
@@ -293,9 +294,9 @@ HTTP e gatilhos de webhook e associações de saída HTTP usam objetos de solici
 
 O objeto de solicitação que é passado para o script é do tipo `HttpRequestContext` , que tem as seguintes propriedades:
 
-| Property  | Descrição                                                    | Type                      |
+| Propriedade  | Descrição                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Um objeto que contém o corpo da solicitação. `Body`é serializado no melhor tipo com base nos dados. Por exemplo, se os dados forem JSON, eles serão passados como uma tabela de hash. Se os dados forem uma cadeia de caracteres, eles serão passados como uma cadeia de caracteres. | objeto |
+| **`Body`**    | Um objeto que contém o corpo da solicitação. `Body`é serializado no melhor tipo com base nos dados. Por exemplo, se os dados forem JSON, eles serão passados como uma tabela de hash. Se os dados forem uma cadeia de caracteres, eles serão passados como uma cadeia de caracteres. | object |
 | **`Headers`** | Um dicionário que contém os cabeçalhos de solicitação.                | <de cadeia de caracteres de dicionário, Cadeia de caracteres><sup>*</sup> |
 | **`Method`** | O método HTTP da solicitação.                                | string                    |
 | **`Params`**  | Um objeto que contém os parâmetros de roteamento da solicitação. | <de cadeia de caracteres de dicionário, Cadeia de caracteres><sup>*</sup> |
@@ -308,9 +309,9 @@ O objeto de solicitação que é passado para o script é do tipo `HttpRequestCo
 
 O objeto de resposta que você deve enviar de volta é do tipo `HttpResponseContext` , que tem as seguintes propriedades:
 
-| Property      | Descrição                                                 | Type                      |
+| Propriedade      | Descrição                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | Um objeto que contém o corpo da resposta.           | objeto                    |
+| **`Body`**  | Um objeto que contém o corpo da resposta.           | object                    |
 | **`ContentType`** | Uma pequena mão para definir o tipo de conteúdo para a resposta. | string                    |
 | **`Headers`** | Um objeto que contém os cabeçalhos da resposta.               | Dicionário ou Hashtable   |
 | **`StatusCode`**  | O código de status HTTP da resposta.                       | cadeia de caracteres ou inteiro             |
@@ -391,7 +392,7 @@ A tabela a seguir mostra a versão do PowerShell usada por cada versão principa
 
 Você pode ver a versão atual imprimindo `$PSVersionTable` de qualquer função.
 
-## <a name="dependency-management"></a>Gerenciamento de dependências
+## <a name="dependency-management"></a>Gerenciamento de dependência
 
 O Functions permite aproveitar a [Galeria do PowerShell](https://www.powershellgallery.com) para gerenciar dependências. Com o gerenciamento de dependência habilitado, o arquivo requirements.psd1 é usado para baixar automaticamente os módulos necessários. Você habilita esse comportamento definindo a `managedDependency` propriedade como `true` na raiz do [host.jsno arquivo](functions-host-json.md), como no exemplo a seguir:
 
@@ -493,7 +494,7 @@ Write-Host $env:WEBSITE_SITE_NAME
 
 Ao executar localmente, as configurações do aplicativo são lidos a partir de [Settings](functions-run-local.md#local-settings-file) arquivo de projeto.
 
-## <a name="concurrency"></a>Simultaneidade
+## <a name="concurrency"></a>Concorrência
 
 Por padrão, o tempo de execução do PowerShell do Functions só pode processar uma invocação de uma função por vez. No entanto, esse nível de simultaneidade pode não ser suficiente nas seguintes situações:
 

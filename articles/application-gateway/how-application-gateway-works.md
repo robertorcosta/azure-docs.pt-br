@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 7622ac319929548dd50a3af763b1b65ea8a36d2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d33ec829e490ae45d38d33f5784126a71ae2d0aa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85250223"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506546"
 ---
 # <a name="how-an-application-gateway-works"></a>Como funciona um gateway de aplicativo
 
@@ -62,7 +62,7 @@ Um gateway de aplicativo insere quatro cabeçalhos adicionais a todas as solicit
 
 Os valores válidos para o proto x-forwardd são HTTP ou HTTPS. X-Forwarded-Port especifica a porta em que a solicitação atingiu o gateway de aplicativo. X-original-o cabeçalho de host contém o cabeçalho de host original com o qual a solicitação chegou. Esse cabeçalho é útil na integração de sites do Azure, em que o cabeçalho de host de entrada é modificado antes de o tráfego ser roteado para o back-end. Se a afinidade de sessão estiver habilitada como uma opção, ela adicionará um cookie de afinidade gerenciada por gateway.
 
-Você pode configurar o gateway de aplicativo para modificar os cabeçalhos usando os [cabeçalhos HTTP de regravação](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) ou para modificar o caminho do URI usando uma configuração de substituição de caminho. No entanto, a menos que esteja configurado para fazer isso, todas as solicitações de entrada são coativadas para o back-end.
+Você pode configurar o gateway de aplicativo para modificar cabeçalhos e URL de solicitação e resposta usando [regravar cabeçalhos HTTP e URL](rewrite-http-headers-url.md) ou para modificar o caminho do URI usando uma configuração de substituição de caminho. No entanto, a menos que esteja configurado para fazer isso, todas as solicitações de entrada são coativadas para o back-end.
 
 ## <a name="next-steps"></a>Próximas etapas
 

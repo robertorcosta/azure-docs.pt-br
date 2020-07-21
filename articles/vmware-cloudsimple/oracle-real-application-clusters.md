@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f657e18d7185d6b3c63ac8f1424da9d36d4189e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cc2f954f4255c00b7c3549ab5d33d71b240fb70
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82793033"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507659"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Otimize sua nuvem privada do CloudSimple para instalar o Oracle RAC
 
@@ -70,7 +71,7 @@ O exemplo a seguir usa os discos definidos na tabela a seguir.
 Cada máquina virtual Oracle é configurada com vários discos para o sistema operacional do host, troca, instalação de software e outras funções de sistema operacional.  Esses discos não são compartilhados entre as máquinas virtuais.  
 
 * Três discos para cada máquina virtual são configurados como discos virtuais e montados em máquinas virtuais do Oracle RAC.
-    * Disco do sistema operacional
+    * Disco do SO
     * Disco para armazenar arquivos de instalação de grade do Oracle
     * Disco para armazenar arquivos de instalação do banco de dados Oracle
 * Os discos podem ser configurados como **provisionados com provisionamento dinâmico**.
@@ -168,7 +169,7 @@ Para implantar um cluster vSphere em sua nuvem privada, siga este processo:
 
 as políticas vSAN definem as falhas a serem toleradas e a distribuição de disco para os dados armazenados nos discos de VM.  A política de armazenamento criada deve ser aplicada nos discos de VM durante a criação da VM.
 
-1. [Entre no cliente vSphere](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access) da sua nuvem privada.
+1. [Entre no cliente vSphere](./vcenter-access.md) da sua nuvem privada.
 2. No menu superior, selecione **políticas e perfis**.
 3. No menu à esquerda, selecione **políticas de armazenamento de VM** e, em seguida, selecione **criar uma política de armazenamento de VM**.
 4. Insira um nome significativo para a política e clique em **Avançar**.

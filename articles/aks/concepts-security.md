@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: f957ee5293d2804298d4723ed3a763fabac9dc93
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b3ad8fdce873b31c8ea6b1c8176ed41587b4b298
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244524"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507090"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicativos e clusters no AKS (Serviço de Kubernetes do Azure)
 
@@ -54,9 +54,9 @@ Os ambientes do Kubernetes, no AKS ou em outro lugar, não estão completamente 
 
 ### <a name="compute-isolation"></a>Isolamento de computação
 
- Determinadas cargas de trabalho podem exigir um alto grau de isolamento de outras cargas de trabalho do cliente devido a requisitos normativos ou de conformidade. Para essas cargas de trabalho, o Azure fornece [máquinas virtuais isoladas](../virtual-machines/linux/isolation.md), que podem ser usadas como os nós de agente em um cluster AKs. Essas máquinas virtuais isoladas são isoladas para um tipo específico de hardware e são dedicadas a um único cliente. 
+ Determinadas cargas de trabalho podem exigir um alto grau de isolamento de outras cargas de trabalho do cliente devido a requisitos normativos ou de conformidade. Para essas cargas de trabalho, o Azure fornece [máquinas virtuais isoladas](../virtual-machines/isolation.md), que podem ser usadas como os nós de agente em um cluster AKs. Essas máquinas virtuais isoladas são isoladas para um tipo específico de hardware e são dedicadas a um único cliente. 
 
- Para usar essas máquinas virtuais isoladas com um cluster AKS, selecione um dos tamanhos de máquinas virtuais isoladas listados [aqui](../virtual-machines/linux/isolation.md) como o **tamanho do nó** ao criar um cluster do AKS ou adicionar um pool de nós.
+ Para usar essas máquinas virtuais isoladas com um cluster AKS, selecione um dos tamanhos de máquinas virtuais isoladas listados [aqui](../virtual-machines/isolation.md) como o **tamanho do nó** ao criar um cluster do AKS ou adicionar um pool de nós.
 
 
 ## <a name="cluster-upgrades"></a>Atualizações do cluster
@@ -81,6 +81,8 @@ Para conectividade e segurança com redes locais, você pode implantar um cluste
 ### <a name="azure-network-security-groups"></a>Grupos de segurança de rede do Azure
 
 Para filtrar o fluxo de tráfego em redes virtuais, o Azure usa regras de grupo de segurança de rede. Essas regras definem o código-fonte e intervalos de IP de destino, portas e protocolos que têm o acesso a recursos permitido ou negado. Regras padrão são criadas para permitir o tráfego TLS para o servidor de API do Kubernetes. Conforme você cria serviços com balanceadores de carga, mapeamentos de porta ou rotas de entrada, o AKS modifica automaticamente o grupo de segurança de rede para o tráfego fluir de modo adequado.
+
+Nos casos em que você fornece sua própria sub-rede para o cluster AKS e deseja modificar o fluxo de tráfego, não modifique o grupo de segurança de rede no nível de sub-rede gerenciado pelo AKS. Você pode criar grupos de segurança de rede de nível de sub-rede adicionais para modificar o fluxo de tráfego, contanto que eles não interfiram no tráfego necessário para gerenciar o cluster, como o acesso ao balanceador de carga, a comunicação com o plano de controle e a [saída][aks-limit-egress-traffic].
 
 ### <a name="kubernetes-network-policy"></a>Política de rede do Kubernetes
 
@@ -123,6 +125,7 @@ Para obter informações adicionais sobre os principais conceitos do Kubernetes 
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[aks-limit-egress-traffic]: limit-egress-traffic.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [developer-best-practices-pod-security]:developer-best-practices-pod-security.md

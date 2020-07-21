@@ -6,14 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
-ms.openlocfilehash: d7a37d51c411488231205fd036f9a287f5206ce5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c76cf939959d198d2c28181295a695a65ae46af9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672439"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505696"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Analisar dados de texto nos logs do Azure Monitor
-Alguns dados de log coletados pelo Azure Monitor incluirão várias informações em uma única propriedade. A análise desses dados em várias propriedades facilita seu uso em consultas. Um exemplo comum é um [log personalizado](../../log-analytics/log-analytics-data-sources-custom-logs.md) que coleta uma entrada de log inteira com vários valores em uma única propriedade. Criando propriedades separadas para os diferentes valores, você pode fazer pesquisas e agregações em cada uma delas.
+Alguns dados de log coletados pelo Azure Monitor incluirão várias informações em uma única propriedade. A análise desses dados em várias propriedades facilita seu uso em consultas. Um exemplo comum é um [log personalizado](../platform/data-sources-custom-logs.md) que coleta uma entrada de log inteira com vários valores em uma única propriedade. Criando propriedades separadas para os diferentes valores, você pode fazer pesquisas e agregações em cada uma delas.
 
 Este artigo descreve diferentes opções para análise de dados de log no Azure Monitor quando os dados são ingeridos e recuperados em uma consulta, comparando as vantagens relativas de cada uma.
 
@@ -22,7 +23,7 @@ Este artigo descreve diferentes opções para análise de dados de log no Azure 
 Você pode analisar os dados no momento da ingestão, quando os dados são coletados, ou no momento da consulta, ao analisar os dados com uma consulta. Cada estratégia tem vantagens únicas, conforme descrito abaixo.
 
 ### <a name="parse-data-at-collection-time"></a>Analisar os dados em tempo de coleta
-Ao analisar os dados em tempo de coleção, você configura [Campos Personalizados](../../log-analytics/log-analytics-custom-fields.md) que criam propriedades na tabela. As consultas não precisam incluir qualquer lógica de análise e apenas usam essas propriedades como qualquer outro campo na tabela.
+Ao analisar os dados em tempo de coleção, você configura [Campos Personalizados](../platform/custom-fields.md) que criam propriedades na tabela. As consultas não precisam incluir qualquer lógica de análise e apenas usam essas propriedades como qualquer outro campo na tabela.
 
 As vantagens desse método incluem as seguintes:
 
@@ -137,7 +138,7 @@ Se os dados estão formatados em uma estrutura conhecida, use uma das funções 
 
 - [JSON](/azure/kusto/query/parsejsonfunction)
 - [XML](/azure/kusto/query/parse-xmlfunction)
-- [IPv4](/azure/kusto/query/parse-ipv4function)
+- [IPv6](/azure/kusto/query/parse-ipv4function)
 - [URL](/azure/kusto/query/parseurlfunction)
 - [Consulta de URL](/azure/kusto/query/parseurlqueryfunction)
 - [Caminho do arquivo](/azure/kusto/query/parsepathfunction)

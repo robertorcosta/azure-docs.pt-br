@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: f41f3bd38013cb0ebd2cad55168551c303c1d231
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0b00785fed7708986885e9da9102e8f1b4fd4539
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084320"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508875"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Serviços de área de trabalho remota não estiver iniciando uma VM do Azure
 
@@ -96,7 +96,7 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
    ```
 8. Se o serviço não for iniciado, execute a solução baseada no erro recebido:
 
-    |  Erro |  Sugestão |
+    |  Erro do |  Sugestão |
     |---|---|
     |5 - ACESSO NEGADO |Consulte o [Serviço TermService está parado devido a um erro de Acesso Negado](#termservice-service-is-stopped-because-of-an-access-denied-problem). |
     |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Veja [Serviço TermService está desabilitado](#termservice-service-is-disabled).  |  
@@ -218,7 +218,7 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco de SO a uma VM de recuperação
 
-1. [Anexe o disco do sistema operacional a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Anexe o disco do sistema operacional a uma VM de recuperação](./troubleshoot-recovery-disks-portal-windows.md).
 2. Inicie uma conexão de área de trabalho remota para a VM de recuperação. Certifique-se de que o disco conectado esteja sinalizado como **Online** no console de gerenciamento de disco. Anote a letra da unidade atribuída ao disco do SO anexado.
 3. Abra uma instância de prompt de comando com privilégios elevados (**Executar como administrador**). Em seguida, execute o script a seguir. Supomos que a letra da unidade atribuída ao disco do sistema operacional anexado é **F**. Substitua-o pelo valor apropriado em sua VM. 
 
@@ -234,7 +234,7 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
    reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v type /t REG_DWORD /d 16 /f
    ```
 
-4. [Desanexe o disco do SO e recrie a VM](../windows/troubleshoot-recovery-disks-portal.md). Em seguida, verifique se o problema for resolvido.
+4. [Desanexe o disco do SO e recrie a VM](./troubleshoot-recovery-disks-portal-windows.md). Em seguida, verifique se o problema for resolvido.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 

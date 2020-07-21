@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4e75329444c2ddb9401f32bccea400d90b633294
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f79ff9af1272ca908c7a5ba35fbaa1e8bb87fc50
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361516"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506700"
 ---
 # <a name="connect-with-power-bi"></a>Conectar com Power BI
 
@@ -36,6 +36,9 @@ Depois de criar um servidor no Azure e implantar um modelo tabular nele, os usu�
     As opções **Conectar em tempo real** e **Importar** são compatíveis. No entanto, é recomendável usar conexões em tempo real porque o modo de importação tem algumas limitações. Principalmente, o desempenho do servidor pode ser afetado durante a importação. Além disso, se o modelo precisar ser atualizado no serviço do Power BI, a configuração **Permitir o acesso pelo Power BI** só se aplicará na escolha de **Conectar em tempo real**.
 
 5. Se solicitado, insira suas credenciais de logon. 
+
+   > [!NOTE]
+   > Não há suporte para contas de senha de uso único (OTP). 
 
 6. Em **Navegador**, expanda o servidor e selecione o modelo ou a perspectiva a qual você deseja se conectar e clique em **Conectar**. Clique em um modelo ou perspectiva para exibir todos os objetos dessa visualização.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: b553256d3e6a498e36e8b5c98d90c6c14b10df75
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 78eedb9bd4f12644a1bc992d0786a43b8af767a9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224563"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507923"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Projete e implemente um banco de dados Oracle no Azure
 
@@ -43,17 +43,17 @@ Uma diferença importante é que, em uma implementação do Azure, recursos como
 
 A tabela a seguir lista algumas das diferenças entre uma implementação local e uma implementação do Azure de um banco de dados Oracle.
 
-> 
-> |  | **Implementação local** | **Implementação no Azure** |
-> | --- | --- | --- |
-> | **Rede** |LAN/WAN  |SDN (Rede definida por software)|
-> | **Grupo de segurança** |Ferramentas de restrições de IP/porta |[Grupo de segurança de rede (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
-> | **Resiliência** |MTBF (tempo médio entre falhas) |MTTR (tempo médio para recuperação)|
-> | **Manutenção planejada** |Aplicação de patch/upgrades|[Conjuntos de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (aplicação de patch/upgrades gerenciados pelo Azure) |
-> | **Recurso** |Dedicado  |Compartilhado com outros clientes|
-> | **Regiões** |Datacenters |[Pares de regiões](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
-> | **Armazenamento** |SAN/discos físicos |[Armazenamento gerenciado pelo Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-> | **Escala** |Escala vertical |Escala horizontal|
+
+|  | Implementação local | Implementação no Azure |
+| --- | --- | --- |
+| **Rede** |LAN/WAN  |SDN (Rede definida por software)|
+| **Grupo de segurança** |Ferramentas de restrições de IP/porta |[Grupo de segurança de rede (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
+| **Resiliência** |MTBF (tempo médio entre falhas) |MTTR (tempo médio para recuperação)|
+| **Manutenção planejada** |Aplicação de patch/upgrades|[Conjuntos de disponibilidade](../../windows/infrastructure-example.md) (aplicação de patch/upgrades gerenciados pelo Azure) |
+| **Recurso** |Dedicado  |Compartilhado com outros clientes|
+| **Regiões** |Datacenters |[Pares de regiões](../../regions.md#region-pairs)|
+| **Storage** |SAN/discos físicos |[Armazenamento gerenciado pelo Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+| **Escala** |Escala vertical |Escala horizontal|
 
 
 ### <a name="requirements"></a>Requisitos
@@ -116,11 +116,11 @@ O diagrama a seguir mostra o total de E/S de leitura e gravação. 59 GB de leit
 
 #### <a name="2-choose-a-vm"></a>2. escolher uma VM
 
-Com base nas informações coletadas do relatório AWR, a próxima etapa é escolher uma VM com um tamanho parecido que atenda às suas necessidades. Encontre uma lista de VMs disponíveis no artigo [Memória otimizada](../../linux/sizes-memory.md).
+Com base nas informações coletadas do relatório AWR, a próxima etapa é escolher uma VM com um tamanho parecido que atenda às suas necessidades. Encontre uma lista de VMs disponíveis no artigo [Memória otimizada](../../sizes-memory.md).
 
 #### <a name="3-fine-tune-the-vm-sizing-with-a-similar-vm-series-based-on-the-acu"></a>3. Ajuste o dimensionamento da VM com uma série de VMs semelhante com base no ACU
 
-Depois de escolher a VM, preste atenção às ACUs das VMs. Você pode escolher uma VM diferente com base no valor da ACU que atender melhor às suas necessidades. Para saber mais, confira [Unidade de computação do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/acu).
+Depois de escolher a VM, preste atenção às ACUs das VMs. Você pode escolher uma VM diferente com base no valor da ACU que atender melhor às suas necessidades. Para saber mais, confira [Unidade de computação do Azure](../../acu.md).
 
 ![Captura de tela da página de unidades de ACU](./media/oracle-design/acu_units.png)
 
@@ -143,8 +143,8 @@ Com base nos requisitos de largura de banda de sua rede, há vários tipos de ga
 
 - A latência de rede é maior em comparação com uma implantação local. Reduzir as viagens de ida e volta da rede pode melhorar significativamente o desempenho.
 - Para reduzir as viagens de ida e volta, consolide os aplicativos que têm transações alta ou aplicativos “comunicativos” na mesma máquina virtual.
-- Use máquinas virtuais com [rede acelerada](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) para melhorar o desempenho da rede.
-- Para determinadas distribuições do Linux, considere habilitar o [suporte a corte/desmapeamento](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
+- Use máquinas virtuais com [rede acelerada](../../../virtual-network/create-vm-accelerated-networking-cli.md) para melhorar o desempenho da rede.
+- Para determinadas distribuições do Linux, considere habilitar o [suporte a corte/desmapeamento](../../linux/configure-lvm.md#trimunmap-support).
 - Instale o [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) em uma máquina virtual separada.
 - As páginas enormes não são habilitadas no Linux por padrão. Considere habilitar páginas enormes e definir `use_large_pages = ONLY` no Oracle DB. Isso pode ajudar a aumentar o desempenho. Encontre mais informações [aqui](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
@@ -187,7 +187,7 @@ Quando você tiver uma visão clara dos requisitos de E/S, poderá escolher a co
 - Use a compactação de dados para reduzir E/S (para dados e índices).
 - Separe os logs da fase refazer, sistema e temps e desfaça o TS em discos de dados separados.
 - Não coloque arquivos de aplicativo em discos do SO padrão (/dev/sda). Esses discos são otimizados inicializações rápidas de VM, e talvez não forneçam um bom desempenho para seu aplicativo.
-- Ao usar VMs da série M no armazenamento Premium, habilite [acelerador de gravação](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) no disco de logs de restauração.
+- Ao usar VMs da série M no armazenamento Premium, habilite [acelerador de gravação](../../linux/how-to-enable-write-accelerator.md) no disco de logs de restauração.
 
 ### <a name="disk-cache-settings"></a>Configurações de cache de disco
 
@@ -225,7 +225,7 @@ Depois de instalar e configurar seu ambiente do Azure, a próxima etapa será pr
 - *Rede privada* (sub-redes): recomendamos que o serviço de aplicativo e o banco de dados estejam em sub-redes separadas, assim é possível definir um controle melhor por política de NSG.
 
 
-## <a name="additional-reading"></a>Leitura adicional
+## <a name="additional-reading"></a>Leituras adicionais
 
 - [Configurar o Oracle ASM](configure-oracle-asm.md)
 - [Configurar o Oracle Data Guard](configure-oracle-dataguard.md)

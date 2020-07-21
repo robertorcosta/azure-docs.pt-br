@@ -5,11 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: fe5efd2bf4c235688aad90ae37b54268d290540c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93a12d40e876293eb587ffba865a1d3b1f5f4983
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676124"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506019"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions o processamento confiável de eventos
 
@@ -69,7 +70,7 @@ A introdução de bibliotecas de tratamento de falhas às suas funções permite
 > [!NOTE]
 > [Polly](https://github.com/App-vNext/Polly) é um exemplo de uma biblioteca de resiliência e de tratamento de falhas transitórias para aplicativos C#.
 
-Ao trabalhar com bibliotecas de classe C# pré-instaladas, os [filtros de exceção](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch) permitem que você execute o código sempre que ocorrer uma exceção sem tratamento.
+Ao trabalhar com bibliotecas de classe C# pré-instaladas, os [filtros de exceção](/dotnet/csharp/language-reference/keywords/try-catch) permitem que você execute o código sempre que ocorrer uma exceção sem tratamento.
 
 Exemplos que demonstram como usar filtros de exceção estão disponíveis no repositório [SDK do Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) .
 
@@ -130,4 +131,4 @@ Para saber mais, consulte os recursos a seguir:
 
 - [Tratamento de erros do Azure Functions](./functions-bindings-error-pages.md)
 - [Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet)
-- [Criar uma função que se integra aos Aplicativos Lógicos do Azure](./functions-twitter-email.md)
+- [Criar uma função que é integrada aos Aplicativos Lógicos do Azure](./functions-twitter-email.md)

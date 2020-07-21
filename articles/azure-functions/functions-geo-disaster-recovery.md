@@ -4,11 +4,12 @@ description: Como usar regiões geográficas para redundância e para fazer fail
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.openlocfilehash: 481a716bd6ced5c304da41c70fdcfc687b76661d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 446a76b823ce3592a83d0c2f898041951361b47e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79080235"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506274"
 ---
 # <a name="azure-functions-geo-disaster-recovery"></a>Azure Functions recuperação de desastres geograficamente
 
@@ -21,7 +22,7 @@ Azure Functions executado em uma região específica.  Para obter maior disponib
 * Ativa/ativa. Ambas as regiões estão ativas e recebendo eventos (duplicados ou rotacionalmente). Ativo/ativo é recomendado para funções HTTPS em combinação com a porta frontal do Azure.
 * Ativo/passivo. Uma região está ativa e recebendo eventos, enquanto um secundário está ocioso.  Quando o failover é necessário, a região secundária é ativada e assume o processamento.  Isso é recomendado para funções não HTTP, como barramento de serviço e hubs de eventos.
 
-Leia como [executar aplicativos em várias regiões](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region) para obter mais informações sobre implantações de várias regiões.
+Leia como [executar aplicativos em várias regiões](/azure/architecture/reference-architectures/app-service-web-app/multi-region) para obter mais informações sobre implantações de várias regiões.
 
 ## <a name="activeactive-for-https-functions"></a>Ativo/ativo para funções HTTPS
 

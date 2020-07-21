@@ -4,16 +4,18 @@ description: Este artigo descreve como fazer backup e restaurar dados e metadado
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 07/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: aa98a13b84e89c90e29525fb6743ac33faf1d917
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 66d09c2faa52cee3e94402be708d654b548c0de1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82871304"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506988"
 ---
-# <a name="backup-and-restore"></a>Backup e restauração
+# <a name="analysis-services-database-backup-and-restore"></a>Backup e restauração de banco de dados Analysis Services
 
 O backup de bancos de dados de modelos tabulares no Azure Analysis Services é muito semelhante ao do Analysis Services local. A principal diferença é onde você armazena seus arquivos de backup. Os arquivos de backup devem ser salvos em um contêiner em uma [conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md). Você pode usar uma conta de armazenamento e um contêiner que já existam ou eles podem ser criados ao definir as configurações de armazenamento para o seu servidor.
 
@@ -45,7 +47,7 @@ Antes de fazer backup, é necessário definir as configurações de armazenament
 
 4. Selecione um contêiner ou crie um novo.
 
-    ![Selecione o contêiner](./media/analysis-services-backup/aas-backup-container.png)
+    ![Selecionar contêiner](./media/analysis-services-backup/aas-backup-container.png)
 
 5. Salve as configurações de backup.
 

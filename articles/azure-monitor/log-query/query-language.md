@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: 6b81aba553fc775821c80631aa83bbb3e8ac63b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1dda2df64dc116a950498aaf581ec39a86db72bb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80631790"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505730"
 ---
 # <a name="azure-monitor-log-queries"></a>Consultas de log do Azure Monitor
 
@@ -27,7 +27,7 @@ Os logs do Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log
 ## <a name="concepts"></a>Conceitos
 
 - [Analisar dados de log no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) fornece uma breve visão geral das consultas de log e descreve como os dados de log do Azure Monitor são estruturados.
-- [Exibir e analisar dados de log no Azure Monitor](../../azure-monitor/log-query/portals.md) explica os portais nos quais você pode criar e executar consultas de log.
+- [Exibir e analisar dados de log no Azure Monitor](./log-query-overview.md) explica os portais nos quais você pode criar e executar consultas de log.
 
 ## <a name="reference"></a>Referência
 

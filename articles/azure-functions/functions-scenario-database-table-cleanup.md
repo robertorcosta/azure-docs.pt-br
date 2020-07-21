@@ -4,16 +4,16 @@ description: Use o Azure Functions para agendar uma tarefa que se conecta ao ban
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 974d9da9bb5782672603f1ae8c58742941899a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29e90838d91de69af43ae9cf8ec0d99b534f66be
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254269"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506070"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usar o Azure Functions para conectar a um banco de dados SQL do Azure
 
-Este artigo mostra como usar Azure Functions para criar um trabalho agendado que se conecta a um banco de dados SQL do Azure ou Instância Gerenciada SQL do Azure. O código de função limpa as linhas em uma tabela no banco de dados. A nova função C# é criada com base em um modelo de gatilho de temporizador predefinido no Visual Studio 2019. Para dar suporte a esse cenário, você também precisa definir uma cadeia de conexão de banco de dados como uma configuração de aplicativo no aplicativo de funções. Para o Azure SQL Instância Gerenciada você precisa [habilitar o ponto de extremidade público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) para poder se conectar de Azure functions. Esse cenário usa uma operação em massa no banco de dados. 
+Este artigo mostra como usar Azure Functions para criar um trabalho agendado que se conecta a um banco de dados SQL do Azure ou Instância Gerenciada SQL do Azure. O código de função limpa as linhas em uma tabela no banco de dados. A nova função C# é criada com base em um modelo de gatilho de temporizador predefinido no Visual Studio 2019. Para dar suporte a esse cenário, você também precisa definir uma cadeia de conexão de banco de dados como uma configuração de aplicativo no aplicativo de funções. Para o Azure SQL Instância Gerenciada você precisa [habilitar o ponto de extremidade público](../azure-sql/managed-instance/public-endpoint-configure.md) para poder se conectar de Azure functions. Esse cenário usa uma operação em massa no banco de dados. 
 
 Se esta for sua primeira experiência trabalhando com funções C#, você deverá ler a [Referência do desenvolvedor de C# do Azure Functions](functions-dotnet-class-library.md).
 
@@ -23,7 +23,7 @@ Se esta for sua primeira experiência trabalhando com funções C#, você dever�
 
 + Este artigo demonstra um comando Transact-SQL que executa uma operação de limpeza em massa na tabela **SalesOrderHeader** no banco de dados de amostra AdventureWorksLT. Para criar o banco de dados de exemplo AdventureWorksLT, conclua as etapas no artigo [criar um banco de dados no banco de dados SQL do Azure usando o portal do Azure](../azure-sql/database/single-database-create-quickstart.md).
 
-+ Você precisa adicionar uma [regra de firewall no nível do servidor](../sql-database/sql-database-get-started-portal-firewall.md) para o endereço IP público do computador que usou para este início rápido. Essa regra é necessária para poder acessar a instância do banco de dados SQL do computador local.  
++ Você precisa adicionar uma [regra de firewall no nível do servidor](../azure-sql/database/firewall-create-server-level-portal-quickstart.md) para o endereço IP público do computador que usou para este início rápido. Essa regra é necessária para poder acessar a instância do banco de dados SQL do computador local.  
 
 ## <a name="get-connection-information"></a>Obter informações de conexão
 

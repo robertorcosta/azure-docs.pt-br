@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: f1ffd26a243d15f7ee6e06d6c52406a16327b4a0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d424cccc0a50198f3ca8c6c040afb87f44282d47
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086765"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508892"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Não é possível RDP para uma VM porque a VM é inicializada no modo de segurança
 
@@ -79,7 +79,7 @@ Para resolver esse problema, use o controle Serial para configurar a VM para ini
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco de SO a uma VM de recuperação
 
-1. [Anexe o disco do sistema operacional a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Anexe o disco do sistema operacional a uma VM de recuperação](./troubleshoot-recovery-disks-portal-windows.md).
 2. Inicie uma conexão de área de trabalho remota para a VM de recuperação.
 3. Verifique se o disco está sinalizado como **online** no console de gerenciamento de disco. Anote a letra da unidade atribuída ao disco do SO anexado.
 
@@ -143,4 +143,4 @@ Para habilitar o log de despejo e o Console Serial, execute o script a seguir.
     bcdedit /store F:\boot\bcd /enum
     ```
 
-5. [Desanexe o disco do SO e recrie a VM](../windows/troubleshoot-recovery-disks-portal.md). Em seguida, verifique se o problema for resolvido.
+5. [Desanexe o disco do SO e recrie a VM](./troubleshoot-recovery-disks-portal-windows.md). Em seguida, verifique se o problema for resolvido.

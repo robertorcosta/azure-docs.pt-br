@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 9f0c6350b89dcfecefcadcc166f7af35abc4b128
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16f6919577955bda5b04db26deb9fe78a467e364
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80300973"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509028"
 ---
 # <a name="boot-error--this-is-not-a-bootable-disk"></a>Erro de inicialização – este não é um disco inicializável
 
@@ -27,7 +27,7 @@ Este artigo fornece etapas para resolver problemas em que o disco não é inicia
 
 ## <a name="symptoms"></a>Sintomas
 
-Ao usar o [diagnóstico de inicialização](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para exibir a captura de tela da VM, você verá que a captura de tela exibe um prompt com a mensagem "este não é um disco inicializável. Insira um disquete inicializável e pressione qualquer tecla para tentar novamente... '.
+Ao usar o [diagnóstico de inicialização](./boot-diagnostics.md) para exibir a captura de tela da VM, você verá que a captura de tela exibe um prompt com a mensagem "este não é um disco inicializável. Insira um disquete inicializável e pressione qualquer tecla para tentar novamente... '.
 
    A figura 1
 
@@ -52,7 +52,7 @@ Essa mensagem de erro significa que o processo de inicialização do sistema ope
 
 ### <a name="create-and-access-a-repair-vm"></a>Criar e acessar uma VM de reparo
 
-1. Use as [etapas 1 a 3 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar uma VM de reparo.
+1. Use as [etapas 1 a 3 dos comandos de reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar uma VM de reparo.
 2. Use a Conexão de Área de Trabalho Remota para conectar-se à VM de reparo.
 
 ### <a name="set-partition-status-to-active"></a>Definir status da partição como ativo
@@ -148,4 +148,4 @@ Para habilitar a coleta de despejo de memória e o console serial, execute o seg
 
 ### <a name="rebuild-the-original-vm"></a>Recriar a VM original
 
-Use a [etapa 5 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para remontar a VM.
+Use a [etapa 5 dos comandos de reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para remontar a VM.

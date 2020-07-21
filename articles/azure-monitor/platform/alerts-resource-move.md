@@ -7,20 +7,20 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: 8e917d279d8de3dbe6de540a4ea1ef8cec1b6ffc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ea5c8552d35db67a1d2caf20c0143c74cdd642e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830053"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505475"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Como atualizar regras de alerta ou regras de ação quando o recurso de destino for movido para uma região diferente do Azure
 
-Este artigo descreve por que [as regras de alerta](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview) e regras de [ação](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules) existentes podem ser afetadas quando você move outros recursos do Azure entre regiões e como identificar e resolver esses problemas. Verifique a [documentação de movimentação de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/move-region) principais para obter informações adicionais sobre quando o recurso é movido entre regiões úteis e uma lista de verificação de criação de um processo de movimentação.
+Este artigo descreve por que [as regras de alerta](./alerts-overview.md) e regras de [ação](./alerts-action-rules.md) existentes podem ser afetadas quando você move outros recursos do Azure entre regiões e como identificar e resolver esses problemas. Verifique a [documentação de movimentação de recursos](../../azure-resource-manager/management/move-region.md) principais para obter informações adicionais sobre quando o recurso é movido entre regiões úteis e uma lista de verificação de criação de um processo de movimentação.
 
 ## <a name="why-the-problem-exists"></a>Por que o problema existe
 
-Regras de alerta e regras de ação fazem referência a outros recursos do Azure. Os exemplos incluem [VMs do Azure](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate), [SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-move-resources-across-regions)e [armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-move). Quando você move os recursos aos quais essas regras se referem, é provável que as regras parem de funcionar corretamente porque não conseguem encontrar os recursos que eles referenciam.
+Regras de alerta e regras de ação fazem referência a outros recursos do Azure. Os exemplos incluem [VMs do Azure](../../site-recovery/azure-to-azure-tutorial-migrate.md), [SQL do Azure](../../azure-sql/database/move-resources-across-regions.md)e [armazenamento do Azure](../../storage/common/storage-account-move.md). Quando você move os recursos aos quais essas regras se referem, é provável que as regras parem de funcionar corretamente porque não conseguem encontrar os recursos que eles referenciam.
 
 Há dois motivos principais pelos quais suas regras podem parar de funcionar depois de mover os recursos de destino:
 
@@ -94,20 +94,20 @@ Se **apenas alguns** dos recursos no escopo tiverem sido movidos, você precisar
 
 ### <a name="change-scope-of-a-rule-using-rest-api"></a>Alterar o escopo de uma regra usando a API REST
 
-1. Obter a regra existente ([alertas de métrica](https://docs.microsoft.com/rest/api/monitor/metricalerts/get), [alertas do log de atividades](https://docs.microsoft.com/rest/api/monitor/activitylogalerts/get))
-2. Modificar o escopo ([alertas do log de atividades](https://docs.microsoft.com/rest/api/monitor/activitylogalerts/update))
-3. Reimplantar a regra ([alertas de métrica](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate), [alertas do log de atividades](https://docs.microsoft.com/rest/api/monitor/activitylogalerts/createorupdate))
+1. Obter a regra existente ([alertas de métrica](/rest/api/monitor/metricalerts/get), [alertas do log de atividades](/rest/api/monitor/activitylogalerts/get))
+2. Modificar o escopo ([alertas do log de atividades](/rest/api/monitor/activitylogalerts/update))
+3. Reimplantar a regra ([alertas de métrica](/rest/api/monitor/metricalerts/createorupdate), [alertas do log de atividades](/rest/api/monitor/activitylogalerts/createorupdate))
 
 ### <a name="change-scope-of-a-rule-using-powershell"></a>Alterar o escopo de uma regra usando o PowerShell
 
-1. Obtenha a regra existente ([alertas de métrica](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricalertrulev2), [alertas do log de atividades](https://docs.microsoft.com/powershell/module/az.monitor/get-azactivitylogalert), regras de [ação](https://docs.microsoft.com/powershell/module/az.alertsmanagement/Get-AzActionRule)).
+1. Obtenha a regra existente ([alertas de métrica](/powershell/module/az.monitor/get-azmetricalertrulev2), [alertas do log de atividades](/powershell/module/az.monitor/get-azactivitylogalert), regras de [ação](/powershell/module/az.alertsmanagement/get-azactionrule)).
 2. Modifique o escopo. Se necessário, divida em duas regras (relevantes para alguns casos de alertas de métrica, conforme observado acima).
-3. Reimplante a regra ([alertas de métrica](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2), [alertas do log de atividades](https://docs.microsoft.com/powershell/module/az.monitor/enable-azactivitylogalert), regras de [ação](https://docs.microsoft.com/powershell/module/az.alertsmanagement/set-azactionrule)).
+3. Reimplante a regra ([alertas de métrica](/powershell/module/az.monitor/add-azmetricalertrulev2), [alertas do log de atividades](/powershell/module/az.monitor/enable-azactivitylogalert), regras de [ação](/powershell/module/az.alertsmanagement/set-azactionrule)).
 
 ### <a name="change-the-scope-of-a-rule-using-azure-cli"></a>Alterar o escopo de uma regra usando CLI do Azure
 
-1.  Obtenha a regra existente ([alertas de métrica](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show), [alertas do log de atividades](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
-2.  Atualizar o escopo da regra diretamente ([alertas de métrica](https://docs.microsoft.com/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), alertas do log de [atividades](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope))
+1.  Obtenha a regra existente ([alertas de métrica](/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show), [alertas do log de atividades](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
+2.  Atualizar o escopo da regra diretamente ([alertas de métrica](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), alertas do log de [atividades](/cli/azure/monitor/activity-log/alert/scope))
 3.  Se necessário, divida em duas regras (relevantes para alguns casos de alertas de métrica, conforme observado acima).
 
 ## <a name="next-steps"></a>Próximas etapas

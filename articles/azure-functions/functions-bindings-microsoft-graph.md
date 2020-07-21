@@ -5,11 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: ef746186717f3eb6bb93263c7f86c26606f65ea9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 290765b17cf34417176930dc9116309bdfd754c8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84322508"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506529"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associações do Microsoft Graph do Azure Functions
 
@@ -58,7 +59,7 @@ Se você estiver usando o Visual Studio, poderá obter as extensões instalando 
 
 ### <a name="configuring-authentication--authorization"></a>Configurando a Autenticação/Autorização
 
-As associações descritas neste artigo exigem que uma identidade seja usada. Isso permite que o Microsoft Graph aplique permissões e interações de auditoria. A identidade pode ser um usuário acessando seu aplicativo ou o aplicativo em si. Para configurar essa identidade, configure [Autenticação/Autorização do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) com o Azure Active Directory. Você também precisará solicitar quaisquer permissões de recurso que suas funções exijam.
+As associações descritas neste artigo exigem que uma identidade seja usada. Isso permite que o Microsoft Graph aplique permissões e interações de auditoria. A identidade pode ser um usuário acessando seu aplicativo ou o aplicativo em si. Para configurar essa identidade, configure [Autenticação/Autorização do Serviço de Aplicativo](../app-service/overview-authentication-authorization.md) com o Azure Active Directory. Você também precisará solicitar quaisquer permissões de recurso que suas funções exijam.
 
 > [!Note] 
 > A extensão do Microsoft Graph tem suporte apenas para autenticação do Azure AD. Os usuários precisam fazer logon com uma conta corporativa ou de estudante.
@@ -668,7 +669,7 @@ Esta associação exige as seguintes permissões do Azure AD:
 
 A associação expõe os seguintes tipos a funções .NET:
 - byte[]
-- STREAM
+- Fluxo
 - string
 - Microsoft.Graph.DriveItem
 
@@ -816,7 +817,7 @@ Esta associação exige as seguintes permissões do Azure AD:
 
 A associação expõe os seguintes tipos a funções .NET:
 - byte[]
-- STREAM
+- Fluxo
 - string
 - Microsoft.Graph.DriveItem
 
@@ -982,7 +983,7 @@ Webhooks permitem reagir a eventos no Microsoft Graph. Para dar suporte a webhoo
 - Uma [associação de entrada de assinatura do webhook do Microsoft Graph](#webhook-input) permite que você liste as assinaturas existentes e, opcionalmente, atualize-as.
 - Uma [associação de saída de assinatura de webhook do Microsoft Graph](#webhook-output) permite que você crie ou exclua assinaturas do webhook.
 
-As associações em si não exigem permissões do Azure AD, mas você precisa solicitar permissões relevantes para o tipo de recurso ao qual você deseja reagir. Para obter uma lista de quais permissões são necessárias para cada tipo de recurso, consulte [permissões de assinatura](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
+As associações em si não exigem permissões do Azure AD, mas você precisa solicitar permissões relevantes para o tipo de recurso ao qual você deseja reagir. Para obter uma lista de quais permissões são necessárias para cada tipo de recurso, consulte [permissões de assinatura](/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
 
 Para obter mais informações sobre webhooks, confira [Como trabalhar com webhooks no Microsoft Graph].
 
@@ -992,7 +993,7 @@ Para obter mais informações sobre webhooks, confira [Como trabalhar com webhoo
 
 ## <a name="webhook-trigger"></a>Gatilho de webhook
 
-O gatilho de webhook do Microsoft Graph permite que uma função reaja a um webhook de entrada do Microsoft Graph. Cada instância deste gatilho pode reagir a um tipo de recurso do Microsoft Graph.
+O gatilho de webhook do Microsoft Graph permite que uma função reaja a um webhook de entrada do Microsoft Graph. Cada instância desse gatilho pode reagir a um tipo de recurso do Microsoft Graph.
 
 Essa seção contém os seguintes procedimentos:
 

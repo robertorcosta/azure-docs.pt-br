@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: a60200bd35d142b8b55a40d6912f946f9421f52e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a97bd1327ab3cc2a35f94553259fb6095217fe7e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207648"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508212"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Tamanhos das máquinas virtuais do Windows no Azure
 
@@ -28,7 +28,7 @@ Este artigo descreve os tamanhos e as opções disponíveis de máquinas virtuai
 | [Computação de alto desempenho](../sizes-hpc.md) | HB, HBv2, HC e H | Nossas máquinas virtuais de CPU mais rápidas e potentes com adaptadores de rede de alta taxa de transferência (RDMA) opcionais. |
 
 - Para obter informações sobre os preços dos vários tamanhos, consulte [Preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows).
-- Para ver os limites gerais em VMs do Azure, consulte [Limites de assinatura e serviços do Azure, cotas e restrições](../../azure-subscription-service-limits.md).
+- Para ver os limites gerais em VMs do Azure, consulte [Limites de assinatura e serviços do Azure, cotas e restrições](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Os custos de armazenamento são calculados separadamente com base nas páginas usadas na conta de armazenamento. Para obter detalhes, [Preço de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 - Saiba mais sobre como as [ACUs (unidade de computação do Azure)](../acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.
 
@@ -36,9 +36,9 @@ Este artigo descreve os tamanhos e as opções disponíveis de máquinas virtuai
 
 Para obter informações sobre como usar a API REST para consulta de tamanhos de VM, confira o seguinte:
 
-- [Listar os tamanhos de máquina virtual disponíveis para redimensionamento](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
-- [Listar os tamanhos de máquina virtual disponíveis para uma assinatura](https://docs.microsoft.com/rest/api/compute/resourceskus/list)
-- [Listar os tamanhos de máquina virtual disponíveis em um conjunto de disponibilidade](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)
+- [Listar os tamanhos de máquina virtual disponíveis para redimensionamento](/rest/api/compute/virtualmachines/listavailablesizes)
+- [Listar os tamanhos de máquina virtual disponíveis para uma assinatura](/rest/api/compute/resourceskus/list)
+- [Listar os tamanhos de máquina virtual disponíveis em um conjunto de disponibilidade](/rest/api/compute/availabilitysets/listavailablesizes)
 
 ## <a name="acu"></a>ACU
 

@@ -12,11 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: daberry
-ms.openlocfilehash: fdbf07fa51adf8151e80d230734ebe53d36b5390
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3766c31add02799c62bca7e9063e723e0a5b498e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124781"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509351"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Solução de problemas de falha de alocação quando você cria, reinicia ou redimensiona VMs no Azure
 
@@ -78,7 +79,7 @@ Se você estiver usando zonas de disponibilidade, tente outra zona dentro da reg
 
 Se sua solicitação de alocação for grande (mais de 500 núcleos), consulte o guia nas seções a seguir para dividir a solicitação em implantações menores.
 
-Tente [reimplantar a VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows). Reimplantar a VM aloca a VM para um novo cluster dentro da região.
+Tente [reimplantar a VM](./redeploy-to-new-node-windows.md). Reimplantar a VM aloca a VM para um novo cluster dentro da região.
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Falhas de alocação para tamanhos de VM mais antigos (Av1, Dv1, DSv1, D15v2, DS15v2 etc.)
 
@@ -93,7 +94,7 @@ Tente [reimplantar a VM](https://docs.microsoft.com/azure/virtual-machines/troub
 
 ## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>Falhas de alocação para implantações grandes (mais de 500 núcleos)
 
-Reduza o número de instâncias do tamanho de VM solicitado e repita a operação de implantação. Além disso, para implantações maiores, convém avaliar os [conjunto de dimensionamento de máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/). O número de instâncias VM pode automaticamente aumentar ou diminuir em resposta à demanda ou a um agendamento definido, e você tem uma maior probabilidade de êxito de alocação porque as implantações podem ser distribuídas em vários clusters. 
+Reduza o número de instâncias do tamanho de VM solicitado e repita a operação de implantação. Além disso, para implantações maiores, convém avaliar os [conjunto de dimensionamento de máquinas virtuais do Azure](../../virtual-machine-scale-sets/index.yml). O número de instâncias VM pode automaticamente aumentar ou diminuir em resposta à demanda ou a um agendamento definido, e você tem uma maior probabilidade de êxito de alocação porque as implantações podem ser distribuídas em vários clusters. 
 
 ## <a name="background-information"></a>Informações básicas
 ### <a name="how-allocation-works"></a>Como funciona a alocação
@@ -104,5 +105,3 @@ Os servidores são particionados em clusters nos datacenters do Microsoft Azure.
 Quando a solicitação de alocação é fixada a um cluster, é mais provável que haja falha na localização de recursos gratuitos, pois o pool de recursos disponíveis é menor. Além disso, quando a solicitação de alocação é fixada a um cluster, mas não há suporte para o tipo de recurso solicitado ao cluster, a solicitação falha mesmo que o cluster tenha recursos livres. O Diagrama 3 a seguir demonstra o caso em que uma alocação fixada falha porque o único cluster candidato não dispõe de recursos gratuitos. O diagrama 4 demonstra o caso em que uma alocação fixada falha porque o único cluster candidato não é compatível com o tamanho da VM solicitado, mesmo que o cluster disponha de recursos livres.
 
 ![Falha na alocação fixada](./media/virtual-machines-common-allocation-failure/Allocation2.png)
-
-

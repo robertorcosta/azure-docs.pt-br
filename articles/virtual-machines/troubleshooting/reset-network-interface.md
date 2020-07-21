@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: a8bd12d98b76d5848753987c4f7bcb76d4e2266d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9a4cf8b9bbf88ae792f345d330503cb4698c430
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706589"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509201"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Como redefinir o adaptador de rede de uma VM Windows do Azure 
 
@@ -46,7 +47,7 @@ Este artigo mostra como redefinir o adaptador de rede para uma VM do Windows no 
 
 #### <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 
-1. Verifique se você tem [o mais recente Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) instalado
+1. Verifique se você tem [o mais recente Azure PowerShell](/powershell/azure/overview) instalado
 2. Abra uma sessão privilegiada do Azure PowerShell (Executar como administrador). Execute os seguintes comandos:
 
     ```powershell
@@ -89,7 +90,7 @@ Para redefinir o adaptador de rede, siga estas etapas:
 
 #### <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 
-1. Verifique se você tem [as Azure PowerShell mais recentes](https://docs.microsoft.com/powershell/azure/overview) instaladas.
+1. Verifique se você tem [as Azure PowerShell mais recentes](/powershell/azure/overview) instaladas.
 2. Abra uma sessão privilegiada do Azure PowerShell (Executar como administrador). Execute os seguintes comandos:
 
     ```powershell

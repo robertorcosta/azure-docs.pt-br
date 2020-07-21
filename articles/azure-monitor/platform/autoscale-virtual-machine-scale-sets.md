@@ -9,18 +9,18 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: c003d66f59f932d818740bdd378280049bbeb7d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37245711008442acd0379a35b393ac88c3775482
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373872"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505529"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração avançada de autoescala usando modelos do Resource Manager para Conjuntos de Dimensionamento de VMs
 Você pode escalar e reduzir horizontalmente Conjuntos de Dimensionamento de Máquina Virtual com base nos limites de métrica de desempenho, em uma agenda recorrente ou em determinada data. Você também pode configurar notificações por email e webhook para ações de escala. Este passo a passo mostra um exemplo de configuração de todos esses objetos usando um modelo do Resource Manager em um Conjunto de Dimensionamento de VMs.
 
 > [!NOTE]
-> Este passo a passo explica as etapas para conjuntos de dimensionamento de VM, as mesmas informações se aplicam ao dimensionamento automático de [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/), [Serviço de Aplicativo - Aplicativos Web](https://azure.microsoft.com/services/app-service/web/) e [serviços de Gerenciamento de API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Para uma configuração simples de expandir/reduzir em Conjuntos de Dimensionamento de VMs com base em uma métrica de desempenho simples, como CPU, consulte os documentos sobre o [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) e o [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
+> Este passo a passo explica as etapas para conjuntos de dimensionamento de VM, as mesmas informações se aplicam ao dimensionamento automático de [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/), [Serviço de Aplicativo - Aplicativos Web](https://azure.microsoft.com/services/app-service/web/) e [serviços de Gerenciamento de API](../../api-management/api-management-key-concepts.md) Para uma configuração simples de expandir/reduzir em Conjuntos de Dimensionamento de VMs com base em uma métrica de desempenho simples, como CPU, consulte os documentos sobre o [Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) e o [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
 >
 >
 
@@ -195,7 +195,7 @@ Neste passo a passo, usamos [Azure Resource Manager](https://resources.azure.com
             }
           }
     ```
-    Para campos com suporte e seus valores, confira [Documentação da API REST de Dimensionamento Automático](https://msdn.microsoft.com/library/azure/dn931928.aspx). Agora, sua configuração de dimensionamento automático contém os três perfis explicados anteriormente.
+    Para campos com suporte e seus valores, confira [Documentação da API REST de Dimensionamento Automático](/rest/api/monitor/autoscalesettings). Agora, sua configuração de dimensionamento automático contém os três perfis explicados anteriormente.
 
 7. Finalmente, veja a seção **Notificação** de Dimensionamento Automático. As notificações de dimensionamento automático permitem fazer três coisas quando uma ação de escala ou redução horizontal é disparada com êxito.
    - Notificar o administrador e coadministradores de sua assinatura
@@ -243,9 +243,9 @@ Use estes links para saber mais sobre o dimensionamento automático.
 
 [Práticas Recomendadas para o Serviço de Aplicativo do Azure](autoscale-best-practices.md)
 
-[Gerenciar o dimensionamento automático usando o PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+[Gerenciar o dimensionamento automático usando o PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Gerenciar o dimensionamento automático usando a CLI](cli-samples.md#autoscale)
+[Gerenciar o dimensionamento automático usando a CLI](../samples/cli-samples.md#autoscale)
 
 [Configurar webhooks e notificações por email para dimensionamento automático](autoscale-webhook-email.md)
 

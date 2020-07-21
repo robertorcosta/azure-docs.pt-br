@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: 4c10a2dcd55c1605cfafe6c67cfefd9d8a3c5f9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f5a414f00ffa50114f090fc19f37b8a85428547
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71057980"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508994"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Não é possível se conectar remotamente a uma máquina virtual Windows Server 2016 no Azure por causa de netvsc.sys.
 
@@ -69,7 +69,7 @@ Conectar-se ao [o Console Serial, abra uma instância do PowerShell](serial-cons
 
 ### <a name="repair-the-vm-offline"></a>Reparar a VM Offline
 
-1. [Anexar o disco do sistema para uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Anexar o disco do sistema para uma VM de recuperação](./troubleshoot-recovery-disks-portal-windows.md).
 
 2. Inicie uma conexão de área de trabalho remota para a VM de recuperação.
 
@@ -114,7 +114,7 @@ Conectar-se ao [o Console Serial, abra uma instância do PowerShell](serial-cons
     reg unload HKLM\BROKENSYSTEM
     ```
 
-16. [Desanexar o disco do sistema e criar VM novamente](../windows/troubleshoot-recovery-disks-portal.md).
+16. [Desanexar o disco do sistema e criar VM novamente](./troubleshoot-recovery-disks-portal-windows.md).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 

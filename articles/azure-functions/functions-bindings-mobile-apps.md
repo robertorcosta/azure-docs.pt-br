@@ -5,19 +5,19 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 3f16f2ef077a1fc3c82075aaf7b7685f941d0a31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6810ba76379e78d3cde4f3cd341d501be3725257
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82559584"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506325"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Associações de Aplicativos Móveis para o Azure Functions 
 
 > [!NOTE]
 > Associações de aplicativos móveis do Azure só estão disponíveis para o Azure Functions 1.x. Eles não têm suporte no Azure Functions 2. x e superior.
 
-Este artigo explica como trabalhar com associações dos [Aplicativos Móveis do Azure](../app-service-mobile/app-service-mobile-value-prop.md) no Azure Functions. O Azure Functions dá suporte a associações de entrada e saída para os Aplicativos Móveis.
+Este artigo explica como trabalhar com associações dos [Aplicativos Móveis do Azure](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop) no Azure Functions. O Azure Functions dá suporte a associações de entrada e saída para os Aplicativos Móveis.
 
 As associações dos Aplicativos Móveis permitem ler e atualizar tabelas de dados em aplicativos móveis.
 

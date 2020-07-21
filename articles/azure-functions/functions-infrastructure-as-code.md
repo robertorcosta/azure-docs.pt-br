@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b73b8418b202563ca7c4a73181b1b1b404db6ee2
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: e56c76583f601c2e13ab4a35c1fef2996d2e3e67
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170387"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506223"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implantação de recursos para seu aplicativo de funções do Azure Functions
 
@@ -28,8 +28,8 @@ Uma implantação Azure Functions normalmente consiste nesses recursos:
 
 | Recurso                                                                           | Requisito | Referência de sintaxe e propriedades                                                         |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
-| Um aplicativo de funções                                                                     | Obrigatório    | [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)                             |
-| Uma conta de [armazenamento do Azure](../storage/index.yml)                                   | Obrigatório    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| Um aplicativo de funções                                                                     | Necessária    | [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)                             |
+| Uma conta de [armazenamento do Azure](../storage/index.yml)                                   | Necessária    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | Um componente [Application insights](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft. insights/Components](/azure/templates/microsoft.insights/components)         |
 | Um [plano de hospedagem](./functions-scale.md)                                             | Opcional<sup>1</sup>    | [Microsoft. Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
 
@@ -309,7 +309,7 @@ O plano Premium oferece o mesmo dimensionamento do plano de consumo, mas inclui 
 
 ### <a name="create-a-premium-plan"></a>Criar um plano Premium
 
-Um plano Premium é um tipo especial de recurso "ServerFarm". Você pode especificá-lo usando `EP1` `EP2` ou, ou `EP3` para o `Name` valor da propriedade no `sku` [objeto Description](https://docs.microsoft.com/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object).
+Um plano Premium é um tipo especial de recurso "ServerFarm". Você pode especificá-lo usando `EP1` `EP2` ou, ou `EP3` para o `Name` valor da propriedade no `sku` [objeto Description](/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object).
 
 ```json
 {
@@ -516,7 +516,7 @@ Os aplicativos do Linux também devem incluir uma `linuxFxVersion` propriedade e
 }
 ```
 
-Se você estiver [implantando uma imagem de contêiner personalizada](./functions-create-function-linux-custom-image.md), deverá especificá-la com `linuxFxVersion` e incluir a configuração que permite que a imagem seja puxada, como no [aplicativo Web para contêineres](/azure/app-service/containers). Além disso, defina `WEBSITES_ENABLE_APP_SERVICE_STORAGE` como `false` , pois o conteúdo do aplicativo é fornecido no próprio contêiner:
+Se você estiver [implantando uma imagem de contêiner personalizada](./functions-create-function-linux-custom-image.md), deverá especificá-la com `linuxFxVersion` e incluir a configuração que permite que a imagem seja puxada, como no [aplicativo Web para contêineres](../app-service/containers/index.yml). Além disso, defina `WEBSITES_ENABLE_APP_SERVICE_STORAGE` como `false` , pois o conteúdo do aplicativo é fornecido no próprio contêiner:
 
 ```json
 {
@@ -649,7 +649,7 @@ Você pode usar qualquer uma das seguintes maneiras para implantar o modelo:
 
 * [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [CLI do Azure](../azure-resource-manager/templates/deploy-cli.md)
-* [Portal do Azure](../azure-resource-manager/templates/deploy-portal.md)
+* [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
 * [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Botão Implantar no Azure

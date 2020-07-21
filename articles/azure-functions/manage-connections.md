@@ -3,12 +3,12 @@ title: Gerenciar conexões no Azure Functions
 description: Saiba como evitar problemas de desempenho no Azure Functions usando clientes de conexão estática.
 ms.topic: conceptual
 ms.date: 02/25/2018
-ms.openlocfilehash: 872ad9a1b8f0a7da6fe410e68f08469ac11045a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ab59d82ad4b11e4ac5179ef727392a83bb263e3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846775"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505985"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gerenciar conexões no Azure Functions
 
@@ -24,8 +24,7 @@ Ao solucionar problemas, certifique-se de ter habilitado Application Insights pa
 
 ## <a name="static-clients"></a>Clientes estáticos
 
-Para evitar manter mais conexões que o necessário, reutilize as instâncias do cliente em vez de criar novas com cada invocação de função. É recomendável reutilizar conexões de cliente para qualquer idioma em que você possa escrever sua função. Por exemplo, clientes .NET como o [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx), o [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
-)e os clientes de armazenamento do Azure podem gerenciar conexões se você usar um único cliente estático.
+Para evitar manter mais conexões que o necessário, reutilize as instâncias do cliente em vez de criar novas com cada invocação de função. É recomendável reutilizar conexões de cliente para qualquer idioma em que você possa escrever sua função. Por exemplo, clientes .NET como o [HttpClient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1), o [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient)e os clientes de armazenamento do Azure podem gerenciar conexões se você usar um único cliente estático.
 
 Aqui estão algumas diretrizes a serem seguidas quando você estiver usando um cliente específico do serviço em um aplicativo Azure Functions:
 
@@ -39,7 +38,7 @@ Esta seção demonstra as melhores práticas para criar e usar clientes de seu c
 
 ### <a name="httpclient-example-c"></a>Exemplo do HttpClient (C#)
 
-Veja um exemplo de código de função C# que cria uma instância [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) estática:
+Veja um exemplo de código de função C# que cria uma instância [HttpClient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1) estática:
 
 ```cs
 // Create a single, static HttpClient
@@ -52,7 +51,7 @@ public static async Task Run(string input)
 }
 ```
 
-Uma pergunta comum sobre o [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) no .net é "Devo descartar meu cliente?" Em geral, você descartar objetos que implementam `IDisposable` quando você terminar de usá-los. Mas você não descartar um cliente estático porque não está pronto usando-o quando a função termina. Você quer que o cliente estático permaneça durante a duração do aplicativo.
+Uma pergunta comum sobre o [HttpClient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1) no .net é "Devo descartar meu cliente?" Em geral, você descartar objetos que implementam `IDisposable` quando você terminar de usá-los. Mas você não descartar um cliente estático porque não está pronto usando-o quando a função termina. Você quer que o cliente estático permaneça durante a duração do aplicativo.
 
 ### <a name="http-agent-examples-javascript"></a>Exemplos de agente HTTP (JavaScript)
 
@@ -76,8 +75,7 @@ http.request(options, onResponseCallback);
 
 ### <a name="documentclient-code-example-c"></a>Exemplo de código DocumentClient (C#)
 
-O [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
-) conecta uma instância do Azure Cosmos DB. A documentação do Azure Cosmos DB recomenda que você [use um cliente singleton do Azure Cosmos DB pelo tempo de vida do aplicativo](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage). O exemplo a seguir mostra um padrão para fazer isso em uma função:
+O [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient) conecta uma instância do Azure Cosmos DB. A documentação do Azure Cosmos DB recomenda que você [use um cliente singleton do Azure Cosmos DB pelo tempo de vida do aplicativo](../cosmos-db/performance-tips.md#sdk-usage). O exemplo a seguir mostra um padrão para fazer isso em uma função:
 
 ```cs
 #r "Microsoft.Azure.Documents.Client"
@@ -126,14 +124,13 @@ module.exports = async function (context) {
 
 ## <a name="sqlclient-connections"></a>Conexões SqlClient
 
-Seu código de função pode usar o .NET Framework Provedor de Dados para SQL Server ([SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx)) para fazer conexões com um banco de dados relacional do SQL. Esse também é o provedor subjacente para estruturas de dados que dependem de ADO.NET, como [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Ao contrário das conexões [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) e [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
-), o ADO.NET implementa o pool de conexões por padrão. Mas como você ainda pode ficar sem conexões, você deve otimizar as conexões com o banco de dados. Para obter mais informações, consulte [Pool de Conexões do SQL Server (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling).
+Seu código de função pode usar o .NET Framework Provedor de Dados para SQL Server ([SqlClient](/dotnet/api/system.data.sqlclient?view=dotnet-plat-ext-3.1)) para fazer conexões com um banco de dados relacional do SQL. Esse também é o provedor subjacente para estruturas de dados que dependem de ADO.NET, como [Entity Framework](/ef/ef6/). Ao contrário das conexões [HttpClient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1) e [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient), o ADO.NET implementa o pool de conexões por padrão. Mas como você ainda pode ficar sem conexões, você deve otimizar as conexões com o banco de dados. Para obter mais informações, consulte [Pool de Conexões do SQL Server (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling).
 
 > [!TIP]
-> Algumas estruturas de dados, como Entity Framework, normalmente recebem cadeias de conexão da seção **connectionStrings** de um arquivo de configuração. Nesse caso, é necessário adicionar explicitamente as cadeias de conexão de banco de dados SQL à coleção **Cadeias de conexão** das configurações de aplicativo de funções e no [local.settings.json file](functions-run-local.md#local-settings-file) no projeto local. Se você estiver criando uma instância de [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) em seu código de função, deverá armazenar o valor da cadeia de conexão nas **configurações do aplicativo** com suas outras conexões.
+> Algumas estruturas de dados, como Entity Framework, normalmente recebem cadeias de conexão da seção **connectionStrings** de um arquivo de configuração. Nesse caso, é necessário adicionar explicitamente as cadeias de conexão de banco de dados SQL à coleção **Cadeias de conexão** das configurações de aplicativo de funções e no [local.settings.json file](functions-run-local.md#local-settings-file) no projeto local. Se você estiver criando uma instância de [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection?view=dotnet-plat-ext-3.1) em seu código de função, deverá armazenar o valor da cadeia de conexão nas **configurações do aplicativo** com suas outras conexões.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre por que recomendamos clientes estáticos, consulte [antipadrão de instanciação impróprio](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/).
+Para obter mais informações sobre por que recomendamos clientes estáticos, consulte [antipadrão de instanciação impróprio](/azure/architecture/antipatterns/improper-instantiation/).
 
 Para obter mais dicas de desempenho do Azure Functions, consulte [Melhore o desempenho e a confiabilidade do Azure Functions](functions-best-practices.md).

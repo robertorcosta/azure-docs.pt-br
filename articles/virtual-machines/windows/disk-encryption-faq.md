@@ -8,11 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: d9374f83110176e6705e2c6cca6c7794738a8c6e
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 78d4ffda62b98ca57a8204e6037f8ccd8c470924
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848831"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508535"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Perguntas frequentes sobre Azure Disk Encryption para máquinas virtuais do Windows
 
@@ -133,11 +134,11 @@ O Backup do Azure fornece um mecanismo para fazer backup e restaurar VMs criptog
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Onde posso fazer perguntas ou fornecer comentários?
 
-Você pode fazer perguntas ou comentários na [Página de P e R da Microsoft para Azure Disk Encryption](https://docs.microsoft.com/answers/topics/azure-disk-encryption.html).
+Você pode fazer perguntas ou comentários na [Página de P e R da Microsoft para Azure Disk Encryption](/answers/topics/azure-disk-encryption.html).
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu mais sobre as perguntas mais frequentes relativas ao Azure Disk Encryption. Para obter mais informações sobre esse serviço, veja os seguintes artigos:
 
 - [Visão geral do Azure Disk Encryption](disk-encryption-overview.md)
-- [Aplicar a criptografia de disco na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
+- [Aplicar a criptografia de disco na Central de Segurança do Azure](../../security-center/security-center-virtual-machine-protection.md)
 - [Criptografia de dados em repouso do Azure](../../security/fundamentals/encryption-atrest.md)

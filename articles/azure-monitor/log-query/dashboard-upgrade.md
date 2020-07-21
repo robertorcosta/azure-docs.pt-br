@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: 6fb9f691afc8874b19ca4575408027357f07cc89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2824d46917536957839a5734a8d446da7a44ee9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833529"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505764"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Atualizando suas visualizações do painel de Log Analytics
 
@@ -25,7 +25,7 @@ Essa nova tecnologia de visualização é abrindo o caminho para experiências n
 
 Os painéis do Azure são uma maneira de visualizar o status de toda a área de superfície do Azure. Elas foram projetadas para fornecer um único painel de vidro para o status de imóveis do Azure e permitir uma variedade de atalhos para ações comuns. 
 
-Para obter mais informações, consulte [painéis do Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards)
+Para obter mais informações, consulte [painéis do Azure](../../azure-portal/azure-portal-dashboards.md)
 
 
 ## <a name="upgrading-log-analytics-dashboard-parts"></a>Atualizando Log Analytics partes do painel
@@ -68,7 +68,7 @@ Log Analytics visualizações fixadas em um painel têm algum comportamento espe
 
 ### <a name="query-time-scope---30-day-limit"></a>Escopo do tempo de consulta-limite de 30 dias
 
-Como os painéis podem conter várias visualizações de várias consultas, o escopo de tempo para uma consulta fixa única é limitado a 30 dias. Uma única consulta pode ser executada apenas em um período menor ou igual a 30 dias. Essa limitação é para garantir um tempo de carregamento razoável do painel.
+Como os painéis podem conter várias visualizações de várias consultas, o escopo de tempo para uma consulta fixada única é limitado a 30 dias. Uma única consulta pode ser executada apenas em um período menor ou igual a 30 dias. Essa limitação é para garantir um tempo de carregamento razoável do painel.
 
 ### <a name="query-data-values---25-values-and-other-grouping"></a>Valores de dados de consulta-25 valores e outros agrupamentos
 

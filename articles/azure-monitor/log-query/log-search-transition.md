@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: 6cc7fc94162ed101d06fbbbc4722867be46987b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f34389785c0f4a43bfcab3e50f2dcd132b2cb629
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670127"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505798"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Transição da pesquisa de logs do Log Analytics para os logs do Azure Monitor
 Recentemente, a pesquisa de logs do Log Analytics foi substituída por uma nova experiência de análise de logs do Azure Monitor. Atualmente, a página Pesquisa de logs ainda pode ser acessada por meio do item de menu **Logs (clássico)** na página **Workspaces do Log Analytics** no portal do Azure, mas será removida em 15 de fevereiro de 2019. Este artigo descreve as diferenças entre as duas experiências para ajudar você a fazer a transição da pesquisa de logs. 
@@ -57,7 +58,7 @@ Nos logs do Azure Monitor, você deve modificar a consulta para retornar esses r
 ![Busca detalhada de logs do Azure Monitor](media/log-search-transition/drilldown-logs.png)
 
 ## <a name="take-action"></a>Executar ação
-Na Pesquisa de Logs, [inicie um runbook](take-action.md) a partir de um resultado de pesquisa selecionando **Executar ação**.
+Na Pesquisa de Logs, [inicie um runbook](../platform/action-groups.md) a partir de um resultado de pesquisa selecionando **Executar ação**.
 
 ![Executar ação](media/log-search-transition/take-action-log-search.png)
 

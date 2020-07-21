@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4743fbe84f5d41b4659e13d96868d2f64a473e4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 784d6a94562e8b5a709d65abdadef46ca71de395
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82086070"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505951"
 ---
 # <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Solicitar dados de trânsito públicos em tempo real usando o serviço de mobilidade do Azure Maps
 
@@ -24,7 +24,7 @@ Neste artigo, você aprenderá a solicitar as próximas entradas em tempo real p
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Primeiro, você precisa ter uma conta do Azure Maps e uma chave de assinatura para fazer chamadas para as APIs de trânsito público do Azure Maps. Para obter informações, siga as instruções em [criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma conta do Azure Maps. Siga as etapas em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária para sua conta. Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](./how-to-manage-authentication.md).
+Primeiro, você precisa ter uma conta do Azure Maps e uma chave de assinatura para fazer chamadas para as APIs de trânsito público do Azure Maps. Para obter informações, siga as instruções em [criar uma conta](quick-demo-map-app.md#create-an-azure-maps-account) para criar uma conta do Azure Maps. Siga as etapas em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária para sua conta. Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](./how-to-manage-authentication.md).
 
 Este artigo usa o [aplicativo Postman](https://www.getpostman.com/apps) para criar chamadas REST. Você pode usar qualquer ambiente de desenvolvimento de API que você preferir.
 

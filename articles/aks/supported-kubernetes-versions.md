@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 886e6cf237df94c056ec7c592e0b535327339871
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 019ae80020dafb54f2c06dd504797f21069914ae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243789"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507056"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões do Kubernetes com suporte no AKS (Serviço de Kubernetes do Azure)
 
@@ -131,7 +131,7 @@ Para obter o histórico de versões anteriores, consulte [aqui](https://en.wikip
 | 1,17  | Dec-09-19  | 19 de janeiro   | 20 de julho  | 1,20 GA | 
 | 1,18  | Março de 23-20  | 20 de maio   | 20 de agosto  | 1,21 GA | 
 | 1,19  | Agosto de 04-20  | 20 de agosto   | 20 de nov  | 1,22 GA | 
-| 1.20  | * 20 de novembro    | * 21 de dezembro   | * Jan 21  | 1,23 GA | 
+| 1,20  | * 20 de novembro    | * 20 de dezembro   | * Jan 21  | 1,23 GA | 
 
 \*Confirmação de data de lançamento de upstream pendente.
 
@@ -181,4 +181,4 @@ Para obter informações de como atualizar seu cluster, confira [Atualizar um cl
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
 [az-aks-get-versions]: /cli/azure/aks#az-aks-get-versions
-[preview-terms]: /support/legal/preview-supplemental-terms
+[preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
