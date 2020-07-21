@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: bde0db179216426c4279e5b03b416a04176430bb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 48c05bf7b4cbecb09ef3bb113832974bee4bc6b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056779"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518768"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Rotas na Versão Prévia do serviço Aplicativos Web Estáticos do Azure
 
@@ -28,7 +28,7 @@ O tópico de roteamento é bastante semelhante aos conceitos de autenticação e
 
 Consulte o [exemplo de arquivo de rota](#example-route-file) para obter detalhes.
 
-## <a name="location"></a>Location
+## <a name="location"></a>Localização
 
 O arquivo _routes.json_ deve existir na raiz da pasta de artefatos do build do aplicativo. Se o seu aplicativo Web inclui uma etapa de compilação que copia os arquivos de compilação de uma pasta específica para a sua pasta de artefato de compilação, então o arquivo _routes.json_ precisa existir nessa pasta específica.
 
@@ -295,7 +295,7 @@ Os exemplos a seguir descrevem o que acontece quando uma solicitação correspon
 | _/unknown-folder_ | O arquivo _/custom-404.html_ é entregue. |
 | Arquivos com a `.custom` extensão | São servidos com o `text/html` tipo MIME |
 
-- Todas as respostas incluem os `content-security-policy` cabeçalhos com um valor de `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'` .
+Todas as respostas incluem os `content-security-policy` cabeçalhos com um valor de `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'` .
 
 <sup>1</sup> as regras de rota para funções de API só dão suporte a [redirecionamentos](#redirects) e [proteção de rotas com funções](#securing-routes-with-roles).
 

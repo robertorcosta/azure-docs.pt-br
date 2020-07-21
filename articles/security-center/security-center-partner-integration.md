@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: 48869140ba8cd1a9598562b0057b0005d8fcd9c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd694fd013069c33e4f3af2c81447e014d41b691
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758069"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519211"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança na Central de Segurança do Azure
 Este documento ajuda você a gerenciar soluções de segurança já conectadas à Central de Segurança do Azure e a adicionar novas.
@@ -90,7 +91,7 @@ Selecione **Exibir** para obter informações adicionais e opções, como:
 A central de segurança descobre automaticamente as soluções de segurança em execução no Azure, mas não está conectada à central de segurança e exibe as soluções na seção **soluções descobertas** . Essas soluções incluem soluções do Azure, como [Azure ad Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)e soluções de parceiros.
 
 > [!NOTE]
-> A camada Padrão da Central de Segurança é necessária no nível de assinatura para o recurso de descoberta de soluções. Consulte [preços](security-center-pricing.md) para saber mais sobre os tipos de preço.
+> A camada Standard da central de segurança é necessária no nível da assinatura para o recurso de soluções descobertas. Consulte [preços](security-center-pricing.md) para saber mais sobre os tipos de preço.
 >
 
 Selecione **conectar** em uma solução para integrar com a central de segurança e ser notificado sobre alertas de segurança.

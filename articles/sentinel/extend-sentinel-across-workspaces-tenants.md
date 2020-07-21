@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: yelevin
-ms.openlocfilehash: d76f8e2d750b8ab2d82e9424f929d8b8353ac25a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 596d0f4870d9331a332dfb81bd7d2d224964a593
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84816447"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519006"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Estender o Azure Sentinel entre workspaces e locatários
 
@@ -110,6 +110,12 @@ As pastas de trabalho podem fornecer consultas entre espaços de trabalho em um 
 | Editar a pasta de trabalho interativamente | Um usuário avançado que modifica uma pasta de trabalho existente pode editar as consultas nela, selecionando os espaços de trabalho de destino usando o seletor de espaço de trabalho no editor. | Essa opção permite que um usuário avançado modifique facilmente pastas de trabalho existentes para trabalhar com vários espaços de trabalho. |
 |
 
+### <a name="cross-workspace-hunting"></a>Caça entre espaços de trabalho
+
+O Azure Sentinel fornece exemplos de consulta pré-carregados projetados para ajudá-lo a começar e a familiarizar-se com as tabelas e a linguagem de consulta. Essas consultas de busca interna são desenvolvidas pelos pesquisadores de segurança da Microsoft de forma contínua, adicionando novas consultas e ajustando consultas existentes, para fornecer a você um ponto de entrada para procurar novas detecções e identificar sinais de intrusão que podem ter sido despercebidos por suas ferramentas de segurança.  
+
+Os recursos de busca entre espaços de trabalho permitem que suas caçadores de ameaça criem novas consultas de busca ou adaptem as existentes para abranger vários espaços de trabalho, usando o operador Union e a expressão Workspace (), como mostrado acima.
+
 ## <a name="cross-workspace-management-using-automation"></a>Gerenciamento entre espaços de trabalho usando automação
 
 Para configurar e gerenciar vários espaços de trabalho do Azure Sentinel, você precisará automatizar o uso da API de gerenciamento do Sentinela do Azure. Para obter mais informações sobre como automatizar a implantação de recursos do Azure Sentinel, incluindo regras de alerta, consultas de busca, pastas de trabalho e guias estratégicos, consulte [estendendo o Azure sentinela: APIs, integração e automação de gerenciamento](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).
@@ -122,8 +128,6 @@ Consulte também [Implantando e gerenciando o Azure Sentinel como código](https
 Os seguintes recursos não têm suporte em espaços de trabalho:
 
 - Uma regra de alerta agendada não pode ser executada em espaços de trabalho usando uma consulta entre espaços de trabalho.
-
-- Consultas de busca não dão suporte a consultas entre espaços de trabalho.
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Gerenciando espaços de trabalho entre locatários usando o Azure Lighthouse
 

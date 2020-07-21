@@ -10,11 +10,12 @@ ms.date: 06/22/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9502194b2020723801469b511f46d3e806290ba5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 903560f5c0400a906918f0c17eafb2e1e09bdd30
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213985"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518497"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -61,8 +62,8 @@ A tabela a seguir mostra quais tipos de contas de armazenamento dão suporte ao 
 |    Tipo de conta de armazenamento    |    Regiões com suporte    |    Serviços com suporte    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 |    Uso geral v2<sup>1</sup>    | Sudeste da Ásia<br /> Leste da Austrália<br /> Norte da Europa<br />  Europa Ocidental<br /> França Central<br /> Leste do Japão<br /> Norte da África do Sul<br /> Sul do Reino Unido<br /> EUA Central<br /> Leste dos EUA<br /> Leste dos EUA 2<br /> Oeste dos EUA 2    |    Blobs de bloco<br /> Blobs de páginas<sup>2</sup><br /> Compartilhamentos de arquivos (padrão)<br /> Tabelas<br /> Filas<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Sudeste da Ásia<br /> Europa Ocidental<br /> Leste dos EUA    |    Somente blobs de blocos    |
-|    FileStorage    | Sudeste da Ásia<br /> Europa Ocidental<br /> Leste dos EUA    |    Somente arquivos do Azure    |
+|    BlockBlobStorage<sup>1</sup>    | Sudeste da Ásia<br /> Leste da Austrália<br /> Europa Ocidental<br /> Leste dos EUA    |    Somente blobs de blocos    |
+|    FileStorage    | Sudeste da Ásia<br /> Leste da Austrália<br /> Europa Ocidental<br /> Leste dos EUA    |    Somente arquivos do Azure    |
 
 <sup>1</sup> A camada de arquivamento não tem suporte atualmente para contas de ZRS.<br />
 <sup>2</sup> Contas de armazenamento que contêm discos gerenciados do Azure para máquinas virtuais sempre usam LRS. Os discos não gerenciados do Azure também devem usar LRS. É possível criar uma conta de armazenamento para discos não gerenciados do Azure que usam GRS, mas isso não é recomendável devido a possíveis problemas de consistência em relação à replicação geográfica assíncrona. Os discos gerenciados ou não gerenciados dão suporte a ZRS ou GZRS. Para saber mais sobre discos gerenciados, confira [Preços para discos gerenciados do Azure](https://azure.microsoft.com/pricing/details/managed-disks/).

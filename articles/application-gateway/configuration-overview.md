@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 1e3ef1133628f0470ee92237abf20d3bb0a9e21a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0245a23e46770840295904685c913826950c0642
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254660"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517834"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do gateway de aplicativo
 
@@ -146,7 +146,7 @@ Ao criar um novo ouvinte, você escolhe entre [ *básico* e *multissite*](https:
 
 - Se você quiser que todas as suas solicitações (para qualquer domínio) sejam aceitas e encaminhadas para pools de back-end, escolha básico. Saiba [como criar um gateway de aplicativo com um ouvinte básico](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- Se você quiser encaminhar solicitações para diferentes pools de back-end com base no cabeçalho ou nome do *host* , escolha ouvinte multissite, em que você também deve especificar um nome de host que corresponda à solicitação de entrada. Isso ocorre porque o gateway de aplicativo depende de cabeçalhos de host HTTP 1,1 para hospedar mais de um site na mesma porta e endereço IP público.
+- Se você quiser encaminhar solicitações para diferentes pools de back-end com base no cabeçalho do *host* ou nomes de host, escolha ouvinte multissite, em que você também deve especificar um nome de host que corresponda à solicitação de entrada. Isso ocorre porque o gateway de aplicativo depende de cabeçalhos de host HTTP 1,1 para hospedar mais de um site na mesma porta e endereço IP público. Para saber mais, confira [Hospedagem de vários sites usando o gateway de aplicativo](multiple-site-overview.md).
 
 #### <a name="order-of-processing-listeners"></a>Ordem de ouvintes de processamento
 
@@ -279,12 +279,16 @@ Para obter mais informações sobre o redirecionamento, consulte:
 - [Redirecionar o tráfego para um site externo usando o PowerShell](redirect-external-site-powershell.md)
 - [Redirecionar o tráfego para um site externo usando a CLI](redirect-external-site-cli.md)
 
-#### <a name="rewrite-the-http-header-setting"></a>Reescrever a configuração do cabeçalho HTTP
+### <a name="rewrite-http-headers-and-url"></a>Reescrever cabeçalhos e URL HTTP
 
-Essa configuração adiciona, remove ou atualiza cabeçalhos HTTP de solicitação e resposta, enquanto os pacotes de solicitação e resposta são movidos entre os pools de cliente e de back-end. Para obter mais informações, consulte:
+Usando regras de reescrita, você pode adicionar, remover ou atualizar os cabeçalhos de solicitação e resposta HTTP (S), bem como o caminho da URL e os parâmetros da cadeia de caracteres de consulta, pois os pacotes de solicitação e resposta são movidos entre o cliente e os pools de back-end por meio do gateway de aplicativo.
 
- - [Visão geral de reescrever cabeçalhos HTTP](rewrite-http-headers.md)
+Os cabeçalhos e os parâmetros de URL podem ser definidos para valores estáticos ou para outros cabeçalhos e variáveis de servidor. Isso ajuda com casos de uso importantes, como extração de endereços IP do cliente, remoção de informações confidenciais sobre o back-end, adição de mais segurança e assim por diante.
+Para obter mais informações, consulte:
+
+ - [Visão geral de reescrever cabeçalhos HTTP](rewrite-http-headers-url.md)
  - [Configurar a regravação do cabeçalho HTTP](rewrite-http-headers-portal.md)
+ - [Configurar a regravação de URL](rewrite-url-portal.md)
 
 ## <a name="http-settings"></a>Configurações de HTTP
 
@@ -357,7 +361,7 @@ Essa configuração associa uma [investigação personalizada](application-gatew
 > [!NOTE]
 > A investigação personalizada não monitora a integridade do pool de back-end, a menos que a configuração de HTTP correspondente esteja explicitamente associada a um ouvinte.
 
-### <a name="pick-host-name-from-back-end-address"></a><a id="pick"/></a>Escolher o nome do host do endereço de back-end
+### <a name="pick-host-name-from-back-end-address"></a><a name="pick"></a>Escolher o nome do host do endereço de back-end
 
 Esse recurso define dinamicamente o cabeçalho de *host* na solicitação para o nome de host do pool de back-ends. Ele usa um endereço IP ou FQDN.
 

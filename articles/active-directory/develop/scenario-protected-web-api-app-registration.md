@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1fab15cade2ce23e053bc73028e6420692c3d8a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868839"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518267"
 ---
 # <a name="protected-web-api-app-registration"></a>API Web protegida: registro de aplicativo
 
@@ -28,15 +29,15 @@ Para ver as etapas comuns para registrar um aplicativo, consulte [início rápid
 
 O ponto de extremidade da plataforma de identidade da Microsoft pode emitir tokens v 1.0 e v 2.0. Para obter mais informações sobre esses tokens, consulte [tokens de acesso](access-tokens.md).
 
-A versão do token aceito depende do valor dos **tipos de conta com suporte** que você escolher ao criar seu aplicativo.
+A versão do token que sua API pode aceitar depende da seleção de **tipos de conta com suporte** ao criar o registro de aplicativo da API web no portal do Azure.
 
-- Se o valor de **tipos de conta com suporte** for **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**, a versão de token aceita é v 2.0.
-- Caso contrário, a versão do token aceita é v 1.0.
+- Se o valor de **tipos de conta com suporte** for **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**, a versão de token aceita deve ser v 2.0.
+- Caso contrário, a versão do token aceita pode ser v 1.0.
 
 Depois de criar o aplicativo, você pode determinar ou alterar a versão do token aceito seguindo estas etapas:
 
 1. No portal do Azure, selecione seu aplicativo e, em seguida, selecione **manifesto**.
-1. Localize a propriedade **accessTokenAcceptedVersion** no manifesto. O valor padrão da propriedade é 2.
+1. Localize a propriedade **accessTokenAcceptedVersion** no manifesto.
 1. O valor especifica para Azure Active Directory (AD do Azure) qual versão de token aceita pela API da Web.
     - Se o valor for 2, a API da Web aceitará tokens v 2.0.
     - Se o valor for **NULL**, a API da Web aceitará tokens v 1.0.
@@ -51,7 +52,7 @@ APIs da Web não precisam registrar um URI de redirecionamento porque nenhum usu
 
 ## <a name="exposed-api"></a>API exposta
 
-Outras configurações específicas para APIs Web são a API exposta e os escopos expostos.
+Outras configurações específicas para APIs Web são a API exposta e os escopos expostos ou funções de aplicativo.
 
 ### <a name="application-id-uri-and-scopes"></a>URI e escopos da ID do aplicativo
 
@@ -63,7 +64,7 @@ Durante o registro do aplicativo, você precisa definir esses parâmetros:
 - Um ou mais escopos
 - Uma ou mais funções de aplicativo
 
-Por padrão, o portal de registro de aplicativos recomenda que você use o URI de recurso `api://{clientId}` . Esse URI é exclusivo, mas não é legível por humanos. Se você alterar o URI, verifique se o novo valor é exclusivo.
+Por padrão, o portal de registro de aplicativos recomenda que você use o URI de recurso `api://{clientId}` . Esse URI é exclusivo, mas não é legível por humanos. Se você alterar o URI, verifique se o novo valor é exclusivo. O portal de registro de aplicativos garantirá que você use um [domínio de Publicador configurado](howto-configure-publisher-domain.md)
 
 Para aplicativos cliente, os escopos aparecem como *permissões delegadas e as* funções de aplicativo são exibidas como *permissões de aplicativo* para sua API Web.
 
@@ -71,6 +72,8 @@ Os escopos também aparecem na janela de consentimento que é apresentada aos us
 
 - Como visto por um usuário.
 - Como visto por um administrador de locatários, que pode conceder consentimento de administrador.
+
+As funções de aplicativo não podem ser consentidas por um usuário (pois elas são usadas por um aplicativo que chama a API da Web em nome de si mesmo). Um administrador de locatários precisará concordar com os aplicativos cliente de sua API Web expondo funções de aplicativo. Consulte [consentimento do administrador](v2-admin-consent.md) para obter detalhes
 
 ### <a name="exposing-delegated-permissions-scopes"></a>Expondo permissões delegadas (escopos)
 

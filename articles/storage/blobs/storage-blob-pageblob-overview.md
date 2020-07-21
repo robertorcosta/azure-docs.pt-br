@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: 2338c523c13b16b4a63ee9de0d966182e26c3286
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 447653cdcaeb1a0bbf891a26e8bc0af5ead87fdb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223288"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518700"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Visão geral de blobs de páginas do Azure
 
@@ -33,6 +33,10 @@ Os serviços da Microsoft de primeira ordem, como o Azure Site Recovery, o Azure
 * Gerenciamento de instantâneos incrementais direcionados ao aplicativo: os aplicativos podem aproveitar os instantâneos e as APIs REST do blob de páginas para salvar os pontos de verificação do aplicativo sem incorrer em custos elevados de duplicação de dados. O Armazenamento do Azure oferece suporte a instantâneos locais para blobs de páginas, que não exigem a cópia do blob inteiro. Essas APIs públicas de instantâneos também permitem o acesso e a cópia de deltas entre instantâneos.
 * Migração dinâmica de aplicativos e dados do local para a nuvem: Copie os dados locais e use as APIs REST para gravar diretamente em um blob de páginas do Azure enquanto a VM local continua a ser executada. Depois que o destino for atualizado, faça failover rapidamente para a VM do Azure usando esses dados. Dessa forma, você pode migrar suas VMs e discos virtuais do local para a nuvem com tempo de inatividade mínimo, já que a migração de dados ocorre em segundo plano enquanto você continua a usar a VM e o tempo de inatividade necessário para o failover será curto (em minutos).
 * Acesso compartilhado [baseado em SAS](../common/storage-sas-overview.md), que permite cenários como vários leitores e um único gravador com suporte para o controle de simultaneidade.
+
+## <a name="pricing"></a>Preços
+
+Os dois tipos de armazenamento oferecidos com blobs de páginas têm seu próprio modelo de preços. Os blobs de páginas Premium seguem o modelo de preços dos Managed disks, enquanto os blobs de página padrão são cobrados no tamanho usado e em cada transação. Para obter mais informações, consulte a [página de preços de blobs de páginas do Azure](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
 ## <a name="page-blob-features"></a>Recursos do blob de páginas
 

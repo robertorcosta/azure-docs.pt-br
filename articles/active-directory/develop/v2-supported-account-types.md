@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d19381094e027bd567ffc503d32f9212ef56a948
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50a0859b58e2db0d3f644db01cfcde8c533b6871
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583095"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518123"
 ---
-# <a name="supported-account-types"></a>Tipos de conta com suporte
+# <a name="supported-account-types"></a>Tipos de conta compatíveis
 
 Este artigo explica quais tipos de conta (às vezes chamados de *públicos*) têm suporte nos aplicativos da plataforma de identidade da Microsoft.
 
@@ -45,7 +45,6 @@ Alguns tipos de conta não podem ser usados ​​com determinados fluxos de aut
 - Os aplicativos daemon podem ser usados somente com as organizações do Azure AD. Não faz sentido tentar usar aplicativos de daemon para manipular contas pessoais da Microsoft. O consentimento do administrador nunca será concedido.
 - Você pode usar o fluxo de autenticação do Windows integrado somente com contas corporativas ou de estudante (em sua organização ou em qualquer organização). A autenticação integrada do Windows funciona com contas de domínio, e exige que os computadores sejam ingressados no domínio ou no Azure AD. Esse fluxo não faz sentido para contas pessoais da Microsoft.
 - A [concessão de credenciais de senha do proprietário do recurso](./v2-oauth-ropc.md) (nome de usuário/senha) não pode ser usada com contas pessoais da Microsoft. As contas pessoais da Microsoft exigem que o usuário contenha o acesso a recursos pessoais em cada sessão de entrada. É por isso que esse comportamento não é compatível com fluxos não interativos.
-- O fluxo de código do dispositivo não funciona com contas pessoais da Microsoft.
 
 ## <a name="account-types-in-national-clouds"></a>Tipos de conta em nuvens nacionais
 

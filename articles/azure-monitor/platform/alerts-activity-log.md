@@ -4,12 +4,12 @@ description: Crie alertas do log de atividades usando o portal do Azure, um mode
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 242192118d59f972cebe2837d74c34310cac74aa
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 5019c3111a6e04dd9b7ba6ecbb9f62c7969075ed
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056252"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516049"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Criar, exibir e gerenciar alertas do log de atividades usando o Azure Monitor  
 
@@ -20,7 +20,7 @@ Alertas do log de atividades são os alertas ativados quando ocorre um novo even
 Esses alertas são para recursos do Azure e podem ser criados usando um modelo do Azure Resource Manager. Eles também podem ser criados, atualizados ou excluídos no portal do Azure. Normalmente, você cria alertas do log de atividades para receber notificações quando ocorrem alterações específicas nos recursos da sua assinatura do Azure. Os escopos dos alertas geralmente são relacionados a recursos ou grupos de recursos específicos. Por exemplo, convém ser notificado quando qualquer máquina virtual no **myProductionResourceGroup** do grupo de recursos de exemplo for excluída. Ou você poderá receber uma notificação se funções novas forem atribuídas a um usuário em sua assinatura.
 
 > [!IMPORTANT]
-> Não é possível criar alertas de notificação de integridade do serviço por meio da interface para a criação de alerta do log de atividades. Para saber mais sobre como criar e usar notificações de integridade do serviço, veja [Receber alertas do log de atividades sobre as notificações de integridade do serviço](alerts-activity-log-service-notifications.md).
+> Não é possível criar alertas de notificação de integridade do serviço por meio da interface para a criação de alerta do log de atividades. Para saber mais sobre como criar e usar notificações de integridade do serviço, veja [Receber alertas do log de atividades sobre as notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
 Ao criar as regras de alerta, assegure o seguinte:
 
@@ -28,6 +28,7 @@ Ao criar as regras de alerta, assegure o seguinte:
 - Os critérios devem ser nível, status, chamador, grupo de recursos, ID do recurso ou categoria de eventos do tipo de recurso no qual o alerta é configurado.
 - Não há nenhuma condição "anyOf" ou condições aninhadas no JSON de configuração de alerta. Basicamente, apenas uma condição "allOf" é permitida sem mais condições "allOf" ou "anyOf".
 - Quando a categoria for "administrativa", você deverá especificar pelo menos um dos critérios anteriores no seu alerta. Você não pode criar um alerta que seja ativado sempre que um evento for criado nos logs de atividades.
+- Não é possível criar alertas para eventos na categoria de alerta do log de atividades.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -101,7 +102,7 @@ Use o procedimento a seguir.
     É possível habilitar, desabilitar, editar ou excluir uma regra. Saiba mais sobre como gerenciar as regras do log de atividades.
 
 
-Uma analogia simples para entender as condições nas quais as regras de alerta podem ser criadas em um log de atividades é explorar ou filtrar eventos por meio do [log de atividades no portal do Azure](activity-log-view.md#azure-portal). Na tela **Azure Monitor – Log de atividades**, é possível filtrar ou localizar os eventos necessários e, em seguida, criar um alerta usando o botão **Adicionar alerta do log de atividades**. Em seguida, siga as etapas 4 a 7, conforme mostrado anteriormente.
+Uma analogia simples para entender as condições nas quais as regras de alerta podem ser criadas em um log de atividades é explorar ou filtrar eventos por meio do [log de atividades no portal do Azure](./activity-log.md#view-the-activity-log). Na tela **Azure Monitor – Log de atividades**, é possível filtrar ou localizar os eventos necessários e, em seguida, criar um alerta usando o botão **Adicionar alerta do log de atividades**. Em seguida, siga as etapas 4 a 7, conforme mostrado anteriormente.
     
  ![Adicionar alerta do log de atividades](media/alerts-activity-log/add-activity-log.png)
     
@@ -243,7 +244,7 @@ Mais detalhes sobre os campos do log de atividades podem ser encontrados [aqui](
 > Pode levar até cinco minutos para que uma nova regra de alerta do log de atividades fique ativa.
 
 ## <a name="rest-api"></a>API REST 
-A [API de Alertas do Log de Atividades do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) é a API REST. Ela é totalmente compatível com a API REST do Azure Resource Manager. Ela pode ser usada por meio do PowerShell usando o cmdlet do Resource Manager ou a CLI do Azure.
+A [API de Alertas do Log de Atividades do Azure Monitor](/rest/api/monitor/activitylogalerts) é a API REST. Ela é totalmente compatível com a API REST do Azure Resource Manager. Ela pode ser usada por meio do PowerShell usando o cmdlet do Resource Manager ou a CLI do Azure.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -262,29 +263,29 @@ em que o sampleActivityLogAlert.parameters.json tem os valores fornecidos para o
 
 Os alertas do log de atividades têm cmdlets do PowerShell dedicados disponíveis:
 
-- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert): cria um alerta do log de atividades ou atualiza um alerta do log de atividades existente.
-- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert): obtém um ou mais recursos de alerta do log de atividades.
-- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert): habilita um alerta do log de atividades existente e define suas marcas.
-- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert): desabilita um alerta do log de atividades existente e define suas marcas.
-- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert): remove um alerta do log de atividades.
+- [Set-AzActivityLogAlert](/powershell/module/az.monitor/set-azactivitylogalert): cria um alerta do log de atividades ou atualiza um alerta do log de atividades existente.
+- [Get-AzActivityLogAlert](/powershell/module/az.monitor/get-azactivitylogalert): obtém um ou mais recursos de alerta do log de atividades.
+- [Enable-AzActivityLogAlert](/powershell/module/az.monitor/enable-azactivitylogalert): habilita um alerta do log de atividades existente e define suas marcas.
+- [Disable-AzActivityLogAlert](/powershell/module/az.monitor/disable-azactivitylogalert): desabilita um alerta do log de atividades existente e define suas marcas.
+- [Remove-AzActivityLogAlert](/powershell/module/az.monitor/remove-azactivitylogalert): remove um alerta do log de atividades.
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-Os comandos da CLI do Azure dedicados sob o conjunto [az monitor activity-log alert](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert) estão disponíveis para gerenciar regras de alerta do log de atividades.
+Os comandos da CLI do Azure dedicados sob o conjunto [az monitor activity-log alert](/cli/azure/monitor/activity-log/alert) estão disponíveis para gerenciar regras de alerta do log de atividades.
 
 Para criar uma regra de alerta do log de atividades, use os seguintes comandos nessa ordem:
 
-1. [az monitor activity-log alert create](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): criar um recurso da regra de alerta do log de atividades.
-1. [az monitor activity-log alert scope](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope): adicionar escopo para a regra de alerta do log de atividades criado.
-1. [az monitor activity-log alert action-group](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group): um adicionar grupo de ações para a regra de alerta do log de atividades.
+1. [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): criar um recurso da regra de alerta do log de atividades.
+1. [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope): adicionar escopo para a regra de alerta do log de atividades criado.
+1. [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group): um adicionar grupo de ações para a regra de alerta do log de atividades.
 
-Para recuperar um recurso da regra de alerta do log de atividades, use o comando [az monitor activity-log alert show](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
-) da CLI do Azure. Para ver todos os recursos da regra de alerta do log de atividades em um grupo de recursos, use [az monitor activity-log alert list](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
-Os recursos da regra de alerta do log de atividades podem ser movidos usando o comando [az monitor activity-log alert delete](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete) da CLI do Azure.
+Para recuperar um recurso da regra de alerta do log de atividades, use o comando [az monitor activity-log alert show](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
+) da CLI do Azure. Para ver todos os recursos da regra de alerta do log de atividades em um grupo de recursos, use [az monitor activity-log alert list](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
+Os recursos da regra de alerta do log de atividades podem ser movidos usando o comando [az monitor activity-log alert delete](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete) da CLI do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [esquema de webhook para os logs de atividades](../../azure-monitor/platform/activity-log-alerts-webhook.md).
 - Leia uma [visão geral dos logs de atividades](../../azure-monitor/platform/activity-log-alerts.md).
 - Saiba mais sobre [grupos de ação](../../azure-monitor/platform/action-groups.md).  
-- Saiba mais sobre as [notificações de integridade do serviço](../../azure-monitor/platform/service-notifications.md).
+- Saiba mais sobre as [notificações de integridade do serviço](../../service-health/service-notifications.md).

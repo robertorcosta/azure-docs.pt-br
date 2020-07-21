@@ -1,34 +1,34 @@
 ---
 title: Impedir acesso de leitura público anônimo a contêineres e blobs
 titleSuffix: Azure Storage
-description: ''
+description: Saiba como analisar solicitações anônimas em uma conta de armazenamento e como impedir o acesso anônimo para toda a conta de armazenamento ou para um contêiner individual.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 90d7cd65bbc07524391f34fe0efce2b044664cef
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 24d726f7600c3ba80833640be8036bf0daa2c014
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209231"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518717"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedir acesso de leitura público anônimo a contêineres e blobs
 
-O acesso de leitura público anônimo a contêineres e blobs no armazenamento do Azure é uma maneira conveniente de compartilhar dados, mas também pode representar um risco de segurança. É importante habilitar o acesso anônimo criteriosamente e entender como avaliar o acesso anônimo aos seus dados. A complexidade operacional, erro humano ou ataque mal-intencionado contra dados acessíveis publicamente pode resultar em violações de dados dispendiosas. A Microsoft recomenda que você habilite o acesso anônimo somente quando necessário para o cenário do aplicativo.
+O acesso de leitura público anônimo a contêineres e blobs no armazenamento do Azure é uma maneira conveniente de compartilhar dados, mas também pode representar um risco de segurança. É importante gerenciar o acesso anônimo criteriosamente e entender como avaliar o acesso anônimo aos seus dados. A complexidade operacional, erro humano ou ataque mal-intencionado contra dados acessíveis publicamente pode resultar em violações de dados dispendiosas. A Microsoft recomenda que você habilite o acesso anônimo somente quando necessário para o cenário do aplicativo.
 
-Por padrão, uma conta de armazenamento permite que um usuário com permissões apropriadas configure o acesso público a contêineres e blobs. Você pode desabilitar essa funcionalidade no nível da conta de armazenamento, de modo que os contêineres e blobs na conta não possam ser configurados para acesso público.
+Por padrão, um usuário com permissões apropriadas pode configurar o acesso público a contêineres e blobs. Você pode impedir todo acesso público no nível da conta de armazenamento. Quando você não permite acesso de blob público para a conta de armazenamento, os contêineres na conta não podem ser configurados para acesso público. Todos os contêineres que já foram configurados para acesso público não aceitarão mais solicitações anônimas. Para obter mais informações, consulte [Configurar acesso de leitura público anônimo para contêineres e blobs](anonymous-read-access-configure.md).
 
 Este artigo descreve como analisar solicitações anônimas em uma conta de armazenamento e como impedir o acesso anônimo para toda a conta de armazenamento ou para um contêiner individual.
 
 ## <a name="detect-anonymous-requests-from-client-applications"></a>Detectar solicitações anônimas de aplicativos cliente
 
-Quando você desabilita o acesso de leitura público para uma conta de armazenamento, você corre o risco de rejeitar solicitações para contêineres e blobs que estão atualmente configurados para acesso público. Desabilitar o acesso público para uma conta de armazenamento substitui as configurações de acesso público para todos os contêineres nessa conta de armazenamento. Quando o acesso público estiver desabilitado para a conta de armazenamento, qualquer solicitação anônima futura para essa conta falhará.
+Quando você não permite acesso de leitura público para uma conta de armazenamento, você corre o risco de rejeitar solicitações para contêineres e blobs que estão atualmente configurados para acesso público. A despermissão de acesso público para uma conta de armazenamento substitui as configurações de acesso público para todos os contêineres nessa conta de armazenamento. Quando o acesso público não é permitido para a conta de armazenamento, qualquer solicitação anônima futura para essa conta falhará.
 
-Para entender como a desabilitação do acesso público pode afetar os aplicativos cliente, a Microsoft recomenda que você habilite o registro em log e as métricas para essa conta e analise padrões de solicitações anônimas em um intervalo de tempo. Use as métricas para determinar o número de solicitações anônimas para a conta de armazenamento e use logs para determinar quais contêineres estão sendo acessados anonimamente.
+Para entender como a despermissão de acesso público pode afetar os aplicativos cliente, a Microsoft recomenda que você habilite o registro em log e as métricas para essa conta e analise padrões de solicitações anônimas em um intervalo de tempo. Use as métricas para determinar o número de solicitações anônimas para a conta de armazenamento e use logs para determinar quais contêineres estão sendo acessados anonimamente.
 
 ### <a name="monitor-anonymous-requests-with-metrics-explorer"></a>Monitorar solicitações anônimas com Metrics Explorer
 
@@ -92,7 +92,7 @@ Para obter uma referência dos campos disponíveis nos logs de armazenamento do 
 
 Os logs de armazenamento do Azure no Azure Monitor incluem o tipo de autorização que foi usado para fazer uma solicitação para uma conta de armazenamento. Em sua consulta de log, filtre a propriedade **AuthenticationType** para exibir solicitações anônimas.
 
-Para recuperar os logs dos últimos 7 dias para solicitações anônimas no armazenamento de BLOBs, abra seu espaço de trabalho Log Analytics. Em seguida, Cole a consulta a seguir em uma nova consulta de log e execute-a. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores:
+Para recuperar os logs dos últimos 7 dias para solicitações anônimas no armazenamento de BLOBs, abra seu espaço de trabalho Log Analytics. Em seguida, Cole a seguinte consulta em uma nova consulta de log e execute-a:
 
 ```kusto
 StorageBlobLogs
@@ -106,13 +106,13 @@ Você também pode configurar uma regra de alerta com base nessa consulta para n
 
 Depois de avaliar as solicitações anônimas para contêineres e blobs em sua conta de armazenamento, você pode tomar medidas para limitar ou impedir o acesso público. Se alguns contêineres em sua conta de armazenamento puderem estar disponíveis para acesso público, você poderá configurar a configuração de acesso público para cada contêiner em sua conta de armazenamento. Essa opção fornece o controle mais granular sobre o acesso público. Para obter mais informações, consulte [definir o nível de acesso público para um contêiner](anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
 
-Para aumentar a segurança, você pode desabilitar o acesso público para uma conta de armazenamento inteira. A configuração de acesso público para uma conta de armazenamento substitui as configurações individuais dos contêineres nessa conta. Quando você desabilita o acesso público para uma conta de armazenamento, os contêineres configurados para permitir acesso público não são mais acessíveis anonimamente. Para obter mais informações, consulte [habilitar ou desabilitar o acesso de leitura público para uma conta de armazenamento](anonymous-read-access-configure.md#enable-or-disable-public-read-access-for-a-storage-account).
+Para aumentar a segurança, você pode impedir o acesso público para toda a conta de armazenamento. A configuração de acesso público para uma conta de armazenamento substitui as configurações individuais dos contêineres nessa conta. Quando você não permite acesso público para uma conta de armazenamento, os contêineres configurados para permitir acesso público não são mais acessíveis anonimamente. Para obter mais informações, consulte [permitir ou não permitir acesso de leitura público para uma conta de armazenamento](anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
 
-Se seu cenário exigir que determinados contêineres estejam disponíveis para acesso público, pode ser aconselhável mover esses contêineres e seus BLOBs para contas de armazenamento que são reservadas para acesso público. Em seguida, você pode desabilitar o acesso público para qualquer outra conta de armazenamento.
+Se seu cenário exigir que determinados contêineres precisem estar disponíveis para acesso público, pode ser aconselhável mover esses contêineres e seus BLOBs para contas de armazenamento que são reservadas para acesso público. Em seguida, você pode proibir o acesso público para qualquer outra conta de armazenamento.
 
 ### <a name="verify-that-public-access-to-a-blob-is-not-permitted"></a>Verifique se o acesso público a um BLOB não é permitido
 
-Para verificar se o acesso público a um blob específico foi negado, você pode tentar baixar o blob por meio de sua URL. Se o download for executado com sucesso, o BLOB ainda estará disponível publicamente. Se o BLOB não estiver publicamente acessível porque o acesso público foi desabilitado para a conta de armazenamento, você verá uma mensagem de erro indicando que o acesso público não é permitido nessa conta de armazenamento.
+Para verificar se o acesso público a um blob específico não é permitido, você pode tentar baixar o blob por meio de sua URL. Se o download for executado com sucesso, o BLOB ainda estará disponível publicamente. Se o BLOB não estiver publicamente acessível porque o acesso público não foi permitido para a conta de armazenamento, você verá uma mensagem de erro indicando que o acesso público não é permitido nessa conta de armazenamento.
 
 O exemplo a seguir mostra como usar o PowerShell para tentar baixar um blob por meio de sua URL. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores:
 
@@ -124,7 +124,7 @@ Invoke-WebRequest -Uri $url -OutFile $downloadTo -ErrorAction Stop
 
 ### <a name="verify-that-modifying-the-containers-public-access-setting-is-not-permitted"></a>Verifique se a modificação da configuração de acesso público do contêiner não é permitida
 
-Para verificar se a configuração de acesso público de um contêiner não pode ser modificada após o acesso público ser desabilitado para a conta de armazenamento, você pode tentar modificar a configuração. A alteração da configuração de acesso público do contêiner falhará se o acesso público estiver desabilitado para a conta de armazenamento.
+Para verificar se a configuração de acesso público de um contêiner não pode ser modificada após o acesso público não ser permitido para a conta de armazenamento, você pode tentar modificar a configuração. A alteração da configuração de acesso público do contêiner falhará se o acesso público não for permitido para a conta de armazenamento.
 
 O exemplo a seguir mostra como usar o PowerShell para tentar alterar a configuração de acesso público de um contêiner. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores:
 
@@ -141,10 +141,10 @@ Set-AzStorageContainerAcl -Context $ctx -Container $containerName -Permission Bl
 
 ### <a name="verify-that-creating-a-container-with-public-access-enabled-is-not-permitted"></a>Verifique se a criação de um contêiner com acesso público habilitado não é permitida
 
-Se o acesso público for desabilitado para a conta de armazenamento, você não poderá criar um novo contêiner com acesso público habilitado. Para verificar, você pode tentar criar um contêiner com acesso público habilitado.
+Se o acesso público não for permitido para a conta de armazenamento, você não poderá criar um novo contêiner com acesso público habilitado. Para verificar, você pode tentar criar um contêiner com acesso público habilitado.
 
 O exemplo a seguir mostra como usar o PowerShell para tentar criar um contêiner com acesso público habilitado. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores:
- 
+
 ```powershell
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"

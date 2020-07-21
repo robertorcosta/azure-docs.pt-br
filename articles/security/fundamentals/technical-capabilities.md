@@ -2,24 +2,20 @@
 title: Recursos técnicos de segurança no Azure-Microsoft Azure
 description: Introdução aos serviços de segurança no Azure que ajudam a proteger seus dados, recursos e aplicativos na nuvem.
 services: security
-documentationcenter: na
-author: UnifyCloud
-manager: barbkess
-editor: TomSh
+author: terrylanfear
 ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/31/2019
-ms.author: TomSh
-ms.openlocfilehash: 61afad1d9994fd703bd8df047d1861baddeae997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.author: terrylan
+ms.openlocfilehash: 29e6aa96ea1c435e4d734e80824e1cedcfe9a761
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76845353"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519313"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de segurança do Azure
 Este artigo fornece uma introdução aos serviços de segurança no Azure que ajudam a proteger seus dados, recursos e aplicativos na nuvem e atender às necessidades de segurança de sua empresa.
@@ -56,7 +52,7 @@ As soluções de gerenciamento de acesso e identidade da Microsoft ajudam a ti a
 
 Os benefícios de segurança do Microsoft Azure AD (Azure Active Directory) incluem a capacidade de:
 
-- Criar e gerenciar uma identidade única para cada usuário em sua empresa híbrida, mantendo usuários, grupos e dispositivos em sincronia.
+- Crie e gerencie uma identidade única para cada usuário em sua empresa híbrida, mantendo usuários, grupos e dispositivos em sincronia.
 
 - Fornecer acesso de logon único para seus aplicativos, incluindo milhares de aplicativos de SaaS pré-integrados.
 
@@ -72,7 +68,7 @@ A seguir estão os principais recursos de gerenciamento de identidade do Azure:
 
 - Logon único
 
-- Autenticação multifator
+- Autenticação Multifator
 
 - Relatórios baseados em aprendizado de máquina, alertas e monitoramento de segurança
 
@@ -94,7 +90,7 @@ Muitas organizações contam com aplicativos SaaS (software como serviço) como 
 
 Os usuários não precisam gerenciar vários conjuntos de nomes de usuário e senhas, o acesso a aplicativos pode ser provisionado ou desconfigurado automaticamente com base em grupos organizacionais e seu status como funcionário. O [Azure ad introduz controles de governança de segurança e acesso](../../active-directory/active-directory-enterprise-apps-manage-sso.md) que permitem que você gerencie centralmente o acesso dos usuários em aplicativos SaaS.
 
-#### <a name="multi-factor-authentication"></a>Autenticação multifator
+#### <a name="multi-factor-authentication"></a>Autenticação Multifator
 
 A [autenticação multifator do Azure (MFA)](../../active-directory/authentication/multi-factor-authentication.md) é um método de autenticação que requer o uso de mais de um método de verificação e adiciona uma segunda camada crítica de segurança a entradas e transações do usuário. O [MFA ajuda a proteger](../../active-directory/authentication/concept-mfa-howitworks.md) o acesso a dados e aplicativos enquanto atende à demanda do usuário por um processo de entrada simples. Ela fornece autenticação forte por meio de uma variedade de opções de verificação – chamada telefônica, mensagem de texto, notificação de aplicativo móvel ou código de verificação e tokens OAuth de terceiros.
 
@@ -169,77 +165,11 @@ Com o RBAC, você pode separar as tarefas dentro de sua equipe e conceder soment
 Uma das chaves de proteção de dados na nuvem é responsável por possíveis estados em que os dados podem ocorrer e quais controles estão disponíveis para esse estado. Com relação às práticas recomendadas de criptografia e segurança de dados no Azure, as recomendações são feitas para os seguintes estados de dados.
 
 - Em repouso: isso inclui todos os objetos de armazenamento, contêineres e tipos de informações que existem estaticamente em mídia física, seja ela magnética ou disco óptico.
-
 - Em trânsito: quando os dados são transferidos entre componentes, locais ou programas, como pela rede, em um barramento de serviço (do local para a nuvem e vice-versa, incluindo conexões híbridas, como o ExpressRoute), ou durante um processo de entrada/saída, ele é considerado em movimento.
 
 ### <a name="encryption-at-rest"></a>Criptografia em repouso
 
-Para obter criptografia em repouso, realize cada um dos seguintes procedimentos:
-
-Dá suporte a pelo menos um dos modelos de criptografia recomendados detalhados na tabela a seguir para criptografar dados.
-
-| Modelos de criptografia |  |  |  |
-| ----------------  | ----------------- | ----------------- | --------------- |
-| Criptografia de servidor | Criptografia de servidor | Criptografia de servidor | Criptografia de cliente
-| Criptografia do lado do servidor usando chaves de serviço gerenciadas | Criptografia do lado do servidor usando chaves gerenciadas pelo cliente no Azure Key Vault | Criptografia do lado do servidor usando chaves gerenciadas do cliente local |
-| • Provedores de recursos do Azure executam as operações de criptografia e descriptografia <br> • A Microsoft gerencia as chaves <br>• Funcionalidade completa na nuvem | • Provedores de recursos do Azure executam as operações de criptografia e descriptografia<br>• O cliente controla as chaves por meio do Azure Key Vault<br>• Funcionalidade completa na nuvem | • Provedores de recursos do Azure executam as operações de criptografia e descriptografia <br>• O cliente controla as chaves locais <br> • Funcionalidade completa na nuvem| • Os serviços do Azure não podem ver dados descriptografados <br>• Os clientes mantêm as chaves localmente (ou em outros repositórios seguros). As chaves não estão disponíveis para os serviços do Azure <br>• Funcionalidade reduzida na nuvem|
-
-### <a name="enabling-encryption-at-rest"></a>Habilitando a criptografia em repouso
-
-**Identifique todos os locais em que você armazena dados**
-
-A meta da criptografia em repouso é criptografar todos os dados. Isso elimina a possibilidade de perder dados importantes ou todos os locais persistentes. Enumere todos os dados armazenados pelo seu aplicativo.
-
-> [!Note]
-> Não apenas "dados de aplicativos" ou "PII", mas todos os dados relacionados ao aplicativo, incluindo metadados da conta (mapeamentos de assinatura, informações de contrato, PII).
-
-Considere quais repositórios você está usando para armazenar dados. Por exemplo:
-
-- Armazenamento externo (por exemplo, SQL Azure, DocumentDB, HDInsights, Data Lake etc.)
-
-- Armazenamento temporário (qualquer cache local que inclui dados de locatário)
-
-- Cache na memória (pode ser inserido no arquivo de paginação)
-
-### <a name="leverage-the-existing-encryption-at-rest-support-in-azure"></a>Aproveite o suporte para criptografia em repouso existente no Azure
-
-Para cada loja que você usar, aproveite o suporte de criptografia em repouso existente.
-
-- Armazenamento do Azure: consulte [Criptografia do Serviço de Armazenamento do Azure para dados em repouso](../../storage/common/storage-service-encryption.md),
-
-- SQL Azure: consulte [TDE (Transparent Data Encryption), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
-
-- Armazenamento em disco local ou em VM ([Azure Disk Encryption](../azure-security-disk-encryption-overview.md))
-
-Para armazenamento em disco local ou em VM, use o Azure Disk Encryption quando houver suporte:
-
-#### <a name="iaas"></a>IaaS
-
-Serviços com VMs de IaaS (Windows ou Linux) devem usar o [Azure Disk Encryption](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) para criptografar volumes que contêm dados do cliente.
-
-#### <a name="paas-v2"></a>PaaS v2
-
-Serviços que estão em execução na PaaS v2 usando o Service Fabric podem usar o Azure Disk Encryption para VMSS (conjunto de dimensionamento de máquinas virtuais) para criptografar suas VMs da PaaS v2.
-
-#### <a name="paas-v1"></a>PaaS v1
-
-No momento, não há suporte para o Azure Disk Encryption na PaaS v1. Portanto, você precisa usar a criptografia no nível do aplicativo para criptografar dados em repouso persistentes.  Isso inclui, sem limitações, dados de aplicativos, arquivos temporários, logs e despejos de memória.
-
-A maioria dos serviços deve tentar utilizar a criptografia do provedor de recursos de armazenamento. Alguns serviços precisam fazer criptografia explícita, por exemplo, qualquer material com chave persistente (certificados, chaves raiz/mestre) deve ser armazenado no Key Vault.
-
-Se houver suporte para criptografia no lado do serviço com chaves gerenciadas pelo cliente, é necessário que haja uma maneira de o cliente nos passar essas chaves. A maneira recomendada e com suporte para fazer isso é a integração com o AKV (Azure Key Vault). Nesse caso, os clientes podem adicionar e gerenciar suas chaves no Azure Key Vault. O cliente pode aprender a usar o AKV em [Introdução ao Azure Key Vault](https://go.microsoft.com/fwlink/?linkid=521402).
-
-Para fazer a integração com o Azure Key Vault, você precisaria adicionar código para solicitar uma chave do AKV quando fosse necessário para a descriptografia.
-
-- Consulte [Azure Key Vault – passo a passo](https://blogs.technet.microsoft.com/kv/2015/06/02/azure-key-vault-step-by-step/) para obter informações sobre como fazer a integração com o AKV.
-
-Se der suporte a chaves gerenciadas pelo cliente, você precisará fornecer uma experiência do usuário para o cliente especificar qual Key Vault (ou URI do Key Vault) será usado.
-
-Como a criptografia em repouso envolve a criptografia de dados de locatário, infraestrutura e host, a perda das chaves devido a falhas no sistema ou a atividades mal-intencionadas poderia levar à perda de todos os dados criptografados. Portanto, é essencial que sua solução de criptografia em repouso tenha um amplo histórico de recuperação de desastre resiliente a falhas de sistema e a atividades mal-intencionadas.
-
-Os serviços que implementam a criptografia em repouso geralmente ainda são suscetíveis às chaves de criptografia ou aos dados deixados não criptografados na unidade do host (por exemplo, no arquivo de paginação do sistema operacional do host.) Portanto, os serviços devem garantir que o volume do host para seus serviços seja criptografado. Para facilitar isso, a equipe de computação habilitou a implantação da criptografia de host, que usa NKP e extensões do [Bitlocker](https://technet.microsoft.com/library/dn306081.aspx) para o agente e o serviço de DCM criptografarem o volume de host.
-
-A maioria dos serviços são implementados em VMs padrão do Azure. Esses serviços devem receber a [Criptografia de host](../azure-security-disk-encryption-overview.md) automaticamente quando a computação habilitá-la. Para serviços executados em clusters gerenciados por computação, a criptografia de host será habilitada automaticamente conforme o Windows Server 2016 for distribuído.
+A criptografia em repouso é discutida em detalhes na [criptografia de dados do Azure em repouso](encryption-atrest.md).
 
 ### <a name="encryption-in-transit"></a>Criptografia em trânsito
 

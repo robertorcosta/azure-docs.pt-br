@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
-ms.openlocfilehash: 8da05da1b4aa9966b7743bc38b09d1c4b34c8cc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6573237cbba8951bdd45c5b32c572b9af772ee5a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555715"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519218"
 ---
 # <a name="connect-windows-security-events"></a>Conectar eventos de segurança do Windows 
 
@@ -87,7 +87,29 @@ Para coletar seus eventos de segurança do Windows no Azure Sentinel:
 
 Pode levar cerca de 20 minutos até que os logs comecem a aparecer na Log Analytics. 
 
+### <a name="configure-the-security-events-connector-for-anomalous-rdp-login-detection"></a>Configurar o conector de eventos de segurança para detecção de logon de RDP anômala
 
+> [!IMPORTANT]
+> A detecção de logon de RDP anômala está atualmente em visualização pública.
+> Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção.
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+O Azure Sentinel pode aplicar o ML (aprendizado de máquina) aos dados de eventos de segurança para identificar a atividade de logon protocolo RDP (RDP). Os cenários incluem:
+
+- **IP incomum** -o endereço IP raramente ou nunca foi observado nos últimos 30 dias
+
+- **Localização geográfica incomum** -o endereço IP, a cidade, o país e o ASN raramente ou nunca foram observados nos últimos 30 dias
+
+- **Novo usuário** – um novo usuário faz logon por meio de um endereço IP e localização geográfica, ou ambos ou dos quais não se espera que sejam vistos com base nos dados dos 30 dias anteriores.
+
+**Instruções de configuração**
+
+1. Você deve estar coletando dados de logon RDP (ID do evento 4624) por meio do conector de dados de **eventos de segurança** . Verifique se você selecionou um [conjunto de eventos](#event-sets) além de "nenhum" para transmitir para o Azure Sentinel.
+
+1. No portal do Azure Sentinel, clique em **análise**e, em seguida, clique na guia **modelos de regra** . escolha a regra de detecção de logon de **RDP anômala (visualização)** e mova o controle deslizante de **status** para **habilitado**.
+
+    > [!NOTE]
+    > Como o algoritmo de aprendizado de máquina exige um valor de dados de 30 dias para criar um perfil de linha de base de comportamento do usuário, você deve permitir que 30 dias de dados de eventos de segurança sejam coletados antes que qualquer incidente possa ser detectado.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar eventos de segurança do Windows ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:

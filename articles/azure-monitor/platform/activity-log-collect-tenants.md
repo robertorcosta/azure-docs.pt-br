@@ -6,22 +6,22 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: d2f794365e15768dbf47647f2d9a8d08d5e8ba3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07c38cbd2d77a3cca594acd974705af35d8189b9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80055734"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516338"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Coletar logs de atividades do Azure em Azure Monitor entre locatários Azure Active Directory (Herdado)
 
 > [!NOTE]
-> Este artigo descreve o método herdado para configurar o log de atividades do Azure em locatários do Azure a serem coletados em um espaço de trabalho Log Analytics.  Agora você pode coletar o log de atividades em um espaço de trabalho Log Analytics usando uma configuração de diagnóstico semelhante a como você coleta logs de recursos. Consulte [coletar e analisar logs de atividades do Azure no espaço de trabalho log Analytics no Azure monitor](activity-log-collect.md).
+> Este artigo descreve o método herdado para configurar o log de atividades do Azure em locatários do Azure a serem coletados em um espaço de trabalho Log Analytics.  Agora você pode coletar o log de atividades em um espaço de trabalho Log Analytics usando uma configuração de diagnóstico semelhante a como você coleta logs de recursos. Consulte [coletar e analisar logs de atividades do Azure no espaço de trabalho log Analytics no Azure monitor](./activity-log.md).
 
 
 Este artigo percorre um método para coletar os logs de atividades do Azure em um espaço de trabalho Log Analytics no Azure Monitor usando o conector do coletor de dados do Azure Log Analytics para aplicativos lógicos. Use o processo neste artigo quando precisar enviar logs para um workspace em um locatário diferente do Azure Active Directory. Por exemplo, se você for um provedor de serviço gerenciado, convém coletar logs de atividade de assinatura do cliente e armazená-los em um espaço de trabalho do Log Analytics em sua própria assinatura.
 
-Se o espaço de trabalho Log Analytics estiver na mesma assinatura do Azure ou em uma assinatura diferente, mas na mesma Azure Active Directory, use as etapas em [coletar e analisar logs de atividades do Azure no espaço de trabalho log Analytics no Azure monitor](activity-log-collect.md) para coletar logs de atividades do Azure.
+Se o espaço de trabalho Log Analytics estiver na mesma assinatura do Azure ou em uma assinatura diferente, mas na mesma Azure Active Directory, use as etapas em [coletar e analisar logs de atividades do Azure no espaço de trabalho log Analytics no Azure monitor](./activity-log.md) para coletar logs de atividades do Azure.
 
 ## <a name="overview"></a>Visão geral
 
@@ -90,17 +90,17 @@ Você pode usar um namespace de hub de eventos que não esteja na mesma assinatu
 
 11. Clique em **OK** e, em seguida, **Salvar** para salvar essas configurações. As configurações serão aplicadas imediatamente à sua assinatura.
 
-<!-- Follow the steps in [stream the Azure Activity Log to Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) to configure a log profile that writes activity logs to an event hub. -->
+<!-- Follow the steps in [stream the Azure Activity Log to Event Hubs](./activity-log.md#legacy-collection-methods) to configure a log profile that writes activity logs to an event hub. -->
 
 ## <a name="step-3---create-logic-app"></a>Etapa 3 - Criar Aplicativo Lógico
 
 Depois que os logs de atividade estiverem gravando no Hub de eventos, você criará um aplicativo lógico para coletar os logs do hub de eventos e gravá-los no espaço de trabalho Log Analytics.
 
 O aplicativo lógico inclui o seguinte:
-- Um gatilho do [conector do Hub de Eventos](https://docs.microsoft.com/connectors/eventhubs/) para ler do Hub de Eventos.
+- Um gatilho do [conector do Hub de Eventos](/connectors/eventhubs/) para ler do Hub de Eventos.
 - Um [ação Parse JSON](../../logic-apps/logic-apps-content-type.md) para extrair os eventos JSON.
 - Uma [ação compor](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) para converter o JSON em um objeto.
-- Um [log Analytics enviar o conector de dados](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) para postar os dados para o espaço de trabalho log Analytics.
+- Um [log Analytics enviar o conector de dados](/connectors/azureloganalyticsdatacollector/) para postar os dados para o espaço de trabalho log Analytics.
 
    ![imagem de adição de gatilho do hub de eventos em aplicativos lógicos](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
@@ -124,12 +124,12 @@ Para obter o cadeia de conexão e o nome do Hub de Eventos, siga as etapas em [V
 
     ![Criar aplicativo lógico](media/collect-activity-logs-subscriptions/create-logic-app.png)
 
-   |Setting | Descrição  |
+   |Configuração | Descrição  |
    |:---|:---|
-   | Name           | Nome exclusivo para o aplicativo lógico. |
-   | Subscription   | Selecione a assinatura do Azure que contém o aplicativo lógico. |
-   | Grupo de recursos | Selecione um grupo de recursos do Azure existente ou crie um novo para o aplicativo lógico. |
-   | Local       | Selecione a região do datacenter para implantar seu aplicativo lógico. |
+   | Nome           | Nome exclusivo para o aplicativo lógico. |
+   | Assinatura   | Selecione a assinatura do Azure que contém o aplicativo lógico. |
+   | Grupo de Recursos | Selecione um grupo de recursos do Azure existente ou crie um novo para o aplicativo lógico. |
+   | Localização       | Selecione a região do datacenter para implantar seu aplicativo lógico. |
    | Log Analytics  | Selecione se você deseja registrar em log o status de cada execução do seu aplicativo lógico em um espaço de trabalho Log Analytics.  |
 
     
@@ -284,7 +284,7 @@ A ação [Compor](../../logic-apps/logic-apps-workflow-actions-triggers.md#compo
 
 
 ### <a name="add-log-analytics-send-data-action"></a>Adicionar ação de enviar dados do Log Analytics
-A ação do [coletor de dados do Azure log Analytics](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) usa o objeto da ação compor e o envia para um espaço de trabalho log Analytics.
+A ação do [coletor de dados do Azure log Analytics](/connectors/azureloganalyticsdatacollector/) usa o objeto da ação compor e o envia para um espaço de trabalho log Analytics.
 
 1. Clique em **nova etapa**  >  **Adicionar uma ação**
 2. Digite *log analytics* para seu filtro e, em seguida, selecione a ação **Coletor de Dados do Log Analytics do Azure - Enviar dados**.
@@ -299,7 +299,7 @@ A ação do [coletor de dados do Azure log Analytics](https://docs.microsoft.com
 
     ![Configure a ação de envio de dados](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-configuration.png)
 
-   |Setting        | Valor           | Descrição  |
+   |Configuração        | Valor           | Descrição  |
    |---------------|---------------------------|--------------|
    |Corpo da solicitação JSON  | **Saída** da ação **Compor** | Recupera os registros do corpo da ação Compor. |
    | Campo de Log Personalizado | AzureActivity | Nome da tabela de log Personalizada a ser criada no espaço de trabalho Log Analytics para armazenar os dados importados. |
@@ -330,7 +330,7 @@ A etapa final é verificar o espaço de trabalho do Log Analytics para certifica
 > Na primeira vez que um novo log personalizado é enviado para o espaço de trabalho de Log Analytics, pode levar até uma hora para que o log personalizado seja pesquisável.
 
 >[!NOTE]
-> Os logs de atividade são gravados em uma tabela personalizada e não aparecem na [solução do log de atividades](./activity-log-collect.md).
+> Os logs de atividade são gravados em uma tabela personalizada e não aparecem na [solução do log de atividades](./activity-log.md).
 
 
 ![Testar aplicativo lógico](media/collect-activity-logs-subscriptions/log-analytics-results.png)

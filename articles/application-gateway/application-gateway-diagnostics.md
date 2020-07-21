@@ -8,11 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 6829efa007e9e67866bdc0efbca4d095155c35e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f752604b86634948954dd670d0b7f4edb5b3e2be
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82889696"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517868"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Integridade de back-end e logs de diagnóstico para o gateway de aplicativo
 
@@ -155,7 +156,9 @@ O Azure gera o log de atividades por padrão. Os logs são preservados por 90 di
 
 ### <a name="access-log"></a>Log de acesso
 
-O log de acesso é gerado apenas se você o habilitou em cada instância do Gateway de Aplicativo, conforme detalhado nas etapas anteriores. Os dados são armazenados na conta de armazenamento especificada quando o log foi habilitado. Cada acesso do gateway de aplicativo é registrado no formato JSON, conforme mostrado no exemplo a seguir para V1:
+O log de acesso é gerado apenas se você o habilitou em cada instância do Gateway de Aplicativo, conforme detalhado nas etapas anteriores. Os dados são armazenados na conta de armazenamento especificada quando o log foi habilitado. Cada acesso do gateway de aplicativo é registrado no formato JSON, conforme mostrado abaixo. 
+
+#### <a name="for-application-gateway-standard-and-waf-sku-v1"></a>Para o gateway de aplicativo Standard e WAF SKU (v1)
 
 |Valor  |Descrição  |
 |---------|---------|
@@ -199,7 +202,7 @@ O log de acesso é gerado apenas se você o habilitou em cada instância do Gate
     }
 }
 ```
-Para o gateway de aplicativo e o WAF v2, os logs mostram um pouco mais de informações:
+#### <a name="for-application-gateway-and-waf-v2-sku"></a>Para o gateway de aplicativo e o SKU WAF v2
 
 |Valor  |Descrição  |
 |---------|---------|
@@ -220,7 +223,10 @@ Para o gateway de aplicativo e o WAF v2, os logs mostram um pouco mais de inform
 |serverRouted| O servidor back-end para o qual o gateway de aplicativo roteia a solicitação.|
 |serverStatus| Código de status HTTP do servidor de back-end.|
 |serverResponseLatency| Latência da resposta do servidor de back-end.|
-|host| Endereço listado no cabeçalho do host da solicitação.|
+|host| Endereço listado no cabeçalho do host da solicitação. Se reescrito, esse campo conterá o nome de host atualizado|
+|originalRequestUriWithArgs| Este campo contém a URL de solicitação original |
+|requestUri| Este campo contém a URL após a operação de regravação no gateway de aplicativo |
+|originalHost| Este campo contém o nome do host de solicitação original
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -261,7 +267,7 @@ O log de desempenho é gerado apenas se você o habilitou em cada instância do 
 |healthyHostCount     | Número de hosts íntegros no pool de back-end.        |
 |unHealthyHostCount     | Número de hosts não íntegros no pool de back-end.        |
 |requestCount     | Número de solicitações atendidas.        |
-|latency | Latência média (em milissegundos) de solicitações da instância para o back-end que atende às solicitações. |
+|latência | Latência média (em milissegundos) de solicitações da instância para o back-end que atende às solicitações. |
 |failedRequestCount| Número de solicitações com falha.|
 |throughput| Vazão de dados média desde o último log, medida em bytes por segundo.|
 

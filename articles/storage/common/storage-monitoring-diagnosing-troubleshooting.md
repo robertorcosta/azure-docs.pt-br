@@ -9,11 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 1137a51ab7feb5a6d18c7d137d957d8e779d170e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94d952bcb0693941624199370de092a581d7479b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513389"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518582"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -78,7 +79,7 @@ Para obter um guia prático para solução de problemas de ponta a ponta em apli
 ## <a name="introduction"></a><a name="introduction"></a>Introdução
 Esse guia mostra como você usa recursos como o Armazenamento Analítico do Azure, a biblioteca de armazenamento do cliente Azure com login do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e solucionar problemas relacionados ao armazenamento do Azure.
 
-![][1]
+![Diagrama que mostra o fluxo de informações entre aplicativos cliente e serviços de armazenamento do Azure.][1]
 
 Esse guia deve ser lido primeiramente pelos desenvolvedores de serviços online que usam os Serviços Armazenamento do Azure e profissionais de TI para gerenciar esses serviços online. Os objetivos desse guia são:
 
@@ -117,7 +118,7 @@ Monitore continuamente seus aplicativos do Azure para garantir que sua integrida
 
 Os gráficos na imagem a seguir ilustram como a média que acontece nas métricas de hora em hora podem esconder picos em atividade. As métricas de hora em hora parecem mostrar uma taxa constante de solicitações, enquanto as métricas de minuto em minuto revelam as flutuações que estão realmente acontecendo.
 
-![][3]
+![Gráficos que mostram como a média que ocorre para métricas por hora podem ocultar picos na atividade.][3]
 
 O restante desta seção descreve quais as métricas que você deve monitorar e o porquê.
 
@@ -347,7 +348,7 @@ O seu problema está relacionado à disponibilidade de um dos serviços de armaz
 ### <a name="metrics-show-high-averagee2elatency-and-low-averageserverlatency"></a><a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>As métricas mostram alta AverageE2ELatency e baixa AverageServerLatency
 A figura abaixo da ferramenta de monitoramento do [portal do Azure](https://portal.azure.com) mostra um exemplo em que a **AverageE2ELatency** é significantemente mais alta que a **AverageServerLatency**.
 
-![][4]
+![Ilustração do portal do Azure que mostra um exemplo em que o AverageE2ELatency é significativamente maior do que o AverageServerLatency.][4]
 
 O serviço de armazenamento calcula apenas a métrica **AverageE2ELatency** para solicitações de êxito e, ao contrário de **AverageServerLatency**, inclui o tempo que o cliente leva para enviar os dados e receber a confirmação do serviço de armazenamento. Portanto, a diferença entre a **AverageE2ELatency** e a **AverageServerLatency** pode ser ou devido a lentidão de resposta do aplicativo do cliente ou devido às condições da rede.
 
@@ -726,7 +727,7 @@ Após você ter iniciado o Fiddler, ele começará capturar o tráfego HTTP e HT
 
 Para limitar o valor de tráfego que o Fiddler captura, você pode usar filtros que você configura na guia **Filtros** . A seguinte captura de tela mostra um filtro que captura apenas o tráfego enviado para o ponto de extremidade de armazenamento **contosoemaildist.table.core.windows.net** :
 
-![][5]
+![Captura de tela que mostra um filtro que captura somente o tráfego enviado para o ponto de extremidade de armazenamento contosoemaildist.table.core.windows.net.][5]
 
 ### <a name="appendix-2-using-wireshark-to-capture-network-traffic"></a><a name="appendix-2"></a>Apêndice 2: Usando o Wireshark para capturar o tráfego de rede
 [Wireshark](https://www.wireshark.org/) é um analisar de protocolo de rede que permite que você exiba informações detalhadas de pacote de uma vasta gama de protocolos de rede.
@@ -738,18 +739,18 @@ O procedimento a seguir mostra como capturar informações detalhadas de pacote 
 3. Clique em **Opções de Captura**.
 4. Adicione um filtro à caixa de texto **Filtro de Captura** . Por exemplo, o **host contosoemaildist.table.core.windows.net** configurará o Wireshark para capturar apenas os pacotes enviados para ou a partir do ponto de extremidade de serviço tabela na conta de armazenamento **contosoemaildist**. Confira a [Lista completa de filtros de captura](https://wiki.wireshark.org/CaptureFilters).
 
-   ![][6]
+   ![Captura de tela que mostra como adicionar um filtro à caixa de texto filtro de captura.][6]
 5. Clique em **Iniciar**. O Wireshark capturará agora todos pacotes enviados para ou a partir do ponto de extremidade do serviço de tabela enquanto você usa o aplicativo do cliente no seu computador local.
 6. Quando você tiver terminado, no menu principal clique em **Capturar** e em **Parar**.
 7. Para salvar os dados capturados no arquivo de captura do Wireshark, no menu principal clique em **Arquivo** e em **Salvar**.
 
 O Wireshark irá realçar qualquer erro que existir na janela **packetlist** . Você também pode usar a janela **Informações do Especialista** (clique em **Analisar** e em **Informações do Especialista**) para exibir um resumo dos erros e avisos.
 
-![][7]
+![Captura de tela que mostra a janela informações de especialista, em que você pode exibir um resumo de erros e avisos.][7]
 
 Você também pode escolher exibir os dados de TCP conforme vistos pela camada de aplicativo, clicando com o botão direito do mouse nos dados de TCP e selecionando **Seguir o Fluxo TCP**. Isso será útil se você tiver capturado o despejo sem o filtro de captura. Para saber mais, confira [Como seguir fluxos TCP](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
-![][8]
+![Captura de tela que mostra como exibir os dados TCP conforme a camada de aplicativo o vê.][8]
 
 > [!NOTE]
 > Para saber mais sobre como usar o Wireshark, veja o [Guia de Usuários do Wireshark](https://www.wireshark.org/docs/wsug_html_chunked).
@@ -782,11 +783,11 @@ Além de usar o rastreamento de **Proxy da Web** do Microsoft Message Analyzer p
 
 A seguinte captura de tela mostra um exemplo de rastreamento de **Camada de Link Local** com algumas mensagens **informativas** na coluna **DiagnosisTypes**. Clicar no ícone na coluna **DiagnosisTypes** mostra detalhes da mensagem. Neste exemplo, o servidor retransmitiu a mensagem nº 305 porque ele não recebeu uma confirmação do cliente:
 
-![][9]
+![Captura de tela que mostra um exemplo de rastreamento de camada de link local com algumas mensagens informativas na coluna DiagnosisTypes][9]
 
 Quando você cria uma sessão de rastreamento no Microsoft Message Analyzer, é possível especificar filtros para reduzir a quantidade de ruídos no rastreamento. Na página **Capturar/Rastrear** na qual você define o rastreamento, clique no link **Configurar** próximo a **Microsoft-Windows-NDIS-PacketCapture**. A seguinte captura de tela mostra a configuração que filtra o tráfego TCP para os endereços de IP de três serviços de armazenamento:
 
-![][10]
+![Captura de tela que mostra uma configuração que filtra o tráfego TCP para os endereços IP de três serviços de armazenamento.][10]
 
 Para obter mais informações sobre o rastreamento de Camada de Link Local do Microsoft Message Analyzer, consulte [Provedor do Microsoft-PEF-NDIS-PacketCapture](https://technet.microsoft.com/library/jj659264.aspx).
 

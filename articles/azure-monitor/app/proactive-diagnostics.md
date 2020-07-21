@@ -3,11 +3,12 @@ title: Detecção Inteligente no Azure Application Insights | Microsoft Docs
 description: O Application Insights executa uma análise automática profunda de telemetria do seu aplicativo e o avisará sobre possíveis problemas de desempenho.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: b7fecf886515780858ecc503a29be3bd76b73c3f
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: ad6580a0a62d331a7851c47d71b46d3ea6c81468
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700848"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516865"
 ---
 # <a name="smart-detection-in-application-insights"></a>Detecção Inteligente no Application Insights
  A Detecção Inteligente avisa automaticamente sobre possíveis problemas de desempenho no seu aplicativo Web. Ele executa uma análise proativa da telemetria que seu aplicativo envia ao [Application Insights](../../azure-monitor/app/app-insights-overview.md). Se houver um aumento repentino nas taxas de falha ou nos padrões anormais de desempenho de cliente ou de servidor, você receberá um alerta. Esse recurso não precisa de nenhuma configuração. Ela funciona se o seu aplicativo envia telemetria suficiente.
@@ -33,7 +34,7 @@ A detecção inteligente detecta e notifica sobre uma variedade de problemas, co
 
 * [Detecção inteligente - anomalias de falha](../../azure-monitor/app/proactive-failure-diagnostics.md). Usamos o aprendizado de máquina para definirmos a taxa esperada de solicitações com falha para seu aplicativo, fazendo a correlação com a carga e com outros fatores. Se a taxa de falha for além do envelope esperado, podemos enviar um alerta.
 * [Detecção inteligente - anomalias de desempenho](../../azure-monitor/app/proactive-performance-diagnostics.md). Você recebe notificações se o tempo de resposta de uma duração da operação ou dependência está diminuindo em comparação com a linha de base histórica ou identificamos um padrão anormal no tempo de resposta ou tempo de carregamento de página.   
-* Problemas e degradações gerais, como [Degradação de rastreamento](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity), [Vazamento de memória](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak), [Aumento anormal no volume de exceção](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume) e [Antipadrões de segurança](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack).
+* Problemas e degradações gerais, como [Degradação de rastreamento](./proactive-trace-severity.md), [Vazamento de memória](./proactive-potential-memory-leak.md), [Aumento anormal no volume de exceção](./proactive-exception-volume.md) e [Antipadrões de segurança](./proactive-application-security-detection-pack.md).
 
 (Os links de Ajuda em cada notificação levam você para os artigos relevantes).
 
@@ -43,7 +44,7 @@ Todas as regras de detecção inteligente, exceto para as regras marcadas como _
 
 Configurar notificações por email para uma regra de detecção inteligente específica pode ser feito abrindo a folha **Configurações** de detecção inteligente e selecionando a regra, que abrirá a folha **Editar regra**.
 
-Como alternativa, você pode alterar a configuração usando modelos do Azure Resource Manager. [Confira Gerenciar regras de detecção inteligente do Application Insights usando modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config) para obter detalhes.
+Como alternativa, você pode alterar a configuração usando modelos do Azure Resource Manager. [Confira Gerenciar regras de detecção inteligente do Application Insights usando modelos do Azure Resource Manager](./proactive-arm-config.md) para obter detalhes.
 
 ## <a name="video"></a>Vídeo
 
@@ -60,4 +61,3 @@ A Detecção Inteligente é totalmente automática. Mas talvez você queira conf
 
 * [Alertas de métrica configurados manualmente](../../azure-monitor/platform/alerts-log.md)
 * [Testes de disponibilidade na Web](../../azure-monitor/app/monitor-web-app-availability.md) 
-

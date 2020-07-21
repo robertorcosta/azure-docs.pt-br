@@ -3,11 +3,12 @@ title: Criar um novo recurso do Azure Application Insights | Microsoft Docs
 description: Configure manualmente o monitoramento do Application Insights para um novo aplicativo em tempo real.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 4d8979469ca83dfd6b81aab10191e8fbf36104ff
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: cb47453140c7659ca2f5e6da2e40d9d78405f8e7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200682"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517086"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
@@ -31,7 +32,7 @@ Entre no [portal do Azure](https://portal.azure.com) e crie um recurso do Applic
    | **Modo de Recurso** | `Classic` ou `Workspace-based` | Os recursos baseados em workspace estão atualmente em versão prévia pública e permitem que você envie sua telemetria do Application Insights para um workspace comum do Log Analytics. Para obter mais informações, confira o [artigo sobre recursos baseados em workspace](create-workspace-resource.md).
 
 > [!NOTE]
-> Embora você possa usar o mesmo nome de recurso em grupos de recursos diferentes, pode ser benéfico usar um nome globalmente exclusivo. Isso pode ser útil se você planeja [executar consultas entre recursos diferentes](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application), pois simplifica a sintaxe necessária.
+> Embora você possa usar o mesmo nome de recurso em grupos de recursos diferentes, pode ser benéfico usar um nome globalmente exclusivo. Isso pode ser útil se você planeja [executar consultas entre recursos diferentes](../log-query/cross-workspace-query.md#identifying-an-application), pois simplifica a sintaxe necessária.
 
 Insira os valores apropriados nos campos obrigatórios e selecione **Examinar + criar**.
 
@@ -92,7 +93,7 @@ SamplingPercentage :
 TenantId           : {subid}
 ```
 
-Para obter a documentação completa do PowerShell para esse cmdlet e saber como recuperar a chave de instrumentação, consulte a [documentação do Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
+Para obter a documentação completa do PowerShell para esse cmdlet e saber como recuperar a chave de instrumentação, consulte a [documentação do Azure PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
 
 ### <a name="azure-cli-preview"></a>CLI do Azure (versão prévia)
 
@@ -149,12 +150,12 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 }
 ```
 
-Para obter a documentação completa da CLI do Azure para esse comando e saber como recuperar a chave de instrumentação, consulte a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
+Para obter a documentação completa da CLI do Azure para esse comando e saber como recuperar a chave de instrumentação, consulte a [documentação da CLI do Azure](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Pesquisa de Diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 * [Explorar métricas](../../azure-monitor/platform/metrics-charts.md)
-* [Escrever consultas do Analytics](../../azure-monitor/app/analytics.md)
+* [Escrever consultas do Analytics](../log-query/log-query-overview.md)
 
 <!--Link references-->
 

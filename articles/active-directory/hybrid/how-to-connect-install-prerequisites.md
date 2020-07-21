@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bd19093034b4427d9e1b637a653a90e0568cddf
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 11d5c1bb133f0aea241fbc55f96ab5f8818e5ed6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223917"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518106"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este tópico descreve os pré-requisitos e requisitos de hardware para o Azure AD Connect.
@@ -34,7 +34,7 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você pr
   * O [portal do Azure](https://portal.azure.com).
   * O [portal do Office](https://portal.office.com).  
 * [Adicione e verifique o domínio](../active-directory-domains-add-azure-portal.md) que você planeja usar no AD do Azure. Por exemplo, se você planeja usar contoso.com para os usuários, em seguida, verifique se este domínio foi verificado e se não está usando apenas o domínio padrão contoso.onmicrosoft.com.
-* Um locatário do Azure AD pode ter, por padrão, 50 mil objetos. Quando você verificar seu domínio, o limite aumentará para 300 mil objetos. Se precisar de mais objetos no Azure AD, precisará abrir um caso de suporte para aumentar ainda mais o limite. Se você precisar de mais de 500 mil objetos, precisará de uma licença, como Office 365, Azure AD Básico, Azure AD Premium ou Enterprise Mobility and Security.
+* Um locatário do Azure AD pode ter, por padrão, 50 mil objetos. Quando você verificar seu domínio, o limite aumentará para 300 mil objetos. Se precisar de mais objetos no Azure AD, precisará abrir um caso de suporte para aumentar ainda mais o limite. Se você precisar de mais de 500 mil objetos, precisará de uma licença, como Office 365, Azure AD Premium ou Enterprise Mobility and Security.
 
 ### <a name="prepare-your-on-premises-data"></a>Preparar seus dados locais
 * Usar [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) para identificar erros como duplicatas e problemas de formatação no diretório antes de sincronizar para o Azure AD e o Office 365.
@@ -54,9 +54,9 @@ O servidor de Azure AD Connect deve ser tratado como um componente de camada 0, 
 
 Para saber mais sobre como proteger seu ambiente de Active Directory, consulte [práticas recomendadas para proteger Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
-#### <a name="installation-prerequisites"></a>Pré-requisitos de instalação 
+#### <a name="installation-prerequisites"></a>Pré-requisitos da instalação 
 
-- Azure AD Connect deve ser instalado em um domínio ingressado no Windows Server 2012 ou posterior. É altamente recomendável que esse servidor seja um controlador de domínio. 
+- Azure AD Connect deve ser instalado em um domínio ingressado no Windows Server 2012 ou posterior. 
 - O Azure AD Connect não pode ser instalado no Small Business Server ou no Windows Server Essentials anteriores a 2019 (o Windows Server Essentials 2019 é compatível). O servidor deve estar usando o Windows Server standard ou superior.  
 - O servidor do Azure AD Connect deve ter uma GUI completa instalada. Não há suporte para a instalação do Azure AD Connect no Windows Server Core. 
 - O servidor de Azure AD Connect não deve ter a transcrição do PowerShell Política de Grupo habilitada se você estiver usando Azure AD Connect assistente para gerenciar a configuração do ADFS. Você poderá habilitar a transcrição do PowerShell se estiver usando o assistente do Azure AD Connect para gerenciar a configuração de sincronização. 

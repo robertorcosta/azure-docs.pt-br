@@ -4,11 +4,12 @@ description: Obtenha Resumo periódico para suas recomendações ativas
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: sagupt
-ms.openlocfilehash: 98f1bfd42a486e005cd1e777a83f5b615a7c8304
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e446fca11e029e28e44ada884efd071f3142514c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79502458"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518072"
 ---
 # <a name="configure-periodic-summary-for-recommendations"></a>Configurar o resumo periódico para recomendações
 
@@ -20,7 +21,7 @@ Os **resumos de recomendação** do Advisor fornecem uma maneira fácil e proati
 A experiência de criação do **Resumo de recomendação** ajuda a configurar o resumo. Você pode selecionar os parâmetros abaixo para as configurações:
 1. Categoria: temos categorias de recomendação como custo, alta disponibilidade, desempenho e excelência operacional. A funcionalidade ainda não está disponível para recomendações de segurança.
 2. Frequência do Resumo: a frequência das notificações de resumo pode ser semanal, quinzenal e mensal.
-3. Grupo de ações: você pode selecionar um grupo de ações existente ou criar um novo grupo de ação. Para saber mais sobre grupos de ações, consulte [criar e gerenciar grupos de ações](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+3. Grupo de ações: você pode selecionar um grupo de ações existente ou criar um novo grupo de ação. Para saber mais sobre grupos de ações, consulte [criar e gerenciar grupos de ações](../azure-monitor/platform/action-groups.md).
 4. Idioma para o resumo
 5. Nome do Resumo de recomendação: você pode usar uma cadeia de caracteres amigável para acompanhar e monitorar melhor os resumos.
 
@@ -43,7 +44,7 @@ Estas são as etapas para criar um **Resumo de recomendação:**
 
    ![Fornecer condições de entrada de Resumo de recomendação](./media/digest-2.png)
 
-* **Etapa 5:** Na seção **grupo de ações** , selecione o **grupo de ações** para o resumo. Você pode aprender mais aqui – [criar e gerenciar grupos de ações](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+* **Etapa 5:** Na seção **grupo de ações** , selecione o **grupo de ações** para o resumo. Você pode aprender mais aqui – [criar e gerenciar grupos de ações](../azure-monitor/platform/action-groups.md)
 
    ![Fornecer grupo de ações de entrada de Resumo de recomendação](./media/digest-3.png)
 
@@ -59,4 +60,4 @@ Para obter mais informações sobre as recomendações do Assistente, consulte:
 * [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
 * [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
 * [Recomendações de excelência operacional do Advisor](advisor-operational-excellence-recommendations.md)
-* [API REST do Advisor](https://docs.microsoft.com/rest/api/advisor/)
+* [API REST do Advisor](/rest/api/advisor/)

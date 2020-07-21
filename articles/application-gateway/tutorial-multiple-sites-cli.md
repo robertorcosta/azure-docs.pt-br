@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0a559ec7f9138810611841eed4a035f30662bc39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79a239148647467185e407e1e07fdea658a7be40
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806264"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517886"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Criar um gateway de aplicativo que hospeda vários sites usando a CLI do Azure
 
@@ -30,7 +30,7 @@ Neste artigo, você aprenderá como:
 > * Criar conjuntos de dimensionamento de máquinas virtuais com pools de back-end
 > * Criar um registro CNAME no seu domínio
 
-![Exemplo de roteamento de vários sites](./media/tutorial-multiple-sites-cli/scenario.png)
+:::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Gateway de aplicativo multissite":::
 
 Se preferir, você poderá concluir este procedimento usando o [Azure PowerShell](tutorial-multiple-sites-powershell.md).
 
@@ -119,9 +119,13 @@ az network application-gateway address-pool create \
   --name fabrikamPool
 ```
 
-### <a name="add-backend-listeners"></a>Adicionar os ouvintes de back-end
+### <a name="add-listeners"></a>Adicionar ouvintes
 
-Adicione ouvintes de back-end necessários para redirecionar o tráfego usando [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
+Adicione ouvintes que são necessários para rotear o tráfego usando [AZ Network Application-Gateway http-Listener Create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
+
+>[!NOTE]
+> Com a SKU do gateway de aplicativo ou do WAF v2, você também pode configurar até 5 nomes de host por ouvinte e pode usar caracteres curinga no nome do host. Consulte [nomes de host curinga no ouvinte](multiple-site-overview.md#wildcard-host-names-in-listener-preview) para obter mais informações.
+>Para usar vários nomes de host e caracteres curinga em um ouvinte usando CLI do Azure, você deve usar `--host-names` em vez de `--host-name` . Com os nomes de host, você pode mencionar até 5 nomes de host como valores separados por vírgulas. Por exemplo, `--host-names "*.contoso.com,*.fabrikam.com"`
 
 ```azurecli-interactive
 az network application-gateway http-listener create \

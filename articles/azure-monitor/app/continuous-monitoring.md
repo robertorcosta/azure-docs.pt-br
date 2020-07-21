@@ -3,12 +3,12 @@ title: Monitoramento contínuo de seu pipeline de versão do DevOps com o Azure 
 description: Fornece instruções para configurar rapidamente o monitoramento contínuo com o Application Insights
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 0d47fb1eccdfcfc7b2719825575f06dc85e62452
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd7cd6a107ed45adb60167a57661b60be5dc8212
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652760"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517120"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Adicionar monitoramento contínuo ao seu pipeline de versão
 
@@ -101,4 +101,4 @@ Você pode ver o comportamento do portão de implantação e outras etapas de ve
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre Azure Pipelines, consulte a [documentação do Azure pipelines](https://docs.microsoft.com/azure/devops/pipelines).
+Para obter mais informações sobre Azure Pipelines, consulte a [documentação do Azure pipelines](/azure/devops/pipelines).

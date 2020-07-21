@@ -4,15 +4,15 @@ description: Saiba mais sobre o tráfego de rede do ASE e como definir os grupos
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/29/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4aec7fa78292f224952dd2ae929d2b8bfd97ab9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10cb1149880c70d991dd5ab49acceab3283372a7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80477679"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517846"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente do Serviço de Aplicativo #
 
@@ -153,18 +153,20 @@ Os NSGs podem ser configurados por meio do portal do Azure ou por meio do PowerS
 As entradas necessárias em um NSG para que um ASE funcione, são permitir o tráfego:
 
 **Entrada**
-* na marca de serviço IP AppServiceManagement nas portas 454.455
-* do balanceador de carga na porta 16001
+* TCP da marca de serviço IP AppServiceManagement nas portas 454.455
+* TCP do balanceador de carga na porta 16001
 * da sub-rede do ASE para a sub-rede do ASE em todas as portas
 
 **Saída**
-* para todos os IPs na porta 123
-* para todos os IPs nas portas 80, 443
-* para a marca de serviço IP AzureSQL nas portas 1433
-* para todos os IPs na porta 12000
+* UDP para todos os IPs na porta 123
+* TCP para todos os IPs nas portas 80, 443
+* TCP para a marca do serviço IP AzureSQL nas portas 1433
+* TCP para todos os IPs na porta 12000
 * para a sub-rede do ASE em todas as portas
 
-A porta DNS não precisa ser adicionada, pois o tráfego para DNS não é afetado pelas regras NSG. Essas portas não incluem as portas que seus aplicativos exigem para uso bem-sucedido. As portas de acesso normais do aplicativo são:
+Essas portas não incluem as portas que seus aplicativos exigem para uso bem-sucedido. Por exemplo, seu aplicativo pode precisar chamar um servidor MySQL na porta 3306 a porta DNS, a porta 53, não precisa ser adicionada, pois o tráfego para DNS não é afetado pelas regras NSG. Protocolo NTP (NTP) na porta 123 é o protocolo de sincronização de tempo usado pelo sistema operacional. Os pontos de extremidade do NTP não são específicos para os serviços de aplicativo, podem variar com o sistema operacional e não estão em uma lista bem definida de endereços. Para evitar problemas de sincronização de horário, você precisará permitir o tráfego UDP para todos os endereços na porta 123. O tráfego de saída TCP para porta 12000 é para a análise e o suporte do sistema. Os pontos de extremidade são dinâmicos e não estão em um conjunto bem definido de endereços.
+
+As portas de acesso normais do aplicativo são:
 
 | Uso | Portas |
 |----------|-------------|
@@ -194,7 +196,7 @@ O túnel forçado é quando você define rotas na rede virtual para que o tráfe
 Quando você cria um ASE no portal, também criamos um conjunto de tabelas de rotas na sub-rede que é criada com o ASE.  Essas rotas simplesmente informam para enviar o tráfego de saída diretamente para a Internet.  
 Para criar as mesmas rotas manualmente, siga estas etapas:
 
-1. Vá para o portal do Azure. Selecione **rede**  >  **tabelas de rotas**.
+1. Acesse o portal do Azure. Selecione **rede**  >  **tabelas de rotas**.
 
 2. Crie uma nova tabela de rota na mesma região da sua VNet.
 

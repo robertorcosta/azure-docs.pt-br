@@ -4,12 +4,12 @@ description: Seja notificado por SMS, webhook, email e mais quando ocorrerem det
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 1a932aba55ec9bd5d92c60338a3c1fc4bb481c1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ed73678e0df1e068782c2a094846132be58cfe2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137698"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516117"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas no log de atividades
 
@@ -25,11 +25,11 @@ Normalmente, você cria alertas de log de atividade para receber notificações 
 * As operações específicas ocorrem nos recursos de sua assinatura do Azure, normalmente com escopo para recursos ou grupos de recursos específicos. Por exemplo, convém ser notificado quando qualquer máquina virtual em myProductionResourceGroup for excluída. Ou você pode receber uma notificação se quaisquer funções novas forem atribuídas a um usuário em sua assinatura.
 * Ocorre um evento de integridade do serviço. Os eventos de integridade de serviço incluem uma notificação de incidentes e eventos de manutenção que se aplicam aos recursos em sua assinatura.
 
-Uma analogia simples para entender as condições em que as regras de alerta podem ser criadas no log de atividades é explorar ou filtrar eventos por meio [do log de atividades em portal do Azure](activity-log-view.md#azure-portal). No log de atividades Azure Monitor, é possível filtrar ou localizar o evento necessário e, em seguida, criar um alerta usando o botão de **alerta Adicionar log de atividades** .
+Uma analogia simples para entender as condições em que as regras de alerta podem ser criadas no log de atividades é explorar ou filtrar eventos por meio [do log de atividades em portal do Azure](./activity-log.md#view-the-activity-log). No log de atividades Azure Monitor, é possível filtrar ou localizar o evento necessário e, em seguida, criar um alerta usando o botão de **alerta Adicionar log de atividades** .
 
 Em ambos os casos, o alerta do log de atividades só monitorará eventos na assinatura na qual o alerta foi criado.
 
-Você pode configurar um alerta do log de atividades com base em qualquer propriedade de nível superior no objeto JSON de um evento do log de atividades. Para obter mais informações, consulte [categorias no log de atividades](activity-log-view.md#categories-in-the-activity-log). Para saber mais sobre os eventos de integridade do serviço, veja [Receber alertas do log de atividades em notificações de serviço](alerts-activity-log-service-notifications.md). 
+Você pode configurar um alerta do log de atividades com base em qualquer propriedade de nível superior no objeto JSON de um evento do log de atividades. Para obter mais informações, consulte [categorias no log de atividades](./activity-log.md#view-the-activity-log). Para saber mais sobre os eventos de integridade do serviço, veja [Receber alertas do log de atividades em notificações de serviço](../../service-health/alerts-activity-log-service-notifications-portal.md). 
 
 Os alertas do log de atividades têm algumas opções comuns:
 
@@ -61,4 +61,4 @@ Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de açõ
 - Obtenha uma [visão geral dos alertas](alerts-overview.md).
 - Saiba mais sobre [criar e modificar alertas do log de atividades](alerts-activity-log.md).
 - Examine o [esquema de webhook de alerta do log de atividades](activity-log-alerts-webhook.md).
-- Saiba mais sobre as [notificações de integridade do serviço](service-notifications.md).
+- Saiba mais sobre as [notificações de integridade do serviço](../../service-health/service-notifications.md).

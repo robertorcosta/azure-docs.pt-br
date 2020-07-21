@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Saiba como criar dinamicamente um volume persistente com discos do Azure no serviço kubernetes do Azure (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/01/2019
-ms.openlocfilehash: 44741452f95995327914978bbfd5b0a49566faa5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: 0e7bc057d756215b1aa155f0e227c75c99c8737c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751349"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518004"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Criar e usar dinamicamente um volume persistente com discos do Azure no AKS (Serviço de Kubernetes do Azure)
 
@@ -31,14 +31,14 @@ A CLI do Azure versão 2.0.59 ou posterior também precisa estar instalada e con
 
 Uma classe de armazenamento é usada para definir como uma unidade de armazenamento é criada dinamicamente com um volume persistente. Para obter mais informações sobre classes de armazenamento Kubernetes, consulte [Classes de Armazenamento Kubernetes][kubernetes-storage-classes].
 
-Cada cluster AKS inclui duas classes de armazenamento criadas previamente, ambas configuradas para funcionarem com discos do Azure:
+Cada cluster AKS inclui quatro classes de armazenamento criadas previamente, duas delas configuradas para funcionar com os discos do Azure:
 
-* A classe de armazenamento *padrão* provisiona um disco standard do Azure.
-    * O armazenamento Standard é apoiado por HDDs e fornece armazenamento econômico enquanto ainda está em bom desempenho. Os discos padrão são ideais para uma carga de trabalho econômica de desenvolvimento e teste.
+* A classe de armazenamento *padrão* provisiona um disco do Azure SSD padrão.
+    * O armazenamento Standard é apoiado pelo SSDs padrão e fornece armazenamento econômico e ainda oferece um desempenho confiável. 
 * A classe de armazenamento *managed-premium* provisiona um disco premium do Azure.
     * Os discos Premium são apoiados por disco de baixa latência e alto desempenho baseado em SSD. Perfeitos para VMs que executam carga de trabalho de produção. Se os nós do AKS no cluster usarem o armazenamento premium, selecione a classe *managed-premium*.
     
-Se você usar uma das classes de armazenamento padrão, não poderá atualizar o tamanho do volume depois que a classe de armazenamento for criada. Para poder atualizar o tamanho do volume depois que uma classe de armazenamento é criada, adicione a linha `allowVolumeExpansion: true` a uma das classes de armazenamento padrão ou você pode criar sua própria classe de armazenamento personalizada. Você pode editar uma classe de armazenamento existente usando o `kubectl edit sc` comando. 
+Se você usar uma das classes de armazenamento padrão, não poderá atualizar o tamanho do volume depois que a classe de armazenamento for criada. Para poder atualizar o tamanho do volume depois que uma classe de armazenamento é criada, adicione a linha `allowVolumeExpansion: true` a uma das classes de armazenamento padrão ou você pode criar sua própria classe de armazenamento personalizada. Observe que não há suporte para reduzir o tamanho de um PVC (para evitar a perda de dados). Você pode editar uma classe de armazenamento existente usando o `kubectl edit sc` comando. 
 
 Por exemplo, se você quiser usar um disco de tamanho 4 TiB, deverá criar uma classe de armazenamento que defina `cachingmode: None` porque o [cache de disco não tem suporte em discos 4 TIB e maiores](../virtual-machines/windows/premium-storage-performance.md#disk-caching).
 
@@ -151,6 +151,9 @@ Events:
   Normal  SuccessfulMountVolume  1m    kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "pvc-faf0f176-8b8d-11e8-923b-deb28c58d242"
 [...]
 ```
+
+## <a name="use-ultra-disks"></a>Usar ultra discos
+Para aproveitar o ultra Disk, consulte [usar ultra discos no AKs (serviço kubernetes do Azure)](use-ultra-disks.md).
 
 ## <a name="back-up-a-persistent-volume"></a>Fazer backup de um volume persistente
 
@@ -284,3 +287,11 @@ Saiba mais sobre volumes persistentes Kubernetes usando os discos do Azure.
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

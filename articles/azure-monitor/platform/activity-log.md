@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 77946694253ff0c1c6953d0b20836d3cb6733801
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e6fb2f09200e42f7ad7781716bb83ab418134509
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082294"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516134"
 ---
 # <a name="azure-activity-log"></a>Log de Atividades do Azure
-O log de atividades é um [log de plataforma](platform-logs-overview.md) no Azure que fornece informações sobre eventos de nível de assinatura. Isso inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Você pode exibir o log de atividades no portal do Azure ou recuperar entradas com o PowerShell e a CLI. Para funcionalidade adicional, você deve criar uma configuração de diagnóstico para enviar o log de atividades para [Azure monitor logs](data-platform-logs.md), para os hubs de eventos do Azure para encaminhar fora do Azure ou para o armazenamento do Azure para arquivamento. Este artigo fornece detalhes sobre como exibir o log de atividades e enviá-lo para diferentes destinos.
+O log de atividades é um [log de plataforma](platform-logs-overview.md) no Azure que fornece informações sobre eventos de nível de assinatura. Isso inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Veja o log de atividades no portal do Azure ou recupere as entradas com o PowerShell e a CLI. Para funcionalidade adicional, você deve criar uma configuração de diagnóstico para enviar o log de atividades para [Azure monitor logs](data-platform-logs.md), para os hubs de eventos do Azure para encaminhar fora do Azure ou para o armazenamento do Azure para arquivamento. Este artigo fornece detalhes sobre como exibir o log de atividades e enviá-lo para diferentes destinos.
 
 Consulte [criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes](diagnostic-settings.md) para obter detalhes sobre como criar uma configuração de diagnóstico.
 
@@ -43,9 +43,9 @@ Se houver alterações associadas ao evento, você verá uma lista de alteraçõ
 ### <a name="other-methods-to-retrieve-activity-log-events"></a>Outros métodos para recuperar eventos do log de atividades
 Você também pode acessar eventos do log de atividades usando os métodos a seguir.
 
-- Use o cmdlet [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) para recuperar o log de atividades do PowerShell. Confira [Azure monitor exemplos do PowerShell](../samples/powershell-samples.md#retrieve-activity-log).
-- Use [az monitor activity-log](https://docs.microsoft.com/cli/azure/monitor/activity-log) para recuperar o log de atividades da CLI.  Consulte [Exemplos de CLI do Azure Monitor](../samples/cli-samples.md#view-activity-log).
-- Use a [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/) para recuperar o log de atividades de um cliente REST. 
+- Use o cmdlet [Get-AzLog](/powershell/module/az.monitor/get-azlog) para recuperar o log de atividades do PowerShell. Confira [Azure monitor exemplos do PowerShell](../samples/powershell-samples.md#retrieve-activity-log).
+- Use [az monitor activity-log](/cli/azure/monitor/activity-log) para recuperar o log de atividades da CLI.  Consulte [Exemplos de CLI do Azure Monitor](../samples/cli-samples.md#view-activity-log).
+- Use a [API REST do Azure Monitor](/rest/api/monitor/) para recuperar o log de atividades de um cliente REST. 
 
 
 ## <a name="send-to-log-analytics-workspace"></a>Enviar para o workspace do Log Analytics
@@ -58,9 +58,9 @@ Você também pode acessar eventos do log de atividades usando os métodos a seg
 - Armazene entradas do log de atividades por mais de 90 dias.
 - Nenhuma ingestão de dados ou cobrança de retenção de dados para dados de log de atividades armazenados em um espaço de trabalho Log Analytics.
 
-[Crie uma configuração de diagnóstico](diagnostic-settings.md) para enviar o log de atividades para um espaço de trabalho log Analytics. Você pode enviar o log de atividades de qualquer assinatura única para até cinco espaços de trabalho. A coleta de logs entre locatários requer o [Azure Lighthouse](/azure/lighthouse).
+[Crie uma configuração de diagnóstico](diagnostic-settings.md) para enviar o log de atividades para um espaço de trabalho log Analytics. Você pode enviar o log de atividades de qualquer assinatura única para até cinco espaços de trabalho. A coleta de logs entre locatários requer o [Azure Lighthouse](../../lighthouse/index.yml).
 
-Os dados do log de atividades em um espaço de trabalho Log Analytics são armazenados em uma tabela chamada *AzureActivity* que você pode recuperar com uma [consulta de log](../log-query/log-query-overview.md) no [log Analytics](../log-query/get-started-portal.md). A estrutura dessa tabela varia dependendo da [categoria da entrada de log](activity-log-schema.md). Para obter uma descrição das propriedades da tabela, consulte a [referência de dados do Azure monitor](https://docs.microsoft.com/azure/azure-monitor/reference/tables/azureactivity).
+Os dados do log de atividades em um espaço de trabalho Log Analytics são armazenados em uma tabela chamada *AzureActivity* que você pode recuperar com uma [consulta de log](../log-query/log-query-overview.md) no [log Analytics](../log-query/get-started-portal.md). A estrutura dessa tabela varia dependendo da [categoria da entrada de log](activity-log-schema.md). Para obter uma descrição das propriedades da tabela, consulte a [referência de dados do Azure monitor](/azure/azure-monitor/reference/tables/azureactivity).
 
 Por exemplo, para exibir uma contagem de registros de log de atividades para cada categoria, use a consulta a seguir.
 
@@ -172,7 +172,7 @@ Perfis de log são o método herdado para enviar o log de atividades para o arma
 1. No menu **Azure monitor** na portal do Azure, selecione log de **atividades**.
 3. Clique em **Configurações do Diagnóstico**.
 
-   ![Configurações de Diagnóstico](media/diagnostic-settings-subscription/diagnostic-settings.png)
+   ![Configurações de diagnóstico](media/diagnostic-settings-subscription/diagnostic-settings.png)
 
 4. Clique na faixa roxa para a experiência herdada.
 
@@ -281,7 +281,7 @@ As colunas na tabela a seguir foram preteridas no esquema atualizado. Eles ainda
 | ResourceProvider  | ResourceProviderValue  |
 
 > [!IMPORTANT]
-> Em alguns casos, os valores nessas colunas podem estar em letras maiúsculas. Se você tiver uma consulta que inclua essas colunas, deverá usar o [operador = ~](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) para fazer uma comparação sem diferenciação de maiúsculas e minúsculas.
+> Em alguns casos, os valores nessas colunas podem estar em letras maiúsculas. Se você tiver uma consulta que inclua essas colunas, deverá usar o [operador = ~](/azure/kusto/query/datatypes-string-operators) para fazer uma comparação sem diferenciação de maiúsculas e minúsculas.
 
 A seguinte coluna foi adicionada ao *AzureActivity* no esquema atualizado:
 

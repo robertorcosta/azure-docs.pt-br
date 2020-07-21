@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: f198e4aac08039eb7aed8468e6adb45b5b0d67b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b3d489477a0ee0cc201d4383b5ed960de515c7d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84464565"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517103"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas da Web
 
@@ -185,14 +186,14 @@ A maioria dos campos de configuração são nomeados de modo que eles podem ser 
 | isBeaconApiDisabled | true | Se for false, o SDK enviará toda a telemetria usando a [API de Beacon](https://www.w3.org/TR/beacon) |
 | onunloadDisableBeacon | false | Padrão false. Quando a guia for fechada, o SDK enviará toda a telemetria restante usando a [API de Beacon](https://www.w3.org/TR/beacon) |
 | sdkExtension | nulo | Define o nome da extensão do SDK. Somente caracteres alfabéticos são permitidos. O nome da extensão é adicionado como um prefixo à marca ' ia. Internal. sdkVersion ' (por exemplo, ' ext_javascript: 2.0.0 '). O padrão é nulo. |
-| isBrowserLinkTrackingEnabled | false | O padrão é false. Se for true, o SDK rastreará todas as solicitações de [link do navegador](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink) . |
+| isBrowserLinkTrackingEnabled | false | O padrão é false. Se for true, o SDK rastreará todas as solicitações de [link do navegador](/aspnet/core/client-side/using-browserlink) . |
 | appId | nulo | AppId é usado para a correlação entre dependências AJAX acontecendo no lado do cliente com as solicitações do lado do servidor. Quando a API de Beacon está habilitada, ela não pode ser usada automaticamente, mas pode ser definida manualmente na configuração. O padrão é NULL |
 | enableCorsCorrelation | false | Se for true, o SDK adicionará dois cabeçalhos (' solicitação-ID ' e ' solicitação-contexto ') a todas as solicitações de CORS para correlacionar as dependências do AJAX de saída com as solicitações correspondentes no lado do servidor. O padrão é falso |
 | namePrefix | não definido | Um valor opcional que será usado como sufixo de nome para localStorage e o nome do cookie.
 | enableAutoRouteTracking | false | Rastreie automaticamente as alterações de rota em SPA (aplicativos de página única). Se for true, cada alteração de rota enviará um novo Pageview para Application Insights. As alterações de rota de hash ( `example.com/foo#bar` ) também são registradas como novas exibições de página.
 | enableRequestHeaderTracking | false | Se verdadeiro, os cabeçalhos de solicitação de busca do AJAX & são rastreados, o padrão é false.
 | enableResponseHeaderTracking | false | Se verdadeiro, os cabeçalhos de resposta da solicitação de busca do AJAX & são rastreados, o padrão é false.
-| distributedTracingMode | `DistributedTracingModes.AI` | Define o modo de rastreamento distribuído. Se o modo de AI_AND_W3C ou o modo W3C for definido, os cabeçalhos de contexto de rastreamento do W3C (traceparent/tracestate) serão gerados e incluídos em todas as solicitações de saída. AI_AND_W3C é fornecida para compatibilidade com os serviços instrumentados Application Insightss herdados. Consulte o exemplo [aqui](https://docs.microsoft.com/azure/azure-monitor/app/correlation#enable-w3c-distributed-tracing-support-for-web-apps).
+| distributedTracingMode | `DistributedTracingModes.AI` | Define o modo de rastreamento distribuído. Se o modo de AI_AND_W3C ou o modo W3C for definido, os cabeçalhos de contexto de rastreamento do W3C (traceparent/tracestate) serão gerados e incluídos em todas as solicitações de saída. AI_AND_W3C é fornecida para compatibilidade com os serviços instrumentados Application Insightss herdados. Consulte o exemplo [aqui](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 | enableAjaxErrorStatusText | false | Padrão false. Se for true, inclua o texto de dados de erro de resposta no evento de dependência em solicitações AJAX com falha.
 | enableAjaxPerfTracking | false | Padrão false. Sinalizador para habilitar a pesquisa e a inclusão de janela adicional do navegador. tempos de desempenho nas métricas relatadas AJAX (XHR e FETCH) relatadas.
 | maxAjaxPerfLookupAttempts | 3 | O padrão é 3. O número máximo de vezes para procurar a janela. os tempos de desempenho (se disponíveis), isso é necessário, pois nem todos os navegadores preenchem a janela. o desempenho antes de relatar o final da solicitação XHR e, para buscar solicitações, isso é adicionado após sua conclusão.
@@ -210,7 +211,7 @@ Atualmente, oferecemos um [plug-in reajam](#react-extensions)separado, que pode 
 
 ## <a name="configuration-autotrackpagevisittime"></a>Configuração: autoTrackPageVisitTime
 
-Por configuração `autoTrackPageVisitTime: true` , o tempo que um usuário gasta em cada página é acompanhado. Em cada novo PageView, a duração que o usuário gastou na página *anterior* é enviada como uma [métrica personalizada](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview) chamada `PageVisitTime` . Essa métrica personalizada é visível na [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) como uma "métrica baseada em log".
+Por configuração `autoTrackPageVisitTime: true` , o tempo que um usuário gasta em cada página é acompanhado. Em cada novo PageView, a duração que o usuário gastou na página *anterior* é enviada como uma [métrica personalizada](../platform/metrics-custom-overview.md) chamada `PageVisitTime` . Essa métrica personalizada é visível na [Metrics Explorer](../platform/metrics-getting-started.md) como uma "métrica baseada em log".
 
 ## <a name="react-extensions"></a>Extensões de reagir
 
@@ -223,21 +224,21 @@ Por configuração `autoTrackPageVisitTime: true` , o tempo que um usuário gast
 
 Os dados do navegador/cliente podem ser exibidos acessando **métricas** e adicionando métricas individuais nas quais você está interessado:
 
-![](./media/javascript/page-view-load-time.png)
+![Captura de tela da página métricas em Application Insights mostrando exibições gráficas de dados de métricas para um aplicativo Web.](./media/javascript/page-view-load-time.png)
 
 Você também pode exibir seus dados do SDK do JavaScript por meio da experiência do navegador no Portal.
 
 Selecione **navegador** e, em seguida, escolha **falhas** ou **desempenho**.
 
-![](./media/javascript/browser.png)
+![Captura de tela da página do navegador no Application Insights mostrando como adicionar falhas do navegador ou o desempenho do navegador às métricas que você pode exibir para seu aplicativo Web.](./media/javascript/browser.png)
 
 ### <a name="performance"></a>Desempenho
 
-![](./media/javascript/performance-operations.png)
+![Captura de tela da página desempenho em Application Insights mostrando exibições gráficas de métricas de operações para um aplicativo Web.](./media/javascript/performance-operations.png)
 
 ### <a name="dependencies"></a>Dependências
 
-![](./media/javascript/performance-dependencies.png)
+![Captura de tela da página desempenho em Application Insights mostrando exibições gráficas de métricas de dependência para um aplicativo Web.](./media/javascript/performance-dependencies.png)
 
 ### <a name="analytics"></a>Análise
 
@@ -270,7 +271,7 @@ Você pode vincular seu recurso de Application Insights ao seu próprio contêin
 
 1. Selecione um item de telemetria de exceção no portal do Azure para exibir seus "detalhes de transação de ponta a ponta"
 2. Identifique quais mapas de origem correspondem a esta pilha de chamadas. O mapa de origem deve corresponder ao arquivo de origem de um quadro de pilha, mas com sufixo`.map`
-3. Arraste e solte os mapas de origem na pilha de chamadas na portal do Azure![](https://i.imgur.com/Efue9nU.gif)
+3. Arraste e solte os mapas de origem na pilha de chamadas no portal do Azure ![ uma imagem animada mostrando como arrastar e soltar arquivos de mapa de origem de uma pasta de compilação para a janela pilha de chamadas no portal do Azure.](https://i.imgur.com/Efue9nU.gif)
 
 ### <a name="application-insights-web-basic"></a>Application Insights Web Basic
 

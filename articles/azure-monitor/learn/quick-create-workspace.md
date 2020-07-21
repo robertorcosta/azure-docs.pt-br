@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: e6ef8fb7dfd98a509b0b89e049c70169dafbe134
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: de5b490f1ffd50e44defb1c3e3c6f0ad32ca689c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860555"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516372"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Criar um espaço de trabalho do Log Analytics no Portal do Azure
 Use o menu **Espaços de trabalho do Log Analytics** para criar um espaço de trabalho do Log Analytics usando o portal do Azure. Um espaço de trabalho do Log Analytics é um ambiente exclusivo para dados de log do Azure Monitor. Cada workspace tem seu próprio repositório de dados e configuração. As fontes de dados e as soluções são configuradas para armazenar seus dados em um determinado workspace. Você precisa de um espaço de trabalho do Log Analytics se pretender coletar dados das seguintes fontes:
@@ -51,17 +52,17 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 Enquanto as informações são verificadas e o workspace é criado, você pode acompanhar seu progresso no menu **Notificações**. 
 
 ## <a name="troubleshooting"></a>Solução de problemas
-Quando você cria um workspace que foi excluído nos últimos 14 dias e no [estado de exclusão reversível](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior), a operação pode ter um resultado diferente, dependendo da configuração do seu workspace:
+Quando você cria um workspace que foi excluído nos últimos 14 dias e no [estado de exclusão reversível](../platform/delete-workspace.md#soft-delete-behavior), a operação pode ter um resultado diferente, dependendo da configuração do seu workspace:
 1. Se você fornecer o mesmo nome do workspace, grupo de recursos, assinatura e região como no workspace excluído, seu workspace será recuperado, incluindo seus dados, configuração e agentes conectados.
 2. Se você usar o mesmo nome de workspace, mas outro grupo de recursos, assinatura ou região, receberá o erro *Esse nome de workspace já está em uso. Tente escolher outro*. Para substituir a exclusão reversível e excluir permanentemente o workspace e criar um novo workspace com o mesmo nome, siga estas etapas para recuperar o workspace primeiro e executar a exclusão permanente:
-   - [Recuperar](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) seu workspace
-   - [Excluir permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) seu espaço de trabalho
+   - [Recuperar](../platform/delete-workspace.md#recover-workspace) seu workspace
+   - [Excluir permanentemente](../platform/delete-workspace.md#permanent-workspace-delete) seu espaço de trabalho
    - Criar um novo workspace usando o mesmo nome
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que já tem um workspace disponível, você pode configurar a coleta de monitoramento de telemetria, executar pesquisas de logs para analisar os dados e adicionar uma solução de gerenciamento para fornecer dados adicionais e informações analíticas. 
 
-* Para habilitar a coleta de dados de recursos do Azure com o Diagnóstico do Azure ou com o armazenamento do Azure, consulte [Coletar logs e as métricas do serviço do Azure para uso no Log Analytics](../platform/collect-azure-metrics-logs.md).  
+* Para habilitar a coleta de dados de recursos do Azure com o Diagnóstico do Azure ou com o armazenamento do Azure, consulte [Coletar logs e as métricas do serviço do Azure para uso no Log Analytics](../platform/resource-logs.md#send-to-log-analytics-workspace).  
 * Adicione o [System Center Operations Manager como uma fonte de dados](../platform/om-agents.md) para coletar dados de agentes que se reportam ao seu grupo de gerenciamento do Operations Manager e armazene-o em seu repositório de espaço de trabalho do Log Analytics. 
 * Conecte-se ao [Configuration Manager](../platform/collect-sccm.md) para importar computadores que são membros de coleções na hierarquia.  
 * Examine as [soluções de monitoramento](../insights/solutions.md) disponíveis e como adicionar ou remover uma solução do workspace.

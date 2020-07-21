@@ -1,19 +1,17 @@
 ---
 title: incluir arquivo
-description: incluir arquivo
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 07/06/2020
+ms.date: 07/16/2020
 ms.author: tamram
-ms.custom: include file
-ms.openlocfilehash: 8b97a62626666fa39a5b0622852d9eec47c2410a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: c222869df561a9a36ebd69eb9ae09fa688ba0086
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024870"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519193"
 ---
 Antes de atribuir uma função de RBAC a uma entidade de segurança, determine o escopo de acesso que a entidade de segurança deve ter. As práticas recomendadas ditam que é sempre melhor conceder apenas o escopo mais estreito possível.
 
@@ -24,3 +22,6 @@ A lista a seguir descreve os níveis nos quais você pode fazer o escopo de aces
 - **A conta de armazenamento.** Nesse escopo, uma atribuição de função se aplica a todos os contêineres e seus BLOBs, ou a todas as filas e suas mensagens.
 - **O grupo de recursos.** Nesse escopo, uma atribuição de função se aplica a todos os contêineres ou filas em todas as contas de armazenamento no grupo de recursos.
 - **A assinatura.** Nesse escopo, uma atribuição de função se aplica a todos os contêineres ou filas em todas as contas de armazenamento em todos os grupos de recursos na assinatura.
+- **Um grupo de gerenciamento.** Nesse escopo, uma atribuição de função se aplica a todos os contêineres ou filas em todas as contas de armazenamento em todos os grupos de recursos em todas as assinaturas no grupo de gerenciamento.
+
+Para obter mais informações sobre atribuições de função RBAC e escopo, consulte [o que é o Azure RBAC (controle de acesso baseado em função)?](../articles/role-based-access-control/overview.md).

@@ -13,12 +13,12 @@ ms.date: 06/29/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 453efd7735c6843ccdaf8dfd86b18d0b2ef8b06d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8ff8ced1723a3cdc969b4a951c31ea1da2d3093
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604617"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518290"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos de entidade de serviço e aplicativo no Azure Active Directory
 
@@ -47,7 +47,7 @@ Uma entidade de serviço é a representação local, ou instância do aplicativo
 
 Quando um aplicativo recebe permissão para acessar os recursos em um locatário (após o registro ou o [consentimento](developer-glossary.md#consent)), um objeto de entidade de serviço é criado. Você também pode criar um objeto de entidade de serviço em um locatário usando [Azure PowerShell](howto-authenticate-service-principal-powershell.md), CLI do Azure, [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), o [portal do Azure][AZURE-Portal]e outras ferramentas.  Ao usar o portal, uma entidade de serviço é criada automaticamente quando você registra um aplicativo.
 
-A folha **aplicativos empresariais** no portal é usada para listar e gerenciar as entidades de serviço em um locatário. Você pode ver as permissões de uma entidade de serviço, as permissões de usuário consentidas, quais usuários fizeram esse consentimento, informações de entrada e muito mais.
+A folha **aplicativos empresariais** no portal é usada para listar e gerenciar as entidades de serviço em um locatário. Você pode ver as permissões da entidade de serviço, as permissões consentidas pelo usuário, quais usuários fizeram esse consentimento, informações de entrada e muito mais.
 
 A [entidade Microsoft Graph servicePrincipalName][MS-Graph-Sp-Entity] define o esquema para as propriedades de um objeto de entidade de serviço.
 

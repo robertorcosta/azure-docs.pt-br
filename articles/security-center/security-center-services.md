@@ -11,28 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2020
+ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 060db99cf0163876b68eeee2cff8ef2d03e2b5b9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 95b514999d7c38140bd3dd275b8ba103ee9af20e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187006"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519214"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
-As tabelas a seguir mostram os recursos da central de segurança do Azure que estão disponíveis para máquinas virtuais e servidores.
+As duas guias abaixo mostram os recursos da central de segurança do Azure que estão disponíveis para servidores e máquinas virtuais Windows e Linux.
 
 ## <a name="supported-features-for-virtual-machines-and-servers"></a>Recursos com suporte para máquinas virtuais e servidores<a name="vm-server-features"></a>
 
-### <a name="windows-machines"></a>[Máquinas do Windows](#tab/features-windows)
+### <a name="windows-machines"></a>[**Máquinas do Windows**](#tab/features-windows)
 
-|||||||||
-|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |**Recurso**|**Máquinas Virtuais do Azure**|**Conjuntos de dimensionamento de máquina virtual do Azure**|**Computadores não Azure**|**Preços**
+|----|:----:|:----:|:----:|:----:|
 |[Integração do Microsoft defender ATP](security-center-wdatp.md)|✔</br>(em versões com suporte)|✔</br>(em versões com suporte)|✔|Standard|
-|[Análise comportamental de máquina virtual (e alertas de segurança)](threat-protection.md)|✔|✔|✔|Recomendações (gratuito) </br></br> Alertas de segurança (Standard)|
+|[Análise comportamental de máquina virtual (e alertas de segurança)](threat-protection.md)|✔|✔|✔|Standard|
 |[Alertas de segurança de arquivo](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
 |[Alertas de segurança baseados em rede](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Acesso à VM just-in-time](security-center-just-in-time.md)|✔|-|-|Standard|
@@ -43,21 +42,20 @@ As tabelas a seguir mostram os recursos da central de segurança do Azure que es
 |[Proteção de rede adaptável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |[Painel de conformidade regulatória & relatórios](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recomendações e proteção contra ameaças em contêineres de IaaS hospedados pelo Docker|-|-|-|Standard|
-|Avaliação de patches do sistema operacional ausente|✔|✔|✔|Gratuita|
-|Avaliação de incorretas de segurança|✔|✔|✔|Gratuita|
-|[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Gratuita|
+|Avaliação de patches do sistema operacional ausente|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Standard|
+|Avaliação de incorretas de segurança|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Standard|
+|[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Standard|
 |Avaliação de criptografia de disco|✔|✔|-|Gratuita|
 |Avaliação de vulnerabilidade de terceiros|✔|-|-|Gratuita|
 |[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Gratuita|
 
 
-### <a name="linux-machines"></a>[Máquinas do Linux](#tab/features-linux)
+### <a name="linux-machines"></a>[**Máquinas do Linux**](#tab/features-linux)
 
-|||||||||
-|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |**Recurso**|**Máquinas Virtuais do Azure**|**Conjuntos de dimensionamento de máquina virtual do Azure**|**Computadores não Azure**|**Preços**
+|----|:----:|:----:|:----:|:----:|
 |[Integração do Microsoft defender ATP](security-center-wdatp.md)|-|-|-|Standard|
-|[Análise comportamental de máquina virtual (e alertas de segurança)](security-center-alerts-iaas.md)|✔</br>(em versões com suporte)|✔</br>(em versões com suporte)|✔|Recomendações (gratuito) </br></br> Alertas de segurança (Standard)|
+|[Análise comportamental de máquina virtual (e alertas de segurança)](security-center-alerts-iaas.md)|✔</br>(em versões com suporte)|✔</br>(em versões com suporte)|✔|Standard|
 |[Alertas de segurança de arquivo](alerts-reference.md#alerts-windows)|-|-|-|Standard|
 |[Alertas de segurança baseados em rede](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Acesso à VM just-in-time](security-center-just-in-time.md)|✔|-|-|Standard|
@@ -66,11 +64,10 @@ As tabelas a seguir mostram os recursos da central de segurança do Azure que es
 |[Controles de aplicativos adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Proteção de rede adaptável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|Controles de rede adaptável|✔|✔|-|Standard|
 |[Painel de conformidade regulatória & relatórios](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recomendações e proteção contra ameaças em contêineres de IaaS hospedados pelo Docker|✔|✔|✔|Standard|
-|Avaliação de patches do sistema operacional ausente|✔|✔|✔|Gratuita|
-|Avaliação de incorretas de segurança|✔|✔|✔|Gratuita|
+|Avaliação de patches do sistema operacional ausente|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Standard|
+|Avaliação de incorretas de segurança|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Standard|
 |[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratuita|
 |Avaliação de criptografia de disco|✔|✔|-|Gratuita|
 |Avaliação de vulnerabilidade de terceiros|✔|-|-|Gratuita|

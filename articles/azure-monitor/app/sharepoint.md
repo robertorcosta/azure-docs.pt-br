@@ -3,15 +3,19 @@ title: Monitorar um site do SharePoint com o Application Insights
 description: Iniciar o monitoramento de um novo aplicativo com uma nova chave de instrumentação
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.openlocfilehash: b9b31a715b19d6c06cbddb91c0bd9279088c4447
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: a545a24b5a9af883200f25cc83486e3c5621bd78
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221044"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516882"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorar um site do SharePoint com o Application Insights
+
 O Azure Application Insights monitora a disponibilidade, o desempenho e o uso de seus aplicativos. Aqui você aprenderá a configurá-lo para um site do SharePoint.
+
+> [!NOTE]
+> Devido a questões de segurança, você não pode adicionar diretamente o script descrito neste artigo às suas páginas da Web no UX moderno do SharePoint. Como alternativa, você pode usar o [SharePoint Framework (SPFx)](/sharepoint/dev/spfx/extensions/overview-extensions) para criar uma extensão personalizada que pode ser usada para instalar Application insights em seus sites do SharePoint. Para saber mais, consulte [como criar uma solução de extensão SPFx com o AppInsights instalado do zero](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO#how-to-create-a-spfx-extension-solution-with-appinsights-installed-from-scratch) ou [Exibir o exemplo](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO/AppInsightsExtensionSolutionSample). 
 
 ## <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 No [Portal do Azure](https://portal.azure.com), crie um novo recurso do Application Insights. Escolha ASP.NET como o tipo de aplicativo.
@@ -137,5 +141,3 @@ function onRequestFail(sender, args) {
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md) para outros tipos de aplicativos.
 
 <!--Link references-->
-
-

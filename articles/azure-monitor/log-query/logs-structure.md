@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2020
-ms.openlocfilehash: 58724656dd407f09687b57d0ab034f3a1f808b76
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b4882ec9eb8b81ae27a1e8eed2e5b4349fbeac3f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196281"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516185"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Estrutura de logs do Azure Monitor
 A capacidade de obter informações rapidamente sobre seus dados usando uma [consulta de log](log-query-overview.md) é um recurso poderoso do Azure Monitor. Para criar consultas eficientes e úteis, você deve entender alguns conceitos básicos, como onde estão localizados os dados desejados e como eles são estruturados. Este artigo fornece os conceitos básicos de que você precisa para começar.
@@ -28,7 +29,7 @@ A imagem a seguir mostra exemplos de fontes de dados que gravam em tabelas difer
 ![Tabelas](media/logs-structure/queries-tables.png)
 
 ## <a name="log-analytics-workspace"></a>Espaço de trabalho do Log Analytics
-Todos os dados coletados pelo Azure Monitor são armazenados em um [workspace do Log Analytics](../platform/manage-access.md), exceto para o Application Insights. Você pode criar um ou mais workspaces dependendo de seus requisitos específicos. [Fontes de dados](../platform/data-sources.md) como logs de atividades e logs de recursos do Azure, agentes em máquinas virtuais e dados de insights e soluções de monitoramento gravarão dados em um ou mais workspaces que você configurar como parte de sua integração. Outros serviços, como a [Central de Segurança do Azure](/azure/security-center/) e o [Azure Sentinel](/azure/sentinel/) também usam um workspace do Log Analytics para armazenar seus dados para que eles possam ser analisados usando consultas de log, juntamente com dados de monitoramento de outras fontes.
+Todos os dados coletados pelo Azure Monitor são armazenados em um [workspace do Log Analytics](../platform/manage-access.md), exceto para o Application Insights. Você pode criar um ou mais workspaces dependendo de seus requisitos específicos. [Fontes de dados](../platform/data-sources.md) como logs de atividades e logs de recursos do Azure, agentes em máquinas virtuais e dados de insights e soluções de monitoramento gravarão dados em um ou mais workspaces que você configurar como parte de sua integração. Outros serviços, como a [Central de Segurança do Azure](../../security-center/index.yml) e o [Azure Sentinel](../../sentinel/index.yml) também usam um workspace do Log Analytics para armazenar seus dados para que eles possam ser analisados usando consultas de log, juntamente com dados de monitoramento de outras fontes.
 
 Tipos diferentes de dados são armazenados em tabelas diferentes no workspace e cada tabela tem um conjunto exclusivo de propriedades. Um conjunto padrão de tabelas é adicionado a um workspace quando ele é criado, e novas tabelas são adicionadas para diferentes fontes de dados, soluções e serviços à medida que são estes são integrados. Você também pode criar tabelas personalizadas usando a [API do coletor de dados](../platform/data-collector-api.md).
 
@@ -44,7 +45,7 @@ union withsource = table *
 | summarize count() by table
 | sort by table asc
 ```
-Consulte a documentação para cada fonte de dados para obter detalhes das tabelas que elas criam. Os exemplos incluem artigos para [fontes de dados do agente](../platform/agent-data-sources.md), [logs de recursos](../platform/diagnostic-logs-schema.md) e [soluções de monitoramento](../insights/solutions-inventory.md).
+Consulte a documentação para cada fonte de dados para obter detalhes das tabelas que elas criam. Os exemplos incluem artigos para [fontes de dados do agente](../platform/agent-data-sources.md), [logs de recursos](../platform/resource-logs-schema.md) e [soluções de monitoramento](../monitor-reference.md).
 
 ### <a name="workspace-permissions"></a>Permissões de workspace
 Consulte [Criar uma implantação de logs do Azure Monitor](../platform/design-logs-deployment.md) para entender a estratégia de controle de acesso e as recomendações para fornecer acesso aos dados em um workspace. Além de conceder acesso ao próprio workspace, você pode limitar o acesso a tabelas individuais usando [RBAC de nível de tabela](../platform/manage-access.md#table-level-rbac).
@@ -87,5 +88,5 @@ Embora cada tabela nos logs do Azure Monitor tenha seu próprio esquema, há pro
 | _BilledSize   |            | Especifica o tamanho em bytes de dados que serão cobrados. |
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre como usar o [Log Analytics para criar e editar pesquisas de log](../log-query/portals.md).
+- Saiba mais sobre como usar o [Log Analytics para criar e editar pesquisas de log](./log-query-overview.md).
 - Confira um [tutorial sobre como escrever consultas](../log-query/get-started-queries.md) utilizando a nova linguagem de consulta.

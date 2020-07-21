@@ -4,11 +4,12 @@ description: Executar a correção em massa usando a correção rápida no Advis
 ms.topic: article
 ms.date: 03/13/2020
 ms.author: sagupt
-ms.openlocfilehash: 3c3ac27f04aa516fbef1bfff30e3392659b58919
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebd993733c1aca9cd4f7d92f0a75e22d68a87ffe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79502484"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518055"
 ---
 # <a name="quick-fix-remediation-for-advisor"></a>Correção de correção rápida para o Advisor
 A **correção rápida** permite uma maneira mais rápida e fácil de remediação para recomendação em vários recursos. Ele fornece capacidade para remediações em massa de recursos e ajuda você a otimizar suas assinaturas mais rapidamente com a correção em escala para seus recursos.
@@ -49,4 +50,4 @@ Para obter mais informações sobre as recomendações do Assistente, consulte:
 * [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
 * [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
 * [Recomendações de excelência operacional do Advisor](advisor-operational-excellence-recommendations.md)
-* [API REST do Advisor](https://docs.microsoft.com/rest/api/advisor/)
+* [API REST do Advisor](/rest/api/advisor/)

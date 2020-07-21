@@ -4,12 +4,12 @@ description: Saiba como configurar uma criptografia baseada em host em um cluste
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 7b9d930d62d0acea30af9b5e7e12e43fa8fcd5da
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d2b34d8c3090eb6ae3f1445ff1fc663d90367977
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244303"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517715"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Criptografia baseada em host no serviço kubernetes do Azure (AKS) (visualização)
 
@@ -27,18 +27,18 @@ Esse recurso só pode ser definido na criação do cluster ou no momento da cria
 
 - Verifique se você tem a `aks-preview` extensão da CLI v 0.4.55 ou superior instalada
 - Verifique se você tem o `EncryptionAtHost` sinalizador de recurso em `Microsoft.Compute` habilitado.
-- Verifique se você tem o `EncryptionAtHost` sinalizador de recurso em `Microsoft.ContainerService` habilitado.
+- Verifique se você tem o `EnableEncryptionAtHostPreview` sinalizador de recurso em `Microsoft.ContainerService` habilitado.
 
 ### <a name="register-encryptionathost--preview-features"></a>Registrar `EncryptionAtHost` recursos de visualização
 
-Para criar um cluster AKS que usa criptografia baseada em host, você deve habilitar o `EncryptionAtHost` sinalizador de recurso em sua assinatura.
+Para criar um cluster AKS que usa criptografia baseada em host, você deve habilitar os `EnableEncryptionAtHostPreview` `EncryptionAtHost` sinalizadores de recurso e em sua assinatura.
 
 Registre o `EncryptionAtHost` sinalizador de recurso usando o comando [AZ Feature Register][az-feature-register] , conforme mostrado no exemplo a seguir:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.Compute" --name "EncryptionAtHost"
 
-az feature register --namespace "Microsoft.ContainerService"  --name "EncryptionAtHost"
+az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
 ```
 
 Demora alguns minutos para o status exibir *Registrado*. Você pode verificar o status de registro usando o comando [az feature list][az-feature-list]:
@@ -46,7 +46,7 @@ Demora alguns minutos para o status exibir *Registrado*. Você pode verificar o 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{Name:name,State:properties.state}"
 
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EncryptionAtHost')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
 ```
 
 Quando estiver pronto, atualize o registro dos `Microsoft.ContainerService` `Microsoft.Compute` provedores de recursos e usando o comando [AZ Provider Register][az-provider-register] :
@@ -58,7 +58,7 @@ az provider register --namespace Microsoft.ContainerService
 ```
 
 > [!IMPORTANT]
-> Os recursos de visualização do AKS são consentimento de autoatendimento. As visualizações são fornecidas "no estado em que se encontram" e "como disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As visualizações do AKS são parcialmente cobertas pelo suporte ao cliente com base no melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter outras incompatibilidades, consulte os seguintes artigos de suporte:
+> Os recursos de visualização do AKS são consentimento de autoatendimento. As visualizações são fornecidas "no estado em que se encontram" e "como disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As visualizações do AKS são parcialmente cobertas pelo suporte ao cliente com base no melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter informações adicionais, consulte os seguintes artigos de suporte:
 >
 > - [Políticas de suporte do AKS](support-policies.md)
 > - [Perguntas frequentes sobre o suporte do Azure.](faq.md)

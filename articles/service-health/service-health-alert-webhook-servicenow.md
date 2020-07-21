@@ -3,12 +3,12 @@ title: Enviar alertas de integridade do serviço do Azure com o ServiceNow
 description: Obtenha notificações personalizadas sobre eventos de integridade do serviço na instância do ServiceNow.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 5cd17af080714fdf2e9e5b168e72f975c8d3a3f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 96c181991fc962b08e777a55d891b881fc1bdba3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260204"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519058"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Enviar alertas de integridade do serviço do Azure com o ServiceNow usando WebHooks
 
@@ -147,7 +147,7 @@ Este artigo mostra como integrar os alertas de integridade do serviço do Azure 
 
 ## <a name="create-an-alert-using-servicenow-in-the-azure-portal"></a>Criar um alerta usando o ServiceNow no portal do Azure
 ### <a name="for-a-new-action-group"></a>Para um novo grupo de ação:
-1. Siga as etapas 1 a 8 [deste artigo](../azure-monitor/platform/alerts-activity-log-service-notifications.md) para criar um alerta com um novo grupo de ação.
+1. Siga as etapas 1 a 8 [deste artigo](./alerts-activity-log-service-notifications-portal.md) para criar um alerta com um novo grupo de ação.
 
 1. Defina na lista de **Ações**:
 
@@ -195,5 +195,5 @@ Este artigo mostra como integrar os alertas de integridade do serviço do Azure 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como [configurar notificações de webhook para sistemas de gerenciamento de problemas existentes](service-health-alert-webhook-guide.md).
 - Examine o [esquema de webhook de alerta do log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Saiba mais sobre as [notificações de integridade do serviço](../azure-monitor/platform/service-notifications.md).
+- Saiba mais sobre as [notificações de integridade do serviço](./service-notifications.md).
 - Saiba mais sobre [grupos de ação](../azure-monitor/platform/action-groups.md).

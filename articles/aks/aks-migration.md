@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: c864a9cc5dd5658bcb3205ce2cbe4f6142cf45a1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 70ffe0bb98e89babe2f5998ee66666dd5368f7f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255482"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518038"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrar para o serviço kubernetes do Azure (AKS)
 
@@ -51,7 +51,7 @@ O AKS é um serviço gerenciado que oferece recursos exclusivos com menor sobrec
 
 Recomendamos o uso de clusters AKS apoiados por [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/index.yml) e o [Standard Load Balancer do Azure](./load-balancer-standard.md) para garantir que você obtenha recursos como [vários pools de nós](./use-multiple-node-pools.md), [zonas de disponibilidade](../availability-zones/az-overview.md), [intervalos de IP autorizados](./api-server-authorized-ip-ranges.md), [autodimensionador de cluster](./cluster-autoscaler.md), [Azure Policy para AKs](../governance/policy/concepts/policy-for-kubernetes.md)e outros novos recursos à medida que forem lançados.
 
-Os clusters AKS apoiados por [conjuntos de disponibilidade de máquina virtual](../virtual-machine-scale-sets/availability.md#availability-sets) não têm suporte para muitos desses recursos.
+Os clusters AKS apoiados por [conjuntos de disponibilidade de máquina virtual](../virtual-machines/availability.md#availability-sets) não têm suporte para muitos desses recursos.
 
 O exemplo a seguir cria um cluster AKS com um pool de nós único apoiado por um conjunto de dimensionamento de máquinas virtuais. Ele usa um balanceador de carga padrão. Ele também habilita o dimensionador automático de cluster no pool de nós e define o mínimo de *1* o máximo de *3* nós:
 
@@ -79,7 +79,7 @@ Ao migrar clusters, você pode ter anexado serviços externos do Azure. Eles nã
 * Log Analytics
 * Application Insights
 * Gerenciador de Tráfego
-* Conta de armazenamento
+* Conta de Armazenamento
 * Bancos de dados externos
 
 ## <a name="ensure-valid-quotas"></a>Garantir cotas válidas

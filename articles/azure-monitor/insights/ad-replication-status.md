@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: 30b0c7c87f6d55586b931be1445b175ce58565d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65ced5021305dce15236ded59cf79a6578e7372a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80055892"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516780"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitorar o Status de Replicação do Active Directory com o Azure Monitor
 
@@ -62,7 +62,7 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-O bloco Status de Replicação do AD exibe quantos erros de replicação você tem no momento. **Erros Críticos de Replicação** são aqueles erros iguais ou superiores a 75% do [tempo de vida da marca de exclusão](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) para sua floresta do Active Directory.
+O bloco Status de Replicação do AD exibe quantos erros de replicação você tem no momento. **Erros Críticos de Replicação** são aqueles erros iguais ou superiores a 75% do [tempo de vida da marca de exclusão](/previous-versions/windows/it-pro/windows-server-2003/cc784932(v=ws.10)) para sua floresta do Active Directory.
 
 ![Bloco do Status de Replicação do AD](./media/ad-replication-status/oms-ad-replication-tile.png)
 

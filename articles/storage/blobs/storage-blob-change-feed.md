@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 0c9ee65a50b9fff13fca7a1989e7bb8801e5f621
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d464897c031522b2227c682f9581f0d34c8db64b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465177"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518734"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Suporte ao feed de alterações no Armazenamento de Blobs do Azure (versão prévia)
 
@@ -70,7 +71,7 @@ Habilite o feed de alterações em sua conta de armazenamento usando portal do A
 
 4. Escolha o botão **salvar** para confirmar as configurações de **proteção de dados** .
 
-    ![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+    ![Captura de tela que mostra as configurações de proteção de dados.](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

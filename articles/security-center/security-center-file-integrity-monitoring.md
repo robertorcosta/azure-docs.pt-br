@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: c58f70126c72a84b09f6eadc251949a0f0021657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3006bdd0cb90c22123c8db103a12ef3c0bee75a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84628283"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519330"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na Central de Segurança do Azure
 Saiba como configurar o FIM (Monitoramento de Integridade de Arquivo) na Central de Segurança do Azure usando este passo a passo.
@@ -45,7 +46,7 @@ O Monitoramento de Integridade de Arquivo da Central de Segurança valida a inte
 A Central de Segurança recomenda entidades para serem monitoradas, nas quais você pode facilmente habilitar o FIM. Você também pode definir suas próprias políticas de FIM ou entidades para serem monitoradas. Este passo a passo mostra como fazer isso.
 
 > [!NOTE]
-> O recurso de FIM (Monitoramento de Integridade de Arquivo) funciona para computadores e VMs Windows e Linux e está disponível na camada Standard da Central de Segurança. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança. O FIM carrega dados no espaço de trabalho do Log Analytics. Encargos de dados se aplicam, com base na quantidade de dados que você carregar. Consulte [Preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.
+> O recurso de monitoramento de integridade de arquivo (FIM) funciona para computadores e VMs com Windows e Linux e está disponível na camada Standard da central de segurança. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança. O FIM carrega dados no espaço de trabalho do Log Analytics. Encargos de dados se aplicam, com base na quantidade de dados que você carregar. Consulte [Preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.
 
 O FIM usa a solução de Controle de Alterações do Azure para controlar e identificar as alterações em seu ambiente. Quando o monitoramento de integridade de arquivo estiver habilitado, você terá um recurso de **controle de alterações** do tipo **solução**. Para obter detalhes de frequência de coleta de dados, consulte [Detalhes de coleta de dados do Controle de Alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) para Controle de Alterações do Azure.
 
@@ -107,7 +108,7 @@ As informações a seguir são fornecidas para cada workspace:
 Os botões a seguir também podem ser mostrados para um workspace:
 
 - ![Ícone Habilitar][3] Indica que o FIM não está habilitado para o workspace. Selecionar o workspace permite que você habilite o FIM em todos os computadores no workspace.
-- ![Ícone de Atualizar plano][4] indica que o workspace ou a assinatura não está em execução na camada Standard da Central de Segurança. Para usar o recurso do FIM, sua assinatura deve estar em execução na Standard.  Selecionar o workspace permite que você faça a atualização para Standard. Para saber mais sobre a camada padrão e como atualizar, consulte [Atualizar para a camada Standard da Central de Segurança para segurança aprimorada](security-center-pricing.md).
+- ![Ícone do plano ][4] de atualização indica que o espaço de trabalho ou a assinatura não está em execução na camada Standard da central de segurança. Para usar o recurso do FIM, sua assinatura deve estar em execução na Standard.  Selecionar o workspace permite que você faça a atualização para Standard. Para saber mais sobre a camada Standard e como atualizar, consulte [atualizar para a camada Standard da central de segurança para aumentar a segurança](security-center-pricing.md).
 - Um espaço em branco (não há nenhum botão) significa que o FIM já está habilitado no workspace.
 
 Em **Monitoramento de Integridade de Arquivo**, você pode selecionar um workspace para habilitar o FIM para ele, exibir o painel do Monitoramento de Integridade de Arquivo para esse workspace ou [atualizar](security-center-pricing.md) o workspace para Standard.
