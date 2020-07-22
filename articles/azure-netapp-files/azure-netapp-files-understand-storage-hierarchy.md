@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/27/2020
+ms.date: 07/15/2020
 ms.author: b-juche
-ms.openlocfilehash: 70d3a2a501952a5e20b1ff8e99f48f4d7aefce8d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0b150491fff953434062cc583566e1113947a679
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78163957"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504896"
 ---
 # <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>O que é a hierarquia de armazenamento do Azure NetApp Files
 
@@ -52,7 +52,6 @@ Antes de criar um volume no Azure NetApp Files, você deve adquirir e configurar
 - Cada volume pertence a apenas um pool, mas um pool pode conter vários volumes. 
 - Não é possível mover um volume entre pools de capacidade. <!--Within the same NetApp account, you can move a volume across pools.  -->   
   Por exemplo, no [Diagrama conceitual da hierarquia de armazenamento](#conceptual_diagram_of_storage_hierarchy) abaixo, você não pode mover volumes do Pool de Capacidade 1 para o Pool de Capacidade 2.
-- Um volume não pode ser excluído até que todos os seus instantâneos tenham sido excluídos.
 
 ## <a name="conceptual-diagram-of-storage-hierarchy"></a><a name="conceptual_diagram_of_storage_hierarchy"></a>Diagrama conceitual da hierarquia de armazenamento 
 O exemplo a seguir mostra as relações da assinatura do Azure, contas do NetApp, pools de capacidade e volumes.   

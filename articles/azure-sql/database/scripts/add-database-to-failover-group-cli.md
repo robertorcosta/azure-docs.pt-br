@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 09c98f626d9f32a2a6f9f3e31e0db0e4751adacb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8a8aac276617e97c26d7b05e6fe2518e5d575fab
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196967"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514774"
 ---
 # <a name="use-the-azure-cli-to-add-a-database-to-a-failover-group"></a>Usar a CLI do Azure para adicionar um banco de dados a um grupo de failover
 
@@ -54,7 +54,7 @@ az group delete --name $resource
 
 Este script usa os comandos a seguir. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| | |
+| Comando | Descrição |
 |---|---|
 | [az sql db](/cli/azure/sql/db) | Comandos de banco de dados. |
 | [az sql failover-group](/cli/azure/sql/failover-group) | Comandos do grupo de failover. |

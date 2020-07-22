@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 397fac7609d9527165a1a0a35215a2e2bac23c6d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e18f66beb8f318e993bd9367f5e50740d76db73f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81759226"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510320"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Início Rápido: Criar uma máquina virtual do Linux no Azure com o PowerShell
 
@@ -39,11 +39,11 @@ ssh-keygen -t rsa -b 2048
 
 Para obter mais informações sobre como criar pares de chave SSH, incluindo o uso de PuTTy, consulte [Como usar chaves SSH com o Windows](ssh-from-windows.md).
 
-Se você criar o par de chaves SSH usando o Cloud Shell, ele será armazenado em uma imagem de contêiner em uma [conta de armazenamento que é criada automaticamente pelo Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage). Não exclua essa conta de armazenamento ou compartilhamento de arquivo nela até depois de recuperar suas chaves ou você perderá o acesso à VM. 
+Se você criar o par de chaves SSH usando o Cloud Shell, ele será armazenado em uma imagem de contêiner em uma [conta de armazenamento que é criada automaticamente pelo Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Não exclua essa conta de armazenamento ou compartilhamento de arquivo nela até depois de recuperar suas chaves ou você perderá o acesso à VM. 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos do Azure com [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados:
+Crie um grupo de recursos do Azure com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
@@ -111,7 +111,7 @@ $nsg = New-AzNetworkSecurityGroup `
   -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-Crie a NIC (placa de adaptador de rede virtual) com [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface). A NIC virtual conecta a VM a uma sub-rede, um Grupo de Segurança de Rede e um endereço IP público.
+Crie a NIC (placa de adaptador de rede virtual) com [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). A NIC virtual conecta a VM a uma sub-rede, um Grupo de Segurança de Rede e um endereço IP público.
 
 ```azurepowershell-interactive
 # Create a virtual network card and associate with public IP address and NSG
@@ -160,7 +160,7 @@ Add-AzVMSshPublicKey `
   -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
-Agora, combine as definições de configuração anteriores para criar com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm):
+Agora, combine as definições de configuração anteriores para criar com [New-AzVM](/powershell/module/az.compute/new-azvm):
 
 ```azurepowershell-interactive
 New-AzVM `
@@ -172,7 +172,7 @@ Levará alguns minutos para que sua VM seja implantada. Quando a implantação f
 
 ## <a name="connect-to-the-vm"></a>Conectar-se à VM
 
-Crie uma conexão SSH com a VM usando o endereço IP público. Para ver o endereço IP público da VM, use o cmdlet [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress):
+Crie uma conexão SSH com a VM usando o endereço IP público. Para ver o endereço IP público da VM, use o cmdlet [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
@@ -207,7 +207,7 @@ Use um navegador da Web de sua escolha para exibir a página inicial padrão do 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando não forem mais necessários, você poderá usar o cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, a VM e todos os recursos relacionados:
+Quando não forem mais necessários, você poderá usar o cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, a VM e todos os recursos relacionados:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "myResourceGroup"

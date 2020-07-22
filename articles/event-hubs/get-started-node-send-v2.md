@@ -3,12 +3,12 @@ title: Enviar ou receber eventos de Hubs de Eventos do Azure usando o JavaScript
 description: Este artigo fornece um passo a passo para criar um aplicativo JavaScript que envia/recebe eventos para/de Hubs de Eventos do Azure usando o pacote azure/event-hubs versão 5 mais recente.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: ad9a78aa48ee0d4c01e2748b8b52192e259add7b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 7ec97d07843a9844387ad1038c075ed55e304a2c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85312929"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521880"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>Enviar eventos para Hubs de Eventos ou receber eventos deles usando o JavaScript (azure/event-hubs versão 5)
 Este início rápido mostra como enviar e receber eventos de um hub de eventos usando o pacote JavaScript **azure-eventhub version 5**. 
@@ -106,7 +106,7 @@ Parabéns! Agora você enviou eventos a um hub de eventos.
 Nesta seção, você receberá eventos de um hub de eventos usando um repositório de pontos de verificação do Armazenamento de Blobs do Azure em um aplicativo JavaScript. Ele executa pontos de verificação de metadados em mensagens recebidas em intervalos regulares em um Azure Storage Blob. Essa abordagem facilita continuar a receber mensagens mais tarde exatamente do ponto em que você parou.
 
 > [!NOTE]
-> Se você estiver executando o Azure Stack Hub, essa plataforma poderá dar suporte a uma versão diferente do SDK do Storage Blob do que aquelas normalmente disponíveis no Azure. Por exemplo, se a execução estiver sendo feita [no Azure Stack Hub versão 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), a versão superior disponível para o serviço de Armazenamento será a versão 2017-11-09. Nesse caso, além de seguir as etapas desta seção, você também precisará adicionar o código para ter como destino a versão de API 2017-11-09 do serviço de Armazenamento. Para obter um exemplo de como ter como destino uma versão de API específica do Armazenamento, confira as amostras [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) e [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) no GitHub. Para obter mais informações sobre as versões do serviço de Armazenamento do Azure compatível com o Azure Stack Hub, confira [Armazenamento do Azure Stack Hub: diferenças e considerações](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences).
+> Se você estiver executando o Azure Stack Hub, essa plataforma poderá dar suporte a uma versão diferente do SDK do Storage Blob do que aquelas normalmente disponíveis no Azure. Por exemplo, se a execução estiver sendo feita [no Azure Stack Hub versão 2002](/azure-stack/user/event-hubs-overview), a versão superior disponível para o serviço de Armazenamento será a versão 2017-11-09. Nesse caso, além de seguir as etapas desta seção, você também precisará adicionar o código para ter como destino a versão de API 2017-11-09 do serviço de Armazenamento. Para obter um exemplo de como ter como destino uma versão de API específica do Armazenamento, confira as amostras [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) e [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) no GitHub. Para obter mais informações sobre as versões do serviço de Armazenamento do Azure compatível com o Azure Stack Hub, confira [Armazenamento do Azure Stack Hub: diferenças e considerações](/azure-stack/user/azure-stack-acs-differences).
 
 
 ### <a name="create-an-azure-storage-account-and-a-blob-container"></a>Criar uma conta de armazenamento e um contêiner de blobs do Azure

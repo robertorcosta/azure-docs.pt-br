@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: e7a83478654b848b8e001dd3fea276c5cc9e125a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3f180f075a32ac193ed003b58a99483ea3210cc7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022685"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528886"
 ---
 # <a name="use-cli-to-copy-a-database-in-azure-sql-database-to-a-new-server"></a>Usar a CLI para copiar um banco de dados no Banco de Dados SQL do Azure para um novo servidor
 
@@ -53,7 +53,7 @@ az group delete --name $targetResource
 
 Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
-| | |
+| Comando | Descrição |
 |---|---|
 | [az sql db copy](/cli/azure/sql/db#az-sql-db-copy) | Cria uma cópia de um banco de dados que usa o instantâneo no momento atual. |
 

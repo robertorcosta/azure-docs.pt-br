@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 46f630dc1b700659d047a31b5aa5905ef99d9cd0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7e1204a8d1006986615b050a413e784a71d9405a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459450"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526842"
 ---
 # <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>Criação rápida de uma máquina virtual com a CLI do Azure
 
@@ -48,12 +48,12 @@ Este script usa os comandos a seguir para criar um grupo de recursos, uma máqui
 
 | Comando | Observações |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Cria a máquina virtual e a conecta à placa de rede, a rede virtual, à sub-rede e ao grupo de segurança de rede. Este comando também especifica a imagem da máquina virtual a ser usada e as credenciais administrativas.  |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az vm create](/cli/azure/vm) | Cria a máquina virtual e a conecta à placa de rede, a rede virtual, à sub-rede e ao grupo de segurança de rede. Este comando também especifica a imagem da máquina virtual a ser usada e as credenciais administrativas.  |
+| [az group delete](/cli/azure/vm/extension) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
 Exemplos de script CLI máquinas virtuais adicionais podem ser encontrados na [documentação da VM do Windows do Azure](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

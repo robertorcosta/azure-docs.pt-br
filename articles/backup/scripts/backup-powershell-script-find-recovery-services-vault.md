@@ -3,12 +3,12 @@ title: Script do PowerShell – localizar o Cofre da Conta de Armazenamento
 description: Saiba como usar um script do Azure PowerShell para localizar o cofre dos Serviços de Recuperação em que sua conta de armazenamento está registrada.
 ms.topic: sample
 ms.date: 1/28/2020
-ms.openlocfilehash: 786420ec8cef6516f7261c71b40641693efece07
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b343b2f93ed439188c5c0238bf108064f6e132c1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76775862"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513244"
 ---
 # <a name="powershell-script-to-find-the-recovery-services-vault-where-a-storage-account-is-registered"></a>O Script do PowerShell localiza o Cofre dos Serviços de Recuperação em que uma Conta de Armazenamento está registrada
 
@@ -72,4 +72,4 @@ Found Storage account afsaccount registered in vault: /subscriptions/ ef4ad5a7-c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [Fazer backup de Compartilhamentos de Arquivos do Azure do portal do Azure](https://docs.microsoft.com/azure/backup/backup-afs)
+Saiba como [Fazer backup de Compartilhamentos de Arquivos do Azure do portal do Azure](../backup-afs.md)

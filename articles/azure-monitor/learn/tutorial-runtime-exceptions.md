@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: 91a0e4b052571a509ec7122e4440a8eaf58839be
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 317d5681ac3b09cb433cdc2bc3c83b6b1c8d37dc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77670416"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516355"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Localizar e diagnosticar exceções de tempo de execução com o Azure Application Insights
 
@@ -35,7 +35,7 @@ Para concluir este tutorial:
     - Desenvolvimento Web e ASP.NET
     - Desenvolvimento do Azure
 - Baixe e instale o [Depurador de Instantâneo do Visual Studio](https://aka.ms/snapshotdebugger).
-- Habilite o [Depurador de Instantâneo do Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
+- Habilite o [Depurador de Instantâneo do Visual Studio](../app/snapshot-debugger.md)
 - Implante um aplicativo .NET para Azure e [habilite o SDK do Application Insights](../../azure-monitor/app/asp-net.md). 
 - O tutorial acompanha a identificação de uma exceção em seu aplicativo, portanto, modifique seu código no seu ambiente de desenvolvimento ou teste para gerar uma exceção. 
 

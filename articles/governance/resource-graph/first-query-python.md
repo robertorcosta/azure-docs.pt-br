@@ -1,15 +1,15 @@
 ---
 title: 'Início Rápido: Sua primeira consulta Python'
 description: Neste início rápido, você seguirá as etapas para habilitar a biblioteca do Resource Graph para Python e executará sua primeira consulta.
-ms.date: 05/27/2020
+ms.date: 07/15/2020
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: 58ba931f5d222df8d863a11a25af6563192ef453
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: f7ca6ce5fab687e26007949898ad72c75d036782
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609940"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511908"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Início Rápido: Executar a primeira consulta ao Resource Graph usando o Python
 
@@ -99,7 +99,7 @@ Com as bibliotecas do Python adicionadas ao ambiente de sua escolha, é hora de 
        # Run query
        argResults = argClient.resources(argQuery)
    
-       # Show JSON results
+       # Show Python object
        print(argResults)
    
    getresources("Resources | project name, type | limit 5")

@@ -4,16 +4,16 @@ description: 'Início Rápido: Criar um namespace de Hubs de Eventos com um Hub 
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/23/2020
-ms.openlocfilehash: 1aa1dc0a4be8c74651a764788184ae1eefe17e75
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 445a52593e95074d9941a1592d688de7eea9c006
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038082"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522033"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-arm-template"></a>Início Rápido: Criar um hub de eventos usando um modelo do Resource Manager
 
-Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos pelos dispositivos e software distribuídos. Os dados enviados para um Hub de Eventos podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Para obter uma visão detalhada dos Hubs de Eventos, confira [Visão geral de Hubs de Eventos](event-hubs-about.md) e [Recursos de Hubs de Eventos](event-hubs-features.md). Neste guia de início rápido, você criará um hub de eventos usando um [modelo do Azure Resource Manager](../azure-resource-manager/management/overview.md). Você implantará um modelo do Resource Manager para criar um namespace do tipo [Hubs de Eventos](event-hubs-what-is-event-hubs.md), com um hub de eventos.
+Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos pelos dispositivos e software distribuídos. Os dados enviados para um Hub de Eventos podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Para obter uma visão detalhada dos Hubs de Eventos, confira [Visão geral de Hubs de Eventos](event-hubs-about.md) e [Recursos de Hubs de Eventos](event-hubs-features.md). Neste guia de início rápido, você criará um hub de eventos usando um [modelo do Azure Resource Manager](../azure-resource-manager/management/overview.md). Você implantará um modelo do Resource Manager para criar um namespace do tipo [Hubs de Eventos](./event-hubs-about.md), com um hub de eventos.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -107,6 +107,6 @@ Neste artigo, você criou um namespace dos Hubs de Eventos e um hub de eventos n
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
-[Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
+[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/management/manage-resources-powershell.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/management/manage-resources-cli.md
 [Event hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/

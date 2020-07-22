@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: overview
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 88b7dc60b865325ef7dcd9e79015fdee10b4f9a2
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 6e532634fb40eee100e73a333ac6aa7e0a79cf3c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563702"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521642"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Visão geral da política do Gerenciador de Firewall do Azure
 
@@ -47,8 +47,8 @@ Com a herança, todas as alterações na política pai são aplicadas automatica
 O Firewall do Azure dá suporte a regras e políticas tradicionais. A seguinte tabela compara políticas e regras:
 
 
-|         |Política  |Regras  |
-|---------|---------|---------|
+| Assunto | Política  | Regras |
+| ------- | ------- | ----- |
 |Contém     |Regras de NAT, Rede e Aplicativo, configurações personalizadas de proxy DNS e DNS, Grupos de IP e configurações da Inteligência Contra Ameaças (incluindo lista de permissões)|Regras de NAT, Rede e Aplicativo, configurações personalizadas de proxy DNS e DNS, Grupos de IP e configurações da Inteligência Contra Ameaças (incluindo lista de permissões)|
 |Protege     |Hubs virtuais e redes virtuais|Somente Redes Virtuais|
 |Experiência do Portal     |Gerenciamento central usando o Gerenciador de Firewall|Experiência de firewall autônomo|

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: b06342d5034b820be4e6fd49436546a5aa7b7e02
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 02ebdfc0fe3fd39f29a64fdb49a3f0d37b007097
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75749788"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526955"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorar uma máquina virtual do Linux no Azure
 
@@ -42,17 +42,17 @@ O Azure Cloud Shell é um shell interativo grátis que pode ser usado para execu
 
 Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Você também pode iniciar o Cloud Shell em uma guia separada do navegador indo até [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selecione **Copiar** para copiar os blocos de código, cole o código no Cloud Shell e depois pressione Enter para executá-lo.
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-vm"></a>Criar VM
 
-Para ver os diagnósticos e as métricas em ação, você precisa de uma VM. Primeiro, crie um grupo de recursos com [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupMonitor* no local *eastus*.
+Para ver os diagnósticos e as métricas em ação, você precisa de uma VM. Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupMonitor* no local *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Agora, crie uma VM com [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create). O seguinte exemplo cria uma VM chamada *myVM* e gera as chaves SSH, caso ainda não existam em *~/.ssh/* :
+Agora, crie uma VM com [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). O seguinte exemplo cria uma VM chamada *myVM* e gera as chaves SSH, caso ainda não existam em *~/.ssh/* :
 
 ```azurecli-interactive
 az vm create \
@@ -67,7 +67,7 @@ az vm create \
 
 Durante a inicialização das VMs do Linux, a extensão de diagnóstico de inicialização captura a saída de inicialização e a armazena no Armazenamento do Azure. Esses dados podem ser usados para solucionar problemas de inicialização da VM. Os diagnósticos de inicialização não são habilitados automaticamente quando você cria uma VM do Linux usando a CLI do Azure.
 
-Antes de habilitar o diagnóstico de inicialização, é necessário criar uma conta de armazenamento para armazenar os logs de inicialização. As contas de armazenamento devem ter um nome exclusivo globalmente, com três a 24 caracteres e conter apenas números e letras minúsculas. Crie uma conta de armazenamento com o comando [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). Neste exemplo, uma cadeia de caracteres aleatória é usada para criar um nome de conta de armazenamento exclusivo.
+Antes de habilitar o diagnóstico de inicialização, é necessário criar uma conta de armazenamento para armazenar os logs de inicialização. As contas de armazenamento devem ter um nome exclusivo globalmente, com três a 24 caracteres e conter apenas números e letras minúsculas. Crie uma conta de armazenamento com o comando [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). Neste exemplo, uma cadeia de caracteres aleatória é usada para criar um nome de conta de armazenamento exclusivo.
 
 ```azurecli-interactive
 storageacct=mydiagdata$RANDOM
@@ -85,7 +85,7 @@ Ao habilitar o diagnóstico de inicialização, o URI do contêiner de armazenam
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
 ```
 
-Agora, habilite o diagnóstico de inicialização com [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az-vm-boot-diagnostics-enable). O valor `--storage` é o URI do blob coletado na etapa anterior.
+Agora, habilite o diagnóstico de inicialização com [az vm boot-diagnostics enable](/cli/azure/vm/boot-diagnostics#az-vm-boot-diagnostics-enable). O valor `--storage` é o URI do blob coletado na etapa anterior.
 
 ```azurecli-interactive
 az vm boot-diagnostics enable \
@@ -96,19 +96,19 @@ az vm boot-diagnostics enable \
 
 ## <a name="view-boot-diagnostics"></a>Exibir diagnóstico de inicialização
 
-Quando o diagnóstico de inicialização for habilitado, sempre que você parar e iniciar a VM, as informações sobre o processo de inicialização serão gravadas em um arquivo de log. Para este exemplo, primeiro desaloque a VM com o comando [az vm deallocate](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-deallocate) da seguinte maneira:
+Quando o diagnóstico de inicialização for habilitado, sempre que você parar e iniciar a VM, as informações sobre o processo de inicialização serão gravadas em um arquivo de log. Para este exemplo, primeiro desaloque a VM com o comando [az vm deallocate](/cli/azure/vm?view=azure-cli-latest#az-vm-deallocate) da seguinte maneira:
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 ```
 
-Agora, inicie a VM com o comando [az vm start](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-start) da seguinte maneira:
+Agora, inicie a VM com o comando [az vm start](/cli/azure/vm?view=azure-cli-latest#az-vm-start) da seguinte maneira:
 
 ```azurecli-interactive
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
-Você pode obter os dados de diagnóstico de inicialização para *myVM* com o comando [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az-vm-boot-diagnostics-get-boot-log) da seguinte maneira:
+Você pode obter os dados de diagnóstico de inicialização para *myVM* com o comando [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics#az-vm-boot-diagnostics-get-boot-log) da seguinte maneira:
 
 ```azurecli-interactive
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM

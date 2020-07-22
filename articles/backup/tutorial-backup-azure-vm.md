@@ -4,12 +4,12 @@ description: Este tutorial oferece detalhes de como fazer backups de várias VMs
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.custom: mvc
-ms.openlocfilehash: 154238eae78ce44b9fc91058e58d9a11e254c0f9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a0f6bd2bebb0961388d4f81663167d9e579958a2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74171778"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513193"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Fazer backup de VMs do Azure com o PowerShell
 
@@ -48,7 +48,7 @@ Neste tutorial, você aprenderá a:
 Um [cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) é um contêiner lógico que armazena dados de backup para recursos protegidos, como VMs do Azure. Quando um trabalho de backup executa, ele cria um ponto de recuperação dentro do cofre dos Serviços de Recuperação. Você pode usar um desses pontos de recuperação para restaurar dados para um determinado ponto no tempo.
 
 * Neste tutorial, você pode criar o cofre no mesmo grupo de recursos e local da VM que você deseja fazer backup.
-* O Backup do Azure manipula automaticamente o armazenamento para os dados de backup. Por padrão, o cofre usa [GRS (Armazenamento com Redundância Geográfica)](../storage/common/storage-redundancy-grs.md). A redundância geográfica garante que os dados de backup sejam replicados para uma região do Azure secundária, a centenas de quilômetros de distância da região primária.
+* O Backup do Azure manipula automaticamente o armazenamento para os dados de backup. Por padrão, o cofre usa [GRS (Armazenamento com Redundância Geográfica)](../storage/common/storage-redundancy.md). A redundância geográfica garante que os dados de backup sejam replicados para uma região do Azure secundária, a centenas de quilômetros de distância da região primária.
 
 Crie um cofre conforme a seguir:
 

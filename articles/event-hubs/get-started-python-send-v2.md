@@ -3,12 +3,12 @@ title: Enviar ou receber eventos dos Hubs de Eventos do Azure usando o Python (m
 description: Este artigo fornece um passo a passo para criar um aplicativo Python que envia/recebe eventos para/de Hubs de Eventos do Azure usando o pacote azure-eventhub versão 5 mais recente.
 ms.topic: quickstart
 ms.date: 02/11/2020
-ms.openlocfilehash: f47a770975caac7f07e0bfa3181e50a94b6e59ba
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 2203b76d22f2a90e89d6e2c4a849b2c8016df89a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321681"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521829"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub-version-5"></a>Enviar eventos para Hubs de Eventos ou receber eventos deles usando o Python (azure-eventhub versão 5)
 Este início rápido mostra como enviar e receber eventos de um hub de eventos usando o pacote Python **azure-eventhub versão 5**.
@@ -80,7 +80,7 @@ Nesta seção, você criará um script Python para enviar eventos para o hub de 
 Este início rápido usa o Armazenamento de Blobs do Azure como um repositório de pontos de verificação. O repositório de pontos de verificação é usado para persistir pontos de verificação (ou seja, as últimas posições de leitura).  
 
 > [!NOTE]
-> Se você estiver executando o Azure Stack Hub, essa plataforma poderá dar suporte a uma versão diferente do SDK do Storage Blob do que aquelas normalmente disponíveis no Azure. Por exemplo, se a execução estiver sendo feita [no Azure Stack Hub versão 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), a versão superior disponível para o serviço de Armazenamento será a versão 2017-11-09. Nesse caso, além de seguir as etapas desta seção, você também precisará adicionar o código para ter como destino a versão de API 2017-11-09 do serviço de Armazenamento. Para obter um exemplo de como direcionar uma versão de API específica do Armazenamento, confira as amostras [síncronas](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) e [assíncronas](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py) no GitHub. Para obter mais informações sobre as versões do serviço de Armazenamento do Azure compatível com o Azure Stack Hub, confira [Armazenamento do Azure Stack Hub: diferenças e considerações](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences).
+> Se você estiver executando o Azure Stack Hub, essa plataforma poderá dar suporte a uma versão diferente do SDK do Storage Blob do que aquelas normalmente disponíveis no Azure. Por exemplo, se a execução estiver sendo feita [no Azure Stack Hub versão 2002](/azure-stack/user/event-hubs-overview), a versão superior disponível para o serviço de Armazenamento será a versão 2017-11-09. Nesse caso, além de seguir as etapas desta seção, você também precisará adicionar o código para ter como destino a versão de API 2017-11-09 do serviço de Armazenamento. Para obter um exemplo de como direcionar uma versão de API específica do Armazenamento, confira as amostras [síncronas](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) e [assíncronas](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py) no GitHub. Para obter mais informações sobre as versões do serviço de Armazenamento do Azure compatível com o Azure Stack Hub, confira [Armazenamento do Azure Stack Hub: diferenças e considerações](/azure-stack/user/azure-stack-acs-differences).
 
 
 ### <a name="create-an-azure-storage-account-and-a-blob-container"></a>Criar uma conta de armazenamento e um contêiner de blobs do Azure

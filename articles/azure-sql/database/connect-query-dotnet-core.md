@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 87acf1ab1591dadd5b3ac9c96fa36654bcbb4368
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 5da69c4bc0770c4588dce95b01386e6a5be75eec
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267436"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504573"
 ---
 # <a name="quickstart-use-net-core-c-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Início Rápido: Usar o .NET Core (C#) para consultar um banco de dados no Banco de Dados SQL do Azure ou na Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,7 +34,7 @@ Para concluir este início rápido, você precisa de:
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Um banco de dados. Você pode usar um dos seguintes guias de início rápido para criar e configurar um banco de dados:
 
-  || Banco de Dados SQL | Instância Gerenciada do SQL | SQL Server na VM do Azure |
+  | Ação | Banco de Dados SQL | Instância Gerenciada do SQL | SQL Server na VM do Azure |
   |:--- |:--- |:---|:---|
   | Criar| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |

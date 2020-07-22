@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
-ms.openlocfilehash: 3311d1143c0eca0c2b57e89e98dc22ab14fd9308
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4416c9f9d1c55a460cb983089706e984d90ba082
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82147730"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520759"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Início Rápido: Criar tarefas automatizadas, processos e fluxos de trabalho com Aplicativos Lógicos do Azure – Visual Studio
 
@@ -37,7 +37,7 @@ Neste início rápido, você cria o mesmo aplicativo lógico com o Visual Studio
     > [!IMPORTANT]
     > Ao instalar o Visual Studio 2019 ou 2017, selecione a carga de trabalho **Desenvolvimento do Azure**.
 
-  * O [SDK do Microsoft Azure para .NET (2.9.1 ou posterior)](https://azure.microsoft.com/downloads/). Saiba mais sobre o [SDK do Azure para .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet).
+  * O [SDK do Microsoft Azure para .NET (2.9.1 ou posterior)](https://azure.microsoft.com/downloads/). Saiba mais sobre o [SDK do Azure para .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet).
 
   * [PowerShell do Azure](https://github.com/Azure/azure-powershell#installation)
 
@@ -49,16 +49,16 @@ Neste início rápido, você cria o mesmo aplicativo lógico com o Visual Studio
 
     * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
   
-    Você pode baixar e instalar as Ferramentas dos Aplicativos Lógicos do Azure diretamente do Visual Studio Marketplace ou aprender como [instalar essa extensão de dentro do Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). Reinicie o Visual Studio após concluir a instalação.
+    Você pode baixar e instalar as Ferramentas dos Aplicativos Lógicos do Azure diretamente do Visual Studio Marketplace ou aprender como [instalar essa extensão de dentro do Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Reinicie o Visual Studio após concluir a instalação.
 
 * Acesso à Web ao usar o Designer do Aplicativo Lógico incorporado
 
   O designer precisa de uma conexão com a Internet para criar recursos no Azure e ler propriedades e dados dos conectores em seu aplicativo lógico. Por exemplo, para conexões do Dynamics CRM Online, o designer verifica sua instância do CRM para propriedades padrão e personalizadas.
 
-* Uma conta de email que seja compatível com os Aplicativos Lógicos, como o Outlook do Office 365, o Outlook.com ou o Gmail. Para outros provedores, revise a [lista de conectores aqui](https://docs.microsoft.com/connectors/). Este exemplo usa o Outlook do Office 365. Se você usar um provedor diferente, as etapas gerais são as mesmos, mas a interface do usuário pode ser ligeiramente diferente.
+* Uma conta de email que seja compatível com os Aplicativos Lógicos, como o Outlook do Office 365, o Outlook.com ou o Gmail. Para outros provedores, revise a [lista de conectores aqui](/connectors/). Este exemplo usa o Outlook do Office 365. Se você usar um provedor diferente, as etapas gerais são as mesmos, mas a interface do usuário pode ser ligeiramente diferente.
 
   > [!IMPORTANT]
-  > Se você quiser usar o conector do Gmail, somente as contas comerciais do G Suite poderão usar esse conector sem restrição nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação com o conector do Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Se você quiser usar o conector do Gmail, somente as contas comerciais do G Suite poderão usar esse conector sem restrição nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação com o conector do Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
 <a name="create-resource-group-project"></a>
 

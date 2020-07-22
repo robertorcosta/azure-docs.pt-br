@@ -1,14 +1,14 @@
 ---
 title: Implantar amostras de blueprint do UK OFFICIAL e do UK NHS
 description: Etapas de implantação para as amostras de blueprint UK OFFICIAL e UK NHS, incluindo detalhes do parâmetro de artefato de blueprint.
-ms.date: 05/08/2020
+ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 2ac2d17c08b3f585f86d1b2d339c3c7cf52844ce
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a4512eb982943664afc8217c5332e5e3b6e62fc1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037164"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521438"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Implantar as amostras de blueprint do UK OFFICIAL e do UK NHS
 

@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
-ms.openlocfilehash: 21771fb1bb041dd2f09f5d82d9def4cfe91794f6
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 82131ab4e1f990af25c669131e20c789a0f74dcf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808388"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518650"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Tutorial – Criptografar e descriptografar blobs usando o Azure Key Vault
 
@@ -210,7 +210,7 @@ A maneira de usar um segredo com criptografia do lado do cliente é por meio da 
 Aqui está um exemplo no PowerShell sobre a criação de um segredo no Cofre da Chave que pode ser usado como uma SymmetricKey.
 Observe que o valor codificado, $key, serve apenas para demonstração. Em seu próprio código, você desejará gerar essa chave.
 
-```csharp
+```powershell
 // Here we are making a 128-bit key so we have 16 characters.
 //     The characters are in the ASCII range of UTF8 so they are
 //    each 1 byte. 16 x 8 = 128.

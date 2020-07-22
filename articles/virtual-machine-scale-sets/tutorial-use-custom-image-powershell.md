@@ -9,12 +9,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: akjosh
-ms.openlocfilehash: 5452d12ca12507e1583f52a9800859a2e3086d0c
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 8a0ee8565d22e935535bbe1e830d8399b2489f5c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684050"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527516"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Tutorial: Criar e usar discos uma imagem personalizada para conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell
 
@@ -44,7 +44,7 @@ Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior di
 
 ## <a name="get-the-vm"></a>Obter a VM
 
-Você pode ver uma lista das VMss que estão disponíveis em um grupo de recursos usando [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Depois que souber o nome da VM e em qual grupo de recursos ela está, você poderá usar `Get-AzVM` novamente para obter o objeto da VM e armazená-lo em uma variável para uso posterior. Este exemplo obtém uma VM chamada *sourceVM* do grupo de recursos "myResourceGroup" e a atribui à variável *$vm*. 
+Você pode ver uma lista das VMss que estão disponíveis em um grupo de recursos usando [Get-AzVM](/powershell/module/az.compute/get-azvm). Depois que souber o nome da VM e em qual grupo de recursos ela está, você poderá usar `Get-AzVM` novamente para obter o objeto da VM e armazená-lo em uma variável para uso posterior. Este exemplo obtém uma VM chamada *sourceVM* do grupo de recursos "myResourceGroup" e a atribui à variável *$vm*. 
 
 ```azurepowershell-interactive
 $sourceVM = Get-AzVM `
@@ -53,7 +53,7 @@ $sourceVM = Get-AzVM `
 ```
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup).
+Crie um grupo de recursos com o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. No seguinte exemplo, um grupo de recursos chamado *myGalleryRG* é criado na região *EastUS*:
 
@@ -67,7 +67,7 @@ $resourceGroup = New-AzResourceGroup `
 
 Uma galeria de imagens é o principal recurso usado para habilitar o compartilhamento de imagens. Os caracteres permitidos para o nome da galeria são letras maiúsculas ou minúsculas, dígitos, pontos e pontos finais. O nome da galeria não pode conter traços. Os nomes das galerias devem ser exclusivos dentro de sua assinatura. 
 
-Crie uma galeria de imagens usando [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery). O exemplo a seguir cria uma galeria chamada *myGallery* no grupo de recursos *myGalleryRG*.
+Crie uma galeria de imagens usando [New-AzGallery](/powershell/module/az.compute/new-azgallery). O exemplo a seguir cria uma galeria chamada *myGallery* no grupo de recursos *myGalleryRG*.
 
 ```azurepowershell-interactive
 $gallery = New-AzGallery `
@@ -80,9 +80,9 @@ $gallery = New-AzGallery `
 
 ## <a name="create-an-image-definition"></a>Criar uma definição de imagem 
 
-As definições de imagem criam um agrupamento lógico para as imagens. Elas são usadas para gerenciar informações sobre as versões da imagem que são criadas dentro delas. Os nomes das definições de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos finais. Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+As definições de imagem criam um agrupamento lógico para as imagens. Elas são usadas para gerenciar informações sobre as versões da imagem que são criadas dentro delas. Os nomes das definições de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos finais. Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
-Crie a definição de imagem usando [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). Neste exemplo, a imagem da galeria se chama *myGalleryImage* e foi criada para uma imagem especializada. 
+Crie a definição de imagem usando [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). Neste exemplo, a imagem da galeria se chama *myGalleryImage* e foi criada para uma imagem especializada. 
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `
@@ -100,7 +100,7 @@ $galleryImage = New-AzGalleryImageDefinition `
 
 ## <a name="create-an-image-version"></a>Criar uma versão de imagem
 
-Crie uma versão da imagem com base em uma VM usando [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Crie uma versão da imagem com base em uma VM usando [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). 
 
 Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -244,7 +244,7 @@ New-AzRoleAssignment `
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando não forem mais necessários, você poderá usar o cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos relacionados:
+Quando não forem mais necessários, você poderá usar o cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos relacionados:
 
 ```azurepowershell-interactive
 # Delete the gallery 
@@ -256,7 +256,7 @@ Remove-AzResourceGroup -Name myResoureceGroup
 
 ## <a name="azure-image-builder"></a>Construtor de Imagens do Azure
 
-O Azure também oferece um serviço integrado ao Packer, o [Construtor de Imagens de VM do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview). Basta descrever suas personalizações em um modelo e ele cuidará da criação da imagem. 
+O Azure também oferece um serviço integrado ao Packer, o [Construtor de Imagens de VM do Azure](../virtual-machines/windows/image-builder-overview.md). Basta descrever suas personalizações em um modelo e ele cuidará da criação da imagem. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu a criar e usar uma imagem de VM personalizada para seus conjuntos de dimensionamento com o Azure PowerShell:

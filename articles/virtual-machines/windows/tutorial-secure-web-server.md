@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: da9834636944c6bb816c4f49b0e9bf3abda2264a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3b65d04b383fdc0a409e23ab6b6649604be502c6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097771"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525578"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Tutorial: Proteger um servidor Web em uma máquina virtual do Windows no Azure com certificados TLS/SSL armazenados no Key Vault
 
@@ -44,7 +44,7 @@ Em vez de usar uma imagem de VM personalizada que inclui certificados incorporad
 
 
 ## <a name="create-an-azure-key-vault"></a>Criar um Cofre de chaves do Azure
-Antes de criar um Key Vault e certificados, crie um grupo de recursos com [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupSecureWeb* no local *Leste dos EUA*:
+Antes de criar um Key Vault e certificados, crie um grupo de recursos com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupSecureWeb* no local *Leste dos EUA*:
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroupSecureWeb"
@@ -52,7 +52,7 @@ $location = "East US"
 New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-Em seguida, crie um Key Vault com [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault). Cada Cofre de Chave requer um nome exclusivo e deve estar escrito com todas as letras minúsculas. Substitua `mykeyvault` no exemplo a seguir com seu próprio nome exclusivo de Cofre da Chave:
+Em seguida, crie um Key Vault com [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). Cada Cofre de Chave requer um nome exclusivo e deve estar escrito com todas as letras minúsculas. Substitua `mykeyvault` no exemplo a seguir com seu próprio nome exclusivo de Cofre da Chave:
 
 ```azurepowershell-interactive
 $keyvaultName="mykeyvault"
@@ -63,7 +63,7 @@ New-AzKeyVault -VaultName $keyvaultName `
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>Gerar um certificado e armazenar no Key Vault
-Para uso em produção, você deve importar um certificado válido assinado por um fornecedor confiável com [Import-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/import-azkeyvaultcertificate). Para este tutorial, o exemplo a seguir mostra como você pode gerar um certificado autoassinado com [Add-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultcertificate), que usa a política de certificado padrão de [New-AzKeyVaultCertificatePolicy](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvaultcertificatepolicy). 
+Para uso em produção, você deve importar um certificado válido assinado por um fornecedor confiável com [Import-AzKeyVaultCertificate](/powershell/module/az.keyvault/import-azkeyvaultcertificate). Para este tutorial, o exemplo a seguir mostra como você pode gerar um certificado autoassinado com [Add-AzKeyVaultCertificate](/powershell/module/az.keyvault/add-azkeyvaultcertificate), que usa a política de certificado padrão de [New-AzKeyVaultCertificatePolicy](/powershell/module/az.keyvault/new-azkeyvaultcertificatepolicy). 
 
 ```azurepowershell-interactive
 $policy = New-AzKeyVaultCertificatePolicy `
@@ -80,13 +80,13 @@ Add-AzKeyVaultCertificate `
 
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
-Defina o nome de usuário e a senha de um administrador para a VM com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Defina o nome de usuário e a senha de um administrador para a VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Agora você pode criar a VM com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). O exemplo a seguir cria uma VM chamada *myVM* na localização *EastUs*. Se ainda não existirem, os recursos de rede de suporte são criados. Para permitir o tráfego seguro da Web, o cmdlet também abre a porta *443*.
+Agora você pode criar a VM com [New-AzVM](/powershell/module/az.compute/new-azvm). O exemplo a seguir cria uma VM chamada *myVM* na localização *EastUs*. Se ainda não existirem, os recursos de rede de suporte são criados. Para permitir o tráfego seguro da Web, o cmdlet também abre a porta *443*.
 
 ```azurepowershell-interactive
 # Create a VM
@@ -112,11 +112,11 @@ Set-AzVMExtension -ResourceGroupName $resourceGroup `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server -IncludeManagementTools"}'
 ```
 
-A criação da VM demora alguns minutos. A última etapa usa a Extensão de Script Personalizado do Azure para instalar o servidor Web do IIS com [Set-AzVmExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
+A criação da VM demora alguns minutos. A última etapa usa a Extensão de Script Personalizado do Azure para instalar o servidor Web do IIS com [Set-AzVmExtension](/powershell/module/az.compute/set-azvmextension).
 
 
 ## <a name="add-a-certificate-to-vm-from-key-vault"></a>Adicionar um certificado à VM a partir do Key Vault
-Para adicionar o certificado a partir do Key Vault para uma VM, obtenha a ID de seu certificado com [Get-AzKeyVaultSecret](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvaultsecret). Adicione o certificado à VM com [Add-AzVMSecret](https://docs.microsoft.com/powershell/module/az.compute/add-azvmsecret):
+Para adicionar o certificado a partir do Key Vault para uma VM, obtenha a ID de seu certificado com [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret). Adicione o certificado à VM com [Add-AzVMSecret](/powershell/module/az.compute/add-azvmsecret):
 
 ```azurepowershell-interactive
 $certURL=(Get-AzKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
@@ -130,7 +130,7 @@ Update-AzVM -ResourceGroupName $resourceGroup -VM $vm
 
 
 ## <a name="configure-iis-to-use-the-certificate"></a>Configurar o IIS para usar o certificado
-Use a Extensão de Script Personalizado novamente com [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) para atualizar a configuração do IIS. Esta atualização aplica o certificado inserido do Key Vault para o IIS e configura a associação da Web:
+Use a Extensão de Script Personalizado novamente com [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) para atualizar a configuração do IIS. Esta atualização aplica o certificado inserido do Key Vault para o IIS e configura a associação da Web:
 
 ```azurepowershell-interactive
 $PublicSettings = '{
@@ -150,7 +150,7 @@ Set-AzVMExtension -ResourceGroupName $resourceGroup `
 
 
 ### <a name="test-the-secure-web-app"></a>Testar o aplicativo Web protegido
-Obtenha o endereço IP público da VM com [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). O exemplo a seguir obtém o endereço IP para `myPublicIP` criado anteriormente:
+Obtenha o endereço IP público da VM com [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). O exemplo a seguir obtém o endereço IP para `myPublicIP` criado anteriormente:
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress" | select "IpAddress"

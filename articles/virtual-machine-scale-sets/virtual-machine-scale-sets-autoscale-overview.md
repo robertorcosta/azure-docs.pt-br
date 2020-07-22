@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 11207dceb29c779c081c140ee8cd362d8a217acf
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: dd042b28035b5e9a4b18041d6c1a81f77cfd4ea7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856746"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527397"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Visão geral de dimensionamento automático com conjuntos de dimensionamento de máquinas virtuais do Azure
 Um conjunto de dimensionamento de máquinas virtuais do Azure pode aumentar ou diminuir automaticamente o número de instâncias de VM que executam o aplicativo. Esse comportamento automatizado e elástico reduz a sobrecarga de gerenciamento para monitorar e otimizar o desempenho do aplicativo. Você cria regras que definem o desempenho aceitável para uma experiência de cliente positiva. Quando esses limites definidos são atendidos, as regras de dimensionamento automático atuam para ajustar a capacidade do seu conjunto de dimensionamento. Você também pode agendar eventos para aumentar ou diminuir a capacidade do conjunto de dimensionamento automaticamente em horas fixas. Este artigo fornece uma visão geral das métricas disponíveis e de quais ações o dimensionamento automático pode executar.
@@ -137,6 +137,6 @@ Você pode criar regras de dimensionamento automático que usam métricas basead
 
 Esta visão geral detalhou como usar as regras de dimensionamento automático para escalar horizontalmente e expandir ou diminuir o *número* de instâncias de VM no seu conjunto de dimensionamento. Também é possível escalar verticalmente para aumentar ou diminuir o *tamanho* da instância VM. Para obter mais informações, consulte [Dimensionamento vertical automático com conjuntos de Dimensionamento de Máquinas Virtuais](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-Para obter informações sobre como gerenciar suas instâncias de VM, consulte [Gerenciar conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
+Para obter informações sobre como gerenciar suas instâncias de VM, consulte [Gerenciar conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell](./virtual-machine-scale-sets-manage-powershell.md).
 
-Para saber como gerar alertas quando suas regras de dimensionamento automático forem disparadas, consulte [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). Também é possível [Usar logs de auditoria para enviar notificações de alerta por email e webhook no Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
+Para saber como gerar alertas quando suas regras de dimensionamento automático forem disparadas, consulte [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). Também é possível [Usar logs de auditoria para enviar notificações de alerta por email e webhook no Azure Monitor](../azure-monitor/platform/alerts-log-webhook.md).

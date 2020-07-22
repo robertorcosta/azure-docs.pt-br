@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 694d2ae529202223869fcbb2a084e32bccaedbf1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2e50daf3d94d30e4799bf7a645f46bb70fd6750c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77660216"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516491"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Início Rápido: Começar a monitorar seu aplicativo Web Node.js com o Azure Application Insights
 
@@ -36,7 +36,7 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
    ![Adicionar um recurso do Azure Application Insights](./media/nodejs-quick-start/azure-app-insights-create-resource.png)
 
    > [!NOTE]
-   >Se esta for a primeira vez criando um recurso do Application Insights, você pode aprender mais no documento [Criar um recurso do Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+   >Se esta for a primeira vez criando um recurso do Application Insights, você pode aprender mais no documento [Criar um recurso do Application Insights](../app/create-new-resource.md).
 
    Uma página de configuração é exibida. Use a tabela a seguir para preencher os campos de entrada. 
 
@@ -60,7 +60,7 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
    npm install applicationinsights --save
    ```
 
-3. Edite o primeiro arquivo *.js* do seu aplicativo e adicione as duas linhas abaixo à parte superior do script. Se você estiver usando o [aplicativo de início rápido do Node.js](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs), deverá modificar o arquivo *index.js*. Substitua `<instrumentation_key>` pela chave de instrumentação do seu aplicativo. 
+3. Edite o primeiro arquivo *.js* do seu aplicativo e adicione as duas linhas abaixo à parte superior do script. Se você estiver usando o [aplicativo de início rápido do Node.js](../../app-service/app-service-web-get-started-nodejs.md), deverá modificar o arquivo *index.js*. Substitua `<instrumentation_key>` pela chave de instrumentação do seu aplicativo. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
@@ -131,4 +131,4 @@ Quando você terminar de testar, poderá excluir o grupo de recursos e todos os 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Localizar e diagnosticar problemas de desempenho](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)
+> [Localizar e diagnosticar problemas de desempenho](../log-query/log-query-overview.md)

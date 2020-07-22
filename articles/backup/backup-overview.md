@@ -4,12 +4,12 @@ description: Fornece uma visão geral do serviço de Backup do Azure e como impl
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: cf48090b2c32f0c3a1c8170873cb8d6a771fe21f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 70fcbc432c3a3584047fe5ac39f217981a73df71
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84709922"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513516"
 ---
 # <a name="what-is-the-azure-backup-service"></a>O que é o serviço de Backup do Azure?
 
@@ -43,8 +43,8 @@ O Backup do Azure oferece estes principais benefícios:
 - **Manter os dados de curto e longo prazo**: Use os [cofres dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) para retenção de dados de curto e longo prazo.
 - **Gerenciamento automático de armazenamento** - ambientes híbridos geralmente exigem armazenamento heterogêneo, alguns locais e alguns na nuvem. Com o Backup do Azure, não há nenhum custo para o uso de dispositivos de armazenamento local. O Backup do Azure aloca e gerencia automaticamente o armazenamento de backup, com um modelo de pagamento conforme o uso. Você só pagará pelo armazenamento que consumir. [ Saiba mais ](https://azure.microsoft.com/pricing/details/backup) sobre preços.
 - **Várias opções de armazenamento** – o Backup do Azure oferece dois tipos de replicação para manter seu armazenamento/seus dados altamente disponíveis.
-  - O [LRS (armazenamento com redundância local)](../storage/common/storage-redundancy-lrs.md) replica seus dados três vezes (ele cria três cópias dos dados) em uma unidade de escala de armazenamento em um datacenter. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger seus dados contra falhas de hardware local.
-  - O [GRS (armazenamento com redundância geográfica)](../storage/common/storage-redundancy-grs.md) é a opção de replicação padrão e recomendada. O GRS replica seus dados para uma região secundária (a centenas de quilômetros da região primária dos dados de origem). O GRS é mais caro do que o LRS, mas fornece um nível mais alto de durabilidade para seus dados, mesmo quando há uma interrupção regional.
+  - O [LRS (armazenamento com redundância local)](../storage/common/storage-redundancy.md) replica seus dados três vezes (ele cria três cópias dos dados) em uma unidade de escala de armazenamento em um datacenter. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger seus dados contra falhas de hardware local.
+  - O [GRS (armazenamento com redundância geográfica)](../storage/common/storage-redundancy.md) é a opção de replicação padrão e recomendada. O GRS replica seus dados para uma região secundária (a centenas de quilômetros da região primária dos dados de origem). O GRS é mais caro do que o LRS, mas fornece um nível mais alto de durabilidade para seus dados, mesmo quando há uma interrupção regional.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: e0554711aa6db436bc0c3076ec468555c47fff39
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 7a096e355e140b18bd7df010c379e31d21f90634
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267249"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515046"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>Início Rápido: Usar o Visual Studio Code para se conectar e consultar 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,7 +29,7 @@ O [Visual Studio Code](https://code.visualstudio.com/docs) é um editor de códi
 
 - Um banco de dados no Banco de Dados SQL do Azure ou na Instância Gerenciada de SQL do Azure. Você pode usar um destes guias de início rápido para criar e, em seguida, configurar um banco de dados no Banco de Dados SQL do Azure:
 
-  || Banco de Dados SQL do Azure | Instância Gerenciada do Azure SQL |
+  | Ação | Banco de Dados SQL do Azure | Instância Gerenciada do Azure SQL |
   |:--- |:--- |:---|
   | Criar| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) |
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d233cba65d190178c500f78d4817e233ab46d780
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 9dcc1b6f6f3792682f81c0d37ef2046bd1840657
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460063"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526989"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutorial: Fazer backup e restaurar arquivos para máquinas virtuais do Linux no Azure
 
@@ -34,7 +34,7 @@ Você pode proteger seus dados fazendo backups em intervalos regulares. O Backup
 
 Quando o serviço de Backup do Azure inicia um backup, ele dispara a extensão de backup para obter um instantâneo pontual. O serviço de Backup do Azure usa a extensão _VMSnapshotLinux_ no Linux. A extensão é instalada durante o primeiro backup de VM se a VM está em execução. Se a VM não estiver em execução, o serviço de Backup criará um instantâneo do armazenamento subjacente (já que nenhuma gravação de aplicativo ocorre enquanto a VM está parada).
 
-Por padrão, o Backup do Azure usa um backup consistente de sistema de arquivos para a VM do Linux, mas ele pode ser configurado para fazer um [backup consistente de aplicativos usando a estrutura de pré e pós-script](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). Depois que o serviço de Backup do Azure gera o instantâneo, os dados são transferidos para o cofre. Para maximizar a eficiência, o serviço identifica e transfere apenas os blocos de dados que foram alterados desde o backup anterior.
+Por padrão, o Backup do Azure usa um backup consistente de sistema de arquivos para a VM do Linux, mas ele pode ser configurado para fazer um [backup consistente de aplicativos usando a estrutura de pré e pós-script](../../backup/backup-azure-linux-app-consistent.md). Depois que o serviço de Backup do Azure gera o instantâneo, os dados são transferidos para o cofre. Para maximizar a eficiência, o serviço identifica e transfere apenas os blocos de dados que foram alterados desde o backup anterior.
 
 Quando a transferência de dados é concluída, o instantâneo é removido e um ponto de recuperação é criado.
 
@@ -171,4 +171,3 @@ Avance para o próximo tutorial para saber mais sobre o monitoramento de máquin
 
 > [!div class="nextstepaction"]
 > [Controlar máquinas virtuais](tutorial-govern-resources.md)
-

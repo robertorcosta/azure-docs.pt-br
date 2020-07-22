@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 05/29/2020
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2 
-ms.openlocfilehash: 6860aa07d7547df6eeebf5d35fa9a921f0f9dada
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 7135b3630d7b780d2c5d18f22b2a05ee6aedf8ed
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267368"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504523"
 ---
 # <a name="quickstart-use-nodejs-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Início Rápido: Usar o Node.js para consultar um banco de dados no Banco de Dados SQL do Azure ou na Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,7 +30,7 @@ Para concluir este início rápido, você precisa de:
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-  || Banco de Dados SQL | Instância Gerenciada do SQL | SQL Server na VM do Azure |
+  | Ação | Banco de Dados SQL | Instância Gerenciada do SQL | SQL Server na VM do Azure |
   |:--- |:--- |:---|:---|
   | Criar| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 050f95ac98ce1ab36dc4ca537db458e133581925
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5caeb9ff5c289343e1869a55808bde7fbe035479
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746057"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517545"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Criar um localizador de lojas usando o Azure Mapas
 
@@ -35,7 +35,7 @@ Vá diretamente para o [exemplo de localizador de lojas ativo](https://azuremaps
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir as etapas neste tutorial, é necessário primeiro criar uma conta do Azure Mapas e obter a chave primária (chave da assinatura). Siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura de conta do Azure Mapas com tipo de preço S1 e siga as etapas em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária para sua conta. Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](how-to-manage-authentication.md).
+Para concluir as etapas neste tutorial, é necessário primeiro criar uma conta do Azure Mapas e obter a chave primária (chave da assinatura). Siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-azure-maps-account) para criar uma assinatura de conta do Azure Mapas com tipo de preço S1 e siga as etapas em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária para sua conta. Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](how-to-manage-authentication.md).
 
 ## <a name="design"></a>Design
 

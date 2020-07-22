@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8e559be82fc7c3d6b25b99319785d49e30f56287
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c233ef9cfb6ded6f3d4e96b893970d4282dfc22e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459994"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526972"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutorial: Criar e gerenciar VMs Linux com a CLI do Azure
 
@@ -32,13 +32,13 @@ Máquinas virtuais do Azure fornecem um ambiente de computação totalmente conf
 > * Redimensionar uma VM
 > * Exibir e compreender o estado da VM
 
-Este tutorial usa a CLI dentro do [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizada para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimentar** na parte superior de um bloco de código qualquer.
+Este tutorial usa a CLI dentro do [Azure Cloud Shell](../../cloud-shell/overview.md), que é constantemente atualizada para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimentar** na parte superior de um bloco de código qualquer.
 
 Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](https://docs.microsoft.com/cli/azure/group). 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group). 
 
 Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve criar um grupo de recursos antes de criar uma máquina virtual. Neste exemplo, criaremos um grupo de recursos chamado *myResourceGroupVM* na região *eastus*. 
 
@@ -50,7 +50,7 @@ O grupo de recursos é especificado ao criar ou modificar uma VM, que pode ser v
 
 ## <a name="create-virtual-machine"></a>Criar máquina virtual
 
-Crie uma máquina virtual com o comando [az vm create](https://docs.microsoft.com/cli/azure/vm). 
+Crie uma máquina virtual com o comando [az vm create](/cli/azure/vm). 
 
 Há várias opções disponíveis ao criar uma máquina virtual, como a imagem do sistema operacional, as credenciais administrativas e o dimensionamento do disco. O exemplo a seguir cria uma VM chamada *myVM* que executa o Servidor Ubuntu. Uma conta de usuário chamada *azureuser* é criada na VM, e as chaves SSH são geradas, se ainda não existirem no local de chave padrão ( *~/.ssh*):
 
@@ -155,12 +155,12 @@ A tabela a seguir categoriza tamanhos em casos de uso.
 
 | Type                     | Tamanhos comuns           |    DESCRIÇÃO       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Propósito geral](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU/memória equilibrados. Ideal para desenvolvimento/teste e para aplicativos de pequeno a médio porte e soluções de dados.  |
-| [Computação otimizada](sizes-compute.md)   | Fsv2          | Relação de CPU/memória alta. Boa para aplicativos de tráfego médio, dispositivos de rede e processos em lote.        |
-| [Memória otimizada](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Relação de memória/núcleo alta. Ótima para banco de dados relacionais, caches médios a grandes e análises na memória.                 |
-| [Armazenamento otimizado](sizes-storage.md)      | Lsv2, Ls              | Alta taxa de transferência de disco e de E/S. Ideal para Big Data, SQL e bancos de dados NoSQL.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | VMs especializadas, destinadas para renderização gráfica e edição de vídeo pesadas.       |
-| [Alto desempenho](sizes-hpc.md) | H        | Nossas VMs de CPU mais potentes com adaptadores de rede de alto rendimento (RDMA) opcionais. |
+| [Propósito geral](../sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU/memória equilibrados. Ideal para desenvolvimento/teste e para aplicativos de pequeno a médio porte e soluções de dados.  |
+| [Computação otimizada](../sizes-compute.md)   | Fsv2          | Relação de CPU/memória alta. Boa para aplicativos de tráfego médio, dispositivos de rede e processos em lote.        |
+| [Memória otimizada](../sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Relação de memória/núcleo alta. Ótima para banco de dados relacionais, caches médios a grandes e análises na memória.                 |
+| [Armazenamento otimizado](../sizes-storage.md)      | Lsv2, Ls              | Alta taxa de transferência de disco e de E/S. Ideal para Big Data, SQL e bancos de dados NoSQL.                                                         |
+| [GPU](../sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | VMs especializadas, destinadas para renderização gráfica e edição de vídeo pesadas.       |
+| [Alto desempenho](../sizes-hpc.md) | H        | Nossas VMs de CPU mais potentes com adaptadores de rede de alto rendimento (RDMA) opcionais. |
 
 
 ### <a name="find-available-vm-sizes"></a>Encontrar tamanhos de VM disponíveis

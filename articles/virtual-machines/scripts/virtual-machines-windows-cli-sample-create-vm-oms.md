@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc,seodec18
-ms.openlocfilehash: b3c8c045b7d773f6345072ed46c4a668d0db8ec5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b28e139ecbfee0ba3a9e092827d0b57ff145a842
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459467"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526921"
 ---
 # <a name="monitor-a-vm-with-azure-monitor-logs"></a>Monitorar uma VM com logs do Azure Monitor
 
@@ -48,13 +48,13 @@ Este script usa os comandos a seguir para criar um grupo de recursos, uma máqui
 
 | Comando | Observações |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Cria a máquina virtual e a conecta a placa de rede, a rede virtual, a sub-rede e o NSG. Este comando também especifica a imagem de máquina virtual a ser usada e as credenciais administrativas.  |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Executa uma extensão de VM em uma máquina virtual. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az vm create](/cli/azure/vm) | Cria a máquina virtual e a conecta a placa de rede, a rede virtual, a sub-rede e o NSG. Este comando também especifica a imagem de máquina virtual a ser usada e as credenciais administrativas.  |
+| [azure vm extension set](/cli/azure/vm/extension) | Executa uma extensão de VM em uma máquina virtual. |
+| [az group delete](/cli/azure/vm/extension) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
 Exemplos de script CLI máquinas virtuais adicionais podem ser encontrados na [documentação da VM do Windows do Azure](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
