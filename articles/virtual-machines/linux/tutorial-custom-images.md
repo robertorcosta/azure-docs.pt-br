@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc
 ms.reviewer: akjosh
-ms.openlocfilehash: 0ea5c11254d8dba050fe63a4cd915240c8270dd1
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: bd4da23ed3f4b2dc92652493c77efbcbc0542066
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324565"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510116"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Tutorial: Criar uma imagem personalizada de uma VM do Azure com a CLI do Azure
 
@@ -29,7 +29,7 @@ Imagens personalizadas são como imagens do marketplace, mas você mesmo as cria
 > * Compartilhar uma galeria de imagens
 
 
-Este tutorial usa a CLI dentro do [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizada para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimentar** na parte superior de um bloco de código qualquer.
+Este tutorial usa a CLI dentro do [Azure Cloud Shell](../../cloud-shell/overview.md), que é constantemente atualizada para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimentar** na parte superior de um bloco de código qualquer.
 
 Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que execute a CLI do Azure versão 2.4.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
@@ -90,11 +90,11 @@ As definições de imagem criam um agrupamento lógico para as imagens. Elas sã
 
 Os nomes das definições de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos finais. 
 
-Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](./shared-image-galleries.md#image-definitions).
 
 Crie uma definição de imagem na galeria usando [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create). 
 
-Neste exemplo, a definição da imagem se chama *myImageDefinition* e é referente a uma imagem [especializada](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) do SO Linux. 
+Neste exemplo, a definição da imagem se chama *myImageDefinition* e é referente a uma imagem [especializada](./shared-image-galleries.md#generalized-and-specialized-images) do SO Linux. 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -134,7 +134,7 @@ az sig image-version create \
 > [!NOTE]
 > Você precisa esperar que a versão da imagem seja compilada e replicada completamente antes de poder usar a mesma imagem gerenciada para criar outra versão da imagem.
 >
-> Você também pode armazenar a imagem no armazenamento Premium adicionando `--storage-account-type  premium_lrs`, ou no [Armazenamento com redundância de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando `--storage-account-type  standard_zrs` ao criar a versão da imagem.
+> Você também pode armazenar a imagem no armazenamento Premium adicionando `--storage-account-type  premium_lrs`, ou no [Armazenamento com redundância de zona](../../storage/common/storage-redundancy.md) adicionando `--storage-account-type  standard_zrs` ao criar a versão da imagem.
 >
 
  
@@ -176,11 +176,11 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-Para obter mais informações de como compartilhar recursos usando o RBAC, confira [Gerenciar o acesso usando a CLI do Azure e RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
+Para obter mais informações de como compartilhar recursos usando o RBAC, confira [Gerenciar o acesso usando a CLI do Azure e RBAC](../../role-based-access-control/role-assignments-cli.md).
 
 ## <a name="azure-image-builder"></a>Construtor de Imagens do Azure
 
-O Azure também oferece um serviço integrado ao Packer, o [Construtor de Imagens de VM do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview). Basta descrever suas personalizações em um modelo e ele cuidará da criação da imagem. 
+O Azure também oferece um serviço integrado ao Packer, o [Construtor de Imagens de VM do Azure](./image-builder-overview.md). Basta descrever suas personalizações em um modelo e ele cuidará da criação da imagem. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -197,4 +197,3 @@ Avance para o próximo tutorial para saber mais sobre máquinas virtuais de alta
 
 > [!div class="nextstepaction"]
 > [Criar VMs altamente disponíveis](tutorial-availability-sets.md)
-

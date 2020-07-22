@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: d356042d65c419163de4951e64a635a22ea90e6d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f2c780ffb7705575bf1bb5cabb6a09d9dabc0690
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78269201"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505832"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutorial: Coletar e analisar logs de recursos de um recurso do Azure
 
@@ -86,7 +86,7 @@ Os dados são recuperados de um workspace do Log Analytics usando uma consulta d
    
     ![Logs](media/tutorial-resource-logs/logs.png)
 
-4. O serviço mostrado no exemplo grava logs de recursos na tabela **AzureDiagnostics**, mas outros serviços podem gravar em outras tabelas. Confira [Serviços, esquemas e categorias compatíveis com logs de recursos do Azure](../platform/diagnostic-logs-schema.md) para tabelas usadas por diferentes serviços do Azure.
+4. O serviço mostrado no exemplo grava logs de recursos na tabela **AzureDiagnostics**, mas outros serviços podem gravar em outras tabelas. Confira [Serviços, esquemas e categorias compatíveis com logs de recursos do Azure](../platform/resource-logs-schema.md) para tabelas usadas por diferentes serviços do Azure.
 
     > [!NOTE]
     > Vários serviços gravam logs de recursos na tabela AzureDiagnostics. Se você iniciar o Log Analytics no menu Azure Monitor, precisará adicionar uma instrução `where` com a coluna `ResourceProvider` para especificar seu serviço específico. Quando você inicia o Log Analytics no menu de um recurso, o escopo é definido como somente registros desse recurso, de modo que essa coluna não é necessária. Confira a documentação do serviço para obter exemplos de consultas.

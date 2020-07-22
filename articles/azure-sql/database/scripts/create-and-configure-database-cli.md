@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: de554f48297c228df9345a6e822096d05b85652f
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: cb8850adaf638aca3ed69c3939916e132f66062d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196872"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504556"
 ---
 # <a name="use-the-azure-cli-to-create-a-single-database-and-configure-a-firewall-rule"></a>Use a CLI do Azure para criar um banco de dados individual e configurar uma regra de firewall
 
@@ -48,7 +48,7 @@ az group delete --name $resource
 
 Este script usa os comandos a seguir. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| | |
+| Comando | Descrição |
 |---|---|
 | [az sql server](/cli/azure/sql/server#az-sql-server-create) | Comandos de servidor |
 | [az sql server firewall](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Comandos de firewall do servidor. |

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: cac17d15d792622d9a26ff7c228ce1f0ba76bbc4
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fe53f400c1e03f0f3bb9d5e85891769d58320d84
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027572"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501935"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorar alterações e atualizar uma máquina virtual do Linux no Azure
 
@@ -77,7 +77,7 @@ Habilite o Gerenciamento de Atualizações para sua VM:
 Uma validação é executada para determinar se o Gerenciamento de Atualizações está habilitado para essa VM.
 A validação inclui verificar se há um espaço de trabalho do Log Analytics e uma conta de automação vinculada e se a solução está no espaço de trabalho.
 
-Um workspace do [Log Analytics](../../log-analytics/log-analytics-overview.md) é usado para coletar dados gerados por recursos e serviços, como o Gerenciamento de Atualizações.
+Um workspace do [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) é usado para coletar dados gerados por recursos e serviços, como o Gerenciamento de Atualizações.
 O workspace fornece um único local para examinar e analisar dados de várias fontes.
 Para executar ações adicionais em máquinas virtuais que requerem atualizações, a Automação do Azure permite que você execute runbooks em VMs, como download e aplicação de atualizações.
 
@@ -87,8 +87,8 @@ Escolha o workspace do Log Analytics e a conta de automação e selecione **Habi
 
 Se algum dos seguintes pré-requisitos estiver ausente durante a integração, ele será adicionado automaticamente:
 
-* Workspace do [Log Analytics](../../log-analytics/log-analytics-overview.md)
-* [Conta de automação](../../automation/automation-offering-get-started.md)
+* Workspace do [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
+* [Conta de automação](../../automation/index.yml)
 * Uma [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) está habilitada na VM
 
 A tela **Gerenciamento de Atualizações** é exibida. Configure o local, o workspace do Log Analytics e a conta de Automação a serem usados e selecione **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo workspace e conta de Automação devem ser usados.

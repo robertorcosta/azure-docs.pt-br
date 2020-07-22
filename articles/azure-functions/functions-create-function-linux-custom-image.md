@@ -5,18 +5,18 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc, tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: bb9fc07c0c909f1fcec1644175c1dbac1e2bbb57
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 57468a4b4234809ca6293ca39ed54a3934f9a4fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560913"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506376"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux usando um contêiner personalizado
 
 Neste tutorial, você cria e implanta seu código no Azure Functions como um contêiner do Docker personalizado usando uma imagem base do Linux. Normalmente, você usa uma imagem personalizada quando suas funções exigem uma versão de linguagem específica ou têm uma configuração ou dependência específica que não é fornecida pela imagem interna.
 
-Você também pode usar um contêiner padrão do Serviço de Aplicativo do Azure, conforme descrito em [Criar sua primeira função hospedada em Linux](functions-create-first-azure-function-azure-cli-linux.md). Imagens base com suporte para Azure Functions encontram-se no [repositório de imagens de base do Azure Functions](https://hub.docker.com/_/microsoft-azure-functions-base).
+Você também pode usar um contêiner padrão do Serviço de Aplicativo do Azure, conforme descrito em [Criar sua primeira função hospedada em Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). Imagens base com suporte para Azure Functions encontram-se no [repositório de imagens de base do Azure Functions](https://hub.docker.com/_/microsoft-azure-functions-base).
 
 Neste tutorial, você aprenderá como:
 
@@ -409,9 +409,7 @@ O SSH permite a comunicação segura entre um contêiner e um cliente. Com o SSH
     FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
     ```
     ::: zone-end
-
-    As diferenças entre as imagens base são descritas em [Serviços de Aplicativos – Tutorial de imagens personalizadas do Docker](../app-service/containers/tutorial-custom-docker-image.md#enable-ssh-connections).
-
+    
 1. Recompile a imagem usando o comando `docker build` novamente, substituindo `<docker_id>` pela ID do Docker:
 
     ```

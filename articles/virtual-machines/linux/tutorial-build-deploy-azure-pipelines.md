@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops
-ms.openlocfilehash: bb7c773d02c5da5c115af79cd9e90c78e71eb6bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8aa53d4b08a4a0bdaa4e1f12169811ae88edbd2f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76988321"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501867"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: Implantar seu aplicativo em máquinas virtuais do Linux no Azure usando o Azure DevOps Services e o Azure Pipelines
 
@@ -24,7 +24,7 @@ A CI (integração contínua) e a CD (implantação contínua) formam um pipelin
 
 O Azure Pipelines fornece um conjunto completo de ferramentas de automação de CI/CD para implantações em máquinas virtuais, tanto localmente quanto em qualquer nuvem.
 
-Neste tutorial, você configurará um pipeline de CI/CD baseado em YAML para implantar seu aplicativo em um [ambiente do Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/process/environments?view=azure-devops) com máquinas virtuais do Linux como recursos, cada uma das quais servirá como um servidor Web para executar o aplicativo.
+Neste tutorial, você configurará um pipeline de CI/CD baseado em YAML para implantar seu aplicativo em um [ambiente do Azure Pipelines](/azure/devops/pipelines/process/environments?view=azure-devops) com máquinas virtuais do Linux como recursos, cada uma das quais servirá como um servidor Web para executar o aplicativo.
 
 Você aprenderá como:
 
@@ -41,11 +41,11 @@ Você aprenderá como:
   Você precisa obter uma [organização do Azure DevOps Services gratuita](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
-  > Para saber mais, confira [Conectar-se ao Azure DevOps Services](https://docs.microsoft.com/azure/devops/organizations/projects/connect-to-projects?view=vsts).
+  > Para saber mais, confira [Conectar-se ao Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects?view=vsts).
 
-*  É necessária uma máquina virtual Linux para um destino de implantação.  Para obter mais informações, consulte [Criar e gerenciar VMs Linux com a CLI do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
+*  É necessária uma máquina virtual Linux para um destino de implantação.  Para obter mais informações, consulte [Criar e gerenciar VMs Linux com a CLI do Azure](./tutorial-manage-vm.md).
 
-*  Abra a porta de entrada 80 para sua máquina virtual. Para obter mais informações, consulte [Criar grupos de segurança de rede usando o Portal do Azure](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic).
+*  Abra a porta de entrada 80 para sua máquina virtual. Para obter mais informações, consulte [Criar grupos de segurança de rede usando o Portal do Azure](../../virtual-network/tutorial-filter-network-traffic.md).
 
 ## <a name="get-your-sample-app-code"></a>Obtenha seu código do aplicativo de exemplo
 
@@ -91,13 +91,13 @@ Siga as etapas adicionais descritas abaixo com base na pilha de runtime usada pa
 #### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
 Para instalar um aplicativo JavaScript ou um aplicativo Node.js, você precisará de uma VM do Linux com o servidor Web Nginx para implantar o aplicativo.
-Se você ainda não tiver uma VM do Linux com Nginx, crie uma agora no Azure usando as etapas [neste](/azure/virtual-machines/linux/quick-create-cli) exemplo.
+Se você ainda não tiver uma VM do Linux com Nginx, crie uma agora no Azure usando as etapas [neste](./quick-create-cli.md) exemplo.
 
 * * * 
 
 ## <a name="create-an-azure-pipelines-environment-with-azure-virtual-machines"></a>Criar um ambiente do Azure Pipelines com máquinas virtuais do Azure
 
-As máquinas virtuais podem ser adicionadas como recursos em [ambientes](https://docs.microsoft.com/azure/devops/pipelines/process/environments) e podem ser direcionadas para implantações em vários computadores. As exibições do histórico de implantação no ambiente fornecem capacidade de rastreamento da VM para o pipeline e, em seguida, para o commit.
+As máquinas virtuais podem ser adicionadas como recursos em [ambientes](/azure/devops/pipelines/process/environments) e podem ser direcionadas para implantações em vários computadores. As exibições do histórico de implantação no ambiente fornecem capacidade de rastreamento da VM para o pipeline e, em seguida, para o commit.
 
 Você pode criar um ambiente no Hub "**Ambientes**" na seção "**Pipelines**".
 1.  Entre na sua organização do Azure DevOps e navegue até seu projeto.
@@ -163,7 +163,7 @@ Selecione o modelo **inicial** e copie o snippet de código YAML abaixo que cria
     artifact: drop
 ```
 
-Para obter mais diretrizes, siga as etapas mencionadas em [Crie seu aplicativo Java com o Maven](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java).
+Para obter mais diretrizes, siga as etapas mencionadas em [Crie seu aplicativo Java com o Maven](/azure/devops/pipelines/ecosystems/java).
 
 #### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
@@ -196,7 +196,7 @@ Selecione o modelo **inicial** e copie o snippet de código YAML abaixo que cria
       artifact: drop
 ```
 
-Para obter mais diretrizes, siga as etapas em [Crie seu aplicativo Node.js com o gulp](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/javascript).
+Para obter mais diretrizes, siga as etapas em [Crie seu aplicativo Node.js com o gulp](/azure/devops/pipelines/ecosystems/javascript).
 
 - Dê uma olhada no pipeline para compreender o que ele faz. Verifique se todas as entradas padrão são apropriadas para seu código.
 
@@ -208,7 +208,7 @@ Para obter mais diretrizes, siga as etapas em [Crie seu aplicativo Node.js com o
 
 ## <a name="define-cd-steps-to-deploy-to-the-linux-vm"></a>Definir as etapas da CD para implantar na VM do Linux
 
-1. Edite o pipeline acima e inclua um [trabalho de implantação](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs), referenciando o ambiente e os recursos da VM que você tinha anteriormente usando a sintaxe do YAML abaixo:
+1. Edite o pipeline acima e inclua um [trabalho de implantação](/azure/devops/pipelines/process/deployment-jobs), referenciando o ambiente e os recursos da VM que você tinha anteriormente usando a sintaxe do YAML abaixo:
 
    ```YAML
    jobs:  
@@ -221,7 +221,7 @@ Para obter mais diretrizes, siga as etapas em [Crie seu aplicativo Node.js com o
      strategy:
    ```
 2. Você pode selecionar conjuntos específicos de máquinas virtuais do ambiente para receber a implantação, especificando as **marcas** que você definiu para cada máquina virtual no ambiente.
-Confira [aqui](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) o esquema completo do YAML para o trabalho de implantação.
+Confira [aqui](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) o esquema completo do YAML para o trabalho de implantação.
 
 3. Você pode especificar `runOnce` ou `rolling` como a estratégia de implantação. 
 
@@ -295,8 +295,8 @@ A exibição de implantações do ambiente fornece uma capacidade completa de ra
 ![VMjobs_view](media/tutorial-deploy-vms-azure-pipelines/vm-jobsview.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-- Você pode prosseguir para [personalizar o pipeline](https://docs.microsoft.com/azure/devops/pipelines/customize-pipeline) que você acabou de criar.
-- Para saber o que mais você pode fazer em pipelines do YAML, confira [referência de esquema do YAML](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema).
+- Você pode prosseguir para [personalizar o pipeline](/azure/devops/pipelines/customize-pipeline) que você acabou de criar.
+- Para saber o que mais você pode fazer em pipelines do YAML, confira [referência de esquema do YAML](/azure/devops/pipelines/yaml-schema).
 - Para saber mais sobre como implantar uma pilha LAMP (Linux, Apache, MySQL e PHP), avance para o próximo tutorial.
 
 > [!div class="nextstepaction"]

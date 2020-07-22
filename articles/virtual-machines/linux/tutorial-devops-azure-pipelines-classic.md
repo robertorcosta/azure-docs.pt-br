@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 28f093bc464a45862d3b253d628b7ae03810f81a
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: b8eec0d95144c012d3034e3f2c7c6e8adc921651
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871222"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510167"
 ---
 # <a name="tutorial---configure-the-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial – Configurar estratégia de implantação sem interrupção para Máquinas Virtuais do Linux do Azure
 
@@ -33,7 +33,7 @@ Este artigo mostra como configurar um pipeline de CI/CD para a reversão de impl
 
 ### <a name="configure-cicd-on-virtual-machines"></a>Configurar CI/CD em máquinas virtuais
 
-Você pode adicionar máquinas virtuais como destinos a um [grupo de implantação](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). Em seguida, você pode direcioná-las para atualizações de vários computadores. Depois de implantar o computadores, veja o **Histórico de Implantação** em um grupo de implantação. Essa exibição permite que você rastreie da VM para o pipeline e, em seguida, para a confirmação.
+Você pode adicionar máquinas virtuais como destinos a um [grupo de implantação](/azure/devops/pipelines/release/deployment-groups). Em seguida, você pode direcioná-las para atualizações de vários computadores. Depois de implantar o computadores, veja o **Histórico de Implantação** em um grupo de implantação. Essa exibição permite que você rastreie da VM para o pipeline e, em seguida, para a confirmação.
 
 ### <a name="rolling-deployments"></a>Implantações sem interrupção
 
@@ -93,5 +93,5 @@ Você pode começar a usar o Azure facilmente. Com o Azure DevOps Projects, come
  
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Implantar em máquinas virtuais do Azure usando Azure DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
-- [Implementar a implantação contínua do aplicativo em um conjunto de dimensionamento de máquinas virtuais do Azure](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)
+- [Implantar em máquinas virtuais do Azure usando Azure DevOps Projects](../../devops-project/azure-devops-project-vms.md)
+- [Implementar a implantação contínua do aplicativo em um conjunto de dimensionamento de máquinas virtuais do Azure](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

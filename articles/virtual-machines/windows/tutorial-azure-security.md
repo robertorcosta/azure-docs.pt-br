@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7c84c705da99bd6f04a6737a1c781b905cbeaad6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c6afdae275b98a86eba14b920a6969c967c5a7db
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100474"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508229"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Tutorial: Usar a Central de Segurança do Azure para monitorar máquinas virtuais do Windows
 
@@ -52,7 +52,7 @@ O agente de coleta de dados da Central de segurança é instalado em todas as VM
 
 ## <a name="set-up-a-security-policy"></a>Configurar uma política de segurança
 
-Políticas de segurança são usadas para definir os itens para os quais a Central de segurança coleta dados e faz recomendações. Você pode aplicar diferentes políticas de segurança a diferentes conjuntos de recursos do Azure. Embora, por padrão, os recursos do Azure são avaliados em relação a todos os itens de política, você pode desativar itens individuais de política para todos os recursos do Azure ou para um grupo de recursos. Para obter informações detalhadas sobre as políticas de segurança da Central de Segurança, consulte [Definir políticas de segurança na Central de Segurança do Azure](../../security-center/security-center-policies.md). 
+Políticas de segurança são usadas para definir os itens para os quais a Central de segurança coleta dados e faz recomendações. Você pode aplicar diferentes políticas de segurança a diferentes conjuntos de recursos do Azure. Embora, por padrão, os recursos do Azure são avaliados em relação a todos os itens de política, você pode desativar itens individuais de política para todos os recursos do Azure ou para um grupo de recursos. Para obter informações detalhadas sobre as políticas de segurança da Central de Segurança, consulte [Definir políticas de segurança na Central de Segurança do Azure](../../security-center/tutorial-security-policy.md). 
 
 Para configurar uma política de segurança para uma assinatura inteira:
 

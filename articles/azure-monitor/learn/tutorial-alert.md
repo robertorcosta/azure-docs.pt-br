@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 7195de1cf58e5dd2e1d0b49b309f3afc718cca92
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1c39bfdbcfb924505473b20b3d56a28d54c84f93
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77656255"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505866"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Monitorar e alertar sobre a integridade do aplicativo com o Azure Application Insights
 
@@ -28,7 +28,7 @@ Você aprenderá como:
 
 Para concluir este tutorial:
 
-Crie um [recurso do Application Insights](https://docs.microsoft.com/azure/azure-monitor/learn/dotnetcore-quick-start#enable-application-insights).
+Crie um [recurso do Application Insights](./dotnetcore-quick-start.md#enable-application-insights).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -56,7 +56,7 @@ Testes de disponibilidade no Application Insights permitem testar automaticament
 
     ![Editar alerta](media/tutorial-alert/edit-alert-001.png)
 
-6. Defina as localizações com falha como superior ou igual a 3. Crie um [grupo de ações](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) para configurar quem será notificado quando o limite de alerta for violado.
+6. Defina as localizações com falha como superior ou igual a 3. Crie um [grupo de ações](../platform/action-groups.md) para configurar quem será notificado quando o limite de alerta for violado.
 
     ![Salvar a interface do usuário do alerta](media/tutorial-alert/save-alert-001.png)
 

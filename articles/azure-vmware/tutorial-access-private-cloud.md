@@ -3,12 +3,12 @@ title: Tutorial – Saiba como acessar sua nuvem privada
 description: Saiba como acessar uma nuvem privada da AVS (Solução VMware no Azure) do Azure
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: 332b1b01f05ca97b03264201384ee38ac266470f
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 32dc5c173789996d2559eda1153b1509e10e5984
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873594"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497957"
 ---
 # <a name="tutorial-learn-how-to-access-an-azure-vmware-solution-avs-private-cloud"></a>Tutorial: Saiba como acessar uma nuvem privada da AVS (Solução VMware no Azure) do Azure
 
@@ -43,7 +43,7 @@ Insira as informações necessárias nos campos e selecione **Examinar + criar**
 | **Nome de usuário** | Insira o nome de usuário para fazer logon na VM. |
 | **Senha** | Insira a senha para fazer logon na VM. |
 | **Confirmar senha** | Insira a senha para fazer logon na VM. |
-| **Portas de entrada públicas** | Selecione **Nenhum**. Se você selecionar Nenhum, poderá usar o [acesso JIT](../security-center/security-center-just-in-time.md#configure-jit-access-from-an-azure-vms-page-) para controlar o acesso à VM somente quando quiser acessá-la.  |
+| **Portas de entrada públicas** | Selecione **Nenhum**. Se você selecionar Nenhum, poderá usar o [acesso JIT](../security-center/security-center-just-in-time.md#jit-configure) para controlar o acesso à VM somente quando quiser acessá-la.  |
 
 Depois de inserir as informações adequadas, clique em **Examinar + criar**. Após a aprovação da validação, selecione **Criar** para iniciar o processo de criação da máquina virtual.
 

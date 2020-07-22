@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 760b6ae2d791267053acdb1e216ab5daeab7c061
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9b8510d3eb66cc63a0c9c660b34514a83a35d25c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459348"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509573"
 ---
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>Exportar/copiar instantâneos gerenciados como VHD para uma conta de armazenamento em outa região com o PowerShell
 
@@ -41,9 +41,9 @@ Esse script usa os comandos a seguir para gerar o URI de SAS para um instantâne
 
 | Comando | Observações |
 |---|---|
-| [Grant-AzSnapshotAccess](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Gera o URI de SAS para um instantâneo que é usado para copiá-lo para uma conta de armazenamento. |
-| [New-AzStorageContext](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontext) | Cria um contexto de conta de armazenamento usando o nome da conta e a chave. Esse contexto pode ser usado para executar operações de leitura/gravação na conta de armazenamento. |
-| [Start-AzStorageBlobCopy](https://docs.microsoft.com/powershell/module/az.storage/start-azstorageblobcopy) | Copia o VHD subjacente de um instantâneo para uma conta de armazenamento |
+| [Grant-AzSnapshotAccess](/powershell/module/az.compute/new-azdisk) | Gera o URI de SAS para um instantâneo que é usado para copiá-lo para uma conta de armazenamento. |
+| [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) | Cria um contexto de conta de armazenamento usando o nome da conta e a chave. Esse contexto pode ser usado para executar operações de leitura/gravação na conta de armazenamento. |
+| [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) | Copia o VHD subjacente de um instantâneo para uma conta de armazenamento |
 
 ## <a name="next-steps"></a>Próximas etapas
 

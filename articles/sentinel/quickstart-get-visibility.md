@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 60e3529e68183488016e40211730412da8e3e0bb
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 83f83922b3bed19e98566002cbf9ad084ba66cb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564608"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496206"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Início Rápido: Introdução ao Azure Sentinel
 
@@ -91,23 +91,26 @@ Se desejar adicionar um novo bloco, será possível adicioná-lo a uma pasta de 
 
 A consulta de exemplo a seguir permite que você compare as tendências de tráfego de diferentes semanas. Você pode alternar facilmente em qual fornecedor do dispositivo e fonte de dados executa a consulta. Este exemplo usa o SecurityEvent do Windows. É possível mudá-lo para ser executado no AzureActivity ou no CommonSecurityLog em qualquer outro firewall.
 
-     |where DeviceVendor == "Palo Alto Networks":
-      // week over week query
-      SecurityEvent
-      | where TimeGenerated > ago(14d)
-      | summarize count() by bin(TimeGenerated, 1d)
-      | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
-
+```console
+ |where DeviceVendor == "Palo Alto Networks":
+  // week over week query
+  SecurityEvent
+  | where TimeGenerated > ago(14d)
+  | summarize count() by bin(TimeGenerated, 1d)
+  | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
+```
 
 Talvez você queira criar uma consulta que incorpore dados de várias fontes. Você pode criar uma consulta que examina os logs de auditoria do Azure Active Directory para novos usuários que acabaram de ser criados e, em seguida, verifica os logs do Azure para ver se o usuário começou a fazer alterações na atribuição de função no prazo de 24 horas após a criação. A atividade suspeita apareceria neste painel:
 
-    AuditLogs
-    | where OperationName == "Add user"
-    | project AddedTime = TimeGenerated, user = tostring(TargetResources[0].userPrincipalName)
-    | join (AzureActivity
-    | where OperationName == "Create role assignment"
-    | project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
-    | project-away user1
+```console
+AuditLogs
+| where OperationName == "Add user"
+| project AddedTime = TimeGenerated, user = tostring(TargetResources[0].userPrincipalName)
+| join (AzureActivity
+| where OperationName == "Create role assignment"
+| project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
+| project-away user1
+```
 
 É possível criar pastas de trabalho diferentes com base na função da pessoa que examina os dados e em que ela está procurando. É possível, por exemplo, criar uma pasta de trabalho para seu administrador de rede que inclua os dados do firewall. Também é possível criar pastas de trabalho com base na frequência com a qual deseja observá-las, se há coisas que você deseja revisar diariamente e outros itens que deseja verificar uma vez por hora, por exemplo. Talvez convenha examinar as entradas no Azure AD a cada hora em busca de anomalias. 
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 1616466619c7c7627106c09de703d02a7c40d248
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 83f0ea094c26a1ff664ef27729731b77d987e7ec
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75458408"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501481"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-cli"></a>Criar uma máquina virtual usando um disco de sistema operacional gerenciado existente com a CLI
 
@@ -52,10 +52,10 @@ Esse script usa os seguintes comandos para obter as propriedades do disco gerenc
 
 | Comando | Observações |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk) | Obtém propriedades de disco gerenciado usando o nome do disco e o nome do grupo de recursos. A propriedade ID é usada para anexar um disco gerenciado a uma nova VM |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Cria uma VM usando um disco do sistema operacional gerenciado |
+| [az disk show](/cli/azure/disk) | Obtém propriedades de disco gerenciado usando o nome do disco e o nome do grupo de recursos. A propriedade ID é usada para anexar um disco gerenciado a uma nova VM |
+| [az vm create](/cli/azure/vm) | Cria uma VM usando um disco do sistema operacional gerenciado |
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
 Os exemplos de script da CLI de máquina virtual adicionais podem ser encontrados na [documentação da VM Linux do Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

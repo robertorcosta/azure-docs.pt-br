@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 5c82f087505c1634dd621252935c4017687340b2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b3b57cd2a2e5d5502f3865eddcdddfac67460dc7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198236"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495006"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: criar e usar discos com um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
 
@@ -44,12 +44,12 @@ Quando um conjunto de dimensionamento é criado ou dimensionado, dois discos sã
 ### <a name="temporary-disk-sizes"></a>Tamanhos do disco temporário
 | Type | Tamanhos comuns | Tamanho máximo do disco temporário (GiB) |
 |----|----|----|
-| [Propósito geral](../virtual-machines/windows/sizes-general.md) | Série A, B e D | 1600 |
-| [Computação otimizada](../virtual-machines/windows/sizes-compute.md) | Série F | 576 |
-| [Memória otimizada](../virtual-machines/windows/sizes-memory.md) | Série D, E, G e M | 6144 |
-| [Armazenamento otimizado](../virtual-machines/windows/sizes-storage.md) | Série L | 5630 |
-| [GPU](../virtual-machines/windows/sizes-gpu.md) | Série N | 1440 |
-| [Alto desempenho](../virtual-machines/windows/sizes-hpc.md) | Série A e H | 2000 |
+| [Propósito geral](../virtual-machines/sizes-general.md) | Série A, B e D | 1600 |
+| [Computação otimizada](../virtual-machines/sizes-compute.md) | Série F | 576 |
+| [Memória otimizada](../virtual-machines/sizes-memory.md) | Série D, E, G e M | 6144 |
+| [Armazenamento otimizado](../virtual-machines/sizes-storage.md) | Série L | 5630 |
+| [GPU](../virtual-machines/sizes-gpu.md) | Série N | 1440 |
+| [Alto desempenho](../virtual-machines/sizes-hpc.md) | Série A e H | 2000 |
 
 
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
@@ -58,12 +58,12 @@ Outros discos de dados podem ser adicionados caso você precise instalar aplicat
 ### <a name="max-data-disks-per-vm"></a>Máximo de discos de dados por VM
 | Type | Tamanhos comuns | Máximo de discos de dados por VM |
 |----|----|----|
-| [Propósito geral](../virtual-machines/windows/sizes-general.md) | Série A, B e D | 64 |
-| [Computação otimizada](../virtual-machines/windows/sizes-compute.md) | Série F | 64 |
-| [Memória otimizada](../virtual-machines/windows/sizes-memory.md) | Série D, E, G e M | 64 |
-| [Armazenamento otimizado](../virtual-machines/windows/sizes-storage.md) | Série L | 64 |
-| [GPU](../virtual-machines/windows/sizes-gpu.md) | Série N | 64 |
-| [Alto desempenho](../virtual-machines/windows/sizes-hpc.md) | Série A e H | 64 |
+| [Propósito geral](../virtual-machines/sizes-general.md) | Série A, B e D | 64 |
+| [Computação otimizada](../virtual-machines/sizes-compute.md) | Série F | 64 |
+| [Memória otimizada](../virtual-machines/sizes-memory.md) | Série D, E, G e M | 64 |
+| [Armazenamento otimizado](../virtual-machines/sizes-storage.md) | Série L | 64 |
+| [GPU](../virtual-machines/sizes-gpu.md) | Série N | 64 |
+| [Alto desempenho](../virtual-machines/sizes-hpc.md) | Série A e H | 64 |
 
 
 ## <a name="vm-disk-types"></a>Tipos de disco da máquina virtual
@@ -135,7 +135,7 @@ Update-AzVmss `
 ## <a name="prepare-the-data-disks"></a>Preparar os discos de dados
 Os discos que são criados e anexados às suas instâncias de VM do conjunto de dimensionamento são discos brutos. Antes que você possa usá-los com seus dados e aplicativos, os discos devem ser preparados. Para preparar os discos, crie uma partição, crie um sistema de arquivos e monte-os.
 
-Para automatizar o processo em várias instâncias de VM em um conjunto de dimensionamento, você pode usar a Extensão de Script Personalizado do Azure. Esta extensão pode executar scripts localmente em cada instância de VM, como preparar discos de dados anexados. Para obter mais informações, consulte a [Visão geral da Extensão de Script Personalizado](../virtual-machines/windows/extensions-customscript.md).
+Para automatizar o processo em várias instâncias de VM em um conjunto de dimensionamento, você pode usar a Extensão de Script Personalizado do Azure. Esta extensão pode executar scripts localmente em cada instância de VM, como preparar discos de dados anexados. Para obter mais informações, consulte a [Visão geral da Extensão de Script Personalizado](../virtual-machines/extensions/custom-script-windows.md).
 
 
 O exemplo a seguir executa um script de um repositório GitHub de exemplo em cada instância de VM com [Add-AzVmssExtension](/powershell/module/az.compute/Add-AzVmssExtension), que prepara todos os discos de dados brutos anexados:

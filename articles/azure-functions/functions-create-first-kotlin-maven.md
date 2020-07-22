@@ -6,12 +6,12 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
-ms.openlocfilehash: e4ac4f669d38f07d9fe4edbd600cc06f135fac03
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: d8abf6cdf8506dc491f4e026c9a61ac1391f6ea4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674557"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506291"
 ---
 # <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>Início Rápido: Criar sua primeira função com o Kotlin e o Maven
 
@@ -25,7 +25,7 @@ Para desenvolver funções usando Kotlin, você deve ter o seguinte instalado:
 
 - [Java Developer Kit](https://aka.ms/azure-jdks), versão 8
 - [Apache Maven](https://maven.apache.org), versão 3.0 ou posterior
-- [CLI do Azure](https://docs.microsoft.com/cli/azure)
+- [CLI do Azure](/cli/azure)
 - [Azure Functions Core Tools](./functions-run-local.md#v2) versão 2.6.666 ou posterior
 
 > [!IMPORTANT]
@@ -79,7 +79,7 @@ Os identificadores `com.fabrikam.functions` e `fabrikam-functions` abaixo são u
 [INFO] Parameter: artifactId, Value: fabrikam-function
 </pre>
 
-O Maven cria os arquivos de projeto em uma nova pasta com um nome de _artifactId_ neste exemplo `fabrikam-functions`. O código pronto para executar gerado no projeto é uma simples função [disparada por HTTP](/azure/azure-functions/functions-bindings-http-webhook) que reflete o corpo da solicitação:
+O Maven cria os arquivos de projeto em uma nova pasta com um nome de _artifactId_ neste exemplo `fabrikam-functions`. O código pronto para executar gerado no projeto é uma simples função [disparada por HTTP](./functions-bindings-http-webhook.md) que reflete o corpo da solicitação:
 
 ```kotlin
 class Function {

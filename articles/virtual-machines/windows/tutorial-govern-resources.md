@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: fce613da352e55bae64db2912af23a07f4bf954f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: f7f993ca817d6ed6b395343eb180b3601a22f7a1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200679"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508263"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Tutorial: Saiba mais sobre o gerenciamento de máquina virtual do Windows com o Azure PowerShell
 
@@ -53,7 +53,7 @@ Para gerenciar soluções de máquinas virtuais, há três funções específica
 
 Em vez de atribuir funções a usuários individuais, muitas vezes é mais fácil usar um grupo do Azure Active Directory que tenha usuários que precisam realizar ações semelhantes. E, em seguida, atribuir esse grupo à função apropriada. Neste artigo, use um grupo existente para gerenciar a máquina virtual ou use o portal para [criar um grupo do Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-Após criar um novo grupo ou encontrar um existente, use o comando [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment) para atribuir o grupo do Azure Active Directory à função de Colaborador da Máquina Virtual do grupo de recursos.  
+Após criar um novo grupo ou encontrar um existente, use o comando [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) para atribuir o grupo do Azure Active Directory à função de Colaborador da Máquina Virtual do grupo de recursos.  
 
 ```azurepowershell-interactive
 $adgroup = Get-AzADGroup -DisplayName <your-group-name>
@@ -69,7 +69,7 @@ Normalmente, você repete o processo para *Colaborador de Rede* e *Colaborador d
 
 ## <a name="azure-policy"></a>Azure Policy
 
-O [Azure Policy](../../governance/policy/overview.md) ajuda a garantir que todos os recursos da assinatura atendam aos padrões corporativos. Sua assinatura já possui várias definições de políticas. Para ver as definições de política disponíveis, use o comando [Get-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/Get-AzPolicyDefinition):
+O [Azure Policy](../../governance/policy/overview.md) ajuda a garantir que todos os recursos da assinatura atendam aos padrões corporativos. Sua assinatura já possui várias definições de políticas. Para ver as definições de política disponíveis, use o comando [Get-AzPolicyDefinition](/powershell/module/az.resources/get-azpolicydefinition):
 
 ```azurepowershell-interactive
 (Get-AzPolicyDefinition).Properties | Format-Table displayName, policyType
@@ -81,7 +81,7 @@ Você vê as definições de políticas existentes. O tipo de política é **Bui
 * Limitam as SKUs para máquinas virtuais.
 * Auditam máquinas virtuais que não utilizam discos gerenciados.
 
-No exemplo a seguir, você pode recuperar três definições de política com base no nome de exibição. Use o comando [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment) para atribuir essas definições ao grupo de recursos. Para algumas políticas, você deve fornecer valores de parâmetro para especificar os valores permitidos.
+No exemplo a seguir, você pode recuperar três definições de política com base no nome de exibição. Use o comando [New-AzPolicyAssignment](/powershell/module/az.resources/new-azpolicyassignment) para atribuir essas definições ao grupo de recursos. Para algumas políticas, você deve fornecer valores de parâmetro para especificar os valores permitidos.
 
 ```azurepowershell-interactive
 # Values to use for parameters
@@ -135,7 +135,7 @@ Após a conclusão da implantação, será necessário aplicar mais configuraç�
 
 [Bloqueios de recursos](../../azure-resource-manager/management/lock-resources.md) impedem que os usuários em sua organização acidentalmente excluam ou modifiquem recursos críticos. Ao contrário do controle de acesso baseado em função, bloqueios de recurso aplicam uma restrição a todos os usuários e funções. É possível definir o nível de bloqueio como *CanNotDelete* ou *ReadOnly*.
 
-Para bloquear a máquina virtual e o grupo de segurança de rede, use o comando [New-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock):
+Para bloquear a máquina virtual e o grupo de segurança de rede, use o comando [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock):
 
 ```azurepowershell-interactive
 # Add CanNotDelete lock to the VM
@@ -167,7 +167,7 @@ Você pode aplicar [marcas](../../azure-resource-manager/management/tag-resource
 
 [!INCLUDE [Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
 
-Para aplicar marcas a uma máquina virtual, use o comando [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource):
+Para aplicar marcas a uma máquina virtual, use o comando [Set-AzResource](/powershell/module/az.resources/set-azresource):
 
 ```azurepowershell-interactive
 # Get the virtual machine
@@ -181,7 +181,7 @@ Set-AzResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentation" } 
 
 ### <a name="find-resources-by-tag"></a>Localizar recursos por marca
 
-Para localizar recursos com um nome e valor da tag, use o comando [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource):
+Para localizar recursos com um nome e valor da tag, use o comando [Get-AzResource](/powershell/module/az.resources/get-azresource):
 
 ```azurepowershell-interactive
 (Get-AzResource -Tag @{ Environment="Test"}).Name
@@ -199,7 +199,7 @@ Get-AzResource -Tag @{ Environment="Test"} | Where-Object {$_.ResourceType -eq "
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-O grupo de segurança de rede bloqueado não poderá ser excluído até que o bloqueio seja removido. Para remover o bloqueio, use o comando [Remove-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcelock):
+O grupo de segurança de rede bloqueado não poderá ser excluído até que o bloqueio seja removido. Para remover o bloqueio, use o comando [Remove-AzResourceLock](/powershell/module/az.resources/remove-azresourcelock):
 
 ```azurepowershell-interactive
 Remove-AzResourceLock -LockName LockVM `
@@ -212,7 +212,7 @@ Remove-AzResourceLock -LockName LockNSG `
   -ResourceGroupName myResourceGroup
 ```
 
-Quando não forem mais necessários, você poderá usar o comando [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, a VM e todos os recursos relacionados.
+Quando não forem mais necessários, você poderá usar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup
@@ -236,4 +236,3 @@ Passe para o próximo tutorial para aprender a identificar alterações e a gere
 
 > [!div class="nextstepaction"]
 > [Gerenciar máquinas virtuais](tutorial-config-management.md)
-

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4b5e4fe585b01670c06d5ff08fb3d221086d94d2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b5b3d1240c621a1bcdc135825e70fe164452a428
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100423"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500388"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Tutorial: Fazer backup e restaurar arquivos para máquinas virtuais do Windows no Azure
 
@@ -27,7 +27,7 @@ Você pode proteger seus dados fazendo backups em intervalos regulares. O Backup
 
 ## <a name="backup-overview"></a>Visão geral do backup
 
-Quando o serviço de Backup do Azure inicia um trabalho de backup, ele dispara a extensão de backup para obter um instantâneo pontual. O serviço de Backup do Azure usa a [extensão VMSnapshot](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows). A extensão é instalada durante o primeiro backup de VM se a VM está em execução. Se a VM não estiver em execução, o serviço de Backup criará um instantâneo do armazenamento subjacente (já que nenhuma gravação de aplicativo ocorre enquanto a VM está parada).
+Quando o serviço de Backup do Azure inicia um trabalho de backup, ele dispara a extensão de backup para obter um instantâneo pontual. O serviço de Backup do Azure usa a [extensão VMSnapshot](../extensions/vmsnapshot-windows.md). A extensão é instalada durante o primeiro backup de VM se a VM está em execução. Se a VM não estiver em execução, o serviço de Backup criará um instantâneo do armazenamento subjacente (já que nenhuma gravação de aplicativo ocorre enquanto a VM está parada).
 
 Ao gerar um instantâneo de VMs do Windows, o Serviço de backup coordena com o VSS (Serviço de Cópias de Sombra de Volume) para obter um instantâneo consistente dos discos da máquina virtual. Depois que o serviço de Backup do Azure gera o instantâneo, os dados são transferidos para o cofre. Para maximizar a eficiência, o serviço identifica e transfere apenas os blocos de dados que foram alterados desde o backup anterior.
 
@@ -98,12 +98,3 @@ Avance para o próximo tutorial para saber mais sobre o monitoramento de máquin
 
 > [!div class="nextstepaction"]
 > [Controlar máquinas virtuais](tutorial-govern-resources.md)
-
-
-
-
-
-
-
-
-

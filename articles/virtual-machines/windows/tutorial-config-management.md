@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ed36dc669c8b89ba4a2b7831c6eb6f8742e73730
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cf01e4baf96e4403dae443fa6c98f74c571641a8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100406"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508306"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorar alterações e atualizar uma máquina virtual do Windows no Azure
 
@@ -37,13 +37,13 @@ Você também pode abrir o Cloud Shell em uma guia separada do navegador indo at
 
 Para configurar o monitoramento do Azure e o gerenciamento de atualizações neste tutorial, você precisa de uma VM Windows no Azure.
 
-Primeiro, defina o nome de usuário e a senha de um administrador para a VM com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Primeiro, defina o nome de usuário e a senha de um administrador para a VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Em seguida, crie a VM com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). O exemplo a seguir cria uma VM chamada `myVM` na localização `East US`. Se ainda não existirem, o grupo de recursos `myResourceGroupMonitor` e os recursos de rede de suporte serão criados:
+Em seguida, crie a VM com [New-AzVM](/powershell/module/az.compute/new-azvm). O exemplo a seguir cria uma VM chamada `myVM` na localização `East US`. Se ainda não existirem, o grupo de recursos `myResourceGroupMonitor` e os recursos de rede de suporte serão criados:
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -76,7 +76,7 @@ Para habilitar o Gerenciamento de Atualizações na VM:
 
 Uma validação é executada para determinar se o Gerenciamento de Atualizações está habilitado nessa VM. A validação inclui verificar se há um workspace do Log Analytics, uma conta de Automação vinculada e se a solução está no workspace.
 
-Use um workspace do [Log Analytics](../../log-analytics/log-analytics-overview.md) para coletar dados que são gerados por recursos e serviços, como o Gerenciamento de Atualizações. O workspace fornece um único local para examinar e analisar dados de várias fontes.
+Use um workspace do [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para coletar dados que são gerados por recursos e serviços, como o Gerenciamento de Atualizações. O workspace fornece um único local para examinar e analisar dados de várias fontes.
 
 Para executar ações adicionais em VMs que exigem atualizações, use a Automação do Azure para executar runbooks nas VMs. Essas ações incluem o download ou a aplicação de atualizações.
 
@@ -86,8 +86,8 @@ Na janela **Habilitar o Gerenciamento de Atualizações**, escolha o workspace d
 
 Qualquer um dos seguintes pré-requisitos ausentes durante a integração é adicionado automaticamente:
 
-* Workspace do [Log Analytics](../../log-analytics/log-analytics-overview.md)
-* [Automação](../../automation/automation-offering-get-started.md)
+* Workspace do [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
+* [Automação](../../automation/index.yml)
 * Um [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md), que está habilitado na VM
 
 Depois que a solução é habilitada, a janela **Gerenciamento de Atualizações** é aberta. Configure a localização, o workspace do Log Analytics e a conta de Automação a serem usados e, em seguida, selecione **Habilitar**. Se essas opções aparecerem esmaecidas, outra solução de automação será habilitada para a VM, e o workspace e a conta de automação dessa solução precisarão ser usados.

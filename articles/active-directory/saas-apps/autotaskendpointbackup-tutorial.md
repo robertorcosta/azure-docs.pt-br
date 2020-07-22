@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 1/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c9bad99d0ce39fb5f179043278ca4785d726744
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7d080fd3cac7a0550452908e9e0265bb2ffcb462
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73157790"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499985"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Tutorial: Integração do Active Directory do Azure ao Autotask Endpoint Backup
 
@@ -111,7 +111,7 @@ Para configurar o logon único do Azure AD com o Autotask Endpoint Backup, execu
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.backup.autotask.net/singlesignon/saml/SSO`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do Cliente do Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do Cliente do Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -129,7 +129,7 @@ Para configurar o logon único do Azure AD com o Autotask Endpoint Backup, execu
 
 ### <a name="configure-autotask-endpoint-backup-single-sign-on"></a>Configurar Logon Único do Autotask Endpoint Backup
 
-Para configurar o logon único no **Autotask Endpoint Backup**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs copiadas apropriadas do portal do Azure para a [equipe de suporte do Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no **Autotask Endpoint Backup**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs copiadas apropriadas do portal do Azure para a [equipe de suporte do Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -184,7 +184,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 
 ### <a name="create-autotask-endpoint-backup-test-user"></a>Criar usuário de teste do Autotask Endpoint Backup
 
-Nesta seção, você cria um usuário chamado Brenda Fernandes no Autotask Endpoint Backup. Trabalhe com a equipe de suporte do [Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) para adicionar usuários à plataforma Autotask Endpoint Backup. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você cria um usuário chamado Brenda Fernandes no Autotask Endpoint Backup. Trabalhe com a equipe de suporte do [Autotask Endpoint Backup](https://backup.autotask.net/help/Content/0_HOME/_AutotaskCustomerSupport.htm) para adicionar usuários à plataforma Autotask Endpoint Backup. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 

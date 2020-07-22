@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 585096f7b45a1d5396e7d59f9d54de90486a103a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6e8574218ab035cc4e8ddd694dd04f8528197528
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459909"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509691"
 ---
 # <a name="encrypt-a-linux-virtual-machine-in-azure"></a>Criptografar uma máquina virtual Linux no Azure
 
@@ -48,18 +48,18 @@ Esse script usa os comandos a seguir para criar um grupo de recursos, um Azure K
 
 | Comando | Observações |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault) | Cria um Azure Key Vault para armazenar dados seguros, como chaves de criptografia. |
-| [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key) | Cria uma chave de criptografia no Key Vault. |
-| [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp) | Cria uma entidade de serviço do Azure Active Directory para autenticar com segurança e controlar o acesso às chaves de criptografia. |
-| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault) | Define as permissões no Key Vault para conceder à entidade de serviço o acesso às chaves de criptografia. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Cria a máquina virtual e a conecta a placa de rede, a rede virtual, a sub-rede e o NSG. Este comando também especifica a imagem de máquina virtual a ser usada e as credenciais administrativas.  |
-| [az vm encryption enable](https://docs.microsoft.com/cli/azure/vm/encryption) | Habilita a criptografia em uma VM usando as credenciais da entidade de serviço e a chave de criptografia. |
-| [az vm encryption show](https://docs.microsoft.com/cli/azure/vm/encryption) | Mostra o status do processo de criptografia da VM. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az keyvault create](/cli/azure/keyvault) | Cria um Azure Key Vault para armazenar dados seguros, como chaves de criptografia. |
+| [az keyvault key create](/cli/azure/keyvault/key) | Cria uma chave de criptografia no Key Vault. |
+| [az ad sp create-for-rbac](/cli/azure/ad/sp) | Cria uma entidade de serviço do Azure Active Directory para autenticar com segurança e controlar o acesso às chaves de criptografia. |
+| [az keyvault set-policy](/cli/azure/keyvault) | Define as permissões no Key Vault para conceder à entidade de serviço o acesso às chaves de criptografia. |
+| [az vm create](/cli/azure/vm) | Cria a máquina virtual e a conecta a placa de rede, a rede virtual, a sub-rede e o NSG. Este comando também especifica a imagem de máquina virtual a ser usada e as credenciais administrativas.  |
+| [az vm encryption enable](/cli/azure/vm/encryption) | Habilita a criptografia em uma VM usando as credenciais da entidade de serviço e a chave de criptografia. |
+| [az vm encryption show](/cli/azure/vm/encryption) | Mostra o status do processo de criptografia da VM. |
+| [az group delete](/cli/azure/vm/extension) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
 Os exemplos de script da CLI de máquina virtual adicionais podem ser encontrados na [documentação da VM Linux do Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
