@@ -7,18 +7,18 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a1af5fb7d0a1f8844016fcb6096e3a7ad9946f9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 2ac8baf0e2aa9555efb6d6b4f39787d9a7bf9508
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85384882"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499895"
 ---
-# <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Tutorial: registrar um aplicativo Web no Azure Active Directory B2C
+# <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Tutorial: Registrar um aplicativo Web no Azure Active Directory B2C
 
 Antes que os [aplicativos](application-types.md) possam interagir com o Azure Active Directory B2C (Azure AD B2C), eles deverão ser registrados em um locatário gerenciado por você. Este tutorial mostra como registrar um aplicativo Web usando o portal do Azure.
 
@@ -28,7 +28,7 @@ Neste artigo, você aprenderá como:
 > * Registrar um aplicativo Web
 > * Criar um segredo do cliente
 
-Se você estiver usando um aplicativo nativo (por exemplo, iOS, Android, Mobile & Desktop), saiba [como registrar um aplicativo cliente nativo](add-native-application.md).
+Se você estiver usando um aplicativo nativo (por exemplo, iOS, Android, móvel e de área de trabalho), saiba [como registrar um aplicativo cliente nativo](add-native-application.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -47,7 +47,7 @@ Para registrar um aplicativo no locatário do Azure AD B2C, você pode usar a no
 1. No portal do Azure, pesquise e selecione **Azure AD B2C**.
 1. Escolha **Registros de aplicativo** e **Novo registro**.
 1. Insira um **Nome** para o aplicativo. Por exemplo, *webapp1*.
-1. Em **tipos de conta com suporte**, selecione **contas em qualquer diretório organizacional ou qualquer provedor de identidade. Para autenticar usuários com Azure AD B2C**.
+1. Em **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional ou em qualquer provedor de identidade. Para autenticar usuários no Azure AD B2C**.
 1. Em **URI de Redirecionamento**, selecione **Web** e, em seguida, insira `https://jwt.ms` na caixa de texto da URL.
 
     O URI de redirecionamento é o ponto de extremidade para o qual o usuário é enviado pelo servidor de autorização (Azure AD B2C, nesse caso) depois de concluir sua interação com o usuário e para o qual um token de acesso ou código de autorização é enviado após uma autorização bem-sucedida. Em um aplicativo de produção, normalmente é um ponto de extremidade de acesso público no qual o aplicativo está em execução, como `https://contoso.com/auth-response`. Para fins de teste, como este tutorial, você pode defini-lo como `https://jwt.ms`, um aplicativo da Web de propriedade da Microsoft que exibe o conteúdo decodificado de um token (o conteúdo do token nunca deixa o navegador). Durante o desenvolvimento do aplicativo, é possível adicionar o ponto de extremidade onde o aplicativo escuta localmente, como `https://localhost:5000`. Adicione e modifique URIs de redirecionamento nos aplicativos registrados a qualquer momento.
@@ -94,7 +94,7 @@ Caso o aplicativo troque um código de autorização por um token, é necessári
 
 #### <a name="app-registrations"></a>[Registros de aplicativo](#tab/app-reg-ga/)
 
-1. Na página **Azure AD B2C registros de aplicativo** , selecione o aplicativo que você criou, por exemplo *webapp1*.
+1. Na página **Azure AD B2C – Registros de aplicativo**, selecione o aplicativo criado, por exemplo *webapp1*.
 1. Em **Gerenciar**, selecione **Certificados e Segredos**.
 1. Selecione **Novo segredo do cliente**.
 1. Insira uma descrição para o segredo do cliente na caixa **Descrição**. Por exemplo, *clientsecret1*.
