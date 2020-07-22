@@ -3,12 +3,12 @@ title: 'Início Rápido: Ler dados capturados do aplicativo Python – Hubs de E
 description: 'Início Rápido: Scripts que usam o SDK do Python do Azure para demonstrar o recurso de Captura dos Hubs de Eventos.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 8e6174970a6821f7541387f91b226cdebe555625
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 364ca789f560dc8fdae099b09c77946bc4ad5005
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323051"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537217"
 ---
 # <a name="quickstart-event-hubs-capture-walkthrough-python-azure-eventhub-version-1"></a>Início Rápido: Passo a passo da Captura de Hubs de Eventos: Python (azure-eventhub versão 1)
 
@@ -190,4 +190,4 @@ Para saber mais sobre os Hubs de Eventos, consulte:
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
 [About Azure storage accounts]:../storage/common/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Event Hubs overview]: ./event-hubs-about.md

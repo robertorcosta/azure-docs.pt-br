@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, logicappspm
 ms.topic: overview
 ms.date: 08/01/2019
-ms.openlocfilehash: 9356cecb22672ae15505d14b5ac73d5baeef09e0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: adf15904d4490647074d6e2b46ac7e9e871dd388
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77191366"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536395"
 ---
 # <a name="b2b-enterprise-integration-solutions-with-azure-logic-apps-and-enterprise-integration-pack"></a>Soluções de integração empresarial corporativa B2B com Aplicativos Lógicos do Azure e o Enterprise Integration Pack
 
@@ -42,7 +42,7 @@ Antes de começar a criar fluxos de trabalho do aplicativo lógico B2B com o EIP
 
 * Para criar mapas e esquemas, você pode usar as [Ferramentas de Integração Empresarial dos Aplicativos Lógicos do Microsoft Azure para Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) e Visual Studio 2015.
 
-Depois de criar uma conta de integração e adicionar seus artefatos, você pode começar a criar fluxos de trabalho B2B com esses artefatos criando um aplicativo lógico no portal do Azure. Se você não tiver familiaridade com aplicativos lógicos, tente [criar um aplicativo lógico básico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para trabalhar com esses artefatos, primeiro vincule sua conta de integração ao seu aplicativo lógico. Depois, o aplicativo lógico poderá acessar sua conta de integração. Você também pode criar, gerenciar e implantar aplicativos lógicos usando o Visual Studio ou o [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp).
+Depois de criar uma conta de integração e adicionar seus artefatos, você pode começar a criar fluxos de trabalho B2B com esses artefatos criando um aplicativo lógico no portal do Azure. Se você não tiver familiaridade com aplicativos lógicos, tente [criar um aplicativo lógico básico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para trabalhar com esses artefatos, primeiro vincule sua conta de integração ao seu aplicativo lógico. Depois, o aplicativo lógico poderá acessar sua conta de integração. Você também pode criar, gerenciar e implantar aplicativos lógicos usando o Visual Studio ou o [PowerShell](/powershell/module/az.logicapp).
 
 Aqui estão as etapas de alto nível para começar a criar aplicativos lógicos B2B:
 
