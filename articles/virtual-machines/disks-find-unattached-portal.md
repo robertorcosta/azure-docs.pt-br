@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: ad01155259ea03806f56c6e75b315ff85b606220
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 3a5e2c368fd956abb98b2b4c9ccd1060677f3e06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302468"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085751"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Encontrar e excluir discos gerenciados e não gerenciados desanexados do Azure – portal do Azure
 
@@ -60,4 +61,4 @@ Se você tiver discos não gerenciados que não estão anexados a uma VM, não p
 
 Caso deseje obter uma forma automatizada de localizar e excluir contas de armazenamento desanexadas, confira nossos artigos sobre a [CLI](linux/find-unattached-disks.md) ou o [PowerShell](windows/find-unattached-disks.md).
 
-Para obter mais informações, confira [Excluir uma conta de armazenamento](../storage/common/storage-account-create.md#delete-a-storage-account) e [Identificar discos órfãos usando o PowerShell](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)
+Para obter mais informações, confira [Excluir uma conta de armazenamento](../storage/common/storage-account-create.md#delete-a-storage-account) e [Identificar discos órfãos usando o PowerShell](/archive/blogs/ukplatforms/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: cbb97dd260e5aee53595afc24e577ce08334e2b2
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 858e185a0e4fa406fb4645475673acc13a0d37f3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027011"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086666"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Controle de acesso baseado em função no Azure Cosmos DB
 
@@ -41,14 +41,14 @@ O painel de **controle de acesso (iam)** no portal do Azure é usado para config
 
 Além das funções internas, os usuários também podem criar [funções personalizadas](../role-based-access-control/custom-roles.md) no Azure e aplicar essas funções a entidades de serviço em todas as assinaturas em seu locatário Active Directory. As funções personalizadas fornecem aos usuários uma maneira de criar definições de função RBAC com um conjunto personalizado de operações de provedor de recursos. Para saber quais operações estão disponíveis para a criação de funções personalizadas para Azure Cosmos DB consulte, [Azure Cosmos DB operações do provedor de recursos](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
 
-## <a name="preventing-changes-from-cosmos-sdk"></a>Impedindo alterações do SDK do cosmos
+## <a name="preventing-changes-from-the-azure-cosmos-db-sdks"></a><a id="prevent-sdk-changes"></a>Impedindo alterações dos SDKs de Azure Cosmos DB
+
+O provedor de recursos de Azure Cosmos DB pode ser bloqueado para evitar qualquer alteração nos recursos de um cliente que se conecta usando as chaves de conta (ou seja, aplicativos que se conectam por meio do SDK do cosmos do Azure). Isso também inclui as alterações feitas no portal do Azure. Esse recurso pode ser desejável para usuários que desejam maiores graus de controle e governança para ambientes de produção. Impedir alterações do SDK também habilita recursos como bloqueios de recursos e logs de diagnóstico para operações de plano de controle. Os clientes que se conectam do SDK do Azure Cosmos DB serão impedidos de alterar qualquer propriedade para as contas, os bancos de dados, os contêineres e a taxa de transferência do Azure Cosmos. As operações que envolvem a leitura e gravação de dados em contêineres Cosmos em si não são afetadas.
+
+Quando esse recurso é habilitado, as alterações em qualquer recurso só podem ser feitas de um usuário com a função RBAC correta e as credenciais de Azure Active Directory, incluindo as identidades de serviço gerenciadas.
 
 > [!WARNING]
-> Habilitar esse recurso pode ter um impacto perigoso em seu aplicativo. Leia por completo antes de habilitar esse recurso.
-
-O provedor de recursos de Azure Cosmos DB pode ser bloqueado para evitar qualquer alteração nos recursos feitos de qualquer cliente que se conecte usando chaves de conta (ou seja, aplicativos que se conectam por meio do SDK do cosmos). Isso também inclui alterações feitas no portal do Azure. Isso pode ser desejável para os usuários que desejam maiores graus de controle e governança para ambientes de produção e habilitar recursos como bloqueios de recursos e também Habilitar logs de diagnóstico para operações de plano de controle. Os clientes que se conectam por meio do SDK do Cosmos DB serão impedidos de alterar qualquer propriedade para contas, bancos de dados, contêineres e taxa de transferência do cosmos. As operações que envolvem a leitura e gravação de dados em contêineres Cosmos em si não são afetadas.
-
-Quando definido, as alterações em qualquer recurso só podem ser feitas de um usuário com a função RBAC apropriada e as credenciais de Azure Active Directory, incluindo as identidades de serviço gerenciadas.
+> Habilitar esse recurso pode ter impacto em seu aplicativo. Certifique-se de entender o impacto antes de habilitá-lo.
 
 ### <a name="check-list-before-enabling"></a>Lista de verificação antes de habilitar
 
@@ -64,11 +64,11 @@ Essa configuração impedirá qualquer alteração em qualquer recurso Cosmos de
 
 - Modificando procedimentos armazenados, gatilhos ou funções definidas pelo usuário.
 
-Se seus aplicativos (ou usuários via portal do Azure) executarem qualquer uma dessas ações, eles precisarão ser migrados para execução por meio de [modelos ARM](manage-sql-with-resource-manager.md), [PowerShell](manage-with-powershell.md), [CLI do Azure](manage-with-cli.md), [REST](/rest/api/cosmos-db-resource-provider/) ou [biblioteca de gerenciamento do Azure](https://github.com/Azure-Samples/cosmos-management-net). Observe que o gerenciamento do Azure está disponível em [vários idiomas](https://docs.microsoft.com/azure/?product=featured#languages-and-tools).
+Se seus aplicativos (ou usuários via portal do Azure) executarem qualquer uma dessas ações, eles precisarão ser migrados para execução por meio de [modelos ARM](manage-sql-with-resource-manager.md), [PowerShell](manage-with-powershell.md), [CLI do Azure](manage-with-cli.md), REST ou [biblioteca de gerenciamento do Azure](https://github.com/Azure-Samples/cosmos-management-net). Observe que o gerenciamento do Azure está disponível em [vários idiomas](https://docs.microsoft.com/azure/?product=featured#languages-and-tools).
 
 ### <a name="set-via-arm-template"></a>Definir por meio do modelo ARM
 
-Para definir essa propriedade usando um modelo ARM, atualize seu modelo existente ou exporte um novo modelo para a implantação atual e, em seguida, inclua o `"disableKeyBasedMetadataWriteAccess": true` para as propriedades dos recursos databaseAccounts. Veja abaixo um exemplo básico de um modelo de Azure Resource Manager com essa configuração de propriedade.
+Para definir essa propriedade usando um modelo do ARM, atualize seu modelo existente ou exporte um novo modelo para a implantação atual e, em seguida, inclua o `"disableKeyBasedMetadataWriteAccess": true` para as propriedades dos `databaseAccounts` recursos. Veja abaixo um exemplo básico de um modelo de Azure Resource Manager com essa configuração de propriedade.
 
 ```json
 {
@@ -93,7 +93,7 @@ Para definir essa propriedade usando um modelo ARM, atualize seu modelo existent
 
 ### <a name="set-via-azure-cli"></a>Definir via CLI do Azure
 
-Para habilitar o uso do CLI do Azure use o comando a seguir:
+Para habilitar o uso de CLI do Azure, use o comando a seguir:
 
 ```azurecli-interactive
 az cosmosdb update  --name [CosmosDBAccountName] --resource-group [ResourceGroupName]  --disable-key-based-metadata-write-access true
@@ -111,5 +111,5 @@ Update-AzCosmosDBAccount -ResourceGroupName [ResourceGroupName] -Name [CosmosDBA
 ## <a name="next-steps"></a>Próximas etapas
 
 - [O que é o controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md)
-- [Funções personalizadas para recursos do Azure](../role-based-access-control/custom-roles.md)
+- [Funções personalizadas do Azure](../role-based-access-control/custom-roles.md)
 - [Operações do provedor de recursos Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)

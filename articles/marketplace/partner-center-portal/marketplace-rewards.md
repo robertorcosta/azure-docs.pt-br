@@ -5,29 +5,31 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 01/18/2019
-ms.openlocfilehash: e393b6a499ad2b84f25ca1a1c062ca4ef2eec21c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: MaggiePucciEvans
+ms.author: evansma
+ms.date: 07/14/2020
+ms.openlocfilehash: 853aeb03dc1a19c1960709aedf09e71164ed62d4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120731"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086363"
 ---
-# <a name="marketplace-rewards"></a>Recompensas do Marketplace
+# <a name="marketplace-rewards"></a>O Marketplace Rewards
 
-As Recompensas do Marketplace foram projetadas para dar suporte a você em seu estágio específico de crescimento, começando com as atividades de reconhecimento para ajudá-lo a obter seus primeiros clientes. Conforme você cresce no Marketplace, você desbloqueia novos benefícios projetados para ajudá-lo a converter clientes e a fechar negócios. 
+As recompensas do Marketplace dão suporte a você em seu estágio específico de crescimento, começando com as atividades de reconhecimento para ajudá-lo a obter seus primeiros clientes. Conforme você cresce no mercado comercial, você desbloqueia novos benefícios projetados para ajudá-lo a converter clientes e a fechar negócios.
 
-O programa cria um loop de comentários positivo: os benefícios em cada estágio de crescimento são projetados para você avançar para o próximo estágio, permitindo que seu negócio cresça com os clientes da Microsoft, com o campo da Microsoft e por meio do canal da Microsoft, utilizando o marketplace comercial como sua plataforma. 
+O programa cria um loop de comentários positivo: os benefícios em cada estágio de crescimento ajudam você a progredir para o próximo estágio, permitindo que você aumente sua empresa para os clientes da Microsoft, com o campo da Microsoft e por meio do canal da Microsoft, aproveitando o Marketplace comercial como sua plataforma.
 
 Seus benefícios são diferenciados com base no fato de sua oferta ser [lista, avaliação ou transação](../determine-your-listing-type.md#choose-a-publishing-option).
 
-Com base em sua qualificação, você será contatado por um membro da equipe de recompensas quando sua oferta ficar ativa. 
+Com base em sua qualificação, você será contatado por um membro da equipe de recompensas quando sua oferta ficar ativa.
 
-Para parceiros de Transação, à medida que você aumenta suas vendas cobradas por meio da plataforma do marketplace, você desbloqueia mais benefícios por camada. 
+Para parceiros de Transação, à medida que você aumenta suas vendas cobradas por meio da plataforma do marketplace, você desbloqueia mais benefícios por camada.
 
-O requisito mínimo para publicar nas vitrines é um MPNID, portanto, esses benefícios estão disponíveis para todos os parceiros, independentemente do status de competência do MPN ou do tipo de parceiro. Cada parceiro é capacitado para aumentar seus negócios por meio do marketplace como plataforma. 
+O requisito mínimo para publicar nas vitrines é um MPNID, portanto, esses benefícios estão disponíveis para todos os parceiros, independentemente do status de competência do MPN ou do tipo de parceiro. Cada parceiro é capacitado para aumentar seus negócios por meio do marketplace como plataforma.
 
-Você obterá suporte para entender os recursos disponíveis e implementar as melhores práticas, as quais você também [examinar por conta própria](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/). 
+Você obterá suporte para entender os recursos disponíveis e implementar as melhores práticas, as quais você também [examinar por conta própria](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
 Confira o programa de recompensa de sua elegibilidade para o Marketplace [aqui](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace).
 
@@ -43,15 +45,12 @@ As etapas para começar são fáceis:
     1. Forneça o telefone de contato e o idioma preferencial para este contato de marketing. Depois de concluir a inserção dessas informações, selecione **Atribuir usuário**.
     1. Depois de atualizar o contato de marketing, selecione **Ativar** para obter o benefício que você deseja começar a usar. Depois de ativar um benefício, seu contato de marketing será contatado por um membro da equipe de recompensas dentro de uma semana.
 
-**Benefícios técnicos**
+## <a name="technical-benefits"></a>Benefícios técnicos
 
-1. Você pode usar seu benefício técnico para solicitar assistência técnica durante as fases de pré-vendas, design, implantação e desenvolvimento de aplicativos de sua nuvem e soluções híbridas. Para solicitar assistência, preencha o formulário de solicitação e, em seguida, selecione **Enviar solicitação**.
+1. Você pode usar seu benefício técnico para solicitar assistência técnica durante as fases de pré-vendas, design, implantação e desenvolvimento de aplicativos de sua nuvem e de suas soluções híbridas. Para solicitar assistência, preencha o formulário de solicitação e, em seguida, selecione **Enviar solicitação**.
 2. Como fazer uso dos benefícios de patrocínio do Azure, que será compartilhado por meio de um email à medida que você desbloquear esses benefícios.
 
->[!Note]
->Se sua oferta esteve ativa por mais de quatro semanas e você não recebeu uma mensagem, entre em contato com sua organização que seja o proprietário da oferta em questão, procurando Portal do Cloud Partner ou no Partner Center. Eles devem conter a comunicação e as próximas etapas.
-
->[!Note] 
->Se você não puder determinar o proprietário ou se o proprietário tiver deixado sua empresa, você poderá gerar um tíquete de suporte em https://aka.ms/marketplacepublishersupport .
+>[!NOTE]
+>Se sua oferta esteve ativa por mais de quatro semanas e você não recebeu uma mensagem, faça o check-in do Partner Center para descobrir quem em sua organização possui a oferta. Eles devem conter a comunicação e as próximas etapas. Se você não puder determinar o proprietário ou se o proprietário tiver deixado sua empresa, abra um tíquete de suporte em https://aka.ms/marketplacepublishersupport .
 
 O escopo das atividades disponíveis para você se expande conforme o crescimento de suas ofertas no Marketplace. Todas as listagens recebem um nível básico de recomendações de otimização e promoção como parte de um email de recursos de autoatendimento e melhores práticas.

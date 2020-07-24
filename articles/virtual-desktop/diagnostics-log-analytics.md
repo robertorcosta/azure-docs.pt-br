@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7a138308b48a24a78c55bdc0105379e31482456d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ceb58182b34a4eccbed0dc1cdd1c351ae7868da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209378"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085904"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Usar Log Analytics para o recurso de diagnóstico
 
@@ -85,7 +85,7 @@ Para configurar Log Analytics para um novo objeto:
 
 5. Insira um nome para a configuração de configurações e, em seguida, selecione **Enviar para log Analytics**. O nome que você usa não deve ter espaços e deve estar em conformidade com as [convenções de nomenclatura do Azure](../azure-resource-manager/management/resource-name-rules.md). Como parte dos logs, você pode selecionar todas as opções que deseja adicionar à sua Log Analytics, como ponto de verificação, erro, gerenciamento e assim por diante.
 
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 >[!NOTE]
 >Log Analytics oferece a opção de transmitir dados para os [hubs de eventos](../event-hubs/event-hubs-about.md) ou arquivá-los em uma conta de armazenamento. Para saber mais sobre esse recurso, confira [transmitir dados de monitoramento do Azure para um hub de eventos](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) e [arquivar logs de recursos do Azure para a conta de armazenamento](../azure-monitor/platform/resource-logs-collect-storage.md).
@@ -96,7 +96,7 @@ Você pode acessar espaços de trabalho do Log Analytics no portal do Azure ou A
 
 ### <a name="access-log-analytics-on-a-log-analytics-workspace"></a>Log Analytics de acesso em um espaço de trabalho Log Analytics
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 
 2. Pesquise **log Analytics espaço de trabalho**.
 
@@ -133,52 +133,16 @@ Log Analytics apenas os relatórios nesses Estados intermediários para atividad
 
 ## <a name="example-queries"></a>Consultas de exemplo
 
-As consultas de exemplo a seguir mostram como o recurso de diagnóstico gera um relatório para as atividades mais frequentes em seu sistema.
+Acessar consultas de exemplo por meio da interface do usuário do Azure Monitor Log Analytics:
+1. Vá para o espaço de trabalho do Log Analytics e, em seguida, selecione **logs**. A interface do usuário de consulta de exemplo é mostrada automaticamente.
+1. Altere o filtro para **categoria**.
+1. Selecione **área de trabalho virtual do Windows** para revisar as consultas disponíveis.
+1. Selecione **executar** para executar a consulta selecionada. 
 
-Para obter uma lista de conexões feitas por seus usuários, execute este cmdlet:
+Saiba mais sobre a interface de consulta de exemplo em [consultas salvas no Azure Monitor log Analytics](../azure-monitor/log-query/saved-queries.md).
 
-```kusto
-WVDConnections
-| project-away TenantId,SourceSystem
-| summarize arg_max(TimeGenerated, *), StartTime =  min(iff(State== 'Started', TimeGenerated , datetime(null) )), ConnectTime = min(iff(State== 'Connected', TimeGenerated , datetime(null) ))   by CorrelationId
-| join kind=leftouter (
-    WVDErrors
-    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId
-    ) on CorrelationId
-| join kind=leftouter (
-   WVDCheckpoints
-   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId
-   | mv-apply Checkpoints on
-    (
-        order by todatetime(Checkpoints['Time']) asc
-        | summarize Checkpoints=makelist(Checkpoints)
-    )
-   ) on CorrelationId
-| project-away CorrelationId1, CorrelationId2
-| order by  TimeGenerated desc
-```
+A lista de consulta a seguir permite que você revise as informações de conexão ou problemas para um único usuário. Você pode executar essas consultas no [Editor de consulta log Analytics](../azure-monitor/log-query/get-started-portal.md#write-and-run-basic-queries). Para cada consulta, substitua `userupn` pelo UPN do usuário que você deseja pesquisar.
 
-Para exibir a atividade de feed de seus usuários:
-
-```kusto
-WVDFeeds
-| project-away TenantId,SourceSystem
-| join kind=leftouter (
-    WVDErrors
-    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId
-    ) on CorrelationId
-| join kind=leftouter (
-   WVDCheckpoints
-   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId
-   | mv-apply Checkpoints on
-    (
-        order by todatetime(Checkpoints['Time']) asc
-        | summarize Checkpoints=makelist(Checkpoints)
-    )
-   ) on CorrelationId
-| project-away CorrelationId1, CorrelationId2
-| order by  TimeGenerated desc
-```
 
 Para localizar todas as conexões de um único usuário:
 
@@ -199,7 +163,6 @@ WVDConnections
 |sort by TimeGenerated asc, CorrelationId
 |summarize dcount(CorrelationId) by bin(TimeGenerated, 1d)
 ```
-
 
 Para localizar a duração da sessão por usuário:
 
@@ -224,7 +187,7 @@ WVDErrors
 |take 100
 ```
 
-Para descobrir se ocorreu um erro específico:
+Para descobrir se ocorreu um erro específico para outros usuários:
 
 ```kusto
 WVDErrors
@@ -232,27 +195,7 @@ WVDErrors
 | summarize count(UserName) by CodeSymbolic
 ```
 
-Para localizar a ocorrência de um erro em todos os usuários:
 
-```kusto
-WVDErrors
-| where ServiceError =="false"
-| summarize usercount = count(UserName) by CodeSymbolic
-| sort by usercount desc
-| render barchart
-```
-
-Para consultar aplicativos que os usuários abriram, execute esta consulta:
-
-```kusto
-WVDCheckpoints
-| where TimeGenerated > ago(7d)
-| where Name == "LaunchExecutable"
-| extend App = parse_json(Parameters).filename
-| summarize Usage=count(UserName) by tostring(App)
-| sort by Usage desc
-| render columnchart
-```
 >[!NOTE]
 >- Quando um usuário abre a área de trabalho completa, o uso do aplicativo na sessão não é rastreado como pontos de verificação na tabela WVDCheckpoints.
 >- A coluna ResourcesAlias na tabela WVDConnections mostra se um usuário se conectou a uma área de trabalho completa ou a um aplicativo publicado. A coluna mostra apenas o primeiro aplicativo aberto durante a conexão. Todos os aplicativos publicados que o usuário abre são acompanhados em WVDCheckpoints.

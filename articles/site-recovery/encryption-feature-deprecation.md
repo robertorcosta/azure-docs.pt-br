@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: rajanaki
-ms.openlocfilehash: b9d333467864f67bc357314830ff885af4232ba0
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 79c129fee6d0339eed752abe94059fa566859bc0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133186"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086176"
 ---
 # <a name="deprecation-of-site-recovery-data-encryption-feature"></a>Substituição do recurso de criptografia de dados Site Recovery
 
@@ -22,14 +22,14 @@ Este documento descreve os detalhes de substituição e a ação de correção q
 ## <a name="deprecation-information"></a>Informações de substituição
 
 
-O recurso de criptografia de dados Site Recovery estava disponível para clientes que protegem VMs do Hyper-V para garantir que os dados replicados foram protegidos contra ameaças à segurança. Esse recurso será preterido até **30 de dezembro de 2019**. Ele está sendo substituído pelo recurso de criptografia mais avançada [em repouso](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) , que usa [criptografia do serviço de armazenamento](../storage/common/storage-service-encryption.md) (SSE). Com a SSE, os dados são criptografados antes de persistirem no armazenamento e descriptografados na recuperação e, após o failover para o Azure, suas VMs serão executadas a partir das contas de armazenamento criptografadas, permitindo um RTO (objetivo de tempo de recuperação) aprimorado.
+O recurso de criptografia de dados Site Recovery estava disponível para clientes que protegem VMs do Hyper-V para garantir que os dados replicados foram protegidos contra ameaças à segurança. Esse recurso será preterido em **30 de abril de 2022**. Ele está sendo substituído pelo recurso de criptografia mais avançada [em repouso](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) , que usa [criptografia do serviço de armazenamento](../storage/common/storage-service-encryption.md) (SSE). Com a SSE, os dados são criptografados antes de persistirem no armazenamento e descriptografados na recuperação e, após o failover para o Azure, suas VMs serão executadas a partir das contas de armazenamento criptografadas, permitindo um RTO (objetivo de tempo de recuperação) aprimorado.
 
 Observe que, se você for um cliente existente usando esse recurso, terá recebido comunicações com os detalhes de substituição e as etapas de correção. 
 
 
 ## <a name="what-are-the-implications"></a>Quais são as implicações?
 
-Após **30 de dezembro de 2019**, todas as VMs que ainda usam o recurso de criptografia desativado não terão permissão para executar o failover. 
+Após **30 de abril de 2022**, todas as VMs que ainda usam o recurso de criptografia desativado não terão permissão para executar o failover. 
 
 ## <a name="required-action"></a>Ação necessária
 Para continuar as operações de failover bem-sucedidas e as replicações, siga as etapas mencionadas abaixo:
@@ -44,4 +44,3 @@ Depois de concluir a replicação inicial para contas de armazenamento com a SSE
 
 ## <a name="next-steps"></a>Próximas etapas
 Planeje a execução das etapas de correção e execute-as mais cedo. Caso você tenha alguma consulta relativa a essa reprovação, entre em contato com Suporte da Microsoft. Para ler mais sobre o cenário do Hyper-V para o Azure, consulte [aqui](hyper-v-vmm-architecture.md).
-

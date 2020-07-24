@@ -2,13 +2,13 @@
 title: Vincular modelos para implantação
 description: Descreve como usar modelos vinculados em um modelo do Gerenciador de Recursos do Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente.
 ms.topic: conceptual
-ms.date: 06/26/2020
-ms.openlocfilehash: 6b28268a522dde4fe16ccf9d0d01738c3b6a9b5d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 07/21/2020
+ms.openlocfilehash: 40da2443828a07f2171922fcc6d8976d464d0ad4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170642"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086805"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
@@ -315,6 +315,11 @@ Ao fazer referência a um modelo vinculado, o valor de `uri` não deve ser um ar
 > Você pode referenciar modelos usando parâmetros que, por fim, resolvem para algo que usa **http** ou **https**, por exemplo, usando o `_artifactsLocation` parâmetro da seguinte forma:`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
 
 O Resource Manager precisa ser capaz de acessar o modelo. Uma opção é colocar o modelo vinculado em uma conta de armazenamento e usar o URI do item.
+
+As [especificações de modelo](./template-specs.md) (atualmente em visualização privada) permitem que você compartilhe modelos de ARM com outros usuários em sua organização. As especificações de modelos também podem ser usadas para empacotar um modelo principal e seus modelos vinculados. Para obter mais informações, consulte:
+
+- [Tutorial: criar uma especificação de modelo com modelos vinculados](./template-specs-create-linked.md).
+- [Tutorial: implantar uma especificação de modelo como um modelo vinculado](./template-specs-deploy-linked-template.md).
 
 ### <a name="parameters-for-linked-template"></a>Parâmetros para o modelo vinculado
 

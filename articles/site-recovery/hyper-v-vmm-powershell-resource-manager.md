@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: d7a2d21dcd8c9474bdf068d7940e497333f35115
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: a4f7d330db9a4a0d9b435ebe7527e55e37c254e2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130218"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086210"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurar a recuperação de desastre de VMs Hyper-V para um site secundário usando PowerShell (Resource Manager)
 
@@ -47,8 +47,8 @@ Prepare o Virtual Machine Manager da seguinte maneira:
 
 Verifique se você tem o PowerShell do Azure pronto para uso:
 
-- Se você já usa o PowerShell, atualize para a versão 0.8.10 ou posterior. [Saiba mais](/powershell/azureps-cmdlets-docs) sobre como configurar o PowerShell.
-- Depois de instalar e configurar o PowerShell, revise os [cmdlets de serviço](/powershell/azure/overview).
+- Se você já usa o PowerShell, atualize para a versão 0.8.10 ou posterior. [Saiba mais](/powershell/azure/) sobre como configurar o PowerShell.
+- Depois de instalar e configurar o PowerShell, revise os [cmdlets de serviço](/powershell/azure/).
 - Para saber mais sobre como usar os valores, as entradas e as saídas do parâmetro no PowerShell, leia o guia [Introdução](/powershell/azure/get-started-azureps).
 
 ## <a name="set-up-a-subscription"></a>Configurar uma assinatura

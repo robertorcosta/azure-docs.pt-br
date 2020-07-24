@@ -5,13 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 07/21/2020
 ms.author: victorh
-ms.openlocfilehash: 89c6700d5df3bcef1332121c3cf7d8f720fe054c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d0a46135e5f763e6253540fe62d63cb59026ccb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76315024"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086584"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Logs e métricas do Firewall do Azure
 
@@ -78,7 +79,7 @@ Você tem três opções para armazenar os logs:
 * **Hubs de eventos**: os hubs de eventos são uma ótima opção para integração a outras ferramentas SEIM (informações de segurança e gerenciamento de evento) para receber alertas sobre os recursos.
 * **Logs de Azure monitor**: os logs de Azure monitor são mais bem usados para o monitoramento geral em tempo real de seu aplicativo ou a análise de tendências.
 
-## <a name="activity-logs"></a>Logs de atividade
+## <a name="activity-logs"></a>Logs de atividades
 
    As entradas do log de atividades são coletadas por padrão e podem ser exibidas no portal do Azure.
 
@@ -98,9 +99,13 @@ As seguintes métricas estão disponíveis para o Firewall do Azure:
 
     Unidade: contagem
 
-- **Dados processados** -quantidade de dados atravessando o firewall.
+- **Dados processados** -soma de dados que atravessam o firewall em uma determinada janela de tempo.
 
     Unidade: bytes
+
+- **Produtividade** -taxa de dados atravessando o firewall por segundo.
+
+    Unidade: bits por segundo
 
 - **Estado de integridade do firewall** – indica a integridade do firewall com base na disponibilidade da porta SNAT.
 

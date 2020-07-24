@@ -5,21 +5,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 7/10/2020
+ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: b7551ec01e3401c0636b47a25d83173b6322d06e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 465b0ca3fdc5dd96b03ec7ab53bf453c4cdc083d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86219871"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086159"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V locais para o Azure
 
-
 Este artigo resume os componentes compatíveis e as configurações de recuperação de desastres de VMs Hyper-V locais para o Azure usando o [Azure Site Recovery](site-recovery-overview.md).
 
-
+>[!NOTE]
+> Site Recovery não move nem armazena os dados do cliente fora da região de destino, na qual a recuperação de desastres foi configurada para os computadores de origem. Os clientes poderão selecionar um cofre dos serviços de recuperação em uma região diferente, se escolherem. O cofre dos serviços de recuperação contém metadados, mas não dados reais do cliente.
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
 
@@ -30,7 +30,7 @@ Hyper-V sem Virtual Machine Manager | Você pode executar a recuperação de des
 
 ## <a name="on-premises-servers"></a>Servidores locais
 
-**Servidor** | **Requisitos** | **Detalhes**
+**Servidor** | **Requirements** | **Detalhes**
 --- | --- | ---
 Hyper-V (executando sem Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 com atualizações mais recentes (incluindo a instalação do Server Core desses sistemas operacionais, exceto o Windows Server 2019) | Se você já tiver configurado o Windows Server 2012 R2 com/ou o SCVMM 2012 R2 com o Azure Site Recovery e pretender atualizar o sistema operacional, siga as diretrizes na [documentação](upgrade-2012R2-to-2016.md).
 Hyper-V (executando sem Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 (incluindo a instalação do Server Core desses sistemas operacionais, exceto Virtual Machine Manager 2019) | Se Virtual Machine Manager for usado, os hosts do Windows Server 2019 deverão ser gerenciados em Virtual Machine Manager 2019. Da mesma forma, os hosts do Windows Server 2016 devem ser gerenciados no Virtual Machine Manager 2016.
@@ -73,6 +73,7 @@ Rede da VM convidada: IP estático (Windows) | Sim | Sim
 Rede da VM convidada: IP estático (Linux) | Não | Não
 Rede da VM convidada: Multi-NIC | Sim | Sim
 Proxy HTTPS | Não | Não
+Acesso de link privado ao serviço de Site Recovery | Sim. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md). | Sim. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
 
@@ -95,7 +96,7 @@ Rede Acelerada | Não | Não
 
 ## <a name="hyper-v-host-storage"></a>Armazenamento de host do Hyper-V
 
-**Armazenamento** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
+**Storage** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | --- 
 NFS | NA | NA
 SMB 3.0 | Sim | Sim
@@ -104,7 +105,7 @@ Múltiplos caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5
 
 ## <a name="hyper-v-vm-guest-storage"></a>Armazenamento de convidado da VM do Hyper-V
 
-**Armazenamento** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
+**Storage** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | ---
 VMDK | NA | NA
 VHD/VHDX | Sim | Sim
@@ -158,7 +159,7 @@ Discos gerenciados | Sim, para failover.<br/><br/> O failback de discos gerencia
 
 VMs locais que são replicados para o Azure devem atender aos requisitos de VM do Azure resumidos nesta tabela.
 
-**Componente** | **Requisitos** | **Detalhes**
+**Componente** | **Requirements** | **Detalhes**
 --- | --- | ---
 Sistema operacional convidado | O Site Recovery é compatível com todos os sistemas operacionais que têm [suporte do Azure](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10)).  | A verificação de pré-requisitos falha quando não há suporte para ela.
 Arquitetura do sistema operacional convidado | 32 bits (Windows Server 2008)/64-bit | A verificação de pré-requisitos falha quando não há suporte para ela.
@@ -166,7 +167,7 @@ Tamanho do disco do sistema operacional | Até 2.048 GB para máquinas virtuais 
 Contagem do disco do sistema operacional | 1 | A verificação de pré-requisitos falha quando não há suporte para ela.
 Contagem de disco de dados | 16 ou menos  | A verificação de pré-requisitos falha quando não há suporte para ela.
 Tamanho do VHD do disco de dados | Até 4.095 GB | A verificação de pré-requisitos falha quando não há suporte para ela.
-Adaptadores de Rede | Há suporte para vários adaptadores |
+Adaptadores de rede | Há suporte para vários adaptadores |
 VHD compartilhado | Sem suporte | A verificação de pré-requisitos falha quando não há suporte para ela.
 Disco FC | Sem suporte | A verificação de pré-requisitos falha quando não há suporte para ela.
 Formato de disco rígido | VHD  <br/><br/>  VHDX | O Site Recovery converterá automaticamente o VHDX em VHD ao realizar o failover para o Azure. Quando você executa o failback para o local, as máquinas virtuais continuam a usar o formato VHDX.

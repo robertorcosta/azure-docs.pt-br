@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: fbfd52065bc0522668488492de2181f252f86a4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81272671"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086431"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Lidar com problemas de limitação (429-erros de "excesso de solicitações") nos aplicativos lógicos do Azure
 
@@ -76,7 +77,7 @@ Para lidar com a limitação nesse nível, você tem estas opções:
 
 ## <a name="connector-throttling"></a>Limitação do conector
 
-Cada conector tem seus próprios limites de limitação, que podem ser encontrados na página de referência técnica do conector. Por exemplo, o [conector do barramento de serviço do Azure](https://docs.microsoft.com/connectors/servicebus/) tem um limite de limitação que permite até 6.000 chamadas por minuto, enquanto o conector de SQL Server tem [limites de limitação que variam de acordo com o tipo de operação](https://docs.microsoft.com/connectors/sql/).
+Cada conector tem seus próprios limites de limitação, que podem ser encontrados na página de referência técnica do conector. Por exemplo, o [conector do barramento de serviço do Azure](/connectors/servicebus/) tem um limite de limitação que permite até 6.000 chamadas por minuto, enquanto o conector de SQL Server tem [limites de limitação que variam de acordo com o tipo de operação](/connectors/sql/).
 
 Alguns gatilhos e ações, como HTTP, têm uma ["política de repetição"](../logic-apps/logic-apps-exception-handling.md#retry-policies) que você pode personalizar com base nos [limites de política de repetição](../logic-apps/logic-apps-limits-and-config.md#retry-policy-limits) para implementar a manipulação de exceção. Essa política especifica se e com que frequência um gatilho ou uma ação tenta novamente uma solicitação quando a solicitação original falha ou atinge o tempo limite e resulta em uma resposta 408, 429 ou 5xx. Assim, quando a limitação inicia e retorna um erro 429, os aplicativos lógicos seguem a política de repetição quando houver suporte.
 

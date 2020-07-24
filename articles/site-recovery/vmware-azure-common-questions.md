@@ -3,12 +3,12 @@ title: Perguntas comuns sobre a recuperação de desastres do VMware com o Azure
 description: Obtenha respostas para perguntas comuns sobre a recuperação de desastre de VMs VMware locais para o Azure usando Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: a523df21caca2a6def4274542979e9963345384b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 603dc77e6f2a53abb1d65688ced77e58297b8ab5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135168"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086142"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns sobre a replicação do VMware para Azure
 
@@ -181,6 +181,10 @@ Não. Uma alteração do VMware vCenter ou da migração afetará a replicação
 ### <a name="can-i-replicate-to-a-cache-or-target-storage-account-that-has-a-virtual-network-with-azure-firewalls-configured-on-it"></a>Posso replicar para uma conta de armazenamento de destino ou de cache que tenha uma rede virtual (com firewalls do Azure) configurada nele?
 
 Não, Site Recovery não dá suporte à replicação para o armazenamento do Azure em redes virtuais.
+
+### <a name="what-is-the-frequency-of-generation-of-crash-consistent-recovery-points"></a>Qual é a frequência de geração de pontos de recuperação consistentes com falhas?
+
+Site Recovery gera pontos de recuperação consistentes com falhas a cada 5 minutos.
 
 ## <a name="component-upgrade"></a>Atualização de componente
 

@@ -9,19 +9,19 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 824ba9e1f9b4325c1e0974ed1c22b465ec4b85a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddbd64049307dcfd9b27cde1418eef2378b4f6b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298949"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085683"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs
 
 Este documento descreve a versão 3.0 e mais recente da Extensão de Diagnóstico do Linux.
 
 > [!IMPORTANT]
-> Para saber mais sobre a versão 2.3 e anteriores, veja [este documento](../linux/classic/diagnostic-extension-v2.md).
+> Para saber mais sobre a versão 2.3 e anteriores, veja [este documento](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## <a name="introduction"></a>Introdução
 
@@ -67,8 +67,8 @@ Distribuições e versões compatíveis:
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* **Agente Linux do Azure versão 2.2.0 ou posterior**. A maioria das imagens de galeria da VM Linux do Azure inclui a versão 2.2.7 ou posterior. Execute `/usr/sbin/waagent -version` para confirmar a versão instalada na VM. Se a VM estiver executando uma versão mais antiga do agente convidado, execute [estas instruções](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para atualizá-la.
-* **CLI do Azure**. [Configurar o ambiente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu computador.
+* **Agente Linux do Azure versão 2.2.0 ou posterior**. A maioria das imagens de galeria da VM Linux do Azure inclui a versão 2.2.7 ou posterior. Execute `/usr/sbin/waagent -version` para confirmar a versão instalada na VM. Se a VM estiver executando uma versão mais antiga do agente convidado, execute [estas instruções](./update-linux-agent.md) para atualizá-la.
+* **CLI do Azure**. [Configurar o ambiente da CLI do Azure](/cli/azure/install-azure-cli) em seu computador.
 * O comando wget, caso ainda não o tenha: Execute `sudo apt-get install wget`.
 * Uma assinatura existente do Azure e uma conta de armazenamento existente nela para armazenar os dados.
 
@@ -243,7 +243,7 @@ Se você tiver criado uma SAS válida até meia-noite UTC em 1 de janeiro de 201
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-Para saber mais sobre como gerar e recuperar informações sobre tokens SAS para Hubs de Eventos, confira [esta página da Web](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell).
+Para saber mais sobre como gerar e recuperar informações sobre tokens SAS para Hubs de Eventos, confira [esta página da Web](/rest/api/eventhub/generate-sas-token#powershell).
 
 #### <a name="the-jsonblob-sink"></a>O coletor JsonBlob
 
@@ -580,7 +580,7 @@ Supondo que as configurações protegidas estejam no arquivo ProtectedSettings.j
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-O comando pressupõe que você esteja usando o modo ARM (gerenciamento de recursos do Azure) da CLI do Azure. Para configurar o LAD para as VMs do modelo de implantação clássico (ASM), alterne para o modo "asm" (`azure config mode asm`) e omita o nome do grupo de recursos no comando. Para saber mais, confira a [documentação da CLI entre plataformas](https://docs.microsoft.com/azure/xplat-cli-connect).
+O comando pressupõe que você esteja usando o modo ARM (gerenciamento de recursos do Azure) da CLI do Azure. Para configurar o LAD para as VMs do modelo de implantação clássico (ASM), alterne para o modo "asm" (`azure config mode asm`) e omita o nome do grupo de recursos no comando. Para saber mais, confira a [documentação da CLI entre plataformas](/azure/xplat-cli-connect).
 
 ### <a name="powershell"></a>PowerShell
 
@@ -763,10 +763,10 @@ Esse instantâneo de uma sessão do Gerenciador de Armazenamento do Microsoft Az
 
 ![image](./media/diagnostics-linux/stg_explorer.png)
 
-Consulte a [Documentação de EventHubs](../../event-hubs/event-hubs-what-is-event-hubs.md) correspondente para aprender a consumir mensagens publicadas em um ponto de extremidade de EventHubs.
+Consulte a [Documentação de EventHubs](../../event-hubs/event-hubs-about.md) correspondente para aprender a consumir mensagens publicadas em um ponto de extremidade de EventHubs.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Criar alertas de métricas no [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) para as métricas que você coletar.
-* Criar [gráficos de monitoramento](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para suas métricas.
+* Criar alertas de métricas no [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) para as métricas que você coletar.
+* Criar [gráficos de monitoramento](../../azure-monitor/platform/data-platform.md) para suas métricas.
 * Aprenda a [criar um conjunto de dimensionamento de máquinas virtuais](../linux/tutorial-create-vmss.md) usando suas métricas para controlar o dimensionamento automático.

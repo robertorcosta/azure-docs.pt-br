@@ -3,8 +3,8 @@ title: 'Tutorial: migrar SQL Server para o SQL Instância Gerenciada'
 titleSuffix: Azure Database Migration Service
 description: Saiba como migrar de SQL Server para uma Instância Gerenciada do SQL do Azure usando o serviço de migração de banco de dados do Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: f20b9236631057449a337e4e161b7468f995e306
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 79bfb0510aba3a77b720748aaafd83e837500e87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085522"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086720"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Tutorial: migrar SQL Server para um SQL do Azure Instância Gerenciada offline usando DMS
 
@@ -28,7 +28,7 @@ Neste tutorial, você migra o banco de dados **Adventureworks2012** de uma inst�
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
 >
-> - Criar uma instância do Serviço de Migração de Banco de Dados do Azure.
+> - Crie uma instância do Serviço de Migração de Banco de Dados do Azure.
 > - Criar um projeto de migração usando o Serviço de Migração de Banco de Dados do Azure.
 > - Executar a migração.
 > - Monitorar a migração.
@@ -154,7 +154,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
    ![Detalhes da origem](media/tutorial-sql-server-to-managed-instance/dms-source-details1.png)
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
 4. Na tela **Selecionar bancos de dados de origem**, selecione o banco de dados **Adventureworks2012** para migração.
 
@@ -163,7 +163,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
     > [!IMPORTANT]
     > Se você usar SQL Server Integration Services (SSIS), o DMS atualmente não oferece suporte à migração do banco de dados de catálogo para seus projetos/pacotes SSIS (SSISDB) de SQL Server para o SQL Instância Gerenciada. No entanto, você pode provisionar o SSIS em Azure Data Factory (ADF) e reimplantar seus projetos/pacotes do SSIS no SSISDB de destino, hospedado pelo SQL Instância Gerenciada. Para saber mais sobre como migrar pacotes SSIS, confira o artigo [Migrar pacotes do SQL Server Integration Services para o Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 ## <a name="specify-target-details"></a>Detalhes do destino favorito
 
@@ -173,7 +173,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
     ![Selecionar o destino](media/tutorial-sql-server-to-managed-instance/dms-target-details2.png)
 
-2. Selecione **Salvar**.
+2. Clique em **Salvar**.
 
 ## <a name="select-source-databases"></a>Selecionar bancos de dados de origem
 
@@ -181,7 +181,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
     ![Selecionar bancos de dados de origem](media/tutorial-sql-server-to-managed-instance/select-source-databases.png)
 
-2. Selecione **Salvar**.
+2. Clique em **Salvar**.
 
 ## <a name="select-logins"></a>Selecionar logons
 
@@ -192,7 +192,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
     ![Selecionar logons](media/tutorial-sql-server-to-managed-instance/select-logins.png)
 
-2. Selecione **Salvar**.
+2. Clique em **Salvar**.
 
 ## <a name="configure-migration-settings"></a>Definir as configurações de migração
 
@@ -209,7 +209,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
     ![Definir as configurações de migração](media/tutorial-sql-server-to-managed-instance/dms-configure-migration-settings3.png)
 
-2. Selecione **Salvar**.
+2. Clique em **Salvar**.
 
 ## <a name="review-the-migration-summary"></a>Análise do resumo da migração
 
@@ -221,7 +221,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
     ![Resumo do projeto de migração](media/tutorial-sql-server-to-managed-instance/dms-project-summary2.png)
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 ## <a name="run-the-migration"></a>Execute a migração
 

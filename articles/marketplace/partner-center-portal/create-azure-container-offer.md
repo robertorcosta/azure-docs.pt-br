@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
 ms.date: 06/17/2020
-ms.openlocfilehash: cea4a43724629793123098084098299e3915be7c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c659bbe3e5f5645bb42b3a9c94a5e5fb7ebe75f0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109633"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086465"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Criar uma oferta de contêiner do Azure no Azure Marketplace
 
@@ -250,13 +250,13 @@ Selecione **Salvar rascunho** antes de continuar.
 
 ### <a name="plan-overview"></a>Visão geral do plano
 
-Essa guia permite que você forneça opções de plano diferentes na mesma oferta. Anteriormente, esses planos foram chamados de SKUs ou unidades de manutenção de estoque. Os planos podem conter diferenças quanto a quais nuvens estão disponíveis, como nuvens globais, nuvens governamentais e a imagem referenciada pelo plano. Para listar sua oferta no marketplace comercial, você deve configurar pelo menos um plano.
+Essa guia permite que você forneça opções de plano diferentes na mesma oferta. Os planos (anteriormente chamados de SKUs) podem diferir em termos de quais nuvens estão disponíveis, como nuvens globais, nuvens governamentais e a imagem referenciada pelo plano. Para listar sua oferta no marketplace comercial, você deve configurar pelo menos um plano.
 
 Depois de criar seus planos, a guia **Visão geral do plano** exibe:
 
 - Nomes de plano
 - Modelo de preços
-- Disponibilidade da nuvem (global ou governamental)
+- Regiões do Azure (global ou governamental)
 - Status da publicação atual
 - Nenhuma ação disponível
 
@@ -293,7 +293,7 @@ Antes de [publicar](../../azure-government/documentation-government-manage-marke
 
 #### <a name="azure-government-certifications"></a>Certificações do Azure Government
 
-Essa opção só poderá ser vista se o **Azure governamental** estiver selecionado em **disponibilidade de nuvem**.
+Essa opção só poderá ser vista se o **Azure governamental** estiver selecionado em **regiões do Azure**.
 
 Os serviços do Azure Governamental manipulam os dados que estão sujeitos a determinadas normas e requisitos governamentais. Por exemplo, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS.
 

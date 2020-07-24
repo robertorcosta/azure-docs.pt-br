@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: e2ccce13e4ef09426d0f3a02dcbce2f330b0ead8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f34e3a3d1e0245180ce923fc3ec7353ab1a176be
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712285"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086346"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Codecs e formatos padrão do codificador de mídia
 
@@ -29,7 +30,7 @@ ms.locfileid: "84712285"
 Este documento contém uma lista dos formatos de arquivo de importação e importação mais comuns que você pode usar com o Codificador de Mídia padrão.
 
 ## <a name="input-containerfile-formats"></a>Formatos de arquivo/contêiner de entrada
-| Formatos de arquivo (extensões de arquivo) | Com suporte |
+| Formatos de arquivo (extensões de arquivo) | Suportado |
 | --- | --- |
 | FLV (com codecs H.264 e AAC) (.flv) |Sim |
 | MXF    (.mxf) |Sim |
@@ -38,7 +39,7 @@ Este documento contém uma lista dos formatos de arquivo de importação e impor
 | Vídeo do Windows Media (WMV)/ASF (.wmv, .asf) |Sim |
 | AVI (8 bits/10 bits descompactado) (.avi) |Sim |
 | MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Sim |
-| [Gravação (DVR-MS) de vídeo Digital da Microsoft](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Sim |
+| [Gravação (DVR-MS) de vídeo Digital da Microsoft](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) (.dvr-ms) |Sim |
 | Matroska/WebM (.mkv) |Sim |
 | WAVE/WAV (.wav) |Sim |
 | QuickTime (.mov) |Sim |
@@ -58,7 +59,7 @@ ou
 * Arquivos MXF, GXF e QuickTime onde o áudio é executado como faixas PCM separadas, mas o mapeamento de canal (para estéreo ou 5.1) pode ser deduzido dos metadados do arquivo
 
 ## <a name="input-video-codecs"></a>Codecs de vídeo de entrada
-| Codecs de vídeo de entrada | Com suporte |
+| Codecs de vídeo de entrada | Suportado |
 | --- | --- |
 | AVC de 8 bits/10 bits até 4:2:2, incluindo AVCIntra |8 bits 4:2:0 e 4:2:2 |
 | DNxHD ávido (em MXF) |Sim |
@@ -81,7 +82,7 @@ ou
 | HEVC/H.265| Main e Main 10 (&#42;) Profiles<br/>Suporte a Main 10 Profile é necessário para conteúdo 4:2:0 de 8 bits. |
 
 ## <a name="input-audio-codecs"></a>Codecs de áudio de entrada
-| Codecs de áudio de entrada | Com suporte |
+| Codecs de áudio de entrada | Suportado |
 | --- | --- |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |
 | MPEG Layer 2 |Sim |
@@ -111,8 +112,7 @@ A tabela a seguir lista os codecs e formatos de arquivo com suporte para exporta
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 [Codificando conteúdo sob demanda com os Serviços de Mídia do Azure](media-services-encode-asset.md)
 
 [Como codificar com o Codificador de Mídia Padrão](media-services-dotnet-encode-with-media-encoder-standard.md)
-
