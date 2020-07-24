@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: a5d34ac7eea50b67bd679d8cb8ddecf7ca277abd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3acdbb93dd20f0b89e4f99d64f5f7a30ce40623
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76773373"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102439"
 ---
 ## <a name="register-secrets-or-certificates"></a>Registrar segredos ou certificados
 
@@ -31,12 +31,10 @@ O gerenciamento de credenciais do cliente ocorre na página **certificados & seg
 
 ![Página de segredos de certificados &](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
 
-- O segredo do aplicativo (também chamado de segredo do cliente) é gerado pelo Azure AD durante o registro do aplicativo cliente confidencial. Essa geração acontece quando você seleciona **novo segredo do cliente**. Nesse ponto, você deve copiar a cadeia de caracteres secreta para a área de transferência para uso em seu aplicativo, antes de selecionar **salvar**. Essa cadeia de caracteres não será mais apresentada.
+- Você cria um *segredo do cliente* selecionando **novo segredo do cliente** no registro do aplicativo no portal do Azure. Ao criar um segredo do cliente, você _deve_ registrar a cadeia de caracteres do segredo antes de navegar para fora do painel **certificados & segredos** . A cadeia de caracteres do segredo nunca é exibida novamente.
 - Durante o registro do aplicativo, você usa o botão **carregar certificado** para carregar o certificado. O Azure AD dá suporte apenas a certificados diretamente registrados no aplicativo e não seguem cadeias de certificados.
 
 Para obter detalhes, consulte [início rápido: configurar um aplicativo cliente para acessar APIs Web | Adicione credenciais ao seu aplicativo](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application).
-
-
 
 ### <a name="register-client-secrets-by-using-powershell"></a>Registrar segredos do cliente usando o PowerShell
 

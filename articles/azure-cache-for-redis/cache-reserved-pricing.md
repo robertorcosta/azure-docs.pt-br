@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 8af8db6b6853d6b8cbd4ba1105f05ebb9bcf771b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4ea8db464c7cae57b80837ced9f8886a8b3cf4a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84974833"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093010"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Pagar antecipadamente pelo cache do Azure para recursos de computação Redis com capacidade reservada
 
@@ -32,7 +32,7 @@ Para obter detalhes sobre como clientes corporativos e clientes pagos conforme o
 
 O tamanho da reserva deve ser baseado na quantidade total de tamanho de memória usada pelo cache existente ou em breve para ser implantado em uma região específica e usando a mesma camada de serviço.
 
-Por exemplo, vamos supor que você esteja executando dois caches-um a 13 GB e o outro em 26 GB. Você precisará de ambos por pelo menos um ano. Além disso, vamos supor que você planeje dimensionar os caches de 13 GB existentes para 26 GB para um mês a fim de atender à sua demanda sazonal e, em seguida, reduzir novamente. Nesse caso, você pode comprar um cache P1 e um cache de 1 P2 ou 3 caches P1 em uma reserva de um ano para maximizar a economia. Você receberá um desconto na quantidade total de memória de cache reservada, independentemente de como essa quantidade é alocada em seus caches.
+Por exemplo, vamos supor que você esteja executando dois caches-um a 13 GB e o outro em 26 GB. Você precisará de ambos por pelo menos um ano. Além disso, vamos supor que você planeje dimensionar os caches de 13 GB existentes para 26 GB para um mês a fim de atender à sua demanda sazonal e, em seguida, reduzir novamente. Nesse caso, você pode comprar um cache de 1 P2 e um cache de 1 P3 ou caches de 3 $ P2 em uma reserva de um ano para maximizar a economia. Você receberá um desconto na quantidade total de memória de cache reservada, independentemente de como essa quantidade é alocada em seus caches.
 
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Comprar o cache do Azure para capacidade reservada do Redis
@@ -55,7 +55,7 @@ A tabela a seguir descreve os campos obrigatórios.
 | Região | A região do Azure que é coberta pelo cache do Azure para reserva de capacidade reservada do Redis.
 | Tipo de preço | A camada de serviço para o cache do Azure para servidores Redis.
 | Termo | Um ano ou três anos
-| Quantidade | A quantidade de recursos de computação que está sendo adquirida no cache do Azure para reserva de capacidade reservada Redis. A quantidade é um número de caches na região do Azure selecionada e na camada de serviço que estão sendo reservados e obterá o desconto de cobrança. Por exemplo, se você estiver executando ou planejando executar um cache do Azure para servidores Redis com a capacidade total de cache de 26 GB na região leste dos EUA, você deverá especificar a quantidade como 26 para maximizar o benefício de todos os caches.
+| Quantidade | A quantidade de recursos de computação que está sendo adquirida no cache do Azure para reserva de capacidade reservada Redis. A quantidade é um número de caches na região do Azure selecionada e na camada de serviço que estão sendo reservados e obterá o desconto de cobrança. Por exemplo, se você estiver executando ou planejando executar um cache do Azure para servidores Redis com a capacidade total de cache de 26 GB na região leste dos EUA, você deve especificar a quantidade que oferece o equivalente de 26 GB para maximizar o benefício de todos os caches. Isso pode ser de 1 a P3 ou 2 de caches P2.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
@@ -65,7 +65,7 @@ A tabela a seguir descreve os campos obrigatórios.
 
 A flexibilidade do tamanho do cache ajuda a escalar ou reduzir verticalmente dentro de uma camada de serviço e região, sem perder o benefício de capacidade reservada.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

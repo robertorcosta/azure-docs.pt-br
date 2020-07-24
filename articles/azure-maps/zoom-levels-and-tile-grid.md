@@ -1,18 +1,19 @@
 ---
-title: Níveis de zoom e grade de bloco | Mapas do Microsoft Azure
+title: Níveis de zoom e grade de bloco em mapas de Microsoft Azure
 description: Neste artigo, você aprenderá sobre níveis de zoom e grade de blocos em mapas de Microsoft Azure.
-author: Philmea
-ms.author: philmea
-ms.date: 01/22/2020
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 07/14/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: ''
-ms.openlocfilehash: b7dde6e1a77cebd1e88cc574d99e781ab55f0934
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+manager: philmea
+ms.openlocfilehash: 9493ad21847cca230606ff1641c9ac02c3355f53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83123897"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093044"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Níveis de zoom e grade lado a lado
 
@@ -23,15 +24,11 @@ Os Mapas do Azure usam o sistema de coordenadas de projeção do Spherical Merca
 
 Para otimizar o desempenho da recuperação e exibição do mapa, o mapa é dividido em blocos quadrados. O SDK do mapas do Azure usa blocos que têm um tamanho de 512 x 512 pixels para mapas de estrada e 256 x 256 pixels menores para imagens de satélite. O Azure Maps fornece blocos de rasterização e de vetor para 23 níveis de zoom, numerados de 0 a 22. No nível de zoom 0, o mundo inteiro se ajusta em um único bloco:
 
-<center>
-
-![Bloco do mapa mundial](./media/zoom-levels-and-tile-grid/world0.png)</center>
+:::image type="content" source="./media/zoom-levels-and-tile-grid/world0.png" alt-text="Bloco do mapa mundial":::
 
 Nível de zoom 1 usa quatro blocos para renderizar o mundo: um quadrado de 2 x 2
 
-<center>
-
-![layout de bloco do mapa 2x2](media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png)</center>
+:::image type="content" source="./media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png" alt-text="layout de bloco do mapa 2x2":::
 
 Cada nível de zoom adicional cria quatro vezes os blocos do anterior, criando uma grade de 2<sup>zoom</sup> x 2<sup>zoom.</sup> Nível de zoom 22 é uma grade 2<sup>22</sup> x 2<sup>22</sup>, ou peças 4,194,304 x 4,194,304 (17,592,186,044,416 peças no total).
 
@@ -61,7 +58,7 @@ A tabela a seguir fornece a lista completa de valores para níveis de zoom em qu
 |17|1.2|307.2|
 |18|0,6|152.8|
 |19|0.3|76.4|
-|20|0.15|38.2|
+|20|0,15|38.2|
 |21|0.075|19.1|
 |22|0.0375|9.55|
 |23|0, 1875|4,775|
@@ -79,11 +76,7 @@ var mapHeight = mapWidth;
 
 Como a largura e a altura do mapa são diferentes em cada nível de zoom, são as coordenadas de pixel. O pixel no canto superior esquerdo do mapa sempre tem coordenadas de pixel (0, 0). O pixel no canto inferior direito do mapa tem coordenadas de pixel *(largura-1, altura-1)* ou referindo-se às equações na seção anterior, *(Tiles \* 2<sup>zoom</sup>– 1, tileize \* 2<sup>zoom</sup>– 1)*. Por exemplo, ao usar blocos quadrados de 512 no nível 2, as coordenadas de pixel variam de (0, 0) a (2047, 2047), desta forma:
 
-<center>
-
-![Mapa mostrando dimensões de pixel](media/zoom-levels-and-tile-grid/map-width-height.png)
-
-</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Mapa mostrando dimensões de pixel":::
 
 Considerando a latitude e a longitude em graus e o nível de detalhes, as coordenadas XY do pixel são calculadas da seguinte maneira:
 
@@ -109,9 +102,7 @@ var numberOfTilesHigh = numberOfTilesWide;
 
 Cada bloco recebe coordenadas XY que variam de (0, 0) no canto superior esquerdo a *(2<sup>zoom</sup>– 1, 2<sup>zoom</sup>– 1)* no canto inferior direito. Por exemplo, no nível de zoom 2, o bloco coordena o intervalo de (0, 0) para (7, 7) da seguinte maneira:
 
-<center>
-
-![Mapa de coordenadas de bloco](media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Mapa de coordenadas de bloco":::
 
 Dada um par de coordenadas XY de pixel, você pode determinar facilmente as coordenadas XY do bloco do bloco que contém o pixel:
 
@@ -125,17 +116,13 @@ Os blocos são chamados pelo nível de zoom. As coordenadas x e y correspondem �
 
 Ao determinar qual nível de zoom usar, lembre-se de que cada local está em uma posição fixa em seu bloco. Como resultado, o número de blocos necessários para exibir um determinado extensão de território depende do posicionamento específico da grade de zoom no mapa mundial. Por exemplo, se houver dois pontos de 900 metros de distância, ele *pode* levar apenas três blocos para exibir uma rota entre elas no nível de zoom 17. No entanto, se o ponto ocidental está à direita do seu bloco e o ponto oriental à esquerda do bloco, pode ter quatro blocos:
 
-<center>
-
-![Escala de demonstração de zoom](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png" alt-text="Escala de demonstração de zoom":::
 
 Uma vez determinado o nível de zoom, os valores x e y podem ser calculados. O bloco superior esquerdo em cada grade de zoom é x = 0, y = 0; o bloco inferior direito está em x = 2<sup>zoom-1</sup>, y = 2<sup>zoom-1</sup>.
 
 Aqui está a grade de zoom para o nível de zoom 1:
 
-<center>
-
-![Grade de zoom para o nível de zoom 1](media/zoom-levels-and-tile-grid/api_x_y.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/api_x_y.png" alt-text="Grade de zoom para o nível de zoom 1":::
 
 ## <a name="quadkey-indices"></a>Índices de Quadkey
 
@@ -156,9 +143,7 @@ quadkey = 100111 (base 2) = 213 (base 4) = "213"
 
 `Qquadkeys`ter várias propriedades interessantes. Primeiro, o comprimento de um `quadkey` (o número de dígitos) é igual ao nível de zoom do bloco correspondente. Em segundo lugar, o `quadkey` de qualquer bloco começa com o `quadkey` de seu bloco pai (o bloco contido no nível anterior). Conforme mostrado no exemplo abaixo, o bloco 2 é o pai dos blocos de 20 a 23:
 
-<center>
-
-![Pirâmide do bloco Quadkey](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png" alt-text="Pirâmide do bloco Quadkey":::
 
 Por fim, `quadkeys` forneça uma chave de índice unidimensional que geralmente preserva a proximidade dos blocos no espaço XY. Em outras palavras, dois blocos que têm coordenadas XY próximas geralmente têm `quadkeys` que são relativamente próximos juntos. Isso é importante para otimizar o desempenho do banco de dados, pois os blocos vizinhos geralmente são solicitados em grupos, e é desejável manter esses blocos nos mesmos blocos de disco, a fim de minimizar o número de leituras de disco.
 

@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/11/2019
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 165529697949bba0233567b89c5a8a077d48a28b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce4574870ad8c0bfd945e49f129b82177b3138a1
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85384015"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115707"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurar os requisitos de complexidade de senhas fornecidas no Azure Active Directory B2C
 
@@ -49,7 +50,7 @@ Se estiver usando políticas personalizadas, você poderá ([configurar a comple
 | Complexidade | Descrição |
 | --- | --- |
 | Simples | Uma senha que tenha 8 a 64 caracteres. |
-| Strong | Uma senha que tenha 8 a 64 caracteres. São necessários de 3 a 4 caracteres minúsculos, maiúsculos, números ou símbolos. |
+| Forte | Uma senha que tenha 8 a 64 caracteres. São necessários de 3 a 4 caracteres minúsculos, maiúsculos, números ou símbolos. |
 | Personalizado | Essa opção fornece mais controle sobre as regras de complexidade de senha.  Ela permite configurar um tamanho personalizado.  E permite aceitar somente senhas numéricas (pins). |
 
 ## <a name="custom-options"></a>Opções personalizadas
@@ -61,7 +62,7 @@ Permite que você aceite somente dígitos (pins) ou o conjunto completo de carac
 - **Somente números** permite somente dígitos (0-9) ao digitar uma senha.
 - **Todos** permite qualquer letra, número ou símbolo.
 
-### <a name="length"></a>Tamanho
+### <a name="length"></a>Comprimento
 
 Permite que você controle as exigências de comprimento da senha.
 

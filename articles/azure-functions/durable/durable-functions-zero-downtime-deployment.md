@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 45f87898f7da432e5bdd09061e74c33a1a8fe41b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165695"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093061"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Implantação sem tempo de inatividade para Durable Functions
 
-O [modelo de execução confiável](durable-functions-checkpointing-and-replay.md) do Durable Functions exige que as orquestrações sejam determinísticas, o que cria um desafio adicional a ser considerado ao implantar atualizações. Quando uma implantação contém alterações nas assinaturas da função de atividade ou na lógica do Orchestrator, as instâncias de orquestração em andamento falham. Essa situação é especialmente um problema para instâncias de orquestrações de longa execução, que podem representar horas ou dias de trabalho.
+O [modelo de execução confiável](./durable-functions-orchestrations.md) do Durable Functions exige que as orquestrações sejam determinísticas, o que cria um desafio adicional a ser considerado ao implantar atualizações. Quando uma implantação contém alterações nas assinaturas da função de atividade ou na lógica do Orchestrator, as instâncias de orquestração em andamento falham. Essa situação é especialmente um problema para instâncias de orquestrações de longa execução, que podem representar horas ou dias de trabalho.
 
 Para evitar que essas falhas ocorram, você tem duas opções: 
 - Adie a implantação até que todas as instâncias de orquestração em execução tenham sido concluídas.
@@ -52,7 +52,7 @@ Use o procedimento a seguir para configurar esse cenário.
 
 1. Para cada slot, defina a [configuração de aplicativo AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) como a cadeia de conexão de uma conta de armazenamento compartilhada. Essa cadeia de conexão da conta de armazenamento é usada pelo Azure Functions Runtime. Essa conta é usada pelo tempo de execução do Azure Functions e gerencia as chaves da função.
 
-1. Para cada slot, crie uma nova configuração de aplicativo, por exemplo, `DurableManagementStorage` . Defina seu valor como a cadeia de conexão de contas de armazenamento diferentes. Essas contas de armazenamento são usadas pela extensão de Durable Functions para [execução confiável](durable-functions-checkpointing-and-replay.md). Use uma conta de armazenamento separada para cada slot. Não marque essa configuração como uma configuração de slot de implantação.
+1. Para cada slot, crie uma nova configuração de aplicativo, por exemplo, `DurableManagementStorage` . Defina seu valor como a cadeia de conexão de contas de armazenamento diferentes. Essas contas de armazenamento são usadas pela extensão de Durable Functions para [execução confiável](./durable-functions-orchestrations.md). Use uma conta de armazenamento separada para cada slot. Não marque essa configuração como uma configuração de slot de implantação.
 
 1. Em seu aplicativo de funções [host.jsna seção durableTask do arquivo](durable-functions-bindings.md#hostjson-settings), especifique `azureStorageConnectionStringName` como o nome da configuração do aplicativo que você criou na etapa 3.
 
@@ -172,4 +172,3 @@ Para obter mais informações, consulte [gerenciar instâncias no Durable Functi
 
 > [!div class="nextstepaction"]
 > [Durable Functions de controle de versão](durable-functions-versioning.md)
-

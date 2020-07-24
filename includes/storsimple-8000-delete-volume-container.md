@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/08/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: e683d17422321b780a1c01b3011292f2e2c631cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30bbd06e36ed1e03caa391165a8abc275f1899a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67171969"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102430"
 ---
 Para excluir um contêiner de volume, você deve
  - excluir os volumes no contêiner de volume. Se o contêiner de volume tiver volumes associados, coloque esses volumes offline primeiro. Siga as etapas em [Colocar um volume offline](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). Depois que os volumes estiverem offline, você poderá excluí-los. 
@@ -36,6 +36,6 @@ Quando o contêiner de volume não possui nenhum volume associado, políticas de
 
 A lista de contêineres de volume é atualizada para refletir o contêiner de volume excluído.
 
-![](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
+![Captura de tela da página do contêiner de volume. A lista tabular de contêineres de volume não contém mais o contêiner excluído.](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
 
 
