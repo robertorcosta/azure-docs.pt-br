@@ -5,21 +5,22 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/17/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9604f0c6eeb9d0ac4b7d07f1ab1ba03285fd60fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a552f03c8a8fa05ed7d2c6eb87374d4e7e17838d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81640076"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070093"
 ---
-# <a name="how-to-scale-your-time-series-insights-environment"></a>Como dimensionar o ambiente do Time Series Insights
+# <a name="how-to-scale-your-azure-time-series-insights-gen1-environment"></a>Como dimensionar seu ambiente de Azure Time Series Insights Gen1
 
-Este artigo descreve como alterar a capacidade de seu ambiente de Time Series Insights usando o [portal do Azure](https://portal.azure.com). A capacidade é o multiplicador aplicado à taxa de ingresso, à capacidade de armazenamento e ao custo associado com a SKU selecionada.
+Este artigo descreve como alterar a capacidade de seu ambiente de Azure Time Series Insights usando o [portal do Azure](https://portal.azure.com). A capacidade é o multiplicador aplicado à taxa de ingresso, à capacidade de armazenamento e ao custo associado com a SKU selecionada.
 
 Você pode usar o Portal do Azure para aumentar ou diminuir a capacidade de um determinada SKU de preços.
 
@@ -31,11 +32,11 @@ No entanto, não é permitido alterar a SKU da camada de preços. Por exemplo, u
 
 ## <a name="change-the-capacity-of-your-environment"></a>Alterar a capacidade do seu ambiente
 
-1. No Portal do Azure, localize e selecione seu ambiente Time Series Insights.
+1. Na portal do Azure, localize e selecione seu ambiente de Azure Time Series Insights.
 
-1. No menu de seu ambiente de Time Series Insights, selecione **configuração de armazenamento**.
+1. No menu de seu ambiente de Azure Time Series Insights, selecione **configuração de armazenamento**.
 
-   [![Configurar sua capacidade de Time Series Insights](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
+   [![Configurar sua capacidade de Azure Time Series Insights](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
 
 1. Ajuste o controle deslizante **Capacidade** para selecionar a capacidade que atenda aos requisitos de suas taxas de entrada e capacidade de armazenamento. Observe que a **Taxa de entrada**, a **Capacidade de armazenamento** e o **Custo estimado** são atualizadas dinamicamente para mostrar o impacto da alteração.
 
@@ -49,8 +50,8 @@ No entanto, não é permitido alterar a SKU da camada de preços. Por exemplo, u
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para mais informações, veja [Noções básicas sobre retenção no Time Series Insights](time-series-insights-concepts-retention.md).
+- Para obter mais informações, consulte [noções básicas sobre retenção em Azure Time Series insights](time-series-insights-concepts-retention.md).
 
-- Saiba mais sobre como [Configurar a retenção de dados no Azure Time Series insights](time-series-insights-how-to-configure-retention.md).
+- Saiba mais sobre como [Configurar a retenção de dados no Azure Azure Time Series insights](time-series-insights-how-to-configure-retention.md).
 
 - Saiba mais sobre como [planejar o seu ambiente](time-series-insights-environment-planning.md).

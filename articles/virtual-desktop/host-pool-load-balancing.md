@@ -1,6 +1,6 @@
 ---
 title: Balanceamento de carga do pool de hosts da área de trabalho virtual do Windows-Azure
-description: Métodos de balanceamento de carga do pool de hosts para um ambiente de área de trabalho virtual do Windows.
+description: Saiba mais sobre métodos de balanceamento de carga do pool de hosts para um ambiente de área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 15d50033a1316601dd8c36bd5748c659f4397d66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72a7c275cfc30a8ebaae5325ce003f5f274ce190
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82612037"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069976"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Métodos de balanceamento de carga de pool de host
 

@@ -1,5 +1,5 @@
 ---
-title: Criar um conjunto de dimensionamento a partir de uma imagem generalizada
+title: Criar um conjunto de dimensionamento com base em uma imagem generalizada com CLI do Azure
 description: Crie um conjunto de dimensionamento usando uma imagem generalizada em uma galeria de imagens compartilhada.
 author: cynthn
 ms.service: virtual-machine-scale-sets
@@ -9,13 +9,14 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 59e29be2aade993c8aeae64b4aa4918b36a26b26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3cde06b652befa8fbb655273c19f65bd2f38e850
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82797130"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069848"
 ---
-# <a name="create-a-scale-set-from-a-generalized-image"></a>Criar um conjunto de dimensionamento a partir de uma imagem generalizada
+# <a name="create-a-scale-set-from-a-generalized-image-with-azure-cli"></a>Criar um conjunto de dimensionamento com base em uma imagem generalizada com CLI do Azure
 
 Crie um conjunto de dimensionamento de uma versão de imagem generalizada armazenada em uma [Galeria de imagens compartilhada](shared-image-galleries.md) usando o CLI do Azure. Se desejar criar um conjunto de dimensionamento usando uma versão de imagem especializada, consulte [criar instâncias do conjunto de dimensionamento de uma imagem especializada](instance-specialized-image-version-cli.md).
 

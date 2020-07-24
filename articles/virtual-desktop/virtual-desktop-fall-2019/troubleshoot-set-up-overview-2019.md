@@ -1,5 +1,5 @@
 ---
-title: Visão geral da solução de problemas de área de trabalho virtual do Windows – Azure
+title: Visão geral da solução de problemas de área de trabalho virtual do Windows — Outono 2019 – Azure
 description: Uma visão geral para solucionar problemas durante a configuração de um ambiente de locatário de área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7fff21ec4fdb53483eea1a6c37ce9269081fe77e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82ac5a8178973396c4c1975cb1c84d23e61430f7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82615442"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069929"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Visão geral da solução de problemas, comentários e suporte
 

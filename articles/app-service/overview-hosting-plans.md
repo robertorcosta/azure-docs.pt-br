@@ -6,20 +6,21 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
-ms.openlocfilehash: b1c44fb9f44eb75e6d2a766213c5db094ebe79b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93f823a623145f8dd8bf5118de973dfbc095bfb4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537637"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068189"
 ---
 # <a name="azure-app-service-plan-overview"></a>Visão geral do plano do Serviço de Aplicativo do Azure
 
-No Serviço de Aplicativo, um aplicativo é executado em um _Plano de Serviço de Aplicativo_. Um plano de serviço de aplicativo define um conjunto de recursos de computação para um aplicativo Web ser executado. Esses recursos de computação são análogos ao [_farm de servidores_](https://wikipedia.org/wiki/Server_farm) na hospedagem na web convencional. Um ou mais aplicativos podem ser configurados para ser executado nos mesmos recursos de computação (ou no mesmo plano de Serviço de Aplicativo).
+No Serviço de Aplicativo, um aplicativo é executado em um _Plano de Serviço de Aplicativo_. Um plano de serviço de aplicativo define um conjunto de recursos de computação para um aplicativo Web ser executado. Esses recursos de computação são análogos ao [_farm de servidores_](https://wikipedia.org/wiki/Server_farm) na hospedagem na Web convencional. Um ou mais aplicativos podem ser configurados para ser executado nos mesmos recursos de computação (ou no mesmo plano de Serviço de Aplicativo).
 
 Quando você cria um plano de serviço de aplicativo em uma determinada região (por exemplo, Europa Ocidental), um conjunto de recursos de computação é criado para esse plano nessa região. Quaisquer aplicativos que você coloque nesse plano de serviço de aplicativo é executado nesses recursos de computação conforme definido pelo seu plano de serviço de aplicativo. Cada plano de serviço de aplicativo define:
 
 - Região (Oeste dos EUA, Leste dos EUA, etc.)
-- Número de instâncias de máquina virtual
+- Número de instâncias de VM
 - Tamanho de instâncias de máquina virtual (pequeno, médio, grande)
 - Tipo de preço (gratuito, compartilhado, básico, Standard, Premium, PremiumV2, isolado)
 
@@ -78,12 +79,14 @@ Você não é cobrado pelo uso dos recursos do serviço de aplicativo que estão
 
 > [!NOTE]
 > Se você integrar o serviço de aplicativo com outro serviço do Azure, você precisará considerar encargos desses outros serviços. Por exemplo, se você usar o Azure Traffic Manager para dimensionar o seu aplicativo geograficamente, o Azure Traffic Manager também cobrará você com base em seu uso. Para estimar o custo de serviços no Azure, consulte [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/). 
->
->
+
+Deseja otimizar e reduzir seus gastos com a nuvem?
+
+[!INCLUDE [cost-management-horizontal](../../includes/cost-management-horizontal.md)]
 
 ## <a name="what-if-my-app-needs-more-capabilities-or-features"></a>E se o meu aplicativo precisar de mais recursos?
 
-O seu plano do serviço de aplicativo pode ser dimensionado para mais ou para menos a qualquer momento. É tão simples quanto alterar o tipo de preço do plano. Você pode escolher um tipo de preço mais baixo a um primeiro momento, e aumentá-lo mais tarde quando você precisar de mais recursos do serviço de aplicativo.
+O seu plano do serviço de aplicativo pode ser dimensionado para mais ou para menos a qualquer momento. É tão simples quanto alterar o tipo de preço do plano. Você pode escolher um tipo de preço mais baixo em um primeiro momento e depois aumentá-lo quando precisar de mais recursos do Serviço de Aplicativo.
 
 Por exemplo, você pode começar a testar seu aplicativo web em um plano do serviço de aplicativo **Grátis** sem pagar nada. Quando você desejar adicionar o [nome DNS personalizado](app-service-web-tutorial-custom-domain.md) para o aplicativo web, apenas dimensione o seu plano até o tipo **Compartilhado**. Posteriormente, quando você quiser [criar uma associação TLS](configure-ssl-bindings.md), dimensione seu plano até a camada **básica** . Quando você desejar ter [ambientes de preparo](deploy-staging-slots.md), dimensione até o tipo **Standard**. Quando você precisar de mais núcleos, memória ou armazenamento, escale verticalmente para um tamanho maior de máquina virtual no mesmo tipo.
 
@@ -95,7 +98,7 @@ Se o seu aplicativo estiver no mesmo plano do serviço de aplicativo com outros 
 
 ## <a name="should-i-put-an-app-in-a-new-plan-or-an-existing-plan"></a>Devo colocar um aplicativo em um novo plano ou um plano existente?
 
-Como você paga pelos recursos de computação que o seu plano do serviço de aplicativo aloca (consulte [Quanto custa o plano de serviço de aplicativo?](#cost)), você pode economizar dinheiro colocando vários aplicativos em um plano do serviço de aplicativo. Você pode continuar a adicionar aplicativos a um plano existente, desde que o plano tenha recursos suficientes para lidar com a carga. No entanto, tenha em mente que os aplicativos no mesmo plano do serviço de aplicativo compartilham os mesmos recursos de computação. Para determinar se o novo aplicativo tem ou não os recursos necessários, você precisa compreender a capacidade do Plano do Serviço de Aplicativo existente e a carga esperada para o novo aplicativo. A sobrecarga de um plano do serviço de aplicativo tem potencial de causar tempo de inatividade para seus aplicativos novos e existentes.
+Como você paga pelos recursos de computação que o seu plano do serviço de aplicativo aloca (consulte [Quanto custa o plano de serviço de aplicativo?](#cost)), você pode economizar dinheiro colocando vários aplicativos em um plano do serviço de aplicativo. Você pode continuar a adicionar aplicativos a um plano existente, desde que o plano tenha recursos suficientes para lidar com a carga. No entanto, tenha em mente que os aplicativos no mesmo plano do serviço de aplicativo compartilham os mesmos recursos de computação. Para determinar se o novo aplicativo tem os recursos necessários, você precisa compreender a capacidade do Plano do Serviço de Aplicativo existente e a carga esperada para o novo aplicativo. A sobrecarga de um plano do serviço de aplicativo tem potencial de causar tempo de inatividade para seus aplicativos novos e existentes.
 
 Isole o seu aplicativo em um novo Plano do Serviço de Aplicativo quando:
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 0245a23e46770840295904685c913826950c0642
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 892ace66c4994f4c2e263d529d69e505ed9c1c1f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517834"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068028"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do gateway de aplicativo
 
@@ -286,7 +286,7 @@ Usando regras de reescrita, você pode adicionar, remover ou atualizar os cabeç
 Os cabeçalhos e os parâmetros de URL podem ser definidos para valores estáticos ou para outros cabeçalhos e variáveis de servidor. Isso ajuda com casos de uso importantes, como extração de endereços IP do cliente, remoção de informações confidenciais sobre o back-end, adição de mais segurança e assim por diante.
 Para obter mais informações, consulte:
 
- - [Visão geral de reescrever cabeçalhos HTTP](rewrite-http-headers-url.md)
+ - [Reescrever cabeçalhos HTTP e visão geral da URL](rewrite-http-headers-url.md)
  - [Configurar a regravação do cabeçalho HTTP](rewrite-http-headers-portal.md)
  - [Configurar a regravação de URL](rewrite-url-portal.md)
 

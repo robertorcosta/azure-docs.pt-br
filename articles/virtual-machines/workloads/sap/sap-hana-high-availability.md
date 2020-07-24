@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2020
 ms.author: radeltch
-ms.openlocfilehash: 501d49feef877addd2f3e5364a06caf1d273ca83
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2b4b207aca92cc37b71f3cb12ec579a6b57e832
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196860"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068958"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade do SAP HANA nas VMs do Azure no SUSE Linux Enterprise Server
 
@@ -123,7 +124,7 @@ Para implantar o modelo, siga estas etapas:
 1. Crie uma rede virtual.
 1. Crie um conjunto de disponibilidade.
    - Defina o máximo de domínio de atualização.
-1. Crie um balanceador de carga (interno). Recomenda-se o [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+1. Crie um balanceador de carga (interno). Recomenda-se o [Standard Load Balancer](../../../load-balancer/load-balancer-overview.md).
    - Selecione a rede virtual criada na etapa 2.
 1. Crie a máquina virtual 1.
    - Use uma imagem SLES4SAP na galeria do Azure que tem suporte para o SAP HANA no tipo de VM que você selecionou.
@@ -169,7 +170,7 @@ Para implantar o modelo, siga estas etapas:
       1. Selecione **OK**.
 
    > [!Note]
-   > Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Standard Azure Load Balancer (sem endereço IP público), não haverá nenhuma conectividade de saída com a Internet se não houver configuração adicional a fim de permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como alcançar conectividade de saída, veja [Conectividade de ponto de extremidade público para Máquinas Virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+   > Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Standard Azure Load Balancer (sem endereço IP público), não haverá nenhuma conectividade de saída com a Internet se não houver configuração adicional a fim de permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como alcançar conectividade de saída, veja [Conectividade de ponto de extremidade público para Máquinas Virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 1. Como alternativa, se o seu cenário impõe o uso do balanceador de carga básico, siga estas etapas de configuração:
    1. Primeiro, crie um pool de IP de front-end:
@@ -232,7 +233,7 @@ Para implantar o modelo, siga estas etapas:
    Para obter mais informações sobre as portas necessárias para o SAP HANA, leia o capítulo [Conexões aos bancos de dados de locatário](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) no guia [Bancos de dados de locatário do SAP HANA](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) ou [Nota SAP 2388694][2388694].
 
 > [!IMPORTANT]
-> Não habilite carimbos de data/hora de TCP em VMs do Azure posicionadas de forma subjacente em relação ao Azure Load Balancer. Habilitar carimbos de data/hora de TCP fará com que as investigações de integridade falhem. Defina o parâmetro **net.ipv4.tcp_timestamps** para **0**. Para obter detalhes, veja [Investigações de integridade do Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Não habilite carimbos de data/hora de TCP em VMs do Azure posicionadas de forma subjacente em relação ao Azure Load Balancer. Habilitar carimbos de data/hora de TCP fará com que as investigações de integridade falhem. Defina o parâmetro **net.ipv4.tcp_timestamps** para **0**. Para obter detalhes, veja [Investigações de integridade do Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md).
 > Veja também a nota SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="create-a-pacemaker-cluster"></a>Criar um cluster do Pacemaker
@@ -276,11 +277,11 @@ As etapas nesta seção usam os seguintes prefixos:
    sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Criar os volumes lógicos. Um volume linear é criado quando você usa `lvcreate` sem a opção `-i`. Sugerimos que você crie um volume distribuído para melhorar o desempenho de E/S e alinhe os tamanhos de distribuição aos valores documentados em [Configurações de armazenamento de VM do SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). O argumento `-i` deve ser o número de volumes físicos subjacentes e o argumento `-I` é o tamanho da distribuição. Neste documento, dois volumes físicos são usados para o volume de dados, portanto, o argumento da chave `-i` é definido com **2**. O tamanho da distribuição para o volume de dados é de **256KiB**. Um volume físico é usado para o volume do log, portanto, nenhuma opção `-i` ou `-I` é usada explicitamente para os comandos do volume do log.  
+   Criar os volumes lógicos. Um volume linear é criado quando você usa `lvcreate` sem a opção `-i`. Sugerimos que você crie um volume distribuído para melhorar o desempenho de E/S e alinhe os tamanhos de distribuição aos valores documentados em [Configurações de armazenamento de VM do SAP HANA](./hana-vm-operations-storage.md). O argumento `-i` deve ser o número de volumes físicos subjacentes e o argumento `-I` é o tamanho da distribuição. Neste documento, dois volumes físicos são usados para o volume de dados, portanto, o argumento da chave `-i` é definido com **2**. O tamanho da distribuição para o volume de dados é de **256KiB**. Um volume físico é usado para o volume do log, portanto, nenhuma opção `-i` ou `-I` é usada explicitamente para os comandos do volume do log.  
 
    > [!IMPORTANT]
    > Use a opção `-i` e defina-a para o número do volume físico subjacente quando você usar mais de um volume físico para cada volume de dados, log ou compartilhado. Use a opção `-I` para especificar o tamanho da distribuição, quando criar um volume distribuído.  
-   > Veja [Configurações de armazenamento de VM do SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) para ver as configurações de armazenamento recomendadas, incluindo tamanhos de distribuição e número de discos.  
+   > Veja [Configurações de armazenamento de VM do SAP HANA](./hana-vm-operations-storage.md) para ver as configurações de armazenamento recomendadas, incluindo tamanhos de distribuição e número de discos.  
 
    <pre><code>sudo lvcreate <b>-i 2</b> <b>-I 256</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
    sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
@@ -1137,4 +1138,3 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
 * [Planejamento e implementação de Máquinas Virtuais do Azure para o SAP][planning-guide]
 * [Implantação de Máquinas Virtuais do Azure para SAP][deployment-guide]
 * [Implantação do DBMS de Máquinas Virtuais do Azure para SAP][dbms-guide]
-

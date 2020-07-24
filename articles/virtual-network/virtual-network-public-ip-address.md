@@ -16,11 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 2f71a1d26543e7436dee039592d120b52d5c9fea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7da6c0f88ae68f473e57590824e675299f7d524b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710959"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068568"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Criar, alterar ou excluir um endereço IP público
 
@@ -45,12 +46,12 @@ Os endereços IP públicos têm um encargo nominal. Para ver os preços, acesse 
 
 ## <a name="create-a-public-ip-address"></a>Criar um endereço IP público
 
-1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou na **Página inicial**, selecione **Criar um recurso**.
 2. Digite *endereço ip público* em *Pesquisar na caixa Marketplace*. Quando os **Endereços IP públicos** aparecerem nos resultados da pesquisa, clique nele.
 3. Em **endereço IP público**, selecione **Criar**.
 4. Insira, ou selecione os valores para as configurações a seguir em **Criar endereço IP público**, em seguida, selecione **Criar**:
 
-   |Setting|Obrigatório?|Detalhes|
+   |Configuração|Necessário?|Detalhes|
    |---|---|---|
    |Versão IP|Sim| Selecione IPv4 ou IPv6 ou ambos. A seleção de ambos resultará em dois endereços IP públicos sendo criados-1 endereço IPv4 e 1 endereço IPv6. Saiba mais sobre o [IPv6 no Azure VNETs](../virtual-network/ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
    |SKU|Sim|Todos os endereços IP públicos criados antes da introdução de SKUs são endereços IP públicos de SKU **básico** . Você não pode alterar a SKU depois que o endereço IP público é criado. Uma máquina virtual autônoma, máquinas virtuais em um conjunto de disponibilidade ou conjuntos de dimensionamento de máquinas virtuais podem usar SKUs Básicos ou Standard. Não é permitido misturar SKUs entre máquinas virtuais em conjuntos de disponibilidade ou conjuntos de dimensionamento ou VMs autônomas. SKU **Básico**: se você estiver criando um endereço IP público em uma região que dá suporte zonas de disponibilidade, a configuração **Zona de disponibilidade** será definida como *Nenhuma* por padrão. Os IPs públicos básicos não dão suporte a zonas de disponibilidade. SKU **Standard**: um IP público de SKU Standard pode ser associado a uma máquina virtual ou a um front-end de balanceador de carga. Se você estiver criando um endereço IP público em uma região que dá suporte zonas de disponibilidade, a configuração **Zona de disponibilidade** será definida como *Com redundância de zona* por padrão. Para obter informações sobre zonas de disponibilidade, consulte configuração **Zona de disponibilidade**. O SKU padrão será necessário se você associar o endereço a um Load Balancer Standard. Para saber mais sobre os Load Balancers Standard, consulte [SKU Standard do Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando você atribui um endereço IP público de SKU padrão ao adaptador de rede de uma máquina virtual, deve permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](security-overview.md#network-security-groups). A comunicação com o recurso falha até que você crie e associe um grupo de segurança de rede e permita o tráfego desejado explicitamente.|
@@ -61,7 +62,7 @@ Os endereços IP públicos têm um encargo nominal. Para ver os preços, acesse 
    |Nome (visível somente se você selecionar a versão de IP de **ambos**)|Sim, se você selecionar a versão IP de **ambos**|O nome deve ser diferente do nome que você insere para o primeiro **Nome** nessa lista. Se você optar por criar endereços IPv4 e IPv6, o portal criará dois recursos de endereço IP públicos separados, cada um com uma versão do endereço IP atribuída a ele.|
    |Atribuição de endereço IP (visível somente se você selecionar a versão de IP de **ambos**)|Sim, se você selecionar a versão IP de **ambos**|Mesmas restrições que a atribuição de endereço IP acima|
    |Subscription|Sim|Deve existir na mesma [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que o recurso ao qual você associará os IPs públicos.|
-   |Resource group|Sim|Pode existir no mesmo [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) , ou diferente, que o recurso ao qual você associará os IPs públicos.|
+   |Grupo de recursos|Sim|Pode existir no mesmo [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) , ou diferente, que o recurso ao qual você associará os IPs públicos.|
    |Localização|Sim|Deve existir no mesmo [local](https://azure.microsoft.com/regions), também conhecido como região, como o recurso ao qual você associará os IPs públicos.|
    |Zona de disponibilidade| Não | Essa configuração só aparecerá se você selecionar uma localização com suporte. Para obter uma lista de localizações com suporte, consulte [Visão geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se você tiver selecionado o SKU **Básico**, *Nenhum* será selecionado automaticamente para você. Se você preferir garantir uma zona específica, você poderá selecionar uma. Qualquer uma dessas opções será sem redundância de zona. Se você tiver selecionado o SKU **Standard**, a opção Com redundância de zona será selecionada automaticamente para você e tornará o seu caminho de dados resiliente a falhas de zona. Se você preferir garantir uma zona específica (que não é resiliente a falhas de zona), você poderá selecionar uma.
 
@@ -97,7 +98,7 @@ Embora o portal forneça a opção de criar dois recursos de endereço IP públi
 
 Saiba como atribuir um endereço IP público aos recursos a seguir:
 
-- Uma VM do [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ao criar uma) ou uma [VM existente](virtual-network-network-interface-addresses.md#add-ip-addresses)
+- Uma VM do [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ao criar uma) ou uma [VM existente](virtual-network-network-interface-addresses.md#add-ip-addresses)
 - [Load Balancer voltadas para a Internet](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Gateway de Aplicativo do Azure](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Conexão site a site usando um Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

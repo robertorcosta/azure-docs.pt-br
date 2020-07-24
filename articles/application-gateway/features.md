@@ -7,11 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: f021eed959ef88a1ef3671e1d0ace8080710c92a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 560d836f99f7a1be85007bb9d488f80a68d7999b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80810240"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067972"
 ---
 # <a name="azure-application-gateway-features"></a>Recursos de gateway de Aplicativo Azure
 
@@ -34,7 +35,7 @@ O gateway de aplicativo inclui os seguintes recursos:
 - [Tráfego do WebSocket e HTTP/2](#websocket-and-http2-traffic)
 - [Descarregamento de conexão](#connection-draining)
 - [Páginas de erro personalizadas](#custom-error-pages)
-- [Reescrever cabeçalhos HTTP](#rewrite-http-headers)
+- [Reescrever cabeçalhos e URL HTTP](#rewrite-http-headers-and-url)
 - [Dimensionamento](#sizing)
 
 ## <a name="secure-sockets-layer-ssltls-termination"></a>Terminação do protocolo SSL/TLS (Secure Sockets Layer)
@@ -82,13 +83,13 @@ Para obter mais informações, consulte [visão geral de roteamento baseado em c
 
 ## <a name="multiple-site-hosting"></a>Hospedagem de vários sites
 
-A hospedagem de vários sites permite que você configure mais de um site na mesma instância de gateway de aplicativo. Esse recurso permite que você configure uma topologia mais eficiente para suas implantações adicionando até 100 sites a um gateway de aplicativo (para desempenho ideal). Cada site pode ser direcionado para seu próprio pool. Por exemplo, o gateway de aplicativo pode fornecer o tráfego para `contoso.com` e `fabrikam.com` de dois pools de servidores chamados ContosoServerPool e FabrikamServerPool.
+Com o gateway de aplicativo, você pode configurar o roteamento com base no nome do host ou nome de domínio para mais de um aplicativo Web no mesmo gateway de aplicativo. Ele permite que você configure uma topologia mais eficiente para suas implantações adicionando até mais de 100 sites a um gateway de aplicativo. Cada site pode ser direcionado para seu próprio pool de back-end. Por exemplo, três domínios, contoso.com, fabrikam.com e adatum.com, apontam para o endereço IP do gateway de aplicativo. Você criaria três ouvintes multissite e configuraria cada ouvinte para as respectivas configurações de porta e protocolo. 
 
-As solicitações de `http://contoso.com` são encaminhadas para ContosoServerPool, e as de `http://fabrikam.com` são encaminhadas para FabrikamServerPool.
+As solicitações de `http://contoso.com` são roteadas para ContosoServerPool, `http://fabrikam.com` são roteadas para FabrikamServerPool e assim por diante.
 
-Da mesma forma, dois subdomínios do mesmo domínio pai podem ser hospedados na mesma implantação de gateway de aplicativo. Exemplos de uso de subdomínios podem incluir `http://blog.contoso.com` e `http://app.contoso.com` hospedados em uma implantação de gateway de aplicativo único.
+Da mesma forma, dois subdomínios do mesmo domínio pai podem ser hospedados na mesma implantação de gateway de aplicativo. Exemplos de uso de subdomínios podem incluir `http://blog.contoso.com` e `http://app.contoso.com` hospedados em uma implantação de gateway de aplicativo único. Para obter mais informações, consulte [Hospedagem de vários sites do gateway de aplicativo](multiple-site-overview.md).
 
-Para obter mais informações, consulte [Hospedagem de vários sites do gateway de aplicativo](multiple-site-overview.md).
+Você também pode definir nomes de host curinga em um ouvinte multissite e até 5 nomes de host por ouvinte. Para saber mais, confira [nomes de host curinga no ouvinte (versão prévia)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
 ## <a name="redirection"></a>Redirecionamento
 
@@ -130,7 +131,7 @@ O Gateway de Aplicativo permite que você crie páginas de erro personalizadas e
 
 Para obter mais informações, confira [Erros Personalizados](custom-error.md).
 
-## <a name="rewrite-http-headers"></a>Reescrever cabeçalhos HTTP
+## <a name="rewrite-http-headers-and-url"></a>Reescrever cabeçalhos e URL HTTP
 
 Os cabeçalhos HTTP permitem que o cliente e o servidor passem informações adicionais com a solicitação ou a resposta. A reescrita desses cabeçalhos HTTP ajuda você a realizar vários cenários importantes, como:
 
@@ -138,9 +139,11 @@ Os cabeçalhos HTTP permitem que o cliente e o servidor passem informações adi
 - Remoção de campos de cabeçalho de resposta que podem revelar informações confidenciais.
 - Remoção de informações de porta de cabeçalhos X-Forwarded-For.
 
-O Gateway de Aplicativo dá suporte à capacidade de adicionar, remover ou atualizar solicitações HTTP e cabeçalhos de resposta, enquanto os pacotes de solicitação e resposta são transferidos entre os pools de cliente e de back-end. Ele também fornece a capacidade de adicionar condições para garantir que os cabeçalhos especificados sejam reescritos somente quando determinadas condições forem atendidas.
+O gateway de aplicativo e a SKU WAF v2 dão suporte à capacidade de adicionar, remover ou atualizar cabeçalhos de solicitação e resposta HTTP, enquanto os pacotes de solicitação e resposta são movidos entre os pools de cliente e de back-end. Você também pode reescrever URLs, parâmetros de cadeia de caracteres de consulta e nome do host. Com a regravação de URL e o roteamento baseado em caminho de URL, você pode optar por rotear solicitações para um dos pools de back-end com base no caminho original ou no caminho reescrito, usando a opção reavaliar mapa de caminho. 
 
-Para saber mais, confira [Reescrever cabeçalhos HTTP](rewrite-http-headers.md).
+Ele também fornece a capacidade de adicionar condições para garantir que os cabeçalhos ou a URL especificados sejam regravados somente quando determinadas condições forem atendidas. Essas condições se baseiam nas informações de solicitação e resposta.
+
+Para obter mais informações, consulte [reescrever cabeçalhos HTTP e URL](rewrite-http-headers-url.md).
 
 ## <a name="sizing"></a>Dimensionamento
 
@@ -152,7 +155,7 @@ Para obter uma lista completa de limites do gateway de aplicativo, consulte [Lim
 
 A tabela a seguir mostra uma produtividade de desempenho médio para cada instância do Gateway de Aplicativo v1 com o descarregamento SSL habilitado:
 
-| Tamanho médio de resposta de página de back-end | Pequeno | Médio | Grande |
+| Tamanho médio de resposta de página de back-end | Pequena | Médio | grande |
 | --- | --- | --- | --- |
 | 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
 | 100 KB |35 Mbps |100 Mbps |200 Mbps |

@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 045c73e3efefb29aac6bb25a8661fd510e351926
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5eee96702a5efbddcc66c2a0e428640f0848442a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021119"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068617"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arquitetura de alta disponibilidade e cenários para SAP NetWeaver
 
@@ -288,12 +289,12 @@ Um conjunto de disponibilidade é usado para alcançar alta disponibilidade de:
 
 
 ### <a name="azure-availability-zones"></a>Zonas de Disponibilidade do Azure
-O Azure está no processo de distribuir um conceito de [Zonas de Disponibilidade do Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) em diferentes [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/). Nas regiões do Azure em que as Zonas de Disponibilidade são oferecidas, as regiões do Azure têm vários data centers, que são independentes em relação a fonte de alimentação, resfriamento e rede. O motivo para a oferta de diferentes zonas em uma única região do Azure é permitir que você implante aplicativos em duas ou três Zonas de Disponibilidade oferecidas. Supondo que os problemas em fontes de alimentação e/ou rede afetem apenas uma infraestrutura de Zona de Disponibilidade, a implantação do aplicativo dentro de uma região do Azure permanece totalmente funcional. Eventualmente com alguma capacidade reduzida, pois algumas máquinas virtuais em uma região podem ser perdidas. Mas as VMs nas outras duas zonas ainda estão em execução. As regiões do Azure que oferecem zonas são listadas em [Zonas de Disponibilidade do Azure](https://docs.microsoft.com/azure/availability-zones/az-overview).
+O Azure está no processo de distribuir um conceito de [Zonas de Disponibilidade do Azure](../../../availability-zones/az-overview.md) em diferentes [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/). Nas regiões do Azure em que as Zonas de Disponibilidade são oferecidas, as regiões do Azure têm vários data centers, que são independentes em relação a fonte de alimentação, resfriamento e rede. O motivo para a oferta de diferentes zonas em uma única região do Azure é permitir que você implante aplicativos em duas ou três Zonas de Disponibilidade oferecidas. Supondo que os problemas em fontes de alimentação e/ou rede afetem apenas uma infraestrutura de Zona de Disponibilidade, a implantação do aplicativo dentro de uma região do Azure permanece totalmente funcional. Eventualmente com alguma capacidade reduzida, pois algumas máquinas virtuais em uma região podem ser perdidas. Mas as VMs nas outras duas zonas ainda estão em execução. As regiões do Azure que oferecem zonas são listadas em [Zonas de Disponibilidade do Azure](../../../availability-zones/az-overview.md).
 
 Ao usar Zonas de Disponibilidade, há alguns aspectos a serem considerados. A lista de considerações é semelhante à seguinte:
 
 - Não é possível implantar Conjuntos de Disponibilidade do Azure em uma Zona de Disponibilidade. Você precisa escolher uma Zona de Disponibilidade ou um Conjunto de Disponibilidade como o quadro de implantação de uma VM.
-- Não é possível usar o [Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) para criar soluções de cluster de failover baseadas em Serviços de Cluster de Failover do Windows ou no Linux Pacemaker. Em vez disso, você precisará usar o [SKU do Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
+- Não é possível usar o [Basic Load Balancer](../../../load-balancer/load-balancer-overview.md) para criar soluções de cluster de failover baseadas em Serviços de Cluster de Failover do Windows ou no Linux Pacemaker. Em vez disso, você precisará usar o [SKU do Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md)
 - As Zonas de Disponibilidade do Azure não fornecem nenhuma garantia de determinada distância entre diferentes zonas em uma região
 - A latência da rede entre diferentes Zonas de Disponibilidade do Azure em diferentes regiões do Azure poderá variar conforme a região do Azure. Haverá casos em que você, como cliente, poderá executar razoavelmente a camada de aplicativo SAP implantada em diferentes zonas, pois a latência da rede de uma zona para a VM ativa do DBMS ainda é aceitável de um impacto do processo empresarial. Em outros casos, haverá cenários de cliente em que a latência entre a VM ativa do DBMS em uma zona e uma instância do aplicativo SAP em uma VM em outra zona poderá ser muito invasiva e não aceitável para os processos empresariais do SAP. Como resultado, as arquiteturas de implantação precisam ser diferentes com uma arquitetura ativa/ativa para o aplicativo ou uma arquitetura ativa/passiva, caso a latência seja muito alta.
 - O uso do [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) é obrigatório para a implantação em Zonas de Disponibilidade do Azure 
@@ -354,12 +355,12 @@ _**Figura 1:** Servidor de aplicativos SAP de alta disponibilidade_
 
 Você deve colocar todas as máquinas virtuais que hospedam instâncias do servidor de aplicativos SAP no mesmo conjunto de disponibilidade do Azure. Um conjunto de disponibilidade do Azure garante que:
 
-* Todas as máquinas virtuais são parte do mesmo domínio de atualização.  
+* Todas as máquinas virtuais não fazem parte do mesmo domínio de atualização.  
     Um domínio de atualização faz com que as máquinas virtuais não sejam atualizadas ao mesmo tempo durante o tempo de inatividade de manutenção planejada.
 
     A funcionalidade básica, baseada em domínios de falha e de atualização diferentes em uma unidade de escala do Azure, já foi introduzida na seção [Domínios de atualização][planning-guide-3.2.2].
 
-* Todas as máquinas virtuais são parte do mesmo domínio de falha.  
+* Todas as máquinas virtuais não fazem parte do mesmo domínio de falha.  
     Um domínio de falha faz com que as máquinas virtuais sejam implantadas de forma que nenhum ponto único de falha afete a disponibilidade de todas as máquinas virtuais.
 
 O número de domínios de falha e atualização que podem ser usados por um conjunto de disponibilidade do Azure em uma unidade de escala do Azure é limitado. Se você continuar adicionando máquinas virtuais a um mesmo conjunto de disponibilidade, duas ou mais VMs eventualmente ficarão no mesmo domínio de falha ou atualização.
@@ -390,7 +391,7 @@ Você pode usar uma solução WSFC para proteger a instância SAP ASCS/SCS. A so
 
 * **Agrupar a instância do SAP ASCS/SCS em um cluster usando um compartilhamento de arquivo**: Para obter mais informações sobre essa arquitetura, confira [Agrupar uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um compartilhamento de arquivo][sap-high-availability-guide-wsfc-file-share].
 
-* **Agrupar a instância do SAP ASCS/SCS usando um compartilhamento ANF SMB**: Para obter mais informações sobre essa arquitetura, confira [Agrupar uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um compartilhamento de arquivo ANF SMB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
+* **Agrupar a instância do SAP ASCS/SCS usando um compartilhamento ANF SMB**: Para obter mais informações sobre essa arquitetura, confira [Agrupar uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um compartilhamento de arquivo ANF SMB](./high-availability-guide-windows-netapp-files-smb.md).
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Arquitetura de alta disponibilidade para uma instância do SAP ASCS/SCS no Linux
 
@@ -398,7 +399,7 @@ Você pode usar uma solução WSFC para proteger a instância SAP ASCS/SCS. A so
 > 
 > Para saber mais sobre o clustering da instância do SAP ASCS/SCS usando a estrutura de cluster SLES, confira [Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicativos SAP][sap-suse-ascs-ha]. Para ver uma arquitetura de HA alternativa no SLES, que não exige NFS altamente disponível, confira o [guia de alta disponibilidade para SAP NetWeaver em SUSE Linux Enterprise Server com Azure NetApp Files para aplicativos SAP][sap-suse-ascs-ha-anf].
 
-Para obter mais informações sobre como agrupar a instância do SAP ASCS/SCS em um cluster usando a estrutura de cluster do Red Hat, confira [Alta disponibilidade das Máquinas Virtuais do Azure para o SAP NetWeaver no Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
+Para obter mais informações sobre como agrupar a instância do SAP ASCS/SCS em um cluster usando a estrutura de cluster do Red Hat, confira [Alta disponibilidade das Máquinas Virtuais do Azure para o SAP NetWeaver no Red Hat Enterprise Linux](./high-availability-guide-rhel.md)
 
 
 ### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>Configuração multi-SID do SAP NetWeaver para uma instância do SAP ASCS/SCS em cluster
@@ -418,8 +419,8 @@ Para obter mais informações sobre como agrupar a instância do SAP ASCS/SCS em
 > Há suporte para o clustering multi-SID em clusters Linux Pacemaker para SAP ASCS/ERS, limitado a **cinco** SIDs da SAP no mesmo cluster.
 > Para saber mais sobre a arquitetura de alta disponibilidade multi-SID, confira:
 
-* [Guia de HA para SAP NW em VMs do Azure no SLES para aplicativos SAP multi-SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
-* [Guia de HA para SAP NW em VMs do Azure no RHEL para aplicativos SAP multi-SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+* [Guia de HA para SAP NW em VMs do Azure no SLES para aplicativos SAP multi-SID](./high-availability-guide-suse-multi-sid.md)
+* [Guia de HA para SAP NW em VMs do Azure no RHEL para aplicativos SAP multi-SID](./high-availability-guide-rhel-multi-sid.md)
 
 ### <a name="high-availability-dbms-instance"></a>Instância do DBMS de alta disponibilidade
 

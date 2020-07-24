@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-ms.openlocfilehash: dc77f3267813bd049274f44e43c4d64b0eb3801e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 67b635f09cb9407279e89b5f7b8526dab3c08946
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120272"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068513"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Ajuste de desempenho de TCP/IP para VMs do Azure
 
@@ -60,7 +60,7 @@ A fragmentação pode ser vista como uma operação negativa, mas o suporte à f
 
 Em geral, você pode criar uma rede mais eficiente aumentando a MTU. Cada pacote transmitido tem informações de cabeçalho que são adicionadas ao pacote original. Quando a fragmentação cria mais pacotes, há mais sobrecarga de cabeçalho e isso torna a rede menos eficiente.
 
-Aqui está um exemplo. O tamanho do cabeçalho de Ethernet é de 14 bytes mais uma sequência de verificação de quadro de 4 bytes para garantir a consistência do quadro. Se o pacote de 1 2.000 bytes for enviado, 18 bytes de sobrecarga de Ethernet serão adicionados na rede. Se o pacote estiver fragmentado em um pacote de 1.500 bytes e um pacote de 500 bytes, cada pacote terá 18 bytes de cabeçalho Ethernet, um total de 36 bytes.
+Veja um exemplo. O tamanho do cabeçalho de Ethernet é de 14 bytes mais uma sequência de verificação de quadro de 4 bytes para garantir a consistência do quadro. Se o pacote de 1 2.000 bytes for enviado, 18 bytes de sobrecarga de Ethernet serão adicionados na rede. Se o pacote estiver fragmentado em um pacote de 1.500 bytes e um pacote de 500 bytes, cada pacote terá 18 bytes de cabeçalho Ethernet, um total de 36 bytes.
 
 Tenha em mente que o aumento da MTU não criará, necessariamente, uma rede mais eficiente. Se um aplicativo enviar somente pacotes de 500 bytes, a mesma sobrecarga de cabeçalho existirá se o MTU for 1.500 bytes ou 9.000 bytes. A rede se tornará mais eficiente apenas se usar tamanhos de pacotes maiores que são afetados pela MTU.
 
@@ -125,9 +125,8 @@ Para o Azure, recomendamos que você defina TCP MSS fixação MSS como 1.350 byt
 
 A latência de rede é regida pela velocidade de luz em uma rede de fibra óptica. A taxa de transferência de rede do TCP também é efetivamente controlada pelo RTT (tempo de ida e volta) entre dois dispositivos de rede.
 
-| | | | |
-|-|-|-|-|
-|**Route**|**Distância**|**Tempo unidirecional**|**RTT**|
+| Rota | Distância | Tempo unidirecional | RTT |
+| ----- | -------- | ------------ | --- |
 |Nova York a São Francisco|4.148 km|21 MS|42 MS|
 |Nova York para Londres|5.585 km|28 MS|56 MS|
 |Nova York para Sydney|15.993 km|80 MS|160 ms|
@@ -162,9 +161,8 @@ Aqui está a fórmula para calcular a taxa de transferência máxima de uma úni
 
 Esta tabela mostra a taxa de transferência máxima de megabytes/por segundo de uma única conexão TCP. (Para facilitar a leitura, é usado megabytes para a unidade de medida.)
 
-| | | | |
-|-|-|-|-|
-|**Tamanho da janela TCP (bytes)**|**Latência de RTT (MS)**|**Taxa de transferência máxima de megabytes/segundo**|**Taxa de transferência máxima de megabits/segundo**|
+| Tamanho da janela TCP (bytes) | Latência de RTT (MS) | Taxa de transferência máxima de megabytes/segundo | Taxa de transferência máxima de megabits/segundo |
+| ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65.535|1|65,54|524,29|
 |65.535|30|2,18|17,48|
 |65.535|60|1.09|8,74|
@@ -179,9 +177,8 @@ O dimensionamento da janela TCP é uma técnica que aumenta dinamicamente o tama
 
 Esta tabela ilustra essas relações:
 
-| | | | |
-|-|-|-|-|
-|**Tamanho da janela TCP (bytes)**|**Latência de RTT (MS)**|**Taxa de transferência máxima de megabytes/segundo**|**Taxa de transferência máxima de megabits/segundo**|
+| Tamanho da janela TCP (bytes) | Latência de RTT (MS) | Taxa de transferência máxima de megabytes/segundo | Taxa de transferência máxima de megabits/segundo |
+| ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65.535|30|2,18|17,48|
 |131.070|30|4.37|34,95|
 |262.140|30|8,74|69,91|
@@ -221,11 +218,10 @@ Set-NetTCPSetting
 
 Essas são as configurações de TCP efetivas para `AutoTuningLevel` :
 
-| | | | |
-|-|-|-|-|
-|**AutoTuningLevel**|**Fator de dimensionamento**|**Multiplicador de dimensionamento**|**Fórmula para <br/> calcular o tamanho máximo da janela**|
+| AutoTuningLevel | Fator de dimensionamento | Multiplicador de dimensionamento | Fórmula para<br/>calcular o tamanho máximo da janela |
+| --------------- | -------------- | ------------------ | -------------------------------------------- |
 |Desabilitado|Nenhum|Nenhum|Tamanho da janela|
-|Restrito|4|2 ^ 4|Tamanho da janela * (2 ^ 4)|
+|Restritos|4|2 ^ 4|Tamanho da janela * (2 ^ 4)|
 |Altamente restrito|2|2 ^ 2|Tamanho da janela * (2 ^ 2)|
 |Normal|8|2 ^ 8|Tamanho da janela * (2 ^ 8)|
 |Habilitação|14|2 ^ 14|Tamanho da janela * (2 ^ 14)|

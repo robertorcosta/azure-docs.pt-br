@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ba6ceec3064c5c876ca899ab58881e23913b9701
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85b0137f8d89def2f38ffe82199950c9158888d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81429012"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070042"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Decisões de design e técnicas de codificação para recursos do Synapse SQL no Azure Synapse Analytics
 Neste artigo, você encontrará uma lista de recursos para o pool SQL e as funções SQL sob demanda (versão prévia) do SQL Synapse. Os artigos recomendados são divididos em duas seções: principais decisões de design e técnicas de desenvolvimento e codificação.
@@ -25,8 +25,8 @@ O objetivo desses artigos é ajudá-lo a desenvolver a abordagem técnica ideal 
 ## <a name="key-design-decisions"></a>Principais decisões de design
 Os artigos abaixo destacam os conceitos e as decisões de design para o desenvolvimento do Synapse SQL:
 
-|                                                          |   Pool de SQL   | SQL sob demanda |
-| -----------------------------------------------------    | ---- | ---- |
+| Artigo | Pool de SQL | SQL sob demanda |
+| ------- | -------- | ------------- |
 | [Conexões](connect-overview.md)                    | Sim | Sim |
 | [Simultaneidade e classes de recursos](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Sim    | Não |
 | [Transações](develop-transactions.md)              | Sim | Não |
@@ -44,8 +44,8 @@ Os artigos abaixo destacam os conceitos e as decisões de design para o desenvol
 
 Abaixo você encontrará artigos essenciais que enfatizam técnicas de codificação específicas, dicas e recomendações para desenvolvimento:
 
-|                                            | Pool de SQL | SQL sob demanda |
-| ------------------------------------------ | ------------------ | ----------------------- |
+| Artigo | Pool de SQL | SQL sob demanda |
+| ------- | -------- | ------------- |
 | [Procedimentos armazenados](develop-stored-procedures.md)  | Sim                | Não                      |
 | [Rótulos](develop-label.md)                           | Sim                | Não                      |
 | [Exibições](develop-views.md)                             | Sim                | Sim                     |

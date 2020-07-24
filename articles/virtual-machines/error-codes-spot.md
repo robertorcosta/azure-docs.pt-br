@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 4625a0fa75f992ac18eeb91629af373a426aa955
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5e621cc3763cfa7fe28790baf2f5d9866c8d618
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676566"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069791"
 ---
 # <a name="error-messages-for-spot-vms-and-scale-sets"></a>Mensagens de erro para VMs Spot e conjuntos de dimensionamento
 
@@ -34,7 +35,6 @@ Aqui estão alguns códigos de erro possíveis que você pode receber ao usar VM
 | MaxPriceIsSupportedOnlyForAzureSpotVirtualMachines  |  O preço máximo tem suporte apenas para máquinas virtuais do Azure Spot. | Para obter mais informações, consulte [máquinas virtuais Spot](./linux/spot-vms.md). |
 | MoveResourcesWithAzureSpotVMNotSupported  |  A solicitação mover recursos contém uma máquina virtual de ponto do Azure. Não há suporte para esse recurso no momento. Verifique os detalhes do erro para obter as IDs da máquina virtual. | Não é possível mover VMs pontuais. |
 | MoveResourcesWithAzureSpotVmssNotSupported  |  A solicitação mover recursos contém um conjunto de dimensionamento de máquinas virtuais do Azure Spot. Não há suporte para esse recurso no momento. Verifique os detalhes do erro para as IDs do conjunto de dimensionamento de máquinas virtuais. | Não é possível mover as instâncias do conjunto de escala Spot. |
-| EphemeralOSDisksNotSupportedForSpotVMs | Discos do sistema operacional efêmero não têm suporte para VMs Spot. | Use um disco do sistema operacional normal para sua VM Spot. |
 | AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | Não há suporte para a máquina virtual de ponto do Azure no conjunto de dimensionamento de máquinas virtuais com o modo de orquestração de VM. | Defina o modo de orquestração como conjunto de dimensionamento de máquinas virtuais para usar instâncias especiais. |
 
 

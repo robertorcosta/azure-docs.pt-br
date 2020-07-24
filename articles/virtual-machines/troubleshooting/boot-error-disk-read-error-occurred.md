@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/01/2020
 ms.author: v-miegge
-ms.openlocfilehash: dea09b1ac29db99e1c52a31a605007fa4129e8ea
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: f59903ed111be1fe414f4b3ded250d754c91d323
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302598"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069149"
 ---
 # <a name="troubleshoot-boot-error---disk-read-error-occurred"></a>Solucionar problemas de erro de inicialização – erro de leitura de disco
 
@@ -26,7 +27,7 @@ Este artigo apresenta as etapas para resolver problemas nos quais o disco não p
 
 ## <a name="symptoms"></a>Sintomas
 
-Ao usar o [Diagnóstico de inicialização](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para exibir a captura de tela da VM, você verá que a captura de tela exibe um prompt com a mensagem: "Erro de leitura do disco. Pressione Ctrl+Alt+Del para reiniciar".
+Ao usar o [Diagnóstico de inicialização](./boot-diagnostics.md) para exibir a captura de tela da VM, você verá que a captura de tela exibe um prompt com a mensagem: "Erro de leitura do disco. Pressione Ctrl+Alt+Del para reiniciar".
 
    ![Mensagem de erro: Erro de leitura do disco. Pressione Ctrl+Alt+Del para reiniciar.](./media/disk-read-error-occurred/1.png)
 
@@ -50,7 +51,7 @@ Essa mensagem de erro indica que a estrutura do disco está corrompida e ilegív
 
 ### <a name="create-and-access-a-repair-vm"></a>Criar e acessar uma VM de reparo
 
-1. Use as etapas 1-3 dos [Comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar uma VM de reparo.
+1. Use as etapas 1-3 dos [Comandos de reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar uma VM de reparo.
 1. Use a Conexão de Área de Trabalho Remota para conectar-se à VM de reparo.
 
 ### <a name="set-partition-status-to-active"></a>Definir status da partição como Ativo
@@ -142,4 +143,4 @@ Nas VMs de Geração 1 deve-se verificar primeiro se a partição do sistema ope
    
 ### <a name="rebuild-the-vm"></a>Recompilar a VM
 
-Use a [etapa 5 dos comandos de Reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para remontar a VM.
+Use a [etapa 5 dos comandos de Reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para remontar a VM.

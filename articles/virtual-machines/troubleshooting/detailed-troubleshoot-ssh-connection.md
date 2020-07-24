@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: ee6d437915f6c87ce9ef5f9c711d90793a96048c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b4890181721d08b741d327adb74bd097be5c9f2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77920120"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069172"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Etapas detalhadas de solução de problemas de SSH para problemas ao se conectar a uma VM do Linux no Azure
 Há muitas razões possíveis para que o cliente de SSH não possa acessar o serviço SSH na VM. Se tiver seguido as [etapas gerais de solução de problemas de SSH](troubleshoot-ssh-connection.md), será necessário solucionar o problema de conexão. Este artigo guiará você pelas etapas detalhadas de solução de problemas para determinar onde a conexão SSH está falhando e como resolver isso.
@@ -105,9 +106,9 @@ Se não houver outra VM na mesma rede virtual, você poderá criar facilmente um
 Se for possível criar uma conexão SSH com uma VM na mesma rede virtual, verifique as seguintes áreas:
 
 * **A configuração do ponto de extremidade para o tráfego SSH na VM de destino.**  A porta TCP particular do ponto de extremidade deve corresponder à porta TCP na qual o serviço SSH na VM está escutando. (A porta padrão é 22). Verifique o número da porta SSH TCP no portal do Azure selecionando **máquinas virtuais**  >  *nome da VM*  >  **configurações**  >  **pontos de extremidade**.
-* **A ACL para o ponto de extremidade de tráfego de SSH na máquina virtual de destino.**  Uma ACL permite que você especifique tráfego de entrada permitido ou negado da Internet com base em seu endereço IP de origem. ACLs configuradas incorretamente podem impedir o tráfego de SSH para o ponto de extremidade. Verifique suas ACLs para assegurar que o tráfego de entrada dos endereços IP públicos de seu proxy ou de outro servidor de borda é permitido. Para obter mais informações, veja [Sobre ACLs (listas de controle de acesso) de rede](../../virtual-network/virtual-networks-acl.md).
+* **A ACL para o ponto de extremidade de tráfego de SSH na máquina virtual de destino.**  Uma ACL permite que você especifique tráfego de entrada permitido ou negado da Internet com base em seu endereço IP de origem. ACLs configuradas incorretamente podem impedir o tráfego de SSH para o ponto de extremidade. Verifique suas ACLs para assegurar que o tráfego de entrada dos endereços IP públicos de seu proxy ou de outro servidor de borda é permitido. Para obter mais informações, veja [Sobre ACLs (listas de controle de acesso) de rede](/previous-versions/azure/virtual-network/virtual-networks-acl).
 
-Para que o ponto de extremidade deixe de ser a fonte do problema, remova o ponto de extremidade atual, crie um novo e especifique o nome do SSH (porta TCP 22 como o número da porta pública e privada). Para obter mais informações, consulte [Configurar pontos de extremidade em uma máquina virtual no Azure](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Para que o ponto de extremidade deixe de ser a fonte do problema, remova o ponto de extremidade atual, crie um novo e especifique o nome do SSH (porta TCP 22 como o número da porta pública e privada). Para obter mais informações, consulte [Configurar pontos de extremidade em uma máquina virtual no Azure](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=/azure/virtual-machines/windows/classic/toc.json).
 
 <a id="nsg"></a>
 
@@ -115,14 +116,14 @@ Para que o ponto de extremidade deixe de ser a fonte do problema, remova o ponto
 Os grupos de segurança de rede proporcionam um controle mais granular do tráfego de entrada e de saída permitido. Você pode criar regras que abrangem sub-redes e serviços de nuvem em uma rede virtual do Azure. Examine as regras do grupo de segurança de rede para verificar se o tráfego SSH de entrada e saída da Internet é permitido.
 Para saber mais, confira [Sobre grupos de segurança de rede](../../virtual-network/security-overview.md).
 
-Você também pode usar a Verificação de IP para validar a configuração do NSG. Para saber mais, veja [Visão geral do monitoramento de rede do Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
+Você também pode usar a Verificação de IP para validar a configuração do NSG. Para saber mais, veja [Visão geral do monitoramento de rede do Azure](../../network-watcher/network-watcher-monitoring-overview.md). 
 
 ## <a name="source-5-linux-based-azure-virtual-machine"></a>Fonte 5: máquina virtual do Azure baseada no Linux
 A última fonte possível de problemas é a própria máquina virtual do Azure.
 
 ![Diagrama que realça uma VM do Azure baseada em Linux](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-Se você ainda não fez isso, siga as instruções [para redefinir uma senha para máquinas virtuais baseadas em Linux](../linux/reset-password.md).
+Se você ainda não fez isso, siga as instruções [para redefinir uma senha para máquinas virtuais baseadas em Linux](./reset-password.md).
 
 Tente se conectar novamente do seu computador. Caso ainda não consiga, veja a seguir alguns dos possíveis problemas:
 
@@ -132,4 +133,4 @@ Tente se conectar novamente do seu computador. Caso ainda não consiga, veja a s
 * Um software de detecção de invasão ou de monitoramento de rede em execução na máquina virtual do Azure está impedindo conexões de SSH.
 
 ## <a name="additional-resources"></a>Recursos adicionais
-Para obter mais informações sobre como solucionar problemas de acesso do aplicativo, consulte [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](../linux/troubleshoot-app-connection.md)
+Para obter mais informações sobre como solucionar problemas de acesso do aplicativo, consulte [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](./troubleshoot-app-connection.md)
