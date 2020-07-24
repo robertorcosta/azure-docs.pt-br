@@ -5,12 +5,12 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 951894bcd047d93809b41f47213ad670823a27e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fff1aac5df50550e43ae3e87c63c2130c6b39644
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445365"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013956"
 ---
 # <a name="common-alert-schema-definitions"></a>Definições comuns do esquema de alertas
 
@@ -149,7 +149,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 ### <a name="log-alerts"></a>Alertas de registro
 
 > [!NOTE]
-> Para alertas de log que têm um assunto de email personalizado e/ou payload JSON definido, habilitar o esquema comum reverte o assunto do email e/ou esquema de payload para o descrito a seguir. Os alertas com o esquema comum habilitado têm um limite de tamanho superior de 256 KB por alerta. Os resultados da pesquisa não serão inseridos no payload de alertas de log se fizerem o tamanho do alerta cruzar esse limite. Você pode determinar isso verificando o sinalizador `IncludeSearchResults`. Quando os resultados da pesquisa não estiverem incluídos, você deverá usar a consulta de pesquisa em conjunto com a [API do Log Analytics](https://docs.microsoft.com/rest/api/loganalytics/dataaccess/query/get). 
+> Para alertas de log que têm um assunto de email personalizado e/ou payload JSON definido, habilitar o esquema comum reverte o assunto do email e/ou esquema de payload para o descrito a seguir. Os alertas com o esquema comum habilitado têm um limite de tamanho superior de 256 KB por alerta. Os resultados da pesquisa não serão inseridos no payload de alertas de log se fizerem o tamanho do alerta cruzar esse limite. Você pode determinar isso verificando o sinalizador `IncludeSearchResults`. Quando os resultados da pesquisa não estiverem incluídos, você deverá usar a consulta de pesquisa em conjunto com a [API do Log Analytics](/rest/api/loganalytics/dataaccess/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -220,7 +220,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
                     "Heartbeat"
                 ]
             }
-        ]
+        ],
     "IncludeSearchResults": "True",
     "AlertType": "Metric measurement"
     }
@@ -500,5 +500,4 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs).
-- Saiba [como criar um aplicativo lógico que usa o esquema de alerta comum para lidar com todos os seus alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations). 
-
+- Saiba [como criar um aplicativo lógico que usa o esquema de alerta comum para lidar com todos os seus alertas](./alerts-common-schema-integrations.md). 

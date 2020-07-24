@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: a2074b1ecd37fd18a9a0ac9091f05e734765e40b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 181f0d62f160a6644e0423be052012521752525f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86199985"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012936"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>O que é o designer do Azure Machine Learning (versão prévia)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -115,25 +115,6 @@ Os pipelines publicados são flexíveis, podem ser usados ​​para treinar ou 
 Um pipeline publicado é executado nos recursos de computação que você define no rascunho de pipeline para cada módulo.
 
 O designer cria o mesmo objeto [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) que o SDK.
-
-
-## <a name="moving-from-the-visual-interface-to-the-designer"></a>Migração da interface visual para o designer
-
-A interface visual (versão prévia) foi atualizada e agora tornou-se o designer do Azure Machine Learning (versão prévia). O designer foi reprojetado para usar um back-end baseado em pipeline que é totalmente integrado aos outros recursos do Azure Machine Learning. 
-
-Como resultado dessas atualizações, alguns conceitos e termos da interface visual foram alterados ou renomeados. Veja a tabela abaixo para obter as alterações conceituais mais importantes. 
-
-| Conceito no designer | Anteriormente na interface visual |
-| ---- |:----:|
-| Rascunho de pipeline | Experimento |
-| Ponto de extremidade em tempo real | Serviço Web |
-
-### <a name="migrating-to-the-designer"></a>Migração para o designer
-
-Você pode converter os experimentos e serviços Web da interface visual existente em pipelines e pontos de extremidade em tempo real no designer. Use as etapas a seguir para migrar os ativos de interface visual:
-
-[!INCLUDE [migrate from the visual interface](../../includes/aml-vi-designer-migration.md)]
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -3,11 +3,12 @@ title: Coleção de endereços IP do Aplicativo Azure insights | Microsoft Docs
 description: Compreendendo como os endereços IP e a localização geográfica são tratados com o Aplicativo Azure insights
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: c7a4506c6a4246edc007a5ea2158998b472ec316
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1576207eb267166a33b84009407ec119de471e6e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807121"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014432"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Geolocalização e manipulação de endereço IP
 
@@ -26,7 +27,7 @@ Esse comportamento é por design para ajudar a evitar a coleta desnecessária de
 
 ## <a name="overriding-default-behavior"></a>Substituindo o comportamento padrão
 
-Embora o comportamento padrão seja minimizar a coleta de dados pessoais, ainda oferecemos a flexibilidade para coletar e armazenar dados de endereço IP. Antes de optar por armazenar quaisquer dados pessoais, como endereços IP, é altamente recomendável verificar se isso não interrompe os requisitos de conformidade ou as normas locais às quais você pode estar sujeito. Para saber mais sobre a manipulação de dados pessoais no Application Insights, consulte as [diretrizes para dados pessoais](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt).
+Embora o comportamento padrão seja minimizar a coleta de dados pessoais, ainda oferecemos a flexibilidade para coletar e armazenar dados de endereço IP. Antes de optar por armazenar quaisquer dados pessoais, como endereços IP, é altamente recomendável verificar se isso não interrompe os requisitos de conformidade ou as normas locais às quais você pode estar sujeito. Para saber mais sobre a manipulação de dados pessoais no Application Insights, consulte as [diretrizes para dados pessoais](../platform/personal-data-mgmt.md).
 
 ## <a name="storing-ip-address-data"></a>Armazenando dados de endereço IP
 
@@ -98,7 +99,7 @@ Se você só precisa modificar o comportamento de um único recurso Application 
 
 ### <a name="rest-api"></a>API Rest
 
-A carga da [API REST](https://docs.microsoft.com/rest/api/azure/) para fazer as mesmas modificações é a seguinte:
+A carga da [API REST](/rest/api/azure/) para fazer as mesmas modificações é a seguinte:
 
 ```
 PATCH https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/microsoft.insights/components/<resource-name>?api-version=2018-05-01-preview HTTP/1.1
@@ -119,7 +120,7 @@ Content-Length: 54
 
 ## <a name="telemetry-initializer"></a>Inicializador de telemetria
 
-Se precisar de uma alternativa mais flexível do que `DisableIpMasking` registrar todo ou parte dos endereços IP, você poderá usar um [inicializador de telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) para copiar todo ou parte do IP para um campo personalizado. 
+Se precisar de uma alternativa mais flexível do que `DisableIpMasking` registrar todo ou parte dos endereços IP, você poderá usar um [inicializador de telemetria](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) para copiar todo ou parte do IP para um campo personalizado. 
 
 ### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
@@ -232,6 +233,6 @@ Endereços IP recentemente coletados devem aparecer na `customDimensions_client-
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a [coleta de dados pessoais](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) no Application insights.
+* Saiba mais sobre a [coleta de dados pessoais](../platform/personal-data-mgmt.md) no Application insights.
 
 * Saiba mais sobre como a [coleta de endereços IP](https://apmtips.com/posts/2016-07-05-client-ip-address/) no Application insights funciona. (Esta é uma postagem de blog externa mais antiga escrita por um de nossos engenheiros. Ele atinge o comportamento padrão atual em que o endereço IP é registrado como `0.0.0.0` , mas ele entra em mais detalhes sobre a mecânica do interno `ClientIpHeaderTelemetryInitializer` .)

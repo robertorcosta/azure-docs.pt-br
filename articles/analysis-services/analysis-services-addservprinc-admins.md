@@ -8,12 +8,12 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4ce23e9da84d01a288c1c37c6a6d884db2ed3969
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ce8f7347e4813e72ede426ab17f09221ab859136
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077551"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015401"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicionar uma entidade de serviço à função de administrador do servidor 
 
@@ -44,7 +44,7 @@ Você pode configurar administradores de servidor usando o SSMS (SQL Server Mana
 
 ## <a name="using-a-resource-manager-template"></a>Usar um modelo do Resource Manager
 
-Você também pode configurar os administradores de servidor implantando o servidor do Analysis Services usando um modelo do Azure Resource Manager. A identidade que executa a implantação deve pertencer à função de **Colaborador** para o recurso no [RBAC (controle de acesso baseado em função) do Azure](../role-based-access-control/overview.md).
+Você também pode configurar os administradores de servidor implantando o servidor do Analysis Services usando um modelo do Azure Resource Manager. A identidade que executa a implantação deve pertencer à função de **colaborador** para o recurso no [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md).
 
 > [!IMPORTANT]
 > A entidade de serviço deve ser adicionada usando o formato `app:{service-principal-client-id}@{azure-ad-tenant-id}`.
@@ -119,5 +119,3 @@ Você pode usar essa ID de cliente em conjunto com a ID de locatário para adici
 
 * [Baixar o módulo do PowerShell do SQL Server](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [Baixar o SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
-
-

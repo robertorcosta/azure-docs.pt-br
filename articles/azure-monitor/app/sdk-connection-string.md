@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: d9906e43bad296cc850942c01c83c6bfee2651fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81e27c0f62e921eb468c78521e426c8917da250a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482115"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014131"
 ---
 # <a name="connection-strings"></a>Cadeias de conexão
 
@@ -31,12 +31,12 @@ Os cenários de clientes nos quais visualizamos isso tem o maior impacto:
 
 - Exceções de firewall ou redirecionamentos de proxy 
 
-    Nos casos em que o monitoramento do servidor Web da intranet é necessário, nossa solução anterior solicitou que os clientes adicionassem pontos de extremidade de serviço individuais à sua configuração. Para saber mais, clique [aqui](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
+    Nos casos em que o monitoramento do servidor Web da intranet é necessário, nossa solução anterior solicitou que os clientes adicionassem pontos de extremidade de serviço individuais à sua configuração. Para saber mais, clique [aqui](../faq.md#can-i-monitor-an-intranet-web-server). 
     As cadeias de conexão oferecem uma alternativa melhor, reduzindo esse esforço para uma única configuração. Um prefixo simples, emenda de sufixo, permite preenchimento automático e redirecionamento de todos os pontos de extremidade para os serviços corretos. 
 
 - Ambientes de nuvem híbrida ou soberanas
 
-    Os usuários podem enviar dados para uma [região do Azure governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)definida.
+    Os usuários podem enviar dados para uma [região do Azure governamental](../../azure-government/compare-azure-government-global-azure.md#application-insights)definida.
     As cadeias de conexão permitem definir configurações de ponto de extremidade para seus servidores de intranet ou configurações de nuvem híbrida. 
 
 ## <a name="getting-started"></a>Introdução
@@ -53,11 +53,11 @@ Sua cadeia de conexão é exibida na folha visão geral do recurso de Applicatio
 
 A conexão tem um comprimento máximo com suporte de 4096 caracteres.
 
-#### <a name="key-value-pairs"></a>Pares chave-valor
+#### <a name="key-value-pairs"></a>Pares de chave-valor
 
 A cadeia de conexão consiste em uma lista de configurações representadas como pares chave-valor separados por ponto e vírgula:`key1=value1;key2=value2;key3=value3`
 
-#### <a name="syntax"></a>Syntax
+#### <a name="syntax"></a>Sintaxe
 
 - `InstrumentationKey`(ex: 00000000-0000-0000-0000-000000000000)  A cadeia de conexão é um campo **obrigatório** .
 - `Authorization`(ex: iKey) (Essa configuração é opcional porque hoje só damos suporte à autorização iKey.)

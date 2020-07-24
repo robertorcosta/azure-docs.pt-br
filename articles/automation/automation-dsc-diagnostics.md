@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0560d9a5156f06f7ae7473f63359d9d17926b7ab
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 425a7ff0553ddeac502c59e240f5ab152d6e0d79
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186445"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015146"
 ---
 # <a name="integrate-with-azure-monitor-logs"></a>Integrar com os logs do Azure Monitor
 
@@ -34,7 +34,7 @@ Os logs do Azure Monitor oferecem maior visibilidade operacional para os dados d
 
 Para começar a enviar seus relatórios de State Configuration de Automação para logs do Azure Monitor, você precisará:
 
-- Versão de novembro 2016 ou posterior do [Azure PowerShell](/powershell/azure/overview) ( versão 2.3.0).
+- Versão de novembro 2016 ou posterior do [Azure PowerShell](/powershell/azure/) ( versão 2.3.0).
 - Uma conta de Automação do Azure. Confira mais informações em [Uma introdução à Automação do Azure](automation-intro.md).
 - Um espaço de trabalho do Log Analytics com uma oferta de serviço Automação e Controle. Para obter mais informações, confira [Introdução ao Log Analytics no Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
 - No mínimo, um nó de Configuração do Estado de Automação do Azure. Para saber mais, veja [Máquinas de integração para o gerenciamento pela State Configuration de Automação do Azure](automation-dsc-onboarding.md).

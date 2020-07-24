@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: 171b355f40939efb31e96a4bf8b2d77e97d19f25
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 77b5b52153c552008406b4b85083bcba5542cebe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147096"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012715"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Evitar dados de sobreajuste e desequilibrados com o machine learning automatizado
 
@@ -101,7 +101,7 @@ As técnicas a seguir são opções adicionais para lidar com dados desequilibra
 
 - A reamostragem até mesmo do desequilíbrio de classe, seja por upsampling das classes menores ou downsampling das classes maiores. Esses métodos exigem experiência para processar e analisar.
 
-- Examine as métricas de desempenho para dados desequilibrados. Por exemplo, a medida f é uma média ponderada de precisão e recall. A precisão mede a exatidão de um classificador, e a precisão baixa indica um alto número de falsos positivos. O recall mede a integridade de um classificador, e o recall baixo indica um grande número de falsos negativos.
+- Examine as métricas de desempenho para dados desequilibrados. Por exemplo, a pontuação F1 é a média harmônica de precisão e RECALL. A precisão mede a exatidão de um classificador, onde a precisão mais alta indica menos falsos positivos, enquanto a RECALL mede a integridade de um classificador, onde a RECALL superior indica menos falsos negativos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

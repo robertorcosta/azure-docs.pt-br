@@ -4,11 +4,12 @@ description: Introdução ao Application Insights. Analise o uso, disponibilidad
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 873fc41585c387246d83008a8f97d6c4d9a32c3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b93e7f0fdb909a40667b001fa99929b3cfe27ad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80985058"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014158"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitore o desempenho em aplicativos da web
 
@@ -25,7 +26,7 @@ Se você ainda não tem o Application Insights adicionado ao seu projeto (ou sej
 * [Aplicativos Web ASP.NET](../../azure-monitor/app/asp-net.md)
   * [Adicionar monitoramento de exceção](../../azure-monitor/app/asp-net-exceptions.md)
   * [Adicionar monitoramento de dependência](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Aplicativos da web de Java EE](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
+* [Aplicativos da web de Java EE](./java-in-process-agent.md)
 
 ## <a name="exploring-performance-metrics"></a><a name="view"></a>Explorando métricas de desempenho
 No [portal do Azure](https://portal.azure.com), navegue até o recurso do Application Insights que você configurou para seu aplicativo. A folha de visão geral mostra os dados de desempenho básicos:
@@ -60,15 +61,15 @@ Procure por picos incomuns. Em geral, espere o tempo de resposta para eevar com 
 
 Clique no bloco para obter tempos para URLs específicas.
 
-![](./media/web-monitor-performance/appinsights-42reqs.png)
+![Captura de tela do painel integridade do aplicativo, que exibe grafos de linha ao longo do tempo de médias de movimentação de solicitações e tempo de resposta.](./media/web-monitor-performance/appinsights-42reqs.png)
 
 ### <a name="slowest-requests"></a>Solicitações mais lentas
-![](./media/web-monitor-performance/appinsights-44slowest.png)
+![Captura de tela de uma lista das solicitações mais lentas e seus tempos de resposta.](./media/web-monitor-performance/appinsights-44slowest.png)
 
 Mostra quais solicitações podem precisar de sintonização de desempenho.
 
-### <a name="failed-requests"></a>Solicitações falhas
-![](./media/web-monitor-performance/appinsights-46failed.png)
+### <a name="failed-requests"></a>Solicitações com falha
+![Captura de tela de um grafo de linha ao longo do tempo do número de solicitações com falha; ou seja, as solicitações que geraram exceções não capturadas.](./media/web-monitor-performance/appinsights-46failed.png)
 
 Uma contagem de solicitações que gerou exceções não capturadas.
 
@@ -86,7 +87,7 @@ Selecionar uma métrica desabilitará as outras que não podem ser exibidas no m
 ## <a name="set-alerts"></a>Definir alertas
 Para ser notificado por email sobre valores incomuns de qualquer métrica, adicione um alerta. Você pode escolher para enviar o email para os administradores de conta ou para endereços de email específicos.
 
-![](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
+![Captura de tela da caixa de diálogo Adicionar uma regra de alerta, juntamente com capturas de tela conectadas por setas que mostram como acessar essa caixa de diálogo de Metrics Explorer.](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
 
 Defina o recurso antes de outras propriedades. Não escolha os recursos webtest se você quer definir alertas em métricas de desempenho ou de uso.
 
@@ -144,12 +145,9 @@ A experiência de investigação de desempenho mostra insights relevantes ao lad
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../azure-monitor/app/app-insights-overview.md
 [usage]: usage-overview.md
 [livestream]: ../../azure-monitor/app/live-stream.md
 [snapshot]: ../../azure-monitor/app/snapshot-debugger.md
-
-
-

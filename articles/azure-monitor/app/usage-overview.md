@@ -3,11 +3,12 @@ title: Usar análise com o Azure Application Insights | Microsoft Docs
 description: Compreenda seus usuários e o que eles fazem com o seu aplicativo.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 7f4f46f183291684fa59e5aa35b65c8ac3352563
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 1acc803d66bef29a77266d4e38e1605ffd75f36f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797787"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014058"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de uso com o Application Insights
 
@@ -33,7 +34,7 @@ A melhor experiência é obtida, instalando o Application Insights tanto no cód
     </script>
     ```
 
-    Para saber sobre configurações mais avançadas para o monitoramento de sites, confira o [artigo de referência do SDK de JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+    Para saber sobre configurações mais avançadas para o monitoramento de sites, confira o [artigo de referência do SDK de JavaScript](./javascript.md).
 
 3. **Código do aplicativo móvel:** Use o SDK do App Center para coletar eventos do seu aplicativo e, em seguida, envie cópias desses eventos ao Application Insights para análise [seguindo este guia](../../azure-monitor/learn/mobile-center-quickstart.md).
 
@@ -44,7 +45,7 @@ A melhor experiência é obtida, instalando o Application Insights tanto no cód
 ## <a name="include-user-and-session-id-in-your-telemetry"></a>Incluir a ID de usuário e de sessão em sua telemetria
 Para controlar os usuários ao longo do tempo, o Application Insights requer um modo para identificá-los. A ferramenta Eventos é a única ferramenta de Uso que não requer uma ID de usuário ou uma ID de sessão.
 
-Comece o envio de IDs de usuário e de sessão usando [este processo](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
+Comece o envio de IDs de usuário e de sessão usando [este processo](./usage-send-user-context.md).
 
 ## <a name="explore-usage-demographics-and-statistics"></a>Explore as estatísticas e dados demográficos de uso
 Descubra quando as pessoas usam seu aplicativo, em quais páginas elas estão mais interessadas, onde os usuários estão localizados e quais navegadores e sistemas operacionais eles usam. 

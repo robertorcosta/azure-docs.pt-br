@@ -3,12 +3,12 @@ title: Explorar os logs de rastreamento do .NET no Application Insights
 description: Pesquise logs gerados por Trace, NLog ou Log4Net.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: d010fe4389e22c9909800f5329911b6b5619d7b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aad81855b58ee96789d097fbfbd3e7f9b17f6900
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829526"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014568"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Explorar os logs de rastreamento do .NET/.NET Core e do Python no Application Insights
 
@@ -84,7 +84,7 @@ Se você preferir log4net ou NLog, use:
 ```
 
 ## <a name="use-eventsource-events"></a>Usar eventos EventSource
-É possível configurar eventos [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) para que eles sejam enviados para o Application Insights como rastreamentos. Primeiro, instale o pacote NuGet `Microsoft.ApplicationInsights.EventSourceListener`. Depois, edite a seção `TelemetryModules` do arquivo [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md).
+É possível configurar eventos [System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) para que eles sejam enviados para o Application Insights como rastreamentos. Primeiro, instale o pacote NuGet `Microsoft.ApplicationInsights.EventSourceListener`. Depois, edite a seção `TelemetryModules` do arquivo [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md).
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -190,7 +190,7 @@ Por exemplo, você pode:
 
 ## <a name="troubleshooting"></a>Solução de problemas
 ### <a name="how-do-i-do-this-for-java"></a>Como faço isso no Java?
-Em instrumentação sem código Java (recomendado), os logs são coletados prontos para o uso. Use o [agente do Java 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+Em instrumentação sem código Java (recomendado), os logs são coletados prontos para o uso. Use o [agente do Java 3.0](./java-in-process-agent.md).
 
 Se você estiver usando o SDK do Java, use os [adaptadores de log Java](../../azure-monitor/app/java-trace-logs.md).
 
@@ -200,7 +200,7 @@ Se você estiver usando o SDK do Java, use os [adaptadores de log Java](../../az
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>Não há nenhuma opção de adaptador de log na ferramenta de configuração
 * Instale primeiro a estrutura de registros.
-* Se estiver usando System.Diagnostics.Trace, verifique se você o [configurou no *web.config*](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
+* Se estiver usando System.Diagnostics.Trace, verifique se você o [configurou no *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1).
 * Verifique se você tem a versão mais recente do Application Insights. No Visual Studio, acesse **Ferramentas** > **Extensões e Atualizações** e abra a guia **Atualizações**. Se o **Developer Analytics Tools** estiver presente, selecione-o para atualizá-lo.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>Recebo a mensagem de erro "A chave de instrumentação não pode estar vazia"
@@ -228,5 +228,5 @@ Se o aplicativo enviar um volume muito grande de dados e se você estiver usando
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [start]: ../../azure-monitor/app/app-insights-overview.md

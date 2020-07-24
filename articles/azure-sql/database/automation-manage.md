@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 3d785edb82e62363dd96d9fd67447f1be7ffe8f5
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: b90acafb9146ec6cd796a0916ad46bf880398b22
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982592"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013973"
 ---
 # <a name="manage-databases-in-azure-sql-database-by-using-azure-automation"></a>Gerenciar bancos de dados no banco de dados SQL do Azure usando a automação do Azure
 
@@ -34,7 +34,7 @@ Reduza o custo operacional e libere a equipe de TI/ DevOps para se concentrar no
 
 ## <a name="how-azure-automation-can-help-manage-your-databases"></a>Como a automação do Azure pode ajudar a gerenciar seus bancos de dados
 
-Com a automação do Azure, você pode gerenciar bancos de dados no banco de dados SQL do Azure usando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql) que estão disponíveis nas [ferramentas de Azure PowerShell](/powershell/azure/overview). A automação do Azure tem esses cmdlets do PowerShell do banco de dados SQL do Azure disponíveis prontos para uso, para que você possa executar todas as tarefas de gerenciamento do banco de dados SQL dentro do serviço. Você também pode combinar esses cmdlets na Automação do Azure com os cmdlets de outros serviços do Azure para automatizar tarefas complexas em serviços do Azure e sistemas de terceiros.
+Com a automação do Azure, você pode gerenciar bancos de dados no banco de dados SQL do Azure usando [cmdlets do PowerShell](/powershell/module/servicemanagement/azure.service/#sql) que estão disponíveis nas [ferramentas de Azure PowerShell](/powershell/azure/). A automação do Azure tem esses cmdlets do PowerShell do banco de dados SQL do Azure disponíveis prontos para uso, para que você possa executar todas as tarefas de gerenciamento do banco de dados SQL dentro do serviço. Você também pode combinar esses cmdlets na Automação do Azure com os cmdlets de outros serviços do Azure para automatizar tarefas complexas em serviços do Azure e sistemas de terceiros.
 
 A Automação do Azure também tem a capacidade de se comunicar com servidores SQL diretamente, emitindo comandos SQL usando o PowerShell.
 

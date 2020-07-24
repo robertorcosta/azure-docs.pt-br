@@ -3,28 +3,28 @@ title: Exportação contínua de telemetria do Application Insights | Microsoft 
 description: Exportar dados de uso e diagnóstico para armazenamento no Microsoft Azure e baixá-los de lá.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 8ca2dc30b6e0681b5ee10fa3c77fab15ffb18b1d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 54cd6db6de4aa9c1b8f8894c03a8803ee4aa2b00
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110208"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014517"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria do Application Insights
 Deseja manter a telemetria por mais tempo que o período de retenção padrão? Ou processá-la de alguma forma especializada? Exportação contínua é ideal para isso. Os eventos que você vê no portal do Application Insights podem ser exportados para armazenamento no Microsoft Azure no formato JSON. A partir daí, você pode baixar os dados e gravar qualquer código que precisar para processá-los.  
 
 > [!NOTE]
-> A exportação contínua só é compatível com recursos clássicos do Application Insights. Os [recursos baseados em espaço de trabalho do Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource) devem usar as [configurações de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource#export-telemetry).
+> A exportação contínua só é compatível com recursos clássicos do Application Insights. Os [recursos baseados em espaço de trabalho do Application Insights](./create-workspace-resource.md) devem usar as [configurações de diagnóstico](./create-workspace-resource.md#export-telemetry).
 >
 
 Antes de configurar a exportação contínua, há algumas alternativas que você talvez queira considerar:
 
 * O botão Exportar na parte superior de uma métrica ou da guia de pesquisa permite transferir tabelas e gráficos para uma planilha do Excel.
 
-* O [Analytics](../../azure-monitor/app/analytics.md) fornece uma linguagem de consulta eficiente para telemetria. Ele também pode exportar os resultados.
+* O [Analytics](../log-query/log-query-overview.md) fornece uma linguagem de consulta eficiente para telemetria. Ele também pode exportar os resultados.
 * Se desejar [explorar seus dados no Power BI](../../azure-monitor/app/export-power-bi.md ), é possível fazer isso sem usar a Exportação Contínua.
 * A [API REST de acesso a dados](https://dev.applicationinsights.io/) permite que você acesse a telemetria programaticamente.
-* Você também pode acessar a configuração de [exportação contínua por meio do PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
+* Você também pode acessar a configuração de [exportação contínua por meio do PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
 Depois que a exportação contínua copia os dados para o armazenamento (onde eles podem permanecer pelo tempo desejado), eles ainda ficam disponíveis no Application Insights pelo [período de retenção](../../azure-monitor/app/data-retention-privacy.md) normal.
 
@@ -32,9 +32,9 @@ Depois que a exportação contínua copia os dados para o armazenamento (onde el
 
 A exportação contínua **não oferece suporte** aos seguintes recursos/configurações do armazenamento do Azure:
 
-* O uso de [firewalls de VNET/Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security) em conjunto com o armazenamento de blobs do Azure.
+* O uso de [firewalls de VNET/Armazenamento do Azure](../../storage/common/storage-network-security.md) em conjunto com o armazenamento de blobs do Azure.
 
-* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
+* [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
 
 ## <a name="create-a-continuous-export"></a><a name="setup"></a> Criar uma Exportação Contínua
 

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 5afa6b9127317fcd1a683651be86cdfe078cfcd6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 94724ea44b52ae885594fe55b67d74a03e339dab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259438"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012839"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para o Azure Machine Learning
 
@@ -34,7 +34,7 @@ A autenticação multifator terá suporte se o Azure AD (Azure Active Directory)
 1. O cliente apresenta o token para o Azure Resource Manager e para todos os Azure Machine Learning.
 1. O serviço do Machine Learning fornece um token de serviço do Machine Learning para o destino de computação do usuário (por exemplo, Computação do Machine Learning). Esse token é usado pelo destino de computação do usuário para retornar ao serviço do Machine Learning depois de a execução ter sido concluída. O escopo é limitado ao workspace.
 
-[![Autenticação no Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication-expanded.png#lightbox)
+[![Autenticação no Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication.png#lightbox)
 
 Para obter mais informações, consulte [Configurar a autenticação para recursos e fluxos de trabalho do Azure Machine Learning](how-to-setup-authentication.md). Este artigo apresenta informações e exemplos de autenticação, incluindo o uso de entidades de serviço e fluxos de trabalho automatizados.
 
@@ -128,6 +128,8 @@ O `hbi_workspace` sinalizador controla a quantidade de dados que a Microsoft col
 * Passa com segurança credenciais para sua conta de armazenamento, registro de contêiner e conta SSH da camada de execução para seus clusters de computação usando o cofre de chaves
 * Habilita a filtragem de IP para garantir que os pools de lote subjacentes não possam ser chamados por nenhum serviço externo que não seja o AzureMachineLearningService
 
+> [!WARNING]
+> O `hbi_workspace` sinalizador só pode ser definido quando um espaço de trabalho é criado. Ele não pode ser alterado para um espaço de trabalho existente.
 
 Para obter mais informações sobre como a criptografia em repouso funciona no Azure, consulte [Criptografia de dados do Azure em repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
@@ -317,7 +319,7 @@ Recursos adicionais são criados na assinatura do usuário durante a criação d
 
 O usuário também pode provisionar outros destinos de computação anexados a um workspace (como o Serviço de Kubernetes do Azure ou VMs) conforme necessário.
 
-[![Criar fluxo de trabalho do workspace](media/concept-enterprise-security/create-workspace.png)](media/concept-enterprise-security/create-workspace-expanded.png#lightbox)
+[![Criar fluxo de trabalho do workspace](media/concept-enterprise-security/create-workspace.png)](media/concept-enterprise-security/create-workspace.png#lightbox)
 
 ### <a name="save-source-code-training-scripts"></a>Salvar o código-fonte (scripts de treinamento)
 
@@ -325,7 +327,7 @@ O diagrama a seguir mostra o fluxo de trabalho do instantâneo do código.
 
 Os diretórios (experimentos) que contêm o código-fonte (scripts de treinamento) estão associados a um workspace do Azure Machine Learning. Esses scripts são armazenados em seu computador local e na nuvem (no armazenamento de blobs do Azure da sua assinatura). Os instantâneos de código são usados para a execução ou inspeção de auditoria histórica.
 
-[![Fluxo de trabalho do instantâneo de código](media/concept-enterprise-security/code-snapshot.png)](media/concept-enterprise-security/code-snapshot-expanded.png#lightbox)
+[![Fluxo de trabalho do instantâneo de código](media/concept-enterprise-security/code-snapshot.png)](media/concept-enterprise-security/code-snapshot.png#lightbox)
 
 ### <a name="training"></a>Treinamento
 
@@ -352,7 +354,7 @@ Como a Computação do Machine Learning é um destino de computação gerenciado
 
 No diagrama de fluxo abaixo, essa etapa ocorre quando o destino de computação de treinamento grava as métricas de execução de volta ao Azure Machine Learning a partir do armazenamento no banco de dados do Cosmos DB. Os clientes podem chamar o Azure Machine Learning. O Machine Learning, por sua vez, transformará as métricas de pull do banco de dados do Cosmos DB e as retornará ao cliente.
 
-[![Fluxo de trabalho do treinamento](media/concept-enterprise-security/training-and-metrics.png)](media/concept-enterprise-security/training-and-metrics-expanded.png#lightbox)
+[![Fluxo de trabalho do treinamento](media/concept-enterprise-security/training-and-metrics.png)](media/concept-enterprise-security/training-and-metrics.png#lightbox)
 
 ### <a name="creating-web-services"></a>Criar serviços Web
 
@@ -367,7 +369,7 @@ Estes são os detalhes:
 * Os detalhes da solicitação de pontuação são armazenados no Application Insights, o qual está na assinatura do usuário.
 * A telemetria também é enviada por push para a assinatura do Microsoft/Azure.
 
-[![Fluxo de trabalho da inferência](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing-expanded.png#lightbox)
+[![Fluxo de trabalho da inferência](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing.png#lightbox)
 
 ## <a name="next-steps"></a>Próximas etapas
 

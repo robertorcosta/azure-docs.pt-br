@@ -3,11 +3,12 @@ title: API do Application Insights para métricas e eventos personalizados | Mic
 description: Insira algumas linhas de código em seu aplicativo da área de trabalho ou de dispositivo, página da Web ou serviço para acompanhar o uso e diagnosticar problemas.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: ae96609446818802b70cab9c31f6527264046eb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43951a415256577144b93c7deea168e30e7a13ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83115652"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014721"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -144,7 +145,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### <a name="custom-events-in-analytics"></a>Eventos personalizados na Análise
 
-A telemetria está disponível na tabela `customEvents` na [Análise do Application Insights](analytics.md). Cada linha representa uma chamada para `trackEvent(..)` em seu aplicativo.
+A telemetria está disponível na tabela `customEvents` na [Análise do Application Insights](../log-query/log-query-overview.md). Cada linha representa uma chamada para `trackEvent(..)` em seu aplicativo.
 
 Se a [amostragem](../../azure-monitor/app/sampling.md) estiver em funcionamento, a propriedade itemCount mostrará um valor maior que 1. Para exemplo itemCount==10 significa que de 10 chamadas para trackEvent(), o processo de amostragem somente transmitirá um deles. Para obter uma contagem correta de eventos personalizados, você deve, portanto, usar um código como `customEvents | summarize sum(itemCount)` .
 
@@ -200,7 +201,7 @@ telemetry.trackMetric({name: "queueLength", value: 42.0});
 
 ### <a name="custom-metrics-in-analytics"></a>Métricas personalizadas no Analytics
 
-A telemetria está disponível na tabela `customMetrics` na [Análise do Application Insights](analytics.md). Cada linha representa uma chamada para `trackMetric(..)` em seu aplicativo.
+A telemetria está disponível na tabela `customMetrics` na [Análise do Application Insights](../log-query/log-query-overview.md). Cada linha representa uma chamada para `trackMetric(..)` em seu aplicativo.
 
 * `valueSum` – essa é a soma das medidas. Para obter o valor médio, divida por `valueCount`.
 * `valueCount` – o número de medidas que foram agregadas nessa chamada para `trackMetric(..)`.
@@ -270,7 +271,7 @@ As durações de carregamento de página resultantes exibidas no Metrics Explore
 
 ### <a name="page-telemetry-in-analytics"></a>Telemetria de página na Análise
 
-Na [Análise](analytics.md), duas tabelas mostram dados das operações do navegador:
+Na [Análise](../log-query/log-query-overview.md), duas tabelas mostram dados das operações do navegador:
 
 * A tabela `pageViews` contém dados sobre a URL e o título da página
 * A tabela `browserTimings` contém dados sobre o desempenho do cliente, como o tempo necessário para processar os dados de entrada
@@ -306,7 +307,7 @@ No entanto, a maneira recomendada para enviar uma telemetria de solicitação é
 
 ## <a name="operation-context"></a>Contexto de operação
 
-Você pode correlacionar os itens de telemetria, associando-os ao contexto de operação. O módulo de rastreamento de solicitação padrão faz isso para exceções e outros eventos que são enviados enquanto uma solicitação HTTP está sendo processada. Em [pesquisa](../../azure-monitor/app/diagnostic-search.md) e [análise](analytics.md), você pode encontrar facilmente todos os eventos associados à solicitação usando sua ID de operação.
+Você pode correlacionar os itens de telemetria, associando-os ao contexto de operação. O módulo de rastreamento de solicitação padrão faz isso para exceções e outros eventos que são enviados enquanto uma solicitação HTTP está sendo processada. Em [pesquisa](../../azure-monitor/app/diagnostic-search.md) e [análise](../log-query/log-query-overview.md), você pode encontrar facilmente todos os eventos associados à solicitação usando sua ID de operação.
 
 Consulte [Correlação de telemetria no Application Insights](../../azure-monitor/app/correlation.md) para obter mais informações.
 
@@ -344,7 +345,7 @@ Consulte [Acompanhar operações personalizadas com o SDK do .NET do Application
 
 ### <a name="requests-in-analytics"></a>Consultas na Análise
 
-Na [Análise do Application Insights](analytics.md), as solicitações aparecem na tabela `requests`.
+Na [Análise do Application Insights](../log-query/log-query-overview.md), as solicitações aparecem na tabela `requests`.
 
 Se a [amostragem](../../azure-monitor/app/sampling.md) estiver em funcionamento, a propriedade itemCount mostrará um valor maior que 1. Para exemplo itemCount==10 significa que de 10 chamadas para trackRequest(), o processo de amostragem somente transmitirá um deles. Para obter uma contagem correta de solicitações e a duração média segmentada por nomes de solicitação, use um código como:
 
@@ -426,7 +427,7 @@ Os SDKs capturam muitas exceções automaticamente; portanto, você não precisa
 
 ### <a name="exceptions-in-analytics"></a>Exceções na Análise
 
-Na [Análise do Application Insights](analytics.md), as exceções aparecem na tabela `exceptions`.
+Na [Análise do Application Insights](../log-query/log-query-overview.md), as exceções aparecem na tabela `exceptions`.
 
 Se a [amostragem](../../azure-monitor/app/sampling.md) estiver em funcionamento, a propriedade `itemCount` mostrará um valor maior que 1. Para exemplo itemCount==10 significa que de 10 chamadas para trackException(), o processo de amostragem somente transmitirá um deles. Para obter uma contagem correta de exceções segmentadas por tipo de exceção, use um código como:
 
@@ -490,7 +491,7 @@ Registrar um evento de diagnóstico, como entrar ou sair de um método.
  Parâmetro | Descrição
 ---|---
 `message` | Dados de diagnóstico. Pode ser muito mais longo do que um nome.
-`properties` | Mapa de cadeia de caracteres para cadeia de caracteres: dados adicionais usados para [Filtrar exceções](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties) no Portal. O padrão é vazio.
+`properties` | Mapa de cadeia de caracteres para cadeia de caracteres: dados adicionais usados para [Filtrar exceções](#properties) no Portal. O padrão é vazio.
 `severityLevel` | Valores com suporte: [nível. TS](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/shared/AppInsightsCommon/src/Interfaces/Contracts/Generated/SeverityLevel.ts)
 
 Você pode pesquisar no conteúdo da mensagem, mas (diferentemente de valores de propriedade) não é possível filtrar nele.
@@ -521,7 +522,7 @@ Em [Pesquisar](../../azure-monitor/app/diagnostic-search.md), você pode filtrar
 
 ### <a name="traces-in-analytics"></a>Rastreamentos na Análise
 
-Na [Análise do Application Insights](analytics.md), as chamadas para TrackTrace aparecem na tabela `traces`.
+Na [Análise do Application Insights](../log-query/log-query-overview.md), as chamadas para TrackTrace aparecem na tabela `traces`.
 
 Se a [amostragem](../../azure-monitor/app/sampling.md) estiver em funcionamento, a propriedade itemCount mostrará um valor maior que 1. Para exemplo itemCount==10 significa que de 10 chamadas para `trackTrace()`, o processo de amostragem somente transmitirá um deles. Para obter uma contagem correta de chamadas de rastreamento, você deverá, portanto, usar um código como `traces | summarize sum(itemCount)`.
 
@@ -600,7 +601,7 @@ Para desativar o módulo padrão de rastreamento de dependência no módulo C#, 
 
 ### <a name="dependencies-in-analytics"></a>Dependências na Análise
 
-Na [Análise do Application Insights](analytics.md), as chamadas para trackDependency aparecem na tabela `dependencies`.
+Na [Análise do Application Insights](../log-query/log-query-overview.md), as chamadas para trackDependency aparecem na tabela `dependencies`.
 
 Se a [amostragem](../../azure-monitor/app/sampling.md) estiver em funcionamento, a propriedade itemCount mostrará um valor maior que 1. Para exemplo itemCount==10 significa que de 10 chamadas para trackDependency(), o processo de amostragem somente transmitirá um deles. Para obter uma contagem correta das dependências segmentadas por componente de destino, use um código como:
 
@@ -809,7 +810,7 @@ telemetry.TrackEvent(event);
 
 ### <a name="custom-measurements-and-properties-in-analytics"></a>Medidas personalizadas e propriedades na Análise
 
-Na [Análise](analytics.md), as métricas personalizadas e as propriedades são exibidas nos atributos `customMeasurements` e `customDimensions` de cada registro de telemetria.
+Na [Análise](../log-query/log-query-overview.md), as métricas personalizadas e as propriedades são exibidas nos atributos `customMeasurements` e `customDimensions` de cada registro de telemetria.
 
 Por exemplo, se você tiver adicionado uma propriedade chamada "game" para a telemetria de solicitação, essa consulta contará as ocorrências de valores diferentes de "game" e mostrará a média da "pontuação" da métrica personalizada:
 
@@ -1081,7 +1082,7 @@ Se você definir qualquer um desses valores por conta própria, considere remove
 * **Sessão**: a sessão do usuário. A ID é definida para um valor gerado, que é alterado quando o usuário ficar inativo por um tempo.
 * **Usuário**: informações do usuário.
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
@@ -1091,8 +1092,8 @@ Para determinar por quanto tempo os dados são mantidos, confira [Retenção e p
 
 ## <a name="reference-docs"></a>Documentos de Referência
 
-* [Referência do ASP.NET](https://docs.microsoft.com/dotnet/api/overview/azure/insights?view=azure-dotnet)
-* [Referência Java](https://docs.microsoft.com/java/api/overview/azure/appinsights?view=azure-java-stable/)
+* [Referência do ASP.NET](/dotnet/api/overview/azure/insights?view=azure-dotnet)
+* [Referência Java](/java/api/overview/azure/appinsights?view=azure-java-stable/)
 * [Referência do JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## <a name="sdk-code"></a>Código do SDK
@@ -1116,4 +1117,4 @@ Para determinar por quanto tempo os dados são mantidos, confira [Retenção e p
 ## <a name="next-steps"></a><a name="next"></a>Próximas etapas
 
 * [Pesquisar eventos e logs](../../azure-monitor/app/diagnostic-search.md)
-* [Solução de problemas](../../azure-monitor/app/troubleshoot-faq.md)
+* [Solução de problemas](../faq.md)

@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: e56ba304d197984110de5127a0f163ac0accf1aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3835f88eb581693d10f68a9a495329466a657a2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537501"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014483"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Início rápido: introdução ao Application Insights em um projeto Web Java
 
@@ -145,7 +146,7 @@ Você também pode [defini-lo no código](../../azure-monitor/app/api-custom-eve
 
 [Instale o agente Java](java-agent.md) para capturar chamadas http de saída, consultas JDBC, log de aplicativo e melhor nomenclatura de operação.
 
-## <a name="run-your-application"></a>Execute seu aplicativo.
+## <a name="run-your-application"></a>Executar seu aplicativo
 Execute-o no modo de depuração no computador de desenvolvimento ou publique em seu servidor.
 
 ## <a name="view-your-telemetry-in-application-insights"></a>Exibir sua telemetria no Application Insights
@@ -171,7 +172,7 @@ Clique em um tipo de solicitação específica para ver instâncias individuais.
 ![Analisar uma exibição de exemplo específica](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Análise: linguagem de consulta poderosa
-À medida que acumular mais dados, você poderá executar consultas para agregar dados e localizar instâncias individuais.  [Análise](../../azure-monitor/app/analytics.md) é uma ferramenta poderosa para entender o desempenho e o uso e para fins de diagnóstico.
+À medida que acumular mais dados, você poderá executar consultas para agregar dados e localizar instâncias individuais.  [Análise](../log-query/log-query-overview.md) é uma ferramenta poderosa para entender o desempenho e o uso e para fins de diagnóstico.
 
 ![Exemplo de Análise](./media/java-get-started/0025.png)
 
@@ -263,7 +264,7 @@ Você pode especificar contadores de desempenho adicionais a serem coletados.
   * `tabular`: os dados do contador de desempenho estão no formato de uma linha de tabela
 
 #### <a name="windows-performance-counters"></a>Contadores de desempenho do Windows
-Cada [contador de desempenho do Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) é membro de uma categoria (do mesmo modo que um campo é um membro de uma classe). Categorias podem ser globais, ou podem ter instâncias numeradas ou nomeadas.
+Cada [contador de desempenho do Windows](/windows/win32/perfctrs/performance-counters-portal) é membro de uma categoria (do mesmo modo que um campo é um membro de uma classe). Categorias podem ser globais, ou podem ter instâncias numeradas ou nomeadas.
 
 ```XML
     <PerformanceCounters>
@@ -299,7 +300,7 @@ O Application Insights pode testar seu site em intervalos regulares para verific
 
 [Saiba mais sobre como configurar testes da Web de disponibilidade.][availability]
 
-## <a name="questions-problems"></a>Dúvidas? Problemas?
+## <a name="questions-problems"></a>Perguntas? Problemas?
 [Solucionar problemas de Java](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -307,7 +308,7 @@ O Application Insights pode testar seu site em intervalos regulares para verific
 * [Monitorar os contadores de desempenho do Unix](java-collectd.md)
 * Adicionar [monitoramento a suas páginas da Web](javascript.md) para monitorar tempos de carregamento de página, chamadas AJAX e exceções do navegador.
 * Gravar [telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md) para controlar o uso no navegador ou no servidor.
-* Use a [análise](../../azure-monitor/app/analytics.md) para consultas poderosas sobre a telemetria do seu aplicativo
+* Use a [análise](../log-query/log-query-overview.md) para consultas poderosas sobre a telemetria do seu aplicativo
 * Para saber mais, visite [Azure para desenvolvedores Java](/java/azure).
 
 <!--Link references-->

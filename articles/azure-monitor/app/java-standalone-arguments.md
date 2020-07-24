@@ -3,12 +3,12 @@ title: Monitorar aplicativos Java em execução em qualquer ambiente-Azure Monit
 description: Monitoramento do desempenho de aplicativos para aplicativos Java em execução em qualquer ambiente com o agente autônomo Java sem instrumentar o aplicativo. Rastreamento distribuído e mapa de aplicativos.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 527f1eaf04be7b5e8c89c12912a06d2f5d50321f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6499fbc62a78cb333c623dbea8269144e623921c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82508030"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014234"
 ---
 # <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Configurando o agente autônomo Java do JVM args para Azure Monitor Application Insights
 
@@ -16,7 +16,7 @@ ms.locfileid: "82508030"
 
 ## <a name="azure-environments"></a>Ambientes do Azure
 
-Configurar [serviços de aplicativos](https://docs.microsoft.com/azure/app-service/configure-language-java#set-java-runtime-options).
+Configurar [serviços de aplicativos](../../app-service/configure-language-java.md#set-java-runtime-options).
 
 ## <a name="spring-boot"></a>Spring Boot
 

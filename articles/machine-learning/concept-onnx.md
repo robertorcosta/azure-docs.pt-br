@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 06/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 09b1fa31ff8f93ea86a80092b43d071df6cd74e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acaab8aaa12a107f4d0f8a8aac0baf7d5ebb8e4c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211775"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012751"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX e Azure Machine Learning: criar e acelerar modelos de ML
 
@@ -89,7 +89,7 @@ Consulte [como usar-azureml/Deployment/onnx](https://github.com/Azure/MachineLea
 
 Exemplos de uso em outros idiomas podem ser encontrados no [GitHub do ONNX Runtime](https://github.com/microsoft/onnxruntime/tree/master/samples).
 
-## <a name="more-info"></a>Obter mais informações
+## <a name="more-info"></a>Mais informações
 
 Saiba mais sobre o **ONNX** ou o Contribute para o projeto:
 + [Site do projeto ONNX](https://onnx.ai)
