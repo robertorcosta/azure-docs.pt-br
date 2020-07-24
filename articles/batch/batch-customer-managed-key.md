@@ -3,14 +3,14 @@ title: Configurar chaves gerenciadas pelo cliente para sua conta do lote do Azur
 description: Saiba como criptografar dados do lote usando chaves
 author: pkshultz
 ms.topic: how-to
-ms.date: 06/02/2020
+ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: d0dcb79d5e319abd46515162ce5a17e935d9693b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 77c0489838685d65d7579f37d6a6cb922af509f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960879"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062529"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configurar chaves gerenciadas pelo cliente para sua conta do lote do Azure com Azure Key Vault e identidade gerenciada
 
@@ -20,7 +20,8 @@ As chaves que você fornecer devem ser geradas em [Azure Key Vault](../key-vault
 
 > [!IMPORTANT]
 > O suporte para chaves gerenciadas pelo cliente no lote do Azure está atualmente em visualização pública para as regiões Oeste EUA Central, leste dos EUA, Sul EUA Central, oeste dos EUA 2, US Gov-Virgínia e US Gov Arizona.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-a-batch-account-with-system-assigned-managed-identity"></a>Criar uma conta do lote com identidade gerenciada atribuída pelo sistema
 
@@ -57,6 +58,9 @@ az batch account show \
     -g $resourceGroupName \
     --query identity
 ```
+
+> [!NOTE]
+> A identidade gerenciada atribuída pelo sistema criada em uma conta do lote é usada somente para recuperar chaves gerenciadas pelo cliente do Key Vault. Essa identidade não está disponível em pools do lote.
 
 ## <a name="configure-your-azure-key-vault-instance"></a>Configurar sua instância do Azure Key Vault
 
@@ -110,7 +114,7 @@ Ao criar uma nova versão de uma chave, atualize a conta do lote para usar a nov
 
 1. Navegue até sua conta do lote em portal do Azure e exiba as configurações de criptografia.
 2. Insira o URI para a nova versão de chave. Como alternativa, você pode selecionar o cofre de chaves e a chave novamente para atualizar a versão.
-3. Salve suas alterações.
+3. Salve as alterações.
 
 Você também pode usar CLI do Azure para atualizar a versão.
 
@@ -126,7 +130,7 @@ Para alterar a chave usada para criptografia em lote, siga estas etapas:
 
 1. Navegue até sua conta do lote e exiba as configurações de criptografia.
 2. Insira o URI para a nova chave. Como alternativa, você pode selecionar o cofre de chaves e escolher uma nova chave.
-3. Salve suas alterações.
+3. Salve as alterações.
 
 Você também pode usar CLI do Azure para usar uma chave diferente.
 
@@ -145,4 +149,5 @@ az batch account set \
   * **Depois de restaurar o acesso, quanto tempo levará para que a conta do lote funcione novamente?** Pode levar até 10 minutos para que a conta seja acessível novamente quando o acesso for restaurado.
   * **Enquanto a conta do lote não está disponível, o que acontece com meus recursos?** Todos os pools que estão em execução quando o acesso ao lote para chaves gerenciadas pelo cliente são perdidos continuarão a ser executados. No entanto, os nós passarão para um estado indisponível e as tarefas deixarão de ser executadas (e serão recolocadas na fila). Quando o acesso for restaurado, os nós ficarão disponíveis novamente e as tarefas serão reiniciadas.
   * **Este mecanismo de criptografia se aplica a discos de VM em um pool do lote?** Não. Para pools de configuração do serviço de nuvem, nenhuma criptografia é aplicada ao sistema operacional e ao disco temporário. Para pools de configuração de máquina virtual, o sistema operacional e todos os discos de dados especificados serão criptografados com uma chave gerenciada da plataforma Microsoft por padrão. No momento, você não pode especificar sua própria chave para esses discos. Para criptografar o disco temporário de VMs para um pool do lote com uma chave gerenciada da plataforma Microsoft, você deve habilitar a propriedade [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) em seu pool de [configuração de máquina virtual](/rest/api/batchservice/pool/add#virtualmachineconfiguration) . Para ambientes altamente confidenciais, é recomendável habilitar a criptografia de disco temporária e evitar o armazenamento de dados confidenciais no sistema operacional e nos discos de dados.
+  * **A identidade gerenciada atribuída pelo sistema na conta do lote está disponível nos nós de computação?** Não. Essa identidade gerenciada é atualmente usada somente para acessar o Azure Key Vault para a chave gerenciada pelo cliente.
   

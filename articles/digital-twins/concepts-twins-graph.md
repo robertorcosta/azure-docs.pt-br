@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 955a3b8d12eb3b93bc9d44c624953cd5c1007318
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5821a1d1f6713ef39d7475fb004164e7c0fd71ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258209"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062058"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Entenda o gêmeos digital e seu gráfico de entrelaçamento
 
@@ -23,7 +23,7 @@ Em uma solução de gêmeos digital do Azure, as entidades em seu ambiente são 
 
 ## <a name="digital-twins"></a>Gêmeos digital
 
-Antes de criar uma cópia digital em sua instância do gêmeos digital do Azure, você precisa ter um *modelo* carregado para o serviço. Um modelo descreve o conjunto de propriedades, mensagens de telemetria e relações que uma mensagem de grupo pode ter em particular, entre outras coisas. Para os tipos de informações que são definidas em um modelo, consulte [conceitos: modelos personalizados](concepts-models.md).
+Antes de criar uma cópia digital em sua instância do gêmeos digital do Azure, você precisa ter um *modelo* carregado para o serviço. Um modelo descreve o conjunto de propriedades, mensagens de telemetria e relações que uma mensagem de grupo pode ter em particular, entre outras coisas. Para os tipos de informações que são definidas em um modelo, consulte [*conceitos: modelos personalizados*](concepts-models.md).
 
 Depois de criar e carregar um modelo, seu aplicativo cliente pode criar uma instância do tipo; Este é um teledigital. Por exemplo, depois de criar um modelo de *andar*, você pode criar um ou vários gêmeos digitais que usam esse tipo (como um tipo de *chão*de texto chamado *GroundFloor*, outro chamado *Floor2*, etc.). 
 
@@ -197,8 +197,8 @@ Aqui está um exemplo de uma relação formatada como um objeto JSON:
 ## <a name="next-steps"></a>Próximas etapas
 
 Consulte como gerenciar elementos de grafo com as APIs de teledigital do Azure:
-* [Como: gerenciar gêmeos digitais](how-to-manage-twin.md)
-* [Como: gerenciar o grafo de entrelaçamento com relações](how-to-manage-graph.md)
+* [*Como: gerenciar gêmeos digitais*](how-to-manage-twin.md)
+* [*Como: gerenciar o grafo de entrelaçamento com relações*](how-to-manage-graph.md)
 
 Ou então, saiba como consultar o grafo gêmeos do Azure digital para obter informações:
-* [Conceitos: linguagem de consulta](concepts-query-language.md)
+* [*Conceitos: linguagem de consulta*](concepts-query-language.md)

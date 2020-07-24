@@ -2,67 +2,51 @@
 title: Conceitos-interconectividade de rede
 description: Saiba mais sobre os principais aspectos e casos de uso de rede e interconectividade na solução VMware do Azure (AVS)
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 2378ad56e2754b2d2fde7f895f6673e7d7d561c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/23/2020
+ms.openlocfilehash: c0416da9c745ccf92970ff39f623a782d5784983
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539135"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062838"
 ---
 # <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Conceitos de rede e interconectividade da solução do Azure VMware (AVS) Preview
 
-A interconectividade de rede entre suas nuvens privadas da AVS (solução do Azure VMware) e ambientes locais ou redes virtuais no Azure permite que você acesse e use sua nuvem privada. Alguns conceitos importantes de rede e de interconectividade que estabelecem a base da interconectividade são descritos neste artigo.
+A interconectividade de rede entre suas nuvens privadas da AVS (solução do Azure VMware) e ambientes locais ou redes virtuais no Azure permite que você acesse e use sua nuvem privada. Neste artigo, abordaremos alguns conceitos importantes que estabelecem a base da rede e da interconectividade.
 
-Uma perspectiva útil na interconectividade é considerar os dois tipos de implementações de nuvem privada de AVS: implementações com a interconectividade básica somente do Azure e implementações com a interconectividade completa de local para nuvem privada.
+Uma perspectiva útil na interconectividade é considerar os dois tipos de implementações de nuvem privada de AVS:
+
+1. A [**interconectividade básica somente do Azure**](#azure-virtual-network-interconnectivity) permite que você gerencie e use sua nuvem privada com apenas uma única rede virtual no Azure. Essa implementação é mais adequada para avaliações de AVS ou implementações que não exigem acesso de ambientes locais.
+
+1. A [**interconectividade completa de local para nuvem privada**](#on-premises-interconnectivity) estende a implementação básica somente do Azure para incluir a interconectividade entre nuvens privadas locais e AVS.
+ 
+Você pode encontrar mais informações sobre os requisitos e os dois tipos de implementações de interconectividade de nuvem privada de sincronização automática descritas nas seções abaixo.
+
+## <a name="avs-private-cloud-use-cases"></a>Casos de uso de nuvem privada AVS
 
 Os casos de uso para nuvens do AVS privado incluem:
 - novas cargas de trabalho de VM VMware na nuvem
-- Intermitência de carga de trabalho de VM para a nuvem
-- Migração de carga de trabalho de VM para a nuvem
-- recuperação de desastre
+- Carga de trabalho de VM de intermitência para a nuvem (somente local para AVS)
+- Migração de carga de trabalho de VM para a nuvem (somente no local para AVS)
+- recuperação de desastre (AVS para AVS ou local para AVS)
 - consumo de serviços do Azure
 
- Todos os casos de uso do serviço AVS são habilitados com conectividade de nuvem local para privada. O modelo de interconectividade básica é mais adequado para avaliações de AVS ou implementações que não exigem acesso de ambientes locais.
+ Todos os casos de uso do serviço AVS são habilitados com conectividade de nuvem local para privada. 
 
-Os dois tipos de interconectividade de nuvem privada de AVS são descritos nas seções a seguir.  A interconectividade mais básica é "conectividade de rede virtual do Azure"; Ele permite que você gerencie e use sua nuvem privada com apenas uma única rede virtual no Azure. A interconectividade descrita em "conectividade local" estende a conectividade de rede virtual para incluir também a interconectividade entre os ambientes locais e as nuvens privadas da AVS.
+## <a name="virtual-network-and-expressroute-circuit-requirements"></a>Requisitos de rede virtual e de circuito de ExpressRoute
+ 
+Quando você cria uma conexão de uma rede virtual em sua assinatura, o circuito do ExpressRoute é estabelecido por meio de emparelhamento, usa uma chave de autorização e uma ID de emparelhamento solicitada no portal do Azure. O emparelhamento é uma conexão privada, um-para-um entre sua nuvem privada e a rede virtual.
 
-## <a name="azure-virtual-network-interconnectivity"></a>Interconectividade de rede virtual do Azure
+> [!NOTE] 
+> O circuito do ExpressRoute não faz parte de uma implantação de nuvem privada. O circuito do ExpressRoute local está além do escopo deste documento. Se você precisar de conectividade local para sua nuvem privada, poderá usar um dos circuitos do ExpressRoute existentes ou comprar um no portal do Azure.
 
-A interconectividade básica de rede estabelecida no momento de uma implantação de nuvem privada é mostrada no diagrama a seguir. Ele mostra a rede lógica, baseada em ExpressRoute, entre uma rede virtual no Azure e uma nuvem privada. A interconectividade preenche três dos principais casos de uso:
-- Acesso de entrada para redes de gerenciamento em que o servidor vCenter e o NSX-T Manager estão localizados.
-    - Acessível de VMs em sua assinatura do Azure, não de seus sistemas locais.
-- Acesso de saída de VMs para os serviços do Azure.
-- Acesso de entrada e consumo de cargas de trabalho que executam uma nuvem privada.
+Ao implantar uma nuvem privada, você recebe endereços IP para o vCenter e o NSX-T Manager. Para acessar essas interfaces de gerenciamento, você precisará criar recursos adicionais em uma rede virtual em sua assinatura. Você pode encontrar os procedimentos para criar esses recursos e estabelecer o emparelhamento privado do ExpressRoute nos tutoriais.
 
-![Conectividade básica de rede virtual para nuvem privada](./media/concepts/adjacency-overview-drawing-single.png)
+A rede lógica da nuvem privada é fornecida com o NSX-T pré-configurado. Um gateway de camada 0 e um gateway de camada 1 são previamente provisionados para você. Você pode criar um segmento e anexá-lo ao gateway de camada 1 existente ou anexá-lo a um novo gateway de camada 1 que você definir. Os componentes de rede lógica do NSX-T fornecem conectividade leste-oeste entre cargas de trabalho e também fornecem conectividade norte-sul com a Internet e os serviços do Azure. 
 
-O circuito do ExpressRoute nesse cenário de rede virtual para nuvem privada é estabelecido quando você cria uma conexão de uma rede virtual em sua assinatura para o circuito do ExpressRoute de sua nuvem privada. O emparelhamento usa uma chave de autorização e uma ID de circuito que você solicita no portal do Azure. A conexão do ExpressRoute estabelecida por meio do emparelhamento é uma conexão privada, um-para-um entre a nuvem privada e a rede virtual. Você pode gerenciar sua nuvem privada, consumir cargas de trabalho em sua nuvem privada e acessar os serviços do Azure nessa conexão de ExpressRoute.
+## <a name="routing-and-subnet-requirements"></a>Requisitos de roteamento e sub-rede
 
-Quando você implanta uma nuvem privada de AVS, é necessário um único/22 espaço de endereço de rede privada. Esse espaço de endereço não deve se sobrepor aos espaços de endereço usados em outras redes virtuais em sua assinatura. Nesse espaço de endereço, o gerenciamento, o provisionamento e as redes do vMotion são provisionados automaticamente. O roteamento é baseado em BGP e é automaticamente provisionado e habilitado por padrão para cada implantação de nuvem privada.
-
-Quando uma nuvem privada é implantada, você recebe os endereços IP para o vCenter e o NSX-T Manager. Para acessar essas interfaces de gerenciamento, você criará recursos adicionais em uma rede virtual em sua assinatura. Os procedimentos para criar esses recursos e estabelecer o emparelhamento privado do ExpressRoute são fornecidos nos tutoriais.
-
-Você projeta a rede lógica de nuvem privada e a implementa com o NSX-T. A nuvem privada vem com o NSX-T pré-configurado. Um gateway de camada 0 & gateway de camada 1 é previamente provisionado para você. Você pode criar um segmento e anexá-lo ao gateway de camada 1 existente ou anexá-lo a um novo gateway de camada 1 que você pode definir. Os componentes de rede lógica do NSX-T fornecem conectividade leste-oeste entre cargas de trabalho e também fornecem conectividade norte-sul com a Internet e os serviços do Azure. 
-
-## <a name="on-premises-interconnectivity"></a>Interconectividade local
-
-Você também pode conectar ambientes locais para suas nuvens privadas da AVS. Esse tipo de interconectividade é uma extensão para a interconectividade básica descrita na seção anterior.
-
-![conectividade de nuvem privada completa local e de rede virtual](./media/concepts/adjacency-overview-drawing-double.png)
-
-Para estabelecer a interconectividade total com uma nuvem privada, use o portal do Azure para habilitar o Alcance Global de ExpressRoute entre um circuito de ExpressRoute de nuvem privada e um circuito de ExpressRoute local. Essa configuração estende a conectividade básica para incluir o acesso a nuvens privadas de ambientes locais.
-
-Um circuito de ExpressRoute de rede virtual local para o Azure é necessário para se conectar de ambientes locais à sua nuvem privada no Azure. Esse circuito do ExpressRoute está em sua assinatura e não faz parte de uma implantação de nuvem privada. O circuito do ExpressRoute local está além do escopo deste documento. Se você precisar de conectividade local para sua nuvem privada, poderá usar um dos circuitos do ExpressRoute existentes ou comprar um no portal do Azure.
-
-Uma vez vinculado com Alcance Global, os dois circuitos de ExpressRoute rotearão o tráfego de rede entre seus ambientes locais e sua nuvem privada. A interconectividade de nuvem local para privada é mostrada no diagrama anterior. A interconectividade representada no diagrama habilita os seguintes casos de uso:
-
-- Excelente/frio entre o vMotion do vCenter
-- Acesso de gerenciamento de nuvem privada local a AVS
-
-Para habilitar a conectividade completa, uma chave de autorização e uma ID de emparelhamento privado para Alcance Global podem ser solicitadas no portal do Azure. Você usa a chave e a ID para estabelecer Alcance Global entre um circuito do ExpressRoute em sua assinatura e o circuito do ExpressRoute para sua nova nuvem privada. O [tutorial para criar uma nuvem privada](tutorial-create-private-cloud.md) fornece os procedimentos para solicitar e usar a chave e a ID.
-
-Os requisitos de roteamento da solução exigem que você planeje espaços de endereço de rede de nuvem privada para evitar sobreposições com outras redes virtuais e redes locais. As nuvens privadas da AVS exigem pelo menos um bloco de endereços de rede CIDR `/22` para sub-redes, mostrado abaixo. Essa rede complementa suas redes locais. Para conectar-se a ambientes locais e redes virtuais, deve ser um bloco de endereço de rede não sobreposto.
+O roteamento é Border Gateway Protocol (BGP) com base, que é automaticamente provisionado e habilitado por padrão para cada implantação de nuvem privada. Para nuvens de AVS privado, é necessário planejar espaços de endereço de rede de nuvem privada com um mínimo de/22 blocos de endereços de rede CIDR de comprimento de prefixo para sub-redes, mostrados na tabela a seguir. O bloco de endereço não deve se sobrepor aos blocos de endereços usados em outras redes virtuais que estão em sua assinatura e redes locais. Nesse bloco de endereço, o gerenciamento, o provisionamento e as redes do vMotion são provisionados automaticamente.
 
 Exemplo de bloco de endereço de rede CIDR `/22`: `10.10.0.0/22`
 
@@ -70,10 +54,35 @@ As sub-redes:
 
 | Uso de rede             | Sub-rede | Exemplo        |
 | ------------------------- | ------ | -------------- |
-| Gerenciamento de nuvem privada            | `/24`    | `10.10.0.0/24`   |
-| Rede do vMotion       | `/24`    | `10.10.1.0/24`   |
-| Cargas de trabalho de VM | `/24`   | `10.10.2.0/24`   |
-| Emparelhamento do ExpressRoute | `/24`    | `10.10.3.8/30`   |
+| Gerenciamento de nuvem privada  | `/24`  | `10.10.0.0/24` |
+| Rede do vMotion           | `/24`  | `10.10.1.0/24` |
+| Cargas de trabalho de VM              | `/24`  | `10.10.2.0/24` |
+| Emparelhamento do ExpressRoute      | `/24`  | `10.10.3.8/30` |
+
+
+## <a name="azure-virtual-network-interconnectivity"></a>Interconectividade de rede virtual do Azure
+
+Na implementação de rede virtual para nuvem privada, você pode gerenciar sua nuvem privada da AVS, consumir cargas de trabalho em sua nuvem privada e acessar os serviços do Azure pela conexão do ExpressRoute. 
+
+O diagrama a seguir mostra a interconectividade de rede básica estabelecida no momento de uma implantação de nuvem privada. Ele mostra a rede lógica, baseada em ExpressRoute, entre uma rede virtual no Azure e uma nuvem privada. A interconectividade preenche três dos principais casos de uso:
+* Acesso de entrada ao vCenter Server e ao NSX-T Manager que é acessível de VMs em sua assinatura do Azure e não de seus sistemas locais. 
+* Acesso de saída de VMs para os serviços do Azure. 
+* Acesso de entrada e consumo de cargas de trabalho que executam uma nuvem privada.
+
+:::image type="content" source="media/concepts/adjacency-overview-drawing-single.png" alt-text="Rede virtual básica para conectividade de nuvem privada" border="false":::
+
+## <a name="on-premises-interconnectivity"></a>Interconectividade local
+
+Na rede virtual e na implementação de nuvem privada completa, você pode acessar suas nuvens do AVS privado a partir de ambientes locais. Essa implementação é uma extensão da implementação básica descrita na seção anterior. Como a implementação básica, um circuito do ExpressRoute é necessário, mas com essa implementação, ele é usado para se conectar de ambientes locais à sua nuvem privada no Azure. 
+
+O diagrama a seguir mostra a interconectividade de local para nuvem privada, que habilita os seguintes casos de uso:
+* Excelente/frio entre o vMotion do vCenter
+* Acesso de gerenciamento de nuvem privada local a AVS
+
+:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Conectividade de nuvem privada completa local e de rede virtual" border="false":::
+
+Para obter a interconectividade completa com sua nuvem privada, habilite o ExpressRoute Alcance Global e, em seguida, solicite uma chave de autorização e uma ID de emparelhamento privado para Alcance Global no portal do Azure. A chave de autorização e a ID de emparelhamento são usadas para estabelecer Alcance Global entre um circuito de ExpressRoute em sua assinatura e o circuito de ExpressRoute para sua nova nuvem privada. Uma vez vinculado, os dois circuitos do ExpressRoute roteiam o tráfego de rede entre seus ambientes locais para sua nuvem privada.  Consulte o [tutorial para criar um ExpressRoute alcance global emparelhamento para uma nuvem privada](tutorial-expressroute-global-reach-private-cloud.md) para que os procedimentos solicitem e usem a chave de autorização e a ID de emparelhamento.
+
 
 ## <a name="next-steps"></a>Próximas etapas 
 
