@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da59c0d54fa08194f9d77fc79754cbfbaca1a1e8
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70999161"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128396"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Melhores práticas para proteger aplicativos PaaS móveis e Web usando o Armazenamento do Azure
 Neste artigo, discutiremos uma coleção de melhores práticas de segurança do Armazenamento do Azure para proteger seus aplicativos PaaS (plataforma como serviço) móveis e Web. Essas práticas recomendadas derivam da nossa experiência com o Azure e da experiência de clientes como você.
@@ -65,8 +65,8 @@ As organizações que não impõem o controle de acesso a dados usando recursos 
 Para saber mais sobre o RBAC, consulte:
 
 - [Gerenciar acesso usando o RBAC e o Portal do Azure](/azure/role-based-access-control/role-assignments-portal)
-- [Funções internas para recursos do Azure](/azure/role-based-access-control/built-in-roles)
-- [Guia de segurança do Armazenamento do Azure](/azure/storage/common/storage-security-guide) 
+- [Funções internas do Azure](/azure/role-based-access-control/built-in-roles)
+- [Guia de segurança do Armazenamento do Microsoft Azure](/azure/storage/common/storage-security-guide) 
 
 ## <a name="use-client-side-encryption-for-high-value-data"></a>Use a criptografia do lado do cliente para dados de alto valor
 A criptografia do lado do cliente permite criptografar programaticamente dados em trânsito antes de carregar no Armazenamento do Azure, bem como descriptografar os dados programaticamente ao recuperá-los. Isso fornece criptografia de dados em trânsito, mas também fornece criptografia de dados em repouso. A criptografia do lado do cliente é o método mais seguro de criptografar seus dados, mas ela requer que você faça alterações programáticas em seu aplicativo e implemente processos de gerenciamento de chaves.

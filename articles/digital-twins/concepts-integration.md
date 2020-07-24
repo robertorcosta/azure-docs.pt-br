@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ba4188445f9bdf791ef760936bd27ac0f507fb4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d82289366d79f44460b96d75781cac4fa50de53a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737165"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129722"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrar o gêmeos digital do Azure a outros serviços
 
@@ -24,16 +24,16 @@ O Azure digital gêmeos pode ser orientado com dados do Hub IoT. Isso permite qu
 
 O Azure digital gêmeos não tem um hub IoT interno. Você pode usar um hub IoT existente atualmente em produção ou implantar um novo. Isso lhe dá acesso completo a todos os recursos de gerenciamento de dispositivos do Hub IoT.
 
-Para ingerir dados do Hub IoT no gêmeos digital do Azure, use uma [função do Azure](../azure-functions/functions-overview.md). Saiba mais sobre esse padrão em [como: a telemetria de ingestão do Hub IOT](how-to-ingest-iot-hub-data.md)ou experimente você mesmo no [tutorial do Azure digital gêmeos: Conecte uma solução de ponta a ponta](tutorial-end-to-end.md).
+Para ingerir dados do Hub IoT no gêmeos digital do Azure, use uma [função do Azure](../azure-functions/functions-overview.md). Saiba mais sobre esse padrão em [*como: a telemetria de ingestão do Hub IOT*](how-to-ingest-iot-hub-data.md)ou experimente você mesmo no tutorial do Azure digital gêmeos [*: Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md).
 
 ## <a name="data-egress-services"></a>Serviços de saída de dados
 
 O Azure digital gêmeos pode enviar dados para **pontos de extremidade**conectados. Os pontos de extremidade com suporte podem ser:
-* [Hub de evento](../event-hubs/event-hubs-about.md)
+* [Hub de Evento](../event-hubs/event-hubs-about.md)
 * [Grade de Eventos](../event-grid/overview.md)
 * [Barramento de Serviço](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Os pontos de extremidade são anexados ao Azure digital gêmeos usando APIs de gerenciamento ou o portal do Azure. Saiba mais sobre como anexar um ponto de extremidade ao gêmeos digital do Azure em [instruções: gerenciar pontos de extremidade e rotas](how-to-manage-routes.md).
+Os pontos de extremidade são anexados ao Azure digital gêmeos usando APIs de gerenciamento ou o portal do Azure. Saiba mais sobre como anexar um ponto de extremidade ao gêmeos digital do Azure em [*instruções: gerenciar pontos de extremidade e rotas*](how-to-manage-routes.md).
 
 Há muitos outros serviços em que você pode querer direcionar, por fim, os dados, como o [armazenamento do Azure](../storage/common/storage-introduction.md) ou [Time Series insights](../time-series-insights/time-series-insights-update-overview.md). Para enviar seus dados a serviços como esses, anexe o serviço de destino a um ponto de extremidade.
 
@@ -42,7 +42,7 @@ Por exemplo, se você também estiver usando [mapas do Azure](../azure-maps/abou
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre os pontos de extremidade e eventos de roteamento para serviços externos:
-* [Conceitos: roteamento de eventos de gêmeos digitais do Azure](concepts-route-events.md)
+* [*Conceitos: roteamento de eventos de gêmeos digitais do Azure*](concepts-route-events.md)
 
 Consulte como configurar o gêmeos digital do Azure para ingerir dados do Hub IoT:
-* [Como: telemetria de ingestão do Hub IoT](how-to-ingest-iot-hub-data.md)
+* [*Como: telemetria de ingestão do Hub IoT*](how-to-ingest-iot-hub-data.md)

@@ -1,16 +1,16 @@
 ---
-title: Painel Pedidos do Partner Center na análise do Marketplace Comercial
-description: Saiba como acessar relatórios de análise sobre seus pedidos de oferta do Marketplace em um formato gráfico e baixável.
+title: Painel de pedidos do Partner Center em análise de Marketplace comercial, Microsoft AppSource e Azure Marketplace
+description: Saiba como acessar relatórios analíticos sobre seus pedidos de oferta do Marketplace comercial em um formato gráfico e baixável.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/01/2020
-ms.openlocfilehash: fe1f64994d344ad9b23895823b846da62d895128
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+ms.openlocfilehash: 7a704936b35ba5c747ab5884c61f3f5413ac5f07
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536123"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127308"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Painel de pedidos na análise do marketplace comercial
 
@@ -33,6 +33,8 @@ O **painel Pedidos** do menu **Analisar** exibe os pedidos atuais de todas as su
 - [Tendência de pedidos e estações](#orders-and-seats-trend)
 - [Tabela de detalhes do pedido](#order-details-table)
 
+A latência máxima entre a criação e o relatório de pedidos no Partner Center é de 48 horas.
+
 ## <a name="order-dashboard-details"></a>Detalhes do painel Pedido
 
 Esta seção descreve os relatórios de análise em mais detalhes.
@@ -53,7 +55,7 @@ O valor percentual ao lado de Total de Pedidos representa a quantidade de cresci
 
 ### <a name="orders-by-geography"></a>Pedidos por geografia
 
-O mapa de calor **Pedidos por geografia** exibe uma contagem de seus pedidos em um mapa mundial e mostra as estações mapeadas com base no país/na região do cliente. Esse mapa de calor funciona da mesma forma que o **[Mapa de calor Cliente por geografia](./customer-dashboard.md#customer-by-geography)** .
+O mapa de calor de **pedidos por geografia** exibe uma contagem de seus pedidos em um mapa mundial e mostra os assentos mapeados com base no país/região do cliente. Esse mapa de calor funciona da mesma forma que o **[Mapa de calor Cliente por geografia](./customer-dashboard.md#customer-by-geography)** .
 
 ![O Partner Center analisa pedidos por geografia](./media/orders-by-geography.png)
 
@@ -63,7 +65,7 @@ O gráfico de rosca **Pedidos por ofertas** organiza os pedidos (incluindo pedid
 
 - As ofertas principais são exibidas no grafo, e o restante das ofertas é agrupado como “Restantes”.
 - Você pode selecionar ofertas específicas na legenda para exibir somente essas ofertas no grafo.
-- Passar o mouse sobre uma fatia no grafo exibirá o número de pedidos e a porcentagem dessa oferta em comparação com o número total de pedidos em todas as ofertas.
+- Passar o mouse sobre uma fatia no grafo exibe o número de pedidos e a porcentagem dessa oferta em comparação com o número total de pedidos em todas as ofertas.
 - A **tendência de pedidos por ofertas** exibe as tendências de crescimento mês a mês. A coluna de mês representa o número de pedidos por nome de oferta. O gráfico de linhas exibe a tendência de percentual de crescimento plotada em um eixo z.
 - Você pode usar o controle deslizante na parte superior do gráfico a fim de rolar para a direita e para a esquerda no eixo x e concentrar-se em pontos de dados específicos.
 - Você pode exibir o gráfico de tendência quando seleciona um item específico na legenda.
@@ -71,7 +73,7 @@ O gráfico de rosca **Pedidos por ofertas** organiza os pedidos (incluindo pedid
 
 ### <a name="orders-trend-per-site-versus-per-seat"></a>Tendência de pedidos por site versus por estação
 
-O gráfico de rosca **Por site versus por estação** representa o detalhamento de SaaS por site e pedidos de SaaS por estação adquiridos pelos clientes (o gráfico inclui pedidos cancelados). O gráfico de colunas representa a tendência de SaaS por site e pedidos de SaaS por estação adquiridos pelos clientes (o gráfico inclui pedidos cancelados).
+O gráfico de rosca **por site versus por estação** representa a divisão do SaaS por site e dos pedidos de SaaS por estação adquiridos pelos clientes (esse gráfico inclui pedidos cancelados). O gráfico de colunas representa a tendência de SaaS por site e pedidos de SaaS por estação adquiridos pelos clientes (o gráfico inclui pedidos cancelados).
 
 ### <a name="orders-by-plans"></a>Pedidos por planos
 
@@ -79,16 +81,16 @@ O gráfico **pedidos por planos** representa a tendência de pedidos no nível d
 
 ### <a name="orders-and-seats-trend"></a>Tendência de pedidos e estações
 
-O grafo **Tendência de pedidos e estações** apresenta as 50 principais ofertas com o maior número de pedidos. Elas são exibidas em um placar de líderes e são classificadas por contagem de pedidos e porcentagem de pedidos mais altas.
+O grafo **Tendência de pedidos e estações** apresenta as 50 principais ofertas com o maior número de pedidos. Eles são exibidos em um tabuleiro de preenchimento e classificados por contagem de pedidos e porcentagem de pedidos mais altos.
 
 - **Pedidos por planos** – selecione uma oferta para exibir a divisão da contagem de pedidos dos cinco primeiros planos no gráfico.
-- **Estações por planos** – a tendência mensal de estações para os cinco principais planos. Se a oferta selecionada não for uma oferta por estação, você não verá nenhum dado nesse gráfico de área.
+- **Estações por planos** – a tendência mensal de estações para os cinco principais planos. Se a oferta selecionada não for uma oferta por estação, nenhum dado será exibido aqui.
 
 ### <a name="canceled-orders-by-offers"></a>Pedidos cancelados por ofertas
 
 O gráfico de pizza **Pedidos cancelados por ofertas** organiza todos os pedidos cancelados de acordo com seus nomes de oferta. As ofertas principais são exibidas no grafo, e o restante das ofertas é agrupado como “Restantes”. Você pode selecionar ofertas específicas na legenda para exibir no grafo.
 
-- Passar o mouse sobre uma fatia no grafo exibirá o número de pedidos e a porcentagem da oferta selecionada em comparação com o número total de pedidos em todas as ofertas.
+- Passar o mouse sobre uma fatia no grafo exibe o número de pedidos e a porcentagem da oferta selecionada em comparação com o número total de pedidos em todas as ofertas.
 - O gráfico de colunas exibe as tendências mês a mês. As colunas representam o número de pedidos cancelados por nome de oferta. Você pode usar o controle deslizante na parte superior do gráfico a fim de rolar para a direita e para a esquerda ao longo do eixo X e/ou se concentrar em pontos de dados específicos. Você pode exibir o gráfico de tendência quando seleciona um item específico na legenda.
 
 ### <a name="order-details-table"></a>Tabela de detalhes do pedido
@@ -98,14 +100,14 @@ A tabela Detalhes do pedido exibe uma lista numerada dos 1000 principais pedidos
 - Cada coluna na grade pode ser classificada.
 - Os dados podem ser extraídos para um arquivo TSV, se a contagem dos registros for menor que 1.000.
 - Se o número de registros for superior a 1000, os dados exportados serão colocados de forma assíncrona em uma página de downloads pelos próximos 30 dias.
-- Os filtros podem ser aplicados à **tabela Detalhes do pedido** para exibir apenas os dados nos quais você está interessado. Os dados podem ser filtrados por País/Região, Tipo de licença do Azure, Tipo de licença do Marketplace, Tipo de oferta, Status do pedido, Avaliações gratuitas, ID da assinatura do Marketplace, ID do cliente e Nome da empresa.
-- Como as ofertas de SaaS adquiridas por meio do Azure Marketplace ou do AppSource não exigem uma assinatura do Azure, a ID da assinatura do Marketplace será exibida como 00000000-0000-0000-0000-000000000000 na seção **Dados de pedidos detalhados**.
+- Aplique filtros à **tabela detalhes do pedido** para exibir apenas os dados dos quais você está interessado. Filtrar por país/região, tipo de licença do Azure, tipo de licença do Marketplace comercial, tipo de oferta, status do pedido, trilhas gratuitas, ID da assinatura do Marketplace comercial, ID do cliente e nome da empresa.
+- Como as ofertas de SaaS adquiridas por meio do Azure Marketplace ou AppSource não exigem uma assinatura do Azure, a ID da assinatura do Marketplace aparecerá como 00000000-0000-0000-0000-000000000000 na seção **dados de pedidos detalhados** .
 
 #### <a name="orders-page-filters"></a>Filtros da página de pedidos
 
 Esses filtros são aplicados no nível da página.
 
-É possível selecionar vários filtros para renderizar o gráfico para os critérios que você escolher e os dados que deseja exibir na grade/exportação **Dados do Pedido Detalhados**. Os filtros são aplicados nos dados extraídos para o intervalo de dados selecionado no canto superior direito da página de pedidos.
+É possível selecionar vários filtros para renderizar o gráfico para os critérios que você escolher e os dados que deseja exibir na grade/exportação **Dados do Pedido Detalhados**. Os filtros são aplicados nos dados extraídos para o intervalo de dados que você selecionou no canto superior direito da página pedidos.
 
 - Os tipos de oferta e os nomes de oferta são listados apenas em ofertas que apresentam pedidos durante o intervalo de datas selecionado. Os nomes de oferta na lista são exibidos para os tipos de ofertas que você selecionou na lista.
 - Os filtros aplicados mostram as métricas totais dentro de cada seleção para cada filtro selecionado. Os filtros aplicados não são exibidos quando a seleção padrão é escolhida.

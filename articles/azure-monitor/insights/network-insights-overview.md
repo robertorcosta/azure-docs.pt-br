@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: 0f5b2fbd13cb9658e255fde727e115df748aaed9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccc5578944dc6eea9a62360045272896d78e2fac
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77654861"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128668"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor para redes (visualização)
 O Azure Monitor para rede fornece uma visão abrangente da integridade e das métricas para todos os recursos de rede implantados sem nenhuma configuração. A capacidade de pesquisa avançada ajuda a identificar dependências de recursos, permitindo cenários como identificar recursos que hospedam seu site simplesmente pesquisando o nome do site hospedado.
@@ -47,7 +48,7 @@ Você pode clicar em cada elemento no modo de exibição de grade. Clique no íc
 A grade de **alertas** à direita fornece uma exibição de todos os alertas gerados para os recursos selecionados em todas as assinaturas. Clique no alerta contagens para navegar até a página alertas detalhados.
 
 ## <a name="dependency-view"></a>Exibição de dependência
-A exibição de **dependência** ajuda a visualizar como o recurso é configurado. Atualmente, há suporte para a exibição de dependência somente no gateway de aplicativo. A exibição de dependência pode ser acessada clicando no nome do recurso do gateway de aplicativo na exibição de grade de métricas.
+A exibição de **dependência** ajuda a visualizar como o recurso é configurado. Atualmente, a exibição de dependência agora tem suporte para gateway de aplicativo, WAN virtual e Load Balancer. Por exemplo, no caso do gateway de aplicativo, a exibição de dependência pode ser acessada clicando no nome de recurso do gateway de aplicativo na exibição de grade de métricas. Isso também se aplica à WAN virtual e Load Balancer. 
 
 ![Exibição do gateway de aplicativo](media/network-insights-overview/application-gateway.png)
 
@@ -69,4 +70,4 @@ Clique em **exibição de métrica detalhada** para iniciar uma pasta de trabalh
 
 ## <a name="next-steps"></a>Próximas etapas 
 
-- Saiba mais sobre o monitoramento de rede em o que é o [observador de rede do Azure?](/azure/network-watcher/network-watcher-monitoring-overview).
+- Saiba mais sobre o monitoramento de rede em o que é o [observador de rede do Azure?](../../network-watcher/network-watcher-monitoring-overview.md).

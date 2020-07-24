@@ -3,14 +3,16 @@ title: Criar uma oferta de aplicativo do Azure - Marketplace comercial da Micros
 description: Conheça as etapas e considerações para criar uma nova oferta de aplicativo do Azure no portal do Marketplace comercial no Partner Center. Você pode listar ou vender sua oferta de aplicativo do Azure no Azure Marketplace ou por meio do programa CSP (provedor de soluções na nuvem).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: c5371b2d9379ca861addac07de50d7cdf9c34c8b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+author: qianw211
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 6789e32cbbb1257a668e7be87a8b73a0511b6fb0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121956"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127427"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicativo do Azure
 
@@ -65,7 +67,7 @@ O vídeo [Criação de modelos de solução e aplicativos gerenciados para o Azu
 
 Escolha um ou ambos dos seguintes ambientes de script para ajudar a gerenciar seu aplicativo Azure:
 
-* [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/overview)
+* [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/)
 * [CLI do Azure](https://docs.microsoft.com/cli/azure)
 
 Além disso, é recomendável adicionar as seguintes ferramentas ao seu ambiente de desenvolvimento:
@@ -308,7 +310,7 @@ A configuração técnica define os detalhes (ID do locatário e ID do aplicativ
 
 ## <a name="plan-overview"></a>Visão geral do plano
 
-Esta guia permite que você forneça opções de plano diferentes na mesma oferta. Esses planos (chamados de SKUs no Portal do Cloud Partner) podem diferir em termos de tipo de plano (modelo de solução versus aplicativo gerenciado), monetização ou público.  Configure pelo menos um plano para poder vender sua oferta no Marketplace.
+Esta guia permite que você forneça opções de plano diferentes na mesma oferta. Esses planos (anteriormente chamados de SKUs) podem diferir em termos de tipo de plano (modelo de solução versus aplicativo gerenciado), monetização ou público. Configure pelo menos um plano para poder vender sua oferta no Marketplace.
 
 Depois de criado, você verá nomes, IDs, modelos de preços, disponibilidade (pública ou privada), status de publicação atual e ações disponíveis do seu plano.
 
@@ -510,7 +512,7 @@ Indique quem deve ter acesso de gerenciamento a esse aplicativo gerenciado em ca
 
 **Autorizações** - Adicione a ID do objeto do Azure Active Directory do usuário, grupo ou aplicativo ao qual você deseja conceder a permissão para o grupo de recursos gerenciado. Identifique o usuário por sua ID de entidade de segurança, que pode ser encontrada na [folha de usuários do Azure Active Directory no portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-Para cada entidade de segurança, selecione uma das funções internas do Azure AD na lista (proprietário ou colaborador). A função selecionada descreverá as permissões que a entidade de segurança terá sobre os recursos na assinatura do cliente. Para obter mais informações, consulte [Funções internas dos recursos do Azure](../../role-based-access-control/built-in-roles.md). Para obter mais informações sobre controle de acesso baseado em função (RBAC), consulte [Introdução ao RBAC no portal do Azure](../../role-based-access-control/overview.md).
+Para cada entidade de segurança, selecione uma das funções internas do Azure AD na lista (proprietário ou colaborador). A função selecionada descreverá as permissões que a entidade de segurança terá sobre os recursos na assinatura do cliente. Para obter mais informações, veja [Funções internas do Azure](../../role-based-access-control/built-in-roles.md). Para obter mais informações sobre controle de acesso baseado em função (RBAC), consulte [Introdução ao RBAC no portal do Azure](../../role-based-access-control/overview.md).
 
 >[!Note]
 >Embora você possa adicionar até 100 autorizações por nuvem, geralmente é mais fácil criar um grupo de usuários do Active Directory e especificar sua ID na "ID da entidade de segurança". Isso permitirá que você adicione mais usuários ao grupo de gerenciamento depois que o plano for implantado e reduza a necessidade de atualizar o plano apenas para adicionar mais autorizações.

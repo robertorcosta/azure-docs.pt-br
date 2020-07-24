@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: b7739320fa23bf4469548f61486da1a5ee6110da
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 075837d0c382f5bc6f436a63dfe227c17f0a57a3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507141"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128651"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Acesso e opções de identidade para o Serviço de Kubernetes do Azure (AKS)
 
@@ -105,7 +105,7 @@ O RBAC do Azure é um sistema de autorização baseado no [Azure Resource Manage
 
 Com o RBAC do Azure, você cria um *definição de função* que descreve as permissões a serem aplicadas. Em seguida, um usuário ou grupo atribui essa definição de função por meio de uma *atribuição de função* para um *escopo*específico, que pode ser um recurso individual, um grupo de recursos ou pela assinatura.
 
-Para obter mais informações, consulte [O que é a RBAC do Azure?][azure-rbac]
+Para obter mais informações, consulte [o que é o Azure RBAC (controle de acesso baseado em função)?][azure-rbac]
 
 Há dois níveis de acesso necessários para operar totalmente um cluster AKS: 
 1. [Acesse o recurso AKS em sua assinatura do Azure](#azure-rbac-to-authorize-access-to-the-aks-resource). Esse processo permite controlar as coisas que dimensionam ou atualizam o cluster usando as APIs AKS, bem como efetuam pull de seu kubeconfig.

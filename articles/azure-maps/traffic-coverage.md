@@ -1,19 +1,19 @@
 ---
 title: Cobertura de tráfego | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá sobre a cobertura de tráfego em mapas de Microsoft Azure.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 09/22/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 836a924bb371aaf2879e951501c6febbe51e182e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 346cd13c021b70dac1501e5ca5a9e6930d407e6e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80333954"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129416"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego dos Mapas do Azure
 
@@ -23,7 +23,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="americas"></a>Américas
 
-|País/Região  |Incidentes  |Flow  |
+|País/Região  |Incidentes  |Fluxo  |
 |---------|:---------:|:---------:|
 |Argentina      |✓         |✓         |
 |Brasil     |✓         |✓         |
@@ -39,7 +39,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="asia-pacific"></a>Pacífico Asiático
 
-|País/Região   |Incidentes  |Flow  |
+|País/Região   |Incidentes  |Fluxo  |
 |---------|:---------:|:---------:|
 |Austrália     |✓         |✓        |
 |Brunei   |✓         |✓        |
@@ -59,7 +59,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="europe"></a>Europa
 
-|País/Região   |Incidentes  |Flow  |
+|País/Região   |Incidentes  |Fluxo  |
 |---------|:---------:|:---------:|
 |Andorra   |✓         |✓         |
 |Áustria     |✓         |✓         |
@@ -117,7 +117,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 
 ## <a name="middle-east-and-africa"></a>Oriente Médio e África
 
-|País/Região |Incidentes  |Flow  |
+|País/Região |Incidentes  |Fluxo  |
 |---------|:---------:|:---------:|
 |Bahrein     |✓         |✓         |
 |Egito     |✓         |✓         |

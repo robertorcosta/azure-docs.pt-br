@@ -3,19 +3,17 @@ title: Exploração – Personalizador
 titleSuffix: Azure Cognitive Services
 description: Com a exploração, o Personalizador é capaz de continuar fornecendo bons resultados, mesmo que haja alterações no comportamento do usuário. Escolher uma configuração de exploração é uma decisão de negócios sobre a proporção de interações do usuário com a qual explorar, a fim de melhorar o modelo.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: diberry
-ms.openlocfilehash: 0b69c1fb070431ad61858322dce461f6496c35d7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 00b9cc881d9414e957d7503bb6156095bb821c06
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73490813"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128141"
 ---
 # <a name="exploration-and-exploitation"></a>Exploration e exploitation
 

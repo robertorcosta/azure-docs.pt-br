@@ -3,18 +3,16 @@ title: Estender scripts U-SQL com Python no Azure Data Lake Analytics
 description: Saiba como executar código Python em scripts U-SQL usando o Azure Data Lake Analytics
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/20/2017
 ms.custom: tracking-python
-ms.openlocfilehash: 31a9a12d6c252c60f3000c2a15a5f382734597a2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 89c974f6a2a6374370ff33940515b2a9f7904ce7
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110514"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129756"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Estender scripts U-SQL com código Python no Azure Data Lake Analytics
 

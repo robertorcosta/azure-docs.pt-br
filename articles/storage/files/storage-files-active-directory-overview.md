@@ -7,11 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: db256c8361af740ac536e059969a5085e57df485
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb57606259fe674519015fd2de741d6c1d08c5e9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263323"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127189"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Visão geral de opções de autenticação baseadas em identidades do Azure Files para acesso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -31,7 +32,7 @@ Para saber como habilitar a autenticação de AD DS do Azure para compartilhamen
 
     O SMB é um protocolo de compartilhamento de arquivos de rede padrão do setor. O SMB também é conhecido como Common Internet File System ou CIFS. Para obter mais informações sobre o SMB, consulte [Protocolo SMB da Microsoft e Visão geral do protocolo CIFS](https://docs.microsoft.com/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
 
--   **Azure Active Directory (Azure AD)**
+-   **Active Directory do Azure (Azure AD)**
 
     O Azure Active Directory (AD do Azure) é o serviço de gerenciamento de identidade e diretório multilocatário baseado em nuvem da Microsoft. O Azure AD combina serviços de diretório principais, gerenciamento de acesso a aplicativos e proteção de identidade em uma única solução. As VMs (máquinas virtuais) do Windows ingressadas no Azure AD podem acessar compartilhamentos de arquivos do Azure com suas credenciais do Azure AD. Para obter mais informações, consulte [o que é Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
 
@@ -45,7 +46,7 @@ Para saber como habilitar a autenticação de AD DS do Azure para compartilhamen
 
 -   **RBAC (Controle de Acesso Baseado em Função) do Azure**
 
-    O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Usando o RBAC, você pode gerenciar o acesso aos recursos concedendo aos usuários o mínimo de permissões necessárias para que eles realizem seus trabalhos. Para obter mais informações sobre o RBAC, consulte [o que é o RBAC (controle de acesso baseado em função) no Azure?](../../role-based-access-control/overview.md).
+    O Azure RBAC (controle de acesso baseado em função) permite o gerenciamento de acesso refinado para o Azure. Usando o RBAC, você pode gerenciar o acesso aos recursos concedendo aos usuários o mínimo de permissões necessárias para que eles realizem seus trabalhos. Para obter mais informações sobre o RBAC, consulte [o que é o Azure RBAC (controle de acesso baseado em função) no Azure?](../../role-based-access-control/overview.md).
 
 ## <a name="common-use-cases"></a>Casos de uso comuns
 
@@ -90,7 +91,7 @@ A autenticação baseada em identidade para arquivos do Azure oferece vários be
 -   **Fazer backup de ACLs do Windows (também conhecido como NTFS) junto com seus dados**  
     Você pode usar compartilhamentos de arquivos do Azure para fazer backup de seus compartilhamentos de arquivos locais existentes. Os arquivos do Azure preservam suas ACLs junto com seus dados quando você faz backup de um compartilhamento de arquivos para compartilhamentos de arquivos do Azure via SMB.
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Os compartilhamentos de arquivos do Azure aproveitam o protocolo Kerberos para autenticação com AD DS local ou AD DS do Azure. Quando uma identidade associada a um usuário ou aplicativo em execução em um cliente tenta acessar dados em compartilhamentos de arquivos do Azure, a solicitação é enviada para o serviço de domínio, seja AD DS ou AD DS do Azure, para autenticar a identidade. Se a autenticação for bem-sucedida, ela retornará um token Kerberos. O cliente envia uma solicitação que inclui o token Kerberos e os compartilhamentos de arquivos do Azure usam esse token para autorizar a solicitação. Os compartilhamentos de arquivos do Azure recebem apenas o token Kerberos, não as credenciais de acesso.
 
@@ -145,7 +146,7 @@ Não há nenhum encargo de serviço adicional para habilitar a autenticação ba
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre os arquivos do Azure e a autenticação baseada em identidade sobre o SMB, consulte estes recursos:
 
-- [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
+- [Como planejar uma implantação de Arquivos do Azure](storage-files-planning.md)
 - [Habilitar a autenticação de Active Directory Domain Services local sobre SMB para compartilhamentos de arquivos do Azure](storage-files-identity-auth-active-directory-enable.md)
 - [Habilitar a autenticação de Azure Active Directory Domain Services nos arquivos do Azure](storage-files-identity-auth-active-directory-domain-service-enable.md)
 - [perguntas frequentes](storage-files-faq.md)
