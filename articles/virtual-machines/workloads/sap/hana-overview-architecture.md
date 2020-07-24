@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 39fcf5d0fe2273c4debd3ae5ebe5fd1190ddc959
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d413b2babda4c73f9f29ce3750bf7d0461db43c1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616962"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065103"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>O que é SAP HANA no Azure (Instâncias Grandes)?
 
@@ -38,7 +39,7 @@ A partir de julho de 2019, diferenciamos entre duas revisões diferentes de cari
 - "Revisão 3" (Rev. 3): os carimbos que foram disponibilizados para que o cliente seja implantado antes de julho de 2019
 - "Revisão 4" (Rev 4): novo design de carimbo que é implantado em proximidade com hosts de VM do Azure e que até o momento são lançados nas regiões do Azure de:
     -  Oeste dos EUA 2 
-    -  Leste dos EUA 
+    -  East US 
     -  Europa Ocidental
     -  Norte da Europa
 
@@ -53,8 +54,8 @@ Os diferentes documentos de diretrizes de Instância grande do HANA abordam as s
 - [Instalar e configurar o SAP HANA (Instâncias Grandes) do Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Alta disponibilidade e recuperação de desastres do SAP HANA (grandes instâncias) no Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Solução de problemas e monitoramento do SAP HANA (Instâncias Grandes) do Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Configuração de alta disponibilidade no SUSE usando STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
-- [Backup e restauração do so para SKUs do tipo II de carimbos de revisão 3](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
+- [Configuração de alta disponibilidade no SUSE usando STONITH](./ha-setup-with-stonith.md)
+- [Backup e restauração do so para SKUs do tipo II de carimbos de revisão 3](./os-backup-type-ii-skus.md)
 
 **Próximas etapas**
 - Veja [Conhecer os termos](hana-know-terms.md)

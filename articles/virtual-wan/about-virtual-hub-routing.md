@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 659cb9aabe5fcca68aea9a73ea9beadb8e52ec50
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4949d5f2621957d6830625fe798601db4472a75d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259175"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064919"
 ---
 # <a name="about-virtual-hub-routing"></a>Sobre o roteamento de hub virtual
 
@@ -60,6 +60,9 @@ Uma **tabela de rota None** também está disponível para cada Hub virtual. A p
 
 :::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Propagação":::
 
+### <a name="labels"></a><a name="static"></a>Rótulos
+Os rótulos fornecem um mecanismo para agrupar logicamente as tabelas de rotas. Isso é especialmente útil durante a propagação de rotas de conexões com várias tabelas de rotas. Por exemplo, a tabela de rotas padrão tem um rótulo interno chamado ' default '. Quando os usuários propagam rotas de conexão para o rótulo ' default ', ele se aplica automaticamente a todas as tabelas de rotas padrão em todos os hubs na WAN virtual. 
+
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>Configurando rotas estáticas em uma conexão de rede virtual
 
 A configuração de rotas estáticas fornece um mecanismo para direcionar o tráfego por meio de um IP do próximo salto, que pode ser de uma NVA (solução de virtualização de rede) provisionada em uma VNet do spoke conectada a um hub virtual. A rota estática é composta por um nome de rota, uma lista de prefixos de destino e um IP do próximo salto.
@@ -69,13 +72,13 @@ Disponível apenas no portal do Azure, essa opção fornece ao usuário um meio 
 
 ## <a name="route-tables-in-basic-and-standard-virtual-wans-prior-to-the-feature-set-of-association-and-propagation"></a><a name="route"></a>Direcionar tabelas em WANs virtuais básicas e padrão antes do conjunto de recursos de associação e propagação
 
-As tabelas de rotas agora têm recursos para associação e propagação. Uma tabela de rotas pré-existente é uma tabela de rotas que não tem esses recursos. Se você tiver rotas pré-existentes no roteamento de Hub e quiser usar os novos recursos, considere o seguinte:
+As tabelas de rotas agora têm recursos para associação e propagação. Uma tabela de rotas preexistente é uma tabela de rotas que não tem esses recursos. Se você tiver rotas preexistentes no Roteamento de Hub e quiser usar as novas funcionalidades, considere o seguinte:
 
 * **Clientes de WAN virtual padrão com rotas pré-existentes no Hub virtual**:
 
 Para usar novos recursos de tabela de rotas, aguarde até a semana de 3 de agosto para que a implantação seja concluída no Azure. Se você tiver rotas pré-existentes na seção de roteamento para o Hub no portal do Azure, você precisará primeiro excluí-las e, em seguida, tentar criar novas tabelas de rotas (disponíveis na seção de tabelas de rotas para o Hub em portal do Azure)
 
-* **Clientes básicos de WAN virtual com rotas pré-existentes no Hub virtual**: para usar os novos recursos de tabela de rotas, aguarde até semana de agosto para a conclusão do Azure para concluir. Se você tiver rotas pré-existentes na seção de roteamento para o Hub no portal do Azure, será necessário primeiro excluí-las e, em seguida, **Atualizar** sua Wan virtual básica para a WAN virtual padrão. Consulte [atualizar uma WAN virtual do básico para o Standard](upgrade-virtual-wan.md).
+* **Clientes de WAN Virtual Básica com rotas preexistentes no hub virtual**: Para usar as novas funcionalidades de tabela de rotas, aguarde até a semana de 3 de agosto para que a implantação seja concluída no Azure. Se você tiver rotas pré-existentes da seção Roteamento para o hub no portal do Azure, precisará primeiro excluí-las e depois **atualizar** sua WAN Virtual Básica para a WAN Virtual Standard. Confira [Atualizar uma WAN Virtual de Básica para Standard](upgrade-virtual-wan.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

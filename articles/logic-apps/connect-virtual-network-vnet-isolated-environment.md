@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.openlocfilehash: 3643092cf867fb49a24d5c1961d1a10834d5d3a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.openlocfilehash: b1290a17c93043ffbedb7a641e1a0afad6ae79d1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298847"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066479"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectar redes virtuais do Azure a partir dos Aplicativos Lógicos do Azure, usando um ISE (Ambiente de Serviço de Integração)
 
@@ -44,7 +44,7 @@ Você também pode criar um ISE usando o [exemplo de modelo de início rápido d
   > [!IMPORTANT]
   > Os aplicativos lógicos, os gatilhos internos, as ações internas e os conectores executados no ISE usam um plano de preços diferente do plano baseado em consumo. Para saber como funcionam o preço e a cobrança nos ISEs, confira o [Modelo de preços de Aplicativos Lógicos](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para obter os valores, confira [Preços de Aplicativos Lógicos](../logic-apps/logic-apps-pricing.md).
 
-* Uma [Rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Sua rede virtual precisa ter quatro sub-redes *vazias* que não são delegadas a nenhum serviço para criar e implantar recursos no ISE. Cada sub-rede dá suporte a um componente de Aplicativos Lógicos diferente que é usado em seu ISE. Você pode criar as sub-redes com antecedência ou pode aguardar até criar seu ISE, em que você pode criar sub-redes ao mesmo tempo. Saiba mais sobre [requisitos de sub-rede](#create-subnet).
+* Uma [Rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Sua rede virtual precisa ter quatro sub-redes *vazias* , que são necessárias para criar e implantar recursos no ISE e são usadas por componentes de aplicativos lógicos internos, como conectores e cache para desempenho. Você pode criar as sub-redes com antecedência ou pode aguardar até criar o ISE para que possa criar sub-redes ao mesmo tempo. No entanto, antes de criar suas sub-redes, examine os [requisitos de sub-rede](#create-subnet).
 
   > [!IMPORTANT]
   >
@@ -55,8 +55,6 @@ Você também pode criar um ISE usando o [exemplo de modelo de início rápido d
   > * 127.0.0.0/8
   > * 168.63.129.16/32
   > * 169.254.169.254/32
-  > 
-  > Os nomes de sub-rede precisam começar com um caractere alfabético ou um sublinhado e não podem usar estes caracteres: `<`, `>`, `%`, `&`, `\\`, `?`, `/`. Para implantar o ISE por meio de um modelo de Azure Resource Manager, primeiro certifique-se de delegar uma sub-rede vazia para `Microsoft.Logic/integrationServiceEnvironment` . Não é necessário fazer essa delegação ao implantar por meio do portal do Azure.
 
   * Verifique se a sua rede virtual [habilita o acesso ao ISE](#enable-access) para que o ISE possa funcionar corretamente e permanecer acessível.
 
@@ -134,6 +132,7 @@ Esta tabela descreve as portas que o ISE exige que estejam acessíveis e a final
 | Azure Resource Health | **VirtualNetwork** | * | **AzureMonitor** | 1886 | Necessário para publicar o status da integridade no Resource Health. |
 | Dependência do Log para agente de monitoramento e política do Hub de Eventos | **VirtualNetwork** | * | **EventHub** | 5672 ||
 | Acessar Instâncias do Cache do Azure para Redis entre Instâncias de Função | **VirtualNetwork** | * | **VirtualNetwork** | 6379 – 6383, confira também **Notas**| Para que o ISE funcione com o Cache do Azure para Redis, você deverá abrir estas [portas de entrada e saída descritas pelas perguntas frequentes do Cache do Azure para o Redis](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+| Resolução de nomes DNS | **VirtualNetwork** | * | Endereços IP para qualquer servidor de DNS (sistema de nomes de domínio) personalizado em sua rede virtual | 53 | Necessário somente quando você usa servidores DNS personalizados em sua rede virtual |
 |||||||
 
 Além disso, você precisa adicionar regras de saída para [ambiente do serviço de aplicativo (ase)](../app-service/environment/intro.md):
@@ -168,18 +167,30 @@ Além disso, você precisa adicionar regras de saída para [ambiente do serviço
    | **Capacidade adicional** | Premium: <br>Sim <p><p>Desenvolvedor: <br>Não aplicável | Premium: <br>0 a 10 <p><p>Desenvolvedor: <br>Não aplicável | O número de unidades de processamento adicionais a serem usadas no recurso do ISE. Para adicionar capacidade após a criação, confira [Adicionar capacidade do ISE](../logic-apps/ise-manage-integration-service-environment.md#add-capacity). |
    | **Ponto de extremidade de acesso** | Sim | **Interno** ou **Externo** | O tipo dos pontos de extremidade de acesso a serem usados no ISE. Esses pontos de extremidade determinam se os gatilhos de solicitação ou webhook em Aplicativos Lógicos no ISE podem receber chamadas de fora de sua rede virtual. <p><p>Sua seleção também afeta a maneira como você pode exibir e acessar entradas e saídas em seu histórico de execuções de aplicativo lógico. Para obter mais informações, confira [Acesso do ponto de extremidade do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Importante**: Você pode selecionar o ponto de extremidade de acesso somente durante a criação do ISE e não pode alterar essa opção posteriormente. |
    | **Rede virtual** | Sim | <*Azure-virtual-network-name*> | A rede virtual do Azure na qual você deseja injetar seu ambiente para que os aplicativos lógicos no ambiente possam acessar sua rede virtual. Se não tiver uma rede, [primeiro crie uma rede virtual do Azure](../virtual-network/quick-create-portal.md). <p><p>**Importante**: Você pode executar essa injeção *apenas* quando cria seu ISE. |
-   | **Sub-redes** | Sim | <*subnet-resource-list*> | Um ISE requer quatro sub-redes *vazias* para criar e implantar recursos em seu ambiente. Para criar cada sub-rede, [siga as etapas nesta tabela](#create-subnet). |
+   | **Sub-redes** | Sim | <*subnet-resource-list*> | Um ISE requer quatro sub-redes *vazias* , que são necessárias para criar e implantar recursos no ISE e são usadas por componentes de aplicativos lógicos internos, como conectores e cache para desempenho. <p>**Importante**: Certifique-se [de examinar os requisitos de sub-rede antes de continuar com estas etapas para criar suas sub-redes](#create-subnet). |
    |||||
 
    <a name="create-subnet"></a>
 
-   **Criar sub-rede**
+   **Criar sub-redes**
 
-   Para criar e implantar recursos em seu ambiente, o ISE precisa de quatro sub-redes *vazias* não delegadas a nenhum serviço. Cada sub-rede dá suporte a um componente de Aplicativos Lógicos diferente que é usado em seu ISE. Você *não pode* alterar esses endereços de sub-rede depois de criar seu ambiente. Cada sub-rede precisa atender a estes requisitos:
+   O ISE precisa de quatro sub-redes *vazias* , que são necessárias para criar e implantar recursos no ISE e são usadas por componentes de aplicativos lógicos internos, como conectores e cache para desempenho. Você *não pode* alterar esses endereços de sub-rede depois de criar seu ambiente. Se você criar e implantar o ISE por meio do portal do Azure, certifique-se de não delegar essas sub-redes a nenhum serviço do Azure. No entanto, se você criar e implantar o ISE por meio da API REST, Azure PowerShell ou um modelo de Azure Resource Manager, será necessário [delegar](../virtual-network/manage-subnet-delegation.md) uma sub-rede vazia para o `Microsoft.integrationServiceEnvironment` . Para obter mais informações, consulte [Adicionar uma delegação de sub-rede](../virtual-network/manage-subnet-delegation.md).
 
-   * Tem um nome que começa com um caractere alfabético ou um sublinhado (sem números) e não usa estes caracteres: `<`, `>`, `%`, `&`, `\\`, `?`, `/`.
+   Cada sub-rede precisa atender a estes requisitos:
+
+   * Usa um nome que começa com um caractere alfabético ou um sublinhado (sem números) e não usa estes caracteres:,,,,, `<` `>` `%` `&` `\\` `?` , `/` .
 
    * Usa o [formato CIDR (Roteamento entre Domínios sem Classe)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) e um espaço de endereço de Classe B.
+   
+     > [!IMPORTANT]
+     >
+     > Não use os espaços de endereço IP a seguir para sua rede virtual ou sub-redes porque eles não podem ser resolvidos pelos aplicativos lógicos do Azure:<p>
+     > 
+     > * 0.0.0.0/8
+     > * 100.64.0.0/10
+     > * 127.0.0.0/8
+     > * 168.63.129.16/32
+     > * 169.254.169.254/32
 
    * Usa um `/27` no espaço de endereço porque cada sub-rede requer 32 endereços. Por exemplo, `10.0.0.0/27` tem 32 endereços porque 2<sup>(32-27)</sup> é 2<sup>5</sup> ou 32. Mais endereços não fornecerão benefícios adicionais. Para saber mais sobre como calcular endereços, confira [blocos CIDR IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 

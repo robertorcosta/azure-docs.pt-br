@@ -4,12 +4,12 @@ description: Este artigo informa como usar o Azure Active Directory na Automaç�
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9c81e3389f2cc96f2581b8edee5f528237cb9eca
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: c17c9cdc02c87037a39b8d6029bc4506afa8ad28
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185663"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064387"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Usar o Azure AD para a autenticação no Azure
 
@@ -92,11 +92,11 @@ Com as credenciais do Azure para o Azure Active Directory disponíveis, é hora 
 
 ### <a name="create-the-credential-asset-with-windows-powershell"></a>Criar o ativo de credencial com o Windows PowerShell
 
-Para preparar um novo ativo de credencial no Windows PowerShell, seu script cria primeiro um objeto `PSCredential` usando o nome de usuário e a senha atribuídos. Em seguida, o script usa esse objeto para criar o ativo por meio de uma chamada para o cmdlet [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0). Como alternativa, o script pode chamar o cmdlet [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) para solicitar que o usuário digite um nome e uma senha. Veja [Ativos de credenciais na Automação do Azure](shared-resources/credentials.md). 
+Para preparar um novo ativo de credencial no Windows PowerShell, seu script cria primeiro um objeto `PSCredential` usando o nome de usuário e a senha atribuídos. Em seguida, o script usa esse objeto para criar o ativo por meio de uma chamada para o cmdlet [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure.service/new-azureautomationcredential?view=azuresmps-4.0.0). Como alternativa, o script pode chamar o cmdlet [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) para solicitar que o usuário digite um nome e uma senha. Veja [Ativos de credenciais na Automação do Azure](shared-resources/credentials.md). 
 
 ## <a name="manage-azure-resources-from-an-azure-automation-runbook"></a>Gerenciar recursos do Azure a partir de um runbook de Automação do Azure
 
-É possível gerenciar recursos do Azure a partir de runbooks de Automação do Azure usando o ativo de credencial. Veja abaixo um exemplo de runbook do PowerShell que coleta o ativo de credencial a ser usado para parar e iniciar máquinas virtuais em uma assinatura do Azure. Esse runbook usa primeiro `Get-AutomationPSCredential` para recuperar a credencial a ser usada para autenticar no Azure. Em seguida, ele chama o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.6.1) para se conectar ao Azure usando a credencial. O script usa o cmdlet [Select-AzureSubscription](/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0) para escolher a assinatura com a qual trabalhar. 
+É possível gerenciar recursos do Azure a partir de runbooks de Automação do Azure usando o ativo de credencial. Veja abaixo um exemplo de runbook do PowerShell que coleta o ativo de credencial a ser usado para parar e iniciar máquinas virtuais em uma assinatura do Azure. Esse runbook usa primeiro `Get-AutomationPSCredential` para recuperar a credencial a ser usada para autenticar no Azure. Em seguida, ele chama o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.6.1) para se conectar ao Azure usando a credencial. O script usa o cmdlet [Select-AzureSubscription](/powershell/module/servicemanagement/azure.service/select-azuresubscription?view=azuresmps-4.0.0) para escolher a assinatura com a qual trabalhar. 
 
 ```azurepowershell
 Workflow Stop-Start-AzureVM 

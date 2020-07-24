@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: e9f084badda9ea1905e43c6f00b29aaf957a6dbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 547b3ed84c8e4406b65ee8cf51c0db10b6878793
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652275"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063825"
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Elemento de interface do usuário Microsoft.Common.TextBox
 
@@ -17,38 +18,79 @@ Um controle que pode ser usado para editar texto não formatado.
 
 ## <a name="ui-sample"></a>Exemplo de interface do usuário
 
-![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textbox.png)
+![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft-common-textbox.png)
 
 ## <a name="schema"></a>Esquema
 
 ```json
 {
-  "name": "element1",
-  "type": "Microsoft.Common.TextBox",
-  "label": "Example text box 1",
-  "defaultValue": "my text value",
-  "toolTip": "Use only allowed characters",
-  "constraints": {
-    "required": true,
-    "regex": "^[a-z0-9A-Z]{1,30}$",
-    "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
-  },
-  "visible": true
+    "name": "nameInstance",
+    "type": "Microsoft.Common.TextBox",
+    "label": "Name",
+    "defaultValue": "contoso123",
+    "toolTip": "Use only allowed characters",
+    "constraints": {
+        "required": true,
+        "validations": [
+            {
+                "regex": "^[a-z0-9A-Z]{1,30}$",
+                "message": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+            },
+            {
+                "isValid": "[startsWith(steps('resourceConfig').nameInstance, 'contoso')]",
+                "message": "Must start with 'contoso'."
+            }
+        ]
+    },
+    "visible": true
 }
 ```
 
 ## <a name="sample-output"></a>Saída de exemplo
 
 ```json
-"my text value"
+"contoso123"
 ```
 
 ## <a name="remarks"></a>Comentários
 
 - Se `constraints.required` estiver definido como **true**, a caixa de texto deve ter um valor para validar com êxito. O valor padrão é **false**.
-- `constraints.regex` é um padrão de expressão regular JavaScript. Se especificado, o valor da caixa de texto deve corresponder ao padrão para validar com êxito. O valor padrão é **NULL**.
-- `constraints.validationMessage` é uma cadeia de caracteres a ser exibida quando o valor da caixa de texto falha na validação. Se não for especificado, as mensagens de validação internas da caixa de texto serão usadas. O valor padrão é **NULL**.
-- É possível especificar um valor para `constraints.regex` quando `constraints.required` é definido como **false**. Nesse cenário, um valor não é necessário para a caixa de texto para validar com êxito. Se um valor for especificado, ele deve corresponder ao padrão da expressão regular.
+- A `validations` propriedade é uma matriz na qual você adiciona condições para verificar o valor fornecido na caixa de texto.
+- A `regex` propriedade é um padrão de expressão regular JavaScript. Se especificado, o valor da caixa de texto deve corresponder ao padrão para validar com êxito. O valor padrão é **NULL**.
+- A `isValid` propriedade contém uma expressão que é avaliada como true ou false. Dentro da expressão, você define a condição que determina se a caixa de texto é válida.
+- A `message` propriedade é uma cadeia de caracteres a ser exibida quando o valor da caixa de texto falha na validação.
+- É possível especificar um valor para `regex` quando `required` é definido como **false**. Nesse cenário, um valor não é necessário para a caixa de texto para validar com êxito. Se um valor for especificado, ele deve corresponder ao padrão da expressão regular.
+
+## <a name="example"></a>Exemplo
+
+O exemplo a seguir usa uma caixa de texto com o controle [Microsoft. Solutions. ArmApiControl](microsoft-solutions-armapicontrol.md) para verificar a disponibilidade de um nome de recurso.
+
+```json
+"basics": [
+    {
+        "name": "nameApi",
+        "type": "Microsoft.Solutions.ArmApiControl",
+        "request": {
+            "method": "POST",
+            "path": "[concat(subscription().id, '/providers/Microsoft.Storage/checkNameAvailability?api-version=2019-06-01')]",
+            "body": "[parse(concat('{\"name\": \"', basics('txtStorageName'), '\", \"type\": \"Microsoft.Storage/storageAccounts\"}'))]"
+        }
+    },
+    {
+        "name": "txtStorageName",
+        "type": "Microsoft.Common.TextBox",
+        "label": "Storage account name",
+        "constraints": {
+            "validations": [
+                {
+                    "isValid": "[not(equals(basics('nameApi').nameAvailable, false))]",
+                    "message": "[concat('Name unavailable: ', basics('txtStorageName'))]"
+                }
+            ]
+        }
+    }
+]
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

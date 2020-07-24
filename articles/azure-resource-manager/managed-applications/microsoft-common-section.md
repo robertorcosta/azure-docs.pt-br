@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 999a7386ee7c5b3ef76f87280cc2d0cd45f143cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 924aff8f2ba3d796b65f52494845f3b10018065c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652249"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063958"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Elemento de interface do usuário Microsoft.Common.Section
 
@@ -17,7 +18,7 @@ Um controle que agrupa um ou mais elementos em um título.
 
 ## <a name="ui-sample"></a>Exemplo de interface do usuário
 
-![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
+![Microsoft.Common.Section](./media/managed-application-elements/microsoft-common-section.png)
 
 ## <a name="schema"></a>Esquema
 
@@ -48,7 +49,7 @@ Um controle que agrupa um ou mais elementos em um título.
 - Esse elemento não dá suporte à propriedade `toolTip`.
 
 ## <a name="sample-output"></a>Saída de exemplo
-Para acessar os valores de saída de elementos em `elements`, use as funções [basics()](create-uidefinition-functions.md#basics) ou [steps()](create-uidefinition-functions.md#steps) e a notação de ponto:
+Para acessar os valores de saída de elementos em `elements`, use as funções [basics()](create-ui-definition-referencing-functions.md#basics) ou [steps()](create-ui-definition-referencing-functions.md#steps) e a notação de ponto:
 
 ```json
 steps('configuration').section1.text1

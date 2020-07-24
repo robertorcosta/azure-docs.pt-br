@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 7bf71ce7c44229ccf19022e9cfb0162f9d77cd97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc55b24c4852028eb1244e97b48415ba08420e20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80437709"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066537"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuidade dos negócios e recuperação de desastre para aplicativos lógicos do Azure
 
@@ -157,7 +157,7 @@ Quando seu aplicativo lógico é disparado e começa a ser executado, o estado d
 
 Para minimizar o número de instâncias de fluxo de trabalho em andamento abandonadas, você pode escolher entre vários padrões de mensagem que podem ser implementados, por exemplo:
 
-* [Padrão de guia de roteamento fixo](https://docs.microsoft.com/biztalk/esb-toolkit/message-routing-patterns#routing-slip)
+* [Padrão de guia de roteamento fixo](/biztalk/esb-toolkit/message-routing-patterns#routing-slip)
 
   Esse padrão de mensagem empresarial que divide um processo de negócios em estágios menores. Para cada estágio, você configura um aplicativo lógico que manipula a carga de trabalho para esse estágio. Para se comunicar entre si, seus aplicativos lógicos usam um protocolo de mensagens assíncrono, como filas ou tópicos do barramento de serviço do Azure. Ao dividir um processo em estágios menores, você reduz o número de processos de negócios que podem ficar presos em uma instância de aplicativo lógico com falha. Para obter mais informações gerais sobre esse padrão, consulte [padrões de integração corporativa-guia de roteamento](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html).
 
@@ -165,7 +165,7 @@ Para minimizar o número de instâncias de fluxo de trabalho em andamento abando
 
   ![Dividir um processo comercial em estágios representados por aplicativos lógicos, que se comunicam entre si usando filas do barramento de serviço do Azure](./media/business-continuity-disaster-recovery-guidance/fixed-routing-slip-pattern.png)
 
-  Se as instâncias de aplicativo lógico primário e secundário seguirem o mesmo padrão de guia de roteamento em seus locais, você poderá implementar o [padrão de consumidores concorrentes](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) Configurando [funções ativas-ativas](#roles) para essas instâncias.
+  Se as instâncias de aplicativo lógico primário e secundário seguirem o mesmo padrão de guia de roteamento em seus locais, você poderá implementar o [padrão de consumidores concorrentes](/azure/architecture/patterns/competing-consumers) Configurando [funções ativas-ativas](#roles) para essas instâncias.
 
 * [Padrão do Gerenciador de processos (agente)](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html)
 
@@ -249,7 +249,7 @@ De uma perspectiva de recuperação de desastres, quando você configura as inst
   Por exemplo, a leitura de uma fila de mensagens, como uma fila do barramento de serviço do Azure, usa o estado do servidor, pois o serviço de enfileiramento mantém bloqueios em mensagens para impedir que outros clientes leiam as mesmas mensagens.
 
   > [!NOTE]
-  > Se seu aplicativo lógico precisar ler mensagens em uma ordem específica, por exemplo, de uma fila do barramento de serviço, você poderá usar o padrão de consumidor concorrente, mas somente quando combinado com sessões do barramento de serviço, que também é conhecido como o [padrão *comboio sequencial* ](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy). Caso contrário, você deve configurar suas instâncias de aplicativo lógico com as funções ativo-passivo.
+  > Se seu aplicativo lógico precisar ler mensagens em uma ordem específica, por exemplo, de uma fila do barramento de serviço, você poderá usar o padrão de consumidor concorrente, mas somente quando combinado com sessões do barramento de serviço, que também é conhecido como o [padrão *comboio sequencial* ](/azure/architecture/patterns/sequential-convoy). Caso contrário, você deve configurar suas instâncias de aplicativo lógico com as funções ativo-passivo.
 
 <a name="request-trigger"></a>
 
@@ -271,7 +271,7 @@ De uma perspectiva de recuperação de desastres, o gatilho de solicitação é 
 
 * [Ativo-passivo](#roles): somente a instância primária está ativa e lida com todo o trabalho, enquanto a instância secundária aguarda até que o primário cause interrupção ou falha. O chamador ou o roteador determina quando chamar a instância secundária.
 
-Como uma arquitetura recomendada, você pode usar o gerenciamento de API do Azure como um proxy para os aplicativos lógicos que usam gatilhos de solicitação. O gerenciamento de API fornece [resiliência interna entre regiões e a capacidade de rotear o tráfego entre vários pontos de extremidade](https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region).
+Como uma arquitetura recomendada, você pode usar o gerenciamento de API do Azure como um proxy para os aplicativos lógicos que usam gatilhos de solicitação. O gerenciamento de API fornece [resiliência interna entre regiões e a capacidade de rotear o tráfego entre vários pontos de extremidade](../api-management/api-management-howto-deploy-multi-region.md).
 
 <a name="webhook-trigger"></a>
 
@@ -331,7 +331,7 @@ Para essa tarefa, no local secundário, crie um aplicativo lógico de Watchdog q
 
 ### <a name="activate-your-secondary-instance"></a>Ativar sua instância secundária
 
-Para ativar automaticamente a instância secundária, você pode criar um aplicativo lógico que chama a API de gerenciamento, como o [conector de Azure Resource Manager](https://docs.microsoft.com/connectors/arm/) para ativar os aplicativos lógicos apropriados no local secundário. Você pode expandir seu aplicativo de Watchdog para chamar esse aplicativo lógico de ativação após um número específico de falhas acontecer.
+Para ativar automaticamente a instância secundária, você pode criar um aplicativo lógico que chama a API de gerenciamento, como o [conector de Azure Resource Manager](/connectors/arm/) para ativar os aplicativos lógicos apropriados no local secundário. Você pode expandir seu aplicativo de Watchdog para chamar esse aplicativo lógico de ativação após um número específico de falhas acontecer.
 
 <a name="collect-diagnostic-data"></a>
 
@@ -341,16 +341,16 @@ Você pode configurar o registro em log para suas execuções de aplicativo lóg
 
 * Se desejar usar esses dados com o Azure Log Analytics, você poderá disponibilizar os dados para os locais primários e secundários definindo **as configurações de diagnóstico** do aplicativo lógico e enviando os dados para vários espaços de trabalho do log Analytics. Para obter mais informações, consulte [Configurar Logs de Azure monitor e coletar dados de diagnóstico para aplicativos lógicos do Azure](../logic-apps/monitor-logic-apps-log-analytics.md).
 
-* Se desejar enviar os dados para o armazenamento do Azure ou hubs de eventos do Azure, você poderá disponibilizar os dados para os locais primários e secundários Configurando a redundância geográfica. Para obter mais informações, consulte estes artigos:<p>
+* Se desejar enviar os dados para o armazenamento do Azure ou hubs de eventos do Azure, você poderá disponibilizar os dados para os locais primários e secundários Configurando a redundância geográfica. Para obter mais informações, confira estes tópicos:<p>
 
   * [Recuperação de desastre do armazenamento de BLOBs do Azure e failover de conta](../storage/common/storage-disaster-recovery-guidance.md)
   * [Recuperação de desastre geográfica dos hubs de eventos do Azure](../event-hubs/event-hubs-geo-dr.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Visão geral de resiliência para o Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)
-* [Lista de verificação de resiliência para serviços específicos do Azure](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service)
-* [Gerenciamento de dados para resiliência no Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/data-management)
-* [Backup e recuperação de desastre para aplicativos do Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery)
-* [Recuperar-se de uma interrupção do serviço em toda a região](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)
+* [Visão geral de resiliência para o Azure](/azure/architecture/framework/resiliency/overview)
+* [Lista de verificação de resiliência para serviços específicos do Azure](/azure/architecture/checklist/resiliency-per-service)
+* [Gerenciamento de dados para resiliência no Azure](/azure/architecture/framework/resiliency/data-management)
+* [Backup e recuperação de desastre para aplicativos do Azure](/azure/architecture/framework/resiliency/backup-and-recovery)
+* [Recuperar-se de uma interrupção do serviço em toda a região](/azure/architecture/resiliency/recovery-loss-azure-region)
 * [Contratos de nível de serviço (SLAs) da Microsoft para serviços do Azure](https://azure.microsoft.com/support/legal/sla/)

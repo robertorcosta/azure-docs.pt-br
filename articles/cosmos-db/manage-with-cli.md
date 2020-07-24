@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: fe348c2bbd901934c6365be6efefafb44ef8d875
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97b5118f74cbd098beea804c312ed08f1a152873
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262388"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067168"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gerenciar Microsoft Azure Cosmos usando a CLI do Azure
 
@@ -274,7 +274,7 @@ az cosmosdb sql database throughput update \
 
 ### <a name="manage-lock-on-a-database"></a>Gerenciar o bloqueio em um banco de dados
 
-Colocar um bloqueio de exclusão em um banco de dados. Para saber mais sobre como habilitar isso, consulte [impedindo alterações de SDKs](role-based-access-control.md#preventing-changes-from-cosmos-sdk).
+Colocar um bloqueio de exclusão em um banco de dados. Para saber mais sobre como habilitar isso, consulte [impedindo alterações de SDKs](role-based-access-control.md#prevent-sdk-changes).
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
@@ -433,7 +433,7 @@ az cosmosdb sql container throughput update \
 
 ### <a name="manage-lock-on-a-container"></a>Gerenciar o bloqueio em um contêiner
 
-Colocar um bloqueio de exclusão em um contêiner. Para saber mais sobre como habilitar isso, consulte [impedindo alterações de SDKs](role-based-access-control.md#preventing-changes-from-cosmos-sdk).
+Colocar um bloqueio de exclusão em um contêiner. Para saber mais sobre como habilitar isso, consulte [impedindo alterações de SDKs](role-based-access-control.md#prevent-sdk-changes).
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
@@ -469,5 +469,5 @@ az lock delete --ids $lockid
 Para obter mais informações sobre a CLI do Azure, consulte:
 
 - [Instalar a CLI do Azure.](/cli/azure/install-azure-cli)
-- [Referência de CLI do Azure](https://docs.microsoft.com/cli/azure/cosmosdb)
+- [Referência da CLI do Azure](https://docs.microsoft.com/cli/azure/cosmosdb)
 - [Amostras adicionais do CLI do Azure para o Azure Cosmos DB](cli-samples.md)

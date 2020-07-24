@@ -3,14 +3,14 @@ title: Visão geral do Gerenciamento de Atualizações da Automação do Azure
 description: Este artigo fornece uma visão geral do recurso Gerenciamento de Atualizações que implementa atualizações para seus computadores com Windows e com Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 06/23/2020
+ms.date: 07/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 127a83bbe29a5e102a82cf169919a44f52532228
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 228a24fbc4fb68a72f2cb8abb7d4382127be2147
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185680"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064427"
 ---
 # <a name="update-management-overview"></a>Visão geral do Gerenciamento de Atualizações
 
@@ -98,7 +98,7 @@ A tabela a seguir lista os sistemas operacionais não compatíveis:
 
 |Sistema operacional  |Observações  |
 |---------|---------|
-|Windows Client     | Os sistemas operacionais clientes (como Windows 7 e Windows 10) não têm suporte.<br> Para a WVD (Área de Trabalho Virtual do Windows) do Azure, o método recomendado<br> para gerenciar atualizações é o [Windows Update para Empresas](/windows/deployment/update/waas-manage-updates-wufb) para o gerenciamento de patches de computador cliente do Windows 10. |
+|Windows Client     | Os sistemas operacionais clientes (como Windows 7 e Windows 10) não têm suporte.<br> Para a WVD (Área de Trabalho Virtual do Windows) do Azure, o método recomendado<br> para gerenciar atualizações é [o Microsoft Endpoint Configuration Manager para o](../virtual-desktop/configure-automatic-updates.md) gerenciamento de patches de computador cliente do Windows 10. |
 |Windows Server 2016 Nano Server     | Sem suporte.       |
 |Nós do Serviço de Kubernetes do Azure | Sem suporte. Use o processo de aplicação de patch descrito em [Aplicar atualizações de segurança e kernel a nós do Linux no AKS (Serviço de Kubernetes do Azure)](../aks/node-updates-kured.md)|
 
@@ -193,15 +193,15 @@ Os endereços a seguir são necessários especificamente para gerenciamento de a
 |`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
 |`*.azure-automation.net` | `*.azure-automation.us`|
 
+Quando você cria regras de segurança de grupo de rede ou configura o Firewall do Azure para permitir o tráfego para o serviço de automação e o espaço de trabalho Log Analytics, use a [marca de serviço](../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** e **AzureMonitor**. Isso simplifica o gerenciamento contínuo de suas regras de segurança de rede. Para se conectar ao serviço de automação de suas VMs do Azure de forma segura e privada, examine [usar o link privado do Azure](how-to/private-link-security.md). Para obter a marca de serviço e as informações de intervalo atuais para incluir como parte de suas configurações de firewall local, consulte [arquivos JSON para download](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+
 Para computadores Windows, você também precisa permitir o tráfego para os ponto de extremidade exigidos pelo Windows Update. Você pode encontrar uma lista atualizada de pontos de extremidade necessários em [Problemas relacionados a HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Se você tiver um [Servidor do Windows Update](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) local, também precisará permitir o tráfego para o servidor especificado em sua [chave do WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
 Para computadores com Red Hat Linux, confira [IPs para os servidores de distribuição de conteúdo da RHUI](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) para conhecer os pontos de extremidade necessários. Para outras distribuições do Linux, confira a documentação do provedor.
 
 Para obter mais informações sobre as portas necessárias para o Hybrid Runbook Worker, confira [Endereços do Gerenciamento de Atualizações para o Hybrid Runbook Worker](automation-hybrid-runbook-worker.md#update-management-addresses-for-hybrid-runbook-worker).
 
-Recomendamos que você use os endereços listados ao definir exceções. Para endereços IP, baixe os [intervalos de IP do datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Esse arquivo é atualizado semanalmente e reflete os intervalos atualmente implantados e as alterações futuras nos intervalos de IP.
-
-Siga as instruções em [Conectar computadores sem acesso à Internet](../azure-monitor/platform/gateway.md) para configurar computadores que não têm acesso à Internet.
+Se suas políticas de segurança de ti não permitirem que computadores na rede se conectem à Internet, você poderá configurar um [log Analytics gateway](../azure-monitor/platform/gateway.md) e, em seguida, configurar o computador para se conectar por meio do gateway para a automação do Azure e Azure monitor.
 
 ## <a name="update-classifications"></a>Classificações de origem
 

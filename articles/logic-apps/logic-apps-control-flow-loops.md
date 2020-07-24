@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 986440db7f8d4e1d4d46832543f58fa2985a4df4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 0ffcda4a33c43866c3b580a60c87c1ffca59bbc4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831612"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066336"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar loops que repetem ações de fluxo de trabalho ou processam matrizes nos Aplicativos Lógicos do Azure
 
@@ -161,7 +162,7 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
 > [!NOTE]
 > Essas etapas usam o Outlook do Office 365, mas você pode usar qualquer provedor de email que seja compatível com Aplicativos Lógicos. 
-> [Veja a lista de conectores aqui](https://docs.microsoft.com/connectors/). Se você usar uma outra conta de email, as etapas gerais serão as mesmas, mas a interface do usuário poderá parecer um pouco diferente. 
+> [Veja a lista de conectores aqui](/connectors/). Se você usar uma outra conta de email, as etapas gerais serão as mesmas, mas a interface do usuário poderá parecer um pouco diferente. 
 
 1. Criar um aplicativo lógico em branco. No Designer de Aplicativos Lógicos, na caixa de pesquisa, escolha **Tudo**. Pesquise por "recorrência". 
    Na lista de gatilhos, selecione este gatilho: **Recorrência – Agenda**
@@ -231,34 +232,34 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
       | Propriedade | Valor | Descrição |
       | -------- | ----- | ----------- | 
-      | **Para** | *\<email-address\@domain>* | *\<email-address\@domain>* O endereço de email do destinatário. | 
-      | Para testes, use seu próprio endereço de email. | **Assunto** | O valor atual para "Limit" é **Limite** Especifique o assunto do email. | 
-      | Para esse exemplo, certifique-se de incluir a variável **Limite**. | **Corpo** | <*email-conteúdo*> Especifique o conteúdo da mensagem de email que deseja enviar. | 
+      | **Para** | *\<email-address\@domain>* | O endereço de email do destinatário. Para testes, use seu próprio endereço de email. | 
+      | **Assunto** | O valor atual para "Limit" é **Limite** | Especifique o assunto do email. Para esse exemplo, certifique-se de incluir a variável **Limite**. | 
+      | **Corpo** | <*email-conteúdo*> | Especifique o conteúdo da mensagem de email que deseja enviar. Para esse exemplo, insira o texto de sua escolha. | 
       |||| 
 
-1. Para esse exemplo, insira o texto de sua escolha. Salve seu aplicativo lógico.
+1. Salve seu aplicativo lógico. Para testar manualmente o aplicativo lógico, na barra de ferramentas do Designer, escolha **Executar**.
 
-      Para testar manualmente o aplicativo lógico, na barra de ferramentas do Designer, escolha **Executar**.
+      Após a lógica iniciar a execução, você receberá um email com o conteúdo especificado:
 
-      ![Após a lógica iniciar a execução, você receberá um email com o conteúdo especificado:](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+      ![Email recebido](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
-## <a name="prevent-endless-loops"></a>Email recebido
+## <a name="prevent-endless-loops"></a>Impedir loops infinitos
 
-Impedir loops infinitos
+Um loop "Until" possui limites padrão que param a execução se alguma destas condições ocorrer:
 
-| Um loop "Until" possui limites padrão que param a execução se alguma destas condições ocorrer: | Propriedade | Valor padrão | 
+| Propriedade | Valor padrão | Descrição | 
 | -------- | ------------- | ----------- | 
-| Descrição | **Count** | 60 O número mais alto de loops que são executados antes da saída do loop. | 
-| O padrão é 60 ciclos. | **Tempo Limite** | PT1H A maior quantidade de tempo para executar um loop antes da saída do loop. <p>O padrão é uma hora e é especificado no formato ISO 8601. O valor de tempo limite é avaliado para cada ciclo de loop. Se qualquer ação no loop demorar mais do que o tempo limite, o ciclo atual não parará. | 
+| **Count** | 60 | O número mais alto de loops que são executados antes da saída do loop. O padrão é 60 ciclos. | 
+| **Tempo Limite** | PT1H | A maior quantidade de tempo para executar um loop antes da saída do loop. O padrão é uma hora e é especificado no formato ISO 8601. <p>O valor de tempo limite é avaliado para cada ciclo de loop. Se qualquer ação no loop demorar mais do que o tempo limite, o ciclo atual não parará. No entanto, o próximo ciclo será iniciado porque a condição de limite não foi atendida. | 
 |||| 
 
-No entanto, o próximo ciclo será iniciado porque a condição de limite não foi atendida.
+Para alterar esses limites padrão, escolha **Mostrar opções avançadas** na forma de ação do loop.
 
 <a name="until-json"></a>
 
-## <a name="until-definition-json"></a>Para alterar esses limites padrão, escolha **Mostrar opções avançadas** na forma de ação do loop.
+## <a name="until-definition-json"></a>Definição "Until" (JSON)
 
-Definição "Until" (JSON)
+Se você estiver trabalhando na exibição de código para o aplicativo lógico, será possível definir um loop `Until` na definição JSON do aplicativo lógico, por exemplo:
 
 ``` json
 "actions": {
@@ -296,11 +297,11 @@ Definição "Until" (JSON)
 }
 ```
 
-Se você estiver trabalhando na exibição de código para o aplicativo lógico, será possível definir um loop `Until` na definição JSON do aplicativo lógico, por exemplo: Neste exemplo, o loop "Until" chama um ponto de extremidade HTTP, que cria um recurso. O loop para quando o corpo da resposta HTTP retorna com o status `Completed`.
+Neste exemplo, o loop "Until" chama um ponto de extremidade HTTP, que cria um recurso. O loop para quando o corpo da resposta HTTP retorna com o status `Completed`. Para impedir loops infinitos, o loop também irá parar se alguma destas condições ocorrer:
 
-* Para impedir loops infinitos, o loop também irá parar se alguma destas condições ocorrer: O loop foi executado 10 vezes, conforme especificado pelo atributo `count`. 
+* O loop foi executado 10 vezes, conforme especificado pelo atributo `count`. O padrão é 60 vezes. 
 
-* O padrão é 60 vezes. O loop foi executado durante duas horas, conforme especificado pelo atributo `timeout` no formato ISO 8601.
+* O loop foi executado durante duas horas, conforme especificado pelo atributo `timeout` no formato ISO 8601. O padrão é uma hora.
   
 ``` json
 "actions": {
@@ -332,14 +333,14 @@ Se você estiver trabalhando na exibição de código para o aplicativo lógico,
 }
 ```
 
-## <a name="get-support"></a>O padrão é uma hora.
+## <a name="get-support"></a>Obtenha suporte
 
-* Obtenha suporte
-* Em caso de dúvidas, visite a [página de perguntas e respostas da Microsoft sobre os Aplicativos Lógicos do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Em caso de dúvidas, visite a [página de perguntas e respostas da Microsoft sobre os Aplicativos Lógicos do Azure](/answers/topics/azure-logic-apps.html).
+* Para enviar ou votar em recursos e sugestões, visite o [site de comentários do usuário de Aplicativos Lógicos do Azure](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Para enviar ou votar em recursos e sugestões, visite o [site de comentários do usuário de Aplicativos Lógicos do Azure](https://aka.ms/logicapps-wish).
+## <a name="next-steps"></a>Próximas etapas
 
-* Próximas etapas
 * [Executar etapas baseadas em uma condição (instruções condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Executar etapas baseadas em valores diferentes (instruções de comutador)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Executar ou mesclar etapas paralelas (branches)](../logic-apps/logic-apps-control-flow-branches.md)
+* [Executar etapas baseadas no status da ação agrupada (escopos)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
