@@ -1,21 +1,25 @@
 ---
-title: Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste | Microsoft Docs
+title: Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste
 description: O Emulador de Armazenamento do Azure fornece um ambiente de desenvolvimento local gratuito para desenvolvimento e teste de seus aplicativos de Armazenamento do Azure.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/21/2019
+ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: eb13dbb7e4cfbbb1b2ea42ea1753e7615df03a7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd179160ad6796da40a5b98e89a10999ad0445d1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512182"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070555"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste
 
 O emulador de armazenamento Microsoft Azure é uma ferramenta que emula os serviços BLOB, fila e tabela do Azure para fins de desenvolvimento local. Você pode testar seu aplicativo em relação aos serviços de armazenamento localmente sem criar uma assinatura do Azure ou incorrer em custos. Quando estiver satisfeito com o funcionamento do aplicativo no emulador, alterne para o usando uma conta de armazenamento do Azure na nuvem.
+
+> [!IMPORTANT]
+> O emulador de armazenamento do Azure não está mais sendo ativamente desenvolvido. [**Azurite**](storage-use-azurite.md) é a plataforma do emulador de armazenamento em andamento. Azurite substitui o emulador de armazenamento do Azure. O azurite continuará a ser atualizado para dar suporte às versões mais recentes das APIs de armazenamento do Azure. Para obter mais informações, consulte [**usar o emulador azurite para o desenvolvimento de armazenamento local do Azure**](storage-use-azurite.md).
 
 ## <a name="get-the-storage-emulator"></a>Obter o emulador de armazenamento
 
@@ -74,7 +78,7 @@ Você pode usar a ferramenta de linha de comando do emulador de armazenamento pa
 
    `AzureStorageEmulator.exe init /server .`
 
-   Se preferir, use o seguinte comando, que reinicializa o banco de dados na instância LocalDB padrão:
+   Ou, você pode usar o comando a seguir, que inicializa o banco de dados para a instância LocalDB padrão:
 
    `AzureStorageEmulator.exe init /forceCreate`
 
@@ -184,7 +188,7 @@ Para exibir a lista de opções, digite `/help` no prompt de comando.
 | **Parar** |Para o emulador de armazenamento. |`AzureStorageEmulator.exe stop` | |
 | **Status** |Imprime o status do emulador de armazenamento. |`AzureStorageEmulator.exe status` | |
 | **Limpar** |Limpa os dados em todos os serviços especificados na linha de comando. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: limpa os dados do blob. <br/>*fila*: limpa os dados da fila. <br/>*tabela*: limpa os dados de tabela. <br/>*todos*: limpa todos os dados em todos os serviços. |
-| **Init** |Executa a inicialização única para configurar o emulador. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server nomedoServidor\nomedaInstância*: especifica o servidor que hospeda a instância do SQL. <br/>*-sqlinstance instanceName*: especifica o nome da instância SQL a ser usada na instância do servidor padrão. <br/>*-forcecreate*: força a criação do Banco de Dados SQL, mesmo se ele já existir. <br/>*-skipcreate*: ignora a criação do Banco de Dados SQL. Isso tem precedência sobre -forcecreate.<br/>*-reserveports*: tenta reservar as portas HTTP associadas aos serviços.<br/>*-unreserveports*: tenta remover as reservas de portas HTTP associadas aos serviços. Isso tem precedência sobre -reserveports.<br/>*-inprocess*: executa a inicialização no processo atual em vez de gerar um novo processo. O processo atual deverá ser iniciado com permissões elevadas se reservas de porta forem alteradas. |
+| **Iniciar** |Executa a inicialização única para configurar o emulador. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server nomedoServidor\nomedaInstância*: especifica o servidor que hospeda a instância do SQL. <br/>*-sqlinstance instanceName*: especifica o nome da instância SQL a ser usada na instância do servidor padrão. <br/>*-forcecreate*: força a criação do Banco de Dados SQL, mesmo se ele já existir. <br/>*-skipcreate*: ignora a criação do Banco de Dados SQL. Isso tem precedência sobre -forcecreate.<br/>*-reserveports*: tenta reservar as portas HTTP associadas aos serviços.<br/>*-unreserveports*: tenta remover as reservas de portas HTTP associadas aos serviços. Isso tem precedência sobre -reserveports.<br/>*-inprocess*: executa a inicialização no processo atual em vez de gerar um novo processo. O processo atual deverá ser iniciado com permissões elevadas se reservas de porta forem alteradas. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Diferenças entre o emulador de armazenamento e o armazenamento do Azure
 
@@ -327,3 +331,7 @@ Não existem diferenças específicas para o armazenamento de fila no emulador.
 * Avalie o [azurite](https://github.com/azure/azurite)emulador de armazenamento de software livre de plataforma cruzada, mantido pela Comunidade. 
 * [Exemplos de Armazenamento do Azure usando .NET](../storage-samples-dotnet.md) contém links para vários exemplos de código que você pode usar ao desenvolver seu aplicativo.
 * Use o [Gerenciador do Armazenamento do Microsoft Azure](https://storageexplorer.com) para trabalhar com recursos em sua conta de Armazenamento na nuvem e no emulador de armazenamento.
+
+## <a name="see-also"></a>Consulte Também
+
+* [Desenvolvimento local do armazenamento do Azure com azurite, SDKs do Azure e Gerenciador de Armazenamento do Azure](https://blog.jongallant.com/2020/04/local-azure-storage-development-with-azurite-azuresdks-storage-explorer/)
