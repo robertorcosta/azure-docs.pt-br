@@ -3,13 +3,13 @@ title: Usar políticas de segurança de Pod no serviço kubernetes do Azure (AKS
 description: Saiba como controlar as inmissões Pod usando o PodSecurityPolicy no serviço kubernetes do Azure (AKS)
 services: container-service
 ms.topic: article
-ms.date: 06/30/2020
-ms.openlocfilehash: dd526b7825279d886c60fbb1820222a75abab03e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/21/2020
+ms.openlocfilehash: b5e9ec19392056115ae739d40c429d93d6ac810e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507073"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015571"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Visualização – Proteja seu cluster usando políticas de segurança pod no serviço de kubernetes do Azure (AKS)
 
@@ -76,7 +76,7 @@ Em um cluster kubernetes, um controlador de admissão é usado para interceptar 
 
 Quando você habilita a política de segurança de pod em um cluster AKS, algumas políticas padrão são aplicadas. Essas políticas padrão fornecem uma experiência pronta para uso para definir o que os pods podem ser agendados. No entanto, os usuários do cluster podem ter problemas ao implantar o pods até que você defina suas próprias políticas. A abordagem recomendada é:
 
-* Criar um cluster do AKS
+* Criar um cluster AKS
 * Definir suas próprias políticas de segurança de Pod
 * Habilitar o recurso de política de segurança Pod
 
@@ -348,7 +348,7 @@ kubectl apply -f psp-deny-privileged-clusterrole.yaml
 Agora, crie um ClusterRoleBinding para usar o ClusterRole criado na etapa anterior. Crie um arquivo chamado `psp-deny-privileged-clusterrolebinding.yaml` e cole o seguinte manifesto YAML:
 
 ```yaml
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: psp-deny-privileged-clusterrolebinding
@@ -396,7 +396,7 @@ Exclua o Pod sem privilégios do NGINX usando o comando [kubectl Delete][kubectl
 kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para desabilitar a política de segurança de Pod, use o comando [AZ AKs Update][az-aks-update] novamente. O exemplo a seguir desabilita a política de segurança de Pod no nome do cluster *myAKSCluster* no grupo de recursos chamado *MyResource*Group:
 

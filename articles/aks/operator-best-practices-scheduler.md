@@ -4,11 +4,12 @@ description: Conheça as práticas recomendadas de operador do cluster para usar
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: cccc476a944b28d24c53a947e434d465c94f94ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 087c1d2efc93b8460a3683a4e66916d73fd4e885
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704736"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015673"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para recursos do Agendador básico no serviço de Kubernetes do Azure (AKS)
 
@@ -86,7 +87,7 @@ metadata:
 spec:
    minAvailable: 3
    selector:
-   matchLabels:
+    matchLabels:
       app: nginx-frontend
 ```
 
@@ -102,7 +103,7 @@ metadata:
 spec:
    maxUnavailable: 2
    selector:
-   matchLabels:
+    matchLabels:
       app: nginx-frontend
 ```
 
