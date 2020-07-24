@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: 87af7f0f9b446fb3a54a600f61409c2cfc1a2494
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 652c7cbfbe63ef2ae9a0d54e05407152ea300f1d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86189387"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006935"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses"></a>Implantar um firewall do Azure com vários endereços IP públicos
 
@@ -37,9 +37,9 @@ $fw = New-AzFirewall -Name <firewall name> -ResourceGroupName $rgName `
      -VirtualHubId $vHubId 
 ```
 
-### <a name="delete-a-public-ip-address"></a>Excluir um endereço IP público
+### <a name="update-a-public-ip-address"></a>Atualizar um endereço IP público
 
-Você pode usar Azure PowerShell para excluir um endereço IP público de um firewall do Azure. O exemplo a seguir exclui um endereço IP público de um firewall. Ele começa com três endereços IP públicos.
+Você pode usar Azure PowerShell para atualizar um endereço IP público para um firewall do Azure. O exemplo a seguir exclui um endereço IP público de um firewall. Ele começa com três endereços IP públicos.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <subscription ID>

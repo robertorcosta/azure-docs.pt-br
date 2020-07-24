@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
-ms.openlocfilehash: 03468d8ff39cfbe64d6ef3707098732e22e5dd9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 023d6734195dabefff12210c2e63a0a4f4f9ac93
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100981"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007642"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Copiar dados do Amazon Simple Storage Service usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -64,7 +64,7 @@ As seções seguintes fornecem detalhes sobre as propriedades que são usadas pa
 
 As propriedades a seguir têm suporte para um serviço vinculado do Amazon S3:
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade **Type** deve ser definida como **AmazonS3**. | Sim |
 | accessKeyId | ID da chave de acesso secreta. |Sim |
@@ -77,7 +77,7 @@ Esse conector requer chaves de acesso para uma conta de IAM (gerenciamento de ac
 >[!TIP]
 >Especifique a URL do serviço S3 personalizado se você estiver copiando dados de um armazenamento compatível com S3 que não seja o serviço do Amazon S3 oficial.
 
-Aqui está um exemplo:
+Este é um exemplo:
 
 ```json
 {
@@ -107,7 +107,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte para o Amazon S3 em `location` configurações em um conjunto de acordo com base em formato:
 
-| Property   | Descrição                                                  | Obrigatório |
+| Propriedade   | Descrição                                                  | Obrigatório |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | A propriedade **Type** em `location` em um DataSet deve ser definida como **AmazonS3Location**. | Sim      |
 | bucketName | O nome do bucket S3.                                          | Sim      |
@@ -152,7 +152,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte para o Amazon S3 em `storeSettings` configurações em uma fonte de cópia baseada em formato:
 
-| Property                 | Descrição                                                  | Obrigatório                                                    |
+| Propriedade                 | Descrição                                                  | Obrigatório                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | A propriedade **Type** em `storeSettings` deve ser definida como **AmazonS3ReadSettings**. | Sim                                                         |
 | ***Localize os arquivos a serem copiados:*** |  |  |
@@ -160,7 +160,7 @@ As propriedades a seguir têm suporte para o Amazon S3 em `storeSettings` config
 | OPÇÃO DOIS: Prefixo S3<br>- prefixo | Prefixo do nome da chave S3 sob o Bucket especificado configurado em um conjunto de dados para filtrar os arquivos S3 de origem. As chaves S3 cujos nomes começam com `bucket_in_dataset/this_prefix` são selecionadas. Ele utiliza o filtro do lado do serviço S3's, que fornece melhor desempenho do que um filtro curinga. | Não |
 | OPÇÃO 3: curinga<br>- wildcardFolderPath | O caminho da pasta com caracteres curinga no Bucket especificado configurado em um conjunto de dados para filtrar as pastas de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único). Use `^` para escapar se o nome da pasta tiver um curinga ou este caractere de escape dentro de. <br>Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Não                                            |
 | OPÇÃO 3: curinga<br>- wildcardFileName | O nome do arquivo com caracteres curinga no Bucket e caminho da pasta fornecidos (ou caminho da pasta curinga) para filtrar os arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único). Use `^` para escapar se o nome da pasta tiver um curinga ou este caractere de escape dentro de.  Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim |
-| OPÇÃO 3: uma lista de arquivos<br>- fileListPath | Indica a cópia de um determinado conjunto de arquivos. Aponte para um arquivo de texto que inclui uma lista de arquivos que você deseja copiar, um arquivo por linha, que é o caminho relativo para o caminho configurado no conjunto de um.<br/>Quando você estiver usando essa opção, não especifique um nome de arquivo no conjunto de um. Veja mais exemplos em [Exemplos de lista de arquivos](#file-list-examples). |Não |
+| OPÇÃO 4: uma lista de arquivos<br>- fileListPath | Indica a cópia de um determinado conjunto de arquivos. Aponte para um arquivo de texto que inclui uma lista de arquivos que você deseja copiar, um arquivo por linha, que é o caminho relativo para o caminho configurado no conjunto de um.<br/>Quando você estiver usando essa opção, não especifique um nome de arquivo no conjunto de um. Veja mais exemplos em [Exemplos de lista de arquivos](#file-list-examples). |Não |
 | ***Configurações adicionais:*** |  | |
 | recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando **recursivo** é definido como **true** e o coletor é um armazenamento baseado em arquivo, uma pasta ou subpasta vazia não é copiada ou criada no coletor. <br>Os valores permitidos são **true** (padrão) e **false**.<br>Essa propriedade não se aplica quando você configura `fileListPath`. |Não |
 | deleteFilesAfterCompletion | Indica se os arquivos binários serão excluídos do repositório de origem após a movimentação com êxito para o repositório de destino. A exclusão do arquivo é por arquivo, portanto, quando a atividade de cópia falhar, você verá que alguns arquivos já foram copiados para o destino e excluídos da origem, enquanto outros ainda permanecem no repositório de origem. <br/>Essa propriedade só é válida em cenário de cópia binária, em que os repositórios de fontes de dados são BLOB, ADLS Gen1, ADLS Gen2, S3, armazenamento em nuvem do Google, arquivo, arquivo do Azure, SFTP ou FTP. O valor padrão: false. |Não |
@@ -333,7 +333,7 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 
 ### <a name="legacy-source-model-for-the-copy-activity"></a>Modelo de origem herdado para a atividade de cópia
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade **Type** da fonte da atividade de cópia deve ser definida como **FileSystemName**. |Sim |
 | recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando **recursivo** é definido como **true** e o coletor é um armazenamento baseado em arquivo, uma pasta ou subpasta vazia não será copiada ou criada no coletor.<br/>Os valores permitidos são **true** (padrão) e **false**. | Não |
