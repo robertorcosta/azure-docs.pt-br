@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: ffbc850c580daee5890f9c75021cc518918d098e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 073a92f07d17614cb386c5c33a8058af9b59aaea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145389"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084068"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Configurar uma conexão com uma conta de armazenamento do Azure usando uma identidade gerenciada (versão prévia)
 
@@ -53,19 +53,21 @@ Nesta etapa, você dará permissão ao seu serviço do Azure Cognitive Search pa
     ![Adicionar atribuição de função](./media/search-managed-identities/add-role-assignment-storage.png "Adicionar atribuição de função")
 
 4. Selecione as funções apropriadas com base no tipo de conta de armazenamento que você deseja indexar:
-    1. O armazenamento de blobs do Azure requer que você adicione o serviço de pesquisa às funções **Acesso a Dados e Leitor** e **Leitor de Dados do Blob de Armazenamento**.
-    1. O Azure Data Lake Storage Gen2 requer que você adicione o serviço de pesquisa às funções **Acesso a Dados e Leitor** e **Leitor de Dados do Blob de Armazenamento**.
-    1. O armazenamento de tabelas do Azure requer que você adicione o serviço de pesquisa apenas à função **Acesso a Dados e Leitor**.
+    1. O armazenamento de BLOBs do Azure requer que você adicione o serviço de pesquisa à função de **leitor de dados de blob de armazenamento** .
+    1. Azure Data Lake Storage Gen2 requer que você adicione o serviço de pesquisa à função de **leitor de dados de blob de armazenamento** .
+    1. O armazenamento de tabelas do Azure requer que você adicione o serviço de pesquisa à função de **acesso a dados e leitor** .
 5.  Deixe **Atribuir acesso a** como **Usuário, grupo ou entidade de serviço do Azure AD**
 6.  Pesquise pelo serviço de pesquisa, selecione-o e, em seguida, selecione **Salvar**
 
+    Exemplo para o armazenamento de BLOBs do Azure e Azure Data Lake Storage Gen2:
+
+    ![Adicionar atribuição de função Leitor de Dados do Blob de Armazenamento](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Adicionar atribuição de função Leitor de Dados do Blob de Armazenamento")
+
+    Exemplo para o armazenamento de tabelas do Azure:
+
     ![Adicionar a atribuição de função Acesso a Dados e Leitor](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Adicionar a atribuição de função Acesso a Dados e Leitor")
 
-Observe que, ao se conectar ao armazenamento de blobs do Azure e ao Azure Data Lake Storage Gen2, você também deve adicionar a atribuição de função **Leitor de Dados do Blob de Armazenamento**.
-
-![Adicionar atribuição de função Leitor de Dados do Blob de Armazenamento](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Adicionar atribuição de função Leitor de Dados do Blob de Armazenamento")
-
-### <a name="3---create-the-data-source"></a>3 - Criar a fonte de dados
+### <a name="3---create-the-data-source"></a>3 – Criar a fonte de dados
 
 Ao indexar de uma conta de armazenamento, a fonte de dados deve ter as seguintes propriedades obrigatórias:
 
@@ -97,7 +99,7 @@ api-key: [admin key]
 
 O portal do Azure e o [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) também oferecem suporte à cadeia de conexão de identidades gerenciadas. O portal do Azure requer um sinalizador de recurso que será fornecido a você ao se inscrever na visualização usando o link na parte superior desta página. 
 
-### <a name="4---create-the-index"></a>4 - Criar o índice
+### <a name="4---create-the-index"></a>4 – Criar o índice
 
 O índice especifica os campos em um documento, atributos e outras construções que modelam a experiência de pesquisa.
 
@@ -144,7 +146,7 @@ Esse indexador será executado a cada duas horas (o intervalo de agendamento é 
 
 Para saber mais sobre a API Criar Indexador, veja [Criar indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-Para obter mais informações sobre como definir as agendas do indexador, consulte [Como agendar indexadores para o Azure Cognitive Search](search-howto-schedule-indexers.md).
+Para obter mais informações sobre como definir as agendas do indexador, confira [Como agendar indexadores para o Azure Cognitive Search](search-howto-schedule-indexers.md).
 
 ## <a name="see-also"></a>Confira também
 

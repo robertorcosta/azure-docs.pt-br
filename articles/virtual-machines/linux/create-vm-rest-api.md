@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 1594c030839cccdd48c4b032c6ad92f746f78e26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78b11a4d900b8c9cf30a1d37a2b7e6380d6b989a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78970268"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082555"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Criar uma máquina virtual do Linux que usa autenticação SSH com a API REST
 
@@ -45,7 +46,7 @@ Os cabeçalhos a seguir são necessários:
 | Cabeçalho da solicitação   | Descrição |
 |------------------|-----------------|
 | *Tipo de Conteúdo:*  | Obrigatórios. Defina como `application/json`. |
-| *Autorização:* | Obrigatórios. Defina como um  [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer` válido. |
+| *Autorização:* | Obrigatórios. Defina como um  [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer` válido. |
 
 Para obter informações gerais sobre como trabalhar com solicitações da API REST, confira [Componentes de uma solicitação/resposta da API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -121,7 +122,7 @@ Para obter uma lista completa das definições disponíveis no corpo da solicita
 
 ## <a name="sending-the-request"></a>Enviando a solicitação
 
-É possível usar o cliente de sua preferência para enviar essa solicitação HTTP. Você também pode usar uma [ferramenta no navegador](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) clicando no botão **Experimentar**.
+É possível usar o cliente de sua preferência para enviar essa solicitação HTTP. Você também pode usar uma [ferramenta no navegador](/rest/api/compute/virtualmachines/createorupdate) clicando no botão **Experimentar**.
 
 ### <a name="responses"></a>Respostas
 
@@ -150,4 +151,4 @@ Para saber mais sobre as APIs REST do Azure ou outras ferramentas de gerenciamen
 - [API REST do provedor de Computação do Azure](/rest/api/compute/)
 - [Iniciar com a API REST do Azure](/rest/api/azure/)
 - [CLI do Azure](/cli/azure/)
-- [Módulo do Azure PowerShell](/powershell/azure/overview)
+- [Módulo do Azure PowerShell](/powershell/azure/)

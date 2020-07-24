@@ -2,14 +2,14 @@
 title: Perguntas gerais sobre o serviço do Azure Site Recovery
 description: Este artigo aborda dúvidas comuns sobre o Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 1/24/2020
+ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: b02d001d6fad905badaf17422bdd0554e3fc8493
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 89a5785811b4f4833a5a5ddcef827b258ce1775a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133661"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083728"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre o Azure Site Recovery
 
@@ -116,6 +116,19 @@ Os agentes de mobilidade instalados nos itens replicados se comunicam com o Serv
 ### <a name="how-can-i-enforce-tls-12-on-hyperv-to-azure-site-recovery-scenarios"></a>Como posso aplicar TLS 1.2 em cenários de Hyper-V para Azure Site Recovery?
 Toda a comunicação entre os microsserviços do Azure Site Recovery ocorre no protocolo TLS 1.2. O Site Recovery usa provedores de segurança configurados no sistema (SO) e usa o protocolo TLS mais recente disponível. Será necessário habilitar explicitamente o TLS 1.2 no Registro e, em seguida, o Site Recovery começará a usar TLS 1.2 para comunicação com serviços. 
 
+### <a name="how-can-i-enforce-restricted-access-on-my-storage-accounts-which-are-accessed-by-site-recovery-service-for-readingwriting-replication-data"></a>Como posso impor acesso restrito em minhas contas de armazenamento, que são acessadas pelo serviço Site Recovery para leitura/gravação de dados de replicação?
+Você pode alternar a identidade gerenciada do cofre dos serviços de recuperação acessando a configuração de *identidade* . Depois que o cofre é registrado com Azure Active Directory, você pode acessar suas contas de armazenamento e fornecer as seguintes atribuições de função ao cofre:
+
+- Contas de armazenamento baseadas no Resource Manager (tipo padrão):
+  - [Colaborador](../role-based-access-control/built-in-roles.md#contributor)
+  - [Colaborador de dados de blob de armazenamento](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- Contas de armazenamento baseadas no Resource Manager (tipo Premium):
+  - [Colaborador](../role-based-access-control/built-in-roles.md#contributor)
+  - [Proprietário de Dados do Blob de Armazenamento](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+- Contas de armazenamento clássicas:
+  - [Colaborador da conta de armazenamento clássica](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
+  - [Função do Serviço de Operador da Chave da Conta de Armazenamento Clássica](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
+
 ## <a name="disaster-recovery"></a>Recuperação de desastre
 
 ### <a name="what-can-site-recovery-protect"></a>O que o Site Recovery pode proteger?
@@ -142,7 +155,7 @@ Sim, o Site Recovery é compatível com a recuperação de desastre de VMs VMwar
 ### <a name="is-disaster-recovery-supported-for-hyper-v-vms"></a>Há compatibilidade com a recuperação de desastre para VMs do Hyper-V?
 Sim, o Site Recovery permite a recuperação de desastre de VMs do Hyper-V locais. [Examine as perguntas comuns](hyper-v-azure-common-questions.md) para recuperação de desastre de VMs do Hyper-V.
 
-## <a name="is-disaster-recovery-supported-for-physical-servers"></a>Há compatibilidade com a recuperação de desastre para servidores físicos?
+### <a name="is-disaster-recovery-supported-for-physical-servers"></a>Há compatibilidade com a recuperação de desastre para servidores físicos?
 Sim, o Site Recovery permite a recuperação de desastre de servidores físicos locais que executam o Windows e o Linux no Azure ou em um site secundário. Saiba mais sobre os requisitos de recuperação de desastre para [Azure](vmware-physical-azure-support-matrix.md#replicated-machines) e para[um site secundário](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 Observe que os servidores físicos serão executados como VMs no Azure após o failover. Atualmente, não há suporte para Failback do Azure para um servidor físico local. Só é possível fazer failback para uma máquina virtual VMware.
 

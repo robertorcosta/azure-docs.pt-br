@@ -6,17 +6,18 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: e5595620a2f888b06ad5b35d2e8a008f23861463
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41e090b9e1d4c091bd3972afd296c5751e6b8c58
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81727223"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082708"
 ---
 # <a name="feature-list"></a>Lista de recursos #
 Aqui está a lista de recursos testados e recursos sem suporte:
 
-|                                         | TESTADO | PARCIALMENTE TESTADO | Não testado | SEM suporte | OBSERVAÇÕES                                                                                                                |
-|:----------------------------------------|--------|------------------|----------|-------------|:---------------------------------------------------------------------------------------------------------------------|
+| Recurso | TESTADO | PARCIALMENTE TESTADO | Não testado | SEM suporte | OBSERVAÇÕES |
+| ------- | ------ | ---------------- | -------- | ----------- | ----- |
 | Reprodução                                |        |                  |          |             |                                                                                                                      |
 | Reprodução básica sob demanda                | X      |                  |          |             | Dá suporte apenas a fluxos de serviços de mídia do Azure                                                                      |
 | Reprodução dinâmica básica                     | X      |                  |          |             | Dá suporte apenas a fluxos de serviços de mídia do Azure                                                                      |

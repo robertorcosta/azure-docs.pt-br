@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
-ms.author: rohogue
-ms.openlocfilehash: 8d576f8660d140a95eb67f7babf1c0af61f04278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: v-erkel
+ms.openlocfilehash: efa163a2c10a7dc93bf5d26865a0e7eb43f11dea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515460"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082759"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Solucionar problemas de configuração do NAS e destino de armazenamento NFS
 
@@ -20,7 +20,7 @@ Este artigo fornece soluções para alguns erros de configuração comuns e outr
 Este artigo inclui detalhes sobre como verificar portas e como habilitar o acesso de raiz a um sistema NAS. Ele também inclui informações detalhadas sobre problemas menos comuns que podem causar falha na criação do destino de armazenamento NFS.
 
 > [!TIP]
-> Antes de usar este guia, leia [pré-requisitos para destinos de armazenamento NFS](hpc-cache-prereqs.md#nfs-storage-requirements).
+> Antes de usar este guia, leia [pré-requisitos para destinos de armazenamento NFS](hpc-cache-prerequisites.md#nfs-storage-requirements).
 
 Se a solução para seu problema não estiver incluída aqui, [abra um tíquete de suporte](hpc-cache-support-ticket.md) para que o serviço e o suporte da Microsoft possam trabalhar com você para investigar e resolver o problema.
 

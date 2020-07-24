@@ -1,6 +1,6 @@
 ---
-title: Implantar e fazer previsões com o ONNX no SQL do Azure no Edge (versão prévia)
-description: Saiba como treinar um modelo, convertê-lo em ONNX, implantá-lo no SQL do Azure no Edge (versão prévia) e, em seguida, executar o PREDICT nativo nos dados usando o modelo ONNX carregado.
+title: Implantar e fazer previsões com ONNX
+description: Saiba como treinar um modelo, convertê-lo em ONNX, implantá-lo no Azure SQL Edge (versão prévia) ou no Azure SQL Instância Gerenciada (versão prévia) e, em seguida, executar uma previsão nativa nos dados usando o modelo ONNX carregado.
 keywords: implantar o SQL no Edge
 services: sql-edge
 ms.service: sql-edge
@@ -8,32 +8,40 @@ ms.subservice: machine-learning
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
-ms.date: 05/19/2020
-ms.openlocfilehash: b5cd655aaf9992c6908a7f9287f691fd36d84871
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: fe1e4a195903803d3103da5f350de30a016e614b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476726"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085006"
 ---
-# <a name="deploy-and-make-predictions-with-an-onnx-model-in-azure-sql-edge-preview"></a>Implantar e fazer previsões com um modelo ONNX no SQL do Azure no Edge (versão prévia)
+# <a name="deploy-and-make-predictions-with-an-onnx-model"></a>Implantar e fazer previsões com um modelo ONNX
 
-Neste início rápido, você aprenderá a treinar um modelo, convertê-lo em ONNX, implantá-lo no SQL do Azure no Edge (versão prévia) e, em seguida, executar o PREDICT nativo nos dados usando o modelo ONNX carregado. Para obter mais informações, consulte [Machine learning e IA com o ONNX no SQL no Edge (versão prévia)](onnx-overview.md).
+Neste guia de início rápido, você aprenderá a treinar um modelo, convertê-lo em ONNX, implantá-lo no [Azure SQL Edge (versão prévia)](onnx-overview.md) ou no [Azure SQL instância gerenciada (versão prévia)](../azure-sql/managed-instance/machine-learning-services-overview.md)e, em seguida, executar uma previsão nativa nos dados usando o modelo ONNX carregado.
 
 Este guia de início rápido baseia-se no **scikit-learn** e usa o [conjunto de dados de moradia de Boston](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-* Se você ainda não implantou um módulo do SQL do Azure no Edge, siga as etapas de [implantar o SQL no Edge (versão prévia) usando o portal do Azure](deploy-portal.md).
+* Se você estiver usando o Azure SQL Edge e não tiver implantado um módulo do Azure SQL Edge, siga as etapas de [implantar o SQL Edge (versão prévia) usando o portal do Azure](deploy-portal.md).
 
 * Instale o [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
 
-* Abra o Azure Data Studio e siga estas etapas para instalar os pacotes necessários para este guia de início rápido:
+* Instale os pacotes do python necessários para este guia de início rápido:
 
-    1. Abra [Novo Notebook](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) conectado ao Kernel do Python 3. 
-    1. Clique em **Gerenciar Pacotes** e, em **Adicionar Novo**, procure **scikit-learn** e instale o pacote scikit-learn. 
-    1. Além disso, instale os pacotes **setuptools**, **numpy**, **onnxmltools**, **onnxruntime**, **skl2onnx**, **pyodbc** e **sqlalchemy**.
-    
+  1. Abra [Novo Notebook](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) conectado ao Kernel do Python 3. 
+  1. Clique em **gerenciar pacotes**
+  1. Na guia **instalado** , procure os seguintes pacotes do Python na lista de pacotes instalados. Se qualquer um desses pacotes não estiver instalado, selecione a guia **Adicionar nova** , pesquise o pacote e clique em **instalar**.
+     - **scikit-learn**
+     - **numpy**
+     - **onnxmltools**
+     - **onnxruntime**
+     - **pyodbc**
+     - **setuptools**
+     - **skl2onnx**
+     - **sqlalchemy**
+
 * Para cada parte de script abaixo, insira-a em uma célula no notebook do Azure Data Studio e execute a célula.
 
 ## <a name="train-a-pipeline"></a>Treinar um pipeline
@@ -219,7 +227,7 @@ MSE are equal
 
 ## <a name="insert-the-onnx-model"></a>inserir o modelo ONNX
 
-Armazene o modelo no SQL do Azure no Edge, em uma tabela `models` em um banco de dados `onnx`. Na cadeia de conexão, especifique o **endereço do servidor**, o **nome de usuário** e a **senha**.
+Armazene o modelo no Azure SQL Edge ou no Azure SQL Instância Gerenciada, em uma `models` tabela em um banco de dados `onnx` . Na cadeia de conexão, especifique o **endereço do servidor**, o **nome de usuário** e a **senha**.
 
 ```python
 import pyodbc
@@ -277,7 +285,7 @@ conn.commit()
 
 ## <a name="load-the-data"></a>Carregar os dados
 
-Carregue os dados no SQL do Azure no Edge.
+Carregue os dados no SQL.
 
 Primeiro, crie duas tabelas, **recursos** e **destino**, para armazenar subconjuntos do conjunto de dados de moradia de Boston.
 
@@ -350,7 +358,7 @@ Agora você pode exibir os dados no banco de dados.
 
 ## <a name="run-predict-using-the-onnx-model"></a>Executar PREDICT usando o modelo ONNX
 
-Com o modelo no SQL do Azure no Edge, execute o PREDICT nativo nos dados usando o modelo ONNX carregado.
+Com o modelo no SQL, execute a previsão nativa nos dados usando o modelo ONNX carregado.
 
 > [!NOTE]
 > Altere o kernel do notebook para SQL para executar a célula restante.
@@ -390,3 +398,4 @@ FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME=ONNX) WITH (variable1
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Machine Learning e IA com ONNX no SQL no Edge](onnx-overview.md)
+* [Serviços de Machine Learning no SQL Instância Gerenciada do Azure (versão prévia)](../azure-sql/managed-instance/machine-learning-services-overview.md)

@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 37ade037b7f3c88f5ff33d7fc4640b19f366fe7a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 05a9b8009d896a2ee87df3e1c4493d249a887566
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530919"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083915"
 ---
 # <a name="connect-your-okta-single-sign-on-to-azure-sentinel-with-azure-function"></a>Conectar seu logon único do Okta ao Azure Sentinel com o Azure function
+
+> [!IMPORTANT]
+> O conector de dados de logon único do Okta no Azure Sentinel está atualmente em visualização pública.
+> Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O conector de SSO (logon único) do Okta permite que você conecte facilmente todos os seus logs de solução de segurança de [SSO (logon único) do Okta](https://www.okta.com/products/single-sign-on/) com o Azure Sentinel, para exibir painéis, criar alertas personalizados e melhorar a investigação. A integração entre o logon único do Okta e o Azure Sentinel usa Azure Functions para efetuar pull de dados de log usando a API REST.
 

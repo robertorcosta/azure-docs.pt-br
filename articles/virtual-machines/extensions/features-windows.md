@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ff4fb08b1e627184760bb0a33797b2a324d4c55
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c28fe96fe88a3b0744aaad72d49e8e2f52912fb6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045902"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082623"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
-As extensões da máquina virtual (VM) do Azure são pequenos aplicativos que fornecem tarefas de configuração e automação pós-implantação nas VMs do Azure. Por exemplo, se uma máquina virtual exigir a instalação de software, proteção antivírus ou a execução de um script dentro dela, uma extensão da VM poderá ser usada. As extensões da VM do Azure podem ser executadas com a CLI do Azure, o PowerShell, modelos do Azure Resource Manager e o portal do Azure. As extensões podem ser agrupadas com uma nova implantação de VM ou executar qualquer sistema existente.
+As extensões da máquina virtual (VM) do Azure são pequenos aplicativos que fornecem tarefas de configuração e automação pós-implantação nas VMs do Azure. Por exemplo, se uma máquina virtual exigir instalação de software, proteção antivírus ou executar um script dentro dela, uma extensão de VM poderá ser usada. As extensões da VM do Azure podem ser executadas com a CLI do Azure, o PowerShell, modelos do Azure Resource Manager e o portal do Azure. As extensões podem ser agrupadas com uma nova implantação de VM ou executar qualquer sistema existente.
 
 Este artigo fornece uma visão geral das extensões da VM, pré-requisitos para utilização das extensões da VM do Azure e diretrizes sobre como detectar, gerenciar e remover as extensões da VM. Este artigo fornece informações generalizadas, pois há muitas extensões de VM disponíveis, cada uma delas tem uma configuração possivelmente exclusiva. Encontre detalhes específicos sobre cada extensão na documentação individual.
 
@@ -35,7 +35,7 @@ Este artigo fornece uma visão geral das extensões da VM, pré-requisitos para 
 Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um caso de uso específico. Alguns exemplos incluem:
 
 - Aplique as configurações de Estado Desejado do PowerShell a uma VM usando a extensão de DSC para Windows. Para saber mais, confira [Extensão de configuração de Estado Desejado do Azure](dsc-overview.md).
-- Configure o monitoramento de uma VM com a extensão de VM do agente de Log Analytics. Para obter mais informações, consulte [conectar VMs do Azure a logs de Azure monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Configure o monitoramento de uma VM com a extensão de VM do agente de Log Analytics. Para obter mais informações, consulte [conectar VMs do Azure a logs de Azure monitor](../../azure-monitor/learn/quick-collect-azurevm.md).
 - Configure uma VM do Azure ao usar o Chef. Para obter mais informações, consulte [Automatizar a implantação de VM do Azure com o Chef](../../chef/chef-automation.md).
 - Configure o monitoramento de sua infraestrutura do Azure com a extensão Datadog. Para saber mais, confira [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
@@ -65,18 +65,18 @@ Algumas extensões não têm suporte em todos os sistemas de operacionais e pode
 
 #### <a name="network-access"></a>Acesso de rede
 
-Os pacotes de extensão são baixados do repositório de extensão do Armazenamento do Microsoft Azure, e os carregamentos de status de extensão são postados no Armazenamento do Microsoft Azure. Se você usar a versão [com suporte](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) dos agentes, não será necessário permitir o acesso ao armazenamento do Azure na região da VM, pois pode usar o agente para redirecionar a comunicação para o controlador de malha do Azure para comunicações do agente (recurso HostGAPlugin por meio do canal privilegiado em [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)de IP privado). Se você estiver usando uma versão sem suporte do agente, será necessário permitir o acesso de saída no armazenamento do Microsoft Azure nessa região por meio da VM.
+Os pacotes de extensão são baixados do repositório de extensão do Armazenamento do Microsoft Azure, e os carregamentos de status de extensão são postados no Armazenamento do Microsoft Azure. Se você usar a versão [com suporte](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) dos agentes, não será necessário permitir o acesso ao armazenamento do Azure na região da VM, pois pode usar o agente para redirecionar a comunicação para o controlador de malha do Azure para comunicações do agente (recurso HostGAPlugin por meio do canal privilegiado em [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)de IP privado). Se você estiver usando uma versão sem suporte do agente, será necessário permitir o acesso de saída no armazenamento do Microsoft Azure nessa região por meio da VM.
 
 > [!IMPORTANT]
 > Se você tiver bloqueado o acesso ao *168.63.129.16* usando o firewall convidado ou com um proxy, as extensões falharão independentemente das anteriores. As portas 80, 443 e 32526 são necessárias.
 
-Os agentes só podem ser usados para baixar os pacotes de extensão e o status do relatório. Por exemplo, se uma instalação da extensão precisar baixar um script do GitHub (Script Personalizado) ou precisar ter acesso ao Armazenamento do Microsoft Azure (Backup do Azure), então outras portas de firewall/Grupo de Segurança de Rede precisarão ser abertas. Diferentes extensões têm requisitos diferentes, já que são aplicativos por si só. Para extensões que exigem acesso ao armazenamento ou Azure Active Directory do Azure, você pode permitir o acesso usando as [marcas do serviço NSG do Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) para armazenamento ou AzureActiveDirectory.
+Os agentes só podem ser usados para baixar os pacotes de extensão e o status do relatório. Por exemplo, se uma instalação da extensão precisar baixar um script do GitHub (Script Personalizado) ou precisar ter acesso ao Armazenamento do Microsoft Azure (Backup do Azure), então outras portas de firewall/Grupo de Segurança de Rede precisarão ser abertas. Diferentes extensões têm requisitos diferentes, já que são aplicativos por si só. Para extensões que exigem acesso ao armazenamento ou Azure Active Directory do Azure, você pode permitir o acesso usando as [marcas do serviço NSG do Azure](../../virtual-network/security-overview.md#service-tags) para armazenamento ou AzureActiveDirectory.
 
 O agente convidado do Windows não tem suporte de servidor proxy para redirecionar solicitações de tráfego do agente por meio do, o que significa que o agente convidado do Windows dependerá do seu proxy personalizado (se você tiver um) para acessar recursos na Internet ou no host por meio de 168.63.129.16 IP.
 
 ## <a name="discover-vm-extensions"></a>Descobrir extensões de VM
 
-Muitas extensões de VM diferentes estão disponíveis para uso com as VMs do Azure. Para ver uma lista completa, use [Get-AzVMExtensionImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmextensionimage). O exemplo a seguir lista todas as extensões disponíveis no local *WestUS*:
+Muitas extensões de VM diferentes estão disponíveis para uso com as VMs do Azure. Para ver uma lista completa, use [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). O exemplo a seguir lista todas as extensões disponíveis no local *WestUS*:
 
 ```powershell
 Get-AzVmImagePublisher -Location "WestUS" | `
@@ -92,7 +92,7 @@ Os métodos a seguir podem ser usados para executar uma extensão em uma VM exis
 
 ### <a name="powershell"></a>PowerShell
 
-Há vários comandos do PowerShell para a execução de extensões individuais. Para ver uma lista, use [Get-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-command) e filtre pela *Extensão*:
+Há vários comandos do PowerShell para a execução de extensões individuais. Para ver uma lista, use [Get-Command](/powershell/module/microsoft.powershell.core/get-command) e filtre pela *Extensão*:
 
 ```powershell
 Get-Command Set-Az*Extension* -Module Az.Compute
@@ -127,7 +127,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-No seguinte exemplo, a extensão de acesso à VM é usada para redefinir a senha administrativa de uma VM Windows para uma senha temporária. Para saber mais sobre a extensão de acesso à VM, veja [Serviço de redefinição de área de trabalho remota em uma VM do Windows](../windows/reset-rdp.md). Depois de ter executado isso, você deverá redefinir a senha no primeiro logon:
+No seguinte exemplo, a extensão de acesso à VM é usada para redefinir a senha administrativa de uma VM Windows para uma senha temporária. Para saber mais sobre a extensão de acesso à VM, veja [Serviço de redefinição de área de trabalho remota em uma VM do Windows](../troubleshooting/reset-rdp.md). Depois de ter executado isso, você deverá redefinir a senha no primeiro logon:
 
 ```powershell
 $cred=Get-Credential
@@ -137,7 +137,7 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-O comando `Set-AzVMExtension` pode ser usado para iniciar qualquer extensão de VM. Para saber mais, veja a [referência de Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
+O comando `Set-AzVMExtension` pode ser usado para iniciar qualquer extensão de VM. Para saber mais, veja a [referência de Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension).
 
 
 ### <a name="azure-portal"></a>Portal do Azure
@@ -315,7 +315,7 @@ Para obter as correções de bug de versão secundária mais recentes, é altame
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Identificar se a extensão foi definida com autoUpgradeMinorVersion em uma VM
 
-Você pode ver no modelo da VM se a extensão foi provisionada com 'autoUpgradeMinorVersion'. Para verificar, use [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) e forneça o grupo de recursos e o nome da VM da seguinte maneira:
+Você pode ver no modelo da VM se a extensão foi provisionada com 'autoUpgradeMinorVersion'. Para verificar, use [Get-AzVm](/powershell/module/az.compute/get-azvm) e forneça o grupo de recursos e o nome da VM da seguinte maneira:
 
 ```powerShell
  $vm = Get-AzVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
@@ -371,7 +371,7 @@ As seguintes etapas de solução de problemas aplicam-se a todas as extensões d
 
 ### <a name="view-extension-status"></a>Exibir o status da extensão
 
-Depois que uma extensão de VM for executada em uma VM, use [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) para retornar o status da extensão. O *Substatus [0]* mostra que o provisionamento de extensão foi bem-sucedido, o que significa que foi implantado com sucesso na VM, mas que houve falha na execução da extensão dentro da VM, *Substatus [1]*.
+Depois que uma extensão de VM for executada em uma VM, use [Get-AzVM](/powershell/module/az.compute/get-azvm) para retornar o status da extensão. O *Substatus [0]* mostra que o provisionamento de extensão foi bem-sucedido, o que significa que foi implantado com sucesso na VM, mas que houve falha na execução da extensão dentro da VM, *Substatus [1]*.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
@@ -407,7 +407,7 @@ O status de execução da extensão também pode ser encontrado no Portal do Azu
 
 ### <a name="rerun-vm-extensions"></a>Executar extensões de VM novamente
 
-Pode haver casos nos quais uma extensão da VM precisa ser executada novamente. Você pode executar novamente uma extensão removendo-a e, em seguida, executando novamente a extensão com um método de execução de sua escolha. Para remover uma extensão, use [Remove-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/Remove-AzVMExtension) da seguinte maneira:
+Pode haver casos nos quais uma extensão da VM precisa ser executada novamente. Você pode executar novamente uma extensão removendo-a e, em seguida, executando novamente a extensão com um método de execução de sua escolha. Para remover uma extensão, use [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension) da seguinte maneira:
 
 ```powershell
 Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"

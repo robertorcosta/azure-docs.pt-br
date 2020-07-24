@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 91aaedba13dfd9c0a3ea06b3460beaa8ead20233
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d3e70384a99e2dad3f19825cb85b83861e4647e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130459"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083813"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solucionar erros de replicação de VM do Azure para o Azure
 
@@ -34,7 +34,7 @@ Replication couldn't be enabled for the virtual machine <VmName>.
 - Sua ID de assinatura não está habilitada ou não tem cota suficiente para criar tamanhos de VM específicos no local da região de destino.
 - Nenhum tamanho de VM de destino adequado é encontrado para corresponder à contagem de NIC (placa de interface de rede) da VM de origem (2), para a ID da assinatura no local da região de destino.
 
-### <a name="fix-the-problem"></a>Corrija o problema
+### <a name="fix-the-problem"></a>Corrigir o problema
 
 Contate o [suporte de cobrança do Azure](../azure-portal/supportability/resource-manager-core-quotas-request.md) para habilitar sua assinatura para criar VMs dos tamanhos necessários no local de destino. Em seguida, repita a operação com falha.
 
@@ -54,7 +54,7 @@ Site Recovery configuration failed.
 
 Os certificados raiz confiáveis necessários para autorização e autenticação não estão presentes na máquina virtual.
 
-### <a name="fix-the-problem"></a>Corrija o problema
+### <a name="fix-the-problem"></a>Corrigir o problema
 
 #### <a name="windows"></a>Windows
 
@@ -178,7 +178,7 @@ Para que a replicação de Site Recovery funcione, a conectividade de saída par
 - Não é possível estabelecer uma conexão com Site Recovery pontos de extremidade devido a uma falha de resolução de DNS (sistema de nomes de domínio).
 - Esse problema é mais comum durante a nova proteção quando você faz failover da máquina virtual, mas o servidor DNS não está acessível da região de recuperação de desastres (DR).
 
-#### <a name="fix-the-problem"></a>Corrija o problema
+#### <a name="fix-the-problem"></a>Corrigir o problema
 
 Se você estiver usando o DNS personalizado, verifique se o servidor DNS está acessível na região de recuperação de desastre.
 
@@ -199,7 +199,7 @@ Tente acessar o servidor DNS da máquina virtual. Se o servidor DNS não estiver
 
 Não é possível estabelecer uma conexão com os pontos de extremidade IP4 de autenticação e identidade do Office 365.
 
-#### <a name="fix-the-problem"></a>Corrija o problema
+#### <a name="fix-the-problem"></a>Corrigir o problema
 
 Azure Site Recovery acesso necessário aos intervalos de IP do Office 365 para autenticação.
 Se você estiver usando regras de NSG (grupo de segurança de rede) do Azure/proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de usar a NSG da [marca de serviço do AAD (Azure Active Directory)](../virtual-network/security-overview.md#service-tags) para permitir o acesso ao AAD. Não há mais suporte para regras NSG baseadas em endereço IP.
@@ -210,7 +210,7 @@ Se você estiver usando regras de NSG (grupo de segurança de rede) do Azure/pro
 
 Não é possível estabelecer uma conexão com Azure Site Recovery pontos de extremidade de serviço.
 
-#### <a name="fix-the-problem"></a>Corrija o problema
+#### <a name="fix-the-problem"></a>Corrigir o problema
 
 Se você estiver usando regras de NSG (grupo de segurança de rede) do Azure/proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de usar marcas de serviço. Não há mais suporte para usar uma lista de permissões de endereços IP via NSGs para Azure Site Recovery.
 
@@ -220,7 +220,7 @@ Se você estiver usando regras de NSG (grupo de segurança de rede) do Azure/pro
 
 As configurações de proxy personalizadas são inválidas e o agente do serviço de mobilidade não autodetectaram as configurações de proxy do Internet Explorer (IE).
 
-#### <a name="fix-the-problem"></a>Corrija o problema
+#### <a name="fix-the-problem"></a>Corrigir o problema
 
 1. O agente do serviço de mobilidade detecta as configurações de proxy do IE no Windows e `/etc/environment` no Linux.
 1. Se você preferir definir o proxy somente para o serviço de mobilidade, poderá fornecer os detalhes do proxy em _ProxyInfo. conf_ localizado em:
@@ -256,7 +256,7 @@ Azure data disk <DiskName> <DiskURI> with logical unit number <LUN> <LUNValue> w
 - Um novo disco de dados foi anexado à VM, mas não foi inicializado.
 - O disco de dados dentro da VM não está relatando corretamente o valor de LUN (número de unidade lógica) no qual o disco foi anexado à VM.
 
-### <a name="fix-the-problem"></a>Corrija o problema
+### <a name="fix-the-problem"></a>Corrigir o problema
 
 Verifique se os discos de dados foram inicializados e repita a operação.
 
@@ -272,7 +272,7 @@ Se o problema persistir, contate o Suporte.
 - Um ou mais discos foram adicionados recentemente à máquina virtual após a proteção.
 - Um ou mais discos foram inicializados após a proteção da máquina virtual.
 
-### <a name="fix-the-problem"></a>Corrija o problema
+### <a name="fix-the-problem"></a>Corrigir o problema
 
 Para tornar o status de replicação da VM íntegro novamente, você pode optar por proteger os discos ou ignorar o aviso.
 
@@ -302,7 +302,7 @@ Você pode ignorar esse aviso se você nunca pretender proteger essa máquina vi
 > - Quando você habilita a replicação por meio do cofre dos serviços de recuperação, a máquina virtual não será listada.
 > - Se você tentar proteger a VM usando as configurações de **máquina virtual**  >  **Settings**  >  **recuperação de desastre**, a operação falhará com a **replicação de mensagem não pode ser habilitada devido aos links de recursos obsoletos existentes na VM**.
 
-### <a name="fix-the-problem"></a>Corrija o problema
+### <a name="fix-the-problem"></a>Corrigir o problema
 
 > [!NOTE]
 > Site Recovery não exclui a máquina virtual de origem nem a afeta de forma alguma enquanto você executa essas etapas.
@@ -327,7 +327,7 @@ Uma configuração obsoleta pode ocorrer em uma VM do Azure se você habilitou a
 - Você excluiu o cofre Site Recovery sem desabilitar explicitamente a replicação na VM.
 - Você excluiu o grupo de recursos que contém o cofre de Site Recovery sem desabilitar explicitamente a replicação na VM.
 
-### <a name="fix-the-problem"></a>Corrija o problema
+### <a name="fix-the-problem"></a>Corrigir o problema
 
 > [!NOTE]
 > Site Recovery não exclui a máquina virtual de origem nem a afeta de forma alguma enquanto você executa essas etapas.
@@ -360,7 +360,7 @@ Talvez você não veja a VM que deseja habilitar para replicação se houver uma
 - Você excluiu o grupo de recursos que contém o cofre de Site Recovery sem desabilitar explicitamente a replicação na VM.
 - Você desabilitou a replicação, mas a VM de origem tinha um bloqueio de recurso.
 
-### <a name="fix-the-problem"></a>Corrija o problema
+### <a name="fix-the-problem"></a>Corrigir o problema
 
 > [!NOTE]
 > Certifique-se de atualizar o `AzureRM.Resources` módulo antes de usar o script mencionado nesta seção. Site Recovery não exclui a máquina virtual de origem nem a afeta de forma alguma enquanto você executa essas etapas.
@@ -379,7 +379,7 @@ Talvez você não veja a VM que deseja habilitar para replicação se houver uma
 
 A máquina virtual tem uma extensão instalada em um estado com falha ou sem resposta
 
-### <a name="fix-the-problem"></a>Corrija o problema
+### <a name="fix-the-problem"></a>Corrigir o problema
 
 Vá para **máquinas virtuais**  >  **configurações**  >  **extensões** e verifique se há extensões em estado de falha. Desinstale qualquer extensão com falha e tente proteger a máquina virtual novamente.
 
@@ -393,7 +393,7 @@ Para habilitar a replicação na VM, seu estado de provisionamento deve ser **be
 1. Expanda a lista de **recursos** e selecione sua VM.
 1. Verifique o campo **provisioningState** na exibição de instância no lado direito.
 
-### <a name="fix-the-problem"></a>Corrija o problema
+### <a name="fix-the-problem"></a>Corrigir o problema
 
 - Se o **provisioningState** tiver **falhado**, entre em contato com o suporte com detalhes para solucionar problemas.
 - Se o **provisioningState** estiver sendo **atualizado**, outra extensão poderá estar sendo implantada. Verifique se há alguma operação em andamento na VM, aguarde até que elas sejam concluídas e repita o trabalho de Site Recovery com falha para habilitar a replicação.
@@ -430,7 +430,7 @@ Site Recovery extension failed to install.
 - O serviço de aplicativo do sistema COM+ está desabilitado.
 - O Serviço de Cópias de Sombra de Volume está desabilitado.
 
-### <a name="fix-the-problem"></a>Corrija o problema
+### <a name="fix-the-problem"></a>Corrigir o problema
 
 Defina o aplicativo do sistema COM+ e Serviço de Cópias de Sombra de Volume como modo de inicialização automático ou manual.
 
@@ -451,7 +451,7 @@ Protection couldn't be enabled for the virtual machine as it has <DiskName> with
 
 O disco é menor do que o tamanho com suporte de 1024 MB.
 
-### <a name="fix-the-problem"></a>Corrija o problema
+### <a name="fix-the-problem"></a>Corrigir o problema
 
 Verifique se o tamanho do disco está dentro do intervalo de tamanho com suporte e repita a operação.
 
@@ -471,7 +471,7 @@ Os exemplos a seguir são linhas de arquivos GRUB nos quais os nomes de disposit
 
   `kernel /boot/vmlinuz-3.0.101-63-default root=/dev/sda2 resume=/dev/sda1 splash=silent crashkernel=256M-:128M showopts vga=0x314`
 
-### <a name="fix-the-problem"></a>Corrija o problema
+### <a name="fix-the-problem"></a>Corrigir o problema
 
 Substitua cada nome de dispositivo pelo UUID correspondente:
 
@@ -510,7 +510,7 @@ Os arquivos de configuração do GRUB (_/boot/grub/menu.lst_, _/boot/grub/grub.c
 
 Em cada exemplo, o GRUB precisa detectar dois dispositivos LVM com os nomes `root` e `swap` do grupo de volumes `rootvg` .
 
-### <a name="fix-the-problem"></a>Corrija o problema
+### <a name="fix-the-problem"></a>Corrigir o problema
 
 Se o dispositivo LVM não existir, crie-o ou remova os parâmetros correspondentes dos arquivos de configuração do GRUB. Em seguida, tente novamente habilitar a proteção.
 
@@ -531,9 +531,47 @@ Esse erro ocorre quando o disco gerenciado de réplica já existe, sem as marcas
 
 Esse problema pode ocorrer se a máquina virtual já tiver sido protegida anteriormente e quando a replicação tiver sido desabilitada, o disco de réplica não foi removido.
 
-### <a name="fix-the-problem"></a>Corrija o problema
+### <a name="fix-the-problem"></a>Corrigir o problema
 
 Exclua o disco de réplica identificado na mensagem de erro e repita o trabalho de proteção com falha.
+
+## <a name="enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137"></a>Falha ao habilitar a proteção, pois o instalador não pode localizar o disco raiz (código de erro 151137)
+
+Esse erro ocorre em computadores Linux em que o disco do sistema operacional é criptografado usando Azure Disk Encryption (ADE). Este é um problema válido somente na versão 9,35 do agente.
+
+### <a name="possible-causes"></a>Possíveis causas
+
+O instalador não pode localizar o disco raiz que hospeda o sistema de arquivos raiz.
+
+### <a name="fix-the-problem"></a>Corrigir o problema
+
+Siga as etapas abaixo para corrigir esse problema-
+
+1. Localize os bits de agente no diretório _/var/lib/waagent_ em máquinas RHEL e CentOS usando o comando abaixo: <br>
+
+    `# find /var/lib/ -name Micro\*.gz`
+
+   Saída esperada:
+
+    `/var/lib/waagent/Microsoft.Azure.RecoveryServices.SiteRecovery.LinuxRHEL7-1.0.0.9139/UnifiedAgent/Microsoft-ASR_UA_9.35.0.0_RHEL7-64_GA_30Jun2020_release.tar.gz`
+
+2. Crie um novo diretório e altere o diretório para esse novo diretório.
+3. Extraia o arquivo do agente encontrado na primeira etapa aqui, usando o comando abaixo:
+
+    `tar -xf <Tar Ball File>`
+
+4. Abra o arquivo _prereq_check_installer.js_ e exclua as linhas a seguir. Salve o arquivo depois disso.
+
+    ```
+       {
+          "CheckName": "SystemDiskAvailable",
+          "CheckType": "MobilityService"
+       },
+    ```
+5. Invoque o instalador usando o comando: <br>
+
+    `./install -d /usr/local/ASR -r MS -q -v Azure`
+6. Se o instalador for executado com sucesso, repita o trabalho habilitar replicação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

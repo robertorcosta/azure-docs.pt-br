@@ -7,16 +7,19 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
-ms.openlocfilehash: 2e2925723ee07ee2215bdd82bb730e31cdcdadc9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 160d056447bd53ea01437acd372b5efeb15b4773
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530957"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083150"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Regravar URL com Aplicativo Azure gateway-portal do Azure (versão prévia)
 
 Este artigo descreve como usar o portal do Azure para configurar uma instância de [SKU do gateway de aplicativo v2](application-gateway-autoscaling-zone-redundant.md) para regravar a URL.
+
+>[!NOTE]
+> O recurso de regravação de URL está em visualização e está disponível somente para Standard_v2 e WAF_v2 SKU do gateway de aplicativo. Não é recomendável para uso no ambiente de produção. Para saber mais sobre visualizações, confira [termos de uso aqui](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

@@ -2,12 +2,13 @@
 title: Perguntas frequentes (FAQ) sobre o Barramento de Serviço | Microsoft Docs
 description: Este artigo fornece respostas para algumas das perguntas frequentes sobre o barramento de serviço do Azure.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 35721d174ec4b840185727efe5fb384015040b80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: 01d7869a158a3c2b5418f38f2a5d88fc161796c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341461"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083847"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Barramento de serviço do Azure-perguntas frequentes (FAQ)
 
@@ -29,7 +30,7 @@ A [Fila do Barramento de Serviço](service-bus-queues-topics-subscriptions.md) �
 Um tópico pode ser visualizado como uma fila e ao usar várias assinaturas, ele se torna um modelo mais abrangente de mensagens; essencialmente, uma ferramenta de comunicação de um-para-muitos. Esse modelo de publicação/assinatura (ou *pub/sub*) habilita um aplicativo que envia uma mensagem para um tópico com várias assinaturas para fazer com que essa mensagem seja recebida por vários aplicativos.
 
 ### <a name="what-is-a-partitioned-entity"></a>O que é uma entidade particionada?
-Uma fila ou um tópico convencional é manipulado por um único agente de mensagem e armazenado em um repositório de mensagens. Compatível apenas com as camadas de mensagens Básico e Standard, uma [fila ou um tópico particionado](service-bus-partitioning.md) é manipulada por vários agentes de mensagens e armazenada em vários repositórios de mensagens. Esse recurso significa que a produtividade geral de uma fila ou um tópico particionado não é mais limitada pelo desempenho de um único agente ou repositório de mensagens. Além disso, uma interrupção temporária de um repositório de mensagens não torna uma fila ou um tópico particionado indisponível.
+Uma fila ou um tópico convencional é manipulado por um único agente de mensagem e armazenado em um repositório de mensagens. Com suporte apenas nas camadas de sistema de mensagens básica e Standard, uma [fila particionada ou um tópico](service-bus-partitioning.md) é manipulado por vários agentes de mensagens e armazenados em vários repositórios de mensagens. Esse recurso significa que a produtividade geral de uma fila ou um tópico particionado não é mais limitada pelo desempenho de um único agente ou repositório de mensagens. Além disso, uma interrupção temporária de um repositório de mensagens não renderiza uma fila ou tópico particionado indisponível.
 
 A ordenação não é garantida ao usar entidades particionadas. Se uma partição não estiver disponível, você poderá enviar e receber mensagens de outras partições.
 
@@ -50,15 +51,15 @@ Consulte a tabela a seguir para as portas de saída que você precisa abrir para
 | SBMP | 9350 a 9354 | Consulte [modo de conectividade](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
 | HTTP, HTTPS | 80, 443 | 
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quais endereços IP preciso colocar na lista de permissões?
-Para localizar os endereços IP corretos para a lista de permissões de suas conexões, siga estas etapas:
+### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>Quais endereços IP preciso adicionar à lista de permissões?
+Para localizar os endereços IP corretos a serem adicionados à lista de permissões para suas conexões, siga estas etapas:
 
 1. Execute o seguinte comando de um prompt de comando: 
 
     ```
     nslookup <YourNamespaceName>.cloudapp.net
     ```
-2. Anote o endereço IP retornado em `Non-authoritative answer`. Esse endereço IP é estático. O único ponto no tempo que seria alterado seria se você restaurasse o namespace em um cluster diferente.
+2. Anote o endereço IP retornado em `Non-authoritative answer`. Esse endereço IP é estático. Ele só mudaria se você restaurasse o namespace em um cluster diferente.
 
 Se você usar a redundância de zona para seu namespace, precisará executar algumas etapas adicionais: 
 
@@ -76,13 +77,17 @@ Se você usar a redundância de zona para seu namespace, precisará executar alg
     ```
 3. Execute nslookup para cada um com sufixos s1, s2 e s3 para obter os endereços IP de todas as três instâncias em execução em três zonas de disponibilidade, 
 
+### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>Onde posso encontrar o endereço IP do cliente que envia/recebe mensagens de/para um namespace? 
+Não registramos em log os endereços IP de clientes que enviam ou recebem mensagens de/para seu namespace. Regenerar chaves para que todos os clientes existentes não consigam autenticar e examinar as configurações de[RBAC](authenticate-application.md#built-in-rbac-roles-for-azure-service-bus)(controle de acesso baseado em função) para garantir que somente os usuários ou aplicativos permitidos tenham acesso ao namespace. 
+
+Se você estiver usando um namespace **Premium** , use [filtragem de IP](service-bus-ip-filtering.md), pontos de extremidade de serviço de [rede virtual](service-bus-service-endpoints.md)e [pontos de extremidade privados](private-link-service.md) para limitar o acesso ao namespace. 
 
 ## <a name="best-practices"></a>Práticas recomendadas
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Quais são algumas das práticas recomendadas do Barramento de Serviço do Azure?
 Consulte [Práticas recomendadas para melhorias de desempenho usando o Barramento de Serviço][Best practices for performance improvements using Service Bus] – este artigo descreve como otimizar o desempenho ao trocar mensagens.
 
 ### <a name="what-should-i-know-before-creating-entities"></a>O que devo saber antes de criar entidades?
-As propriedades de uma fila e tópico a seguir são imutáveis. Considere essa limitação ao provisionar suas entidades, já que essas propriedades não podem ser modificadas sem criar uma nova entidade de substituição.
+As propriedades de uma fila e tópico a seguir são imutáveis. Considere essa limitação ao provisionar suas entidades, pois essas propriedades não podem ser modificadas sem a criação de uma nova entidade de substituição.
 
 * Particionamento
 * Sessões
@@ -99,25 +104,25 @@ Você também pode visitar as [Perguntas frequentes sobre o suporte do Azure](ht
 ### <a name="how-do-you-charge-for-service-bus"></a>Como é cobrado o Barramento de Serviço?
 Para saber mais sobre o preço do Barramento de Serviço, consulte [Detalhes de preço do Barramento de Serviço][Pricing overview]. Além dos preços mencionados, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo está provisionado.
 
-### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Quais usos do barramento de serviço estão sujeitos à transferência de dados? O que é não está?
+### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-isnt"></a>Quais usos do barramento de serviço estão sujeitos à transferência de dados? O que não é?
 Todas as transferências de dados dentro de uma determinada região do Azure são feitas gratuitamente, bem como qualquer transferência de dados recebida. A transferência de dados fora de uma região está sujeita a encargos de saída, que podem ser encontrados [aqui](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### <a name="does-service-bus-charge-for-storage"></a>O Barramento de Serviço cobra pelo armazenamento?
-Não, o Barramento de Serviço não cobra pelo armazenamento. No entanto, há uma cota que limita a quantidade máxima de dados que podem persistir por fila/tópico. Consulte as Perguntas Frequentes a seguir.
+Não. O barramento de serviço não cobra pelo armazenamento. No entanto, há uma cota que limita a quantidade máxima de dados que podem persistir por fila/tópico. Consulte as Perguntas Frequentes a seguir.
 
 ### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Tenho um namespace standard do barramento de serviço. Por que vejo encargos no grupo de recursos ' $system '?
-O barramento de serviço do Azure atualizou os componentes de cobrança recentemente. Devido a isso, se você tiver um namespace padrão do barramento de serviço, poderá ver itens de linha para o recurso '/subscriptions/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system ' no grupo de recursos ' $system '.
+O barramento de serviço do Azure atualizou os componentes de cobrança recentemente. Por causa dessa alteração, se você tiver um namespace padrão do barramento de serviço, poderá ver itens de linha para o recurso '/subscriptions/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system ' no grupo de recursos ' $system '.
 
 Esses encargos representam o encargo base por assinatura do Azure que provisionou um namespace padrão do barramento de serviço. 
 
-É importante observar que esses não são novos encargos, ou seja, eles já existiam no modelo de cobrança anterior. A única alteração é que agora eles estão listados em ' $system '. Isso é feito devido a restrições no novo sistema de cobrança que agrupa encargos de nível de assinatura, não vinculado a um recurso específico, sob a ID de recurso ' $system '.
+É importante observar que esses encargos não são novos, ou seja, eles já existiam no modelo de cobrança anterior. A única alteração é que agora eles estão listados em ' $system '. Isso é feito por causa de restrições no novo sistema de cobrança que agrupa encargos de nível de assinatura, não vinculado a um recurso específico, sob a ID de recurso ' $system '.
 
 ## <a name="quotas"></a>Cotas
 
 Para obter uma lista de cotas e limites do Barramento de Serviço, veja [Visão geral sobre cotas do Barramento de Serviço][Quotas overview].
 
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>Como lidar com mensagens com mais de 1 MB?
-Os serviços de mensagens do Barramento de Serviço (filas e tópicos/assinaturas) permitem que o aplicativo envie mensagens com até 256 KB (camada standard) ou 1 MB (camada premium). Se você estiver lidando com mensagens de tamanho maior do que 1 MB, use o padrão de verificação de declaração descrito [nesta postagem de blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
+Os serviços de mensagens do Barramento de Serviço (filas e tópicos/assinaturas) permitem que o aplicativo envie mensagens com até 256 KB (camada standard) ou 1 MB (camada premium). Se você estiver lidando com mensagens de tamanho maior que 1 MB, use o padrão de verificação de declaração descrito nesta [postagem no blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
 ## <a name="troubleshooting"></a>Solução de problemas
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Por que não eu consigo criar um namespace após excluí-lo de outra assinatura? 

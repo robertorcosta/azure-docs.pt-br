@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 52a52f6f7bca99d662a68ae48276062969b194f0
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 25f4f99d2bd80034d2f337aa649417d2d06026be
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86235795"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082521"
 ---
 # <a name="azure-cli---enable-double-encryption-at-rest-on-your-managed-disks"></a>CLI do Azure-habilitar a criptografia dupla em repouso em seus discos gerenciados
 
@@ -73,5 +73,5 @@ Instale o [CLI do Azure](/cli/azure/install-az-cli2) mais recente e faça logon 
 
 Agora que você criou e configurou esses recursos, você pode usá-los para proteger seus discos gerenciados. Os links a seguir contêm scripts de exemplo, cada um com um cenário respectivo, que você pode usar para proteger seus discos gerenciados.
 
-Exemplos de modelo de [Azure Resource Manager](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption) 
- [Habilitar chaves gerenciadas pelo cliente com criptografia do lado do servidor-exemplos](disks-enable-customer-managed-keys-cli.md#examples)
+- [Exemplos de modelo do Azure Resource Manager](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption)
+- [Habilitar chaves gerenciadas pelo cliente com criptografia do lado do servidor-exemplos](disks-enable-customer-managed-keys-cli.md#examples)

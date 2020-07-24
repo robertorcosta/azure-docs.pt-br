@@ -3,11 +3,12 @@ title: Detecção de mensagens duplicadas do Barramento de Serviço do Azure | M
 description: Este artigo explica como você pode detectar duplicatas em mensagens do barramento de serviço do Azure. A mensagem duplicada pode ser ignorada e descartada.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c8935fa67dda28bb2fec663c5e714982933f0f22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbca1b4b4f894d35835e7d37e0b4e742a2d3b917
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337905"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083881"
 ---
 # <a name="duplicate-detection"></a>Detecção de duplicidade
 
@@ -32,7 +33,7 @@ A *MessageId* sempre pode ser algum GUID, mas a ancoragem o identificador para o
 
 No portal, o recurso é ativado durante a criação de entidade com a caixa de seleção **Habilitar detecção de duplicidade**, que está desativado por padrão. A configuração para criar novos tópicos é equivalente.
 
-![][1]
+![Captura de tela da caixa de diálogo Criar fila com a opção Habilitar detecção de duplicidades selecionada e descrita em vermelho.][1]
 
 > [!IMPORTANT]
 > Você não pode ativar / desativar a detecção de duplicados após a criação da fila. Você só pode fazer isso no momento da criação da fila. 
@@ -41,7 +42,7 @@ Programaticamente, você pode definir o sinalizador com a propriedade [QueueDesc
 
 O histórico de tempo de detecção duplicado é padronizado para 30 segundos para filas e tópicos, com um valor máximo de sete dias. Você pode alterar essa configuração na janela de propriedades de fila e tópico no Portal do Azure.
 
-![][2]
+![Captura de tela do recurso do barramento de serviço com a configuração Propriedades realçada e a opção histórico de detecção de duplicidades descrita em vermelho.][2]
 
 Programaticamente, você pode configurar o tamanho da janela de detecção de duplicidades durante o qual as IDs de mensagem são mantidas, usando a propriedade [QueueDescription.DuplicateDetectionHistoryTimeWindow](/dotnet/api/microsoft.servicebus.messaging.queuedescription.duplicatedetectionhistorytimewindow#Microsoft_ServiceBus_Messaging_QueueDescription_DuplicateDetectionHistoryTimeWindow) com a API do .NET Framework completa. Com a API do Azure Resource Manager, o valor é definido com a propriedade [queueProperties.duplicateDetectionHistoryTimeWindow](/azure/templates/microsoft.servicebus/namespaces/queues#property-values).
 

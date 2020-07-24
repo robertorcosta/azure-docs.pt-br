@@ -13,14 +13,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/22/2020
+ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: b6a284d13d0d737eca65b2593813b3d1b999cfdf
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: dbcb39641f35ad0f997db30b320826764a08bff1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133163"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082249"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implantação de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -74,7 +74,7 @@ ms.locfileid: "86133163"
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-cli-2]:https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
 [azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azureps-cmdlets-docs
+[azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
@@ -285,15 +285,15 @@ ms.locfileid: "86133163"
 [virtual-machines-linux-tutorial]:../../linux/quick-create-cli.md
 [virtual-machines-linux-update-agent]:../../linux/update-agent.md
 [virtual-machines-manage-availability]:../../linux/manage-availability.md
-[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:../../virtual-machines-windows-ps-create.md
+[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:../../windows/quick-create-powershell.md
 [virtual-machines-sizes]:../../linux/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
 [virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
 [virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
 [virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
-[virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
-[virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
+[virtual-machines-upload-image-windows-resource-manager]:../../windows/upload-image.md
+[virtual-machines-windows-tutorial]:../../windows/quick-create-portal.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
@@ -443,8 +443,8 @@ O assistente orienta você durante a configuração de parâmetros necessários 
 1. **Configurações**:
    * **Storage**
      * **Tipo de disco**: Selecione o tipo de disco como disco do sistema operacional. Se você quiser usar o Armazenamento Premium para os discos de dados, é recomendável usar o Armazenamento Premium para o disco do SO também.
-     * **Usar Managed Disks**: Se você desejar usar Managed Disks, selecione Sim. Para obter mais informações sobre Managed Disks, confira o capítulo [Managed Disks](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#microsoft-azure-storage-resiliency) no guia de planejamento.
-     * **Conta de armazenamento**: Selecione uma conta de armazenamento existente ou crie uma nova. Nem todos os tipos de armazenamento funcionam para a execução de aplicativos SAP. Para obter mais informações sobre os tipos de armazenamento, consulte [Estrutura de armazenamento de uma VM para implantações de RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
+     * **Usar Managed Disks**: Se você desejar usar Managed Disks, selecione Sim. Para obter mais informações sobre Managed Disks, confira o capítulo [Managed Disks](./planning-guide-storage.md#microsoft-azure-storage-resiliency) no guia de planejamento.
+     * **Conta de armazenamento**: Selecione uma conta de armazenamento existente ou crie uma nova. Nem todos os tipos de armazenamento funcionam para a execução de aplicativos SAP. Para obter mais informações sobre os tipos de armazenamento, consulte [Estrutura de armazenamento de uma VM para implantações de RDBMS](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64).
    * **Rede**
      * **Rede virtual** e **Sub-rede**: Para integrar a máquina virtual à intranet, selecione a rede virtual que está conectada à rede local.
      * **Endereço IP público**: Selecione o endereço IP público que você deseja usar ou insira os parâmetros para criar um novo endereço IP público. Você pode usar um endereço IP público para acessar a máquina virtual pela Internet. Verifique se você também pode criar um grupo de segurança de rede para ajudar a proteger o acesso à máquina virtual.
@@ -500,7 +500,7 @@ No portal do Azure, insira os seguintes parâmetros para o modelo:
 
      Em sistemas maiores, é altamente recomendável usar o Armazenamento do Azure Premium. Para obter mais informações sobre tipos de armazenamento, confira estes recursos:
       * [Usar o Armazenamento SSD Premium do Azure para instância do SAP DBMS][2367194]
-      * [Estrutura de armazenamento de uma VM para implantações de RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Estrutura de armazenamento de uma VM para implantações de RDBMS](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho da Máquina Virtual do Azure][storage-premium-storage-preview-portal]
       * [Introdução ao Armazenamento do Microsoft Azure][storage-introduction]
    * **Nome de usuário administrador** e **Senha de administrador**: Um nome de usuário e uma senha.
@@ -545,7 +545,7 @@ Você usa diferentes etapas para criar uma imagem privada para Linux em vez de c
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> Para preparar uma imagem do Windows que você pode usar para implantar várias máquinas virtuais, as configurações do Windows (como o nome de host e SID do Windows) devem ser abstraídas ou generalizadas na VM local. Você pode usar [sysprep](https://msdn.microsoft.com/library/hh825084.aspx) para fazer isso.
+> Para preparar uma imagem do Windows que você pode usar para implantar várias máquinas virtuais, as configurações do Windows (como o nome de host e SID do Windows) devem ser abstraídas ou generalizadas na VM local. Você pode usar [sysprep](/previous-versions/windows/it-pro/windows-8.1-and-8/hh825084(v=win.10)) para fazer isso.
 >
 > ![Linux][Logo_Linux] Linux
 >
@@ -562,7 +562,7 @@ O seguinte fluxograma mostra a sequência de etapas para implantar uma VM por me
 
 #### <a name="create-a-virtual-machine-by-using-the-azure-portal"></a>Criar uma máquina virtual usando o portal do Azure
 
-A maneira mais fácil de criar uma nova máquina virtual usando uma imagem de Disco Gerenciado é usando o portal do Azure. Para obter mais informações sobre como criar uma Imagem de Disco Gerenciado, leia [Capturar uma imagem gerenciada de uma VM generalizada no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)
+A maneira mais fácil de criar uma nova máquina virtual usando uma imagem de Disco Gerenciado é usando o portal do Azure. Para obter mais informações sobre como criar uma Imagem de Disco Gerenciado, leia [Capturar uma imagem gerenciada de uma VM generalizada no Azure](../../windows/capture-image-resource.md)
 
 1.  Ir para <https://ms.portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages>. Ou, no menu do portal do Azure, selecione **Imagens**.
 1.  Selecione a imagem de Disco Gerenciado que você deseja implantar e clique em **Criar VM**
@@ -583,7 +583,7 @@ O assistente orienta você durante a configuração de parâmetros necessários 
 1. **Configurações**:
    * **Storage**
      * **Tipo de disco**: Selecione o tipo de disco como disco do sistema operacional. Se você quiser usar o Armazenamento Premium para os discos de dados, é recomendável usar o Armazenamento Premium para o disco do SO também.
-     * **Usar Managed Disks**: Se você desejar usar Managed Disks, selecione Sim. Para obter mais informações sobre Managed Disks, confira o capítulo [Managed Disks](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#microsoft-azure-storage-resiliency) no guia de planejamento.
+     * **Usar Managed Disks**: Se você desejar usar Managed Disks, selecione Sim. Para obter mais informações sobre Managed Disks, confira o capítulo [Managed Disks](./planning-guide-storage.md#microsoft-azure-storage-resiliency) no guia de planejamento.
    * **Rede**
      * **Rede virtual** e **Sub-rede**: Para integrar a máquina virtual à intranet, selecione a rede virtual que está conectada à rede local.
      * **Endereço IP público**: Selecione o endereço IP público que você deseja usar ou insira os parâmetros para criar um novo endereço IP público. Você pode usar um endereço IP público para acessar a máquina virtual pela Internet. Verifique se você também pode criar um grupo de segurança de rede para ajudar a proteger o acesso à máquina virtual.
@@ -636,7 +636,7 @@ No portal do Azure, insira os seguintes parâmetros para o modelo:
 
      Em sistemas maiores, é altamente recomendável usar o Armazenamento do Azure Premium. Para obter mais informações sobre tipos de armazenamento, confira os seguintes recursos:
       * [Usar o Armazenamento SSD Premium do Azure para instância do SAP DBMS][2367194]
-      * [Estrutura de armazenamento de uma VM para implantações de RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Estrutura de armazenamento de uma VM para implantações de RDBMS](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure][storage-premium-storage-preview-portal]
       * [Introdução ao Armazenamento do Microsoft Azure][storage-introduction]
    * **URI do VHD de imagem de usuário** (somente modelo de imagem de disco não gerenciado): O URI do VHD de imagem do sistema operacional privada, por exemplo, https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd.
@@ -728,7 +728,7 @@ No portal do Azure, insira os seguintes parâmetros para o modelo:
 
      Em sistemas maiores, é altamente recomendável usar o Armazenamento do Azure Premium. Para obter mais informações sobre tipos de armazenamento, confira os seguintes recursos:
       * [Usar o Armazenamento SSD Premium do Azure para instância do SAP DBMS][2367194]
-      * [Estrutura de armazenamento de uma VM para implantações de RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Estrutura de armazenamento de uma VM para implantações de RDBMS](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho da Máquina Virtual do Azure][storage-premium-storage-preview-portal]
       * [Introdução ao Armazenamento do Microsoft Azure][storage-introduction]
    * **URI do VHD de disco do sistema operacional**: (somente modelo de disco não gerenciado): O URI do disco do sistema operacional privado, por exemplo, https://&lt;accountname>.blob.core.windows.net/vhds/osdisk.vhd.
@@ -780,9 +780,9 @@ Esta seção tem etapas detalhadas para realizar tarefas específicas no process
 
 ### <a name="deploy-azure-powershell-cmdlets"></a><a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Implantar cmdlets do Azure PowerShell
 
-Siga as etapas descritas no artigo [instalar o Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps)
+Siga as etapas descritas no artigo [instalar o Azure PowerShell Module](/powershell/azure/install-az-ps)
 
-Verifique frequentemente se há atualizações nos cmdlets do PowerShell, que geralmente são atualizados mensalmente. Siga as etapas descritas [neste artigo.](https://docs.microsoft.com/powershell/azure/install-az-ps#update-the-azure-powershell-module) Salvo indicação em contrário na Nota SAP [1928533] ou na Nota SAP [2015553], é recomendável que você trabalhe com a versão mais recente dos cmdlets do Azure PowerShell.
+Verifique frequentemente se há atualizações nos cmdlets do PowerShell, que geralmente são atualizados mensalmente. Siga as etapas descritas [neste artigo.](/powershell/azure/install-az-ps#update-the-azure-powershell-module) Salvo indicação em contrário na Nota SAP [1928533] ou na Nota SAP [2015553], é recomendável que você trabalhe com a versão mais recente dos cmdlets do Azure PowerShell.
 
 Para verificar a versão dos cmdlets do Azure PowerShell que estão instalados em seu computador, execute este comando do PowerShell:
 
@@ -792,7 +792,7 @@ Para verificar a versão dos cmdlets do Azure PowerShell que estão instalados e
 
 ### <a name="deploy-azure-cli"></a><a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Implantar a CLI do Azure
 
-Siga as etapas descritas no artigo [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+Siga as etapas descritas no artigo [instalar o CLI do Azure](/cli/azure/install-azure-cli)
 
 Verifique frequentemente se há atualizações na CLI do Azure, que geralmente é atualizada mensalmente.
 
@@ -933,7 +933,7 @@ Para instalar a Extensão para SAP do Azure usando o PowerShell:
 
 1. Verifique se tem a versão mais recente do cmdlet do Azure PowerShell instalada. Para obter mais informações, confira [Implantar cmdlets do Azure PowerShell][deployment-guide-4.1].  
 1. Execute o seguinte cmdlet do PowerShell.
-    Para obter uma lista dos ambientes disponíveis, execute `commandlet Get-AzEnvironment`. Se quiser usar o Azure global, o ambiente será **AzureCloud**. Para o Azure China 21Vianet, selecione **AzureChinaCloud**.
+    Para obter uma lista de ambientes disponíveis, execute o cmdlet `Get-AzEnvironment` . Se quiser usar o Azure global, o ambiente será **AzureCloud**. Para o Azure China 21Vianet, selecione **AzureChinaCloud**.
 
     ```powershell
     $env = Get-AzEnvironment -Name <name of the environment>
@@ -1023,44 +1023,21 @@ Para instalar a Extensão para SAP do Azure usando a CLI do Azure:
 
 A nova extensão de VM para SAP usa uma identidade gerenciada atribuída à VM para acessar os dados de monitoramento e configuração da VM. Para instalar a nova extensão do Azure para SAP usando o PowerShell, primeiro você precisa atribuir essa identidade à VM e conceder a essa identidade acesso a todos os recursos que estão sendo usados por essa VM, por exemplo, discos e interfaces de rede.
 
-O processo será automatizado na próxima versão do Azure PowerShell (> 4.2.0). Atualizaremos este artigo depois que a nova versão estiver disponível. Até lá, siga estas etapas para instalar a extensão manualmente.
-
 > [!NOTE]
 > As etapas a seguir exigem privilégios de proprietário sobre o grupo de recursos ou recursos individuais (máquina virtual, discos de dados, etc.)
 
 1. Certifique-se de usar o agente de host do SAP 7,21 PL 47 ou superior.
 1. Certifique-se de desinstalar a versão atual da extensão de VM para SAP. Não há suporte para instalar as duas versões da extensão de VM para SAP na mesma máquina virtual.
-1. Verifique se tem a versão mais recente do cmdlet do Azure PowerShell instalada. Para obter mais informações, confira [Implantar cmdlets do Azure PowerShell][deployment-guide-4.1].
-1. Siga as etapas na artigo [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando o PowerShell][qs-configure-powershell-windows-vm] para habilitar uma identidade gerenciada atribuída pelo sistema para a VM. Não há suporte para identidades gerenciadas atribuídas pelo usuário pela extensão de VM para SAP. No entanto, você pode habilitar tanto uma identidade atribuída pelo sistema quanto uma de usuário.
-    
-    Exemplo:
-    ```powershell
-    $vm = Get-AzVM -ResourceGroupName <resource-group-name> -Name <vm name>
-    Update-AzVM -ResourceGroupName $vm.ResourceGroupName -VM $vm -IdentityType SystemAssigned
-    ```
-
-1. Atribua o acesso de identidade gerenciada ao grupo de recursos da VM ou a todas as interfaces de rede, discos gerenciados e a própria VM, conforme descrito em [atribuir um acesso de identidade gerenciada a um recurso usando][howto-assign-access-powershell] o exemplo do PowerShell:
+1. Verifique se você instalou a versão mais recente do cmdlet Azure PowerShell (pelo menos o 4.3.0). Para obter mais informações, confira [Implantar cmdlets do Azure PowerShell][deployment-guide-4.1].
+1. Execute o seguinte cmdlet do PowerShell.
+    Para obter uma lista de ambientes disponíveis, execute o cmdlet `Get-AzEnvironment` . Se quiser usar o Azure global, o ambiente será **AzureCloud**. Para o Azure China 21Vianet, selecione **AzureChinaCloud**.
 
     ```powershell
-    $spID = (Get-AzVM -ResourceGroupName <resource-group-name> -Name <vm name>).identity.principalid
-    $rg = Get-AzResourceGroup -Name $vm.ResourceGroupName
-    New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope $rg.ResourceId
-    ```
-
-1. Execute o seguinte cmdlet do PowerShell para instalar a extensão do Azure para SAP.
-    Atualmente, a extensão só tem suporte no AzureCloud. O Azure China 21Vianet, o Azure governamental ou qualquer um dos outros ambientes especiais ainda não tem suporte.
-
-    ```powershell
-    $env = Get-AzEnvironment -Name AzureCloud
+    $env = Get-AzEnvironment -Name <name of the environment>
     Connect-AzAccount -Environment $env
     Set-AzContext -SubscriptionName <subscription name>
 
-    $vm = Get-AzVM -ResourceGroupName <resource-group-name> -Name <vm name>
-    if ($vm.StorageProfile.OsDisk.OsType -eq "Windows") {
-      Set-AzVMExtension -Publisher Microsoft.AzureCAT.AzureEnhancedMonitoring -ExtensionType MonitorX64Windows -Name MonitorX64Windows -TypeHandlerVersion "1.0" -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Settings @{"system" = "SAP"} -Location $vm.Location
-    } else {
-      Set-AzVMExtension -Publisher Microsoft.AzureCAT.AzureEnhancedMonitoring -ExtensionType MonitorX64Linux -Name MonitorX64Linux -TypeHandlerVersion "1.0" -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Settings @{"system" = "SAP"} -Location $vm.Location
-    }
+    Set-AzVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name> -InstallNewExtension
     ```
 
 #### <a name="configure-the-new-azure-extension-for-sap-with-azure-cli"></a><a name="c8749c24-fada-42ad-b114-f9aae2dc37da"></a>Configurar a nova extensão do Azure para SAP com CLI do Azure
@@ -1116,7 +1093,10 @@ Execute a verificação de preparação para a Extensão para SAP do Azure, conf
 
 ### <a name="readiness-check-for-the-azure-extension-for-sap"></a><a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>Verificação de preparação para a Extensão para SAP do Azure
 
-Essa verificação garante que todas as métricas de desempenho que aparecem no aplicativo SAP sejam fornecidas pela Extensão para SAP do Azure subjacente. Se você implantou a nova extensão do Azure para SAP, siga [a verificação de preparação do capítulo para a nova extensão do Azure para SAP][deployment-guide-5.1-new] neste guia.
+> [!NOTE]
+> Há duas versões da extensão de VM. Este capítulo aborda a extensão de VM padrão. Se você tiver instalado a nova extensão de VM, consulte [a verificação de preparação do capítulo para a nova extensão do Azure para SAP][deployment-guide-5.1-new]
+
+Essa verificação garante que todas as métricas de desempenho que aparecem no aplicativo SAP sejam fornecidas pela Extensão para SAP do Azure subjacente.
 
 #### <a name="run-the-readiness-check-on-a-windows-vm"></a>Executar a verificação de preparação em uma VM Windows
 
@@ -1167,7 +1147,7 @@ Se o valor de **Status de integridade** não for **OK**, siga as instruções em
 
 1. Verifique a saída da Extensão para SAP do Azure.
 
-   a.  Execute `more /var/lib/AzureEnhancedMonitor/PerfCounters`
+   a.  Executando `more /var/lib/AzureEnhancedMonitor/PerfCounters`
 
    **Resultado esperado**: Retorna a lista dos contadores de desempenho. O arquivo não deve estar vazio.
 
@@ -1183,7 +1163,7 @@ Se a verificação anterior não for bem-sucedida, execute estas verificações 
 
 1. Verifique se waagent está instalado e habilitado.
 
-   a.  Execute `sudo ls -al /var/lib/waagent/`
+   a.  Executando `sudo ls -al /var/lib/waagent/`
 
      **Resultado esperado**: Lista o conteúdo do diretório waagent.
 
@@ -1193,7 +1173,7 @@ Se a verificação anterior não for bem-sucedida, execute estas verificações 
 
 1. Verifique se a Extensão para SAP do Azure está instalada e em execução.
 
-   a.  Execute `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`
+   a.  Executando `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`
 
    **Resultado esperado**: Lista o conteúdo do diretório da Extensão para SAP do Azure.
 
@@ -1203,7 +1183,7 @@ Se a verificação anterior não for bem-sucedida, execute estas verificações 
 
 1. Instale o Agente de Host do SAP conforme descrito na Nota SAP [1031096] e verifique a saída de `saposcol`.
 
-   a.  Execute `/usr/sap/hostctrl/exe/saposcol -d`
+   a.  Executando `/usr/sap/hostctrl/exe/saposcol -d`
 
    b.  Execute `dump ccm`
 
@@ -1215,7 +1195,10 @@ Se qualquer uma dessas verificações falhar, e para obter informações detalha
 
 ### <a name="readiness-check-for-the-new-azure-extension-for-sap"></a><a name="7bf24f59-7347-4c7a-b094-4693e4687ee5"></a>Verificação de preparação para a nova extensão do Azure para SAP
 
-Essa verificação garante que todas as métricas de desempenho que aparecem no aplicativo SAP sejam fornecidas pela Extensão para SAP do Azure subjacente. Se você implantou a antiga extensão do Azure para SAP, siga a [verificação de preparação do capítulo para a extensão do Azure para SAP][deployment-guide-5.1] neste guia.
+> [!NOTE]
+> Há duas versões da extensão de VM. Este capítulo aborda a nova extensão de VM. Se você tiver instalado a extensão de VM padrão, consulte a [verificação de preparação do capítulo para a extensão do Azure para SAP][deployment-guide-5.1].
+
+Essa verificação garante que todas as métricas de desempenho que aparecem no aplicativo SAP sejam fornecidas pela Extensão para SAP do Azure subjacente.
 
 #### <a name="run-the-readiness-check-on-a-windows-vm"></a>Executar a verificação de preparação em uma VM Windows
 
@@ -1245,7 +1228,7 @@ Se a verificação anterior não for bem-sucedida, execute estas verificações 
 
 1. Verifique se waagent está instalado e habilitado.
 
-   a.  Execute `sudo ls -al /var/lib/waagent/`
+   a.  Executando `sudo ls -al /var/lib/waagent/`
 
      **Resultado esperado**: Lista o conteúdo do diretório waagent.
 
@@ -1255,7 +1238,7 @@ Se a verificação anterior não for bem-sucedida, execute estas verificações 
 
 1. Verifique se a Extensão para SAP do Azure está instalada e em execução.
 
-   a.  Execute `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-*/'`
+   a.  Executando `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-*/'`
 
    **Resultado esperado**: Lista o conteúdo do diretório da Extensão para SAP do Azure.
 
@@ -1265,7 +1248,7 @@ Se a verificação anterior não for bem-sucedida, execute estas verificações 
 
 1. Instale o Agente de Host do SAP conforme descrito na Nota SAP [1031096] e verifique a saída de `saposcol`.
 
-   a.  Execute `/usr/sap/hostctrl/exe/saposcol -d`
+   a.  Executando `/usr/sap/hostctrl/exe/saposcol -d`
 
    b.  Execute `dump ccm`
 
@@ -1276,6 +1259,9 @@ Se você já tiver um servidor de aplicativos ABAP do SAP NetWeaver instalado, a
 Se qualquer uma dessas verificações falhar e para obter informações detalhadas sobre como reimplantar a extensão, consulte [Solucionando problemas da nova extensão do Azure para SAP][deployment-guide-5.3-new].
 
 ### <a name="health-check-for-the-azure-extension-for-sap-configuration"></a><a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Verificação de integridade da configuração da Extensão para SAP do Azure
+
+> [!NOTE]
+> Há duas versões da extensão de VM. Este capítulo aborda a extensão de VM padrão. Se você tiver instalado a nova extensão de VM, consulte [o capítulo verificação de integridade para a nova extensão do Azure para a configuração do SAP][deployment-guide-5.2-new].
 
 Se parte dos dados de infraestrutura não for entregue corretamente, conforme indicado pelo teste descrito em [Verificação de preparação para a Extensão para SAP do Azure][deployment-guide-5.1] acima, execute o cmdlet `Test-AzVMAEMExtension` para verificar se a infraestrutura do Azure e a Extensão para SAP do Azure estão configuradas corretamente.
 
@@ -1301,6 +1287,9 @@ Verifique se cada resultado da verificação de integridade é **OK**. Se alguma
 
 ### <a name="health-check-for-the-new-azure-extension-for-sap-configuration"></a><a name="464ac96d-7d3c-435d-a5ae-3faf3bfef4b3"></a>Verificação de integridade para a nova extensão do Azure para a configuração do SAP
 
+> [!NOTE]
+> Há duas versões da extensão de VM. Este capítulo aborda a nova extensão de VM. Se você instalou a extensão de VM padrão, consulte o capítulo [Health Check para a configuração da extensão do Azure para SAP][deployment-guide-5.2].
+
 Se alguns dos dados de infraestrutura não forem entregues corretamente conforme indicado pelo teste descrito em [verificação de preparação para a extensão do Azure para SAP][deployment-guide-5.1-new], execute o `Get-AzVMExtension` cmdlet para verificar se a extensão do Azure para SAP está instalada. O `Test-AzVMAEMExtension` ainda não oferece suporte à nova extensão. Depois que o cmdlet oferecer suporte à nova extensão, atualizaremos este artigo.
 
 1. Verifique se você instalou a última versão do cmdlet do Azure PowerShell, conforme descrito em [Implantar cmdlets do Azure PowerShell][deployment-guide-4.1].
@@ -1310,12 +1299,15 @@ Se alguns dos dados de infraestrutura não forem entregues corretamente conforme
    $env = Get-AzEnvironment -Name <name of the environment>
    Connect-AzAccount -Environment $env
    Set-AzContext -SubscriptionName <subscription name>
-   Get-AzVMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
+   Test-AzVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
    ```
 
-1. O cmdlet lista todas as extensões da máquina virtual selecionada. Verifique se a extensão do Azure para SAP está instalada na VM.
+1. O cmdlet testa a configuração da extensão de VM para SAP na máquina virtual que você selecionar.
 
 ### <a name="troubleshooting-azure-extension-for-sap"></a><a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Solução de problemas da Extensão para SAP do Azure
+
+> [!NOTE]
+> Há duas versões da extensão de VM. Este capítulo aborda a extensão de VM padrão. Se você tiver instalado a nova extensão de VM, consulte [o capítulo Solucionando problemas da nova extensão do Azure para SAP][deployment-guide-5.3-new].
 
 #### <a name="windowslogo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Os contadores de desempenho do Azure não aparecem
 
@@ -1406,6 +1398,9 @@ Para obter uma lista completa e atualizada dos problemas conhecidos, confira a N
 Se estiver solucionando problemas usando a Nota SAP [1999351] e isso não resolver o problema, execute novamente o script de configuração `Set-AzVMAEMExtension`, conforme descrito em [Configurar a Extensão para SAP do Azure][deployment-guide-4.5]. Talvez você precise esperar por uma hora porque os contadores de diagnóstico ou análise de armazenamento podem não ser criados imediatamente depois de terem sido habilitados. Se o problema persistir, abra uma mensagem de suporte ao cliente SAP no componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR para uma máquina virtual Linux.
 
 ### <a name="troubleshooting-the-new-azure-extension-for-sap"></a><a name="b7afb8ef-a64c-495d-bb37-2af96688c530"></a>Solucionando problemas da nova extensão do Azure para SAP
+
+> [!NOTE]
+> Há duas versões da extensão de VM. Este capítulo aborda a nova extensão de VM. Se você tiver instalado a extensão de VM padrão, consulte [o capítulo Solucionando problemas da extensão do Azure para SAP][deployment-guide-5.3].
 
 #### <a name="windowslogo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Os contadores de desempenho do Azure não aparecem
 

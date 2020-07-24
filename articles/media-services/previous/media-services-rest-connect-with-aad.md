@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: 8b4980ee8ea252b4ce13601501e4bf1f7af97d1b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: be7ac4073bb332a7595dcf211feb7087d0734854
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166358"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082725"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia com REST
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Ao usar a autenticação do Azure AD com os Serviços de Mídia do Azure, você pode fazer a autenticação usando uma destas duas maneiras:
 
@@ -58,7 +58,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Obter informações de autenticação do portal do Azure
 
-### <a name="overview"></a>Visão Geral
+### <a name="overview"></a>Visão geral
 
 Para acessar a API dos Serviços de Mídia, você precisa coletar os seguintes pontos de dados.
 
@@ -167,7 +167,7 @@ A resposta retornada contém o **token de acesso** que você precisa usar para a
 Esta seção mostra como acessar a API de **Ativos** usando o **Postman**.
 
 1. Abrir o **postmaster**.
-2. Selecione **GET**.
+2. Selecione **obter**.
 3. Cole o ponto de extremidade da API REST (por exemplo, https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. Selecione a guia **Autorização**. 
 5. Selecione **Token de Portador**.

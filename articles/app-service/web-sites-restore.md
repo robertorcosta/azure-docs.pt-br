@@ -5,11 +5,12 @@ ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 1295080d0eec7a4e88029cdadd85863f5f40d034
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1b0ce62905424032c2100a1a032fa43ba97578f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74689240"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084850"
 ---
 # <a name="restore-an-app-in-azure"></a>Restaurar um aplicativo no Serviço de Aplicativo do Azure
 Este artigo mostra como restaurar um aplicativo no [Serviço de Aplicativo do Azure](../app-service/overview.md) do qual você fez backup anteriormente (veja [Fazer backup de seu aplicativo no Azure](manage-backup.md)). É possível restaurar seu aplicativo com seus bancos de dados vinculados sob demanda para um estado anterior ou criar um novo aplicativo com base em um dos backups do seu aplicativo original. O Serviço de Aplicativo do Azure oferece suporte aos seguintes bancos de dados para backup e restauração:
@@ -28,14 +29,14 @@ A restauração usando backups está disponível para aplicativos que são execu
     ![Escolha restaurar agora][ChooseRestoreNow]
 2. Na página **Restaurar**, selecione primeiro a fonte do backup.
    
-    ![](./media/web-sites-restore/021ChooseSource1.png)
+    ![Captura de tela que mostra onde selecionar a origem do backup.](./media/web-sites-restore/021ChooseSource1.png)
    
     A opção **Backup do aplicativo** mostra todos os backups existentes do aplicativo atual, e você pode selecionar um com facilidade.
     A opção **Armazenamento** permite selecionar qualquer arquivo ZIP de backup em qualquer conta do Armazenamento do Azure e contêiner existentes em sua assinatura.
     Se você está tentando restaurar um backup de outro aplicativo, use a opção **Armazenamento** .
 3. Em seguida, especifique o destino para a restauração de aplicativo em **Destino de restauração**.
    
-    ![](./media/web-sites-restore/022ChooseDestination1.png)
+    ![Captura de tela que mostra onde especificar o destino para a restauração do aplicativo.](./media/web-sites-restore/022ChooseDestination1.png)
    
    > [!WARNING]
    > Se você escolher **Substituir**, todos os dados existentes em seu aplicativo atual serão apagados e substituídos. Antes de clicar em **OK**, certifique-se de que isso é exatamente o que você deseja fazer.
@@ -76,7 +77,7 @@ A página de detalhes exibe as informações disponíveis relacionadas à opera�
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 
-É possível automatizar o gerenciamento de backup com scripts, usando a [CLI do Azure](/cli/azure/install-azure-cli) ou o [Azure PowerShell](/powershell/azure/overview).
+É possível automatizar o gerenciamento de backup com scripts, usando a [CLI do Azure](/cli/azure/install-azure-cli) ou o [Azure PowerShell](/powershell/azure/).
 
 Para obter exemplos, consulte:
 

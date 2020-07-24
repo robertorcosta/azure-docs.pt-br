@@ -6,11 +6,12 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 5607a737fa4616d4eda3d174144c1717125f4181
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 440eb1f39284f8d99a8d6b9067b018c4a54fcd27
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83122759"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083014"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalizar um ponto de extremidade HTTP no Azure Functions
 
@@ -44,9 +45,9 @@ Por padrão, a função de gatilho HTTP é configurada para aceitar qualquer mé
 
     Você não incluiu o `/api` prefixo de caminho base no modelo de rota, pois ele é manipulado por uma configuração global.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
-Para obter mais informações sobre como personalizar funções HTTP, consulte [Azure Functions associações http](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook).
+Para obter mais informações sobre como personalizar funções HTTP, consulte [Azure Functions associações http](./functions-bindings-http-webhook.md).
 
 ### <a name="test-your-api"></a>Testar sua API
 
@@ -73,8 +74,8 @@ Na próxima seção, você pausará a API por meio de um proxy. Os Proxies do Az
 
 Um proxy pode apontar para qualquer recurso HTTP, como:
 - Funções do Azure 
-- Aplicativos de API no [Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/overview)
-- Contêineres de docker no [Serviço de Aplicativo no Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
+- Aplicativos de API no [Serviço de Aplicativo do Azure](../app-service/overview.md)
+- Contêineres de docker no [Serviço de Aplicativo no Linux](../app-service/containers/app-service-linux-intro.md)
 - Qualquer outra API hospedada
 
 Para saber mais sobre proxies, confira [Trabalhar com Proxies do Azure Functions].
@@ -85,7 +86,7 @@ Nesta seção, você cria um novo proxy, que serve como um front-end para sua AP
 
 ### <a name="setting-up-the-frontend-environment"></a>Configurar o ambiente front-end
 
-Repita as etapas para [Criar um aplicativo de função](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) a fim de criar um novo aplicativo de função no qual você criará o proxy. A URL do novo aplicativo serve como o front-end para nossa API, e o aplicativo de funções que você estava editando anteriormente funciona como um back-end.
+Repita as etapas para [Criar um aplicativo de função](./functions-create-first-azure-function.md#create-a-function-app) a fim de criar um novo aplicativo de função no qual você criará o proxy. A URL do novo aplicativo serve como o front-end para nossa API, e o aplicativo de funções que você estava editando anteriormente funciona como um back-end.
 
 1. Navegue até seu novo aplicativo de função front-end no portal.
 1. Selecione **Recursos de Plataforma** e escolha **Configurações de Aplicativo**.
@@ -94,7 +95,7 @@ Repita as etapas para [Criar um aplicativo de função](https://docs.microsoft.c
     > [!NOTE] 
     > As configurações do aplicativo são recomendadas para a configuração do host a fim de evitar uma dependência do ambiente embutida no código para o proxy. Usar configurações do aplicativo significa que você pode mover a configuração do proxy entre ambientes, e as configurações de aplicativo específicas ao ambiente serão aplicadas.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="creating-a-proxy-on-the-frontend"></a>Criar um proxy no front-end
 
@@ -125,7 +126,7 @@ Em seguida, você usará um proxy para criar uma API fictícia para sua soluçã
 
 Para criar essa API fictícia, criaremos um novo proxy, desta vez usando o [Editor do serviço de aplicativo](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Para começar, navegue até seu aplicativo de função no portal. Selecione **recursos de plataforma**e, em **ferramentas de desenvolvimento** , localize **Editor do serviço de aplicativo**. O Editor do Serviço de Aplicativo é aberto em uma nova guia.
 
-Selecione `proxies.json` no painel de navegação esquerdo. Esse arquivo armazena a configuração de todos os seus proxies. Se você usar um dos [métodos de implantação de funções](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment), você manterá esse arquivo no controle do código-fonte. Para saber mais sobre esse arquivo, confira [Configuração avançada de proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration).
+Selecione `proxies.json` no painel de navegação esquerdo. Esse arquivo armazena a configuração de todos os seus proxies. Se você usar um dos [métodos de implantação de funções](./functions-continuous-deployment.md), você manterá esse arquivo no controle do código-fonte. Para saber mais sobre esse arquivo, confira [Configuração avançada de proxies](./functions-proxies.md#advanced-configuration).
 
 Se você seguiu até agora, seu proxies.jsem deve ser semelhante ao seguinte:
 
@@ -179,7 +180,7 @@ Em seguida, você adicionará sua API de simulação. Substitua seu proxies.jsno
 }
 ```
 
-Esse código adiciona um novo proxy, `GetUserByName` , sem a `backendUri` propriedade. Em vez de chamar outro recurso, ele modifica a resposta padrão dos Proxies usando uma substituição de resposta. Substituições de solicitação e resposta também podem ser usadas em conjunto com uma URL de back-end. Essa técnica é particularmente útil ao fazer o proxy para um sistema herdado, onde talvez seja necessário modificar cabeçalhos, parâmetros de consulta e assim por diante. Para saber mais sobre as substituições de solicitação e resposta, Confira [Modificar solicitações e respostas em Proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
+Esse código adiciona um novo proxy, `GetUserByName` , sem a `backendUri` propriedade. Em vez de chamar outro recurso, ele modifica a resposta padrão dos Proxies usando uma substituição de resposta. Substituições de solicitação e resposta também podem ser usadas em conjunto com uma URL de back-end. Essa técnica é particularmente útil ao fazer o proxy para um sistema herdado, onde talvez seja necessário modificar cabeçalhos, parâmetros de consulta e assim por diante. Para saber mais sobre as substituições de solicitação e resposta, Confira [Modificar solicitações e respostas em Proxies](./functions-proxies.md).
 
 Teste sua API de simulação chamando o ponto de extremidade `<YourProxyApp>.azurewebsites.net/api/users/{username}` usando um navegador ou seu cliente REST favorito. Não deixe de substituir _{username}_ por um valor de cadeia de caracteres que represente um nome de usuário.
 
@@ -189,10 +190,10 @@ Neste artigo, você aprendeu como criar e personalizar uma API no Azure Function
 
 As referências a seguir podem ser úteis durante o desenvolvimento de sua API:
 
-- [Associações de HTTP do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
+- [Associações de HTTP do Azure Functions](./functions-bindings-http-webhook.md)
 - [Trabalhar com Proxies do Azure Functions]
-- [Documentar uma API do Azure Functions (visualização)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
+- [Documentar uma API do Azure Functions (visualização)](./functions-openapi-definition.md)
 
 
-[Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[Trabalhar com Proxies do Azure Functions]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[Create your first function]: ./functions-create-first-azure-function.md
+[Trabalhar com Proxies do Azure Functions]: ./functions-proxies.md

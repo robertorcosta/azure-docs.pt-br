@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 9cb516b6d13b4b57a89bb276683857c62a758618
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bcc67e80861df2827237298444175c3abdb6602
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021867"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084034"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 
@@ -63,9 +64,9 @@ O conceito de contêineres de locatário está profundamente arraigado no servi�
 
 Mesmo quando os metadados de vários locatários do Azure Active Directory são armazenados no mesmo disco físico, não há nenhuma relação entre os contêineres além do que é definido pelo serviço de diretório, que por sua vez é determinado pelo administrador do locatário.
 
-### <a name="azure-role-based-access-control-rbac"></a>RBAC (Controle de Acesso Baseado em Função) do Azure
+### <a name="azure-role-based-access-control-azure-rbac"></a>Controle de acesso baseado em função do Azure (RBAC do Azure)
 
-[O RBAC (Controle de acesso baseado em função) do Azure](../../role-based-access-control/overview.md) ajuda você a compartilhar vários componentes disponíveis dentro de uma assinatura do Azure fornecendo gerenciamento de acesso refinado para o Azure. O RBAC do Azure permite a separação de tarefas dentro de sua organização e a concessão de acesso com base no que os usuários precisam para realizar seus trabalhos. Em vez de dar a todos permissões irrestritas na assinatura ou recursos do Azure, você pode permitir apenas certas ações.
+O Azure [RBAC (controle de acesso baseado em função) do](../../role-based-access-control/overview.md) Azure ajuda você a compartilhar vários componentes disponíveis em uma assinatura do Azure fornecendo gerenciamento de acesso refinado para o Azure. O RBAC do Azure permite a separação de tarefas dentro de sua organização e a concessão de acesso com base no que os usuários precisam para realizar seus trabalhos. Em vez de dar a todos permissões irrestritas na assinatura ou recursos do Azure, você pode permitir apenas certas ações.
 
 O RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de recurso:
 
@@ -144,7 +145,7 @@ O Controlador de Malha do Azure é responsável por alocar recursos de infraestr
 
 O hipervisor do Azure impõe a memória e a separação de processos entre máquinas virtuais e roteia com segurança o tráfego de rede para locatários do sistema operacional convidado. Isso elimina a possibilidade de ataques de canal lateral no nível da VM.
 
-No Azure, a VM raiz é especial: ela executa um sistema operacional protegido chamado de sistema operacional raiz, que hospeda um agente de malha (FA). Os FAs são usados, por sua vez, para gerenciar os agentes convidados (GA) nos sistemas operacionais convidados em VMs do cliente. Os FAs também gerenciam nós de armazenamento.
+No Azure, a VM raiz é especial: ela executa um sistema operacional protegido chamado de sistema operacional raiz, que hospeda um agente de malha (FA). O FAs é usado, por sua vez, para gerenciar os agentes convidados (GA) em sistemas operacionais convidados em VMs do cliente. Os FAs também gerenciam nós de armazenamento.
 
 A coleção de hipervisor do Azure, SO raiz/FA e VMs de cliente/GAs forma um nó de computação. Os FAs são gerenciados por um controlador de malha (FC), que existe fora dos nós de computação e de armazenamento (clusters de computação e de armazenamento são gerenciados por FCs separados). Se um cliente atualiza o arquivo de configuração de seu aplicativo enquanto ele está em execução, o FC se comunica com o FA, que então contata os GAs, que notificam o aplicativo sobre a alteração na configuração. No caso de falha de hardware, o FC localizará automaticamente o hardware disponível e reiniciará a VM no local.
 
@@ -312,10 +313,10 @@ A implantação do Azure têm vários níveis de isolamento de rede. O diagrama 
 
 **Isolamento de tráfego:** Uma [rede virtual](../../virtual-network/virtual-networks-overview.md) é o limite de isolamento de tráfego na plataforma do Azure. As VMs (máquinas virtuais) em uma rede virtual não podem comunicar-se diretamente com VMs em uma rede virtual diferente, mesmo que ambas as redes virtuais sejam criadas pelo mesmo cliente. Isolamento é uma propriedade vital que garante que as VMs e as comunicações do cliente permaneçam privadas em uma rede virtual.
 
-[Subrede](../../virtual-network/virtual-networks-overview.md) oferece uma camada adicional de isolamento na rede virtual com base no intervalo de IPs. Os endereços IP na rede virtual. Você pode dividir uma rede virtual em várias sub-redes para organização e segurança. As VMs e as instâncias de função de PaaS implantadas em sub-redes (iguais ou diferentes) em uma Rede Virtual podem se comunicar entre si sem nenhuma configuração adicional. Você também pode configurar os [NSGs (Grupos de segurança de rede)](../../virtual-network/virtual-networks-overview.md) para permitir ou negar o tráfego de rede para uma instância de VM com base em regras configuradas na lista de controle de acesso (ACL) do NSG. Os NSGs podem ser associados a sub-redes ou instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado a uma sub-rede, as regras de ACL se aplicam a todas as instâncias de VM na sub-rede.
+[Subrede](../../virtual-network/virtual-networks-overview.md) oferece uma camada adicional de isolamento na rede virtual com base no intervalo de IPs. Os endereços IP na rede virtual. Você pode dividir uma rede virtual em várias sub-redes para organização e segurança. As VMs e as instâncias de função de PaaS implantadas em sub-redes (iguais ou diferentes) em uma Rede Virtual podem se comunicar entre si sem nenhuma configuração adicional. Você também pode configurar os [NSGs (Grupos de segurança de rede)](../../virtual-network/virtual-networks-overview.md) para permitir ou negar o tráfego de rede para uma instância de VM com base em regras configuradas na lista de controle de acesso (ACL) do NSG. Os NSGs podem ser associados a sub-redes ou instâncias de VM individuais dentro dessa sub-rede. Quando um grupo de segurança de rede é associado a uma sub-rede, as regras de ACL se aplicam a todas as instâncias de VM nessa sub-rede.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [as opções de isolamento de rede para computadores nas redes virtuais do Windows Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Isso inclui o cenário de front-end e back-end clássico em que as máquinas em uma rede de back-end específica ou sub-rede podem permitir que apenas determinados clientes ou outros computadores se conectem a um ponto de extremidade específico com base em uma lista de permissões de endereços IP.
 
-- Saiba mais sobre o [isolamento de máquina virtual no Azure](../../virtual-machines/windows/isolation.md). A computação do Azure oferece tamanhos de máquina virtual que são isolados para um tipo de hardware específico e dedicados a um único cliente.
+- Saiba mais sobre o [isolamento de máquina virtual no Azure](../../virtual-machines/isolation.md). A computação do Azure oferece tamanhos de máquina virtual que são isolados para um tipo de hardware específico e dedicados a um único cliente.

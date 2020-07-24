@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: 57db2253cbffa8e16313c7613de6d2ddb2f2b0a2
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 1bda235e5f3f867762457d0dc8214bbadc88059e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027232"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084816"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conectar ao Azure Cosmos DB usando ferramentas de análise de BI com o driver ODBC
 
@@ -235,9 +236,9 @@ Você pode usar o novo DSN para conectar o Azure Cosmos DB com qualquer ferramen
 
 1. Para visualizar os dados no Power BI Desktop, marque a caixa na frente do nome da tabela e clique em **Carregar**.
 
-1. No Power BI Desktop, na extrema esquerda, selecione a guia Dados ![Guia Dados no Power BI Desktop](./media/odbc-driver/odbc-driver-data-tab.png) para confirmar se os dados foram importados.
+1. No Power BI Desktop, na extrema esquerda, selecione a guia dados :::image type="icon" source="./media/odbc-driver/odbc-driver-data-tab.png"::: para confirmar que os dados foram importados. 
 
-1. Agora você pode criar elementos visuais usando o Power BI clicando na guia Relatório ![guia Relatório no Power BI Desktop](./media/odbc-driver/odbc-driver-report-tab.png), em **Visual Novo** e personalizando o bloco. Para obter mais informações sobre como criar visualizações no Power BI Desktop, consulte [Tipos de visualização no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
+1. Agora você pode criar visuais usando Power BI clicando na guia relatório :::image type="icon" source="./media/odbc-driver/odbc-driver-report-tab.png"::: , clicando em **novo visual**e, em seguida, personalizando o bloco. Para obter mais informações sobre como criar visualizações no Power BI Desktop, consulte [Tipos de visualização no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/). 
 
 ## <a name="troubleshooting"></a>Solução de problemas
 

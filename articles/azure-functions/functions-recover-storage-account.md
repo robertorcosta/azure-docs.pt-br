@@ -5,11 +5,12 @@ author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 8fcd0661e2c7cab505121cf0d4d7b4c1d29017f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d84e1269fecf3bd85538415b5790c22aaf6eb01e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77063774"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085105"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Erro de solução de problemas: "Azure Functions Runtime está inacessível"
 
@@ -17,7 +18,7 @@ Este artigo ajuda você a solucionar problemas da seguinte cadeia de caracteres 
 
 > "Erro: Azure Functions Runtime está inacessível. Clique aqui para obter detalhes sobre a configuração de armazenamento. "
 
-Esse problema ocorre quando o Azure Functions Runtime não pode iniciar. O motivo mais comum para o problema é que o aplicativo de funções perdeu o acesso à sua conta de armazenamento. Para obter mais informações, consulte [requisitos da conta de armazenamento](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements).
+Esse problema ocorre quando o Azure Functions Runtime não pode iniciar. O motivo mais comum para o problema é que o aplicativo de funções perdeu o acesso à sua conta de armazenamento. Para obter mais informações, consulte [requisitos da conta de armazenamento](./functions-create-function-app-portal.md#storage-account-requirements).
 
 O restante deste artigo ajuda você a solucionar as seguintes causas desse erro, incluindo como identificar e resolver cada caso.
 
@@ -25,7 +26,7 @@ O restante deste artigo ajuda você a solucionar as seguintes causas desse erro,
 
 Cada aplicativo de funções exige uma conta de armazenamento para ser operado. Se essa conta for excluída, a função não funcionará.
 
-Comece pesquisando o nome da conta de armazenamento nas configurações do aplicativo. `AzureWebJobsStorage`Ou `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contém o nome da sua conta de armazenamento empacotado em uma cadeia de conexão. Para obter mais informações, consulte [referência de configurações de aplicativo para Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage).
+Comece pesquisando o nome da conta de armazenamento nas configurações do aplicativo. `AzureWebJobsStorage`Ou `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contém o nome da sua conta de armazenamento empacotado em uma cadeia de conexão. Para obter mais informações, consulte [referência de configurações de aplicativo para Azure Functions](./functions-app-settings.md#azurewebjobsstorage).
 
 Pesquise sua conta de armazenamento no portal do Azure para ver se ela ainda existe. Se ele tiver sido excluído, recrie a conta de armazenamento e substitua as cadeias de conexão de armazenamento. O código de função é perdido e você precisa reimplantá-lo.
 
@@ -36,12 +37,12 @@ Na etapa anterior, se você não encontrar uma cadeia de conexão da conta de ar
 ### <a name="required-application-settings"></a>Configurações de aplicativo obrigatórias
 
 * Obrigatório:
-    * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
+    * [`AzureWebJobsStorage`](./functions-app-settings.md#azurewebjobsstorage)
 * Necessário para funções de plano de consumo:
-    * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
-    * [`WEBSITE_CONTENTSHARE`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
+    * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](./functions-app-settings.md)
+    * [`WEBSITE_CONTENTSHARE`](./functions-app-settings.md)
 
-Para obter mais informações, consulte [referência de configurações de aplicativo para Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings).
+Para obter mais informações, consulte [referência de configurações de aplicativo para Azure Functions](./functions-app-settings.md).
 
 ### <a name="guidance"></a>Diretrizes
 
@@ -51,7 +52,7 @@ Para obter mais informações, consulte [referência de configurações de aplic
 
 ## <a name="storage-account-credentials-are-invalid"></a>As credenciais da conta de armazenamento são inválidas
 
-As cadeias de conexão da conta de armazenamento abordadas anteriormente devem ser atualizadas se você regenerar as chaves de armazenamento. Para obter mais informações sobre o gerenciamento de chaves de armazenamento, consulte [criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
+As cadeias de conexão da conta de armazenamento abordadas anteriormente devem ser atualizadas se você regenerar as chaves de armazenamento. Para obter mais informações sobre o gerenciamento de chaves de armazenamento, consulte [criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md).
 
 ## <a name="storage-account-is-inaccessible"></a>A conta de armazenamento está inacessível
 
@@ -59,7 +60,7 @@ Seu aplicativo de funções deve ser capaz de acessar a conta de armazenamento. 
 
 * O aplicativo de funções é implantado em seu Ambiente do Serviço de Aplicativo sem as regras de rede corretas para permitir o tráfego de e para a conta de armazenamento.
 
-* O firewall da conta de armazenamento está habilitado e não está configurado para permitir o tráfego de e para funções. Para saber mais, consulte [Configurar Redes Virtuais e Firewalls de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+* O firewall da conta de armazenamento está habilitado e não está configurado para permitir o tráfego de e para funções. Para saber mais, consulte [Configurar Redes Virtuais e Firewalls de Armazenamento do Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ## <a name="daily-execution-quota-is-full"></a>A cota de execução diária está cheia
 
@@ -87,7 +88,7 @@ Para verificar sua configuração de Ambiente do Serviço de Aplicativo:
    
 Você também pode usar o portal de um computador que está conectado à rede virtual que está executando seu aplicativo ou a uma máquina virtual que está sendo executada em sua rede virtual. 
 
-Para obter mais informações sobre a configuração de regra de entrada, consulte a seção "grupos de segurança de rede" de [considerações de rede para um ambiente do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups).
+Para obter mais informações sobre a configuração de regra de entrada, consulte a seção "grupos de segurança de rede" de [considerações de rede para um ambiente do serviço de aplicativo](../app-service/environment/network-info.md#network-security-groups).
 
 ## <a name="next-steps"></a>Próximas etapas
 

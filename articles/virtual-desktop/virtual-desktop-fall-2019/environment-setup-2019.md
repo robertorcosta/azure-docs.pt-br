@@ -1,6 +1,6 @@
 ---
-title: Ambiente de área de trabalho virtual do Windows – Azure
-description: Os elementos básicos de um ambiente de área de trabalho virtual do Windows.
+title: Ambiente de área de trabalho virtual do Windows (Outono 2019) – Azure
+description: Saiba mais sobre os elementos básicos de um ambiente de área de trabalho virtual do Windows (Outono de 2019), como locatários e pools de hosts.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 153532b3c33158ee1a43db7883eb7a9ec621ade7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8cb41b4f94b14a94c79b490e38889825fd9d8d1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86241668"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082640"
 ---
-# <a name="windows-virtual-desktop-environment"></a>Ambiente da Área de Trabalho Virtual do Windows
+# <a name="windows-virtual-desktop-environment-fall-2019-release"></a>Ambiente de área de trabalho virtual do Windows (versão 2019 de outono)
 
 >[!IMPORTANT]
 >Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../environment-setup.md).

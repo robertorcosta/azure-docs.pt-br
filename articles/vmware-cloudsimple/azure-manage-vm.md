@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 44a0b8fe56477620c0ac47d5c5de8830dac46214
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82aa1ba6ec20e8242568a2725899ddc515a4dc0f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77014990"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082062"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Gerenciar suas máquinas virtuais de nuvem privada do CloudSimple no Azure
 
@@ -28,7 +29,7 @@ Os seguintes controles estão disponíveis na página **visão geral** da máqui
 | Iniciar | Inicie a VM especificada.  |
 | Reiniciar | Desligue e, em seguida, ligue a VM especificada.  |
 | Stop | Desligue a VM específica.  |
-| Capturar | Capture uma imagem da VM especificada para que ela possa ser usada como uma imagem para criar outras VMs. Consulte [criar uma imagem gerenciada de uma VM generalizada no Azure](../virtual-machines/windows/classic/capture-image.md).   |
+| Captura | Capture uma imagem da VM especificada para que ela possa ser usada como uma imagem para criar outras VMs. Consulte [criar uma imagem gerenciada de uma VM generalizada no Azure](../virtual-machines/windows/capture-image-resource.md).   |
 | Mover | Mover para a VM especificada.  |
 | Excluir | Remova a VM especificada.  |
 | Atualizar | Atualize os dados na exibição.  |

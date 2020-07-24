@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: b0ebbbb64e173e1501f08f8385b14c365759a804
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bd0f01193b1e6579d60b581b43ad71ebb6001e3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82116274"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084187"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Como filtrar por idioma no Azure Pesquisa Cognitiva 
 
@@ -34,7 +34,7 @@ No Azure Pesquisa Cognitiva, as consultas visam um único índice. Os desenvolve
 
 O exemplo a seguir é do [exemplo de espaço real](search-get-started-portal.md) que tem vários campos de cadeia de caracteres contendo conteúdo em idiomas diferentes. Observe as atribuições do analisador de idioma para os campos neste índice. Os campos que contêm cadeias de caracteres têm melhor desempenho na pesquisa de texto completo quando emparelhados com um analisador criado para lidar com as regras linguísticas do idioma de destino.
 
-  ![](./media/search-filters-language/lang-fields.png)
+  ![Captura de tela mostrando o campo campos do exemplo de espaço real. Um grupo de campos é realçado para indicar como as atribuições do analisador de idioma correspondem aos idiomas dos campos realçados.](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
 > Para obter exemplos de código que mostram as definições de campo com analisadores de idiomas, consulte [Define an index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) (Definir um índice (.NET)) e [Define an index (REST)](search-create-index-rest-api.md) (Definir um índice (REST)).
@@ -60,7 +60,7 @@ parameters =
 > [!Note]
 > Embora não haja nenhum $filter argumento na consulta, esse caso de uso é altamente afiliado com conceitos de filtro e, portanto, é apresentado como um cenário de filtragem.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 + [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
 + [Analisadores de linguagem](https://docs.microsoft.com/rest/api/searchservice/language-support)

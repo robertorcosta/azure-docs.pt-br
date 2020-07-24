@@ -7,11 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 203e5fcaa99f7aebeda34e6968f636ed72851ec8
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 5d0393ab5f2582efa2a4b727543bc799cdb1143e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921538"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082844"
 ---
 # <a name="what-are-wrangling-data-flows"></a>O que são fluxos de dados Wrangling?
 
@@ -27,7 +28,7 @@ O fluxo de dados Wrangling converte M gerado pelo editor de mashup do Power Quer
 Os fluxos de dados do Wrangling são especialmente úteis para engenheiros de dados ou "integradores de dados do cidadão".
 
 > [!NOTE]
-> O fluxo de dados Wrangling está disponíveis no momento em visualização pública
+> O fluxo de dados Wrangling está disponível atualmente na visualização pública
 
 ## <a name="use-cases"></a>Casos de uso
 
@@ -50,8 +51,8 @@ Examine visualmente seus dados de forma livre de código para remover exceções
 | [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | CSV, parquet | Chave de conta |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Entidade de Serviço |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, parquet | Chave de conta, entidade de serviço |
-| [Banco de Dados SQL do Azure](connector-azure-sql-database.md) | - | Autenticação SQL |
-| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | Autenticação SQL |
+| [Banco de Dados SQL do Azure](connector-azure-sql-database.md) | - | Autenticação do SQL |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | Autenticação do SQL |
 
 ## <a name="the-mashup-editor"></a>O editor de mashup
 

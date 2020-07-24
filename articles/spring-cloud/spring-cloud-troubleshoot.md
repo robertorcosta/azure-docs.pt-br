@@ -6,11 +6,13 @@ ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: db5363c5d8adaf29e2c460d9ce36afa2d29ae8e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: b7b3236fe1e4052689657316df851753de7edbe5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791649"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083677"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Solucionar problemas comuns do Azure Spring Cloud
 
@@ -106,7 +108,7 @@ Mas se você tentar configurar a instância do serviço de nuvem do Azure Spring
 * A assinatura está ativa.
 * O local é [suportado](spring-cloud-faq.md) pelo Azure Spring Cloud.
 * O grupo de recursos da instância já foi criado.
-* O nome do recurso está em conformidade com a regra de nomenclatura. Ele deve conter apenas letras minúsculas, números e hifens. O primeiro caractere precisa ser uma letra. O último caractere deve ser uma letra ou um número. O valor deve conter de 2 a 32 caracteres.
+* O nome do recurso está em conformidade com a regra de nomenclatura. Ele deve conter apenas letras minúsculas, números e hifens. O primeiro caractere deve ser uma letra. O último caractere deve ser uma letra ou um número. O valor deve conter de 2 a 32 caracteres.
 
 Se você quiser configurar a instância do serviço de nuvem do Azure Spring usando o modelo do Resource Manager, primeiro consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
 
@@ -157,7 +159,7 @@ As variáveis de ambiente informam a estrutura de nuvem Spring do Azure, garanti
 > [!WARNING]
 > Esse procedimento expõe suas variáveis de ambiente usando seu ponto de extremidade de teste.  Não prossiga se o ponto de extremidade de teste estiver publicamente acessível ou se você tiver atribuído um nome de domínio ao aplicativo.
 
-1. Ir para `https://<your application test endpoint>/actuator/health`.  
+1. Acesse `https://<your application test endpoint>/actuator/health`.  
     - Uma resposta semelhante a `{"status":"UP"}` indica que o ponto de extremidade foi habilitado.
     - Se a resposta for negativa, inclua a seguinte dependência em seu arquivo de *POM.xml* :
 
@@ -172,7 +174,7 @@ As variáveis de ambiente informam a estrutura de nuvem Spring do Azure, garanti
 
 1. Reinicie o aplicativo.
 
-1. Vá para `https://<your application test endpoint>/actuator/env` e inspecione a resposta.  O resultado deve ser assim:
+1. Vá para `https://<your application test endpoint>/actuator/env` e inspecione a resposta.  Ele deverá ser parecido com isto:
 
     ```json
     {

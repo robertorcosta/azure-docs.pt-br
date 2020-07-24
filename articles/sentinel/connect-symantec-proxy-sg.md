@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 51a5c5de7bce07aa6a54b9ff81e957c38cfffdd2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fe49481357b542ce52de5fc9dab3059cb584c229
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530918"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083898"
 ---
 # <a name="connect-your-symantec-proxysg-to-azure-sentinel"></a>Conectar seu Symantec ProxySG ao Azure Sentinel
+
+> [!IMPORTANT]
+> O conector de dados do Symantec ProxySG no Azure Sentinel está atualmente em visualização pública.
+> Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo explica como conectar seu dispositivo [Symantec ProxySG](https://www.broadcom.com/products/cyber-security/network/gateway/proxy-sg-and-advanced-secure-gateway) ao Azure Sentinel. O conector de dados do Symantec ProxySG permite que você conecte facilmente seus logs do Symantec ProxySG com o Azure Sentinel, exiba painéis, crie alertas personalizados e melhore a investigação. A integração entre o Symantec ProxySG e o Azure Sentinel usa o syslog.
 

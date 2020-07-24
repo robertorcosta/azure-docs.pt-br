@@ -3,11 +3,12 @@ title: Estimando os custos do plano de consumo em Azure Functions
 description: Saiba como estimar melhor os custos que você pode incorrer ao executar seu aplicativo de funções em um plano de consumo no Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0e3177d7c65eb1624441427f123e6f95095bdbbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 880d1c20c75ce297b556ac203e309e446227e97a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76963981"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083031"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Como estimar os custos do plano de Consumo
 
@@ -60,7 +61,7 @@ Os seguintes comportamentos de suas funções podem afetar o tempo de execução
 
 ## <a name="view-execution-data"></a>Exibir dados de execução
 
-Em [sua fatura](/azure/billing/billing-download-azure-invoice), você pode exibir os dados relacionados ao custo das funções de **execuções totais** e funções de **tempo de execução**, juntamente com os custos de cobrança reais. No entanto, esses dados da fatura são uma agregação mensal para um período de nota fiscal passada. 
+Em [sua fatura](../cost-management-billing/understand/download-azure-invoice.md), você pode exibir os dados relacionados ao custo das funções de **execuções totais** e funções de **tempo de execução**, juntamente com os custos de cobrança reais. No entanto, esses dados da fatura são uma agregação mensal para um período de nota fiscal passada. 
 
 Para entender melhor o impacto de custos de suas funções, você pode usar Azure Monitor para exibir as métricas de custo que estão sendo geradas atualmente por seus aplicativos de funções. Você pode usar o [Azure monitor métricas Explorer](../azure-monitor/platform/metrics-getting-started.md) no [portal do Azure] ou APIs REST para obter esses dados.
 
@@ -78,7 +79,7 @@ Use [Azure monitor métricas Explorer](../azure-monitor/platform/metrics-getting
     |Configuração  |Valor sugerido  |Descrição  |
     |---------|---------|---------|
     | Subscription    |  Sua assinatura  | A assinatura com seu aplicativo de funções.  |
-    | Resource group     | Seu grupo de recursos  | O grupo de recursos que contém seu aplicativo de funções.   |
+    | Grupo de recursos     | Seu grupo de recursos  | O grupo de recursos que contém seu aplicativo de funções.   |
     | Tipo de recurso     |  Serviços de Aplicativos | Os aplicativos de funções são mostrados como instâncias de serviços de aplicativos no monitor. |
     | Recurso     |  Seu aplicativo de funções  | O aplicativo de funções a ser monitorado.        |
 

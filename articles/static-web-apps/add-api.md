@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: fd4f57350e97ad38c2c78aec29b1e51d775e8a02
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4df1aa53c09777ac2470581df07ac132255b005a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104105"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083660"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicionar uma API a aplicativos Web Estáticos do Azure com o Azure Functions
 
@@ -133,7 +133,7 @@ Com as configurações acima, o ponto de extremidade da API é:
 
 ## <a name="run-the-api-locally"></a>Executar a API localmente
 
-O Visual Studio Code integra-se ao [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local) para permitir que você execute esse projeto em seu computador de desenvolvimento local antes de publicar no Azure.
+O Visual Studio Code integra-se ao [Azure Functions Core Tools](../azure-functions/functions-run-local.md) para permitir que você execute esse projeto em seu computador de desenvolvimento local antes de publicar no Azure.
 
 > [!TIP]
 > Verifique se você tem todos os recursos listados na seção [pré-requisitos](#prerequisites) instalados antes de continuar.
@@ -218,7 +218,7 @@ Ao usar o Visual Studio Code, confirme e envie por push suas alterações para o
 ## <a name="create-a-static-web-app"></a>Criar um aplicativo Web estático
 
 1. Navegue até o [portal do Azure](https://portal.azure.com)
-1. Clique em **Criar um Recurso**.
+1. Clique em **Criar um Recurso**
 1. Pesquisar **aplicativo Web estático**
 1. Clique em **aplicativo Web estático (visualização)**
 1. Clique em **Criar**

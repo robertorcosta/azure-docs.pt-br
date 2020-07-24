@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: genli
-ms.openlocfilehash: 3aa0a0d31e70300814f35c337197b383877fe7be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6010c67b531d0f1ebb0ed836062cd5e323e5474c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610210"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083507"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou VHDX do Windows para carregar no Azure
 
@@ -62,7 +62,7 @@ Use um dos métodos nesta seção para converter e redimensionar seu disco virtu
 
 ### <a name="use-powershell-to-convert-the-disk"></a>Usar o PowerShell para converter o disco
 
-Você pode converter um disco virtual usando o cmdlet [Convert-VHD](/powershell/module/hyper-v/convert-vhd) no PowerShell. Se você precisar de informações sobre como instalar este cmdlet, clique [aqui](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+Você pode converter um disco virtual usando o cmdlet [Convert-VHD](/powershell/module/hyper-v/convert-vhd) no PowerShell. Se você precisar de informações sobre como instalar este cmdlet, clique [aqui](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 O exemplo a seguir converte o disco de VHDX para VHD. Ele também converte o disco de um disco de expansão dinâmica em um disco de tamanho fixo.
 
@@ -86,7 +86,7 @@ Se você tiver uma imagem de VM do Windows no [formato de arquivo VMDK](https://
 
 ### <a name="use-powershell-to-resize-the-disk"></a>Usar o PowerShell para redimensionar o disco
 
-Você pode redimensionar um disco virtual usando o cmdlet [Resize-VHD](/powershell/module/hyper-v/resize-vhd) no PowerShell. Se você precisar de informações sobre como instalar este cmdlet, clique [aqui](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+Você pode redimensionar um disco virtual usando o cmdlet [Resize-VHD](/powershell/module/hyper-v/resize-vhd) no PowerShell. Se você precisar de informações sobre como instalar este cmdlet, clique [aqui](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 O exemplo a seguir redimensiona o disco de 100,5 MiB para 101 MiB para atender ao requisito de alinhamento do Azure.
 
@@ -138,7 +138,7 @@ Após a verificação do SFC ser concluída, instale as atualizações do Window
    netsh.exe winhttp reset proxy
    ```
 
-    Se a VM precisar trabalhar com um proxy específico, adicione uma exceção de proxy para o endereço IP do Azure ([168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16)) para que a VM possa se conectar ao Azure:
+    Se a VM precisar trabalhar com um proxy específico, adicione uma exceção de proxy para o endereço IP do Azure ([168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)) para que a VM possa se conectar ao Azure:
 
     ```
     $proxyAddress='<your proxy server>'
@@ -446,7 +446,7 @@ O ideal é que você mantenha a máquina atualizada no *nível do patch*. Se iss
 |                         | http.sys       | 6.1.7601.23403 – KB3125574                | 6.2.9200.17285 – KB3042553                  | 6.3.9600.18574 – KB4022726          | 10.0.14393.251 – KB4022715                  | 10.0.15063.483             | -                                           | -                                           |
 |                         | vmswitch.sys   | 6.1.7601.23727 – KB4022719                | 6.2.9200.22117 – KB4022724                  | 6.3.9600.18654 – KB4022726          | 10.0.14393.1358 – KB4022715                 | 10.0.15063.138             | -                                           | -                                           |
 | Núcleo                    | ntoskrnl.exe   | 6.1.7601.23807 – KB4022719                | 6.2.9200.22170 – KB4022718                  | 6.3.9600.18696 – KB4022726          | 10.0.14393.1358 – KB4022715                 | 10.0.15063.483             | -                                           | -                                           |
-| Serviços da área de trabalho Remota | rdpcorets.dll  | 6.2.9200.21506 – KB4022719                | 6.2.9200.22104 – KB4022724                  | 6.3.9600.18619 – KB4022726          | 10.0.14393.1198 – KB4022715                 | 10.0.15063.0               | -                                           | -                                           |
+| Serviços da Área de Trabalho Remota | rdpcorets.dll  | 6.2.9200.21506 – KB4022719                | 6.2.9200.22104 – KB4022724                  | 6.3.9600.18619 – KB4022726          | 10.0.14393.1198 – KB4022715                 | 10.0.15063.0               | -                                           | -                                           |
 |                         | termsrv.dll    | 6.1.7601.23403 – KB3125574                | 6.2.9200.17048 – KB2973501                  | 6.3.9600.17415 – KB3000850          | 10.0.14393.0 – KB4022715                    | 10.0.15063.0               | -                                           | -                                           |
 |                         | termdd.sys     | 6.1.7601.23403 – KB3125574                | -                                           | -                                   | -                                           | -                          | -                                           | -                                           |
 |                         | win32k.sys     | 6.1.7601.23807 – KB4022719                | 6.2.9200.22168 – KB4022718                  | 6.3.9600.18698 – KB4022726          | 10.0.14393.594 – KB4022715                  | -                          | -                                           | -                                           |
@@ -472,7 +472,7 @@ Normalmente, você executa `sysprep.exe` o para criar um modelo no qual é poss�
 Para criar apenas uma VM de um disco, você não precisa usar o Sysprep. Em vez disso, você pode criar a VM com base em uma *imagem especializada*. Para obter informações sobre como criar uma VM de um disco especializado, consulte:
 
 - [Criar uma VM com base em um disco especializado](create-vm-specialized.md)
-- [Criar uma VM com base em um disco VHD](/azure/virtual-machines/windows/create-vm-specialized-portal)
+- [Criar uma VM com base em um disco VHD](./create-vm-specialized-portal.md)
 
 Para criar uma imagem generalizada, você precisa executar o Sysprep. Para obter mais informações, consulte [como usar o Sysprep: uma introdução](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10)).
 
@@ -519,4 +519,4 @@ As configurações a seguir não afetam o carregamento do VHD. No entanto, é al
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Carregar uma imagem de VM Windows no Azure para implantações do Resource Manager](upload-generalized-managed.md)
-- [Solucionar problemas de ativação de VM do Windows do Azure](troubleshoot-activation-problems.md)
+- [Solucionar problemas de ativação de VM do Windows do Azure](../troubleshooting/troubleshoot-activation-problems.md)

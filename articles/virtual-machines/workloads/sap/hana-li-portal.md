@@ -15,15 +15,15 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8512675381f6163e66b6b838e8262dd7d2b12374
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d81a8b3a1596e8a447f7a2434e52df8c89b416b7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130877"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085258"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Controle do HANA em Instâncias Grandes do Azure por meio do portal do Azure
-Este documento aborda a maneira como as [instâncias grandes do Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) são apresentadas em [portal do Azure](https://portal.azure.com) e quais atividades podem ser conduzidas por meio de portal do Azure com unidades de instância grande do Hana que são implantadas para você. A visibilidade do HANA em instâncias grandes no portal do Azure é fornecida por meio de um provedor de recursos do Azure para instâncias grandes do HANA, que atualmente está em visualização pública
+Este documento aborda a maneira como as [instâncias grandes do Hana](./hana-overview-architecture.md) são apresentadas em [portal do Azure](https://portal.azure.com) e quais atividades podem ser conduzidas por meio de portal do Azure com unidades de instância grande do Hana que são implantadas para você. A visibilidade do HANA em instâncias grandes no portal do Azure é fornecida por meio de um provedor de recursos do Azure para instâncias grandes do HANA, que atualmente está em visualização pública
 
 ## <a name="register-hana-large-instance-resource-provider"></a>Registrar o provedor de recursos de instância grande do HANA
 Normalmente, sua assinatura do Azure que você estava usando para implantações de instância grande do HANA está registrada para o provedor de recursos de instância grande do HANA. No entanto, se você não puder ver as unidades de instância grande do HANA implantadas, deverá registrar o provedor de recursos em sua assinatura do Azure. Há duas maneiras de registrar o provedor de recursos de instância grande do HANA
@@ -35,7 +35,7 @@ Você precisa estar conectado à sua assinatura do Azure, usado para a implanta�
 az provider register --namespace Microsoft.HanaOnAzure
 ```
 
-Para obter mais informações, consulte o artigo [provedores de recursos e tipos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-cli)
+Para obter mais informações, consulte o artigo [provedores de recursos e tipos do Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli)
 
 
 ### <a name="register-through-azure-portal"></a>Registrar-se por meio de portal do Azure
@@ -45,12 +45,12 @@ Você pode (re-) registrar o provedor de recursos de instância grande do HANA p
 
 Na captura de tela mostrada, o provedor de recursos já estava registrado. Caso o provedor de recursos ainda não esteja registrado, pressione "registrar novamente" ou "registrar".
 
-Para obter mais informações, consulte o artigo [provedores de recursos e tipos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-powershell)
+Para obter mais informações, consulte o artigo [provedores de recursos e tipos do Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)
 
 
 ## <a name="display-of-hana-large-instance-units-in-the-azure-portal"></a>Exibição de unidades de instância grande do HANA no portal do Azure
 Ao enviar uma solicitação de implantação de instância grande do HANA, você será solicitado a especificar a assinatura do Azure que você está se conectando às instâncias grandes do HANA também. É recomendável usar a mesma assinatura que você está usando para implantar a camada de aplicativo SAP que funciona em unidades de instância grande do HANA.
-Como suas primeiras instâncias grandes do HANA estão sendo implantadas, um novo [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) é criado na assinatura do Azure que você enviou na solicitação de implantação para suas instâncias grandes do Hana.  O novo grupo de recursos listará todas as unidades do SAP HANA em instâncias grandes implantadas na assinatura específica.
+Como suas primeiras instâncias grandes do HANA estão sendo implantadas, um novo [grupo de recursos do Azure](../../../azure-resource-manager/management/manage-resources-portal.md) é criado na assinatura do Azure que você enviou na solicitação de implantação para suas instâncias grandes do Hana.  O novo grupo de recursos listará todas as unidades do SAP HANA em instâncias grandes implantadas na assinatura específica.
 
 Para localizar o novo grupo de recursos do Azure, você lista o grupo de recursos em sua assinatura navegando pelo painel de navegação esquerdo da portal do Azure
 
@@ -80,8 +80,8 @@ Na tela Visão geral, depois de clicar em ' mostrar mais ', você está obtendo 
 
 Observando os diferentes atributos mostrados, esses atributos parecem ser praticamente diferentes dos atributos de VM do Azure. No cabeçalho do lado esquerdo, ele mostra o grupo de recursos, a região do Azure, o nome da assinatura e a ID, bem como algumas marcas que você adicionou. Por padrão, as unidades de instância grande do HANA não têm nenhuma marca atribuída. No lado direito do cabeçalho, o nome da unidade é listado como atribuído quando a implantação foi feita. O sistema operacional é mostrado, bem como o endereço IP. Assim como acontece com as VMs, o tipo de unidade de instância grande do HANA com o número de threads de CPU e memória também é mostrado. Mais detalhes sobre as diferentes unidades de instância grande do HANA são mostrados aqui:
 
-- [SKUs disponíveis para HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
-- [Arquitetura de armazenamento do SAP HANA (Instâncias Grandes)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
+- [SKUs disponíveis para HLI](./hana-available-skus.md)
+- [Arquitetura de armazenamento do SAP HANA (Instâncias Grandes)](./hana-storage-architecture.md) 
 
 Dados adicionais no lado inferior direito é a revisão do carimbo de instância grande do HANA. Os valores possíveis são:
 
@@ -89,7 +89,7 @@ Dados adicionais no lado inferior direito é a revisão do carimbo de instância
 - Revisão 4
 
 A revisão 4 é a arquitetura mais recente liberada de instâncias grandes HANA com grandes melhorias na latência de rede entre as VMs do Azure e as unidades de instância grande do HANA implantadas na revisão 4 carimbos ou linhas.
-Outra informação muito importante é encontrada no canto inferior direito da visão geral com o nome do grupo de posicionamento de proximidade do Azure criado automaticamente para cada unidade de instância grande do HANA implantada. Esse grupo de posicionamento de proximidade precisa ser referenciado ao implantar as VMs do Azure que hospedam a camada de aplicativo SAP. Usando o [grupo de posicionamento de proximidade do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location) associado à unidade de instância grande do Hana, certifique-se de que as VMs do Azure sejam implantadas de perto à unidade de instância grande do Hana. O modo como os grupos de posicionamento de proximidade podem ser usados para localizar a camada de aplicativo SAP no mesmo datacenter do Azure, pois a revisão 4 unidades de instância grande do HANA hospedadas é descrita em [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md).
+Outra informação muito importante é encontrada no canto inferior direito da visão geral com o nome do grupo de posicionamento de proximidade do Azure criado automaticamente para cada unidade de instância grande do HANA implantada. Esse grupo de posicionamento de proximidade precisa ser referenciado ao implantar as VMs do Azure que hospedam a camada de aplicativo SAP. Usando o [grupo de posicionamento de proximidade do Azure](../../linux/co-location.md) associado à unidade de instância grande do Hana, certifique-se de que as VMs do Azure sejam implantadas de perto à unidade de instância grande do Hana. O modo como os grupos de posicionamento de proximidade podem ser usados para localizar a camada de aplicativo SAP no mesmo datacenter do Azure, pois a revisão 4 unidades de instância grande do HANA hospedadas é descrita em [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md).
 
 Um campo adicional na coluna à direita do cabeçalho informa sobre o estado de energia da unidade de instância grande do HANA.
 
@@ -97,7 +97,7 @@ Um campo adicional na coluna à direita do cabeçalho informa sobre o estado de 
 > O estado de energia descreve se a unidade de hardware está ligada ou desativada. Ele não fornece informações sobre o sistema operacional estar em execução. Ao reiniciar uma unidade de instância grande do HANA, você terá um pequeno tempo em que o estado da unidade muda para **começar** a passar para o estado de **iniciado**. Estar no estado **iniciado** significa que o sistema operacional está sendo inicializado ou que o sistema operacional foi iniciado completamente. Como resultado, após uma reinicialização da unidade, você não pode esperar fazer logon imediatamente na unidade assim que o estado muda para **iniciado**.
 > 
 
-Se você pressionar ' Ver mais ', serão mostradas informações adicionais. Uma informação adicional é exibir a revisão do carimbo de instância grande do HANA, a unidade foi implantada no. Consulte o artigo [o que é SAP Hana no Azure (instâncias grandes)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) para as diferentes revisões de carimbos de instância grande do Hana
+Se você pressionar ' Ver mais ', serão mostradas informações adicionais. Uma informação adicional é exibir a revisão do carimbo de instância grande do HANA, a unidade foi implantada no. Consulte o artigo [o que é SAP Hana no Azure (instâncias grandes)](./hana-overview-architecture.md) para as diferentes revisões de carimbos de instância grande do Hana
 
 ## <a name="check-activities-of-a-single-hana-large-instance-unit"></a>Verificar atividades de uma única unidade de instância grande do HANA 
 Além de fornecer uma visão geral das unidades de instância grande do HANA, você pode verificar as atividades da unidade específica. Um log de atividades poderia ser semelhante a:
@@ -109,7 +109,7 @@ Uma das principais atividades registradas é reinicializações de uma unidade. 
 Outra atividade que está sendo registrada é alterada para a unidade nos metadados do Azure. Além da reinicialização iniciada, você pode ver a atividade de **gravação HANAInstances**. Esse tipo de atividade não executa nenhuma alteração na própria unidade de instância grande do HANA, mas está documentando as alterações nos metadados da unidade no Azure. No caso listado, adicionamos e excluímos uma marca (consulte a próxima seção).
 
 ## <a name="add-and-delete-an-azure-tag-to-a-hana-large-instance-unit"></a>Adicionar e excluir uma marca do Azure para uma unidade de instância grande do HANA
-Outra possibilidade é adicionar uma [marca](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) a uma unidade de instância grande do Hana. A maneira como as marcas estão sendo atribuídas não difere da atribuição de marcas às VMs. Assim como ocorre com as VMs, as marcas existem nos metadados do Azure e, para instâncias grandes do HANA, têm as mesmas restrições que as marcas para VMs.
+Outra possibilidade é adicionar uma [marca](../../../azure-resource-manager/management/tag-resources.md) a uma unidade de instância grande do Hana. A maneira como as marcas estão sendo atribuídas não difere da atribuição de marcas às VMs. Assim como ocorre com as VMs, as marcas existem nos metadados do Azure e, para instâncias grandes do HANA, têm as mesmas restrições que as marcas para VMs.
 
 A exclusão de marcas funciona da mesma maneira que as VMs. As duas atividades, a aplicação e a exclusão de uma marca serão listadas no log de atividades da unidade de instância grande do HANA específica.
 
@@ -119,7 +119,7 @@ As **Propriedades** da seção incluem informações importantes que você obté
 
 ![parte superior das propriedades de HLI no portal do Azure](./media/hana-li-portal/portal-properties-top.png)
 
-Os primeiros itens de dados, você viu na tela Visão geral já. Mas uma parte importante dos dados é a ID do circuito do ExpressRoute, que você obteve à medida que as primeiras unidades implantadas foram passadas. Em alguns casos de suporte, você pode ser solicitado a fornecer esses dados. Uma entrada de dados importante é mostrada na parte inferior da captura de tela. Os dados exibidos são o endereço IP do cabeçalho de armazenamento NFS que isola o armazenamento para seu **locatário** na pilha de instância grande do Hana. Esse endereço IP também é necessário quando você edita o [arquivo de configuração para backups de instantâneo de armazenamento](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots). 
+Os primeiros itens de dados, você viu na tela Visão geral já. Mas uma parte importante dos dados é a ID do circuito do ExpressRoute, que você obteve à medida que as primeiras unidades implantadas foram passadas. Em alguns casos de suporte, você pode ser solicitado a fornecer esses dados. Uma entrada de dados importante é mostrada na parte inferior da captura de tela. Os dados exibidos são o endereço IP do cabeçalho de armazenamento NFS que isola o armazenamento para seu **locatário** na pilha de instância grande do Hana. Esse endereço IP também é necessário quando você edita o [arquivo de configuração para backups de instantâneo de armazenamento](./hana-backup-restore.md#set-up-storage-snapshots). 
 
 À medida que você rola para baixo no painel de propriedades, obtém dados adicionais como uma ID de recurso exclusiva para sua unidade de instância grande do HANA ou a ID da assinatura que foi atribuída à implantação.
 
@@ -159,6 +159,5 @@ Conforme você respondeu às perguntas e forneceu detalhes adicionais, pode ir p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Como monitorar o SAP HANA (instâncias grandes) no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
-- [Monitoramento e solução de problemas no lado do HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot)
-
+- [Como monitorar o SAP HANA (instâncias grandes) no Azure](./troubleshooting-monitoring.md)
+- [Monitoramento e solução de problemas no lado do HANA](./hana-monitor-troubleshoot.md)

@@ -7,11 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: yushwang
-ms.openlocfilehash: a8a4ba7ea3de9140d79856fad9d5d0bc42cf4c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7fb344e16ed672dfc6c88fbe2c4888c52c9b717d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984615"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081977"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Conectar gateways VPN do Azure a vários dispositivos VPN com base em políticas locais usando o PowerShell
 
@@ -21,8 +22,8 @@ Este artigo ajuda você a configurar um gateway de VPN com base em rotas do Azur
 
 Os dispositivos VPN baseados em políticas *vs.* de rota diferem em como os seletores de tráfego IPSec são definidos em uma conexão:
 
-* Os dispositivos VPN **com base em políticas** usam as combinações de prefixos de ambas as redes para definir como o tráfego será criptografado/descriptografado por meio de túneis IPsec. Normalmente, ele é criado em dispositivos de firewall que executam a filtragem de pacote. A descriptografia e criptografia de túnel IPsec são adicionadas à filtragem de pacote e ao mecanismo de processamento.
-* Os dispositivos VPN **com base em rotas** usam seletores de tráfego qualquer (curinga) e permitem roteamento/encaminhamento do tráfego da direção das tabelas para diferentes túneis IPsec. Normalmente, ele é criado em plataformas de roteador, onde cada túnel IPsec é modelado como uma interface de rede ou VTI (interface do túnel virtual).
+* **Baseado em políticas** Os dispositivos VPN usam as combinações de prefixos de ambas as redes para definir como o tráfego é criptografado/descriptografado por meio de túneis IPsec. Normalmente, ele é criado em dispositivos de firewall que executam a filtragem de pacote. A criptografia e descriptografia de túnel IPsec são adicionadas à filtragem de pacote e ao mecanismo de processamento.
+* **Baseado em rota** Os dispositivos VPN usam seletores de tráfego de qualquer para qualquer (curinga) e permitem que as tabelas de roteamento/encaminhamento direcionem o tráfego para túneis IPsec diferentes. Normalmente, ele é criado em plataformas de roteador, onde cada túnel IPsec é modelado como uma interface de rede ou VTI (interface do túnel virtual).
 
 Os diagramas a seguir realçam dois modelos:
 
@@ -35,9 +36,9 @@ Os diagramas a seguir realçam dois modelos:
 ### <a name="azure-support-for-policy-based-vpn"></a>Suporte do Azure para VPN com base em políticas
 Atualmente, o Azure oferece suporte a ambos os modos de gateways VPN: gateways VPN com base em rotas e gateways VPN com base em políticas. Eles são criados em diferentes plataformas internas que resultam em especificações diferentes:
 
-|                          | **Gateway de VPN PolicyBased** | **Gateway de VPN RouteBased**       |**Gateway de VPN RouteBased**                          |
-| ---                      | ---                         | ---                              |---                                                 |
-| **SKU de gateway do Azure**    | Basic                       | Basic                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
+| Categoria | Gateway de VPN PolicyBased | Gateway de VPN RouteBased | Gateway de VPN RouteBased |
+| -------- | ----------------------- | ---------------------- | ---------------------- |---                                                 |
+| **SKU de gateway do Azure**    | Básico                       | Básico                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
 | **Versão do IKE**          | IKEv1                       | IKEv2                            | IKEv1 e IKEv2                         |
 | **Maximizar. Conexões S2S** | **1**                       | 10                               | 30                     |
 |                          |                             |                                  |                                                    |
@@ -204,6 +205,6 @@ A linha a seguir mostra se os seletores de tráfego com base em políticas são 
       ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Veja [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter as etapas.
+Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Veja [Criar uma máquina virtual](../virtual-machines/windows/quick-create-portal.md) para obter as etapas.
 
 Também analise [Configurar política de IPsec/IKE para conexões de VPN S2S ou Rede Virtual para Rede Virtual](vpn-gateway-ipsecikepolicy-rm-powershell.md) para obter mais detalhes sobre políticas de IPsec/IKE personalizadas.

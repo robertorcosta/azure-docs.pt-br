@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: a5c5c80aaba083b0f65ac0dab41350765a8f5631
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d9360a4b5c5f0ef080b3de2a9d425bcdf2b2e70
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833750"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081892"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Solucionar problemas de tempo limite do Cache do Azure para Redis
 
@@ -30,7 +30,7 @@ O cache do Azure para Redis atualiza regularmente seu software de servidor como 
 
 ## <a name="stackexchangeredis-timeout-exceptions"></a>Exceções de tempo limite do StackExchange.Redis
 
-StackExchange. Redis usa um parâmetro de configuração chamado `synctimeout` para operações síncronas com um valor padrão de 1000 MS. Se uma chamada síncrona não for concluída neste momento, o cliente StackExchange. Redis gera um erro de tempo limite semelhante ao exemplo a seguir:
+StackExchange. Redis usa um parâmetro de configuração chamado `synctimeout` para operações síncronas com um valor padrão de 5000 MS. Se uma chamada síncrona não for concluída neste momento, o cliente StackExchange. Redis gera um erro de tempo limite semelhante ao exemplo a seguir:
 
 ```output
     System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0 IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
@@ -47,7 +47,7 @@ Essa mensagem de erro contém métricas que podem ajudar a indicar a causa e a p
 | qs |67 das operações em andamento foram enviadas para o servidor, mas uma resposta ainda não está disponível. A resposta pode ser `Not yet sent by the server` ou `sent by the server but not yet processed by the client.` |
 | qc |0 das operações em andamento viram respostas, mas ainda não foram marcadas como concluídas porque estão aguardando o loop de conclusão |
 | wr |Há um gravador ativo (o que significa que as 6 solicitações não enviadas não estão sendo ignoradas) bytes/activewriters |
-| in |Não há nenhum leitor ativo e zero bytes estão disponíveis para serem lidos no NIC bytes/activereaders |
+| em |Não há nenhum leitor ativo e zero bytes estão disponíveis para serem lidos no NIC bytes/activereaders |
 
 Você pode usar as etapas a seguir para investigar possíveis causas raiz.
 
@@ -73,7 +73,7 @@ Você pode usar as etapas a seguir para investigar possíveis causas raiz.
 
 1. Verifique se o servidor e o aplicativo cliente estão na mesma região no Azure. Por exemplo, você pode estar recebendo tempos limite quando o cache está no leste dos EUA, mas o cliente está no oeste dos EUA e a solicitação não é concluída dentro do `synctimeout` intervalo ou você pode estar recebendo tempos limite quando estiver Depurando de seu computador de desenvolvimento local. 
 
-    É altamente recomendável ter o cache e o cliente na mesma região do Azure. Se você tem um cenário que inclui chamadas entre regiões, é necessário definir o intervalo de `synctimeout` como um valor maior que o intervalo padrão de 1.000 ms, incluindo uma propriedade `synctimeout` na cadeia de conexão. O exemplo a seguir mostra um trecho de uma cadeia de conexão para StackExchange. Redis fornecido pelo cache do Azure para Redis com um `synctimeout` de 2000 MS.
+    É altamente recomendável ter o cache e o cliente na mesma região do Azure. Se você tiver um cenário que inclui chamadas entre regiões, defina o `synctimeout` intervalo como um valor maior que o intervalo 5000-MS padrão, incluindo uma `synctimeout` Propriedade na cadeia de conexão. O exemplo a seguir mostra um trecho de uma cadeia de conexão para StackExchange. Redis fornecido pelo cache do Azure para Redis com um `synctimeout` de 2000 MS.
 
     ```output
     synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2020
 ms.author: memildin
-ms.openlocfilehash: e8dc2edf19279aff05e5d5be6096505acf1b3438
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66c8db580d0da29aa0be1193bf41b491f388e55a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519569"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083966"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -33,8 +33,8 @@ Esta página é atualizada regularmente, então visite-a com frequência. Se voc
 
 As atualizações em julho incluem:
 - [Proteção contra ameaças para o armazenamento do Azure expandida para incluir arquivos e Azure Data Lake Storage Gen2 do Azure (versão prévia)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+- [Melhorias de segurança do contêiner-verificação mais rápida e documentação atualizada](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
 - [Seis políticas para o SQL Advanced Data Security preteridas](#six-policies-for-sql-advanced-data-security-deprecated)
-
 
 
 ### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Proteção contra ameaças para o armazenamento do Azure expandida para incluir arquivos e Azure Data Lake Storage Gen2 do Azure (versão prévia)
@@ -44,6 +44,25 @@ A proteção contra ameaças para o armazenamento do Azure detecta atividade pot
 Seus dados podem ser protegidos independentemente de serem armazenados como contêineres de BLOB, compartilhamentos de arquivos ou data lagos. 
 
 Saiba mais sobre [a proteção contra ameaças para o armazenamento do Azure](threat-protection.md#threat-protection-for-azure-storage-).
+
+
+### <a name="container-security-improvements---faster-registry-scanning-and-refreshed-documentation"></a>Melhorias de segurança do contêiner-verificação mais rápida e documentação atualizada
+
+Como parte dos investimentos contínuos no domínio de segurança do contêiner, estamos felizes em compartilhar uma melhoria significativa de desempenho nas verificações dinâmicas da central de segurança de imagens de contêiner armazenadas no registro de contêiner do Azure. Agora, as verificações normalmente são concluídas em aproximadamente dois minutos. Em alguns casos, eles podem levar até 15 minutos.
+
+Para melhorar a clareza e a orientação sobre os recursos de segurança do contêiner da central de segurança do Azure, também atualizamos as páginas de documentação de segurança do contêiner. 
+
+Saiba mais sobre a segurança de contêiner da central de segurança nos seguintes artigos:
+
+- [Visão geral dos recursos de segurança do contêiner da central de segurança](https://docs.microsoft.com/azure/security-center/container-security)
+- [Detalhes da integração com o registro de contêiner do Azure](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
+- [Detalhes da integração com o serviço kubernetes do Azure](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)
+- [Como verificar seus registros e proteger seus hosts do Docker](https://docs.microsoft.com/azure/security-center/monitor-container-security)
+- [Alertas de segurança dos recursos de proteção contra ameaças para clusters do serviço kubernetes do Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
+- [Alertas de segurança dos recursos de proteção contra ameaças para hosts do serviço kubernetes do Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost)
+- [Recomendações de segurança para contêineres](https://docs.microsoft.com/azure/security-center/recommendations-reference#recs-containers)
+
+
 
 
 ### <a name="six-policies-for-sql-advanced-data-security-deprecated"></a>Seis políticas para o SQL Advanced Data Security preteridas
@@ -230,14 +249,14 @@ Essa atualização traz as seguintes alterações para esse recurso:
 
 - A recomendação que aconselha você a habilitar o JIT em uma VM foi renomeada. O que anteriormente era "O controle de acesso à rede Just-In-Time deve ser aplicado em máquinas virtuais" agora é: "As portas de gerenciamento de máquinas virtuais devem ser protegidas com o controle de acesso à rede Just-In-Time".
 
-- A recomendação foi definida para ser disparada somente se houver portas de gerenciamento abertas.
+- A recomendação será disparada apenas se houver portas de gerenciamento abertas.
 
 Saiba mais sobre o [recurso de acesso JIT](security-center-just-in-time.md).
 
 
 ### <a name="custom-recommendations-have-been-moved-to-a-separate-security-control"></a>As recomendações personalizadas foram movidas para um controle de segurança separado
 
-Um dos controles de segurança introduzidos com a classificação de segurança aprimorada foi "Implementar melhores práticas de segurança". Todas as recomendações personalizadas criadas para suas assinaturas foram colocadas automaticamente nesse controle. 
+Um controle de segurança introduzido com a pontuação segura aprimorada foi "implementar práticas recomendadas de segurança". Todas as recomendações personalizadas criadas para suas assinaturas foram colocadas automaticamente nesse controle. 
 
 Para facilitar a localização de suas recomendações personalizadas, nós as movemos para um controle de segurança dedicado, "Recomendações personalizadas". Este controle não tem impacto sobre sua classificação de segurança.
 
@@ -250,7 +269,7 @@ Os controles de segurança são grupos lógicos de recomendações de segurança
 
 Para ver imediatamente como sua organização está protegendo cada superfície de ataque individual, examine as pontuações de cada controle de segurança.
 
-Por padrão, suas recomendações são mostradas nos controles de segurança. Agora, graças à mudança introduzida nesta atualização, você também pode exibi-las como uma lista. Para vê-las como uma lista simples classificada pelo status de integridade dos recursos afetados, use a nova alternância 'Agrupar por controles'. A alternância está acima da lista no portal.
+Por padrão, suas recomendações são mostradas nos controles de segurança. A partir dessa atualização, você também pode exibi-las como uma lista. Para vê-las como uma lista simples classificada pelo status de integridade dos recursos afetados, use a nova alternância 'Agrupar por controles'. A alternância está acima da lista no portal.
 
 Os controles de segurança (e essa alternância) são parte da nova experiência de classificação de segurança. Lembre-se de enviar seus comentários de dentro do portal.
 
@@ -260,7 +279,7 @@ Saiba mais sobre os controles de segurança em [Classificação de segurança ap
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Controle de segurança expandido "Implementar melhores práticas de segurança" 
 
-Um dos controles de segurança introduzidos com a classificação de segurança aprimorada foi "Implementar melhores práticas de segurança". Quando uma recomendação está nesse controle, ela não afeta a classificação de segurança. 
+Um controle de segurança introduzido com a pontuação segura aprimorada é "implementar práticas recomendadas de segurança". Quando uma recomendação está nesse controle, ela não afeta a classificação de segurança. 
 
 Com essa atualização, três recomendações foram movidas dos controles nos quais foram originalmente colocadas e transferidas para esse controle de práticas recomendadas. Realizamos esta etapa porque determinamos que o risco dessas três recomendações é menor do que se imaginava inicialmente.
 
