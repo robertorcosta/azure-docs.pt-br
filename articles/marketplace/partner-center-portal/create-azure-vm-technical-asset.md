@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: dannyevers
 ms.author: mingshen
 ms.date: 04/13/2020
-ms.openlocfilehash: aee2016b422dcf447dbae047c8a77ae93bf79ab7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5bed073799521498efe5302ab9af616dcdf9f9ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107148"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053582"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Criar seus ativos técnicos da Máquina Virtual do Azure
 
@@ -43,7 +43,7 @@ Projetar, criar e testar esses ativos leva tempo e exige conhecimento técnico d
 
 Considere usar um dos seguintes ambientes de script para ajudar a gerenciar VMs e VHDs:
 
-* [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/overview)
+* [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/)
 * [CLI do Azure](https://code.visualstudio.com/)
 
 Além disso, considere adicionar as seguintes ferramentas ao ambiente de desenvolvimento:
