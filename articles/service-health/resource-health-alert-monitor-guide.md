@@ -3,12 +3,12 @@ title: Criar Resource Health alertas usando o portal do Azure
 description: Crie um alerta usando portal do Azure que o notifique quando os recursos do Azure ficarem indisponíveis.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: b44df4f63fa2ae2bde9be431e2df268144a036fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3a0f4704880d040106a2e4112d621b6d8ffbede6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529209"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091565"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Configurar alertas do Resource Health usando o portal do Azure
 
@@ -45,7 +45,7 @@ Resource Health alerta usando portal do Azure
 1. No [portal](https://portal.azure.com/)do Azure, selecione **integridade do serviço**.
 
     ![Seleção de integridade do serviço](./media/resource-health-alert-monitor-guide/service-health-selection.png)
-2. Na seção **Resource Health** , selecione **Resource Health**.
+2. Na seção **Resource Health** , selecione **integridade do serviço**.
 3. Selecione **adicionar alerta de integridade de recurso** e preencha os campos.
 4. Em destino do alerta, selecione a **assinatura**, os **tipos de recursos**, os grupos de **recursos** e o **recurso** para o qual você deseja ser alertado.
 

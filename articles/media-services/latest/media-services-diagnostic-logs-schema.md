@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: 37baed076ca074c1d558af36649e90959a0034c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bc688a61235a31c3d6b6e88cbb90c0d14cca179
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75750882"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092007"
 ---
 # <a name="diagnostic-logs-schemas"></a>Esquemas de logs de diagnóstico
 
@@ -29,7 +30,7 @@ Este artigo descreve os esquemas dos logs de diagnóstico dos serviços de mídi
 
 ## <a name="top-level-diagnostic-logs-schema"></a>Esquema de logs de diagnóstico de nível superior
 
-Para obter uma descrição detalhada do esquema de logs de diagnóstico de nível superior, consulte [serviços, esquemas e categorias com suporte para logs de diagnóstico do Azure](../../azure-monitor/platform/tutorial-dashboards.md).
+Para obter uma descrição detalhada do esquema de logs de diagnóstico de nível superior, consulte [serviços, esquemas e categorias com suporte para logs de diagnóstico do Azure](../../azure-monitor/platform/resource-logs-schema.md).
 
 ## <a name="key-delivery-log-schema"></a>Esquema do log de distribuição de chaves
 

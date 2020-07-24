@@ -6,14 +6,15 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
-ms.openlocfilehash: 2aadc5806f0c5c610dc28b32039ca944af87ab13
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.custom: devx-track-java
+ms.openlocfilehash: 1b9d7326ec13176fbe65ba430a8a33bb93a48f74
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231719"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091446"
 ---
-# <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Como habilitar a identidade gerenciada atribuída pelo sistema para o aplicativo Azure Spring Cloud
+# <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Como habilitar uma identidade gerenciada atribuída pelo sistema para o aplicativo Azure Spring Cloud
 Identidades gerenciadas para recursos do Azure fornecem uma identidade gerenciada automaticamente no Azure Active Directory para um recurso do Azure, como seu aplicativo de nuvem Spring do Azure. Você pode usar essa identidade para autenticar em qualquer serviço que dá suporte à autenticação do Azure AD, incluindo o Key Vault, sem ter as credenciais no seu código.
 
 Este artigo mostra como habilitar e desabilitar identidades gerenciadas atribuídas pelo sistema para um aplicativo de nuvem do Azure Spring, usando o portal do Azure e a CLI (disponível na versão 0.2.4).

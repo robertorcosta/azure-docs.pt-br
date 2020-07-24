@@ -3,15 +3,16 @@ title: Sobre o backup de VM do Azure
 description: Neste artigo, saiba como o serviço de backup do Azure faz backup de máquinas virtuais do Azure e como seguir as práticas recomendadas.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 9838f4993e71f2991500af0e152abee36f996050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c73b489404d1e8198fbd984b5188a7a2ccb973f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84322902"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091038"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup de VM do Azure
 
-Este artigo descreve como o [serviço de backup do Azure](backup-introduction-to-azure-backup.md) faz backup de VMs (máquinas virtuais) do Azure.
+Este artigo descreve como o [serviço de backup do Azure](./backup-overview.md) faz backup de VMs (máquinas virtuais) do Azure.
 
 O backup do Azure fornece backups independentes e isolados para proteger contra a destruição indesejada dos dados em suas VMs. Os backups são armazenados em um cofre dos Serviços de Recuperação com gerenciamento interno de pontos de recuperação. A configuração e o dimensionamento são simples, os backups são otimizados e você pode facilmente restaurar conforme necessário.
 
@@ -25,8 +26,8 @@ Veja como o backup do Azure conclui um backup para VMs do Azure:
 
 1. Para VMs do Azure que são selecionadas para backup, o backup do Azure inicia um trabalho de backup de acordo com o agendamento de backup especificado.
 1. Durante o primeiro backup, uma extensão de backup é instalada na VM se a VM estiver em execução.
-    - Para VMs do Windows, a [extensão VMSnapshot](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows) é instalada.
-    - Para VMs do Linux, a [extensão VMSnapshotLinux](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-linux) é instalada.
+    - Para VMs do Windows, a [extensão VMSnapshot](../virtual-machines/extensions/vmsnapshot-windows.md) é instalada.
+    - Para VMs do Linux, a [extensão VMSnapshotLinux](../virtual-machines/extensions/vmsnapshot-linux.md) é instalada.
 1. Para VMs do Windows em execução, o backup coordena com o Windows Serviço de Cópias de Sombra de Volume (VSS) para obter um instantâneo consistente com o aplicativo da VM.
     - Por padrão, o backup faz backups completos do VSS.
     - Se o backup não puder usar um instantâneo consistente com o aplicativo, ele usará um instantâneo consistente com o arquivo do armazenamento subjacente (porque não ocorre nenhuma gravação do aplicativo enquanto a VM está parada).
@@ -63,7 +64,7 @@ Também é feito backup de BEKs. Portanto, se os BEKs forem perdidos, os usuári
 
 O backup do Azure faz instantâneos de acordo com o agendamento de backup.
 
-- **VMs do Windows:** Para VMs do Windows, o serviço de backup coordena com o VSS para obter um instantâneo consistente com o aplicativo dos discos de VM.  Por padrão, o backup do Azure faz um backup completo do VSS (ele trunca os logs do aplicativo, como SQL Server no momento do backup para obter o backup consistente no nível do aplicativo).  Se você estiver usando um banco de dados SQL Server no backup de VM do Azure, poderá modificar a configuração para fazer um backup de cópia do VSS (para preservar os logs). Para obter mais informações, consulte [este artigo](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#troubleshoot-vm-snapshot-issues).
+- **VMs do Windows:** Para VMs do Windows, o serviço de backup coordena com o VSS para obter um instantâneo consistente com o aplicativo dos discos de VM.  Por padrão, o backup do Azure faz um backup completo do VSS (ele trunca os logs do aplicativo, como SQL Server no momento do backup para obter o backup consistente no nível do aplicativo).  Se você estiver usando um banco de dados SQL Server no backup de VM do Azure, poderá modificar a configuração para fazer um backup de cópia do VSS (para preservar os logs). Para obter mais informações, consulte [este artigo](./backup-azure-vms-troubleshoot.md#troubleshoot-vm-snapshot-issues).
 
 - **VMs do Linux:** Para obter instantâneos consistentes com o aplicativo de VMs do Linux, use a estrutura de pré e pós-script do Linux para escrever seus próprios scripts personalizados para garantir a consistência.
 
@@ -80,6 +81,9 @@ A tabela a seguir explica os diferentes tipos de consistência de instantâneo:
 **Consistente com o aplicativo** | Backups consistentes com o aplicativo capturam o conteúdo da memória e operações de E/S pendentes. Os instantâneos consistentes com o aplicativo usam um gravador VSS (ou scripts de pré/pós para Linux) para garantir a consistência dos dados do aplicativo antes que ocorra um backup. | Quando você estiver recuperando uma VM com um instantâneo consistente com o aplicativo, a VM será inicializada. Não há perda ou corrupção de dados. O aplicativo é iniciado em um estado consistente. | Windows: todos os gravadores VSS foram bem-sucedidos<br/><br/> Linux: os scripts Pre/post estão configurados e tiveram êxito
 **Consistente com o sistema de arquivos** | Os backups consistentes do sistema de arquivos fornecem consistência ao tirar um instantâneo de todos os arquivos ao mesmo tempo.<br/><br/> | Quando você estiver recuperando uma VM com um instantâneo consistente do sistema de arquivos, a VM será inicializada. Não há perda ou corrupção de dados. Os aplicativos precisam implementar seus próprios mecanismos de "correção" para garantir a consistência dos dados restaurados. | Windows: alguns gravadores VSS falharam <br/><br/> Linux: padrão (se os scripts Pre/post não estiverem configurados ou falharem)
 **Controle de falhas** | Instantâneos com consistência de falhas normalmente ocorrem se uma VM do Azure é desligada no momento do backup. Apenas os dados que já existem no disco no momento do backup são capturados e copiados em backup. | Começa com o processo de inicialização da VM seguido por uma verificação de disco para corrigir erros de corrupção. Quaisquer operações de gravação ou dados na memória que não foram transferidas para o disco antes da falha sejam perdidas. Os aplicativos implementam sua própria verificação de dados. Por exemplo, um aplicativo de banco de dados pode usar seu log de transações para verificação. Se o log de transações tem entradas que não estão no banco de dados, o software de banco de dados reverte as transações até que eles sejam consistentes. | A VM está em estado de desligamento (parado/desalocado).
+
+>[!NOTE]
+> Se o estado de provisionamento for **bem-sucedido**, o backup do Azure executará backups consistentes do sistema de arquivos. Se o estado de provisionamento estiver **indisponível** ou **com falha**, os backups consistentes com falhas serão feitos. Se o estado de provisionamento estiver **criando** ou **excluindo**, isso significa que o backup do Azure está tentando novamente as operações.
 
 ## <a name="backup-and-restore-considerations"></a>Considerações de backup e restauração
 
@@ -107,8 +111,8 @@ Esses cenários comuns podem afetar o tempo total de backup:
 Quando você está configurando backups da VM, sugerimos seguir estas práticas:
 
 - Modifique os horários padrão de backup configurados em uma política. Por exemplo, se o horário padrão na política for 12:00 AM, aumente o tempo em vários minutos para que os recursos sejam otimamente usados.
-- Se você estiver restaurando VMs de um único cofre, é altamente recomendável usar [contas de armazenamento v2 de finalidade geral](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) diferentes para garantir que a conta de armazenamento de destino não seja limitada. Por exemplo, cada VM deve ter uma conta de armazenamento diferente. Por exemplo, se 10 VMs forem restauradas, use 10 contas de armazenamento diferentes.
-- Para o backup de VMs que estão usando o armazenamento Premium, com a restauração instantânea, é recomendável alocar *50%* de espaço livre do espaço de armazenamento total alocado, que é necessário **apenas** para o primeiro backup. O espaço livre de 50% não é requisito para backups após o primeiro backup ser concluído
+- Se você estiver restaurando VMs de um único cofre, é altamente recomendável usar [contas de armazenamento v2 de finalidade geral](../storage/common/storage-account-upgrade.md) diferentes para garantir que a conta de armazenamento de destino não seja limitada. Por exemplo, cada VM deve ter uma conta de armazenamento diferente. Por exemplo, se 10 VMs forem restauradas, use 10 contas de armazenamento diferentes.
+- Para o backup de VMs que estão usando o armazenamento Premium com restauração instantânea, é recomendável alocar *50%* de espaço livre do espaço de armazenamento total alocado, o que é necessário **apenas** para o primeiro backup. O espaço livre de 50% não é um requisito para backups após a conclusão do primeiro backup
 - O limite no número de discos por conta de armazenamento é relativo ao número de acessos nos discos por aplicativos em execução em uma VM de infraestrutura como serviço (IaaS). Como prática geral, se 5 a 10 discos ou mais estiverem presentes em uma única conta de armazenamento, equilibre a carga movendo alguns discos para contas de armazenamento separadas.
 
 ## <a name="backup-costs"></a>Custos de backup
@@ -127,7 +131,7 @@ Por exemplo, pegue uma VM de tamanho padrão a2 que tenha dois discos de dados a
 
 **Disco** | **Tamanho máximo** | **Dados reais presentes**
 --- | --- | ---
-Disco do sistema operacional | 32 TB | 17 GB
+Disco do SO | 32 TB | 17 GB
 Disco local/temporário | 135 GB | 5 GB (não incluído no backup)
 Disco de dados 1 | 32 TB| 30 GB
 Disco de dados 2 | 32 TB | 0 GB

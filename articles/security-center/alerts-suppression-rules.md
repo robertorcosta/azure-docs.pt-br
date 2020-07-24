@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 05/04/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 18b1b4cb959603f5898e7c725102f35d7abc90cf
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 2dce179365b2640ade3675f19dbacf6fc27b26c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848992"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089933"
 ---
 # <a name="suppress-alerts-from-azure-security-centers-threat-protection"></a>Suprimir alertas da proteção contra ameaças da central de segurança do Azure
 
@@ -23,9 +23,7 @@ Esta página explica como usar as regras de supressão de alertas para suprimir 
 
 - Estado da versão: **Visualização**
 - Funções necessárias: O **Administrador de segurança** e o **Proprietário** podem criar/excluir regras. O **Leitor de segurança** e o **Leitor** podem exibir regras.
-- Nuvens: 
-    - ✔ Nuvens comerciais
-    - ✔ Nacionais/soberanas (US Gov, China Gov, outros Gov)
+- Nuvens: ✔ nuvens comerciais ✔ National/soberanas (US Gov, China gov, outros gov)
 
 
 ## <a name="what-are-suppression-rules"></a>O que são regras de supressão?

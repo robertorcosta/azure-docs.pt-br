@@ -1,14 +1,14 @@
 ---
-title: Melhorar a base de dados de conhecimento – QnA Maker
+title: Usar o aprendizado ativo com a base de dados de conhecimento-QnA Maker
 description: Melhore a qualidade de sua base de dados de conhecimento com o aprendizado ativo. Examine, aceite ou rejeite, adicione sem remover ou altere as perguntas existentes.
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 33b3c547b0aea9a1e235bf8a05d01aa16b468a71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 004ee9d4cced0116831718b1601d5d510dea5a4d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80071128"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090919"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Usar o aprendizado ativo para melhorar sua base de dados de conhecimento
 

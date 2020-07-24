@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 850f4e3754af790e6b9bab5c68c9bd10849bba37
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9fac5d3efabc5d9f796c91d688f35e01aeefdca3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965273"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092755"
 ---
 # <a name="rendering-using-azure"></a>Renderizar usando o Azure
 
@@ -79,7 +79,7 @@ Há várias maneiras de usar o Lote do Azure, que também aplicam-se à renderiz
 * APIs:
   * Grave código usando [REST](/rest/api/batchservice), [.NET](/dotnet/api/overview/azure/batch), [Python](/python/api/overview/azure/batch), [Java](/java/api/overview/azure/batch) ou outras APIs com suporte.  Desenvolvedores podem integrar os recursos do Lote do Azure aos fluxos de trabalho ou aplicativos existentes, sejam baseados em nuvem ou locais.  Por exemplo, o [plug-in do Autodesk Maya](https://github.com/Azure/azure-batch-maya) utiliza a API do Python do Lote para invocar o Lote, criar e gerenciar pools, enviar trabalhos e tarefas e monitorar status.
 * Ferramentas de linha de comando:
-  * A [linha de comando do Azure](/cli/azure/) ou o [PowerShell](/powershell/azure/overview) pode ser usado para script de uso do Lote.
+  * A [linha de comando do Azure](/cli/azure/) ou o [PowerShell](/powershell/azure/) pode ser usado para script de uso do Lote.
   * Em particular, o suporte de modelo da CLI do Lote torna muito mais fácil criar pools e enviar trabalhos.
 * Interfaces do usuário:
   * O [Batch Explorer](https://github.com/Azure/BatchExplorer) é uma ferramenta cliente de plataforma cruzada que também permite que as contas do Lote sejam gerenciadas e monitoradas, mas fornece alguns recursos mais avançados em comparação com a interface do usuário do portal do Azure.  Um conjunto de modelos de trabalho e pool é fornecido, adaptado para cada aplicativo com suporte e pode ser usado para criar pools e enviar trabalhos facilmente.

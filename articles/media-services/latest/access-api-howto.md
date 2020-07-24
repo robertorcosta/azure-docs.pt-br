@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: juliako
-ms.openlocfilehash: 9788c4663908497b51fbaaf7f824125d857e7c81
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 33c762e2f2a9bed90991f7b85e0fb83fbb43765c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774407"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090154"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Obter credenciais para acessar a API dos Serviços de Mídia  
 
@@ -55,7 +56,7 @@ Autentica um serviço usando um aplicativo e segredo do Azure Active Directory (
 
 A seção **Gerenciar seu aplicativo e segredo do ADD** permite selecionar ou criar um novo aplicativo do Azure AD e gerar um segredo. Por motivos de segurança, o segredo não pode ser mostrado depois que a folha é fechada. O aplicativo usa a ID e o segredo do aplicativo para autenticação para obter um token válido para serviços de mídia.
 
-Verifique se você tem permissões suficientes para registrar um aplicativo com o seu locatário do Azure AD e para atribuir o aplicativo a uma função na sua assinatura do Azure. Para obter mais informações, consulte [Permissões necessárias](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+Verifique se você tem permissões suficientes para registrar um aplicativo com o seu locatário do Azure AD e para atribuir o aplicativo a uma função na sua assinatura do Azure. Para obter mais informações, consulte [Permissões necessárias](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 #### <a name="connect-to-media-services-api"></a>Conecte-se à API de Serviços de Mídia
 

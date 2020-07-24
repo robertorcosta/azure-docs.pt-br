@@ -8,11 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 8cd9c1ba85666a6556e24e4966e1e6cb9b7ef124
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77cbd5a3c293b137f49a11263580ef45407c6c2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449296"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090460"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gerenciar chaves de conta de armazenamento com Key Vault e Azure PowerShell
 
@@ -46,14 +47,14 @@ Key Vault é um aplicativo da Microsoft que é previamente registrado em todos o
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Público do Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Outros  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Outro  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia, primeiro você deve fazer o seguinte:
 
 - [Instale o módulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.6.0).
-- [Criar um cofre de chaves](quick-create-powershell.md)
+- [Criar um cofre de chave](quick-create-powershell.md)
 - [Criar uma conta de Armazenamento do Azure](../../storage/common/storage-account-create.md?tabs=azure-powershell). O nome da conta de armazenamento deve usar apenas letras minúsculas e números. O comprimento do nome deve ter entre 3 e 24 caracteres.
       
 
@@ -163,7 +164,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>Habilitar regeneração de chave
 
-Se desejar que Key Vault regenerar as chaves da conta de armazenamento periodicamente, você poderá usar o cmdlet Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) para definir um período de regeneração. Neste exemplo, definimos um período de regeneração de três dias. Após três dias, Key Vault regenerará ' Key2 ' e alternará a chave ativa de ' Key2 ' para ' key1 ' (substitua por ' Primary ' e ' Secondary ' para contas de armazenamento clássicas).
+Se desejar que Key Vault regenerar as chaves da conta de armazenamento periodicamente, você poderá usar o cmdlet Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) para definir um período de regeneração. Neste exemplo, definimos um período de regeneração de três dias. Quando é hora de girar, Key Vault regenera a chave que não está ativa e, em seguida, define a chave recém-criada como ativa. Apenas uma das chaves é usada para emitir tokens SAS a qualquer momento. Esta é a chave ativa.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)

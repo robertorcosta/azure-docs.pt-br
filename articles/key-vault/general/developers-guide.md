@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2b5c28fccc411a8372ebd6015f796c8309146dfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2edf1574784ec93448495086fdd05c988a3e55a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476760"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090528"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
 
@@ -40,7 +40,7 @@ Antes de trabalhar com chaves, segredos ou certificados em seu cofre de chaves, 
 
 - [Criar e gerenciar Cofres das Chaves com CLI](../secrets/quick-create-cli.md)
 - [Criar e gerenciar Cofres das Chaves com PowerShell](../secrets/quick-create-powershell.md)
-- [Criar e gerenciar cofres de chaves com a porta do Azure](../secrets/quick-create-portal.md)
+- [Criar e gerenciar cofres de chaves com o portal do Azure](../secrets/quick-create-portal.md)
 - [Criar e gerenciar cofres de chaves com o Python](../secrets/quick-create-python.md)
 - [Criar e gerenciar cofres de chaves com Java](../secrets/quick-create-java.md)
 - [Criar e gerenciar cofres de chaves com Node.js](../secrets/quick-create-node.md)
@@ -75,11 +75,11 @@ Para obter mais informações sobre a versão 2.x do SDK do .NET, consulte as [N
 
 No Node.js, a API de gerenciamento do Key Vault e a API de objeto do Key Vault são separadas. O seguinte artigo de visão geral dá acesso a ambas. 
 
-[Módulos do Azure Key Vault para Node.js](/javascript/api/overview/azure/key-vault?view=azure-node-latest)
+[Módulos do Azure Key Vault para Node.js](https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest)
 
 #### <a name="python"></a>Python
 
-[Bibliotecas do Azure Key Vault para Python](/python/api/overview/azure/key-vault?view=azure-python)
+[Bibliotecas do Azure Key Vault para Python](https://docs.microsoft.com/python/api/overview/azure/key-vault-index?view=azure-python)
 
 #### <a name="azure-cli"></a>CLI do Azure
 
@@ -100,7 +100,7 @@ Para obter exemplos completos sobre como usar o Cofre de Chaves com seus aplicat
 
 Os artigos e cenários a seguir fornecem diretrizes específicas da tarefa para trabalhar com o Azure Key Vault:
 
-- [Alterar a ID de locatário do cofre de chaves depois de mover a assinatura](subscription-move-fix.md) - quando você mover sua assinatura do Azure do locatário A para o locatário B, os cofres de chaves existentes não poderão ser acessados pelas entidades (usuários e aplicativos) no locatário B. Corrija isso usando este guia.
+- [Alterar a ID de locatário do cofre de chaves depois de mover a assinatura](move-subscription.md) - quando você mover sua assinatura do Azure do locatário A para o locatário B, os cofres de chaves existentes não poderão ser acessados pelas entidades (usuários e aplicativos) no locatário B. Corrija isso usando este guia.
 - [Acessando o Cofre de Chaves por trás do firewall](access-behind-firewall.md) - para acessar um cofre de chaves, seu aplicativo cliente do cofre de chaves deve ser capaz de acessar vários pontos de extremidade para várias funcionalidades.
 - [Como gerar e transferir chaves protegidas pelo HSM para o Cofre de Chaves do Azure](../keys/hsm-protected-keys.md) - isso vai ajudá-lo a planejar, gerar e transferir suas próprias chaves protegidas pelo HSM a serem usadas com o Cofre de Chaves do Azure.
 - [Como transmitir valores seguros (como senhas) durante a implantação](../../azure-resource-manager/templates/key-vault-parameter.md) - Quando você precisa transmitir um valor seguro (como uma senha) como um parâmetro durante a implantação, é possível armazenar esse valor como um segredo em um Cofre de Chaves do Azure e fazer referência ao valor em outros modelos do Resource Manager.

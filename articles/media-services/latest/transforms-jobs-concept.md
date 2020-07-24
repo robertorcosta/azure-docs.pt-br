@@ -12,15 +12,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: ab99b974aed6f8cd5e1da2ee9b427f593b405889
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e01d5c8d57752c11b2890c1d109b58a223d260f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73571229"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091920"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Transformações e trabalhos nos serviços de mídia
 
-Este tópico fornece detalhes sobre [transformações](https://docs.microsoft.com/rest/api/media/transforms) e [trabalhos](https://docs.microsoft.com/rest/api/media/jobs) e explica a relação entre essas entidades.
+Este tópico fornece detalhes sobre [transformações](/rest/api/media/transforms) e [trabalhos](/rest/api/media/jobs) e explica a relação entre essas entidades.
 
 ## <a name="overview"></a>Visão geral
 
@@ -57,7 +58,7 @@ Use **Transformações** para configurar tarefas comuns para codificar ou analis
 
 ### <a name="viewing-schema"></a>Exibindo esquema
 
-Nos serviços de mídia v3, as predefinições são entidades fortemente tipadas na própria API. Você pode encontrar a definição de "esquema" para esses objetos em [especificação de API aberta (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Você também pode exibir as definições predefinidas (como **StandardEncoderPreset**) na [API REST](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), no [SDK do .net](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet)ou em outra documentação de referência do SDK dos serviços de mídia v3.
+Nos serviços de mídia v3, as predefinições são entidades fortemente tipadas na própria API. Você pode encontrar a definição de "esquema" para esses objetos em [especificação de API aberta (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Você também pode exibir as definições predefinidas (como **StandardEncoderPreset**) na [API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), no [SDK do .net](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet)ou em outra documentação de referência do SDK dos serviços de mídia v3.
 
 ### <a name="creating-transforms"></a>Criando transformações
 
@@ -65,7 +66,7 @@ Você pode criar transformações usando REST, CLI ou qualquer um dos SDKs publi
 
 ### <a name="updating-transforms"></a>Atualizando transformações
 
-Se você precisar atualizar sua [transformação](https://docs.microsoft.com/rest/api/media/transforms), use a operação de **atualização** . Ele se destina a fazer alterações na descrição ou nas prioridades do TransformOutputs subjacente. É recomendável que essas atualizações sejam feitas quando todos os trabalhos em andamento forem concluídos. Se você pretende reescrever a receita, precisa criar uma nova transformação.
+Se você precisar atualizar sua [transformação](/rest/api/media/transforms), use a operação de **atualização** . Ele se destina a fazer alterações na descrição ou nas prioridades do TransformOutputs subjacente. É recomendável que essas atualizações sejam feitas quando todos os trabalhos em andamento forem concluídos. Se você pretende reescrever a receita, precisa criar uma nova transformação.
 
 ### <a name="transform-object-diagram"></a>Diagrama de objeto de transformação
 
@@ -77,7 +78,7 @@ Selecione a imagem para exibi-la no tamanho total.
 
 ## <a name="jobs"></a>Trabalhos
 
-Um **trabalho** é a solicitação real aos serviços de mídia para aplicar a **transformação** a um determinado conteúdo de áudio ou vídeo de entrada. Quando a Transformação for criada, você poderá enviar trabalhos usando as APIs dos Serviços de Mídia ou um dos SDKs publicados. O **Trabalho** especifica informações como a localização do vídeo de entrada e a localização da saída. Você pode especificar o local do vídeo de entrada usando: URLs HTTPS, URLs SAS ou [ativos](https://docs.microsoft.com/rest/api/media/assets).  
+Um **trabalho** é a solicitação real aos serviços de mídia para aplicar a **transformação** a um determinado conteúdo de áudio ou vídeo de entrada. Quando a Transformação for criada, você poderá enviar trabalhos usando as APIs dos Serviços de Mídia ou um dos SDKs publicados. O **Trabalho** especifica informações como a localização do vídeo de entrada e a localização da saída. Você pode especificar o local do vídeo de entrada usando: URLs HTTPS, URLs SAS ou [ativos](/rest/api/media/assets).  
 
 ### <a name="job-input-from-https"></a>Entrada de trabalho do HTTPS
 
@@ -93,7 +94,7 @@ O progresso e o estado de trabalhos podem ser obtidos pelo monitoramento de even
 
 ### <a name="updating-jobs"></a>Atualizando trabalhos
 
-A operação de atualização na entidade de [trabalho](https://docs.microsoft.com/rest/api/media/jobs) pode ser usada para modificar a *Descrição* e as propriedades de *prioridade* depois que o trabalho tiver sido enviado. Uma alteração na propriedade *priority* só será eficaz se o trabalho ainda estiver na fila. Se o trabalho tiver iniciado o processamento ou tiver sido concluído, a alteração da prioridade não terá qualquer efeito.
+A operação de atualização na entidade de [trabalho](/rest/api/media/jobs) pode ser usada para modificar a *Descrição* e as propriedades de *prioridade* depois que o trabalho tiver sido enviado. Uma alteração na propriedade *priority* só será eficaz se o trabalho ainda estiver na fila. Se o trabalho tiver iniciado o processamento ou tiver sido concluído, a alteração da prioridade não terá qualquer efeito.
 
 ### <a name="job-object-diagram"></a>Diagrama de objeto de trabalho
 
@@ -115,7 +116,7 @@ Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-co
 
 ## <a name="see-also"></a>Confira também
 
-* [Códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
+* [Códigos de erro](/rest/api/media/jobs/get#joberrorcode)
 * [Filtragem, classificação, paginação de entidades dos Serviços de Mídia](entities-overview.md)
 
 ## <a name="next-steps"></a>Próximas etapas

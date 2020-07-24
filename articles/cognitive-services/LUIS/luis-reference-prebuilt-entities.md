@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/03/2019
 ms.author: diberry
-ms.openlocfilehash: a49452653f8ac4bcc62758d801a235be0929d314
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 831e766fbb10d616b3fbaf8f878228a9a51ece37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84686623"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090936"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura em seu modelo do LUIS
 
@@ -44,8 +44,8 @@ A disponibilidade de uma entidade predefinida em um idioma específico é determ
 
 Há suporte para as seguintes entidades:
 
-|Entidade predefinida|```zh-CN``` |
-------|:------:|
+| Entidade predefinida | zh-CN |
+| --------------- | :---: |
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
@@ -66,8 +66,8 @@ Há suporte para as seguintes entidades:
 
 Há suporte para as seguintes entidades:
 
-|Entidade predefinida|```nl-NL``` |
-------|:------:|
+| Entidade predefinida | nl-NL |
+| --------------- | :---: |
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |
 [Horário](luis-reference-prebuilt-deprecated.md)   |    -   |
@@ -88,8 +88,8 @@ Há suporte para as seguintes entidades:
 
 Há suporte para as seguintes entidades:
 
-|Entidade predefinida|```en-US``` |
-------|:------:|
+| Entidade predefinida | pt-BR |
+| --------------- | :---: |
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
@@ -110,8 +110,8 @@ Há suporte para as seguintes entidades:
 
 Há suporte para as seguintes entidades:
 
-|Entidade predefinida|```fr-FR``` |
-------|:------:|
+| Entidade predefinida | fr-FR |
+| --------------- | :---: |
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
@@ -132,8 +132,8 @@ Há suporte para as seguintes entidades:
 
 Há suporte para as seguintes entidades:
 
-|Entidade predefinida|```fr-CA``` |
-------|:------:|
+| Entidade predefinida | fr-CA |
+| --------------- | :---: |
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
@@ -154,8 +154,8 @@ Há suporte para as seguintes entidades:
 
 Há suporte para as seguintes entidades:
 
-|Entidade predefinida|```de-DE``` |
-------|:------:|
+|Entidade predefinida | de-DE |
+| -------------- | :---: |
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
@@ -178,8 +178,8 @@ Idade predefinida italiano, moeda, dimensão, número, _resolução_ de porcenta
 
 Há suporte para as seguintes entidades:
 
-|Entidade predefinida|```it-IT``` |
-------|:------:|
+| Entidade predefinida | it-IT |
+| --------------- | :---: |
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |
 [Horário](luis-reference-prebuilt-deprecated.md)   |    -   |
@@ -200,8 +200,8 @@ Há suporte para as seguintes entidades:
 
 Há suporte para as seguintes entidades:
 
-|Entidade predefinida|```ja-JP``` |
-------|:------:|
+|Entidade predefinida | ja-JP |
+| -------------- | :---: |
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2,-   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2,-   |
 [Horário](luis-reference-prebuilt-deprecated.md)   |    -   |
@@ -222,8 +222,8 @@ Há suporte para as seguintes entidades:
 
 Há suporte para as seguintes entidades:
 
-|Entidade predefinida|```ko-KR``` |
-------|:------:|
+| Entidade predefinida | ko-KR |
+| --------------- | :---: |
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    -   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    -   |
 [Horário](luis-reference-prebuilt-deprecated.md)   |    -   |
@@ -244,8 +244,8 @@ Há suporte para as seguintes entidades:
 
 Há suporte para as seguintes entidades:
 
-|Entidade predefinida|```pt-BR``` |
-------|:------:|
+| Entidade predefinida | pt-BR |
+| --------------- | :---: |
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
@@ -266,8 +266,8 @@ Há suporte para as seguintes entidades:
 
 Há suporte para as seguintes entidades:
 
-|Entidade predefinida|```es-ES``` |
-------|:------:|
+| Entidade predefinida | es-ES |
+| --------------- | :---: |
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
@@ -288,8 +288,8 @@ Há suporte para as seguintes entidades:
 
 Há suporte para as seguintes entidades:
 
-|Entidade predefinida|```es-MX``` |
-------|:------:|
+| Entidade predefinida | es-MX |
+| --------------- | :---: |
 [Idade](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>dia   |    -   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |
@@ -316,8 +316,8 @@ A frase-chave não está disponível em todas as subculturas de Português (Bras
 
 <!--
 
-|Prebuilt entity|```tr-tr``` |
-------|:------:|
+| Prebuilt entity | tr-tr |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |

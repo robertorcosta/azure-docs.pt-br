@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: juliako
-ms.openlocfilehash: 75ba2ad87eabd7ff6b0625ad95ab24a8ae58dd0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb3b319c583422b32798fce9cef4c73a4aa1f8de
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79461037"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090035"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Gerenciar pontos de extremidade de streaming com os serviços de mídia v3
 
 Quando sua conta de serviços de mídia for criada, um [ponto de extremidade de streaming](streaming-endpoint-concept.md) **padrão** será adicionado à sua conta no estado **parado** . Para começar a transmitir seu conteúdo e aproveitar o [empacotamento dinâmico](dynamic-packaging-overview.md) e a [criptografia dinâmica](content-protection-overview.md), o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **executando** .
 
-Este artigo mostra como executar o comando [Iniciar](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) em seu ponto de extremidade de streaming usando tecnologias diferentes. 
+Este artigo mostra como executar o comando [Iniciar](/rest/api/media/streamingendpoints/start) em seu ponto de extremidade de streaming usando tecnologias diferentes. 
  
 > [!NOTE]
 > Você será cobrado apenas quando seu ponto de extremidade de streaming estiver em estado de execução.
@@ -45,7 +46,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 Para obter mais informações, consulte: 
 
-* A documentação de referência do [Start a StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) .
+* A documentação de referência do [Start a StreamingEndpoint](/rest/api/media/streamingendpoints/start) .
 * Iniciar um ponto de extremidade de streaming é uma operação assíncrona. 
 
     Para obter informações sobre como monitorar operações de execução longa, consulte [operações de execução longa](media-services-apis-overview.md).
@@ -69,7 +70,7 @@ az ams streaming-endpoint start [--account-name]
                                 [--subscription]
 ```
 
-Para obter mais informações, consulte [AZ AMS streaming-Endpoint Start](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
+Para obter mais informações, consulte [AZ AMS streaming-Endpoint Start](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
 
 ## <a name="use-sdks"></a>Usar SDKs
 
@@ -105,4 +106,4 @@ Consulte o exemplo completo de [código .net](https://github.com/Azure-Samples/m
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Especificação de OpenAPI do serviço de mídia v3 (Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)
-* [Operações de ponto de extremidade de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints)
+* [Operações de ponto de extremidade de streaming](/rest/api/media/streamingendpoints)

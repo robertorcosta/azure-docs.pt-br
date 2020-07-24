@@ -4,11 +4,12 @@ description: Uma rápida introdução aos cmdlets do Azure PowerShell que podem 
 ms.topic: how-to
 ms.date: 01/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6108ac9c9f5f10de69369d7aed31cd0ce317044e
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 2c80da92c7acad5180c763d259357f5369f225f7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779617"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092772"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gerenciar recursos do Lote com cmdlets do PowerShell
 
@@ -20,7 +21,7 @@ Este artigo baseia-se nos cmdlets do módulo do Lote do Az 1.0.0. É recomendáv
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Instalar e configurar o módulo do Azure PowerShell](/powershell/azure/overview). Para instalar um módulo específico do Lote do Azure, como um módulo de pré-lançamento, consulte a [Galeria do PowerShell](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
+* [Instalar e configurar o módulo do Azure PowerShell](/powershell/azure/). Para instalar um módulo específico do Lote do Azure, como um módulo de pré-lançamento, consulte a [Galeria do PowerShell](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
 
 * Execute o cmdlet **Connect-AzAccount** para se conectar à sua assinatura (os cmdlets do Lote do Azure são fornecidos no módulo Azure Resource Manager):
 

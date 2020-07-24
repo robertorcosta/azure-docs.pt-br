@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: c6bd45324313ebc44bd4c59cd6f09e2eaab28d32
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9f8850b83b2af7f0d3007cd716f9e077361a02e2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505135"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091106"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do Agente do Log Analytics
 O Agente do Log Analytics do Azure foi desenvolvido para um gerenciamento abrangente entre máquinas virtuais em qualquer nuvem, máquinas locais ou aquelas monitoradas pelo [System Center Operations Manager](/system-center/scom/). Os agentes do Windows e do Linux enviam dados coletados de diferentes fontes ao seu workspace do Log Analytics no Azure Monitor, bem como outros logs ou métricas exclusivos, conforme definido em uma solução de monitoramento. O Agente do Log Analytics também dá suporte a informações e outros serviços no Azure Monitor, por exemplo, [Azure Monitor para VMs](../insights/vminsights-enable-overview.md), [Central de Segurança do Azure](../../security-center/index.yml) e [Automação do Azure](../../automation/automation-intro.md).
@@ -153,6 +153,7 @@ A tabela a seguir realça os pacotes necessários para distribuições do Linux 
 |Glibc |    Biblioteca GNU C | 2.5-12 
 |Openssl    | Bibliotecas OpenSSL | 1.0.x ou 1.1.x |
 |Curl | cliente Web cURL | 7.15.5 |
+|Python | | 2.6 + ou 3.3 +
 |Python-ctypes | | 
 |PAM | Módulos de autenticação conectáveis | | 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/02/2020
 ms.author: allensu
-ms.openlocfilehash: dcf54e5a9bee5f7dc6cba9e3cb178027f53ed5fb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7e962b87b1bd7ef200aa276d8dbecffd5d3fed04
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961244"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090426"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Criar um balanceador de carga interno usando o módulo do Azure Powershell
 
@@ -250,7 +250,7 @@ Primary              : False
 
 Atribuia a NIC a uma máquina virtual usando o comando `Add-AzVMNetworkInterface`.
 
-Você pode encontrar as instruções passo a passo para criar uma máquina virtual e atribuir a NIC, confira [Criar uma VM do Azure usando o PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+Você pode encontrar as instruções passo a passo para criar uma máquina virtual e atribuir a NIC, confira [Criar uma VM do Azure usando o PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
 ## <a name="add-the-network-interface"></a>Adicionar a interface de rede
 

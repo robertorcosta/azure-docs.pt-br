@@ -24,7 +24,7 @@
 - name: Instruções
   items:
     - name: Configurar alertas para eventos da Integridade do Serviço
-      href: alerts-activity-log-service-notifications.md
+      href: ./alerts-activity-log-service-notifications-portal.md
     - name: Exibir as notificações de integridade do serviço usando o Portal do Azure
       href: service-notifications.md
     - name: Enviar alertas para sistemas externos por meio do webhook

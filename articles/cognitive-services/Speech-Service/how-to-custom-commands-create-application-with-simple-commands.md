@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 8e0927ccd8c94f589adf6eb11004b728f697b6e1
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 6552d13ab68d8028cd95b18f2d0895d53bba462c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362400"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090953"
 ---
 # <a name="create-application-with-simple-commands"></a>Criar aplicativo com comandos simples
 
@@ -96,11 +96,10 @@ Em seguida, o comando precisa ter uma regra de conclusão. Essa regra informa ao
 1. Selecione **salvar** para salvar a ação.
 1. De volta à seção **regras de conclusão** , selecione **salvar** para salvar todas as alterações. 
 
-
- > [!NOTE]
+    > [!NOTE]
     > Não é necessário usar a regra de conclusão padrão que vem com o comando. Se necessário, você pode excluir a regra de conclusão padrão existente e adicionar sua própria regra.
 
-### <a name="try-it-out"></a>Experimentar
+### <a name="try-it-out"></a>Experimente
 
 Testar o comportamento usando o painel testar chat
 1. Selecione o ícone de **treinamento** presente na parte superior do painel direito.
@@ -142,7 +141,7 @@ Crie um novo comando **setAlarm** usando a sentença de exemplo "**set a Alarm f
 
 Selecione **salvar** para salvar todas as alterações no comando.
 
-## <a name="try-it-out"></a>Experimentar
+## <a name="try-it-out"></a>Experimente
 
 Testar o comportamento usando o painel testar chat
 1. Selecione **Treinar**. Após o êxito do treinamento, selecione **teste** e experimente:

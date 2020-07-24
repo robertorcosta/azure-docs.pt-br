@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: 7c1b446ccf04199449f012e738f6a03660735f50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b718a0a67381e2b1eb19d2397ecf86e4a9c196d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80382946"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090120"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Como codificar com um CLI do Azure de transformação personalizado
 
@@ -32,7 +32,7 @@ Ao criar predefinições personalizadas, as seguintes considerações se aplicam
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).
+[Crie uma conta de Serviços de Mídia](./create-account-howto.md).
 
 Lembre-se de lembrar o nome do grupo de recursos e o nome da conta do Media Services.
 
@@ -140,6 +140,6 @@ az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName
 
 Para que os serviços de mídia apliquem a transformação ao vídeo ou áudio especificado, você precisa enviar um trabalho sob essa transformação. Para obter um exemplo completo que mostra como enviar um trabalho em uma transformação, consulte [início rápido: transmitir arquivos de vídeo-CLI do Azure](stream-files-cli-quickstart.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 [CLI do Azure](/cli/azure/ams)

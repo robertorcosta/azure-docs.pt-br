@@ -3,16 +3,16 @@ title: Criptografia de dados de backup usando chaves gerenciadas pelo cliente
 description: Saiba como o backup do Azure permite que você criptografe seus dados de backup usando chaves gerenciadas pelo cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: ee64b9f2c6d260d91763cbe2d339640a9fab9967
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c26466582cbe5a10610f6766160c2b0bc51a4828
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172484"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091089"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Criptografia de dados de backup usando chaves gerenciadas pelo cliente
 
-O backup do Azure permite que você criptografe seus dados de backup usando chaves gerenciadas pelo cliente (CMK) em vez de usar chaves gerenciadas por plataforma, que são habilitadas por padrão. As chaves que são usadas para criptografar os dados de backup devem ser armazenadas em [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
+O backup do Azure permite que você criptografe seus dados de backup usando chaves gerenciadas pelo cliente (CMK) em vez de usar chaves gerenciadas por plataforma, que são habilitadas por padrão. As chaves que são usadas para criptografar os dados de backup devem ser armazenadas em [Azure Key Vault](../key-vault/index.yml).
 
 A chave de criptografia usada para criptografar backups pode ser diferente da usada para a origem. Os dados são protegidos usando uma chave de criptografia de dados baseada em AES 256 (DEK), que, por sua vez, é protegido usando suas chaves (KEK). Isso lhe dá controle total sobre os dados e as chaves. Para permitir a criptografia, é necessário que o cofre dos serviços de recuperação receba acesso à chave de criptografia no Azure Key Vault. Você pode alterar a chave como e quando necessário.
 
@@ -31,7 +31,7 @@ Este artigo discute o seguinte:
 
 - Atualmente, esse recurso **não dá suporte ao backup usando o agente Mars**, e você não poderá usar um cofre criptografado por CMK para o mesmo. O agente MARS usa uma criptografia baseada em senha do usuário. Esse recurso também não dá suporte ao backup de VMs clássicas.
 
-- Esse recurso não está relacionado a [Azure Disk Encryption](https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss), que usa a criptografia baseada em convidado dos discos de uma VM usando o BitLocker (para Windows) e DM-cript (para Linux)
+- Esse recurso não está relacionado a [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), que usa a criptografia baseada em convidado dos discos de uma VM usando o BitLocker (para Windows) e DM-cript (para Linux)
 
 - O cofre dos serviços de recuperação pode ser criptografado somente com chaves armazenadas em um Azure Key Vault, localizado na **mesma região**. Além disso, as chaves devem ser apenas **chaves RSA 2048** e devem estar no estado **habilitado** .
 
@@ -92,7 +92,7 @@ Agora você precisa permitir que o cofre dos serviços de recuperação acesse o
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Habilitar a proteção de exclusão e limpeza reversível no Azure Key Vault
 
-Você precisa **habilitar a exclusão reversível e limpar a proteção** no Azure Key Vault que armazena sua chave de criptografia. Você pode fazer isso na interface do usuário do Azure Key Vault, conforme mostrado abaixo. (Como alternativa, essas propriedades podem ser definidas ao criar o Key Vault). Leia mais sobre essas propriedades de Key Vault [aqui](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete).
+Você precisa **habilitar a exclusão reversível e limpar a proteção** no Azure Key Vault que armazena sua chave de criptografia. Você pode fazer isso na interface do usuário do Azure Key Vault, conforme mostrado abaixo. (Como alternativa, essas propriedades podem ser definidas ao criar o Key Vault). Leia mais sobre essas propriedades de Key Vault [aqui](../key-vault/general/overview-soft-delete.md).
 
 ![Habilitar exclusão reversível e proteção de limpeza](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 
@@ -160,7 +160,7 @@ Para atribuir a chave:
 
         ![Selecionar chave do Key Vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 1. **Acompanhamento do progresso da atualização da chave de criptografia:** Você pode acompanhar o progresso da atribuição de chave usando o **log de atividades** no cofre dos serviços de recuperação. O status deve ser alterado em breve para **êxito**. Agora, seu cofre criptografará todos os dados com a chave especificada como KEK.
 
@@ -193,13 +193,13 @@ Antes de prosseguir com a configuração de proteção, é altamente recomendáv
 >
 >Se todas as etapas acima tiverem sido confirmadas, continue com a configuração de backup.
 
-O processo para configurar e executar backups em um cofre de serviços de recuperação criptografado com chaves gerenciadas pelo cliente é o mesmo de um cofre que usa chaves gerenciadas por plataforma, **sem alterações na experiência**. Isso se aplica ao [backup de VMs do Azure](https://docs.microsoft.com/azure/backup/quick-backup-vm-portal) , bem como ao backup de cargas de trabalho em execução dentro de uma VM (por exemplo, [SAP Hana](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db), [SQL Server](https://docs.microsoft.com/azure/backup/tutorial-sql-backup) bancos de dados).
+O processo para configurar e executar backups em um cofre de serviços de recuperação criptografado com chaves gerenciadas pelo cliente é o mesmo de um cofre que usa chaves gerenciadas por plataforma, **sem alterações na experiência**. Isso se aplica ao [backup de VMs do Azure](./quick-backup-vm-portal.md) , bem como ao backup de cargas de trabalho em execução dentro de uma VM (por exemplo, [SAP Hana](./tutorial-backup-sap-hana-db.md), [SQL Server](./tutorial-sql-backup.md) bancos de dados).
 
 ## <a name="restoring-data-from-backup"></a>Restaurando dados do backup
 
 ### <a name="vm-backup"></a>Backup da VM
 
-Os dados armazenados no cofre dos serviços de recuperação podem ser restaurados de acordo com as etapas descritas [aqui](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms). Ao restaurar de um cofre dos serviços de recuperação criptografado usando chaves gerenciadas pelo cliente, você pode optar por criptografar os dados restaurados com um conjunto de criptografia de disco (DES).
+Os dados armazenados no cofre dos serviços de recuperação podem ser restaurados de acordo com as etapas descritas [aqui](./backup-azure-arm-restore-vms.md). Ao restaurar de um cofre dos serviços de recuperação criptografado usando chaves gerenciadas pelo cliente, você pode optar por criptografar os dados restaurados com um conjunto de criptografia de disco (DES).
 
 #### <a name="restoring-vm--disk"></a>Restaurando a VM/disco
 

@@ -3,15 +3,16 @@ title: Usar métodos diretos na análise de vídeo ao vivo no IoT Edge-Azure
 description: A análise de vídeo ao vivo em IoT Edge expõe vários métodos diretos. Os métodos diretos se baseiam nas convenções descritas neste tópico.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: b87452de6b12b0335afca5e28abb3ef6adb29157
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed7cec7b8513044c2bf9b24600b8d9f42a485aae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260799"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091820"
 ---
 # <a name="direct-methods"></a>Métodos diretos
 
-A análise de vídeo ao vivo em IoT Edge expõe vários métodos diretos que podem ser invocados do Hub IoT. Os métodos diretos representam uma interação entre solicitação e resposta com um dispositivo semelhante a uma chamada HTTP, na qual eles são bem-sucedidos ou falham imediatamente (depois que o tempo limite especificado pelo usuário é atingido). Essa abordagem é útil para cenários em que o curso de ação imediata é diferente dependendo se o dispositivo foi capaz de responder. Para obter mais informações, consulte [entender e invocar métodos diretos do Hub IOT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods).
+A análise de vídeo ao vivo em IoT Edge expõe vários métodos diretos que podem ser invocados do Hub IoT. Os métodos diretos representam uma interação entre solicitação e resposta com um dispositivo semelhante a uma chamada HTTP, na qual eles são bem-sucedidos ou falham imediatamente (depois que o tempo limite especificado pelo usuário é atingido). Essa abordagem é útil para cenários em que o curso de ação imediata é diferente dependendo se o dispositivo foi capaz de responder. Para obter mais informações, consulte [entender e invocar métodos diretos do Hub IOT](../../iot-hub/iot-hub-devguide-direct-methods.md).
 
 Este tópico descreve esses métodos e convenções.
 

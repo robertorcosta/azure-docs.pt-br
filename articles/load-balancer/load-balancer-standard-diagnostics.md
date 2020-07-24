@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 9003d35ce2eea18aa912a866802b026bb923aa08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 034a49793d3a3e416f307741e49446979eb33bb3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81272688"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090443"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Standard Load Balancer com métricas, alertas e integridade de recursos
 
@@ -40,11 +41,14 @@ As várias configurações do Load Balancer Standard oferecem as seguintes métr
 | Status de investigação de integridade | Balanceador de carga público e interno | O Load Balancer Standard usa um serviço de investigação de integridade distribuído que monitora a integridade do ponto de extremidade do aplicativo de acordo com as definições de configuração. Essa métrica fornece uma exibição agregada ou por ponto de extremidade filtrado de cada ponto de extremidade de instância no pool do balanceador de carga. É possível ver como o Load Balancer exibe a integridade de seu aplicativo conforme indicado pela configuração de sua investigação de integridade. |  Média |
 | Pacotes SYN (sincronizar) | Balanceador de carga público e interno | O Load Balancer Standard não encerra conexões TCP nem interage com fluxos de pacote TCP ou UDP. Fluxos e seus handshakes estão sempre entre a origem e a instância VM. Para solucionar melhor os problemas dos cenários de protocolo TCP, é possível usar contadores de pacotes SYN para entender quantas tentativas de conexão TCP são feitas. A métrica informa o número de pacotes SYN do TCP que foram recebidos.| Média |
 | Conexões SNAT | Balanceador de carga público |O Load Balancer Standard relata o número de fluxos de saída mascarados para o front-end do endereço IP Público. As portas SNAT (conversão de endereços de rede) de origem são um recurso esgotável. Essa métrica pode dar uma indicação do grau de dependência que seu aplicativo tem do SNAT para fluxos com origem externa. Contadores para fluxos SNAT de saída bem-sucedidos e com falha são relatados e podem ser usados para solucionar problemas e entender a integridade dos fluxos de saída.| Média |
-| Portas SNAT alocadas | Balanceador de carga público | Standard Load Balancer relata o número de portas SNAT alocadas por instância de back-end | Média. |
+| Portas SNAT alocadas | Balanceador de carga público | Standard Load Balancer relata o número de portas SNAT alocadas por instância de back-end | Cerca. |
 | Portas SNAT usadas | Balanceador de carga público | Standard Load Balancer relata o número de portas SNAT utilizadas por instância de back-end. | Média | 
 | Contadores de bytes |  Balanceador de carga público e interno | O Load Balancer Standard informa os dados processados por front-end. Você pode observar que os bytes não são distribuídos igualmente nas instâncias de back-end. Isso é esperado, pois o algoritmo de Load Balancer do Azure se baseia em fluxos | Média |
 | Contadores de pacotes |  Balanceador de carga público e interno | O Load Balancer Standard relata os pacotes processados por front-end.| Média |
 
+  >[!NOTE]
+  >Ao usar a distribuição de tráfego de um balanceador de carga interno por meio de um pacote SYN NVA ou firewall, o contador de bytes e as métricas de contador de pacotes não estarão disponíveis e serão mostrados como zero. 
+  
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Exibir suas métricas do balanceador de carga no portal do Azure
 
 O portal do Azure expõe as métricas do balanceador de carga por meio da página métricas, que está disponível na página de recursos do balanceador de carga para um recurso específico e a página Azure Monitor. 
@@ -196,7 +200,7 @@ Use **Total** como a agregação para a maioria dos cenários.
 
 Para obter estatísticas de contagem de bytes ou de pacotes:
 1. Selecione o tipo de métrica **Contagem de Bytes** e/ou **Contagem de Pacotes** com **Méd** como a agregação. 
-2. Siga um destes procedimentos:
+2. Execute um destes procedimentos:
    * Aplique um filtro em um IP de front-end específico, em uma porta de front-end, em um IP de back-end ou em uma porta de back-end.
    * Obtenha estatísticas gerais para seu recurso de balanceador de carga sem nenhuma filtragem.
 
@@ -254,7 +258,7 @@ Os vários status da integridade do recurso e suas descrições estão listadas 
 | --- | --- |
 | Disponível | O recurso padrão do Load Balancer está íntegro e disponível. |
 | Indisponível | O recurso padrão do Load Balancer não está íntegro. Diagnostique a integridade selecionando **Azure monitor**  >  **métricas**.<br>(O status*indisponível* também pode significar que o recurso não está conectado ao balanceador de carga padrão.) |
-| Unknown (desconhecido) | O status de integridade do recurso para o recurso padrão do Load Balancer ainda não foi atualizado.<br>(O status*desconhecido* também pode significar que o recurso não está conectado ao balanceador de carga padrão.)  |
+| Desconhecido | O status de integridade do recurso para o recurso padrão do Load Balancer ainda não foi atualizado.<br>(O status*desconhecido* também pode significar que o recurso não está conectado ao balanceador de carga padrão.)  |
 
 ## <a name="next-steps"></a>Próximas etapas
 

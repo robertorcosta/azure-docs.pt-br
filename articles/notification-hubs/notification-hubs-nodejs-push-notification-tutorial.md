@@ -17,12 +17,12 @@ ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: cb984a944067ddb1449f58b464e596fd138dc7c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2921fb2895b8e42c0564c6e815a08da1d7e9d12d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82592002"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089967"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Enviar notificações por push com os Hubs de Notificação do Azure e o Node.js
 
@@ -44,7 +44,7 @@ Os cenários abordados incluem o envio de notificações por push para aplicativ
 
 ## <a name="notification-hubs"></a>Hubs de Notificação
 
-Os Hubs de Notificação do Azure fornecem uma infraestrutura de várias plataformas escalonáveis e fáceis de usar para o envio de notificações por push para dispositivos móveis. Para obter detalhes sobre a infraestrutura de serviço, confira a página [Hubs de Notificação do Azure](https://msdn.microsoft.com/library/windowsazure/jj927170.aspx) .
+Os Hubs de Notificação do Azure fornecem uma infraestrutura de várias plataformas escalonáveis e fáceis de usar para o envio de notificações por push para dispositivos móveis. Para obter detalhes sobre a infraestrutura de serviço, confira a página [Hubs de Notificação do Azure](/previous-versions/azure/azure-services/jj927170(v=azure.100)) .
 
 ## <a name="create-a-nodejs-application"></a>Criar um aplicativo Node.js
 
@@ -83,13 +83,13 @@ Obtenha o valor `connectionstring` de conexão do [portal do Azure] executando a
 
 1. No painel de navegação esquerdo, clique em **Procurar**.
 2. Selecione **Hubs de Notificação**e localize o hub que você deseja usar no exemplo. Você pode consultar o [tutorial de introdução da Windows Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) se precisar de ajuda com a criação de um novo hub de notificação.
-3. Escolha a opção **Configurações**.
+3. Selecione **Configurações**.
 4. Clique em **Políticas de Acesso**. Você verá as duas cadeias de conexão de acesso compartilhado e completo.
 
 ![Portal do Azure - Hubs de Notificação](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> Você também pode recuperar a cadeia de conexão usando o cmdlet **Get-AzureSbNamespace** fornecido pelo [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou o comando **azure sb namespace show** com a [Interface de Linha de Comando do Azure (CLI do Azure)](../cli-install-nodejs.md).
+> Você também pode recuperar a cadeia de conexão usando o cmdlet **Get-AzureSbNamespace** fornecido pelo [Azure PowerShell](/powershell/azure/) ou o comando **azure sb namespace show** com a [Interface de Linha de Comando do Azure (CLI do Azure)](/cli/azure/install-classic-cli).
 
 ## <a name="general-architecture"></a>Arquitetura geral
 
@@ -155,11 +155,11 @@ O objeto `MpnsService` fornece um método `send` que pode ser usado para enviar 
 - **Tags** : o identificador da etiqueta. Se nenhuma marca for fornecida, a notificação será enviada a todos os clientes.
 - **Payload** : o conteúdo XML da mensagem.
 - **TargetName**  -  TargetName `toast` para notificações do sistema. `token` para notificações de bloco.
-- **NotificationClass** : a prioridade da notificação. Veja a seção **Elementos de cabeçalhos HTTP** do documento [Notificações por push de um servidor](https://msdn.microsoft.com/library/hh221551.aspx) para obter os valores válidos.
+- **NotificationClass** : a prioridade da notificação. Veja a seção **Elementos de cabeçalhos HTTP** do documento [Notificações por push de um servidor](/previous-versions/windows/xna/bb200104(v=xnagamestudio.41)) para obter os valores válidos.
 - **Options** : cabeçalhos de solicitação opcionais.
 - **Callback** : a função de retorno de chamada.
 
-Para obter uma lista válida `TargetName`, `NotificationClass` e opções de cabeçalho, confira a página [Enviar notificações por push de um servidor](https://msdn.microsoft.com/library/hh221551.aspx).
+Para obter uma lista válida `TargetName`, `NotificationClass` e opções de cabeçalho, confira a página [Enviar notificações por push de um servidor](/previous-versions/windows/xna/bb200104(v=xnagamestudio.41)).
 
 O seguinte código de exemplo usa a instância `MpnsService` exposta por `NotificationHubService` para enviar uma notificação por push do sistema:
 
@@ -182,7 +182,7 @@ O objeto `WnsService` fornece um método `send` que pode ser usado para enviar n
 - **Options** : cabeçalhos de solicitação opcionais.
 - **Callback** : a função de retorno de chamada.
 
-Para obter uma lista de tipos e de cabeçalhos de solicitação válidos, veja [Solicitação de serviço e cabeçalhos de resposta de notificação por push](https://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
+Para obter uma lista de tipos e de cabeçalhos de solicitação válidos, veja [Solicitação de serviço e cabeçalhos de resposta de notificação por push](/previous-versions/windows/apps/hh465435(v=win.10)).
 
 O código a seguir usa a instância `WnsService` exposta por `NotificationHubService` para enviar uma notificação por push do sistema para um aplicativo UWP:
 
@@ -199,7 +199,7 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
 
 Os snippets de código de exemplo acima permitem que você crie com facilidade a infraestrutura de serviço para enviar notificações por push para uma ampla variedade de dispositivos. Agora que você aprendeu os conceitos básicos do uso de Hubs de Notificação com o node.js, siga estes links para saber mais sobre como é possível estender ainda mais esses recursos.
 
-- Veja a Referência do MSDN para os [Hubs de Notificação do Azure](https://msdn.microsoft.com/library/azure/jj927170.aspx).
+- Veja a Referência do MSDN para os [Hubs de Notificação do Azure](/previous-versions/azure/azure-services/jj927170(v=azure.100)).
 - Visite o repositório [SDK do Azure para o Node] no GitHub para obter mais exemplos e detalhes de implementação.
 
 [SDK do Azure para Node]: https://github.com/WindowsAzure/azure-sdk-for-node
@@ -222,14 +222,14 @@ Os snippets de código de exemplo acima permitem que você crie com facilidade a
 [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
 [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
 [5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
-[SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Azure Service Bus Notification Hubs]: https://msdn.microsoft.com/library/windowsazure/jj927170.aspx
-[SqlFilter]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
+[SqlFilter.SqlExpression]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter?view=azure-dotnet#microsoft_servicebus_messaging_sqlfilter_sqlexpression
+[Azure Service Bus Notification Hubs]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
+[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter?view=azure-dotnet#microsoft_servicebus_messaging_sqlfilter
 [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
-[nodejswebsite]: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs
-[webmatrix]: https://docs.microsoft.com/aspnet/web-pages/videos/introduction/create-a-website-using-webmatrix
+[nodejswebsite]: ../app-service/app-service-web-get-started-nodejs.md
+[webmatrix]: /aspnet/web-pages/videos/introduction/create-a-website-using-webmatrix
 [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
 [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
 [Portal do Azure]: https://portal.azure.com

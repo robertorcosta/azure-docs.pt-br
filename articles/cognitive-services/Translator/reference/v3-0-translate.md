@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/17/2020
 ms.author: swmachan
-ms.openlocfilehash: 563f4693c358c570caa2566f58002ddfe6c7bc69
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 512632faae453ebdf7cb7b279fe2d29b25d23d6b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584630"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090851"
 ---
 # <a name="translator-30-translate"></a>Tradutor 3,0: traduzir
 
@@ -107,15 +107,15 @@ Os cabeçalhos de solicitação incluem:
   <th>Descrição</th>
   <tr>
     <td>Cabeçalho (s) de autenticação</td>
-    <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
+    <td><em>Cabeçalho de solicitação necessário</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
     <td>Tipo de conteúdo</td>
-    <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Especifica o tipo de conteúdo da carga.<br/> O valor aceito é <code>application/json; charset=UTF-8</code> .</td>
+    <td><em>Cabeçalho de solicitação necessário</em>.<br/>Especifica o tipo de conteúdo da carga.<br/> O valor aceito é <code>application/json; charset=UTF-8</code> .</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>O tamanho do corpo da solicitação.</td>
+    <td><em>Cabeçalho de solicitação necessário</em>.<br/>O tamanho do corpo da solicitação.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
@@ -317,6 +317,7 @@ Traduzir várias cadeias de caracteres de uma vez é simplesmente uma questão d
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
 
+A resposta contém a tradução de todas as partes do texto na mesma ordem que na solicitação.
 O corpo da resposta é:
 
 ```

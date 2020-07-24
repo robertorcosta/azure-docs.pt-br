@@ -10,11 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 12/05/2019
-ms.openlocfilehash: 119f26f8d5a425462382a873d7ca4bcfdd6f3d03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18addfc6b7a0002aba26b668481d6bedb612fffc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214495"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090341"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Entender os resultados automatizados do Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -22,8 +23,8 @@ ms.locfileid: "85214495"
 Neste artigo, você aprenderá a exibir e a entender os gráficos e as métricas de cada uma das execuções automatizadas do Machine Learning. 
 
 Saiba mais sobre:
-+ [Métricas, gráficos e curvas para modelos de classificação](#classification)
-+ [Métricas, gráficos e grafos para modelos de regressão](#regression)
++ [Métricas e gráficos para modelos de classificação](#classification)
++ [Métricas e gráficos para modelos de regressão](#regression)
 + [Importância da interpretação do modelo e do recurso](#explain-model)
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -77,9 +78,9 @@ As métricas a seguir são salvas em cada iteração de execução para uma tare
 
 Métrica|Descrição|Cálculo|Parâmetros adicionais
 --|--|--|--
-AUC_Macro| AUC é a área embaixo da Curva característica operacional do receptor. Macro é a média aritmética do AUC para cada classe.  | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
-AUC_Micro| AUC é a área embaixo da Curva característica operacional do receptor. O micro é calculado globalmente combinando os verdadeiros positivos e falsos positivos de cada classe.| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
-AUC_Weighted  | AUC é a área embaixo da Curva característica operacional do receptor. Ponderado é a média aritmética da Pontuação de cada classe, ponderada pelo número de instâncias verdadeiras em cada classe.| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|average="weighted"
+AUC_macro| AUC é a área embaixo da Curva característica operacional do receptor. Macro é a média aritmética do AUC para cada classe.  | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
+AUC_micro| AUC é a área embaixo da Curva característica operacional do receptor. O micro é calculado globalmente combinando os verdadeiros positivos e falsos positivos de cada classe.| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
+AUC_weighted  | AUC é a área embaixo da Curva característica operacional do receptor. Ponderado é a média aritmética da Pontuação de cada classe, ponderada pelo número de instâncias verdadeiras em cada classe.| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|average="weighted"
 accuracy|Accuracy é o percentual de rótulos previstos que coincidem exatamente com os rótulos verdadeiros. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Nenhum|
 average_precision_score_macro|A precisão média resume uma curva de recolhimento de precisão como a média ponderada de precisões atingidas em cada limite, com o aumento no recolhimento do limite anterior usado como o peso. Macro é a média aritmética da Pontuação de precisão média de cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="macro"|
 average_precision_score_micro|A precisão média resume uma curva de recolhimento de precisão como a média ponderada de precisões atingidas em cada limite, com o aumento no recolhimento do limite anterior usado como o peso. O micro é calculado globalmente combinando os verdadeiros positivos e falsos positivos em cada corte.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="micro"|
@@ -97,6 +98,12 @@ recall_score_macro|Recall é a porcentagem de elementos rotulados corretamente d
 recall_score_micro|Recall é a porcentagem de elementos rotulados corretamente de uma determinada classe. O micro é calculado globalmente contando o total de positivos verdadeiros, falsos negativos e falsos positivos|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="micro"|
 recall_score_weighted|Recall é a porcentagem de elementos rotulados corretamente de uma determinada classe. Ponderado é a média aritmética de recall para cada classe, ponderada pelo número de instâncias true em cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
 weighted_accuracy|A precisão ponderada é a precisão em que o peso dado a cada exemplo é igual à proporção de instâncias verdadeiras na classe verdadeira do exemplo.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight é um vetor igual à proporção dessa classe para cada elemento no destino|
+
+### <a name="binary-vs-multiclass-metrics"></a>Métricas binárias versus multiclasse
+
+AutoML não diferencia entre métricas binárias e multiclasse. As mesmas métricas de validação são relatadas se um conjunto de dado tem duas classes ou mais de duas classes. No entanto, algumas métricas são destinadas à classificação multiclasse. Quando aplicado a um DataSet binário, essas métricas não tratarão nenhuma classe como a `true` classe, como você pode esperar. As métricas que são claramente destinadas a multiclasse são sufixadas com `micro` , `macro` ou `weighted` . Os exemplos incluem,,, `average_precision_score` `f1_score` `precision_score` `recall_score` e `AUC` .
+
+Um exemplo concreto torna essa distinção mais clara: em vez de calcular a RECALL como `tp / (tp + fn)` , a média de recalls de várias classes ( `micro` , `macro` ou `weighted` ) é calculada em ambas as classes de um conjunto de uma classificação binária. Isso é equivalente a calcular a recall para a `true` classe e a `false` classe separadamente e, em seguida, pegar a média dos dois.
 
 <a name="confusion-matrix"></a>
 
@@ -143,15 +150,13 @@ Dependendo do objetivo do problema comercial, a curva de recall de precisão ide
 ### <a name="roc-chart"></a>Gráfico ROC
 
 #### <a name="what-is-a-roc-chart"></a>O que é um gráfico de ROC?
-O ROC (característica operacional do receptor) é um gráfico que compara os rótulos classificados de modo correto e incorreto de um modelo específico. A curva ROC pode ser menos informativa ao treinar modelos em conjuntos de dados com alto desvio, pois ela não mostrará os rótulos falso-positivos.
+A característica operacional do receptor (ou ROC) é uma plotagem dos rótulos corretamente classificados versus os rótulos classificados incorretamente para um modelo específico. A curva ROC pode ser menos informativa ao treinar modelos em conjuntos de valores com desequilíbrio de classe alta, pois a classe de maioria pode desafogar a contribuição de classes minoritárias.
 
 #### <a name="what-does-automated-ml-do-with-the-roc-chart"></a>O que o ML automatizado faz com o gráfico ROC?
-O ML automatizado gera a macro de recall de precisão média, o micro Average Precision-recall e a recall de precisão associada a todas as classes de um modelo. 
-
-Macro-a média calculará a métrica independentemente de cada classe e, em seguida, assumirá a média, tratando todas as classes igualmente. No entanto, micro-Average agregará as contribuições de todas as classes para calcular a média. Micro-Average é preferível se houver desequilíbrio de classe presente no conjunto de
+Você pode visualizar a área sob o gráfico ROC como a proporção de amostras classificadas corretamente. Um usuário avançado do gráfico ROC pode parecer além da área sob a curva e obter uma intuição para as taxas reais positivos e falsos positivos como uma função do limite de classificação ou do limite de decisão.
 
 #### <a name="what-does-a-good-model-look-like"></a>Qual é a aparência de um modelo bom?
-O ideal é que o modelo tenha mais de 100% de taxa positiva, e mais próximo da taxa de 0% de falsos positivos. 
+Uma curva ROC que se aproxima do canto superior esquerdo com a taxa positiva de 100% e a taxa de 0% de falsos positivos será o melhor modelo. Um modelo aleatório seria exibido como uma linha simples da parte inferior esquerda para o canto superior direito. Pior do que Random seria o DIP abaixo da linha y = x.
 
 ##### <a name="example-1-a-classification-model-with-low-true-labels-and-high-false-labels"></a>Exemplo 1: um modelo de classificação com baixos rótulos verdadeiros e grandes rótulos falsos
 ![Modelo de classificação com baixos rótulos verdadeiros e grandes rótulos falsos](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
@@ -161,7 +166,8 @@ O ideal é que o modelo tenha mais de 100% de taxa positiva, e mais próximo da 
 <a name="lift-curve"></a>
 ### <a name="lift-chart"></a>Gráfico de comparação de precisão
 #### <a name="what-is-a-lift-chart"></a>O que é um gráfico de comparação de precisão?
-Gráficos de comparação de precisão são usados para avaliar o desempenho de um modelo de classificação. Ele mostra o quanto melhor você pode esperar fazer com o modelo gerado em comparação a sem um modelo em termos de precisão.
+Os gráficos de comparação de precisão são usados para avaliar o desempenho dos modelos de classificação. Um gráfico de comparação de precisão mostra quantas vezes um modelo é melhor executado em comparação com um modelo aleatório. Isso proporciona um desempenho relativo que leva em conta o fato de que a classificação fica mais difícil à medida que você aumenta o número de classes. Um modelo aleatório irá prever incorretamente uma fração mais alta de exemplos de um conjunto de uma com dez classes comparadas a um conjunto de um DataSet com duas classes.
+
 #### <a name="what-does-automated-ml-do-with-the-lift-chart"></a>O que o ML automatizado faz com o gráfico de comparação de precisão?
 Você pode comparar a precisão do modelo compilado automaticamente do Azure Machine Learning com a linha de base para exibir o ganho de valor desse determinado modelo.
 #### <a name="what-does-a-good-model-look-like"></a>Qual é a aparência de um modelo bom?
@@ -171,10 +177,10 @@ Você pode comparar a precisão do modelo compilado automaticamente do Azure Mac
 ##### <a name="example-2-a-classification-model-that-performs-better-than-a-random-selection-model"></a>Exemplo 2: um modelo de classificação que tem um desempenho melhor do que um modelo de seleção aleatório
 ![Um modelo de classificação que é executado melhor](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
 <a name="gains-curve"></a>
-### <a name="gains-chart"></a>Gráfico de ganhos
-#### <a name="what-is-a-gains-chart"></a>O que é um gráfico de ganhos?
+### <a name="cumulative-gains-chart"></a>Gráfico de ganhos cumulativos
+#### <a name="what-is-a-cumulative-gains-chart"></a>O que é um gráfico de ganhos cumulativos?
 
-Um gráfico de ganhos avalia o desempenho de um modelo de classificação em cada porção dos dados. Ele mostra, para cada percentil do conjunto de dados, o quão melhor o desempenho pode ser em comparação a um modelo de seleção aleatória.
+Um gráfico de ganhos cumulativos avalia o desempenho de um modelo de classificação por cada parte dos dados. Para cada percentil do conjunto de dados, o gráfico mostra quantas mais amostras foram classificadas com precisão.
 
 #### <a name="what-does-automated-ml-do-with-the-gains-chart"></a>O que o ML automatizado faz com o gráfico de ganhos?
 Use o gráfico de ganhos cumulativos para ajudar você a escolher o corte de classificação usando uma porcentagem que corresponda a um ganho desejado do modelo. Essas informações fornecem outra maneira de observar os resultados no gráfico de comparação de precisão anexo.
@@ -195,7 +201,7 @@ Em todos os problemas de classificação, você pode examinar a linha de calibra
 
 Macro-a média calculará a métrica independentemente de cada classe e, em seguida, assumirá a média, tratando todas as classes igualmente. No entanto, micro-Average agregará as contribuições de todas as classes para calcular a média. 
 #### <a name="what-does-a-good-model-look-like"></a>Qual é a aparência de um modelo bom?
- Um modelo bem calibrado se alinha com a linha y = x, em que é razoavelmente confiante em suas previsões. Um modelo com confiança excessiva se nivela à linha y=0, na qual a probabilidade prevista está presente, mas não há nenhuma probabilidade real. 
+Um modelo bem calibrado se alinha com a linha y = x, na qual ele prevê corretamente a probabilidade de que os exemplos pertençam a cada classe. Um modelo com excesso de confiança fará com que as probabilidades sejam próximas de zero e uma, raramente sem certeza sobre a classe de cada amostra.
 
 
 ##### <a name="example-1-a-well-calibrated-model"></a>Exemplo 1: um modelo bem calibrado
@@ -249,11 +255,11 @@ Após cada execução, você pode ver um gráfico comparando os dados previstos 
 
 ### <a name="histogram-of-residuals-chart"></a><a name="histo"></a>Histograma do gráfico de resíduos
 #### <a name="what-is-a-residuals-chart"></a>O que é um gráfico de resíduos?
-Um resíduo representa um y observado, que é o y previsto. Para mostrar uma margem de erro com baixo desvio, o histograma de resíduos deve ter a forma de uma curva de sino, centralizada em torno do 0. 
+Um resíduo é a diferença entre a previsão e o valor real ( `y_pred - y_true` ). Para mostrar uma margem de erro com baixo desvio, o histograma de resíduos deve ter a forma de uma curva de sino, centralizada em torno do 0. 
 #### <a name="what-does-automated-ml-do-with-the-residuals-chart"></a>O que o ML automatizado faz com o gráfico de resíduos?
 O ML automatizado fornece automaticamente um gráfico de resíduos para mostrar a distribuição de erros nas previsões.
 #### <a name="what-does-a-good-model-look-like"></a>Qual é a aparência de um modelo bom?
-Um bom modelo normalmente terá uma curva de sino ou erros em volta de zero.
+Um bom modelo normalmente terá resíduos totalmente centralizados em volta de zero.
 
 ##### <a name="example-1-a-regression-model-with-bias-in-its-errors"></a>Exemplo 1: um modelo de regressão com tendência em seus erros
 ![Modelo de regressão de SA com tendência em seus erros](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)

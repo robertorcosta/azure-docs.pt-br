@@ -4,12 +4,12 @@ description: Monitorar aplicativos web de disponibilidade, desempenho e uso.
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.reviewer: lmolkova
-ms.openlocfilehash: d3d1d8aafaea8dcb9e67b842acfbd493e02e4854
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 955988cd16af5269c474061cf60fb18a040909e3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086238"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091225"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights para aplicativos do console .NET
 
@@ -18,7 +18,7 @@ O [Application Insights](../../azure-monitor/app/app-insights-overview.md) permi
 Você precisa de uma assinatura do [Microsoft Azure](https://azure.com). Entre com uma conta da Microsoft, que você pode ter para o Windows, Xbox Live ou outros serviços de nuvem da Microsoft. Sua equipe pode ter uma assinatura organizacional do Azure: peça ao proprietário que adicione você a ela usando sua conta da Microsoft.
 
 > [!NOTE]
-> É *altamente recomendável* usar o pacote [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) e as instruções associadas [aqui](../../azure-monitor/app/worker-service.md) para qualquer aplicativo de console. Esse pacote é direcionado [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard) e, portanto, pode ser usado no .NET Core 2,1 ou superior e .NET Framework 4.7.2 ou superior.
+> É *altamente recomendável* usar o pacote [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) e as instruções associadas [aqui](../../azure-monitor/app/worker-service.md) para qualquer aplicativo de console. Esse pacote é direcionado [`NetStandard2.0`](/dotnet/standard/net-standard) e, portanto, pode ser usado no .NET Core 2,1 ou superior e .NET Framework 4.7.2 ou superior.
 
 ## <a name="getting-started"></a>Introdução
 

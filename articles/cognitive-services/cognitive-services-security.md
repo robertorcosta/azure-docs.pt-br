@@ -1,21 +1,21 @@
 ---
-title: Segurança
+title: Segurança de serviços cognitivas do Azure
 titleSuffix: Azure Cognitive Services
 description: Saiba mais sobre as várias considerações de segurança para o uso de serviços cognitivas.
 services: cognitive-services
-author: aahill
+author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.author: aahi
+ms.date: 07/10/2020
+ms.author: erhopf
 ms.custom: tracking-python
-ms.openlocfilehash: d97b944d5d18a39d6eaf84b55363f487a2c17dbf
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 51a9829a7ea19665e1081a48207f176b1a8e68c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611400"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090834"
 ---
 # <a name="azure-cognitive-services-security"></a>Segurança de serviços cognitivas do Azure
 
@@ -203,9 +203,19 @@ Sistema de Proteção de Dados do Cliente está disponível para este serviço c
 
 * Tradutor
 
-Por Reconhecimento vocal, os engenheiros da Microsoft não acessarão nenhum dado do cliente na SKU E0. Para solicitar a capacidade de usar o SKU E0, preencha e envie o [formulário de solicitação de serviço Luis](https://aka.ms/cogsvc-cmk). Levará aproximadamente 3-5 dias úteis para que o status da solicitação seja reproduzido. Dependendo da demanda, você pode ser colocado em uma fila e aprovado, pois o espaço se torna disponível. Depois de aprovado para usar o SKU E0 com LUIS, você precisará criar um novo recurso de Reconhecimento vocal da portal do Azure e selecionar E0 como o tipo de preço. Os usuários não poderão atualizar do F0 para o novo SKU E0.
+Para os serviços a seguir, os engenheiros da Microsoft não acessarão nenhum dado do cliente na camada E0: 
 
-No momento, o serviço de fala não oferece suporte a Sistema de Proteção de Dados do Cliente. No entanto, os dados do cliente podem ser armazenados usando BYOS ("Traga seu próprio armazenamento"), permitindo que você obtenha controles de dados semelhantes para [sistema de proteção de dados do cliente](../security/fundamentals/customer-lockbox-overview.md). Tenha em mente que os dados do serviço de fala permanecem e são processados na região em que o recurso de fala foi criado. Isso se aplica a quaisquer dados em repouso e dados em trânsito. Ao usar recursos de personalização, como Fala Personalizada e voz personalizada, todos os dados do cliente são transferidos, armazenados e processados na mesma região em que seu BYOS (se usado) e o recurso de serviço de fala residem.
+* Reconhecimento Vocal
+* Detecção Facial
+* Content Moderator
+* Personalizador
+
+> [!IMPORTANT]
+> Para o **reconhecedor de formulário**, os engenheiros da Microsoft não acessarão dados de clientes em recursos criados após 10 de julho de 2020.
+
+Para solicitar a capacidade de usar o SKU E0, preencha e envie este [formulário de solicitação](https://aka.ms/cogsvc-cmk). Levará aproximadamente 3-5 dias úteis para que o status da solicitação seja reproduzido. Dependendo da demanda, você pode ser colocado em uma fila e aprovado, pois o espaço se torna disponível. Depois de aprovado para usar o SKU E0 com LUIS, você precisará criar um novo recurso do portal do Azure e selecionar E0 como o tipo de preço. Os usuários não poderão atualizar do F0 para o novo SKU E0.
+
+No momento, o serviço de fala não oferece suporte a Sistema de Proteção de Dados do Cliente. No entanto, os dados do cliente podem ser armazenados usando o BYOS (Traga seu próprio armazenamento), permitindo que você obtenha controles de dados semelhantes para Sistema de Proteção de Dados do Cliente. Tenha em mente que os dados do serviço de fala permanecem e são processados na região em que o recurso de fala foi criado. Isso se aplica a quaisquer dados em repouso e dados em trânsito. Ao usar recursos de personalização, como Fala Personalizada e voz personalizada, todos os dados do cliente são transferidos, armazenados e processados na mesma região em que seu BYOS (se usado) e o recurso de serviço de fala residem.
 
 > [!IMPORTANT]
 > A Microsoft **não** usa dados do cliente para melhorar seus modelos de fala. Além disso, se o log do ponto de extremidade estiver desabilitado e nenhuma personalização for usada, nenhum dado do cliente será armazenado. 

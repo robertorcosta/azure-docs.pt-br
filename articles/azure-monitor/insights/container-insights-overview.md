@@ -3,12 +3,12 @@ title: Visão geral do Azure Monitor para contêineres | Microsoft Docs
 description: Este artigo descreve o Azure Monitor para contêineres que monitora as soluções de Insights do Contêiner AKS e o valor que ele oferece monitorando a integridade dos clusters AKS e de Instâncias de Contêiner no Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: d176a84d72c92eddd4ffd4fcd1011bda172e5cc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5fcdd3bfc42e298791e1ab761fa4db432a93dd7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337929"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091157"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Visão geral do Azure Monitor para contêineres
 
@@ -17,7 +17,7 @@ O Azure Monitor para contêineres é um recurso projetado para monitorar o desem
 - Clusters Managed Kubernetes hospedados no [serviço de kubernetes do Azure (AKs)](../../aks/intro-kubernetes.md)
 - Clusters kubernetes autogerenciados hospedados no Azure usando o [mecanismo AKs](https://github.com/Azure/aks-engine)
 - [Instâncias de Contêiner do Azure](../../container-instances/container-instances-overview.md)
-- Clusters kubernetes autogerenciados hospedados no [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) ou no local
+- Clusters kubernetes autogerenciados hospedados no [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) ou no local
 - [Red Hat OpenShift no Azure](../../openshift/intro-openshift.md)
 - [Kubernetes habilitado para Arc do Azure](../../azure-arc/kubernetes/overview.md) (versão prévia)
 
@@ -40,7 +40,7 @@ Azure Monitor para contêineres fornece uma experiência de monitoramento abrang
 * Compreender o comportamento do cluster sob cargas mais pesadas e médias. Esse conhecimento pode ajudá-lo a identificar as necessidades de capacidade e determinar a carga máxima que o cluster pode sustentar.
 * Configure alertas para notificá-lo proativamente ou registre-o quando a utilização de CPU e memória em nós ou contêineres exceder seus limites ou quando uma alteração de estado de integridade ocorrer no cluster no acúmulo de integridade de infraestrutura ou de nós.
 * Integre com o [Prometheus](https://prometheus.io/docs/introduction/overview/) para exibir as métricas de aplicativo e carga de trabalho coletadas de nós e kubernetes usando [consultas](container-insights-log-search.md) para criar alertas personalizados, painéis e executar análise detalhada.
-* Monitore cargas de trabalho de contêiner [implantadas](https://github.com/Azure/aks-engine) no mecanismo do AKS no local e no [mecanismo de AKs no Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+* Monitore cargas de trabalho de contêiner [implantadas](https://github.com/Azure/aks-engine) no mecanismo do AKS no local e no [mecanismo de AKs no Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
 * Monitore cargas [de trabalho de contêiner implantadas no Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
 
     >[!NOTE]
@@ -51,7 +51,7 @@ Azure Monitor para contêineres fornece uma experiência de monitoramento abrang
 
 As principais diferenças no monitoramento de um cluster do Windows Server em comparação a um cluster do Linux são as seguintes:
 
-- O Windows não tem uma métrica de RSS de memória e, como resultado, não está disponível para o nó e os contêineres do Windows. A métrica do [conjunto de trabalho](https://docs.microsoft.com/windows/win32/memory/working-set) está disponível.
+- O Windows não tem uma métrica de RSS de memória e, como resultado, não está disponível para o nó e os contêineres do Windows. A métrica do [conjunto de trabalho](/windows/win32/memory/working-set) está disponível.
 - As informações de capacidade de armazenamento em disco não estão disponíveis para nós do Windows.
 - Somente ambientes de Pod são monitorados, não ambientes de Docker.
 - Com a versão de visualização, há suporte para um máximo de 30 contêineres do Windows Server. Essa limitação não se aplica a contêineres do Linux.

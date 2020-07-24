@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: b576fc99e2f203bb3d690a8135ee76cee26b3de8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fd96777a5fe74d44aeed5f6de82e54b2663a024
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792353"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090375"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Receber e confirmar mensagens AS2 de B2B usando os aplicativos lógicos do Azure e Enterprise Integration Pack
 
@@ -34,7 +35,7 @@ Este artigo mostra como criar um aplicativo lógico que recebe uma solicitação
 
   Se você não estiver familiarizado com os aplicativos lógicos, examine [o que é o aplicativo lógico do Azure?](../logic-apps/logic-apps-overview.md) e o [início rápido: Crie seu primeiro aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md) associada à sua assinatura do Azure e vinculada ao seu aplicativo lógico. O aplicativo lógico e a conta de integração devem existir no mesmo local ou região do Azure.
+* Uma [conta de integração](./logic-apps-enterprise-integration-create-integration-account.md) associada à sua assinatura do Azure e vinculada ao seu aplicativo lógico. O aplicativo lógico e a conta de integração devem existir no mesmo local ou região do Azure.
 
 * Pelo menos dois [parceiros comerciais](../logic-apps/logic-apps-enterprise-integration-partners.md) que você já definiu em sua conta de integração, juntamente com os [contratos AS2 e X12](logic-apps-enterprise-integration-agreements.md) para esses parceiros.
 
@@ -104,7 +105,7 @@ Para notificar o parceiro comercial de que a mensagem foi recebida, você pode r
 
 1. Na ação de **decodificação AS2** , selecione **nova etapa**.
 
-1. Em **escolher uma ação**, na caixa de pesquisa, selecione **interno**. Na caixa de pesquisa, insira `condition`. Na lista **ações** , selecione **condição**.
+1. Em **escolher uma ação**, na caixa de pesquisa, selecione **interno**. Na caixa de pesquisa, insira `condition`. Na lista **Ações**, selecione **Condição**.
 
    ![Adicionar a ação "condição"](./media/logic-apps-enterprise-integration-b2b/add-condition-action.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Pontuar Modelo de Imagem
+title: Usar o módulo de recomendação aprofundado de & de treinamento
 titleSuffix: Azure Machine Learning
 description: Saiba como usar o módulo de recomendação & Deep Wide de treinamento para treinar um modelo de recomendações.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: 2ac5e5874ebb34b68cbfe8be1986852c67b97c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 234217b6571307db04941cc0b9989d3438cde1b7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84739787"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090171"
 ---
 # <a name="train-wide--deep-recommender"></a>Treinar amplo & Recomendador profundo
 Este artigo descreve como usar o módulo de recomendação **& Deep Wide de treinamento** no Azure Machine Learning designer (versão prévia) para treinar um modelo de recomendações. Esse módulo baseia-se em amplo & aprendizado profundo, que é proposto pelo Google.
@@ -41,7 +41,7 @@ Mais detalhes sobre o recomendador de grande & e seu algoritmo probabilística s
 + [Preparar os dados de treinamento](#prepare-data)
 + [Treinar o modelo](#train-the-model)
 
-### <a name="prepare-data"></a>Preparar os dados
+### <a name="prepare-data"></a>Preparar dados
 
 Antes de tentar usar o módulo, é essencial que os dados estejam no formato esperado pelo modelo de recomendação. Um conjunto de dados de treinamento de **percurso de classificação de usuário-item** é necessário, mas você também pode incluir recursos de usuário e recursos de item (se disponíveis), em conjuntos de dados separados.
 
@@ -66,7 +66,7 @@ O conjunto de os **recursos de usuário** deve conter identificadores para usuá
 
 Por exemplo, um conjunto típico de recursos de usuário pode ser assim: 
 
-|UserId|Idade|Gênero|Preocupações|Location|
+|UserId|Idade|Sexo|Preocupações|Location|
 |------------|--------------|-----------------------|---------------|------------|
 |1|25|masculino| Drama    |Europa|
 |223|40|feminino|Hora oficial românica|Ásia|

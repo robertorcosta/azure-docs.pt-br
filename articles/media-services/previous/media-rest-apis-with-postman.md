@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 11c9c26e7c0f36e1e3dba732e90a6aef95e6ee14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21eb3d9862c8fa2b840117d5f0e9fbd0ad2214c9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76694983"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091718"
 ---
 # <a name="configure-postman-for-media-services-v2-rest-api-calls"></a>Configurar o postmaster para chamadas da API REST do Media Services v2  
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Este tutorial mostra como configurar **Postman** para que ele possa ser usado para chamar APIs de REST dos Serviços de Mídia do Azure (AMS). O tutorial mostra como importar arquivos do ambiente e da coleção no **Postman**. A coleção contém definições agrupadas de solicitações HTTP que chamam as APIs de REST dos Serviços de Mídia do Azure (AMS). O arquivo de ambiente contém variáveis que são usadas pela coleção.
 
@@ -40,14 +41,14 @@ Este ambiente e a coleção são usados em artigos que mostram como realizar vá
 2. Abra o aplicativo **Postman**.
 3. À direita da tela, selecione a opção **Gerenciar ambiente**.
 
-    ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-create-env.png)
+    ![Fazer upload de um arquivo](./media/media-services-rest-upload-files/postman-create-env.png)
 4. Na caixa de diálogo **Gerenciar ambiente**, clique em **Importar**.
 5. Navegue e selecione o arquivo **AzureMediaServices.postman_environment.json**.
 6. O ambiente **AzureMedia** é adicionado.
 7. Feche a caixa de diálogo.
 8. Selecione o ambiente do **AzureMedia**.
 
-    ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-choose-env.png)
+    ![Fazer upload de um arquivo](./media/media-services-rest-upload-files/postman-choose-env.png)
 
 ## <a name="configure-the-collection"></a>Configurar a coleção
 
@@ -55,7 +56,7 @@ Este ambiente e a coleção são usados em artigos que mostram como realizar vá
 2. Clique em **Importar** para importar o arquivo de coleção.
 3. Escolha o arquivo **AzureMediaServicesOperations.postman_collection.json**.
 
-    ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-import-collection.png)
+    ![Fazer upload de um arquivo](./media/media-services-rest-upload-files/postman-import-collection.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

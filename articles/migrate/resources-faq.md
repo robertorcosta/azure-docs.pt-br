@@ -3,12 +3,12 @@ title: Perguntas frequentes sobre migrações para Azure
 description: Obtenha respostas para perguntas comuns sobre o serviço migrações para Azure.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 9b71888b284fd9cc125def4758d1e3800a92acf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 307a1d417b54ad9546c6e409ad8b105ea443da0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81530310"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090001"
 ---
 # <a name="azure-migrate-common-questions"></a>Migrações para Azure: perguntas comuns
 
@@ -32,6 +32,10 @@ As [migrações para Azure](migrate-services-overview.md) fornecem um hub centra
 [Azure site Recovery](../site-recovery/site-recovery-overview.md) é uma solução de recuperação de desastre. 
 
 A ferramenta migrações para Azure: Server Migration usa algumas funcionalidades de Site Recovery de back-end para a migração de deslocamento e mudança de algumas máquinas locais.
+
+## <a name="i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version"></a>Tenho um projeto com a experiência clássica anterior de migrações para Azure. Como fazer começar a usar a nova versão?
+
+Não é possível fazer upgrade de projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um novo projeto de migrações para Azure](create-manage-projects.md)e [Adicionar ferramentas de avaliação e migração](how-to-add-tool-first-time.md) a ele. Use os tutoriais para entender como usar as ferramentas de avaliação e migração disponíveis. Se você tiver um espaço de trabalho Log Analytics anexado a um projeto clássico, poderá anexá-lo a um projeto da versão atual depois de excluir o projeto clássico.
 
 ## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>Qual é a diferença entre as migrações para Azure: avaliação de servidor e o MAP Toolkit?
 

@@ -4,13 +4,14 @@ description: Como usar Azure Key Vault com o cache do Azure HPC para controlar o
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/29/2020
+ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: b7b9e9e6858d709e80642603e77bfb36f2e4c0c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cd97e205d88fe7ead02889f5ae9ad9df0985f07
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512899"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092517"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Usar chaves de criptografia gerenciadas pelo cliente para o cache do Azure HPC
 
@@ -18,6 +19,8 @@ Você pode usar Azure Key Vault para controlar a propriedade das chaves usadas p
 
 > [!NOTE]
 > Todos os dados armazenados no Azure, incluindo os discos de cache, são criptografados em repouso usando chaves gerenciadas pela Microsoft por padrão. Você só precisa seguir as etapas neste artigo se quiser gerenciar as chaves usadas para criptografar seus dados.
+
+O cache HPC do Azure também é protegido pela [criptografia do host da VM](../virtual-machines/linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) nos discos gerenciados que mantêm os dados armazenados em cache, mesmo que você adicione uma chave do cliente aos discos de cache. Adicionar uma chave gerenciada pelo cliente para criptografia dupla fornece um nível extra de segurança para clientes com necessidades de alta segurança. Leia [criptografia no servidor do armazenamento em disco do Azure](../virtual-machines/linux/disk-encryption.md) para obter detalhes.
 
 Esse recurso está disponível apenas em algumas das regiões do Azure em que o cache do Azure HPC está disponível. Consulte a lista de [disponibilidade de região](hpc-cache-overview.md#region-availability) para obter detalhes.
 

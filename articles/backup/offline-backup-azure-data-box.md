@@ -3,12 +3,12 @@ title: Backup offline usando Azure Data Box
 description: Saiba como você pode usar Azure Data Box para propagar grandes dados de backup inicial offline do agente MARS para um cofre dos serviços de recuperação.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: a60d749f270c9efab0649b49b5c0c41945faddf5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e377ccde714c1486ff731d24d5a0cd64364bca37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513686"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091021"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Backup offline do Backup do Azure usando Azure Data Box
 
@@ -21,7 +21,7 @@ Você pode usar [Azure data Box](../databox/data-box-overview.md) para propagar 
 
 Este artigo explica como você pode usar Azure Data Box para propagar grandes dados de backup inicial offline do agente MARS para um cofre dos serviços de recuperação.
 
-## <a name="supported-platforms"></a>Plataformas compatíveis
+## <a name="supported-platforms"></a>Plataformas com Suporte
 
 O processo para propagar dados do agente MARS usando Azure Data Box tem suporte nas seguintes SKUs do Windows.
 
@@ -153,7 +153,7 @@ O agente MARS opera no contexto do sistema local, portanto, requer que o mesmo n
 Para garantir que você possa montar seu dispositivo de Data Box como um sistema local usando o protocolo NFS:
 
 1. Habilite o cliente para o recurso NFS no Windows Server que tem o agente MARS instalado. Especifique o WIM de origem alternativo *: D: \sources\install.wim: 4*.
-1. Baixe o PSExec do no <https://download.sysinternals.com/files/PSTools.zip> servidor com o agente Mars instalado.
+1. Baixe o PsExec da página [Sysinternals](/sysinternals/downloads/psexec) para o servidor com o agente Mars instalado.
 1. Abra um prompt de comando com privilégios elevados e execute o comando a seguir com o diretório que contém *PSExec.exe* como o diretório atual.
 
     ```cmd

@@ -14,15 +14,16 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 465338bb793ad7b4fc406e9d1c073b9dc0dc06c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d632d078db55696dad7bb05e72368b13610b5978
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74034004"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091412"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Habilitar TDE (Transparent Data Encryption) para Stretch Database no Azure
 > [!div class="op_single_selector"]
-> * [Azure portal](sql-server-stretch-database-encryption-tde.md)
+> * [Portal do Azure](sql-server-stretch-database-encryption-tde.md)
 > * [TSQL](sql-server-stretch-database-tde-tsql.md)
 >
 >
@@ -36,9 +37,9 @@ Para habilitar a TDE para um banco de dados do Azure que armazena os dados migra
 
 1. Abra o banco de dados no [portal do Azure](https://portal.azure.com)
 2. Na folha do banco de dados, clique no botão **Configurações**
-3. Selecione a opção **Transparent Data Encryption**![][1]
-4. Selecione a configuração **ativado** e, em seguida, selecione **salvar**
-   ![][2]
+3. Selecione a opção de **Transparent Data Encryption** ![ captura de portal do Azure, com a folha configurações visíveis. Na seção geral, a Transparent Data Encryption é realçada.][1]
+4. Selecione a configuração **ativado** e, em seguida, selecione **salvar** 
+    ![ captura de tela da portal do Azure, com a folha Transparent Data Encryption visível. A criptografia de dados está ativada e o botão salvar está realçado.][2]
 
 ## <a name="disabling-encryption"></a>Desabilitando a criptografia
 Para desabilitar a TDE para um banco de dados do Azure que armazena os dados migrados de um banco de dados do SQL Server habilitado para ampliação, faça o seguinte:

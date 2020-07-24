@@ -12,16 +12,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 72cfdf172e4524e302ef2e22826d4f78ce32daf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 030a10e9138af32ee848009a14216c37567d9d2d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582724"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091990"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Pontos de extremidade de streaming (origem) nos serviços de mídia do Azure
 
-No Serviços de Mídia do Microsoft Azure, um [ponto de extremidade de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa um serviço de empacotamento e origem (just-in-time) dinâmico que pode entregar seu conteúdo ao vivo e sob demanda diretamente a um aplicativo de player de cliente usando um dos protocolos de mídia de streaming comuns (HLS ou Dash). Além disso, o **ponto de extremidade de streaming** fornece criptografia dinâmica (just-in-time) para DRMs líderes do setor. 
+No Serviços de Mídia do Microsoft Azure, um [ponto de extremidade de streaming](/rest/api/media/streamingendpoints) representa um serviço de empacotamento e origem (just-in-time) dinâmico que pode entregar seu conteúdo ao vivo e sob demanda diretamente a um aplicativo de player de cliente usando um dos protocolos de mídia de streaming comuns (HLS ou Dash). Além disso, o **ponto de extremidade de streaming** fornece criptografia dinâmica (just-in-time) para DRMs líderes do setor. 
 
 Quando você cria uma conta de Serviços de Mídia, um Ponto de Extremidade de Streaming **padrão** é criado em um estado parado. Não é possível excluir o ponto de extremidade de streaming **padrão** . Mais pontos de extremidade de streaming podem ser criados na conta (consulte [cotas e limites](limits-quotas-constraints.md)).
 
@@ -41,7 +41,7 @@ Ao usar o ponto de extremidade de streaming padrão, `servicename` é omitido pa
 ### <a name="limitations"></a>Limitações
 
 * O nome do ponto de extremidade de streaming tem um valor máximo de 24 caracteres.
-* O nome deve seguir este padrão de [Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
+* O nome deve seguir este padrão de [Regex](/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
 
 ## <a name="types"></a>Tipos
 
@@ -49,7 +49,7 @@ Há dois tipos de **ponto de extremidade de streaming** : **Standard** (visualiz
 
 A tabela descreve os tipos:
 
-|Type|Unidades de escala|Descrição|
+|Tipo|Unidades de escala|Descrição|
 |--------|--------|--------|  
 |**Standard**|0|O ponto de extremidade de streaming padrão é um tipo **padrão** — ele pode ser alterado para o tipo Premium ajustando `scaleUnits` .|
 |**Premium**|>0|**Premium** Os pontos de extremidade de streaming são adequados para cargas de trabalho avançadas e para fornecer capacidade de largura de banda dedicada e escalonável. Você passa para um tipo **Premium** ajustando `scaleUnits` (unidades de streaming). `scaleUnits` fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao usar o tipo **Premium** , cada unidade habilitada fornece capacidade de largura de banda adicional para o aplicativo. |
@@ -63,7 +63,7 @@ Para obter informações de SLA, consulte [preços e SLA](https://azure.microsof
 
 Recurso|Standard|Premium
 ---|---|---
-Produtividade |Até 600 Mbps e pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.|200 Mbps por UA (unidade de streaming). Pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.
+Taxa de transferência |Até 600 Mbps e pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.|200 Mbps por UA (unidade de streaming). Pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.
 CDN|CDN do Azure, CDN de terceiros ou nenhuma CDN.|CDN do Azure, CDN de terceiros ou nenhuma CDN.
 A cobrança é rateada| Diariamente|Diariamente
 Criptografia dinâmica|Sim|Sim
@@ -77,7 +77,7 @@ Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|U
 
 ## <a name="streaming-endpoint-properties"></a>Propriedades de ponto de extremidade de streaming
 
-Esta seção fornece detalhes sobre algumas das propriedades do ponto de extremidade de streaming. Para exemplos de como criar um novo ponto de extremidade de streaming e descrições de todas as propriedades, consulte [Ponto de Extremidade de Streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints/create).
+Esta seção fornece detalhes sobre algumas das propriedades do ponto de extremidade de streaming. Para exemplos de como criar um novo ponto de extremidade de streaming e descrições de todas as propriedades, consulte [Ponto de Extremidade de Streaming](/rest/api/media/streamingendpoints/create).
 
 - `accessControl`: Usado para definir as seguintes configurações de segurança para este ponto de extremidade de streaming: chaves de autenticação de cabeçalho de assinatura Akamai e endereços IP que têm permissão para se conectar a esse ponto de extremidade. Essa propriedade só pode ser definida quando `cdnEnabled` é definida como false.
 
@@ -92,7 +92,7 @@ Esta seção fornece detalhes sobre algumas das propriedades do ponto de extremi
 
 - `cdnProfile`: Quando `cdnEnabled` é definido como true, você também pode passar `cdnProfile` valores. `cdnProfile` é o nome do perfil CDN no qual o ponto de extremidade CDN será criado. Você pode fornecer um cdnProfile existente ou usar um novo. Se o valor for NULL e `cdnEnabled` for verdadeiro, o valor padrão "AzureMediaStreamingPlatformCdnProfile" será usado. Se o perfil `cdnProfile` fornecido já existir, um ponto de extremidade será criado sob ele. Se o perfil não existir, um novo perfil será criado automaticamente.
 - `cdnProvider`: Quando a CDN está habilitada, você também pode passar `cdnProvider` valores. `cdnProvider` controla qual provedor será usado. Atualmente, há suporte para três valores: "StandardVerizon", "PremiumVerizon" e "StandardAkamai". Se nenhum valor for fornecido e `cdnEnabled` for true, "StandardVerizon" será usado (esse é o valor padrão).
-- `crossSiteAccessPolicies`: Usado para especificar políticas de acesso entre sites para vários clientes. Para obter mais informações, consulte [Especificação de arquivo de política entre domínios](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) e [Disponibilizando um serviço entre limites de domínios](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx). As configurações se aplicam somente a Smooth Streaming.
+- `crossSiteAccessPolicies`: Usado para especificar políticas de acesso entre sites para vários clientes. Para obter mais informações, consulte [Especificação de arquivo de política entre domínios](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) e [Disponibilizando um serviço entre limites de domínios](/previous-versions/azure/azure-services/gg185950(v=azure.100)). As configurações se aplicam somente a Smooth Streaming.
 - `customHostNames`: Usado para configurar um ponto de extremidade de streaming para aceitar o tráfego direcionado para um nome de host personalizado. Essa propriedade é válida para pontos de extremidade de streaming Standard e Premium e pode ser definida quando `cdnEnabled` : false.
 
     A propriedade do nome de domínio deve ser confirmada pelos serviços de mídia. Os serviços de mídia verificam a propriedade do nome de domínio exigindo um `CName` registro que contém a ID da conta dos serviços de mídia como um componente a ser adicionado ao domínio em uso. Por exemplo, para "sports.contoso.com" ser usado como um nome do host personalizado para o ponto de extremidade de streaming, um registro para `<accountId>.contoso.com` deve ser configurado para apontar para um dos nomes do host de verificação dos Serviços de Mídia. O nome do host de verificação é composto de verifydns. \<mediaservices-dns-zone> .

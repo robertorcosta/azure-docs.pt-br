@@ -3,11 +3,13 @@ title: Matriz de suporte do Backup do Azure
 description: Fornece um resumo de configurações compatíveis e limitações do serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 4946a4627d037053e441152182278c26b4f693fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: f84be4082eb6bc845459b6d88cb3157b2330f23d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84655632"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091004"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte Backup do Azure
 
@@ -31,10 +33,10 @@ A tabela a seguir descreve os recursos dos cofres de Serviços de Recuperação:
 --- | ---
 **Cofres na assinatura** | Até 500 cofres dos Serviços de Recuperação em uma assinatura única.
 **Computadores em um cofre** | Até 1.000 VMs do Azure em um único cofre.<br/><br/> Até 50 servidores MABS podem ser registrados em um único cofre.
-**Fontes de dados** | O tamanho máximo de uma [fonte de dados](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#how-is-the-data-source-size-determined) individual é de 54.400 GB. Este limite não se aplica a backups de VM do Azure. Nenhum limite se aplica à quantidade total de dados sobre os quais você pode fazer backup para o cofre.
+**Fontes de dados** | O tamanho máximo de uma [fonte de dados](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) individual é de 54.400 GB. Este limite não se aplica a backups de VM do Azure. Nenhum limite se aplica à quantidade total de dados sobre os quais você pode fazer backup para o cofre.
 **Backups no cofre** | **VMs do Azure:** Uma vez por dia.<br/><br/>**Computadores protegidos por DPM/MABS:** Duas vezes por dia.<br/><br/> **Backup direto de computadores usando o agente MARS:** Três vezes por dia.
 **Backups entre cofres** | O backup é dentro de uma região.<br/><br/> Você precisa de um cofre em cada região do Azure que contenha VMs que você deseja fazer backup. Você não pode fazer backup em uma região diferente.
-**Movimentação de cofres** | Você pode [mover cofres](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) entre assinaturas ou entre grupos de recursos na mesma assinatura. No entanto, não há suporte para a movimentação de cofres entre regiões.
+**Movimentação de cofres** | Você pode [mover cofres](./backup-azure-move-recovery-services-vault.md) entre assinaturas ou entre grupos de recursos na mesma assinatura. No entanto, não há suporte para a movimentação de cofres entre regiões.
 **Mover dados entre cofres** | Não há suporte para a movimentação de dados de backup entre cofres.
 **Modificar o tipo de armazenamento do cofre** | Você pode modificar o tipo de replicação de armazenamento (armazenamento com redundância geográfica ou armazenamento com redundância local) para um cofre antes que os backups sejam armazenados. Após o início dos backups no cofre, o tipo de replicação não poderá ser modificado.
 
@@ -55,7 +57,7 @@ Veja a seguir os itens compatíveis, caso deseje fazer backup de computadores lo
 
 **Limite** | **Detalhes**
 --- | ---
-**Discos de dados de VM do Azure** | Veja a [matriz de suporte para backup de VM do Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support).
+**Discos de dados de VM do Azure** | Veja a [matriz de suporte para backup de VM do Azure](./backup-support-matrix-iaas.md#vm-storage-support).
 **Tamanho do disco de dados de VM do Azure** | O tamanho do disco individual pode ter até 32 TB e um máximo de 256 TB combinados para todos os discos em uma VM.
 
 ### <a name="azure-vm-backup-options"></a>Opções de backup de VM do Azure

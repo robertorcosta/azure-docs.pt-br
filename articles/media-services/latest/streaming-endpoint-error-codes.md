@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 7d3a85e6fcc5b9d1c5ca1511cd7edd05ff5d9ae4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fc201cc1f3d4d26ca7b9e949d2917688e6fea8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582694"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091973"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Erros de ponto de extremidade de streaming (origem) 
 
@@ -163,13 +163,13 @@ Para obter artigos e exemplos ao vivo, consulte:
 - [Conceito: eventos ao vivo e saídas ao vivo](live-events-outputs-concept.md)
 - [Exemplo: tutorial de transmissão ao vivo](stream-live-tutorial-with-api.md)
 
-## <a name="416-range-not-satisfiable"></a>intervalo 416 não satisfatório
+## <a name="416-range-not-satisfiable"></a>416 Intervalo não satisfatório
 
 |Código do erro|Valor hexadecimal |Descrição do erro|
 |---|---|---|
 |MPE_STORAGE_INVALID_RANGE|0x808900F1|Erro de operação de armazenamento, retornou erro http 416, intervalo inválido.|
 
-## <a name="500-internal-server-error"></a>500 Erro Interno do Servidor
+## <a name="500-internal-server-error"></a>Erro interno de servidor 500
 
 Durante o processamento da solicitação, os Serviços de Mídia encontram algum erro que impede o processamento de continuar.  
 
@@ -200,7 +200,7 @@ Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-co
 
 ## <a name="see-also"></a>Confira também
 
-- [Códigos de erro de codificação](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
+- [Códigos de erro de codificação](/rest/api/media/jobs/get#joberrorcode)
 - [Conceitos dos Serviços de Mídia do Azure](concepts-overview.md)
 - [Cotas e limites](limits-quotas-constraints.md)
 

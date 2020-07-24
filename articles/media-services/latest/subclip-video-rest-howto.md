@@ -13,15 +13,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: juliako
-ms.openlocfilehash: c39aded55fe36cb130459a4f6f119f872b1adbc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b112b3844ddb3758b79a086b624a227127e65ce2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76514316"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091871"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Subclipe um vídeo ao codificar com os serviços de mídia-REST
 
-Você pode cortar ou subcortar um vídeo ao codificá-lo usando um [trabalho](https://docs.microsoft.com/rest/api/media/jobs). Essa funcionalidade funciona com qualquer [Transformação](https://docs.microsoft.com/rest/api/media/transforms) criada usando as predefinições [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). 
+Você pode cortar ou subcortar um vídeo ao codificá-lo usando um [trabalho](/rest/api/media/jobs). Essa funcionalidade funciona com qualquer [Transformação](/rest/api/media/transforms) criada usando as predefinições [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). 
 
 O exemplo de REST neste tópico cria um trabalho que corta um vídeo à medida que envia um trabalho de codificação. 
 
@@ -29,7 +30,7 @@ O exemplo de REST neste tópico cria um trabalho que corta um vídeo à medida q
 
 Para concluir as etapas descritas neste tópico, você precisa:
 
-- [Crie uma conta dos serviços de mídia do Azure](create-account-cli-how-to.md).
+- [Crie uma conta dos serviços de mídia do Azure](./create-account-howto.md).
 - [Configurar o Postman para chamadas à API REST de Serviços de Mídia do Azure](media-rest-apis-with-postman.md).
     
     Certifique-se de seguir a última etapa no tópico [Obter token do Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 

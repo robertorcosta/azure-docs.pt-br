@@ -4,11 +4,12 @@ description: Este artigo descreve como usar o Backup Explorer para executar o mo
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: e891ee1ccfbe929aaa8ac35518b40f5514da714f
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: f514f899f2db70ecb2924c2e627f3bed28e3dcad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715198"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092789"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Monitorar seus backups com o Backup Explorer
 
@@ -93,8 +94,8 @@ Você pode selecionar o ícone "fixar" na parte superior de cada tabela ou gráf
 
 ## <a name="cross-tenant-views"></a>Exibições entre locatários
 
-Se você for um usuário do Azure Lighthouse com acesso delegado a assinaturas em vários ambientes de locatário, poderá usar o filtro de assinatura padrão. Você exibe as assinaturas para as quais deseja ver os dados selecionando o ícone "filtrar" no canto superior direito do portal do Azure. Quando você usa esse recurso, o Backup Explorer agrega informações sobre todos os cofres em suas assinaturas selecionadas. Para saber mais, confira [O que é o Azure Lighthouse?](https://docs.microsoft.com/azure/lighthouse/overview).
+Se você for um usuário do Azure Lighthouse com acesso delegado a assinaturas em vários ambientes de locatário, poderá usar o filtro de assinatura padrão. Você exibe as assinaturas para as quais deseja ver os dados selecionando o ícone "filtrar" no canto superior direito do portal do Azure. Quando você usa esse recurso, o Backup Explorer agrega informações sobre todos os cofres em suas assinaturas selecionadas. Para saber mais, confira [O que é o Azure Lighthouse?](../lighthouse/overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba como usar Azure Monitor para obter informações sobre seus dados de backup](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor)
+[Saiba como usar Azure Monitor para obter informações sobre seus dados de backup](./backup-azure-monitoring-use-azuremonitor.md)

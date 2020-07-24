@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2020
+ms.date: 07/19/2020
 ms.author: memildin
-ms.openlocfilehash: f3ef633ff0271d74eea7320faadf17685976d3b6
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 2f995f3f6defd73575d9e1bf19326a828f1e6038
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970460"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089899"
 ---
 # <a name="azure-container-registry-integration-with-security-center"></a>Integração do registro de contêiner do Azure com a central de segurança
 
@@ -30,6 +30,11 @@ Se você estiver na camada Standard da central de segurança do Azure, poderá a
 
 - Estado da versão: **disponibilidade geral**
 - Funções necessárias: **leitor de segurança** e [função de leitor do registro de contêiner do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+- Registros com suporte:
+    - ✔ Registros de ACR hospedados pelo Linux que são acessíveis pela Internet pública e fornecem acesso ao shell.
+    - ✘ Registros de ACR hospedados pelo Windows.
+    - Registros ' Private ' do ✘-a central de segurança exige que seus registros sejam acessíveis da Internet pública. Se você tiver limitado o acesso aos seus registros com um firewall, um ponto de extremidade de serviço ou usando o ponto de extremidade privado (por exemplo, link privado do Azure), a central de segurança não poderá se conectar, ou verificar, ao registro no momento.
+    - ✘ Imagens de super plataforma, como imagens de [rascunho do Docker](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que contêm apenas um aplicativo e suas dependências de tempo de execução sem um Gerenciador de pacotes, Shell ou sistema operacional.
 - Nuvens: 
     - ✔ Nuvens comerciais
     - Nuvem do governo ✘ dos EUA
@@ -40,7 +45,7 @@ Se você estiver na camada Standard da central de segurança do Azure, poderá a
 
 Sempre que uma imagem é enviada para o registro, a central de segurança verifica a imagem automaticamente. Para disparar a verificação de uma imagem, envie-a por push para o repositório.
 
-Quando a verificação for concluída (normalmente após cerca de 10 minutos, mas pode ter até 40 minutos), as descobertas estarão disponíveis como recomendações da central de segurança como esta:
+Quando a verificação for concluída (normalmente após aproximadamente 2 minutos, mas pode ter até 15 minutos), as descobertas estarão disponíveis como recomendações da central de segurança como esta:
 
 [![Exemplo de recomendação da central de segurança do Azure sobre vulnerabilidades descobertas em uma imagem hospedada do registro de contêiner do Azure (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
@@ -58,11 +63,6 @@ A central de segurança identifica registros ACR baseados em ARM em sua assinatu
 
 
 ## <a name="acr-with-security-center-faq"></a>Perguntas frequentes sobre ACR com a central de segurança
-
-### <a name="what-types-of-images-can-azure-security-center-scan"></a>Quais tipos de imagens a central de segurança do Azure pode verificar?
-A central de segurança examina as imagens baseadas no SO Linux que fornecem acesso ao shell. 
-
-O scanner Qualys não dá suporte a imagens de super plataforma, como imagens de [rascunho do Docker](https://hub.docker.com/_/scratch/) , ou imagens "Distroless" que contêm apenas seu aplicativo e suas dependências de tempo de execução sem um Gerenciador de pacotes, Shell ou sistema operacional.
 
 ### <a name="how-does-azure-security-center-scan-an-image"></a>Como a central de segurança do Azure examina uma imagem?
 A imagem é extraída do registro. Em seguida, ele é executado em uma área restrita isolada com o scanner Qualys, que extrai uma lista de vulnerabilidades conhecidas.

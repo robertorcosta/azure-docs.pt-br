@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas para perguntas comuns sobre: recursos de Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 96733ffaae101bb2cf716fda7500a8269ce8e357
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 6d05c06b1d27cd9d1bc396bddad49fcc89ba3ec3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970477"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091072"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 
@@ -111,7 +111,7 @@ Windows 8 ou superior | 54.400 GB
 Windows 7 |1700 GB
 Windows Server 2012 ou posterior | 54.400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-VM do Azure | Consulte a [matriz de suporte para backup de VM do Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support)
+VM do Azure | Consulte a [matriz de suporte para backup de VM do Azure](./backup-support-matrix-iaas.md#vm-storage-support)
 
 ### <a name="how-is-the-data-source-size-determined"></a>Como é determinado o tamanho da fonte de dados?
 
@@ -120,14 +120,14 @@ A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
 **Fonte de dados** | **Detalhes**
 --- | ---
 Volume |A quantidade de dados incluída no backup da VM de volume único que está sendo submetida a backup.
-Banco de dados do SQL Server |Tamanho do tamanho do banco de dados individual cujo backup está sendo feito.
+Banco de dados SQL Server |Tamanho do tamanho do banco de dados individual cujo backup está sendo feito.
 SharePoint | A soma dos bancos de dados de conteúdo e de configuração em um farm do SharePoint do qual está sendo feito o backup.
 Exchange |Soma de todos os bancos de dados do Exchange em um servidor Exchange do qual está sendo feito o backup.
 Estado do sistema/BMR |Cada cópia individual do BMR ou do estado do sistema da máquina da qual está sendo feito o backup.
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Há um limite na quantidade de dados de backup em um cofre dos Serviços de Recuperação?
 
-Não há nenhum limite na quantidade total de dados que você pode fazer backup usando um cofre dos serviços de recuperação. As fontes de dados individuais (que não sejam as VMs do Azure) podem ter no máximo 54.400 GB de tamanho. Para obter mais informações sobre limites, consulte a [seção limites de cofre na matriz de suporte](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support).
+Não há nenhum limite na quantidade total de dados que você pode fazer backup usando um cofre dos serviços de recuperação. As fontes de dados individuais (que não sejam as VMs do Azure) podem ter no máximo 54.400 GB de tamanho. Para obter mais informações sobre limites, consulte a [seção limites de cofre na matriz de suporte](./backup-support-matrix.md#vault-support).
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Por que o tamanho dos dados transferidos para o cofre dos Serviços de Recuperação é menor do que os dados selecionados para backup?
 

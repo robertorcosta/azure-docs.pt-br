@@ -2,13 +2,13 @@
 title: Como solucionar problemas do Azure Monitor para contêineres | Microsoft Docs
 description: Este artigo descreve como você pode solucionar e resolver problemas com o Azure Monitor para contêineres.
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.openlocfilehash: bc4105dc23445c29364961501f93e42f8c3b683d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/21/2020
+ms.openlocfilehash: fcd799c63e4afb68d96f67d1c03016a4d3b10f34
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800436"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092823"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Solução de problemas do Azure Monitor para contêineres
 
@@ -23,7 +23,7 @@ Durante a integração ou o processo de atualização, é tentada a concessão d
 Você também pode conceder manualmente essa função da portal do Azure executando as seguintes etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. No portal do Azure, clique em **Todos os serviços**, encontrado no canto superior esquerdo. Na lista de recursos, digite **kubernetes**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Azure kubernetes**.
+2. No portal do Azure, clique em **Todos os serviços**, encontrado no canto superior esquerdo. Na lista de recursos, digite **kubernetes**. À medida que você começa a digitar, a lista filtra com base em sua entrada. Selecione **Azure kubernetes**.
 3. Na lista de clusters kubernetes, selecione um na lista.
 2. No menu à esquerda, clique em **controle de acesso (iam)**.
 3. Selecione **+ Adicionar** para adicionar uma atribuição de função e selecione a função de **Editor de métricas de monitoramento** e, na caixa **selecionar** , digite **AKs** para filtrar os resultados em apenas as entidades de serviço de clusters definidas na assinatura. Selecione aquele na lista específica para esse cluster.
@@ -37,7 +37,7 @@ Se Azure Monitor para contêineres for habilitado e configurado com êxito, mas 
 
     `kubectl get ds omsagent --namespace=kube-system`
 
-    A saída deve ser semelhante à seguinte, que indica que ela foi implantada corretamente:
+    A saída deve ser semelhante ao seguinte exemplo, que indica que ela foi implantada corretamente:
 
     ```
     User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
@@ -48,7 +48,7 @@ Se Azure Monitor para contêineres for habilitado e configurado com êxito, mas 
 
     `kubectl get ds omsagent-win --namespace=kube-system`
 
-    A saída deve ser semelhante à seguinte, que indica que ela foi implantada corretamente:
+    A saída deve ser semelhante ao seguinte exemplo, que indica que ela foi implantada corretamente:
 
     ```
     User@aksuser:~$ kubectl get ds omsagent-win --namespace=kube-system
@@ -82,33 +82,6 @@ Se Azure Monitor para contêineres for habilitado e configurado com êxito, mas 
     omsagent-win-6drwq                  1/1       Running   0          1d
     ```
 
-5. Verifique os logs de agente. Quando o agente em contêineres é implantado, ele executa uma verificação rápida executando comandos do OMI e mostra a versão do agente e do provedor.
-
-6. Para verificar se o agente foi implantado com êxito, execute o comando:`kubectl logs omsagent-484hw --namespace=kube-system`
-
-    O status deve ser semelhante a este exemplo:
-
-    ```
-    User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
-    :
-    :
-    instance of Container_HostInventory
-    {
-        [Key] InstanceID=3a4407a5-d840-4c59-b2f0-8d42e07298c2
-        Computer=aks-nodepool1-39773055-0
-        DockerVersion=1.13.1
-        OperatingSystem=Ubuntu 16.04.3 LTS
-        Volume=local
-        Network=bridge host macvlan null overlay
-        NodeRole=Not Orchestrated
-        OrchestratorType=Kubernetes
-    }
-    Primary Workspace: b438b4f6-912a-46d5-9cb1-b44069212abc    Status: Onboarded(OMSAgent Running)
-    omi 1.4.2.2
-    omsagent 1.6.0.23
-    docker-cimprov 1.0.0.31
-    ```
-
 ## <a name="error-messages"></a>Mensagens de erro
 
 A tabela abaixo resume os erros conhecidos que você pode encontrar ao usar o Monitor do Azure para contêineres.
@@ -117,7 +90,7 @@ A tabela abaixo resume os erros conhecidos que você pode encontrar ao usar o Mo
 | ---- | --- |
 | Mensagem de erro `No data for selected filters`  | Pode levar algum tempo para estabelecer o fluxo de dados de monitoramento para clusters recém-criados. Aguarde pelo menos 10 a 15 minutos para que os dados sejam exibidos para o cluster. |
 | Mensagem de erro `Error retrieving data` | Enquanto o cluster do serviço kubernetes do Azure está configurando para monitoramento de integridade e desempenho, uma conexão é estabelecida entre o cluster e o espaço de trabalho do Azure Log Analytics. Um espaço de trabalho do Log Analytics é usado para armazenar todos os dados de monitoramento do cluster. Esse erro pode ocorrer quando seu espaço de trabalho Log Analytics foi excluído. Verifique se o espaço de trabalho foi excluído e, se ele foi, será necessário reabilitar o monitoramento do cluster com Azure Monitor para contêineres e especificar um novo espaço de trabalho ou criar um existente. Para reabilitar, você precisará [desabilitar](container-insights-optout.md) o monitoramento do cluster e [habilitar](container-insights-enable-new-cluster.md) Azure monitor para contêineres novamente. |
-| `Error retrieving data` Depois de adicionar o Azure Monitor para contêineres por meio da cli do az aks | Ao habilitar o monitoramento usando `az aks cli` , os Azure monitor para contêineres podem não ser implantados corretamente. Verifique se a solução está implantada. Para fazer isso, vá para o espaço de trabalho do Log Analytics e veja se a solução está disponível selecionando **Soluções** no painel à esquerda. Para resolver esse problema, você precisará reimplantar a solução seguindo as instruções em [como implantar o Monitor do Azure para contêineres](container-insights-onboard.md) |
+| `Error retrieving data` Depois de adicionar o Azure Monitor para contêineres por meio da cli do az aks | Ao habilitar o monitoramento usando `az aks cli` , os Azure monitor para contêineres podem não ser implantados corretamente. Verifique se a solução está implantada. Para verificar, acesse o espaço de trabalho Log Analytics e veja se a solução está disponível selecionando **soluções** no painel à esquerda. Para resolver esse problema, você precisará reimplantar a solução seguindo as instruções em [como implantar o Monitor do Azure para contêineres](container-insights-onboard.md) |
 
 Para ajudar a diagnosticar o problema, fornecemos um script de solução de problemas disponível [aqui](https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/troubleshoot/TroubleshootError_nonAzureK8s.ps1).
 

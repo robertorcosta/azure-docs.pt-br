@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: aa2af4302613aad23bfd78b4883bbb46c5e5ddbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3571455db6ecc600bf0948087b40c281d72512ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76961121"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091242"
 ---
 # <a name="enable-cloudsimple-private-cloud-dns-servers-to-forward-dns-lookup-of-on-premises-resources-to-your-dns-servers"></a>Habilitar servidores DNS da nuvem privada do CloudSimple para encaminhar a pesquisa DNS de recursos locais para seus servidores DNS
 
@@ -31,7 +32,7 @@ O encaminhamento de pesquisa de DNS para seu servidor DNS local permite que voc�
 Uma conexão de rede deve estar presente em sua rede de nuvem privada para sua rede local para que o encaminhamento de DNS funcione.  Você pode configurar a conexão de rede usando:
 
 * [Conectar de local para CloudSimple usando o ExpressRoute](on-premises-connection.md)
-* [Configurar um gateway de VPN site a site](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway#set-up-a-site-to-site-vpn-gateway)
+* [Configurar um gateway de VPN site a site](./vpn-gateway.md#set-up-a-site-to-site-vpn-gateway)
 
 As portas de firewall devem ser abertas nesta conexão para que o encaminhamento de DNS funcione.  As portas usadas são a porta TCP 53 ou a porta UDP 53.
 

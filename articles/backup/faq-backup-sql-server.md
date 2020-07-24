@@ -4,11 +4,12 @@ description: Encontre respostas para perguntas comuns sobre como fazer backup de
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 11657a5dda79fc550f4c07d4020d75c671335da4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2781646e548f4f530b26ca41466f158597e817d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248253"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090970"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Perguntas frequentes sobre SQL Server bancos de dados que estão em execução em um backup de VM do Azure
 
@@ -48,7 +49,7 @@ O valor padrão de DefaultBackupTasksThreshold é **20**.
 
 3. Salve suas alterações e feche o arquivo.
 4. Na instância do SQL Server, abra **Gerenciador de Tarefas**. Reinicie o serviço **AzureWLBackupCoordinatorSvc**.<br/> <br/>
- Embora esse método ajude se o aplicativo de backup está consumindo uma grande quantidade de recursos, SQL Server [resource governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) é uma maneira mais genérica de especificar limites na quantidade de CPU, e/s física e memória que as solicitações de aplicativos de entrada podem usar.
+ Embora esse método ajude se o aplicativo de backup está consumindo uma grande quantidade de recursos, SQL Server [resource governor](/sql/relational-databases/resource-governor/resource-governor) é uma maneira mais genérica de especificar limites na quantidade de CPU, e/s física e memória que as solicitações de aplicativos de entrada podem usar.
 
 > [!NOTE]
 > No UX, você ainda pode prosseguir e agendar quantos backups a qualquer momento, no entanto, eles serão processados em uma janela deslizante de digamos, 5, de acordo com o exemplo acima.

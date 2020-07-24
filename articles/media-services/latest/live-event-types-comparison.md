@@ -13,21 +13,22 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: a28d4d96f643c12eeb6aa542db2c6af06f4fd954
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 793ddb8c99a4e21c176374f7cb3445d1a7d8fca0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78244635"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090052"
 ---
 # <a name="live-event-types-comparison"></a>Comparação de tipos de Eventos ao Vivo
 
-Nos serviços de mídia do Azure, um [evento ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) pode ser definido como uma *passagem* (um codificador ao vivo local envia um fluxo de taxa de bits múltipla) ou *codificação ativa* (um codificador ao vivo local envia um fluxo de taxa de bits única). 
+Nos serviços de mídia do Azure, um [evento ao vivo](/rest/api/media/liveevents) pode ser definido como uma *passagem* (um codificador ao vivo local envia um fluxo de taxa de bits múltipla) ou *codificação ativa* (um codificador ao vivo local envia um fluxo de taxa de bits única). 
 
 Este artigo compara os recursos dos tipos de evento ao vivo.
 
 ## <a name="types-comparison"></a>Comparação de tipos 
 
-A tabela a seguir compara os recursos dos tipos de evento ao vivo. Os tipos são definidos durante a criação usando [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+A tabela a seguir compara os recursos dos tipos de evento ao vivo. Os tipos são definidos durante a criação usando [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype):
 
 * **LiveEventEncodingType. None** -um codificador ao vivo local envia um fluxo de taxas de bits múltiplas. Os fluxos ingeridos passam pelo evento ao vivo sem nenhum processamento adicional. Também conhecido como evento de passagem ao vivo.
 * **LiveEventEncodingType. Standard** -um codificador ao vivo local envia um fluxo de taxa de bits única para o evento ao vivo e os serviços de mídia criam fluxos de taxas de bits múltiplas. Se o feed de contribuição for de 720p ou de resolução superior, a predefinição de **default720p** codificará um conjunto de 6 pares de resolução/taxa de bits (os detalhes são seguidos posteriormente no artigo).
@@ -50,7 +51,7 @@ A tabela a seguir compara os recursos dos tipos de evento ao vivo. Os tipos são
 | Resolução máxima de vídeo do vídeo de saída|Igual à entrada|Standard-720p, Premium1080p-1080p|
 | Taxa máxima de quadros do vídeo de entrada|60 quadros/segundo|Standard ou Premium1080p-30 quadros/segundo|
 | Protocolos de entrada|RTMP, MP4 fragmentado (Smooth Streaming)|RTMP, MP4 fragmentado (Smooth Streaming)|
-| Price|Confira a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique na guia “Vídeo ao vivo”|Confira a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique na guia “Vídeo ao vivo”|
+| Preço|Confira a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique na guia “Vídeo ao vivo”|Confira a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique na guia “Vídeo ao vivo”|
 | Tempo de execução máximo| 24 horas x 365 dias, linha ao vivo | 24 horas x 365 dias, linear ao vivo (versão prévia)|
 | Capacidade de passar por meio do embedded CEA 608/708 legendas de dados|Sim|Sim|
 | Capacidade de ativar a transcrição dinâmica|Sim|Sim|
@@ -64,7 +65,7 @@ A tabela a seguir compara os recursos dos tipos de evento ao vivo. Os tipos são
 
 ## <a name="system-presets"></a>Predefinições do sistema
 
-As resoluções e taxas de bits contidas na saída do codificador ao vivo são determinadas pelo [predefinidor](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencoding). Se você estiver usando um codificador ativo **padrão** (LiveEventEncodingType. Standard), a predefinição *default720p* especificará um conjunto de 6 pares de resolução/taxa de bits descritos abaixo. Caso contrário, se estiver usando um codificador **Premium1080p** Live (LiveEventEncodingType. Premium1080p), a predefinição de *default1080p* especificará o conjunto de saída de pares de resolução/taxa de bits.
+As resoluções e taxas de bits contidas na saída do codificador ao vivo são determinadas pelo [predefinidor](/rest/api/media/liveevents/create#liveeventencoding). Se você estiver usando um codificador ativo **padrão** (LiveEventEncodingType. Standard), a predefinição *default720p* especificará um conjunto de 6 pares de resolução/taxa de bits descritos abaixo. Caso contrário, se estiver usando um codificador **Premium1080p** Live (LiveEventEncodingType. Premium1080p), a predefinição de *default1080p* especificará o conjunto de saída de pares de resolução/taxa de bits.
 
 > [!NOTE]
 > Você não poderá aplicar a predefinição de default1080p a um evento ao vivo se ela tiver sido configurada para codificação ativa padrão – você receberá um erro. Você também receberá um erro se tentar aplicar a predefinição default720p a um codificador ao vivo Premium1080p.
@@ -75,12 +76,12 @@ Se o feed de contribuição for de 720p ou de resolução superior, a predefini�
 
 | Bitrate | Largura | Altura | MáxFPS | Perfil |
 | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Alta |
-| 2200 |960 |540 |30 |Alta |
-| 1350 |704 |396 |30 |Alta |
-| 850 |512 |288 |30 |Alta |
-| 550 |384 |216 |30 |Alta |
-| 200 |340 |192 |30 |Alta |
+| 3500 |1280 |720 |30 |Alto |
+| 2200 |960 |540 |30 |Alto |
+| 1350 |704 |396 |30 |Alto |
+| 850 |512 |288 |30 |Alto |
+| 550 |384 |216 |30 |Alto |
+| 200 |340 |192 |30 |Alto |
 
 > [!NOTE]
 > Se você precisar personalizar a predefinição de codificação ativa, abra um tíquete de suporte por meio do portal do Azure. Você deve especificar a tabela desejada da resolução e das taxas de bits. Verifique se há apenas uma camada em 720p e no máximo seis camadas. Além disso, especifique que você está solicitando uma predefinição para um codificador ao vivo padrão.
@@ -92,12 +93,12 @@ Se o feed de contribuição for de 1080p resolução, a predefinição de **defa
 
 | Bitrate | Largura | Altura | MáxFPS | Perfil |
 | --- | --- | --- | --- | --- |
-| 5500 |1920 |1080 |30 |Alta |
-| 3000 |1280 |720 |30 |Alta |
-| 1600 |960 |540 |30 |Alta |
-| 800 |640 |360 |30 |Alta |
-| 400 |480 |270 |30 |Alta |
-| 200 |320 |180 |30 |Alta |
+| 5500 |1920 |1080 |30 |Alto |
+| 3000 |1280 |720 |30 |Alto |
+| 1600 |960 |540 |30 |Alto |
+| 800 |640 |360 |30 |Alto |
+| 400 |480 |270 |30 |Alto |
+| 200 |320 |180 |30 |Alto |
 
 > [!NOTE]
 > Se você precisar personalizar a predefinição de codificação ativa, abra um tíquete de suporte por meio do portal do Azure. Você deve especificar a tabela desejada da resolução e das taxas de bits. Verifique se há apenas uma camada em 1080p e no máximo 6 camadas. Além disso, especifique que você está solicitando uma predefinição para um codificador ao vivo Premium1080p.

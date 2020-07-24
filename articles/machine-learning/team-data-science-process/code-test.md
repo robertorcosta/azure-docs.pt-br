@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: 9612114bb368898ccf31b2c8692869b84544b652
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc837405e03ffac41d216a5ba18384208b07aaf1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76721931"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090290"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Teste de código de ciência de dados no Azure com o Processo de Ciência de Dados da Equipe e o Azure DevOps Services
 Este artigo oferece diretrizes preliminares para testar o código em um fluxo de trabalho de ciência de dados. Esse teste fornece aos cientistas de dados uma maneira sistemática e eficiente de verificar a qualidade e o resultado esperado de seu código. Usamos um projeto [TDSP (Processo de Ciência de Dados de Equipe) que usa o conjunto de dados Renda de Adulto UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome), o qual publicamos anteriormente para mostrar como o teste de código pode ser feito. 
@@ -23,7 +24,7 @@ Este artigo oferece diretrizes preliminares para testar o código em um fluxo de
 ## <a name="introduction-on-code-testing"></a>Introdução ao teste de código
 "Teste de unidade" é uma prática permanente no desenvolvimento de software. Mas, para a ciência de dados, muitas vezes não está claro o que significa "teste de unidade" e como você deve testar o código para diferentes estágios de um ciclo de vida de ciência de dados, como:
 
-* Preparação de dados
+* Preparação dos dados
 * Análise da qualidade dos dados
 * Modelagem
 * Implantação de modelo 
@@ -137,11 +138,11 @@ Use estas etapas para configurar e executar o teste de código e um build automa
     
     ![Detalhes do PowerShell](./media/code-test/powershell_scripts.PNG)
 
-    (por exemplo, Selecione **salvar & fila** para concluir o processo de pipeline de compilação.
+    g. Selecione **salvar & fila** para concluir o processo de pipeline de compilação.
 
     ![Botão "Salvar e enfileirar"](./media/code-test/save_and_queue_build_definition.PNG)
 
-Agora, sempre que uma nova confirmação é enviada por push para o repositório de código, o processo de build iniciará automaticamente. (Aqui, usamos o mestre como o repositório, mas você pode definir qualquer ramificação.) O processo executa o arquivo **Test1.py** no computador do agente para garantir que tudo definido no código seja executado corretamente. 
+Agora, sempre que uma nova confirmação é enviada por push para o repositório de código, o processo de build iniciará automaticamente. Você pode definir qualquer ramificação. O processo executa o arquivo **test1.py** no computador do agente para certificar-se de que tudo o que foi definido no código seja executado corretamente. 
 
 Se os alertas estiverem configurados corretamente, você receberá uma notificação por email após a conclusão do build. Você também pode verificar o status do build no Azure DevOps. Se ele falhar, verifique os detalhes do build e descubra qual parte está incorreta.
 

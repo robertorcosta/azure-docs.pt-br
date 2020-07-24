@@ -5,11 +5,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: e66ae6aa0b9b7e309fbd6fcc3699cb873a266bbe
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 18d3460804528d736cfc74c1c2d358eb08013513
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647899"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092959"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Recurso baseado em espaço de trabalho do Application Insights (versão prévia)
 
@@ -24,7 +25,7 @@ Para testar a nova experiência, entre no [portal do Azure](https://portal.azure
 
 ![Recurso baseado em espaço de trabalho do Application Insights](./media/create-workspace-resource/create-workspace-based.png)
 
-Se você ainda não tiver um espaço de trabalho do Log Analytics, [confira a documentação de criação de espaço de trabalho do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Se você ainda não tiver um espaço de trabalho do Log Analytics, [confira a documentação de criação de espaço de trabalho do Log Analytics](../learn/quick-create-workspace.md).
 
 Para a versão preliminar pública, **os recursos baseados em espaço de trabalho estão limitados atualmente ao Oeste dos EUA 2, ao Leste dos EUA e ao Centro-Sul dos EUA.**
 
@@ -39,7 +40,7 @@ Clique no texto do link azul para ir para o espaço de trabalho do Log Analytics
 
 ## <a name="copy-the-connection-string"></a>Copiar a cadeia de conexão
 
-A [cadeia de conexão](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) identifica o recurso com o qual você deseja associar os dados de telemetria. Ele também permite que você modifique os pontos de extremidade que o recurso usará como um destino para a telemetria. Você precisará copiar a cadeia de conexão e adicioná-la ao código do aplicativo ou a uma variável de ambiente.
+A [cadeia de conexão](./sdk-connection-string.md?tabs=net) identifica o recurso com o qual você deseja associar os dados de telemetria. Ele também permite que você modifique os pontos de extremidade que o recurso usará como um destino para a telemetria. Você precisará copiar a cadeia de conexão e adicioná-la ao código do aplicativo ou a uma variável de ambiente.
 
 ## <a name="monitoring-configuration"></a>Configuração do monitoramento
 
@@ -51,14 +52,14 @@ Para o monitoramento de aplicativos baseados em código, basta instalar o SDK do
 
 Para obter uma documentação detalhada sobre como configurar um SDK do Application Insights para o monitoramento baseado em código, confira a documentação específica da linguagem/estrutura:
 
-- [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)
-- [ASP.NET Core ](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)
-- [Tarefas em segundo plano e aplicativos de console modernos (.NET/.NET Core)](https://docs.microsoft.com/azure/azure-monitor/app/worker-service)
-- [Aplicativos de console clássicos (.NET)](https://docs.microsoft.com/azure/azure-monitor/app/console) 
-- [Java ](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started?tabs=maven)
-- [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript)
-- [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs)
-- [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)
+- [ASP.NET](./asp-net.md)
+- [ASP.NET Core ](./asp-net-core.md)
+- [Tarefas em segundo plano e aplicativos de console modernos (.NET/.NET Core)](./worker-service.md)
+- [Aplicativos de console clássicos (.NET)](./console.md) 
+- [Java ](./java-get-started.md?tabs=maven)
+- [JavaScript](./javascript.md)
+- [Node.js](./nodejs.md)
+- [Python](./opencensus-python.md)
 
 ### <a name="codeless-monitoring-and-visual-studio-resource-creation"></a>Monitoramento sem código e criação de recursos do Visual Studio
 
@@ -101,7 +102,7 @@ az monitor app-insights component create --app
 az monitor app-insights component create --app demoApp --location eastus --kind web -g my_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-Para obter a documentação completa de CLI do Azure para este comando, confira a [documentação CLI do Azure](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
+Para obter a documentação completa de CLI do Azure para este comando, confira a [documentação CLI do Azure](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -197,7 +198,7 @@ A funcionalidade de exportação contínua herdada não tem suporte para recurso
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Explorar métricas](../../azure-monitor/platform/metrics-charts.md)
-* [Escrever consultas do Analytics](../../azure-monitor/app/analytics.md)
+* [Escrever consultas do Analytics](../log-query/log-query-overview.md)
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md

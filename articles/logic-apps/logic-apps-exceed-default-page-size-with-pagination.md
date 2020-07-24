@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 04/11/2019
-ms.openlocfilehash: 9f114dd0428e13b3e1a205fea353b38b1f8a6f97
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d46bf711a46e27b81a1284b5fc55cf403b7da048
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835352"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090256"
 ---
 # <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Obter mais dados, itens ou registros usando paginação em Aplicativos Lógicos do Azure
 
@@ -26,16 +27,16 @@ A ativação das configurações de paginação recupera páginas de resultados 
 
 Aqui está uma lista com apenas alguns dos conectores onde você pode exceder o tamanho de página padrão para ações específicas:
 
-* [Armazenamento de Blobs do Azure](https://docs.microsoft.com/connectors/azureblob/)
-* [Dynamics 365](https://docs.microsoft.com/connectors/dynamicscrmonline/)
-* [Excel](https://docs.microsoft.com/connectors/excel/)
-* [HTTP](https://docs.microsoft.com/azure/connectors/connectors-native-http)
-* [IBM DB2](https://docs.microsoft.com/connectors/db2/)
-* [Equipes da Microsoft](https://docs.microsoft.com/connectors/teams/)
-* [Banco de dados Oracle](https://docs.microsoft.com/connectors/oracle/)
-* [Salesforce](https://docs.microsoft.com/connectors/salesforce/)
-* [SharePoint](https://docs.microsoft.com/connectors/sharepointonline/)
-* [SQL Server](https://docs.microsoft.com/connectors/sql/)
+* [Armazenamento de Blobs do Azure](/connectors/azureblob/)
+* [Dynamics 365](/connectors/dynamicscrmonline/)
+* [Excel](/connectors/excel/)
+* [HTTP](../connectors/connectors-native-http.md)
+* [IBM DB2](/connectors/db2/)
+* [Equipes da Microsoft](/connectors/teams/)
+* [Banco de dados Oracle](/connectors/oracle/)
+* [Salesforce](/connectors/salesforce/)
+* [SharePoint](/connectors/sharepointonline/)
+* [SQL Server](/connectors/sql/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -83,4 +84,4 @@ Quando você ativa a paginação para uma ação que dá suporte a esse recurso,
 
 ## <a name="get-support"></a>Obtenha suporte
 
-Em caso de dúvidas, visite a [página de perguntas e respostas da Microsoft sobre os Aplicativos Lógicos do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+Em caso de dúvidas, visite a [página de perguntas e respostas da Microsoft sobre os Aplicativos Lógicos do Azure](/answers/topics/azure-logic-apps.html).

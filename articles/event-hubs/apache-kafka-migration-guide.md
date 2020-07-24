@@ -3,11 +3,12 @@ title: Migrar para os hubs de eventos do Azure para Apache Kafka
 description: Este artigo mostra como consumidores e produtores que usam protocolos diferentes (AMQP, Apache Kafka e HTTPS) podem trocar eventos ao usar os Hubs de Eventos do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8f6c4cbdcbbc1d589b0803f36305f9a9fe6eebfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf585cdc0a43c595ec013ba78a2e3ae191c40b8d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322732"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090647"
 ---
 # <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>Migrar para os Hubs de Eventos do Azure para os Ecossistemas Apache Kafka
 Os hubs de eventos do Azure expõem um ponto de extremidade Apache Kafka, que permite que você se conecte aos hubs de eventos usando o protocolo Kafka. Fazendo alterações mínimas em seu aplicativo Kafka existente, você pode se conectar aos hubs de eventos do Azure e colher os benefícios do ecossistema do Azure. Hubs de eventos para suporte do Kafka [Apache Kafka versão 1,0](https://kafka.apache.org/10/documentation.html) e posterior.
@@ -17,7 +18,7 @@ Os hubs de eventos do Azure expõem um ponto de extremidade Apache Kafka, que pe
 ### <a name="create-an-azure-account"></a>Criar uma conta do Azure
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-### <a name="create-an-event-hubs-namespace"></a>Criar um namespace de Hubs de Eventos
+### <a name="create-an-event-hubs-namespace"></a>Criar um namespace dos hubs de eventos
 Siga as instruções passo a passo no artigo [criar um hub de eventos](event-hubs-create.md) para criar um namespace de hubs de eventos e um hub de eventos. 
 
 ### <a name="connection-string"></a>Cadeia de conexão
@@ -48,7 +49,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 Se `sasl.jaas.config` não for uma configuração com suporte em sua estrutura, localize as configurações usadas para definir o nome de usuário e a senha SASL e use-as. Defina o nome de usuário como `$ConnectionString` e a senha para sua cadeia de conexão de hubs de eventos.
 
-## <a name="post-migration"></a>Após a migração
+## <a name="post-migration"></a>Pós-migração
 Execute o aplicativo Kafka que envia eventos para o Hub de eventos. Em seguida, verifique se o Hub de eventos recebe os eventos usando o portal do Azure. Na página **visão geral** do namespace de seus hubs de eventos, alterne para o modo de exibição **mensagens** na seção **métricas** . Atualize a página para atualizar o gráfico. Poderá levar alguns segundos para que ela mostre que as mensagens foram recebidas. 
 
 [![Verificar se o hub de eventos recebeu as mensagens](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
@@ -60,4 +61,4 @@ Para saber mais sobre os Hubs de Eventos e Hubs de Eventos para o Kafka, confira
 - [Guia de solução de problemas Apache Kafka para hubs de eventos](apache-kafka-troubleshooting-guide.md)
 - [Perguntas frequentes-hubs de eventos para Apache Kafka](apache-kafka-frequently-asked-questions.md)
 - [Guia do desenvolvedor de Apache Kafka para hubs de eventos do Azure](apache-kafka-developer-guide.md)
-- [Configurações recomendadas](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
+- [Configurações recomendadas](apache-kafka-configurations.md)

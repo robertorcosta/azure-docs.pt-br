@@ -3,11 +3,12 @@ title: Análise de vídeo ao vivo em cotas de IoT Edge – Azure
 description: Este artigo descreve a análise de vídeo ao vivo em IoT Edge cotas e limitações.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 9b01db8f1120174806f4b687f7e9ebc4e2386f3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90141fa850c9ab3e3abbea15001249da0736ac45
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260339"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091803"
 ---
 # <a name="quotas-and-limitations"></a>Cotas e limitações
 
@@ -46,11 +47,8 @@ Com a versão de visualização, há limitações em nós diferentes que podem s
 * Processador da porta do sinal
    * Deve ser imediatamente downstream da origem RTSP.
 * Coletor de ativos 
-   * Pode haver no máximo uma topologia de nó por grafo.
-      * Se um coletor de ativos for usado, um coletor de arquivos não poderá estar presente, ou vice-versa.
    * Deve ser imediatamente downstream da fonte RTSP ou do processador de porta de sinal.
 * Coletor de arquivos
-   * Pode haver no máximo uma topologia de nó por grafo (consulte a observação acima sobre o coletor de ativos).
    * Deve ser imediatamente downstream do processador da porta do sinal.
    * Não pode ser o downstream imediatamente do processador de extensão HTTP ou do processador de detecção de movimento
 * Coletor do Hub IoT

@@ -3,12 +3,12 @@ title: Azure Machine Learning como fonte da grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos de Workspace do Machine Learning com a grade de eventos do Azure
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: e72123a4f609b93e191c82f11443cbb1de7d012d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e256dbcef8c4e4a1354455843e4466d666c7d7b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522067"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090664"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning como uma fonte de grade de eventos
 
@@ -95,12 +95,12 @@ Esta seção mostra um exemplo de como os dados seriam para cada evento.
   "eventTime": "2017-06-26T18:41:00.9584103Z",
   "id": "831e1650-001e-001b-66ab-eeb76e069631",
   "data": {
-    "ExperimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
-    "ExperimentName": "automl-local-regression",
-    "RunId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
-    "RunType": null,
-    "RunTags": {},
-    "RunProperties": {
+    "experimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
+    "experimentName": "automl-local-regression",
+    "runId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
+    "runType": null,
+    "runTags": {},
+    "runProperties": {
         "runTemplate": "automl_child",
         "pipeline_id": "5adc0a4fe02504a586f09a4fcbb241f9a4012062",
         "pipeline_spec": "{\"objects\": [{\"class_name\": \"StandardScaler\", \"module\": \"sklearn.preprocessing\", \"param_args\": [], \"param_kwargs\": {\"with_mean\": true, \"with_std\": false}, \"prepared_kwargs\": {}, \"spec_class\": \"preproc\"}, {\"class_name\": \"LassoLars\", \"module\": \"sklearn.linear_model\", \"param_args\": [], \"param_kwargs\": {\"alpha\": 0.001, \"normalize\": true}, \"prepared_kwargs\": {}, \"spec_class\": \"sklearn\"}], \"pipeline_id\": \"5adc0a4fe02504a586f09a4fcbb241f9a4012062\"}",
@@ -155,12 +155,12 @@ Esta seção mostra um exemplo de como os dados seriam para cada evento.
   "eventTime": "2017-06-26T18:41:00.9584103Z",
   "id": "831e1650-001e-001b-66ab-eeb76e069631",
   "data": {
-    "ExperimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
-    "ExperimentName": "automl-local-regression",
-    "RunId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
-    "RunType": null,
-    "RunTags": {},
-    "RunProperties": {
+    "experimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
+    "experimentName": "automl-local-regression",
+    "runId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
+    "runType": null,
+    "runTags": {},
+    "runProperties": {
         "runTemplate": "automl_child",
         "pipeline_id": "5adc0a4fe02504a586f09a4fcbb241f9a4012062",
         "pipeline_spec": "{\"objects\": [{\"class_name\": \"StandardScaler\", \"module\": \"sklearn.preprocessing\", \"param_args\": [], \"param_kwargs\": {\"with_mean\": true, \"with_std\": false}, \"prepared_kwargs\": {}, \"spec_class\": \"preproc\"}, {\"class_name\": \"LassoLars\", \"module\": \"sklearn.linear_model\", \"param_args\": [], \"param_kwargs\": {\"alpha\": 0.001, \"normalize\": true}, \"prepared_kwargs\": {}, \"spec_class\": \"sklearn\"}], \"pipeline_id\": \"5adc0a4fe02504a586f09a4fcbb241f9a4012062\"}",
@@ -175,7 +175,7 @@ Esta seção mostra um exemplo de como os dados seriam para cada evento.
         "scoring_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/scoring_file_v_1_0_0.py",
         "model_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/model.pkl"
     },
-   "RunStatus": "failed"
+   "runStatus": "failed"
    },
   "dataVersion": "",
   "metadataVersion": "1"
@@ -222,12 +222,12 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 | Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| Experimentoid | string | A ID do experimento ao qual a execução pertence. |
-| Experimentoname | string | O nome do experimento ao qual a execução pertence. |
-| RunId | string | A ID da execução que foi concluída. |
-| RunType | string | O tipo de execução da execução concluída. |
-| RunTags | object | As marcas da execução concluída. |
-| RunProperties | object | As propriedades da execução concluída. |
+| experimentoid | string | A ID do experimento ao qual a execução pertence. |
+| experimentoname | string | O nome do experimento ao qual a execução pertence. |
+| runId | string | A ID da execução que foi concluída. |
+| runType | string | O tipo de execução da execução concluída. |
+| runTags | object | As marcas da execução concluída. |
+| runProperties | object | As propriedades da execução concluída. |
 
 ### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>Microsoft. MachineLearningServices. DatasetDriftDetected
 
@@ -246,13 +246,13 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 | Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| Experimentoid | string | A ID do experimento ao qual a execução pertence. |
-| Experimentoname | string | O nome do experimento ao qual a execução pertence. |
-| RunId | string | A ID da execução que foi concluída. |
-| RunType | string | O tipo de execução da execução concluída. |
-| RunTags | object | As marcas da execução concluída. |
-| RunProperties | object | As propriedades da execução concluída. |
-| RunStatus | string | O status da execução. |
+| experimentoid | string | A ID do experimento ao qual a execução pertence. |
+| experimentoname | string | O nome do experimento ao qual a execução pertence. |
+| runId | string | A ID da execução que foi concluída. |
+| runType | string | O tipo de execução da execução concluída. |
+| runTags | object | As marcas da execução concluída. |
+| runProperties | object | As propriedades da execução concluída. |
+| runStatus | string | O status da execução. |
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
 | Título | Descrição |

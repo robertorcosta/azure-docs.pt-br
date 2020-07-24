@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: eff74fca5ac21a7df431b55cd5c307d3e994010b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34e1b7e58a3ceb6c1c2d2b6bc4efd34ee93e9e4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84792125"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090477"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos de extremidade de serviço de rede virtual para o Azure Key Vault
 
@@ -39,7 +39,7 @@ Seguem alguns exemplos de como é possível usar pontos de extremidade de servi�
 
 Aqui estão as etapas necessárias para configurar redes virtuais e firewalls. Essas etapas se aplicam se você estiver usando o PowerShell, a CLI do Azure ou o portal do Azure.
 
-1. Habilite o [log de Key Vault](logging.md)) para ver os logs de acesso detalhados. Isso ajuda nos diagnósticos, quando as regras da rede virtual e firewalls impedirem o acesso a um cofre de chaves. (Esta etapa é opcional, mas altamente recomendada.)
+1. Habilite [registro em log do Key Vault](logging.md) para ver os logs de acesso detalhados. Isso ajuda nos diagnósticos, quando as regras da rede virtual e firewalls impedirem o acesso a um cofre de chaves. (Esta etapa é opcional, mas altamente recomendada.)
 2. Habilite **pontos de extremidade de serviço para o cofre de chaves** para redes virtuais e sub-redes de destino.
 3. Defina regras da rede virtual e firewalls para um cofre de chaves para restringir o acesso a esse cofre de chaves a partir de redes virtuais, sub-redes e intervalos de endereços IPv4 específicos.
 4. Se esse cofre de chaves precisar estar acessível por qualquer serviço confiável da Microsoft, habilite a opção para permitir que **Serviços Confiáveis do Azure** conectem o cofre de chaves.
@@ -80,7 +80,7 @@ Segue uma lista de serviços confiáveis que poderão acessar um cofre de chaves
 |Hubs de eventos do Azure|[Permitir o acesso a um cofre de chaves para o cenário de chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
 |Barramento de Serviço do Azure|[Permitir o acesso a um cofre de chaves para o cenário de chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
 |Importação/Exportação do Azure| [Usar chaves gerenciadas pelo cliente no Azure Key Vault para o serviço de importação/exportação](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
-|Registro de Contêiner do Azure|[Criptografia do registro usando chaves gerenciadas pelo cliente](../../container-registry/container-registry-customer-managed-keys.md)
+|Registro de Contêiner do Azure|[Criptografia do registro usando chaves gerenciadas pelo cliente](../../container-registry/container-registry-customer-managed-keys.md)<br><br/>[Transferir artefatos para outro registro](../../container-registry/container-registry-transfer-images.md)
 
 > [!NOTE]
 > Você deve configurar as políticas relevantes de acesso ao cofre de chaves para permitir que os serviços correspondentes tenham acesso ao Key Vault.

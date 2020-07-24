@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: bb5288d043ab5638bb33c357cea55c64b03fcf1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2d4af5086e3cf4099013969cd359f8e11873c6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81432119"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090613"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Fornecer autenticação de Key Vault com uma identidade gerenciada
 
@@ -35,7 +35,7 @@ Para concluir este guia, você deve ter os recursos a seguir.
    - [Criar um cofre de chaves com o Azure PowerShell](../secrets/quick-create-powershell.md)
    - [Criar um cofre de chaves com o portal do Azure](../secrets/quick-create-portal.md).
 - Um aplicativo do serviço de aplicativo existente ao qual conceder acesso ao cofre de chaves. Você pode criar um rapidamente seguindo as etapas na documentação do [serviço de aplicativo](../../app-service/overview.md).
-- [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview). Como alternativa, você pode usar o [portal do Azure](https://portal.azure.com).
+- [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/). Como alternativa, você pode usar o [portal do Azure](https://portal.azure.com).
 
 
 ## <a name="adding-a-system-assigned-identity"></a>Adicionando uma identidade designada pelo sistema 
@@ -52,7 +52,7 @@ Para configurar uma identidade gerenciada no portal, primeiro, crie um aplicativ
 
 1. Na guia **Sistema atribuído**, alterne o **Status** para **Ligado**. Clique em **Save** (Salvar). 
 
-    ![](../media/managed-identity-system-assigned.png)
+   ![Captura de tela que mostra o salvamento de uma identidade atribuída pelo sistema.](../media/managed-identity-system-assigned.png)
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -86,7 +86,7 @@ Anote o `PrincipalId` , que será necessário na próxima seção.
   "type": "SystemAssigned"
 }
 ```
-## <a name="grant-your-app-access-to-key-vault"></a>Conceder acesso ao aplicativo para Key Vault 
+## <a name="grant-your-app-access-to-key-vault"></a>Permitir ao aplicativo acesso ao Key Vault 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -100,7 +100,7 @@ Anote o `PrincipalId` , que será necessário na próxima seção.
 
 1.  Clique em **Adicionar** para concluir a adição da nova política de acesso.
 
-    ![](../media/managed-identity-access-policy.png)
+    ![Captura de tela que mostra a adição de uma nova política de acesso no portal do Azure.](../media/managed-identity-access-policy.png)
 
 ### <a name="azure-cli"></a>CLI do Azure
 
