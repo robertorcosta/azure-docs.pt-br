@@ -3,21 +3,22 @@ title: Lista de verificação da implantação do Azure Active Directory
 description: Lista de verificação da implantação de recursos do Azure Active Directory
 services: active-directory
 ms.service: active-directory
-ms.subservice: ''
+ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f84226a631014b51338d47887fe3bafc969dc571
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 082e4a35582e9fe643aefc13c0c46a1c75f443e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77063638"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025380"
 ---
-# <a name="azure-active-directory-feature-deployment-guide"></a>Guia de implantação de recursos do Azure Active Directory
+# <a name="azure-active-directory-feature-deployment-guide"></a>Guia de implantação de recurso do Azure Active Directory
 
 Pode parecer desanimador implantar o Azure AD (Azure Active Directory) para sua organização e mantê-lo seguro. Este artigo identifica tarefas comuns que os clientes consideram úteis concluir em fases, ao longo de 30, 60, 90 dias ou mais, para melhorar a postura de segurança. Mesmo as organizações que já implantaram o Azure Active Directory podem usar este guia para garantir o máximo aproveitamento do investimento já feito.
 
@@ -52,10 +53,11 @@ Nessa fase, os administradores habilitam recursos de segurança básicos para cr
 | [Desabilitar redefinições de senha periódicas para contas de usuário baseadas em nuvem](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) | As redefinições de senha periódicas incentivam os usuários a incrementar as senhas existentes. Siga as orientações do documento de diretrizes de senha da Microsoft e espelhe a política local para os usuários apenas de nuvem. | AD do Azure Gratuito |
 | [Personalizar o bloqueio inteligente do Azure Active Directory](../authentication/howto-password-smart-lockout.md) | Impeça que os bloqueios de usuários baseados na nuvem sejam replicados para os usuários locais do Active Directory | |
 | [Habilitar o bloqueio inteligente da Extranet para o AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) | O bloqueio de Extranet do AD FS protege contra ataques de detecção de senha de força bruta, ao mesmo tempo que permite aos usuários com AD FS válido continuar usando as respectivas contas. | |
+| [Bloquear a autenticação herdada no Azure AD com acesso condicional](../conditional-access/block-legacy-authentication.md) | Bloquear protocolos de autenticação herdados como POP, SMTP, IMAP e MAPI que não podem impor a autenticação multifator, tornando-os um ponto de entrada preferencial para adversários. | Azure AD Premium P1 |
 | [Implantar a autenticação multifator do Azure AD usando políticas de acesso condicional](../authentication/howto-mfa-getstarted.md) | Exigir que os usuários executem a verificação em duas etapas ao acessar aplicativos confidenciais usando políticas de acesso condicional. | Azure AD Premium P1 |
 | [Ativar a proteção de identidade do Active Directory do Azure](../identity-protection/overview-identity-protection.md) | Habilite o rastreamento de conexões arriscadas e credenciais comprometidas para usuários da sua organização. | Azure AD Premium P2 |
 | [Usar as detecções de risco para disparar a autenticação multifator e as alterações de senha](../authentication/tutorial-risk-based-sspr-mfa.md) | Habilite a automação que pode disparar eventos como autenticação multifator, redefinição de senha e bloqueio de conexões com base no risco. | Azure AD Premium P2 |
-| [Habilite o registro convergente para redefinição de senha de autoatendimento e Autenticação de Vários Fator do Azure AD (visualização)](../authentication/concept-registration-mfa-sspr-converged.md) | Permita que os usuários se registrem de uma experiência comum na Autenticação Multifator do Microsoft Azure e no autoatendimento de redefinição de senha. | Azure AD Premium P1 |
+| [Habilitar registro combinado para redefinição de senha de autoatendimento e autenticação multifator do Azure AD](../authentication/concept-registration-mfa-sspr-combined.md) | Permita que os usuários se registrem de uma experiência comum na Autenticação Multifator do Microsoft Azure e no autoatendimento de redefinição de senha. | Azure AD Premium P1 |
 
 ## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Fase 2: importar usuários, habilitar a sincronização e gerenciar dispositivos
 

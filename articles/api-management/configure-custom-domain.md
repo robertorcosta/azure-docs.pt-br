@@ -12,14 +12,14 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 981d3134e957e1f19b9cd88ee13a72fc45d79277
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 53442f0727544221f28bfdb58d8069163eb374e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252888"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024853"
 ---
-# <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado
+# <a name="configure-a-custom-domain-name-for-your-azure-api-management-instance"></a>Configurar um nome de domínio personalizado para sua instância do gerenciamento de API do Azure
 
 Quando você cria uma instância de serviço de gerenciamento de API do Azure, o Azure atribui um subdomínio de `azure-api.net` (por exemplo, `apim-service-name.azure-api.net` ). No entanto, você pode expor seus pontos de extremidade de gerenciamento de API usando seu próprio nome de domínio personalizado, como **contoso.com**. Este tutorial mostra como mapear um nome DNS personalizado existente para pontos de extremidade expostos por uma instância de gerenciamento de API.
 

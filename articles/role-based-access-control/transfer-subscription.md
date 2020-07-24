@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: rolyon
-ms.openlocfilehash: db1b030aed34498ade91a195d5ca68725b579ba3
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 664687d096a3a9c6ce9a6c7de0025604e046b0a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230835"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029970"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Transferir uma assinatura do Azure para um diretório diferente do Azure AD (versão prévia)
 
@@ -145,7 +145,7 @@ Para concluir essas etapas, será necessário:
 
 ### <a name="save-custom-roles"></a>Salvar funções personalizadas
 
-1. Use a [lista de definição de função AZ](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) para listar suas funções personalizadas. Para obter mais informações, consulte [criar ou atualizar funções personalizadas para recursos do Azure usando CLI do Azure](custom-roles-cli.md).
+1. Use a [lista de definição de função AZ](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) para listar suas funções personalizadas. Para obter mais informações, consulte [criar ou atualizar funções personalizadas do Azure usando CLI do Azure](custom-roles-cli.md).
 
     ```azurecli
     az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -215,7 +215,7 @@ Identidades gerenciadas não são atualizadas quando uma assinatura é transferi
 
 ### <a name="list-key-vaults"></a>Listar cofres de chave
 
-Quando você cria um cofre de chaves, ele é automaticamente vinculado à ID de locatário de Azure Active Directory padrão para a assinatura na qual ele é criado. Todas as entradas de política de acesso também são vinculadas a essa ID de locatário. Para obter mais informações, consulte [movendo um Azure Key Vault para outra assinatura](../key-vault/general/keyvault-move-subscription.md).
+Quando você cria um cofre de chaves, ele é automaticamente vinculado à ID de locatário de Azure Active Directory padrão para a assinatura na qual ele é criado. Todas as entradas de política de acesso também são vinculadas a essa ID de locatário. Para obter mais informações, consulte [movendo um Azure Key Vault para outra assinatura](../key-vault/general/move-subscription.md).
 
 > [!WARNING]
 > Se você estiver usando a criptografia em repouso para um recurso, como uma conta de armazenamento ou um banco de dados SQL, que tenha uma dependência em um cofre de chaves que não esteja na mesma assinatura que está sendo transferida, isso poderá levar a um cenário irrecuperável. Se você tiver essa situação, deverá executar etapas para usar um cofre de chaves diferente ou desabilitar temporariamente as chaves gerenciadas pelo cliente para evitar esse cenário irrecuperável.
@@ -291,7 +291,7 @@ Nesta etapa, você transfere a propriedade de cobrança da assinatura do diretó
 
 ### <a name="create-custom-roles"></a>Criar funções personalizadas
         
-- Use [AZ role Definition Create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) para criar cada função personalizada a partir dos arquivos que você criou anteriormente. Para obter mais informações, consulte [criar ou atualizar funções personalizadas para recursos do Azure usando CLI do Azure](custom-roles-cli.md).
+- Use [AZ role Definition Create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) para criar cada função personalizada a partir dos arquivos que você criou anteriormente. Para obter mais informações, consulte [criar ou atualizar funções personalizadas do Azure usando CLI do Azure](custom-roles-cli.md).
 
     ```azurecli
     az role definition create --role-definition <role_definition>
@@ -339,7 +339,7 @@ Nesta etapa, você transfere a propriedade de cobrança da assinatura do diretó
 
 ### <a name="update-key-vaults"></a>Atualizar cofres de chaves
 
-Esta seção descreve as etapas básicas para atualizar seus cofres de chaves. Para obter mais informações, consulte [movendo um Azure Key Vault para outra assinatura](../key-vault/general/keyvault-move-subscription.md).
+Esta seção descreve as etapas básicas para atualizar seus cofres de chaves. Para obter mais informações, consulte [movendo um Azure Key Vault para outra assinatura](../key-vault/general/move-subscription.md).
 
 1. Atualize a ID de locatário associada a todos os cofres de chaves existentes na assinatura para o diretório de destino.
 

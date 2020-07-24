@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 79f8eb9e804502a7c0e61c18e4998fa05db10278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e0701cc5a9bb14800a48e2281dba1eb6ea0cf72
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885133"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026451"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>Uma API Web que chama APIs da Web: adquirir um token para o aplicativo
 
@@ -26,46 +27,38 @@ Depois de criar um objeto de aplicativo cliente, use-o para adquirir um token qu
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Aqui está um exemplo de código que é chamado nas ações dos controladores de API. Ele chama uma API downstream chamada *ToDoList*.
+Aqui está um exemplo de código usando Microsoft. Identity. Web que é chamado nas ações dos controladores de API. Ele chama uma API downstream chamada *ToDoList*. Para obter um token para chamar a API downstream, insira o `ITokenAcquisition` serviço por injeção de dependência no construtor do controlador (ou no construtor da página se você usar um mais claro) e use-o em suas ações do controlador, obtendo um token para o usuário ( `GetAccessTokenForUserAsync` ) ou para o próprio aplicativo ( `GetAccessTokenForAppAsync` ) no caso de um cenário de daemon.
 
 ```csharp
-private async Task GetTodoList(bool isAppStarting)
+[Authorize]
+public class MyApiController : Controller
 {
- ...
- //
- // Get an access token to call the To Do service.
- //
- AuthenticationResult result = null;
- try
- {
-  app = BuildConfidentialClient(HttpContext, HttpContext.User);
-  result = await app.AcquireTokenSilent(Scopes, account)
-                     .ExecuteAsync()
-                     .ConfigureAwait(false);
- }
-...
+    /// <summary>
+    /// The web API will accept only tokens 1) for users, 2) that have the `access_as_user` scope for
+    /// this API.
+    /// </summary>
+    static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
+
+     static readonly string[] scopesToAccessDownstreamApi = new string[] { "api://MyTodolistService/access_as_user" };
+
+    private readonly ITokenAcquisition _tokenAcquisition;
+
+    public MyApiController(ITokenAcquisition tokenAcquisition)
+    {
+        _tokenAcquisition = tokenAcquisition;
+    }
+
+    public IActionResult Index()
+    {
+        HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
+
+        string accessToken = _tokenAcquisition.GetAccessTokenForUserAsync(scopesToAccessDownstreamApi);
+        return await callTodoListService(accessToken);
+    }
 }
 ```
 
-`BuildConfidentialClient()`é semelhante ao cenário em [uma API Web que chama APIs da Web: configuração de aplicativo](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()`cria `IConfidentialClientApplication` uma instância com um cache que contém informações para apenas uma conta. A conta é fornecida pelo `GetAccountIdentifier` método.
-
-O `GetAccountIdentifier` método usa as declarações associadas à identidade do usuário para quem a API Web recebeu o token Web JSON (JWT):
-
-```csharp
-public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
-{
- string userObjectId = GetObjectId(claimsPrincipal);
- string tenantId = GetTenantId(claimsPrincipal);
-
- if (    !string.IsNullOrWhiteSpace(userObjectId)
-      && !string.IsNullOrWhiteSpace(tenantId))
- {
-  return $"{userObjectId}.{tenantId}";
- }
-
- return null;
-}
-```
+Para obter detalhes sobre o `callTodoListService` método, consulte [uma API Web que chama APIs da Web: chamar uma API](scenario-web-api-call-api-call-api.md).
 
 # <a name="java"></a>[Java](#tab/java)
 Aqui está um exemplo de código que é chamado nas ações dos controladores de API. Ele chama o Microsoft Graph de API downstream.

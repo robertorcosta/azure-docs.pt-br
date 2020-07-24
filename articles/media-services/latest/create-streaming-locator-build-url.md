@@ -11,15 +11,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: 2972c60aa5874c21a6f7bce21020ad58b5f3b556
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e6e0d18665ac5fc28da2935c20b467f9d7662d8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78304557"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023238"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Criar um localizador de streaming e criar URLs
 
-Nos serviços de mídia do Azure, para criar uma URL de streaming, primeiro você precisa criar um [localizador de streaming](streaming-locators-concept.md). Em seguida, você concatena o nome do host do [ponto de extremidade de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) e o caminho do **localizador de streaming** . Neste exemplo, o *padrão* do **Ponto de Extremidade de Streaming** é usado. Quando você cria uma conta de serviço de mídia pela primeira vez, esse **ponto de extremidade de streaming** *padrão* estará em um estado parado, portanto, você precisa chamar **Iniciar** para iniciar streaming.
+Nos serviços de mídia do Azure, para criar uma URL de streaming, primeiro você precisa criar um [localizador de streaming](streaming-locators-concept.md). Em seguida, você concatena o nome do host do [ponto de extremidade de streaming](/rest/api/media/streamingendpoints) e o caminho do **localizador de streaming** . Neste exemplo, o *padrão* do **Ponto de Extremidade de Streaming** é usado. Quando você cria uma conta de serviço de mídia pela primeira vez, esse **ponto de extremidade de streaming** *padrão* estará em um estado parado, portanto, você precisa chamar **Iniciar** para iniciar streaming.
 
 Este artigo demonstra como criar um localizador de streaming e criar uma URL de streaming usando SDKs Java e .NET.
 
@@ -159,7 +160,7 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 
 Consulte o exemplo de código completo: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Criar filtros com o .NET](filters-dynamic-manifest-dotnet-howto.md)
 * [Criar filtros com o REST](filters-dynamic-manifest-rest-howto.md)

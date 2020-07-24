@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 915b6430378cfff2a847e31de26950fcb9de6ff5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ee4c8a52098bfa7c012e85f25371c306b106b86
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374586"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029426"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Solução de problemas do dimensionamento automático com conjuntos de escala de máquina virtual
 **Problema**: você criou uma infraestrutura de dimensionamento automático no Azure Resource Manager usando conjuntos de dimensionamento de máquinas virtuais, por exemplo, implantando um modelo como este: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – suas regras de escala estão definidas e ele funciona muito bem, exceto que, independentemente da carga colocada nas VMs, ele não usa dimensionamento automático.
@@ -73,7 +73,7 @@ Alguns aspectos a serem considerados incluem:
     Se os dados não estiverem lá, isso significará que o problema está na extensão de diagnóstico em execução nas VMs. Se os dados estiverem lá, isso significará que há um problema com as suas regras de escala ou com o serviço do Insights. Verifique o [Status do Azure](https://azure.microsoft.com/status/).
     
     Depois de passar por essas etapas, se você ainda tiver problemas de dimensionamento automático, tente os seguintes recursos: 
-    * Leia os fóruns na [página de perguntas e respostas da Microsoft](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html)ou no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure) 
+    * Leia os fóruns na [página de perguntas e respostas da Microsoft](/answers/topics/azure-virtual-machines.html)ou no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure) 
     * Faça uma chamada de suporte. Prepare-se para compartilhar o modelo e uma exibição dos dados de desempenho.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

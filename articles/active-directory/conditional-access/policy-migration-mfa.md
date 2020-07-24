@@ -1,5 +1,5 @@
 ---
-title: Migrar políticas de acesso condicional – Azure Active Directory
+title: Migrar políticas de acesso condicional com autenticação multifator-Azure Active Directory
 description: Este artigo mostra como migrar uma política clássica que exige autenticação multifator no portal do Azure.
 services: active-directory
 ms.service: active-directory
@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1dc7b7227dbaee488726a75fe7120bd26614dbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cc99241f5fa7c09c69db13dcb3f6c3aaa75e376
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83993721"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027386"
 ---
 # <a name="migrate-a-classic-policy-in-the-azure-portal"></a>Migrar uma política clássica no portal do Azure
 
@@ -53,7 +54,7 @@ O processo de migração consiste nas seguintes etapas:
    1. Clique em **Selecionar aplicativos**.
    1. Clique em **Selecionar**.
    1. Na página **Selecionar**, selecione seu aplicativo de nuvem e, em seguida, clique em **Selecionar**.
-   1. Na página **aplicativos de nuvem** , clique em **concluído**.
+   1. Na página **Aplicativos de nuvem**, clique em **Concluído**.
 1. Se você tiver selecionado **Exigir autenticação multifator**:
    1. Na seção **Controles de acesso**, clique em **Conceder**.
    1. Na página **Conceder**, clique em **Conceder acesso** e, em seguida, clique em **Exigir autenticação multifator**.

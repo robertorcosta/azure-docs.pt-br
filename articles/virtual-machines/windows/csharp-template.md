@@ -8,18 +8,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: dfcc0c550af9df6c884c8cd864ed90daf5f78e2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 25d8dc467ce8f7e34faaeaa2c61fd0c5da1da4e8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082910"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027947"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implantar uma Máquina Virtual do Azure usando C# e um modelo do Resource Manager
 
 Este artigo mostra como implantar um modelo do Azure Resource Manager usando o C#. O modelo criado implanta uma única máquina virtual que executa o Windows Server em uma nova rede virtual com uma única sub-rede.
 
-Para obter uma descrição detalhada do recurso de máquina virtual, confira [Virtual machines in an Azure Resource Manager template](template-description.md) (Máquinas virtuais em um modelo do Azure Resource Manager). Para saber mais sobre todos os recursos em um modelo, confira [Passo a passo do modelo do Azure Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+Para obter uma descrição detalhada do recurso de máquina virtual, confira [Virtual machines in an Azure Resource Manager template](template-description.md) (Máquinas virtuais em um modelo do Azure Resource Manager). Para saber mais sobre todos os recursos em um modelo, confira [Passo a passo do modelo do Azure Resource Manager](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 São necessários cerca de 10 minutos para a conclusão destas etapas.
 
@@ -27,7 +27,7 @@ São necessários cerca de 10 minutos para a conclusão destas etapas.
 
 Nesta etapa, você verifica se o Visual Studio está instalado e cria um aplicativo de console usado para implantar o modelo.
 
-1. Se você ainda não fez isso, instale o [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selecione **Desenvolvimento para desktop com o .NET** na página Cargas de trabalho e, em seguida, clique em **Instalar**. No resumo, é possível verificar que as **ferramentas de desenvolvimento do .NET Framework 4 - 4.6** são automaticamente selecionadas. Se o Visual Studio já estiver instalado, você poderá adicionar a carga de trabalho .NET utilizando o Iniciador do Visual Studio.
+1. Se você ainda não fez isso, instale o [Visual Studio](/visualstudio/install/install-visual-studio). Selecione **Desenvolvimento para desktop com o .NET** na página Cargas de trabalho e, em seguida, clique em **Instalar**. No resumo, é possível verificar que as **ferramentas de desenvolvimento do .NET Framework 4 - 4.6** são automaticamente selecionadas. Se o Visual Studio já estiver instalado, você poderá adicionar a carga de trabalho .NET utilizando o Iniciador do Visual Studio.
 2. No Visual Studio, clique em **Arquivo** > **Novo** > **Projeto**.
 3. Em **Modelos** > **Visual C#** , selecione **Aplicativo de Console (.NET Framework)** , digite *myDotnetProject* para o nome do projeto, selecione o local do projeto e, em seguida, clique em **OK**.
 
@@ -325,5 +325,5 @@ Devem ser necessários cerca de cinco minutos para o aplicativo de console execu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Se houver problemas com a implantação, a próxima etapa será examinar [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../resource-manager-common-deployment-errors.md) (Solucionar erros comuns de implantação do Azure com o Azure Resource Manager).
+* Se houver problemas com a implantação, a próxima etapa será examinar [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md) (Solucionar erros comuns de implantação do Azure com o Azure Resource Manager).
 * Saiba como implantar uma máquina virtual e seus recursos de suporte examinando [Implantar uma máquina virtual do Azure usando o C#](csharp.md).

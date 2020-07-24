@@ -5,20 +5,46 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 06/24/2020
+ms.date: 07/19/2020
 ms.author: abnarain
-ms.openlocfilehash: e77d621d5699c434e691de0a523e58e49166d8d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 521756081db938e749849e6f3630dbd60700d24f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315145"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023799"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solução de problemas do runtime de integração auto-hospedada
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo explora métodos comuns de solução de problemas para o runtime de integração auto-hospedada no Azure Data Factory.
+
+## <a name="gather-self-hosted-integration-runtime-logs-from-azure-data-factory"></a>Coletar logs de tempo de execução de integração auto-hospedados de Azure Data Factory
+
+Para atividades com falha em execução no ir de IR/compartilhado auto-hospedado, Azure Data Factory dá suporte à exibição e ao carregamento de logs de erro. Você pode seguir as etapas abaixo para obter a ID do relatório de erros e, em seguida, inserir a ID do relatório para localizar os problemas conhecidos relacionados.
+
+1. Vá para a página **execuções de atividade** .
+
+1. Na coluna **erro** , clique no botão abaixo.
+
+    ![Página execuções de atividade](media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png)
+
+1. Você verá os logs relacionados para a execução da atividade com falha. Clique no botão **enviar logs** para obter mais assistência.
+
+    ![Enviar logs](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
+
+1. Você pode escolher os logs que deseja enviar. Para *ir via hospedagem interna*, você pode carregar logs relacionados à atividade com falha ou a todos os logs no nó ir de hospedagem interna. Para *ir compartilhado*, você só pode carregar logs relacionados à atividade com falha.
+
+    ![Escolher logs](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
+
+1. Quando os logs estiverem sendo carregados, mantenha um registro da ID do relatório se precisar de assistência adicional para resolver o problema.
+
+    ![Carregar logs](media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png)
+
+> [!NOTE]
+> As solicitações de exibição de log e carregamento serão executadas em todas as instâncias de IR de hospedagem interna online. Certifique-se de que todas as instâncias de IR de hospedagem interna estejam online, caso haja algum log ausente. 
+
 
 ## <a name="common-errors-and-resolutions"></a>Erros e resoluções comuns
 

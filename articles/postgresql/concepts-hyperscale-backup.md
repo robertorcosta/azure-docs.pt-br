@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: bcc94b62812f1668bf8c5e5abb268fddf3da1fa5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22bc3d6efca24a88b28217b2e06ac79d33f16b2e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82515437"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030072"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Backup e restauração no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 
@@ -32,7 +32,11 @@ Para obter o preço atual do armazenamento de backup, consulte a [página de pre
 
 ## <a name="restore"></a>Restaurar
 
-No banco de dados do Azure para PostgreSQL, a restauração de um cluster de hiperescala (Citus) cria um novo cluster a partir dos backups dos nós originais.
+No banco de dados do Azure para PostgreSQL, a restauração de um cluster de hiperescala (Citus) cria um novo cluster a partir dos backups dos nós originais. 
+
+> [!IMPORTANT]
+>Você só pode restaurar o cluster de hiperescala dentro da mesma assinatura e grupo de recursos e com um nome de cluster diferente.
+
 
 > [!IMPORTANT]
 > Os clusters de hiperescala (Citus) excluídos não podem ser restaurados. Se você excluir o cluster, todos os nós que pertencem ao cluster serão excluídos e não poderão ser recuperados. Para proteger os recursos de cluster, pós-implantação, de exclusão acidental ou alterações inesperadas, os administradores podem aproveitar os [bloqueios de gerenciamento](/azure/azure-resource-manager/management/lock-resources).

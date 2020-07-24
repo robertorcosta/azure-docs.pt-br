@@ -7,11 +7,12 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 4050a74dfef1fb31939ba716cfbaf78577f1aaef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9b227dc6812b62b525991fc84b045c9610df63a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675937"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028712"
 ---
 # <a name="m-series"></a>Série M
 
@@ -29,7 +30,7 @@ Migração ao Vivo: Sem suporte
 
 Atualizações de preservação de memória: Sem suporte
 
-Acelerador de gravação: [com suporte](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Acelerador de gravação: [com suporte](./windows/how-to-enable-write-accelerator.md)
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento em cache e temporária: IOPS/MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS/MBps | Máximo de NICs/largura de banda de rede esperada (Mbps) |
 |---|---|---|---|---|---|---|---|

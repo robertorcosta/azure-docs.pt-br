@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: cf66757d28a3883664aaacd85baad9cc0dea6956
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e530f76c8301dc74f73b675befa6f0710aedab7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537195"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026621"
 ---
 # <a name="scenario-protected-web-api"></a>Cenário: API Web protegida
 
@@ -32,10 +33,14 @@ Para usar sua API Web, você precisa habilitar usuários autenticados com contas
 
 Aqui estão informações específicas que você precisa saber para proteger as APIs da Web:
 
-- O registro do aplicativo deve expor pelo menos um escopo. A versão do token aceita pela sua API da Web depende do público-alvo de entrada.
+- O registro do aplicativo deve expor pelo menos um *escopo* ou uma *função de aplicativo*.
+  - Os escopos são expostos por APIs Web que são chamadas em nome de um usuário.
+  - As funções de aplicativo são expostas por APIs da Web chamadas por aplicativos de daemon (que chama sua API da Web em seu próprio nome).
+- Se você criar um novo registro de aplicativo de API Web, escolha a [versão de token de acesso](reference-app-manifest.md#accesstokenacceptedversion-attribute) aceita pela sua API Web para `2` . Para APIs da Web herdadas, a versão de token aceita pode ser `null` , mas esse valor restringe o público de entrada apenas para organizações e o MSA (contas pessoais da Microsoft) não terá suporte.
 - A configuração de código para a API Web deve validar o token usado quando a API Web é chamada.
+- O código nas ações do controlador deve validar as funções ou os escopos no token.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Registro de aplicativo](scenario-protected-web-api-app-registration.md)
+> [Registro do aplicativo](scenario-protected-web-api-app-registration.md)

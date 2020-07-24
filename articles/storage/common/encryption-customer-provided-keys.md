@@ -1,25 +1,25 @@
 ---
 title: Fornecer uma chave de criptografia em uma solicitação para o armazenamento de BLOBs
 titleSuffix: Azure Storage
-description: Os clientes que fazem solicitações no armazenamento de BLOBs do Azure têm a opção de fornecer uma chave de criptografia por solicitação (versão prévia). Incluir a chave de criptografia na solicitação fornece controle granular das configurações de criptografia para operações de armazenamento de BLOBs.
+description: Os clientes que fazem solicitações no armazenamento de BLOBs do Azure têm a opção de fornecer uma chave de criptografia por solicitação. Incluir a chave de criptografia na solicitação fornece controle granular das configurações de criptografia para operações de armazenamento de BLOBs.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/12/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 0e5a85bcc4ded3b4bf3fcbcaf095d7c8ef01c458
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fec3d760450fb5cc20deed14dac03f58f23c2b4b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805310"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029732"
 ---
-# <a name="provide-an-encryption-key-on-a-request-to-blob-storage-preview"></a>Fornecer uma chave de criptografia em uma solicitação para o armazenamento de BLOBs (visualização)
+# <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>Fornecer uma chave de criptografia em uma solicitação para o armazenamento de BLOBs
 
-Os clientes que fazem solicitações no armazenamento de BLOBs do Azure têm a opção de fornecer uma chave de criptografia por solicitação (versão prévia). Incluir a chave de criptografia na solicitação fornece controle granular das configurações de criptografia para operações de armazenamento de BLOBs. As chaves fornecidas pelo cliente podem ser armazenadas em Azure Key Vault ou em outro repositório de chaves.
+Os clientes que fazem solicitações no armazenamento de BLOBs do Azure têm a opção de fornecer uma chave de criptografia por solicitação. Incluir a chave de criptografia na solicitação fornece controle granular das configurações de criptografia para operações de armazenamento de BLOBs. As chaves fornecidas pelo cliente podem ser armazenadas em Azure Key Vault ou em outro repositório de chaves.
 
 ## <a name="encrypting-read-and-write-operations"></a>Criptografando operações de leitura e gravação
 
@@ -61,7 +61,7 @@ As operações de armazenamento de blob a seguir dão suporte ao envio de chaves
 - [Set Blob Properties](/rest/api/storageservices/set-blob-properties)
 - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)
 - [Get Blob](/rest/api/storageservices/get-blob)
-- [Get Blob Properties](/rest/api/storageservices/get-blob-properties)
+- [Obter propriedades do blob](/rest/api/storageservices/get-blob-properties)
 - [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata)
 - [Blob de instantâneo](/rest/api/storageservices/snapshot-blob)
 

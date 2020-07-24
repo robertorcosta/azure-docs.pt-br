@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 4bc5897401a62d45e8b1c987d7ef50e0c8a6de08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae41cc620960bd49603e6712759585796e76fe67
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565356"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029936"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Adicionar perfis de pontuação a um índice da Azure Cognitive Search
 
@@ -82,7 +82,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
  A ordenação com base em relevância também é implementada por meio de perfis de pontuação. Considere páginas de resultados de pesquisa que você usou no passado e que lhe permitem classificar por preço, data, classificação ou relevância. No Azure Pesquisa Cognitiva, os perfis de Pontuação orientam a opção ' relevância '. A definição de relevância é controlada por você, de acordo com objetivos de negócios e com o tipo de experiência de pesquisa que você deseja fornecer.  
 
-##  <a name="example"></a><a name="bkmk_ex"></a>Exemplo  
+##  <a name="example"></a><a name="bkmk_ex"></a> Exemplo  
  Conforme observado anteriormente, a pontuação personalizada é implementada por meio de um ou mais perfis de pontuação definidos em um esquema de índice.  
 
  Este exemplo mostra o esquema de um índice com dois perfis de pontuação (`boostGenre`, `newAndHighlyRated`). Qualquer consulta em relação a esse índice que inclua um dos perfis como um parâmetro de consulta usará o perfil para pontuar o conjunto de resultados.  
@@ -254,7 +254,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 ##  <a name="set-interpolations"></a><a name="bkmk_interpolation"></a>Definir interpolações  
  As interpolações permitem que você defina a forma da inclinação usada para pontuação. Como a pontuação é decrescente, a inclinação está sempre diminuindo, mas é a interpolação que determina a curva da inclinação descendente. As seguintes interpolações podem ser usadas:  
 
-|||  
+| Interpola | Descrição |  
 |-|-|  
 |`linear`|Para itens que estão dentro do intervalo máximo e mínimo, o aumento aplicado ao item será feito em uma quantidade constantemente decrescente. Linear é a interpolação padrão para um perfil de pontuação.|  
 |`constant`|Para itens que estão dentro do intervalo inicial e final, um aumento constante será aplicado aos resultados de classificação.|  
@@ -279,7 +279,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
  Para obter mais exemplos, consulte [Esquema XML: tipos de dados (site W3.org)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Confira também  
 
 + [referência da API REST](https://docs.microsoft.com/rest/api/searchservice/)   
 + [Criar API de índice](https://docs.microsoft.com/rest/api/searchservice/create-index)   

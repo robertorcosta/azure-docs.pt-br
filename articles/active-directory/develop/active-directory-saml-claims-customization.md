@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 0b0efc7e5dd4a60e33ddd61c19283a048cf4ab78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f56427dabdee715412596557fa075c5eb4df500
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478290"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027301"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como personalizar declarações emitidas no token SAML para aplicativos empresariais
 
@@ -164,7 +164,7 @@ Para adicionar uma condição de declaração:
 
 1. Em **Gerenciar declaração**, expanda as Condições de declaração.
 2. Selecione o tipo de usuário.
-3. Selecione os grupos aos quais o usuário deve pertencer. Você pode selecionar até dez grupos exclusivos em todas as declarações para um determinado aplicativo. 
+3. Selecione os grupos aos quais o usuário deve pertencer. Você pode selecionar até 50 grupos exclusivos em todas as declarações para um determinado aplicativo. 
 4. Selecione a **Origem** em que a declaração vai recuperar o valor dela. Você pode selecionar um atributo de usuário na lista suspensa de atributo de origem ou aplicar uma transformação ao atributo de usuário antes de emiti-lo como uma declaração.
 
 A ordem na qual você adiciona as condições é importante. O Azure AD avalia as condições de cima para baixo para decidir qual valor emitir na declaração. 

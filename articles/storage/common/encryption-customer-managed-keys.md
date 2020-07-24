@@ -5,16 +5,17 @@ description: Você pode usar sua própria chave de criptografia para proteger os
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/12/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 5dedd70b51361936808724ef70b96cdf9cfa13f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d53818c91d32bc7435d1328c2ae73a8eb3172cd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515412"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029783"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Usar chaves gerenciadas pelo cliente com Azure Key Vault para gerenciar a criptografia de armazenamento do Azure
 
@@ -46,13 +47,13 @@ Os dados nos serviços BLOB e arquivo são sempre protegidos por chaves gerencia
 
 ## <a name="enable-customer-managed-keys-for-a-storage-account"></a>Habilitar chaves gerenciadas pelo cliente para uma conta de armazenamento
 
-As chaves gerenciadas pelo cliente podem ser habilitadas somente em contas de armazenamento existentes. O cofre de chaves deve ser provisionado com políticas de acesso que concedem permissões de chave para a identidade gerenciada associada à conta de armazenamento. A identidade gerenciada estará disponível somente depois que a conta de armazenamento for criada.
-
 Quando você configura uma chave gerenciada pelo cliente, o armazenamento do Azure encapsula a chave de criptografia de dados raiz para a conta com a chave gerenciada pelo cliente no cofre de chaves associado. A habilitação de chaves gerenciadas pelo cliente não afeta o desempenho e entra em vigor imediatamente.
 
-Quando você modifica a chave que está sendo usada para a criptografia de armazenamento do Azure habilitando ou desabilitando chaves gerenciadas pelo cliente, atualizando a versão da chave ou especificando uma chave diferente, a criptografia da chave raiz é alterada, mas os dados em sua conta de armazenamento do Azure não precisam ser criptografados novamente.
-
 Quando você habilita ou desabilita as chaves gerenciadas pelo cliente, ou quando você modifica a chave ou a versão da chave, a proteção da chave de criptografia raiz é alterada, mas os dados em sua conta de armazenamento do Azure não precisam ser criptografados novamente.
+
+As chaves gerenciadas pelo cliente podem ser habilitadas somente em contas de armazenamento existentes. O cofre de chaves deve ser configurado com políticas de acesso que concedem permissões para a identidade gerenciada associada à conta de armazenamento. A identidade gerenciada estará disponível somente depois que a conta de armazenamento for criada.
+
+Você pode alternar entre chaves gerenciadas pelo cliente e chaves gerenciadas pela Microsoft a qualquer momento. Para obter mais informações sobre chaves gerenciadas pela Microsoft, consulte [sobre gerenciamento de chaves de criptografia](storage-service-encryption.md#about-encryption-key-management).
 
 Para saber como usar as chaves gerenciadas pelo cliente com o Azure Key Vault para a criptografia de armazenamento do Azure, consulte um destes artigos:
 
@@ -65,15 +66,22 @@ Para saber como usar as chaves gerenciadas pelo cliente com o Azure Key Vault pa
 
 ## <a name="store-customer-managed-keys-in-azure-key-vault"></a>Armazenar chaves gerenciadas pelo cliente no Azure Key Vault
 
-Para habilitar chaves gerenciadas pelo cliente em uma conta de armazenamento, você deve usar um Azure Key Vault para armazenar suas chaves. Você deve habilitar a **exclusão reversível** e **não limpar** as propriedades no cofre de chaves.
+Para habilitar chaves gerenciadas pelo cliente em uma conta de armazenamento, você deve usar um cofre de chaves do Azure para armazenar suas chaves. Você deve habilitar a **exclusão reversível** e **não limpar** as propriedades no cofre de chaves.
 
 A criptografia de armazenamento do Azure dá suporte às chaves RSA e RSA-HSM de tamanhos 2048, 3072 e 4096. Para obter mais informações sobre chaves, consulte **Key Vault chaves** em [sobre Azure Key Vault chaves, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
+O uso de Azure Key Vault tem custos associados. Para obter mais informações, consulte [preços de Key Vault](/pricing/details/key-vault/).
+
 ## <a name="rotate-customer-managed-keys"></a>Girar chaves gerenciadas pelo cliente
 
-Você pode fazer a rotação de uma chave gerenciada pelo cliente no Azure Key Vault de acordo com suas políticas de conformidade. Quando a chave é girada, você deve atualizar a conta de armazenamento para usar o novo URI de versão de chave. Para saber como atualizar a conta de armazenamento para usar uma nova versão da chave no portal do Azure, consulte a seção intitulada **atualizar a versão da chave** em [Configurar chaves gerenciadas pelo cliente para o armazenamento do Azure usando o portal do Azure](storage-encryption-keys-portal.md).
+Você pode fazer a rotação de uma chave gerenciada pelo cliente no Azure Key Vault de acordo com suas políticas de conformidade. Você tem duas opções para girar uma chave gerenciada pelo cliente:
 
-A rotação da chave não aciona a nova criptografia dos dados na conta de armazenamento. Não há nenhuma ação adicional necessária do usuário.
+- **Rotação automática:** Para configurar a rotação automática de chaves gerenciadas pelo cliente, omita a versão da chave ao habilitar a criptografia com chaves gerenciadas pelo cliente para a conta de armazenamento. Se a versão da chave for omitida, o Armazenamento do Microsoft Azure verifica o Azure Key Vault diariamente para obter uma nova versão de uma chave gerenciada pelo cliente. Se uma nova versão da chave estiver disponível, o Armazenamento do Microsoft Azure usa automaticamente a versão mais recente da chave.
+- **Rotação manual:** Para usar uma versão de chave específica para a criptografia de armazenamento do Azure, especifique essa versão de chave ao habilitar a criptografia com chaves gerenciadas pelo cliente para a conta de armazenamento. Se você especificar a versão de chave, o armazenamento do Azure usará essa versão para criptografia até que você atualize manualmente a versão de chave.
+
+    Quando a chave é girada manualmente, você deve atualizar a conta de armazenamento para usar o novo URI de versão de chave. Para saber como atualizar a conta de armazenamento para usar uma nova versão da chave no portal do Azure, consulte [atualizar manualmente a versão da chave](storage-encryption-keys-portal.md#manually-update-the-key-version).
+
+A rotação de uma chave gerenciada pelo cliente não dispara a recriptografia de dados na conta de armazenamento. Não há nenhuma ação adicional necessária do usuário.
 
 ## <a name="revoke-access-to-customer-managed-keys"></a>Revogar o acesso a chaves gerenciadas pelo cliente
 
@@ -81,13 +89,13 @@ Você pode revogar o acesso da conta de armazenamento para a chave gerenciada pe
 
 - [Listar BLOBs](/rest/api/storageservices/list-blobs)quando chamado com o `include=metadata` parâmetro no URI de solicitação
 - [Get Blob](/rest/api/storageservices/get-blob)
-- [Get Blob Properties](/rest/api/storageservices/get-blob-properties)
+- [Obter propriedades do blob](/rest/api/storageservices/get-blob-properties)
 - [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata)
 - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)
 - [Blob de instantâneo](/rest/api/storageservices/snapshot-blob), quando chamado com o `x-ms-meta-name` cabeçalho de solicitação
 - [Copiar blob](/rest/api/storageservices/copy-blob)
 - [Copiar BLOB da URL](/rest/api/storageservices/copy-blob-from-url)
-- [Definir camada do Blob](/rest/api/storageservices/set-blob-tier)
+- [Definir camada do blob](/rest/api/storageservices/set-blob-tier)
 - [Put Block](/rest/api/storageservices/put-block)
 - [Colocar bloco da URL](/rest/api/storageservices/put-block-from-url)
 - [Acrescentar Bloco](/rest/api/storageservices/append-block)

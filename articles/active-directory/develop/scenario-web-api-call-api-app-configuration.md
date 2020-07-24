@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 38e319efb100d326d55f6f821e7c903306a7c7d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eff5f68569d1878e1b802f2db4151d246bcc07c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80991000"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026417"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Uma API Web que chama APIs da Web: configuração de código
 
@@ -26,120 +27,74 @@ O código que você usa para configurar sua API Web para que ele chame APIs da W
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-## <a name="code-subscribed-to-ontokenvalidated"></a>Código assinado para OnTokenValidated
+## <a name="client-secrets-or-client-certificates"></a>Segredos do cliente ou certificados de cliente
 
-Na parte superior da configuração de código de qualquer API Web protegida, você precisa assinar a validação do token de portador que você recebe quando sua API é chamada:
+Considerando que sua API Web agora chama uma API da Web downstream, você precisa fornecer um certificado do cliente ou um segredo do cliente na *appsettings.jsno* arquivo.
 
-```csharp
-/// <summary>
-/// Protects the web API with the Microsoft identity platform, or Azure Active Directory (Azure AD) developer platform
-/// This supposes that the configuration files have a section named "AzureAD"
-/// </summary>
-/// <param name="services">The service collection to which to add authentication</param>
-/// <param name="configuration">Configuration</param>
-/// <returns></returns>
-public static IServiceCollection AddProtectedApiCallsWebApis(this IServiceCollection services,
-                                                             IConfiguration configuration,
-                                                             IEnumerable<string> scopes)
+```JSON
 {
-    services.AddTokenAcquisition();
-    services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
-    {
-        // When an access token for our own web API is validated, we add it
-        // to the MSAL.NET cache so that it can be used from the controllers.
-        options.Events = new JwtBearerEvents();
-
-        options.Events.OnTokenValidated = async context =>
-        {
-            context.Success();
-
-            // Adds the token to the cache and handles the incremental consent
-            // and claim challenges
-            AddAccountToCacheFromJwt(context, scopes);
-            await Task.FromResult(0);
-        };
-    });
-    return services;
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "ClientId": "[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
+    "TenantId": "common"
+  
+   // To call an API
+   "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
+   "ClientCertificates": [
+  ]
+ }
 }
 ```
 
-## <a name="on-behalf-of-flow"></a>fluxo On-Behalf-Of
+Em vez de um segredo do cliente, você pode fornecer um certificado do cliente. O trecho de código a seguir mostra o uso de um certificado armazenado no Azure Key Vault.
 
-O método AddAccountToCacheFromJwt () precisa:
-
-- Crie uma instância de um aplicativo cliente confidencial da MSAL (biblioteca de autenticação da Microsoft).
-- Chame o método `AcquireTokenOnBehalf` . Essa chamada troca o token de portador que foi adquirido pelo cliente para a API Web em relação a um token de portador para o mesmo usuário, mas ele tem a chamada à API de uma API downstream.
-
-### <a name="instantiate-a-confidential-client-application"></a>Criar uma instância de um aplicativo cliente confidencial
-
-Esse fluxo está disponível somente no fluxo do cliente confidencial, para que a API Web protegida forneça as credenciais do cliente (segredo do cliente ou certificado) para a [classe ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) por meio do `WithClientSecret` `WithCertificate` método ou.
-
-![Lista de métodos IConfidentialClientApplication](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
-
-```csharp
-IConfidentialClientApplication app;
-
-#if !VariationWithCertificateCredentials
-app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
-           .WithClientSecret(config.ClientSecret)
-           .Build();
-#else
-// Building the client credentials from a certificate
-X509Certificate2 certificate = ReadCertificate(config.CertificateName);
-app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
-    .WithCertificate(certificate)
-    .Build();
-#endif
-```
-
-Por fim, em vez de provar sua identidade por meio de um segredo do cliente ou de um certificado, os aplicativos cliente confidenciais podem provar sua identidade usando as declarações do cliente.
-Para obter mais informações sobre esse cenário avançado, consulte [asserções de cliente confidenciais](msal-net-client-assertions.md).
-
-### <a name="how-to-call-on-behalf-of"></a>Como chamar em nome de
-
-Você faz a chamada em nome de (OBO) chamando o [método AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) na `IConfidentialClientApplication` interface.
-
-A `UserAssertion` classe é criada a partir do token de portador que é recebido pela API da Web de seus próprios clientes. Há [dois construtores](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet):
-* Um que usa um token de portador JWT (token Web JSON)
-* Um que usa qualquer tipo de declaração de usuário, outro tipo de token de segurança, cujo tipo é especificado em um parâmetro adicional chamado`assertionType`
-
-![Métodos e propriedades de userassertion](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
-
-Na prática, o fluxo OBO geralmente é usado para adquirir um token para uma API downstream e armazená-lo no cache do token de usuário do MSAL.NET. Você faz isso para que outras partes da API da Web possam, posteriormente, chamar as [substituições](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) de ``AcquireTokenOnSilent`` para chamar as APIs downstream. Essa chamada tem o efeito de atualizar os tokens, se necessário.
-
-```csharp
-private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityToken jwtToken, ClaimsPrincipal principal, HttpContext httpContext)
+```JSON
 {
-    try
-    {
-        UserAssertion userAssertion;
-        IEnumerable<string> requestedScopes;
-        if (jwtToken != null)
-        {
-            userAssertion = new UserAssertion(jwtToken.RawData, "urn:ietf:params:oauth:grant-type:jwt-bearer");
-            requestedScopes = scopes ?? jwtToken.Audiences.Select(a => $"{a}/.default");
-        }
-        else
-        {
-            throw new ArgumentOutOfRangeException("tokenValidationContext.SecurityToken should be a JWT Token");
-        }
-
-        // Create the application
-        var application = BuildConfidentialClientApplication(httpContext, principal);
-
-        // .Result to make sure that the cache is filled in before the controller tries to get access tokens
-        var result = application.AcquireTokenOnBehalfOf(requestedScopes.Except(scopesRequestedByMsalNet),
-                                                        userAssertion)
-                                .ExecuteAsync()
-                                .GetAwaiter().GetResult();
-     }
-     catch (MsalException ex)
-     {
-         Debug.WriteLine(ex.Message);
-         throw;
-     }
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "ClientId": "[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
+    "TenantId": "common"
+  
+   // To call an API
+   "ClientCertificates": [
+      {
+        "SourceType": "KeyVault",
+        "KeyVaultUrl": "https://msidentitywebsamples.vault.azure.net",
+        "KeyVaultCertificateName": "MicrosoftIdentitySamplesCert"
+      }
+  ]
+ }
 }
 ```
+
+O Microsoft. Identity. Web fornece várias maneiras de descrever os certificados, tanto por configuração quanto por código. Para obter detalhes, consulte [Microsoft. Identity. Web wiki-usando certificados](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates) no github.
+
+## <a name="startupcs"></a>Startup.cs
+
+Usando Microsoft. Identity. Web, se você quiser que sua API da Web chame APIs da Web downstream, adicione a `.AddMicrosoftWebApiCallsWebApi()` linha após `.AddMicrosoftWebApiAuthentication(Configuration)` e, em seguida, escolha uma implementação de cache de token, por exemplo `.AddInMemoryTokenCaches()` , em *Startup.cs*:
+
+```csharp
+using Microsoft.Identity.Web;
+
+public class Startup
+{
+  ...
+  public void ConfigureServices(IServiceCollection services)
+  {
+   // ...
+   services.AddMicrosoftWebApiAuthentication(Configuration)
+           .AddMicrosoftWebApiCallsWebApi()
+           .AddInMemoryTokenCaches();
+  // ...
+  }
+  // ...
+}
+```
+
+Assim como acontece com os aplicativos Web, você pode escolher várias implementações de cache de token. Para obter detalhes, consulte [Microsoft Identity Web wiki-token de serialização de cache](https://aka.ms/ms-id-web/token-cache-serialization) no github.
+
+Se você tiver certeza de que sua API Web precisará de escopos específicos, você pode opcionalmente passá-los como argumentos para `AddMicrosoftWebApiCallsWebApi` .
+
 # <a name="java"></a>[Java](#tab/java)
 
 O fluxo em nome de (OBO) é usado para obter um token para chamar a API da Web downstream. Nesse fluxo, sua API Web recebe um token de portador com permissões delegadas do usuário do aplicativo cliente e, em seguida, troca esse token por outro token de acesso para chamar a API da Web downstream.

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/29/2020
+ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: d8ff8ced1723a3cdc969b4a951c31ea1da2d3093
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 65726a1b43cdbcb5a36d4a6d3f3df97669e1028f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518290"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027216"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos de entidade de serviço e aplicativo no Azure Active Directory
 
@@ -26,6 +26,8 @@ Este artigo descreve o registro do aplicativo, os objetos de aplicativo e as ent
 
 ## <a name="application-registration"></a>Registro de aplicativo
 Para delegar funções de gerenciamento de acesso e identidade para o Azure AD, um aplicativo deve ser registrado com um [locatário](developer-glossary.md#tenant)do Azure AD. Ao registrar seu aplicativo com o Azure AD, você está criando uma configuração de identidade para seu aplicativo que permite que ele se integre ao Azure AD. Ao registrar um aplicativo no [portal do Azure][AZURE-Portal], você escolhe se ele é um único locatário (acessível somente em seu locatário) ou multilocatário (acessível para em outros locatários) e pode, opcionalmente, definir um URI de redirecionamento (para o qual o token de acesso é enviado).
+
+![Registro do aplicativo](./media/app-objects-and-service-principals/app-registration.png)
 
 Quando você concluir o registro do aplicativo, terá uma instância globalmente exclusiva do aplicativo (o objeto Application) que reside em seu diretório ou locatário inicial.  Você também tem uma ID globalmente exclusiva para seu aplicativo (a ID do aplicativo ou do cliente).  No portal, você pode adicionar segredos ou certificados e escopos para fazer seu aplicativo funcionar, personalizar a identidade visual do aplicativo na caixa de diálogo de entrada e muito mais.
 
@@ -38,16 +40,20 @@ O objeto Application descreve três aspectos de um aplicativo: como o serviço p
 
 A folha **registros de aplicativo** na [portal do Azure][AZURE-Portal] é usada para listar e gerenciar os objetos de aplicativo em seu locatário inicial.
 
+![Folha Registros de aplicativo](./media/app-objects-and-service-principals/app-registrations-blade.png)
+
 A [entidade de aplicativo][MS-Graph-App-Entity] Microsoft Graph define o esquema para as propriedades de um objeto de aplicativo.
 
 ## <a name="service-principal-object"></a>Objeto de entidade de serviço
-Para acessar os recursos que são protegidos por um locatário do Azure AD, a entidade que requer acesso deve ser representada por uma entidade de segurança. Isso é verdadeiro para usuários (entidade de usuário) e aplicativos (entidade de serviço). A entidade de segurança define a política de acesso e as permissões para o usuário/aplicativo no locatário do Azure AD. Isso habilita recursos principais como a autenticação do usuário/aplicativo durante a entrada, bem como a autorização durante o acesso aos recursos.
+Para acessar os recursos que são protegidos por um locatário do Azure AD, a entidade que requer acesso deve ser representada por uma entidade de segurança. Esse requisito é verdadeiro para usuários (entidade de usuário) e aplicativos (entidade de serviço). A entidade de segurança define a política de acesso e as permissões para o usuário/aplicativo no locatário do Azure AD. Isso habilita recursos principais como a autenticação do usuário/aplicativo durante a entrada, bem como a autorização durante o acesso aos recursos.
 
 Uma entidade de serviço é a representação local, ou instância do aplicativo, de um objeto de aplicativo global em um único locatário ou diretório. Uma entidade de serviço é uma instância concreta criada a partir do objeto de aplicativo e herda determinadas propriedades desse objeto de aplicativo.  Uma entidade de serviço é criada em cada locatário em que o aplicativo é usado e faz referência ao objeto de aplicativo exclusivo globalmente.  O objeto de entidade de serviço define o que o aplicativo pode realmente fazer no locatário específico, quem pode acessar o aplicativo e quais recursos o aplicativo pode acessar. 
 
 Quando um aplicativo recebe permissão para acessar os recursos em um locatário (após o registro ou o [consentimento](developer-glossary.md#consent)), um objeto de entidade de serviço é criado. Você também pode criar um objeto de entidade de serviço em um locatário usando [Azure PowerShell](howto-authenticate-service-principal-powershell.md), CLI do Azure, [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), o [portal do Azure][AZURE-Portal]e outras ferramentas.  Ao usar o portal, uma entidade de serviço é criada automaticamente quando você registra um aplicativo.
 
 A folha **aplicativos empresariais** no portal é usada para listar e gerenciar as entidades de serviço em um locatário. Você pode ver as permissões da entidade de serviço, as permissões consentidas pelo usuário, quais usuários fizeram esse consentimento, informações de entrada e muito mais.
+
+![Folha aplicativos empresariais](./media/app-objects-and-service-principals/enterprise-apps-blade.png)
 
 A [entidade Microsoft Graph servicePrincipalName][MS-Graph-Sp-Entity] define o esquema para as propriedades de um objeto de entidade de serviço.
 
@@ -85,8 +91,8 @@ Nesse cenário de exemplo:
 ## <a name="next-steps"></a>Próximas etapas
 
 - Você pode usar o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) para consultar os objetos de aplicativo e entidade de serviço.
-- Você pode acessar o objeto de aplicativo de um aplicativo usando a API Microsoft Graph, o editor de manifesto [do aplicativo portal do Azure][AZURE-Portal] ou os [cmdlets do PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), conforme representado por sua [entidade de aplicativo][MS-Graph-App-Entity]OData.
-- Você pode acessar o objeto de entidade de serviço de um aplicativo por meio da API do Microsoft Graph ou dos [cmdlets do PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), conforme representado por sua [entidade de UserEntity][MS-Graph-Sp-Entity]do OData.
+- Você pode acessar o objeto de aplicativo de um aplicativo usando a API Microsoft Graph, o editor de manifesto [do aplicativo portal do Azure][AZURE-Portal] ou os [cmdlets do PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/?view=azureadps-2.0), conforme representado por sua [entidade de aplicativo][MS-Graph-App-Entity]OData.
+- Você pode acessar o objeto de entidade de serviço de um aplicativo por meio da API do Microsoft Graph ou dos [cmdlets do PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/?view=azureadps-2.0), conforme representado por sua [entidade de UserEntity][MS-Graph-Sp-Entity]do OData.
 
 <!--Image references-->
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: 3c4252f926163b00d3b4f4bf4a26373988017ac1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d74e3f196e58e522eb9377ca9f18fd05ec8460ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254998"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023986"
 ---
 # <a name="hyperscale-service-tier"></a>Tipo de serviço de Hiperescala
 
@@ -185,7 +185,7 @@ Regiões habilitadas:
 - Leste da China 2
 - Norte da China 2
 - Leste da Ásia
-- Leste dos EUA
+- East US
 - Leste dos EUA 2
 - França Central
 - Centro-Oeste da Alemanha
@@ -198,7 +198,7 @@ Regiões habilitadas:
 - Leste da Noruega
 - Oeste da Noruega
 - Norte da África do Sul
-- Centro-Sul dos Estados Unidos
+- South Central US
 - Sudeste Asiático
 - Oeste da Suíça
 - Sul do Reino Unido
@@ -218,7 +218,7 @@ Essas são as limitações atuais da camada de serviço de hiperescala a partir 
 
 | Problema | Descrição |
 | :---- | :--------- |
-| O painel gerenciar backups de um servidor não mostra bancos de dados de hiperescala. Eles serão filtrados da exibição.  | O hiperscale tem um método separado para gerenciar backups, de modo que a retenção de longo prazo e as configurações de retenção de backup pontual não se aplicam. De acordo, os bancos de dados de hiperescala não aparecem no painel gerenciar backup.|
+| O painel gerenciar backups de um servidor não mostra bancos de dados de hiperescala. Eles serão filtrados da exibição.  | O hiperscale tem um método separado para gerenciar backups, de modo que a retenção de longo prazo e as configurações de retenção de backup pontual não se aplicam. De acordo, os bancos de dados de hiperescala não aparecem no painel gerenciar backup.<br><br>Para bancos de dados migrados para o subdimensionamento de outras camadas de serviço do Azure SQL Database, os backups de pré-migração são mantidos durante o período de [retenção de backup](automated-backups-overview.md#backup-retention) do banco de dados de origem. Esses backups podem ser usados para [restaurar](recovery-using-backups.md#programmatic-recovery-using-automated-backups) o banco de dados de origem para um ponto no tempo antes da migração.|
 | Restauração em um momento determinado | Um banco de dados não hiperescala não pode ser restaurado como um banco de dados de hiperescala, e um banco de dados de hiperescala não pode ser restaurado como um banco de dados que não seja de hiperescala. Para um banco de dados não hiperescala que foi migrado para o subdimensionamento alterando sua camada de serviço, a restauração para um ponto no tempo antes da migração e dentro do período de retenção de backup do banco de dados é possível [programaticamente](recovery-using-backups.md#programmatic-recovery-using-automated-backups). O banco de dados restaurado não será hiperescala. |
 | Se um banco de dados tiver um ou mais arquivos com mais de 1 TB, a migração falhará | Em alguns casos, pode ser possível contornar esse problema reduzindo os arquivos grandes para menos de 1 TB. Se estiver migrando um banco de dados que está sendo usado durante o processo de migração, verifique se nenhum arquivo tem mais de 1 TB. Use a consulta a seguir para determinar o tamanho dos arquivos de banco de dados. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Instância Gerenciada do SQL | Atualmente, o Azure SQL Instância Gerenciada não tem suporte com bancos de dados de hiperescala. |

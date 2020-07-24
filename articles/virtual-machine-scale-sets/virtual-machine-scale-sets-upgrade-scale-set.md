@@ -9,11 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 9498babd9605c46d752c5fe1eb1b077f6d911351
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7a61ed039a3d8ed643e3b1b3d79384e35847986
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83121007"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029290"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 
@@ -319,13 +320,13 @@ Há um tipo de modificação das propriedades globais do conjunto de dimensionam
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
     ```
 
-- Azure PowerShell com [Set-AzVmssVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm):
+- Azure PowerShell com [Set-AzVmssVm](/powershell/module/az.compute/set-azvmssvm):
 
     ```powershell
     Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- CLI do Azure com [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss):
+- CLI do Azure com [az vmss reimage](/cli/azure/vmss):
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -339,7 +340,7 @@ Há um tipo de modificação das propriedades globais do conjunto de dimensionam
 ### <a name="create-time-properties"></a>Propriedades do momento da criação
 Algumas propriedades só podem ser definidas ao criar o conjunto de dimensionamento. Essas propriedades incluem:
 
-- Zonas de Disponibilidades
+- Zonas de Disponibilidade
 - Publicador de referência de imagem
 - Oferta de referência de imagem
 - Tipo de conta de armazenamento em disco de SO gerenciado
@@ -368,12 +369,12 @@ Se um aplicativo for implantado em uma conjunto de dimensionamento por meio de e
 Também é comum que aplicativos sejam implantados por meio de uma imagem personalizada. Esse cenário é abordado na seção a seguir.
 
 ### <a name="os-updates"></a>Atualizações de SO
-Se você estiver usando imagens de plataforma do Azure, poderá atualizar a imagem modificando o *imageReference* (mais informações na documentação da [API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
+Se você estiver usando imagens de plataforma do Azure, poderá atualizar a imagem modificando o *imageReference* (mais informações na documentação da [API REST](/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 >[!NOTE]
 > Com imagens de plataforma, é comum especificar "mais recente" para a versão de referência de imagem. Ao criar, dimensionar e recriar a imagem, as VMs são criadas com a versão disponível mais recente. No entanto, isso **não** significa que a imagem do SO será atualizada automaticamente ao longo do tempo com o lançamento de novas versões da imagem. Um recurso separado está atualmente em visualização que fornece atualizações automáticas do OS. Para obter mais informações, confira a [Documentação de Atualização Automática do SO](virtual-machine-scale-sets-automatic-upgrade.md).
 
-Se você usar imagens personalizadas, poderá atualizar a imagem atualizando a ID do *imageReference* (mais informações na documentação da [API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
+Se você usar imagens personalizadas, poderá atualizar a imagem atualizando a ID do *imageReference* (mais informações na documentação da [API REST](/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 ## <a name="examples"></a>Exemplos
 

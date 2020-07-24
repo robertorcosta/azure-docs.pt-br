@@ -9,11 +9,12 @@ ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: daa469bef999f33feb44983e3b5a7073b4df655e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1c91bf9138e37c6de381ab34ab80413d3040981
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83197363"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029307"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Criar um conjunto de dimensionamento de máquinas virtuais que use Zonas de Disponibilidade
 
@@ -57,7 +58,7 @@ Quando você cria um conjunto de dimensionamento em uma única zona, você contr
 
 Para usar Zonas de Disponibilidade, seu conjunto de dimensionamento deve ser criado em uma [região do Azure com suporte](../availability-zones/az-region.md). Você pode criar um conjunto de dimensionamento que usa Zonas de Disponibilidade com um dos seguintes métodos:
 
-- [Azure portal](#use-the-azure-portal)
+- [Portal do Azure](#use-the-azure-portal)
 - CLI do Azure
 - [PowerShell do Azure](#use-azure-powershell)
 - [Modelos do Gerenciador de Recursos do Azure](#use-azure-resource-manager-templates)
@@ -91,7 +92,7 @@ Para obter um exemplo completo de um conjunto de dimensionamento de zona única 
 
 ### <a name="zone-redundant-scale-set"></a>Conjunto de dimensionamento com redundância de zona
 
-Para criar um conjunto de dimensionamento com redundância de zona, você usa um endereço IP público de SKU *padrão* e balanceador de carga. Para redundância aprimorada, o SKU *padrão* cria recursos de rede com redundância de zona. Para obter mais informações, consulte [Visão geral do Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) e [Standard Load Balancer e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md).
+Para criar um conjunto de dimensionamento com redundância de zona, você usa um endereço IP público de SKU *padrão* e balanceador de carga. Para redundância aprimorada, o SKU *padrão* cria recursos de rede com redundância de zona. Para obter mais informações, consulte [Visão geral do Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md) e [Standard Load Balancer e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Para criar um conjunto de dimensionamento com redundância de zona, especifique várias zonas com o parâmetro `--zones`. O exemplo a seguir cria um conjunto de dimensionamento com redundância de zona chamado *myScaleSet* nas zonas *1,2,3*:
 
@@ -208,7 +209,7 @@ Para criar um conjunto de dimensionamento com redundância de zona, especifique 
 }
 ```
 
-Se você criar um endereço IP público ou um balanceador de carga, especifique a propriedade *"sku": {"name": "Padrão"} "* para criar recursos de rede com redundância de zona. Você também precisa criar um grupo de segurança de rede e regras para permitir que qualquer tráfego. Para obter mais informações, consulte [Visão geral do Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) e [Standard Load Balancer e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md).
+Se você criar um endereço IP público ou um balanceador de carga, especifique a propriedade *"sku": {"name": "Padrão"} "* para criar recursos de rede com redundância de zona. Você também precisa criar um grupo de segurança de rede e regras para permitir que qualquer tráfego. Para obter mais informações, consulte [Visão geral do Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md) e [Standard Load Balancer e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Para obter um exemplo completo de um conjunto de dimensionamento com redundância de zona e recursos de rede, consulte [este Resource Manager de exemplo](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 

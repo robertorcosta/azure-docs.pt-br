@@ -9,20 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/01/2020
+ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 0c7fe0629724217f36d3b28e74aaafdfd15c9a61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7316756aab7875dce50a3783cb95ca42676b970
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85799234"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027080"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrar um aplicativo de página única do JavaScript da concessão implícita para o fluxo do código de autorização
-
-> [!IMPORTANT]
-> Esse recurso está atualmente na visualização. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspectos desse recurso podem ser alterados antes da GA (disponibilidade geral).
 
 A Biblioteca de Autenticação da Microsoft para JavaScript (MSAL.js) v2.0 oferece suporte ao fluxo do código de autorização com PKCE e CORS para aplicativos de página única na plataforma de identidade da Microsoft. Siga as etapas das seções abaixo para migrar seu aplicativo MSAL.js 1.x usando a concessão implícita para MSAL.js 2.0+ (doravante *2. x*) e o fluxo do código de autorização.
 

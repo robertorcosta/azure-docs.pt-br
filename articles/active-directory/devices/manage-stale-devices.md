@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 292ba1d52b107acd164408767747e5a33cb0c67d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94a4b2a44902dde798f760f970ccff2c1e8f15c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252688"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025618"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como gerenciar dispositivos obsoletos no Azure AD
 
@@ -56,7 +57,7 @@ Você tem duas opções para recuperar o valor do carimbo de data/hora da ativid
 
     ![Carimbo de data/hora da atividade](./media/manage-stale-devices/01.png)
 
-- O cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0)
+- O cmdlet [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice)
 
     ![Carimbo de data/hora da atividade](./media/manage-stale-devices/02.png)
 
@@ -88,7 +89,7 @@ Se seu dispositivo estiver sob o controle do Intune ou de qualquer outra soluç�
 
 ### <a name="system-managed-devices"></a>Dispositivos gerenciados pelo sistema
 
-Não exclua os dispositivos gerenciados pelo sistema. Em geral, são dispositivos como o AutoPilot. Depois de excluídos, esses dispositivos não podem ser reprovisionados. O novo cmdlet `get-msoldevice` exclui dispositivos gerenciados pelo sistema por padrão. 
+Não exclua os dispositivos gerenciados pelo sistema. Em geral, são dispositivos como o AutoPilot. Depois de excluídos, esses dispositivos não podem ser reprovisionados. O novo cmdlet `Get-AzureADDevice` exclui dispositivos gerenciados pelo sistema por padrão. 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos adicionados ao Azure AD híbrido
 
@@ -128,26 +129,25 @@ Embora seja possível limpar dispositivos obsoletos no portal do Azure, é mais 
 
 Uma rotina típica é composta das seguintes etapas:
 
-1. Conectar-se ao Azure Active Directory usando o cmdlet [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0)
+1. Conectar-se a Azure Active Directory usando o cmdlet [Connect-AzureAD](/powershell/module/azuread/connect-azuread)
 1. Obter a lista de dispositivos
-1. Desabilite o dispositivo usando o cmdlet [Disable-MsolDevice](/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0). 
+1. Desabilite o dispositivo usando o cmdlet [set-AzureADDevice](/powershell/module/azuread/Set-AzureADDevice) (desabilite usando a opção-AccountEnabled). 
 1. Aguarde o período de cortesia com o número de dias escolhido por você antes de excluir o dispositivo.
-1. Remova o dispositivo usando o cmdlet [Remove-MsolDevice](/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
+1. Remova o dispositivo usando o cmdlet [Remove-AzureADDevice](/powershell/module/azuread/Remove-AzureADDevice) .
 
 ### <a name="get-the-list-of-devices"></a>Obter a lista de dispositivos
 
 Para obter todos os dispositivos e armazenar os dados retornados em um arquivo CSV:
 
 ```PowerShell
-Get-MsolDevice -all | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, Approxi
-mateLastLogonTimestamp | export-csv devicelist-summary.csv
+Get-AzureADDevice -All:$true | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-summary.csv
 ```
 
 Se você tiver um grande número de dispositivos em seu diretório, use o filtro de carimbo de data/hora para restringir o número de dispositivos retornados. Para obter todos os dispositivos com um carimbo de data/hora mais antigo do que a data específica e armazenar os dados retornados em um arquivo CSV: 
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
-Get-MsolDevice -all -LogonTimeBefore $dt | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
+Get-AzureADDevice | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
 
 ## <a name="what-you-should-know"></a>O que você deve saber

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf21f2ea5aacb36f3a76034e99b748bf4c6c363b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16203ab972f6117cec41e43ee5dd89cda7e95ede
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554774"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025687"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planejar sua implementação de junção do Azure Active Directory híbrido
 
@@ -92,12 +92,12 @@ Como primeira etapa do planejamento, você deve revisar seu ambiente e determina
 ### <a name="handling-devices-with-azure-ad-registered-state"></a>Manipulando dispositivos com o estado registrado do Azure AD
 Se seus dispositivos ingressados no domínio do Windows 10 forem [registrados no Azure ad](overview.md#getting-devices-in-azure-ad) para seu locatário, isso poderá levar a um estado duplo de ingressado no Azure ad híbrido e ao dispositivo registrado do Azure AD. É recomendável atualizar para o Windows 10 1803 (com o KB4489894 aplicado) ou superior para resolver esse cenário automaticamente. Em versões anteriores a 1803, você precisará remover manualmente o estado registrado do Azure AD antes de habilitar a junção híbrida do Azure AD. Nas versões 1803 e acima, as seguintes alterações foram feitas para evitar esse estado duplo:
 
-- Qualquer estado registrado do Azure AD existente para um usuário seria removido automaticamente <i>depois que o dispositivo for ingressado no Azure ad híbrido e o mesmo usuário fizer logon</i>. Por exemplo, se o usuário A tiver um estado registrado do Azure AD no dispositivo, o estado duplo para o usuário A será limpo somente quando o usuário A fizer logon no dispositivo. Se houver vários usuários no mesmo dispositivo, o estado duplo será limpo individualmente quando esses usuários fizerem logon.
+- Qualquer estado registrado do Azure AD existente para um usuário seria removido automaticamente <i>depois que o dispositivo for ingressado no Azure ad híbrido e o mesmo usuário fizer logon</i>. Por exemplo, se o usuário A tiver um estado registrado do Azure AD no dispositivo, o estado duplo para o usuário A será limpo somente quando o usuário A fizer logon no dispositivo. Se houver vários usuários no mesmo dispositivo, o estado duplo será limpo individualmente quando esses usuários fizerem logon. Além de remover o estado registrado do Azure AD, o Windows 10 também cancelará o registro do dispositivo do Intune ou de outro MDM, se o registro tiver ocorrido como parte do registro do Azure AD por meio do registro automático.
 - Você pode impedir que o dispositivo ingressado no domínio seja registrado no Azure AD adicionando o seguinte valor de registro a HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin" = DWORD: 00000001.
 - No Windows 10 1803, se você tiver o Windows Hello para empresas configurado, o usuário precisará reinstalar o Windows Hello para empresas após a limpeza do estado duplo. Esse problema foi resolvido com o KB4512509
 
 > [!NOTE]
-> O dispositivo registrado do Azure AD não será removido automaticamente se for gerenciado pelo Intune.
+> Embora o Windows 10 Remova automaticamente o estado registrado do Azure AD localmente, o objeto de dispositivo no Azure AD não será excluído imediatamente se for gerenciado pelo Intune. Você pode validar a remoção do estado registrado do Azure AD executando dsregcmd/status e considerar que o dispositivo não seja registrado no AD do Azure com base nele.
 
 ### <a name="additional-considerations"></a>Considerações adicionais
 - Se seu ambiente usa VDI (Virtual Desktop Infrastructure), consulte [identidade do dispositivo e virtualização de área de trabalho](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
@@ -163,8 +163,8 @@ A tabela a seguir fornece detalhes sobre o suporte a esses UPNs do AD local no i
 | ----- | ----- | ----- | ----- |
 | Roteável | Federado | Da versão 1703 | Disponível para o público geral |
 | Não roteável | Federado | Da versão 1803 | Disponível para o público geral |
-| Roteável | Gerenciada | Da versão 1803 | Em geral, não há suporte para o SSPR do Azure AD na tela de bloqueio do Windows |
-| Não roteável | Gerenciada | Sem suporte | |
+| Roteável | Gerenciados | Da versão 1803 | Em geral, não há suporte para o SSPR do Azure AD na tela de bloqueio do Windows |
+| Não roteável | Gerenciados | Sem suporte | |
 
 ## <a name="next-steps"></a>Próximas etapas
 

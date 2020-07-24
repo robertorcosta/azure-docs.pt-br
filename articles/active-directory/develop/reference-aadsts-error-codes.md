@@ -12,11 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dabaecfd31ac9ec6250e7b482fde7699a13df044
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d18a50a21c41830796c913a424707897d277218
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266586"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026757"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro de autorização e autenticação do Azure AD
 
@@ -93,7 +94,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS40015 | OAuth2IdPAuthCodeRedemptionUserError - Existe um problema com o seu provedor de identidade federado. Entre em contato com seu IDP para resolver esse problema. |
 | AADSTS50000 | TokenIssuanceError - há um problema com o serviço de logon. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para resolver esse problema. |
 | AADSTS50001 | InvalidResource - O recurso está desabilitado ou não existe. Verifique o código do seu aplicativo para garantir que você especificou o URL exato do recurso que você está tentando acessar.  |
-| AADSTS50002 | NotAllowedTenant - O login falhou devido a um acesso de proxy restrito no locatário. Se for sua própria política de inquilino, você poderá alterar suas configurações de inquilino restrito para corrigir esse problema. |
+| AADSTS50002 | NotAllowedTenant - O login falhou devido a um acesso de proxy restrito no locatário. Se essa for a própria política de locatário, você poderá alterar suas configurações de locatário restrito para corrigir esse problema. |
 | AADSTS50003 | MissingSigningKey - O logon falhou devido a uma chave de assinatura ou certificado ausente. Isso pode ter ocorrido porque não havia uma chave de assinatura configurada no aplicativo. Confira as resoluções descritas em [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured) . Se você ainda encontrar problemas, entre em contato com o proprietário do aplicativo ou com um administrador do aplicativo. |
 | AADSTS50005 | DevicePolicyError-o usuário tentou fazer logon em um dispositivo de uma plataforma que atualmente não tem suporte por meio da política de acesso condicional. |
 | AADSTS50006 | InvalidSignature - Falha na verificação da assinatura devido a uma assinatura inválida. |
@@ -202,7 +203,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS70012 | MsaServerError - Ocorreu um erro no servidor durante a autenticação de um usuário MSA (consumidor). Tente novamente. Se ele continuar falhando, [abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AuthorizationPending - Erro no fluxo do dispositivo OAuth 2.0. A autorização está pendente. O dispositivo tentará novamente a consulta. |
 | AADSTS70018 | BadVerificationCode - Código de verificação inválido devido ao usuário digitar o código do usuário errado para o fluxo do código do dispositivo. Autorização não é aprovada. |
-| AADSTS70019 | CodeExpired - O código de verificação expirou. Solicite ao usuário de tentar novamente na entrada. |
+| AADSTS70019 | CodeExpired - O código de verificação expirou. Solicite ao usuário que tente se conectar novamente. |
 | AADSTS75001 | BindingSerializationError - Ocorreu um erro durante a ligação da mensagem SAML. |
 | AADSTS75003 | UnsupportedBindingError - O aplicativo retornou um erro relacionado à ligação não suportada (a resposta do protocolo SAML não pode ser enviada por meio de ligações que não sejam HTTP POST). |
 | AADSTS75005 | Saml2MessageInvalid - o Azure AD não suporta a solicitação SAML enviada pelo aplicativo para SSO. |
@@ -263,6 +264,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS90093 | GraphUserUnauthorized - Gráfico retornado com um código de erro proibido para a solicitação. |
 | AADSTS90094 | AdminConsentRequired - É necessário o consentimento do administrador. |
 | AADSTS900382 | Não há suporte para o cliente confidencial na solicitação de nuvem cruzada. |
+| AADSTS90099 | O aplicativo ' {appId} ' ({appName}) não foi autorizado no locatário ' {Tenant} '. Os aplicativos devem estar autorizados a acessar o locatário do cliente antes que os administradores delegados do parceiro possam usá-los. Forneça o consentimento prévio ou execute a API apropriada do Partner Center para autorizar o aplicativo. |
 | AADSTS90100 | InvalidRequestParameter - O parâmetro está vazio ou não é válido. |
 | AADSTS901002 | AADSTS901002: não há suporte para o parâmetro de solicitação ' Resource '. |
 | AADSTS90101 | InvalidEmailAddress - Os dados fornecidos não são um endereço de e-mail válido. O endereço de e-mail deve estar no formato `someone@example.com`. |

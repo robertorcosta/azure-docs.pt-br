@@ -2,16 +2,17 @@
 title: Tutorial – Excluir um cluster do Red Hat OpenShift no Azure
 description: Neste tutorial, saiba como excluir um cluster do Red Hat OpenShift no Azure usando a CLI do Azure
 author: sakthi-vetrivel
+ms.custom: fasttrack-edit
 ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 2de60b90eb6fb75ef013a2fd8785f1b8b616fba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6fdc36dbf270be61457dcd00dd1988808a80d062
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82232131"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030089"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Excluir um cluster do Red Hat OpenShift 4 no Azure
 
@@ -49,7 +50,7 @@ RESOURCE_GROUP=yourresourcegroup
 Usando esses valores, exclua o cluster:
 
 ```bash
-az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
+az aro delete --resource-group $RESOURCE_GROUP --name $CLUSTER
 ```
 
 Depois, você deverá confirmar se deseja excluir o cluster. Depois de confirmar com `y`, demorará alguns minutos para excluir o cluster. Quando o comando for concluído, todo o grupo de recursos e todos os recursos dentro dele, incluindo o cluster, serão excluídos.

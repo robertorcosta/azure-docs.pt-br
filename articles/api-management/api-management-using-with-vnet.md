@@ -10,15 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/10/2020
+ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: e7323793dcbbd05fc5abf032d140b2caa5975da4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e3acfb9552db9fa972b0a407e52cece014b45389
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249454"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024972"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o Gerenciamento de API do Azure com redes virtuais
 As redes virtuais do Azure (VNETs) permitem que você coloque qualquer um dos recursos do Azure em uma rede não roteável para a Internet com acesso controlado. Essas redes podem ser conectadas às redes locais usando várias tecnologias VPN. Para saber mais sobre Redes Virtuais do Azure comece com as informações aqui: [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -119,7 +119,7 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
 | * / 5671, 5672, 443          | Saída           | TCP                | VIRTUAL_NETWORK / EventHub            | Dependência para registrar em [log a política de Hub de Eventos](api-management-howto-log-event-hubs.md) e o agente de monitoramento | Interno e externo  |
 | * / 445                      | Saída           | TCP                | VIRTUAL_NETWORK / Armazenamento             | Dependência do Compartilhamento de Arquivos do Azure para [GIT](api-management-configuration-repository-git.md)                      | Interno e externo  |
 | */443                     | Saída           | TCP                | VIRTUAL_NETWORK/AzureCloud            | Extensão de integridade e monitoramento         | Interno e externo  |
-| */1886, 443                     | Saída           | TCP                | VIRTUAL_NETWORK/AzureMonitor         | Publicar [logs de diagnóstico e métricas](api-management-howto-use-azure-monitor.md) e [Resource Health](../service-health/resource-health-overview.md)                     | Interno e externo  |
+| */1886, 443                     | Saída           | TCP                | VIRTUAL_NETWORK/AzureMonitor         | Publicar [logs e métricas de diagnóstico](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md) e [Application insights](api-management-howto-app-insights.md)                   | Interno e externo  |
 | */25, 587, 25028                       | Saída           | TCP                | VIRTUAL_NETWORK/INTERNET            | Conectar a retransmissão SMTP para enviar emails                    | Interno e externo  |
 | * / 6381 - 6383              | Entrada e Saída | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Acessar o serviço Redis para políticas de [cache](api-management-caching-policies.md) entre computadores         | Interno e externo  |
 | */4290              | Entrada e Saída | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Sincronizar contadores para políticas de [limite de taxa](api-management-access-restriction-policies.md#LimitCallRateByKey) entre computadores         | Interno e externo  |
@@ -152,6 +152,8 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
 + **Diagnósticos do portal do Azure**: Para habilitar o fluxo de log de diagnóstico do portal do Azure ao usar a extensão de Gerenciamento de API de dentro de uma Rede Virtual, é necessário ter acesso de saída a `dc.services.visualstudio.com` na porta 443. Isso ajuda na solução de problemas que você pode enfrentar ao usar a extensão.
 
 + **Azure Load Balancer**: Permitir a solicitação de entrada da marca de serviço `AZURE_LOAD_BALANCER` não é um requisito para a SKU `Developer`, já que implantamos apenas uma unidade de computação por trás dela. Mas a entrada de [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) se torna crítica ao Dimensionar para uma SKU superior como `Premium`, como falha da investigação de integridade do Load Balancer, falha em uma implantação.
+
++ **Application insights**: se o monitoramento do [aplicativo Azure insights](api-management-howto-app-insights.md) estiver habilitado no gerenciamento de API, será necessário permitir a conectividade de saída para o [ponto de extremidade de telemetria](/azure/azure-monitor/app/ip-addresses#outgoing-ports) da rede virtual. 
 
 + **Forçar o túnel de tráfego para o firewall local usando a rota expressa ou a solução de virtualização de rede**: Uma configuração de cliente comum é definir sua própria rota padrão (0.0.0.0/0), o que força todo o tráfego da sub-rede delegada do gerenciamento de API a fluir por um firewall local ou para uma solução de virtualização de rede. Esse fluxo de tráfego invariavelmente interrompe a conectividade com o Gerenciamento de API do Azure, pois o tráfego de saída é bloqueado localmente ou convertido em NAT para um conjunto irreconhecível de endereços que não funcionam mais com vários pontos de extremidade do Azure. A solução exige que você faça algumas coisas:
 

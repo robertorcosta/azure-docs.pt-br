@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 41124e7237c2c16034fe8cce1fa89fa0132d09b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7393b0f3d3004c28e0d6befe2fdbbeda7f9a592
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558931"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026145"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicativo Web que conecta usuários: entrar e sair
 
@@ -32,7 +33,7 @@ A entrada consiste em duas partes:
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-No ASP.NET Core, para aplicativos da plataforma Microsoft Identity, o botão **entrar** é exposto no `Views\Shared\_LoginPartial.cshtml` (para um aplicativo MVC) ou `Pages\Shared\_LoginPartial.cshtm` (para um aplicativo Razor). Ele é exibido somente quando o usuário não está autenticado. Ou seja, ele é exibido quando o usuário ainda não tiver entrado ou tiver se desconectado. Por contrário, o botão **sair** é exibido quando o usuário já está conectado. Observe que o controlador de conta está definido no pacote NuGet **Microsoft. Identity. Web. UI** , na área chamada **MicrosoftIdentity**
+No ASP.NET Core, para aplicativos da plataforma Microsoft Identity, o botão **entrar** é exposto no `Views\Shared\_LoginPartial.cshtml` (para um aplicativo MVC) ou `Pages\Shared\_LoginPartial.cshtm` (para um aplicativo Razor). Ele é exibido somente quando o usuário não é autenticado. Ou seja, ele é exibido quando o usuário ainda não tiver entrado ou tiver se desconectado. Por contrário, o botão **sair** é exibido quando o usuário já está conectado. Observe que o controlador de conta está definido no pacote NuGet **Microsoft. Identity. Web. UI** , na área chamada **MicrosoftIdentity**
 
 ```html
 <ul class="navbar-nav">
@@ -334,7 +335,7 @@ Nas versões anteriores dos modelos do ASP.NET Core, o `Account` controlador foi
 - Chamadas `Signout()` , que permitem ao middleware OpenID Connect contatar o ponto de extremidade da plataforma Microsoft Identity `logout` . Em seguida, o ponto de extremidade:
 
   - Limpa o cookie de sessão do navegador.
-  - Chama novamente a URL de logout. Por padrão, a URL de logout exibe a página de exibição desconectada [SignedOut.html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). Essa página também é fornecida como parte do MIcrosoft. Identity. Web.
+  - Chama novamente a URL de logout. Por padrão, a URL de logout exibe a página de exibição desconectada [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Essa página também é fornecida como parte do MIcrosoft. Identity. Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

@@ -4,15 +4,15 @@ description: incluir arquivo
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/26/2020
+ms.date: 07/20/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8ee5973afb9312688178abd9a186c5319032c493
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df78133f602466681da64d2666a311e1649c598f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506031"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028781"
 ---
 O uso de VMs pontuais permite que você tire proveito de nossa capacidade não utilizada a uma economia de custo significativa. A qualquer momento, quando o Azure precisar da capacidade de volta, a infraestrutura do Azure removerá as VMs pontuais. Portanto, as VMs pontuais são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento em lotes, ambientes de desenvolvimento/teste, grandes cargas de trabalho de computação e muito mais.
 
@@ -26,10 +26,6 @@ As VMs podem ser removidas com base na capacidade ou no preço máximo definido.
 A política de *desalocação* move a VM para o estado parado e desalocada, permitindo que você a implante novamente mais tarde. No entanto, não há nenhuma garantia de que a alocação terá êxito. As VMs desalocadas serão contadas em relação à sua cota e você será cobrado pelos custos de armazenamento para os discos subjacentes. 
 
 Se você quiser que sua VM seja excluída quando ela for removida, você poderá definir a política de remoção a *ser excluída.* As VMs removidas são excluídas junto com seus discos subjacentes, portanto, você não continuará a ser cobrado pelo armazenamento. 
-
-> [!NOTE]
->
-> No momento, o portal não oferece suporte `Delete` como uma opção de remoção. você só pode definir `Delete` usando o PowerShell, a CLI e os modelos.
 
 Você pode optar por receber notificações na VM por meio [do Azure eventos agendados](../articles/virtual-machines/linux/scheduled-events.md). Isso notificará você se suas VMs estiverem sendo removidas e você terá 30 segundos para concluir todos os trabalhos e realizar tarefas de desligamento antes da remoção. 
 
@@ -54,19 +50,14 @@ Os seguintes tamanhos de VM não têm suporte para VMs spot:
 
 As VMs pontuais podem ser implantadas em qualquer região, exceto Microsoft Azure a 21Vianet da China.
 
-Não há suporte para alguns canais de assinatura:
-
 <a name="channel"></a>
 
-| Canais do Azure               | Disponibilidade de VMs do Azure Spot       |
-|------------------------------|-----------------------------------|
-| Contrato Enterprise         | Sim                               |
-| Pré-pago                | Sim                               |
-| Provedor de Serviços de Nuvem (CSP) | [Entre em contato com seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Benefícios                     | Não disponível                     |
-| Patrocinado                    | Sim                               |
-| Avaliação gratuita                   | Não disponível                     |
+Atualmente, há suporte para os seguintes [tipos de oferta](https://azure.microsoft.com/support/legal/offer-details/) :
 
+-   Contrato Enterprise
+-   Pago conforme o uso
+-   Patrocinado
+- Para provedor de serviços de nuvem (CSP), entre em contato com seu parceiro
 
 
 ## <a name="pricing"></a>Preços

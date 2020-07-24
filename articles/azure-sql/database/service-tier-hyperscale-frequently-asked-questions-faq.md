@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: dbb1d73fc2b19ef701cb08ced24c634bbbadb235
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 983bf848b3be2501b70ba1c0396207e514b7b8d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231583"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024010"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>FAQ de hiperescala do banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -204,7 +204,9 @@ Sim. As páginas de dados associadas a uma determinada tabela podem acabar em v�
 
 ### <a name="can-i-move-my-existing-databases-in-azure-sql-database-to-the-hyperscale-service-tier"></a>Posso mover meus bancos de dados existentes no banco de dados SQL do Azure para a camada de serviço de hiperescala
 
-Sim. Você pode mover seus bancos de dados existentes para o Azure SQL para o subdimensionamento. Essa é uma migração unidirecional. Você não pode mover bancos de dados da Hiperescala para outro nível de serviço. Para provas de conceito (POCs), recomendamos que você faça uma cópia do seu banco de dados e migre a cópia para o hiperescala.
+Sim. Você pode mover seus bancos de dados existentes para o Azure SQL para o subdimensionamento. Essa é uma migração unidirecional. Você não pode mover bancos de dados da Hiperescala para outro nível de serviço. Para provas de conceito (POCs), recomendamos que você faça uma cópia do seu banco de dados e migre a cópia para o hiperescala. 
+
+O tempo necessário para mover um banco de dados existente para o hiperescala consiste no tempo para copiar os dados e no tempo para repetir as alterações feitas no banco de dados de origem enquanto copiava. O tempo de cópia de dados é proporcional ao tamanho dos dados. O tempo de repetição das alterações será menor se a movimentação for feita durante um período de baixa atividade de gravação.
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-service-tiers"></a>Posso mover meus bancos de dados de hiperescala para outras camadas de serviço
 

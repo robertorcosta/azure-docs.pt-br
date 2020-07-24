@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: sngun
-ms.openlocfilehash: 4c9f02784507ee893b6396fef4ed34a87610166d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae1d2743934c5ae8df9f2a1514bdda9b34262b9d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414157"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023680"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Como auditar Azure Cosmos DB operações do plano de controle
 
@@ -26,9 +27,9 @@ Veja a seguir alguns cenários de exemplo em que as operações do plano de cont
 
 ## <a name="disable-key-based-metadata-write-access"></a>Desabilitar acesso de gravação de metadados com base em chave
 
-Antes de auditar as operações do plano de controle no Azure Cosmos DB, desabilite o acesso de gravação de metadados baseado em chave em sua conta. Quando o acesso de gravação de metadados com base em chave está desabilitado, os clientes que se conectam à conta do Azure Cosmos por meio de chaves de conta são impedidos de acessar Você pode desabilitar o acesso de gravação definindo a `disableKeyBasedMetadataWriteAccess` propriedade como true. Depois de definir essa propriedade, as alterações em qualquer recurso podem ocorrer de um usuário com a função e as credenciais adequadas do RBAC (controle de acesso baseado em função). Para saber mais sobre como definir essa propriedade, consulte o artigo [impedindo alterações de SDKs](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . 
+Antes de auditar as operações do plano de controle no Azure Cosmos DB, desabilite o acesso de gravação de metadados baseado em chave em sua conta. Quando o acesso de gravação de metadados com base em chave está desabilitado, os clientes que se conectam à conta do Azure Cosmos por meio de chaves de conta são impedidos de acessar Você pode desabilitar o acesso de gravação definindo a `disableKeyBasedMetadataWriteAccess` propriedade como true. Depois de definir essa propriedade, as alterações em qualquer recurso podem ocorrer de um usuário com a função e as credenciais adequadas do RBAC (controle de acesso baseado em função). Para saber mais sobre como definir essa propriedade, consulte o artigo [impedindo alterações de SDKs](role-based-access-control.md#prevent-sdk-changes) . 
 
-Depois que o `disableKeyBasedMetadataWriteAccess` for ativado, se os clientes baseados em SDK executarem operações de criação ou atualização, um erro *"operação ' Post ' no recurso ' ContainerNameorDatabaseName ' não será permitido por meio de Azure Cosmos DB ponto de extremidade* será retornado. Você precisa ativar o acesso a essas operações para sua conta ou executar as operações de criação/atualização por meio de Azure Resource Manager, CLI do Azure ou Azure PowerShell. Para alternar de volta, defina disableKeyBasedMetadataWriteAccess como **false** usando CLI do Azure conforme descrito no artigo [impedindo alterações do SDK do cosmos](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . Certifique-se de alterar o valor de `disableKeyBasedMetadataWriteAccess` para falso em vez de true.
+Depois que o `disableKeyBasedMetadataWriteAccess` for ativado, se os clientes baseados em SDK executarem operações de criação ou atualização, um erro *"operação ' Post ' no recurso ' ContainerNameorDatabaseName ' não será permitido por meio de Azure Cosmos DB ponto de extremidade* será retornado. Você precisa ativar o acesso a essas operações para sua conta ou executar as operações de criação/atualização por meio de Azure Resource Manager, CLI do Azure ou Azure PowerShell. Para alternar de volta, defina disableKeyBasedMetadataWriteAccess como **false** usando CLI do Azure conforme descrito no artigo [impedindo alterações do SDK do cosmos](role-based-access-control.md#prevent-sdk-changes) . Certifique-se de alterar o valor de `disableKeyBasedMetadataWriteAccess` para falso em vez de true.
 
 Considere os seguintes pontos ao desativar o acesso de gravação de metadados:
 

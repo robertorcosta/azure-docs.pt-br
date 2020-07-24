@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 7d378f111104feb678d3d89f4a4c51998c67f2e1
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 49554c053af0ceecf2b7f0b1162b7212694239db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234545"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028083"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Criar uma VM do Windows a partir de um disco especializado usando o PowerShell
 
@@ -32,7 +33,7 @@ Este artigo mostra como usar discos gerenciados. Se você tiver uma implantaçã
 
 ## <a name="option-1-use-an-existing-disk"></a>Opção 1: usar um disco existente
 
-Se você tinha uma VM que foi excluída e quer reutilizar o disco do sistema operacional para criar uma nova, use [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk).
+Se você tinha uma VM que foi excluída e quer reutilizar o disco do sistema operacional para criar uma nova, use [Get-AzDisk](/powershell/module/az.compute/get-azdisk).
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'
@@ -67,7 +68,7 @@ Se você quiser copiar uma VM existente para outra região, talvez queira usar a
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>Tirar um instantâneo do disco do sistema operacional
 
-Você pode tirar um instantâneo de uma VM inteira (incluindo todos os discos) ou de apenas um único disco. As etapas a seguir mostram como tirar um instantâneo apenas do disco do sistema operacional da VM com o cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot). 
+Você pode tirar um instantâneo de uma VM inteira (incluindo todos os discos) ou de apenas um único disco. As etapas a seguir mostram como tirar um instantâneo apenas do disco do sistema operacional da VM com o cmdlet [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot). 
 
 Primeiro, defina alguns parâmetros. 
 
@@ -115,7 +116,7 @@ Para usar o instantâneo e criar uma VM que precisa ser de alto desempenho, adic
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Criar um novo disco a partir do instantâneo
 
-Crie um disco gerenciado com base no instantâneo usando [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). Este exemplo usa *myOSDisk* para o nome do disco.
+Crie um disco gerenciado com base no instantâneo usando [New-AzDisk](/powershell/module/az.compute/new-azdisk). Este exemplo usa *myOSDisk* para o nome do disco.
 
 Criar um novo grupo de recursos para a nova VM.
 
@@ -235,7 +236,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 ### <a name="add-the-os-disk"></a>Adicionar o disco do sistema operacional 
 
-Inclua o disco do sistema operacional na configuração usando [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk). Este exemplo define o tamanho do disco para *128 GB* e anexa o disco gerenciado como um disco do sistema operacional do *Windows*.
+Inclua o disco do sistema operacional na configuração usando [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk). Este exemplo define o tamanho do disco para *128 GB* e anexa o disco gerenciado como um disco do sistema operacional do *Windows*.
  
 ```powershell
 $vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
@@ -244,7 +245,7 @@ $vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Stand
 
 ### <a name="complete-the-vm"></a>Concluir a VM 
 
-Crie a VM usando [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) com as configurações que acabamos de criar.
+Crie a VM usando [New-AzVM](/powershell/module/az.compute/new-azvm) com as configurações que acabamos de criar.
 
 ```powershell
 New-AzVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
@@ -269,4 +270,3 @@ $vmList.Name
 
 ## <a name="next-steps"></a>Próximas etapas
 Logue na nova máquina virtual. Para obter mais informações, veja [Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows](connect-logon.md).
-

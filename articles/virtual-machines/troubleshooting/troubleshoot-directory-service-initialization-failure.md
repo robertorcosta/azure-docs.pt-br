@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/05/2020
 ms.author: v-miegge
-ms.openlocfilehash: 118c81dd52951729bfbbb97a510e693861666ee6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 909481964f8aa3272715e235fa011562225a9422
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663934"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028355"
 ---
 # <a name="troubleshoot-windows-stop-error--directory-service-initialization-failure"></a>Solucionar problemas de erros de parada do Windows – falha na inicialização do serviço de diretório
 
@@ -26,7 +27,7 @@ Este artigo mostra as etapas para resolver os problemas em que uma VM (máquina 
 
 ## <a name="symptom"></a>Sintoma
 
-Quando você usa o [Diagnóstico de inicialização](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para ver a captura de tela da VM, a captura de tela mostra que a VM precisa ser reiniciada devido a um erro, exibindo o código de parada **0xC00002E1** no Windows Server 2008 R2 ou **0xC00002E2** no Windows Server 2012 ou posterior.
+Quando você usa o [Diagnóstico de inicialização](./boot-diagnostics.md) para ver a captura de tela da VM, a captura de tela mostra que a VM precisa ser reiniciada devido a um erro, exibindo o código de parada **0xC00002E1** no Windows Server 2008 R2 ou **0xC00002E2** no Windows Server 2012 ou posterior.
 
 ![A tela de inicialização do Windows Server 2012 informa "Seu PC encontrou um problema e precisa ser reiniciado. Estamos coletando algumas informações de erro e, em seguida, reiniciaremos para você".](./media/troubleshoot-directory-service-initialization-failure/1.png)
 
@@ -61,7 +62,7 @@ Esse erro pode ser causado por uma das seguintes condições:
 
 ### <a name="create-and-access-a-repair-vm"></a>Criar e acessar uma VM de reparo
 
-1. Use as [etapas 1-3 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para preparar uma VM de reparo.
+1. Use as [etapas 1-3 dos comandos de reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para preparar uma VM de reparo.
 1. Use a Conexão de Área de Trabalho Remota para conectar-se à VM de reparo.
 
 ### <a name="free-up-space-on-disk"></a>Liberar espaço em disco
@@ -69,11 +70,11 @@ Esse erro pode ser causado por uma das seguintes condições:
 Como o disco agora está anexado a uma VM de reparo, verifique se o disco que contém o banco de dados interno do Active Directory tem espaço suficiente para executar corretamente.
 
 1. Verifique se o disco está cheio clicando com o botão direito do mouse na unidade e selecionando **Propriedades**.
-1. Se o disco tiver menos de 300 MB de espaço livre, [expanda-o para um máximo de 1 TB usando o PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. Se o disco tiver menos de 300 MB de espaço livre, [expanda-o para um máximo de 1 TB usando o PowerShell](../windows/expand-os-disk.md).
 1. Se o disco tiver atingido 1 TB de espaço usado, execute uma limpeza de disco.
 
-   1. Use o PowerShell para [desanexar o disco de dados](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell) da VM danificada.
-   1. Depois de desanexado da VM danificada, [anexe o disco de dados](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm) a uma VM em funcionamento.
+   1. Use o PowerShell para [desanexar o disco de dados](../windows/detach-disk.md#detach-a-data-disk-using-powershell) da VM danificada.
+   1. Depois de desanexado da VM danificada, [anexe o disco de dados](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm) a uma VM em funcionamento.
    1. Use a [ferramenta de limpeza de disco](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) para liberar espaço adicional.
 
 1. **Opcional** – se mais espaço for necessário, abra uma instância de CMD e insira o comando `defrag <LETTER ASSIGNED TO THE OS DISK>: /u /x /g` para executar uma desfragmentação na unidade:
@@ -182,7 +183,7 @@ Para habilitar a coleta de despejo de memória e o console serial, execute o scr
 
 ### <a name="rebuild-the-vm"></a>Recompilar a VM
 
-1. Use a [etapa 5 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para remontar a VM.
+1. Use a [etapa 5 dos comandos de reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para remontar a VM.
 
 ### <a name="reconfigure-the-storage-area-network-policy"></a>Reconfigurar a política de rede de área de armazenamento
 

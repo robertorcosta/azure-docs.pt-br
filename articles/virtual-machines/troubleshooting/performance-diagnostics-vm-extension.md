@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 763e948f58dfc76c3aa7ba67f461438fc752c689
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 62a30fada32a23546323dae34f875ab9c7da228c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135287"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028542"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensão de VM de Diagnóstico de Desempenho do Azure para Windows
 
@@ -233,7 +233,7 @@ A ferramenta PerfInsights coleta vários logs, configurações, dados de diagnó
 
 ## <a name="view-and-share-the-results"></a>Exibir e compartilhar os resultados
 
-A saída da extensão pode ser encontrada em um arquivo zip carregado na conta de armazenamento especificada durante a instalação e é compartilhada por 30 dias usando [Assinaturas de Acesso Compartilhado (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Este arquivo zip contém logs de diagnóstico e de um relatório com os resultados e recomendações. Um link SAS para o arquivo zip de saída pode ser encontrado dentro de um arquivo de texto chamado *zipfilename*_saslink.txt na pasta **C:\Packages\Plugins\Microsoft.Azure.performance.Diagnostics.AzurePerformanceDiagnostics \\ \<version> **. Qualquer pessoa que tenha esse link pode baixar o arquivo zip.
+A saída da extensão pode ser encontrada em um arquivo zip carregado na conta de armazenamento especificada durante a instalação e é compartilhada por 30 dias usando [Assinaturas de Acesso Compartilhado (SAS)](../../storage/common/storage-sas-overview.md). Este arquivo zip contém logs de diagnóstico e de um relatório com os resultados e recomendações. Um link SAS para o arquivo zip de saída pode ser encontrado dentro de um arquivo de texto chamado *zipfilename*_saslink.txt na pasta **C:\Packages\Plugins\Microsoft.Azure.performance.Diagnostics.AzurePerformanceDiagnostics \\ \<version> **. Qualquer pessoa que tenha esse link pode baixar o arquivo zip.
 
 Para ajudar o engenheiro de suporte que está trabalhando no seu tíquete de suporte, a Microsoft pode usar esse link das SAS para baixar os dados de diagnóstico.
 

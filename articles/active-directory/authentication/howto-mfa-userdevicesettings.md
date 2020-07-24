@@ -5,17 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 295738ee5943a6cf54bc7e1e3ce4bba621dbe29f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9861e8e8be39781ad1b256b9939df3ab03e74be6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658690"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027522"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Gerenciar configurações de usuário para a autenticação multifator do Azure
 
@@ -26,7 +27,7 @@ Para ajudar a gerenciar os usuários da autenticação multifator do Azure, voc�
 Se você tiver atribuído a função de *administrador de autenticação* , poderá exigir que os usuários redefinam sua senha, registrem-se novamente para MFA ou revokem as sessões de MFA existentes de seu objeto de usuário. Para gerenciar as configurações do usuário, conclua as seguintes etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. À esquerda, selecione **Azure Active Directory**  >  **usuários**  >  **todos os usuários**.
+1. À esquerda, selecione **Azure Active Directory** > **Usuários** > **Todos os usuários**.
 1. Escolha o usuário no qual você deseja executar uma ação e selecione **métodos de autenticação**. Na parte superior da janela, escolha uma das seguintes opções para o usuário:
    - **Redefinir senha** redefine a senha do usuário e atribui uma senha temporária que deve ser alterada na próxima entrada.
    - **Exigir o novo registro de MFA** faz isso para que, quando o usuário entrar na próxima vez, ele seja solicitado a configurar um novo método de autenticação de MFA.
@@ -53,6 +54,6 @@ Para excluir as senhas de aplicativo de um usuário, conclua as seguintes etapas
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo ajudou a definir configurações de usuário individuais. Para definir as configurações do serviço de autenticação multifator do Azure, consulte [definir as configurações da autenticação multifator do Azure](howto-mfa-mfasettings.md)
+Este artigo mostrou como definir configurações de usuário individuais. Para definir as configurações gerais do serviço de autenticação multifator do Azure, consulte [definir as configurações da autenticação multifator do Azure](howto-mfa-mfasettings.md).
 
-Se os usuários precisarem de ajuda, consulte o [Guia do usuário para autenticação multifator do Azure](../user-help/multi-factor-authentication-end-user.md).
+Se os usuários precisarem de ajuda, consulte o [Guia do usuário para autenticação multifator do Azure](../user-help/multi-factor-authentication-end-user-first-time.md).

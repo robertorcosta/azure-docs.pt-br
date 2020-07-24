@@ -13,12 +13,12 @@ ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: f6816da35aad51e88449361d2a80542c4349ffac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3de252b22d7b33e45c3b45e2b6c05e4b33df663d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479412"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027046"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Arquivo de configuração da biblioteca de autenticação do Android da Microsoft
 
@@ -30,7 +30,7 @@ Este artigo o ajudará a entender as várias configurações no arquivo de confi
 
 ### <a name="general-settings"></a>Configurações gerais
 
-| Property | Tipo de Dados | Obrigatório | Observações |
+| Propriedade | Tipo de Dados | Obrigatório | Observações |
 |-----------|------------|-------------|-------|
 | `client_id` | String | Sim | A ID do cliente do aplicativo na [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `redirect_uri`   | String | Sim | O URI de redirecionamento do seu aplicativo da [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
@@ -65,7 +65,7 @@ A lista de autoridades que são conhecidas e confiáveis por você. Além das au
     "type": "AAD",
     "audience": {
         "type": "AzureADMyOrg",
-        "tenantId": "contoso.com" // Provide your specific tenant ID here
+        "tenant_id": "contoso.com" // Provide your specific tenant ID here
     }
 },
 // Example AzureAD Multiple Organizations
@@ -101,16 +101,16 @@ A lista de autoridades que são conhecidas e confiáveis por você. Além das au
 
 #### <a name="authority-properties"></a>Propriedades da autoridade
 
-| Property | Tipo de dados  | Obrigatório | Observações |
+| Propriedade | Tipo de dados  | Obrigatório | Observações |
 |-----------|-------------|-----------|--------|
 | `type` | String | Sim | Espelha o público ou o tipo de conta de destino do seu aplicativo. Valores possíveis: `AAD` ,`B2C` |
 | `audience` | Objeto | Não | Aplica-se somente quando Type = `AAD` . Especifica a identidade de destino do seu aplicativo. Usar o valor do registro do aplicativo |
 | `authority_url` | String | Sim | Necessário somente quando Type = `B2C` . Especifica a URL ou a política de autoridade que seu aplicativo deve usar  |
-| `default` | booleano | Sim | Um único `"default":true` é necessário quando uma ou mais autoridades são especificadas. |
+| `default` | boolean | Sim | Um único `"default":true` é necessário quando uma ou mais autoridades são especificadas. |
 
 #### <a name="audience-properties"></a>Propriedades do público
 
-| Property | Tipo de Dados  | Obrigatório | Observações |
+| Propriedade | Tipo de Dados  | Obrigatório | Observações |
 |-----------|-------------|------------|-------|
 | `type` | String | Sim | Especifica o público-alvo que seu aplicativo deseja direcionar. Valores possíveis: `AzureADandPersonalMicrosoftAccount` , `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` ,`AzureADMyOrg` |
 | `tenant_id` | String | Sim | Necessário somente quando `"type":"AzureADMyOrg"` . Opcional para outros `type` valores. Pode ser um domínio de locatário, como `contoso.com` , ou uma ID de locatário, como `72f988bf-86f1-41af-91ab-2d7cd011db46` ) |
@@ -138,7 +138,7 @@ Se você estiver usando a autoridade do AAD com o público definido como `"Micro
 
 Defina configurações globais para tempos limite de HTTP, como:
 
-| Property | Tipo de dados | Obrigatório | Observações |
+| Propriedade | Tipo de dados | Obrigatório | Observações |
 | ---------|-----------|------------|--------|
 | `connect_timeout` | int | Não | Tempo em milissegundos |
 | `read_timeout` | int | Não | Tempo em milissegundos |
@@ -147,11 +147,11 @@ Defina configurações globais para tempos limite de HTTP, como:
 
 As seguintes configurações globais são para registro em log:
 
-| Property | Tipo de Dados  | Obrigatório | Observações |
+| Propriedade | Tipo de Dados  | Obrigatório | Observações |
 | ----------|-------------|-----------|---------|
-| `pii_enabled`  | booleano | Não | Se os dados pessoais devem ser emitidos |
+| `pii_enabled`  | boolean | Não | Se os dados pessoais devem ser emitidos |
 | `log_level`   | Cadeia de caracteres | No | As mensagens de log para saída. Os níveis de log com suporte incluem `ERROR` ,, `WARNING` `INFO` e `VERBOSE` . |
-| `logcat_enabled` | booleano | Não | Se deve-se gerar uma saída para o Cat de log além da interface de log |
+| `logcat_enabled` | boolean | Não | Se deve-se gerar uma saída para o Cat de log além da interface de log |
 
 ### <a name="account_mode"></a>account_mode
 

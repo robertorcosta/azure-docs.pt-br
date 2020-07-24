@@ -7,17 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 79ef649502af8962253121ea18804966b1fa043e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4858a2e448955877107f6928b0aa01726e5db082
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677926"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028578"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>Manipulando a manutenção planejada usando o PowerShell
 
 **Este artigo se aplica a máquinas virtuais que executam o Linux e o Windows.**
 
-Você pode usar Azure PowerShell para ver quando as VMs estão agendadas para [manutenção](maintenance-notifications.md). As informações de manutenção planejadas estão disponíveis no cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) quando você usa o parâmetro `-status`.
+Você pode usar Azure PowerShell para ver quando as VMs estão agendadas para [manutenção](maintenance-notifications.md). As informações de manutenção planejadas estão disponíveis no cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm) quando você usa o parâmetro `-status`.
   
 As informações de manutenção só serão retornadas se houver manutenção planejada. Se não houver nenhuma manutenção agendada que afete a VM, o cmdlet não retornará nenhuma informação de manutenção. 
 
@@ -39,7 +40,7 @@ As propriedades a seguir são retornadas em MaintenanceRedeployStatus:
 
 
 
-Você também pode obter o status de manutenção para todas as VMs em um grupo de recursos usando [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm), sem especificar a VM.
+Você também pode obter o status de manutenção para todas as VMs em um grupo de recursos usando [Get-AzVM](/powershell/module/az.compute/get-azvm), sem especificar a VM.
  
 ```powershell
 Get-AzVM -ResourceGroupName myResourceGroup -Status

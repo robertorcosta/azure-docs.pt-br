@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 198ab9505c550ad5bf8dc75211864a562b45979f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0470ab635f34291b4c92259e556329d6b2f401c7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553665"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026077"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidade da Microsoft e fluxo de código de autorização do OAuth 2.0
 
@@ -159,7 +159,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`   | obrigatório   | O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário. Para obter mais detalhes, consulte [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints).  |
 | `client_id` | obrigatório  | A ID do Aplicativo (cliente) que a página [Portal do Azure - Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu ao seu aplicativo. |
 | `grant_type` | obrigatório   | Deve ser `authorization_code` para o fluxo do código de autorização.   |
-| `scope`      | obrigatório   | Uma lista de escopos separados por espaços. Os escopos solicitados nessa ramificação devem ser equivalentes aos escopos solicitados na primeira ramificação, ou um subconjunto desses escopos. Os escopos devem ser todos de um único recurso, juntamente com escopos OIDC (`profile`, `openid`, `email`). Para obter uma explicação mais detalhada de escopos, confira [permissões, consentimento e escopos](v2-permissions-and-consent.md). |
+| `scope`      | opcionais   | Uma lista de escopos separados por espaços. Os escopos devem ser todos de um único recurso, juntamente com escopos OIDC (`profile`, `openid`, `email`). Para obter uma explicação mais detalhada de escopos, confira [permissões, consentimento e escopos](v2-permissions-and-consent.md). Essa é uma extensão da Microsoft para o fluxo de código de autorização, destinado a permitir que os aplicativos declarem o recurso para o qual desejam o token durante o resgate do token.|
 | `code`          | obrigatório  | O authorization_code que você adquiriu na primeira ramificação do fluxo. |
 | `redirect_uri`  | obrigatório  | O mesmo valor de redirect_uri que foi usado para adquirir o authorization_code. |
 | `client_secret` | necessário para aplicativos Web confidenciais | O segredo do aplicativo que você criou no portal de registro do aplicativo para seu aplicativo. Você não deve usar o segredo do aplicativo em um aplicativo nativo ou de página única porque client_secrets não pode ser armazenado de forma confiável em dispositivos ou páginas da Web. Ele é obrigatório para aplicativos Web e APIs Web, que têm a capacidade de armazenar o client_secret com segurança no servidor.  O segredo do cliente deve ser codificada como URL antes de serem enviados. Para obter mais informações sobre a codificação de URI, consulte a [especificação de Sintaxe Genérica de URI](https://tools.ietf.org/html/rfc3986#page-12). |

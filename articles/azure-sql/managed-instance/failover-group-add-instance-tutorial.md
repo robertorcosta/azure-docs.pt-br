@@ -12,11 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: f1bf8eff4a6f518fc24c87c5fbd24984ef8f8b29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad0079a0a48178f1e662e2fdf1daa685ae768857
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718879"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024179"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adicionar o SQL Instância Gerenciada a um grupo de failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,7 +47,7 @@ Para concluir este tutorial, verifique se você tem:
 Para concluir o tutorial, verifique se você tem os seguintes itens:
 
 - Uma assinatura do Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/) se você ainda não tiver uma.
-- [PowerShell do Azure](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 
 ---
 
@@ -768,7 +769,7 @@ Crie o gateway para a rede virtual da sua instância gerenciada primária usando
     | **SKU**| Mantenha o padrão de `VpnGw1` . |
     | **Localidade**| O local onde a instância gerenciada primária e a rede virtual primária são.   |
     | **Rede virtual**| Selecione a rede virtual que foi criada na seção 2, como `vnet-sql-mi-primary` . |
-    | **Endereço IP público**| Selecione **Criar novo**. |
+    | **Endereço IP público**| Selecione **Criar**. |
     | **Nome do endereço IP público**| Insira um nome para seu endereço IP, como `primary-gateway-IP` . |
     | &nbsp; | &nbsp; |
 
@@ -850,7 +851,7 @@ Usando o portal do Azure, repita as etapas na seção anterior para criar a sub-
    | **SKU**| Mantenha o padrão de `VpnGw1` . |
    | **Localidade**| O local onde a instância gerenciada secundária e a rede virtual secundária são.   |
    | **Rede virtual**| Selecione a rede virtual que foi criada na seção 2, como `vnet-sql-mi-secondary` . |
-   | **Endereço IP público**| Selecione **Criar novo**. |
+   | **Endereço IP público**| Selecione **Criar**. |
    | **Nome do endereço IP público**| Insira um nome para seu endereço IP, como `secondary-gateway-IP` . |
    | &nbsp; | &nbsp; |
 

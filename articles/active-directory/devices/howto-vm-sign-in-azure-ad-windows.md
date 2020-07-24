@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 10/29/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 152f7ab6ccb9f01c7fe70553501c8cf8afa1c650
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8c9fbf2d86c2e066566bab11b1701909be64a37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554879"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025839"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Entrar na máquina virtual do Windows no Azure usando a autenticação Azure Active Directory (versão prévia)
 
-As organizações agora podem utilizar a autenticação Azure Active Directory (AD) para suas VMs (máquinas virtuais) do Azure que executam o **Windows Server 2019 Datacenter Edition** ou o **Windows 10 1809** e posterior. Usar o Azure AD para autenticar em VMs fornece uma maneira de controlar e impor políticas de forma centralizada. Ferramentas como o RBAC (controle de acesso baseado em função) do Azure e o acesso condicional do Azure AD permitem que você controle quem pode acessar uma VM. Este artigo mostra como criar e configurar uma VM do Windows Server 2019 para usar a autenticação do Azure AD.
+As organizações agora podem utilizar a autenticação Azure Active Directory (AD) para suas VMs (máquinas virtuais) do Azure que executam o **Windows Server 2019 Datacenter Edition** ou o **Windows 10 1809** e posterior. Usar o Azure AD para autenticar em VMs fornece uma maneira de controlar e impor políticas de forma centralizada. Ferramentas como o Azure RBAC (controle de acesso baseado em função) e o acesso condicional do Azure AD permitem que você controle quem pode acessar uma VM. Este artigo mostra como criar e configurar uma VM do Windows Server 2019 para usar a autenticação do Azure AD.
 
 > [!NOTE]
 > A entrada do Azure AD para VMs do Windows do Azure é um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre visualizações, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -32,7 +32,7 @@ Há muitos benefícios em usar a autenticação do Azure AD para fazer logon em 
 - Não precisa mais gerenciar contas de administrador local.
 - O RBAC do Azure permite conceder o acesso apropriado às VMs com base na necessidade e removê-la quando não for mais necessária.
 - Antes de permitir o acesso a uma VM, o acesso condicional do Azure AD pode impor requisitos adicionais, como: 
-   - Autenticação multifator
+   - Autenticação Multifator
    - Verificação de risco de entrada
 - Automatize e dimensione o ingresso no Azure AD de VMs do Windows do Azure que fazem parte para suas implantações de VDI.
 
@@ -45,7 +45,7 @@ Há muitos benefícios em usar a autenticação do Azure AD para fazer logon em 
 
 No momento, há suporte para as seguintes distribuições do Windows durante a versão prévia deste recurso:
 
-- Windows Server 2019 Datacenter
+- Datacenter do Windows Server 2019
 - Windows 10 1809 e posterior
 
 > [!IMPORTANT]
@@ -84,7 +84,7 @@ Para criar uma VM do Windows Server 2019 datacenter no Azure com o logon do Azur
 1. Entre no [portal do Azure](https://portal.azure.com), com uma conta que tenha acesso para criar VMs e selecione **+ criar um recurso**.
 1. Digite **Windows Server** em Pesquisar na barra de pesquisa do Marketplace.
    1. Clique em **Windows Server** e escolha **Windows Server 2019 datacenter** na lista suspensa Selecionar um plano de software.
-   1. Clique em **Criar**.
+   1. Clique em **criar**.
 1. Na guia "gerenciamento", habilite a opção para **fazer logon com as credenciais do AAD (versão prévia)** na seção Azure Active Directory de desativado para **ativado**.
 1. Verifique se a **identidade gerenciada atribuída pelo sistema** na seção identidade está definida como **ativada**. Essa ação deve ocorrer automaticamente depois que você habilitar o logon com as credenciais do Azure AD.
 1. Percorra o restante da experiência de criação de uma máquina virtual. Durante essa visualização, você precisará criar um nome de usuário e senha de administrador para a VM.
@@ -200,7 +200,10 @@ Para obter mais informações sobre como usar o RBAC para gerenciar o acesso aos
 Você pode impor políticas de acesso condicional, como a autenticação multifator ou a verificação de risco de entrada do usuário antes de autorizar o acesso às VMs do Windows no Azure que estão habilitadas com o logon do Azure AD. Para aplicar a política de acesso condicional, você deve selecionar o aplicativo "entrada de VM do Azure Windows" na opção de atribuição de aplicativos ou ações de nuvem e, em seguida, usar o risco de entrada como uma condição e/ou exigir autenticação multifator como um controle de acesso de concessão. 
 
 > [!NOTE]
-> Se você usar "exigir autenticação multifator" como um controle de acesso de concessão para solicitar acesso ao aplicativo "entrada de VM do Azure Windows", deverá fornecer a declaração de autenticação multifator como parte do cliente que inicia a sessão RDP para a VM Windows de destino no Azure. A única maneira de conseguir isso em um cliente do Windows 10 é usar o PIN do Windows Hello para empresas ou autenticação biométricas com o cliente RDP. O suporte para autenticação biométrica foi adicionado ao cliente RDP no Windows 10 versão 1809. A área de trabalho remota usando a autenticação do Windows Hello para empresas está disponível somente para implantações que usam o modelo de confiança de certificado e não estão disponíveis no momento para o modelo de confiança de chave
+> Se você usar "exigir autenticação multifator" como um controle de acesso de concessão para solicitar acesso ao aplicativo "entrada de VM do Azure Windows", deverá fornecer a declaração de autenticação multifator como parte do cliente que inicia a sessão RDP para a VM Windows de destino no Azure. A única maneira de conseguir isso em um cliente Windows 10 é usar o PIN do Windows Hello para empresas ou a autenticação biométrica com o cliente RDP. O suporte para autenticação biométrica foi adicionado ao cliente RDP no Windows 10 versão 1809. A área de trabalho remota usando a autenticação do Windows Hello para empresas está disponível somente para implantações que usam o modelo de confiança de certificado e não estão disponíveis no momento para o modelo de confiança de chave
+
+> [!WARNING]
+> A autenticação multifator habilitada/imposta por usuário não tem suporte para entrada de VM.
 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Fazer logon usando as credenciais do Azure AD para uma VM do Windows
 

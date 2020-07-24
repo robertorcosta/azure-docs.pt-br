@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/15/2020
+ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: ecbd4d97bb092ccbdb286e4865bf04e770ca9473
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d479f18e8764a69cdc81f99d723534e4895b0e4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207882"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025074"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Visão Geral do portal do desenvolvedor do Gerenciamento de API do Azure
 
@@ -29,6 +29,9 @@ Este artigo descreve as diferenças entre as versões autohospedadas e gerenciad
 ![Portal do desenvolvedor do Gerenciamento da API](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+> [!NOTE]
+> <a name="migrate-from-legacy"></a>O novo portal do desenvolvedor é incompatível com o portal do desenvolvedor herdado e a migração automatizada não é possível. Você precisa recriar manualmente o conteúdo (páginas, texto, arquivos de mídia) e personalizar a aparência do novo Portal. Consulte [o tutorial portal do desenvolvedor](api-management-howto-developer-portal-customize.md) para obter diretrizes.
 
 ## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a>Versões gerenciadas e auto-hospedadas
 
@@ -82,19 +85,13 @@ Se não quiser redefinir o conteúdo do portal, você pode considerar o uso de w
 
 Se o portal foi provisionado após o comunicado de disponibilidade geral, ele já deve apresentar o novo conteúdo padrão. Nenhuma ação é necessária do seu lado.
 
-### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-developer-portal"></a>Como posso migrar do portal do desenvolvedor antigo para o portal do desenvolvedor?
-
-Os portais são incompatíveis e você precisa migrar o conteúdo manualmente.
-
-### <a name="does-the-portal-have-all-the-features-of-the-old-portal"></a>O portal tem todos os recursos do portal antigo?
+### <a name="does-the-portal-have-all-the-features-of-the-legacy-portal"></a>O portal tem todos os recursos do portal herdado?
 
 O portal do desenvolvedor não dá mais suporte a *aplicativos* e *problemas*.
 
-Ainda não há suporte para a autenticação com OAuth no console interativo do desenvolvedor. Você pode acompanhar o progresso por meio [do problema do GitHub](https://github.com/Azure/api-management-developer-portal/issues/208).
+### <a name="has-the-legacy-portal-been-deprecated"></a>O portal herdado foi preterido?
 
-### <a name="has-the-old-portal-been-deprecated"></a>O portal antigo foi preterido?
-
-Os portais antigos do desenvolvedor e do Publicador agora são recursos *herdados* . eles receberão apenas atualizações de segurança. Novos recursos serão implementados somente no novo portal do desenvolvedor.
+Os portais herdados de desenvolvedor e publicador agora são recursos *herdados* ; eles receberão apenas atualizações de segurança. Novos recursos serão implementados somente no novo portal do desenvolvedor.
 
 A substituição dos portais herdados será anunciada separadamente. Se você tiver dúvidas, preocupações ou comentários, gere-os [em um problema dedicado do GitHub](https://github.com/Azure/api-management-developer-portal/issues/121).
 
@@ -203,7 +200,7 @@ A falha de chamada também pode ser causada por um certificado TLS/SSL, que é a
 
 ### <a name="whats-the-browser-support-for-the-portal"></a>Qual é o suporte do navegador para o portal?
 
-| Navegador                     | Com suporte       |
+| Navegador                     | Suportado       |
 |-----------------------------|-----------------|
 | Apple Safari                | Sim<sup>1</sup> |
 | Google Chrome               | Sim<sup>1</sup> |

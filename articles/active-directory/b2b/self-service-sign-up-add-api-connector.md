@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0498a2015b75221763ab5fdd4f6e94428922bd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6238e89b3941668f831f3128bb0e723a4097e48
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386735"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027505"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adicionar um conector de API a um fluxo de usuário
 
@@ -44,7 +44,7 @@ Para usar um [conector de API](api-connectors-overview.md), primeiro crie o cone
 
    ![Definir declarações do conector de API](./media/self-service-sign-up-add-api-connector/api-connector-claims.png)
 
-10. Selecione **Salvar**.
+10. Clique em **Salvar**.
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Habilitar o conector de API em um fluxo de usuário
 
@@ -61,7 +61,7 @@ Siga estas etapas para adicionar um conector de API a um fluxo de usuário de in
 
    ![Adicionar APIs ao fluxo do usuário](./media/self-service-sign-up-add-api-connector/api-connectors-user-flow-select.png)
 
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 Saiba mais sobre [onde você pode habilitar um conector de API em um fluxo de usuário](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow).
 
@@ -76,7 +76,7 @@ POST <API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@fabrikam.onmicrosoft.com",
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
  "identities": [ //Sent for Google and Facebook identity providers
      {
      "signInType":"federated",
@@ -99,7 +99,7 @@ Se uma declaração a ser enviada não tiver um valor no momento em que o ponto 
 Atributos personalizados podem ser criados para o usuário usando o formato de ** \<extensions-app-id> _AttributeName extension_** . Sua API deve esperar receber declarações nesse mesmo formato serializado. Sua API pode retornar declarações com ou sem o `<extensions-app-id>` . Para obter mais informações sobre atributos personalizados, consulte [definir atributos personalizados para fluxos de inscrição de autoatendimento](user-flow-add-custom-attributes.md).
 
 > [!TIP] 
-> as declarações de [**identidades (' identidades ')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) e de **endereço de Email (' Email_address ')** podem ser usadas para identificar um usuário antes de terem uma conta em seu locatário. A declaração ' Identities ' é enviada quando um usuário é autenticado com um Google ou Facebook e ' email_address ' é sempre enviado.
+> as declarações de [**identidades (' identidades ')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) e de **endereço de email (' email ')** podem ser usadas para identificar um usuário antes de terem uma conta em seu locatário. A declaração ' Identities ' é enviada quando um usuário é autenticado com um Google ou Facebook e ' email ' é sempre enviado.
 
 ## <a name="expected-response-types-from-the-web-api"></a>Tipos de resposta esperados da API Web
 
@@ -138,13 +138,13 @@ Content-type: application/json
 | version                                            | String            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
 | ação                                             | String            | Sim      | O valor precisa ser `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores podem ser armazenados no diretório se forem selecionados como uma **declaração para receber** na configuração do conector de API e nos **atributos de usuário** para um fluxo de usuário. Os valores podem ser retornados no token, se selecionado como uma **declaração de aplicativo**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A declaração retornada pode, opcionalmente, não conter `_<extensions-app-id>_` . Os valores serão armazenados no diretório se forem selecionados como uma **declaração para receber** na configuração do conector de API e no **atributo de usuário** para um fluxo de usuário. Atributos personalizados não podem ser enviados de volta no token. |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A declaração retornada não precisa conter `_<extensions-app-id>_` . Os valores serão armazenados no diretório se forem selecionados como uma **declaração para receber** na configuração do conector de API e no **atributo de usuário** para um fluxo de usuário. Atributos personalizados não podem ser enviados de volta no token. |
 
 ### <a name="blocking-response"></a>Resposta de bloqueio
 
 Uma resposta de bloqueio sai do fluxo do usuário. Ele pode ser emitido intencionalmente pela API para interromper a continuação do fluxo do usuário, exibindo uma página de bloco para o usuário. A página bloco exibe o `userMessage` fornecido pela API.
 
-Veja a seguir um exemplo de resposta de bloqueio:
+Exemplo de resposta de bloqueio:
 
 ```http
 HTTP/1.1 200 OK
@@ -164,7 +164,7 @@ Content-type: application/json
 | version     | String | Sim      | A versão da API.                                                    |
 | ação      | String | Sim      | O valor deve ser`ShowBlockPage`                                              |
 | userMessage | String | Sim      | Mensagem a ser exibida ao usuário.                                            |
-| code        | String | Não       | Código do erro. Pode ser usado para fins de depuração. Não são exibidos para o usuário. |
+| code        | Cadeia de caracteres | Não       | Código do erro. Pode ser usado para fins de depuração. Não são exibidos para o usuário. |
 
 #### <a name="end-user-experience-with-a-blocking-response"></a>Experiência do usuário final com uma resposta de bloqueio
 
@@ -193,9 +193,9 @@ Content-type: application/json
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | String  | Sim      | A versão da API.                                                    |
 | ação      | String  | Sim      | O valor precisa ser `ValidationError`.                                           |
-| status      | Integer | Sim      | Deve ser `400` um valor para uma resposta do ValidationError.                        |
+| status      | Inteiro | Sim      | Deve ser `400` um valor para uma resposta do ValidationError.                        |
 | userMessage | String  | Sim      | Mensagem a ser exibida ao usuário.                                            |
-| code        | String  | Não       | Código do erro. Pode ser usado para fins de depuração. Não são exibidos para o usuário. |
+| code        | Cadeia de caracteres  | Não       | Código do erro. Pode ser usado para fins de depuração. Não são exibidos para o usuário. |
 
 #### <a name="end-user-experience-with-a-validation-error-response"></a>Experiência do usuário final com uma resposta de erro de validação
 

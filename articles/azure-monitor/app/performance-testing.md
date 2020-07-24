@@ -4,16 +4,17 @@ description: Configurar testes de carga e desempenho com o Aplicativo Azure insi
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 0bfb60b876add70be6cbcd3d726fb3317a8dfcf9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8885a2e511c11317f593706255437e52819adcae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669855"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024343"
 ---
 # <a name="performance-testing"></a>Testes de desempenho
 
 > [!NOTE]
-> O serviço de teste de carga baseado em nuvem foi preterido. Para obter mais informações sobre a substituição, a disponibilidade do serviço e os serviços alternativos podem ser encontrados [aqui](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
+> O serviço de teste de carga baseado em nuvem foi preterido. Para obter mais informações sobre a substituição, a disponibilidade do serviço e os serviços alternativos podem ser encontrados [aqui](/azure/devops/test/load-test/overview?view=azure-devops).
 
 Application Insights permite que você gere testes de carga para seus sites. Assim como os [testes de disponibilidade](monitor-web-app-availability.md), você pode enviar solicitações básicas ou [solicitações de várias etapas](availability-multistep.md) de agentes de teste do Azure em todo o mundo. Os testes de desempenho permitem simular até 20.000 usuários simultâneos por até 60 minutos.
 
@@ -33,9 +34,9 @@ Em **Configurar**, vá para **teste de desempenho** e clique em **novo** para cr
 
 Para criar um teste de desempenho básico, selecione um tipo de teste de **teste manual** e preencha as configurações desejadas para seu teste.
 
-|Setting| Valor máximo
+|Configuração| Valor máximo
 |----------|------------|
-| Carga de usuário | 20,000 |
+| Carga de usuário | 20.000 |
 | Duração (minutos)  | 60 |  
 
 Depois que o teste for criado, clique em **Executar teste**.

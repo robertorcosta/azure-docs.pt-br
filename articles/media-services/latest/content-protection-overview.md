@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/17/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c1c9440f7ec70cea98f270f04c3030c800dd0fde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0be481d90562ca611b021e2f05d9109eb51958c8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79461105"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023255"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Proteger seu conteúdo com a criptografia dinâmica dos serviços de mídia
 
@@ -243,7 +244,7 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 `ContentKeyId`tem um valor da chave solicitada. Você pode usar `AlternativeMediaId` se quiser mapear a solicitação para uma entidade no seu lado. Por exemplo, `AlternativeMediaId` pode ser usado para ajudá-lo a Pesquisar permissões.
 
-Para obter exemplos de REST que usam URLs de licença/chave personalizadas, consulte [políticas de streaming – criar](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
+Para obter exemplos de REST que usam URLs de licença/chave personalizadas, consulte [políticas de streaming – criar](/rest/api/media/streamingpolicies/create).
 
 > [!NOTE]
 > O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
@@ -265,4 +266,4 @@ Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-co
 * [Projetar o sistema de proteção de conteúdo de vários DRM com o controle de acesso](design-multi-drm-system-with-access-control.md)
 * [Criptografia do armazenamento](storage-account-concept.md#storage-side-encryption)
 * [Perguntas frequentes](frequently-asked-questions.md)
-* [Manipulador de token Web JSON](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)
+* [Manipulador de token Web JSON](/dotnet/framework/security/json-web-token-handler)

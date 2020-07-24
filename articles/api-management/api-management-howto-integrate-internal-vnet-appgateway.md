@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 08e718739971283418d151bef9ad75333e313d85
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: eb2ce196687b2ca6a762a879570e4f8ebac788df
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250423"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025108"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Como integrar o gerenciamento de API em uma VNET interna com o gateway de aplicativo
 
@@ -88,6 +88,11 @@ Neste guia, também irá expor o **portal do desenvolvedor** ao público externo
 
 > [!WARNING]
 > Para impedir que o WAF do gateway de aplicativo quebre o download da especificação do OpenAPI no portal do desenvolvedor, você precisa desabilitar a regra de firewall `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"` .
+> 
+> As regras de WAF do gateway de aplicativo, que podem interromper a funcionalidade do portal, incluem:
+> 
+> - `920330`,,,,,,, `931130` `942100` `942110` `942180` `942200` `942260` `942370` , `949110` , `980130` para o modo administrativo
+> - `942200`,,,, `942260` `942370` `942430` `942440` para o portal publicado
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Criar um grupo de recursos para o Gerenciador de Recursos
 

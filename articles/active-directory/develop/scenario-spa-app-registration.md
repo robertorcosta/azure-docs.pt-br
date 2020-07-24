@@ -12,11 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 9dc5b446e2ab26ca43c2a300e1af1237353325a3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 238bcc6c706f2fab969c98b73ca879d064498693
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682403"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026502"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicativo de página única: Registro do aplicativo
 
@@ -37,7 +38,7 @@ Em seguida, configure o registro do aplicativo com um **URI de redirecionamento*
 - [MSAL.js 2.0 com fluxo de código de autorização](#redirect-uri-msaljs-20-with-auth-code-flow) (recomendado)
 - [MSAL.js 1.0 com fluxo implícito](#redirect-uri-msaljs-10-with-implicit-flow)
 
-## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>URI de redirecionamento: MSAL.js 2.0 com fluxo de código de autorização
+## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>URI de redirecionamento: [MSAL.js 2,0 com fluxo de código de autenticação](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)
 
 Siga estas etapas para adicionar um URI de redirecionamento para um aplicativo que usa MSAL.js 2.0 ou posterior. O MSAL.js 2.0+ é compatível com o fluxo de código de autorização com PKCE e CORS em resposta às [restrições de cookie de terceiros do navegador](reference-third-party-cookies-spas.md). O fluxo de concessão implícita não é compatível com o MSAL.js 2.0+.
 
@@ -49,7 +50,9 @@ Siga estas etapas para adicionar um URI de redirecionamento para um aplicativo q
 
 Você concluiu o registro do seu aplicativo de página única (SPA) e configurou um URI de redirecionamento para o qual o cliente será redirecionado e todos os tokens de segurança serão enviados. Ao configurar o URI de redirecionamento usando o bloco **Aplicativo de página única** no painel **Adicionar uma plataforma**, o registro do aplicativo é configurado para compatibilidade com o fluxo de código de autorização com PKCE e CORS.
 
-## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>URI de redirecionamento: MSAL.js 1.0 com fluxo implícito
+Siga o [tutorial](tutorial-v2-javascript-auth-code.md) para obter mais diretrizes.
+
+## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>URI de redirecionamento: [MSAL.js 1,0 com fluxo implícito](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)
 
 Siga estas etapas para adicionar um URI de redirecionamento para um aplicativo de página única que usa MSAL.js 1.3 ou anterior e o fluxo de concessão implícita. Os aplicativos que usam MSAL.js 1.3 ou anterior não são compatíveis com o fluxo de código de autorização.
 
@@ -63,6 +66,8 @@ Siga estas etapas para adicionar um URI de redirecionamento para um aplicativo d
 1. Selecione **Configurar** para concluir a adição do URI de redirecionamento.
 
 Você concluiu o registro do seu aplicativo de página única (SPA) e configurou um URI de redirecionamento para o qual o cliente será redirecionado e todos os tokens de segurança serão enviados. Quando selecionou **Tokens de ID**, **Tokens de acesso** ou as duas opções, você habilitou o fluxo de concessão implícita.
+
+Siga o [tutorial](tutorial-v2-javascript-spa.md) para obter mais diretrizes. 
 
 ## <a name="note-about-authorization-flows"></a>Observação sobre fluxos de autorização
 

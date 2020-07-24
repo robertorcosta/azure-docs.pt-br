@@ -3,15 +3,16 @@ title: Contadores de desempenho no Application Insights | Microsoft Docs
 description: Monitore o sistema e contadores de desempenho .NET personalizados no Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: 274e02c484c091cbb13ac2cf69bf99672f579f33
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: e60663d9e767db020fc93eba1f4c1c6babb32294
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701471"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024411"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de desempenho do sistema no Application Insights
 
-O Windows fornece uma ampla variedade de [contadores de desempenho](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters) como ocupação da CPU, memória, disco e uso da rede. Também é possível definir contadores de desempenho próprios. Há suporte para coleção de contadores de desempenho contanto que seu aplicativo esteja em execução no IIS em um host local ou em uma máquina virtual à qual você tem acesso administrativo. Embora os aplicativos executados como aplicativos Web do Azure não tenham acesso direto aos contadores de desempenho, um subconjunto de contadores disponíveis é coletado pelo Application Insights.
+O Windows fornece uma ampla variedade de [contadores de desempenho](/windows/desktop/perfctrs/about-performance-counters) como ocupação da CPU, memória, disco e uso da rede. Também é possível definir contadores de desempenho próprios. Há suporte para coleção de contadores de desempenho contanto que seu aplicativo esteja em execução no IIS em um host local ou em uma máquina virtual à qual você tem acesso administrativo. Embora os aplicativos executados como aplicativos Web do Azure não tenham acesso direto aos contadores de desempenho, um subconjunto de contadores disponíveis é coletado pelo Application Insights.
 
 ## <a name="view-counters"></a>Visualizar contadores
 
@@ -39,7 +40,7 @@ Se o contador de desempenho desejado não estiver incluído na lista de métrica
 
     `Get-Counter -ListSet *`
 
-    (Consulte [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx).)
+    (Consulte [`Get-Counter`](/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1).)
 2. Abra o ApplicationInsights.config.
 
    * Se você adicionou o Application Insights ao seu aplicativo durante o desenvolvimento, edite ApplicationInsights.config no projeto e implante-o novamente nos servidores.
@@ -108,7 +109,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ```
 
 ## <a name="performance-counters-in-analytics"></a>Contadores de desempenho no Analytics
-Você pode pesquisar e exibir relatórios do contador de desempenho no [Analytics](../../azure-monitor/app/analytics.md).
+Você pode pesquisar e exibir relatórios do contador de desempenho no [Analytics](../log-query/log-query-overview.md).
 
 O esquema **performanceCounters** expõe o nome `category`, `counter` e o nome `instance` de cada contador de desempenho.  Na telemetria de cada aplicativo, você verá apenas os contadores para aquele aplicativo. Por exemplo, para ver quais contadores estão disponíveis: 
 
@@ -152,4 +153,3 @@ Assim como ocorre com outras métricas, você pode [definir um alerta](../../azu
 
 * [Acompanhamento de dependência](../../azure-monitor/app/asp-net-dependencies.md)
 * [Acompanhamento de exceções](../../azure-monitor/app/asp-net-exceptions.md)
-

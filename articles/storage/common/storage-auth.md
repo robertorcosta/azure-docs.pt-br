@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 1db26e6e1308299325e15b4c856fc2ebbaed8326
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a56fdf8bc3bfa93c12cce66664e68b223fa97ff2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807605"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029528"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Autorizando o acesso aos dados no armazenamento do Azure
 
@@ -23,8 +23,8 @@ Sempre que você acessar os dados na conta de armazenamento, seu cliente fará u
 
 A tabela a seguir descreve as opções que o armazenamento do Azure oferece para autorizar o acesso a recursos:
 
-|  |Chave compartilhada (chave da conta de armazenamento)  |Assinatura de acesso compartilhado (SAS)  |Active Directory do Azure (Azure AD)  |Active Directory Domain Services local (visualização) |Acesso de leitura público anônimo  |
-|---------|---------|---------|---------|---------|---------|
+| Artefato do Azure | Chave compartilhada (chave da conta de armazenamento) | Assinatura de acesso compartilhado (SAS) | Active Directory do Azure (Azure AD) | Active Directory Domain Services local (visualização) | Acesso de leitura público anônimo |
+| -------------- | -------------------------------- | ----------------------------- | --------------------------------- | ------------------------------------------------------ | ---------------------------- |
 |Blobs do Azure     |[Com suporte](/rest/api/storageservices/authorize-with-shared-key/)         |[Com suporte](storage-sas-overview.md)         |[Com suporte](storage-auth-aad.md)         |Sem suporte|[Com suporte](../blobs/storage-manage-access-to-resources.md)         |
 |Arquivos do Azure (SMB)     |[Com suporte](/rest/api/storageservices/authorize-with-shared-key/)         |Sem suporte         |[Com suporte, somente com os serviços de domínio do AAD](../files/storage-files-active-directory-overview.md)         |[Com suporte, as credenciais devem ser sincronizadas com o Azure AD](../files/storage-files-active-directory-overview.md)|Sem suporte         |
 |Arquivos do Azure (REST)     |[Com suporte](/rest/api/storageservices/authorize-with-shared-key/)         |[Com suporte](storage-sas-overview.md)         |Sem suporte         |Sem suporte |Sem suporte         |
