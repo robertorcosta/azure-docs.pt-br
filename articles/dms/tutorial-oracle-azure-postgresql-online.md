@@ -3,8 +3,8 @@ title: 'Tutorial: migrar o Oracle online para o banco de dados do Azure para Pos
 titleSuffix: Azure Database Migration Service
 description: Saiba como fazer a migração online do Oracle local ou em máquinas virtuais para um Banco de Dados do Azure para PostgreSQL usando o Serviço de Migração de Banco de Dados do Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/24/2020
-ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37bf610d1ecc6a05e8dd142ff3d72dd9ed72e51f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255577"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087757"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutorial: migrar o Oracle para o banco de dados do Azure para PostgreSQL online usando DMS (versão prévia)
 
@@ -27,7 +28,7 @@ Neste tutorial, você aprenderá como:
 >
 > * Avaliar o esforço de migração usando a ferramenta ora2pg.
 > * Migrar o esquema de exemplo usando a ferramenta ora2pg.
-> * Criar uma instância do Serviço de Migração de Banco de Dados do Azure.
+> * Crie uma instância do Serviço de Migração de Banco de Dados do Azure.
 > * Criar um projeto de migração usando o Serviço de Migração de Banco de Dados do Azure.
 > * Executar a migração.
 > * Monitorar a migração.

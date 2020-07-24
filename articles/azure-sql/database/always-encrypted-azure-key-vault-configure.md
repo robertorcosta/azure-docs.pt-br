@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 46b899b1891a6759ea2b9501f43c687990198f1f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ab1865608146880bbf612b7cb08c2a673c93b31f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078010"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087951"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Configurar Always Encrypted usando Azure Key Vault 
 
@@ -45,7 +45,7 @@ Siga as etapas neste artigo e saiba como configurar Always Encrypted para seu ba
 - [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) versão 13.0.700.242 ou posterior.
 - [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) ou posterior (no computador cliente).
 - [Do Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-- [Azure PowerShell](/powershell/azure/overview) ou [CLI do Azure](/cli/azure/install-azure-cli)
+- [Azure PowerShell](/powershell/azure/) ou [CLI do Azure](/cli/azure/install-azure-cli)
 
 ## <a name="enable-client-application-access"></a>Habilitar o acesso do aplicativo cliente
 

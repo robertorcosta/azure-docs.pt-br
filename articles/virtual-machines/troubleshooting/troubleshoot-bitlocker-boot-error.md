@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: e0e0d9bfe46a473210b89701b5a8c56e999771d3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 23523a3618ad31e34a81152e48d4ee0f606e5aac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132958"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088522"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erros de inicialização do BitLocker em uma VM do Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "86132958"
 
 ## <a name="symptom"></a>Sintoma
 
- Uma VM do Windows não inicia. Ao verificar as capturas de tela na janela [Diagnóstico de inicialização ](../windows/boot-diagnostics.md), você verá uma das seguintes mensagens de erro:
+ Uma VM do Windows não inicia. Ao verificar as capturas de tela na janela [Diagnóstico de inicialização ](./boot-diagnostics.md), você verá uma das seguintes mensagens de erro:
 
 - Conectar driver USB que tem a chave do BitLocker
 
@@ -48,7 +48,7 @@ Para resolver esse problema, pare e desaloque a VM e, em seguida, reinicie-a. Es
 Se esse método não resolver o problema, siga estas etapas para restaurar o arquivo BEK manualmente:
 
 1. Tire um instantâneo do disco do sistema da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
-2. [Anexar o disco do sistema para uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md). Para executar o comando [Manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) na etapa 7, o recurso **criptografia de unidade de disco BitLocker** deve ser habilitado na VM de recuperação.
+2. [Anexar o disco do sistema para uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md). Para executar o comando [Manage-bde](/windows-server/administration/windows-commands/manage-bde) na etapa 7, o recurso **criptografia de unidade de disco BitLocker** deve ser habilitado na VM de recuperação.
 
     Ao anexar um disco gerenciado, você poderá receber uma mensagem de erro "contém configurações de criptografia e, portanto, não pode ser usado como um disco de dados". Nessa situação, execute o script a seguir para tentar anexar novamente o disco:
 
@@ -70,7 +70,7 @@ Se esse método não resolver o problema, siga estas etapas para restaurar o arq
     ```
      Não é possível anexar um disco gerenciado a uma VM que foi restaurada a partir de uma imagem de blob.
 
-3. Depois que o disco estiver anexado, faça uma conexão de área de trabalho remota com a VM de recuperação para poder executar alguns scripts do Azure PowerShell. Certifique-se de que a [última versão do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) está instalada na VM de recuperação.
+3. Depois que o disco estiver anexado, faça uma conexão de área de trabalho remota com a VM de recuperação para poder executar alguns scripts do Azure PowerShell. Certifique-se de que a [última versão do Azure PowerShell](/powershell/azure/) está instalada na VM de recuperação.
 
 4. Abra uma sessão privilegiada do Azure PowerShell (Executar como administrador). Execute os comandos a seguir para entrar na assinatura do Azure:
 

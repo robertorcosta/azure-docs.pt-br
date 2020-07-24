@@ -1,5 +1,5 @@
 ---
-title: Configurar GPU para a Área de Trabalho Virtual do Windows – Azure
+title: Configurar GPU para área de trabalho virtual do Windows Outono 2019 – Azure
 description: Como habilitar a renderização e a codificação acelerada por GPU na Área de Trabalho Virtual do Windows.
 services: virtual-desktop
 author: gundarev
@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: denisgun
-ms.openlocfilehash: 33bc63887b73adaf570b385d2a289fcd97ff1632
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbb0985e309601562587f3f1b26427f46a4a8987
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85206097"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087162"
 ---
-# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurar a aceleração da GPU (unidade de processamento gráfico) para a Área de Trabalho Virtual do Windows
+# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-fall-2019"></a>Configurar a aceleração da GPU (unidade de processamento gráfico) para a área de trabalho virtual do Windows Outono de 2019
 
 >[!IMPORTANT]
 >Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../configure-vm-gpu.md).

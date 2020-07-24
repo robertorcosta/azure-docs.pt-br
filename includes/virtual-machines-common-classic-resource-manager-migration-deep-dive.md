@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tagore
-ms.openlocfilehash: d7019d673bd8dfda31c5073fb7f37e26768dcc1d
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 82c081ee4bbe78a534f0ad7bca949e9a50142e35
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83778194"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088777"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migrar recursos de IaaS do modelo de implantação clássico para o Azure Resource Manager
 Primeiro, é importante compreender a diferença entre as operações de plano de dados e de plano de gerenciamento nos recursos de IaaS (infraestrutura como serviço).
@@ -151,11 +151,11 @@ Você pode encontrar o modelo de implantação clássico e representações do R
 | Regras NAT de entrada |Regras NAT de entrada |Os pontos de extremidade de entrada definidos na VM são convertidos em regras de conversão de endereços de rede de entrada sob o balanceador de carga durante a migração. |
 | Endereço VIP |Endereço IP público com o nome DNS |O endereço IP virtual se torna um endereço IP público e é associado ao balanceador de carga. Um IP virtual só pode ser migrado se houver um ponto de extremidade de entrada atribuído a ele. |
 | Rede virtual |Rede virtual |A rede virtual é migrada com todas as propriedades para o modelo de implantação do Gerenciador de Recursos. É criado um novo grupo de recursos com o nome `-migrated`. |
-| IPs Reservados |Endereço IP público com método de alocação estático |Os IPs Reservados associados ao balanceador de carga são migrados, juntamente com a migração do serviço de nuvem ou da máquina virtual. Os IPs reservados não associados podem ser migrados usando [move-AzureReservedIP](https://docs.microsoft.com/powershell/module/servicemanagement/azure/move-azurereservedip?view=azuresmps-4.0.0).  |
+| IPs Reservados |Endereço IP público com método de alocação estático |Os IPs Reservados associados ao balanceador de carga são migrados, juntamente com a migração do serviço de nuvem ou da máquina virtual. Os IPs reservados não associados podem ser migrados usando [move-AzureReservedIP](/powershell/module/servicemanagement/azure.service/move-azurereservedip?view=azuresmps-4.0.0).  |
 | Endereço IP público por VM |Endereço IP público com método de alocação dinâmico |O endereço IP público associado à VM é convertido como um recurso de endereço IP público, com o método de alocação definido como estático. |
-| NSGs |NSGs |Os grupos de segurança de rede associados a uma sub-rede são clonados como parte da migração para o modelo de implantação do Gerenciador de Recursos. O NSG no modelo de implantação clássica não é removido durante a migração. No entanto, as operações do plano de gerenciamento referentes ao NSG serão bloqueadas quando a migração estiver em andamento. O NSGs não associado pode ser migrado usando [Move-AzureNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/servicemanagement/azure/move-azurenetworksecuritygroup?view=azuresmps-4.0.0).|
+| NSGs |NSGs |Os grupos de segurança de rede associados a uma sub-rede são clonados como parte da migração para o modelo de implantação do Gerenciador de Recursos. O NSG no modelo de implantação clássica não é removido durante a migração. No entanto, as operações do plano de gerenciamento referentes ao NSG serão bloqueadas quando a migração estiver em andamento. O NSGs não associado pode ser migrado usando [Move-AzureNetworkSecurityGroup](/powershell/module/servicemanagement/azure.service/move-azurenetworksecuritygroup?view=azuresmps-4.0.0).|
 | Servidores DNS |Servidores DNS |Os servidores DNS associados a uma rede virtual ou à VM são migrados como parte da migração do recurso correspondente, juntamente com todas as propriedades. |
-| UDRs |UDRs |As rotas definidas pelo usuário associados a uma sub-rede são clonadas como parte da migração para o modelo de implantação do Gerenciador de Recursos. A UDR no modelo de implantação clássica não é removida durante a migração. As operações do plano de gerenciamento referentes à UDR serão bloqueadas quando a migração estiver em andamento. As UDRs não associadas podem ser migradas usando [Move-AzureReservedIP](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Move-AzureRouteTable?view=azuresmps-4.0.0). |
+| UDRs |UDRs |As rotas definidas pelo usuário associados a uma sub-rede são clonadas como parte da migração para o modelo de implantação do Gerenciador de Recursos. A UDR no modelo de implantação clássica não é removida durante a migração. As operações do plano de gerenciamento referentes à UDR serão bloqueadas quando a migração estiver em andamento. As UDRs não associadas podem ser migradas usando [Move-AzureReservedIP](/powershell/module/servicemanagement/azure.service/Move-AzureRouteTable?view=azuresmps-4.0.0). |
 | Propriedade de encaminhamento IP em uma configuração de rede da VM |Propriedade de encaminhamento IP na NIC |A propriedade de encaminhamento IP em uma VM é convertida em uma propriedade na interface de rede durante a migração. |
 | Balanceador de carga com vários IPs |Balanceador de carga com vários recursos IP públicos |Cada IP público associado ao balanceador de carga é convertido em um recurso IP público e associado ao balanceador de carga após a migração. |
 | Nomes DNS internos na VM |Nomes DNS internos na NIC |Durante a migração, os sufixos DNS internos das VMs são migrados para uma propriedade somente leitura chamada "InternalDomainNameSuffix" no NIC. O sufixo permanece inalterado após a migração, e a resolução da VM deve continuar a funcionar como antes. |

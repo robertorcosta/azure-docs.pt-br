@@ -5,31 +5,31 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: a670e32058794daeaa233464ba7d054f45ef25e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb818627cb38c736804a0e88cd701fe08b23b678
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536311"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089062"
 ---
-# <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Criar recursos do Time Series Insights usando modelos do Azure Resource Manager
+# <a name="create-azure-time-series-insights-gen-1-resources-using-azure-resource-manager-templates"></a>Criar Azure Time Series Insights recursos do Gen 1 usando modelos de Azure Resource Manager
 
-Este artigo descreve como criar e implantar recursos do Time Series Insights usando [modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/), o PowerShell e o provedor de recursos do Time Series Insights.
+Este artigo descreve como criar e implantar Azure Time Series Insights recursos usando [Azure Resource Manager modelos](https://docs.microsoft.com/azure/azure-resource-manager/), o PowerShell e o provedor de recursos do Azure Time Series insights.
 
-O Time Series Insights oferece suporte aos seguintes recursos:
+O Azure Time Series Insights dá suporte aos seguintes recursos:
 
    | Recurso | Descrição |
    | --- | --- |
-   | Ambiente | Um ambiente do Time Series Insights é um agrupamento lógico de eventos que são lidos dos agentes de evento, armazenados e disponibilizados para consulta. Para obter mais informações, leia [Planejar seu ambiente do Azure Time Series Insights](time-series-insights-environment-planning.md) |
-   | Origem do Evento | Uma fonte de evento é uma conexão com um agente de eventos de onde o Time Series Insights lê e ingere eventos no ambiente. As fontes de evento com suporte no momento são o Hub IoT e o Hub de Eventos. |
+   | Ambiente | Um ambiente de Azure Time Series Insights é um agrupamento lógico de eventos que são lidos de agentes de evento, armazenados e disponibilizados para consulta. Para obter mais informações, leia [Planejar seu ambiente do Azure Time Series Insights](time-series-insights-environment-planning.md) |
+   | Origem do Evento | Uma origem de evento é uma conexão com um agente de evento a partir do qual Azure Time Series Insights lê e insome eventos no ambiente. As fontes de evento com suporte no momento são o Hub IoT e o Hub de Eventos. |
    | Conjuntos de dados de referência | Os conjuntos de dados de referência fornecem metadados sobre os eventos no ambiente. Os metadados nos conjuntos de dados de referência serão adicionados aos eventos durante a entrada. Os conjuntos de dados de referência são definidos como recursos por suas propriedades de chave de evento. Os metadados que compõem o conjunto de dados de referência são carregados ou modificados por meio de APIs de plano de dados. |
-   | Política de acesso | As políticas de acesso concedem permissões para emitir consultas de dados, manipular dados de referência no ambiente e compartilhar consultas salvas e perspectivas associadas ao ambiente. Para obter mais informações, leia [Permitir o acesso a dados a um ambiente do Time Series Insights usando o portal do Azure](time-series-insights-data-access.md) |
+   | Política de acesso | As políticas de acesso concedem permissões para emitir consultas de dados, manipular dados de referência no ambiente e compartilhar consultas salvas e perspectivas associadas ao ambiente. Para obter mais informações, leia [conceder acesso a dados para um ambiente de Azure Time Series insights usando portal do Azure](time-series-insights-data-access.md) |
 
 Um modelo do Resource Manager é um arquivo JSON que define a infraestrutura e a configuração de recursos em um grupo de recursos. Os seguintes documentos descrevem os arquivos de modelo mais detalhadamente:
 
@@ -37,13 +37,13 @@ Um modelo do Resource Manager é um arquivo JSON que define a infraestrutura e a
 - [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 - [Tipos de recurso Microsoft.TimeSeriesInsights](/azure/templates/microsoft.timeseriesinsights/allversions)
 
-O modelo de início rápido [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) é publicado no GitHub. Este modelo cria um ambiente do Time Series Insights, uma fonte de evento filho configurada para consumir eventos de um Hub de Eventos, além de políticas de acesso que concedem acesso aos dados do ambiente. Se um Hub de Eventos existente não for especificado, ele será criado com a implantação.
+O modelo de início rápido [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) é publicado no GitHub. Este modelo cria um ambiente de Azure Time Series Insights, uma origem de evento filho configurada para consumir eventos de um hub de eventos e políticas de acesso que concedem acesso aos dados do ambiente. Se um Hub de Eventos existente não for especificado, ele será criado com a implantação.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="specify-deployment-template-and-parameters"></a>Especificar o modelo de implantação e os parâmetros
 
-O procedimento a seguir descreve como usar o PowerShell para implantar um modelo do Azure Resource Manager que cria um ambiente do Time Series Insights, uma fonte de evento filho configurada para consumir eventos de um Hub de Eventos e políticas de acesso que concedem acesso aos dados do ambiente. Se um Hub de Eventos existente não for especificado, ele será criado com a implantação.
+O procedimento a seguir descreve como usar o PowerShell para implantar um modelo de Azure Resource Manager que cria um ambiente de Azure Time Series Insights, uma fonte de eventos filho configurada para consumir eventos de um hub de eventos e políticas de acesso que concedem acesso aos dados do ambiente. Se um Hub de Eventos existente não for especificado, ele será criado com a implantação.
 
 1. Instale o Azure PowerShell seguindo as instruções em [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -63,7 +63,7 @@ O procedimento a seguir descreve como usar o PowerShell para implantar um modelo
      | --- | --- |
      | eventHubNamespaceName | O namespace do hub de eventos de origem. |
      | eventHubName | O nome do hub de eventos de origem. |
-     | consumerGroupName | O nome do grupo consumidor que o serviço Time Series Insights usará para ler os dados do hub de eventos. **OBSERVAÇÃO:** para evitar a contenção de recursos, esse grupo consumidor deve ser dedicado ao serviço Time Series Insights e não deve ser compartilhado com outros leitores. |
+     | consumerGroupName | O nome do grupo de consumidores que o serviço de Azure Time Series Insights usará para ler os dados do hub de eventos. **Observação:** Para evitar a contenção de recursos, esse grupo de consumidores deve ser dedicado ao serviço de Azure Time Series Insights e não compartilhado com outros leitores. |
      | environmentName | O nome do ambiente. O nome não pode incluir: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` nem caracteres de controle. Todos os outros caracteres são permitidos.|
      | eventSourceName | O nome do recurso filho da fonte do evento. O nome não pode incluir: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` nem caracteres de controle. Todos os outros caracteres são permitidos. |
 
@@ -73,14 +73,14 @@ O procedimento a seguir descreve como usar o PowerShell para implantar um modelo
 
      | Parâmetro | Descrição |
      | --- | --- |
-     | existingEventHubResourceId | Uma ID de recurso opcional de um Hub de Eventos existente que será conectada ao ambiente do Time Series Insights através da fonte do evento. **OBSERVAÇÃO:** o usuário que vai implantar o modelo deve ter privilégios para executar a operação listkeys no Hub de Eventos. Se nenhum valor for transmitido, um novo hub de eventos será criado pelo modelo. |
+     | existingEventHubResourceId | Uma ID de recurso opcional de um hub de eventos existente que será conectada ao ambiente de Azure Time Series Insights por meio da origem do evento. **OBSERVAÇÃO:** o usuário que vai implantar o modelo deve ter privilégios para executar a operação listkeys no Hub de Eventos. Se nenhum valor for transmitido, um novo hub de eventos será criado pelo modelo. |
      | environmentDisplayName | Um nome amigável opcional para exibição nas ferramentas ou interfaces de usuário em vez do nome do ambiente. |
-     | environmentSkuName | O nome da SKU. Para obter mais informações, leia a [página Preços do Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
-     | environmentSkuCapacity | A capacidade da unidade da SKU. Para obter mais informações, leia a [página Preços do Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|
+     | environmentSkuName | O nome da SKU. Para obter mais informações, leia a [página de preços do Azure Time Series insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
+     | environmentSkuCapacity | A capacidade da unidade da SKU. Para obter mais informações, leia a [página de preços do Azure Time Series insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|
      | environmentDataRetentionTime | O intervalo de tempo mínimo em que os eventos do ambiente estarão disponíveis para consulta. O valor precisa ser especificado no formato ISO 8601, por exemplo, `P30D` para uma política de retenção de 30 dias. |
      | eventSourceDisplayName | Um nome amigável opcional para exibição nas ferramentas ou interfaces de usuário em vez do nome da fonte do evento. |
      | eventSourceTimestampPropertyName | A propriedade de evento que será usada como carimbo de data/hora da fonte do evento. Se não for especificado um valor para timestampPropertyName, ou se for especificado null ou empty-string, a hora de criação do evento será usada. |
-     | eventSourceKeyName | O nome da chave de acesso compartilhado que o serviço Time Series Insights usará para se conectar ao hub de eventos. |
+     | eventSourceKeyName | O nome da chave de acesso compartilhado que o serviço de Azure Time Series Insights usará para se conectar ao Hub de eventos. |
      | accessPolicyReaderObjectIds | Uma lista de IDs de objeto dos usuários ou aplicativos no Azure AD que devem ter acesso de Leitor para o ambiente. A objectId da entidade de serviço pode ser obtida por meio da chamada dos cmdlets **Get-AzADUser** ou **Get-AzADServicePrincipal**. Ainda não há suporte para a criação de uma política de acesso para grupos do Azure AD. |
      | accessPolicyContributorObjectIds | Uma lista de IDs de objeto dos usuários ou aplicativos no Azure AD que devem ter acesso de Colaborador para o ambiente. A objectId da entidade de serviço pode ser obtida por meio da chamada dos cmdlets **Get-AzADUser** ou **Get-AzADServicePrincipal**. Ainda não há suporte para a criação de uma política de acesso para grupos do Azure AD. |
 
@@ -124,7 +124,7 @@ O procedimento a seguir descreve como usar o PowerShell para implantar um modelo
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Implantar o modelo de início rápido localmente usando o PowerShell
 
 > [!IMPORTANT]
-> As operações de linha de comando exibidas abaixo descrevem o [módulo do Az PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+> As operações de linha de comando exibidas abaixo descrevem o [módulo do Az PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 1. No PowerShell, faça logon em sua conta do Azure.
 
@@ -252,4 +252,4 @@ O procedimento a seguir descreve como usar o PowerShell para implantar um modelo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais informações sobre como gerenciar os recursos do Time Series Insights de maneira programática usando APIs REST, leia [Gerenciamento do Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights-management/).
+- Para obter informações sobre como gerenciar programaticamente Azure Time Series Insights recursos usando APIs REST, leia [Azure Time Series insights Management](https://docs.microsoft.com/rest/api/time-series-insights-management/).

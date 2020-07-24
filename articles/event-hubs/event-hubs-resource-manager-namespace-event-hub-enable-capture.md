@@ -3,16 +3,16 @@ title: Criar um hub de eventos com a captura habilitada – Hubs de Eventos do A
 description: Criar um namespace de Hubs de Eventos do Azure com um hub de eventos e habilitar a Captura usando um modelo do Azure Resource Manager
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 51b654635fa7e06901a257c930e04bff3ea86cf8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7308d951cf48d8123df050bdf58772ec914aac3e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315692"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087587"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Criar um namespace com o hub de eventos e habilitar a Captura usando um modelo
 
-Este artigo mostra como usar um modelo de Azure Resource Manager que cria um namespace de [hubs de eventos](event-hubs-what-is-event-hubs.md) , com uma instância de Hub de eventos e também habilita o [recurso de captura](event-hubs-capture-overview.md) no Hub de eventos. O artigo descreve como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
+Este artigo mostra como usar um modelo de Azure Resource Manager que cria um namespace de [hubs de eventos](./event-hubs-about.md) , com uma instância de Hub de eventos e também habilita o [recurso de captura](event-hubs-capture-overview.md) no Hub de eventos. O artigo descreve como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
 
 Este artigo também mostra como especificar que os eventos sejam capturados em Blobs de Armazenamento do Azure ou em um Azure Data Lake Store com base no destino escolhido.
 
@@ -418,7 +418,7 @@ Você também pode configurar a Captura de Hubs de Eventos por meio do [portal d
 
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Eventos](./event-hubs-about.md)
 * [Criar um hub de eventos](event-hubs-create.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
 

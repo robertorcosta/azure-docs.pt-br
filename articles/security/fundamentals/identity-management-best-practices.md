@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: aa662dfbd98be5ec16a30e690f28196ca3868390
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 35fd95272530ed31f8ee197679e9368ca74ebef1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855895"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089661"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Práticas recomendadas de Gerenciamento de Identidade do Azure e segurança de controle de acesso
 
@@ -216,7 +216,7 @@ Você pode usar o [RBAC](/azure/role-based-access-control/overview) para atribui
 * **Grupo de gerenciamento de segmento** para equipes com escopo limitado (normalmente devido a regulamentações ou outros limites organizacionais)
 
 **Melhor prática**: Conceda permissões apropriadas às equipes de segurança que têm responsabilidades operacionais diretas.
-**Detalhe**: Examine as funções internas do RBAC para a atribuição de função apropriada. Se as funções internas não atenderem às necessidades específicas de sua organização, você poderá criar [funções personalizadas para recursos do Azure](/azure/role-based-access-control/custom-roles). Assim como as funções internas, é possível atribuir funções personalizadas a usuários, grupos e entidades de serviço na assinatura, no grupo de recursos e nos escopos de recurso.
+**Detalhe**: Examine as funções internas do RBAC para a atribuição de função apropriada. Se as funções internas não atenderem às necessidades específicas de sua organização, você poderá criar [funções personalizadas do Azure](/azure/role-based-access-control/custom-roles). Assim como as funções internas, é possível atribuir funções personalizadas a usuários, grupos e entidades de serviço na assinatura, no grupo de recursos e nos escopos de recurso.
 
 **Práticas recomendadas**: Conceda acesso à Central de Segurança do Azure a funções de segurança que precisam dela. A Central de Segurança permite que as equipes de segurança identifiquem e corrijam riscos rapidamente.
 **Detalhe**: Adicione equipes de segurança com essas necessidades à função de [administrador de segurança](/azure/role-based-access-control/built-in-roles#security-admin) do RBAC para que possam exibir políticas de segurança e estados de segurança, editar políticas de segurança, exibir e ignorar alertas e recomendações. Você pode fazer isso usando o grupo de gerenciamento raiz ou o grupo de gerenciamento de segmentos, dependendo do escopo das responsabilidades.

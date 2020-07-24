@@ -4,10 +4,11 @@ description: Saiba mais sobre failover e com falha no Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79281802"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089525"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>Sobre failover/failback de recuperação de desastre local
 
@@ -82,7 +83,7 @@ Durante o failover, você pode selecionar várias opções de ponto de recupera�
 **Consistente com o aplicativo mais recente** |  Essa opção executa failover de VMs para o ponto de recuperação consistente com o aplicativo mais recente processado pelo Site Recovery, se os pontos de recuperação consistentes com o aplicativo estiverem habilitados. Verifique o ponto de recuperação mais recente nas configurações da VM.
 **Várias VMs processadas mais recentemente** | Essa opção está disponível para planos de recuperação com uma ou mais VMs com consistência de várias VM habilitada. As VMs com a configuração habilitaram o failover para o último ponto de recuperação consistente com várias VMs em comum. Qualquer outra VM no plano faz failover para o último ponto de recuperação processado.
 **Várias VMs mais recentes consistentes com o aplicativo** |  Essa opção está disponível para planos de recuperação com uma ou mais VMs com consistência de várias VM habilitada. As VMs que fazem parte de um failover do grupo de replicação para o ponto de recuperação comum mais recente de várias VMs consistente com aplicativo. Outras VMs fazem failover para seus últimos pontos de recuperação consistentes com aplicativo.
-**Personalizado** | Use esta opção para fazer failover de uma VM específica para um determinado ponto de recuperação no tempo. Essa opção não está disponível para planos de recuperação.
+**Custom** | Use esta opção para fazer failover de uma VM específica para um determinado ponto de recuperação no tempo. Essa opção não está disponível para planos de recuperação.
 
 > [!NOTE]
 > Os pontos de recuperação não podem ser migrados para outro cofre dos serviços de recuperação.

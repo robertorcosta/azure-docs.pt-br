@@ -9,13 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 74210864332319dabb16eda865da9dc9793e3dbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6092395929f4990010e2212f28a5962cfe1c7e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84187680"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087826"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
 
@@ -60,7 +61,7 @@ Você pode usar a atividade de cópia para copiar arquivos no estado em que se e
 * Copie dados no formato de texto compactado gzip (CSV) do armazenamento de BLOBs do Azure e grave-os no banco de dados SQL do Azure.
 * Muitas outras atividades que exigem serialização/desserialização ou compactação/descompactação.
 
-## <a name="supported-regions"></a>Regiões com suporte
+## <a name="supported-regions"></a>Regiões compatíveis
 
 O serviço que habilita a atividade de cópia está disponível globalmente nas regiões e geografias listados em [locais de tempo de execução de integração do Azure](concepts-integration-runtime.md#integration-runtime-location). A topologia globalmente disponível garante a movimentação de dados eficiente, o que geralmente evita saltos entre regiões. Consulte [produtos por região](https://azure.microsoft.com/regions/#services) para verificar a disponibilidade de data Factory e a movimentação de dados em uma região específica.
 
@@ -74,7 +75,7 @@ Em geral, para usar a atividade de cópia no Azure Data Factory, você precisa:
 2. **Crie conjuntos de valores para a origem e o coletor.** Consulte as seções "Propriedades do conjunto de dados" dos artigos do conector de origem e do coletor para obter informações de configuração e propriedades com suporte.
 3. **Crie um pipeline com a atividade de cópia.** A próxima seção fornece um exemplo.
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>Sintaxe
 
 O modelo a seguir de uma atividade de cópia contém uma lista completa de propriedades com suporte. Especifique as adequadas para o seu cenário.
 
@@ -126,7 +127,7 @@ O modelo a seguir de uma atividade de cópia contém uma lista completa de propr
 
 #### <a name="syntax-details"></a>Detalhes da sintaxe
 
-| Propriedade | Descrição | Obrigatório? |
+| Propriedade | Descrição | Necessário? |
 |:--- |:--- |:--- |
 | tipo | Para uma atividade de cópia, defina como`Copy` | Sim |
 | entradas | Especifique o conjunto de dados que você criou que aponta para a origem. A atividade de cópia dá suporte a apenas uma única entrada. | Sim |
@@ -197,7 +198,7 @@ Você pode encontrar a seguinte configuração na guia origem da atividade de c�
 
 Para configurá-lo programaticamente, adicione a `additionalColumns` propriedade em sua fonte de atividade de cópia:
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | additionalColumns | Adicione colunas de dados adicionais para copiar para o coletor.<br><br>Cada objeto sob a `additionalColumns` matriz representa uma coluna extra. O `name` define o nome da coluna e `value` indica o valor de dados dessa coluna.<br><br>Os valores de dados permitidos são:<br>- **`$$FILEPATH`**-uma variável reservada indica armazenar o caminho relativo dos arquivos de origem para o caminho da pasta especificado no conjunto de uma. Aplicar à fonte baseada em arquivo.<br>- **Expressão**<br>- **Valor estático** | Não |
 
@@ -239,6 +240,22 @@ Para configurá-lo programaticamente, adicione a `additionalColumns` propriedade
     }
 ]
 ```
+
+## <a name="auto-create-sink-tables"></a>Criar tabelas de coletor automaticamente
+
+Ao copiar os dados para o SQL Database/Azure Synapse Analytics, se a tabela de destino não existir, a atividade de cópia dará suporte à criação automática com base nos dados de origem. Ele tem o objetivo de ajudá-lo a começar a carregar os dados e avaliar o SQL Database/Azure Synapse Analytics. Após a ingestão de dados, você pode revisar e ajustar o esquema da tabela de coletor de acordo com suas necessidades.
+
+Esse recurso tem suporte ao copiar dados de qualquer fonte nos armazenamentos de dados do coletor a seguir. Você pode encontrar a opção na *interface do usuário de criação do ADF* – opção > o *coletor de atividade de cópia* – > *tabela* – > *criação automática de tabela*ou por meio `tableOption` da propriedade na carga do coletor da atividade de cópia.
+
+- [Banco de Dados SQL do Azure](connector-azure-sql-database.md)
+- [Instância Gerenciada do Banco de Dados SQL do Azure](connector-azure-sql-managed-instance.md)
+- [Azure Synapse Analytics (anteriormente SQL Data Warehouse do Azure)](connector-azure-sql-data-warehouse.md)
+- [SQL Server](connector-sql-server.md)
+
+![Criar tabelas de coletor](media/copy-activity-overview/create-sink-table.png)
+
+> [!NOTE]
+> Atualmente, não há suporte para a criação de tabela automática quando a [cópia preparada](copy-activity-performance-features.md#staged-copy) está habilitada.
 
 ## <a name="fault-tolerance"></a>Tolerância a falhas
 

@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 26faad0bb8aeb8dff693eea4cb9d47e0df1814b4
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 30e8bd7fda08795ecc1aa78b0d2507e7c915ad0d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027318"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087247"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurar cadeias de conexão do Armazenamento do Azure
 
 Uma cadeia de conexão inclui as informações de autorização necessárias para que seu aplicativo acesse dados em uma conta de armazenamento do Azure em tempo de execução usando a autorização de chave compartilhada. Você pode configurar cadeias de conexão para:
 
-* Conecte-se ao emulador de armazenamento do Azure.
+* Conecte-se ao emulador de armazenamento do azurite.
 * Acesse uma conta de armazenamento no Azure.
 * Acessar recursos especificados no Azure por uma SAS (Assinatura de Acesso Compartilhado).
 
@@ -37,15 +37,15 @@ Seu aplicativo precisara acessar a cadeia de conexão no runtime para autorizar 
 * Um aplicativo em execução na área de trabalho ou em um dispositivo pode armazenar a cadeia de conexão em um arquivo **app.config** ou **web.config**. Adicione a cadeia de conexão à seção **AppSettings** nesses arquivos.
 * Um aplicativo em execução em um serviço de nuvem do Azure pode armazenar a cadeia de conexão no [arquivo de esquema (.cscfg) de configuração de serviço do Azure](https://msdn.microsoft.com/library/ee758710.aspx). Adicionar a cadeia de conexão à seção **ConfigurationSettings** do arquivo de configuração de serviço.
 
-Armazenar a cadeia de conexão em um arquivo de configuração facilita a atualização da cadeia de conexão para alternar entre o emulador de armazenamento e uma conta de Armazenamento do Azure na nuvem. Você precisa apenas editar a cadeia de conexão para apontar para seu ambiente de destino.
+Armazenar a cadeia de conexão em um arquivo de configuração facilita a atualização da cadeia de conexão para alternar entre o [emulador de armazenamento azurite](../common/storage-use-azurite.md) e uma conta de armazenamento do Azure na nuvem. Você precisa apenas editar a cadeia de conexão para apontar para seu ambiente de destino.
 
 Você pode usar o [Gerenciador de Configuração do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) para acessar a cadeia de conexão no runtime, independentemente do local em que seu aplicativo esteja sendo executado.
 
-## <a name="configure-a-connection-string-for-the-storage-emulator"></a>Configurar uma cadeia de conexão para o emulador de armazenamento
+## <a name="configure-a-connection-string-for-azurite"></a>Configurar uma cadeia de conexão para azurite
 
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-Consulte [Usar o emulador do Armazenamento do Azure para desenvolvimento e teste](storage-use-emulator.md) para obter mais informações sobre o emulador de armazenamento.
+Para obter mais informações sobre azurite, consulte [usar o emulador azurite para o desenvolvimento de armazenamento local do Azure](../common/storage-use-azurite.md).
 
 ## <a name="configure-a-connection-string-for-an-azure-storage-account"></a>Configurar uma cadeia de conexão para uma conta de armazenamento do Azure
 
@@ -140,6 +140,6 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste](storage-use-emulator.md)
+* [Usar o emulador azurite para o desenvolvimento de armazenamento local do Azure](../common/storage-use-azurite.md)
 * [Gerenciadores do Armazenamento do Azure](storage-explorers.md)
 * [Usando SAS (Assinatura de Acesso Compartilhado)](storage-sas-overview.md)

@@ -3,8 +3,8 @@ title: 'Tutorial: migrar o MySQL online para o banco de dados do Azure para MySQ
 titleSuffix: Azure Database Migration Service
 description: Saiba como realizar uma migração online do MySQL local para o Banco de Dados do Azure para MySQL usando o Serviço de Migração de Banco de Dados do Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: e9fc2913a526e01ea5279c476e3deab779db88c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ea351fb6b88a020a466849181fed0381baa7f04
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609226"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087740"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o MySQL para o Banco de Dados do Azure para MySQL online usando o DMS
 
@@ -26,7 +27,7 @@ Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
 >
 > * Migrar o esquema de exemplo usando o utilitário mysqldump.
-> * Criar uma instância do Serviço de Migração de Banco de Dados do Azure.
+> * Crie uma instância do Serviço de Migração de Banco de Dados do Azure.
 > * Criar um projeto de migração usando o Serviço de Migração de Banco de Dados do Azure.
 > * Executar a migração.
 > * Monitorar a migração.
@@ -38,7 +39,7 @@ Neste tutorial, você aprenderá como:
 > Para obter uma experiência ideal de migração, a Microsoft recomenda a criação de uma instância do Serviço de Migração de Banco de Dados do Azure na mesma região do Azure como o banco de dados de destino. Mover dados entre regiões ou áreas geográficas pode desacelerar o processo de migração e introduzir erros.
 
 > [!NOTE]
-> Comunicação sem tendência
+> Comunicação livre de desvio
 >
 > A Microsoft dá suporte a um ambiente diversificado e de inclusão. Este artigo contém referências à palavra _subordinada_. O [Guia de estilo da Microsoft para comunicação sem tendência](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isso como uma palavra de exclusão. A palavra é usada neste artigo para fins de consistência porque, atualmente, ela é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
 >
@@ -138,6 +139,11 @@ SET group_concat_max_len = 8192;
  ```
 
 Execute a chave estrangeira removível (que é a segunda coluna) no resultado da consulta de chave estrangeira removível.
+
+> [!NOTE]
+> O Azure DMS não dá suporte à ação referencial em cascata, que ajuda a excluir ou atualizar automaticamente uma linha correspondente na tabela filho quando uma linha é excluída ou atualizada na tabela pai. Para obter mais informações, na documentação do MySQL, consulte a seção ações referenciais do artigo [restrições de chave estrangeira](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html).
+> O Azure DMS exige que você remova as restrições de chave estrangeira no servidor de banco de dados de destino durante o carregamento inicial e não pode usar ações referenciais. Se sua carga de trabalho depende da atualização de uma tabela filho relacionada por meio dessa ação referencial, recomendamos que você execute um [despejo e uma restauração](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) em vez disso. 
+
 
 > [!IMPORTANT]
 > Se estiver importando dados usando um backup, remova os comandos CREATE DEFINER manualmente ou usando o comando --skip-definer ao executar um mysqldump. O DEFINER requer superprivilégios para criar e está restrito no Banco de Dados do Azure para MySQL.

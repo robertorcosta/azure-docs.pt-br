@@ -3,8 +3,8 @@ title: 'Tutorial: migrar PostgreSQL para o banco de dados do Azure para PostgreS
 titleSuffix: Azure Database Migration Service
 description: Aprenda a executar uma migração online do PostgreSQL local para o banco de dados do Azure para PostgreSQL usando o serviço de migração de banco de dados do Azure por meio da CLI.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/11/2020
-ms.openlocfilehash: e8f79512e132ff4632c067b23ad6e80a76b8d4cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6a39a7967c061a90e75d717402cf63da15b06b3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113879"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087621"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Tutorial: migrar PostgreSQL para o BD do Azure para PostgreSQL online usando DMS por meio do CLI do Azure
 
@@ -181,7 +182,7 @@ Para concluir todos os objetos de banco de dados, como procedimentos armazenados
        ```azurecli
        az extension list -otable
        ```
-       Você deve ver o seguinte resultado:
+       A seguinte saída deve ser exibida:
 
        ```output
        ExtensionType    Name

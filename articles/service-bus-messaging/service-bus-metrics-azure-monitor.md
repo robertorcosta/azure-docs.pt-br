@@ -2,13 +2,13 @@
 title: Métricas do Barramento de Serviço no Azure Monitor | Microsoft Docs
 description: Este artigo explica como usar o Azure Monitor para monitorar entidades do barramento de Serviço (filas, tópicos e assinaturas).
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 57b791e67157908447956a14fae99545843f3bc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: c4bf33fc7aa21be150a1ee0d6c65df84a391565e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340284"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089678"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas do Barramento de Serviço do Azure no Azure Monitor
 
@@ -29,11 +29,11 @@ As métricas estão habilitadas por padrão e você pode acessar os dados dos ú
 
 É possível monitorar as métricas ao longo do tempo no [Portal do Azure](https://portal.azure.com). O exemplo a seguir mostra como exibir solicitações bem-sucedidas e solicitações de entrada no nível da conta:
 
-![][1]
+![Captura de tela da página monitorar métricas (versão prévia) no portal do Azure.][1]
 
 Você também pode acessar as métricas diretamente por meio do namespace. Para fazer isso, selecione seu namespace e clique em **Métricas**. Para exibir as métricas filtradas para o escopo da entidade, selecione a entidade e clique em **Métricas**.
 
-![][2]
+![Captura de tela da página monitorar-métricas (versão prévia) filtrada para o escopo da entidade.][2]
 
 Para métricas com suporte para dimensões, você deve filtrar pelo valor da dimensão desejado.
 
@@ -56,11 +56,11 @@ Conta o número de solicitações de gerenciamento de dados e de operações.
 
 | Nome da métrica | Descrição |
 | ------------------- | ----------------- |
-| Solicitações de entrada| O número de solicitações feitas ao serviço de Barramento de Serviço durante um período específico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Solicitações bem sucedidas|O número de solicitações bem-sucedidas feitas ao serviço de Barramento de Serviço durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Erros do Servidor|O número de solicitações não processadas devido a um erro no serviço de Barramento de Serviço durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Erros do Usuário (confira a subseção a seguir)|O número de solicitações não processadas devido a erros do usuário durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Solicitações Limitadas|O número de solicitações que foram restringidas porque o uso foi excedido.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+| Solicitações de entrada| O número de solicitações feitas ao serviço de Barramento de Serviço durante um período específico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
+|Solicitações bem sucedidas|O número de solicitações bem-sucedidas feitas ao serviço de Barramento de Serviço durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
+|Erros do Servidor|O número de solicitações não processadas devido a um erro no serviço de Barramento de Serviço durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
+|Erros do Usuário (confira a subseção a seguir)|O número de solicitações não processadas devido a erros do usuário durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
+|Solicitações Limitadas|O número de solicitações que foram restringidas porque o uso foi excedido.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
 
 ### <a name="user-errors"></a>Erros do usuário
 
@@ -74,12 +74,13 @@ Os dois tipos de erros a seguir são classificados como erros do usuário:
 
 | Nome da métrica | Descrição |
 | ------------------- | ----------------- |
-|Mensagens de entrada|O número de eventos ou mensagens enviadas para o Barramento de Serviço durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Mensagens de saída|O número de eventos ou mensagens recebidas do Barramento de Serviço durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-| Mensagens| Contagem de mensagens em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: EntityName |
-| ActiveMessages| Contagem de mensagens ativas em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: EntityName |
-| Mensagens mortas| Contagem de mensagens mortas em uma fila/um tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/>Dimensão: EntityName |
-| Mensagens agendadas| Contagem de mensagens agendadas em uma fila/um tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média  <br/> Dimensão: EntityName |
+|Mensagens de entrada|O número de eventos ou mensagens enviadas para o Barramento de Serviço durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
+|Mensagens de saída|O número de eventos ou mensagens recebidas do Barramento de Serviço durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
+| Mensagens| Contagem de mensagens em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: nome da entidade |
+| Mensagens ativas| Contagem de mensagens ativas em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: nome da entidade |
+| Mensagens mortas| Contagem de mensagens mortas em uma fila/um tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/>Dimensão: nome da entidade |
+| Mensagens agendadas| Contagem de mensagens agendadas em uma fila/um tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média  <br/> Dimensão: nome da entidade |
+| Tamanho | Tamanho de uma entidade (fila ou tópico) em bytes. <br/><br/>Unidade: Contagem <br/>Tipo de agregação: Média <br/>Dimensão: nome da entidade | 
 
 > [!NOTE]
 > Os valores das métricas a seguir são valores pontuais. As mensagens de entrada consumidas imediatamente após esse ponto podem não estar refletidas nas métricas. 
@@ -92,9 +93,9 @@ Os dois tipos de erros a seguir são classificados como erros do usuário:
 
 | Nome da métrica | Descrição |
 | ------------------- | ----------------- |
-|ActiveConnections|O número de conexões ativas em um namespace, bem como em uma entidade.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Conexões Abertas |O número de conexões abertas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Conexões Fechadas |O número de conexões fechadas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Conexões ativas|O número de conexões ativas em um namespace, bem como em uma entidade.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
+|Conexões Abertas |O número de conexões abertas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
+|Conexões Fechadas |O número de conexões fechadas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
 
 ## <a name="resource-usage-metrics"></a>Métricas de uso de recurso
 
@@ -107,8 +108,8 @@ Os dois tipos de erros a seguir são classificados como erros do usuário:
 
 | Nome da métrica | Descrição |
 | ------------------- | ----------------- |
-|Uso da CPU por namespace|A porcentagem de uso da CPU do namespace.<br/><br/> Unidade: Porcentagem <br/> Tipo de agregação: Máximo <br/> Dimensão: EntityName|
-|Uso do tamanho da memória por namespace|A porcentagem de uso de memória do namespace.<br/><br/> Unidade: Porcentagem <br/> Tipo de agregação: Máximo <br/> Dimensão: EntityName|
+|Uso da CPU por namespace|A porcentagem de uso da CPU do namespace.<br/><br/> Unidade: Porcentagem <br/> Tipo de agregação: Máximo <br/> Dimensão: nome da entidade|
+|Uso do tamanho da memória por namespace|A porcentagem de uso de memória do namespace.<br/><br/> Unidade: Porcentagem <br/> Tipo de agregação: Máximo <br/> Dimensão: nome da entidade|
 
 ## <a name="metrics-dimensions"></a>Dimensões das métricas
 
@@ -116,7 +117,7 @@ O Barramento de Serviço do Azure dá suporte às seguintes dimensões para mét
 
 |Nome da dimensão|Descrição|
 | ------------------- | ----------------- |
-|EntityName| O Barramento de Serviço dá suporte a entidades de mensagens no namespace.|
+|Nome da entidade| O Barramento de Serviço dá suporte a entidades de mensagens no namespace.|
 
 ## <a name="set-up-alerts-on-metrics"></a>Configurar alertas em métricas
 
@@ -146,7 +147,7 @@ O Barramento de Serviço do Azure dá suporte às seguintes dimensões para mét
     2. Insira uma **descrição** para o alerta.
     3. Selecione a **gravidade** do alerta. 
 
-        ![Detalhes do Alerta](./media/service-bus-metrics-azure-monitor/alert-details.png)
+        ![Detalhes do alerta](./media/service-bus-metrics-azure-monitor/alert-details.png)
 1. Na página **Criar regra**, expanda **Definir grupo de ações**, selecione **Novo grupo de ações** e realize as seguintes ações em **Adicionar página de grupo de ações**. 
     1. Insira um nome para o grupo de ações.
     2. Insira um nome curto para o grupo de ações. 

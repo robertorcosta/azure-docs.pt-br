@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/27/2020
-ms.openlocfilehash: f5ef4c701cab8b9e94f89607bf643699e95ccad0
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: d8da5bb32836ff50240bf6b781227fde8839be5c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984892"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087995"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurar e gerenciar a autenticação do Azure AD com o SQL do Azure
 
@@ -48,7 +48,7 @@ Para obter mais informações sobre identidades, configuração e sincronizaçã
 
 Crie uma instância do Azure AD e preencha-a com usuários e grupos. O Azure AD pode ser o domínio gerenciado pelo Azure AD inicial. O Azure AD também pode ser um Active Directory Domain Services local federado com o Azure AD.
 
-Para obter mais informações, consulte [Integrando suas identidades locais no Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md), [Adicionar seu próprio nome de domínio ao Azure AD](../../active-directory/fundamentals/add-custom-domain.md), [O Microsoft Azure agora dá suporte à federação com o Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administrando seu diretório do Azure AD](../../active-directory/fundamentals/active-directory-whatis.md), [Gerenciar o Azure AD usando o Windows PowerShell](/powershell/azure/overview) e [Portas e protocolos necessários para a identidade híbrida](../../active-directory/hybrid/reference-connect-ports.md).
+Para obter mais informações, consulte [Integrando suas identidades locais no Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md), [Adicionar seu próprio nome de domínio ao Azure AD](../../active-directory/fundamentals/add-custom-domain.md), [O Microsoft Azure agora dá suporte à federação com o Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administrando seu diretório do Azure AD](../../active-directory/fundamentals/active-directory-whatis.md), [Gerenciar o Azure AD usando o Windows PowerShell](/powershell/azure/) e [Portas e protocolos necessários para a identidade híbrida](../../active-directory/hybrid/reference-connect-ports.md).
 
 ## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Associar ou adicionar uma assinatura do Azure ao Azure Active Directory
 
@@ -176,7 +176,7 @@ else {
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
+Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azure/).
 
 > [!IMPORTANT]
 > O módulo Azure Resource Manager do PowerShell (RM) ainda tem suporte do Azure SQL Instância Gerenciada, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre sua compatibilidade, consulte [apresentando o novo módulo Azure PowerShell AZ](/powershell/azure/new-azureps-module-az).
@@ -272,7 +272,7 @@ Para remover um Administrador mais tarde, na parte superior da página **Adminis
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview). Para provisionar um administrador do AD do Azure, execute os seguintes comandos do Azure PowerShell:
+Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azure/). Para provisionar um administrador do AD do Azure, execute os seguintes comandos do Azure PowerShell:
 
 - Connect-AzAccount
 - Select-AzSubscription

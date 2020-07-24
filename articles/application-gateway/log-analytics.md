@@ -8,14 +8,14 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 072640f5ba34b2782f75bbe4169567ade823f406
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88e360c5630c24dd997f72bda3fc4a480264763d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806688"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086907"
 ---
-# <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-logs"></a>Usar o Log Analytics para examinar os logs de firewall do aplicativo Web do Gateway de Aplicativo
+# <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-waf-logs"></a>Usar Log Analytics para examinar os logs do WAF (firewall do aplicativo Web) do gateway de aplicativo
 
 Depois que o WAF do gateway de aplicativo estiver operacional, você poderá habilitar os logs para inspecionar o que está acontecendo com cada solicitação. Os logs de firewall fornecem informações sobre o que o WAF está avaliando, correspondendo e bloqueando. Com Log Analytics, você pode examinar os dados nos logs do firewall para fornecer ainda mais informações. Para obter mais informações sobre como criar um espaço de trabalho Log Analytics, consulte [criar um espaço de trabalho log Analytics no portal do Azure](../azure-monitor/learn/quick-create-workspace.md). Para obter mais informações sobre consultas de log, consulte [visão geral das consultas de log no Azure monitor](../azure-monitor/log-query/log-query-overview.md).
 
@@ -80,7 +80,7 @@ AzureDiagnostics
 
 Depois de criar uma consulta, você pode adicioná-la ao seu painel.  Selecione **fixar no painel** no canto superior direito do espaço de trabalho do log Analytics. Com as quatro consultas anteriores fixadas em um painel de exemplo, esses são os dados que você pode ver em um relance:
 
-![Dashboard](media/log-analytics/dashboard.png)
+![Painel](media/log-analytics/dashboard.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

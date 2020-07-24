@@ -8,12 +8,12 @@ ms.date: 07/10/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: a13c17b2fcd6a42947b2f7d97f087735a5b18204
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 6cb6235c5c1a34cb3f48d315adee565591bb72c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86235769"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088454"
 ---
 # <a name="enable-end-to-end-encryption-using-encryption-at-host---azure-powershell"></a>Habilitar criptografia de ponta a ponta usando criptografia no host-Azure PowerShell
 
@@ -86,7 +86,7 @@ New-AzResourceGroupDeployment -ResourceGroupName <yourResourceGroupName> `
 
 Não há suporte para tamanhos de VM herdados. Você pode encontrar a lista de tamanhos de VM com suporte por meio de:
 
-Chamar a [API de SKUs de recursos](https://docs.microsoft.com/rest/api/compute/resourceskus/list) e verificar se a `EncryptionAtHostSupported` funcionalidade está definida como **true**.
+Chamar a [API de SKUs de recursos](/rest/api/compute/resourceskus/list) e verificar se a `EncryptionAtHostSupported` funcionalidade está definida como **true**.
 
 ```json
     {
@@ -107,7 +107,7 @@ Chamar a [API de SKUs de recursos](https://docs.microsoft.com/rest/api/compute/r
     }
 ```
 
-Ou, chamando o cmdlet [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) do PowerShell.
+Ou, chamando o cmdlet [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) do PowerShell.
 
 ```powershell
 $vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 

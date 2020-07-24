@@ -6,14 +6,14 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: ca4dc888af414ede270118eff72652f098d3306c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a459d1fba4353b4b3e092e83a759314cc455ead
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82779035"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087281"
 ---
-# <a name="localization"></a>Localização #
+# <a name="azure-media-player-localization"></a>Localização de Player de Mídia do Azure #
 
 O suporte a vários idiomas permite que os usuários de localidades não inglesas interajam nativamente com o jogador. Player de Mídia do Azure criará uma instância com um dicionário global de idiomas, que localizará as mensagens de erro com base no idioma da página. Um desenvolvedor também pode criar uma instância de Player com uma linguagem de conjunto forçada. O idioma padrão é inglês (EN).
 

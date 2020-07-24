@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 32ef66c0a6d585e785fccb038a2b499c7f7f66db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf630f6028248d799a3953d25db27a2150602586
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204762"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087004"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes para recursos em redes virtuais do Azure
 
@@ -176,7 +177,7 @@ Quando você estiver usando a resolução de nomes fornecida pelo Azure, o proto
 Se necessário, você pode determinar o sufixo DNS interno usando o PowerShell ou a API:
 
 * Para redes virtuais em modelos de implantação Azure Resource Manager, o sufixo está disponível por meio da [API REST da interface de rede](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces), do cmdlet [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) do PowerShell e do comando [AZ Network NIC show](/cli/azure/network/nic#az-network-nic-show) CLI do Azure.
-* No caso de modelos implantação clássica, o sufixo está disponível por meio da chamada à [API Obter Implantação](https://msdn.microsoft.com/library/azure/ee460804.aspx) ou do cmdlet [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure/get-azurevm).
+* No caso de modelos implantação clássica, o sufixo está disponível por meio da chamada à [API Obter Implantação](https://msdn.microsoft.com/library/azure/ee460804.aspx) ou do cmdlet [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure.service/get-azurevm).
 
 Se o encaminhamento de consultas para o Azure não atender às suas necessidades, você deverá fornecer sua própria solução DNS. A solução do DNS precisa:
 
@@ -214,7 +215,7 @@ Quando você estiver usando o Modelo de implantação do Azure Resource Manager,
 > [!NOTE]
 > Se você optar pelo servidor DNS personalizado para a sua rede virtual, você precisará especificar, pelo menos, um endereço IP do servidor DNS; caso contrário, a rede virtual ignorará a configuração e usará o DNS fornecido pelo Azure.
 
-Ao usar o modelo de implantação clássica, você pode especificar os servidores DNS para a rede virtual no Portal do Azure ou [arquivo Configuração de Rede](https://msdn.microsoft.com/library/azure/jj157100). Para serviços de nuvem, você pode especificar os servidores DNS por meio do [arquivo Configuração de Serviço](https://msdn.microsoft.com/library/azure/ee758710) ou usando o PowerShell, com [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
+Ao usar o modelo de implantação clássica, você pode especificar os servidores DNS para a rede virtual no Portal do Azure ou [arquivo Configuração de Rede](https://msdn.microsoft.com/library/azure/jj157100). Para serviços de nuvem, você pode especificar os servidores DNS por meio do [arquivo Configuração de Serviço](https://msdn.microsoft.com/library/azure/ee758710) ou usando o PowerShell, com [New-AzureVM](/powershell/module/servicemanagement/azure.service/new-azurevm).
 
 > [!NOTE]
 > Se você alterar as configurações de DNS para uma rede virtual ou máquina virtual que já está implantada, para que as novas configurações de DNS entrem em vigor, você deverá executar uma renovação de concessão DHCP em todas as VMs afetadas na rede virtual. Para VMs que executam o sistema operacional Windows, você pode fazer isso digitando `ipconfig /renew` diretamente na VM. As etapas variam dependendo do sistema operacional. Consulte a documentação relevante para seu tipo de sistema operacional.

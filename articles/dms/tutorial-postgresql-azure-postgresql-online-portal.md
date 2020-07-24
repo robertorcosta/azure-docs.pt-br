@@ -3,8 +3,8 @@ title: 'Tutorial: migrar PostgreSQL para o BD do Azure para PostgreSQL online po
 titleSuffix: Azure Database Migration Service
 description: Aprenda a executar uma migração online do PostgreSQL local para o banco de dados do Azure para PostgreSQL usando o serviço de migração de banco de dados do Azure por meio do portal do Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/11/2020
-ms.openlocfilehash: e01cc1c07d720c4743a03b5001e640f8b851dd5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ccbd22a44f0dfb05e425bff45cdc18803391812
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113994"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087638"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>Tutorial: migrar PostgreSQL para o BD do Azure para PostgreSQL online usando DMS por meio do portal do Azure
 
@@ -26,7 +27,7 @@ Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
 >
 > * Migre o esquema de exemplo usando o utilitário pg_dump.
-> * Criar uma instância do Serviço de Migração de Banco de Dados do Azure.
+> * Crie uma instância do Serviço de Migração de Banco de Dados do Azure.
 > * Crie um projeto de migração no serviço de migração de banco de dados do Azure.
 > * Executar a migração.
 > * Monitorar a migração.
@@ -227,7 +228,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
 
     ![Tela Adicionar Detalhes da Origem](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-add-source-details.png)
 
-2. Selecione **Salvar**.
+2. Clique em **Salvar**.
 
 ## <a name="specify-target-details"></a>Detalhes do destino favorito
 

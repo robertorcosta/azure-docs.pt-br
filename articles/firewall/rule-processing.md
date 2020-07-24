@@ -7,13 +7,14 @@ ms.service: firewall
 ms.topic: article
 ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: 93677b3e473ab825665fed5590ac345a8cfcc300
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84110e749dac9267e994385aa5f6d05e3ba224a6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113445"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087536"
 ---
-# <a name="azure-firewall-rule-processing-logic"></a>Lógica de processamento de regra do Firewall do Azure
+# <a name="configure-azure-firewall-rules"></a>Configurar regras de firewall do Azure
 Você pode configurar regras de NAT, regras de rede e regras de aplicativos no firewall do Azure. As coleções de regras são processadas de acordo com o tipo de regra em ordem de prioridade, números menores para números mais altos de 100 a 65.000. Um nome de coleção de regras pode ter apenas letras, números, sublinhados, pontos ou hifens. Ele deve começar com uma letra ou número e terminar com uma letra, número ou sublinhado. O comprimento máximo do nome é de 80 caracteres.
 
 É melhor espaçar inicialmente os números de prioridade da coleção de regras em incrementos de 100 (100, 200, 300 e assim por diante) para que você tenha espaço para adicionar mais coleções de regras, se necessário.
@@ -48,19 +49,19 @@ A conexão com o google.com é permitida devido a uma regra de rede corresponden
 - Ação: Permitir
 
 
-|name  |Protocolo  |Tipo de origem  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
+|name  |Protocolo  |Tipo de origem  |Fonte  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
 |Permitir-Web     |TCP|Endereço IP|*|Endereço IP|*|80.443
 
 **Regra de aplicativo**
 
-- Ação: negar
+- Ação: Negar
 
-|name  |Tipo de origem  |Origem  |Protocolo: porta|FQDNs de destino|
+|name  |Tipo de origem  |Fonte  |Protocolo: porta|FQDNs de destino|
 |---------|---------|---------|---------|----------|----------|
 |Negar-Google     |Endereço IP|*|http: 80, https: 443|google.com
 
-**Result**
+**Resultado**
 
 A conexão com google.com é permitida porque o pacote corresponde à regra de rede *Allow-Web* . O processamento da regra é interrompido neste ponto.
 
@@ -74,7 +75,7 @@ O tráfego SSH é negado porque uma coleção de regras de rede de *negação* d
 - Prioridade: 200
 - Ação: Permitir
 
-|name  |Protocolo  |Tipo de origem  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
+|name  |Protocolo  |Tipo de origem  |Fonte  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
 |Allow-SSH     |TCP|Endereço IP|*|Endereço IP|*|22
 
@@ -82,13 +83,13 @@ O tráfego SSH é negado porque uma coleção de regras de rede de *negação* d
 
 - Nome: Deny-Collection
 - Prioridade: 100
-- Ação: negar
+- Ação: Negar
 
-|name  |Protocolo  |Tipo de origem  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
+|name  |Protocolo  |Tipo de origem  |Fonte  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
 |Negar-SSH     |TCP|Endereço IP|*|Endereço IP|*|22
 
-**Result**
+**Resultado**
 
 As conexões SSH são negadas porque uma coleção de regras de rede de prioridade mais alta a bloqueia. O processamento da regra é interrompido neste ponto.
 

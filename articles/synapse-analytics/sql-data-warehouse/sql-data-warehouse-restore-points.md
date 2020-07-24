@@ -11,12 +11,12 @@ ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 18d341db8538af12dbbabab4797459779a553e4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66a2dad9396e8bf7c8ef49db529f7a5486cc8a8f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204992"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089200"
 ---
 # <a name="user-defined-restore-points"></a>Pontos de restauração definidos pelo usuário
 
@@ -26,7 +26,7 @@ Neste artigo, você aprenderá a criar um novo ponto de restauração definido p
 
 Para criar um ponto de restauração definido pelo usuário, use o cmdlet [New-AzSqlDatabaseRestorePoint](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) do PowerShell.
 
-1. Antes de começar, certifique-se de [instalar Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+1. Antes de começar, certifique-se de [instalar Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Abra o PowerShell.
 3. Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.
 4. Selecione a assinatura que contém o banco de dados a ser restaurado.

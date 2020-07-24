@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: d569bf454a62272a5c60cc92abc0f24715218894
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 507cd6cfe9f251dbc304b579d634ff986b001264
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958388"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088590"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Solucionar problemas de conexão de RDP da VM do Azure por ID do Evento 
 
@@ -289,13 +290,12 @@ Para consertar esse problema, a função de Agente de Conexão de Área de Traba
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Eventos Schannel](https://technet.microsoft.com/library/dn786445(v=ws.11).aspx)
+[Eventos Schannel](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn786445(v=ws.11))
 
-[Visão geral técnica do SSP Schannel](https://technet.microsoft.com/library/dn786429(v=ws.11).aspx)
+[Visão geral técnica do SSP Schannel](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn786429(v=ws.11))
 
-[O RDP falha com a o Evento de ID 1058 e o Evento 36870 com Comunicação SSL e Certificado de Host da Sessão da Área de Trabalho Remota](https://blogs.technet.microsoft.com/askperf/2014/10/22/rdp-fails-with-event-id-1058-event-36870-with-remote-desktop-session-host-certificate-ssl-communication/)
+[O RDP falha com a o Evento de ID 1058 e o Evento 36870 com Comunicação SSL e Certificado de Host da Sessão da Área de Trabalho Remota](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf)
 
-[Schannel 36872 ou Schannel 36870 em um Controlador de Domínio](https://blogs.technet.microsoft.com/instan/2009/01/05/schannel-36872-or-schannel-36870-on-a-domain-controller/)
+[Schannel 36872 ou Schannel 36870 em um Controlador de Domínio](/archive/blogs/instan/schannel-36872-or-schannel-36870-on-a-domain-controller)
 
-[ID do evento 1058 – Autenticação e Criptografia de Serviços de Área de Trabalho Remota](https://technet.microsoft.com/library/ee890862(v=ws.10).aspx)
-
+[ID do evento 1058 – Autenticação e Criptografia de Serviços de Área de Trabalho Remota](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee890862(v=ws.10))

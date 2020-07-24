@@ -10,11 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
-ms.openlocfilehash: d84c4a9af366e9032604aef5531742eb790bb571
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09c04d727e42f88bb376a59d66a23688e16abb13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711656"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089049"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Habilitar o log de recursos no Gerenciador de tráfego do Azure
 
@@ -67,11 +68,10 @@ Todos os logs de recursos disponíveis por meio de Azure Monitor compartilham um
 
 A tabela a seguir inclui o esquema de logs específico para o recurso de perfil do Gerenciador de Tráfego do Azure.
 
-|||||
+|Nome do campo|Tipo de campo|Definição|Exemplo|
 |----|----|---|---|
-|**Nome do campo**|**Tipo de campo**|**Definição**|**Exemplo**|
-|EndpointName|String|O nome do ponto de extremidade do Gerenciador de Tráfego cujo status de integridade está sendo registrado.|*myPrimaryEndpoint*|
-|Status|String|O status de integridade do ponto de extremidade do Gerenciador de Tráfego que foi investigado. O status pode ser **Operante** ou **Inoperante**.|**Up**|
+|EndpointName|Cadeia de caracteres|O nome do ponto de extremidade do Gerenciador de Tráfego cujo status de integridade está sendo registrado.|*myPrimaryEndpoint*|
+|Status|Cadeia de caracteres|O status de integridade do ponto de extremidade do Gerenciador de Tráfego que foi investigado. O status pode ser **Operante** ou **Inoperante**.|**Limpeza**|
 |||||
 
 ## <a name="next-steps"></a>Próximas etapas

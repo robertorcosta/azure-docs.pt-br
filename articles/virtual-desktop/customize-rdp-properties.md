@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 06/19/2020
+ms.date: 07/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c666a11f8d5e13d022309eddab16edb6aab76381
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5fb992edea38c3dff9beffab1f131d3e7a6fdbf6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527754"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087213"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personalizar as propriedades de protocolo RDP (RDP) para um pool de hosts
 
@@ -30,18 +30,6 @@ Consulte [configurações de arquivo RDP com suporte](https://docs.microsoft.com
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, siga as instruções em [Configurar o módulo do PowerShell da Área de Trabalho Virtual do Windows](powershell-module.md) para configurar o módulo do PowerShell e entrar no Azure.
-
-## <a name="default-rdp-properties"></a>Propriedades padrão de RDP
-
-Por padrão, os arquivos RDP publicados contêm as seguintes propriedades:
-
-|Propriedades de RDP | Desktops | RemoteApps |
-|---|---| --- |
-| Modo de vários monitores | habilitado | N/D |
-| Redirecionamentos de unidade habilitados | Unidades, área de transferência, impressoras, portas COM, dispositivos USB e cartões inteligentes| Unidades, área de transferência e impressoras |
-| Modo de áudio remoto | Reproduzir localmente | Reproduzir localmente |
-
-Todas as propriedades personalizadas que você definir para o pool de hosts substituirão esses padrões.
 
 ## <a name="configure-rdp-properties-in-the-azure-portal"></a>Configurar propriedades de RDP no portal do Azure
 

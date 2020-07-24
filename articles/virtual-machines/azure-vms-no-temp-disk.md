@@ -7,15 +7,15 @@ ms.topic: article
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 7ce816aba6bee36cd20eed6d31b0642dc8931e0b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 502883a0c4eb36be9e89ba8693f4d32ba7f16ebd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503023"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088862"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Tamanhos de VM do Azure sem disco temporário local 
-Este artigo fornece respostas para perguntas frequentes sobre tamanhos de VM do Azure que não têm um disco temporário local (ou seja, não local temp Desk). Para obter mais informações sobre esses tamanhos de VM, consulte [especificações para dv4 e Dsv4 (cargas de trabalho uso geral)](dv4-dsv4-series.md) ou [especificações para as séries Ev4 e Esv4 (cargas de trabalho com otimização de memória)](ev4-esv4-series.md).
+Este artigo fornece respostas para perguntas frequentes sobre os tamanhos de VM do Azure que não têm um disco temporário local (ou seja, nenhum disco Temp local). Para obter mais informações sobre esses tamanhos de VM, consulte [especificações para dv4 e Dsv4 (cargas de trabalho uso geral)](dv4-dsv4-series.md) ou [especificações para as séries Ev4 e Esv4 (cargas de trabalho com otimização de memória)](ev4-esv4-series.md).
 
 > [!IMPORTANT]
 > Os tamanhos de VM da série DV4, Dsv4, Ev4 e Esv4 agora estão em visualização pública. Para se inscrever na visualização pública, preencha este [formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 

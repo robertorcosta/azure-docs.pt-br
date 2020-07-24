@@ -7,11 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: caya
-ms.openlocfilehash: 6cbfac4794a685e5858e689c20d6603807edcedf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42952e379b9f68008de23ee3b1717280d8dd6cb2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987981"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088097"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Tutorial: habilitar o complemento do controlador de entrada do gateway de aplicativo para um cluster AKS existente com um gateway de aplicativo existente por meio de CLI do Azure (versão prévia)
 
@@ -41,7 +42,7 @@ az feature register --name AKS-IngressApplicationGatewayAddon --namespace micros
 
 Pode levar alguns minutos para que o status seja mostrado registrado. Você pode verificar o status de registro usando o comando [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register):
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
 ```
 
 Quando estiver pronto, atualize o registro do provedor de recursos Microsoft.ContainerService usando o comando [az provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register):

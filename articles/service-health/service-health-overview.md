@@ -3,12 +3,12 @@ title: Visão geral da Integridade de Serviço | Microsoft Docs
 description: Informações personalizadas sobre como seus aplicativos do Azure são afetados pela manutenção e pelos problemas de serviço atuais e futuros do Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: bc1d07fdbba6da3540336438973fb1cfbb0c356b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f2f0c8bf2cf4fe5beae7d48b198a23edba4e9ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563435"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089593"
 ---
 # <a name="service-health-overview"></a>Visão geral da integridade do serviço
 
@@ -68,7 +68,7 @@ Filtre a Integridade do Serviço para mostrar suas assinaturas, regiões e tipos
 
 ## <a name="configure-service-health-alerts"></a>Configurar alertas de integridade de serviço
 
-A Integridade de Serviço integra-se ao Azure Monitor para alertar você por emails, mensagens de texto e notificações de webhook quando seus recursos críticos para os negócios são afetados. Configure um alerta de log de atividades para o evento de integridade de serviço apropriado. Direcione esse alerta para as pessoas apropriadas em sua organização usando Grupos de Ações. Para obter mais informações, consulte [configurar alertas para integridade do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
+A Integridade de Serviço integra-se ao Azure Monitor para alertar você por emails, mensagens de texto e notificações de webhook quando seus recursos críticos para os negócios são afetados. Configure um alerta de log de atividades para o evento de integridade de serviço apropriado. Direcione esse alerta para as pessoas apropriadas em sua organização usando Grupos de Ações. Para obter mais informações, consulte [configurar alertas para integridade do serviço](./alerts-activity-log-service-notifications-portal.md)
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 

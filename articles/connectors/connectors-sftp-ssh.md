@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 06/17/2020
+ms.date: 07/20/2020
 tags: connectors
-ms.openlocfilehash: c2f3af4b0e2fafdd95798b412f37ed20204cd42f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a277c6205dfb9dfa04565fb3ebcb3da589669764
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807742"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087876"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitore, crie e gerencie arquivos SFTP usando SSH e os Aplicativos Lógicos do Azure
 
@@ -23,6 +23,7 @@ Para automatizar tarefas que monitoram, criam, enviam e recebem arquivos em um s
 > O conector SFTP-SSH atualmente não dá suporte a estes servidores SFTP:
 > 
 > * IBM datapower
+> * MessageWay
 > * MFT seguro do OpenText
 > * GXS de OpenText
 
@@ -38,7 +39,7 @@ Você pode usar gatilhos que monitoram eventos em seu servidor SFTP e disponibil
 
 Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, examine a seção [comparar SFTP-SSH versus SFTP](#comparison) mais adiante neste tópico.
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 
 * SFTP-as ações SSH que dão suporte ao [agrupamento](../logic-apps/logic-apps-handle-large-messages.md) podem manipular arquivos de até 1 GB, enquanto as ações de SFTP-SSH que não dão suporte a Agrupamento podem lidar com arquivos de até 50 MB. Embora o tamanho de parte padrão seja 15 MB, esse tamanho pode ser alterado dinamicamente, começando de 5 MB e gradualmente aumentando para o máximo de 50 MB, com base em fatores como latência de rede, tempo de resposta do servidor e assim por diante.
 
@@ -53,15 +54,15 @@ Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, examine a se
   |--------|------------------|-----------------------------|
   | **Copiar arquivo** | Não | Não aplicável |
   | **Criar arquivo** | Sim | Sim |
-  | **Criar pasta** | Não aplicável | Não aplicável |
-  | **Excluir arquivo** | Não aplicável | Não aplicável |
-  | **Extrair o arquivo morto para a pasta** | Não aplicável | Não aplicável |
+  | **Criar pasta** | Não aplicável | Não se aplica |
+  | **Excluir arquivo** | Não aplicável | Não se aplica |
+  | **Extrair o arquivo morto para a pasta** | Não aplicável | Não se aplica |
   | **Obter conteúdo do arquivo** | Sim | Sim |
   | **Obter o conteúdo do arquivo usando o caminho** | Sim | Sim |
-  | **Obter metadados do arquivo** | Não aplicável | Não aplicável |
-  | **Obter metadados do arquivo usando o caminho** | Não aplicável | Não aplicável |
-  | **Listar arquivos na pasta** | Não aplicável | Não aplicável |
-  | **Renomear arquivo** | Não aplicável | Não aplicável |
+  | **Obter metadados do arquivo** | Não aplicável | Não se aplica |
+  | **Obter metadados do arquivo usando o caminho** | Não aplicável | Não se aplica |
+  | **Listar arquivos na pasta** | Não aplicável | Não se aplica |
+  | **Renomear arquivo** | Não aplicável | Não se aplica |
   | **Atualizar arquivo** | Não | Não aplicável |
   ||||
 

@@ -3,8 +3,8 @@ title: 'Tutorial: migrar SQL Server offline para um banco de dados individual SQ
 titleSuffix: Azure Database Migration Service
 description: Saiba como migrar de SQL Server para o banco de dados SQL do Azure offline usando o serviço de migração de banco de dados do Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 45a343fdbd41abf1388556131f1f53a675d8ab49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0d2353364767dfb1fd73d517926d0fa63c11a1d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316220"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087706"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Tutorial: Migrar SQL Server para Banco de Dados SQL do Azure offline usando DMS
 
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá como:
 >
 > - Avalie seu banco de dados local usando o Assistente de Migração de Dados.
 > - Migre o esquema de exemplo usando o Assistente de Migração de Dados.
-> - Criar uma instância do Serviço de Migração de Banco de Dados do Azure.
+> - Crie uma instância do Serviço de Migração de Banco de Dados do Azure.
 > - Criar um projeto de migração usando o Serviço de Migração de Banco de Dados do Azure.
 > - Executar a migração.
 > - Monitorar a migração.
@@ -149,7 +149,7 @@ Para migrar o esquema **AdventureWorks2012** para um banco de dados individual o
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrar o provedor de recursos Microsoft.DataMigration
 
-1. Entre no Portal do Azure. Pesquise e selecione **Assinaturas**.
+1. Entre no portal do Azure. Pesquise e selecione **Assinaturas**.
 
    ![Mostrar assinaturas do portal](media/tutorial-sql-server-to-azure-sql/portal-select-subscription1.png)
 
@@ -193,7 +193,7 @@ Para migrar o esquema **AdventureWorks2012** para um banco de dados individual o
 
 Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seguida, crie um projeto de migração.
 
-1. No menu portal do Azure, selecione **todos os serviços**. Pesquise e selecione **serviços de migração de banco de dados do Azure**.
+1. No menu do portal do Azure, selecione **Todos os serviços**. Pesquise e selecione **serviços de migração de banco de dados do Azure**.
 
      ![Localize todas as instâncias do Serviço de Migração de Banco de Dados do Azure](media/tutorial-sql-server-to-azure-sql/dms-search.png)
 

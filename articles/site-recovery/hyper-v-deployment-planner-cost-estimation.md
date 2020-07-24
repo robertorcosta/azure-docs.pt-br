@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: bced6a9e6c59dc32657dbabef986e29e0447b28b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29457f2f5021fed9d8785f5764c4119de4be1fa9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60947177"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089542"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custo do Planejador de Implantações do Azure Site Recovery 
 
@@ -119,7 +119,7 @@ Para adicionar manualmente as máquinas virtuais:
 
     f. **Duração de cada análise de recuperação de desastre (Dias)**
 
-    g. **Tipo de so**
+    g. **Tipo de sistema operacional**
 
     h. **Redundância de dados**
 
@@ -167,16 +167,16 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Moedas com suporte
 O Planejador de Implantações do Site Recovery pode gerar o relatório de custo com qualquer uma das moedas a seguir.
 
-|Currency|Name||Currency|Name||Currency|Name|
+|Currency|Nome|Currency|Nome|Currency|Nome|
 |---|---|---|---|---|---|---|---|
-|ARS|Peso argentino ($)||AUD|Dólar australiano ($)||BRL|Real brasileiro (R$)|
-|CAD|Dólar canadense ($)||CHF|Franco suíço (chf)||DKK|Coroa dinamarquesa (kr)|
-|EUR|Euro (€)||GBP|Libra esterlina (£)||HKD|Dólar de Hong Kong (HK$)|
-|IDR|Rúpia da Indonésia (Rp)||INR|Rúpia (Índia) (₹)||JPY|Iene (Japão) (¥)|
-|KRW|Won (Coreia) (₩)||MXN|Peso mexicano (MXN$)||MYR|Ringgit malaio (RM$)|
+|ARS|Peso argentino ($)|AUD|Dólar australiano ($)|BRL|Real brasileiro (R$)|
+|CAD|Dólar canadense ($)|CHF|Franco suíço (chf)|DKK|Coroa dinamarquesa (kr)|
+|EUR|Euro (€)|GBP|Libra esterlina (£)|HKD|Dólar de Hong Kong (HK$)|
+|IDR|Rúpia da Indonésia (Rp)|INR|Rúpia (Índia) (₹)|JPY|Iene (Japão) (¥)|
+|KRW|Won (Coreia) (₩)|MXN|Peso mexicano (MXN$)|MYR|Ringgit malaio (RM$)|
 |NOK|Coroa norueguesa (kr)||NZD|Dólar neozelandês ($)||RUB|Rublo russo (руб)|
-|SAR|Rial saudita (SR)||SEK|Coroa sueca (kr)||TWD|Dólar taiwanês (NT$)|
-|TRY|Lira turca (TL)||USD| Dólar americano (US$)||ZAR|Rand da África do Sul (R)|
+|SAR|Rial saudita (SR)|SEK|Coroa sueca (kr)|TWD|Dólar taiwanês (NT$)|
+|TRY|Lira turca (TL)|USD| Dólar americano (US$)|ZAR|Rand da África do Sul (R)|
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre como proteger [VMs do Hyper-V para o Azure usando o Site Recovery](hyper-v-azure-tutorial.md).

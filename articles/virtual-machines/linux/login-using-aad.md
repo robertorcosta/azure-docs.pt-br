@@ -1,18 +1,18 @@
 ---
 title: Fazer logon em uma VM do Linux com credenciais de Azure Active Directory
 description: Saiba como criar e configurar uma VM do Linux para entrar usando Azure Active Directory autenticação.
-author: iainfoulds
+author: SanDeo-MSFT
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/29/2019
-ms.author: iainfou
-ms.openlocfilehash: c5275a979cbffe7fb6600978487454ac11cd2002
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: sandeo
+ms.openlocfilehash: 89b89d30de46727f4d5b52a236a4b0133e663bb9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510422"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088760"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Versão prévia: faça logon em uma máquina virtual Linux no Azure usando Azure Active Directory autenticação
 
@@ -113,7 +113,7 @@ O *provisioningState* de *Succeeded* é mostrado depois que a extensão é insta
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configurar atribuições de função para a VM
 
-A política de RBAC (controle de acesso baseado em função) do Azure determina quem pode fazer logon na VM. Duas funções RBAC são usadas para autorizar o logon na VM:
+A política do Azure RBAC (controle de acesso baseado em função) determina quem pode fazer logon na VM. Duas funções RBAC são usadas para autorizar o logon na VM:
 
 - **Logon de administrador da máquina virtual**: os usuários com essa função atribuída podem fazer logon em uma máquina virtual do Azure com privilégios de usuário de administrador do Windows ou raiz do Linux.
 - **Logon de usuário da máquina virtual**: os usuários com essa função atribuído podem fazer logon uma máquina virtual do Azure com privilégios de usuários regulares.

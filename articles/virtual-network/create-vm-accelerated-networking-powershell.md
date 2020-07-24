@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: 2dc7b0447a97cdafc88d2cee4612aba22c1e0eea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 582553675284e88e4707812b1f6b459a4e67f14a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84975785"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088182"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Criar uma VM do Windows com rede acelerada usando o Azure PowerShell
 
@@ -53,8 +53,8 @@ Os benefícios da rede acelerada só se aplicam à VM em que ela está habilitad
 
 As distribuições a seguir têm suporte diretamente da galeria do Azure:
 
-- **Windows Server 2019 Datacenter**
-- **Windows Server 2016 Datacenter** 
+- **Datacenter do Windows Server 2019**
+- **Datacenter do Windows Server 2016** 
 - **Windows Server 2012 R2 Datacenter**
 
 ## <a name="limitations-and-constraints"></a>Limitações e restrições
@@ -63,7 +63,7 @@ As distribuições a seguir têm suporte diretamente da galeria do Azure:
 
 A rede acelerada tem suporte na maioria dos tamanhos de instância de uso geral e otimizado para computação com duas ou mais CPUs virtuais (vCPUs).  Essas séries com suporte são: Dv2/DSv2 e F/FS.
 
-Em instâncias que dão suporte a hyperthreading, a rede acelerada tem suporte em instâncias de VM com quatro ou mais vCPUs. As séries com suporte são: D/Dsv3, D/Dsv4, E/Esv3, ea/Easv4, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
+Em instâncias que dão suporte a hyperthreading, a rede acelerada tem suporte em instâncias de VM com quatro ou mais vCPUs. As séries com suporte são: D/Dsv3, D/Dsv4, da/Dasv4, E/Esv3, ea/Easv4, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
 
 Para obter mais informações sobre instâncias de VM, consulte [tamanhos de máquinas virtuais do Windows no Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

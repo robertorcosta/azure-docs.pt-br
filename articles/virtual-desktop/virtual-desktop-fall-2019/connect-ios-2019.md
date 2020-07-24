@@ -1,5 +1,5 @@
 ---
-title: Conectar-se à área de trabalho virtual do Windows do iOS-Azure
+title: Conectar à área de trabalho virtual do Windows Outono de 2019 do iOS – Azure
 description: Como se conectar à área de trabalho virtual do Windows usando o cliente iOS.
 services: virtual-desktop
 author: heidilohr
@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 10ad1e3fdcccce4eb0ce97806f67486ce5cc391b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26c031710c96c42b1d5236332e445992de87616e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213203"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087128"
 ---
 # <a name="connect-with-the-ios-client"></a>Conectar-se ao cliente iOS
 

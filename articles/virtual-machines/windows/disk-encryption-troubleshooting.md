@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 11c1e0bf10725173a2a341addf4c3f845bbb7fba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4d16edae3b41bc9c3b4a849935fe8c6f94504ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82085681"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088420"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de solução de problemas do Azure Disk Encryption
 
@@ -36,7 +36,7 @@ Qualquer configuração do grupo de segurança de rede aplicada ainda deve permi
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault por trás de um firewall
 
-Quando a criptografia é habilitada com [credenciais do Azure AD](disk-encryption-windows-aad.md#), a VM de destino deve permitir a conectividade com pontos de extremidade do Azure Active Directory e pontos de extremidade do Key Vault. Os pontos de extremidade de autenticação do Active Directory do Azure atuais são mantidos nas seções 56 e 59 da documentação [Intervalos de endereços IP e URLs do Office 365](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges). As instruções do Key Vault são fornecidas na documentação sobre como [Acessar o Azure Key Vault por trás de um firewall](../../key-vault/general/access-behind-firewall.md).
+Quando a criptografia é habilitada com [credenciais do Azure AD](disk-encryption-windows-aad.md#), a VM de destino deve permitir a conectividade com pontos de extremidade do Azure Active Directory e pontos de extremidade do Key Vault. Os pontos de extremidade de autenticação do Active Directory do Azure atuais são mantidos nas seções 56 e 59 da documentação [Intervalos de endereços IP e URLs do Office 365](/office365/enterprise/urls-and-ip-address-ranges). As instruções do Key Vault são fornecidas na documentação sobre como [Acessar o Azure Key Vault por trás de um firewall](../../key-vault/general/access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure 
 A VM precisa conseguir acessar o ponto de extremidade do [Serviço de Metadados de Instância do Azure](../windows/instance-metadata-service.md), que usa um endereço IP não roteável conhecido (`169.254.169.254`) que pode ser acessado somente na VM.  Não há suporte para as configurações de proxy que alteram o tráfego HTTP local para esse endereço (por exemplo, a adição de um cabeçalho X-Forwarded-For).
@@ -88,5 +88,5 @@ Para desabilitar o Azure Disk Encryption com a CLI, use [az vm encryption disabl
 
 Neste documento, você aprendeu mais sobre alguns problemas comuns no Azure Disk Encryption e como solucioná-los. Para saber mais sobre esse serviço e seus recursos, confira os seguintes artigos:
 
-- [Aplicar a criptografia de disco na Central de Segurança do Azure](../../security-center/security-center-apply-disk-encryption.md)
+- [Aplicar a criptografia de disco na Central de Segurança do Azure](../../security-center/security-center-virtual-machine-protection.md)
 - [Criptografia de dados em repouso do Azure](../../security/fundamentals/encryption-atrest.md)

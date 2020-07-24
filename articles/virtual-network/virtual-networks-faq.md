@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 5d32c130205420ef8f20d7ce8cb97f9a2595e978
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 0f277661ab61e7292fbb81d96c26c7d48c6d03ef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232195"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087043"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure (FAQ)
 
@@ -191,7 +191,7 @@ Sim. Todas as instâncias de função de VMs e Serviços de Nuvem implantados em
 ## <a name="azure-services-that-connect-to-vnets"></a>Serviços do Azure que se conectam a redes virtuais
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>Posso usar os Aplicativos Web do Serviço de Aplicativo do Azure em uma rede virtual?
-Sim. Você pode implantar aplicativos Web dentro de uma VNet usando um ASE (Ambiente do Serviço de Aplicativo), conectar o back-end de seus aplicativos ao seu VNets com integração VNet e bloquear o tráfego de entrada para seu aplicativo com pontos de extremidade de serviço. Para obter mais informações, consulte os seguintes artigos:
+Sim. Você pode implantar aplicativos Web dentro de uma VNet usando um ASE (Ambiente do Serviço de Aplicativo), conectar o back-end de seus aplicativos ao seu VNets com integração VNet e bloquear o tráfego de entrada para seu aplicativo com pontos de extremidade de serviço. Para obter mais informações, confira os seguintes artigos:
 
 * [Recursos de rede do serviço de aplicativo](../app-service/networking-features.md)
 * [Criando Aplicativos Web em um Ambiente do Serviço de Aplicativo](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -236,7 +236,7 @@ Sim. Você pode usar APIs REST para VNets nos modelos de implantação [Azure Re
 ### <a name="is-there-tooling-support-for-vnets"></a>Há suporte a ferramentas para redes virtuais?
 Sim. Saiba mais sobre como usar:
 - O Portal do Azure para implantar redes virtuais por meio dos modelos de implantação do [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) e [clássico](virtual-networks-create-vnet-classic-pportal.md).
-- O PowerShell para gerenciar redes virtuais implantadas por meio dos modelos de implantação do [Gerenciador de Recursos](/powershell/module/az.network) e [clássico](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0).
+- O PowerShell para gerenciar redes virtuais implantadas por meio dos modelos de implantação do [Gerenciador de Recursos](/powershell/module/az.network) e [clássico](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0).
 - A CLI (interface de linha de comando) do Azure para implantar e gerenciar VNets implantadas através dos modelos de implantação do [Azure Resource Manager](/cli/azure/network/vnet) e [clássico](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources).  
 
 ## <a name="vnet-peering"></a>Emparelhamento VNet

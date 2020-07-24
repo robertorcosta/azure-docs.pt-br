@@ -5,15 +5,16 @@ ms.topic: reference
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: 21e98ee9dc59e7520fb715f1146e492b9198f883
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba7830cc1c0a3e6a563b4343b37ec07f7d508af4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82891604"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087978"
 ---
 # <a name="dependency-auto-collection"></a>Coleta automática de dependência
 
-Veja abaixo a lista atualmente com suporte de chamadas de dependência que são detectadas automaticamente como dependências sem a necessidade de qualquer modificação adicional no código do aplicativo. Essas dependências são visualizadas nas exibições [Mapa do aplicativo](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) e [Diagnóstico de transação](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) do Application Insights. Se a dependência não estiver na lista abaixo, você ainda poderá acompanhá-la manualmente com um comando [acompanhar chamada de dependência](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+Veja abaixo a lista atualmente com suporte de chamadas de dependência que são detectadas automaticamente como dependências sem a necessidade de qualquer modificação adicional no código do aplicativo. Essas dependências são visualizadas nas exibições [Mapa do aplicativo](./app-map.md) e [Diagnóstico de transação](./transaction-diagnostics.md) do Application Insights. Se a dependência não estiver na lista abaixo, você ainda poderá acompanhá-la manualmente com um comando [acompanhar chamada de dependência](./api-custom-events-metrics.md#trackdependency).
 
 ## <a name="net"></a>.NET
 
@@ -61,7 +62,7 @@ Veja abaixo a lista atualmente com suporte de chamadas de dependência que são 
 
 > [!NOTE]
 > *Exceto o suporte reativo de programação.
-> <br>†Exige a instalação do [Agente JVM](https://docs.microsoft.com/azure/application-insights/app-insights-java-agent#install-the-application-insights-agent-for-java).
+> <br>†Exige a instalação do [Agente JVM](./java-agent.md#install-the-application-insights-agent-for-java).
 
 ## <a name="nodejs"></a>Node.js
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/25/2019
-ms.openlocfilehash: 479c5165c206ced9f387d7b4a475945173da8a16
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6d720eee668edf2de968f0ce6955a5a586a92419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086221"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087672"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Funções personalizadas para SQL Server para migrações do SQL Instância Gerenciada online do Azure
 
@@ -83,7 +83,7 @@ No momento, é recomendável criar no mínimo duas funções personalizadas para
 
 O JSON acima deve ser armazenado em três arquivos de texto e você pode usar os cmdlets AzureRM, AZ PowerShell ou CLI do Azure para criar as funções usando **New-AzureRmRoleDefinition (AzureRM)** ou **New-AzRoleDefinition (AZ)**.
 
-Para obter mais informações, consulte o artigo [funções personalizadas para recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+Para obter mais informações, consulte o artigo [funções personalizadas do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
 Depois de criar essas funções personalizadas, você deve adicionar atribuições de função aos usuários e às IDs do aplicativo aos recursos ou grupos de recursos apropriados:
 

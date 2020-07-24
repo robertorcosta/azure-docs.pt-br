@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: 013433d60b9f3e7f251f8d80d7b9b8f24b2395b3
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: faa338e32577e713472601fde52e038a685b7826
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206184"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086822"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Visão geral dos limites de recursos do Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -119,7 +119,7 @@ O SQL Instância Gerenciada pode ser criado somente em [regiões com suporte](ht
 O SQL Instância Gerenciada atualmente dá suporte à implantação somente nos seguintes tipos de assinaturas:
 
 - [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
-- [Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/)
+- [Pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Provedor de Serviços de Nuvem (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
 - [Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)
 - [Desenvolvimento/Teste pré-pago](https://azure.microsoft.com/offers/ms-azr-0023p/)
@@ -128,7 +128,7 @@ O SQL Instância Gerenciada atualmente dá suporte à implantação somente nos 
 ## <a name="regional-resource-limitations"></a>Limitações de recursos regionais
 
 > [!Note]
-> Para obter as informações mais recentes sobre a disponibilidade de região para assinaturas, primeiro verifique [a postagem no blog oficial do COVID-19](https://aka.ms/sqlcapacity).
+> Para obter as informações mais recentes sobre disponibilidade de região para assinaturas, primeiro Marque [selecionar uma região](https://aka.ms/sqlcapacity).
 
 Os tipos de assinatura suportados podem conter um número limitado de recursos por região. O SQL Instância Gerenciada tem dois limites padrão por região do Azure (que podem ser aumentados sob demanda por meio da criação de uma [solicitação de suporte especial na portal do Azure](../database/quota-increase-request.md) , dependendo de um tipo de assinatura:
 

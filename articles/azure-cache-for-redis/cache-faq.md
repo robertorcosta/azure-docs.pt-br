@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 9a6ee4f5b18c6747796f33bc433d1d40982205a3
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 89a87e1658f413b0a8cd757525450de30277d943
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185000"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086873"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Perguntas frequentes sobre o Cache Redis do Azure
 Conheça as respostas a perguntas, padrões e práticas recomendadas comuns do Cache do Azure para Redis.
@@ -19,7 +19,6 @@ Conheça as respostas a perguntas, padrões e práticas recomendadas comuns do C
 ## <a name="what-if-my-question-isnt-answered-here"></a>E se dúvida não foi respondida aqui?
 Se sua pergunta não estiver listada aqui, fale conosco e nós ajudaremos a encontrar uma resposta.
 
-* Você pode postar uma pergunta nos comentários no final das perguntas frequentes e entrar em contato com a equipe do Cache do Azure e outros membros da comunidade sobre este artigo.
 * Para atingir um público mais amplo, você pode postar uma pergunta na [Página de perguntas e respostas da Microsoft para o Cache do Azure](https://docs.microsoft.com/answers/topics/azure-cache-redis.html) e entrar em contato com a equipe do Cache do Azure e outros membros da comunidade.
 * Se você quiser fazer uma solicitação de recurso, envie suas solicitações e ideias para o [User Voice do Cache do Azure para Redis](https://feedback.azure.com/forums/169382-cache).
 * Você também pode enviar um email para nós com [Comentários externos sobre o Cache do Azure](mailto:azurecache@microsoft.com).
@@ -43,7 +42,7 @@ As perguntas frequentes a seguir abordam os conceitos básicos e as perguntas so
 * [Em que região posso localizar meu cache?](#in-what-region-should-i-locate-my-cache)
 * [Onde residem os dados em cache?](#where-do-my-cached-data-reside)
 * [Como eu sou cobrado pelo Cache do Azure para Redis?](#how-am-i-billed-for-azure-cache-for-redis)
-* [Posso usar o Cache do Azure para Redis com o Azure Governamental na Nuvem, o Azure China na Nuvem ou o Microsoft Azure Alemanha?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
+* [Posso usar o cache do Azure para Redis com a nuvem do Azure governamental, nuvem do Azure China 21Vianet ou Microsoft Azure Alemanha?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-21vianet-cloud-or-microsoft-azure-germany)
 
 ## <a name="development-faqs"></a>Perguntas frequentes sobre desenvolvimento
 * [O que as opções de configuração do StackExchange.Redis fazem?](#what-do-the-stackexchangeredis-configuration-options-do)
@@ -73,10 +72,10 @@ As Perguntas frequentes nesta seção tratam de dúvidas comuns sobre monitorame
 * [Por que meu cliente foi desconectado do cache?](#why-was-my-client-disconnected-from-the-cache)
 
 ## <a name="prior-cache-offering-faqs"></a>Perguntas frequentes sobre ofertas anteriores de cache
-* [Qual oferta de Cache do Azure é a correta para mim?](#which-azure-cache-offering-is-right-for-me)
+* [Quais ofertas de cache do Azure são certas para mim?](#which-azure-cache-offerings-is-right-for-me)
 
 ### <a name="what-is-azure-cache-for-redis"></a>O que é o Cache do Azure para Redis?
-O Cache do Azure para Redis é baseado no software livre [Redis](https://redis.io/). Ele oferece acesso seguro e dedicado ao Cache do Azure para Redis, que é gerenciado pela Microsoft e pode ser acessado de qualquer aplicativo no Azure. Para obter uma visão mais detalhada, confira a página do produto [Cache do Azure para Redis](https://azure.microsoft.com/services/cache/) em Azure.com.
+O [cache do Azure para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview) é baseado no popular [Redis](https://redis.io/)de software livre. Ele oferece acesso seguro e dedicado ao Cache do Azure para Redis, que é gerenciado pela Microsoft e pode ser acessado de qualquer aplicativo no Azure. Para obter uma visão geral mais detalhada, consulte a página do produto [cache do Azure para Redis](https://azure.microsoft.com/services/cache/) .
 
 ### <a name="how-can-i-get-started-with-azure-cache-for-redis"></a>Como começo a usar o Cache do Azure para Redis?
 Há várias maneiras de começar a usar o Cache do Azure para Redis.
@@ -160,9 +159,9 @@ Você precisará configurar explicitamente o cache do Azure para Redis para usar
 <a name="cache-billing"></a>
 
 ### <a name="how-am-i-billed-for-azure-cache-for-redis"></a>Como eu sou cobrado pelo Cache do Azure para Redis?
-O preço do Cache do Azure para Redis está [aqui](https://azure.microsoft.com/pricing/details/cache/). A página de preços lista os preços com uma taxa horária. Os caches são cobrados em uma base por minuto do momento em que o cache é criado até o momento em que um cache é excluído. Não há nenhuma opção para parar ou pausar a cobrança de um cache.
+O preço do Cache do Azure para Redis está [aqui](https://azure.microsoft.com/pricing/details/cache/). A página de preços lista os preços como uma taxa por hora e mensal. Os caches são cobrados em uma base por minuto do momento em que o cache é criado até o momento em que um cache é excluído. Não há nenhuma opção para parar ou pausar a cobrança de um cache.
 
-### <a name="can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany"></a>Posso usar o Cache do Azure para Redis com o Azure Governamental na Nuvem, o Azure China na Nuvem ou o Microsoft Azure Alemanha?
+### <a name="can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-21vianet-cloud-or-microsoft-azure-germany"></a>Posso usar o cache do Azure para Redis com a nuvem do Azure governamental, nuvem do Azure China 21Vianet ou Microsoft Azure Alemanha?
 Sim, o Cache do Azure para Redis está disponível no Azure Governamental na Nuvem, Azure China 21Vianet Cloud e Microsoft Azure Alemanha. As URLs para acesso e gerenciamento do Cache do Azure para Redis são diferentes no Azure Governamental na Nuvem e no Azure China na Nuvem em comparação com a Nuvem Pública do Azure.
 
 | Nuvem   | Sufixo DNS para Redis            |
@@ -260,7 +259,7 @@ Você pode usar qualquer comando listado em [Comandos do Redis](https://redis.io
 <a name="cache-reference"></a>
 
 ### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>Por que o Cache do Azure para Redis não tem uma referência da biblioteca de classes MSDN, assim como alguns dos outros serviços do Azure?
-O Cache do Microsoft Azure para Redis baseia-se no popular Cache do Azure para Redis de software livre. Ele pode ser acessado por uma ampla variedade de [clientes Redis](https://redis.io/clients) para muitas linguagens de programação. Cada cliente tem sua própria API, que faz chamadas para a instância de Cache do Azure para Redis usando [comandos do Redis](https://redis.io/commands).
+O cache Microsoft Azure para Redis é baseado no conhecido armazenamento de dados na memória de software livre, Redis. Ele pode ser acessado por uma ampla variedade de [clientes Redis](https://redis.io/clients) para muitas linguagens de programação. Cada cliente tem sua própria API, que faz chamadas para a instância de Cache do Azure para Redis usando [comandos do Redis](https://redis.io/commands).
 
 Como cada cliente é diferente, não há não uma referência de classe centralizada no MSDN, e cada cliente mantém sua própria documentação de referência. Além da documentação de referência, há vários tutoriais mostrando como começar a usar o Cache do Azure para Redis usando diferentes linguagens e clientes de cache. Para acessar esses tutoriais, confira [Como usar o Cache Redis do Azure](cache-dotnet-how-to-use-azure-redis-cache.md) e seus artigos relacionados no sumário.
 
@@ -467,9 +466,9 @@ A seguir estão alguns motivos comuns para uma desconexão de cache.
   * O Azure estava aplicando um patch na instância onde o cache foi implantado
     * Isso pode ser para atualizações de servidor do Redis ou manutenção geral de VM.
 
-### <a name="which-azure-cache-offering-is-right-for-me"></a>Qual oferta de Cache do Azure é a correta para mim?
+### <a name="which-azure-cache-offerings-is-right-for-me"></a>Quais ofertas de cache do Azure são certas para mim?
 > [!IMPORTANT]
-> De acordo com o [comunicado](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) do ano passado, o Serviço de Cache Gerenciado do Azure e o serviço Cache na Função do Azure **foram desativados** em 30 de novembro de 2016. Recomenda-se usar o [Cache do Azure para Redis](https://azure.microsoft.com/services/cache/). Para saber mais sobre a migração, confira [Migrar do Serviço de Cache Gerenciado para o Cache do Azure para Redis](cache-migrate-to-redis.md).
+> De acordo com o [anúncio](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)de 2016, o serviço de cache gerenciado do Azure e o serviço de cache na função do Azure foram **desativados** em 30 de novembro de 2016. Recomenda-se usar o [Cache do Azure para Redis](https://azure.microsoft.com/services/cache/). Para saber mais sobre a migração, confira [Migrar do Serviço de Cache Gerenciado para o Cache do Azure para Redis](cache-migrate-to-redis.md).
 >
 >
 

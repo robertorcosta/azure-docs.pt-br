@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: 30b4386c223240217096550330c0920ad9ab6871
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b382efc4d283d64ce0f833bde9104fa2e3bc973a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132915"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088529"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>O Windows mostra um erro de tela azul durante a inicialização de uma VM do Azure
 Este artigo descreve o erro de tela azul que você pode encontrar ao inicializar uma VM (Máquina Virtual) do Windows no Microsoft Azure. Ele fornece as etapas para ajudar você a coletar dados para um tíquete de suporte. 
@@ -47,7 +47,7 @@ Para resolver o problema, primeiro você precisaria coletar o arquivo de despejo
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco de SO a uma VM de recuperação
 
 1. Tire um instantâneo do disco do SO da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
-2. [Anexe o disco do sistema operacional a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md). 
+2. [Anexe o disco do sistema operacional a uma VM de recuperação](./troubleshoot-recovery-disks-portal-windows.md). 
 3. Área de trabalho remota para a VM de recuperação.
 
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Localize o arquivo de despejo e envie um tíquete de suporte
@@ -100,9 +100,6 @@ Para habilitar o log de despejo e o Console Serial, execute o script a seguir.
     reg unload HKLM\BROKENSYSTEM
     ```
 
-3. [Desanexe o disco do sistema operacional e, em seguida, anexe novamente o disco do sistema operacional à VM afetada](../windows/troubleshoot-recovery-disks-portal.md).
+3. [Desanexe o disco do sistema operacional e, em seguida, anexe novamente o disco do sistema operacional à VM afetada](./troubleshoot-recovery-disks-portal-windows.md).
 4. Inicie a VM para reproduzir o problema e, em seguida, um arquivo de despejo será gerado.
 5. Anexe o disco do SO a uma VM de recuperação, colete o arquivo de despejo e, em seguida [envie um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o arquivo de despejo.
-
-
-

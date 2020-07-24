@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 03356c0b4a93f4befdbc529523e58642137a8887
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc1ad3104596cc7ad4bb48f88e4c8312bc833371
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80420809"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088556"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Solucionar problemas de erros de autenticação quando você usa o RDP para se conectar à VM do Azure
 
@@ -161,7 +161,7 @@ Reset-ComputerMachinePassword -Server "<COMPUTERNAME>" -Credential <DOMAIN CREDE
 
 Se a comunicação entre o DC e a VM for boa, mas o DC não estiver íntegro o suficiente para abrir uma sessão do RDP, você poderá tentar reiniciar o controlador de domínio.
 
-Se os comandos anteriores não consertar o problema de comunicação com o domínio, você poderá reingressar essa VM no domínio. Para fazer isso, execute estas etapas:
+Se os comandos anteriores não consertar o problema de comunicação com o domínio, você poderá reingressar essa VM no domínio. Para fazer isso, siga estas etapas:
 
 1. Crie um script chamado Unjoin.ps1 usando o seguinte conteúdo e, em seguida, implante o script como uma Extensão de Script Personalizado no portal do Azure:
 
@@ -276,8 +276,8 @@ Reinicie a VM para que as alterações no Registro entrem em vigor.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Método SetEncryptionLevel da classe Win32_TSGeneralSetting](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting-setencryptionlevel)
+[Método SetEncryptionLevel da classe Win32_TSGeneralSetting](/windows/desktop/termserv/win32-tsgeneralsetting-setencryptionlevel)
 
-[Configurar Autenticação de Servidor e Níveis de Criptografia](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770833(v=ws.11))
+[Configurar Autenticação de Servidor e Níveis de Criptografia](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc770833(v=ws.11))
 
-[Classe Win32_TSGeneralSetting](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting)
+[Classe Win32_TSGeneralSetting](/windows/desktop/termserv/win32-tsgeneralsetting)

@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: c774d3f56eaf666a31ff73f433a3b4a5a363ce2f
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 506d9cd9581172d6eb1f36921ab96e8731ea3803
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142494"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089423"
 ---
 # <a name="use-javascript-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Usar o JavaScript para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2
 
@@ -28,7 +28,7 @@ Este artigo mostra como usar o JavaScript para criar e gerenciar diretórios, ar
 > * Uma conta de armazenamento precisa ter o HNS (namespace hierárquico) habilitado. Siga [estas](data-lake-storage-quickstart-create-account.md) instruções para criar um.
 > * Se você estiver usando esse pacote em um aplicativo Node.js, precisará Node.js 8.0.0 ou superior.
 
-## <a name="set-up-your-project"></a>Configurar o projeto
+## <a name="set-up-your-project"></a>Configurar o seu projeto
 
 Instale Data Lake biblioteca de cliente para JavaScript abrindo uma janela de terminal e, em seguida, digitando o comando a seguir.
 
@@ -219,6 +219,8 @@ async function ManageDirectoryACLs(fileSystemClient) {
 }
 ```
 
+Você também pode obter e definir a ACL do diretório raiz de um contêiner. Para obter o diretório raiz, passe uma cadeia de caracteres vazia ( `/` ) para o método **DataLakeFileSystemClient. getDirectoryClient** .
+
 ## <a name="upload-a-file-to-a-directory"></a>Carregar um arquivo em um diretório
 
 Primeiro, leia um arquivo. Este exemplo usa o `fs` módulo Node.js. Em seguida, crie uma referência de arquivo no diretório de destino criando uma instância de **fileclient** e, em seguida, chamando o método **fileclient. Create** . Carregue um arquivo chamando o método **fileclient. Append** . Certifique-se de concluir o carregamento chamando o método **fileclient. Flush** .
@@ -358,7 +360,7 @@ async function ListFilesInDirectory(fileSystemClient) {
 }
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 * [Pacote (Gerenciador de pacotes do nó)](https://www.npmjs.com/package/@azure/storage-file-datalake)
 * [Amostras](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)

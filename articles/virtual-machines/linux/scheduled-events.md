@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: ba06350a564990899a593714a1f49d1e00ea544a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f91b5879922fc473ff1e46f817b3d649b1b30a9c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262099"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088726"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de Metadados do Azure: Eventos Agendados para VMs do Linux
 
@@ -39,7 +39,7 @@ Com Eventos Agendados, seu aplicativo pode descobrir quando a manutenção ocorr
 
 Os eventos agendados fornecem eventos nos seguintes casos de uso:
 
-- [Manutenção iniciada pela plataforma](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (por exemplo, reinicialização de VM, migração ao vivo ou atualizações de preservação de memória para host)
+- [Manutenção iniciada pela plataforma](../maintenance-and-updates.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json) (por exemplo, reinicialização de VM, migração ao vivo ou atualizações de preservação de memória para host)
 - A máquina virtual está em execução no [hardware de host degradado](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) que tem previsão para falhar em breve
 - Manutenção iniciada pelo usuário (por exemplo, um usuário reinicia ou reimplanta uma VM)
 - Remoção de instâncias [VM spot](spot-vms.md) e [Conjunto de dimensionamento spot](../../virtual-machine-scale-sets/use-spot.md).
@@ -189,7 +189,7 @@ import json
 import socket
 import urllib2
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01"
 this_host = socket.gethostname()
 
 
@@ -233,4 +233,4 @@ if __name__ == '__main__':
 - Inspecione [Eventos Agendados no Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) para ver uma demonstração. 
 - Examine os Exemplos de código de Eventos Agendados no [Repositório GitHub de Eventos Agendados de Metadados de Instância do Azure](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
 - Leia mais sobre as APIs disponíveis no [Serviço de Metadados de Instância](instance-metadata-service.md).
-- Saiba mais sobre a [manutenção planejada para máquinas virtuais do Linux no Azure ](planned-maintenance.md).
+- Saiba mais sobre a [manutenção planejada para máquinas virtuais do Linux no Azure ](../maintenance-and-updates.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json).

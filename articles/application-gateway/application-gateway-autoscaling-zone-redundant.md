@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4caed3f330dd3e50fe2652a2cd33c0e4249f2fd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a82a35f1736aa7908928cbca3397cbe9c705e5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254337"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088099"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Dimensionamento automático e Gateway de Aplicativo com redundância de zona v2 
 
@@ -148,7 +148,7 @@ No entanto, a criação de uma nova instância pode demorar um pouco (cerca de s
 
 A tabela a seguir compara os recursos disponíveis em cada SKU.
 
-|                                                   | v1 SKU   | v2 SKU   |
+| Recurso                                           | v1 SKU   | v2 SKU   |
 | ------------------------------------------------- | -------- | -------- |
 | Dimensionamento automático                                       |          | &#x2713; |
 | Redundância de zona                                   |          | &#x2713; |

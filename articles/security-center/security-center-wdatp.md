@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: d394f0bb72f353e65c48a564fa7187364eae8121
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f8ed7dc2caf3ad471ea7d4bb2fc8213114aad109
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970800"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089695"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção avançada contra ameaças do Microsoft defender com a central de segurança do Azure
 
@@ -59,8 +59,9 @@ Após configurar, você não pode alterar o local onde os dados são armazenados
 
 Para integrar servidores à central de segurança, clique em **ir para a central de segurança do Azure para integrar servidores** da integração do servidor do Microsoft defender ATP.
 
-1. Na área de **integração** , selecione ou crie um espaço de trabalho no qual armazenar os dados. <br>
-2. Se você não conseguir ver todos os seus espaços de trabalho, pode ser devido à falta de permissões, verifique se o espaço de trabalho está definido como camada Standard de segurança do Azure. Para obter mais informações, consulte [atualizar para a camada Standard da central de segurança para aumentar a segurança](security-center-pricing.md).
+1. Na área de **integração** , selecione ou crie um espaço de trabalho no qual armazenar os dados.
+
+2. Se você não conseguir ver todos os seus espaços de trabalho, pode ser devido à falta de permissões, verifique se o espaço de trabalho está definido como tipo de preço padrão de segurança do Azure. Para obter mais informações, consulte [atualizar para a camada Standard da central de segurança para aumentar a segurança](security-center-pricing.md).
     
 3. Selecione **adicionar servidores** para exibir instruções sobre como instalar o agente de log Analytics. 
 

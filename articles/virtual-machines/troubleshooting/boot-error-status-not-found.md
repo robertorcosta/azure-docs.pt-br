@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 817f9e362e639cbb8f0cc79607c376c0e8216ec7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3677d67f55cfccdc80245b2ec870ffa76b0a1940
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663724"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088658"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Solucionar problemas do Gerenciador de Inicialização do Windows – 0xC0000225 "Status não encontrado"
  
@@ -26,7 +27,7 @@ Este artigo apresenta as etapas para resolver problemas nos quais o código de e
 
 ## <a name="symptoms"></a>Sintomas
 
-Ao usar [Diagnóstico de inicialização](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para exibir a captura de tela da VM, você verá que a captura de tela exibe uma falha de inicialização do Windows com o erro com o código de status *0xc0000225*.
+Ao usar [Diagnóstico de inicialização](./boot-diagnostics.md) para exibir a captura de tela da VM, você verá que a captura de tela exibe uma falha de inicialização do Windows com o erro com o código de status *0xc0000225*.
 
 O arquivo associado a esse código de erro informará quais etapas devem ser executadas para resolver o problema. Localize o texto da seção **Arquivo:** para determinar o curso de ação apropriado.
 
@@ -89,7 +90,7 @@ Uma corrupção do hive de registro pode ocorrer devido a:
 
 ### <a name="create-and-access-a-repair-vm"></a>Criar e acessar uma VM de reparo
 
-1. Use as [etapas 1 a 3 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar uma VM de reparo.
+1. Use as [etapas 1 a 3 dos comandos de reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar uma VM de reparo.
 1. Use a conexão da área de trabalho remota para conectar-se à VM de reparo.
 
 ### <a name="select-a-solution"></a>Selecionar uma solução
@@ -177,7 +178,7 @@ Caso essa coleta de informações forneça um erro em que não haja um arquivo *
          sel disk <DISK #>
          ```
 
-         A imagem a seguir mostra os resultados de listar e selecionar um disco. O Disco 0 (127 GB | Online), o Disco 1 (32 GB | Online) e o Disco 2 (127 GB | Online) são listados, com o Disco 2 sendo selecionado por meio do comando `sel disk 2`.
+         A imagem a seguir mostra os resultados de listar e selecionar um disco. Disco 0 (127 GB/online), disco 1 (32 GB/online) e disco 2 (127 GB/online) estão listados, com o disco 2 sendo selecionado usando o comando `sel disk 2` .
 
          ![Os resultados de listar e selecionar um disco em seguida. O Disco 0 (127 GB | Online), o Disco 1 (32 GB | Online) e o Disco 2 (127 GB | Online) são listados, com o Disco 2 sendo selecionado.](./media/troubleshoot-boot-error-status-not-found/9.png)
 
@@ -188,7 +189,7 @@ Caso essa coleta de informações forneça um erro em que não haja um arquivo *
          sel partition <PARTITION #>
          ```
 
-         A imagem a seguir mostra os resultados de listar e selecionar uma partição. A Partição 1 (Reservada | 16 MB), a Partição 2 (Sistema | 100 MB) e a Partição 3 (Primária | 126 GB) são listadas, com a Partição 2 sendo selecionada usando o comando `sel part 2`.
+         A imagem a seguir mostra os resultados de listar e selecionar uma partição. A partição 1 (reservada/16MB), a partição 2 (sistema/100 MB) e a partição 3 (primária/126 GB) estão listadas, com a partição 2 sendo selecionada usando o comando `sel part 2` .
 
          ![Os resultados de listar e selecionar uma partição em seguida. A Partição 1 (Reservada | 16 MB), a Partição 2 (Sistema | 100 MB) e a Partição 3 (Primária | 126 GB) são listadas, com a Partição 2 sendo selecionada.](./media/troubleshoot-boot-error-status-not-found/10.png)
 
@@ -302,4 +303,4 @@ O erro **Arquivo de registro** tem solução, mas você precisará [Criar um tí
    
 ### <a name="rebuild-the-vm"></a>Recompilar a VM
 
-Use a [etapa 5 dos comandos de Reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para recompilar a VM.
+Use a [etapa 5 dos comandos de Reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para recompilar a VM.

@@ -3,8 +3,8 @@ title: 'Tutorial: migrar o RDS MySQL online para o banco de dados do Azure para 
 titleSuffix: Azure Database Migration Service
 description: Saiba como realizar uma migração online do RDS MySQL para o Banco de Dados do Azure para MySQL usando o Serviço de Migração de Banco de Dados do Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,13 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 06/09/2020
-ms.openlocfilehash: 8cfe8d1a87b8b52c21927696101704bd01b7641a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0c62cf28c9e9368e80982fa7c5badeb79d40ae4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609243"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087723"
 ---
-# <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: migrar o RDS MySQL para o banco de dados do Azure para MySQL online usando DMS
+# <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o RDS MySQL para o Banco de Dados do Azure para MySQL online usando o DMS
 
 Use o Serviço de Migração de Banco de Dados do Azure para migrar bancos de dados de uma instância do RDS MySQL para o [Banco de Dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/), enquanto o banco de dados de origem permanece online durante a migração. Em outras palavras, a migração pode ser feita com o mínimo de tempo de inatividade para o aplicativo. Neste tutorial, você migrará o banco de dados de exemplo **Employees** de uma instância do RDS MySQL para o Banco de Dados do Azure para MySQL usando a atividade de migração online no Serviço de Migração de Banco de Dados do Azure.
 
@@ -26,7 +27,7 @@ Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
 >
 > * Migrar o esquema de exemplo usando os utilitários mysqldump e mysql.
-> * Criar uma instância do Serviço de Migração de Banco de Dados do Azure.
+> * Crie uma instância do Serviço de Migração de Banco de Dados do Azure.
 > * Criar um projeto de migração usando o Serviço de Migração de Banco de Dados do Azure.
 > * Executar a migração.
 > * Monitorar a migração.
@@ -122,6 +123,10 @@ Para concluir este tutorial, você precisará:
 
 4. Execute a chave estrangeira removível (que é a segunda coluna) no resultado da consulta para remover a chave estrangeira.
 
+> [!NOTE]
+> O Azure DMS não dá suporte à ação referencial em cascata, que ajuda a excluir ou atualizar automaticamente uma linha correspondente na tabela filho quando uma linha é excluída ou atualizada na tabela pai. Para obter mais informações, na documentação do MySQL, consulte a seção ações referenciais do artigo [restrições de chave estrangeira](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html).
+> O Azure DMS exige que você remova as restrições de chave estrangeira no servidor de banco de dados de destino durante o carregamento inicial e não pode usar ações referenciais. Se sua carga de trabalho depende da atualização de uma tabela filho relacionada por meio dessa ação referencial, recomendamos que você execute um [despejo e uma restauração](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) em vez disso. 
+
 5. Se você tiver gatilhos (gatilho de inserção ou de atualização) nos dados, eles imporão a integridade dos dados no destino antes de replicar os dados da origem. A recomendação é desabilitar os gatilhos em todas as tabelas *no destino* durante a migração e, em seguida, habilitar os gatilhos depois que a migração é concluída.
 
     Para desabilitar os gatilhos no banco de dados de destino:
@@ -197,7 +202,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
     > [!NOTE]
     > Como alternativa, você pode escolher **Criar somente o projeto** para criar o projeto de migração agora e executar a migração posteriormente.
 
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 7. Selecione **Criar e executar atividade** para criar o projeto e executar a atividade de migração.
 
