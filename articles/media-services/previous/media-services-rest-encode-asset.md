@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: e5523b7c39763fb53d0847b79c70d5ab8b9d3b52
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 9320677e970d9194e2cccad07522d7a63b6353d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169316"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999965"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Como codificar um ativo usando o Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "86169316"
 
 Para fornecer vídeo digital pela Internet, é necessário compactar a mídia. Os arquivos de vídeo digital são muito grandes e podem ser muito grandes para serem fornecidos pela Internet ou exibidos corretamente nos dispositivos dos clientes. A codificação é o processo de compactação de vídeo e áudio para que seus clientes possam exibir sua mídia.
 
-Os trabalhos de codificação são uma das operações de processamento mais comuns nos Serviços de Mídia do Azure. Você cria trabalhos de codificação para converter arquivos de mídia de uma codificação para outra. Ao codificar, é possível usar o codificador interno dos Serviços de Mídia (Codificador de Mídia Padrão). Você também pode usar um codificador fornecido por um parceiro dos Serviços de Mídia. Codificadores de terceiros estão disponíveis por meio do Azure Marketplace. Você pode especificar os detalhes das tarefas de codificação usando cadeias de caracteres predefinidas para seu codificador ou usando arquivos de configuração predefinidos. Para ver os tipos de predefinições disponíveis, confira [Predefinições de tarefa para o Media Encoder Standard](https://msdn.microsoft.com/library/mt269960).
+Os trabalhos de codificação são uma das operações de processamento mais comuns nos Serviços de Mídia do Azure. Você cria trabalhos de codificação para converter arquivos de mídia de uma codificação para outra. Ao codificar, é possível usar o codificador interno dos Serviços de Mídia (Codificador de Mídia Padrão). Você também pode usar um codificador fornecido por um parceiro dos Serviços de Mídia. Codificadores de terceiros estão disponíveis por meio do Azure Marketplace. Você pode especificar os detalhes das tarefas de codificação usando cadeias de caracteres predefinidas para seu codificador ou usando arquivos de configuração predefinidos. Para ver os tipos de predefinições disponíveis, confira [Predefinições de tarefa para o Media Encoder Standard](/azure/media-services/previous/media-services-mes-presets-overview).
 
 Cada trabalho pode ter uma ou mais tarefas, dependendo do tipo de processamento que você deseja realizar. Por meio da API REST, é possível criar trabalhos e as tarefas relacionadas de uma destas duas maneiras:
 
@@ -65,7 +65,7 @@ Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Se
 >
 >
 
-O exemplo a seguir mostra como criar e postar um trabalho com uma tarefa definida para codificar um vídeo em uma resolução e qualidade específicas. Quando estiver codificando com o Media Encoder Standard, você poderá usar as predefinições de configuração de tarefa especificadas [aqui](https://msdn.microsoft.com/library/mt269960).
+O exemplo a seguir mostra como criar e postar um trabalho com uma tarefa definida para codificar um vídeo em uma resolução e qualidade específicas. Quando estiver codificando com o Media Encoder Standard, você poderá usar as predefinições de configuração de tarefa especificadas [aqui](/azure/media-services/previous/media-services-mes-presets-overview).
 
 Solicitação:
 

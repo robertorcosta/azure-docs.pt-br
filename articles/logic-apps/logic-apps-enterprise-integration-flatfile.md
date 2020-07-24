@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 05/09/2020
-ms.openlocfilehash: 81c1c95e2af7b537a12c8c86245b009005aa0aa2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aebce8f284ed4bb21d99efffc8dd6d0c51b39533
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83005337"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001478"
 ---
 # <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>Codificar ou decodificar arquivos simples nos Aplicativos Lógicos do Azure usando o Enterprise Integration Pack
 
@@ -24,7 +25,7 @@ Antes de enviar conteúdo XML para um parceiro de negócios em um cenário B2B (
 
 * O aplicativo lógico no qual você deseja usar o conector de **arquivo simples** e um gatilho que inicia o fluxo de trabalho do aplicativo lógico. O conector de **arquivo simples** fornece apenas ações, não gatilhos. Você pode usar o gatilho ou outra ação para alimentar o conteúdo XML em seu aplicativo lógico para codificação ou decodificação. Se ainda não estiver familiarizado com aplicativos lógicos, veja o [Guia de Início Rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associada à sua assinatura do Azure e [vinculada ao aplicativo lógico](logic-apps-enterprise-integration-accounts.md#link-account) no qual você planeja usar o conector de **arquivo simples** . O aplicativo lógico e a conta de integração devem existir no mesmo local ou região do Azure.
+* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associada à sua assinatura do Azure e [vinculada ao aplicativo lógico](./logic-apps-enterprise-integration-create-integration-account.md#link-account) no qual você planeja usar o conector de **arquivo simples** . O aplicativo lógico e a conta de integração devem existir no mesmo local ou região do Azure.
 
 * Um [esquema](logic-apps-enterprise-integration-schemas.md) de arquivo simples que você carregou em sua conta de integração para codificar ou decodificar o conteúdo XML
 

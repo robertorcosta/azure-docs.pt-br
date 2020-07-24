@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 40e5a1bf940e46aed566a1e3fa6dcb4e6b2d9230
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04b085d2e990a580ddc99acb3b83ac8bd8ac2db3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77135038"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998963"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operacionais e drivers com suporte
 
@@ -34,12 +34,14 @@ Drivers NVIDIA Tesla (CUDA) para NC, NCv2, NCv3, ND e VMs da série NDV2 (opcion
 
 A Microsoft redistribui os instaladores de driver de grade NVIDIA para VMs de série NVv3 e NV usadas como estações de trabalho virtuais ou para aplicativos virtuais. Instale somente esses drivers de grade nas VMs da série NV do Azure, somente nos sistemas operacionais listados na tabela a seguir. Esses drivers incluem o licenciamento de Software de GPU Virtual de GRID no Azure. Você não precisa configurar um servidor de licença de software de vGPU NVIDIA.
 
+Os drivers de grade redistribuídos pelo Azure não funcionam em VMs da série não NV, como as VMs NC, NCv2, NCv3, ND e série NDv2.
+
 Observe que a extensão NVIDIA sempre instalará o driver mais recente. Fornecemos links para a versão anterior aqui para os clientes que têm dependência em uma versão mais antiga.
 
-Para o Windows Server 2019, o Windows Server 2016 e o Windows 10 (até o Build 1909):
-- [Grade 10,1 (442, 6)](https://go.microsoft.com/fwlink/?linkid=874181) (. exe)
-- [Grade 10,0 (441,66)](https://download.microsoft.com/download/2/a/3/2a316e62-3be9-4ddb-ae8e-c04b6df6e22d/441.66_grid_win10_server2016_server2019_64bit_international.exe) (. exe) 
+Para o Windows Server 2019, o Windows Server 2016 e o Windows 10 (até o Build 2004):
+- [Grade 11 (451,48)](https://go.microsoft.com/fwlink/?linkid=874181) (. exe)
+- [Grade 10,1 (442, 6)](https://download.microsoft.com/download/b/8/f/b8f5ecec-b8f9-47de-b007-ac40adc88dc8/442.06_grid_win10_64bit_international_whql.exe) (. exe) 
 
-Para o Windows Server 2012 R2, Windows Server 2008 R2, Windows 8 e Windows 7: 
-- [Grade 10,1 (442, 6)](https://go.microsoft.com/fwlink/?linkid=874184) (. exe)
-- [Grade 10,0 (441,66)](https://download.microsoft.com/download/d/8/0/d80091f8-0d55-47c2-958a-bacd136f432a/441.66_grid_win7_win8_server2008R2_server2012R2_64bit_international.exe) (. exe)  
+Para o Windows Server 2012 R2: 
+- [Grade 11 (451,48)](https://go.microsoft.com/fwlink/?linkid=874184) (. exe)
+- [Grade 10,1 (442,66)](https://download.microsoft.com/download/4/3/3/4330fd5c-c685-4ca1-abca-3b2fb3c11d2e/442.06_grid_win8_win7_64bit_international_whql.exe) (. exe)  

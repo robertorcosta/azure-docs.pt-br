@@ -14,17 +14,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: juliako
-ms.openlocfilehash: 231aeb210a7b97e8c0cfd0e21c48053c660b6128
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c5afe45ce864ba76d5d637df3534d426d39167a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82995814"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000985"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Usar mudança de tempo e saídas ao vivo para criar reprodução de vídeo sob demanda
 
-Nos serviços de mídia do Azure, um objeto de [saída ao vivo](https://docs.microsoft.com/rest/api/media/liveoutputs) é como um gravador de vídeo digital que detectará e registrará sua transmissão ao vivo em um ativo em sua conta de serviços de mídia. O conteúdo gravado é mantido no contêiner definido pelo recurso de [ativo](https://docs.microsoft.com/rest/api/media/assets) (o contêiner está na conta de armazenamento do Azure anexada à sua conta). A saída ao vivo também permite que você controle algumas propriedades da transmissão ao vivo de saída, como quanto do fluxo é mantido na gravação de arquivo morto (por exemplo, a capacidade do DVR de nuvem) ou quando os visualizadores podem começar a assistir à transmissão ao vivo. O arquivo morto em disco é uma "janela" de arquivo circular que mantém apenas a quantidade de conteúdo especificada na propriedade **archiveWindowLength** da saída em tempo real. O conteúdo que está fora desta janela é descartado automaticamente do contêiner de armazenamento e não é recuperável. O valor archiveWindowLength representa uma duração ISO-8601 TimeSpan (por exemplo, PTHH: MM: SS), que especifica a capacidade do DVR. O valor pode ser definido de um mínimo de um minuto para um máximo de 25 horas.
+Nos serviços de mídia do Azure, um objeto de [saída ao vivo](/rest/api/media/liveoutputs) é como um gravador de vídeo digital que detectará e registrará sua transmissão ao vivo em um ativo em sua conta de serviços de mídia. O conteúdo gravado é mantido no contêiner definido pelo recurso de [ativo](/rest/api/media/assets) (o contêiner está na conta de armazenamento do Azure anexada à sua conta). A saída ao vivo também permite que você controle algumas propriedades da transmissão ao vivo de saída, como quanto do fluxo é mantido na gravação de arquivo morto (por exemplo, a capacidade do DVR de nuvem) ou quando os visualizadores podem começar a assistir à transmissão ao vivo. O arquivo morto em disco é uma "janela" de arquivo circular que mantém apenas a quantidade de conteúdo especificada na propriedade **archiveWindowLength** da saída em tempo real. O conteúdo que está fora desta janela é descartado automaticamente do contêiner de armazenamento e não é recuperável. O valor archiveWindowLength representa uma duração ISO-8601 TimeSpan (por exemplo, PTHH: MM: SS), que especifica a capacidade do DVR. O valor pode ser definido de um mínimo de um minuto para um máximo de 25 horas.
 
-A relação entre um evento ao vivo e suas saídas ao vivo é semelhante à transmissão de TV tradicional, pois um canal (evento ao vivo) representa um fluxo constante de vídeo e uma gravação (saída ao vivo) tem como escopo um segmento de tempo específico (por exemplo, notícias da noite de 6: às 16h30 para 7:13h). Depois que o fluxo fluir para o evento ao vivo, você poderá iniciar o evento de streaming criando um ativo, uma saída ao vivo e um localizador de streaming. A Saída ao vivo arquiva o fluxo e o disponibiliza para usuários por meio do [Ponto de extremidade de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints). Você pode criar várias Saídas ao vivo (até três no máximo) em um Evento ao vivo com diferentes comprimentos e configurações de arquivamento. Para obter informações sobre o fluxo de trabalho de transmissão ao vivo, consulte a seção [etapas gerais](live-streaming-overview.md#general-steps) .
+A relação entre um evento ao vivo e suas saídas ao vivo é semelhante à transmissão de TV tradicional, pois um canal (evento ao vivo) representa um fluxo constante de vídeo e uma gravação (saída ao vivo) tem como escopo um segmento de tempo específico (por exemplo, notícias da noite de 6: às 16h30 para 7:13h). Depois que o fluxo fluir para o evento ao vivo, você poderá iniciar o evento de streaming criando um ativo, uma saída ao vivo e um localizador de streaming. A Saída ao vivo arquiva o fluxo e o disponibiliza para usuários por meio do [Ponto de extremidade de streaming](/rest/api/media/streamingendpoints). Você pode criar várias Saídas ao vivo (até três no máximo) em um Evento ao vivo com diferentes comprimentos e configurações de arquivamento. Para obter informações sobre o fluxo de trabalho de transmissão ao vivo, consulte a seção [etapas gerais](live-streaming-overview.md#general-steps) .
 
 ## <a name="using-a-dvr-during-an-event"></a>Usando um DVR durante um evento
 
@@ -38,7 +39,7 @@ Um evento ao vivo dá suporte a até três saídas dinâmicas em execução simu
 
 ## <a name="creating-an-archive-for-on-demand-playback"></a>Criando um arquivo para reprodução sob demanda
 
-O ativo ao qual a saída dinâmica está arquivando se torna automaticamente um ativo sob demanda quando a saída dinâmica é excluída. Você deve excluir todas as saídas ao vivo antes que um evento ao vivo possa ser interrompido. Você pode usar um sinalizador opcional [removeOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) para remover automaticamente as saídas dinâmicas ao parar.
+O ativo ao qual a saída dinâmica está arquivando se torna automaticamente um ativo sob demanda quando a saída dinâmica é excluída. Você deve excluir todas as saídas ao vivo antes que um evento ao vivo possa ser interrompido. Você pode usar um sinalizador opcional [removeOutputsOnStop](/rest/api/media/liveevents/stop#request-body) para remover automaticamente as saídas dinâmicas ao parar.
 
 Mesmo depois de parar e excluir o evento, os usuários podem transmitir o conteúdo arquivado como um vídeo sob demanda, desde que você não exclua o ativo. Um ativo não deve ser excluído se for usado por um evento; o evento deve ser excluído primeiro.
 

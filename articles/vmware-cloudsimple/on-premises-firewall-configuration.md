@@ -9,11 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 539665c4756a7dc87078922421b45a88404f58f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ff057d99e29c7c6fe30e77f38a0bff265dbe7bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868135"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998878"
 ---
 # <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>Acessando seu ambiente de nuvem privada do CloudSimple e aplicativos do local
 
@@ -23,7 +24,7 @@ Uma conexão pode ser configurada da rede local para CloudSimple usando o Azure 
 
 Para acessar sua nuvem privada do vCenter e o Gerenciador do NSX-T, as portas definidas na tabela a seguir devem ser abertas no firewall local.  
 
-| Porta       | Origem                           | Destino                      | Finalidade                                                                                                                |
+| Porta       | Fonte                           | Destino                      | Finalidade                                                                                                                |
 |------------|----------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | 53 (UDP)   | Servidores locais DNS          | Servidores DNS da nuvem privada        | Necessário para encaminhar a pesquisa DNS de *AZ.cloudsimple.Io* para servidores DNS da nuvem privada da rede local.       |
 | 53 (UDP)   | Servidores DNS da nuvem privada        | Servidores locais DNS          | Necessário para o encaminhamento de DNS pesquisar nomes de domínio locais do vCenter de nuvem privada para servidores DNS locais. |
@@ -34,9 +35,9 @@ Para acessar sua nuvem privada do vCenter e o Gerenciador do NSX-T, as portas de
 
 ## <a name="ports-required-for-using-on-premises-active-directory-as-an-identity-source"></a>Portas necessárias para usar o Active Directory local como uma fonte de identidade
 
-Para configurar o Active Directory local como uma fonte de identidade no vCenter de nuvem privada, as portas definidas na tabela devem ser abertas.  Consulte [usar o Azure ad como um provedor de identidade para o vCenter na nuvem privada do CloudSimple](https://docs.microsoft.com/azure/vmware-cloudsimple/azure-ad/) para obter as etapas de configuração.
+Para configurar o Active Directory local como uma fonte de identidade no vCenter de nuvem privada, as portas definidas na tabela devem ser abertas.  Consulte [usar o Azure ad como um provedor de identidade para o vCenter na nuvem privada do CloudSimple](./azure-ad.md) para obter as etapas de configuração.
 
-| Porta         | Origem                           | Destino                                         | Finalidade                                                                                                                                          |
+| Porta         | Fonte                           | Destino                                         | Finalidade                                                                                                                                          |
 |--------------|----------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | 53 (UDP)      | Servidores DNS da nuvem privada        | Servidores locais DNS                             | Necessário para o encaminhamento de DNS pesquisar nomes de domínio do Active Directory local do vCenter de nuvem privada para servidores DNS locais.          |
 | 389 (TCP/UDP) | Rede de gerenciamento de nuvem privada | Controladores de domínio do Active Directory local     | Necessário para a comunicação LDAP do servidor vCenter de nuvem privada para controladores de domínio do Active Directory para autenticação de usuário.                |
@@ -48,7 +49,7 @@ Para configurar o Active Directory local como uma fonte de identidade no vCenter
 
 As máquinas virtuais de carga de trabalho de acesso em execução na nuvem privada exigem que as portas sejam abertas no firewall local.  A tabela abaixo mostra algumas das portas comuns necessárias e sua finalidade.  Para qualquer requisito de porta específica do aplicativo, consulte a documentação do aplicativo.
 
-| Porta         | Origem                         | Destino                          | Finalidade                                                                              |
+| Porta         | Fonte                         | Destino                          | Finalidade                                                                              |
 |--------------|--------------------------------|--------------------------------------|--------------------------------------------------------------------------------------|
 | 22 (TCP)      | Rede local            | Rede de carga de trabalho de nuvem privada       | Proteja o acesso do Shell a máquinas virtuais Linux em execução na nuvem privada.              |
 | 3389 (TCP)    | Rede local            | Rede de carga de trabalho de nuvem privada       | Área de trabalho remota para máquinas virtuais do Windows em execução na nuvem privada.                 |
@@ -59,6 +60,6 @@ As máquinas virtuais de carga de trabalho de acesso em execução na nuvem priv
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar e gerenciar VLANs e sub-redes](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/)
-* [Conectar-se à rede local usando o Azure ExpressRoute](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-connection/)
-* [Configurar VPN site a site do local](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway/)
+* [Criar e gerenciar VLANs e sub-redes](./create-vlan-subnet.md)
+* [Conectar-se à rede local usando o Azure ExpressRoute](./on-premises-connection.md)
+* [Configurar VPN site a site do local](./vpn-gateway.md)

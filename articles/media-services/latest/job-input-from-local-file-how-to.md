@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: aba987ba232a29ffc240f72039b1e24bb87a2ed4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a635a75a64db59fc56c6890f79af967a58735853
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80345918"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001121"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Criar uma entrada de trabalho de um arquivo local
 
@@ -24,7 +24,7 @@ Nos Serviços de Mídia v3, ao enviar Trabalhos para processar seus vídeos, voc
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-* [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).
+* [Crie uma conta de Serviços de Mídia](./create-account-howto.md).
 * Examine [gerenciar ativos](manage-asset-concept.md).
 
 ## <a name="net-sample"></a>Exemplo de .NET
@@ -32,7 +32,7 @@ Nos Serviços de Mídia v3, ao enviar Trabalhos para processar seus vídeos, voc
 O código a seguir mostra como criar um ativo de entrada e usá-lo como entrada para o trabalho. A função CreateInputAsset executa as ações a seguir:
 
 * Cria o ativo
-* Obtém uma [URL SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) gravável para o contêiner do ativo [no armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
+* Obtém uma [URL SAS](../../storage/common/storage-sas-overview.md) gravável para o contêiner do ativo [no armazenamento](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container)
 * Carrega o arquivo para o contêiner no armazenamento usando a URL de SAS
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -47,7 +47,7 @@ O trecho de código a seguir envia um trabalho de codificação:
 
 ## <a name="job-error-codes"></a>Códigos de erro do trabalho
 
-Confira [Códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Confira [Códigos de erro](/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="next-steps"></a>Próximas etapas
 

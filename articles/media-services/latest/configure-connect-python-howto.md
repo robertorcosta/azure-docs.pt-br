@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: tracking-python
-ms.openlocfilehash: 3e6e421d346925f751595ce2fb2d0891e31dc108
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b283d04c7d9ddf7639c198625ea69ca958170210
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559631"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001172"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Conectar-se à API dos serviços de mídia v3-Python
 
@@ -28,8 +29,8 @@ Este artigo mostra como se conectar ao SDK do Python do Azure Media Services V3 
 
 - Baixar o Python do [Python.org](https://www.python.org/downloads/)
 - Certifique-se de definir a `PATH` variável de ambiente
-- [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta dos serviços de mídia.
-- Siga as etapas no tópico [APIs de acesso](access-api-cli-how-to.md) . Registre a ID da assinatura, a ID do aplicativo (ID do cliente), a chave de autenticação (segredo) e a ID do locatário que você precisa na etapa posterior.
+- [Crie uma conta de Serviços de Mídia](./create-account-howto.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta dos serviços de mídia.
+- Siga as etapas no tópico [APIs de acesso](./access-api-howto.md) . Registre a ID da assinatura, a ID do aplicativo (ID do cliente), a chave de autenticação (segredo) e a ID do locatário que você precisa na etapa posterior.
 
 > [!IMPORTANT]
 > Examine as [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions).
@@ -54,7 +55,7 @@ pip3 install azure-mgmt-media==1.1.1
 1. Abra o arquivo em seu editor favorito
 1. Adicione o código a seguir ao arquivo. O código importa os módulos necessários e cria o objeto de credenciais de Active Directory que você precisa para se conectar aos serviços de mídia.
 
-      Definir os valores das variáveis para os valores obtidos das [APIs de acesso](access-api-cli-how-to.md)
+      Definir os valores das variáveis para os valores obtidos das [APIs de acesso](./access-api-howto.md)
 
       ```
       import adal

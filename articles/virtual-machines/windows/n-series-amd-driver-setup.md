@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 4693ad8b168ce1ddd7c07afe650a89fc1888ccd7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 74827e78017ad3540709fa0e671762a985976cda
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183317"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998996"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instalação de drivers de GPU AMD em VMs da série N executando Windows
 
@@ -23,7 +23,7 @@ Se optar por instalar os drivers de GPU AMD manualmente, este artigo fornece os 
 
 Apenas os drivers de GPU publicados pela Microsoft são suportados em VMs da série NVv4. NÃO INSTALE drivers de GPU de nenhuma outra fonte.
 
-Para especificações básicas, capacidades de armazenamento e detalhes de disco, consulte [tamanhos de VM Windows da GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para especificações básicas, capacidades de armazenamento e detalhes de disco, consulte [tamanhos de VM Windows da GPU](../sizes-gpu.md?toc=/azure/virtual-machines/windows/toc.json).
 
 
 
@@ -57,5 +57,3 @@ Use dxdiag para verificar as propriedades de exibição da GPU, incluindo a RAM 
 Se estiver executando o Windows 10 build 1903 ou superior, então dxdiag não mostrará nenhuma informação na guia “Exibição”. Use a opção “Salvar todas as informações” na parte inferior e o arquivo de saída mostrará as informações relacionadas à GPU AMD MI25.
 
 ![Propriedades do driver GPU](./media/n-series-amd-driver-setup/dxdiag-details.png)
-
-

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: juliako
-ms.openlocfilehash: 619d40ab56715b4444d8e5649c7fb3401b3f57ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 276cb3e6078fec915f266c5eb9aa557f92973dd7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71937280"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001155"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Criar e monitorar eventos dos Serviços de Mídia com a Grade de Eventos usando a CLI do Azure
 
@@ -31,7 +31,7 @@ Neste artigo, você usará a CLI do Azure para assinar eventos da sua conta de S
 
     Atualmente, nem todos os comandos da [CLI V3 dos Serviços de Mídia](https://aka.ms/ams-v3-cli-ref) funcionam no Azure Cloud Shell. É recomendável usar a CLI localmente.
 
-- [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).
+- [Crie uma conta de Serviços de Mídia](./create-account-howto.md).
 
     Lembre-se dos valores que você usou para o nome do grupo de recursos e o nome da conta de Serviços de Mídia.
 
@@ -109,4 +109,3 @@ Exiba novamente o seu aplicativo Web e observe que um evento de validação de a
 ## <a name="next-steps"></a>Próximas etapas
 
 [Carregar, codificar e transmitir](stream-files-tutorial-with-api.md)
-

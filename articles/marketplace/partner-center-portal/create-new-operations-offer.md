@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 621d657f527e5307ed3a0b583e4c9171005d4f8c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2c6c6b3fb4f863840b39de6f56fe473be693fe87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121821"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001427"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Criar uma oferta do Dynamics 365 for Operations
 
@@ -128,7 +128,7 @@ Aqui está um exemplo de como as informações de oferta são exibidas no Micros
 1. Logotipo
 2. Produtos
 3. Categorias
-4. Indústrias
+4. Setores
 5. Endereço de suporte (link)
 6. Termos de uso
 7. Política de privacidade
@@ -295,7 +295,7 @@ Se for a primeira vez que você publicar essa oferta, você poderá:
     - **Não iniciada** – a seção não foi tocada e deve ser concluída.
     - **Incompleta** – a seção tem erros que precisam ser corrigidos ou requer que mais informações sejam fornecidas. Volte para as seções e atualize-as.
     - **Concluída** – a seção está concluída, todos os dados necessários foram fornecidos e não há erros. Todas as seções da oferta precisam estar no estado concluída para que você envie a oferta.
-- Na seção **Notas para certificação**, forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de eventuais notas suplementares úteis para compreensão do seu aplicativo.
+- Na seção **Notas para certificação**, forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de eventuais notas suplementares úteis para compreensão do seu aplicativo. Para obter mais informações sobre instruções de teste e como concluir uma primeira publicação, consulte [AppSource Dynamics 365 Finance and Operations funcional Validation](https://docs.microsoft.com/azure/marketplace/dynamics-365-finance-operations-functional-validation).
 - Envie a oferta para publicação selecionando **Enviar**. Enviaremos um email para que você saiba quando uma versão prévia da oferta está disponível para exame e aprovação. Retorne ao Partner Center e selecione **Go-Live** para a oferta para publicar sua oferta no público.
 
 ## <a name="next-step"></a>Próxima etapa

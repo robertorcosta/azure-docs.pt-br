@@ -4,13 +4,13 @@ description: Este artigo descreve as considerações de preços, cobrança, fatu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 653c55fa7476fa5fed077002db226297a33dfef6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/22/2020
+ms.openlocfilehash: 29fa4126d8d0b4f3419c729ee3a73ae315b13122
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119422"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001359"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Recursos de transação do marketplace comercial
 
@@ -134,7 +134,7 @@ Nesse cenário, a Microsoft cobra US$ 100,00 pela sua licença de software e pag
 |A Microsoft paga para você 80% do seu custo de licença <br> \* A Microsoft paga 90% do seu custo de licença para qualquer aplicativo SaaS qualificado   |   US $80,00 por mês <br> \* US $90,00 por mês    |
 |A Microsoft mantém 20% do seu custo de licença <br> \* A Microsoft mantém 10% do seu custo de licença para qualquer aplicativo SaaS qualificado.  |  US $20,00 por mês <br> \* US $10,00     |
 
-Para determinados produtos SaaS que você publica no mercado comercial, a Microsoft reduzirá sua **taxa de serviço do Marketplace** de 20% (conforme descrito no contrato do Microsoft Publisher) para 10%. Para que sua oferta seja qualificada, pelo menos uma de suas ofertas precisa ser designada pela Microsoft como sendo pronta para venda conjunta de IP ou priorizada para venda conjunta de IP. Para receber essa redução do valor do serviço do marketplace para o mês, a qualificação deve ser atendida pelo menos cinco dias úteis antes do final do mês civil anterior. A taxa reduzida de serviço do Marketplace não se aplicará a VMs, aplicativos gerenciados ou quaisquer outros produtos disponibilizados por meio do Marketplace comercial. Esse valor reduzido estará disponível para ofertas qualificadas, com encargos de licença coletados pela Microsoft entre 1º de maio de 2019 e 30 de junho de 2020. Após esse período, o valor retornará à quantia normal.
+Para determinadas ofertas que você publica no mercado comercial, a Microsoft reduzirá sua taxa de serviço do Marketplace de 20% (conforme descrito no contrato do Microsoft Publisher) para 10%. Para que suas ofertas sejam qualificadas, suas ofertas devem ter sido designadas pela Microsoft como o IP do Azure co-vender incetivized. A qualificação deve ser atendida pelo menos cinco (5) dias úteis antes do fim de cada mês civil para receber a taxa de serviço do Marketplace reduzida para o mês. A taxa reduzida de serviço do Marketplace se aplica ao IP do Azure covenda de incentivados SaaS, VMs, aplicativos gerenciados e qualquer outra oferta de IaaS transactável qualificada disponibilizada por meio do Marketplace comercial.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Faturamento, pagamento, faturamento e cobrança do cliente
 
@@ -180,7 +180,7 @@ Para obter mais informações sobre como configurar essas contas, consulte [gere
 
 A opção de publicação de transações está disponível apenas para uso com os seguintes tipos de oferta de mercado:
 
-- **Máquina virtual** – selecione dentre os modelos gratuitos, traga sua própria licença ou pague conforme o uso, e apresente os SKUs definidos no nível da oferta. Na fatura do cliente do Azure, a Microsoft apresenta os valores de licença de software do editor separadamente dos valores de infraestrutura subjacentes do Azure. Os valores de infraestrutura do Azure são impulsionadas pelo uso do software do editor.
+- **Máquina virtual** – selecione dentre os modelos gratuitos, traga sua própria licença ou pague conforme o uso de preços e apresente os planos definidos no nível da oferta. Na fatura do cliente do Azure, a Microsoft apresenta os valores de licença de software do editor separadamente dos valores de infraestrutura subjacentes do Azure. Os valores de infraestrutura do Azure são impulsionadas pelo uso do software do editor.
 
 - **Aplicativo do Azure: modelo de solução ou aplicativo gerenciado** – deve provisionar uma ou mais máquinas virtuais e efetuar pull da soma dos preços da máquina virtual. Para aplicativos gerenciados em um único plano, uma assinatura mensal de taxa fixa pode ser selecionada como o modelo de preço, em vez do preço da máquina virtual. Em alguns os casos, os valores de uso da infraestrutura do Azure são passados para o cliente separadamente dos valores de licença de software, mas no mesmo extrato de faturamento. No entanto, se você configurar uma oferta de aplicativo gerenciado para encargos de infraestrutura de ISV, os recursos do Azure serão cobrados para o Publicador e o cliente receberá uma tarifa fixa que inclui o custo de infraestrutura, licenças de software e serviços de gerenciamento.
 

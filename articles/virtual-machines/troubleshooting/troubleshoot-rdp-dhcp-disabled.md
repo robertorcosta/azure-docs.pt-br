@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 278d976f044deb8a7387763306cf07f8b6b55d90
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 945f8896a844e7a73107df44d03abc7290f4e3fc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087785"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999122"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Não é possível RDP para máquinas virtuais do Azure porque o serviço de cliente DHCP está desativado
 
@@ -204,7 +204,7 @@ Para resolver esse problema, use o controle serial para ativar o DHCP ou [redefi
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco de SO a uma VM de recuperação
 
-1. [Anexe o disco do sistema operacional a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Anexe o disco do sistema operacional a uma VM de recuperação](./troubleshoot-recovery-disks-portal-windows.md).
 2. Inicie uma conexão de área de trabalho remota para a VM de recuperação. Certifique-se de que o disco conectado esteja sinalizado como **Online** no console de gerenciamento de disco. Anote a letra da unidade atribuída ao disco do SO anexado.
 3.  Abra uma instância de prompt de comando com privilégios elevados (**Executar como administrador**). Em seguida, execute o script a seguir. Esse script pressupõe que a letra da unidade atribuída ao disco do sistema operacional anexado é **F**. Substitua a letra conforme apropriado com o valor em sua VM.
 
@@ -222,7 +222,7 @@ Para resolver esse problema, use o controle serial para ativar o DHCP ou [redefi
     reg unload HKLM\BROKENSYSTEM
     ```
 
-4. [Desanexe o disco do SO e recrie a VM](../windows/troubleshoot-recovery-disks-portal.md). Em seguida, verifique se o problema foi resolvido.
+4. [Desanexe o disco do SO e recrie a VM](./troubleshoot-recovery-disks-portal-windows.md). Em seguida, verifique se o problema foi resolvido.
 
 ## <a name="next-steps"></a>Próximas etapas
 

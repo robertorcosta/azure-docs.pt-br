@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6dc05f225e3585b83bd6a57ca47bd5adf97934ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30c91b71b952bb68761015325a00ff6926c62dfe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201126"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001308"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Conectar-se à API dos serviços de mídia v3-.NET
 
@@ -26,7 +27,7 @@ Este artigo mostra como se conectar ao SDK do .NET dos serviços de mídia do Az
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta dos serviços de mídia
+- [Crie uma conta de Serviços de Mídia](./create-account-howto.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta dos serviços de mídia
 - Instale uma ferramenta que você gostaria de usar para o desenvolvimento do .NET. As etapas neste artigo mostram como usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Você pode usar Visual Studio Code, consulte [trabalhando com C#](https://code.visualstudio.com/docs/languages/csharp). Ou, você pode usar um editor de código diferente.
 
 > [!IMPORTANT]
@@ -38,7 +39,7 @@ Este artigo mostra como se conectar ao SDK do .NET dos serviços de mídia do Az
 1. No menu **arquivo** , clique em **novo**  >  **projeto**. 
 1. Crie um aplicativo de console do **.NET Core** .
 
-O aplicativo de exemplo neste tópico, targets `netcoreapp2.0` . O código usa ' async Main ', que está disponível a partir do C# 7,1. Consulte este [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) para obter mais detalhes.
+O aplicativo de exemplo neste tópico, targets `netcoreapp2.0` . O código usa ' async Main ', que está disponível a partir do C# 7,1. Consulte este [blog](/archive/blogs/benwilli/async-main-is-available-but-hidden) para obter mais detalhes.
 
 ## <a name="add-required-nuget-packages"></a>Adicionar os pacotes NuGet necessários
 
@@ -63,7 +64,7 @@ O aplicativo de exemplo neste tópico, targets `netcoreapp2.0` . O código usa '
 
 ### <a name="set-values-in-appsettingsjson"></a>Definir valores em appsettings.jsem
 
-Execute o `az ams account sp create` comando conforme descrito em [APIs de acesso](access-api-cli-how-to.md). O comando retorna JSON que você deve copiar para "appsettings.json".
+Execute o `az ams account sp create` comando conforme descrito em [APIs de acesso](./access-api-howto.md). O comando retorna JSON que você deve copiar para "appsettings.json".
  
 ## <a name="add-configuration-file"></a>Adicionar arquivo de configuração
 
@@ -145,7 +146,7 @@ namespace ConsoleApp1
 
 Para começar a usar a APIs de Serviços de Mídia do Azure com o .NET, é necessário criar um objeto **AzureMediaServicesClient**. Para criar o objeto, você precisa fornecer as credenciais necessárias para o cliente se conectar ao Azure usando o Microsoft Azure Active Directory. No código a seguir, a função GetCredentialsAsync cria o objeto createclientcredentials com base nas credenciais fornecidas no arquivo de configuração local.
 
-1. Abra `Program.cs`.
+1. Abra o `Program.cs`.
 1. Cole o seguinte código:
 
 ```csharp
@@ -240,7 +241,7 @@ namespace ConsoleApp1
 - [Criar filtros com os Serviços de Mídia – .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Exemplos de vídeos sob demanda avançados do Azure Functions v2 com Serviços de Mídia v3](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
-* [Referência do .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* [Referência do .NET](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * Para obter mais exemplos de código, consulte o repositório de [exemplos do SDK do .net](https://github.com/Azure-Samples/media-services-v3-dotnet) .

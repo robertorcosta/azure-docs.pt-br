@@ -6,11 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 97f354d0a313d58c671366dd0e5f485504823e13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c5941ec88cd793961ad66245d0dc0b5e0d7772f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76288923"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998928"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Mover a computação do mainframe para o Azure
 
@@ -93,13 +94,13 @@ A abordagem é migrar LPARs para VMs individuais. Em seguida, o Azure é facilme
 
 Uma das vantagens de uma solução baseada no Azure é a capacidade de escalar horizontalmente. O dimensionamento torna a capacidade de computação quase ilimitada disponível para um aplicativo. O Azure dá suporte a vários métodos para escalar horizontalmente a potência de computação:
 
-- **Balanceamento de carga em um cluster.** Nesse cenário, um aplicativo pode usar um [balanceador de carga](/azure/load-balancer/load-balancer-overview) ou Gerenciador de recursos para distribuir a carga de trabalho entre várias VMs em um cluster. Se mais capacidade de computação for necessária, as VMs adicionais serão adicionadas ao cluster.
+- **Balanceamento de carga em um cluster.** Nesse cenário, um aplicativo pode usar um [balanceador de carga](../../../../load-balancer/load-balancer-overview.md) ou Gerenciador de recursos para distribuir a carga de trabalho entre várias VMs em um cluster. Se mais capacidade de computação for necessária, as VMs adicionais serão adicionadas ao cluster.
 
-- **Conjuntos de dimensionamento de máquinas virtuais.** Nesse cenário de intermitência, um aplicativo pode ser dimensionado para [recursos de computação](/azure/virtual-machine-scale-sets/overview) adicionais com base no uso da VM. Quando a demanda cai, o número de VMs em um conjunto de dimensionamento também pode ficar inativo, garantindo o uso eficiente da capacidade de computação.
+- **Conjuntos de dimensionamento de máquinas virtuais.** Nesse cenário de intermitência, um aplicativo pode ser dimensionado para [recursos de computação](../../../../virtual-machine-scale-sets/overview.md) adicionais com base no uso da VM. Quando a demanda cai, o número de VMs em um conjunto de dimensionamento também pode ficar inativo, garantindo o uso eficiente da capacidade de computação.
 
-- **Dimensionamento de PaaS.** As ofertas de PaaS do Azure dimensionam os recursos de computação. Por exemplo, o [Azure Service Fabric](/azure/service-fabric/service-fabric-overview) aloca recursos de computação para atender a aumentos no volume de solicitações.
+- **Dimensionamento de PaaS.** As ofertas de PaaS do Azure dimensionam os recursos de computação. Por exemplo, o [Azure Service Fabric](../../../../service-fabric/service-fabric-overview.md) aloca recursos de computação para atender a aumentos no volume de solicitações.
 
-- **Clusters kubernetes.** Os aplicativos no Azure podem usar [clusters kubernetes](/azure/aks/concepts-clusters-workloads) para serviços de computação para recursos especificados. O AKS (serviço kubernetes do Azure) é um serviço gerenciado que orquestra nós, pools e clusters do kubernetes no Azure.
+- **Clusters kubernetes.** Os aplicativos no Azure podem usar [clusters kubernetes](../../../../aks/concepts-clusters-workloads.md) para serviços de computação para recursos especificados. O AKS (serviço kubernetes do Azure) é um serviço gerenciado que orquestra nós, pools e clusters do kubernetes no Azure.
 
 Para escolher o método certo para expandir os recursos de computação, é importante entender como o Azure e os mainframes diferem. A chave é como (ou se) os dados são compartilhados por recursos de computação. No Azure, os dados (por padrão) normalmente não são compartilhados por várias VMs. Se o compartilhamento de dados for exigido por várias VMs em um cluster de cálculo de expansão, os dados compartilhados deverão residir em um recurso que dá suporte a essa funcionalidade. No Azure, o compartilhamento de dados envolve o armazenamento conforme a seção a seguir aborda.
 
@@ -114,7 +115,7 @@ Cada camada também pode fornecer serviços de recuperação de desastre apropri
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Migração de mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Hospedagem de mainframe em máquinas virtuais do Azure](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Hospedagem de mainframe em máquinas virtuais do Azure](../overview.md)
 - [Mover o armazenamento de mainframe para o Azure](mainframe-storage-Azure.md)
 
 ### <a name="ibm-resources"></a>Recursos da IBM

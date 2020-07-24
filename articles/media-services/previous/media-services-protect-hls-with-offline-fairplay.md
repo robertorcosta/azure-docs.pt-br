@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 05/07/2020
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: 618803e8e94f96a63e0c39c27b40a933acac7cb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eee718627f35154c878c717e02febe0ea7958fe6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82995520"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000543"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Streaming de FairPlay Offline para iOS 
 
@@ -28,7 +29,7 @@ ms.locfileid: "82995520"
 > * [Versão 2](media-services-protect-hls-with-offline-fairplay.md)
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Os Serviços de Mídia do Azure fornecem um conjunto de [serviços de proteção de conteúdo](https://azure.microsoft.com/services/media-services/content-protection/) bem projetados, que abrangem:
 
@@ -53,7 +54,7 @@ Antes de implementar o DRM offline para FairPlay em um dispositivo iOS 10 +:
 * Familiarizar-se com a proteção de conteúdo online para o FairPlay. Para obter mais informações, consulte os seguintes artigos e exemplos:
 
     - [Apple FairPlay Streaming para Serviços de Mídia do Azure já está disponível](https://azure.microsoft.com/blog/apple-FairPlay-streaming-for-azure-media-services-generally-available/)
-    - [Proteger o conteúdo do HLS com o Apple FairPlay ou Microsoft PlayReady](https://docs.microsoft.com/azure/media-services/media-services-protect-hls-with-FairPlay)
+    - [Proteger o conteúdo do HLS com o Apple FairPlay ou Microsoft PlayReady](./media-services-protect-hls-with-fairplay.md)
     - [Uma amostra para o streaming de FPS online](https://azure.microsoft.com/resources/samples/media-services-dotnet-dynamic-encryption-with-FairPlay/)
 
 * Obter o SDK de FPS da Rede de Desenvolvedor da Apple. O SDK de FPS contém dois componentes:
@@ -210,7 +211,7 @@ As perguntas frequentes a seguir fornecem assistência com a solução de proble
 - **O que o último parâmetro tem na seguinte API para o modo offline de FPS?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-    Para obter a documentação para essa API, consulte [FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration Method](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). O parâmetro representa a duração do aluguel offline, com o segundo como a unidade.
+    Para obter a documentação para essa API, consulte [FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration Method](/dotnet/api/microsoft.windowsazure.mediaservices.client.fairplay.fairplayconfiguration.createserializedfairplayoptionconfiguration?view=azure-dotnet). O parâmetro representa a duração do aluguel offline, com o segundo como a unidade.
 - **O que é a estrutura de arquivos offline/baixados em dispositivos iOS?** A estrutura do arquivo baixado em um dispositivo iOS tem a aparência da captura de tela abaixo. A pasta `_keys` armazena licenças de FPS baixadas, com um arquivo de armazenamento para cada host de serviço de licença. A pasta `.movpkg` armazena conteúdo de áudio e vídeo. A primeira pasta com o nome que termina com um traço seguido por um numero contém o conteúdo de vídeo. O valor numérico é o PeakBandwidth das representações de vídeo. A segunda pasta com um nome que termina com um traço seguido por 0 contém o conteúdo de áudio. A terceira pasta denominada "Dados" contém a lista de reprodução mestre do conteúdo de FPS. Por fim, boot.xml fornece uma descrição completa do conteúdo da pasta `.movpkg`. 
 
 ![Estrutura do arquivo de aplicativo iOS de Exemplo do FairPlay Offline](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)

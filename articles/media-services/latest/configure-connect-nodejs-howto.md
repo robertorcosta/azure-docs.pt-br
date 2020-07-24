@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 0381a2e2b8fd2a8b60e7cb702e0336a5678df057
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ac82687cb28344f682c58a132f04d71184d5d74
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74896110"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001189"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Conectar-se à API dos serviços de mídia v3-Node.js
 
@@ -26,7 +27,7 @@ Este artigo mostra como se conectar ao SDK de node.js de serviços de mídia do 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Instale o [Node.js](https://nodejs.org/en/download/).
-- [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta dos serviços de mídia.
+- [Crie uma conta de Serviços de Mídia](./create-account-howto.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta dos serviços de mídia.
 
 > [!IMPORTANT]
 > Examine as [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions).
@@ -69,7 +70,7 @@ npm install azure-arm-mediaservices
 
 1. Crie um arquivo. js usando seu editor favorito.
 1. Abra o arquivo e cole o seguinte código.
-1. Defina os valores na seção "configuração do ponto de extremidade" para os valores obtidos das [APIs de acesso](access-api-cli-how-to.md).
+1. Defina os valores na seção "configuração do ponto de extremidade" para os valores obtidos das [APIs de acesso](./access-api-howto.md).
 
 ```js
 'use strict';
@@ -113,7 +114,7 @@ msRestAzure.loginWithServicePrincipalSecret(aadClientId, aadSecret, aadTenantId,
 });
 ```
 
-## <a name="run-your-app"></a>Executar seu aplicativo
+## <a name="run-your-app"></a>Executar o aplicativo
 
 Abra um prompt de comando. Navegue até o diretório do exemplo e execute os seguintes comandos:
 
@@ -122,7 +123,7 @@ npm install
 node index.js
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Conceitos dos Serviços de Mídia](concepts-overview.md)
 - [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)
@@ -130,4 +131,3 @@ node index.js
 ## <a name="next-steps"></a>Próximas etapas
 
 Explore a documentação de [referência do Node.js](/javascript/api/overview/azure/mediaservices/management) dos Serviços de Mídia e confira as [amostras](https://github.com/Azure-Samples/media-services-v3-node-tutorials) que explicam como usar a API dos Serviços de Mídia com o Node.js.
-

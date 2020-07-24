@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: dcf86deda32069bf9711dbeb733dc9361e22a771
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d19cc4a474324ff3e88ec0c5353a47c157ec715
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80631779"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998469"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Como validar a taxa de transferência VPN para uma rede virtual
 
@@ -43,11 +43,11 @@ O diagrama a seguir mostra a conectividade lógica de uma rede local para uma re
 
 1. Determine os requisitos da taxa de transferência de linha de base do aplicativo.
 1. Determine os limites de taxa de transferência de gateway de VPN do Azure. Para obter ajuda, consulte a seção "SKUs de gateway" de [sobre o gateway de VPN](vpn-gateway-about-vpngateways.md#gwsku).
-1. Determine as [Diretrizes de taxa de transferência para a VM do Azure](../virtual-machines/virtual-machines-windows-sizes.md) para seu tamanho de VM.
+1. Determine as [Diretrizes de taxa de transferência para a VM do Azure](../virtual-machines/sizes.md) para seu tamanho de VM.
 1. Determine a largura de banda do Provedor de Serviços de Internet (ISP).
 1. Calcule a taxa de transferência esperada assumindo a menor largura de banda da VM, do gateway de VPN ou do ISP; que é medido em megabits por segundo (/) dividido por oito (8).
 
-Se a produtividade calculada não atender aos requisitos de taxa de transferência de linha de base do aplicativo, você deverá aumentar a largura de banda do recurso identificado como afunilamento. Para redimensionar um Gateway de VPN do Azure, consulte [Alterar um SKU de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Para redimensionar uma máquina virtual, consulte [Redimensionar uma VM](../virtual-machines/virtual-machines-windows-resize-vm.md). Se você não estiver experimentando a largura de banda da Internet esperada, também poderá entrar em contato com seu ISP.
+Se a produtividade calculada não atender aos requisitos de taxa de transferência de linha de base do aplicativo, você deverá aumentar a largura de banda do recurso identificado como afunilamento. Para redimensionar um Gateway de VPN do Azure, consulte [Alterar um SKU de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Para redimensionar uma máquina virtual, consulte [Redimensionar uma VM](../virtual-machines/windows/resize-vm.md). Se você não estiver experimentando a largura de banda da Internet esperada, também poderá entrar em contato com seu ISP.
 
 > [!NOTE]
 > A taxa de transferência do gateway de VPN é uma agregação de todas as Site-to-Site\VNET-to-VNET ou conexões ponto a site.

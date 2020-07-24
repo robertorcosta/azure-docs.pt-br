@@ -12,11 +12,12 @@ ms.topic: article
 ms.date: 5/28/2020
 ms.author: inhenkel
 ms.custom: references_regions
-ms.openlocfilehash: cefd366e29fe1c6f68ec38816247f78bb53cd6e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ecc8cad4480528477f6bb470c7bc32ee2a20e11
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196251"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001342"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nuvens e regiões em que os Serviços de Mídia do Azure v3 existem
 
@@ -26,7 +27,7 @@ Os Serviços de Mídia do Azure v3 estão disponíveis por meio do manifesto do 
 
 | Recurso|Regiões Globais do Azure | Azure Government|Azure Alemanha|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
-| [Azure EventGrid](reacting-to-media-services-events.md) | Disponível | Não disponível | Não disponível | Não disponível |
+| [Grade de Eventos do Azure](reacting-to-media-services-events.md) | Disponível | Não disponível | Não disponível | Não disponível |
 | [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Disponível | Não disponível | Não disponível | Não disponível |
 | [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Disponível | Não disponível | Não disponível | Não disponível |
 | [StandardEncoderPreset](encoding-concept.md) | Disponível | Disponível | Disponível | Disponível |
@@ -44,7 +45,7 @@ O [LiveTranscription](live-transcription.md) está disponível nas seguintes reg
 - Centro dos EUA
 - Centro-Sul dos Estados Unidos
 - Oeste dos EUA 2
-- Sul do Brasil
+- Brazil South
 
 ## <a name="regionsgeographieslocations"></a>Regiões/geografias/locais
 
@@ -52,7 +53,7 @@ O [LiveTranscription](live-transcription.md) está disponível nas seguintes reg
 
 ### <a name="region-code-name"></a>Nome do código da região
 
-Quando precisa fornecer o parâmetro de **localização**, você precisa fornecer o nome do código de região como o valor da **localização**. Para obter o nome do código da região na qual a conta está localizada e para a qual a chamada deverá ser encaminhada, execute a seguinte linha na [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+Quando precisa fornecer o parâmetro de **localização**, você precisa fornecer o nome do código de região como o valor da **localização**. Para obter o nome do código da região na qual a conta está localizada e para a qual a chamada deverá ser encaminhada, execute a seguinte linha na [CLI do Azure](/cli/azure/?view=azure-cli-latest)
 
 ```azurecli-interactive
 az account list-locations
@@ -79,37 +80,37 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
 
 ### <a name="global-azure"></a>Azure Global
 
-|Pontos de extremidade||
-| --- | --- |
+| Serviço | Ponto de extremidade |
+| ------- | -------- |
 | Azure Resource Manager |  `https://management.azure.com/` |
 | Autenticação | `https://login.microsoftonline.com/` |
 | Público do token | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
 
-|Pontos de extremidade||
-| --- | --- |
+| Serviço | Ponto de extremidade |
+| ------- | -------- |
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
 | Autenticação | `https://login.microsoftonline.us/` |
 | Público do token | `https://management.core.usgovcloudapi.net/` |
 
 ### <a name="azure-germany"></a>Azure Alemanha
 
-| Pontos de extremidade ||
-| --- | --- |  
+| Serviço | Ponto de extremidade |
+| ------- | -------- |
 | Azure Resource Manager | `https://management.cloudapi.de/` |
 | Autenticação | `https://login.microsoftonline.de/` |
 | Público do token | `https://management.core.cloudapi.de/`|
 
 ### <a name="azure-china-21vianet"></a>Azure China 21Vianet
 
-|Pontos de extremidade||
-| --- | --- |
+| Serviço | Ponto de extremidade |
+| ------- | -------- |
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Autenticação | `https://login.chinacloudapi.cn/` |
 | Público do token |  `https://management.core.chinacloudapi.cn/` |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/)

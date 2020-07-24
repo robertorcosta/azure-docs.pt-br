@@ -3,11 +3,12 @@ title: Tipos de classe de exemplo no Azure Lab Services | Microsoft Docs
 description: Fornece alguns tipos de classes para os quais você pode configurar laboratórios usando o Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8564f5ece9d6df7db852c5ac16f00f1455d013ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21159aacfcd87bb929eaeaf9884b0275c7005e1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443750"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001616"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Visão geral dos tipos de classes – Azure Lab Services
 
@@ -44,11 +45,6 @@ Para obter informações detalhadas sobre como configurar esse tipo de laborató
 Você pode configurar uma máquina de modelo nos Serviços de Laboratório do Azure com as ferramentas necessárias para ensinar aos alunos como usar os [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io). O Jupyter Notebooks é um projeto de código aberto que permite combinar facilmente texto rico e código-fonte executável [Python](https://www.python.org/) em uma única tela chamada notebook. A execução de um notebook resulta em um registro linear de entradas e saídas.  Essas saídas podem incluir texto, tabelas de informações, gráficos de dispersão e muito mais.
 
 Para obter informações detalhadas sobre como configurar esse tipo de laboratório, confira [Configurar um laboratório para ensinar ciência de dados com Python e Jupyter Notebooks](class-type-jupyter-notebook.md).
-
-## <a name="mobile-app-development-with-android-studio"></a>Desenvolvimento de aplicativos móveis com o Android Studio
-Você pode configurar um laboratório nos Serviços de Laboratório do Azure para ministrar uma aula introdutória de desenvolvimento de aplicativos móveis. Esta classe se concentra nos aplicativos para dispositivos móveis Android que podem ser publicados na [Google Play Store](https://play.google.com/store/apps).  Os alunos aprendem como usar o [Android Studio](https://developer.android.com/studio) para criar aplicativos.  [O emulador do Visual Studio para Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/) é usado para testar o aplicativo localmente.
-
-Para obter informações detalhadas sobre como configurar esse tipo de laboratório, confira [Configurar um laboratório para ensinar o desenvolvimento de aplicativos móveis com o Android Studio](class-type-mobile-dev-android-studio.md).
 
 ## <a name="big-data-analytics"></a>Análise de Big Data
 Você pode configurar um laboratório de GPU para ensinar uma classe de análise de Big Data. Com esse tipo de classe, os alunos aprendem como lidar com grandes volumes de dados e aplicam algoritmos de aprendizado estatísticos e de máquina para gerar informações de dados. Um objetivo fundamental para os alunos é aprender a usar as ferramentas de análise de dados, como o pacote de software livre Apache Hadoop, que fornece ferramentas para armazenar, gerenciar e processar Big Data. 

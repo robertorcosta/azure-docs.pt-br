@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 373b863441eb21b52a18bbaece10779260eaeb7a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 76717c580136d23030565c5476f8b282897784a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166188"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000407"
 ---
 # <a name="create-content-keys-with-rest"></a>Criar chaves de conteúdo com REST
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ A seguir, estão as etapas gerais para gerar chaves de conteúdo que você assoc
 1. Gere aleatoriamente uma chave AES de 16 bytes (para criptografia comum e de envelope) ou uma chave AES de 32 bytes (para criptografia de armazenamento). 
    
     Esta é a chave de conteúdo para o seu ativo, o que significa que será necessário usar a mesma chave de conteúdo com todos os arquivos associados a esse ativo durante a descriptografia. 
-2. Chame os métodos [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obter o Certificado X.509 correto que deve ser usado para criptografar sua chave de conteúdo.
+2. Chame os métodos [GetProtectionKeyId](/rest/api/media/operations/rest-api-functions#getprotectionkeyid) e [GetProtectionKey](/rest/api/media/operations/rest-api-functions#getprotectionkey) para obter o Certificado X.509 correto que deve ser usado para criptografar sua chave de conteúdo.
 3. Criptografe a chave de conteúdo com a chave pública do certificado X.509. 
    
    O SDK do .NET dos serviços de mídia usa RSA com OAEP ao fazer a criptografia.  Você pode ver um exemplo na [função EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
@@ -268,4 +268,3 @@ HTTP/1.1 204 No Content
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

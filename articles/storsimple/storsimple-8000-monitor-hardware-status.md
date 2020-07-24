@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 6eb983eb5e36c5f3ac6b6eca049239d12bc01a0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8faf4ca8e27b280a60750d5f349ab0282ed593bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514625"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999489"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Usar o serviço Gerenciador de Dispositivos do StorSimple para monitorar componentes e status de hardware
 
@@ -49,11 +49,11 @@ Execute as etapas a seguir para exibir o status de hardware de um componente de 
 
 1. Navegue até **dispositivos**, selecione um dispositivo StorSimple específico. Acesse **Monitorar > Integridade do hardware**.
 
-    ![](./media/storsimple-8000-monitor-hardware-status/hw-health1.png)
+    ![Captura de tela mostrando a folha configurações do serviço Device Manager. Em monitor, a integridade do hardware é selecionada.](./media/storsimple-8000-monitor-hardware-status/hw-health1.png)
 
 2. Localize a seção **Componentes de hardware** e escolha os componentes disponíveis. Basta clicar no rótulo do componente para expandir a lista e exibir o status dos vários componentes do dispositivo. Consulte a [lista detalhada de componentes para o compartimento primário](#component-list-for-primary-enclosure-of-storsimple-device) e a [lista detalhada de componentes para o compartimento EBOD](#component-list-for-ebod-enclosure-of-storsimple-device).
 
-    ![](./media/storsimple-8000-monitor-hardware-status/hw-health2.png)
+    ![Captura de tela mostrando um componente selecionado na seção componentes de hardware. Uma folha adjacente mostra o nome e o status das partes do componente.](./media/storsimple-8000-monitor-hardware-status/hw-health2.png)
 
 3. Use o seguinte esquema de codificação por cor para interpretar o status do componente:
    
@@ -64,15 +64,15 @@ Execute as etapas a seguir para exibir o status de hardware de um componente de 
    
    A captura de tela a seguir mostra um dispositivo que tem componentes com o estado **OK**, **Aviso** e **Falha**.
        
-   ![](./media/storsimple-8000-monitor-hardware-status/hw-health3.png)
+   ![Captura de tela mostrando três componentes na seção componentes de hardware: um em um estado Ok, um em um estado de falha e outro em um estado de aviso.](./media/storsimple-8000-monitor-hardware-status/hw-health3.png)
 
    Expandindo a **Lista de componentes compartilhados**, podemos ver que a NVRAM e o cluster estão degradados.
 
-   ![](./media/storsimple-8000-monitor-hardware-status/hw-health5.png)
+   ![Captura de tela mostrando o item componentes compartilhados selecionado. Na folha adjacente, o N V R A M e o cluster estão em um estado de aviso.](./media/storsimple-8000-monitor-hardware-status/hw-health5.png)
 
    Expandindo a lista **Componentes do controlador 1**, podemos ver que o nó de cluster falhou.  
 
-   ![](./media/storsimple-8000-monitor-hardware-status/hw-health4.png)  
+   ![Captura de tela mostrando o item componentes do controlador 1 selecionado. Na folha adjacente, o nó de cluster está em um estado de falha.](./media/storsimple-8000-monitor-hardware-status/hw-health4.png)  
 
 4. Se você encontrar um componente que não está em um estado **Íntegro** , entre em contato com o Suporte da Microsoft. Se os alertas forem habilitados no seu dispositivo, você receberá um alerta por email. Se você precisar substituir um componente de hardware com falha, consulte [Substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 
@@ -81,30 +81,30 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no compar
 
 | Componente | Módulo | Tipo | Location | Unidade renovável (FRU)? | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| Unidade no slot [0-11] |Unidades de disco |Físico |Compartilhado |Sim |É apresentada uma linha para cada uma das unidades SSD ou HDD no compartimento primário. |
-| Sensor de temperatura ambiente |Compartimento |Físico |Compartilhado |Não |Mede a temperatura dentro do chassi. |
-| Sensor de temperatura do plano intermediário |Compartimento |Físico |Compartilhado |Não |Mede a temperatura do plano intermediário. |
-| Alarme audível |Compartimento |Físico |Compartilhado |Não |Indica se o subsistema de alarme audível dentro do gabinete é funcional. |
-| Compartimento |Compartimento |Físico |Compartilhado |Sim |Indica a presença de um chassi. |
-| Configurações de compartimento |Compartimento |Físico |Compartilhado |Não |Refere-se ao painel frontal do chassi. |
-| Sensores de tensão de linha |PCM |Físico |Compartilhado |Não |Vários sensores de tensão de linha têm seu estado exibido, que indica se a tensão medida está dentro da tolerância. |
-| Sensores de corrente de linha |PCM |Físico |Compartilhado |Não |Vários sensores de corrente de linha têm seu estado exibido, que indica se a corrente medida está dentro da tolerância. |
-| Sensores de temperatura em PCM |PCM |Físico |Compartilhado |Não |Vários sensores de temperatura, como de Entrada e Ponto de acesso, têm seu estado exibido, indicando se a temperatura medida está dentro da tolerância. |
-| Fonte de alimentação [0-1] |PCM |Físico |Compartilhado |Sim |É apresentada uma linha para cada uma das fontes de alimentação nos dois PCMs localizados na parte posterior do dispositivo. |
-| Resfriamento [0-1] |PCM |Físico |Compartilhado |Sim |É apresentada uma linha para cada um dos quatro ventiladores que residem nos dois PCMs. |
-| Bateria [0-1] |PCM |Físico |Compartilhado |Sim |É apresentada uma linha para cada um dos módulos de bateria de backup que estão encaixados no PCM. |
-| Metis |N/D |Logical |Compartilhado |N/D |Exibe o estado das baterias: se elas precisam de carregamento e estão no fim do tempo de vida. |
-| Cluster |N/D |Logical |Compartilhado |N/D |Exibe o estado do cluster que é criado entre os dois módulos do controlador integrado. |
-| Nó de cluster |N/D |Logical |Compartilhado |N/D |Indica o estado do controlador como parte do cluster. |
-| Quorum de cluster |N/D |Logical | |N/D |Indica a presença da maioria da associação do disco no pool de armazenamento de HDD. |
-| Espaço de dados do HDD |N/D |Logical |Compartilhado |N/D |O espaço de armazenamento que é usado para dados no pool de armazenamento de unidade de disco rígido (HDD). |
-| Espaço de gerenciamento de HDD |N/D |Logical |Compartilhado |N/D |O espaço reservado no pool de armazenamento de HDD para tarefas de gerenciamento. |
-| Espaço de quorum do HDD |N/D |Logical |Compartilhado |N/D |O espaço reservado no pool de armazenamento de HDD para quorum de cluster. |
-| Espaço de substituição do HDD |N/D |Logical |Compartilhado |N/D |O espaço reservado no pool de armazenamento do HDD para substituição do controlador. |
-| Espaço de dados do SSD |N/D |Logical |Compartilhado |N/D |O espaço de armazenamento usado para dados no pool de armazenamento de unidade estado sólido (SSD). |
-| Espaço SSD NVRAM |N/D |Logical |Compartilhado |N/D |O espaço de armazenamento no pool de armazenamento SSD dedicado para lógica NVRAM. |
-| Pool de armazenamento do HDD |N/D |Logical |Compartilhado |N/D |Exibe o estado do pool de armazenamento lógico que é criado a partir dos HDDs de dispositivo. |
-| Pool de armazenamento do SSD |N/D |Logical |Compartilhado |N/D |Exibe o estado do pool de armazenamento lógico que é criado a partir dos SSDs de dispositivo. |
+| Unidade no slot [0-11] |Unidades de disco |Físico |Compartilhada |Sim |É apresentada uma linha para cada uma das unidades SSD ou HDD no compartimento primário. |
+| Sensor de temperatura ambiente |Compartimento |Físico |Compartilhada |Não |Mede a temperatura dentro do chassi. |
+| Sensor de temperatura do plano intermediário |Compartimento |Físico |Compartilhada |Não |Mede a temperatura do plano intermediário. |
+| Alarme audível |Compartimento |Físico |Compartilhada |Não |Indica se o subsistema de alarme audível dentro do gabinete é funcional. |
+| Compartimento |Compartimento |Físico |Compartilhada |Sim |Indica a presença de um chassi. |
+| Configurações de compartimento |Compartimento |Físico |Compartilhada |Não |Refere-se ao painel frontal do chassi. |
+| Sensores de tensão de linha |PCM |Físico |Compartilhada |Não |Vários sensores de tensão de linha têm seu estado exibido, que indica se a tensão medida está dentro da tolerância. |
+| Sensores de corrente de linha |PCM |Físico |Compartilhada |Não |Vários sensores de corrente de linha têm seu estado exibido, que indica se a corrente medida está dentro da tolerância. |
+| Sensores de temperatura em PCM |PCM |Físico |Compartilhada |Não |Vários sensores de temperatura, como de Entrada e Ponto de acesso, têm seu estado exibido, indicando se a temperatura medida está dentro da tolerância. |
+| Fonte de alimentação [0-1] |PCM |Físico |Compartilhada |Sim |É apresentada uma linha para cada uma das fontes de alimentação nos dois PCMs localizados na parte posterior do dispositivo. |
+| Resfriamento [0-1] |PCM |Físico |Compartilhada |Sim |É apresentada uma linha para cada um dos quatro ventiladores que residem nos dois PCMs. |
+| Bateria [0-1] |PCM |Físico |Compartilhada |Sim |É apresentada uma linha para cada um dos módulos de bateria de backup que estão encaixados no PCM. |
+| Metis |N/D |Lógica |Compartilhada |N/D |Exibe o estado das baterias: se elas precisam de carregamento e estão no fim do tempo de vida. |
+| Cluster |N/D |Lógica |Compartilhada |N/D |Exibe o estado do cluster que é criado entre os dois módulos do controlador integrado. |
+| Nó de cluster |N/D |Lógica |Compartilhada |N/D |Indica o estado do controlador como parte do cluster. |
+| Quorum de cluster |N/D |Lógica | |N/D |Indica a presença da maioria da associação do disco no pool de armazenamento de HDD. |
+| Espaço de dados do HDD |N/D |Lógica |Compartilhada |N/D |O espaço de armazenamento que é usado para dados no pool de armazenamento de unidade de disco rígido (HDD). |
+| Espaço de gerenciamento de HDD |N/D |Lógica |Compartilhada |N/D |O espaço reservado no pool de armazenamento de HDD para tarefas de gerenciamento. |
+| Espaço de quorum do HDD |N/D |Lógica |Compartilhada |N/D |O espaço reservado no pool de armazenamento de HDD para quorum de cluster. |
+| Espaço de substituição do HDD |N/D |Lógica |Compartilhada |N/D |O espaço reservado no pool de armazenamento do HDD para substituição do controlador. |
+| Espaço de dados do SSD |N/D |Lógica |Compartilhada |N/D |O espaço de armazenamento usado para dados no pool de armazenamento de unidade estado sólido (SSD). |
+| Espaço SSD NVRAM |N/D |Lógica |Compartilhada |N/D |O espaço de armazenamento no pool de armazenamento SSD dedicado para lógica NVRAM. |
+| Pool de armazenamento do HDD |N/D |Lógica |Compartilhada |N/D |Exibe o estado do pool de armazenamento lógico que é criado a partir dos HDDs de dispositivo. |
+| Pool de armazenamento do SSD |N/D |Lógica |Compartilhada |N/D |Exibe o estado do pool de armazenamento lógico que é criado a partir dos SSDs de dispositivo. |
 | Controller [0-1] [estado] |E/S |Físico |Controller |Sim |Exibe o estado do controlador e se ele está no modo ativo ou em espera dentro do chassi. |
 | Sensores de temperatura no controlador |E/S |Físico |Controller |Não |Vários sensores de temperatura, como o módulo de E/S, temperatura da CPU, sensores DIMM e PCI e têm seu estado exibido, que indica se a temperatura encontrada está ou não dentro da tolerância. |
 | Expansor SAS |E/S |Físico |Controller |Não |Indica o estado do expansor serial anexado SCSI (SAS), que é usado para conectar o armazenamento integrado ao controlador. |
@@ -122,18 +122,18 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no compar
 
 | Componente | Módulo | Tipo | Location | FRU? | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| Unidade no slot [0-11] |Unidades de disco |Físico |Compartilhado |Sim |É apresentada uma linha para cada uma das unidades HDD na frente do compartimento EBOD. |
-| Sensor de temperatura ambiente |Compartimento |Físico |Compartilhado |Não |Mede a temperatura dentro do chassi. |
-| Sensor de temperatura do plano intermediário |Compartimento |Físico |Compartilhado |Não |Mede a temperatura do plano intermediário. |
-| Alarme audível |Compartimento |Físico |Compartilhado |Não |Indica se o subsistema de alarme audível dentro do gabinete é funcional. |
-| Compartimento |Compartimento |Físico |Compartilhado |Sim |Indica a presença de um chassi. |
-| Configurações de compartimento |Compartimento |Físico |Compartilhado |Não |Refere-se ao OPS ou ao painel frontal do chassi. |
-| Sensores de tensão de linha |PCM |Físico |Compartilhado |Não |Vários sensores de tensão de linha têm seu estado exibido, que indica se a tensão medida está dentro da tolerância. |
-| Sensores de corrente de linha |PCM |Físico |Compartilhado |Não |Vários sensores de corrente de linha têm seu estado exibido, que indica se a corrente medida está dentro da tolerância. |
-| Sensores de temperatura em PCM |PCM |Físico |Compartilhado |Não |Vários sensores de temperatura, como de Entrada e Ponto de acesso, têm seu estado exibido, indicando se a temperatura medida está dentro da tolerância. |
-| Fonte de alimentação [0-1] |PCM |Físico |Compartilhado |Sim |É apresentada uma linha para cada uma das fontes de alimentação nos dois PCMs localizados na parte posterior do dispositivo. |
-| Resfriamento [0-1] |PCM |Físico |Compartilhado |Sim |É apresentada uma linha para cada um dos quatro ventiladores que residem nos dois PCMs. |
-| Armazenamento local [HDD] |N/D |Logical |Compartilhado |N/D |Exibe o estado do pool de armazenamento lógico que é criado a partir dos HDDs de dispositivo. |
+| Unidade no slot [0-11] |Unidades de disco |Físico |Compartilhada |Sim |É apresentada uma linha para cada uma das unidades HDD na frente do compartimento EBOD. |
+| Sensor de temperatura ambiente |Compartimento |Físico |Compartilhada |Não |Mede a temperatura dentro do chassi. |
+| Sensor de temperatura do plano intermediário |Compartimento |Físico |Compartilhada |Não |Mede a temperatura do plano intermediário. |
+| Alarme audível |Compartimento |Físico |Compartilhada |Não |Indica se o subsistema de alarme audível dentro do gabinete é funcional. |
+| Compartimento |Compartimento |Físico |Compartilhada |Sim |Indica a presença de um chassi. |
+| Configurações de compartimento |Compartimento |Físico |Compartilhada |Não |Refere-se ao OPS ou ao painel frontal do chassi. |
+| Sensores de tensão de linha |PCM |Físico |Compartilhada |Não |Vários sensores de tensão de linha têm seu estado exibido, que indica se a tensão medida está dentro da tolerância. |
+| Sensores de corrente de linha |PCM |Físico |Compartilhada |Não |Vários sensores de corrente de linha têm seu estado exibido, que indica se a corrente medida está dentro da tolerância. |
+| Sensores de temperatura em PCM |PCM |Físico |Compartilhada |Não |Vários sensores de temperatura, como de Entrada e Ponto de acesso, têm seu estado exibido, indicando se a temperatura medida está dentro da tolerância. |
+| Fonte de alimentação [0-1] |PCM |Físico |Compartilhada |Sim |É apresentada uma linha para cada uma das fontes de alimentação nos dois PCMs localizados na parte posterior do dispositivo. |
+| Resfriamento [0-1] |PCM |Físico |Compartilhada |Sim |É apresentada uma linha para cada um dos quatro ventiladores que residem nos dois PCMs. |
+| Armazenamento local [HDD] |N/D |Lógica |Compartilhada |N/D |Exibe o estado do pool de armazenamento lógico que é criado a partir dos HDDs de dispositivo. |
 | Controller [0-1] [estado] |E/S |Físico |Controller |Sim |Exibe o estado dos controladores no módulo EBOD. |
 | Sensores de temperatura no EBOD |E/S |Físico |Controller |Não |Vários sensores de temperatura têm seu estado exibido, indicando se a temperatura encontrada está dentro da tolerância. |
 | Expansor SAS |E/S |Físico |Controller |Não |Indica o estado do expansor SAS, que é usado para conectar o armazenamento integrado ao controlador. |

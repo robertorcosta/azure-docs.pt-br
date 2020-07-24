@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/4/2020
 ms.author: inhenkel
-ms.openlocfilehash: e039a240465478e86ce816890219e5dfaa07dfbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f86c157652f6219afdf1df1da9b8ad385f059aa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791044"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000944"
 ---
 # <a name="media-services-live-event-error-codes"></a>Códigos de erro de eventos dinâmicos dos serviços de mídia
 
@@ -26,7 +26,7 @@ As tabelas nesta seção listam os códigos de erro de [evento ao vivo](live-eve
 
 ## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
 
-Ao assinar os eventos da [grade de eventos](https://docs.microsoft.com/azure/event-grid/) para um evento ao vivo, você poderá ver um dos erros a seguir do evento [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected) .
+Ao assinar os eventos da [grade de eventos](../../event-grid/index.yml) para um evento ao vivo, você poderá ver um dos erros a seguir do evento [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected) .
 
 | Código de Resultado | Descrição |
 | ----------- | ----------- |
@@ -54,7 +54,7 @@ Você pode ver um dos erros a seguir do evento [LiveEventEncoderDisconnected](me
 |Códigos de erro desconhecidos|Esses códigos de erro podem variar de erro de memória para entradas duplicadas no mapa de hash.|
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 [Códigos de erro de ponto de extremidade de streaming (origem)](streaming-endpoint-error-codes.md)
 

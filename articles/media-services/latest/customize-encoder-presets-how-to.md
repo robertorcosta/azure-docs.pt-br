@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/03/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2bcd5f0e6229c4130dddb48c1a20de1c711c6fcf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 28525c198bb6863e942f5ff33d17226769efdc21
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519874"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001138"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Como codificar com uma transformação personalizada-.NET
 
@@ -32,7 +32,7 @@ Ao criar predefinições personalizadas, as seguintes considerações se aplicam
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-[Criar uma conta dos Serviços de Mídia](create-account-cli-how-to.md)
+[Criar uma conta dos Serviços de Mídia](./create-account-howto.md)
 
 ## <a name="download-the-sample"></a>Baixar o exemplo
 
@@ -46,9 +46,9 @@ O exemplo de predefinição personalizado está localizado na pasta [EncodeCusto
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>Criar uma transformação com uma predefinição personalizada 
 
-Ao criar uma nova [Transformação](https://docs.microsoft.com/rest/api/media/transforms), você precisará especificar o que deseja produzir como uma saída. O parâmetro necessário é um objeto [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput), como mostrado no código a seguir. Cada **TransformOutput** contém um **Predefinição**. A **predefinição** descreve as instruções detalhadas de operações de processamento de vídeo e/ou áudio que devem ser usadas para gerar o **TransformOutput**desejado. O seguinte **TransformOutput** cria configurações personalizadas de saída de codec e camada.
+Ao criar uma nova [Transformação](/rest/api/media/transforms), você precisará especificar o que deseja produzir como uma saída. O parâmetro necessário é um objeto [TransformOutput](/rest/api/media/transforms/createorupdate#transformoutput), como mostrado no código a seguir. Cada **TransformOutput** contém um **Predefinição**. A **predefinição** descreve as instruções detalhadas de operações de processamento de vídeo e/ou áudio que devem ser usadas para gerar o **TransformOutput**desejado. O seguinte **TransformOutput** cria configurações personalizadas de saída de codec e camada.
 
-Ao criar uma [Transformação](https://docs.microsoft.com/rest/api/media/transforms), você deverá verificar primeiro se já existe uma usando o método **Get**, conforme mostrado no código a seguir. Nos serviços de mídia v3, os métodos **Get** em entidades retornarão **NULL** se a entidade não existir (uma verificação que não diferencia maiúsculas de minúsculas no nome).
+Ao criar uma [Transformação](/rest/api/media/transforms), você deverá verificar primeiro se já existe uma usando o método **Get**, conforme mostrado no código a seguir. Nos serviços de mídia v3, os métodos **Get** em entidades retornarão **NULL** se a entidade não existir (uma verificação que não diferencia maiúsculas de minúsculas no nome).
 
 ### <a name="example"></a>Exemplo
 

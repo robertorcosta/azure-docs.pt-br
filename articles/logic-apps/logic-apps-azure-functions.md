@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 6240b0813132f4a14dbe94b870774ebe7a0663aa
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 0ac35fde59479ffc13c17f8e63d6fccf65c3be27
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714569"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001699"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Chamar Azure Functions a partir dos Aplicativos Lógicos do Azure
 
@@ -256,7 +257,7 @@ Antes de iniciar essa tarefa, localize e reserve esses valores para um uso poste
 
 * A ID do diretório para seu locatário no Azure AD (Azure Active Directory)
 
-  Para obter a ID do diretório do locatário, você pode executar o comando do PowerShell [`Get-AzureAccount`](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureaccount). No portal do Azure, siga estas etapas:
+  Para obter a ID do diretório do locatário, você pode executar o comando do PowerShell [`Get-AzureAccount`](/powershell/module/servicemanagement/azure.service/get-azureaccount). No portal do Azure, siga estas etapas:
 
   1. No [portal do Azure](https://portal.azure.com), encontre e selecione seu aplicativo de funções.
 
