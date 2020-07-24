@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
-ms.openlocfilehash: 49b51a5f14f305afa915ec1d0fae42ca9ded6b1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc273c2e6e27c191b4407ffae86a4ba227ee642b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461660"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131031"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Melhores práticas para proteger aplicativos PaaS móveis e Web usando o Serviço de Aplicativo do Azure
 
@@ -33,7 +33,7 @@ O Serviço de Aplicativo do Azure é uma oferta de PaaS (plataforma como serviç
 O Serviço de Aplicativo fornece um serviço OAuth 2.0 para seu provedor de identidade. O OAuth 2.0 concentra-se na simplicidade do desenvolvedor cliente, fornecendo fluxos de autorização específicos para aplicativos Web, aplicativos da área de trabalho e celulares. O Azure AD usa o OAuth 2.0 para que você possa autorizar o acesso a aplicativos móveis e da Web. Para obter mais informações, confira [Autenticação e autorização no Serviço de Aplicativo do Azure](../../app-service/overview-authentication-authorization.md).
 
 ## <a name="restrict-access-based-on-role"></a>Restringir o acesso baseado em função
-A restrição do acesso é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados. Você pode usar controle de acesso baseado em função (RBAC) para atribuir permissões a usuários, grupos e aplicativos em um determinado escopo, assim como os princípios de segurança de necessidade de saber e privilégios mínimos. Para saber mais sobre a concessão de acesso aos aplicativos aos usuários, confira [O que é o controle de acesso baseado em função](/azure/role-based-access-control/overview).
+A restrição do acesso é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados. Você pode usar controle de acesso baseado em função (RBAC) para atribuir permissões a usuários, grupos e aplicativos em um determinado escopo, assim como os princípios de segurança de necessidade de saber e privilégios mínimos. Para saber mais sobre como conceder acesso a aplicativos aos usuários, confira [o que é o Azure RBAC (controle de acesso baseado em função)](/azure/role-based-access-control/overview).
 
 ## <a name="protect-your-keys"></a>Proteja suas chaves
 Não importa a qualidade de sua segurança se você perder suas chaves de assinatura. O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. Com o Key Vault, você pode criptografar chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos .PFX e senhas) usando chaves protegidas por HSMs (módulos de segurança de hardware). Para garantia extra, você pode importar ou gerar chaves em HSMs. Também é possível usar o Key Vault para gerenciar seus certificados TLS com renovação automática. Veja [O que é o Azure Key Vault](../../key-vault/general/overview.md) para saber mais.

@@ -8,18 +8,18 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0bb0fb268d18ddc152dae45014e2154686762976
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e609e755f02d4321664804bfbb90f979c1c06ead
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259821"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133054"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Criptografia do lado do servidor de Armazenamento em Disco do Azure
 
 A criptografia do lado do servidor (SSE) ajuda a proteger os dados e atender aos compromissos de conformidade e segurança de sua organização. A SSE criptografa automaticamente os dados armazenados nos discos gerenciados do Azure (so e discos de dados) em repouso por padrão, ao mantê-los na nuvem. 
 
-Os dados nos discos gerenciados são criptografados de maneira transparente usando a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uma das codificações de bloco mais fortes disponíveis, e são compatíveis com o FIPS 140-2. Para obter mais informações sobre os módulos criptográficos subjacentes aos discos gerenciados do Azure, veja [API de Criptografia: Próxima geração](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
+Os dados nos discos gerenciados são criptografados de maneira transparente usando a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uma das codificações de bloco mais fortes disponíveis, e são compatíveis com o FIPS 140-2. Para obter mais informações sobre os módulos criptográficos subjacentes aos discos gerenciados do Azure, veja [API de Criptografia: Próxima geração](/windows/desktop/seccng/cng-portal)
 
 A criptografia do lado do servidor não afeta o desempenho dos discos gerenciados e não há nenhum custo adicional. 
 
@@ -50,9 +50,9 @@ Por enquanto, as chaves gerenciadas pelo cliente têm as seguintes restrições:
 
 ## <a name="encryption-at-host---end-to-end-encryption-for-your-vm-data"></a>Criptografia em criptografia de host de ponta a ponta para os dados da VM
 
-A criptografia de ponta a ponta inicia do host da VM, o servidor do Azure ao qual sua VM está alocada. Os dados em seus discos temporários e caches de disco de dados/sistema operacional são armazenados nesse host de VM. Quando você habilita a criptografia de ponta a ponta, todos esses dados são criptografados em repouso e os fluxos são criptografados para o serviço de armazenamento, onde são persistidos. A criptografia de ponta a ponta não usa a CPU da VM e não afeta o desempenho da VM. 
+A criptografia de ponta a ponta inicia do host da VM, o servidor do Azure ao qual sua VM está alocada. Os dados em seus discos temporários, discos do sistema operacional efêmero e caches persistentes de disco de dados/sistema operacional são armazenados nesse host de VM. Quando você habilita a criptografia de ponta a ponta, todos esses dados são criptografados em repouso e os fluxos são criptografados para o serviço de armazenamento, onde são persistidos. A criptografia de ponta a ponta não usa a CPU da VM e não afeta o desempenho da VM. 
 
-Os discos temporários são criptografados em repouso com chaves gerenciadas pela plataforma quando você habilita a criptografia de ponta a ponta. Os caches do sistema operacional e dos dados são criptografados em repouso com chaves gerenciadas pelo cliente ou gerenciadas por plataforma, dependendo do tipo de criptografia. Por exemplo, se um disco for criptografado com chaves gerenciadas pelo cliente, o cache do disco será criptografado com chaves gerenciadas pelo cliente e, se um disco for criptografado com chaves gerenciadas pela plataforma, o cache do disco será criptografado com chaves gerenciadas pela plataforma.
+Discos temporários e discos do sistema operacional efêmero são criptografados em repouso com chaves gerenciadas pela plataforma quando você habilita a criptografia de ponta a ponta. Os caches do sistema operacional e dos dados são criptografados em repouso com chaves gerenciadas pelo cliente ou gerenciadas por plataforma, dependendo do tipo de criptografia. Por exemplo, se um disco for criptografado com chaves gerenciadas pelo cliente, o cache do disco será criptografado com chaves gerenciadas pelo cliente e, se um disco for criptografado com chaves gerenciadas pela plataforma, o cache do disco será criptografado com chaves gerenciadas pela plataforma.
 
 ### <a name="restrictions"></a>Restrições
 
@@ -68,7 +68,7 @@ Os discos temporários são criptografados em repouso com chaves gerenciadas pel
 
 ## <a name="double-encryption-at-rest"></a>Criptografia dupla em repouso
 
-Clientes confidenciais de alta segurança que se preocupam com o risco associado a qualquer algoritmo de criptografia, implementação ou chave em particular comprometidos agora podem optar por uma camada adicional de criptografia usando um algoritmo/modo de criptografia diferente na camada de infraestrutura usando chaves de criptografia gerenciadas pela plataforma. Essa nova camada pode ser aplicada a discos, instantâneos e imagens, todos os quais serão criptografados em repouso com criptografia dupla.
+Clientes confidenciais de alta segurança que se preocupam com o risco associado a qualquer algoritmo de criptografia, implementação ou chave em particular comprometidos agora podem optar por uma camada adicional de criptografia usando um algoritmo/modo de criptografia diferente na camada de infraestrutura usando chaves de criptografia gerenciadas pela plataforma. Essa nova camada pode ser aplicada ao sistema operacional persistente e discos de dados, instantâneos e imagens, todos os quais serão criptografados em repouso com criptografia dupla.
 
 ### <a name="supported-regions"></a>Regiões compatíveis
 
@@ -76,7 +76,7 @@ Clientes confidenciais de alta segurança que se preocupam com o risco associado
 
 ## <a name="server-side-encryption-versus-azure-disk-encryption"></a>Criptografia do lado do servidor versus criptografia de disco do Azure
 
-O [Azure Disk Encryption](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) aproveita o recurso [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) do Windows para criptografar discos gerenciados com chaves gerenciadas pelo cliente na VM convidada.  A criptografia do lado do servidor com chaves gerenciadas pelo cliente aprimora o ADE, permitindo usar quaisquer tipos de sistema operacional e imagens para as VMs, criptografando dados no serviço de armazenamento.
+O [Azure Disk Encryption](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) aproveita o recurso [BitLocker](/windows/security/information-protection/bitlocker/bitlocker-overview) do Windows para criptografar discos gerenciados com chaves gerenciadas pelo cliente na VM convidada. A criptografia do lado do servidor com chaves gerenciadas pelo cliente aprimora o ADE, permitindo usar quaisquer tipos de sistema operacional e imagens para as VMs, criptografando dados no serviço de armazenamento.
 
 > [!IMPORTANT]
 > As chaves gerenciadas pelo cliente contam com as identidades gerenciadas para recursos do Azure, um recurso do Azure Active Directory (Azure AD). Ao configurar chaves gerenciadas pelo cliente, uma identidade gerenciada é atribuída automaticamente aos recursos nos bastidores. Se, em seguida, você migrar a assinatura, o grupo de recursos ou o disco gerenciado de um diretório do Azure Active Directory para outro, a identidade gerenciada associada aos discos gerenciados não será transferida para o novo locatário. Portanto, as chaves gerenciadas pelo cliente podem deixar de funcionar. Para obter mais informações, confira [Transferência de uma assinatura entre diretórios do Azure Active Directory](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
@@ -84,9 +84,8 @@ O [Azure Disk Encryption](../../security/fundamentals/azure-disk-encryption-vms-
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Habilitar criptografia de ponta a ponta usando criptografia no host-PowerShell](disks-enable-host-based-encryption-powershell.md)
-- [Habilitar a criptografia dupla em repouso para os discos gerenciados-PowerShell](disks-enable-double-encryption-at-rest-powershell.md)
-- [Habilitar chaves gerenciadas pelo cliente para seus discos gerenciados-PowerShell](disks-enable-customer-managed-keys-powershell.md)
-- [Habilitar chaves gerenciadas pelo cliente para seus discos gerenciados-Portal](disks-enable-customer-managed-keys-portal.md)
+- Habilite a criptografia de ponta a ponta usando a criptografia no host com o [PowerShell](disks-enable-host-based-encryption-powershell.md) ou o [portal do Azure](disks-enable-host-based-encryption-portal.md).
+- Habilite a criptografia dupla em repouso para discos gerenciados com o [PowerShell](disks-enable-double-encryption-at-rest-powershell.md) ou o [portal do Azure](disks-enable-double-encryption-at-rest-portal.md).
+- Habilite chaves gerenciadas pelo cliente para discos gerenciados com o [PowerShell](disks-enable-customer-managed-keys-powershell.md) ou o [portal do Azure](disks-enable-customer-managed-keys-portal.md).
 - [Conheça os modelos do Azure Resource Manager para criar discos criptografados com chaves gerenciadas pelo cliente](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [O que é o Cofre da Chave do Azure?](../../key-vault/general/overview.md)

@@ -1,18 +1,19 @@
 ---
 title: Práticas recomendadas para o Azure Maps Serviço de Roteiros | Mapas do Microsoft Azure
 description: Saiba como encaminhar veículos usando Serviço de Roteiros de mapas Microsoft Azure.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/11/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 24fa4c48f6ca03e4049483a9acfff067d5a6a736
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79e9096030aada9fa368bb2e78af323139c0586c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266688"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132204"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Práticas recomendadas para o serviço de rota do Azure Maps
 
@@ -30,7 +31,7 @@ As APIs de direção de rota e matriz de rota no Azure Maps [serviço de roteiro
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para fazer chamadas para as APIs do Azure Maps, você precisa de uma conta e uma chave do Azure Maps. Para obter mais informações, consulte [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) e [Obter uma chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account). A chave primária também é conhecida como chave de assinatura primária ou chave de assinatura.
+Para fazer chamadas para as APIs do Azure Maps, você precisa de uma conta e uma chave do Azure Maps. Para obter mais informações, consulte [Criar uma conta](quick-demo-map-app.md#create-an-azure-maps-account) e [Obter uma chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account). A chave primária também é conhecida como chave de assinatura primária ou chave de assinatura.
 
 Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](./how-to-manage-authentication.md). Para obter mais informações sobre a cobertura do Serviço de Roteiros, consulte a [cobertura de roteamento](routing-coverage.md).
 

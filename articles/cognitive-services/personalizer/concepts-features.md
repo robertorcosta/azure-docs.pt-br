@@ -3,19 +3,17 @@ title: 'Recursos: ação e contexto-personalizador'
 titleSuffix: Azure Cognitive Services
 description: O Personalizador usa recursos, informações sobre ações e contexto, para oferecer melhores sugestões de classificação. Os recursos podem ser muitos genéricos ou específicos a um item.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.author: diberry
-ms.openlocfilehash: 408501232891a7971d03c89acc647d9ed19609b3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 590416f077fc1ff9430e42e27217548476c9032f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77026142"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132765"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Recursos são informações sobre ações e contexto
 
@@ -25,7 +23,7 @@ O Personalizador usa **recursos**, que são informações sobre o **contexto atu
 
 Por exemplo, você pode ter um **recurso** sobre:
 
-* O _usuário persona_ , como um `Sports_Shopper`. Isso não deve ser uma ID de usuário individual. 
+* O _usuário persona_ , como um `Sports_Shopper` . Isso não deve ser uma ID de usuário individual. 
 * O _conteúdo_, por exemplo, se um vídeo é um `Documentary`, um `Movie` ou uma `TV Series`, ou se um item de varejo está disponível na loja.
 * O período _atual_, por exemplo, qual é o dia da semana.
 
@@ -72,7 +70,7 @@ Você pode nomear os namespaces de recurso seguindo suas próprias convenções,
 No JSON a seguir, `user`, `state` e `device` são namespaces de recurso. 
 
 > [!Note]
-> No momento, é altamente recomendável usar nomes para namespaces de recursos que são baseados em UTF-8 e começar com letras diferentes. Por exemplo `user` `state`,, `device` e comece com `u`, `s`e. `d` Atualmente, ter namespaces com os mesmos primeiros caracteres pode resultar em colisões em índices usados para aprendizado de máquina.
+> No momento, é altamente recomendável usar nomes para namespaces de recursos que são baseados em UTF-8 e começar com letras diferentes. Por exemplo, `user` , `state` e `device` comece com `u` , `s` e `d` . Atualmente, ter namespaces com os mesmos primeiros caracteres pode resultar em colisões em índices usados para aprendizado de máquina.
 
 Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simples. Uma matriz só poderá ser incluída se os itens de matriz forem números. 
 
@@ -154,10 +152,10 @@ Por exemplo:
 
 Você pode usar vários outros [Serviços Cognitivos do Azure](https://www.microsoft.com/cognitive-services), como
 
-* [Vinculação de entidade](../entitylinking/home.md)
-* [Análise de texto](../text-analytics/overview.md)
+* [Vinculação de Identidade](../entitylinking/home.md)
+* [Análise de Texto](../text-analytics/overview.md)
 * [Emoção](../emotion/home.md)
-* [Visual Computacional](../computer-vision/home.md)
+* [Pesquisa Visual Computacional](../computer-vision/home.md)
 
 ## <a name="actions-represent-a-list-of-options"></a>As ações representam uma lista de opções
 

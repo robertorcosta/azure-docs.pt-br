@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 86314fd5bfe103cef8332ee3113f46fb0e39dafc
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4ffbe10a1f9a1629c74c144b8773a7de89890576
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836355"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132000"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Funções, permissões e segurança no Azure Monitor
 
@@ -27,10 +28,10 @@ Pessoas atribuídas à função de Leitor de monitoramento podem exibir todos os
 
 * Exibir painéis de monitoramentos no portal e criar seus próprios painéis de monitoramentos privados.
 * Exibir regras de alerta definidas nos [Alertas do Azure](alerts-overview.md)
-* Consultar métricas usando a [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), [os cmdlets do PowerShell](powershell-quickstart-samples.md) ou a [CLI de plataforma cruzada](../samples/cli-samples.md).
+* Consultar métricas usando a [API REST do Azure Monitor](/rest/api/monitor/metrics), [os cmdlets do PowerShell](../samples/powershell-samples.md) ou a [CLI de plataforma cruzada](../samples/cli-samples.md).
 * Consultar o Log de atividades usando o portal, a API REST do Azure Monitor, os cmdlets do PowerShell ou a CLI de plataforma cruzada.
 * Exibir as [configurações de diagnóstico](diagnostic-settings.md) para um recurso.
-* Exibir o [perfil de log](activity-log-export.md) para uma assinatura.
+* Exibir o [perfil de log](./activity-log.md#legacy-collection-methods) para uma assinatura.
 * Exibir as configurações de autoescala.
 * Exibir as configurações e a atividade do alerta.
 * Acessar os dados do Application Insights e exiba os dados na Análise de AI.
@@ -51,7 +52,7 @@ Pessoas atribuídas à função de Colaborador de monitoramento podem exibir tod
 
 * Publicra os painéis de monitoramentos como um painel compartilhado.
 * Definir as [configurações de diagnóstico](diagnostic-settings.md) para um recurso.\*
-* Definir o [perfil de log](activity-log-export.md) para uma assinatura.\*
+* Definir o [perfil de log](./activity-log.md#legacy-collection-methods) para uma assinatura.\*
 * Defina a atividade das regras de alerta e as configurações por meio dos [Alertas do Azure](alerts-overview.md).
 * Criar testes Web e componentes do Application Insights.
 * Listar as chaves compartilhadas do espaço de trabalho do Log Analytics.
@@ -66,8 +67,8 @@ Pessoas atribuídas à função de Colaborador de monitoramento podem exibir tod
 > 
 > 
 
-## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Monitoramento de permissões e funções RBAC personalizadas
-Se as funções internas acima não atenderem às necessidades exatas de sua equipe, você poderá [criar uma função personalizada de RBAC](../../role-based-access-control/custom-roles.md) com permissões mais granulares. A seguir estão as operações RBAC do Azure Monitor e suas descrições.
+## <a name="monitoring-permissions-and-azure-custom-roles"></a>Permissões de monitoramento e funções personalizadas do Azure
+Se as funções internas acima não atenderem às necessidades exatas de sua equipe, você poderá [criar uma função personalizada do Azure](../../role-based-access-control/custom-roles.md) com permissões mais granulares. A seguir estão as operações RBAC do Azure Monitor e suas descrições.
 
 | Operação | Descrição |
 | --- | --- |
@@ -96,7 +97,7 @@ Se as funções internas acima não atenderem às necessidades exatas de sua equ
 > 
 > 
 
-Por exemplo, usando a tabela acima, você pode criar uma função RBAC personalizada para um "Leitor de Log de atividades" como esta:
+Por exemplo, usando a tabela acima, você pode criar uma função personalizada do Azure para um "leitor de log de atividades" da seguinte maneira:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -125,7 +126,7 @@ Todos esses três tipos de dados podem ser armazenados em uma conta de armazenam
 * Não conceda a permissão de ListKeys para contas de armazenamento ou hubs de eventos no escopo de assinatura quando um usuário precisa apenas de acesso aos dados de monitoramento. Em vez disso, conceda essas permissões ao usuário a um escopo de recurso ou grupo de recursos (se você tiver um grupo de recursos de monitoramento dedicado).
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Limitando o acesso a contas de armazenamento relacionados ao monitoramento
-Quando um usuário ou aplicativo precisa de acesso aos dados de monitoramento em uma conta de armazenamento, você deve [gerar uma SAS da conta](https://msdn.microsoft.com/library/azure/mt584140.aspx) na conta de armazenamento que contém os dados de monitoramento com acesso somente leitura no nível de serviço para armazenamento de blobs. No PowerShell, isso pode ser semelhante a:
+Quando um usuário ou aplicativo precisa de acesso aos dados de monitoramento em uma conta de armazenamento, você deve [gerar uma SAS da conta](/rest/api/storageservices/create-account-sas) na conta de armazenamento que contém os dados de monitoramento com acesso somente leitura no nível de serviço para armazenamento de blobs. No PowerShell, isso pode ser semelhante a:
 
 ```powershell
 $context = New-AzStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
@@ -134,7 +135,7 @@ $token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permi
 
 Você pode fornecer o token para a entidade que precisa ler da conta de armazenamento e ele pode listar e ler todos os blobs na conta de armazenamento.
 
-Como alternativa, se você precisar controlar essa permissão com o RBAC, você pode conceder a essa entidade a permissão Microsoft.Storage/storageAccounts/listkeys/action nessa conta de armazenamento específica. Isso é necessário para os usuários que precisam ser capazes de definir uma configuração de diagnóstico ou de perfil de log para arquivar em uma conta de armazenamento. Por exemplo, você pode criar a seguinte função RBAC personalizada para um usuário ou aplicativo que precisa apenas da leitura de uma conta de armazenamento:
+Como alternativa, se você precisar controlar essa permissão com o RBAC, você pode conceder a essa entidade a permissão Microsoft.Storage/storageAccounts/listkeys/action nessa conta de armazenamento específica. Isso é necessário para os usuários que precisam ser capazes de definir uma configuração de diagnóstico ou de perfil de log para arquivar em uma conta de armazenamento. Por exemplo, você pode criar a seguinte função personalizada do Azure para um usuário ou aplicativo que só precisa ler de uma conta de armazenamento:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -188,5 +189,3 @@ Para saber mais, confira [Segurança de rede e Armazenamento do Azure](../../sto
 ## <a name="next-steps"></a>Próximas etapas
 * [Leia sobre RBAC e permissões no Gerenciador de Recursos](../../role-based-access-control/overview.md)
 * [Leia a visão geral do monitoramento no Azure](../../azure-monitor/overview.md)
-
-

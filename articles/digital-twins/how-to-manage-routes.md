@@ -7,30 +7,25 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 923ae652872246916b2a4c5e8be95871983dbe95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc22cf5a21709ccacafe068a60541cc9990d1131
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559827"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132255"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure
 
 No Azure digital gêmeos, você pode rotear [notificações de eventos](how-to-interpret-event-data.md) para serviços de downstream ou para se conectar aos recursos de computação. Isso é feito primeiro Configurando os **pontos de extremidade** que podem receber os eventos, seguidos pelas rotas de [**eventos**](concepts-route-events.md) que especificam quais eventos gerados pelo Azure digital gêmeos são entregues a quais pontos de extremidade.
 
 Os tipos de ponto de extremidade com suporte incluem:
-* [Hub de evento](../event-hubs/event-hubs-about.md)
+* [Hub de Evento](../event-hubs/event-hubs-about.md)
 * [Grade de Eventos](../event-grid/overview.md)
 * [Barramento de Serviço](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Para obter mais informações sobre os diferentes pontos de extremidade, consulte [escolher entre os serviços de mensagens do Azure](https://docs.microsoft.com/azure/event-grid/compare-messaging-services).
+Para obter mais informações sobre os diferentes pontos de extremidade, consulte [*escolher entre os serviços de mensagens do Azure*](https://docs.microsoft.com/azure/event-grid/compare-messaging-services).
 
 Os pontos de extremidade e as rotas são gerenciados com as [**APIs do EventRoutes**](how-to-use-apis-sdks.md), o [SDK do .net (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou a [CLI do gêmeos digital do Azure](how-to-use-cli.md). Eles também podem ser gerenciados por meio do [portal do Azure](https://portal.azure.com).
-
-> [!NOTE]
-> O gerenciamento de rotas de eventos por meio do portal do Azure está atualmente disponível apenas para usuários do Azure em contas de domínio corporativo. 
->
->Se você estiver usando um [MSA (conta Microsoft pessoal)](https://account.microsoft.com/account/Account), como uma @outlook.com conta, use as APIs ou a CLI do Azure digital gêmeos para gerenciar as rotas de eventos, conforme descrito neste artigo.
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Criar um ponto de extremidade para o gêmeos digital do Azure
 
@@ -70,7 +65,14 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 ## <a name="manage-event-routes-with-apis"></a>Gerenciar rotas de eventos com APIs
 
-Para realmente enviar dados do Azure digital gêmeos para um ponto de extremidade, você precisa definir uma rota de evento. As APIs do gêmeos **EventRoutes** do Azure digital permitem que os desenvolvedores conectem o fluxo de eventos, em todo o sistema e em serviços downstream. Leia mais sobre as rotas de eventos em [conceitos: roteamento de eventos do gêmeos digital do Azure](concepts-route-events.md).
+Para realmente enviar dados do Azure digital gêmeos para um ponto de extremidade, você precisa definir uma rota de evento. As APIs do gêmeos **EventRoutes** do Azure digital permitem que os desenvolvedores conectem o fluxo de eventos, em todo o sistema e em serviços downstream. Leia mais sobre as rotas de eventos em [*conceitos: roteamento de eventos do gêmeos digital do Azure*](concepts-route-events.md).
+
+Você pode prosseguir com a criação de uma rota de evento quando seus pontos de extremidade tiverem concluído a configuração.
+
+>[!NOTE]
+>Se você tiver implantado seus pontos de extremidade recentemente, valide que eles concluíram a implantação **antes** de tentar usá-los para uma nova rota de evento. Se a implantação de rota falhar porque os pontos de extremidade não estão prontos, aguarde alguns minutos e tente novamente.
+>
+> Se você estiver criando scripts para esse fluxo, talvez queira considerar isso criando em 2-3 minutos de tempo de espera para o serviço de ponto de extremidade concluir a implantação antes de passar para a instalação de rota.
 
 Os exemplos neste artigo usam o SDK do C#.
 
@@ -148,7 +150,7 @@ Aqui estão os filtros de rota com suporte.
 | Nome do filtro | Descrição | Filtrar esquema | Valores com suporte | 
 | --- | --- | --- | --- |
 | Tipo | O [tipo de evento](./concepts-route-events.md#types-of-event-messages) que flui pela sua instância de cópia digital | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
-| Origem | Nome da instância do gêmeos digital do Azure | `"filter" : "source = '<hostname>'"`|  **Para notificações**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Para telemetria**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
+| Fonte | Nome da instância do gêmeos digital do Azure | `"filter" : "source = '<hostname>'"`|  **Para notificações**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Para telemetria**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
 | Assunto | Uma descrição do evento no contexto da origem do evento acima | `"filter": " subject = '<subject>'"` | **Para notificações**: o assunto é`<twinid>` <br> ou um formato de URI para entidades, que são identificadas exclusivamente por várias partes ou IDs:<br>`<twinid>/relationships/<relationshipid>`<br> **Para telemetria**: o assunto é o caminho do componente (se a telemetria for emitida de um componente de entrelaçamento), como `comp1.comp2` . Se a telemetria não for emitida de um componente, o campo assunto estará vazio. |
 | Esquema de dados | ID do modelo DTDL | `"filter": "dataschema = 'dtmi:example:com:floor4;2'"` | **Para telemetria**: o esquema de dados é a ID do modelo de a/ou o componente que emite a telemetria <br>**Para notificações**: não há suporte para o esquema de dados|
 | Tipo de conteúdo | Tipo de conteúdo do valor de dados | `"filter": "datacontenttype = '<contentType>'"` | `application/json` |
@@ -174,7 +176,7 @@ Quando você implementa ou atualiza um filtro, a alteração pode levar alguns m
 
 ## <a name="manage-endpoints-and-routes-with-cli"></a>Gerenciar pontos de extremidade e rotas com a CLI
 
-Os pontos de extremidade e as rotas também podem ser gerenciados usando a CLI do Azure digital gêmeos. Os comandos podem ser encontrados em [How-to: Use the Azure digital gêmeos CLI](how-to-use-cli.md).
+Os pontos de extremidade e as rotas também podem ser gerenciados usando a CLI do Azure digital gêmeos. Os comandos podem ser encontrados em [*How-to: Use the Azure digital gêmeos CLI*](how-to-use-cli.md).
 
 ## <a name="monitor-event-routes"></a>Monitorar rotas de eventos
 
@@ -189,4 +191,4 @@ A partir daqui, você pode exibir as métricas para sua instância e criar exibi
 ## <a name="next-steps"></a>Próximas etapas
 
 Leia sobre os diferentes tipos de mensagens de evento que você pode receber:
-* [Como: interpretar dados de evento](how-to-interpret-event-data.md)
+* [*Como: interpretar dados de evento*](how-to-interpret-event-data.md)

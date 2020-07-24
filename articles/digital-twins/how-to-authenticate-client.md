@@ -1,101 +1,42 @@
 ---
-title: Autenticar um aplicativo cliente
+title: Gravar o código de autenticação do aplicativo
 titleSuffix: Azure Digital Twins
-description: Consulte como autenticar um aplicativo cliente no serviço de gêmeos digital do Azure.
+description: Consulte como escrever código de autenticação em um aplicativo cliente
 author: baanders
 ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e52307c92d9371af6479f64841c6f269ed10e4b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d235280ae4a600994eb93ec08c7a13630f9682f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390815"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131575"
 ---
-# <a name="authenticate-a-client-application-with-azure-digital-twins"></a>Autenticar um aplicativo cliente com o Azure digital gêmeos
+# <a name="write-client-app-authentication-code"></a>Gravar o código de autenticação do aplicativo cliente
 
-Depois de [criar uma instância do gêmeos digital do Azure](how-to-set-up-instance.md), você pode criar um aplicativo cliente que será usado para interagir com a instância do. Depois de configurar um projeto de cliente inicial, este artigo mostra como autenticar corretamente esse aplicativo cliente com a instância de gêmeos digital do Azure.
+Depois de [Configurar uma instância e autenticação do gêmeos digital do Azure](how-to-set-up-instance-scripted.md), você pode criar um aplicativo cliente que será usado para interagir com a instância do. Depois de configurar um projeto de cliente inicial, este artigo mostra **como escrever código nesse aplicativo cliente para autenticá-lo na** instância do gêmeos digital do Azure.
 
-Isso é feito em duas etapas:
-1. Criar o Registro do aplicativo
-2. Gravar código de autenticação em um aplicativo cliente
+Há duas abordagens para o código de exemplo neste artigo. Você pode usar o ideal para você, dependendo do idioma de sua escolha:
+* A primeira seção do código de exemplo usa o SDK do .NET do Azure digital gêmeos (C#). O SDK é parte do SDK do Azure para .NET e está localizado aqui: [*biblioteca de cliente do Azure IOT digital para .net*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
+* A segunda seção de código de exemplo é para os usuários que não usam o SDK do .NET e, em vez disso, usam SDKs gerados pelo REST em outras linguagens. Para obter mais informações sobre essa estratégia, consulte [*como criar SDKs personalizados para o Azure digital gêmeos com o REST*](how-to-create-custom-sdks.md).
 
-[!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
+Você também pode ler mais sobre as APIs e os SDKs do Azure digital gêmeos em [*como: usar as APIs e os SDKs do gêmeos digital do Azure*](how-to-use-apis-sdks.md).
 
-## <a name="create-an-app-registration"></a>Criar o Registro do aplicativo
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para autenticar no Azure digital gêmeos de um aplicativo cliente, você precisa configurar um **registro de aplicativo** no [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md).
+Primeiro, conclua as etapas de configuração em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-scripted.md). Isso garantirá que você tenha uma instância de gêmeos digital do Azure, seu usuário tem permissões de acesso e você configurou permissões para aplicativos cliente. Após toda essa configuração, você estará pronto para gravar o código do aplicativo cliente.
 
-Esse registro de aplicativo é onde você configura permissões de acesso para as [APIs do Azure digital gêmeos](how-to-use-apis-sdks.md). Seu aplicativo cliente é autenticado no registro do aplicativo e, como resultado, recebe as permissões de acesso configuradas para as APIs.
+Para continuar, você precisará de um projeto de aplicativo cliente no qual você escreva seu código. Se você ainda não tiver um projeto de aplicativo cliente configurado, crie um projeto básico em seu idioma de escolha para usar com este tutorial.
 
-Para criar um registro de aplicativo, você precisa fornecer as IDs de recurso para as APIs do gêmeos digital do Azure e as permissões de linha de base para a API. No diretório de trabalho, abra um novo arquivo e insira o seguinte trecho de JSON para configurar esses detalhes: 
+## <a name="authentication-and-client-creation-net-c-sdk"></a>Autenticação e criação de cliente: SDK do .NET (C#)
 
-```json
-[{
-    "resourceAppId": "0b07f429-9f4b-4714-9392-cc5e8e80c8b0",
-    "resourceAccess": [
-     {
-       "id": "4589bd03-58cb-4e6c-b17f-b580e39652f8",
-       "type": "Scope"
-     }
-    ]
-}]
-``` 
-
-Salve este arquivo como *manifest.jsem*.
-
-> [!NOTE] 
-> Há alguns lugares em que uma cadeia de caracteres "amigável", legível `https://digitaltwins.azure.net` por humanos, pode ser usada para a ID do aplicativo de recurso gêmeos digital do Azure em vez do GUID `0b07f429-9f4b-4714-9392-cc5e8e80c8b0` . Por exemplo, muitos exemplos em todo esse conjunto de documentação usam a autenticação com a biblioteca MSAL, e a cadeia de caracteres amigável pode ser usada para isso. No entanto, durante essa etapa da criação do registro do aplicativo, a forma de GUID da ID é necessária, como mostrado acima. 
-
-Na janela Cloud Shell, clique no ícone "carregar/baixar arquivos" e escolha "carregar".
-
-:::image type="content" source="media/how-to-authenticate-client/upload-extension.png" alt-text="Janela Cloud Shell mostrando a seleção da opção carregar":::
-Navegue até o *manifest.jsem* que você acabou de criar e pressione "abrir".
-
-Em seguida, execute o seguinte comando para criar um registro de aplicativo (substituindo espaços reservados, conforme necessário):
-
-```azurecli
-az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
-```
-
-A saída desse comando é semelhante a esta.
-
-:::image type="content" source="media/how-to-authenticate-client/new-app-registration.png" alt-text="Novo registro de aplicativo do AAD":::
-
-Depois de criar o registro do aplicativo, siga [este link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) para navegar até a página de visão geral do registro de aplicativo do AAD na portal do Azure.
-
-Nessa visão geral, selecione o registro do aplicativo que você acabou de criar na lista. Isso abrirá seus detalhes em uma página como esta:
-
-:::image type="content" source="media/how-to-authenticate-client/get-authentication-ids.png" alt-text="Portal do Azure: IDs de autenticação":::
-
-Anote a ID do *aplicativo (cliente)* e a *ID do diretório (locatário)* mostradas **na página.** Você usará esses valores posteriormente para autenticar um aplicativo cliente em relação às APIs do gêmeos digital do Azure.
-
-> [!NOTE]
-> Dependendo do seu cenário, talvez seja necessário fazer alterações adicionais no registro do aplicativo. Aqui estão alguns requisitos comuns que talvez você precise atender:
-> * Ativar acesso de cliente público
-> * Definir URLs de resposta específicas para acesso à Web e à área de trabalho
-> * Permitir fluxos de autenticação OAuth2 implícitos
-> * Se sua assinatura do Azure for criada usando um conta Microsoft como Live, Xbox ou hotmail, você precisará definir o *signInAudience* no registro do aplicativo para dar suporte a contas pessoais.
-> A maneira mais fácil de definir essas configurações é usar o [portal do Azure](https://portal.azure.com/). Para obter mais informações sobre esse processo, consulte [registrar um aplicativo com a plataforma de identidade da Microsoft](https://docs.microsoft.com/graph/auth-register-app-v2).
-
-## <a name="write-client-app-authentication-code-net-c-sdk"></a>Gravar o código de autenticação do aplicativo cliente: SDK do .NET (C#)
-
-Esta seção descreve o código que você precisará incluir no aplicativo cliente para concluir o processo de autenticação usando o SDK do .NET (C#).
-O SDK do Azure digital gêmeos C# faz parte do SDK do Azure para .NET. Ele está localizado aqui: [biblioteca de cliente do Azure IOT digital para .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
-
-### <a name="prerequisites"></a>Pré-requisitos
-
-Se você não tiver um projeto de aplicativo cliente inicial já configurado, crie um projeto .NET básico para usar com este tutorial.
-
-Para usar o SDK do .NET, você precisará incluir os seguintes pacotes em seu projeto:
+Primeiro, inclua os seguintes pacotes em seu projeto para usar o SDK do .NET e as ferramentas de autenticação para este "como":
 * `Azure.DigitalTwins.Core`(versão `1.0.0-preview.2` )
 * `Azure.Identity`
 
-Dependendo das ferramentas de sua escolha, você pode fazer isso com o Gerenciador de pacotes do Visual Studio ou a `dotnet` ferramenta de linha de comando. 
-
-### <a name="authentication-and-client-creation-net"></a>Autenticação e criação de cliente: .NET
+Dependendo das ferramentas de sua escolha, você pode incluir os pacotes usando o Gerenciador de pacotes do Visual Studio ou a `dotnet` ferramenta de linha de comando. 
 
 Para autenticar com o SDK do .NET, use um dos métodos de credencial-obtenção definidos na biblioteca [do Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) .
 
@@ -146,20 +87,22 @@ DigitalTwinsClientOptions opts =
 client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 ```
 
-Consulte [como: configurar uma função do Azure para processar dados](how-to-create-azure-function.md) para obter um exemplo mais completo que explica algumas das opções de configuração importantes no contexto de funções.
+Consulte [*como: configurar uma função do Azure para processar dados*](how-to-create-azure-function.md) para obter um exemplo mais completo que explica algumas das opções de configuração importantes no contexto de funções.
 
 Além disso, para usar a autenticação em uma função, lembre-se de:
-* [Habilitar identidade gerenciada](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
-* [Variáveis de ambiente](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables?tabs=csharp)
-* Atribua permissões ao aplicativo de funções que permite que ele acesse as APIs de gêmeos digital. Consulte [como: configurar uma função do Azure para processar dados](how-to-create-azure-function.md) para obter mais informações.
+* [Habilitar a identidade gerenciada](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
+* Usar [variáveis de ambiente](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables?tabs=csharp) conforme apropriado
+* Atribua permissões ao aplicativo de funções que permite que ele acesse as APIs de gêmeos digital. Para obter mais informações sobre processos de Azure Functions, consulte [*como: configurar uma função do Azure para processar dados*](how-to-create-azure-function.md).
 
-## <a name="authentication-in-an-autorest-generated-sdk"></a>Autenticação em um SDK gerado pelo REST
+## <a name="authentication-with-an-autorest-generated-sdk"></a>Autenticação com um SDK gerado pelo REST automaticamente
 
-Se você não estiver usando o .NET, poderá optar por criar uma biblioteca do SDK em uma linguagem de sua escolha, conforme descrito em [como: criar SDKs personalizados para o Azure digital gêmeos com o REST](how-to-create-custom-sdks.md).
+Se você não estiver usando o .NET, poderá optar por criar uma biblioteca do SDK em uma linguagem de sua escolha, conforme descrito em [*como: criar SDKs personalizados para o Azure digital gêmeos com o REST*](how-to-create-custom-sdks.md).
 
 Esta seção explica como autenticar nesse caso.
 
 ### <a name="prerequisites"></a>Pré-requisitos
+
+Primeiro, você deve concluir as etapas para criar um SDK personalizado com o recurso de REST, usando as etapas em [*como: criar SDKs personalizados para o Azure digital gêmeos com*](how-to-create-custom-sdks.md)o recurso de autorest.
 
 Este exemplo usa um SDK do typescript gerado com o REST. Como resultado, ele também requer:
 * [MSAL-js](https://github.com/AzureAD/microsoft-authentication-library-for-js)
@@ -167,7 +110,7 @@ Este exemplo usa um SDK do typescript gerado com o REST. Como resultado, ele tam
 
 ### <a name="minimal-authentication-code-sample"></a>Exemplo de código mínimo de autenticação
 
-Para autenticar um aplicativo .NET com os serviços do Azure, você pode usar o seguinte código mínimo dentro de seu aplicativo cliente.
+Para autenticar um aplicativo com os serviços do Azure, você pode usar o seguinte código mínimo dentro de seu aplicativo cliente.
 
 Você precisará da *ID do aplicativo (cliente)* e da *ID do diretório (locatário)* do anterior, bem como da URL da instância do gêmeos digital do Azure.
 
@@ -248,12 +191,12 @@ export async function login() {
 
 Observe novamente que, em que o código acima coloca a ID do cliente, a ID do locatário e a URL da instância diretamente no código para simplificar, é uma boa ideia fazer com que seu código obtenha esses valores de um arquivo de configuração ou uma variável de ambiente em vez disso.
 
-O MSAL tem muito mais opções que você pode usar para implementar coisas como cache e outros fluxos de autenticação. Para obter mais informações sobre isso, consulte [visão geral da biblioteca de autenticação da Microsoft (MSAL)](../active-directory/develop/msal-overview.md).
+O MSAL tem muito mais opções que você pode usar para implementar coisas como cache e outros fluxos de autenticação. Para obter mais informações sobre isso, consulte [*visão geral da biblioteca de autenticação da Microsoft (MSAL)*](../active-directory/develop/msal-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Leia mais sobre como funciona a segurança no Azure digital gêmeos:
-* [Conceitos: segurança para soluções de gêmeos digitais do Azure](concepts-security.md)
+* [*Conceitos: segurança para soluções de gêmeos digitais do Azure*](concepts-security.md)
 
 Ou, agora que a autenticação está configurada, vá para a criação de modelos na sua instância:
-* [Como: gerenciar modelos personalizados](how-to-manage-model.md)
+* [*Instruções: Gerenciar modelos personalizados*](how-to-manage-model.md)

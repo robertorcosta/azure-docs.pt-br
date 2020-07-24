@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: b5524d0612bf8f5d69979a8392f664e417c5f98d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 531a7fd8547130b4897f3dad0900e1c27fb7fe9a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808188"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132034"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Solucionar problemas de integridade de back-end no Gateway de Aplicativo
 ==================================================
@@ -176,7 +176,7 @@ Verifique também se algum NSG/UDR/firewall está bloqueando o acesso ao IP e à
 
 | **Erro** | **Ações** |
 | --- | --- |
-| Incompatibilidade de código de status de investigação: Recebido 401 | Verifique se o servidor back-end requer autenticação. As investigações do Gateway de Aplicativo não podem passar credenciais para autenticação neste momento. Permita que o código de status \"HTTP 401\" em investigação corresponda ou investigue um caminho em que o servidor não exija autenticação. | |
+| Incompatibilidade de código de status de investigação: Recebido 401 | Verifique se o servidor back-end requer autenticação. As investigações do gateway de aplicativo não podem passar credenciais para autenticação. Permita que o código de status \"HTTP 401\" em investigação corresponda ou investigue um caminho em que o servidor não exija autenticação. | |
 | Incompatibilidade de código de status de investigação: Recebido 403 | Acesso proibido. Verifique se o acesso ao caminho é permitido no servidor back-end. | |
 | Incompatibilidade de código de status de investigação: Recebido 404 | Página não encontrada. Verifique se o caminho do nome do host está acessível no servidor back-end. Altere o nome do host ou o parâmetro do caminho para um valor acessível. | |
 | Incompatibilidade de código de status de investigação: Recebido 405 | As solicitações de investigação do Gateway de Aplicativo usam o método HTTP GET. Verifique se o seu servidor permite esse método. | |

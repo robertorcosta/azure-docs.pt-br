@@ -4,11 +4,12 @@ description: Descreve como implantar um serviço em muitas regiões com o Azure 
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 006c123dfbb682ff5c498872d7f717a4a09e0bb5
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 27e8c9c0aa2ee86b490d266fc6ff76f263eee7ef
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057918"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130215"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Habilitar práticas de implantação segura com o Azure Deployment Manager (visualização pública)
 
@@ -36,7 +37,7 @@ Recursos adicionais:
 
 ## <a name="identity-and-access"></a>Identidade e acesso
 
-Com o Gerenciador de implantação, uma [atribuída ao usuário a identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) executa as ações de implantação. Você cria essa identidade antes de iniciar sua implantação. Deve ter acesso à assinatura para a qual você está implantando o serviço e permissão suficiente para concluir a implantação. Para obter informações sobre as ações concedidas por meio de funções, consulte [Funções internas dos recursos do Azure](../../role-based-access-control/built-in-roles.md).
+Com o Gerenciador de implantação, uma [atribuída ao usuário a identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) executa as ações de implantação. Você cria essa identidade antes de iniciar sua implantação. Deve ter acesso à assinatura para a qual você está implantando o serviço e permissão suficiente para concluir a implantação. Para obter informações sobre as ações concedidas por meio de funções, consulte [funções internas do Azure](../../role-based-access-control/built-in-roles.md).
 
 A identidade deve residir no mesmo local que a distribuição.
 

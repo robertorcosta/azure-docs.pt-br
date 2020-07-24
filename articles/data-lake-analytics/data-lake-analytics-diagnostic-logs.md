@@ -3,16 +3,14 @@ title: Habilitar e exibir logs de diagnóstico para o Azure Data Lake Analytics
 description: Entenda como configurar e acessar os logs de diagnóstico do Azure Data Lake Analytics
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: jasonwhowell
-ms.author: jasonh
 ms.topic: how-to
 ms.date: 02/12/2018
-ms.openlocfilehash: 9d389c433cb8a049671668cb58b3d80691ff0d16
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c8c24134c4694a9a2df36ac278452a532a5125ad
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121428"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132595"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acessando os logs de diagnóstico do Azure Data Lake Analytics
 
@@ -128,28 +126,28 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 
 #### <a name="request-log-schema"></a>Esquema do log de solicitação
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
-| time |String |O carimbo de data/hora (em UTC) do log |
-| resourceId |String |O identificador do recurso em que a operação ocorreu |
-| category |String |A categoria do log. Por exemplo, **Solicitações**. |
-| operationName |String |Nome da operação que está registrada. Por exemplo, GetAggregatedJobHistory. |
-| resultType |String |O status da operação, por exemplo, 200. |
-| callerIpAddress |String |O endereço IP do cliente que está fazendo a solicitação |
-| correlationId |String |O identificador do log. Esse valor pode ser usado para agrupar um conjunto de entradas de log relacionadas. |
+| time |Cadeia de caracteres |O carimbo de data/hora (em UTC) do log |
+| resourceId |Cadeia de caracteres |O identificador do recurso em que a operação ocorreu |
+| category |Cadeia de caracteres |A categoria do log. Por exemplo, **Solicitações**. |
+| operationName |Cadeia de caracteres |Nome da operação que está registrada. Por exemplo, GetAggregatedJobHistory. |
+| resultType |Cadeia de caracteres |O status da operação, por exemplo, 200. |
+| callerIpAddress |Cadeia de caracteres |O endereço IP do cliente que está fazendo a solicitação |
+| correlationId |Cadeia de caracteres |O identificador do log. Esse valor pode ser usado para agrupar um conjunto de entradas de log relacionadas. |
 | identidade |Objeto |A identidade que gerou o log |
 | properties |JSON |Veja a próxima seção (Esquema de propriedades do log de solicitação) para obter detalhes |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades do log de solicitação
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
-| HttpMethod |String |O método HTTP usado para a operação. Por exemplo, GET. |
-| Caminho |String |O caminho em que a operação foi executada |
+| HttpMethod |Cadeia de caracteres |O método HTTP usado para a operação. Por exemplo, GET. |
+| Caminho |Cadeia de caracteres |O caminho em que a operação foi executada |
 | RequestContentLength |INT |O comprimento do conteúdo da solicitação HTTP |
-| ClientRequestId |String |O identificador que identifica essa solicitação com exclusividade |
-| StartTime |String |A hora em que o servidor recebeu a solicitação |
-| EndTime |String |A hora em que o servidor enviou uma resposta |
+| ClientRequestId |Cadeia de caracteres |O identificador que identifica essa solicitação com exclusividade |
+| StartTime |Cadeia de caracteres |A hora em que o servidor recebeu a solicitação |
+| EndTime |Cadeia de caracteres |A hora em que o servidor enviou uma resposta |
 
 ### <a name="audit-logs"></a>Logs de auditoria
 
@@ -178,15 +176,15 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### <a name="audit-log-schema"></a>Esquema do log de auditoria
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
-| time |String |O carimbo de data/hora (em UTC) do log |
-| resourceId |String |O identificador do recurso em que a operação ocorreu |
-| category |String |A categoria do log. Por exemplo, **Auditoria**. |
-| operationName |String |Nome da operação que está registrada. Por exemplo, JobSubmitted. |
-| resultType |String |Um substatus para o status do trabalho (operationName). |
-| resultSignature |String |Detalhes adicionais sobre o status do trabalho (operationName). |
-| identidade |String |O usuário que solicitou a operação. Por exemplo, susan@contoso.com. |
+| time |Cadeia de caracteres |O carimbo de data/hora (em UTC) do log |
+| resourceId |Cadeia de caracteres |O identificador do recurso em que a operação ocorreu |
+| category |Cadeia de caracteres |A categoria do log. Por exemplo, **Auditoria**. |
+| operationName |Cadeia de caracteres |Nome da operação que está registrada. Por exemplo, JobSubmitted. |
+| resultType |Cadeia de caracteres |Um substatus para o status do trabalho (operationName). |
+| resultSignature |Cadeia de caracteres |Detalhes adicionais sobre o status do trabalho (operationName). |
+| identidade |Cadeia de caracteres |O usuário que solicitou a operação. Por exemplo, susan@contoso.com. |
 | properties |JSON |Veja a próxima seção (Esquema de propriedades do log de auditoria) para obter detalhes |
 
 > [!NOTE]
@@ -196,15 +194,15 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades do log de auditoria
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
-| JobId |String |A ID atribuída ao trabalho |
-| JobName |String |O nome fornecido para o trabalho |
-| JobRunTime |String |O runtime usado para processar o trabalho |
-| SubmitTime |String |A hora (em UTC) em que o trabalho foi enviado |
-| StartTime |String |A hora em que o trabalho começou a ser executado após o envio (em UTC) |
-| EndTime |String |A hora em que o trabalho foi concluído |
-| Paralelismo |String |O número de unidades do Data Lake Analytics solicitadas para esse trabalho durante o envio |
+| JobId |Cadeia de caracteres |A ID atribuída ao trabalho |
+| JobName |Cadeia de caracteres |O nome fornecido para o trabalho |
+| JobRunTime |Cadeia de caracteres |O runtime usado para processar o trabalho |
+| SubmitTime |Cadeia de caracteres |A hora (em UTC) em que o trabalho foi enviado |
+| StartTime |Cadeia de caracteres |A hora em que o trabalho começou a ser executado após o envio (em UTC) |
+| EndTime |Cadeia de caracteres |A hora em que o trabalho foi concluído |
+| Paralelismo |Cadeia de caracteres |O número de unidades do Data Lake Analytics solicitadas para esse trabalho durante o envio |
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime** e **Parallelism** fornecem informações sobre uma operação. Essas entradas contêm um valor apenas se operação tiver sido iniciada ou concluída. Por exemplo, **SubmitTime** somente contém um valor após **operationName** ter o valor **JobSubmitted**.

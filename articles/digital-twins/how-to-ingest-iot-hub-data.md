@@ -7,11 +7,12 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 351f7ed131d545d2aa83df753cac3f26e76e4ccb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c73f007f85a963a09de4e05222082fd52f784c0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725844"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131558"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingerir telemetria do Hub IoT no gêmeos digital do Azure
 
@@ -41,7 +42,7 @@ Este cenário é descrito em um diagrama abaixo:
 
 Antes de continuar com este exemplo, você precisará concluir os seguintes pré-requisitos.
 1. Crie um Hub IoT. Consulte a seção *criar um hub IOT* deste [início rápido do Hub IOT](../iot-hub/quickstart-send-telemetry-cli.md) para obter instruções.
-2. Crie pelo menos uma função do Azure para processar eventos do Hub IoT. Consulte [como: configurar uma função do Azure para processar dados](how-to-create-azure-function.md) para criar uma função básica do Azure que pode se conectar ao Azure digital gêmeos e chamar funções da API gêmeos do Azure digital. O restante deste "como" será criado nessa função.
+2. Crie pelo menos uma função do Azure para processar eventos do Hub IoT. Consulte [*como: configurar uma função do Azure para processar dados*](how-to-create-azure-function.md) para criar uma função básica do Azure que pode se conectar ao Azure digital gêmeos e chamar funções da API gêmeos do Azure digital. O restante deste "como" será criado nessa função.
 3. Configure um destino de evento para dados de Hub. Na [portal do Azure](https://portal.azure.com/), navegue até a instância do Hub IOT. Em *eventos*, crie uma assinatura para sua função do Azure. 
 
     :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Portal do Azure: adicionar uma assinatura de evento":::
@@ -54,7 +55,7 @@ Antes de continuar com este exemplo, você precisará concluir os seguintes pré
 
 ## <a name="create-an-azure-function-in-visual-studio"></a>Criar uma função do Azure no Visual Studio
 
-Esta seção usa as mesmas etapas de inicialização do Visual Studio e o esqueleto do Azure function de [como: configurar uma função do Azure para processar dados](how-to-create-azure-function.md). O esqueleto manipula a autenticação e cria um cliente de serviço, pronto para processar dados e chamar as APIs do Azure digital gêmeos em resposta. 
+Esta seção usa as mesmas etapas de inicialização do Visual Studio e o esqueleto do Azure function de [*como: configurar uma função do Azure para processar dados*](how-to-create-azure-function.md). O esqueleto manipula a autenticação e cria um cliente de serviço, pronto para processar dados e chamar as APIs do Azure digital gêmeos em resposta. 
 
 O coração da função de esqueleto é:
 
@@ -267,9 +268,9 @@ Agora você tem uma função do Azure que é equipada para ler e interpretar os 
 
 ## <a name="debug-azure-function-apps-locally"></a>Depurar aplicativos de funções do Azure localmente
 
-É possível depurar o Azure Functions com um gatilho de grade de eventos localmente. Para obter mais informações sobre isso, consulte [depurar o gatilho de grade de eventos localmente](../azure-functions/functions-debug-event-grid-trigger-local.md).
+É possível depurar o Azure Functions com um gatilho de grade de eventos localmente. Para obter mais informações sobre isso, consulte [*depurar o gatilho de grade de eventos localmente*](../azure-functions/functions-debug-event-grid-trigger-local.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Leia sobre entrada e saída de dados com o Azure digital gêmeos:
-* [Conceitos: integração com outros serviços](concepts-integration.md)
+* [*Conceitos: integração com outros serviços*](concepts-integration.md)

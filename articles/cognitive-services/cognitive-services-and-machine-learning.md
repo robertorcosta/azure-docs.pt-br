@@ -3,18 +3,16 @@ title: Serviços e Machine Learning cognitivas
 titleSuffix: Azure Cognitive Services
 description: Veja como os Serviços Cognitivos do Azure se enquadram com outras ofertas do Azure para aprendizado de máquina.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.author: diberry
-ms.openlocfilehash: c8480557d0f27594fa369e4e2451a5d0fe7ad3cc
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 0b034d0135c66852b07e0a2ed2fd69e8c3fdc4a6
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856728"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132833"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Serviços Cognitivos e aprendizado de máquina
 
@@ -25,8 +23,8 @@ Os [Serviços cognitivas](welcome.md) são um grupo de serviços, cada um oferec
 |Categoria de serviço|Finalidade|
 |--|--|
 |[Decisão](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Crie aplicativos que apresentam recomendações para tomada de decisão eficiente e informada.|
-|[Idioma](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Permita que os aplicativos processem idioma natural com scripts pré-criados, avaliem sentimentos e saibam como reconhecer o que os usuários desejam.|
-|[Pesquisar](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Adicione APIs de Pesquisa do Bing aos aplicativos e aproveite a capacidade para vasculhar bilhões de páginas da Web, imagens, vídeos e notícias com uma única chamada à API.|
+|[Idioma](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Permita que seus aplicativos processem idioma natural com scripts pré-criados, avalie sentimentos e aprenda a reconhecer o que os usuários desejam.|
+|[Pesquisar](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Adicione APIs de Pesquisa do Bing a seus aplicativos e aproveite a capacidade de vasculhar bilhões de páginas da Web, imagens, vídeos e notícias com uma única chamada à API.|
 |[Controle por voz](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Converta fala em texto e texto em fala de som natural. Traduza de um idioma para outro e habilite o reconhecimento e a verificação do locutor.|
 |[Visão](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Reconheça, identifique, legende, indexe e modere suas imagens, vídeos e conteúdo de tinta digital.|
 ||||
@@ -40,7 +38,7 @@ Use outra solução de aprendizado de máquina quando você:
 
 * É necessário escolher o algoritmo e precisar treinar dados muito específicos.
 
-## <a name="what-is-machine-learning"></a>O que aprendizado da máquina?
+## <a name="what-is-machine-learning"></a>O que é o aprendizado de máquina?
 
 O aprendizado de máquina é um conceito em que você reúne dados e um algoritmo para resolver uma necessidade específica. Depois que os dados e o algoritmo são treinados, a saída é um modelo que você pode usar novamente com dados diferentes. O modelo treinado fornece informações com base nos novos dados. 
 
@@ -91,7 +89,7 @@ Os dados a seguir categorizam cada serviço de acordo com o tipo de dados que el
 
 |Serviço cognitiva|Nenhum dado de treinamento necessário|Você fornece alguns ou todos os dados de treinamento|Coleta de dados em tempo real ou quase em tempo real|
 |--|--|--|--|
-|[Detector de anomalias](./Anomaly-Detector/overview.md)|x|x|x|
+|[Detector de Anomalias](./Anomaly-Detector/overview.md)|x|x|x|
 |Pesquisa do Bing |x|||
 |[Pesquisa Visual Computacional](./Computer-vision/Home.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
@@ -100,7 +98,7 @@ Os dados a seguir categorizam cada serviço de acordo com o tipo de dados que el
 |[Reconhecimento de Formulários](./form-recognizer/overview.md)||x||
 |[Leitura Avançada](./immersive-reader/overview.md)|x|||
 |[Reconhecimento de Tinta Digital](./Ink-recognizer/overview.md)|x|x||
-|[Reconhecimento Vocal (LUIS)](./LUIS/what-is-luis.md)||x||
+|[Reconhecimento vocal (LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalizador](./personalizer/what-is-personalizer.md)|x*|x*|x|
 |[O QnA Maker](./QnAMaker/Overview/overview.md)||x||
 |[Reconhecedor do palestrante](./speaker-recognition/home.md)||x||

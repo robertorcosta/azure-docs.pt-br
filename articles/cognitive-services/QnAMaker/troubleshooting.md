@@ -3,13 +3,12 @@ title: Solução de problemas-QnA Maker
 description: A lista organizada das perguntas mais frequentes sobre o serviço de QnA Maker ajudará você a adotar o serviço mais rapidamente e com melhores resultados.
 ms.topic: troubleshooting
 ms.date: 03/25/2020
-ms.author: diberry
-ms.openlocfilehash: 7847e21dbcf07f669d6802fffdd1e43623a72340
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec994677b17ee21dbf4ee6091be3bdf943572b2e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804343"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131983"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Solução de problemas para QnA Maker
 
@@ -30,7 +29,7 @@ Saiba mais sobre os [tipos de preço](Concepts/azure-resources.md).
 <details>
 <summary><b>Como obter o ponto de extremidade de serviço QnAMaker</b></summary>
 
-**Resposta**: o ponto de extremidade de serviço QnAMaker é útil para fins de depuração quando você entra em contato com o suporte do QnAMaker ou UserVoice. O ponto de extremidade é uma URL neste formato `https://your-resource-name.azurewebsites.net`:.
+**Resposta**: o ponto de extremidade de serviço QnAMaker é útil para fins de depuração quando você entra em contato com o suporte do QnAMaker ou UserVoice. O ponto de extremidade é uma URL neste formato: `https://your-resource-name.azurewebsites.net` .
 
 1. Acesse o serviço do QnAMaker (grupo de recursos) no [portal do Azure](https://portal.azure.com)
 
@@ -209,12 +208,12 @@ Se você tiver conteúdo de vários idiomas, crie um serviço separado para cada
 1. Enquanto ainda estiver no serviço de aplicativo, selecione **ferramentas de desenvolvimento**, depois **ferramentas avançadas**e, em seguida, **vá**. Isso abre uma nova janela do navegador.
 1. Selecione **console de depuração**e, em seguida, **cmd** para abrir uma ferramenta de linha de comando.
 1. Navegue até o diretório _site/wwwroot/data/QnAMaker/_ .
-1. Remova todas as pastas cujo nome começa com `rd`.
+1. Remova todas as pastas cujo nome começa com `rd` .
 
     **Não exclua** o seguinte:
 
-    * Arquivo KbIdToRankerMappings. txt
-    * Arquivo EndpointSettings. JSON
+    * Arquivo de KbIdToRankerMappings.txt
+    * EndpointSettings.jsno arquivo
     * Pasta EndpointKeys
 
 1. Inicie o serviço de aplicativo.
@@ -244,12 +243,12 @@ Se você tiver conteúdo de vários idiomas, crie um serviço separado para cada
 **Resposta**: você precisa ter as seguintes informações sobre sua base de dados de conhecimento:
 
 * ID da base de dados de conhecimento.
-* O nome de subdomínio personalizado do ponto de extremidade publicado da `host`base de dados de conhecimento, conhecido como, encontrado na página de **configurações** após a publicação.
+* O nome de subdomínio personalizado do ponto de extremidade publicado da base de dados de conhecimento, conhecido como `host` , encontrado na página de **configurações** após a publicação.
 * Chave de ponto de extremidade publicada da base de dados de conhecimento-encontrada na página de **configurações** após a publicação.
 
 Com essas informações, vá para o serviço de aplicativo do bot no portal do Azure. Em **configurações-> configuração – > configurações do aplicativo**, altere esses valores.
 
-A chave do ponto de extremidade da base de `QnAAuthkey` dados de conhecimento é rotulada no serviço ABS.
+A chave do ponto de extremidade da base de dados de conhecimento é rotulada `QnAAuthkey` no serviço ABS.
 
 </details>
 

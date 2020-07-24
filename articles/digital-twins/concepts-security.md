@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0a1447e64b606170601e6df6a443f53e3132294d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ec681d0af132d11e18703dce6105352651a70180
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522254"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131609"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Proteger o gêmeos digital do Azure com o controle de acesso baseado em função
 
@@ -35,7 +35,7 @@ A etapa de autenticação requer que qualquer solicitação de aplicativo conten
 
 A etapa de autorização requer que uma função RBAC seja atribuída à entidade de segurança. As funções atribuídas a uma entidade de segurança determinam as permissões que o principal terá. O Azure digital gêmeos fornece funções RBAC que abrangem conjuntos de permissões para recursos do gêmeos digital do Azure. Essas funções são descritas posteriormente neste artigo.
 
-Para saber mais sobre funções e atribuições de função com suporte no Azure, confira [entender as diferentes funções](../role-based-access-control/rbac-and-directory-admin-roles.md) na documentação do RBAC do Azure.
+Para saber mais sobre funções e atribuições de função com suporte no Azure, confira [*entender as diferentes funções*](../role-based-access-control/rbac-and-directory-admin-roles.md) na documentação do RBAC do Azure.
 
 ### <a name="authentication-with-managed-identities"></a>Autenticação com identidades gerenciadas
 
@@ -46,19 +46,19 @@ Com identidades gerenciadas, a plataforma do Azure gerencia essa identidade de r
 ### <a name="authorization-rbac-roles-for-azure-digital-twins"></a>Autorização: funções RBAC para o gêmeos digital do Azure
 
 O Azure fornece as funções RBAC internas abaixo para autorizar o acesso a um recurso de gêmeos digital do Azure:
-* Proprietário do gêmeos digital do Azure (versão prévia) – Use essa função para fornecer acesso completo nos recursos do gêmeos digital do Azure.
-* Leitor de gêmeos digital do Azure (versão prévia) – Use essa função para conceder acesso somente leitura aos recursos do gêmeos digital do Azure.
+* *Proprietário do gêmeos digital do Azure (versão prévia)* – Use essa função para fornecer acesso completo nos recursos do gêmeos digital do Azure.
+* *Leitor de gêmeos digital do Azure (versão prévia)* – Use essa função para conceder acesso somente leitura aos recursos do gêmeos digital do Azure.
 
 > [!TIP]
-> A função leitor de gêmeos digital do Azure (versão prévia) agora também dá suporte a relações de navegação.
+> A função *leitor de gêmeos digital do Azure (versão prévia)* agora também dá suporte a relações de navegação.
 
-Para obter mais informações sobre como as funções internas são definidas, consulte [entender as definições de função](../role-based-access-control/role-definitions.md) na documentação do RBAC do Azure. Para obter informações sobre como criar funções RBAC personalizadas, consulte [funções personalizadas para recursos do Azure](../role-based-access-control/custom-roles.md).
+Para obter mais informações sobre como as funções internas são definidas, consulte [*entender as definições de função*](../role-based-access-control/role-definitions.md) na documentação do RBAC do Azure. Para obter informações sobre como criar funções personalizadas do Azure, consulte [*funções personalizadas do Azure*](../role-based-access-control/custom-roles.md).
 
 Você pode atribuir funções de duas maneiras:
-* por meio do painel controle de acesso (IAM) para o gêmeos digital do Azure no portal do Azure (consulte [Adicionar ou remover atribuições de função usando o RBAC do Azure e o portal do Azure](../role-based-access-control/role-assignments-portal.md))
+* por meio do painel controle de acesso (IAM) para o gêmeos digital do Azure no portal do Azure (consulte [*Adicionar ou remover atribuições de função usando o RBAC do Azure e o portal do Azure*](../role-based-access-control/role-assignments-portal.md))
 * por meio de comandos da CLI para adicionar ou remover uma função
 
-Para obter etapas mais detalhadas sobre como fazer isso, experimente no [tutorial do gêmeos digital do Azure: *conectar uma solução de ponta a ponta*](tutorial-end-to-end.md).
+Para obter etapas mais detalhadas sobre como fazer isso, experimente no tutorial do gêmeos digital do Azure [*: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md).
 
 ## <a name="permission-scopes"></a>Escopos de permissão
 
@@ -71,8 +71,14 @@ A lista a seguir descreve os níveis nos quais você pode fazer o escopo de aces
 * Relação de gêmeos digital: as ações para esse recurso definem o controle sobre as operações CRUD em [relações](concepts-twins-graph.md) entre digital no grafo de entrelaçamento.
 * Rota de eventos: as ações para este recurso determinam as permissões para [rotear eventos](concepts-route-events.md) do Azure digital gêmeos para um serviço de ponto de extremidade como [Hub de eventos](../event-hubs/event-hubs-about.md), [grade de eventos](../event-grid/overview.md)ou barramento de [serviço](../service-bus-messaging/service-bus-messaging-overview.md).
 
+## <a name="troubleshooting"></a>Solução de problemas
+
+Se um usuário tentar executar uma ação não permitida por sua função, ele poderá receber um erro da leitura da solicitação de serviço `403 (Forbidden)` . Para obter mais informações e etapas de solução de problemas, consulte [*solução de problemas: falha na solicitação do Azure digital gêmeos com o status: 403 (proibido)*](troubleshoot-error-403.md).
+
 ## <a name="next-steps"></a>Próximas etapas
 
-* Veja como percorrer essas etapas com um aplicativo cliente de exemplo em [*como autenticar um aplicativo cliente*](how-to-authenticate-client.md).
+* Veja esses conceitos em ação em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-scripted.md).
+
+* Veja como interagir com esses conceitos do código do aplicativo cliente em [*como: escrever o código de autenticação do aplicativo*](how-to-authenticate-client.md).
 
 * Leia mais sobre o [RBAC para Azure](../role-based-access-control/overview.md).

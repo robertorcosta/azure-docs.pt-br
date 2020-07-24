@@ -2,17 +2,15 @@
 title: Criar & Azure Data Lake Analytics de consulta-CLI do Azure
 description: Aprenda a usar a Interface de linha de comando do Azure para criar uma conta do Azure Data Lake Analytics e enviar uma tarefa do U-SQL.
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: e8de36cca8386ed2a8ddba5782b7b48f248192e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44648f1c01aed221e90029eb64d48576b899b1c4
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564833"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132578"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Introdução ao Azure Data Lake Analytics usando a CLI do Azure
 
@@ -64,7 +62,7 @@ az group create --name "<Resource Group Name>" --location "<Azure Location>"
 ```
 
 * **Nome da conta de data Lake Analytics**. Cada conta do Data Lake Analytics tem um nome.
-* **Local**. Use um dos datacenters do Azure que dá suporte ao Data Lake Analytics.
+* **Localização**. Use um dos datacenters do Azure que dá suporte ao Data Lake Analytics.
 * **Conta padrão do Data Lake Store**: cada conta do Data Lake Analytics tem uma conta padrão do Data Lake Store.
 
 Para listar a conta existente do Data Lake Store:

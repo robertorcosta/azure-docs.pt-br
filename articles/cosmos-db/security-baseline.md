@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e5c57ba56ce236bcf07478e1784eec6d4c632d1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca54cb44618da1ff92b12b3ad918da513ab2be2f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195240"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131813"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Linha de base de segurança do Azure para Cosmos DB
 
@@ -78,7 +78,7 @@ Configurar compartilhamento de recursos entre origens:https://docs.microsoft.com
 
 Habilite a proteção contra DDoS Standard nas redes virtuais associadas às suas instâncias de Azure Cosmos DB para proteger contra ataques de DDoS. Use a inteligência contra ameaças integrada da Central de Segurança do Azure para negar comunicações com endereços IP da Internet maliciosos conhecidos ou não usados.
 
-Como configureAzure Cosmos DB proteção avançada contra ameaças:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
+Como configurar Azure Cosmos DB proteção avançada contra ameaças:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
 
 Como configurar a proteção contra DDoS: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
@@ -121,7 +121,7 @@ Como configurar Cosmos DB proteção avançada contra ameaças:https://docs.micr
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: Minimizar a complexidade e a sobrecarga administrativa de regras de segurança de rede
 
-**Diretrizes**: para recursos que precisam de acesso à sua conta do Azure Cosmos, use marcas de serviço de rede virtual para definir controles de acesso à rede no securitygGroups de rede ou no firewall do Azure. Você pode usar marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (por exemplo, AzureCosmosDB) no campo de origem ou destino apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços.
+**Diretrizes**: para recursos que precisam de acesso à sua conta do Azure Cosmos, use marcas de serviço de rede virtual para definir controles de acesso de rede em grupos de segurança de rede ou no firewall do Azure. Você pode usar marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (por exemplo, AzureCosmosDB) no campo de origem ou destino apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços.
 
 Para obter mais informações sobre como usar as marcas de serviço: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 

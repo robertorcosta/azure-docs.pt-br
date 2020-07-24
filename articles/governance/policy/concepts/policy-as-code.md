@@ -1,14 +1,14 @@
 ---
 title: Projetar os fluxos de trabalho da Política como código
 description: Aprenda a criar fluxos de trabalho para implantar suas definições do Azure Policy como código e validar automaticamente os recursos.
-ms.date: 05/20/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 17964459c6c06e6d7df09da4d3f0813350f209ec
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 02ff979feac1afb5f1664e6387e0abcde69b60eb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970936"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131490"
 ---
 # <a name="design-policy-as-code-workflows"></a>Projetar os fluxos de trabalho da Política como código
 
@@ -20,6 +20,24 @@ ms.locfileid: "85970936"
 A Política como Código é a combinação dessas ideias. Essencialmente, mantenha suas definições de política no controle do código-fonte e sempre que uma alteração for feita, teste e valide essa alteração. No entanto, isso não deve ser a extensão do envolvimento das políticas com a Infraestrutura como Código ou DevOps.
 
 A etapa de validação também deve ser um componente de outros fluxos de trabalho de integração contínua ou de implantação contínua. Os exemplos incluem a implantação de um ambiente de aplicativo ou de uma infraestrutura virtual. Ao fazer Azure Policy validação de um componente inicial do processo de compilação e implantação, as equipes de aplicativos e operações descobrirão se suas alterações não estiverem em conformidade, muito tempo antes que elas sejam muito atrasadas e estejam tentando implantar na produção.
+
+## <a name="definitions-and-foundational-information"></a>Definições e informações básicas
+
+Antes de entrar nos detalhes da política como fluxo de trabalho de código, examine as seguintes definições e exemplos:
+
+- [Definição de política](./definition-structure.md)
+- [Definição de iniciativa](./initiative-definition-structure.md)
+
+Os nomes de arquivo se alinham a partes da definição de política ou iniciativa:
+- `policy(set).json`-Toda a definição
+- `policy(set).parameters.json`-A `properties.parameters` parte da definição
+- `policy.rules.json`-A `properties.policyRule` parte da definição
+- `policyset.definitions.json`-A `properties.policyDefinitions` parte da definição
+
+Exemplos desses formatos de arquivo estão disponíveis no [repositório GitHub Azure Policy](https://github.com/Azure/azure-policy/):
+
+- Definição de política: [Adicionar uma marca aos recursos](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
+- Definição de iniciativa: [marcas de cobrança](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
 
 ## <a name="workflow-overview"></a>Visão geral do fluxo de trabalho
 

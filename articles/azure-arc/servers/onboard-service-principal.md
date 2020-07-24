@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/04/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: ac6a00efa7db848e4c05703c81ba835fbf5f77e3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7ac04b29853ce0d4f6ac4004bdfad4effd283170
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103782"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132986"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Conectar computadores híbridos ao Azure em escala
 
@@ -76,7 +76,7 @@ A função **Integração do Azure Connected Machine** contém apenas as permiss
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>Instalar o agente e conectar-se ao Azure
 
-As etapas a seguir instalam e configuram o agente do Connected Machine nos computadores híbridos, usando o modelo de script que executa etapas semelhantes descritas no artigo [Conectar computadores híbridos ao Azure no portal do Azure](onboard-portal.md). A diferença está na etapa final em que você estabelece a conexão com o Azure Arc usando o comando `azcmagent` com a entidade de serviço. 
+As etapas a seguir instalam e configuram o agente do Connected Machine nos computadores híbridos, usando o modelo de script que executa etapas semelhantes descritas no artigo [Conectar computadores híbridos ao Azure no portal do Azure](onboard-portal.md). A diferença está na etapa final em que você estabelece a conexão com o Azure Arc usando o comando `azcmagent` com a entidade de serviço.
 
 Estas são as configurações do comando `azcmagent` a ser usado para a entidade de serviço.
 
@@ -110,6 +110,10 @@ msiexec /i AzureConnectedMachineAgent.msi /l*v installationlog.txt /qn | Out-Str
   --subscription-id "{subscriptionID}"
 ```
 
+>[!NOTE]
+>O script só dá suporte à execução de uma versão de 64 bits do Windows PowerShell.
+>
+
 ### <a name="linux-installation-script"></a>Script de instalação do Linux
 
 Este é um exemplo do script de instalação do agente do Connected Machine para Linux que foi modificado para usar a entidade de serviço, a fim de oferecer suporte a uma instalação totalmente automatizada e não interativa do agente.
@@ -131,12 +135,15 @@ azcmagent connect \
   --subscription-id "{subscriptionID}"
 ```
 
+>[!NOTE]
+>Você deve ter permissões de acesso à *raiz* em computadores Linux para executar o **azcmagent**.
+
 Depois de instalar o agente e configurá-lo para se conectar ao Azure Arc para servidores (versão prévia), acesse o portal do Azure para verificar se o servidor foi conectado com êxito. Veja seus computadores no [portal do Azure](https://aka.ms/hybridmachineportal).
 
 ![Uma conexão de servidor bem-sucedida](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como gerenciar seu computador usando o [Azure Policy](../../governance/policy/overview.md) para itens como [configuração de convidados](../../governance/policy/concepts/guest-configuration.md) de VM, verificando se o computador está relatando ao workspace do Log Analytics esperado, habilitar o monitoramento com o [Azure Monitor em VMs](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md) e muito mais.
+- Saiba como gerenciar seu computador usando o [Azure Policy](../../governance/policy/overview.md) para itens como [configurar convidados](../../governance/policy/concepts/guest-configuration.md) de VM, verificar se o computador está relatando ao workspace do Log Analytics esperado, habilitar o monitoramento com o [Azure Monitor em VMs](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md) e muito mais.
 
 - Saiba mais sobre o [Agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). O agente do Log Analytics para Windows e Linux é necessário quando você deseja monitorar proativamente o sistema operacional e as cargas de trabalho em execução no computador, o gerencia usando os runbooks de automação ou soluções como o Gerenciamento de Atualizações ou usa outros serviços do Azure como a [Central de Segurança do Azure](../../security-center/security-center-intro.md).

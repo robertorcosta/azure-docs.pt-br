@@ -2,18 +2,16 @@
 title: Criar & consulta Azure Data Lake Analytics-PowerShell
 description: Use o Azure PowerShell para criar uma conta do Azure Data Lake Analytics e envie um trabalho do U-SQL.
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.topic: conceptual
 ms.date: 05/04/2017
-ms.openlocfilehash: f59a8df1031affb7cd3ca3c64ad67514e91f1c9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccee8cef9cfcfc57ac19284b9c42e5c8371aa746
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564809"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132544"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Introdução ao Azure Data Lake Analytics usando o Azure PowerShell
 
@@ -28,7 +26,7 @@ Saiba como usar o Azure PowerShell para criar contas do Azure Data Lake Analytic
 Antes de começar este tutorial, você deve ter as seguintes informações:
 
 * **Uma conta da Análise Azure Data Lake**. Veja [Introdução ao Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
-* **Uma estação de trabalho com Azure PowerShell**. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
+* **Uma estação de trabalho com Azure PowerShell**. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azure/).
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
@@ -126,7 +124,7 @@ Baixe o arquivo de saída usando `Export-AdlStoreItem`.
 Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * Para ver o mesmo tutorial usando outras ferramentas, clique nos seletores de guias na parte superior da página.
 * Para aprender a usar o U-SQL, veja [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).

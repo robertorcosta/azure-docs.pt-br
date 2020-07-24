@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 8104302afa84446e2d57c7156f33bc0160e31472
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 00369ae45a13414ce46f324e37afe24be24a48e0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986769"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132935"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Guia estratégico para tratar dos requisitos de segurança comuns com o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -66,7 +66,7 @@ Planejamos continuar a atualizar as recomendações e as práticas recomendadas 
 
 A autenticação é o processo de provar que o usuário é quem diz ser. O banco de dados SQL do Azure e o SQL Instância Gerenciada dão suporte a dois tipos de autenticação:
 
-- Autenticação SQL
+- Autenticação do SQL
 - Autenticação do Azure Active Directory
 
 > [!NOTE]
@@ -228,10 +228,10 @@ Atribua apenas as [permissões](https://docs.microsoft.com/sql/relational-databa
 - Em bancos de dados SQL:
   - Use permissões granulares e funções de banco de dados definidas pelo usuário (ou funções de servidor no Instância Gerenciada):
     1. Criar as funções necessárias
-       - [CRIAR FUNÇÃO](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
+       - [CREATE ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
        - [CREATE SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-server-role-transact-sql)
     1. Criar usuários necessários
-       - [CRIAR USUÁRIO](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
+       - [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
     1. Adicionar usuários como membros a funções
        - [ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql)
        - [ALTERAR FUNÇÃO DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql)
@@ -240,9 +240,9 @@ Atribua apenas as [permissões](https://docs.microsoft.com/sql/relational-databa
   - Certifique-se de não atribuir usuários a funções desnecessárias.
 
 - Em Azure Resource Manager:
-  - Use funções internas, se disponíveis ou funções RBAC personalizadas, e atribua as permissões necessárias.
+  - Use funções internas, se disponíveis ou funções personalizadas do Azure, e atribua as permissões necessárias.
     - [Funções internas do Azure](../../role-based-access-control/built-in-roles.md)
-    - [Funções personalizadas para recursos do Azure](../../role-based-access-control/custom-roles.md)
+    - [Funções personalizadas do Azure](../../role-based-access-control/custom-roles.md)
 
 **Práticas recomendadas**:
 
@@ -291,7 +291,7 @@ Separação de tarefas, também chamada de diferenciação de direitos, descreve
 - Identifique uma hierarquia abrangente de usuários (e processos automatizados) que acessam o sistema.
 
 - Crie funções de acordo com os grupos de usuários necessários e atribua permissões a funções.
-  - Para tarefas em nível de gerenciamento no portal do Azure ou por meio da automação do PowerShell, use funções RBAC. Localize uma função interna que corresponda ao requisito ou crie uma função personalizada do RBAC usando as permissões disponíveis
+  - Para tarefas em nível de gerenciamento no portal do Azure ou por meio da automação do PowerShell, use funções RBAC. Localize uma função interna que corresponda ao requisito ou crie uma função personalizada do Azure usando as permissões disponíveis
   - Crie funções de servidor para tarefas em todo o servidor (criando novos logons, bancos de dados) em uma instância gerenciada.
   - Criar funções de banco de dados para tarefas em nível de banco de dados.
 
@@ -343,7 +343,7 @@ Para os leitores que desejam aprofundar-se no SoD, recomendamos os seguintes rec
 
 - Para o gerenciamento de recursos do Azure:
   - [Funções internas do Azure](../../role-based-access-control/built-in-roles.md)
-  - [Funções personalizadas para recursos do Azure](../../role-based-access-control/custom-roles.md)
+  - [Funções personalizadas do Azure](../../role-based-access-control/custom-roles.md)
   - [Usando Azure AD Privileged Identity Management para acesso elevado](https://www.microsoft.com/itshowcase/using-azure-ad-privileged-identity-management-for-elevated-access)
 
 ### <a name="perform-regular-code-reviews"></a>Executar revisões de código regulares

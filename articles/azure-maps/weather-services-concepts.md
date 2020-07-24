@@ -1,19 +1,19 @@
 ---
 title: Conceitos de serviços meteorológicos | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá sobre os conceitos que se aplicam ao Microsoft Azure mapeia os serviços meteorológicos.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f38ef2c337564d2b36d3939b3ed03130437e35ea
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: e8ecbd50aa4490bde705b386a67b8732bb8c02c9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221758"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132102"
 ---
 # <a name="weather-services-in-azure-maps"></a>Serviços meteorológicos no Azure Maps
 
@@ -46,7 +46,7 @@ Algumas das APIs de serviço meteorológico permitem que o usuário especifique 
 |18      |fahrenheit          |
 |19      |kelvin              |
 |20      |{1&gt;percent&lt;1}             |
-|21      |float               |
+|21      |FLOAT               |
 |22      |inteiro             |
 
 
@@ -54,7 +54,7 @@ Algumas das APIs de serviço meteorológico permitem que o usuário especifique 
 
 Algumas das APIs de serviço meteorológico retornam o `iconCode` na resposta. O `iconCode` é um valor numérico usado para definir o ícone. Não vincule diretamente a essas imagens de seus aplicativos, as URLs podem e serão alteradas.
 
-| Número do ícone |Ícone| Dia | Jogo | Texto |
+| Número do ícone |ícone| Dia | Jogo | Texto |
 |-------------|:----:|-----|-------|------|
 | 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Sim |  Não    | Ensolarado|
 | 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Sim |  Não    | Quase que ensolarado|

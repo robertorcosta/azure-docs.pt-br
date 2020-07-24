@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 93b2cd3a2565b14ea07d6db6b14dd146e4223528
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1872d0dd56a0459988e65852340c36493ee53f9f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "66236910"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132238"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>RBAC (controle de acesso baseado em função) para contas de serviços de mídia
 
@@ -36,14 +36,14 @@ foreach (Microsoft.Azure.Management.Media.Models.Operation a in client.Operation
 }
 ```
 
-O artigo [definições de função internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) informa exatamente o que a função concede. 
+O artigo [definições de função internas](../../role-based-access-control/built-in-roles.md) informa exatamente o que a função concede. 
 
 Confira os artigos a seguir para saber mais:
 
-- [Funções de administrador da assinatura clássica, funções do Azure RBAC e funções de administrador do Azure AD](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
-- [O que é o RBAC para recursos do Azure?](https://docs.microsoft.com/azure/role-based-access-control/overview)
-- [Usar o RBAC para gerenciar o acesso](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
-- [Operações do provedor de recursos dos serviços de mídia](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftmedia)
+- [Funções de administrador da assinatura clássica, funções do Azure RBAC e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [O que é o RBAC do Azure (controle de acesso baseado em função do Azure)?](../../role-based-access-control/overview.md)
+- [Usar o RBAC para gerenciar o acesso](../../role-based-access-control/role-assignments-rest.md)
+- [Operações do provedor de recursos dos serviços de mídia](../../role-based-access-control/resource-provider-operations.md#microsoftmedia)
 
 ## <a name="next-steps"></a>Próximas etapas
 
