@@ -3,11 +3,12 @@ title: Usar a Pesquisa no Azure Application Insights | Microsoft Docs
 description: Pesquise e filtre telemetria bruta enviada pelo seu aplicativo Web.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a264f25f92bed1b93848c323fd59eafd7b09215
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695650"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033608"
 ---
 # <a name="using-search-in-application-insights"></a>Usar a Pesquisa no Application Insights
 
@@ -91,7 +92,7 @@ Você talvez queira definir um tempo de intervalo, já que pesquisas em um inter
 
 Pesquisar por palavras inteiras, não subcadeias de caracteres. Use aspas para delimitar caracteres especiais.
 
-| String | *Não* encontrado | Encontrado |
+| Cadeia de caracteres | *Não* encontrado | Encontrado |
 | --- | --- | --- |
 | ControladorInicial.Sobre |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |Estados Unidos|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
@@ -147,4 +148,4 @@ Nós não registramos os dados de POST automaticamente, mas você pode usar [cha
 * [Escrever consultas complexas no Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Enviar logs e telemetria personalizada para o Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Configurar testes de disponibilidade e capacidade de resposta](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Solução de problemas](../../azure-monitor/app/troubleshoot-faq.md)
+* [Solução de problemas](../faq.md)

@@ -11,11 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 348082ad96a5efa4d8f866c3675044edf7b6f8a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e3425407fdb131fb1499b2cd085fbe6d427804a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652147"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035291"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para o gerenciamento de senhas do Azure AD
 
@@ -50,9 +51,9 @@ Na experiência do portal do Azure, melhoramos a maneira de exibir a redefiniç�
 6. No menu de **filtro** na parte superior do painel, selecione a lista suspensa **serviço** e altere-a para o tipo de serviço de gerenciamento de **senha de autoatendimento** .
 7. Opcionalmente, filtre mais a lista escolhendo a **Atividade** específica em que você está interessado.
 
-### <a name="converged-registration-preview"></a>Registro convergente (versão prévia)
+### <a name="combined-registration"></a>Registro combinado
 
-Se você estiver participando da visualização pública do registro convergido, as informações sobre a atividade do usuário nos logs de auditoria serão encontradas em métodos de autenticação de **segurança**  >  **Authentication Methods**.
+Se você tiver habilitado o [registro combinado](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined), as informações relacionadas à atividade do usuário nos logs de auditoria serão encontradas em métodos de autenticação de **segurança**  >  **Authentication Methods**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrição das colunas do relatório no portal do Azure
 

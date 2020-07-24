@@ -3,12 +3,12 @@ title: Barramento de serviço do Azure – suspender entidades de mensagens
 description: Este artigo explica como suspender e reativar temporariamente as entidades de mensagem do barramento de serviço do Azure (filas, tópicos e assinaturas).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 4c4e554ada8c66b56d5d466c7becfc813701402a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da7c25c8ef9f3daa32984ac26aa62710ab775951
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340003"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038130"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspender e reativar as entidades de mensagens (desabilitar)
 
@@ -20,7 +20,7 @@ Uma suspensão ou reativação pode ser executada pelo usuário ou pelo sistema.
 
 No portal, a seção de **Propriedades** para a respectiva entidade permite alterar o estado; a captura de tela a seguir mostra a alternância de uma fila:
 
-![][1]
+![Captura de tela do recurso do barramento de serviço com a configuração Propriedades realçada e a opção estado da fila definida como ativa e contornada em vermelho.][1]
 
 O portal permite apenas desabilitar completamente filas. Você também pode desabilitar as operações de envio e recebimento separadamente usando as APIs de Barramento de Serviço [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) no SDK do .NET Framework, ou com um modelo do Azure Resource Manager por meio da CLI do Azure ou o Azure PowerShell.
 

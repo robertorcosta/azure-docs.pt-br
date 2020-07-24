@@ -1,44 +1,47 @@
 ---
-title: Requisitos de dados do Azure AD SSPR-Azure Active Directory
-description: Requisitos de dados para autoatendimento de redefinição de senha do Azure AD e como atendê-los
+title: Preencher previamente as informações de contato para redefinição de senha de autoatendimento-Azure Active Directory
+description: Saiba como preencher previamente as informações de contato para usuários de Azure Active Directory SSPR (redefinição de senha de autoatendimento) para que possam usar o recurso sem concluir um processo de registro.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 12/09/2019
+ms.date: 07/17/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42f7e120745357d3bd5735cca568bdd6971ea061
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 116fa2a4c71fc8ebc67387cf02090bbd664b862a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652349"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035376"
 ---
-# <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implantar redefinição de senha sem exigir registro do usuário final
+# <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>Preencher previamente as informações de contato de autenticação de usuário para Azure Active Directory redefinição de senha de autoatendimento (SSPR)
 
-Para implantar a redefinição de senha de autoatendimento (SSPR) do Azure Active Directory (Azure AD), os dados de autenticação precisam estar presentes. Algumas organizações fazem com que seus usuários insiram seus próprios dados de autenticação. Outras organizações preferem sincronizar com os dados que já existem no Active Directory. Esses dados sincronizados são disponibilizados para o Azure AD e o SSPR sem a necessidade de interação do usuário se você atender aos seguintes requisitos:
+Para usar a SSPR (redefinição de senha de autoatendimento) do Azure AD (Azure Active Directory), as informações de contato de autenticação para um usuário devem estar presentes. Algumas organizações têm usuários que registram seus próprios dados de autenticação. Outras organizações preferem sincronizar a partir de dados de autenticação que já existem no Active Directory Domain Services (AD DS). Esses dados sincronizados são disponibilizados para o Azure AD e o SSPR sem a necessidade de interação do usuário. Quando os usuários precisam alterar ou redefinir sua senha, eles podem fazer isso, mesmo que eles não tenham registrado suas informações de contato anteriormente.
 
-* Formatar corretamente os dados em seu diretório local.
-* Configurar o [Azure AD Connect usando as configurações expressas](../hybrid/how-to-connect-install-express.md).
+Você pode preencher previamente as informações de contato de autenticação se atender aos seguintes requisitos:
 
-Para funcionarem adequadamente, os números de telefone devem estar no formato *+CountryCode PhoneNumber*, por exemplo: +1 4255551234.
+* Você formatou corretamente os dados em seu diretório local.
+* Você configurou [Azure ad Connect](../hybrid/how-to-connect-install-express.md) para seu locatário do Azure AD.
+
+Os números de telefone devem estar no formato *+ CountryCode PhoneNumber*, como *+ 1 4251234567*.
 
 > [!NOTE]
-> Precisa haver um espaço entre o código do país e o número de telefone.
+> Deve haver um espaço entre o código do país e o número de telefone.
 >
-> A redefinição de senha não dá suporte a ramais telefônicos. Mesmo no formato +1 4255551234X12345, as extensões são removidas antes que a chamada seja completada.
+> A redefinição de senha não dá suporte a ramais telefônicos. Mesmo no formato *+1 4251234567X12345*, as extensões são removidas antes que a chamada seja completada.
 
 ## <a name="fields-populated"></a>Campos populados
 
-Se você usar as configurações padrão no Azure AD Connect, serão realizados os seguintes mapeamentos:
+Se você usar as configurações padrão no Azure AD Connect, os seguintes mapeamentos serão feitos para popular as informações de contato de autenticação para SSPR:
 
-| Active Directory local | Azure AD |
-| --- | --- |
-| telephoneNumber | Telefone comercial |
-| Serviço Móvel | Telefone celular |
+| Active Directory local | Azure AD     |
+|------------------------------|--------------|
+| telephoneNumber              | Telefone comercial |
+| Serviço Móvel                       | Telefone celular |
 
 Depois que um usuário verifica seu número de telefone celular, o campo *telefone* em **autenticação informações de contato** no Azure ad também é preenchido com esse número.
 
@@ -48,10 +51,12 @@ Na página **métodos de autenticação** de um usuário do Azure AD na portal d
 
 ![Informações de contato de autenticação em um usuário no Azure AD][Contact]
 
-* Se o campo **telefone** for preenchido e o **telefone celular** estiver habilitado na política SSPR, o usuário verá esse número na página de registro de redefinição de senha e durante o fluxo de trabalho de redefinição de senha.
-* O campo **telefone alternativo** não é usado para redefinição de senha.
-* Se o campo de **email** for preenchido e o **email** estiver habilitado na política SSPR, o usuário verá esse email na página de registro de redefinição de senha e durante o fluxo de trabalho de redefinição de senha.
-* Se o campo de **email alternativo** for preenchido e o **email** estiver habilitado na política SSPR, o usuário **não** verá esse email na página de registro de redefinição de senha, mas o verá durante o fluxo de trabalho de redefinição de senha.
+As seguintes considerações se aplicam a essas informações de contato de autenticação:
+
+* Se o campo *telefone* for preenchido e o *telefone celular* estiver habilitado na política SSPR, o usuário verá esse número na página de registro de redefinição de senha e durante o fluxo de trabalho de redefinição de senha.
+* O campo *telefone alternativo* não é usado para redefinição de senha.
+* Se o campo de *email* for preenchido e o *email* estiver habilitado na política SSPR, o usuário verá esse email na página de registro de redefinição de senha e durante o fluxo de trabalho de redefinição de senha.
+* Se o campo de *email alternativo* for preenchido e o *email* estiver habilitado na política SSPR, o usuário não verá esse email na página de registro de redefinição de senha, mas o verá durante o fluxo de trabalho de redefinição de senha.
 
 ## <a name="security-questions-and-answers"></a>Perguntas e respostas de segurança
 
@@ -65,19 +70,25 @@ Quando um usuário se registra, a página de registro define os seguintes campos
 * **E-mail de autenticação**
 * **Perguntas de segurança e respostas**
 
-Se você forneceu um valor para **Celular** ou **Email Alternativo**, os usuários poderão usar esses valores imediatamente para redefinir as senhas, mesmo que não tenham se registrado no serviço. Além disso, os usuários visualizam esses valores ao se registrarem pela primeira vez, e os modificam, se for desejado. Depois que eles são registrados com êxito, esses valores são persistidos nos campos **telefone de autenticação** e **email de autenticação** , respectivamente.
+Se você forneceu um valor *Mobile phone* para celular ou *email alternativo*, os usuários poderão usar esses valores imediatamente para redefinir suas senhas, mesmo que não tenham se registrado no serviço.
+
+Os usuários também veem esses valores quando se registram pela primeira vez e podem modificá-los se desejarem. Depois de registrados com êxito, esses valores são persistidos nos campos *telefone de autenticação* e *email de autenticação* , respectivamente.
 
 ## <a name="set-and-read-the-authentication-data-through-powershell"></a>Definir e ler os dados de autenticação usando o PowerShell
 
 Os campos a seguir podem ser definidos usando o PowerShell:
 
-* **Email alternativo**
-* **Telefone celular**
-* **Telefone comercial**: só poderá ser definido se não for sincronizar com um diretório local
+* *Email alternativo*
+* *Celular*
+* *Telefone comercial*
+    * Só poderá ser definido se você não estiver sincronizando com um diretório local.
+
+> [!IMPORTANT]
+> Há uma falta de paridade conhecida em recursos de comando entre o PowerShell v1 e o PowerShell v2. A [API REST do Microsoft Graph (beta) para métodos de autenticação](/graph/api/resources/authenticationmethods-overview) é o foco da engenharia atual para fornecer interação moderna.
 
 ### <a name="use-powershell-version-1"></a>Usar o PowerShell versão 1
 
-Para começar, primeiramente é preciso [baixar e instalar o módulo PowerShell do Azure AD](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Depois de instalá-lo, você poderá seguir as etapas abaixo para configurar cada campo.
+Para começar, [Baixe e instale o módulo do PowerShell do Azure ad](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Depois de instalado, use as etapas a seguir para configurar cada campo.
 
 #### <a name="set-the-authentication-data-with-powershell-version-1"></a>Definir dados de autenticação com o PowerShell versão 1
 
@@ -85,10 +96,10 @@ Para começar, primeiramente é preciso [baixar e instalar o módulo PowerShell 
 Connect-MsolService
 
 Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
-Set-MsolUser -UserPrincipalName user@domain.com -MobilePhone "+1 1234567890"
-Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
+Set-MsolUser -UserPrincipalName user@domain.com -MobilePhone "+1 4251234567"
+Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 4252345678"
 
-Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com") -MobilePhone "+1 1234567890" -PhoneNumber "+1 1234567890"
+Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com") -MobilePhone "+1 4251234567" -PhoneNumber "+1 4252345678"
 ```
 
 #### <a name="read-the-authentication-data-with-powershell-version-1"></a>Ler dados de autenticação com o PowerShell versão 1
@@ -115,9 +126,9 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="use-powershell-version-2"></a>Usar o PowerShell versão 2
 
-Para começar, é preciso [baixar e instalar o módulo PowerShell do Azure AD versão 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0). Depois de instalá-lo, você poderá seguir as etapas abaixo para configurar cada campo.
+Para começar, [Baixe e instale o módulo PowerShell da versão 2 do Azure ad](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0).
 
-Para instalar rapidamente de versões recentes do PowerShell que dão suporte ao Módulo de instalação, execute os seguintes comandos. (A primeira linha verifica se o módulo já está instalado.)
+Para instalar rapidamente de versões recentes do PowerShell com suporte `Install-Module` , execute os comandos a seguir. A primeira linha verifica se o módulo já está instalado:
 
 ```PowerShell
 Get-Module AzureADPreview
@@ -125,16 +136,18 @@ Install-Module AzureADPreview
 Connect-AzureAD
 ```
 
+Depois que o módulo for instalado, use as etapas a seguir para configurar cada campo.
+
 #### <a name="set-the-authentication-data-with-powershell-version-2"></a>Definir dados de autenticação com o PowerShell versão 2
 
 ```PowerShell
 Connect-AzureAD
 
 Set-AzureADUser -ObjectId user@domain.com -OtherMails @("email@domain.com")
-Set-AzureADUser -ObjectId user@domain.com -Mobile "+1 2345678901"
-Set-AzureADUser -ObjectId user@domain.com -TelephoneNumber "+1 1234567890"
+Set-AzureADUser -ObjectId user@domain.com -Mobile "+1 4251234567"
+Set-AzureADUser -ObjectId user@domain.com -TelephoneNumber "+1 4252345678"
 
-Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mobile "+1 1234567890" -TelephoneNumber "+1 1234567890"
+Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mobile "+1 4251234567" -TelephoneNumber "+1 4252345678"
 ```
 
 #### <a name="read-the-authentication-data-with-powershell-version-2"></a>Ler dados de autenticação com o PowerShell versão 2
@@ -151,16 +164,9 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Como concluir uma implementação do SSPR com êxito?](howto-sspr-deployment.md)
-* [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Registro de redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md)
-* [Você tem uma pergunta sobre licenciamento?](concept-sspr-licensing.md)
-* [Quais métodos de autenticação estão disponíveis para os usuários?](concept-sspr-howitworks.md#authentication-methods)
-* [Quais são as opções de política com o SSPR?](concept-sspr-policy.md)
-* [O que é o write-back de senha e por que devo me importar com isso?](howto-sspr-writeback.md)
-* [Como faço para informar sobre a atividade no SSPR?](howto-sspr-reporting.md)
-* [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
-* [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)
-* [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)
+Depois que as informações de contato de autenticação forem preenchidas previamente para os usuários, conclua o tutorial a seguir para habilitar a redefinição de senha de autoatendimento:
+
+> [!div class="nextstepaction"]
+> [Habilitar a redefinição de senha self-service do Azure AD](tutorial-enable-sspr.md)
 
 [Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "Os administradores globais podem modificar informações de contato de autenticação de um usuário"

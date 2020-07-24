@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec0862a0d4de644630c972387f01feaa1a327e67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fa87fc874be5e60d018b5663b4655d069930ab88
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500745"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036141"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Criar e configurar um cofre de chaves para Azure Disk Encryption
 
@@ -25,7 +25,7 @@ O Azure Disk Encryption usa o Azure Key Vault para ajudar você a controlar e ge
 Criar e configurar um cofre de chaves para usar com Azure Disk Encryption envolve três etapas:
 
 > [!Note]
-> Você deve selecionar a opção nas configurações da política de acesso Azure Key Vault para habilitar o acesso a Azure Disk Encryption para criptografia de volume.
+> Você deve selecionar a opção nas configurações da política de acesso Azure Key Vault para habilitar o acesso a Azure Disk Encryption para criptografia de volume. Se você tiver habilitado o firewall no cofre de chaves, deverá ir para a guia rede no cofre de chaves e habilitar o acesso aos serviços confiáveis da Microsoft. 
 
 1. Criar um grupo de recursos, se necessário.
 2. Criando um cofre de chaves. 
@@ -43,7 +43,7 @@ Caso queira, também é possível gerar ou importar uma KEK (chave de criptograf
 
 ## <a name="install-tools-and-connect-to-azure"></a>Instalar ferramentas e conectar-se ao Azure
 
-As etapas neste artigo podem ser concluídas com a [CLI do Azure](/cli/azure/), o [módulo AZ do Azure PowerShell](/powershell/azure/overview) ou o [portal do Azure](https://portal.azure.com).
+As etapas neste artigo podem ser concluídas com a [CLI do Azure](/cli/azure/), o [módulo AZ do Azure PowerShell](/powershell/azure/) ou o [portal do Azure](https://portal.azure.com).
 
 Embora o portal possa ser acessado através do navegador, a CLI do Azure e o Azure PowerShell exigem a instalação local; veja [Azure Disk Encryption para Windows: Instalação de ferramentas](disk-encryption-windows.md#install-tools-and-connect-to-azure) para saber detalhes.
 

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f04fcae1ba218949019637e9a101492a487b430f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e27adde84f62f8c8d79389e1de4e867439d5a3be
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603733"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034730"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivar as Novidades no Azure Active Directory?
 
@@ -3323,7 +3323,7 @@ Para obter mais informações, consulte [Topologias do Skype for Business compat
 
 **Tipo:** Recurso alterado **Categoria de serviço:** Privileged Identity Management **Capacidade do produto:** Privileged Identity Management
 
-Com a atualização da visualização pública do Azure AD PIM (Privileged Identity Management) para o RBAC (Controle de Acesso Baseado em Função), agora você pode:
+Com a atualização de visualização pública do Azure AD Privileged Identity Management (PIM) para o controle de acesso baseado em função do Azure (RBAC do Azure), agora você pode:
 
 * Usar a Administração Just Enough.
 * Exigir aprovação para ativar as funções de recurso.

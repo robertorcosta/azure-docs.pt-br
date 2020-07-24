@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 53c9653b44a6c9d26d49d37b351cf6000676e2d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 711f5293b205c1f500c6d9e08154342285ef959b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75651963"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033183"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Elemento de interface do usuário Microsoft.Network.VirtualNetworkCombo
 
@@ -19,11 +20,11 @@ Um grupo de controles para selecionar uma rede virtual nova ou existente.
 
 Quando o usuário selecionar uma nova rede virtual, o usuário pode personalizar cada nome e prefixo de endereço da sub-rede. Configurar sub-redes é opcional.
 
-![Novo Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
+![Novo Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft-network-virtualnetworkcombo-new.png)
 
 Quando o usuário escolher uma rede virtual existente, deve mapear cada sub-rede requerida pelo modelo de implantação para uma sub-rede existente. Configurar sub-redes, nesse caso, é necessário.
 
-![Microsoft.Network.VirtualNetworkCombo existente](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
+![Microsoft.Network.VirtualNetworkCombo existente](./media/managed-application-elements/microsoft-network-virtualnetworkcombo-existing.png)
 
 ## <a name="schema"></a>Esquema
 

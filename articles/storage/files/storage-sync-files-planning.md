@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 561ec6d59349fca585beda8b1bd60073d2603077
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f09e84d20b1a3c568eea015d92b93a99b8cf024e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552185"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036787"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 
@@ -360,7 +360,7 @@ Também é possível usar o Data Box para migrar dados para uma implantação da
 Um erro comum que os clientes fazem ao migrar dados para a nova implantação da Sincronização de Arquivos do Azure é copiar dados diretamente no compartilhamento de arquivo do Azure, em vez de fazê-lo em seus servidores de arquivos do Windows. Embora a Sincronização de Arquivos do Azure identifique todos os novos arquivos no compartilhamento de arquivo do Azure e sincronize-os de volta em seus compartilhamentos de arquivo do Windows, isso costuma ser consideravelmente mais lento do que carregar dados por meio do servidor de arquivos do Windows. Ao usar as ferramentas de cópia do Azure, como AzCopy, é importante usar a versão mais recente. Verifique a [tabela de ferramentas de cópia de arquivo](storage-files-migration-overview.md#file-copy-tools) para obter uma visão geral das ferramentas de cópia do Azure para garantir que você possa copiar todos os metadados importantes de um arquivo, como carimbos de data/hora e ACLs.
 
 ## <a name="antivirus"></a>Antivírus
-Como os antivírus funcionam com o exame de arquivos em busca de códigos mal-intencionados conhecidos, um antivírus pode causar o recall de arquivos em camadas. Nas versões 4.0 e acima do agente de Sincronização de Arquivo do Azure, arquivos em camadas têm o conjunto FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS de atributo seguro do Windows. Recomendamos consultar o fornecedor do software para saber como configurar a solução para ignorar a leitura de arquivos com esse conjunto de atributos (muitos fazem isso automaticamente). 
+Como o antivírus funciona examinando arquivos em busca de código mal-intencionado conhecido, um produto antivírus pode causar a recall de arquivos em camadas, resultando em encargos de egresso altos. Nas versões 4.0 e acima do agente de Sincronização de Arquivo do Azure, arquivos em camadas têm o conjunto FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS de atributo seguro do Windows. Recomendamos consultar o fornecedor do software para saber como configurar a solução para ignorar a leitura de arquivos com esse conjunto de atributos (muitos fazem isso automaticamente). 
 
 As soluções antivírus internas da Microsoft, o Windows Defender e o System Center Endpoint Protection (SCEP), ignoram automaticamente a leitura de arquivos que possuem esse atributo definido. Nós os testamos e identificamos um problema menor: quando você adiciona um servidor a um grupo de sincronização existente, os arquivos com menos de 800 bytes são recuperados (feitos o download) no novo servidor. Esses arquivos permanecerão no novo servidor e não serão colocados em camadas, pois não atendem ao requisito de tamanho em camadas (> 64kb).
 
@@ -368,9 +368,9 @@ As soluções antivírus internas da Microsoft, o Windows Defender e o System Ce
 > Os fornecedores de antivírus podem verificar a compatibilidade entre seus produtos e a Sincronização de Arquivos do Azure usando o [Conjunto de testes de compatibilidade de antivírus da Sincronização de Arquivos do Azure](https://www.microsoft.com/download/details.aspx?id=58322), que está disponível para download no Centro de Download da Microsoft.
 
 ## <a name="backup"></a>Backup 
-Como as soluções de antivírus, as soluções de backup podem causar o recall de arquivos em camadas. Recomendamos o uso de uma solução de backup de nuvem para fazer backup do compartilhamento do arquivos do Azure, em vez de um produto de backup local.
+Se a disposição em camadas da nuvem estiver habilitada, as soluções que fazem backup diretamente do ponto de extremidade do servidor ou de uma VM na qual o ponto de extremidade do servidor está localizado não devem ser usadas. A camada de nuvem faz com que apenas um subconjunto de seus dados seja armazenado no ponto de extremidade do servidor, com o DataSet completo que reside em seu compartilhamento de arquivos do Azure. Dependendo da solução de backup usada, os arquivos em camadas serão ignorados e não será feito backup (porque têm o conjunto de atributos FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS) ou serão rechamados para o disco, resultando em encargos de egresso altos. É recomendável usar uma solução de backup de nuvem para fazer backup do compartilhamento de arquivos do Azure diretamente. Para obter mais informações, consulte [sobre o backup do compartilhamento de arquivos do Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) ou contate seu provedor de backup para ver se eles dão suporte ao backup de compartilhamentos de arquivos do Azure.
 
-Se você estiver usando uma solução de backup local, os backups deverão ser executados em um servidor no grupo de sincronização que tenha a camada de nuvem desabilitada. Ao executar uma restauração, use as opções de restauração no nível do volume ou no nível do arquivo. Os arquivos restaurados usando a opção de restauração no nível do arquivo serão sincronizados com todos os pontos de extremidade no grupo de sincronização e os arquivos existentes serão substituídos pela versão restaurada do backup.  As restaurações no nível de volume não substituirão as versões de arquivo mais recentes no compartilhamento de arquivos do Azure ou em outros pontos de extremidade do servidor.
+Se você preferir usar uma solução de backup local, os backups devem ser executados em um servidor no grupo de sincronização que tenha a camada de nuvem desabilitada. Ao executar uma restauração, use as opções de restauração no nível do volume ou no nível do arquivo. Os arquivos restaurados usando a opção de restauração no nível do arquivo serão sincronizados com todos os pontos de extremidade no grupo de sincronização e os arquivos existentes serão substituídos pela versão restaurada do backup.  As restaurações no nível de volume não substituirão as versões de arquivo mais recentes no compartilhamento de arquivos do Azure ou em outros pontos de extremidade do servidor.
 
 > [!Note]  
 > A restauração bare-metal (BMR) pode causar resultados inesperados e não é atualmente suportada.

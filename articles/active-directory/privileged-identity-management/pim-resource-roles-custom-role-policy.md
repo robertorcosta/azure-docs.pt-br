@@ -1,6 +1,6 @@
 ---
-title: Usar funções personalizadas para recursos do Azure no PIM – Azure AD | Microsoft Docs
-description: Saiba como usar funções personalizadas para recursos do Azure no Azure AD PIM (Privileged Identity Management).
+title: Usar funções personalizadas do Azure no PIM – Azure AD | Microsoft Docs
+description: Saiba como usar as funções personalizadas do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,14 +14,14 @@ ms.subservice: pim
 ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa51508746d0024be0a5acfaeeac62e86db67d3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1c9255de6b9f449a89a994cb3286139daa28ea9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743738"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034092"
 ---
-# <a name="use-custom-roles-for-azure-resources-in-privileged-identity-management"></a>Usar funções personalizadas para recursos do Azure no Privileged Identity Management
+# <a name="use-azure-custom-roles-in-privileged-identity-management"></a>Usar funções personalizadas do Azure no Privileged Identity Management
 
 Talvez seja necessário aplicar configurações de PIM (Privileged Identity Management estrita) a alguns usuários em uma função privilegiada em sua organização do Azure Active Directory (Azure AD), fornecendo, ao mesmo tempo, autonomia maior para outras pessoas. Considere, por exemplo, um cenário em que sua organização contrata vários associados de contrato para auxiliar no desenvolvimento de um aplicativo que será executado em uma assinatura do Azure.
 
@@ -31,7 +31,7 @@ Siga as etapas descritas na próxima seção para definir as configurações de 
 
 ## <a name="create-the-custom-role"></a>Criar a função personalizada
 
-Para criar uma função personalizada para um recurso, siga as etapas descritas em [Criar funções personalizadas para o Controle de Acesso Baseado em Função do Azure](../role-based-access-control-custom-roles.md).
+Para criar uma função personalizada para um recurso, siga as etapas descritas em [funções personalizadas do Azure](../role-based-access-control-custom-roles.md).
 
 Ao criar uma função personalizada, inclua um nome descritivo para que você possa facilmente se lembrar de qual função interna você pretende duplicar.
 

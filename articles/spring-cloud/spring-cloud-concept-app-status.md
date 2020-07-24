@@ -6,12 +6,13 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: brendm
-ms.openlocfilehash: 70a9e6392e21422d7513197fbf7a1a75e1f6ab8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: e3ef202a1a98b8193b55bcc4c2cb616d4a2000d8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82568998"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037756"
 ---
 # <a name="understanding-app-status-in-azure-spring-cloud"></a>Noções básicas sobre o status do aplicativo no Azure Spring Cloud
 
@@ -31,7 +32,7 @@ Para exibir o status geral de um tipo de aplicativo, selecione **aplicativos** n
 
 | Enumeração | Definição |
 |:--:|:----------------:|
-| Executando | A implantação deve estar em execução. |
+| Em execução | A implantação deve estar em execução. |
 | Parado | A implantação deve ser interrompida. |
 
 **O estado de provisionamento é acessível somente da CLI.  Ele é relatado como um dos seguintes valores:**
@@ -40,8 +41,8 @@ Para exibir o status geral de um tipo de aplicativo, selecione **aplicativos** n
 |:--:|:----------------:|
 | Criando | O recurso está sendo criado. |
 | Atualizar | O recurso está sendo atualizado. |
-| Êxito | Recursos fornecidos com êxito e implantação do binário. |
-| Falhou | Falha ao obter a meta *bem-sucedida* . |
+| Com sucesso | Recursos fornecidos com êxito e implantação do binário. |
+| Com falha | Falha ao obter a meta *bem-sucedida* . |
 | Excluindo | O recurso está sendo excluído. Isso impede a operação e o recurso não está disponível nesse status. |
 
 ## <a name="app-instances-status"></a>Status de instâncias do aplicativo
@@ -57,8 +58,8 @@ Para exibir o status de uma instância específica de um aplicativo implantado, 
 | Enumeração | Definição |
 |:--:|:----------------:|
 | Iniciando | O binário é implantado com êxito na instância especificada. A inicialização da instância do arquivo JAR pode falhar porque o jar não pode ser executado corretamente. |
-| Executando | A instância funciona. |
-| Falhou | A instância do aplicativo não pôde iniciar o binário do usuário após várias tentativas. |
+| Em execução | A instância funciona. |
+| Com falha | A instância do aplicativo não pôde iniciar o binário do usuário após várias tentativas. |
 | Final | A instância do aplicativo está sendo desligada. |
 
 **O status de descoberta da instância é relatado como um dos seguintes valores:**
@@ -70,5 +71,5 @@ Para exibir o status de uma instância específica de um aplicativo implantado, 
 | PARA BAIXO | A instância do aplicativo não está registrada no Eureka ou está registrada, mas não pode receber tráfego. |
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 * [Preparar um aplicativo Spring Java para implantação no Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md)

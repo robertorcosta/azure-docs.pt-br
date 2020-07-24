@@ -3,11 +3,12 @@ title: Fazer backup de arquivos em VMs Azure Stack
 description: Use o Backup do Azure para fazer backup e recuperar aplicativos e arquivos no ambiente do Azure Stack.
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: 2bcdf7f720708db1487d7d5cdaee41dc93c05728
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07a64e5457963ea4a6d3b39b3f2326dbcfc5e63a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74172329"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032758"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Fazer backup de arquivos e aplicativos no Azure Stack
 
@@ -43,7 +44,7 @@ Para configurar o Servidor de Backup do Azure para proteger máquinas virtuais d
 
     ![O assistente de Novo Grupo de Proteção se abre](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    A Microsoft recomenda colocar todos os dados que compartilharão uma política de proteção em um grupo de proteção. Para obter informações completas sobre planejamento e implantação de grupos de proteção, consulte o artigo do System Center DPM, [Implantar Grupos de Proteção](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
+    A Microsoft recomenda colocar todos os dados que compartilharão uma política de proteção em um grupo de proteção. Para obter informações completas sobre planejamento e implantação de grupos de proteção, consulte o artigo do System Center DPM, [Implantar Grupos de Proteção](/system-center/dpm/create-dpm-protection-groups).
 
 4. Na tela **Selecionar Método de Proteção de Dados**, digite um nome para o grupo de proteção. Selecione a caixa de seleção para **Desejo proteção a curto prazo usando:** e **Desejo proteção online**. Clique em **Próximo**.
 
@@ -132,5 +133,5 @@ Para exibir Servidor de Backup do Azure entidades no portal do Azure, você pode
 
 Para saber mais sobre como usar o Servidor de Backup do Azure para proteger outras cargas de trabalho, confira um dos seguintes artigos:
 
-* [Fazer backup do farm do SharePoint](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
-* [Fazer backup do SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+* [Fazer backup do farm do SharePoint](./backup-mabs-sharepoint-azure-stack.md)
+* [Fazer backup do SQL Server](./backup-mabs-sql-azure-stack.md)

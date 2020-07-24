@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: article
 keywords: Kinect, Windows, v2, Kinect do Azure, comparação, SDK, diferenças, hardware, software
-ms.openlocfilehash: ec105cef0c52b02c763487fbe5b2d8c018315f4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a8d399370f354524858bdd658ffd65c0494dd4d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67452508"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031565"
 ---
 # <a name="azure-kinect-and-kinect-windows-v2-comparison"></a>Comparação entre o Azure Kinect e o Kinect Windows v2
 
@@ -22,9 +22,9 @@ Os kits de desenvolvimento de hardware e software do Azure Kinect DK têm difere
 
 As diferenças de alto nível entre o kit de desenvolvimento do Azure Kinect e o Kinect para Windows v2 estão listadas na tabela a seguir.
 
-|    |      | Azure Kinect DK |  Kinect para Windows v2 |
-|----------|---------------|--------| ------------|
-| **Sonoro** | Detalhes  | matriz circular de 7-MIC | matriz de fase linear de 4-MIC |
+| Recurso | Type | Azure Kinect DK | Kinect para Windows v2 |
+| ------- | ---- | --------------- | --------------------- |
+| **Áudio** | Detalhes  | matriz circular de 7-MIC | matriz de fase linear de 4-MIC |
 | **Sensor de movimento** | Detalhes | acelerômetro de 3 eixos de giro de 3 eixos | acelerômetro de 3 eixos |
 | **Câmera RGB**    | Detalhes | 3840 x 2160 PX @30 fps | 1920 x 1080 PX @30 fps |
 | **Câmera de profundidade**  | Método   | Tempo de vôo | Tempo de vôo |
@@ -44,12 +44,12 @@ Encontre detalhes adicionais no documento de [hardware do Azure Kinect DK](hardw
 
 A tabela a seguir fornece comparação de recursos de acesso de sensor de dispositivo de nível baixo.
 
-| **Funcionalidade**| **Kinect do Azure** | **Kinect para Windows** | **Observações** |
+| **Funcionalidade**| **Azure Kinect** | **Kinect para Windows** | **Observações** |
 |---------|---------|------------|---------|
 | **Depth** | ✔️ | ✔️ |    |   |
 | **IR** | ✔️ | ✔️ |  |
 | **Cor** | ✔️ | ✔️ | O formato de cor dá suporte a diferenças, o Azure Kinect DK dá suporte a esses controles de câmera: exposição, equilíbrio de branco, brilho, contraste, saturação, nitidez e controle de conquista |
-| **Sonoro** | ✔️ | ✔️ | O Azure Kinect DK mics é acessado por meio do SDK de fala ou da API nativa do Windows |
+| **Áudio** | ✔️ | ✔️ | O Azure Kinect DK mics é acessado por meio do SDK de fala ou da API nativa do Windows |
 | **IMU** | ✔️ |  | O Azure Kinect DK tem um IMU completo de 6 eixos e Kinect para Windows fornece apenas um eixo |
 | **Dados de calibragem** | ✔️ | ✔️ | Calibragem do modelo de câmera compatível com OpenCV |
 | **Profundidade – sincronização interna RGB** | ✔️ | ✔️ |  |

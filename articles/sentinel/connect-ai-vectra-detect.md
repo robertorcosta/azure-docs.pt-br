@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: 964bab2b81f6ce69e77fd69cab55f6d1894e4edb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c57f4a49ac89f1347fc88f8bacddce3abab7e44e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368359"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038215"
 ---
 # <a name="connect-ai-vectra-detect-to-azure-sentinel"></a>Conectar o ia Vectra detectar ao Azure Sentinel
+
+> [!IMPORTANT]
+> O conector de dados de detecção de Vectra de ia no Azure Sentinel está atualmente em visualização pública.
+> Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo explica como conectar seu dispositivo de [detecção de Vectra de ia](https://www.vectra.ai/product/cognito-detect) para o Azure Sentinel. O conector de detecção de dados do ia Vectra permite que você traga facilmente seu Vectra de ia para detectar dados no Azure Sentinel, para que você possa exibi-los em pastas de trabalho, usá-los para criar alertas personalizados e incorporá-los para melhorar a investigação.
 

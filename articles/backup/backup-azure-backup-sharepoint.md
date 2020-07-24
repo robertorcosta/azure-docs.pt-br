@@ -3,12 +3,12 @@ title: Fazer backup de um farm do SharePoint no Azure com o DPM
 description: Este artigo fornece uma visão geral da proteção do servidor do DPM/Backup do Azure de um farm do SharePoint no Azure
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 447776af7cb021fd0c3381334bf3acf258ff22ab
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b326ce15cd605f4f768a03b95337bbc5bd6aaabc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539101"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032877"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Fazer backup de um farm do SharePoint no Azure com o DPM
 
@@ -32,7 +32,7 @@ Os pré-requisitos e as limitações adicionais podem ser encontrados no artigo 
 
 ## <a name="configure-backup"></a>Configurar o backup
 
-Para fazer backup do farm do SharePoint, configure a proteção do SharePoint usando o ConfigureSharePoint.exe e, então, crie um grupo de proteção no DPM. Para obter instruções, consulte [Configurar backup](//system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) na documentação do DPM.
+Para fazer backup do farm do SharePoint, configure a proteção do SharePoint usando o ConfigureSharePoint.exe e, então, crie um grupo de proteção no DPM. Para obter instruções, consulte [Configurar backup](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) na documentação do DPM.
 
 ## <a name="monitoring"></a>Monitoramento
 

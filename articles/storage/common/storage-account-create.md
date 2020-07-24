@@ -9,17 +9,18 @@ ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7ff7db383a74ce01f7f1a7bf49a33e41f91decf8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 219638f70797fc5ea413e4db72e528262df2fa87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82853489"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037042"
 ---
-# <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
+# <a name="create-an-azure-storage-account"></a>Criar uma conta do Armazenamento do Azure
 
 Uma conta de armazenamento do Azure contém todos os seus objetos de dados do Armazenamento do Azure: blobs, arquivos, filas, tabelas e discos. A conta de armazenamento fornece um namespace exclusivo para os dados do armazenamento do Azure que podem ser acessados de qualquer lugar do mundo por HTTP ou HTTPS. Os dados em sua conta de armazenamento do Azure são duráveis e altamente disponíveis, seguros e amplamente escalonáveis.
 
-Neste artigo de instruções, você aprende a criar uma conta de armazenamento usando o [portal do Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), [CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)ou um [modelo Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
+Neste artigo de instruções, você aprende a criar uma conta de armazenamento usando o [portal do Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/), [CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)ou um [modelo Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -47,12 +48,12 @@ Para instalar ou atualizar Azure PowerShell, consulte [instalar o módulo Azure 
 
 Você pode entrar no Azure e executar comandos da CLI do Azure de uma das duas formas a seguir:
 
-- Você pode executar comandos da CLI de dentro do portal do Azure, em Azure Cloud Shell.
+- Você pode executar comandos da CLI de dentro do portal do Azure, no Azure Cloud Shell.
 - Você pode instalar a CLI e executar comandos da CLI localmente.
 
 ### <a name="use-azure-cloud-shell"></a>Usar o Azure Cloud Shell
 
-O Azure Cloud Shell é um shell Bash gratuito que pode ser executado diretamente no portal do Azure. O CLI do Azure é pré-instalado e configurado para ser usado com sua conta. Clique no botão **Cloud Shell** no menu na seção superior direita da portal do Azure:
+O Azure Cloud Shell é um shell Bash gratuito que pode ser executado diretamente no portal do Azure. A CLI do Azure é pré-instalada e configurada para usar com sua conta. Clique no botão **Cloud Shell** no menu na seção superior direita da portal do Azure:
 
 [![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
@@ -147,8 +148,8 @@ Para criar uma conta de armazenamento de uso geral V2 com uma opção de replica
 
 |Opção de replicação  |Parâmetro SkuName  |
 |---------|---------|
-|Armazenamento com redundância local (LRS)     |Standard_LRS         |
-|Armazenamento com redundância de zona (ZRS)     |Standard_ZRS         |
+|LRS (armazenamento com redundância local)     |Standard_LRS         |
+|ZRS (armazenamento com redundância de zona)     |Standard_ZRS         |
 |Armazenamento com redundância geográfica (GRS)     |Standard_GRS         |
 |Armazenamento com redundância geográfica com acesso de leitura (GRS)     |Standard_RAGRS         |
 |Armazenamento com redundância de zona geográfica (GZRS)    |Standard_GZRS         |
@@ -190,8 +191,8 @@ Para criar uma conta de armazenamento de uso geral V2 com uma opção de replica
 
 |Opção de replicação  |Parâmetro sku  |
 |---------|---------|
-|Armazenamento com redundância local (LRS)     |Standard_LRS         |
-|Armazenamento com redundância de zona (ZRS)     |Standard_ZRS         |
+|LRS (armazenamento com redundância local)     |Standard_LRS         |
+|ZRS (armazenamento com redundância de zona)     |Standard_ZRS         |
 |Armazenamento com redundância geográfica (GRS)     |Standard_GRS         |
 |Armazenamento com redundância geográfica com acesso de leitura (GRS)     |Standard_RAGRS         |
 |Armazenamento com redundância de zona geográfica (GZRS)    |Standard_GZRS         |

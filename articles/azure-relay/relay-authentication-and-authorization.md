@@ -3,12 +3,12 @@ title: Autenticação e autorização de Retransmissão do Azure | Microsoft Doc
 description: Este artigo fornece uma visão geral da autenticação SAS (assinatura de acesso compartilhado) com o serviço de retransmissão do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 63e075bc9bf75005a92866f9fa0f90ddaba2f016
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b0a5c7a092155a006419eedd170a63abed42bb3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316947"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033370"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autenticação e autorização da Retransmissão do Azure
 
@@ -20,7 +20,7 @@ A [autenticação SAS](../service-bus-messaging/service-bus-sas.md) permite que 
 
 É possível configurar chaves para SAS em um namespace da Retransmissão. Ao contrário do sistema de mensagens do Barramento de Serviço, as [Conexões Híbridas de Retransmissão](relay-hybrid-connections-protocol.md) dão suporte a remetentes anônimos ou não autorizados. Você pode habilitar o acesso anônimo para a entidade ao criá-la, conforme mostrado na seguinte captura de tela do portal:
 
-![][0]
+![Uma caixa de diálogo intitulada "criar conexão híbrida" tem uma caixa de texto "nome" e uma caixa de seleção rotulada "requer autenticação de cliente", que está marcada.][0]
 
 Para usar a SAS, você pode configurar um objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) em um namespace de retransmissão que consista no seguinte:
 

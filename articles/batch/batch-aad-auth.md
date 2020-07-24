@@ -4,12 +4,12 @@ description: O Lote dá suporte ao Azure AD para autenticação por meio do serv
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: a8601c69c37e973118a7ec9521070864caffb101
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 7daf26d7c52e07be999bb93edd6fe694f79d1be2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170302"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032452"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço do Lote no Active Directory
 
@@ -193,7 +193,7 @@ Aqui está um exemplo de uma definição de função personalizada:
 }
 ```
 
-Para obter mais informações gerais sobre como criar uma função personalizada, veja [Funções personalizadas para recursos do Azure](../role-based-access-control/custom-roles.md).
+Para obter mais informações gerais sobre como criar uma função personalizada, consulte [funções personalizadas do Azure](../role-based-access-control/custom-roles.md).
 
 ### <a name="get-the-tenant-id-for-your-azure-active-directory"></a>Obter a ID do locatário para o Azure Active Directory
 

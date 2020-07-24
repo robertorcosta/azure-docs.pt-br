@@ -6,12 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.openlocfilehash: 8d002fae52fec1fafb2ad8e63bd8e3b779a1537c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.custom: devx-track-java
+ms.openlocfilehash: 2e001e5e927d9d4c5dc4c3eb74f7b5ad33617b99
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984816"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037569"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Controles de segurança para o serviço do Azure Spring Cloud
 Os controles de segurança são internos no serviço de nuvem Spring do Azure.
@@ -30,4 +31,4 @@ Um controle de segurança é uma qualidade ou um recurso de um serviço do Azure
 
 | Controle de segurança | Sim/Não | Observações | Documentação |
 |:-------------|:-------|:-------------------------------|:----------------------|
-| Marca de serviço | Sim | Use a marca de serviço **AzureSpringCloud** para definir os controles de acesso à rede de saída em [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) ou no [Firewall do Azure](https://docs.microsoft.com/azure/firewall/service-tags), para permitir o tráfego para aplicativos do Azure Spring Cloud.<br><br>*Observação:* Atualmente, somente a nova instância do serviço de nuvem do Azure Spring criada depois de 2020/07/07 dá suporte à marca de serviço **AzureSpringCloud** . | [Marcas de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) |
+| Marca de serviço | Sim | Use a marca de serviço **AzureSpringCloud** para definir os controles de acesso à rede de saída em [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) ou no [Firewall do Azure](https://docs.microsoft.com/azure/firewall/service-tags), para permitir o tráfego para aplicativos do Azure Spring Cloud.<br><br>*Observação:* Atualmente, somente a nova instância do serviço de nuvem do Azure Spring criada depois de 2020/07/14 dá suporte à marca de serviço **AzureSpringCloud** . | [Marcas de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) |

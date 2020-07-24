@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1de9c07c99666ed4011214bd9b426eac8f494991
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acf60138aaecd914b30a020fdead292eb0ef1473
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82978171"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035971"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Alta disponibilidade de vários SIDs da instância do SAP ASCS com clustering de failover do Windows Server e compartilhamento de arquivos no Azure
 
@@ -41,10 +42,10 @@ Este artigo aborda como passar de uma instalação ASCS/SCS única para uma conf
 >
 >O número máximo de instâncias do SAP ASCS/SCS em um cluster WSFC é igual ao número máximo de IPs de front-end privado para cada balanceador de carga interno do Azure.
 >
-> A configuração introduzida nesta documentação ainda não tem suporte para ser usada em [Zonas de Disponibilidade do Azure](https://docs.microsoft.com/azure/availability-zones/az-overview)
+> A configuração introduzida nesta documentação ainda não tem suporte para ser usada em [Zonas de Disponibilidade do Azure](../../../availability-zones/az-overview.md)
 > 
 
-Para saber mais sobre limites do balanceador de carga, confira a seção "IP de front-end privado por balanceador de carga" em [Limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager]. Considere também usar a [SKU do Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) em vez da SKU básica do balanceador de carga do Azure.
+Para saber mais sobre limites do balanceador de carga, confira a seção "IP de front-end privado por balanceador de carga" em [Limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager]. Considere também usar a [SKU do Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md) em vez da SKU básica do balanceador de carga do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -3,12 +3,13 @@ title: Criar e configurar cofres dos serviços de recuperação
 description: Neste artigo, saiba como criar e configurar cofres de serviços de recuperação que armazenam os backups e os pontos de recuperação.
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 65f7265dccc5fe28d3503e72bdd6e49123871594
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.custom: references_regions
+ms.openlocfilehash: 244562efdc4c274a79ea27cdfa00dd51ae671fa4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970512"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032945"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Criar e configurar um cofre dos serviços de recuperação
 
@@ -21,7 +22,7 @@ O backup do Azure manipula automaticamente o armazenamento para o cofre. Você p
 > [!NOTE]
 > A alteração do **tipo de replicação de armazenamento** (com redundância local/geograficamente) para um cofre dos serviços de recuperação deve ser feita antes de configurar backups no cofre. Depois de configurar o backup, a opção para modificar é desabilitada.
 >
->- Se você ainda não tiver configurado o backup, [siga estas etapas](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) para revisar e modificar as configurações.
+>- Se você ainda não tiver configurado o backup, [siga estas etapas](#set-storage-redundancy) para revisar e modificar as configurações.
 >- Se você já configurou o backup e deve passar de GRS para LRS, [revise essas soluções alternativas](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
 1. Na folha **Cofres dos Serviços de Recuperação**, clique no novo cofre. Na seção **Configurações**, clique em **Propriedades**.
@@ -33,14 +34,14 @@ O backup do Azure manipula automaticamente o armazenamento para o cofre. Você p
 
    - Recomendamos que, se você estiver usando o Azure como um ponto de extremidade de armazenamento de backup primário, continue a usar a configuração padrão **com redundância geográfica** .
    - Se você não usar o Azure como um ponto de extremidade de armazenamento de backup principal, escolha **Localmente redundante**, que reduz os custos de armazenamento do Azure.
-   - Saiba mais sobre a redundância [geográfica](../storage/common/storage-redundancy-grs.md) e [local](../storage/common/storage-redundancy-lrs.md) .
+   - Saiba mais sobre a redundância [geográfica](../storage/common/storage-redundancy.md) e [local](../storage/common/storage-redundancy.md) .
 
 >[!NOTE]
 >As configurações de replicação de armazenamento para o cofre não são relevantes para o backup do compartilhamento de arquivos do Azure, pois a solução atual é baseada em instantâneo e não há dados transferidos para o cofre. Os instantâneos são armazenados na mesma conta de armazenamento que o compartilhamento de arquivos de backup.
 
 ## <a name="set-cross-region-restore"></a>Definir restauração entre regiões
 
-Como uma das opções de restauração, a CRR (restauração entre regiões) permite que você restaure as VMs do Azure em uma região secundária, que é uma [região emparelhada do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Essa opção permite que você:
+Como uma das opções de restauração, a CRR (restauração entre regiões) permite que você restaure as VMs do Azure em uma região secundária, que é uma [região emparelhada do Azure](../best-practices-availability-paired-regions.md). Essa opção permite que você:
 
 - realizar análises quando houver um requisito de auditoria ou de conformidade
 - Restaure a VM ou seu disco se houver um desastre na região primária.
@@ -83,10 +84,10 @@ Saiba como [monitorar trabalhos de restauração de região secundária](backup-
 É altamente recomendável revisar as configurações padrão de **tipo de replicação de armazenamento** e configurações de **segurança** antes de configurar backups no cofre.
 
 - O **tipo de replicação de armazenamento** por padrão é definido como com **redundância geográfica** (GRS). Depois de configurar o backup, a opção para modificar é desabilitada.
-  - Se você ainda não tiver configurado o backup, [siga estas etapas](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) para revisar e modificar as configurações.
+  - Se você ainda não tiver configurado o backup, [siga estas etapas](#set-storage-redundancy) para revisar e modificar as configurações.
   - Se você já configurou o backup e deve passar de GRS para LRS, [revise essas soluções alternativas](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
-- A **exclusão reversível** por padrão é **habilitada** em cofres recém-criados para proteger dados de backup de exclusões acidentais ou mal-intencionadas. [Siga estas etapas](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) para examinar e modificar as configurações.
+- A **exclusão reversível** por padrão é **habilitada** em cofres recém-criados para proteger dados de backup de exclusões acidentais ou mal-intencionadas. [Siga estas etapas](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) para examinar e modificar as configurações.
 
 ### <a name="how-to-change-from-grs-to-lrs-after-configuring-backup"></a>Como alterar de GRS para LRS depois de configurar o backup
 
@@ -123,7 +124,7 @@ Se você precisar manter os dados protegidos atuais no cofre do GRS e continuar 
   - Você poderá restaurar os dados de backup somente para pontos de recuperação não expirados no cofre do GRS.
   - Será necessário criar uma nova réplica inicial dos dados no cofre do LRS.
 
-- Para uma VM do Azure, você pode [parar a proteção com reter dados](backup-azure-manage-vms.md#stop-protecting-a-vm) para a VM no cofre do grs, mover a VM para outro grupo de recursos e, em seguida, proteger a VM no cofre do lRS. Consulte as [diretrizes e limitações](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) para mover uma VM para outro grupo de recursos.
+- Para uma VM do Azure, você pode [parar a proteção com reter dados](backup-azure-manage-vms.md#stop-protecting-a-vm) para a VM no cofre do grs, mover a VM para outro grupo de recursos e, em seguida, proteger a VM no cofre do lRS. Consulte as [diretrizes e limitações](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md) para mover uma VM para outro grupo de recursos.
 
   Uma VM pode ser protegida em apenas um cofre por vez. No entanto, a VM no novo grupo de recursos pode ser protegida no cofre do LRS, pois ela é considerada uma VM diferente.
 

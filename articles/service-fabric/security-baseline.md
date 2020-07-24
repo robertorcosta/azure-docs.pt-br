@@ -1,20 +1,20 @@
 ---
-title: Linha de base de segurança do Service Fabric para o benchmark de segurança do Azure
+title: Linha de base de segurança do Azure para Service Fabric
 description: A linha de base de segurança Service Fabric fornece diretrizes de procedimento e recursos para implementar as recomendações de segurança especificadas no benchmark de segurança do Azure.
 author: msmbaldwin
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d9d5d686c692c45acfff4fa811ed668c17f19861
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 97285ae9eadee3717f0b1a1510627392250424b7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530965"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037858"
 ---
-# <a name="service-fabric-security-baseline-for-azure-security-benchmark"></a>Linha de base de segurança do Service Fabric para o benchmark de segurança do Azure
+# <a name="azure-security-baseline-for-service-fabric"></a>Linha de base de segurança do Azure para Service Fabric
 
 A linha de base de segurança do Azure para Service Fabric contém recomendações que ajudarão você a melhorar a postura de segurança de sua implantação.
 

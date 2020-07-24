@@ -6,12 +6,13 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
-ms.openlocfilehash: 7ef7614b32dd88e804b1a74749ee87504f9cea40
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.custom: devx-track-java
+ms.openlocfilehash: 1fcec8b591192bba862bf91040e5d6ca1ef9bcd8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205458"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037722"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Entender as métricas para o Azure Spring Cloud
 
@@ -117,7 +118,7 @@ As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 >| Tomcat. global. Request. total. Count | Tomcat. global. Request (total-contagem) | Contagem | Contagem total de solicitações processadas do servidor Web Tomcat |
 >| Tomcat. global. Request. Max | Tomcat. global. Request. Max | Milissegundos | Tempo máximo do servidor Web Tomcat para processar uma solicitação |
 
-### <a name="session"></a>Sessão
+### <a name="session"></a>Session
 >[!div class="mx-tdCol2BreakAll"]
 >| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
@@ -128,7 +129,7 @@ As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 >| Tomcat. Sessions. Rejected | Tomcat. Sessions. Rejected | Contagem | Número de sessões que não foram criadas porque o número máximo de sessões ativas foi atingido. |
 >| Tomcat. Sessions. Active. Current | Tomcat. Sessions. Active. Current | Contagem | Contagem ativa da sessão Tomcat |
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 * [Introdução ao Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
 
 * [Analisar logs e métricas com configurações de diagnóstico](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)

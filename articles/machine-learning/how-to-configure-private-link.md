@@ -9,17 +9,20 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/13/2020
-ms.openlocfilehash: ed3b59b9e6aecb91f4ecb9d569b989b6b2396c48
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.date: 07/14/2020
+ms.openlocfilehash: 4e76a7adf7435cc1bdee3bb4e64f8cc699a16724
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134867"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031211"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configurar o link privado do Azure para um espaço de trabalho Azure Machine Learning (versão prévia)
 
-Neste documento, você aprenderá a usar o link privado do Azure com seu espaço de trabalho Azure Machine Learning. Esse recurso está atualmente em visualização e está disponível nas regiões do leste dos EUA, oeste dos EUA 2, centro-sul dos EUA. 
+Neste documento, você aprenderá a usar o link privado do Azure com seu espaço de trabalho Azure Machine Learning. 
+
+> [!IMPORTANT]
+> O uso do link privado do Azure com o Azure Machine Learning espaço de trabalho está atualmente em visualização pública. Essa funcionalidade só está disponível nas regiões **leste dos EUA**, **oeste dos EUA 2**e **Centro-Sul dos EUA** . Essa visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O link privado do Azure permite que você se conecte ao seu espaço de trabalho usando um ponto de extremidade privado. O ponto de extremidade privado é um conjunto de endereços IP privados na sua rede virtual. Você pode, então, limitar o acesso ao seu espaço de trabalho para ocorrer somente nos endereços IP privados. O link privado ajuda a reduzir o risco de vazamento de dados. Para saber mais sobre pontos de extremidade privados, confira o artigo [Link Privado do Azure](/azure/private-link/private-link-overview).
 
@@ -52,7 +55,7 @@ Ao implantar um modelo, você deve fornecer as seguintes informações:
 Depois que um modelo for enviado e o provisionamento for concluído, o grupo de recursos que contém o espaço de trabalho conterá três novos tipos de artefato relacionados ao link privado:
 
 * Ponto de extremidade privado
-* interface de rede
+* Adaptador de rede
 * Zona DNS privada
 
 O espaço de trabalho também contém uma rede virtual do Azure que pode se comunicar com o espaço de trabalho sobre o ponto de extremidade privado.
@@ -112,6 +115,9 @@ Para obter informações sobre máquinas virtuais do Azure, consulte a [document
 Para proteger a conta de armazenamento do Azure usada pelo seu espaço de trabalho, coloque-a dentro da rede virtual.
 
 Para obter informações sobre como colocar a conta de armazenamento na rede virtual, consulte [usar uma conta de armazenamento para seu espaço de trabalho](how-to-enable-virtual-network.md#use-a-storage-account-for-your-workspace).
+
+> [!WARNING]
+> Azure Machine Learning não dá suporte ao uso de uma conta de armazenamento do Azure que tenha o link privado habilitado.
 
 ## <a name="using-azure-key-vault"></a>Como usar o Azure Key Vault
 

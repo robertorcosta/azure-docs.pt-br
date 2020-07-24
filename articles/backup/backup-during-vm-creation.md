@@ -3,11 +3,12 @@ title: Habilitar o backup ao criar uma VM do Azure
 description: Descreve como habilitar o backup ao criar uma VM do Azure com o backup do Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7739109eb8bad88c9b723e67e13adc78c127499a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7fb6fd25f5031669633641ea02f34180f6f795d4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80672818"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032843"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Habilitar o backup ao criar uma VM do Azure
 
@@ -29,7 +30,7 @@ Se você ainda não tiver entrado em sua conta, entre no [portal do Azure](https
 
 2. No Azure Marketplace, clique em **computação**e selecione uma imagem de VM.
 
-3. Configure a VM de acordo com as instruções do [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) ou do [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) .
+3. Configure a VM de acordo com as instruções do [Windows](../virtual-machines/windows/quick-create-portal.md) ou do [Linux](../virtual-machines/linux/quick-create-portal.md) .
 
 4. Na guia **Gerenciamento** , em **habilitar backup**, clique **em**ativar.
 5. Backups de backup do Azure para um cofre dos serviços de recuperação. Clique em **criar novo** se você não tiver um cofre existente.

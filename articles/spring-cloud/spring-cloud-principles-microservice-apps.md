@@ -6,14 +6,15 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 1a8f48ff365ffae4a7013d2bfd537721ba2bc381
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-java
+ms.openlocfilehash: a8e1d43138e0b7481ebb89d747fa26df9470a09f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172506"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037128"
 ---
-# <a name="java-and-base-os-for-spring-microservice-apps"></a>Java e sistema operacional base para aplicativos de microserviço Spring
+# <a name="java-and-base-os-for-spring-microservice-apps"></a>Java e sistema operacional base para Aplicativos de microsserviços do Spring
 Veja a seguir os princípios para manter o sistema operacional de Java e base íntegro para aplicativos de microatendimento Spring.
 ## <a name="principles-for-healthy-java-and-base-os"></a>Princípios para Java íntegro e so base
 * Deve ser o mesmo sistema operacional base em camadas-básico | Padrão | Especiais.
@@ -51,5 +52,5 @@ Os sistemas azul examinarão continuamente as alterações nos sistemas operacio
 > ![Implantação padrão](media/spring-cloud-principles/spring-cloud-default-deployment.png)
  
 ## <a name="next-steps"></a>Próximas etapas
-* [Início rápido: iniciar um aplicativo de nuvem Spring do Azure existente usando o portal do Azure](spring-cloud-quickstart-launch-app-portal.md)
+* [Início Rápido: Iniciar um aplicativo existente do Azure Spring Cloud usando o portal do Azure](spring-cloud-quickstart-launch-app-portal.md)
 * [Suporte a longo prazo Java para Azure e Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/21/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 903560f5c0400a906918f0c17eafb2e1e09bdd30
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e4ec4925da40cf6051b88d77fbbc35d93ececf87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518497"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036719"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -59,11 +59,11 @@ A Microsoft recomenda usar o ZRS na região primária para cenários que exigem 
 
 A tabela a seguir mostra quais tipos de contas de armazenamento dão suporte ao ZRS em quais regiões:
 
-|    Tipo de conta de armazenamento    |    Regiões com suporte    |    Serviços com suporte    |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-|    Uso geral v2<sup>1</sup>    | Sudeste da Ásia<br /> Leste da Austrália<br /> Norte da Europa<br />  Europa Ocidental<br /> França Central<br /> Leste do Japão<br /> Norte da África do Sul<br /> Sul do Reino Unido<br /> EUA Central<br /> Leste dos EUA<br /> Leste dos EUA 2<br /> Oeste dos EUA 2    |    Blobs de bloco<br /> Blobs de páginas<sup>2</sup><br /> Compartilhamentos de arquivos (padrão)<br /> Tabelas<br /> Filas<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Sudeste da Ásia<br /> Leste da Austrália<br /> Europa Ocidental<br /> Leste dos EUA    |    Somente blobs de blocos    |
-|    FileStorage    | Sudeste da Ásia<br /> Leste da Austrália<br /> Europa Ocidental<br /> Leste dos EUA    |    Somente arquivos do Azure    |
+| Tipo de conta de armazenamento | Regiões com suporte | Serviços com suporte |
+|--|--|--|
+| Uso geral v2<sup>1</sup> | Sudeste da Ásia<br /> Leste da Austrália<br /> Norte da Europa<br />  Europa Ocidental<br /> França Central<br /> Leste do Japão<br /> Norte da África do Sul<br /> Sul do Reino Unido<br /> EUA Central<br /> Leste dos EUA<br /> Leste dos EUA 2<br /> Oeste dos EUA 2 | Blobs de bloco<br /> Blobs de páginas<sup>2</sup><br /> Compartilhamentos de arquivos (padrão)<br /> Tabelas<br /> Filas<br /> |
+| BlockBlobStorage<sup>1</sup> | Sudeste da Ásia<br /> Leste da Austrália<br /> Europa Ocidental<br /> Leste dos EUA | Somente blobs de blocos Premium |
+| FileStorage | Sudeste da Ásia<br /> Leste da Austrália<br /> Europa Ocidental<br /> Leste dos EUA | Somente compartilhamentos de arquivos Premium |
 
 <sup>1</sup> A camada de arquivamento não tem suporte atualmente para contas de ZRS.<br />
 <sup>2</sup> Contas de armazenamento que contêm discos gerenciados do Azure para máquinas virtuais sempre usam LRS. Os discos não gerenciados do Azure também devem usar LRS. É possível criar uma conta de armazenamento para discos não gerenciados do Azure que usam GRS, mas isso não é recomendável devido a possíveis problemas de consistência em relação à replicação geográfica assíncrona. Os discos gerenciados ou não gerenciados dão suporte a ZRS ou GZRS. Para saber mais sobre discos gerenciados, confira [Preços para discos gerenciados do Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -122,6 +122,9 @@ Para obter informações sobre preços, confira detalhes de preços para [Blobs]
 
 O armazenamento com redundância geográfica (com GRS ou GZRS) replica seus dados para outro local físico na região secundária para proteger contra interrupções regionais. No entanto, esses dados estarão disponíveis para serem lidos somente se o cliente ou a Microsoft iniciar um failover da região primária para a secundária. Quando você habilita o acesso de leitura para a região secundária, seus dados ficam disponíveis para serem lidos em todos os momentos, incluindo em uma situação em que a região primária fica indisponível. Para obter acesso de leitura para o local secundário, habilite o armazenamento com redundância geográfica com acesso de leitura (RA-GRS) ou o armazenamento com redundância de zona com acesso de leitura (RA-GZRS).
 
+> [!NOTE]
+> Os arquivos do Azure não dão suporte ao armazenamento com redundância geográfica com acesso de leitura (RA-GRS) e ao armazenamento com redundância de acesso de leitura (RA-GZRS).
+
 ### <a name="design-your-applications-for-read-access-to-the-secondary"></a>Projete seus aplicativos para ter acesso de leitura na região secundária
 
 Se sua conta de armazenamento estiver configurada para o acesso de leitura na região secundária, você poderá projetar seus aplicativos para alternar diretamente para a leitura de dados na região secundária se a região primária ficar indisponível por qualquer motivo. 
@@ -146,11 +149,11 @@ As tabelas nas seções a seguir resumem as opções de redundância disponívei
 
 A tabela a seguir descreve os principais parâmetros para cada opção de redundância:
 
-| Parâmetro                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
-| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Porcentagem de durabilidade dos objetos em um determinado ano<sup>1</sup>                                          | no mínimo 99,999999999% (11 9's) | no mínimo 99,9999999999% (12 9's) | no mínimo 99,99999999999999% (16 9's) | no mínimo 99,99999999999999% (16 9's) |
-| SLA de disponibilidade para solicitações de leitura<sup>1</sup>  | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) para o GRS<br /><br />Pelo menos 99,99% (99,9% para a camada de acesso esporádico) para o RA-GRS | Pelo menos 99,9% (99% para a camada de acesso esporádico) para o GZRS<br /><br />Pelo menos 99,99% (99.9% para a camada de acesso esporádico) para o RA-GZRS |
-| SLA de disponibilidade para solicitações de gravação<sup>1</sup>  | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) |
+| Parâmetro | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|:-|
+| Porcentagem de durabilidade dos objetos em um determinado ano<sup>1</sup> | no mínimo 99,999999999% (11 9's) | no mínimo 99,9999999999% (12 9's) | no mínimo 99,99999999999999% (16 9's) | no mínimo 99,99999999999999% (16 9's) |
+| SLA de disponibilidade para solicitações de leitura<sup>1</sup> | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) para o GRS<br /><br />Pelo menos 99,99% (99,9% para a camada de acesso esporádico) para o RA-GRS | Pelo menos 99,9% (99% para a camada de acesso esporádico) para o GZRS<br /><br />Pelo menos 99,99% (99.9% para a camada de acesso esporádico) para o RA-GZRS |
+| SLA de disponibilidade para solicitações de gravação<sup>1</sup> | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) |
 
 <sup>1</sup> Para obter informações sobre as garantias do Armazenamento do Azure para durabilidade e disponibilidade, confira o [SLA do Armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/storage/).
 
@@ -158,12 +161,12 @@ A tabela a seguir descreve os principais parâmetros para cada opção de redund
 
 A tabela a seguir indica se os dados são duráveis e se estão disponíveis em um determinado cenário, dependendo de qual tipo de redundância estiver em vigor para sua conta de armazenamento:
 
-| Cenário de interrupção                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
-| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Um nó dentro de um data center se torna indisponível                                                                 | Sim                             | Sim                              | Sim                                  | Sim                                 |
-| Um data center inteiro (zonal ou não zonal) fica indisponível                                           | Não                              | Sim                              | Sim<sup>1</sup>                                  | Sim                                  |
-| Uma interrupção ocorre em toda a região primária                                                                                     | Não                              | Não                               | Sim<sup>1</sup>                                  | Sim<sup>1</sup>                                  |
-| O acesso de leitura na região secundária estará disponível se a região primária ficar indisponível | Não                              | Não                               | Sim (com RA-GRS)                                   | Sim (com RA-GZRS)                                 |
+| Cenário de interrupção | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|:-|
+| Um nó dentro de um data center se torna indisponível | Sim | Sim | Sim | Sim |
+| Um data center inteiro (zonal ou não zonal) fica indisponível | Não | Sim | Sim<sup>1</sup> | Sim |
+| Uma interrupção ocorre em toda a região primária | Não | Não | Sim<sup>1</sup> | Sim<sup>1</sup> |
+| O acesso de leitura na região secundária estará disponível se a região primária ficar indisponível | Não | Não | Sim (com RA-GRS) | Sim (com RA-GZRS) |
 
 <sup>1</sup> O failover da conta é necessário para restaurar a disponibilidade de gravação se a região primária ficar indisponível. Para saber mais, confira [Recuperação de desastre e failover da conta de armazenamento](storage-disaster-recovery-guidance.md).
 
@@ -171,9 +174,9 @@ A tabela a seguir indica se os dados são duráveis e se estão disponíveis em 
 
 A tabela a seguir mostra quais opções de redundância têm suporte em cada tipo de conta de armazenamento. Para obter informações sobre os tipos de conta de armazenamento, confira [Visão geral da conta de armazenamento](storage-account-overview.md).
 
-| LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
-| :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Uso geral v2<br /> Uso geral v1<br /> Armazenamento de blobs de blocos<br /> Armazenamento de blob<br /> Armazenamento de arquivos                | Uso geral v2<br /> Armazenamento de blobs de blocos<br /> Armazenamento de arquivos                             | Uso geral v2<br /> Uso geral v1<br /> Armazenamento de blob                     | Uso geral v2                     |
+| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|
+| Uso geral v2<br /> Uso geral v1<br /> Armazenamento de blobs de blocos<br /> Armazenamento de blob<br /> Armazenamento de arquivos | Uso geral v2<br /> Armazenamento de blobs de blocos<br /> Armazenamento de arquivos | Uso geral v2<br /> Uso geral v1<br /> Armazenamento de blob | Uso geral v2 |
 
 Todos os dados de todas as contas de armazenamento são copiados de acordo com a opção de redundância para a conta de armazenamento. Os objetos, incluindo blobs de blocos, blobs de acréscimo, blobs de páginas, filas, tabelas e arquivos são copiados. Os dados em todas as camadas, incluindo a camada de arquivamento, são copiados. Para saber mais sobre as camadas de blobs, confira [Armazenamento de Blobs do Azure: camadas de acesso quente, frio e de arquivamento](../blobs/storage-blob-storage-tiers.md).
 

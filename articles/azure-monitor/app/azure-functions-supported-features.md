@@ -6,11 +6,12 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: cf0c97fd65f9966bf42fa22e2c8f92263952cb7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 333bba2b1d3cd83457196e38b827daa78199f235
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77655643"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033506"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Recursos suportados do Application Insights para o Azure Functions
 
@@ -41,7 +42,7 @@ Para obter mais informações sobre versões compatíveis do Application Insight
 | &bull; Amostragem                     | Sim             | Sim               | 
 | &bull; Pulsações                   |                 | Sim               | 
 | | | | 
-| **Correlation**                       |                   |                   |               
+| **Correlação**                       |                   |                   |               
 | &bull; Barramento de serviço                     |                   | Sim               | 
 | &bull; hub de eventos                       |                   | Sim               | 
 | | | | 
@@ -56,11 +57,11 @@ A coleta automática de contadores de desempenho só funciona em máquinas Windo
 
 ## <a name="live-metrics--secure-control-channel"></a>Live Metrics e canal de controle seguro
 
-Os critérios de filtro personalizados especificados são enviados para o componente de Métricas em tempo real no SDK do Application Insights. Os filtros podem conter informações confidenciais, como customerIDs. Torne o canal seguro com uma chave de API secreta. Confira [Proteger o canal de controle](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel) para obter instruções.
+Os critérios de filtro personalizados especificados são enviados para o componente de Métricas em tempo real no SDK do Application Insights. Os filtros podem conter informações confidenciais, como customerIDs. Torne o canal seguro com uma chave de API secreta. Confira [Proteger o canal de controle](./live-stream.md#secure-the-control-channel) para obter instruções.
 
 ## <a name="sampling"></a>amostragem
 
-As funções do Azure ativam a amostragem por padrão em suas configurações. Para obter mais informações, consulte [configurar amostragem](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling).
+As funções do Azure ativam a amostragem por padrão em suas configurações. Para obter mais informações, consulte [configurar amostragem](../../azure-functions/functions-monitoring.md#configure-sampling).
 
 Se o seu projeto usar uma dependência no SDK do Application Insights para fazer o acompanhamento manual de telemetria, você poderá enfrentar um comportamento estranho se a configuração de amostragem for diferente da configuração de amostragem das funções. 
 

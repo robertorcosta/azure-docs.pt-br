@@ -3,11 +3,12 @@ title: Fazer backup de cargas de trabalho do SQL Server no Azure Stack
 description: Neste artigo, saiba como configurar o servidor de Backup do Microsoft Azure (MABS) para proteger SQL Server bancos de dados no Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: b2d41bdccd67539205b74a0ce277b3b01a685c6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 706050fa37e4234a0ffc902f6b696ebd84e6701e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84192973"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032639"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Fazer backup do SQL Server no Azure Stack
 
@@ -18,6 +19,34 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
 1. Criar uma política de backup para proteger os bancos de dados do SQL Server
 2. Criar cópias de backup sob demanda.
 3. Recuperar o banco de dados dos discos e do Microsoft Azure
+
+## <a name="prerequisites-and-limitations"></a>Pré-requisitos e limitações
+
+* Se você tiver um banco de dados com arquivos em um compartilhamento de arquivo remoto, a proteção falhará com a ID do Erro 104. O MABS não dá suporte à proteção para SQL Server dados em um compartilhamento de arquivos remoto.
+* O MABS não pode proteger bancos de dados armazenados em compartilhamentos SMB remotos.
+* Verifique se as [réplicas do grupo de disponibilidade estão configuradas como somente leitura](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15).
+* Você deve adicionar explicitamente a conta do sistema **NTAuthority\System** ao grupo Sysadmin em SQL Server.
+* Ao executar uma recuperação de local alternativo para um banco de dados parcialmente independente, você deve garantir que a instância do SQL de destino tenha o recurso de base de dados [independente](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable) habilitado.
+* Ao executar uma recuperação de local alternativo para um banco de dados de fluxo de arquivos, você deve garantir que a instância do SQL de destino tenha o recurso de [banco de dados de fluxo de arquivo](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15) habilitado.
+* Proteção para o SQL Server AlwaysOn:
+  * O MABS detecta grupos de disponibilidade ao executar a consulta na criação do grupo de proteção.
+  * O MABS detecta um failover e continua a proteção do banco de dados.
+  * O MABS dá suporte a configurações de cluster multissite para uma instância do SQL Server.
+* Quando você protege bancos de dados que usam o recurso AlwaysOn, o MABS tem as seguintes limitações:
+  * O MABS honrará a política de backup para grupos de disponibilidade definidos no SQL Server com base nas preferências de backup, da seguinte maneira:
+    * Preferir secundária — Os backups devem ocorrer em uma réplica secundária, exceto quando a réplica primária for a única réplica online. Se houver várias réplicas secundárias disponíveis, o nó com a prioridade de backup mais alta será selecionado para backup. SE apenas a réplica primária estiver disponível, o backup deverá ocorrer na réplica primária.
+    * Somente secundária — O backup não deve ser executado na réplica primária. Se a réplica primária for a única online, o backup não deverá ocorrer.
+    * Primária — Os backups devem ocorrer sempre na réplica primária.
+    * Qualquer réplica — Os backups podem ocorrer em qualquer uma das réplicas de disponibilidade no grupo de disponibilidade. O nó cujo backup será feito será baseado nas prioridades de backup de cada um dos nós.
+  * Observe o seguinte:
+    * Os backups podem ocorrer de qualquer réplica legível, ou seja, primário, secundário síncrono, secundário assíncrono.
+    * Se qualquer réplica for excluída do backup, por exemplo, **excluir réplica** está habilitado ou marcado como não legível, essa réplica não será selecionada para backup em nenhuma das opções.
+    * Se várias réplicas estiverem disponíveis e legíveis, o nó com a prioridade de backup mais alta será selecionado para backup.
+    * Se o backup falhar no nó selecionado, a operação de backup falhará.
+    * Não há suporte para a recuperação para o local original.
+* SQL Server 2014 ou superior problemas de backup:
+  * O SQL Server 2014 adicionou um novo recurso para criar um [banco de dados para SQL Server locais no armazenamento de BLOBs do Windows Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15). MABS não pode ser usado para proteger essa configuração.
+  * Há alguns problemas conhecidos com a preferência de backup "preferir secundário" para a opção AlwaysOn do SQL. O MABS sempre faz um backup do secundário. Se nenhum secundário puder ser encontrado, o backup falhará.
 
 ## <a name="before-you-start"></a>Antes de começar
 

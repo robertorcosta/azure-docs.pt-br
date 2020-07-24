@@ -5,17 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa25cffd84ee9255fed8bbaa0f2fb6adf762b47e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6f5cabace81d53edf36ac6be0a2eb8830e6cc5f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84483795"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035070"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas frequentes sobre a Autenticação Multifator do Azure
 
@@ -55,6 +56,8 @@ Os campos opcionais podem ser configurados no Servidor de Autenticação Multifa
 
 O resultado de verificação (sucesso ou negação) e o motivo se ele foi negado, é armazenado com os dados de autenticação. Esses dados estão disponíveis em relatórios de uso e de autenticação.
 
+Para obter mais informações, consulte [residência de dados e dados do cliente para a autenticação multifator do Azure](concept-mfa-data-residency.md).
+
 ### <a name="what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users"></a>Quais códigos curtos de SMS são usados para enviar mensagens SMS aos meus usuários?
 
 No Estados Unidos, usamos os seguintes códigos curtos do SMS:
@@ -69,7 +72,9 @@ No Canadá, usamos os seguintes códigos curtos do SMS:
 * *759731*
 * *673801*
 
-Não há nenhuma garantia de entrega de prompt de autenticação multifator baseada em voz ou SMS consistente pelo mesmo número. Pensando no melhor para nossos usuários, nós podemos adicionar ou remover códigos curtos a qualquer momento, pois fazemos ajustes de rota para melhorar a capacidade de entrega de SMS. Não há suporte para códigos curtos para países ou regiões além do Estados Unidos e do Canadá.
+Não há nenhuma garantia de entrega de prompt de autenticação multifator baseada em voz ou SMS consistente pelo mesmo número. Pensando no melhor para nossos usuários, nós podemos adicionar ou remover códigos curtos a qualquer momento, pois fazemos ajustes de rota para melhorar a capacidade de entrega de SMS.
+
+Não há suporte para códigos curtos para países ou regiões além do Estados Unidos e do Canadá.
 
 ## <a name="billing"></a>Cobrança
 
@@ -185,7 +190,7 @@ Em alguns casos, Sim.
 
 Para o SMS unidirecional com o Servidor MFA v7.0 ou posterior do Azure, você pode configurar o tempo limite de configuração definindo uma chave do registro. Depois que o serviço de nuvem MFA envia a mensagem de texto, o código de verificação (ou a senha de uso único) é retornada para o Servidor MFA. O Servidor MFA armazena o código na memória para 300 segundos por padrão. Se o usuário insere seu código depois de 300 segundos, a autenticação será negada. Siga estas etapas para alterar a configuração de tempo limite padrão:
 
-1. Ir para `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`.
+1. Acesse `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`.
 2. Crie uma chave de registro **DWORD** chamada *pfsvc_pendingSmsTimeoutSeconds* e defina o tempo em segundos que você deseja que o servidor do Azure MFA armazene senhas de uso único.
 
 >[!TIP]

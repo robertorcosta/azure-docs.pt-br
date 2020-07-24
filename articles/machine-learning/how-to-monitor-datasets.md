@@ -10,15 +10,19 @@ ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 06/25/2020
-ms.openlocfilehash: 2e0f1765f9f91824f716cb70f591ce6b178c4563
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7ee9d37b19d4796f826fbd9831f6e84a92a12e7c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223120"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031177"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detectar descompasso de dados (versão prévia) em conjuntos
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
+> [!IMPORTANT]
+> A detecção de descompasso de dados em DataSets está atualmente em visualização pública.
+> A versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Saiba como monitorar a descompasso de dados e definir alertas quando o descompasso estiver alto.  
 
@@ -87,7 +91,7 @@ Os monitores de conjunto de conjuntos dependem dos seguintes serviços do Azure.
 |---------|---------|
 | *Conjunto de dados* | Os descompassos usam conjuntos de dados Machine Learning para recuperar e comparar dados de treinamento de modelo.  A geração do perfil de dados é usada para gerar algumas das métricas relatadas, como min, Max, valores distintos, contagem de valores distintos. |
 | *Pipeline e computação do Azureml* | O trabalho de cálculo de descompasso é hospedado no pipeline do azureml.  O trabalho é disparado sob demanda ou por agendamento para ser executado em uma computação configurada no momento da criação do monitor de descompasso.
-| *Application insights*| A descompasso emite métricas para Application Insights pertencentes ao espaço de trabalho do Machine Learning.
+| *Application Insights*| A descompasso emite métricas para Application Insights pertencentes ao espaço de trabalho do Machine Learning.
 | *Armazenamento de Blobs do Azure*| A descompasso emite métricas no formato JSON para o armazenamento de BLOBs do Azure.
 
 ## <a name="how-dataset-monitors-data"></a>Como o DataSet monitora os dados
@@ -229,7 +233,7 @@ Clique no botão **+ criar monitor** e prossiga com o assistente clicando em **A
     | Destino de computação | Azure Machine Learning o destino de computação para executar os trabalhos do monitor de conjunto de trabalho. | | Sim | 
     | Habilitar | Habilitar ou desabilitar a agenda no pipeline do monitor de conjunto de um | Desabilite a agenda para analisar os dados históricos com a configuração de aterramento. Ele pode ser habilitado após a criação do monitor de conjunto de um. | Sim | 
     | Frequência | A frequência que será usada para agendar o trabalho de pipeline e analisar os dados históricos se estiver executando um aterramento. As opções incluem diário, semanal ou mensal. | Cada execução compara dados no DataSet de destino de acordo com a frequência: <li>Diário: comparar o dia completo mais recente no conjunto de entrada de destino com linha de base <li>Semanalmente: comparar a semana concluída mais recente (segunda-feira a domingo) no conjunto de entrada de destino com linha de base <li>Mensal: comparar o mês completo mais recente no conjunto de entrada de destino com linha de base | Não | 
-    | Latência | Tempo, em horas, leva para que os dados cheguem no DataSet. Por exemplo, se demorar três dias para que os dados cheguem no BD SQL encapsulado, defina a latência como 72. | Não pode ser alterado após a criação do monitor de conjunto de um | Não | 
+    | Latency | Tempo, em horas, leva para que os dados cheguem no DataSet. Por exemplo, se demorar três dias para que os dados cheguem no BD SQL encapsulado, defina a latência como 72. | Não pode ser alterado após a criação do monitor de conjunto de um | Não | 
     | Endereços de email | Endereços de email para alertas com base na violação do limite de porcentagem de descompasso de dados. | Os emails são enviados por meio de Azure Monitor. | Sim | 
     | Limite | Limite de porcentagem de descompasso de dados para alerta de email. | Alertas e eventos adicionais podem ser definidos em muitas outras métricas no recurso de Application Insights associado do espaço de trabalho. | Sim |
 
@@ -306,7 +310,7 @@ Para começar, navegue até a [portal do Azure](https://portal.azure.com) e sele
 
 Selecione logs (análise) em monitoramento no painel esquerdo:
 
-![Visão geral do Application insights](./media/how-to-monitor-datasets/ai-overview.png)
+![Visão geral do Application Insights](./media/how-to-monitor-datasets/ai-overview.png)
 
 As métricas do monitor de conjunto de um DataSet são armazenadas como `customMetrics` . Você pode escrever e executar uma consulta depois de configurar um monitor de conjunto de um DataSet para exibi-los:
 

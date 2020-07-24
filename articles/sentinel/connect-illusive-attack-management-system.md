@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 7d2d3871dd9836e2c68155aa82ce01dced128bf3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ea7953be25473357f7ed572fa8b76076edc6f75a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530946"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038106"
 ---
 # <a name="connect-your-illusive-attack-management-system-to-azure-sentinel"></a>Conectar seu sistema de gerenciamento de ataques do illusive ao Azure Sentinel
+
+> [!IMPORTANT]
+> O conector de dados do sistema de gerenciamento de ataques illusive no Azure Sentinel está atualmente em visualização pública.
+> Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo explica como conectar seu [sistema de gerenciamento de ataques do illusive](https://www.illusivenetworks.com/technology/platform/attack-detection-system) ao Azure Sentinel. O conector de dados do sistema de gerenciamento de ataques illusive permite que você compartilhe os dados de análise da superfície de ataque do illusive e os logs de incidentes com o Azure Sentinel e exiba essas informações em painéis dedicados que oferecem insights sobre o risco de superfície de ataque da sua organização (painel do ADS) e acompanhe a movimentação lateral não autorizada na rede da sua organização (painel de anúncios)
 
@@ -34,7 +38,7 @@ Configure o sistema de gerenciamento de ataques para encaminhar mensagens de sys
 
 1. Faça logon no console do illusive e navegue até configurações->relatórios.
 
-1. Localizar Serversץ de syslog
+1. Localizar servidores syslog.
 
 1. Forneça as seguintes informações:
    - Nome do host: endereço IP do agente de syslog do Linux ou nome do host FQDN
@@ -44,7 +48,7 @@ Configure o sistema de gerenciamento de ataques para encaminhar mensagens de sys
 
 1. Para adicionar o servidor syslog, clique em Adicionar.
 
-1. Para usar o esquema relevante em Log Analytics para o sistema de gerenciamento de ataques illusive, pesquise CommonSecurityLog.
+1. Para usar o esquema relevante nos **logs** do sistema de gerenciamento de ataques illusive, pesquise **CommonSecurityLog**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

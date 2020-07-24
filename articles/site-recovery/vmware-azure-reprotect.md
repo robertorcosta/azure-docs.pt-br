@@ -8,10 +8,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
 ms.openlocfilehash: 976888f57269cc9fe6107a38e30d78c73eb5c124
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79257167"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037841"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Proteja Novamente do Azure para o local
 
@@ -41,7 +42,7 @@ Depois de [failover](site-recovery-failover.md) de máquinas virtuais do VMware 
 
 ## <a name="enable-reprotection"></a>Habilitar nova proteção
 
-Habilitar a replicação. Você pode proteger novamente VMs específicas ou um plano de recuperação:
+Habilite a replicação. Você pode proteger novamente VMs específicas ou um plano de recuperação:
 
 - Se você proteger novamente um plano de recuperação, deverá fornecer os valores para cada computador protegido.
 - Se as VMs pertencerem a um grupo de replicação para consistência de várias VMS, elas só poderão ser protegidas novamente usando um plano de recuperação. As VMs em um grupo de replicação devem usar o mesmo servidor de destino mestre

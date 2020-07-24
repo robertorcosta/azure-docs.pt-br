@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 06cb3fe5d551ddfc95fcbd37cd9620adebd825c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e31a10b1086679b7c2493f5a6d6b62f75e363dd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70883936"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036464"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usar o console serial para acessar o GRUB e o modo de usuário único
 O carregador de inicialização global unificado (GRUB) é provavelmente a primeira coisa que você vê ao inicializar uma VM (máquina virtual). Como ele é exibido antes do sistema operacional ser iniciado, o GRUB não é acessível via SSH. No GRUB, você pode modificar a configuração de inicialização para inicializar no modo de usuário único, entre outras coisas.
@@ -36,7 +37,7 @@ Para entrar no modo de usuário único, digite GRUB quando sua VM estiver sendo 
 ## <a name="general-grub-access"></a>Acesso geral ao GRUB
 Para acessar o GRUB, reinicialize sua VM enquanto o painel do console serial estiver aberto. Algumas distribuições exigem entrada de teclado para mostrar o GRUB e outras automaticamente mostram o GRUB por alguns segundos para permitir que a entrada do teclado do usuário cancele o tempo limite.
 
-Para poder acessar o modo de usuário único, você deseja garantir que o GRUB esteja habilitado em sua VM. Dependendo da sua distribuição, pode ser necessário algum trabalho de configuração para garantir que o GRUB esteja habilitado. Para obter informações específicas de distribuição, consulte a próxima seção e nossa página [de suporte para Linux no Azure](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/) .
+Para poder acessar o modo de usuário único, você deseja garantir que o GRUB esteja habilitado em sua VM. Dependendo da sua distribuição, pode ser necessário algum trabalho de configuração para garantir que o GRUB esteja habilitado. Para obter informações específicas de distribuição, consulte a próxima seção.
 
 ### <a name="restart-your-vm-to-access-grub-in-serial-console"></a>Reiniciar a VM para acessar o GRUB no Console Serial
 Você pode reiniciar a VM no console serial passando o mouse sobre o botão **reiniciar** e, em seguida, selecionando **reiniciar VM**. Uma notificação sobre a reinicialização é exibida na parte inferior do painel.
@@ -112,7 +113,7 @@ Se você configurou o acesso de GRUB e raiz usando as instruções anteriores, v
 
    Você será solicitado a fornecer a senha de administrador antes de poder entrar no modo de usuário único. Essa senha é aquela que você criou nas instruções anteriores.
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
+    ![Imagem animada mostrando uma interface de linha de comando. O usuário seleciona um servidor, localiza o final da linha de kernel e, em seguida, insere o texto especificado.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Entrar no modo de usuário único sem a conta raiz habilitada no RHEL
 Se você não tiver habilitado o usuário raiz seguindo as instruções anteriores, você ainda poderá redefinir sua senha raiz fazendo o seguinte:
@@ -136,7 +137,7 @@ Se você não tiver habilitado o usuário raiz seguindo as instruções anterior
 1. Agora você está na raiz. Você pode redefinir sua senha raiz digitando `passwd` e, em seguida, usar as instruções anteriores para entrar no modo de usuário único. 
 1. Depois de terminar, digite `reboot -f` para reinicializar.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
+![Imagem animada mostrando uma interface de linha de comando. O usuário seleciona um servidor, localiza o final da linha de kernel e insere os comandos especificados.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > [!NOTE]
 > Executar as instruções anteriores o descartará no Shell de emergência para que você também possa executar tarefas como edição `fstab` . No entanto, normalmente sugerimos que você Redefina sua senha raiz e use-a para entrar no modo de usuário único.
@@ -240,7 +241,7 @@ Para habilitar o modo de usuário único no Oracle Linux, siga as instruções a
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o console serial, consulte:
 * [Documentação do console serial do Linux](serial-console-linux.md)
-* [Usar o console serial para habilitar o GRUB em várias distribuições](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
+* [Usar o console serial para habilitar o GRUB em várias distribuições](/archive/blogs/linuxonazure/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time)
 * [Usar o console serial para chamadas NMI e SysRq](serial-console-nmi-sysrq.md)
 * [Console serial para VMs do Windows](serial-console-windows.md)
 * [Diagnóstico de inicialização](boot-diagnostics.md)

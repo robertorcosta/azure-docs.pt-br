@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: 01906935de76b2b262f2058563a3eee0e297e8a4
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: cc0c4b6bc7dd340f17ac500c5d319a83370a2f2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985320"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033030"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para o banco de dados SQL do Azure e o SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -104,7 +104,7 @@ Um failover pode ser iniciado usando A API REST ou o PowerShell. Para a API REST
 
 ## <a name="conclusion"></a>Conclusão
 
-O banco de dados SQL do Azure e o Azure SQL Instância Gerenciada apresentam uma solução de alta disponibilidade interna, que está profundamente integrada com a plataforma Azure. Ele depende de Service Fabric para detecção e recuperação de falhas, no armazenamento de BLOBs do Azure para proteção de dados e em Zonas de Disponibilidade para maior tolerância a falhas. Além disso, o banco de dados SQL e o SQL Instância Gerenciada aproveitam a tecnologia do grupo de disponibilidade Always On da instância SQL Server para replicação e failover. A combinação dessas tecnologias permite que os aplicativos percebam totalmente os benefícios de um modelo de armazenamento misto e ofereçam suporte aos SLAs mais exigentes.
+O banco de dados SQL do Azure e o Azure SQL Instância Gerenciada apresentam uma solução de alta disponibilidade interna, que está profundamente integrada com a plataforma Azure. Depende de Service Fabric para detecção de falha e recuperação, no armazenamento de BLOBs do Azure para proteção de dados e em Zonas de Disponibilidade para maior tolerância a falhas (como mencionado anteriormente no documento que ainda não se aplica ao Instância Gerenciada SQL do Azure). Além disso, o banco de dados SQL e o SQL Instância Gerenciada aproveitam a tecnologia do grupo de disponibilidade Always On da instância SQL Server para replicação e failover. A combinação dessas tecnologias permite que os aplicativos percebam totalmente os benefícios de um modelo de armazenamento misto e ofereçam suporte aos SLAs mais exigentes.
 
 ## <a name="next-steps"></a>Próximas etapas
 

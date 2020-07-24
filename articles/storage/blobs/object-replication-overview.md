@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2d8d4c369cef8bf996628e8c89a424f04dcdbe71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: abec9811cd407c1fab91cfb60412aabdd969690d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888062"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036974"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replicação de objeto para blobs de blocos (versão prévia)
 
@@ -63,6 +63,8 @@ A replicação de objeto tem suporte apenas para contas de armazenamento v2 de u
 - França Central
 - Leste do Canadá
 - Canadá Central
+- Leste dos EUA 2
+- EUA Central
 
 As contas de origem e de destino devem residir em uma dessas regiões para usar a replicação de objeto. As contas podem estar em duas regiões diferentes.
 
@@ -74,7 +76,7 @@ Durante a versão prévia, não há custos adicionais associados à replicação
 ### <a name="prerequisites-for-object-replication"></a>Pré-requisitos para replicação do objeto
 
 A replicação de objeto exige que os seguintes recursos de Armazenamento do Azure estejam habilitados: 
-- [Feed de alterações](storage-blob-change-feed.md)
+- [Feed de alteração](storage-blob-change-feed.md)
 - [Controle de versão](versioning-overview.md)
 
 Antes de configurar a replicação de objeto, habilite seus pré-requisitos. O feed de alterações deve ser habilitado na conta de origem, e o controle de versão do blob deve ser habilitado na conta de origem e de destino. Para saber mais sobre como habilitar esses recursos, confira estes artigos:

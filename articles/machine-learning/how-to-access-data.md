@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: d6b1d5c66c1dd15fa12638dd451d1ce2fa8fa79f
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 194864d223d908cc2d8b1d7f14efe81e16bbd058
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146723"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031500"
 ---
 # <a name="connect-to-azure-storage-services"></a>Conectar aos serviços de armazenamento do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -92,8 +92,9 @@ Após a criação do armazenamento de dados, essa validação é executada somen
 ### <a name="python-sdk"></a>SDK do Python
 
 Todos os métodos de registro estão na classe [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) e têm o formato `register_azure_*`.
+
 > [!IMPORTANT]
-> Se você planeja criar um armazenamento de dados para contas de armazenamento que estão em uma rede virtual, consulte a seção acessar dados em uma rede virtual.
+> Se você planeja criar um armazenamento de dados para contas de armazenamento que estão em uma rede virtual, consulte a seção [acessar dados em uma rede virtual](#access-data-in-a-virtual-network) .
 
 Você pode encontrar as informações necessárias para preencher o método `register_azure_*()` no [portal do Azure](https://portal.azure.com).
 
@@ -185,7 +186,7 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 Crie um novo armazenamento de dados em algumas etapas no Azure Machine Learning Studio:
 
 > [!IMPORTANT]
-> Se sua conta de armazenamento de dados estiver em uma rede virtual, serão necessárias etapas de configuração adicionais para garantir que o estúdio tenha acesso aos seus dados. Consulte [isolamento de rede & privacidade] (como habilitar-Virtual-Network. MD # Machine-Learning-Studio) para garantir que as etapas de configuração apropriadas sejam aplicadas. 
+> Se sua conta de armazenamento de dados estiver em uma rede virtual, serão necessárias etapas de configuração adicionais para garantir que o estúdio tenha acesso aos seus dados. Consulte [isolamento de rede & privacidade](how-to-enable-virtual-network.md#machine-learning-studio) para garantir que as etapas de configuração apropriadas sejam aplicadas. 
 
 1. Entre no [Estúdio do Azure Machine Learning](https://ml.azure.com/).
 1. Selecione **Armazenamentos de dados** no painel esquerdo em **Gerenciar**.
