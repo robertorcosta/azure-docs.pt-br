@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 998c286cb5faa9f29d8e4687260440c578b5622b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+ms.openlocfilehash: 1a5b5ff535b2a0ca84831e8d4c42e80a72395b02
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520656"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048254"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência do uso de funções em expressões para os Aplicativos Lógicos do Azure e o Power Automate
 
@@ -1686,8 +1686,7 @@ E retorna este resultado: `"https://contoso.com"`
 
 ### <a name="div"></a>div
 
-Retornar o resultado inteiro da divisão de dois números.
-Para obter o resultado restante, consulte [mod()](#mod).
+Retornar o resultado da divisão de dois números. Para obter o resultado restante, consulte [mod()](#mod).
 
 ```
 div(<dividend>, <divisor>)
@@ -1701,19 +1700,26 @@ div(<dividend>, <divisor>)
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Integer | O resultado inteiro da divisão do primeiro número pelo segundo |
+| <*quotient-result*> | Integer ou Float | O resultado da divisão do primeiro número pelo segundo número. Se o dividendo ou o divisor tiver um tipo float, o resultado terá o tipo float. <p><p>**Observação**: para converter o resultado float em um inteiro, tente [criar e chamar uma função do Azure](../logic-apps/logic-apps-azure-functions.md) de seu aplicativo lógico. |
 ||||
 
-*Exemplo*
+*Exemplo 1*
 
-Os dois exemplos dividem o primeiro número pelo segundo:
+Ambos os exemplos retornam esse valor com o tipo Integer:`2`
 
 ```
-div(10, 5)
-div(11, 5)
+div(10,5)
+div(11,5)
 ```
 
-E retornam este resultado: `2`
+*Exemplo 2*
+
+Ambos os exemplos retornam esse valor com o tipo float:`2.2`
+
+```
+div(11,5.0)
+div(11.0,5)
+```
 
 <a name="encodeUriComponent"></a>
 
@@ -1730,7 +1736,7 @@ encodeUriComponent('<value>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Sim | String | A cadeia de caracteres a ser convertida em um formato codificado para URI |
+| <*value*> | Sim | Cadeia de caracteres | A cadeia de caracteres a ser convertida em um formato codificado para URI |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -1798,8 +1804,8 @@ endsWith('<text>', '<searchText>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Sim | Cadeia de caracteres | A cadeia de caracteres a ser verificada |
-| <*searchText*> | Sim | Cadeia de caracteres | A subcadeia de caracteres final a ser localizada |
+| <*text*> | Sim | String | A cadeia de caracteres a ser verificada |
+| <*searchText*> | Sim | String | A subcadeia de caracteres final a ser localizada |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -1940,8 +1946,8 @@ formatDateTime('<timestamp>', '<format>'?)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Sim | Cadeia de caracteres | Uma cadeia de caracteres que contém o carimbo de data/hora |
-| <*format*> | Não | String | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*timestamp*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
+| <*format*> | Não | Cadeia de caracteres | Um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -2004,7 +2010,7 @@ formDataValue('<actionName>', '<key>')
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Sim | Cadeia de caracteres | A ação cuja saída tem o valor de chave desejado |
-| <*key*> | Sim | String | O nome da chave cujo valor você deseja |
+| <*key*> | Sim | Cadeia de caracteres | O nome da chave cujo valor você deseja |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -2349,7 +2355,7 @@ int('<value>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Sim | Cadeia de caracteres | A cadeia de caracteres a ser convertida |
+| <*value*> | Sim | String | A cadeia de caracteres a ser convertida |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -2636,7 +2642,7 @@ join([<collection>], '<delimiter>')
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*collection*> | Sim | Array | A matriz que tem os itens a serem ingressados |
-| <*delimiter*> | Sim | String | O separador exibido entre cada caractere na cadeia de caracteres resultante |
+| <*delimiter*> | Sim | Cadeia de caracteres | O separador exibido entre cada caractere na cadeia de caracteres resultante |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -3113,7 +3119,7 @@ outputs('<actionName>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*actionName*> | Sim | String | O nome da saída da ação desejada |
+| <*actionName*> | Sim | Cadeia de caracteres | O nome da saída da ação desejada |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -3215,7 +3221,7 @@ rand(<minValue>, <maxValue>)
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*minValue*> | Sim | Inteiro | O menor inteiro no intervalo |
-| <*maxValue*> | Sim | Integer | O inteiro que segue o inteiro mais alto no intervalo que a função pode retornar |
+| <*maxValue*> | Sim | Inteiro | O inteiro que segue o inteiro mais alto no intervalo que a função pode retornar |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -3245,7 +3251,7 @@ range(<startIndex>, <count>)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*startIndex*> | Sim | Inteiro | Um valor inteiro que inicia a matriz como o primeiro item |
+| <*startIndex*> | Sim | Integer | Um valor inteiro que inicia a matriz como o primeiro item |
 | <*count*> | Sim | Integer | O número de inteiros na matriz |
 |||||
 
@@ -3278,7 +3284,7 @@ replace('<text>', '<oldText>', '<newText>')
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sim | Cadeia de caracteres | A cadeia de caracteres que tem a subcadeia de caracteres a ser substituída |
 | <*oldText*> | Sim | Cadeia de caracteres | A subcadeia de caracteres a ser substituída |
-| <*newText*> | Sim | String | A cadeia de caracteres de substituição |
+| <*newText*> | Sim | Cadeia de caracteres | A cadeia de caracteres de substituição |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -3327,7 +3333,7 @@ removeProperty(<object>['<parent-property>'], '<child-property>')
 | --------- | -------- | ---- | ----------- |
 | <*object*> | Sim | Objeto | O objeto JSON cuja propriedade você deseja remover |
 | <*parent-property*> | Sim | Cadeia de caracteres | O nome da propriedade pai com a propriedade filho que você deseja remover |
-| <*child-property*> | Sim | Cadeia de caracteres | O nome da propriedade filho a ser removida |
+| <*child-property*> | Sim | String | O nome da propriedade filho a ser removida |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -3649,7 +3655,7 @@ split('<text>', '<delimiter>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Sim | String | A cadeia de caracteres para separar em subcadeias de caracteres com base no delimitador especificado na cadeia de caracteres original |
+| <*text*> | Sim | Cadeia de caracteres | A cadeia de caracteres para separar em subcadeias de caracteres com base no delimitador especificado na cadeia de caracteres original |
 | <*delimiter*> | Sim | Cadeia de caracteres | O caractere na cadeia de caracteres original para usar como delimitador |
 |||||
 
@@ -4064,12 +4070,12 @@ toUpper('<text>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Sim | String | A cadeia de caracteres a ser retornada no formato em maiúsculas |
+| <*text*> | Sim | Cadeia de caracteres | A cadeia de caracteres a ser retornada no formato em maiúsculas |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*uppercase-text*> | String | A cadeia de caracteres original no formato em maiúsculas |
+| <*uppercase-text*> | Cadeia de caracteres | A cadeia de caracteres original no formato em maiúsculas |
 ||||
 
 *Exemplo*
@@ -4101,7 +4107,7 @@ trigger()
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*trigger-output*> | String | A saída de um gatilho em runtime |
+| <*trigger-output*> | Cadeia de caracteres | A saída de um gatilho em runtime |
 ||||
 
 <a name="triggerBody"></a>
@@ -4216,7 +4222,7 @@ triggerOutputs()
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*trigger-output*> | String | A saída de um gatilho em runtime  |
+| <*trigger-output*> | Cadeia de caracteres | A saída de um gatilho em runtime  |
 ||||
 
 <a name="trim"></a>
@@ -4231,7 +4237,7 @@ trim('<text>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Sim | String | A cadeia de caracteres que tem o espaço em branco à esquerda e à direita a ser removida |
+| <*text*> | Sim | Cadeia de caracteres | A cadeia de caracteres que tem o espaço em branco à esquerda e à direita a ser removida |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -4300,7 +4306,7 @@ uriComponent('<value>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*encoded-uri*> | Cadeia de caracteres | A cadeia de caracteres codificada para URI com caracteres de escape |
+| <*encoded-uri*> | String | A cadeia de caracteres codificada para URI com caracteres de escape |
 ||||
 
 *Exemplo*
@@ -4360,12 +4366,12 @@ uriComponentToString('<value>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Sim | Cadeia de caracteres | A cadeia de caracteres codificada para URI a ser decodificada |
+| <*value*> | Sim | String | A cadeia de caracteres codificada para URI a ser decodificada |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*decoded-uri*> | Cadeia de caracteres | A versão decodificada para a cadeia de caracteres codificada para URI |
+| <*decoded-uri*> | String | A versão decodificada para a cadeia de caracteres codificada para URI |
 ||||
 
 *Exemplo*
@@ -4390,12 +4396,12 @@ uriHost('<uri>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Sim | String | O URI cujo valor `host` você deseja |
+| <*uri*> | Sim | Cadeia de caracteres | O URI cujo valor `host` você deseja |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*host-value*> | Cadeia de caracteres | O valor `host` do URI especificado |
+| <*host-value*> | String | O valor `host` do URI especificado |
 ||||
 
 *Exemplo*
@@ -4515,7 +4521,7 @@ uriQuery('<uri>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*query-value*> | Cadeia de caracteres | O valor `query` do URI especificado |
+| <*query-value*> | String | O valor `query` do URI especificado |
 ||||
 
 *Exemplo*
@@ -4545,7 +4551,7 @@ uriScheme('<uri>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*scheme-value*> | String | O valor `scheme` do URI especificado |
+| <*scheme-value*> | Cadeia de caracteres | O valor `scheme` do URI especificado |
 ||||
 
 *Exemplo*

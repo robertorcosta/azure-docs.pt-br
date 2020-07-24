@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ca19ccb925721126f7e7d8495addd0794766f376
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 94955e27dcadb3acbea03926d6d1ed73e9c5c9ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202867"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051350"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Inicie com uma autenticação baseada em certificado do Azure Active Directory
 
@@ -93,7 +93,7 @@ Veja abaixo o esquema de uma autoridade de certificação:
     }
 ```
 
-Para a configuração, você pode usar o [Azure Active Directory PowerShell versão 2](/powershell/azure/install-adv2?view=azureadps-2.0):
+Para a configuração, você pode usar o [Azure Active Directory PowerShell versão 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0):
 
 1. Inicie o Windows PowerShell com os privilégios de administrador.
 2. Instale o módulo do Microsoft Azure AD versão [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) ou superior.
@@ -122,7 +122,7 @@ Para recuperar as autoridades de certificação confiáveis que são definidas e
 
 ### <a name="add"></a>Adicionar
 
-Para criar uma autoridade de certificação confiável, use o cmdlet [New-AzureADTrustedCertificateAuthority](/azurepowershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) e defina o atributo **crlDistributionPoint** para um valor correto:
+Para criar uma autoridade de certificação confiável, use o cmdlet [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) e defina o atributo **crlDistributionPoint** para um valor correto:
 
 ```azurepowershell
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"

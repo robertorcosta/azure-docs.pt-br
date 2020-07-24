@@ -4,11 +4,12 @@ description: Depure instantâneos são coletados automaticamente quando exceçõ
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: 18f43ba90157d71ec9488b6858fa9f41b2ee42a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c920ab019d5d802ea862ab923297670da766a456
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692012"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049677"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantâneos em exceções em aplicativos .NET
 Quando ocorrer uma exceção, você pode coletar automaticamente um Instantâneo de Depuração de seu aplicativo web ativo. O instantâneo mostra o estado do código-fonte e variáveis no momento em que a exceção foi lançada. O Depurador de Instantâneos no [insights do aplicativo Azure](../../azure-monitor/app/app-insights-overview.md) monitora a telemetria de exceção do seu aplicativo Web. Ele coleta instantâneos em suas exceções com mais lançamentos para que você tenha as informações necessárias para diagnosticar problemas na produção. Inclua o [pacote NuGet do coletor de instantâneos](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) em seu aplicativo e, opcionalmente, configure os parâmetros de coleção no [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Os instantâneos aparecem em [exceções](../../azure-monitor/app/asp-net-exceptions.md) no portal de Application insights.
@@ -45,7 +46,7 @@ O acesso a instantâneos é protegido por RBAC (controle de acesso baseado em fu
 Os proprietários de assinaturas deverão atribuir a função `Application Insights Snapshot Debugger` aos usuários que inspecionarão os instantâneos. Essa função pode ser atribuída a usuários individuais ou a grupos por proprietários de assinatura para o recurso Application Insights de destino ou seu grupo de recursos ou a assinatura.
 
 1. Navegue até o recurso Application Insights no portal do Azure.
-1. Clique em **Controle de acesso (IAM)** .
+1. Clique em **IAM (Controle de Acesso)**.
 1. Clique no botão **+ Adicionar atribuição de função** .
 1. Selecione **Application Insights depurador de instantâneos** na lista suspensa **funções** .
 1. Procure e insira um nome para o usuário a ser adicionado.
@@ -88,7 +89,7 @@ O Coletor de Instantâneo é implementado como um [Processador do Application In
 Cada vez que o aplicativo chama [TrackException](../../azure-monitor/app/asp-net-exceptions.md#exceptions), o Coletor de Instantâneo calcula uma ID do problema do tipo de exceção sendo gerada e o método que a gerou.
 Cada vez que o aplicativo chama TrackException, um contador é incrementado para a ID do Problema apropriada. Quando o contador alcançar o valor `ThresholdForSnapshotting`, a ID do Problema será adicionada a um Plano de Coleta.
 
-O Snapshot Collector também monitora as exceções geradas assinando o evento [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception). Quando esse evento for acionado, a ID do Problema da exceção será calculada e comparada com as IDs de Problema no Plano de Coleta.
+O Snapshot Collector também monitora as exceções geradas assinando o evento [AppDomain.CurrentDomain.FirstChanceException](/dotnet/api/system.appdomain.firstchanceexception). Quando esse evento for acionado, a ID do Problema da exceção será calculada e comparada com as IDs de Problema no Plano de Coleta.
 Se houver uma correspondência, será criado um instantâneo do processo em execução. O instantâneo será atribuído a um identificador exclusivo e a exceção será marcada com esse identificador. Depois que o manipulador FirstChanceException retornar, a exceção lançada será processada como normal. Por fim, a exceção acessa o método TrackException novamente, em que, junto com o identificador de instantâneo, será relatada ao Application Insights.
 
 O processo principal continuará a executar e atender o tráfego para os usuários com pouca interrupção. Enquanto isso, o instantâneo será entregue ao processo Carregador de Instantâneo. O Carregador de Instantâneo criará um minidespejo e o carregará no Application Insights junto com qualquer arquivo de símbolo (.pdb) relevante.
@@ -116,7 +117,7 @@ A versão 15.2 (ou superior) do Visual Studio 2017 publica símbolos para builds
 Para a Computação do Azure e outros tipos, certifique-se de que os arquivos de símbolo estejam na mesma pasta que o arquivo .dll do aplicativo principal (geralmente, `wwwroot/bin`) ou que estejam disponíveis no caminho atual.
 
 > [!NOTE]
-> Para obter mais informações sobre as diferentes opções de símbolo que estão disponíveis, consulte a [documentação do Visual Studio](https://docs.microsoft.com/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
+> Para obter mais informações sobre as diferentes opções de símbolo que estão disponíveis, consulte a [documentação do Visual Studio](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
 ). Para obter melhores resultados, recomendamos o uso de "completo", "portátil" ou "incorporado".
 
 ### <a name="optimized-builds"></a>Builds otimizados
@@ -137,6 +138,6 @@ Habilite Depurador de Instantâneos Application Insights para seu aplicativo:
 
 Além Application Insights Depurador de Instantâneos:
  
-* [Definir snappoints em seu código](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) para obter instantâneos sem esperar por uma exceção.
+* [Definir snappoints em seu código](/visualstudio/debugger/debug-live-azure-applications) para obter instantâneos sem esperar por uma exceção.
 * [Diagnosticar exceções em seus aplicativos Web](../../azure-monitor/app/asp-net-exceptions.md) explica como deixar as exceções mais visíveis para o Application Insights.
 * A [Detecção Inteligente](../../azure-monitor/app/proactive-diagnostics.md) descobre automaticamente anomalias de desempenho.

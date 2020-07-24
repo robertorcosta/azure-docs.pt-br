@@ -8,11 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: 'Criar uma entidade de serviço de integração habilitada para Azure Arc '
 keywords: Kubernetes, Arc, Azure, contêineres
-ms.openlocfilehash: 3c95c6bb85c7c1bc097b7751a560a658863c0afd
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 02689dba32c8cc91e4a4a4de4dee98bc990b4dd6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725594"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050069"
 ---
 # <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Criar uma entidade de serviço de integração habilitada para Azure Arc (versão prévia)
 
@@ -44,7 +45,7 @@ az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onb
 
 ## <a name="assign-permissions"></a>Atribuir permissões
 
-Depois de criar a nova Entidade de Serviço, atribua a função "Azure Arc para Integração do Kubernetes" à entidade recém-criada. Essa é uma função interna do Azure com permissões limitadas, que só permite que a entidade de segurança registre clusters no Azure. A entidade de segurança não pode atualizar, excluir ou modificar outros clusters ou recursos na assinatura.
+Depois de criar a nova entidade de serviço, atribua a função "cluster kubernetes-integração de arco do Azure" com a entidade recém-criada. Essa é uma função interna do Azure com permissões limitadas, que só permite que a entidade de segurança registre clusters no Azure. A entidade de segurança não pode atualizar, excluir ou modificar outros clusters ou recursos na assinatura.
 
 Dadas as capacidades limitadas, os clientes podem facilmente reutilizar essa entidade para integrar vários clusters.
 

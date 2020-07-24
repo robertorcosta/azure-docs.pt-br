@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dfa9de94665c0ee98d0252be6de807f18e39b087
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 3e64ffe5007d27a44167f08807a9694875fe48c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697963"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050440"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gerenciar o Azure Analysis Services com PowerShell
 
@@ -25,7 +26,7 @@ As tarefas de gerenciamento de recursos, como criar ou excluir um servidor, susp
 
 A maioria das tarefas do PowerShell exige privilégios de administrador no servidor do Analysis Services que está sendo gerenciado. As tarefas agendadas do PowerShell são operações autônomas. A conta ou a entidade de serviço que executa o agendador precisa ter privilégios de administrador no servidor do Analysis Services. 
 
-Para operações de servidor usando os cmdlets Azure PowerShell, sua conta ou a conta que executa o Agendador também deve pertencer à função de Proprietário do recurso no [Controle de Acesso Baseado em Função do Azure (RBAC)](../role-based-access-control/overview.md). 
+Para operações de servidor usando cmdlets Azure PowerShell, sua conta ou o Agendador que executa a conta também deve pertencer à função de proprietário para o recurso no [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md). 
 
 ## <a name="resource-and-server-operations"></a>Operações de servidor e de recurso 
 

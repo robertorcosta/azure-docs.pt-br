@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 743e3f50d747993250399493d97fc2becab19319
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/17/2020
+ms.openlocfilehash: 4b5898629c373e31d94ad09ca4af66de0428a7a2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532035"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047614"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Regras de firewall de servidor do Banco de Dados do Azure para MariaDB
 Os firewalls impedem todo acesso ao seu servidor de banco de dados até que você especifique quais computadores têm permissão. O firewall concede acesso ao servidor com base no endereço IP de origem de cada solicitação.
@@ -67,6 +67,11 @@ Considere os seguintes pontos quando o acesso ao serviço do servidor de Banco d
    * Obtenha o endereçamento IP estático para os computadores cliente e, em seguida, adicione os endereços IP como regras de firewall.
 
 * O **IP do servidor parece ser público:** As conexões com o banco de dados do Azure para o servidor MariaDB são roteadas por meio de um gateway do Azure acessível publicamente. No entanto, o IP do servidor real é protegido pelo firewall. Para obter mais informações, consulte o [artigo sobre arquitetura de conectividade](concepts-connectivity-architecture.md). 
+
+* **Não é possível se conectar do recurso do Azure com o IP permitido:** Verifique se o ponto de extremidade de serviço **Microsoft. SQL** está habilitado para a sub-rede da qual você está se conectando. Se **o Microsoft. SQL** estiver habilitado, ele indicará que você só deseja usar [regras de ponto de extremidade de serviço de VNet](concepts-data-access-security-vnet.md) nessa sub-rede.
+
+   Por exemplo, você poderá ver o erro a seguir se estiver se conectando de uma VM do Azure em uma sub-rede que tem **o Microsoft. SQL** habilitado, mas não tem nenhuma regra de VNet correspondente:`FATAL: Client from Azure Virtual Networks is not allowed to access the server`
+
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Criar e gerenciar regras de firewall do Banco de Dados do Azure para MariaDB usando o portal do Azure](./howto-manage-firewall-portal.md)

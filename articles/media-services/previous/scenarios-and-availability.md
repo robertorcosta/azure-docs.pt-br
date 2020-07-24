@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: fa0cf5d698bc2186928e0db19be173ec725485e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0eec42c0703e7158b478b8297848dc2ee6735cb8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80985925"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047555"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade de recursos dos Serviços de Mídia em datacenters
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Os Serviços de Mídia do Microsoft Azure (AMS) permitem que você carregue com segurança, armazene, codifique e empacote o conteúdo de áudio ou vídeo para a entrega de streaming sob demanda e ao vivo para vários clientes (por exemplo, TV, PCs e dispositivos móveis).
 
@@ -110,7 +111,7 @@ Para obter informações sobre a disponibilidade nos datacenters, consulte a se�
 3. Visualize seu stream ao vivo.
 4. Entregue o conteúdo por meio de protocolos de streaming comuns (por exemplo, MPEG DASH, Smooth, HLS) diretamente aos seus clientes ou a uma CDN (Rede de Distribuição de Conteúdo) para uma distribuição posterior.
 
-    -ou-
+    - ou -
 
     Registre e armazene o conteúdo incluído para uma transmissão posterior (Vídeo sob Demanda).
 
@@ -158,7 +159,7 @@ Os clientes AMS podem dimensionar os pontos de extremidade do streaming, process
     >As URs trabalham para paralelizar todo o processamento de mídia, incluindo os trabalhos de indexação, usando o Azure Media Indexer. No entanto, ao contrário da codificação, a indexação de trabalhos não será processada mais rapidamente com unidades reservadas mais rápidas.
 
     Para obter mais informações, consulte [escala de processamento de mídia](media-services-portal-scale-media-processing.md).
-* Você também pode dimensionar sua conta dos Serviços de Mídia adicionando contas de armazenamento a ela. Cada conta de armazenamento é limitada a 500 TB. Para expandir o armazenamento além das limitações padrão, você pode optar por anexar diversas contas de armazenamento a uma única conta de serviços de mídia. Para saber mais, consulte [Gerenciar contas de armazenamento](meda-services-managing-multiple-storage-accounts.md).
+* Você também pode dimensionar sua conta dos Serviços de Mídia adicionando contas de armazenamento a ela. Cada conta de armazenamento é limitada a 500 TB. Para expandir o armazenamento além das limitações padrão, você pode optar por anexar diversas contas de armazenamento a uma única conta de serviços de mídia. Para saber mais, consulte [Gerenciar contas de armazenamento](./media-services-managing-multiple-storage-accounts.md).
 
 ## <a name="availability-of-media-services-features-across-datacenters"></a><a id="availability"></a>Disponibilidade de recursos dos Serviços de Mídia nos datacenters
 
@@ -266,4 +267,3 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 593edecd2cc1bbdd3627430af41c64be4d6a022b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33c54738b1ab3c90118c86bbf78bdcc3348658e0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508632"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048719"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Criar um cluster HDInsight com Azure Data Lake Storage Gen1 usando o modelo do Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Neste artigo, provisionamos um cluster Hadoop com o Data Lake Storage Gen1 como 
 Antes de começar este tutorial, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1,0 ou superior**. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
+* **Azure PowerShell 1,0 ou superior**. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azure/).
 * **Azure Active Directory entidade de serviço**. As etapas neste tutorial fornecem instruções sobre como criar uma entidade de serviço no Azure AD. No entanto, você deve ser administrador do Azure AD para poder criar uma entidade de serviço. Se você for administrador do Azure AD, poderá ignorar esse pré-requisito e continuar com o tutorial.
 
     **Se você não for um administrador do Azure AD**, não poderá executar as etapas necessárias para criar uma entidade de serviço. Nesse caso, o administrador do Azure AD primeiro deve criar uma entidade de serviço antes de criar um cluster HDInsight com Data Lake Storage Gen1. Além disso, a entidade de serviço deve ser criada usando um certificado, conforme descrito em [Criar uma entidade de serviço com certificado](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).

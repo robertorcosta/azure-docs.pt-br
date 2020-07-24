@@ -9,11 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 807771fd4018c9666f059c965370ebc36d0105df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 279ba2ca5b82d7bad5b55736179f92a0146bdc84
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456294"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048156"
 ---
 # <a name="export-data-module"></a>Exportar módulo de dados
 
@@ -24,9 +25,10 @@ Use este módulo para salvar os resultados, dados intermediários e dados de tra
 Este módulo dá suporte à exportação de dados para os seguintes serviços de dados de nuvem:
 
 - Contêiner de blob do Azure
-- Compartilhamento de arquivos do Azure
+- Compartilhamento de Arquivo do Azure
 - Azure Data Lake
 - Azure Data Lake Gen2
+- Banco de Dados SQL do Azure
 
 Antes de exportar seus dados, você precisa primeiro registrar um repositório de armazenamento em seu espaço de trabalho Azure Machine Learning. Para obter mais informações, consulte [acessar dados nos serviços de armazenamento do Azure](../how-to-access-data.md).
 

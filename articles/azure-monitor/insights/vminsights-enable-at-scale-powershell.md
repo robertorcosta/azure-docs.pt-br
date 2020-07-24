@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2019
-ms.openlocfilehash: 77fe4b4ffbf7c189a5bf64e662f395fc78e53944
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 021e5e8ee01745dd0b534e53dbb6d75b5b78c419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82581511"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049616"
 ---
 # <a name="enable-azure-monitor-for-vms-using-azure-powershell-or-resource-manager-templates"></a>Habilitar Azure Monitor para VMs usando modelos de Azure PowerShell ou do Resource Manager
 
@@ -31,7 +31,7 @@ Se você não souber como implantar recursos usando um modelo, consulte:
 * [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Para usar o CLI do Azure, primeiro você precisa instalar e usar a CLI localmente. Você deve estar executando a CLI do Azure versão 2.0.27 ou posterior. Para identificar sua versão, execute `az --version`. Para instalar ou atualizar o CLI do Azure, consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Para usar o CLI do Azure, primeiro você precisa instalar e usar a CLI localmente. Você deve estar executando a CLI do Azure versão 2.0.27 ou posterior. Para identificar sua versão, execute `az --version`. Para instalar ou atualizar o CLI do Azure, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli).
 
 1. Copie e cole a seguinte sintaxe JSON em seu arquivo:
 
@@ -122,7 +122,7 @@ Se você não souber como implantar recursos usando um modelo, consulte:
 * [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Para usar o CLI do Azure, primeiro você precisa instalar e usar a CLI localmente. Você deve estar executando a CLI do Azure versão 2.0.27 ou posterior. Para identificar sua versão, execute `az --version`. Para instalar ou atualizar o CLI do Azure, consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Para usar o CLI do Azure, primeiro você precisa instalar e usar a CLI localmente. Você deve estar executando a CLI do Azure versão 2.0.27 ou posterior. Para identificar sua versão, execute `az --version`. Para instalar ou atualizar o CLI do Azure, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli).
 
 ### <a name="download-templates"></a>Baixar modelos
 
@@ -178,7 +178,7 @@ Para habilitar Azure Monitor para VMs para várias VMs ou conjuntos de dimension
 
 Para cada VM ou conjunto de dimensionamento de máquinas virtuais, o script verifica se a extensão de VM já está instalada. Se a extensão de VM estiver instalada, o script tentará reinstalá-la. Se a extensão da VM não estiver instalada, o script instalará as extensões de VM do Log Analytics e do agente de dependência.
 
-Verifique se você está usando o módulo Azure PowerShell AZ versão 1.0.0 ou posterior com `Enable-AzureRM` aliases de compatibilidade habilitados. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
+Verifique se você está usando o módulo Azure PowerShell AZ versão 1.0.0 ou posterior com `Enable-AzureRM` aliases de compatibilidade habilitados. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
 Para obter uma lista de detalhes de argumento do script e o uso de exemplo, execute `Get-Help`.
 

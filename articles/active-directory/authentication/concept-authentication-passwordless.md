@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a0295a73d325d8de7673b9a66c7047a80d82b09
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 105f911b97e01a4b05673fc67b51c677df15eb89
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981848"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051288"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação com senha para Azure Active Directory
 
-A autenticação multifator (MFA) é uma ótima maneira de proteger sua organização, mas os usuários geralmente ficam frustrados com a camada de segurança adicional sobre a existência de lembrar suas senhas. Os métodos de autenticação sem senha são mais convenientes porque a senha é removida e substituída por algo que você tem, além de algo que você conhece ou algo que você sabe.
+Recursos como a MFA (autenticação multifator) são uma ótima maneira de proteger sua organização, mas os usuários geralmente ficam frustrados com a camada de segurança adicional sobre a existência de se lembrar de suas senhas. Os métodos de autenticação sem senha são mais convenientes porque a senha é removida e substituída por algo que você tem, além de algo que você conhece ou algo que você sabe.
 
 | Autenticação  | Algo que você tem | Algo que você está ou conhece |
 | --- | --- | --- |
@@ -36,11 +36,11 @@ Cada organização tem necessidades diferentes quando se trata de autenticação
 
 ## <a name="windows-hello-for-business"></a>Windows Hello para Empresas
 
-O Windows Hello para empresas é ideal para os operadores de informações que têm seu próprio computador Windows designado. A biométrica e o PIN estão diretamente ligados ao computador do usuário, o que impede o acesso de qualquer pessoa que não seja o proprietário. Com a integração de PKI (infraestrutura de chave pública) e suporte interno para SSO (logon único), o Windows Hello para empresas fornece um método conveniente para acessar diretamente os recursos corporativos locais e na nuvem.
+O Windows Hello para empresas é ideal para operadores de informações que têm seu próprio computador Windows designado. As credenciais biométricas e de PIN estão diretamente ligadas ao computador do usuário, o que impede o acesso de qualquer pessoa que não seja o proprietário. Com a integração de PKI (infraestrutura de chave pública) e suporte interno para SSO (logon único), o Windows Hello para empresas fornece um método conveniente para acessar diretamente os recursos corporativos locais e na nuvem.
 
 ![Exemplo de uma entrada de usuário com o Windows Hello para empresas](./media/concept-authentication-passwordless/windows-hellow-sign-in.jpeg)
 
-As etapas a seguir mostram como o processo de entrada funciona com Azure Active Directory.
+As etapas a seguir mostram como o processo de entrada funciona com o Azure AD:
 
 ![Diagrama que descreve as etapas envolvidas para a entrada do usuário com o Windows Hello para empresas](./media/concept-authentication-passwordless/windows-hello-flow.png)
 
@@ -56,11 +56,11 @@ O [Guia de planejamento](https://docs.microsoft.com/windows/security/identity-pr
 
 ## <a name="microsoft-authenticator-app"></a>Aplicativo Microsoft Authenticator
 
-Permitir que o telefone do funcionário se torne um método de autenticação com senha. Talvez você já esteja usando o aplicativo Microsoft Authenticator como uma opção de autenticação multifator conveniente, além de uma senha. Você também pode usar o aplicativo autenticador como uma opção com senha.
+Você também pode permitir que o telefone de seu funcionário se torne um método de autenticação com senha. Talvez você já esteja usando o aplicativo Microsoft Authenticator como uma opção de autenticação multifator conveniente, além de uma senha. Você também pode usar o aplicativo autenticador como uma opção com senha.
 
 ![Entrar no Microsoft Edge com o aplicativo Microsoft Authenticator](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
-O aplicativo autenticador transforma qualquer telefone iOS ou Android em uma credencial forte e com senha. Os usuários podem entrar em qualquer plataforma ou navegador, obtendo uma notificação para seu telefone, correspondendo a um número exibido na tela para aquele em seu telefone e, em seguida, usando sua biométrica (toque ou face) ou PIN para confirmar. Veja [baixar e instalar o aplicativo Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) para obter detalhes de instalação.
+O aplicativo autenticador transforma qualquer telefone iOS ou Android em uma credencial forte e com senha. Os usuários podem entrar em qualquer plataforma ou navegador, obtendo uma notificação para seu telefone, correspondendo a um número exibido na tela para aquele em seu telefone e, em seguida, usando sua biométrica (toque ou face) ou PIN para confirmar. Consulte [baixar e instalar o aplicativo Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) para obter detalhes de instalação.
 
 A autenticação com senha usando o aplicativo autenticador segue o mesmo padrão básico do Windows Hello para empresas. É um pouco mais complicado, pois o usuário precisa ser identificado para que o Azure AD possa encontrar a versão do aplicativo Microsoft Authenticator que está sendo usada:
 
@@ -75,11 +75,18 @@ A autenticação com senha usando o aplicativo autenticador segue o mesmo padrã
 1. O nonce é assinado com a chave privada e enviado de volta para o Azure AD.
 1. O Azure AD executa a validação de chave pública/privada e retorna um token.
 
+Para começar a usar a entrada sem senha, conclua as seguintes instruções:
+
+> [!div class="nextstepaction"]
+> [Habilitar o sinal sem senha usando o aplicativo autenticador](howto-authentication-passwordless-phone.md)
+
 ## <a name="fido2-security-keys"></a>Chaves de segurança FIDO2
 
 As chaves de segurança FIDO2 são um método de autenticação de senha com base em padrões não Phish que pode ser fornecido em qualquer fator forma. A FIDO (Fast Identity online) é um padrão aberto para autenticação com senha. O FIDO permite que usuários e organizações aproveitem o padrão para entrar em seus recursos sem nome de usuário ou senha usando uma chave de segurança externa ou uma chave de plataforma incorporada a um dispositivo.
 
-Para a visualização pública, os funcionários podem usar as chaves de segurança para entrar em seus dispositivos Windows 10 do Azure AD ou híbridos ingressados no Azure AD e obter logon único em seus recursos locais e de nuvem. Os usuários também podem entrar em navegadores com suporte. As chaves de segurança do FIDO2 são uma ótima opção para empresas que são muito sensíveis à segurança ou que têm cenários ou funcionários que não estão dispostos ou podem usar seus telefones como um segundo fator.
+Os funcionários podem usar as chaves de segurança para entrar em seus dispositivos do Azure AD ou Windows híbridos ingressados no Azure AD e obter logon único em seus recursos locais e de nuvem. Os usuários também podem entrar em navegadores com suporte. As chaves de segurança do FIDO2 são uma ótima opção para empresas que são muito sensíveis à segurança ou que têm cenários ou funcionários que não estão dispostos ou podem usar seus telefones como um segundo fator.
+
+A entrada com chaves de segurança FIDO2 para o Azure AD está atualmente em versão prévia.
 
 ![Entrar no Microsoft Edge com uma chave de segurança](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -127,7 +134,15 @@ Os provedores a seguir oferecem chaves de segurança FIDO2 de fatores forma dife
 
 Se você for um fornecedor e quiser obter seu dispositivo na lista de dispositivos com suporte, entre em contato com [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com) .
 
+Para começar a usar as chaves de segurança do FIDO2, conclua as seguintes instruções:
+
+> [!div class="nextstepaction"]
+> [Habilitar o sinal sem senha usando chaves de segurança FIDO2](howto-authentication-passwordless-security-key.md)
+
+
 ## <a name="what-scenarios-work-with-the-preview"></a>Quais cenários funcionam com a versão prévia?
+
+Os recursos de entrada sem senha do Azure AD estão atualmente em versão prévia. As seguintes considerações se aplicam:
 
 - Os administradores podem habilitar métodos de autenticação com senha para seus locatários
 - Os administradores podem direcionar todos os usuários ou Selecionar usuários/grupos dentro de seu locatário para cada método
@@ -162,12 +177,12 @@ Use a tabela a seguir para escolher qual método dará suporte a seus requisitos
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Habilitar opções de senha de chave de segurança FIDO2 em sua organização](howto-authentication-passwordless-security-key.md)
+Para começar a usar sem senha no Azure AD, conclua um dos seguintes procedimentos:
 
-[Habilitar opções com senha baseada em telefone em sua organização](howto-authentication-passwordless-phone.md)
+* [Habilitar entrada sem senha da chave de segurança do FIDO2](howto-authentication-passwordless-security-key.md)
+* [Habilitar a entrada sem senha baseada em telefone com o aplicativo autenticador](howto-authentication-passwordless-phone.md)
 
 ### <a name="external-links"></a>Links externos
 
-[FIDO Alliance](https://fidoalliance.org/)
-
-[Especificação CTAP FIDO2](https://fidoalliance.org/specs/fido-v2.0-id-20180227/fido-client-to-authenticator-protocol-v2.0-id-20180227.html)
+* [FIDO Alliance](https://fidoalliance.org/)
+* [Especificação CTAP FIDO2](https://fidoalliance.org/specs/fido-v2.0-id-20180227/fido-client-to-authenticator-protocol-v2.0-id-20180227.html)

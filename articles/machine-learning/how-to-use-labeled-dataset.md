@@ -8,14 +8,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 80932ebbedeca3f5e0a1b4cc2e68d73ef5b0d63a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 9aec584271975982e1d58cc3525faee0d403e1af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025719"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048081"
 ---
-# <a name="create-and-explore-azure-machine-learning-dataset-with-labels-preview"></a>Criar e explorar Azure Machine Learning DataSet com rótulos (visualização)
+# <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Criar e explorar conjunto de dados do Azure Machine Learning com rótulos
 
 Neste artigo, você aprenderá a exportar os rótulos de dados de um projeto de rotulagem de dados do Azure Machine Learning e carregá-los em formatos populares, como um dataframe do Pandas para exploração de dados ou um conjunto de dados Torchvision para transformação de imagem. 
 

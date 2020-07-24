@@ -9,16 +9,17 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 06/26/2019
-ms.author: anzaman
-ms.openlocfilehash: 09e6fd8530ddb1745a92c6f31f4d5a5843a2ac10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: kumud
+ms.openlocfilehash: 937a73847e867e826b3a577adf0c85184d7a93d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76513160"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047238"
 ---
 # <a name="customizing-content-models-in-video-indexer"></a>Personalizando modelos de conteúdo no Video Indexer
 
-Video Indexer permite que você personalize alguns de seus modelos para serem adaptados para seu caso de uso específico. Esses modelos incluem [marcas](customize-brands-model-overview.md), [idioma](customize-language-model-overview.md)e [pessoa](customize-person-model-overview.md). Você pode personalizar facilmente esses modelos usando o site Video Indexer ou a API.
+O Video Indexer permite personalizar alguns modelos para adaptá-los ao seu caso de uso específico. Esses modelos incluem [marcas](customize-brands-model-overview.md), [idioma](customize-language-model-overview.md)e [pessoa](customize-person-model-overview.md). Você pode personalizar facilmente esses modelos usando o site ou a API do Video Indexer.
 
 Este artigo fornece links para artigos que explicam os benefícios de cada tipo de personalização. O artigo também fornece links para guias de instruções que mostram como você pode implementar a personalização de cada modelo.
 
@@ -38,7 +39,7 @@ Este artigo fornece links para artigos que explicam os benefícios de cada tipo 
 * [Personalizando modelos de linguagem usando o site Video Indexer](customize-language-model-with-website.md)
 * [Personalizando modelos de linguagem usando a API de Video Indexer](customize-language-model-with-api.md)
  
-## <a name="person-model"></a>Modelo Person
+## <a name="person-model"></a>Modelo de pessoa
 
 * [Personalizando a visão geral dos modelos de pessoa](customize-person-model-overview.md)
 * [Personalizando modelos de pessoa usando o site Video Indexer](customize-person-model-with-website.md)

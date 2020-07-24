@@ -15,11 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ede0f5d74ceb5ce79cdfc095b3ffeccd96a1b3b
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: e01eecf24802bc43aebfa7b02105a2b1aa679a52
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84230129"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051941"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações e operações de infraestrutura do SAP HANA no Azure
 Este documento fornece orientação para configurar a infraestrutura do Azure e operar sistemas SAP HANA que são implantados em máquinas virtuais nativas (VMs) do Azure. O documento também inclui informações de configuração de expansão para a SKU de VM M128s do SAP HANA. Este documento não pretende substituir a documentação padrão do SAP, que inclui o seguinte conteúdo:
@@ -31,20 +32,20 @@ Este documento fornece orientação para configurar a infraestrutura do Azure e 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para usar este guia, você precisa ter um conhecimento básico dos seguintes componentes do Azure:
 
-- [Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
-- [Rede do Azure e redes virtuais](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
-- [Armazenamento do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
+- [Máquinas Virtuais do Azure](../../linux/tutorial-manage-vm.md)
+- [Rede do Azure e redes virtuais](../../linux/tutorial-virtual-network.md)
+- [Armazenamento do Azure](../../linux/tutorial-manage-disks.md)
 
-Para saber mais sobre o SAP NetWeaver e outros componentes SAP no Azure, consulte a seção [SAP no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) na [documentação do Azure](https://docs.microsoft.com/azure/).
+Para saber mais sobre o SAP NetWeaver e outros componentes SAP no Azure, consulte a seção [SAP no Azure](./get-started.md) na [documentação do Azure](../../../index.yml).
 
 ## <a name="basic-setup-considerations"></a>Considerações básicas sobre a instalação
 As seções a seguir descrevem considerações de configuração básica para implantar sistemas SAP HANA em máquinas virtuais do Azure.
 
 ### <a name="connect-into-azure-virtual-machines"></a>Conecte-se em máquinas virtuais do Azure
-Conforme documentado no [guia de planejamento de máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide), há dois métodos básicos para se conectar em máquinas virtuais do Azure:
+Conforme documentado no [guia de planejamento de máquinas virtuais do Azure](./planning-guide.md), há dois métodos básicos para se conectar em máquinas virtuais do Azure:
 
 - Conexão pela Internet e por pontos de extremidade públicos em uma VM de atalho ou na VM que executa o SAP HANA.
-- Conexão por meio de uma [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) ou do Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- Conexão por meio de uma [VPN](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) ou do Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 Uma conectividade site a site por meio de VPN ou rota expressa é necessária para cenários de produção. Esse tipo de conexão também é necessário para cenários de não produção que alimentam em cenários de produção em que o software SAP está sendo usado. A imagem a seguir mostra um exemplo de conectividade entre sites:
 
@@ -63,7 +64,7 @@ Implante as VMs no Azure usando:
 - Cmdlets do Azure PowerShell.
 - A CLI do Azure.
 
-Você também pode implantar uma plataforma completa de SAP HANA instalada nos serviços de VM do Azure por meio da [plataforma SAP Cloud](https://cal.sap.com/). O processo de instalação está descrito em [Implantar SAP S/4HANA ou BW/4HANA no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) ou com a automação liberada [aqui](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
+Você também pode implantar uma plataforma completa de SAP HANA instalada nos serviços de VM do Azure por meio da [plataforma SAP Cloud](https://cal.sap.com/). O processo de instalação está descrito em [Implantar SAP S/4HANA ou BW/4HANA no Azure](./cal-s4h.md) ou com a automação liberada [aqui](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
 >[!IMPORTANT]
 > Para usar as VMs M208xx_v2, você precisa ter cuidado ao selecionar a imagem do Linux na Galeria de imagens de VM do Azure. Para ler os detalhes, leia o artigo [Tamanhos de máquina virtual com otimização de memória](../../mv2-series.md).
@@ -78,11 +79,11 @@ Para obter as configurações de armazenamento e os tipos de armazenamento a ser
 Quando você tiver conectividade site a site no Azure por meio de VPN ou ExpressRoute, você deve ter pelo menos uma rede virtual do Azure que está conectada por meio de um Gateway Virtual ao circuito de ExpressRoute ou VPN. Em implantações simples, o Gateway Virtual pode ser implantado em uma sub-rede de rede virtual do Azure (VNet) que hospeda as instâncias do SAP HANA também. Para instalar o SAP HANA, você cria duas sub-redes adicionais dentro da rede virtual do Azure. Uma sub-rede hospeda as VMs para executar as instâncias do SAP HANA. A outra sub-rede executa o Jumpbox ou as VMs de gerenciamento para hospedar o SAP HANA Studio, outros softwares de gerenciamento ou o software do aplicativo.
 
 > [!IMPORTANT]
-> Fora de funcionalidade, mas mais importante por motivos de desempenho, não há suporte para configurar [Dispositivos virtuais de rede do Azure](https://azure.microsoft.com/solutions/network-appliances/) no caminho de comunicação entre o aplicativo SAP e a camada DBMS de um SAP NetWeaver, Hybris ou S / 4HANA baseado no sistema SAP. É necessário a comunicação entre a camada de aplicativo SAP e a camada DBMS seja direta. A restrição não inclui [Regras de NSG e ASG do Azure](https://docs.microsoft.com/azure/virtual-network/security-overview), desde que as regras de NSG e ASG permitam uma comunicação direta. Outros cenários em que não há suporte para NVAs estão em caminhos de comunicação entre VMs do Azure que representam nós de cluster do Linux Pacemaker e dispositivos SBD, conforme descrito em [Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse). Ou em caminhos de comunicação entre as VMs do Azure e o SOFS do Windows Server, conforme descrito em [Cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um compartilhamento de arquivos no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). Os NVAs em caminhos de comunicação podem facilmente duplicar a latência de rede entre dois parceiros de comunicação, podendo restringir o rendimento em caminhos críticos entre a camada de aplicação SAP e a camada DBMS. Em alguns cenários observados com os clientes, os NVAs podem causar falhas nos clusters do Pacemaker Linux nos casos em que as comunicações entre os nós do cluster do Linux Pacemaker precisam se comunicar com o dispositivo SBD por meio de um NVA.  
+> Fora de funcionalidade, mas mais importante por motivos de desempenho, não há suporte para configurar [Dispositivos virtuais de rede do Azure](https://azure.microsoft.com/solutions/network-appliances/) no caminho de comunicação entre o aplicativo SAP e a camada DBMS de um SAP NetWeaver, Hybris ou S / 4HANA baseado no sistema SAP. É necessário a comunicação entre a camada de aplicativo SAP e a camada DBMS seja direta. A restrição não inclui [Regras de NSG e ASG do Azure](../../../virtual-network/security-overview.md), desde que as regras de NSG e ASG permitam uma comunicação direta. Outros cenários em que não há suporte para NVAs estão em caminhos de comunicação entre VMs do Azure que representam nós de cluster do Linux Pacemaker e dispositivos SBD, conforme descrito em [Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicativos SAP](./high-availability-guide-suse.md). Ou em caminhos de comunicação entre as VMs do Azure e o SOFS do Windows Server, conforme descrito em [Cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um compartilhamento de arquivos no Azure](./sap-high-availability-guide-wsfc-file-share.md). Os NVAs em caminhos de comunicação podem facilmente duplicar a latência de rede entre dois parceiros de comunicação, podendo restringir o rendimento em caminhos críticos entre a camada de aplicação SAP e a camada DBMS. Em alguns cenários observados com os clientes, os NVAs podem causar falhas nos clusters do Pacemaker Linux nos casos em que as comunicações entre os nós do cluster do Linux Pacemaker precisam se comunicar com o dispositivo SBD por meio de um NVA.  
 > 
 
 > [!IMPORTANT]
-> Outro design que **NÃO** tem suporte é a segregação da camada de aplicativo SAP e da camada DBMS em diferentes redes virtuais do Azure que não estejam [emparelhadas](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre si. É recomendável separar a camada de aplicativo SAP e a camada DBMS usando sub-redes em uma rede virtual do Azure, em vez de usar redes virtuais diferentes do Azure. Se você decidir não seguir a recomendação e, em vez disso, segregar as duas camadas em uma rede virtual diferente, as duas redes virtuais deverão ser [emparelhadas](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Esteja ciente de que o tráfego entre duas redes virtuais [emparelhadas](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) do Azure está sujeito a custos de transferência. Com o enorme volume de dados em muitos Terabytes trocados entre a camada de aplicativo SAP e a camada DBMS, custos substanciais poderão ser acumulados se a camada de aplicativo SAP e a camada DBMS forem segregadas entre duas redes virtuais do Azure. 
+> Outro design que **NÃO** tem suporte é a segregação da camada de aplicativo SAP e da camada DBMS em diferentes redes virtuais do Azure que não estejam [emparelhadas](../../../virtual-network/virtual-network-peering-overview.md) entre si. É recomendável separar a camada de aplicativo SAP e a camada DBMS usando sub-redes em uma rede virtual do Azure, em vez de usar redes virtuais diferentes do Azure. Se você decidir não seguir a recomendação e, em vez disso, segregar as duas camadas em uma rede virtual diferente, as duas redes virtuais deverão ser [emparelhadas](../../../virtual-network/virtual-network-peering-overview.md). Esteja ciente de que o tráfego entre duas redes virtuais [emparelhadas](../../../virtual-network/virtual-network-peering-overview.md) do Azure está sujeito a custos de transferência. Com o enorme volume de dados em muitos Terabytes trocados entre a camada de aplicativo SAP e a camada DBMS, custos substanciais poderão ser acumulados se a camada de aplicativo SAP e a camada DBMS forem segregadas entre duas redes virtuais do Azure. 
 
 Quando você instala as VMs para executar o SAP HANA, as VMs necessitam de:
 
@@ -90,24 +91,24 @@ Quando você instala as VMs para executar o SAP HANA, as VMs necessitam de:
 - Endereços IP privados estáticos que são implantados para as duas NICS virtuais.
 
 > [!NOTE]
-> Você deve atribuir endereços IP estáticos por meio do Azure para vNICs individuais. Você não deve atribuir endereços IP estáticos dentro do SO convidado para um vNIC. Alguns serviços do Azure, como o serviço de Backup do Azure, dependem do fato de que pelo menos o vNIC primário esteja definido como DHCP, e não para endereços IP estáticos. Veja também o documento [Solucionar problemas de backup da máquina virtual do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). Se você precisar atribuir vários endereços IP estáticos a uma VM, precisará atribuir vários vNICs a uma VM.
+> Você deve atribuir endereços IP estáticos por meio do Azure para vNICs individuais. Você não deve atribuir endereços IP estáticos dentro do SO convidado para um vNIC. Alguns serviços do Azure, como o serviço de Backup do Azure, dependem do fato de que pelo menos o vNIC primário esteja definido como DHCP, e não para endereços IP estáticos. Veja também o documento [Solucionar problemas de backup da máquina virtual do Azure](../../../backup/backup-azure-vms-troubleshoot.md#networking). Se você precisar atribuir vários endereços IP estáticos a uma VM, precisará atribuir vários vNICs a uma VM.
 >
 >
 
 No entanto, para implantações que são permanentes, você precisará criar uma arquitetura de rede do datacenter virtual no Azure. Essa arquitetura recomenda a separação de Gateway de VNet do Azure que se conecta localmente em uma VNet separada do Azure. Essa VNet separada deve hospedar todo o tráfego que sai para o local ou na Internet. Essa abordagem permite que você implantar o software para auditoria e registro em log o tráfego que entra o datacenter virtual no Azure neste hub separado de rede virtual. Portanto, você tem uma VNet que hospeda todo o software e as configurações relacionadas ao tráfego de entrada e saída para sua implantação do Azure.
 
-Os artigos [Datacenter Virtual do Azure: Uma perspectiva de rede](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) e [Datacenter Virtual do Azure e o Plano de Controle Empresarial](https://docs.microsoft.com/azure/architecture/vdc/) fornecem mais informações sobre a abordagem do datacenter virtual e o design relacionado da VNet do Azure.
+Os artigos [Datacenter Virtual do Azure: Uma perspectiva de rede](/azure/architecture/vdc/networking-virtual-datacenter) e [Datacenter Virtual do Azure e o Plano de Controle Empresarial](/azure/architecture/vdc/) fornecem mais informações sobre a abordagem do datacenter virtual e o design relacionado da VNet do Azure.
 
 
 >[!NOTE]
->O tráfego que flui entre uma VNet do hub e spoke VNet usando [emparelhamento de rede virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) é o assunto adicionais [custos](https://azure.microsoft.com/pricing/details/virtual-network/). Com base nesses custos, você talvez precise considerar o risco de comprometimento entre executar um projeto de rede de hub e spoke estrito e executar várias [Gateways de ExpressRoute do Azure](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways) que você se conectar a 'spokes' para ignorar o emparelhamento de rede virtual. No entanto, os Gateways de ExpressRoute do Azure introduz adicionais [custos](https://azure.microsoft.com/pricing/details/vpn-gateway/) também. Você também pode encontrar custos adicionais para softwares de terceiros usados para registro, auditoria e monitoramento de tráfego de rede. Dependendo dos custos para troca de dados por meio do emparelhamento de rede virtual no um lado e os custos criados por licenças de software adicionais e Gateways de ExpressRoute do Azure adicionais, você pode decidir para microssegmentação dentro de uma rede virtual usando sub-redes como unidade de isolamento em vez de redes virtuais.
+>O tráfego que flui entre uma VNet do hub e spoke VNet usando [emparelhamento de rede virtual do Azure](../../../virtual-network/virtual-network-peering-overview.md) é o assunto adicionais [custos](https://azure.microsoft.com/pricing/details/virtual-network/). Com base nesses custos, você talvez precise considerar o risco de comprometimento entre executar um projeto de rede de hub e spoke estrito e executar várias [Gateways de ExpressRoute do Azure](../../../expressroute/expressroute-about-virtual-network-gateways.md) que você se conectar a 'spokes' para ignorar o emparelhamento de rede virtual. No entanto, os Gateways de ExpressRoute do Azure introduz adicionais [custos](https://azure.microsoft.com/pricing/details/vpn-gateway/) também. Você também pode encontrar custos adicionais para softwares de terceiros usados para registro, auditoria e monitoramento de tráfego de rede. Dependendo dos custos para troca de dados por meio do emparelhamento de rede virtual no um lado e os custos criados por licenças de software adicionais e Gateways de ExpressRoute do Azure adicionais, você pode decidir para microssegmentação dentro de uma rede virtual usando sub-redes como unidade de isolamento em vez de redes virtuais.
 
 
 Para obter uma visão geral dos diferentes métodos para atribuir endereços IP, consulte [Tipos de endereços IP e métodos de alocação no Azure](../../../virtual-network/public-ip-addresses.md). 
 
 Para VMs em execução no SAP HANA, é necessário trabalhar com endereços IP estáticos atribuídos. A razão é que alguns atributos de configuração para o HANA referenciam endereços IP.
 
-Os [ Grupos de segurança de rede (NSGs) do Azure ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) são usados para direcionar tráfego roteado para a instância do SAP HANA ou para a caixa de depósito. Os NSGs e, por fim, os [grupos de segurança de aplicativos](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups) estão associados à sub-rede SAP HANA e à sub-rede de gerenciamento.
+Os [ Grupos de segurança de rede (NSGs) do Azure ](../../../virtual-network/virtual-network-vnet-plan-design-arm.md) são usados para direcionar tráfego roteado para a instância do SAP HANA ou para a caixa de depósito. Os NSGs e, por fim, os [grupos de segurança de aplicativos](../../../virtual-network/security-overview.md#application-security-groups) estão associados à sub-rede SAP HANA e à sub-rede de gerenciamento.
 
 A imagem a seguir mostra uma visão geral de um esquema aproximado de implantação para o SAP HANA de uma arquitetura de rede virtual hub e spoke a seguir:
 
@@ -118,7 +119,7 @@ Para implantar o SAP HANA no Azure sem uma conexão site a site, você ainda des
 ![Esquema de implantação aproximado para o SAP HANA sem conexão site a site](media/hana-vm-operations/hana-simple-networking-dmz.png)
  
 
-Outra descrição sobre como usar os NVAs do Azure para controlar e monitorar o acesso da Internet sem a arquitetura VNet hub e spoke pode ser encontrada no artigo [Implantar dispositivos virtuais de rede altamente disponíveis](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
+Outra descrição sobre como usar os NVAs do Azure para controlar e monitorar o acesso da Internet sem a arquitetura VNet hub e spoke pode ser encontrada no artigo [Implantar dispositivos virtuais de rede altamente disponíveis](/azure/architecture/reference-architectures/dmz/nva-ha).
 
 
 ## <a name="configuring-azure-infrastructure-for-sap-hana-scale-out"></a>Configurando a infraestrutura do Azure para escalonamento do SAP HANA
@@ -139,7 +140,7 @@ O design básico típico de um único nó em uma configuração de expansão ser
 A configuração básica de um nó de VM para scale-out do SAP HANA é semelhante a:
 
 - Para **/hana/shared**, use o serviço de NFS nativo fornecido por meio do Azure NetApp Files. 
-- Todos os outros volumes de disco não são compartilhados entre os diferentes nós e não são baseados em NFS. As configurações de instalação e as etapas para instalações HANA de expansão com **/hana/data** e **/hana/log** não compartilhados são fornecidas mais abaixo neste documento. Para o armazenamento certificado do HANA que pode ser usado, confira o artigo [Configurações de armazenamento de máquina virtual SAP HANA no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
+- Todos os outros volumes de disco não são compartilhados entre os diferentes nós e não são baseados em NFS. As configurações de instalação e as etapas para instalações HANA de expansão com **/hana/data** e **/hana/log** não compartilhados são fornecidas mais abaixo neste documento. Para o armazenamento certificado do HANA que pode ser usado, confira o artigo [Configurações de armazenamento de máquina virtual SAP HANA no Azure](./hana-vm-operations-storage.md).
 
 
 Ao dimensionar os volumes ou discos, você precisa verificar o documento [Requisitos de armazenamento de TDI do SAP HANA](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) quanto ao tamanho necessário, dependendo do número de nós de trabalho. O documento libera uma fórmula que você precisa aplicar para obter a capacidade necessária do volume.
@@ -176,7 +177,7 @@ Instalando uma configuração SAP scale-out, você precisa executar etapas aprox
 - Após a alteração eventual no parâmetro global.ini, reinicie a instância de SAP HANA.
 - Adicione nós de trabalho adicionais. Consulte também <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. Especifique a rede interna para a comunicação entre nós durante a instalação do SAP HANA ou posteriormente, usando, por exemplo, o hdblcm local. Para obter mais documentação, consulte também [SAP Observação #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
 
-Mais informações sobre como configurar um sistema de expansão horizontal SAP HANA com nó em espera no SUSE Linux estão disponíveis em [Implantar um sistema de expansão horizontal SAP HANA com nó em espera em VMs do Azure usando Azure NetApp Files no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse). A documentação equivalente do Red Hat pode ser encontrada no artigo [Implantar um sistema de expansão SAP HANA com o nó em espera em VMs do Azure usando Azure NetApp Files no Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel). 
+Mais informações sobre como configurar um sistema de expansão horizontal SAP HANA com nó em espera no SUSE Linux estão disponíveis em [Implantar um sistema de expansão horizontal SAP HANA com nó em espera em VMs do Azure usando Azure NetApp Files no SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md). A documentação equivalente do Red Hat pode ser encontrada no artigo [Implantar um sistema de expansão SAP HANA com o nó em espera em VMs do Azure usando Azure NetApp Files no Red Hat Enterprise Linux](./sap-hana-scale-out-standby-netapp-files-rhel.md). 
 
 
 ## <a name="sap-hana-dynamic-tiering-20-for-azure-virtual-machines"></a>SAP HANA Dynamic Tiering 2.0 para as máquinas virtuais do Azure
@@ -210,7 +211,7 @@ No Azure IaaS, DT 2.0 tem suporte apenas em uma VM dedicada. Não é permitido e
 - M64-32ms 
 - E32sv3 
 
-Consulte a descrição de tipo VM [aqui](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
+Consulte a descrição de tipo VM [aqui](../../sizes-memory.md)
 
 Dada a ideia básica do 2.0 DT, que aborda o descarregamento de dados "passivos" para economizar custos, faz sentido usar tamanhos de VM correspondentes. Embora não haja nenhuma regra rígida sobre as combinações possíveis. Isso depende da carga de trabalho de cliente específico.
 
@@ -231,7 +232,7 @@ Todas as combinações de VMs da série M certificadas para SAP HANA com VMs de 
 
 Instalar DT 2.0 em uma VM dedicada requer a taxa de transferência de rede entre a VM de 2.0 DT e VM do SAP HANA de 10 Gb no mínimo. Portanto, é obrigatório colocar todas as VMs na mesma rede virtual do Azure e habilitar a rede acelerada do Azure.
 
-Consulte informações adicionais sobre a rede acelerada do Azure [aqui](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)
+Consulte informações adicionais sobre a rede acelerada do Azure [aqui](../../../virtual-network/create-vm-accelerated-networking-cli.md)
 
 ### <a name="vm-storage-for-sap-hana-dt-20"></a>Armazenamento VM para SAP HANA DT 2.0
 
@@ -243,8 +244,8 @@ Acordo com diretrizes de práticas recomendadas de DT 2.0, a taxa de transferên
 É necessário anexar vários discos do Azure para a VM de 2.0 DT e criar um raid de software (distribuição) no nível do sistema operacional para atingir o limite máximo de taxa de transferência de disco por VM. Um único disco do Azure não pode fornecer a taxa de transferência para alcançar o limite máximo de VM em relação a isso. Armazenamento Premium do Azure é obrigatório para executar o DT 2.0. 
 
 - Detalhes sobre os tipos de disco do Azure disponíveis podem ser encontrados [aqui](../../windows/disks-types.md)
-- Encontre detalhes sobre como criar um raid de software via mdadm [aqui](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid)
-- Detalhes sobre como configurar o LVM para criar um volume distribuído para taxa de transferência máxima que pode ser encontrada [aqui](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm)
+- Encontre detalhes sobre como criar um raid de software via mdadm [aqui](../../linux/configure-raid.md)
+- Detalhes sobre como configurar o LVM para criar um volume distribuído para taxa de transferência máxima que pode ser encontrada [aqui](../../linux/configure-lvm.md)
 
 Dependendo dos requisitos de tamanho, há opções diferentes para alcançar a taxa de transferência máxima de uma VM. Aqui estão as configurações de disco de volume de dados possíveis para cada tipo de VM de 2.0 DT atingir o limite de taxa de transferência da VM. A VM E32sv3 deve ser considerada como um nível de entrada para cargas de trabalho menores. Caso isso resulte em não ser rápido o suficiente, pode ser necessário redimensionar a VM para M64-32ms.
 Assim como a VM M64 32ms tem a quantidade de memória, a carga de e/s pode não alcançar o limite, especialmente para cargas de trabalho com uso intensivo de leitura. Portanto, menos discos no conjunto de distribuição podem ser suficientes, dependendo da carga de trabalho específica do cliente. Mas, por segurança, as configurações de disco abaixo foram escolhidas para garantir a máxima taxa de transferência:
@@ -258,7 +259,7 @@ Assim como a VM M64 32ms tem a quantidade de memória, a carga de e/s pode não 
 
 Especialmente no caso da carga de trabalho intensas de leitura ele poderia melhorar o desempenho de e/s para ativar o cache de host do Azure "somente leitura" conforme recomendado para os volumes de dados do software de banco de dados. Enquanto a transação de log de cache de disco do host do Azure deve ser "nenhum". 
 
-Sobre o tamanho do volume de log de um ponto de partida recomendado está uma heurística de 15% do tamanho dos dados. A criação do volume de log pode ser feita usando os tipos de disco do Azure diferente dependendo dos requisitos de custo e a taxa de transferência. Para o volume do log, é necessária uma alta taxa de transferência de E/S.  Caso o tipo de VM M64-32ms seja usado, é obrigatório habilitar o [Acelerador de Gravação](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator). O Acelerador de Gravação do Azure fornece latência de gravação de disco ideal para o log de transações (disponível apenas para a série M). Há alguns itens a considerar, embora, como o número máximo de discos por tipo de VM. Detalhes sobre o Acelerador de Gravação podem ser encontrados [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Sobre o tamanho do volume de log de um ponto de partida recomendado está uma heurística de 15% do tamanho dos dados. A criação do volume de log pode ser feita usando os tipos de disco do Azure diferente dependendo dos requisitos de custo e a taxa de transferência. Para o volume do log, é necessária uma alta taxa de transferência de E/S.  Caso o tipo de VM M64-32ms seja usado, é obrigatório habilitar o [Acelerador de Gravação](../../linux/how-to-enable-write-accelerator.md). O Acelerador de Gravação do Azure fornece latência de gravação de disco ideal para o log de transações (disponível apenas para a série M). Há alguns itens a considerar, embora, como o número máximo de discos por tipo de VM. Detalhes sobre o Acelerador de Gravação podem ser encontrados [aqui](../../windows/how-to-enable-write-accelerator.md)
 
 
 A seguir, são apresentados alguns exemplos sobre dimensionamento de volume do log:
@@ -289,9 +290,9 @@ As seções a seguir descrevem algumas das operações relacionadas à implanta�
 ### <a name="back-up-and-restore-operations-on-azure-vms"></a>Operações de backup e restauração em VMs do Azure
 Os documentos a seguir descrevem como fazer backup e restaurar a sua implantação do SAP HANA:
 
-- [Visão geral de backup do SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
-- [Backup em nível de arquivo do SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
-- [Parâmetro de comparação de instantâneos de armazenamento do SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
+- [Visão geral de backup do SAP HANA](./sap-hana-backup-guide.md)
+- [Backup em nível de arquivo do SAP HANA](./sap-hana-backup-file-level.md)
+- [Parâmetro de comparação de instantâneos de armazenamento do SAP HANA](./sap-hana-backup-guide.md)
 
 
 ### <a name="start-and-restart-vms-that-contain-sap-hana"></a>Inicie e reinicie as VMs que contêm o SAP HANA
@@ -317,11 +318,10 @@ Se você estiver executando o SUSE Linux Enterprise Server ou Red Hat, será pos
 
 ## <a name="next-steps"></a>Próximas etapas
 Conheça os artigos listados
-- [Configurações de armazenamento de máquina virtual do SAP HANA no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
-- [Implantar um sistema de expansão SAP HANA com o nó em espera em VMs do Azure usando Azure NetApp Files no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
-- [Implantar um sistema de expansão SAP HANA com o nó em espera em VMs do Azure usando Azure NetApp Files no Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
-- [Alta disponibilidade do SAP HANA nas VMs do Azure no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
-- [Alta disponibilidade do SAP HANA em VMs do Azure no Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel)
+- [Configurações de armazenamento de máquina virtual do SAP HANA no Azure](./hana-vm-operations-storage.md)
+- [Implantar um sistema de expansão SAP HANA com o nó em espera em VMs do Azure usando Azure NetApp Files no SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md)
+- [Implantar um sistema de expansão SAP HANA com o nó em espera em VMs do Azure usando Azure NetApp Files no Red Hat Enterprise Linux](./sap-hana-scale-out-standby-netapp-files-rhel.md)
+- [Alta disponibilidade do SAP HANA nas VMs do Azure no SUSE Linux Enterprise Server](./sap-hana-high-availability.md)
+- [Alta disponibilidade do SAP HANA em VMs do Azure no Red Hat Enterprise Linux](./sap-hana-high-availability-rhel.md)
 
  
-

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2020
 ms.author: alsin
-ms.openlocfilehash: af541faaf9529cec81c60cb1a879161d66e34a7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54d703b8a493610174f00844cd0736f65f3ee541
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84694375"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052159"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux imagens Gold de sua própria assinatura no Azure
 
@@ -68,7 +69,7 @@ O restante deste documento se concentra no método CLI para provisionar e aceita
 
 ## <a name="use-the-red-hat-gold-images-from-the-azure-cli"></a>Use as imagens do Red Hat Gold do CLI do Azure
 
-As instruções a seguir orientam você pelo processo de implantação inicial para uma VM RHEL usando o CLI do Azure. Estas instruções pressupõem que você tenha o [CLI do Azure instalado](https://docs.microsoft.com/cli/azure/install-azure-cli).
+As instruções a seguir orientam você pelo processo de implantação inicial para uma VM RHEL usando o CLI do Azure. Estas instruções pressupõem que você tenha o [CLI do Azure instalado](/cli/azure/install-azure-cli).
 
 >[!IMPORTANT]
 >Certifique-se de usar todas as letras minúsculas nas referências de Publicador, oferta, plano e imagem para todos os comandos a seguir.
@@ -199,7 +200,7 @@ Para obter as etapas para aplicar Azure Disk Encryption, consulte [Azure Disk En
 
     Nesse caso, contate a Microsoft ou a Red Hat para habilitar sua assinatura.
 
-- Se você modificar um instantâneo de uma imagem RHEL BYOS e tentar publicar essa imagem personalizada na Galeria de [imagens compartilhadas](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries), deverá fornecer informações de plano que correspondam à origem original do instantâneo. Por exemplo, o comando pode ter a seguinte aparência:
+- Se você modificar um instantâneo de uma imagem RHEL BYOS e tentar publicar essa imagem personalizada na Galeria de [imagens compartilhadas](../../linux/shared-image-galleries.md), deverá fornecer informações de plano que correspondam à origem original do instantâneo. Por exemplo, o comando pode ter a seguinte aparência:
 
     ```azurecli
     az vm create –image \

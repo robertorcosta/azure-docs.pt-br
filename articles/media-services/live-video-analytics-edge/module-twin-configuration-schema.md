@@ -3,15 +3,16 @@ title: Esquema JSON do módulo/do Azure
 description: Este tópico descreve o esquema JSON do módulo para análise de vídeo ao vivo em IoT Edge.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a342c59b35c7ebb4b6021163da76bdd3e0d449c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bd86bdc2c8de9ee586e785db2074fa772100420
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266807"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053067"
 ---
 # <a name="module-twin-json-schema"></a>Esquema JSON de módulo de entrelaçamento
 
-Dispositivos gêmeos são documentos JSON que armazenam informações de estado do dispositivo, incluindo metadados, configurações e condições. O Hub IoT do Azure mantém um dispositivo gêmeo para cada dispositivo que você conecta ao Hub IoT. Para obter uma explicação detalhada, consulte [entender e usar o módulo gêmeos no Hub IOT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins)
+Dispositivos gêmeos são documentos JSON que armazenam informações de estado do dispositivo, incluindo metadados, configurações e condições. O Hub IoT do Azure mantém um dispositivo gêmeo para cada dispositivo que você conecta ao Hub IoT. Para obter uma explicação detalhada, consulte [entender e usar o módulo gêmeos no Hub IOT](../../iot-hub/iot-hub-devguide-module-twins.md)
 
 Este tópico descreve o esquema JSON do módulo para análise de vídeo ao vivo em IoT Edge.
 
@@ -42,7 +43,7 @@ A análise de vídeo ao vivo em IoT Edge expõe as propriedades de mymódulo a s
 
 <sup>*</sup>Você deve fornecer o certificado ou a senha da entidade de serviço. 
 
-As propriedades dinâmicas podem ser atualizadas sem a reinicialização do módulo. Você pode obter os valores para várias dessas propriedades seguindo a instrução no artigo [obtendo acesso ao API dos serviços de mídia](../latest/access-api-cli-how-to.md) . 
+As propriedades dinâmicas podem ser atualizadas sem a reinicialização do módulo. Você pode obter os valores para várias dessas propriedades seguindo a instrução no artigo [obtendo acesso ao API dos serviços de mídia](../latest/access-api-howto.md) . 
 
 Consulte o artigo sobre [monitoramento e registro em log](monitoring-logging.md) para obter mais informações sobre a função das configurações de diagnóstico opcionais.
 

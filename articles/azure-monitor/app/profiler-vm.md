@@ -6,11 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 11/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7c5dfe6ed08df01f78346c76fd5a35e7d64ab520
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8beb1d60ca8dcc18978ffeb523a7d63f90ca6c01
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671572"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049799"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Crie perfis de aplicativos Web em execução em uma máquina virtual do Azure ou um conjunto de dimensionamento de máquinas virtuais definido com o Application Insights Profiler
 
@@ -24,7 +25,7 @@ Você também pode implantar o Azure Application Insights Profiler nestes servi�
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Implantar o Profiler em uma máquina virtual ou em um conjunto de dimensionamento de máquinas virtuais
 Este artigo orientará você pelas etapas necessárias para a execução do Application Insights Profiler em seu conjunto de dimensionamento de máquinas virtuais do Azure ou na VM (máquina virtual) do Azure. O Profiler é instalado com a extensão de Diagnóstico do Azure para VMs. Configure a extensão para executar o Profiler e criar o SDK do Application Insights em seu aplicativo.
 
-1. Adicione o SDK do Application Insights ao seu [aplicativo ASP.net](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
+1. Adicione o SDK do Application Insights ao seu [aplicativo ASP.net](./asp-net.md).
 
    Para exibir perfis das suas solicitações, você precisa enviar a telemetria de solicitação para o Application Insights.
 
@@ -71,7 +72,7 @@ Este artigo orientará você pelas etapas necessárias para a execução do Appl
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
     ```  
-   b. Se estabelecer o acesso remoto for um problema, você poderá usar a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) para executar o comando a seguir:  
+   b. Se estabelecer o acesso remoto for um problema, você poderá usar a [CLI do Azure](/cli/azure/get-started-with-azure-cli) para executar o comando a seguir:  
 
     ```powershell
     az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"

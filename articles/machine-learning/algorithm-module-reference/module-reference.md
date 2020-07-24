@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 1996f607d05cb84a80acbb105504ce0b5d3bb0c1
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: a588c58c74ab9632f3c3c61e223dd37704103714
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856893"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048108"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Referência de módulo e de algoritmo para o designer do Azure Machine Learning (versão preliminar)
 
@@ -43,7 +43,7 @@ Para obter ajuda com a escolha de algoritmos, consulte
 
 | Funcionalidade | Descrição | Módulo |
 | --- |--- | --- |
-| Regressão | Prever um valor. | [Regressão de Árvore de Decisão Aumentada](boosted-decision-tree-regression.md) <br/> [Regressão de Floresta de Decisão](decision-forest-regression.md) <br/> [Regressão Linear](linear-regression.md)  <br/> [Regressão de Rede Neural](neural-network-regression.md)  <br/> |
+| Regressão | Prever um valor. | [Regressão de Árvore de Decisão Aumentada](boosted-decision-tree-regression.md) <br/> [Regressão de Floresta de Decisão](decision-forest-regression.md) <br/> [Regressão rápida de Quantil de floresta](fast-forest-quantile-regression.md)  <br/> [Regressão Linear](linear-regression.md)  <br/> [Regressão de Rede Neural](neural-network-regression.md)  <br/> [Regressão Poisson](poisson-regression.md)  <br/>|
 | Clustering | Agrupar dados juntos.| [Cluster K-Means](k-means-clustering.md)
 | classificação | Prever uma classe.  Escolha entre os algoritmos binário (duas classes) ou multiclasse.| [Árvore de Decisão Aumentada Multiclasse](multiclass-boosted-decision-tree.md) <br/> [Floresta de Decisão Multiclasse](multiclass-decision-forest.md) <br/> [Regressão Logística Multiclasse](multiclass-logistic-regression.md)  <br/> [Rede Neural Multiclasse](multiclass-neural-network.md) <br/> [Um contra Todas as Multiclasses](one-vs-all-multiclass.md) <br/> [Perceptron Médio de Duas Classes](two-class-averaged-perceptron.md) <br/>  [Árvore de Decisão Aumentada de Duas Classes](two-class-boosted-decision-tree.md)  <br/> [Floresta de Decisão de Duas Classes](two-class-decision-forest.md) <br/>  [Regressão Logística de Duas Classes](two-class-logistic-regression.md) <br/> [Rede Neural de Duas Classes](two-class-neural-network.md) <br/> [Computador de Vetor de Suporte de Duas Classes](two-class-support-vector-machine.md) | 
 
@@ -51,7 +51,7 @@ Para obter ajuda com a escolha de algoritmos, consulte
 
 | Funcionalidade | Descrição | Módulo |
 | --- |--- | --- |
-| Treinamento de modelo | Execute os dados por meio do algoritmo. |  [Treinar Modelo de Clustering](train-clustering-model.md) <br/> [Treinar Modelo](train-model.md) <br/> [Treinar modelo de Pytorch](train-pytorch-model.md) <br/> [Ajustar os Hiperparâmetros de Modelo](tune-model-hyperparameters.md) |
+| Treinamento de modelo | Execute os dados por meio do algoritmo. |  [Treinar Modelo de Clustering](train-clustering-model.md) <br/> [Treinar Modelo](train-model.md) <br/> [Treinar modelo Pytorch](train-pytorch-model.md) <br/> [Ajustar os Hiperparâmetros de Modelo](tune-model-hyperparameters.md) |
 | Pontuação e Avaliação do Modelo | Medir a precisão do modelo treinado. | [Aplicar Transformação](apply-transformation.md) <br/> [Atribuir Dados a Clusters](assign-data-to-clusters.md) <br/> [Modelo de Validação Cruzada](cross-validate-model.md) <br/> [Avaliar Modelo](evaluate-model.md) <br/> [Pontuar Modelo de Imagem](score-image-model.md) <br/> [Pontuar Modelo](score-model.md) |
 | Linguagem Python | Grave o código e incorpore-o em um módulo para integrar o Python ao seu pipeline. | [Criar Modelo Python](create-python-model.md) <br/> [Executar Script do Python](execute-python-script.md) |
 | Linguagem R | Grave o código e incorpore-o em um módulo para integrar o R ao seu pipeline. | [Executar Script R](execute-r-script.md) |

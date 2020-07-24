@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 08579f7ba952bb4ebcba1595508612affb852528
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46f5644fb47b840f273ccab37da4f4743ad335f3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75980376"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053113"
 ---
 # <a name="manage-azure-media-services-v3-accounts"></a>Gerenciar contas dos serviços de mídia do Azure v3
 
@@ -42,4 +43,4 @@ Se uma conta dos serviços de mídia ou uma conta de armazenamento do Azure asso
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Criar uma conta](create-account-cli-quickstart.md)
+[Criar uma conta](./create-account-howto.md)

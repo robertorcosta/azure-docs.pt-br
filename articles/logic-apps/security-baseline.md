@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d27abfda789a9bb1bd5479b059355703388333f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e547cf3f08e49ce707cd079778588fb6be5acb5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520639"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048428"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Linha de base de segurança do Azure para aplicativos lógicos
 
@@ -643,7 +643,7 @@ A Microsoft gerencia a infraestrutura subjacente para os aplicativos lógicos do
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
 
-**Orientação**: você pode permitir que somente usuários ou grupos específicos executem tarefas específicas, como gerenciar, editar e exibir aplicativos lógicos. Para controlar as permissões, use o RBAC (controle de acesso baseado em função) do Azure para que você possa atribuir funções personalizadas ou internas aos membros em sua assinatura do Azure:
+**Orientação**: você pode permitir que somente usuários ou grupos específicos executem tarefas específicas, como gerenciar, editar e exibir aplicativos lógicos. Para controlar suas permissões, use o controle de acesso baseado em função do Azure (RBAC do Azure) para que você possa atribuir funções personalizadas ou internas aos membros em sua assinatura do Azure:
 - Colaborador de Aplicativo Lógico: Permite o gerenciamento de aplicativos lógicos, mas você não pode alterar o acesso a eles.
 - Operador de Aplicativo Lógico: Permite a leitura, habilitação e desabilitação de aplicativos lógicos, mas você não pode editá-los ou atualizá-los.
 

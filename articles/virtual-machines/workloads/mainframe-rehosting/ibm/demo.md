@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 83f7f16d8406744a10451e8d488b7719845c525d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b2509539551b3991690e6d0313e069ae015eb892
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135950"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052409"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Configurar uma ADCD (distribuição controlada por desenvolvedores de aplicativos) no IBM zD&T v1
 
@@ -72,7 +72,7 @@ Agora que você tem os pacotes, você deve carregá-los em sua VM no Azure.
 
 2. Selecione a guia **SSH** e copie o comando ssh para a área de transferência.
 
-3. Faça logon em sua VM usando suas credenciais e o [cliente SSH](/azure/virtual-machines/linux/use-remote-desktop) de sua escolha. Esta demonstração usa as extensões do Linux para Windows 10, que adiciona um shell bash ao prompt de comando do Windows. A reproduzida também funciona muito bem.
+3. Faça logon em sua VM usando suas credenciais e o [cliente SSH](../../../linux/use-remote-desktop.md) de sua escolha. Esta demonstração usa as extensões do Linux para Windows 10, que adiciona um shell bash ao prompt de comando do Windows. A reproduzida também funciona muito bem.
 
 4. Quando conectado, crie um diretório para carregar os pacotes IBM. Tenha em mente que o Linux diferencia maiúsculas de minúsculas. Por exemplo, esta demonstração pressupõe que os pacotes sejam carregados para:
 
@@ -188,9 +188,9 @@ Parabéns! Agora você está executando um ambiente de mainframe IBM no Azure.
 
 ## <a name="learn-more"></a>Saiba mais
 
-- [Migração de mainframe: mitos e fatos](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
-- [IBM DB2 pureScale no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
-- [Solução de problemas](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
+- [Migração de mainframe: mitos e fatos](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
+- [IBM DB2 pureScale no Azure](../../../linux/ibm-db2-purescale-azure.md)
+- [Solução de problemas](../../../troubleshooting/index.yml)
 - [Desmistificando a migração do mainframe para o Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

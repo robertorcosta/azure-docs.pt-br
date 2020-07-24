@@ -7,11 +7,13 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ff012dc78f3981b6fb5fdbd8a5bde45083dd997b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 4844f3e34a6b49559affbb4d4ed7bc5b5e38e538
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699423"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050365"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Mover Analysis Services para uma região diferente
 
@@ -195,13 +197,13 @@ Para implantar um novo recurso de servidor em uma região diferente, você usar�
 
 4. Selecione **Criar**.
 
-5. Selecione **criar seu próprio modelo no editor**.
+5. Selecione **Criar seu próprio modelo no editor**.
 
 6. Selecione **carregar arquivo**e siga as instruções para carregar o **template.jsno** arquivo que você exportou e modificou.
 
 7. Verifique se o editor de modelo mostra as propriedades corretas para o novo servidor de destino.
 
-8. Selecione **Salvar**.
+8. Clique em **Salvar**.
 
 9. Insira ou selecione os valores de propriedade:
 

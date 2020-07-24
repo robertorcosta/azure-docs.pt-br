@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: 2870a654faad4e760a9d022488cb2c4c406cbeab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e79248e16ca21ae84022f8ac7f280d93f489c6a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82203124"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050352"
 ---
 # <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>Provisionar um gateway auto-hospedado no gerenciamento de API do Azure
 
@@ -31,7 +31,7 @@ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de AP
 
 ## <a name="provision-a-self-hosted-gateway"></a>Provisionar um gateway auto-hospedado
 
-1. Selecione os **gateways** em **configurações**.
+1. Selecione os **gateways** em **implantação e infraestrutura**.
 2. Clique em **+ Adicionar**.
 3. Insira o **nome** e a **região** do gateway.
 > [!TIP]

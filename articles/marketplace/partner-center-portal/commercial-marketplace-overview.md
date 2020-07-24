@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/19/2020
-ms.openlocfilehash: 676a0471ad4321f37cf6dd854d6d98083723f5de
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8f827d3e983a50589975eca59808bd1471fe4810
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116685"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047598"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Visão geral do Portal do Marketplace comercial no Partner Center
 
@@ -28,9 +28,9 @@ O Partner Center é o hub de uma experiência de parceiros da Microsoft. Para or
 
 ## <a name="migration-from-the-cloud-partner-portal"></a>Migração do Portal do Cloud Partner
 
-O Partner Center está evoluindo para integrar melhor todos os aspectos da nossa relação com os publicadores de software. Como parte dessa evolução, migramos todo o gerenciamento de ofertas de Marketplace Comercial do [Portal do Cloud Partner](https://cloudpartner.azure.com/) para o Partner Center.
+O Partner Center está evoluindo para integrar melhor todos os aspectos da nossa relação com os publicadores de software. Como parte dessa evolução, migramos todo o gerenciamento de oferta do Marketplace comercial do Portal do Cloud Partner (CPP) para o Partner Center.
 
-No Partner Center, os publicadores existentes que usavam o Portal do Cloud Partner encontrarão uma experiência de usuário conhecida, mas aprimorada e intuitiva. Os usuários serão direcionados diretamente para o local apropriado. Os clientes não serão afetados por essa atualização de experiência do parceiro.
+Os editores existentes que usaram anteriormente a CPP encontrarão uma experiência de usuário familiar, mas aprimorada e intuitiva com o Partner Center. Os usuários serão direcionados diretamente para o local apropriado. Os clientes não serão afetados por essa atualização de experiência do parceiro.
 
 ### <a name="improvements-on-publishing-and-offer-management-user-experience"></a>Aprimoramentos na publicação e na experiência do usuário com o gerenciamento de ofertas
 

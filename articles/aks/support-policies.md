@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: ce014fc338ebfad18b91ba65b614ca0a380a3f7c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: be80c0d5999ed06bcc505ec5737e7e416d28b981
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243844"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050691"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Políticas de suporte para o Serviço de Kubernetes do Azure
 
@@ -137,7 +137,7 @@ Embora os clientes possam entrar e alterar os nós de trabalho, isso não é rec
 
 ## <a name="network-ports-access-and-nsgs"></a>Portas de rede, acesso e NSGs
 
-Como um serviço gerenciado, o AKS tem requisitos específicos de rede e conectividade. Esses requisitos são menos flexíveis do que os requisitos para componentes regulares de IaaS. No AKS, operações como a personalização de regras do NSG, o bloqueio de uma porta específica (por exemplo, o uso de regras de firewall que bloqueiam a porta de saída 443) e URLs de lista de permissões podem tornar o cluster incompatível.
+Como um serviço gerenciado, o AKS tem requisitos específicos de rede e conectividade. Esses requisitos são menos flexíveis do que os requisitos para componentes regulares de IaaS. No AKS, operações como a personalização de regras do NSG, o bloqueio de uma porta específica (por exemplo, o uso de regras de firewall que bloqueiam a porta de saída 443) e a adição de URLs a uma lista de permissões podem tornar o cluster incompatível.
 
 > [!NOTE]
 > Atualmente, o AKS não permite que você bloqueie completamente o tráfego de saída do cluster. Para controlar a lista de URLs e portas que o cluster pode usar para tráfego de saída, confira [limitar o tráfego de saída](limit-egress-traffic.md).

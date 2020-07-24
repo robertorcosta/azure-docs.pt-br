@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 78a56b6a848139c47d7934a47decb126afe00b7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7799e873afb117481cebafd982df59a3267f4405
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85297521"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051546"
 ---
 # <a name="on-demand-provisioning"></a>Provisionamento sob demanda
 O provisionamento sob demanda permite provisionar um usuário em um aplicativo em segundos. Você pode usar a capacidade de solucionar problemas de configuração rapidamente, validar expressões definidas, filtros de escopo de teste e muito mais. 
@@ -30,6 +30,8 @@ O provisionamento sob demanda permite provisionar um usuário em um aplicativo e
 5. Clique em **provisionar sob demanda**.
 6. Pesquisar um usuário por nome, sobrenome, nome de exibição, nome principal de usuário ou email.
 7. Selecione provisionar na parte inferior da página.
+
+:::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="Sob demanda provisionar um usuário.":::
 
 ## <a name="understanding-the-provisioning-steps"></a>Noções básicas sobre as etapas de provisionamento
 O recurso de provisionamento sob demanda tenta mostrar as etapas que o serviço de provisionamento usa ao provisionar um usuário. Normalmente, há cinco etapas para provisionar um usuário, e uma ou mais das etapas a seguir serão mostradas na experiência de provisionamento sob demanda.
@@ -88,6 +90,8 @@ As páginas Exibir detalhes mostram as propriedades dos usuários que foram corr
 ### <a name="step-5-perform-action"></a>Etapa 5: executar a ação
 Por fim, o serviço de provisionamento executa uma ação como criar, atualizar, excluir ou ignorar o usuário. 
 
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Provisionamento de usuário bem-sucedido.":::
+
 **Exibir detalhes**
 
 A seção Exibir detalhes exibe os atributos que foram modificados no aplicativo de destino. Isso representa a saída final da atividade do serviço de provisionamento e os atributos que foram exportados. Se essa etapa falhar, os atributos exibidos representarão os atributos que o serviço de provisionamento tentou Modificar.  
@@ -102,11 +106,11 @@ A seção Exibir detalhes exibe os atributos que foram modificados no aplicativo
 **Quanto tempo leva o provisionamento sob demanda?** Geralmente leva menos de 30 segundos. 
 
 ## <a name="known-limitations"></a>Limitações conhecidas
-Atualmente, existem algumas limitações conhecidas. Poste no [UserVoice](https://aka.ms/appprovisioningfeaturerequest) para que possamos priorizar melhor os aprimoramentos a serem feitos em seguida. Observe que essas limitações são específicas para o recurso de provisionamento sob demanda. para obter informações específicas sobre se um aplicativo dá suporte a grupos de provisionamento, exclusões, etc., consulte o tutorial do aplicativo. 
+Atualmente, existem algumas limitações conhecidas. Poste na [voz do usuário](https://aka.ms/appprovisioningfeaturerequest) para que possamos priorizar melhor os aprimoramentos a serem feitos em seguida. Observe que essas limitações são específicas para o recurso de provisionamento sob demanda. para obter informações específicas sobre se um aplicativo dá suporte a grupos de provisionamento, exclusões, etc., consulte o tutorial do aplicativo. 
 
 * Os aplicativos workday, AWS e SuccessFactors não oferecem suporte ao provisionamento sob demanda.
 * Não há suporte para o provisionamento de grupos e funções sob demanda.
-* Não há suporte para a desabilitação ou a exclusão de usuários e grupos.
+* O provisionamento sob demanda dá suporte à desabilitação de usuários que foram desatribuídos do aplicativo, mas não dá suporte à desabilitação ou exclusão de usuários que foram desabilitados ou excluídos do Azure Active Directory (esses usuários não aparecerão ao procurar por um usuário).
 
 ## <a name="next-steps"></a>Próximas etapas
 

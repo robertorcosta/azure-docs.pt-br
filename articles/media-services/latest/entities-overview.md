@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 7e4f1141a9d4bd58451782e8412063a22565556d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9f9463cd1cac49e36ea52cafaf4d07f4e709ca7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80584528"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053248"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtragem, ordenação e paginação de entidades de serviços de mídia
 
@@ -158,34 +158,34 @@ A tabela a seguir mostra como você pode aplicar as opções de filtragem e orde
 
 |Nome da entidade|Nome da propriedade|Filtrar|Order|
 |---|---|---|---|
-|[Ativos](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` e `desc`|
+|[Ativos](/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` e `desc`|
 ||properties.alternateId |`eq`||
 ||properties.alternateId |`eq`||
 ||properties.created| `eq`, `gt`, `lt`| `asc` e `desc`|
-|[Políticas de chave de conteúdo](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
+|[Políticas de chave de conteúdo](/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
 ||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.policyId|`eq`, `ne`||
-|[Trabalhos](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` e `desc`|
+|[Trabalhos](/rest/api/media/jobs)| name  | `eq`            | `asc` e `desc`|
 ||properties.state        | `eq`, `ne`        |                         |
 ||properties.created      | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
 ||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` e `desc`| 
-|[Localizadores de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
+|[Localizadores de streaming](/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` e `desc`|
 ||properties.endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
-|[Políticas de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
+|[Políticas de streaming](/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
-|[Transformações](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` e `desc`|
+|[Transformações](/rest/api/media/transforms)| name | `eq`            | `asc` e `desc`|
 || properties.created      | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
 || properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Listar ativos](https://docs.microsoft.com/rest/api/media/assets/list)
-* [Listar políticas de conteúdo de chave](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
-* [Listar trabalhos](https://docs.microsoft.com/rest/api/media/jobs/list)
-* [Listar políticas de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
-* [Listar localizadores de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+* [Listar ativos](/rest/api/media/assets/list)
+* [Listar políticas de conteúdo de chave](/rest/api/media/contentkeypolicies/list)
+* [Listar trabalhos](/rest/api/media/jobs/list)
+* [Listar políticas de streaming](/rest/api/media/streamingpolicies/list)
+* [Listar localizadores de streaming](/rest/api/media/streaminglocators/list)
 * [Transmitir um arquivo por streaming](stream-files-dotnet-quickstart.md)
 * [Cotas e limites](limits-quotas-constraints.md)

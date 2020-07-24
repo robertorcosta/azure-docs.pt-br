@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1ffaefc51121aeb7421d6e49a3c0e58c76d4391e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c101f6f2007e9d772f03be5d69e56d5f52866d6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61464939"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052779"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>Configurando a telemetria dos Serviços de Mídia do Azure com o .NET 
 
@@ -30,7 +30,7 @@ Este artigo descreve as etapas gerais que podem ser seguidas ao configurar a tel
 
 É possível consumir os dados de telemetria das seguintes maneiras:
 
-- Leia os dados diretamente no Armazenamento de Tabelas do Azure (por exemplo, usando o SDK de Armazenamento). Para obter a descrição das tabelas de armazenamento de telemetria, confira **Consumindo informações de telemetria**[neste](https://msdn.microsoft.com/library/mt742089.aspx) artigo.
+- Leia os dados diretamente no Armazenamento de Tabelas do Azure (por exemplo, usando o SDK de Armazenamento). Para obter a descrição das tabelas de armazenamento de telemetria, confira **Consumindo informações de telemetria**[neste](/previous-versions/azure/mt742089(v=azure.100)) artigo.
 
 Ou
 

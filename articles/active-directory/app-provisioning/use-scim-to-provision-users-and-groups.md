@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: b08509bed6b26cb56caebd4dc47fc3b7ac84ce27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8138f125c55e3b2d76cb680ea48366c5a3e05fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117311"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051526"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Criar um ponto de extremidade SCIM e configurar o provisionamento de usuários com o Azure AD
 
@@ -60,7 +60,7 @@ Cada aplicativo requer atributos diferentes para criar um usuário ou grupo. Ini
 |marca|urn:ietf:params:scim:schemas:extension:2.0:CustomExtension:tag|extensionAttribute1|
 |status|ativo|isSoftDeleted (valor calculado não armazenado no usuário)|
 
-O esquema definido acima seria representado usando o payload JSON abaixo. Observe que, além dos atributos necessários para o aplicativo, a representação JSON inclui os atributos obrigatórios "id", "externalId" e "meta".
+O esquema definido acima seria representado usando o conteúdo JSON abaixo. Observe que, além dos atributos necessários para o aplicativo, a representação JSON inclui os atributos obrigatórios `id` , `externalId` e `meta` .
 
 ```json
 {
@@ -134,7 +134,7 @@ Há vários pontos de extremidade definidos no SCIM RFC. Você pode começar a u
 |/Group|Executa operações CRUD em um objeto de grupo.|
 |/ServiceProviderConfig|Fornece detalhes sobre os recursos do padrão SCIM que têm suporte, por exemplo, os recursos com suporte e o método de autenticação.|
 |/ResourceTypes|Especifica os metadados sobre cada recurso.|
-|/Schemas|O conjunto de atributos com suporte de cada cliente e provedor de serviços pode variar. Embora um provedor de serviços possa incluir “name,” “title” e “emails,”, enquanto outro provedor de serviços usa “name,” “title,” e “phoneNumbers”. O ponto de extremidade de esquemas permite a descoberta dos atributos com suporte.|
+|/Schemas|O conjunto de atributos com suporte de cada cliente e provedor de serviços pode variar. Um provedor de serviços pode incluir `name` , `title` e `emails` , enquanto outro provedor de serviços usa `name` , `title` e `phoneNumbers` . O ponto de extremidade de esquemas permite a descoberta dos atributos com suporte.|
 |/Bulk|As operações em lote permitem que você execute operações em uma grande coleção de objetos de recurso em uma única operação (por exemplo, atualizar associações para um grupo grande).|
 
 
@@ -149,7 +149,7 @@ Dentro da [especificação do protocolo SCIM 2.0](http://www.simplecloud.info/#S
 * Dar suporte à criação de usuários e, opcionalmente, grupos, de acordo com a seção [3.3 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.3).  
 * Dar suporte à modificação de usuários ou grupos com solicitações PATCH, de acordo com a [seção 3.5.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.5.2).  
 * Dar suporte à recuperação de um recurso conhecido para um usuário ou grupo criado anteriormente, de acordo com a [seção 3.4.1 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.1).  
-* Dar suporte a consultas de usuários ou grupos, de acordo com a seção [3.4.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Por padrão, os usuários são recuperados por seu `id` e consultados por seus `username` e `externalid`, e os grupos são consultados por `displayName`.  
+* Dar suporte a consultas de usuários ou grupos, de acordo com a seção [3.4.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Por padrão, os usuários são recuperados por seu `id` e consultados por seus `username` e `externalId`, e os grupos são consultados por `displayName`.  
 * Dar suporte a consultas de usuário por ID e pelo gerenciador, de acordo com a seção 3.4.2 do protocolo SCIM.  
 * Dar suporte a consultas de grupos por ID e por membro, de acordo com a seção 3.4.2 do protocolo SCIM.  
 * Aceitar um único token de portador para autenticação e autorização do Azure AD para seu aplicativo.
@@ -745,7 +745,7 @@ Barra mínima dos conjuntos de criptografia TLS 1.2:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Intervalos de IP
-O serviço de provisionamento do Azure AD pode opperate no momento em qualquer intervalo de IP do Azure. O trabalho está em andamento para consolidar o conjunto de intervalos de IP em que o serviço opera. Este documento será atualizado quando a lista de intervalos de IP for consolidada. 
+O serviço de provisionamento do Azure AD pode operar atualmente em qualquer intervalo de IP do Azure. O trabalho está em andamento para consolidar o conjunto de intervalos de IP em que o serviço opera. Este documento será atualizado quando a lista de intervalos de IP for consolidada. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Etapa 3: Crie um ponto de extremidade do SCIM
 
@@ -915,10 +915,10 @@ Enviar uma solicitação GET para o controlador de token para obter um token de 
 
 ***Exemplo 1. Confira o serviço para obter um usuário correspondente***
 
-O Azure Active Directory consulta o serviço para procurar um usuário com um valor de atributo externalId correspondente ao valor de atributo mailNickname de um usuário no Azure AD. A consulta é expressa como solicitação HTTP como no exemplo, na qual jyoung é o exemplo de um mailNickname de um usuário no Azure Active Directory.
+Azure Active Directory consulta o serviço para um usuário com um `externalId` valor de atributo correspondente ao valor de atributo mailNickname de um usuário no Azure AD. A consulta é expressa como solicitação HTTP como no exemplo, na qual jyoung é o exemplo de um mailNickname de um usuário no Azure Active Directory.
 
 >[!NOTE]
-> Este é apenas um exemplo. Nem todos os usuários terão um atributo mailNickname, e o valor que um usuário tem pode não ser exclusivo no diretório. Além disso, o atributo usado para correspondência (nesse caso, externalId) é configurável nos [mapeamentos de atributo do Azure AD](customize-application-attributes.md).
+> Este é apenas um exemplo. Nem todos os usuários terão um atributo mailNickname, e o valor que um usuário tem pode não ser exclusivo no diretório. Além disso, o atributo usado para correspondência (que nesse caso é `externalId` ) é configurável nos [mapeamentos de atributo do Azure ad](customize-application-attributes.md).
 
 ```
 GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
@@ -939,7 +939,7 @@ No código de exemplo, a solicitação é convertida em uma chamada para o méto
  Task<Resource[]> QueryAsync(IRequest<IQueryParameters> request);
 ```
 
-No exemplo da consulta, para um usuário com um valor fornecido para o atributo externalId, os valores dos argumentos passados para o método QueryAsync são:
+Na consulta de exemplo, para um usuário com um determinado valor para o `externalId` atributo, os valores dos argumentos passados para o método QueryAsync são:
 
 * parameters.AlternateFilters.Count: 1
 * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
@@ -948,7 +948,7 @@ No exemplo da consulta, para um usuário com um valor fornecido para o atributo 
 
 ***Exemplo 2. Provisione um usuário***
 
-Se a resposta a uma consulta ao serviço Web para procurar um usuário com um valor de atributo externalId que corresponda ao valor de atributo mailNickname de um usuário não retornar nenhum usuário, o Azure Active Directory solicitará que o serviço provisione um usuário correspondente ao usuário no Azure Active Directory.  Veja um exemplo de tal solicitação: 
+Se a resposta a uma consulta para o serviço Web para um usuário com um `externalId` valor de atributo que corresponda ao valor do atributo mailNickname de um usuário não retornar usuários, Azure Active Directory solicitará que o serviço provisione um usuário correspondente a um no Azure Active Directory.  Veja um exemplo de tal solicitação: 
 
 ```
  POST https://.../scim/Users HTTP/1.1
@@ -1191,7 +1191,7 @@ A especificação do SCIM não define um esquema específico de SCIM para autent
 |--|--|--|--|
 |Nome de usuário e senha (não recomendado ou com suporte do Azure AD)|Fácil de implementar|Inseguro – [Sua Pa$$word não importa](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Com suporte caso a caso para aplicativos da galeria. Sem suporte para aplicativos que não são da galeria.|
 |Token de portador de vida útil longa|Os tokens de vida útil longa não exigem que um usuário esteja presente. Eles são fáceis para os administradores usarem ao configurar o provisionamento.|Os tokens de vida útil longa podem ser difíceis de compartilhar com um administrador sem usar métodos inseguros, como email. |Com suporte para aplicativos que não são e que são da galeria. |
-|Concessão de código de autorização OAuth|Os tokens de acesso são muito mais curtos do que as senhas e têm um mecanismo de atualização automatizado que os tokens de portador de vida útil longa não têm.  Um usuário real deve estar presente durante a autorização inicial, adicionando um nível de responsabilidade. |Exige que um usuário esteja presente. Se o usuário sair da organização, o token será inválido e a autorização precisará ser realizada novamente.|Com suporte para aplicativos da galeria. O suporte para aplicativos que não são da galeria está em andamento.|
+|Concessão de código de autorização OAuth|Os tokens de acesso são muito mais curtos do que as senhas e têm um mecanismo de atualização automatizado que os tokens de portador de vida útil longa não têm.  Um usuário real deve estar presente durante a autorização inicial, adicionando um nível de responsabilidade. |Exige que um usuário esteja presente. Se o usuário sair da organização, o token será inválido e a autorização precisará ser realizada novamente.|Com suporte para aplicativos da galeria, mas não para aplicativos da galeria. O suporte para não galeria está em nossa pendência.|
 |Concessão de credenciais de cliente do OAuth|Os tokens de acesso são muito mais curtos do que as senhas e têm um mecanismo de atualização automatizado que os tokens de portador de vida útil longa não têm. A concessão de código de autorização e a concessão de credenciais de cliente criam o mesmo tipo de token de acesso; portanto, a transferência entre esses métodos é transparente para a API.  O provisionamento pode ser completamente automatizado e novos tokens podem ser silenciosamente solicitados sem interação do usuário. ||Sem suporte para aplicativos que não são e que são da galeria. O suporte está em nossa pendência.|
 
 > [!NOTE]
@@ -1209,7 +1209,7 @@ Práticas recomendadas (recomendado, mas não obrigatório):
 * Suporte a várias URLs de redirecionamento. Os administradores podem configurar o provisionamento de "portal.azure.com" e "aad.portal.azure.com". O suporte a várias URLs de redirecionamento garantirá que os usuários possam autorizar o acesso de ambos os portais.
 * Dê suporte a vários segredos para garantir uma renovação de segredo sem problemas ou tempo de inatividade. 
 
-**Tokens de portador OAuth de vida útil longa:** Se o seu aplicativo não oferecer suporte ao fluxo de concessão de código de autorização OAuth, você também poderá gerar um token de portador OAuth de vida útil longa que um administrador poderá usar para configurar a integração de provisionamento. O token deve ser perpétuo, caso contrário, o trabalho de provisionamento ficará [em quarentena](application-provisioning-quarantine-status.md) quando o token expirar. Esse token deve ter menos de 1 KB.  
+**Tokens de portador OAuth de vida útil longa:** Se o seu aplicativo não oferecer suporte ao fluxo de concessão de código de autorização OAuth, você também poderá gerar um token de portador OAuth de vida útil longa do que um administrador pode usar para configurar a integração de provisionamento. O token deve ser perpétuo, caso contrário, o trabalho de provisionamento ficará [em quarentena](application-provisioning-quarantine-status.md) quando o token expirar. Esse token deve ter menos de 1 KB.  
 
 Para métodos de autenticação e autorização adicionais, entre em contato pelo [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
 

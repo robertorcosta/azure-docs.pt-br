@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 72f9381a320dc0fb946dbf6f48c5bcab5390aed5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c49e92cda89cfc1d72a0550c2a53430f3e6f2844
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243572"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050334"
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas frequentes sobre Gerenciamento de API do Azure
 Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas do Gerenciamento de API do Azure.
@@ -77,7 +77,7 @@ Veja como você pode adicionar um usuário ao grupo Administradores:
 2. Vá para o grupo de recursos que tem a instância de Gerenciamento de API que você deseja atualizar.
 3. No gerenciamento de API, atribua a função **colaborador do serviço de gerenciamento de API** ao usuário.
 
-Agora o colaborador recém-adicionado pode usar [cmdlets](/powershell/azure/overview) do Azure PowerShell. Veja como conectar-se como um administrador:
+Agora o colaborador recém-adicionado pode usar [cmdlets](/powershell/azure/) do Azure PowerShell. Veja como conectar-se como um administrador:
 
 1. Use o cmdlet `Connect-AzAccount` para entrar.
 2. Defina o contexto para a assinatura com o serviço usando `Set-AzContext -SubscriptionID <subscriptionGUID>`.

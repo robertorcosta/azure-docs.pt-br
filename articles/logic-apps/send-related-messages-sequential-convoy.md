@@ -6,15 +6,16 @@ ms.suite: integration
 ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: bd6b05489d13f835de4dce2aa3d885132285efca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c00d2e4f622bcfad7b2468013336f0d936e318c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987616"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048670"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Enviar mensagens relacionadas em ordem usando um comboio sequencial no aplicativo lógico do Azure com o barramento de serviço do Azure
 
-Quando você precisa enviar mensagens correlacionadas em uma ordem específica, você pode seguir o padrão [ *comboio sequencial* ](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) ao usar os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) usando o [conector do barramento de serviço do Azure](../connectors/connectors-create-api-servicebus.md). As mensagens correlacionadas têm uma propriedade que define a relação entre essas mensagens, como a ID da [sessão](../service-bus-messaging/message-sessions.md) no barramento de serviço.
+Quando você precisa enviar mensagens correlacionadas em uma ordem específica, você pode seguir o padrão [ *comboio sequencial* ](/azure/architecture/patterns/sequential-convoy) ao usar os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) usando o [conector do barramento de serviço do Azure](../connectors/connectors-create-api-servicebus.md). As mensagens correlacionadas têm uma propriedade que define a relação entre essas mensagens, como a ID da [sessão](../service-bus-messaging/message-sessions.md) no barramento de serviço.
 
 Por exemplo, suponha que você tenha 10 mensagens para uma sessão denominada "sessão 1" e tenha 5 mensagens para uma sessão chamada "sessão 2" que são todas enviadas para a mesma [fila do barramento de serviço](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). Você pode criar um aplicativo lógico que processa mensagens da fila para que todas as mensagens da "sessão 1" sejam manipuladas por uma única execução de gatilho e que todas as mensagens de "sessão 2" sejam tratadas pela próxima execução do gatilho.
 
@@ -28,7 +29,7 @@ Este artigo mostra como criar um aplicativo lógico que implementa esse padrão 
 
 Para examinar o arquivo JSON deste modelo, consulte [github: service-bus-sessions.jsem](https://github.com/Azure/logicapps/blob/master/templates/service-bus-sessions.json).
 
-Para obter mais informações, consulte [padrão comboio sequencial – padrões de design de nuvem da arquitetura do Azure](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy).
+Para obter mais informações, consulte [padrão comboio sequencial – padrões de design de nuvem da arquitetura do Azure](/azure/architecture/patterns/sequential-convoy).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -192,7 +193,7 @@ Para fornecer os valores para o gatilho e as ações no modelo **entrega em orde
   > [!NOTE]
   > Inicialmente, o intervalo de sondagem é definido como três minutos para que o aplicativo lógico não seja executado com mais frequência do que o esperado e resulte em encargos de cobrança inesperados. Idealmente, defina o intervalo e a frequência como 30 segundos para que o aplicativo lógico seja disparado imediatamente quando uma mensagem chegar.
 
-  | Property | Necessário para este cenário | Valor | Descrição |
+  | Propriedade | Necessário para este cenário | Valor | DESCRIÇÃO |
   |----------|----------------------------|-------|-------------|
   | **Nome da fila** | Sim | <*nome da fila*> | O nome da fila do barramento de serviço criada anteriormente. Este exemplo usa "fabrikam-Service-Bus-Queue". |
   | **Tipo de fila** | Sim | **Principal** | Sua fila principal do barramento de serviço |
@@ -201,7 +202,7 @@ Para fornecer os valores para o gatilho e as ações no modelo **entrega em orde
   | **Frequência** | Sim | **Segundo**, **Minuto**, **Hora**, **Dia**, **Semana** ou **Mês** | A unidade de tempo da recorrência a ser usada ao verificar uma mensagem. <p>**Dica**: para adicionar um **fuso horário** ou uma **hora de início**, selecione essas propriedades na lista **Adicionar novo parâmetro** . |
   |||||
 
-  Para obter mais informações de gatilho, consulte [barramento de serviço – quando uma mensagem é recebida em uma fila (Peek-Lock)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). O gatilho gera um [ServiceBusMessage](https://docs.microsoft.com/connectors/servicebus/#servicebusmessage).
+  Para obter mais informações de gatilho, consulte [barramento de serviço – quando uma mensagem é recebida em uma fila (Peek-Lock)](/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). O gatilho gera um [ServiceBusMessage](/connectors/servicebus/#servicebusmessage).
 
 Depois de inicializar a sessão, o fluxo de trabalho usa a ação **inicializar variável** para criar uma variável booliana que inicialmente definida como `false` e indica quando as seguintes condições são verdadeiras: 
 
@@ -421,4 +422,4 @@ Para testar seu aplicativo lógico, envie mensagens para a fila do barramento de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre os [gatilhos e as ações do conector do barramento de serviço](https://docs.microsoft.com/connectors/servicebus/)
+* Saiba mais sobre os [gatilhos e as ações do conector do barramento de serviço](/connectors/servicebus/)

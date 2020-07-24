@@ -38,48 +38,44 @@
       href: application-management-fundamentals.md
     - name: Cenários comuns de gerenciamento de aplicativos
       href: common-scenarios.md
-    - name: Aplicativos de nuvem e logon único
+    - name: Como planejar uma integração de aplicativos de nuvem
       items:
-        - name: Como planejar uma integração de aplicativos de nuvem
-          items:
-            - name: Introdução à integração de aplicativos
-              href: plan-an-application-integration.md
-            - name: Planejar uma implantação do painel de acesso
-              href: access-panel-deployment-plan.md
-            - name: Diretrizes para desenvolvedores
-              href: developer-guidance-for-integrating-applications.md
-        - name: Logon único
-          items:
-            - name: Habilitar o SSO para seu aplicativo multilocatário
-              href: isv-sso-content.md
-            - name: Criar um locatário do Azure para o aplicativo multilocatário
-              href: isv-tenant-multi-tenant-app.md
-            - name: Escolher a federação multilocatário
-              href: isv-choose-multi-tenant-federation.md
-            - name: Criar documentação para o aplicativo multilocatário
-              href: isv-create-sso-documentation.md
-            - name: Planejar uma implantação de logon único
-              href: plan-sso-deployment.md
-        - name: SSO de um clique
-          items:
-            - name: O que é o SSO de um clique
-              href: one-click-sso-tutorial.md
-        - name: Segurança do aplicativo
-          items:
-            - name: Opções de acesso do aplicativo
-              href: what-is-access-management.md
-            - name: Opções de assinatura de certificado
-              href: certificate-signing-options.md
-            - name: Gerenciar certificados
-              href: manage-certificates-for-federated-single-sign-on.md
-            - name: Restrições de locatário
-              href: tenant-restrictions.md
-            - name: Configurar a criptografia de token SAML
-              href: howto-saml-token-encryption.md
-            - name: Portais do usuário final
-              href: end-user-experiences.md
-    - name: Visibilidade e controle do aplicativo em nuvem
-      href: cloud-app-security.md
+        - name: Introdução à integração de aplicativos
+          href: plan-an-application-integration.md
+        - name: Planejar uma implantação do painel de acesso
+          href: access-panel-deployment-plan.md
+        - name: Diretrizes para desenvolvedores
+          href: developer-guidance-for-integrating-applications.md
+    - name: Logon único
+      items:
+        - name: Habilitar o SSO para seu aplicativo multilocatário
+          href: isv-sso-content.md
+        - name: Criar um locatário do Azure para o aplicativo multilocatário
+          href: isv-tenant-multi-tenant-app.md
+        - name: Escolher a federação multilocatário
+          href: isv-choose-multi-tenant-federation.md
+        - name: Criar documentação para o aplicativo multilocatário
+          href: isv-create-sso-documentation.md
+        - name: Planejar uma implantação de logon único
+          href: plan-sso-deployment.md
+        - name: SSO com um clique
+          href: one-click-sso-tutorial.md
+    - name: Segurança do aplicativo
+      items:
+        - name: Opções de acesso do aplicativo
+          href: what-is-access-management.md
+        - name: Opções de assinatura de certificado
+          href: certificate-signing-options.md
+        - name: Gerenciar certificados
+          href: manage-certificates-for-federated-single-sign-on.md
+        - name: Restrições de locatário
+          href: tenant-restrictions.md
+        - name: Configurar a criptografia de token SAML
+          href: howto-saml-token-encryption.md
+        - name: Portais do usuário final
+          href: end-user-experiences.md
+        - name: Visibilidade e controle do aplicativo em nuvem
+          href: cloud-app-security.md
     - name: Proxy de aplicativo para aplicativos locais
       items:
         - name: Proxy do Aplicativo

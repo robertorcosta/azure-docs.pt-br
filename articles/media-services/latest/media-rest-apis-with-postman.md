@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
-ms.openlocfilehash: 872dad95fc5b536c51e251612f40439da020a059
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16c74e10e88d3f8eacd8f59222adbdb19be813ef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75779630"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053200"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configurar o postmaster para chamadas da API REST dos serviços de mídia v3
 
@@ -27,8 +28,8 @@ Antes de começar a desenvolver, examine o [desenvolvimento com as APIs dos serv
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta do Media Services. 
-- Obtenha as informações necessárias para [acessar as APIs](access-api-cli-how-to.md)
+- [Crie uma conta de Serviços de Mídia](./create-account-howto.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta do Media Services. 
+- Obtenha as informações necessárias para [acessar as APIs](./access-api-howto.md)
 - Instale o cliente REST do [Postman](https://www.getpostman.com/) para executar as APIs de REST mostradas em alguns dos tutoriais do REST AMS. 
 
     Estamos usando o **Postman** mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plug-in REST ou o **Fiddler Telerik**. 
@@ -96,7 +97,7 @@ Antes de começar a manipular os recursos do AMS v3, você precisa obter e defin
 * Se seu aplicativo falhar com "HTTP 504: tempo limite do gateway", verifique se a variável de local não foi definida explicitamente com um valor diferente do local esperado da conta dos serviços de mídia. 
 * Se você receber um erro "conta não encontrada", verifique também se a propriedade local na mensagem JSON do corpo está definida como o local em que a conta dos serviços de mídia está. 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Carregar arquivos em uma conta dos Serviços de Mídia – REST](upload-files-rest-how-to.md)
 - [Criar filtros com os Serviços de Mídia – REST](filters-dynamic-manifest-rest-howto.md)
@@ -105,4 +106,4 @@ Antes de começar a manipular os recursos do AMS v3, você precisa obter e defin
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Transmitir arquivos com REST](stream-files-tutorial-with-rest.md).  
-- [Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-REST](stream-files-tutorial-with-rest.md)
+- [Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – REST](stream-files-tutorial-with-rest.md)

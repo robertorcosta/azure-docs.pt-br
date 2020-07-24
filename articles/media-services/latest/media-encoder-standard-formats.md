@@ -14,19 +14,20 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: f1d4d4f4006702ebe0d057e56cf24a022e73b83e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd8c38f9f08bbcaccc39d2f0d1843af720c12932
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79251356"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053230"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>Codecs e formatos de codificador padrão
 
-Este artigo contém uma lista dos formatos de arquivo de importação e exportação mais comuns que você pode usar com [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). Para obter informações sobre como criar predefinições personalizadas usando **StandardEncoderPreset**, veja [Criar uma transformação com uma predefinição personalizada](customize-encoder-presets-how-to.md).
+Este artigo contém uma lista dos formatos de arquivo de importação e exportação mais comuns que você pode usar com [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). Para obter informações sobre como criar predefinições personalizadas usando **StandardEncoderPreset**, veja [Criar uma transformação com uma predefinição personalizada](customize-encoder-presets-how-to.md).
 
 ## <a name="input-containerfile-formats"></a>Formatos de contêiner/arquivo de entrada
 
-| Formatos de arquivo (extensões de arquivo) | Com suporte |
+| Formatos de arquivo (extensões de arquivo) | Suportado |
 | --- | --- |
 | FLV (com codecs H.264 e AAC) (.flv) |Sim |
 | MXF    (.mxf) |Sim |
@@ -35,7 +36,7 @@ Este artigo contém uma lista dos formatos de arquivo de importação e exporta�
 | Vídeo do Windows Media (WMV)/ASF (.wmv, .asf) |Sim |
 | AVI (8 bits/10 bits descompactado) (.avi) |Sim |
 | MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Sim |
-| [Gravação (DVR-MS) de vídeo Digital da Microsoft](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Sim |
+| [Gravação (DVR-MS) de vídeo Digital da Microsoft](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) (.dvr-ms) |Sim |
 | Matroska/WebM (.mkv) |Sim |
 | WAVE/WAV (.wav) |Sim |
 | QuickTime (.mov) |Sim |
@@ -51,7 +52,7 @@ ou
 * Arquivos MXF, GXF e QuickTime onde o áudio é executado como faixas PCM separadas, mas o mapeamento de canal (para estéreo ou 5.1) pode ser deduzido dos metadados do arquivo
 
 ## <a name="input-video-codecs"></a>Codecs de vídeo de entrada
-| Codecs de vídeo de entrada | Com suporte |
+| Codecs de vídeo de entrada | Suportado |
 | --- | --- |
 | AVC de 8 bits/10 bits até 4:2:2, incluindo AVCIntra |8 bits 4:2:0 e 4:2:2 |
 | DNxHD ávido (em MXF) |Sim |
@@ -74,7 +75,7 @@ ou
 | HEVC/H.265| Perfil Principal|
 
 ## <a name="input-audio-codecs"></a>Codecs de áudio de entrada
-| Codecs de áudio de entrada | Com suporte |
+| Codecs de áudio de entrada | Suportado |
 | --- | --- |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |
 | MPEG Layer 2 |Sim |

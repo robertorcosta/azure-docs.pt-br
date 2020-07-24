@@ -4,18 +4,18 @@ description: Saiba como atualizar um cluster do AKS (serviço kubernetes do Azur
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: 603a27f0ecffb762a18f58847110c4dd3de68425
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: da46c44dc9cc16dfa44aacb15b35b652c0c912a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250984"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050624"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do Serviço de Kubernetes do Azure (AKS)
 
 Como parte do ciclo de vida de um cluster do AKS, muitas vezes você precisará atualizar para a versão mais recente do Kubernetes. É importante aplicar as versões mais recentes de segurança do Kubernetes ou atualizar para obter os recursos mais recentes. Este artigo mostra como atualizar os componentes mestres ou um único pool de nós padrão em um cluster AKS.
 
-Para clusters AKS que usam vários pools de nó ou nós do Windows Server (atualmente em visualização no AKS), consulte [atualizar um pool de nós no AKs][nodepool-upgrade].
+Para clusters AKS que usam vários pools de nó ou nós do Windows Server, consulte [atualizar um pool de nós em AKs][nodepool-upgrade].
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -33,9 +33,11 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> Ao atualizar um cluster do AKS, as versões secundárias do Kubernetes não poderão ser ignoradas. Por exemplo, as atualizações entre *1.12. x*  ->  *1.13. x* ou *1.13. x*  ->  *1.14.* x são permitidas, no entanto *1.12. x*  ->  *1.14. x* não é.
+> Quando você atualiza um cluster AKS com suporte, as versões secundárias do kubernetes não podem ser ignoradas. Por exemplo, as atualizações entre *1.12. x*  ->  *1.13. x* ou *1.13. x*  ->  *1.14.* x são permitidas, no entanto *1.12. x*  ->  *1.14. x* não é.
 >
 > Para atualizar, de *1.12. x*  ->  *1.14.* x, primeiro atualize de *1.12. x*  ->  *1.13. x*e, em seguida, atualize de *1.13. x*  ->  *1.14. x*.
+>
+> Ignorar várias versões só pode ser feito ao atualizar de uma versão sem suporte de volta para uma versão com suporte. Por exemplo, atualizar de um *1,10. x* sem suporte > um *1.15. x* com suporte pode ser concluído.
 
 A saída de exemplo a seguir mostra que o cluster pode ser atualizado para as versões *1.13.9* e *1.13.10*:
 

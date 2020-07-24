@@ -5,21 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7997359fb29afc876b184b811e0409cfdbeb265a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 2eff16e0d1aa242ed4ca8b427c7af8e8defa7804
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826461"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051304"
 ---
-# <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
+# <a name="self-service-password-reset-frequently-asked-questions"></a>Perguntas frequentes sobre redefinição de senha de autoatendimento
 
-Veja abaixo algumas perguntas frequentes (FAQ) sobre tudo relativo à redefinição de senhas.
+Veja a seguir algumas perguntas frequentes (FAQ) para todas as coisas relacionadas à redefinição de senha de autoatendimento.
 
 Caso você tenha uma pergunta geral sobre o Azure Active Directory (Azure AD) e o autoatendimento de redefinição de senha (SSPR) que não foi respondida aqui, peça ajuda à comunidade na [página de perguntas e respostas da Microsoft sobre o Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). Os membros da comunidade incluem engenheiros, gerentes de produto, MVPs e colegas profissionais de TI.
 
@@ -37,7 +38,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 
   > **R:** Sim. Desde que a redefinição de senha esteja habilitada e eles sejam licenciados, os usuários podem ir para o portal de registro de redefinição de senha (https://aka.ms/ssprsetup) ) para registrar as informações de autenticação. Os usuários também podem registrar por meio do painel de acesso (https://myapps.microsoft.com) ). Para registrar-se por meio do Painel de Acesso, eles precisam selecionar a imagem do perfil, selecionar **Perfil** e, em seguida, selecionar a opção **Registrar-se para redefinição de senha**.
   >
-  >
+  > Se você habilitar o [registro combinado](concept-registration-mfa-sspr-combined.md), os usuários poderão se registrar para o SSPR e a autenticação multifator do Azure ao mesmo tempo.
 * **P:  Se eu habilitar a redefinição de senha para um grupo e, em seguida, decidir habilitá-la para todos, os usuários deverão se registrar novamente?**
 
   > **R:** Não. Os usuários que possuem dados de autenticação populados não devem se registrar novamente.

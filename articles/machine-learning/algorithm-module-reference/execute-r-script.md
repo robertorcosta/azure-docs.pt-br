@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/27/2020
-ms.openlocfilehash: 71e1a43728cf923207d209848b26627aeb7bd680
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3559ae5c246129aa369cb49e7749e499002f1dc6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751753"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048181"
 ---
 # <a name="execute-r-script-module"></a>Executar módulo de script R
 
@@ -320,9 +320,8 @@ Você pode passar objetos R entre instâncias do módulo Executar Script R usand
 
 Os seguintes pacotes de R pré-instalados estão disponíveis no momento:
 
-|              |            | 
-|--------------|------------| 
 | Pacote      | Versão    | 
+|--------------|------------| 
 | askpass      | 1,1        | 
 | assertthat   | 0.2.1      | 
 | backports    | 1.1.4      | 
@@ -338,7 +337,7 @@ Os seguintes pacotes de R pré-instalados estão disponíveis no momento:
 | sinal de interpolação        | 6.0-84     | 
 | caTools      | 1.17.1.2   | 
 | cellranger   | 1.1.0      | 
-| class        | 7.3-15     | 
+| classe        | 7.3-15     | 
 | cli          | 1.1.0      | 
 | clipe        | 0.6.0      | 
 | cluster      | 2.0.7-1    | 
@@ -354,7 +353,7 @@ Os seguintes pacotes de R pré-instalados estão disponíveis no momento:
 | digest       | 0.6.19     | 
 | dplyr        | 0.7.6      | 
 | e1071        | 1.7-2      | 
-| evaluate     | 0.14       | 
+| evaluate     | 0,14       | 
 | fansi        | 0.4.0      | 
 | forcats      | 0.3.0      | 
 | foreach      | 1.4.4      | 

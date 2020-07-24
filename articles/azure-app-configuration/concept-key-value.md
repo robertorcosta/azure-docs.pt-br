@@ -6,18 +6,18 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.openlocfilehash: b8f8bda52be63a4176411855dd9ff9919e9e31f5
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 14ff1a00b40d956f369b1978f15f01f113c50270
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856675"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050149"
 ---
 # <a name="keys-and-values"></a>Chaves e valores
 
 A configuração do Aplicativo Azure AD e armazena dados de configuração como pares chave-valor. Os pares chave-valor são uma representação simples e flexível das configurações do aplicativo usadas pelos desenvolvedores.
 
-## <a name="keys"></a>simétricas
+## <a name="keys"></a>Chaves
 
 As chaves servem como identificadores para pares chave-valor e são usadas para armazenar e recuperar valores correspondentes. É uma prática comum organizar chaves em um namespace hierárquico usando um caractere delimitador, como `/` ou `:`. Use uma convenção mais adequada para seu aplicativo. A Configuração de Aplicativo trata as chaves como um todo. Ela não analisa as chaves para descobrir como seus nomes são estruturados nem impõem regras a elas.
 
@@ -77,7 +77,7 @@ Você pode usar qualquer caractere unicode em rótulos, exceto para `*`, `,`, e 
 
 Cada valor de chave é identificado exclusivamente pela sua chave, além de um rótulo que pode ser `null`. Consulte em um repositório de Configuração de Aplicativos para pares chave-valor especificando um padrão. O repositório de Configuração de Aplicativos retorna todos os pares chave-valor que correspondem ao padrão e seus valores e atributos correspondentes. Use os seguintes padrões de chave em chamadas à API REST para a Configuração de Aplicativo:
 
-| Chave | |
+| Chave | Descrição |
 |---|---|
 | `key` é omitido ou `key=*` | Corresponde a todas as chaves |
 | `key=abc` | Corresponde exatamente ao nome da chave **abc** |
@@ -86,7 +86,7 @@ Cada valor de chave é identificado exclusivamente pela sua chave, além de um r
 
 Inclua também os seguintes padrões de rótulo:
 
-| Rotular | |
+| Rótulo | Descrição |
 |---|---|
 | `label` é omitido ou `label=*` | Corresponde a qualquer rótulo, que inclui `null` |
 | `label=%00` | Corresponde ao rótulo `null` |

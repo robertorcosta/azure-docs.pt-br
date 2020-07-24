@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 839347ce0a04cc1ca1bf16c68e0ccc36fcf0f7fc
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 2f82d5d4dcb29504abbfa6881fa825b6d8efce0d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200819"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049543"
 ---
 # <a name="metrics-in-azure-monitor"></a>Métricas no Azure Monitor
 
@@ -35,9 +35,9 @@ A tabela a seguir lista as diferentes maneiras em que você pode usar dados de m
 | **Visualizar** | Fixe um gráfico do Metrics Explorer a um [painel do Azure](../learn/tutorial-app-dashboards.md).<br>Crie uma [pasta de trabalho](../platform/workbooks-overview.md) para combinar com vários conjuntos de dados em um relatório interativo. Exporte os resultados de uma consulta para o [Grafana](grafana-plugin.md) para aproveitar os painéis dele e combinar com outras fontes de dados. |
 | **Alerta** | Configurar uma [regra de alerta da métrica](alerts-metric.md) que envia uma notificação ou realiza uma [ação automatizada](action-groups.md) quando o valor da métrica ultrapassa o limite definido. |
 | **Automatizar** |  Usar o [Dimensionamento automático](autoscale-overview.md) para aumentar ou diminuir os recursos com base em um valor de métrica que está ultrapassando um limite. |
-| **Exportar** | [Roteie métricas para logs](resource-logs-collect-storage.md) a fim de analisar dados nas Métricas do Azure Monitor junto com os dados nos Logs do Azure Monitor e para armazenar valores de métrica por mais de 93 dias.<br>Transmitir métricas para um [Hub de Eventos](stream-monitoring-data-event-hubs.md) para encaminhá-las a sistemas externos. |
-| **Recuperar** | Acessar valores de métrica de uma linha de comando usando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Acessar valores de métrica do aplicativo personalizado usando a [API REST](rest-api-walkthrough.md).<br>Acesse valores de métrica de uma linha de comando usando a [CLI](/cli/azure/monitor/metrics). |
-| **Archive** | [Arquive](..//learn/tutorial-archive-data.md) o histórico de desempenho ou integridade do recurso para fins de conformidade, auditoria ou geração de relatórios offline. |
+| **Exportar** | [Roteie métricas para logs](./resource-logs.md#send-to-azure-storage) a fim de analisar dados nas Métricas do Azure Monitor junto com os dados nos Logs do Azure Monitor e para armazenar valores de métrica por mais de 93 dias.<br>Transmitir métricas para um [Hub de Eventos](stream-monitoring-data-event-hubs.md) para encaminhá-las a sistemas externos. |
+| **Recuperar** | Acessar valores de métrica de uma linha de comando usando [cmdlets do PowerShell](/powershell/module/az.applicationinsights)<br>Acessar valores de métrica do aplicativo personalizado usando a [API REST](rest-api-walkthrough.md).<br>Acesse valores de métrica de uma linha de comando usando a [CLI](/cli/azure/monitor/metrics). |
+| **Archive** | [Arquive](./platform-logs-overview.md) o histórico de desempenho ou integridade do recurso para fins de conformidade, auditoria ou geração de relatórios offline. |
 
 ## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Como os dados nas Métricas do Azure Monitor são estruturados?
 Os dados coletados pelas Métricas do Azure Monitor são armazenados em um banco de dados de série temporal que é otimizado para analisar dados com carimbo de data/hora. Cada conjunto de valores de métrica é uma série temporal com as seguintes propriedades:
@@ -56,7 +56,7 @@ O exemplo abaixo ilustra dois conjuntos de dados de uma métrica hipotética cha
 
 ### <a name="network-throughput"></a>Taxa de Transferência de Rede
 
-| Carimbo de data/hora     | Valor da Métrica |
+| Timestamp     | Valor da Métrica |
 | ------------- |:-------------|
 | 9/8/2017 8h14 | 1\.331,8 Kbps |
 | 9/8/2017 8h15 | 1\.141,4 Kbps |
@@ -108,7 +108,7 @@ Para a maioria dos recursos no Azure, as métricas são armazenadas por 93 dias.
 
 
 > [!NOTE]
-> Você pode [enviar métricas de plataforma para recursos do Azure Monitor a um workspace do Log Analytics](resource-logs-collect-storage.md) para medição de tendência a longo prazo.
+> Você pode [enviar métricas de plataforma para recursos do Azure Monitor a um workspace do Log Analytics](./resource-logs.md#send-to-azure-storage) para medição de tendência a longo prazo.
 
 
 

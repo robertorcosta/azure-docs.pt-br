@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 95d8d819aa1b418b4a7ec736cef64cb989f7e37b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbd460b584789aa7d40de9ba6430ff6202c3764b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74885612"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052528"
 ---
 # <a name="streaming-endpoints-overview"></a>Visão geral dos pontos de extremidade de streaming  
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 No AMS (Serviços de Mídia do Microsoft Azure), um **Ponto de Extremidade de Streaming** representa um serviço de streaming que pode fornecer conteúdo diretamente a um aplicativo cliente player ou à CDN (Rede de Distribuição de Conteúdo) para distribuição posterior. Os Serviços de Mídia também fornecem integração perfeita da CDN do Azure. O fluxo de saída do serviço StreamingEndpoint pode ser um fluxo ao vivo, um vídeo por demanda ou um download progressivo do seu ativo na conta dos Serviços de Mídia. Cada conta dos Serviços de Mídia do Azure inclui um StreamingEndpoint padrão. StreamingEndpoints adicionais podem ser criados na conta. Há duas versões do StreamingEndpoints, 1.0 e 2.0. A partir de 10 de janeiro de 2017, todas as contas AMS recém-criadas incluirão a versão 2.0 **padrão** do StreamingEndpoint. Pontos de extremidade de streaming adicionais que você adicionar nessa conta também terão a versão 2.0. Essa alteração não afetará as contas existentes; StreamingEndpoints existente estarão na versão 1.0 e poderão ser atualizados para a versão 2.0. Com essa alteração, haverá alterações de comportamento, cobrança e recurso (para obter mais informações, confira a seção **Tipos e versões de streaming** documentada abaixo).
 
-Os serviços de mídia do Azure adicionaram as seguintes propriedades à entidade de ponto de extremidade de streaming: **CdnProvider**, **CdnProfile**, **StreamingEndpointVersion**. Para obter uma visão detalhada dessas propriedades, clique [aqui](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
+Os serviços de mídia do Azure adicionaram as seguintes propriedades à entidade de ponto de extremidade de streaming: **CdnProvider**, **CdnProfile**, **StreamingEndpointVersion**. Para obter uma visão detalhada dessas propriedades, clique [aqui](/rest/api/media/operations/streamingendpoint). 
 
 Quando você cria uma conta dos Serviços de Mídia do Azure, um ponto de extremidade de streaming padrão é criado para você no estado **Parado**. Não é possível excluir o ponto de extremidade de streaming padrão. Dependendo da disponibilidade da Azure CDN na região de destino, por padrão, o ponto de extremidade de streaming recém-criado padrão também inclui integração com o provedor de CDN “StandardVerizon”. 
                 
@@ -77,15 +78,15 @@ Se seu ponto de extremidade de streaming **versão “1.0”** tiver >=1 SU (uni
 |Tipo|StreamingEndpointVersion|ScaleUnits|CDN|Cobrança|
 |--------------|----------|-----------------|-----------------|-----------------|
 |Clássico|1.0|0|NA|Grátis|
-|Ponto de extremidade de streaming padrão (visualização)|2,0|0|Sim|Pago|
+|Ponto de extremidade de streaming padrão (visualização)|2.0|0|Sim|Pago|
 |Unidades de Streaming Premium|1.0|>0|Sim|Pago|
-|Unidades de Streaming Premium|2,0|>0|Sim|Pago|
+|Unidades de Streaming Premium|2.0|>0|Sim|Pago|
 
 ### <a name="features"></a>Recursos
 
 Recurso|Standard|Premium
 ---|---|---
-Produtividade |Até 600 Mbps e pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.|200 Mbps por UA (unidade de streaming). Pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.
+Taxa de transferência |Até 600 Mbps e pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.|200 Mbps por UA (unidade de streaming). Pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.
 CDN|Azure CDN, CDN de terceiros ou sem CDN.|Azure CDN, CDN de terceiros ou sem CDN.
 A cobrança é rateada| Diariamente|Diariamente
 Criptografia dinâmica|Sim|Sim
@@ -121,4 +122,3 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

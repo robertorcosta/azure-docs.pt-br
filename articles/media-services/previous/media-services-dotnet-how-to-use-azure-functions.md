@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43e16d15c48471d75a7ab5ce23898f1161a60153
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712489"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052826"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desenvolver o Azure Functions com os Serviços de Mídia
 
@@ -337,7 +338,7 @@ Para testar a função, você precisa carregar um arquivo MP4 no contêiner **in
 4. Pressione **Carregar** e navegue até um arquivo .mp4 que você deseje carregar.
 
 >[!NOTE]
-> Ao usar um gatilho de blob em um plano de Consumo, pode haver um atraso de até 10 minutos no processamento de novos blobs depois que um aplicativo de funções ficar ocioso. Depois que o aplicativo de funções estiver em execução, os blobs serão processados imediatamente. Para obter mais informações, consulte [Gatilhos e associações de armazenamento de blobs](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
+> Ao usar um gatilho de blob em um plano de Consumo, pode haver um atraso de até 10 minutos no processamento de novos blobs depois que um aplicativo de funções ficar ocioso. Depois que o aplicativo de funções estiver em execução, os blobs serão processados imediatamente. Para obter mais informações, consulte [Gatilhos e associações de armazenamento de blobs](../../azure-functions/functions-bindings-storage-blob.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -349,4 +350,3 @@ Consulte também [Usar o Azure WebHooks para monitorar notificações de trabalh
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

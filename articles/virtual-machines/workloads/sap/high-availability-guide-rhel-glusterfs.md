@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: radeltch
-ms.openlocfilehash: 388a2db2c888be541d89c5f4274bd38b37e4ca28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6b8708edeeb4b3b69dab82265d13db2a4c22e08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77591907"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051654"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS em VMs do Azure no Red Hat Enterprise Linux para SAP NetWeaver
 
@@ -101,7 +102,7 @@ Você pode usar um dos modelos de início rápido no github para implantar todos
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implantar o Linux manualmente por meio do portal do Azure
 
-Você primeiro precisa criar as máquinas virtuais para este cluster. Posteriormente, você pode cria um balanceador de carga e usar as máquinas virtuais nos pools de back-end. Recomenda-se o [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
+Você primeiro precisa criar as máquinas virtuais para este cluster. Posteriormente, você pode cria um balanceador de carga e usar as máquinas virtuais nos pools de back-end. Recomenda-se o [Standard Load Balancer](../../../load-balancer/load-balancer-overview.md).  
 
 1. Criar um grupo de recursos
 1. Criar uma rede virtual

@@ -15,11 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a7343bcf6ba4388beda118b242fa47d13baaa89
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 842ab7a1562c731e790ba03b2fd5acdc3987a90d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022583"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051968"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>SAP MaxDB, liveCache e implantação do Servidor de Conteúdo nas VMs do Azure
 
@@ -73,7 +74,7 @@ ms.locfileid: "84022583"
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azureps-cmdlets-docs
+[azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
@@ -308,7 +309,7 @@ ms.locfileid: "84022583"
 
 
 
-Este documento aborda várias áreas diferentes a serem consideradas ao implantar o MaxDB, liveCache, e o Servidor de Conteúdo no IaaS do Azure. Como uma pré-condição para este documento, você deve ler o documento [Considerações para implantação de DBMS de Máquinas Virtuais do Azure para carga de trabalho do SAP](dbms_guide_general.md), bem como outros guias de [carga de trabalho do SAP na documentação do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+Este documento aborda várias áreas diferentes a serem consideradas ao implantar o MaxDB, liveCache, e o Servidor de Conteúdo no IaaS do Azure. Como uma pré-condição para este documento, você deve ler o documento [Considerações para implantação de DBMS de Máquinas Virtuais do Azure para carga de trabalho do SAP](dbms_guide_general.md), bem como outros guias de [carga de trabalho do SAP na documentação do Azure](./get-started.md). 
 
 ## <a name="specifics-for-the-sap-maxdb-deployments-on-windows"></a>Informações específicas para a implantação SAP MaxDB no Windows
 ### <a name="sap-maxdb-version-support-on-azure"></a>Suporte de versão do SAP MaxDB no Azure
@@ -328,7 +329,7 @@ Você pode encontrar a lista atualizada da documentação do SAP MaxDB na seguin
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Diretrizes de configuração do SAP MaxDB para instalações do SAP em VMs do Azure
 #### <a name="storage-configuration"></a><a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Configuração de armazenamento
-As práticas recomendadas de armazenamento do Azure para SAP MaxDB seguem as recomendações gerais mencionadas no capítulo [Estrutura de armazenamento de uma VM para Implantação do RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
+As práticas recomendadas de armazenamento do Azure para SAP MaxDB seguem as recomendações gerais mencionadas no capítulo [Estrutura de armazenamento de uma VM para Implantação do RDBMS](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64).
 
 > [!IMPORTANT]
 > Como outros bancos de dados, o SAP MaxDB também tem arquivos de log e de dados. No entanto, na terminologia do SAP MaxDB o termo correto é "volume" (não "arquivo"). Por exemplo, há volumes de dados e volumes de log do SAP MaxDB. Não os confunda com volumes de disco do SO. 

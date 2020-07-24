@@ -9,16 +9,16 @@ ms.author: mlearned
 description: Conectar um cluster do Kubernetes habilitado para o Azure Arc com o Azure Arc
 keywords: Kubernetes, Arc, Azure, K8s, containers
 ms.custom: references_regions
-ms.openlocfilehash: 1a186ac3bf2297de5ffc7ff478ba9b4350dae4c8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2c5e697f3dd67087582118fb6a6e083feecf549f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104262"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050083"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Conectar um cluster do Kubernetes habilitado para o Azure Arc (versão prévia)
 
-Conectar um cluster Kubernetes ao Azure Arc.
+Este documento aborda o processo de conexão de qualquer cluster kubernetes certificado de CNCF (nuvem Native Computing Foundation), como o AKS-Engine no Azure, o mecanismo de AKS em Azure Stack Hub, GKE, EKS e VMware vSphere cluster para o Azure Arc.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -28,7 +28,7 @@ Verifique se os seguintes requisitos estão prontos:
   * Criar um cluster kubernetes usando [kubernetes no Docker (tipo)](https://kind.sigs.k8s.io/)
   * Criar um cluster kubernetes usando o Docker para [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) ou [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
 * Você precisará de um arquivo kubeconfig para acessar o cluster e a função de administrador de cluster no cluster para a implantação de agentes kubernetes habilitados para Arc.
-* O usuário ou a entidade de serviço usada com os comandos `az login` e `az connectedk8s connect` deve ter as permissões 'Ler' e 'Gravar' no tipo de recurso 'Microsoft.Kubernetes/connectedclusters'. A função "Integração do Azure Arc para Kubernetes" que tem essas permissões pode ser usada para atribuições de função no usuário ou na entidade de serviço usada com a CLI do Azure para integração.
+* O usuário ou a entidade de serviço usada com os comandos `az login` e `az connectedk8s connect` deve ter as permissões 'Ler' e 'Gravar' no tipo de recurso 'Microsoft.Kubernetes/connectedclusters'. A função "cluster kubernetes-integração de arco do Azure" tem essas permissões e pode ser usada para atribuições de função no usuário ou na entidade de serviço.
 * O Helm 3 é necessário para a integração do cluster usando a extensão connectedk8s. [Instale a versão mais recente do Helm 3](https://helm.sh/docs/intro/install) para atender a esse requisito.
 * CLI do Azure versão 2.3 + é necessária para instalar as extensões da CLI do kubernetes habilitadas para o Arc do Azure. [Instale o CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou atualize para a versão mais recente para garantir que você tenha CLI do Azure versão 2.3 +.
 * Instale as extensões da CLI do kubernetes habilitadas para Arc:
@@ -169,6 +169,9 @@ AzureArcTest1  eastus      AzureArcTest
 
 Você também pode exibir esse recurso no [portal do Azure](https://portal.azure.com/). Depois de abrir o portal no navegador, navegue até o grupo de recursos e o recurso kubernetes habilitado para Arc do Azure com base nas entradas de nome do recurso e do grupo de recursos usadas anteriormente no `az connectedk8s connect` comando.
 
+> [!NOTE]
+> Depois de integrar o cluster, ele leva cerca de 5 a 10 minutos para que os metadados do cluster (versão do cluster, versão do agente, número de nós) apareçam na página Visão geral do recurso kubernetes habilitado para o Azure Arc no portal do Azure.
+
 O Kubernetes habilitado para Azure Arc implanta alguns operadores no namespace `azure-arc`. Você pode exibir essas implantações e pods aqui:
 
 ```console
@@ -204,7 +207,7 @@ O Kubernetes habilitado para Azure Arc consiste em alguns agentes (operadores) q
 * `deployment.apps/config-agent`: observa o cluster conectado para os recursos de configuração de controle do código de origem aplicados no cluster e atualiza o estado de conformidade
 * `deployment.apps/controller-manager`: é um operador de operadores e orquestra interações entre os componentes do Azure Arc
 * `deployment.apps/metrics-agent`: coleta métricas de outros agentes do Arc para garantir que eles estejam apresentando um desempenho ideal
-* `deployment.apps/cluster-metadata-operator`: coleta metadados do cluster - versão do cluster, contagem de nós e versão do agente do Arc
+* `deployment.apps/cluster-metadata-operator`: coleta metadados do cluster-versão do cluster, contagem de nós e versão do agente Arc do Azure
 * `deployment.apps/resource-sync-agent`: sincroniza os metadados de cluster mencionados acima para o Azure
 * `deployment.apps/clusteridentityoperator`: O kubernetes habilitado para Arc do Azure atualmente dá suporte à identidade atribuída pelo sistema. clusteridentityoperator mantém o certificado MSI (identidade de serviço gerenciado) usado por outros agentes para comunicação com o Azure.
 * `deployment.apps/flux-logs-agent`: coleta logs dos operadores de flux implantados como parte da configuração de controle do código de origem
@@ -218,7 +221,7 @@ Você pode excluir um recurso do `Microsoft.Kubernetes/connectedcluster` usando 
   ```console
   az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
   ```
-  Isso remove o `Microsoft.Kubernetes/connectedCluster` recurso e todos os `sourcecontrolconfiguration` recursos associados no Azure. O CLI do Azure usa a desinstalação do Helm para remover os agentes em execução no cluster também.
+  Este comando Remove o `Microsoft.Kubernetes/connectedCluster` recurso e todos os `sourcecontrolconfiguration` recursos associados no Azure. O CLI do Azure usa a desinstalação do Helm para remover os agentes em execução no cluster também.
 
 * **Exclusão no portal do Azure**: a exclusão do recurso kubernetes habilitado para Arc do azure em portal do Azure exclui o `Microsoft.Kubernetes/connectedcluster` recurso e todos os `sourcecontrolconfiguration` recursos associados no Azure, mas não exclui os agentes em execução no cluster. Para excluir os agentes em execução no cluster, execute o comando a seguir.
 

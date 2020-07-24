@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: c87812e665617f3ccfe48db3a0cca2ceac67f0bc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 0f3682338c9373f3ba30c8b32ea5cf4132c18949
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147441"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048272"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e usar destinos de computação para treinamento de modelo 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -98,12 +98,11 @@ Azure Machine Learning cluster de computação é uma infraestrutura de computa�
 
 É possível usar a Computação do Azure Machine Learning para distribuir o processo de treinamento em um cluster de nós de computação de CPU ou GPU na nuvem. Para obter mais informações sobre os tamanhos de máquina virtual que incluem GPUs, consulte os [Tamanhos de máquinas virtuais com GPU otimizadas](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
 
-A Computação do Machine Learning do Azure tem limites padrão como o número de núcleos que podem ser alocados. Para obter mais informações, consulte [Gerenciar e solicitar cotas para recursos do Azure](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas).
+A Computação do Machine Learning do Azure tem limites padrão como o número de núcleos que podem ser alocados. Para obter mais informações, consulte [Gerenciar e solicitar cotas para recursos do Azure](/how-to-manage-quotas.md).
 
-Você também pode optar por usar VMs de baixa prioridade para executar algumas ou todas as suas cargas de trabalho. Essas VMs não têm disponibilidade garantida e podem ser substituídas enquanto estiverem em uso. Um trabalho admitido é reiniciado, não retomado.  As VMs de baixa prioridade têm taxas com desconto em comparação às VMs normais, confira [Planejar e gerenciar custos](https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost).
 
 > [!TIP]
-> Os clusters geralmente podem ser escalados verticalmente para até 100 nós, desde que você tenha cota suficiente para o número de núcleos necessários. Por padrão, os clusters são configurados com a comunicação entre nós habilitada entre os nós do cluster para dar suporte a trabalhos de MPI, por exemplo. No entanto, você pode dimensionar seus clusters para milhares de nós ao simplesmente [gerar um tíquete de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) e solicitar a inclusão à lista de permissões da sua assinatura ou do workspace, ou um cluster específico para desabilitar a comunicação entre nós. 
+> Os clusters geralmente podem ser escalados verticalmente para até 100 nós, desde que você tenha cota suficiente para o número de núcleos necessários. Por padrão, os clusters são configurados com a comunicação entre nós habilitada entre os nós do cluster para dar suporte a trabalhos de MPI, por exemplo. No entanto, você pode dimensionar seus clusters para milhares de nós simplesmente [gerando um tíquete de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)e solicitando que o liste sua assinatura, ou espaço de trabalho, ou um cluster específico para desabilitar a comunicação entre nós. 
 
 Uma Computação do Azure Machine Learning pode ser reutilizada entre execuções. A computação pode ser compartilhada com outros usuários no espaço de trabalho e é mantida entre as execuções, escalando ou reduzindo vertical e automaticamente os nós com base no número de execuções enviadas e o max_nodes definido no cluster. A configuração min_nodes controla os nós mínimos disponíveis.
 
@@ -118,14 +117,38 @@ Uma Computação do Azure Machine Learning pode ser reutilizada entre execuçõe
 
    Também é possível configurar várias propriedades avançadas ao criar a Computação do Azure Machine Learning. Essas propriedades permitem que criar um cluster persistente de tamanho fixo ou dentro de uma Rede Virtual do Azure existente na assinatura.  Veja [AmlCompute classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     ) para obter detalhes.
-    
-   Outra opção é criar e anexar a um recurso persistente de Computação do Azure Machine Learning no [estúdio do Azure Machine Learning](#portal-create).
 
+    Outra opção é criar e anexar a um recurso persistente de Computação do Azure Machine Learning no [estúdio do Azure Machine Learning](#portal-create).
+
+   
 1. **Configurar**: Crie uma configuração de execução para o destino de computação persistente.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
 Agora que você anexou um computador e configurou sua execução, a próxima etapa é [enviar a execução de treinamento](#submit).
+
+ ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a>Reduzir o custo do cluster de computação
+
+Você também pode optar por usar [VMs de baixa prioridade](concept-plan-manage-cost.md#low-pri-vm) para executar algumas ou todas as suas cargas de trabalho. Essas VMs não têm disponibilidade garantida e podem ser substituídas enquanto estiverem em uso. Um trabalho admitido é reiniciado, não retomado. 
+
+Use qualquer uma dessas maneiras para especificar uma VM de baixa prioridade:
+    
+* No estúdio, escolha **baixa prioridade** ao criar uma VM.
+    
+* Com o SDK do Python, defina o `vm_priority` atributo em sua configuração de provisionamento.  
+    
+    ```python
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                                vm_priority='lowpriority',
+                                                                max_nodes=4)
+    ```
+    
+* Usando a CLI, defina `vm-priority` :
+    
+    ```azurecli-interactive
+    az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority
+    ```
+
 
 
 ### <a name="azure-machine-learning-compute-instance"></a><a id="instance"></a>Instância de computação do Azure Machine Learning

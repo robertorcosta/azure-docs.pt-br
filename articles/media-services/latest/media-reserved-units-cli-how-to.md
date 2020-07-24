@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 79f2df0f94b212ea45c01c825b23f1dbb4cc40db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6715014485b227713447ce5d552cf7ba79737845
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582282"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053217"
 ---
 # <a name="scaling-media-processing"></a>Dimensionamento de processamento de mídia
 
@@ -49,7 +49,7 @@ O restante do artigo mostra como usar a [CLI do Media Services V3](https://aka.m
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-[Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).
+[Crie uma conta de Serviços de Mídia](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
@@ -57,7 +57,7 @@ O restante do artigo mostra como usar a [CLI do Media Services V3](https://aka.m
 
 Execute o comando `mru`.
 
-O comando [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) a seguir define as Unidades Reservadas de Mídia na conta "amsaccount" usando os parâmetros **count** e **type**.
+O comando [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest) a seguir define as Unidades Reservadas de Mídia na conta "amsaccount" usando os parâmetros **count** e **type**.
 
 ```azurecli
 az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
@@ -71,7 +71,7 @@ Você é cobrado com base em quantos minutos as unidades reservadas de mídia s�
 
 [Analisar vídeos](analyze-videos-tutorial-with-api.md) 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Cotas e limites](limits-quotas-constraints.md)
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [CLI do Azure](/cli/azure/ams?view=azure-cli-latest)

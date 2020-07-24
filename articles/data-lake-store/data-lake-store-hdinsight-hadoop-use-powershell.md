@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 902210f0ba6fc195cd219dd5a24e7098ed484d8f
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: b1a228e9d15a349f032291fb0678bdd0ad9d95b3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855653"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048850"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Use o Azure PowerShell para criar um cluster do HDInsight com o Armazenamento de Data Lake do Azure Gen1 (como armazenamento adicional)
 
@@ -51,7 +51,7 @@ Configurar o HDInsight para trabalhar com o Data Lake Storage Gen1 usando o Powe
 Antes de começar este tutorial, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1,0 ou superior**. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
+* **Azure PowerShell 1,0 ou superior**. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azure/).
 * **SDK do Windows**. Você pode instalá-lo clicando [aqui](https://dev.windows.com/en-us/downloads). Use isso para criar um certificado de segurança.
 * **Azure Active Directory entidade de serviço**. As etapas neste tutorial fornecem instruções sobre como criar uma entidade de serviço no Azure AD. No entanto, você deve ser administrador do Azure AD para poder criar uma entidade de serviço. Se você for administrador do Azure AD, poderá ignorar esse pré-requisito e continuar com o tutorial.
 
@@ -87,7 +87,7 @@ Siga estas etapas para criar uma conta do Data Lake Storage Gen1.
     New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
     ```
 
-    Você verá uma saída semelhante à seguinte:
+    Você verá uma saída como esta:
 
     ```output
     ResourceGroupName : hdiadlgrp
@@ -136,10 +136,10 @@ Cada assinatura do Azure está associada com um Azure Active Directory. Os usuá
 
 Para configurar a autenticação do Active Directory para o Data Lake armazenamento Gen1, você deve executar as seguintes tarefas.
 
-* Crie um certificado autoassinado
+* Criará um certificado autoassinado
 * Criar um aplicativo no Active Directory do Azure e uma entidade de serviço
 
-### <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
+### <a name="create-a-self-signed-certificate"></a>Criará um certificado autoassinado
 
 Verifique se o [SDK do Windows](https://dev.windows.com/en-us/downloads) está instalado antes de continuar com as etapas nesta seção. Você também deve ter criado um diretório, como **C:\mycertdir**, no qual o certificado será criado.
 

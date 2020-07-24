@@ -343,8 +343,6 @@
               href: msal-js-use-ie-browser.md
             - name: Problemas conhecidos – IE e Microsoft Edge
               href: msal-js-known-issues-ie-edge-browsers.md
-            - name: Problemas conhecidos – Safari
-              href: msal-js-known-issues-safari-browser.md
             - name: Lidar com erros e exceções
               href: msal-handling-exceptions.md?tabs=javascript
             - name: Registro em log

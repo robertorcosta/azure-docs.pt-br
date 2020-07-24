@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: rogardle
-ms.openlocfilehash: 363d26391c8ee40fb95a0b8fd92c4d94f1082b8d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 2201cae66aae8c2d9d106871db0d4ebbd003f361
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221520"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052150"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imagens da VM Oracle e sua implantação no Microsoft Azure
 
@@ -107,12 +107,12 @@ O Azure NetApp Files foi projetado para atender aos principais requisitos de exe
 - Alta disponibilidade, alta durabilidade e capacidade de gerenciamento em escala, normalmente exigidas por cargas de trabalho de missão crítica corporativas (como SAP e Oracle)
 - Backup e recuperação rápidos e eficientes, para atingir os SLAs de RTO e RPO mais agressivos
 
-Esses recursos são possíveis porque o Azure NetApp Files se baseia nos sistemas totalmente flash NetApp® ONTAP® em execução no ambiente de data center do Azure – como um serviço nativo do Azure. O resultado é uma tecnologia de armazenamento de banco de dados ideal, que pode ser provisionada e consumida da mesma forma que outras opções de armazenamento do Azure. Consulte a [documentação do Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/) para obter mais informações sobre como implantar e acessar os volumes de NFS no Azure NetApp Files. Consulte o [Guia de melhores práticas de implantação do Oracle no Azure usando o Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf) para obter recomendações de melhores práticas para operar um banco de dados Oracle no Azure NetApp Files.
+Esses recursos são possíveis porque o Azure NetApp Files se baseia nos sistemas totalmente flash NetApp® ONTAP® em execução no ambiente de data center do Azure – como um serviço nativo do Azure. O resultado é uma tecnologia de armazenamento de banco de dados ideal, que pode ser provisionada e consumida da mesma forma que outras opções de armazenamento do Azure. Consulte a [documentação do Azure NetApp Files](../../../azure-netapp-files/index.yml) para obter mais informações sobre como implantar e acessar os volumes de NFS no Azure NetApp Files. Consulte o [Guia de melhores práticas de implantação do Oracle no Azure usando o Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf) para obter recomendações de melhores práticas para operar um banco de dados Oracle no Azure NetApp Files.
 
 ## <a name="licensing-oracle-database--software-on-azure"></a>Licenciamento do Oracle Database e software no Azure
 
 O Microsoft Azure é um ambiente de nuvem autorizado para execução do Oracle Database. A tabela de fatores de núcleo Oracle não é aplicável ao licenciar bancos de dados Oracle na nuvem. Em vez disso, ao usar VMs com a tecnologia Hyper-Threading habilitada para bancos de dados Enterprise Edition, conte duas vCPUs como equivalentes a uma licença de processador Oracle se o hyperthreading estiver habilitado (conforme indicado no documento da política). Os detalhes da política podem ser encontrados [aqui](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
-Os bancos de dados da Oracle geralmente exigem mais memória e e/s. Por esse motivo, são recomendadas [VMs com otimização de memória](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) para essas cargas de trabalho. Para otimizar suas cargas de trabalho ainda mais, são recomendadas [vCPUs de Núcleos Restritas](https://docs.microsoft.com/azure/virtual-machines/linux/constrained-vcpu) para cargas de trabalho do Oracle Database que exigem alta largura de banda de memória, armazenamento e e/s, mas não uma contagem de núcleo alto.
+Os bancos de dados da Oracle geralmente exigem mais memória e e/s. Por esse motivo, são recomendadas [VMs com otimização de memória](../../sizes-memory.md) para essas cargas de trabalho. Para otimizar suas cargas de trabalho ainda mais, são recomendadas [vCPUs de Núcleos Restritas](../../linux/constrained-vcpu.md) para cargas de trabalho do Oracle Database que exigem alta largura de banda de memória, armazenamento e e/s, mas não uma contagem de núcleo alto.
 
 Ao migrar o software e as cargas de trabalho do Oracle do local para o Microsoft Azure, a Oracle fornece mobilidade de licenças conforme indicado nas [Perguntas frequentes sobre o Oracle no Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 

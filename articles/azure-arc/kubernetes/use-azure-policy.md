@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Use o Azure Policy para aplicar configurações de cluster em escala
 keywords: Kubernetes, Arc, Azure, K8s, containers
-ms.openlocfilehash: 26b291e2a957047361d4f52eeff58cbe8aa8c633
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e4279f3d89376320116067bf191e3196271918ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111262"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050039"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Use o Azure Policy para aplicar configurações de cluster em escala (versão prévia)
 
@@ -22,6 +22,10 @@ ms.locfileid: "86111262"
 Use Azure Policy para impor que cada recurso `Microsoft.Kubernetes/connectedclusters` ou recurso habilitado para operações de git `Microsoft.ContainerService/managedClusters` tenha sido `Microsoft.KubernetesConfiguration/sourceControlConfigurations` aplicado especificamente. Para usar o Azure Policy, selecione uma definição de política existente e crie uma atribuição de política. Ao criar a atribuição de política, você define o escopo para a atribuição: será um grupo de recursos ou uma assinatura do Azure. Também é possível definir os parâmetros para o `sourceControlConfiguration` que será criado. Depois que a atribuição for criada, o mecanismo de política identificará todos os recursos `connectedCluster` ou `managedCluster` que estão localizados dentro do escopo e aplicará o `sourceControlConfiguration` a cada um.
 
 Se estiver usando vários repositórios Git como as fontes de verdade para cada cluster (por exemplo, um repositório para o operador central de TI/cluster e outros repositórios para equipes de aplicativos), você pode habilitar isso usando várias atribuições de política, cada atribuição de política configurada para usar um repositório Git diferente.
+
+## <a name="prerequisite"></a>Pré-requisito
+
+Verifique se você tem `Microsoft.Authorization/policyAssignments/write` permissões no escopo (assinatura ou grupo de recursos) em que deseja criar essa atribuição de política.
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
@@ -42,7 +46,7 @@ Depois que a atribuição de política é criada, para qualquer novo recurso `co
 
 ## <a name="verify-a-policy-assignment"></a>Verificar uma atribuição de política
 
-1. No portal do Azure, vá até um dos recursos `connectedCluster` e, na seção **Configurações**  da barra lateral, selecione **Políticas**. (A UX para o cluster gerenciado AKS ainda não está implementada, mas está chegando.)
+1. No portal do Azure, vá até um dos recursos `connectedCluster` e, na seção **Configurações**  da barra lateral, selecione **Políticas**. (A UX para o cluster AKS ainda não está implementada, mas está chegando.)
 2. Na lista, você deve ver a atribuição de política que criou acima e o **Estado de conformidade** deve ser *Em conformidade*.
 3. Na seção **Configurações** da barra lateral, selecione **Configurações**.
 4. Na lista, você deve ver o `sourceControlConfiguration` que a atribuição de política criou.

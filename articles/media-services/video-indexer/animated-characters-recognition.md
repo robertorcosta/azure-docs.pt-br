@@ -10,11 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: af608dcfbb5d98cf3116de4e14dc12bf6facb97b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b449f68b25fce19dc034d2a0db0ae5ce8a28ec7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76989902"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047488"
 ---
 # <a name="animated-character-detection-preview"></a>Detecção de caracteres animados (versão prévia)
 
@@ -133,7 +134,7 @@ Siga estas etapas para se conectar Visão Personalizada conta para Video Indexer
         ![Personalização do modelo de conteúdo](./media/animated-characters-recognition/content-model-customization-tab.png)
 
      1. Uma vez treinado, qualquer vídeo que será indexado ou reindexado com esse modelo reconhecerá os caracteres treinados. 
-    Contas pagas que têm acesso à sua conta de Visão Personalizada podem ver os modelos e imagens marcadas ali. Saiba mais sobre como [melhorar seu classificador em visão personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
+    Contas pagas que têm acesso à sua conta de Visão Personalizada podem ver os modelos e imagens marcadas ali. Saiba mais sobre como [melhorar seu classificador em visão personalizada](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md).
 
 1. Excluir um caractere animado.
 
@@ -159,7 +160,7 @@ Siga estas etapas para se conectar Visão Personalizada conta para Video Indexer
 1. Conecte uma conta de Visão Personalizada.
 
     Se você possui uma conta paga Video Indexer, você precisa conectar uma conta de Visão Personalizada primeiro. <br/>
-    Se você ainda não tem uma conta de Visão Personalizada, crie uma. Para obter mais informações, consulte [visão personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home).
+    Se você ainda não tem uma conta de Visão Personalizada, crie uma. Para obter mais informações, consulte [visão personalizada](../../cognitive-services/custom-vision-service/home.md).
 
     [Conecte sua conta do visão personalizada usando a API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
 1. Crie um modelo de caracteres animados.
