@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: c48cf6a7a82e90d3c9d8dc4c35e37dfb944af99f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42a595246f45b2c7423aaf77c95f17243cf8813c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80282674"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012376"
 ---
 # <a name="development-tools-on-the-azure-data-science-virtual-machine"></a>Ferramentas de desenvolvimento no Máquina Virtual de Ciência de Dados do Azure
 
@@ -23,7 +23,7 @@ O Máquina Virtual de Ciência de Dados (DSVM) agrupa várias ferramentas popula
 
 ## <a name="visual-studio-community-edition"></a>Visual Studio Community Edition
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | O que é?   | IDE de uso geral      |
 | Versões do DSVM com suporte      | Windows: Visual Studio 2017, Windows 2019: Visual Studio 2019      |
@@ -37,7 +37,7 @@ O Máquina Virtual de Ciência de Dados (DSVM) agrupa várias ferramentas popula
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | O que é?   | IDE de uso geral      |
 | Versões do DSVM com suporte      | Windows, Linux     |
@@ -47,7 +47,7 @@ O Máquina Virtual de Ciência de Dados (DSVM) agrupa várias ferramentas popula
 
 ## <a name="rstudio-desktop"></a>RStudio Desktop
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | O que é?   | IDE de cliente para a linguagem R   |
 | Versões do DSVM com suporte      | Windows, Linux      |
@@ -57,7 +57,7 @@ O Máquina Virtual de Ciência de Dados (DSVM) agrupa várias ferramentas popula
 
 ## <a name="rstudio-server"></a>RStudio Server
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | O que é?   | IDE de cliente para a linguagem R   |
 | O que é?   | IDE baseado na Web para R    |
@@ -68,7 +68,7 @@ O Máquina Virtual de Ciência de Dados (DSVM) agrupa várias ferramentas popula
 
 ## <a name="juno"></a>Juno 
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | O que é?   | IDE do cliente para a linguagem Julia   |
 | Versões do DSVM com suporte      | Windows, Linux      |
@@ -78,7 +78,7 @@ O Máquina Virtual de Ciência de Dados (DSVM) agrupa várias ferramentas popula
 
 ## <a name="pycharm"></a>Pycharm
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | O que é?   | IDE do cliente para a linguagem Python    |
 | Versões do DSVM com suporte      | Windows 2019, Linux      |

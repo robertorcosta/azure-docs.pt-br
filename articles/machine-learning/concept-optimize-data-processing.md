@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Conheça as práticas recomendadas para otimizar as velocidades de processamento de dados e quais integrações Azure Machine Learning dão suporte ao processamento de dados em escala.
 services: machine-learning
 ms.service: machine-learning
-author: sgilley
 ms.author: sgilley
+author: sdgilley
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 09e48bd5c27dc4835ba0261ccd929f858fdb58b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0badd92a3156f76f99bf1f48fca2093a2bca2f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481877"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012630"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Otimizar o processamento de dados com Azure Machine Learning
 

@@ -10,11 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d064e940997d13e51be4fd38e9f678b778ce31f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98a1cd883867aa2f785b15f4c7ae4f2266a421ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74900041"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012562"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Exemplos em máquinas virtuais de ciência de dados do Azure
 
@@ -24,7 +25,7 @@ As DSVMs (máquinas virtuais de ciência de dados) do Azure incluem um conjunto 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar esses exemplos, você deve ter provisionado um Máquina Virtual de Ciência de Dados. Consulte os guias de início rápido para [Windows](./provision-vm.md) e [Ubuntu](./dsvm-ubuntu-intro.md).
+Para executar esses exemplos, você deve ter provisionado um [máquina virtual de ciência de dados Ubuntu](./dsvm-ubuntu-intro.md).
 
 ## <a name="available-samples"></a>Exemplos disponíveis
 | Categoria de exemplos | Descrição | Locais |
@@ -35,7 +36,7 @@ Para executar esses exemplos, você deve ter provisionado um Máquina Virtual de
 | Azure Machine Learning  | Ilustra como criar modelos de aprendizado de máquina e aprendizado aprofundado com o Machine Learning. Implante modelos em qualquer lugar. Use aprendizado de máquina automatizado e ajuste de hiperparâmetro inteligente. Use também o gerenciamento de modelos e treinamento distribuído. <br/> [Machine Learning](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|
 | Notebooks do PyTorch  | Exemplos de aprendizado aprofundado que usam redes neurais baseadas em PyTorch. Os notebooks vão de cenários iniciantes a avançados.  <br/> [Notebooks do PyTorch](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
 | TensorFlow  |  Uma variedade de exemplos de rede neural e técnicas implementadas usando a estrutura TensorFlow. <br/> [TensorFlow](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
-| Kit de Ferramentas Cognitivas da Microsoft <br/>   | Exemplos de aprendizado aprofundado publicados pela equipe de Cognitive Toolkit na Microsoft.  <br/> [Kit de Ferramentas Cognitivas](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> Linux:<br/> `~notebooks/CNTK`<br/> <br/>|
+| Kit de Ferramentas Cognitivas da Microsoft <br/>   | Exemplos de aprendizado aprofundado publicados pela equipe de Cognitive Toolkit na Microsoft.  <br/> [Cognitive Toolkit](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> Linux:<br/> `~notebooks/CNTK`<br/> <br/>|
 | Caffe2 | Exemplos de aprendizado aprofundado que usam redes neurais baseadas em Caffe2. Vários notebooks familiarizam os usuários com o Caffe2 e como usá-lo com eficiência. Os exemplos incluem o pré-processamento de imagem e a criação de conjunto de imagens. Eles também incluem a regressão e como usar modelos pretreinados. <br/> [Caffe2](#caffe2) | <br/>`~notebooks/Deep_learning_frameworks/caffe2`<br/><br/> |
 | H2O   | Exemplos baseados em Python que usam H2O para cenários de problemas do mundo real. <br/> [H2O](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
 | Linguagem SparkML  | Exemplos que usam recursos do Apache Spark Toolkit MLLib por meio de pySpark e MMLSpark: Microsoft Machine Learning para Apache Spark no Apache Spark 2. x.  <br/> [Linguagem SparkML](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |

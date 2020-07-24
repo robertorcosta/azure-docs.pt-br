@@ -10,11 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: ae1beeebfddfe250ae20a70c3e78ec32774218d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fc9a1a1c3a08f0530649ae64926c673e2d666e0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82996341"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012681"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planejar e gerenciar custos para Azure Machine Learning
 
@@ -80,7 +81,7 @@ Os clusters AmlCompute são projetados para dimensionar dinamicamente com base e
 
 Você também pode configurar a quantidade de tempo que o nó está ocioso antes de reduzir verticalmente. Por padrão, o tempo ocioso antes da redução vertical é definido como 120 segundos.
 
-+ Se você executar uma experimentação com menos iteração, reduza esse tempo para economizar custos. 
++ Se você executar uma experimentação com menos iteração, reduza esse tempo para economizar custos.
 + Se você executar experimentação de desenvolvimento/teste altamente iterativo, talvez seja necessário aumentar o tempo para que você não esteja pagando pelo dimensionamento constante para cima e para baixo após cada alteração no seu ambiente ou script de treinamento.
 
 Os clusters AmlCompute podem ser configurados para seus requisitos de carga de trabalho em alteração no portal do Azure, usando a [classe AMLCOMPUTE SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py), [AmlCompute CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute), com as [APIs REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
@@ -106,31 +107,13 @@ Aqui estão algumas opções que você tem:
 * Para [ajuste de hiperparâmetro](how-to-tune-hyperparameters.md#early-termination), defina uma política de encerramento inicial de uma política de Bandit, uma política de interrupção mediana ou uma política de seleção de truncamento. Para controlar ainda mais a varredura de hiperparâmetro, use parâmetros como `max_total_runs` ou `max_duration_minutes` .
 * Para o [aprendizado de máquina automatizado](how-to-configure-auto-train.md#exit), defina políticas de encerramento semelhantes usando o `enable_early_stopping` sinalizador. Use também propriedades como `iteration_timeout_minutes` e `experiment_timeout_minutes` para controlar a duração máxima de uma execução ou para todo o experimento.
 
-## <a name="use-low-priority-vms"></a>Usar VMs de baixa prioridade
+## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a>Usar VMs de baixa prioridade
 
 O Azure permite que você use o excesso de capacidade não utilizada como VMs de baixa prioridade entre conjuntos de dimensionamento de máquinas virtuais, lote e o serviço de Machine Learning. Essas alocações são emptible, mas vêm a um preço reduzido em comparação com as VMs dedicadas. Em geral, é recomendável usar VMs de baixa prioridade para cargas de trabalho do lote. Você também deve usá-los onde as interrupções são recuperáveis por meio de reenvios (para inferência de lote) ou por meio de reinicializações (para treinamento de aprendizado profundo com ponto de verificação).
 
 As VMs de baixa prioridade têm uma única cota separada do valor de cota dedicado, que é por família de VM. Saiba [mais sobre as cotas do AmlCompute](how-to-manage-quotas.md).
 
-Defina a prioridade de sua VM de qualquer uma das seguintes maneiras:
-
-* No estúdio, escolha **baixa prioridade** ao criar uma VM.
-
-* Com o SDK do Python, defina o `vm_priority` atributo em sua configuração de provisionamento.  
-
-    ```python
-    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
-                                                               vm_priority='lowpriority',
-                                                               max_nodes=4)
-    ```
-
-* Usando a CLI, defina `vm-priority` :
-
-    ```azurecli-interactive
-    az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority
-    ```
-
- VMs de baixa prioridade não funcionam para instâncias de computação, pois precisam dar suporte a experiências interativas de notebook. 
+ VMs de baixa prioridade não funcionam para instâncias de computação, pois precisam dar suporte a experiências interativas de notebook.
 
 ## <a name="use-reserved-instances"></a>Usar instâncias reservadas
 
@@ -143,5 +126,5 @@ Azure Machine Learning computação dá suporte a instâncias reservadas inerent
 
 Saiba mais sobre:
 * [Gerenciar e aumentar as cotas de recursos](how-to-manage-quotas.md)
-* [Gerenciando custos com [análise de custo](../cost-management-billing/costs/quick-acm-cost-analysis.md).
+* [Gerenciamento de custos com análise de custo](../cost-management-billing/costs/quick-acm-cost-analysis.md).
 * [Azure Machine Learning computação](how-to-set-up-training-targets.md#amlcompute).
