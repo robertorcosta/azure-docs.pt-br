@@ -1,5 +1,5 @@
 ---
-title: Proteger seus aplicativos Web e APIs do serviço de Azure App
+title: Proteger os seus aplicativos Web e APIs do Serviço de Aplicativo do Azure
 description: Este artigo ajuda você a começar a proteger seus aplicativos Web e APIs do serviço de Azure App na central de segurança do Azure.
 services: security-center
 documentationcenter: na
@@ -10,13 +10,14 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: 2d81e1a1218add504e1e35015276b6924da0e3e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35b91aab8c228fc7dced5dfe06e33f939f4634f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616479"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080787"
 ---
-# <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Proteger seus aplicativos Web e APIs do serviço de Azure App
+# <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Proteger os seus aplicativos Web e APIs do Serviço de Aplicativo do Azure
 
 Azure App serviço é uma plataforma totalmente gerenciada para criar e hospedar seus aplicativos Web e APIs sem se preocupar em ter de gerenciar a infraestrutura. Ele fornece gerenciamento, monitoramento e informações operacionais para atender aos requisitos de desempenho, segurança e conformidade de nível empresarial. Para obter mais informações, consulte [Azure app Service](https://azure.microsoft.com/services/app-service/).
 
@@ -56,7 +57,7 @@ Para desativar o monitoramento e as recomendações do seu serviço de aplicativ
 
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 Neste artigo, você aprendeu como usar os recursos de monitoramento na Central de segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, leia os seguintes artigos:
 
 * [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md): saiba como configurar políticas de segurança na Central de Segurança do Azure.

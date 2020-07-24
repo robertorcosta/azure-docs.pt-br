@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 7ab7071f504231290f72646e59a30fa855cff6cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d71201da0c4af35720a309fe0dfa068cd2c69630
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84944484"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081603"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorando seu serviço de armazenamento com o Azure Monitor for Storage
 
@@ -31,7 +31,7 @@ Ele distribui:
 
 * **Personalizável**, logo, você pode alterar que métricas deseja ver e modificar, pode definir restrições alinhadas com os seus limites e salvar sua própria pasta de trabalho. Os gráficos da pasta de trabalho podem ser fixados ao painel do Azure.  
 
-Esse recurso não exige que você habilite nem configure nada, as métricas das contas de armazenamento são coletadas por padrão. Se não estiver familiarizado com as métricas disponíveis no Armazenamento do Azure, exiba sua descrição e definição examinando [Métricas de armazenamento do Azure](../../storage/common/storage-metrics-in-azure-monitor.md).
+Esse recurso não exige que você habilite nem configure nada, as métricas das contas de armazenamento são coletadas por padrão. Se não estiver familiarizado com as métricas disponíveis no Armazenamento do Azure, exiba sua descrição e definição examinando [Métricas de armazenamento do Azure](../../storage/common/monitor-storage.md).
 
 >[!NOTE]
 >Não há nenhum encargo para acessar esse recurso e você será cobrado somente pelos recursos essenciais do Azure Monitor que você configurar ou habilitar, conforme descrito na página [Detalhes de preços de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
@@ -198,7 +198,7 @@ Agora, vamos alterar o tema de cores para que as métricas de capacidade do rela
 
 1. Selecione **Configurações de Coluna** na grade de métricas.
 
-2. No painel **Editar configurações de coluna**, selecione na seção **Colunas** **microsoft.storage/storageaccounts-Capacity-UsedCapacity$ | microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$ | microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$ | microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$ | microsoft.storage/storageaccounts/tableservices-Capacity-TableCapacity$** . Na lista suspensa **Paleta de cores**, selecione **Verde**.
+2. No painel **Editar configurações de coluna** , selecione na seção **colunas** **Microsoft. Storage/storageaccounts-Capacity-UsedCapacity $ `|` Microsoft. Storage/storageaccounts/blobservices-Capacity-capacidade $ `|` Microsoft. Storage/storageaccounts/fileservices-Capacity-filecapacity $ `|` Microsoft. Storage/storageaccounts/queueservices-Capacity-QueueCapacity $ `|` Microsoft. Storage/storageaccounts/tableservices-Capacity-TableCapacity $**. Na lista suspensa **Paleta de cores**, selecione **Verde**.
 
 3. Selecione **Salvar e fechar** para confirmar sua alteração.
 
@@ -246,7 +246,7 @@ Consulte a seção [Modificar o limite de disponibilidade](storage-insights-over
 
 ### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>Como analisar e solucionar problemas dos dados mostrados no Azure Monitor for Storage?
 
- Consulte o artigo [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting) para ver detalhes de como analisar e solucionar problemas dos dados do Armazenamento do Azure mostrados no Azure Monitor for Storage.
+ Consulte o artigo [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md) para ver detalhes de como analisar e solucionar problemas dos dados do Armazenamento do Azure mostrados no Azure Monitor for Storage.
 
 ### <a name="why-dont-i-see-all-the-types-of-errors-in-metrics"></a>Por que não vejo todos os tipos de erros nas métricas?
 
@@ -269,7 +269,7 @@ Cada pasta de trabalho será salva na conta de armazenamento na qual você a sal
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Configure [alertas de métrica](../platform/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications.md) para configurar alertas automatizados a fim de auxiliar na detecção de problemas.
+* Configure [alertas de métrica](../platform/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications-portal.md) para configurar alertas automatizados a fim de auxiliar na detecção de problemas.
 
 * Conheça os cenários aos quais as pastas de trabalho foram projetadas para dar suporte, como criar relatórios, personalizar relatórios existentes e muito mais, examinando [Criar relatórios interativos com pastas de trabalho do Azure Monitor](../platform/workbooks-overview.md).
 

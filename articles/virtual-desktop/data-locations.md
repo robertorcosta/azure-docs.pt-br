@@ -1,5 +1,5 @@
 ---
-title: Locais de dados para a área de trabalho virtual do Windows-Azure
+title: Locais de dados para a área de trabalho virtual do Windows Spring 2020 – Azure
 description: Uma breve visão geral de quais locais os dados e metadados da área de trabalho virtual do Windows são armazenados.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 853f5766c4fd6344eecfd7be1d7911163133a8a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 96072b8008f42f58ec6a3aff32728c087b8e3290
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611527"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080566"
 ---
-# <a name="data-locations-for-windows-virtual-desktop"></a>Locais de dados para área de trabalho virtual do Windows
+# <a name="data-and-metadata-locations-for-windows-virtual-desktop"></a>Locais de dados e metadados para a área de trabalho virtual do Windows
 
 >[!IMPORTANT]
 >Este conteúdo se aplica à atualização da Spring 2020 com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows na versão 2019, sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/data-locations-2019.md).

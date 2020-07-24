@@ -9,11 +9,12 @@ ms.subservice: management
 ms.date: 08/20/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: c4b0cb8204891538ef9c4eef3fa0ff5fd9686536
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db6a8965b6a0d03c3de95644d3d455ce3c950960
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83200100"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080430"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificações de manutenção planejada para conjuntos de dimensionamento de máquinas virtuais
 
@@ -111,7 +112,7 @@ Após iniciar a manutenção, as VMs afetadas no conjunto de dimensionamento de 
  
 ## <a name="check-maintenance-status-by-using-powershell"></a>Verificar o status de manutenção usando PowerShell
 
-É possível usar o Microsoft Azure PowerShell para ver quando as VMs nos conjuntos de dimensionamento de máquinas virtuais estão agendadas para manutenção. As informações de manutenção planejada estarão disponíveis usando o cmdlet [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) quando você utilizar o parâmetro `-InstanceView`.
+É possível usar o Microsoft Azure PowerShell para ver quando as VMs nos conjuntos de dimensionamento de máquinas virtuais estão agendadas para manutenção. As informações de manutenção planejada estarão disponíveis usando o cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) quando você utilizar o parâmetro `-InstanceView`.
  
 As informações de manutenção serão retornadas somente se a manutenção for planejada. Se não houver manutenção agendada que afete a instância da VM, o cmdlet não retornará nenhuma informação de manutenção. 
 

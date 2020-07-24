@@ -7,14 +7,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 193aa168cff436512dc2044d0986df508fd6bfa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6048b5f0a3702e95cef9175933041fe36f2f07bb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248729"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081552"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Conector de logs de Azure Monitor para aplicativos lógicos e fluxo
-Os [aplicativos lógicos do Azure](/azure/logic-apps/) e a [automatização de energia](https://ms.flow.microsoft.com) permitem que você crie fluxos de trabalho automatizados usando centenas de ações para uma variedade de serviços. O conector de logs de Azure Monitor permite que você crie fluxos de trabalho que recuperam dados de um espaço de Log Analytics ou de um aplicativo Application Insights no Azure Monitor. Este artigo descreve as ações incluídas com o conector e fornece uma explicação para criar um fluxo de trabalho usando esses dados.
+Os [aplicativos lógicos do Azure](../../logic-apps/index.yml) e a [automatização de energia](https://ms.flow.microsoft.com) permitem que você crie fluxos de trabalho automatizados usando centenas de ações para uma variedade de serviços. O conector de logs de Azure Monitor permite que você crie fluxos de trabalho que recuperam dados de um espaço de Log Analytics ou de um aplicativo Application Insights no Azure Monitor. Este artigo descreve as ações incluídas com o conector e fornece uma explicação para criar um fluxo de trabalho usando esses dados.
 
 Por exemplo, você pode criar um aplicativo lógico para usar Azure Monitor dados de log em uma notificação por email do Office 365, criar um bug no Azure DevOps ou postar uma mensagem de margem de atraso.  Você pode disparar um fluxo de trabalho com um agendamento simples ou a partir de alguma ação em um serviço conectado, por exemplo, quando um email ou tweet é recebido. 
 
@@ -31,19 +32,19 @@ Dependendo do tamanho dos dados e da consulta usada, o conector pode atingir seu
 A tabela a seguir descreve as ações incluídas com o conector de logs de Azure Monitor. Ambos permitem que você execute uma consulta de log em um espaço de trabalho Log Analytics ou Application Insights aplicativo. A diferença está no modo como os dados são retornados.
 
 > [!NOTE]
-> O conector de logs de Azure Monitor substitui o [conector do Azure log Analytics](https://docs.microsoft.com/connectors/azureloganalytics/) e o [conector do aplicativo Azure insights](https://docs.microsoft.com/connectors/applicationinsights/). Esse conector fornece a mesma funcionalidade que as outras e é o método preferencial para executar uma consulta em um espaço de trabalho Log Analytics ou em um aplicativo Application Insights.
+> O conector de logs de Azure Monitor substitui o [conector do Azure log Analytics](/connectors/azureloganalytics/) e o [conector do aplicativo Azure insights](/connectors/applicationinsights/). Esse conector fornece a mesma funcionalidade que as outras e é o método preferencial para executar uma consulta em um espaço de trabalho Log Analytics ou em um aplicativo Application Insights.
 
 
 | Ação | Descrição |
 |:---|:---|
-| [Executar consulta e e listar resultados](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-list-results) | Retorna cada linha como seu próprio objeto. Use essa ação quando desejar trabalhar com cada linha separadamente no restante do fluxo de trabalho. A ação é normalmente seguida por uma [para cada atividade](../../logic-apps/logic-apps-control-flow-loops.md#foreach-loop). |
-| [Executar consulta e Visualizar resultados](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Retorna todas as linhas do conjunto de resultados como um único objeto formatado. Use essa ação quando desejar usar o conjunto de resultados juntos no restante do fluxo de trabalho, como enviar os resultados em um email.  |
+| [Executar consulta e e listar resultados](/connectors/azuremonitorlogs/#run-query-and-list-results) | Retorna cada linha como seu próprio objeto. Use essa ação quando desejar trabalhar com cada linha separadamente no restante do fluxo de trabalho. A ação é normalmente seguida por uma [para cada atividade](../../logic-apps/logic-apps-control-flow-loops.md#foreach-loop). |
+| [Executar consulta e Visualizar resultados](/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Retorna todas as linhas do conjunto de resultados como um único objeto formatado. Use essa ação quando desejar usar o conjunto de resultados juntos no restante do fluxo de trabalho, como enviar os resultados em um email.  |
 
 ## <a name="walkthroughs"></a>Passo a passo
-Os tutoriais a seguir ilustram o uso dos conectores de Azure Monitor no aplicativo lógico do Azure. Você pode executar esses mesmos exemplos com o Power Automate, a única diferença é como criar o fluxo de trabalho inicial e executá-lo quando concluído. A configuração do fluxo de trabalho e das ações é a mesma entre ambos. Consulte [criar um fluxo de um modelo no Power Automate](https://docs.microsoft.com/power-automate/get-started-logic-template) para começar.
+Os tutoriais a seguir ilustram o uso dos conectores de Azure Monitor no aplicativo lógico do Azure. Você pode executar esses mesmos exemplos com o Power Automate, a única diferença é como criar o fluxo de trabalho inicial e executá-lo quando concluído. A configuração do fluxo de trabalho e das ações é a mesma entre ambos. Consulte [criar um fluxo de um modelo no Power Automate](/power-automate/get-started-logic-template) para começar.
 
 
-### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
+### <a name="create-a-logic-app"></a>Criar um Aplicativo Lógico
 
 Vá para **aplicativos lógicos** no portal do Azure e clique em **Adicionar**. Selecione uma **assinatura**, um **grupo de recursos**e uma **região** para armazenar o novo aplicativo lógico e dê a ele um nome exclusivo. Você pode ativar **log Analytics** configuração para coletar informações sobre dados de tempo de execução e eventos, conforme descrito em [configurar logs de Azure monitor e coletar dados de diagnóstico para aplicativos lógicos do Azure](../../logic-apps/monitor-logic-apps-log-analytics.md). Essa configuração não é necessária para usar o conector de logs de Azure Monitor.
 
@@ -124,6 +125,5 @@ Quando o aplicativo lógico for concluído, verifique o email do destinatário q
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [consultas de log no Azure Monitor](../log-query/log-query-overview.md).
-- Saiba mais sobre os [aplicativos lógicos](/azure/logic-apps/)
+- Saiba mais sobre os [aplicativos lógicos](../../logic-apps/index.yml)
 - Saiba mais sobre o [Microsoft Flow](https://ms.flow.microsoft.com).
-

@@ -7,16 +7,16 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: 930e32cfc57cb5b48180c7695b7b6c7d11df8caa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9581bb17e29a25b618a90aece5675d132c14a97c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506966"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081484"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas no Azure Monitor (versão prévia)
 
-Ao implantar recursos e aplicativos no Azure, é melhor começar a coletar dados telemétricos para obter percepções sobre sua integridade e desempenho. O Azure disponibiliza algumas métricas para você imediatamente. Essas métricas são chamadas [de Standard ou Platform](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). No entanto, eles são limitados por natureza. 
+Ao implantar recursos e aplicativos no Azure, é melhor começar a coletar dados telemétricos para obter percepções sobre sua integridade e desempenho. O Azure disponibiliza algumas métricas para você imediatamente. Essas métricas são chamadas [de Standard ou Platform](./metrics-supported.md). No entanto, eles são limitados por natureza. 
 
 Você pode querer coletar alguns indicadores de desempenho personalizados ou métricas específicas de negócios para fornecer insights mais profundos. Essas **métricas personalizadas** podem ser coletadas por meio da telemetria do aplicativo, um agente que é executado nos recursos do Azure ou até mesmo um sistema de monitoramento externo e enviado diretamente ao Monitor do Azure. Depois de publicados no Azure Monitor, você pode procurar, consultar e alertar sobre métricas personalizadas para os recursos e aplicativos do Azure, lado a lado com as métricas padrão emitidas pelo Azure.
 
@@ -37,7 +37,7 @@ Verifique a [página de preços Azure monitor](https://azure.microsoft.com/prici
 As métricas personalizadas são mantidas durante o [mesmo período de tempo que as métricas de plataforma](data-platform-metrics.md#retention-of-metrics). 
 
 > [!NOTE]  
-> As métricas enviadas para Azure Monitor por meio do SDK do Application Insights são cobradas como dados de log ingeridos. Eles só incorrerão em cobranças de métricas adicionais se o recurso de Application Insights [habilitar alertas em dimensões de métricas personalizadas](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) tiver sido selecionado. Essa caixa de seleção envia dados para o banco de dado Azure Monitor métricas usando a API de métricas personalizadas para permitir o alerta mais complexo.  Saiba mais sobre os preços e o [modelo de preços de Application insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) [em sua região](https://azure.microsoft.com/pricing/details/monitor/).
+> As métricas enviadas para Azure Monitor por meio do SDK do Application Insights são cobradas como dados de log ingeridos. Eles só incorrerão em cobranças de métricas adicionais se o recurso de Application Insights [habilitar alertas em dimensões de métricas personalizadas](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) tiver sido selecionado. Essa caixa de seleção envia dados para o banco de dado Azure Monitor métricas usando a API de métricas personalizadas para permitir o alerta mais complexo.  Saiba mais sobre os preços e o [modelo de preços de Application insights](../app/pricing.md#pricing-model) [em sua região](https://azure.microsoft.com/pricing/details/monitor/).
 
 
 ## <a name="how-to-send-custom-metrics"></a>Como enviar métricas personalizadas
@@ -46,8 +46,8 @@ Quando você envia as métricas personalizadas para o Azure Monitor, cada ponto 
 
 ### <a name="authentication"></a>Autenticação
 Para enviar métricas personalizadas para o Monitor do Azure, a entidade que envia a métrica precisa de um token válido do Azure AD (Azure Active Directory) no cabeçalho **Portador** da solicitação. Há algumas maneiras para adquirir um token de portador válido:
-1. [Identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Fornece uma identidade a um recurso do Azure, como uma VM. A MSI (Managed Service Identity, identidade de serviço gerenciado) foi projetada para fornecer permissões de recursos para executar determinadas operações. Um exemplo é permitir que um recurso emita métricas sobre si mesmo. Um recurso, ou seu MSI, pode receber permissões de **Monitoring Metrics Publisher** em outro recurso. Com essa permissão, o MSI também pode emitir métricas para outros recursos.
-2. [Entidade de serviço do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). Nesse cenário, um aplicativo ou serviço do Azure AD pode receber permissões para emitir métricas sobre um recurso do Azure.
+1. [Identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md). Fornece uma identidade a um recurso do Azure, como uma VM. A MSI (Managed Service Identity, identidade de serviço gerenciado) foi projetada para fornecer permissões de recursos para executar determinadas operações. Um exemplo é permitir que um recurso emita métricas sobre si mesmo. Um recurso, ou seu MSI, pode receber permissões de **Monitoring Metrics Publisher** em outro recurso. Com essa permissão, o MSI também pode emitir métricas para outros recursos.
+2. [Entidade de serviço do Azure ad](../../active-directory/develop/app-objects-and-service-principals.md). Nesse cenário, um aplicativo ou serviço do Azure AD pode receber permissões para emitir métricas sobre um recurso do Azure.
 Para autenticar a solicitação, o Monitor do Azure valida o token do aplicativo usando as chaves públicas do Azure AD. A função **existente do Monitoring Metrics Publisher** já tem essa permissão. Ele está disponível no portal do Azure. A entidade de serviço, dependendo dos recursos para os quais ela emite métricas personalizadas, pode receber a função **Monitoring Metrics Publisher** no escopo necessário. Exemplos são uma assinatura, grupo de recursos ou recurso específico.
 
 > [!TIP]  
@@ -178,12 +178,12 @@ Depois que as métricas personalizadas são enviadas ao Monitor do Azure, você 
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Procurar suas métricas personalizadas no portal do Azure
 1.    Vá para o [Portal do Azure](https://portal.azure.com).
 2.    Selecione o painel **Monitor**.
-3.    Selecione **métricas**.
+3.    Selecione **Métricas**.
 4.    Selecione um recurso em que você emitiu métricas personalizadas.
 5.    Selecione o namespace de métricas para sua métrica personalizada.
 6.    Selecione a métrica personalizada.
 
-## <a name="supported-regions"></a>Regiões com suporte
+## <a name="supported-regions"></a>Regiões compatíveis
 Durante a pré-visualização pública, a capacidade de publicar métricas personalizadas está disponível apenas em um subconjunto de regiões do Azure. Essa restrição significa que as métricas podem ser publicadas apenas para recursos em uma das regiões suportadas. A tabela a seguir lista o conjunto de regiões do Azure com suporte para métricas personalizadas. Ele também lista os terminais correspondentes que as métricas de recursos nessas regiões devem ser publicadas para:
 
 |Região do Azure |Prefixo de ponto de extremidade regional|
@@ -192,10 +192,10 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 |Centro-Oeste dos EUA | https: \/ /westcentralus.Monitoring.Azure.com |
 |Oeste dos EUA 2       | https: \/ /westus2.Monitoring.Azure.com |
 |Centro-Norte dos EUA | https: \/ /northcentralus.Monitoring.Azure.com
-|Centro-Sul dos Estados Unidos| https: \/ /southcentralus.Monitoring.Azure.com |
+|South Central US| https: \/ /southcentralus.Monitoring.Azure.com |
 |Centro dos EUA      | https: \/ /centralus.Monitoring.Azure.com |
 |Canadá Central | https: \/ /canadacentral.Monitoring.Azure.com |
-|Leste dos EUA| https: \/ /eastus.Monitoring.Azure.com |
+|East US| https: \/ /eastus.Monitoring.Azure.com |
 |Leste dos EUA 2 | https: \/ /eastus2.Monitoring.Azure.com |
 | **Europa** | |
 |Norte da Europa    | https: \/ /northeurope.Monitoring.Azure.com |
@@ -207,7 +207,7 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 | **Ásia** | |
 |Índia Central | https: \/ /centralindia.Monitoring.Azure.com |
 |Leste da Austrália | https: \/ /australiaeast.Monitoring.Azure.com |
-|Leste do Japão | https: \/ /japaneast.Monitoring.Azure.com |
+|Japan East | https: \/ /japaneast.Monitoring.Azure.com |
 |Sudeste Asiático  | https: \/ /southeastasia.Monitoring.Azure.com |
 |Leste da Ásia | https: \/ /eastasia.Monitoring.Azure.com |
 |Coreia Central   | https: \/ /koreacentral.Monitoring.Azure.com |

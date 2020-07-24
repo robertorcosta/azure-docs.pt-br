@@ -4,12 +4,12 @@ description: Neste artigo, saiba como rastrear e gerenciar trabalhos de backup e
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8dbd6fd7add58f8458c21fc65381a52ff3306d2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847768"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079308"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Acompanhe as tarefas de backup e restauração usando a API REST
 
@@ -33,7 +33,7 @@ Uma operação como o acionamento de backup sempre retornará um jobID. Por exem
 }
 ```
 
-A tarefa de backup da VM do Azure é identificada pelo campo "jobId" e pode ser rastreada conforme mencionado [aqui](https://docs.microsoft.com/rest/api/backup/jobdetails/) usando uma simples solicitação *GET*.
+A tarefa de backup da VM do Azure é identificada pelo campo "jobId" e pode ser rastreada conforme mencionado [aqui](/rest/api/backup/jobdetails/) usando uma simples solicitação *GET*.
 
 ## <a name="tracking-the-job"></a>Acompanhando o trabalho
 
@@ -47,7 +47,7 @@ O `{jobName}` é "jobId" mencionado acima. A resposta é sempre 200 OK com o cam
 
 |Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
-|200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
+|200 OK     | [JobResource](/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 
 #### <a name="example-response"></a>Exemplo de resposta
 

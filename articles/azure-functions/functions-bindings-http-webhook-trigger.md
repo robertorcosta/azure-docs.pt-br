@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 437cbb87694adf89054161a7b0d40f6528b94199
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: d1b545129312e2954c76e296560d9476f37f4424
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224087"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081756"
 ---
 # <a name="azure-functions-http-trigger"></a>Gatilho de HTTP do Azure Functions
 
@@ -674,7 +674,7 @@ Você também pode ler essas informações a partir de dados vinculados. Esse re
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-As informações sobre clientes autenticados estão disponíveis como um [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). O ClaimsPrincipal está disponível como parte do contexto da solicitação, conforme mostrado no exemplo a seguir:
+As informações sobre clientes autenticados estão disponíveis como um [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal). O ClaimsPrincipal está disponível como parte do contexto da solicitação, conforme mostrado no exemplo a seguir:
 
 ```csharp
 using System.Net;
@@ -706,7 +706,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-As informações sobre clientes autenticados estão disponíveis como um [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). O ClaimsPrincipal está disponível como parte do contexto da solicitação, conforme mostrado no exemplo a seguir:
+As informações sobre clientes autenticados estão disponíveis como um [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal). O ClaimsPrincipal está disponível como parte do contexto da solicitação, conforme mostrado no exemplo a seguir:
 
 ```csharp
 using System.Net;

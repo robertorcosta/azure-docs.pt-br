@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: a259217280be343f383372a066d4033368c2b651
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 831ce1ccb2c09a85ddfff8fa65172b1871119a61
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526688"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079886"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Solucionar problemas de conexões de Área de Trabalho Remota a uma máquina virtual do Azure
 A conexão do protocolo RDP à sua VM (máquina virtual) do Azure baseada no Windows pode falhar por vários motivos, impedindo o seu acesso à VM. O problema pode ser com o serviço de Área de Trabalho Remota na VM, a conexão de rede ou o cliente de Área de Trabalho Remota no computador host. Este artigo explica alguns dos métodos mais comuns para resolver problemas de conexão de RDP. 
@@ -104,7 +104,7 @@ Após cada etapa de solução de problemas, tente se conectar à VM novamente. C
 Caso ainda esteja tendo problemas de RDP, você poderá [abrir uma solicitação](https://azure.microsoft.com/support/options/) de suporte ou ler [conceitos e etapas de solução de problemas de RDP mais detalhados](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="troubleshoot-using-azure-powershell"></a>Solucionar problemas usando o Azure PowerShell
-Se você ainda não fez isso, [instale e configure o último Azure PowerShell](/powershell/azure/overview).
+Se você ainda não fez isso, [instale e configure o último Azure PowerShell](/powershell/azure/).
 
 Os exemplos a seguir usam variáveis como `myResourceGroup`, `myVM` e `myVMAccessExtension`. Substitua essas localizações e nomes de variáveis por seus próprios valores.
 

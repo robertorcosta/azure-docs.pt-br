@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 0f8075af53752da0e0abc2dec7ab49c28af2e3ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f63bcbb26752dc787d508260cce0b0518cdc7c38
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374722"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080396"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rede para conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -62,9 +62,9 @@ Ao trabalhar com conjuntos de dimensionamento de máquinas virtuais e balanceado
 
 Os métodos a seguir podem ser usados para implantar um conjunto de dimensionamento de máquinas virtuais com um balanceador de carga do Azure existente.
 
-* [Configure um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando o portal do Azure](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-portal).
-* [Configure um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando Azure PowerShell](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-powershell).
-* [Configure um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando o CLI do Azure](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-cli).
+* [Configure um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando o portal do Azure](../load-balancer/configure-vm-scale-set-portal.md).
+* [Configure um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando Azure PowerShell](../load-balancer/configure-vm-scale-set-powershell.md).
+* [Configure um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando o CLI do Azure](../load-balancer/configure-vm-scale-set-cli.md).
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Criar um conjunto de dimensionamento que referencia um Gateway de Aplicativo
 Para criar um conjunto de dimensionamento que usa um gateway de aplicativo, referencie o pool de endereços de back-end do gateway de aplicativo na seção ipConfigurations do conjunto de dimensionamento como nesta configuração de modelo ARM:

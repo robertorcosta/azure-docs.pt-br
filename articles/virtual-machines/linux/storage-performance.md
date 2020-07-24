@@ -10,11 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: 7a0d5e29097bc9a672e142fcffb0ebe879fe2475
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2068682ced09c8683ad7aae37366fcff443ae761
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81757692"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080107"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Otimizar o desempenho nas máquinas virtuais da série Lsv2 do Azure
 
@@ -109,4 +110,4 @@ Para saber mais sobre as opções de backup de dados no armazenamento local, con
    
 ## <a name="next-steps"></a>Próximas etapas
 
-* Consulte as especificações para todas as [VMs otimizadas para desempenho de armazenamento](sizes-storage.md) no Azure
+* Consulte as especificações para todas as [VMs otimizadas para desempenho de armazenamento](../sizes-storage.md) no Azure

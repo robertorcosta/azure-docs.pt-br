@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 06/19/2020
-ms.openlocfilehash: 6563f3e263867387332940db58abff62e085cded
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 0ba95969d8bb6987d2e3685f937170f97e1af68f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187686"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078702"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Bloquear conexões criadas por conectores em aplicativos lógicos do Azure
 
@@ -31,7 +31,7 @@ Este tópico mostra como configurar uma política que bloqueia conexões especí
 
 Se você já tiver um aplicativo lógico com a conexão que deseja bloquear, siga as [etapas para o portal do Azure](#connector-ID-portal). Caso contrário, siga estas etapas:
 
-1. Visite a [lista conectores de aplicativos lógicos](https://docs.microsoft.com/connectors/connector-reference/connector-reference-logicapps-connectors).
+1. Visite a [lista conectores de aplicativos lógicos](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 1. Localize a página de referência do conector que você deseja bloquear.
 
@@ -129,7 +129,7 @@ Para bloquear a criação de uma conexão totalmente em um aplicativo lógico, s
    | **Nome** | Sim | <*política-definição-nome*> | O nome a ser usado para a definição de política |
    | **Descrição** | Não | <*política-definição-nome*> | Uma descrição para a definição de política |
    | **Categoria** | Sim | **Aplicativos lógicos** | O nome de uma categoria existente ou uma nova categoria para a definição de política |
-   | **Imposição de política** | Sim | **Habilitado** | Essa configuração especifica se a definição de política deve ser habilitada ou desabilitada quando você salva seu trabalho. |
+   | **Imposição de política** | Sim | **Enabled** | Essa configuração especifica se a definição de política deve ser habilitada ou desabilitada quando você salva seu trabalho. |
    ||||
 
 1. Em **regra de política**, a caixa de edição JSON é preenchida previamente com um modelo de definição de política. Substitua este modelo pela sua [definição de política](../governance/policy/concepts/definition-structure.md) com base nas propriedades descritas na tabela abaixo e seguindo esta sintaxe:
@@ -244,13 +244,13 @@ Quando você cria uma conexão dentro de um aplicativo lógico, essa conexão ex
 
    ![Propriedades de definição de política](./media/block-connections-connectors/policy-definition-using-connections-1.png)
 
-   | Propriedade | Obrigatório | Valor | Descrição |
+   | Propriedade | Obrigatório | Valor | DESCRIÇÃO |
    |----------|----------|-------|-------------|
    | **Local da definição** | Sim | <*Azure-subscription-name*> | A assinatura do Azure a ser usada para a definição de política <p><p>1. para localizar sua assinatura, selecione o botão de reticências (**...**). <br>2. na lista de **assinaturas** , localize e selecione sua assinatura. <br>3. quando terminar, selecione **selecionar**. |
    | **Nome** | Sim | <*política-definição-nome*> | O nome a ser usado para a definição de política |
    | **Descrição** | Não | <*política-definição-nome*> | Uma descrição para a definição de política |
    | **Categoria** | Sim | **Aplicativos lógicos** | O nome de uma categoria existente ou uma nova categoria para a definição de política |
-   | **Imposição de política** | Sim | **Habilitado** | Essa configuração especifica se a definição de política deve ser habilitada ou desabilitada quando você salva seu trabalho. |
+   | **Imposição de política** | Sim | **Enabled** | Essa configuração especifica se a definição de política deve ser habilitada ou desabilitada quando você salva seu trabalho. |
    ||||
 
 1. Em **regra de política**, a caixa de edição JSON é preenchida previamente com um modelo de definição de política. Substitua este modelo pela sua [definição de política](../governance/policy/concepts/definition-structure.md) com base nas propriedades descritas na tabela abaixo e seguindo esta sintaxe:
@@ -271,7 +271,7 @@ Quando você cria uma conexão dentro de um aplicativo lógico, essa conexão ex
     }
     ```
 
-   | Propriedade | Valor | Descrição |
+   | Propriedade | Valor | DESCRIÇÃO |
    |----------|-------|-------------|
    | `mode` | `All` | O modo que determina os tipos de recursos que a política avalia. <p><p>Esse cenário define `mode` como `All` , que aplica a política a grupos de recursos do Azure, assinaturas e todos os tipos de recursos. <p><p>Para obter mais informações, consulte [estrutura de definição de política – modo](../governance/policy/concepts/definition-structure.md#mode). |
    | `if` | `{condition-to-evaluate}` | A condição que determina quando impor a regra de política <p><p>Nesse cenário, o `{condition-to-evaluate}` determina se a saída da cadeia de caracteres de `[string(field('Microsoft.Logic/workflows/parameters'))]` , contém a cadeia de caracteres, `{connector-name}` . <p><p>Para obter mais informações, consulte [estrutura de definição de política – regra de política](../governance/policy/concepts/definition-structure.md#policy-rule). |
@@ -338,7 +338,7 @@ Em seguida, você precisa atribuir a definição de política na qual deseja imp
    | **ID de atribuição** | Sim | A ID gerada automaticamente para a atribuição de política |
    | **Descrição** | Não | Uma descrição para a atribuição de política |
    | **Imposição de política** | Sim | A configuração que habilita ou desabilita a atribuição de política |
-   | **Atribuído por** | Não | O nome da pessoa que criou e aplicou a atribuição de política |
+   | **Atribuída por** | Não | O nome da pessoa que criou e aplicou a atribuição de política |
    ||||
 
    Por exemplo, para atribuir a política a um grupo de recursos do Azure usando o exemplo Instagram:

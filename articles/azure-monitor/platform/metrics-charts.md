@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e6ff33b6a23cb85649a8811a8bef27ab455ab9e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e554fe48c3cbf8b744bf2f435f7b51e424d28808
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82980891"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079546"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Recursos avançados do Azure Metrics Explorer
 
@@ -20,7 +21,7 @@ ms.locfileid: "82980891"
 
 ## <a name="metrics-in-azure"></a>Métricas no Azure
 
-[Métricas no Azure Monitor](data-platform-metrics.md) são a série de valores medidos e as contagens coletadas e armazenadas ao longo do tempo. Há métricas padrão (ou da “plataforma”) e métricas personalizadas. As métricas padrão são fornecidas pela própria plataforma Azure. As métricas padrão refletem as estatísticas de uso e integridade dos recursos do Azure. Enquanto as métricas personalizadas são enviadas ao Azure por seus aplicativos usando a [api Application insights para métricas e eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [extensão WAD (Windows diagnóstico do Azure)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview)ou por [Azure monitor API REST](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
+[Métricas no Azure Monitor](data-platform-metrics.md) são a série de valores medidos e as contagens coletadas e armazenadas ao longo do tempo. Há métricas padrão (ou da “plataforma”) e métricas personalizadas. As métricas padrão são fornecidas pela própria plataforma Azure. As métricas padrão refletem as estatísticas de uso e integridade dos recursos do Azure. Enquanto as métricas personalizadas são enviadas ao Azure por seus aplicativos usando a [api Application insights para métricas e eventos personalizados](../app/api-custom-events-metrics.md), [extensão WAD (Windows diagnóstico do Azure)](./diagnostics-extension-overview.md)ou por [Azure monitor API REST](./metrics-store-custom-rest-api.md).
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>Criar exibições com várias métricas e gráficos
 
@@ -175,5 +176,4 @@ Verifique este [artigo](alerts-metric.md) para saber mais sobre como configurar 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-  Leia [Criar painéis personalizados de KPI](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) para saber mais sobre as melhores práticas para a criação de painéis acionáveis com métricas.
-
+  Leia [Criar painéis personalizados de KPI](../learn/tutorial-app-dashboards.md) para saber mais sobre as melhores práticas para a criação de painéis acionáveis com métricas.

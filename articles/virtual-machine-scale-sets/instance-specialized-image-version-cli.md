@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e1b260b1249af25ac5a8364798c532dcb3885cb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e47ed9b5505966973644bee0578d5b13d1659766
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887873"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080549"
 ---
 # <a name="create-a-scale-set-using-a-specialized-image-version-with-the-azure-cli"></a>Criar um conjunto de dimensionamento usando uma versão de imagem especializada com o CLI do Azure
 
-Crie um conjunto de dimensionamento de uma [versão de imagem especializada](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) armazenada em uma galeria de imagens compartilhada. Se você quiser criar um conjunto de dimensionamento usando uma versão de imagem generalizada, consulte [criar um conjunto de dimensionamento de uma imagem generalizada](instance-generalized-image-version-cli.md).
+Crie um conjunto de dimensionamento de uma [versão de imagem especializada](../virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images) armazenada em uma galeria de imagens compartilhada. Se você quiser criar um conjunto de dimensionamento usando uma versão de imagem generalizada, consulte [criar um conjunto de dimensionamento de uma imagem generalizada](instance-generalized-image-version-cli.md).
 
 Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que execute a CLI do Azure versão 2.4.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
@@ -60,6 +60,3 @@ Você também pode criar um recurso de Galeria de imagens compartilhadas usando 
 - [Criar uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Criar uma Definição de Imagem em uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Criar uma Versão da Imagem em uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-
-
-

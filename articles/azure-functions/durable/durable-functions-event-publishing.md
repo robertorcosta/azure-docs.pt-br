@@ -3,15 +3,16 @@ title: Publicação de Funções Duráveis para a Grade de Eventos do Azure (vis
 description: Saiba como configurar a publicação automática da Grade de Eventos do Azure para Funções Duráveis.
 ms.topic: conceptual
 ms.date: 04/25/2020
-ms.openlocfilehash: c0106f3754e0cdcbf1f295fbe3f1b5def8dc3ca1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e4651dd7548ba76380bfc2d1b314e67d7abe63d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83124209"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081739"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Publicação de Funções Duráveis para a Grade de Eventos do Azure (visualização)
 
-Este artigo mostra como configurar as Durable Functions para publicar eventos de ciclo de vida de orquestração (como criados, concluídos e com falha) em um [Tópico de Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/overview) personalizado.
+Este artigo mostra como configurar as Durable Functions para publicar eventos de ciclo de vida de orquestração (como criados, concluídos e com falha) em um [Tópico de Grade de Eventos do Azure](../../event-grid/overview.md) personalizado.
 
 A seguir, alguns cenários em que esse recurso é útil:
 
@@ -25,7 +26,7 @@ A seguir, alguns cenários em que esse recurso é útil:
 
 * Instale [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) no seu projeto de Durable Functions.
 * Instale o [Emulador de Armazenamento do Azure](../../storage/common/storage-use-emulator.md) (apenas Windows) ou use uma conta já existente de Armazenamento do Azure.
-* Instalar a [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) ou usar o [Azure Cloud Shell](../../cloud-shell/overview.md)
+* Instalar a [CLI do Azure](/cli/azure/?view=azure-cli-latest) ou usar o [Azure Cloud Shell](../../cloud-shell/overview.md)
 
 ## <a name="create-a-custom-event-grid-topic"></a>Criar um tópico de Grade de Eventos personalizado
 
@@ -167,7 +168,7 @@ Usando o portal do Azure, crie outro aplicativo de funções para escutar evento
 
 ### <a name="add-an-event-grid-subscription"></a>Adicionar uma assinatura de Grade de Eventos
 
-Agora você pode adicionar uma assinatura de Grade de Eventos ao tópico de Grade de Eventos que criou. Para obter mais informações, confira [Conceitos na Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/concepts).
+Agora você pode adicionar uma assinatura de Grade de Eventos ao tópico de Grade de Eventos que criou. Para obter mais informações, confira [Conceitos na Grade de Eventos do Azure](../../event-grid/concepts.md).
 
 1. Na sua nova função, selecione **Integração** e, em seguida, escolha **Gatilho da Grade de Eventos** (eventGridEvent). 
 

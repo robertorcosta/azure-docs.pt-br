@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: cfbd5af7063a4764820b5ce892a9a2b8a305b1b7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ac42fe3265163a5a967524fe11063803c9ca91d3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494931"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080583"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais no portal do Azure
 Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo.
@@ -48,8 +48,8 @@ Se a demanda do aplicativo aumentar, a carga em instâncias de VM no seu conjunt
     | *Estatística de intervalo de agregação* | Define como as métricas coletadas em cada intervalo de agregação devem ser agregadas para análise.                             | Média        |
     | *Operador*             | Operador usado para comparar os dados da métrica com o limite.                                                     | Maior que   |
     | *Limite*            | A porcentagem que faz com que a regra de dimensionamento automático dispare uma ação.                                                 | 70             |
-    | *Duration*             | O tempo monitorado antes de comparar os valores de métrica e de limite.                                   | 10 minutos     |
-    | *Operação*            | Define se o conjunto de dimensionamento deve ser dimensionado expandido ou reduzido quando a regra se aplica e qual o incremento                        | Aumentar porcentagem em |
+    | *Duration*             | O tempo monitorado antes de comparar os valores de métrica e de limite. Não inclui o período de resfriamento.                                   | 10 minutos     |
+    | *Operação*            | Define se o conjunto de dimensionamento deve ser escalado verticalmente ou reduzido quando a regra se aplica e em qual incremento.                        | Aumentar porcentagem em |
     | *Contagem de instâncias*       | O percentual de instâncias de VM que deve ser alterado quando a regra disparar.                                            | 20             |
     | *Tempo de resfriamento (minutos)*  | O tempo de espera antes da regra ser aplicada novamente para que as ações de autoescala tenham tempo para entrar em vigor. | 5 minutos      |
 

@@ -10,12 +10,12 @@ ms.author: magoedte
 ms.date: 06/22/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6a1c6bb39e743a96ad110a60e41cc59306e7a2ae
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 437a917e0f9b6e7a7370e828c8e3ee95218cea3f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186377"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079733"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Visão geral do State Configuration da Automação do Azure
 
@@ -73,7 +73,7 @@ Para nós que executam o Windows, as seguintes versões são compatíveis:
 >[!NOTE]
 >O SKU do produto autônomo do [Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) não contém uma implementação de DSC. Portanto, ele não pode ser gerenciado pelo DSC do PowerShell nem pela State Configuration da Automação do Azure.
 
-Para nós que executam o Linux, a extensão de DSC do Linux dá suporte a todas as distribuições do Linux listadas em [Distribuições Linux compatíveis](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
+Para nós que executam o Linux, a extensão de DSC do Linux dá suporte a todas as distribuições do Linux listadas na [documentação do DSC do PowerShell](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
 
 ### <a name="dsc-requirements"></a>Requisitos de DSC
 

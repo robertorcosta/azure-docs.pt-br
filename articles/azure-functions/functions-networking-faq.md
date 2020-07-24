@@ -6,11 +6,12 @@ ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: acb1e942c1f342ce6fee7d8aeacafcc1d7b6fd91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d3493cc76dfb05cca3c89114b279b99ab49bac2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75409538"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081637"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Perguntas frequentes sobre rede em Azure Functions
 
@@ -54,7 +55,7 @@ Você também pode disparar uma função de todos os outros recursos em uma rede
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Como posso implantar meu aplicativo de funções em uma rede virtual?
 
-A implantação em um Ambiente do Serviço de Aplicativo é a única maneira de criar um aplicativo de funções que está totalmente dentro de uma rede virtual. Para obter detalhes sobre como usar um balanceador de carga interno com uma Ambiente do Serviço de Aplicativo, comece com o artigo [criar e usar um balanceador de carga interno com um ambiente do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
+A implantação em um Ambiente do Serviço de Aplicativo é a única maneira de criar um aplicativo de funções que está totalmente dentro de uma rede virtual. Para obter detalhes sobre como usar um balanceador de carga interno com uma Ambiente do Serviço de Aplicativo, comece com o artigo [criar e usar um balanceador de carga interno com um ambiente do serviço de aplicativo](../app-service/environment/create-ilb-ase.md).
 
 Para cenários em que você precisa apenas de acesso unidirecional a recursos de rede virtual ou um isolamento de rede menos abrangente, consulte a [visão geral do Functions](functions-networking-options.md)Networking.
 

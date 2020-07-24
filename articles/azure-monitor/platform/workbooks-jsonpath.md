@@ -9,15 +9,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: 58a2657f6b9aee101384146c4ebb43023953bfcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efa54933ac7d57ec0dcff9ae11b6fb5c2c87a897
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82892206"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081382"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>Como usar o JSONPath para transformar dados JSON em pastas de trabalho
 
-As pastas de trabalho são capazes de consultar dados de várias fontes. Alguns pontos de extremidade, como [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) ou ponto de extremidades personalizado, podem retornar resultados em JSON. Se os dados JSON retornados pelo ponto de extremidade consultado não estiverem configurados em um formato desejado, JSONPath poderá ser usado para transformar os resultados.
+As pastas de trabalho são capazes de consultar dados de várias fontes. Alguns pontos de extremidade, como [Azure Resource Manager](../../azure-resource-manager/management/overview.md) ou ponto de extremidades personalizado, podem retornar resultados em JSON. Se os dados JSON retornados pelo ponto de extremidade consultado não estiverem configurados em um formato desejado, JSONPath poderá ser usado para transformar os resultados.
 
 JSONPath é uma linguagem de consulta para JSON semelhante ao XPath for XML. Como o XPath, o JSONPath permite a extração e a filtragem de dados da estrutura JSON.
 
@@ -74,7 +75,7 @@ Vamos supor que recebamos o objeto JSON acima como uma representação do invent
    |:-----------|:-----------------|
    | Título      | `$.title`        |
    | Autor     | `$.author`       |
-   | Price      | `$.price`        |
+   | Preço      | `$.price`        |
 
     As IDs de coluna serão os cabeçalhos de coluna. Campos de caminhos JSON de coluna representam o caminho da raiz da tabela para o valor da coluna.
 

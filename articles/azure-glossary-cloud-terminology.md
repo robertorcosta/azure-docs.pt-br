@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: fa7464c70593c83c708aba49235ecdde1be0cc9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a06435d4b5a4c11f74073e67e3f48fd2ed0779d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807769"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079563"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de nuvem na plataforma do Azure
 
@@ -51,7 +51,7 @@ Uma interface de linha de comando que pode ser usada para gerenciar os serviços
 
 ## <a name="azure-powershell"></a><a name="powershell"></a>Azure PowerShell
 Uma interface de linha de comando para gerenciar os serviços do Azure por meio de uma linha de comando em computadores Windows. Alguns serviços, ou recursos do serviço, podem ser gerenciados apenas por meio do PowerShell ou da CLI.
-Consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
+Consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/)
 
 ## <a name="azure-resource-manager-deployment-model"></a><a name="arm-model"></a>Modelo de implantação de Azure Resource Manager
 Um dos dois [modelos de implantação](resource-manager-deployment-model.md) usados para implantar recursos no Microsoft Azure (o outro é o modelo de implantação clássico). Alguns serviços do Azure dão suporte somente ao modelo de implantação do Resource Manager, alguns dão suporte somente para o modelo de implantação clássico e alguns dão suporte a ambos. A documentação para cada serviço do Azure especifica a quais modelos esse serviço dá suporte.
@@ -153,7 +153,7 @@ Veja [Visão geral da Rede Virtual](virtual-network/virtual-networks-overview.md
 ## <a name="web-app"></a>Aplicativo Web
 Outro nome para o [Aplicativo de Serviço de Aplicativo](#app-service-app).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Introdução ao Azure](https://azure.microsoft.com/get-started/)
 * [Centro de Recurso de Nuvem](https://azure.microsoft.com/resources/)  

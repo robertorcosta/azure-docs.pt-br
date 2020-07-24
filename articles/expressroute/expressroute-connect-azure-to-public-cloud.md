@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 07/24/2019
 ms.author: osamaz
-ms.openlocfilehash: b8a454c2a104dfe8545cf734bf0b020b8f749bb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80863b56334b0d2d76cdf505dcd15c5cc4c14c52
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73889636"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081093"
 ---
 # <a name="connecting-azure-with-public-clouds"></a>Conectando o Azure com nuvens públicas
 
@@ -33,7 +34,7 @@ Provedores de Layer3 são comumente conhecidos como provedores IP VPN ou MPLS VP
  
 Ao conectar-se por meio do provedor Layer3, a Microsoft anunciará as rotas de VNET do cliente para o provedor de serviços por BGP. O provedor pode ter duas implementações diferentes.
 
-![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
+![Diagrama que mostra um provedor Layer3.](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
 
 O provedor poderá ser a aterrissagem de cada provedor de nuvem em um VRF separado, se o tráfego de todos os provedores de nuvem for alcançado no roteador do cliente. Se o cliente estiver executando o BGP com o provedor de serviços, essas rotas serão anunciadas novamente para outros provedores de nuvem por padrão. 
 
@@ -44,7 +45,7 @@ Cada nuvem pública tem um limite de prefixo diferente, assim, enquanto a distri
 ### <a name="layer2-provider-and-direct-connection"></a>Provedor Layer2 e conexão direta
 
 Embora a conectividade física em ambos os modelos seja diferente, mas em Layer3 BGP é estabelecida diretamente entre MSEE e o roteador do cliente. Para o cliente do ExpressRoute Direct, conecta-se diretamente ao MSEE. No caso do Layer2, o provedor de serviços estende a VLAN do local do cliente para a nuvem. Os clientes executam o BGP no topo da rede layer2 para conectar seus DCs à nuvem.
-![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l2.png)
+![Diagrama que mostra um provedor Layer2 e uma conexão direta.](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l2.png)
 Em ambos os casos, o cliente terá conexões ponto a ponto para cada uma das nuvens públicas. O cliente estabelecerá uma conexão BGP separada para cada nuvem pública. As rotas recebidas por um provedor de nuvem serão anunciadas para outro provedor de nuvem por padrão. Cada provedor de nuvem tem um limite de prefixo diferente, portanto, ao anunciar as rotas, o cliente deve cuidar desses limites. O cliente pode usar os botões de BGP usuais com a Microsoft ao anunciar rotas de outras nuvens públicas.
 
 ## <a name="direct-connection-with-expressroute"></a>Conexão direta com o ExpressRoute

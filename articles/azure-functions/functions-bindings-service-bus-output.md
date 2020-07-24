@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 6159ea7c9e00e822019a0d6542be2e84dbbdc335
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 559198c4ecbbc86cc82ce8b286d9608170e161c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603631"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079716"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Associação de saída do barramento de serviço do Azure para Azure Functions
 
@@ -311,7 +311,7 @@ Ao trabalhar com funções C#:
 
 * As funções assíncronas precisam de um valor de retorno ou `IAsyncCollector` em vez de um `out` parâmetro.
 
-* Para acessar a ID da sessão, associe a um [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) tipo e use a `sessionId` propriedade.
+* Para acessar a ID da sessão, associe a um [`Message`](/dotnet/api/microsoft.azure.servicebus.message) tipo e use a `sessionId` propriedade.
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
@@ -328,7 +328,7 @@ Ao trabalhar com funções C#:
 
 * As funções assíncronas precisam de um valor de retorno ou `IAsyncCollector` em vez de um `out` parâmetro.
 
-* Para acessar a ID da sessão, associe a um [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) tipo e use a `sessionId` propriedade.
+* Para acessar a ID da sessão, associe a um [`Message`](/dotnet/api/microsoft.azure.servicebus.message) tipo e use a `sessionId` propriedade.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -336,11 +336,11 @@ Acesse a fila ou o tópico usando `context.bindings.<name from function.json>` .
 
 # <a name="python"></a>[Python](#tab/python)
 
-Use o [SDK do barramento de serviço do Azure](https://docs.microsoft.com/azure/service-bus-messaging) em vez da Associação de saída interna.
+Use o [SDK do barramento de serviço do Azure](../service-bus-messaging/index.yml) em vez da Associação de saída interna.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Use o [SDK do barramento de serviço do Azure](https://docs.microsoft.com/azure/service-bus-messaging) em vez da Associação de saída interna.
+Use o [SDK do barramento de serviço do Azure](../service-bus-messaging/index.yml) em vez da Associação de saída interna.
 
 ---
 
@@ -348,8 +348,8 @@ Use o [SDK do barramento de serviço do Azure](https://docs.microsoft.com/azure/
 
 | Associação | Referência |
 |---|---|
-| Barramento de Serviço | [Códigos de erro do Barramento de Serviço do Microsoft Azure](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
-| Barramento de Serviço | [Limites do Barramento de Serviço do Microsoft Azure](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
+| Barramento de Serviço | [Códigos de erro do Barramento de Serviço do Microsoft Azure](../service-bus-messaging/service-bus-messaging-exceptions.md) |
+| Barramento de Serviço | [Limites do Barramento de Serviço do Microsoft Azure](../service-bus-messaging/service-bus-quotas.md) |
 
 <a name="host-json"></a>  
 
@@ -384,11 +384,11 @@ Esta seção descreve as definições de configuração global disponíveis para
 
 Se você tiver `isSessionsEnabled` definido como `true` , o `sessionHandlerOptions` será respeitado.  Se você tiver `isSessionsEnabled` definido como `false` , o `messageHandlerOptions` será respeitado.
 
-|Property  |Padrão | Descrição |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------|
 |prefetchCount|0|Obtém ou define o número de mensagens que o destinatário da mensagem pode solicitar simultaneamente.|
 |maxAutoRenewDuration|00:05:00|A duração máxima na qual o bloqueio de mensagem será renovado automaticamente.|
-|autoComplete|true|Se o gatilho deve chamar automaticamente Complete após o processamento ou se o código de função chamará manualmente.<br><br>A configuração para `false` tem suporte apenas em C#.<br><br>Se definido como `true` , o gatilho concluirá a mensagem automaticamente se a execução da função for concluída com êxito e abandonará a mensagem de outra forma.<br><br>Quando definido como `false` , você é responsável por chamar métodos [MessageReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) para concluir, abandonar ou incorrer a mensagem. Se uma exceção for lançada (e nenhum dos `MessageReceiver` métodos for chamado), o bloqueio permanecerá. Depois que o bloqueio expirar, a mensagem será colocada em fila novamente com o `DeliveryCount` incremento e o bloqueio será renovado automaticamente.<br><br>Em funções não C #, as exceções na função resultam em chamadas de tempo de execução `abandonAsync` em segundo plano. Se nenhuma exceção ocorrer, `completeAsync` será chamado em segundo plano. |
+|autoComplete|true|Se o gatilho deve chamar automaticamente Complete após o processamento ou se o código de função chamará manualmente.<br><br>A configuração para `false` tem suporte apenas em C#.<br><br>Se definido como `true` , o gatilho concluirá a mensagem automaticamente se a execução da função for concluída com êxito e abandonará a mensagem de outra forma.<br><br>Quando definido como `false` , você é responsável por chamar métodos [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) para concluir, abandonar ou incorrer a mensagem. Se uma exceção for lançada (e nenhum dos `MessageReceiver` métodos for chamado), o bloqueio permanecerá. Depois que o bloqueio expirar, a mensagem será colocada em fila novamente com o `DeliveryCount` incremento e o bloqueio será renovado automaticamente.<br><br>Em funções não C #, as exceções na função resultam em chamadas de tempo de execução `abandonAsync` em segundo plano. Se nenhuma exceção ocorrer, `completeAsync` será chamado em segundo plano. |
 |maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que a bomba de mensagem deve iniciar por instância dimensionada. Por padrão, o runtime do Functions processa várias mensagens simultaneamente.|
 |maxConcurrentSessions|2000|O número máximo de sessões que podem ser manipuladas simultaneamente por instância dimensionada.|
 

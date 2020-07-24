@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: 5d0eee6b89ec3e0be944f17c361aafa598724069
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: bc29a62f469b0b9d091fcdef2488afba764a09fe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042111"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080345"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Recursos e extensões da máquina virtual para Linux
 
-As extensões da máquina virtual (VM) do Azure são pequenos aplicativos que fornecem tarefas de configuração e automação pós-implantação nas VMs do Azure. Por exemplo, se uma máquina virtual exigir a instalação de software, proteção antivírus ou a execução de um script dentro dela, uma extensão da VM poderá ser usada. As extensões da VM do Azure podem ser executadas com a CLI do Azure, o PowerShell, modelos do Azure Resource Manager e o portal do Azure. As extensões podem ser agrupadas com uma nova implantação de VM ou executar qualquer sistema existente.
+As extensões da máquina virtual (VM) do Azure são pequenos aplicativos que fornecem tarefas de configuração e automação pós-implantação nas VMs do Azure. Por exemplo, se uma máquina virtual exigir instalação de software, proteção antivírus ou executar um script dentro dela, uma extensão de VM poderá ser usada. As extensões da VM do Azure podem ser executadas com a CLI do Azure, o PowerShell, modelos do Azure Resource Manager e o portal do Azure. As extensões podem ser agrupadas com uma nova implantação de VM ou executar qualquer sistema existente.
 
 Este artigo fornece uma visão geral das extensões da VM, pré-requisitos para utilização das extensões da VM do Azure e diretrizes sobre como detectar, gerenciar e remover as extensões da VM. Este artigo fornece informações generalizadas, pois há muitas extensões de VM disponíveis, cada uma delas tem uma configuração possivelmente exclusiva. Encontre detalhes específicos sobre cada extensão na documentação individual.
 
@@ -32,7 +32,7 @@ Este artigo fornece uma visão geral das extensões da VM, pré-requisitos para 
 Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um caso de uso específico. Alguns exemplos incluem:
 
 - Aplique as configurações de Estado Desejado do PowerShell a uma VM usando a extensão de DSC para Linux. Para saber mais, confira [Extensão de configuração de Estado Desejado do Azure](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Configure o monitoramento de uma VM com a extensão de VM do Microsoft Monitoring Agent. Para saber mais, confira [Como monitorar uma VM Linux](../linux/tutorial-monitoring.md).
+- Configure o monitoramento de uma VM com a extensão de VM do Microsoft Monitoring Agent. Para saber mais, confira [Como monitorar uma VM Linux](../linux/tutorial-monitor.md).
 - Configure o monitoramento da infraestrutura do Azure com a extensão Chef ou Datadog. Para obter mais informações, consulte os [documentos do Chef](https://docs.chef.io/azure_portal.html) ou o [Blog do Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 Além de extensões específicas ao processo, uma extensão de Script Personalizado está disponível para máquinas virtuais Windows e Linux. A extensão de Script Personalizado para Linux permite a execução de qualquer script Bash em uma VM. Scripts personalizados são úteis para a criação de implantações do Azure que exigem uma configuração que vai além da capacidade das ferramentas nativas do Azure. Para saber mais, confira [Extensão de Script Personalizado de VM do Linux](custom-script-linux.md).
@@ -65,7 +65,7 @@ Os pacotes de extensão são baixados do repositório de extensão do Armazename
 > [!IMPORTANT]
 > Se você tiver bloqueado o acesso a *168.63.129.16* usando o firewall convidado, as extensões falharão independentemente das informações acima.
 
-Os agentes só podem ser usados para baixar os pacotes de extensão e o status do relatório. Por exemplo, se uma instalação da extensão precisar baixar um script do GitHub (Script Personalizado) ou precisar ter acesso ao Armazenamento do Microsoft Azure (Backup do Azure), então outras portas de firewall/Grupo de Segurança de Rede precisarão ser abertas. Diferentes extensões têm requisitos diferentes, já que são aplicativos por si só. Para extensões que exigem acesso ao Armazenamento do Microsoft Azure, você poderá permitir acesso usando Marcas de Serviço do NSG do Azure para [Armazenamento](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Os agentes só podem ser usados para baixar os pacotes de extensão e o status do relatório. Por exemplo, se uma instalação da extensão precisar baixar um script do GitHub (Script Personalizado) ou precisar ter acesso ao Armazenamento do Microsoft Azure (Backup do Azure), então outras portas de firewall/Grupo de Segurança de Rede precisarão ser abertas. Diferentes extensões têm requisitos diferentes, já que são aplicativos por si só. Para extensões que exigem acesso ao Armazenamento do Microsoft Azure, você poderá permitir acesso usando Marcas de Serviço do NSG do Azure para [Armazenamento](../../virtual-network/security-overview.md#service-tags).
 
 Para redirecionar as solicitações de tráfego do agente, o Agente para Linux tem suporte de servidor proxy. No entanto, esse suporte de servidor proxy não aplica extensões. É necessário configurar cada extensão individual para trabalhar com um proxy.
 
@@ -259,7 +259,7 @@ Na saída do exemplo anterior, o pai ou a 'versão implantada por pacote' é *WA
 
 O 'Agente de estado de meta' é a versão de atualização automática.
 
-É altamente recomendável sempre ter uma atualização automática para o agente, [AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Não ter isso habilitado significa que será necessário manter a atualização manual do agente e não receber correções de bugs e de segurança.
+É altamente recomendável sempre ter uma atualização automática para o agente, [AutoUpdate.Enabled=y](./update-linux-agent.md). Não ter isso habilitado significa que será necessário manter a atualização manual do agente e não receber correções de bugs e de segurança.
 
 #### <a name="extension-updates"></a>Atualizações de extensão
 

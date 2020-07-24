@@ -5,11 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 37a387b93f1c6b3796b66993405787cf43990bc4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 88a8dcb53ab2f845f52121b11c96c23ad0a3e791
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684006"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078922"
 ---
 # <a name="sensor-partner-integration"></a>Integração com parceiros de sensor
 
@@ -100,7 +101,7 @@ Aceitar | O formato da resposta. Para APIs do Datahub do FarmBeats, o formato é
 
 **Solicitações da API**
 
-Para fazer uma solicitação de API REST, combine o método HTTP (GET, POST ou PUT), a URL para o serviço da API, o URI (Uniform Resource Identifier) para um recurso para consultar, enviar dados, atualizar ou excluir, e um ou mais cabeçalhos de solicitação HTTP. A URL para o serviço da API é o ponto de extremidade de API que você fornece. Aqui está um exemplo: https://\<nome-do-site-do-seuhubdedados>.azurewebsites.net
+Para fazer uma solicitação de API REST, combine o método HTTP (GET, POST ou PUT), a URL para o serviço da API, o URI (Uniform Resource Identifier) para um recurso para consultar, enviar dados, atualizar ou excluir, e um ou mais cabeçalhos de solicitação HTTP. A URL para o serviço da API é o ponto de extremidade de API que você fornece. Aqui está um exemplo: https:// \<yourdatahub-website-name> . azurewebsites.net
 
 Opcionalmente, você pode incluir parâmetros de consulta nas chamadas GET para filtrar, limitar o tamanho e classificar os dados nas respostas.
 
@@ -130,7 +131,7 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros de disposit
 - /**SensorModel**: SensorModel corresponde aos metadados do sensor, como o fabricante, o tipo de sensor, seja analógico ou digital, e a medida do sensor, como temperatura ambiente e pressão.
 - /**Sensor**: Sensor corresponde a um sensor físico que registra valores. Um sensor geralmente está conectado a um dispositivo com uma ID de dispositivo.
 
-  **DeviceModel** |  |
+  DeviceModel | Descrição |
   --- | ---
   Tipo (nó, gateway)  | Tipo de dispositivo: nó ou gateway |
   Fabricante  | Nome do fabricante |
@@ -139,7 +140,7 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros de disposit
   Nome  | Nome para identificar o recurso. Por exemplo, nome do modelo ou nome do produto. |
   Descrição  | Fornece uma descrição significativa da configuração. |
   Propriedades  | Propriedades adicionais do fabricante. |
-  **Dispositivo** |  |
+  **Dispositivo** | **Descrição** |
   DeviceModelId  |ID do modelo de dispositivo associado. |
   HardwareId   |ID exclusiva para o dispositivo, como um endereço MAC.  |
   ReportingInterval |Intervalo de relatórios em segundos. |
@@ -148,7 +149,7 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros de disposit
   Nome  | Nome amigável para identificar o recurso. Os parceiros de dispositivo precisam enviar um nome consistente com o nome do dispositivo no lado do parceiro. Se o nome do dispositivo for definido pelo usuário no lado do parceiro do dispositivo, o mesmo nome definido pelo usuário deverá ser propagado para o FarmBeats.  |
   Descrição  | Fornece uma descrição significativa.  |
   Propriedades  |Propriedades adicionais do fabricante.  |
-  **SensorModel** |  |
+  **SensorModel** | **Descrição** |
   Tipo (analógico, digital)  |Indica o sensor analógico ou digital.|
   Fabricante  | Nome do fabricante. |
   ProductCode  | Código de produto ou nome ou número do modelo. Por exemplo, RS-CO2-N01.  |
@@ -162,7 +163,7 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros de disposit
   Nome  | Nome para identificar o recurso. Por exemplo, o nome do modelo ou nome do produto.
   Descrição  | Fornece uma descrição significativa da configuração.
   Propriedades  | Propriedades adicionais do fabricante.
-  **Sensor**  |  |
+  **Sensor**  | **Descrição** |
   HardwareId  | ID exclusiva do sensor definida pelo fabricante.
   SensorModelId  | ID do modelo de sensor associado.
   Location  | Latitude (-90 a +90), longitude (-180 a 180) e elevação (em metros) do sensor.

@@ -1,5 +1,5 @@
 ---
-title: Conectar-se ao cliente Web da Área de Trabalho Virtual do Windows – Azure
+title: Conectar-se à área de trabalho virtual do Windows com o cliente Web-Azure
 description: Como se conectar à Área de Trabalho Virtual do Windows usando o cliente Web.
 services: virtual-desktop
 author: Heidilohr
@@ -8,13 +8,14 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bb3a73566cd2477e493ca8621336fb3a51f3b3b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bb54db8a18baa237f1c32c223b5f609638c7523
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212455"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080617"
 ---
-# <a name="connect-with-the-web-client"></a>Conectar-se ao cliente Web
+# <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Conectar-se à área de trabalho virtual do Windows com o cliente Web
 
 >[!IMPORTANT]
 >Este conteúdo se aplica à atualização da Spring 2020 com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows na versão 2019, sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/connect-web-2019.md).

@@ -3,12 +3,12 @@ title: Configurar Servidor de Backup do Azure para a solução VMware do Azure
 description: Configure seu ambiente de solução do Azure VMware para fazer backup de máquinas virtuais usando Servidor de Backup do Azure.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: c56ebaff6b08f3d6586dfe025fdb2a5bfc708fa4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c45d2030e282057c487d142669ab634cd81f6929
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84816851"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079529"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configurar Servidor de Backup do Azure para a solução VMware do Azure
 
@@ -94,7 +94,7 @@ Servidor de Backup do Azure requer discos para instalação, que inclui arquivos
 
 | Requisito                      | Tamanho recomendado  |
 |----------------------------------|-------------------------|
-| Instalação do Servidor de Backup do Azure                | Local de instalação: 3 GB<br />Unidade dos arquivos do banco de dados: 900 MB<br />Unidade do sistema: 1 GB para SQL Server instalação<br /><br />Você também precisará de espaço para Servidor de Backup do Azure copiar o catálogo de arquivos para um local de instalação temporário ao arquivar.      |
+| Instalação do Servidor de Backup do Azure                | Local de instalação: 3 GB<br />Unidade dos arquivos de banco de dados: 900 MB<br />Unidade do sistema: 1 GB para SQL Server instalação<br /><br />Você também precisará de espaço para Servidor de Backup do Azure copiar o catálogo de arquivos para um local de instalação temporário ao arquivar.      |
 | Disco para o pool de armazenamento<br />(Usa volumes básicos, não pode estar em um disco dinâmico) | De duas a três vezes o tamanho dos dados protegidos.<br />Para obter um cálculo detalhado do armazenamento, consulte [DPM planejador de capacidade](https://www.microsoft.com/download/details.aspx?id=54301).   |
 
 Para saber como anexar um novo disco de dados gerenciado a uma VM do Azure existente, consulte [anexar um disco de dados gerenciado a uma VM do Windows usando o portal do Azure](../virtual-machines/windows/attach-managed-disk-portal.md).
@@ -198,7 +198,7 @@ Siga as etapas nesta seção para baixar, extrair e instalar o pacote de softwar
 
    1. Na lista de recursos, digite **Serviços de Recuperação**.
 
-   1. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Quando você vir a opção **cofres de Serviços de Recuperação**, selecione-a.
+   1. À medida que você começa a digitar, a lista filtra com base em sua entrada. Quando você vir a opção **cofres de Serviços de Recuperação**, selecione-a.
 
    ![Criar cofre de serviços de recuperação-etapa 1](../backup/media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
@@ -309,7 +309,7 @@ Se você baixou o pacote de software para um servidor diferente, copie os arquiv
    * **Banco de dados**: **DatabaseName** deve ser **reportserver \<SQLInstanceName> $**.
    * **URL do portal da Web**: o **diretório Virtual** deve ser **Reports_ \<SQLInstanceName> **.
 
-   [Saiba mais](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sobre a configuração do SSRS.
+   [Saiba mais](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sobre a configuração do SSRS.
 
    > [!NOTE]
    > Os [termos do Microsoft Online Services](https://www.microsoft.com/licensing/product-licensing/products) (OST) governam o licenciamento para SQL Server usado como banco de dados para servidor de backup do Azure. De acordo com o OST, SQL Server agrupadas com Servidor de Backup do Azure podem ser usadas somente como o banco de dados para Servidor de Backup do Azure.
@@ -319,7 +319,7 @@ Se você baixou o pacote de software para um servidor diferente, copie os arquiv
 1. Forneça um local para a instalação de arquivos do Backup do Microsoft Azure Server e selecione **Avançar**.
 
    > [!NOTE]
-   > O local de rascunho é necessário para o backup no Azure. Verifique se o local temporário é de pelo menos 5% dos dados planejados para fazer backup na nuvem. Para proteção de disco, discos separados precisam ser configurados após a conclusão da instalação. Para obter mais informações sobre pools de armazenamento, consulte [configurar pools de armazenamento e armazenamento em disco](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
+   > O local de rascunho é necessário para o backup no Azure. Verifique se o local temporário é de pelo menos 5% dos dados planejados para fazer backup na nuvem. Para proteção de disco, discos separados precisam ser configurados após a conclusão da instalação. Para obter mais informações sobre pools de armazenamento, consulte [configurar pools de armazenamento e armazenamento em disco](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12)).
 
    ![Configurações de instalação do Backup do Microsoft Azure](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
 
@@ -393,4 +393,3 @@ Continue no próximo tutorial para saber como configurar o backup de VMs VMware 
 
 > [!div class="nextstepaction"]
 > [Configurar o backup de VMs de solução do Azure VMware](backup-avs-vms-with-mabs.md)
-

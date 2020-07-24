@@ -9,11 +9,12 @@ manager: rkarlin
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 300acaf4a9d2a11ef107e19df99452c909257d54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 132f696dd1298384c302eeadc264e857d1edff96
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77190567"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080056"
 ---
 # <a name="security-controls-for-linux-virtual-machines"></a>Controles de segurança para Máquinas Virtuais do Linux
 
@@ -28,13 +29,13 @@ Este artigo documenta os controles de segurança internos do Máquinas Virtuais 
 | Suporte ao ponto de extremidade de serviço| Sim | |
 | Suporte à injeção de VNet| Sim | |
 | Isolamento de rede e suporte de firewall| Sim |  |
-| Suporte a túnel forçado| Sim | Consulte [Configurar o túnel forçado usando o modelo de implantação Azure Resource Manager](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). |
+| Suporte a túnel forçado| Sim | Consulte [Configurar o túnel forçado usando o modelo de implantação Azure Resource Manager](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md). |
 
 ## <a name="monitoring--logging"></a>Monitorando & log
 
 | Controle de segurança | Sim/Não | Observações|
 |---|---|--|
-| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Consulte [monitorar e atualizar uma máquina virtual Linux no Azure](/azure/virtual-machines/linux/tutorial-monitoring). |
+| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Consulte [monitorar e atualizar uma máquina virtual Linux no Azure](./tutorial-monitor.md). |
 | Registro e auditoria do plano de gerenciamento e controle| Sim |  |
 | Log e auditoria do plano de dados | Não |  |
 
@@ -50,8 +51,8 @@ Este artigo documenta os controles de segurança internos do Máquinas Virtuais 
 | Controle de segurança | Sim/Não | Observações |
 |---|---|--|
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | Consulte [Azure Disk Encryption para VMs do Linux](disk-encryption-overview.md). |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | As máquinas virtuais do Azure dão suporte à criptografia de [ExpressRoute](/azure/expressroute) e VNet. Consulte [criptografia em trânsito em VMs](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Sim | As chaves gerenciadas pelo cliente são um cenário de criptografia do Azure com suporte; consulte [visão geral da criptografia do Azure](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | As máquinas virtuais do Azure dão suporte à criptografia de [ExpressRoute](../../expressroute/index.yml) e VNet. Consulte [criptografia em trânsito em VMs](../../security/fundamentals/encryption-overview.md#in-transit-encryption-in-vms). |
+| Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Sim | As chaves gerenciadas pelo cliente são um cenário de criptografia do Azure com suporte; consulte [visão geral da criptografia do Azure](../../security/fundamentals/encryption-overview.md#in-transit-encryption-in-vms).|
 | Criptografia em nível de coluna (serviços de dados do Azure)| N/D | |
 | Chamadas criptografadas à API| Sim | Via HTTPS e TLS. |
 

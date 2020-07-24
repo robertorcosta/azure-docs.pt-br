@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: 415895b894261ade9b2332eb3fb926eba74fe937
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d7e56fe36af3d841cfd888dd6c1bf05502837cdd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078401"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079835"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>A inicialização da VM está parada em “Preparando o Windows. Não desligue o computador” no Azure
 
@@ -45,7 +45,7 @@ Se o problema não for resolvido depois de aguardar as alterações serem proces
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco de SO a uma VM de recuperação
 
 1. Tire um instantâneo do disco do SO da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
-2. [Anexe o disco do sistema operacional a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+2. [Anexe o disco do sistema operacional a uma VM de recuperação](./troubleshoot-recovery-disks-portal-windows.md).
 3. Área de trabalho remota para a VM de recuperação. 
 4. Se o disco do sistema operacional for criptografado, você deverá desligar a criptografia antes de passar para a próxima etapa. Para obter mais informações, consulte [descriptografar o disco do sistema operacional criptografado na VM que não pode ser inicializada](troubleshoot-bitlocker-boot-error.md#solution).
 
@@ -99,7 +99,7 @@ Para habilitar o log de despejo e o Console Serial, execute o script a seguir.
         reg unload HKLM\BROKENSYSTEM
         ```
 
-3. [Desanexe o disco do sistema operacional e, em seguida, anexe novamente o disco do sistema operacional à VM afetada](../windows/troubleshoot-recovery-disks-portal.md).
+3. [Desanexe o disco do sistema operacional e, em seguida, anexe novamente o disco do sistema operacional à VM afetada](./troubleshoot-recovery-disks-portal-windows.md).
 4. Inicie a VM e acesse o console serial.
 5. Selecione **Enviar NMI (interrupção não mascarada)** para disparar o despejo de memória.
     ![a imagem sobre onde enviar uma interrupção não mascarável](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)

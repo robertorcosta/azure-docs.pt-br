@@ -8,13 +8,13 @@ ms.author: ladolan
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/29/2020
-ms.openlocfilehash: d80972cd200b8f85e14d316c4c06a38f88ac81b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/20/2020
+ms.openlocfilehash: d50f577a7170982be004cc8957114f79675fbc6e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82598157"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078618"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Gerenciar aplicativos lógicos no portal do Azure
 
@@ -36,7 +36,7 @@ Para localizar e abrir seu aplicativo lógico, siga estas etapas:
 
 1. Na barra do Azure Search, insira `logic apps` e selecione **aplicativos lógicos**.
 
-   ![Encontrar e selecionar "Aplicativos Lógicos"](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
+   ![Captura de tela do menu portal do Azure, com os aplicativos lógicos pesquisados e selecionados na barra de pesquisa.](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
 
 1. Na página **aplicativos lógicos** , localize e selecione o aplicativo lógico que você deseja gerenciar.
 
@@ -86,7 +86,7 @@ Desabilitar seu aplicativo lógico afeta suas instâncias de fluxo de trabalho e
 
   1. Edite qualquer parte do gatilho do aplicativo lógico.
 
-  1. Salve suas alterações. Esta etapa redefine o estado atual do gatilho.
+  1. Salve as alterações. Esta etapa redefine o estado atual do gatilho.
 
   1. [Habilite novamente seu aplicativo lógico](#disable-enable-single-logic-app).
 
@@ -100,19 +100,19 @@ Desabilitar seu aplicativo lógico afeta suas instâncias de fluxo de trabalho e
 
    * Na barra de ferramentas, selecione **Desabilitar**.
 
-     ![Desabilitar aplicativo lógico único no portal do Azure](./media/manage-logic-apps-with-azure-portal/disable-single-logic-app.png)
+     ![Captura de tela da barra de ferramentas do aplicativo lógico, mostrando o botão Desabilitar selecionado.](./media/manage-logic-apps-with-azure-portal/disable-single-logic-app.png)
 
      Se seu aplicativo lógico já estiver desabilitado, você verá apenas a opção **habilitar** .
 
    * Na barra de ferramentas, selecione **habilitar**.
 
-     ![Habilitar aplicativo lógico único no portal do Azure](./media/manage-logic-apps-with-azure-portal/enable-single-logic-app.png)
+     ![Captura de tela da barra de ferramentas do aplicativo lógico, mostrando o botão habilitar selecionado.](./media/manage-logic-apps-with-azure-portal/enable-single-logic-app.png)
 
      Se seu aplicativo lógico já estiver habilitado, você verá apenas a opção **desabilitar** . 
 
    O portal do Azure mostra uma notificação na barra de ferramentas principal do Azure que confirma se a operação foi bem-sucedida ou falhou.
 
-   ![Notificação para confirmar o status da operação](./media/manage-logic-apps-with-azure-portal/operation-confirmation-notification.png)
+   ![Captura de tela de portal do Azure, mostrando a notificação para confirmar o status da operação](./media/manage-logic-apps-with-azure-portal/operation-confirmation-notification.png)
 
 <a name="disable-or-enable-multiple-logic-apps"></a>
 
@@ -122,15 +122,15 @@ Desabilitar seu aplicativo lógico afeta suas instâncias de fluxo de trabalho e
 
 1. Para verificar se um aplicativo lógico está habilitado ou desabilitado no momento, na página **aplicativos lógicos** , examine a coluna **status** desse aplicativo lógico. 
 
-   ![Coluna de status de aplicativos lógicos](./media/manage-logic-apps-with-azure-portal/view-logic-app-status.png)
+   ![Captura de tela de portal do Azure página de aplicativos lógicos, mostrando a lista de aplicativos lógicos classificados por coluna de status.](./media/manage-logic-apps-with-azure-portal/view-logic-app-status.png)
 
    Se a coluna **status** não estiver visível, na barra de ferramentas **aplicativos lógicos** , selecione **tentar visualização**.
 
-   ![Ativar visualização](./media/manage-logic-apps-with-azure-portal/select-try-preview.png)
+   ![Captura de tela de portal do Azure página de aplicativos lógicos, mostrando o botão tentar Visualizar selecionado.](./media/manage-logic-apps-with-azure-portal/select-try-preview.png)
 
 1. Na coluna caixa de seleção, selecione os aplicativos lógicos que você deseja desabilitar ou habilitar. Na barra de ferramentas, selecione **desabilitar** ou **habilitar**.
 
-   ![Habilitar ou desabilitar vários aplicativos lógicos no portal do Azure](./media/manage-logic-apps-with-azure-portal/enable-disable-multiple-logic-apps.png)
+   ![Captura de tela da página portal do Azure de aplicativos lógicos, mostrando os botões habilitar e desabilitar para vários aplicativos lógicos.](./media/manage-logic-apps-with-azure-portal/enable-disable-multiple-logic-apps.png)
 
 1. Quando a caixa de confirmação for exibida, selecione **Sim** para continuar.
 
@@ -158,11 +158,11 @@ Excluir seu aplicativo lógico afeta suas instâncias de fluxo de trabalho das s
 
 1. No menu do seu aplicativo lógico, selecione **visão geral**. Na barra de ferramentas do aplicativo lógico, selecione **excluir**.
 
-   ![Na barra de ferramentas do aplicativo lógico, selecione "excluir"](./media/manage-logic-apps-with-azure-portal/delete-single-logic-app.png)
+   ![Captura de tela da barra de ferramentas do aplicativo lógico, mostrando o botão excluir selecionado.](./media/manage-logic-apps-with-azure-portal/delete-single-logic-app.png)
 
 1. Quando a caixa de confirmação for exibida, insira o nome do aplicativo lógico e selecione **excluir**.
 
-   ![Confirmar para excluir seu aplicativo lógico](./media/manage-logic-apps-with-azure-portal/delete-confirmation-single-logic-app.png)
+   ![Captura de tela do prompt dos aplicativos lógicos para confirmar a exclusão de um único aplicativo lógico.](./media/manage-logic-apps-with-azure-portal/delete-confirmation-single-logic-app.png)
 
    O portal do Azure mostra uma notificação na barra de ferramentas principal do Azure que confirma se a operação foi bem-sucedida ou falhou.
 
@@ -174,11 +174,11 @@ Excluir seu aplicativo lógico afeta suas instâncias de fluxo de trabalho das s
 
 1. Na coluna caixa de seleção, selecione os aplicativos lógicos que você deseja excluir. Na barra de ferramentas, selecione **Excluir**.
 
-   ![Excluir vários aplicativos lógicos](./media/manage-logic-apps-with-azure-portal/delete-multiple-logic-apps.png)
+   ![Captura de tela da página de aplicativos lógicos, mostrando vários aplicativos lógicos em uma lista selecionada para exclusão.](./media/manage-logic-apps-with-azure-portal/delete-multiple-logic-apps.png)
 
 1. Quando a caixa de confirmação for exibida, insira `yes` e selecione **excluir**.
 
-   ![Confirmar para excluir seus aplicativos lógicos](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
+   ![Captura de tela do prompt dos aplicativos lógicos para confirmar a exclusão de vários aplicativos lógicos.](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
 
    O portal do Azure mostra uma notificação na barra de ferramentas principal do Azure que confirma se a operação foi bem-sucedida ou falhou.
 
@@ -196,13 +196,13 @@ Você pode usar o portal do Azure para controle de versão de seus aplicativos l
 
 1. No menu do aplicativo lógico, em **ferramentas de desenvolvimento**, selecione **versões**.
 
-   ![No menu do seu aplicativo lógico, selecione "versões" em "ferramentas de desenvolvimento"](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
+   ![Captura de tela do aplicativo lógico no portal do Azure, mostrando a página seleção de versões em ferramentas de desenvolvimento.](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
 
 1. Selecione a **versão** do seu aplicativo lógico para gerenciar na lista. Você pode inserir o identificador de **versão** na barra de pesquisa para filtrar a lista.
 
 1. Na página **versão do histórico** , você verá os detalhes da versão anterior no modo somente leitura. Você pode selecionar entre os modos **Designer** de aplicativos lógicos e **modo de exibição de código** .
 
-   ![Página de versão do histórico para o aplicativo lógico com exibição de código e exibição do designer de aplicativos lógicos](./media/manage-logic-apps-with-azure-portal/history-version.png)
+   ![Captura de tela da página versão do histórico de aplicativos lógicos, mostrando a exibição de código e as opções de exibição do designer.](./media/manage-logic-apps-with-azure-portal/history-version.png)
 
 <a name="promote-previous-versions"></a>
 
@@ -212,11 +212,11 @@ Você pode usar o portal do Azure para controle de versão de seus aplicativos l
 
 1. Na página **versão do histórico** , selecione **promover**.
 
-   ![Botão promover no histórico de versão do aplicativo lógico](./media/manage-logic-apps-with-azure-portal/promote-button.png)
+   ![Captura de tela do histórico de versão do aplicativo lógico, mostrando o botão para promover uma versão anterior.](./media/manage-logic-apps-with-azure-portal/promote-button.png)
 
 1. Na página **Designer de aplicativos lógicos** que é aberta, edite a versão que você está promovendo conforme necessário. Você pode alternar entre os modos de exibição de **Designer** e de **código** . Você também pode atualizar **parâmetros**, **modelos**e **conectores**.
 
-   ![Página do designer de aplicativos lógicos para promover uma versão anterior](./media/manage-logic-apps-with-azure-portal/promote-page.png)
+   ![Captura de tela do designer de aplicativos lógicos, mostrando o botão para promover uma versão anterior de um aplicativo lógico.](./media/manage-logic-apps-with-azure-portal/promote-page.png)
 
 1. Para salvar as atualizações e concluir a promoção da versão anterior, selecione **salvar**. (Ou, para cancelar as alterações, selecione **descartar**.) 
 

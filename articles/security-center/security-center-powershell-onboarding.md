@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: 0ca5cdcb0410d52f40e28c66a839bddcb34cc8a8
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e6dfc0eb704b0b35ab4e181076d8f97fd3e8c9d7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963352"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080737"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizar integração da Central de Segurança do Azure usando o PowerShell
 
@@ -29,7 +29,7 @@ A integração da Central de Segurança do Azure através do PowerShell permite 
 
 Este artigo fornece um exemplo de script do PowerShell que pode ser modificado e usado em seu ambiente para implantar a Central de Segurança em suas assinaturas. 
 
-Neste exemplo, habilitaremos a Central de Segurança em uma assinatura com a ID: d07c0080-170c-4c24-861d-9c817742786c e aplicaremos as configurações recomendadas que fornecem um alto nível de proteção, com a implementação da camada Padrão da Central de Segurança que oferece proteção avançada contra ameaças e recursos de detecção de ameaças:
+Neste exemplo, Habilitaremos a central de segurança em uma assinatura com ID: d07c0080-170C-4C24-861d-9c817742786c e aplicaremos as configurações recomendadas que fornecem um alto nível de proteção, implementando a camada Standard da central de segurança, que fornece recursos avançados de proteção contra ameaças e detecção:
 
 1. Defina o [nível de proteção padrão da central de segurança](https://azure.microsoft.com/pricing/details/security-center/). 
  
@@ -98,7 +98,7 @@ Agora você pode usar esses cmdlets do PowerShell com scripts de automação par
 
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 Para saber mais sobre como você pode usar o PowerShell para automatizar a integração à Central de Segurança, confira o artigo a seguir:
 
 * [AZ. Security](https://docs.microsoft.com/powershell/module/az.security)

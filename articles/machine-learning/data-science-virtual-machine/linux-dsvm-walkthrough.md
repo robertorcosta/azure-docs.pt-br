@@ -9,11 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: dec9d7d6f4676c3550bb6c0be79e25d907e5b3da
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ed552a57e51ce9249f84bab6bb72bfe783e43edb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682486"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078110"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Ciência de dados com uma Máquina Virtual de Ciência de Dados do Linux no Azure
 
@@ -29,7 +30,7 @@ Para poder usar uma DSVM do Linux, você precisa cumprir os pré-requisitos a se
 
 * **Assinatura do Azure**. Para obter uma assinatura do Azure, confira [Criar sua conta do Azure hoje mesmo](https://azure.microsoft.com/free/).
 * [**Máquina Virtual de Ciência de Dados do Linux**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Para obter informações sobre como provisionar a máquina virtual, consulte [Provisionar a Máquina Virtual de Ciência de Dados do Linux](linux-dsvm-intro.md).
-* O [**X2Go**](https://wiki.x2go.org/doku.php) instalado em seu computação com a sessão aberta do XFCE. Para obter mais informações, consulte [Instalar e configurar o cliente X2Go](linux-dsvm-intro.md#x2go).
+* O [**X2Go**](https://wiki.x2go.org/doku.php) instalado em seu computação com a sessão aberta do XFCE. Para obter mais informações, consulte [Instalar e configurar o cliente X2Go](dsvm-ubuntu-intro.md#x2go).
 * Para uma experiência de rolagem com menos problemas, no navegador da Web Firefox da DSVM, ative o sinalizador `gfx.xrender.enabled` em `about:config`. [Saiba mais](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere também configurar `mousewheel.enable_pixel_scrolling` como `False`. [Saiba mais](https://support.mozilla.org/questions/981140).
 * **Conta do Azure Machine Learning**. Se ainda não tiver uma, inscreva-se em uma nova conta na [página inicial do Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//).
 
@@ -312,7 +313,7 @@ predictSpam.service(1, 1, 1)
 
 ### <a name="jupyterhub"></a>JupyterHub
 
-A distribuição Anaconda na DSVM vem com um Jupyter Notebook, um ambiente de plataforma cruzada para compartilhamento do Python, R ou do código Julia e da análise. O Jupyter Notebook é acessado com o JupyterHub. Você entra com seu nome de usuário local do Linux e a senha em https://\<endereço IP ou nome DNS da DSVM\>:8000/. Todos os arquivos de configuração para o JupyterHub são encontrados em /etc/jupyterhub.
+A distribuição Anaconda na DSVM vem com um Jupyter Notebook, um ambiente de plataforma cruzada para compartilhamento do Python, R ou do código Julia e da análise. O Jupyter Notebook é acessado com o JupyterHub. Você entra usando seu nome de usuário e senha do Linux local em https:// \<DSVM DNS name or IP address\> : 8000/. Todos os arquivos de configuração para o JupyterHub são encontrados em /etc/jupyterhub.
 
 > [!NOTE]
 > Para usar o gerenciador de pacotes do Python (por meio do comando `pip`) de um Jupyter Notebook no kernel atual, use este comando na célula de código:

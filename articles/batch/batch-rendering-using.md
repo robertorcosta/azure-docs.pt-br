@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 262431cfcc906b6df1054aaa7dc2b9573c3b8833
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e4f33f0974462197382ea6ac5d2b68d61909f73b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965239"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079253"
 ---
 # <a name="using-azure-batch-rendering"></a>Usar a renderização de Lote do Azure
 
@@ -19,7 +19,7 @@ Há várias maneiras de usar a renderização de Lote do Azure:
 * APIs:
   * Grave código usando qualquer uma das APIs de Lote.  Desenvolvedores podem integrar os recursos do Lote do Azure aos fluxos de trabalho ou aplicativos existentes, sejam baseados em nuvem ou locais.
 * Ferramentas de linha de comando:
-  * A [linha de comando do Azure](/cli/azure/) ou o [PowerShell](/powershell/azure/overview) pode ser usado para script de uso do Lote.
+  * A [linha de comando do Azure](/cli/azure/) ou o [PowerShell](/powershell/azure/) pode ser usado para script de uso do Lote.
   * Em particular, o [suporte de modelo da CLI do Lote](./batch-cli-templates.md) torna muito mais fácil criar pools e enviar trabalhos.
 * Interface do usuário do Batch Explorer:
   * O [Batch Explorer](https://github.com/Azure/BatchLabs) é uma ferramenta do cliente de plataforma cruzada que também permite que as contas do Batch sejam gerenciadas e monitoradas.

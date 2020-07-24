@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 9ce807238e1e373701305f8b6bb03451e0202633
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a5511d7cd4b5bb0f3fe901a735535f8db9036ee7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964627"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078156"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços para os Aplicativos Lógicos do Azure
 
@@ -77,27 +77,27 @@ Para aplicativos lógicos que você cria e executa em um ISE, você paga um [pre
 
 ## <a name="connectors"></a>Conectores
 
-Os conectores de aplicativos lógicos do Azure ajudam seu aplicativo lógico a acessar aplicativos, serviços e sistemas na nuvem ou localmente, fornecendo [gatilhos](#triggers), [ações](#actions)ou ambos. Os conectores são classificados como Standard ou Enterprise. Para obter uma visão geral sobre esses conectores, consulte [conectores para aplicativos lógicos do Azure](../connectors/apis-list.md). Se nenhum conector predefinido estiver disponível para as APIs REST que você deseja usar em seus aplicativos lógicos, você poderá criar [conectores personalizados](https://docs.microsoft.com/connectors/custom-connectors), que são apenas wrappers em volta dessas APIs REST. Os conectores personalizados são cobrados como conectores padrão. As seções a seguir fornecem mais informações sobre como a cobrança de gatilhos e ações funcionam.
+Os conectores de aplicativos lógicos do Azure ajudam seu aplicativo lógico a acessar aplicativos, serviços e sistemas na nuvem ou localmente, fornecendo [gatilhos](#triggers), [ações](#actions)ou ambos. Os conectores são classificados como Standard ou Enterprise. Para obter uma visão geral sobre esses conectores, consulte [conectores para aplicativos lógicos do Azure](../connectors/apis-list.md). Se nenhum conector predefinido estiver disponível para as APIs REST que você deseja usar em seus aplicativos lógicos, você poderá criar [conectores personalizados](/connectors/custom-connectors), que são apenas wrappers em volta dessas APIs REST. Os conectores personalizados são cobrados como conectores padrão. As seções a seguir fornecem mais informações sobre como a cobrança de gatilhos e ações funcionam.
 
 <a name="triggers"></a>
 
 ## <a name="triggers"></a>Gatilhos
 
-Os gatilhos são ações especiais que criam uma instância de aplicativo lógico quando ocorre um evento específico. Dispara ações de diferentes formas, o que afeta o modo como o aplicativo lógico é monitorado. Aqui estão os vários tipos de gatilhos que existem nos aplicativos lógicos do Azure:
+Um gatilho é sempre a primeira etapa em um fluxo de trabalho de aplicativo lógico e é uma ação especial que cria e executa uma instância de aplicativo lógico quando critérios específicos são atendidos ou um evento específico ocorre. Dispara ações de diferentes formas, o que afeta o modo como o aplicativo lógico é monitorado. Aqui estão os vários tipos de gatilhos que existem nos aplicativos lógicos do Azure:
 
-* **Gatilho de sondagem**: esse gatilho verifica continuamente um ponto de extremidade para mensagens que atendem aos critérios para criar uma instância de aplicativo lógico e iniciar o fluxo de trabalho. Mesmo quando nenhuma instância de aplicativo lógico é criada, os Aplicativos Lógicos medem cada solicitação de pesquisa como uma execução. Para especificar o intervalo de sondagem, configure o gatilho no Designer de Aplicativos Lógicos.
+* **Gatilho de recorrência**: você pode usar esse gatilho genérico, que não é específico de nenhum serviço ou sistema, para iniciar qualquer fluxo de trabalho de aplicativo lógico e criar uma instância de aplicativo lógico que é executada com base no intervalo de recorrência que você configurou no gatilho. Por exemplo, você pode configurar um gatilho de recorrência que é executado a cada três dias ou em uma agenda mais complexa.
+
+* **Gatilho de sondagem**: você pode usar esse gatilho de recorrência mais especializado, que é geralmente associado ao conector gerenciado para um serviço ou sistema específico, para verificar se há eventos ou mensagens que atendam aos critérios para criar e executar a instância do aplicativo lógico com base no intervalo de recorrência que você configurou no gatilho. Mesmo quando nenhuma instância de aplicativo lógico é criada, por exemplo, quando os gatilhos são ignorados, o serviço de aplicativos lógicos mede cada solicitação de sondagem como uma execução. Para especificar o intervalo de sondagem, configure o gatilho no Designer de Aplicativos Lógicos.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Gatilho de webhook**: esse gatilho espera que um cliente envie uma solicitação para um ponto de extremidade específico. Cada solicitação enviada ao ponto de extremidade do webhook conta como uma execução da ação. Por exemplo, a Solicitação e o gatilho Webhook HTTP são gatilhos de webhook.
-
-* **Gatilho de recorrência**: esse gatilho cria uma instância de aplicativo lógico com base no intervalo de recorrência que você configurou no gatilho. Por exemplo, você pode configurar um gatilho de recorrência que é executado a cada três dias ou em uma agenda mais complexa.
+* **Gatilho de webhook**: em vez de usar um gatilho de sondagem, você pode usar um gatilho de webhook para aguardar que o cliente envie uma solicitação para seu aplicativo lógico em uma URL de ponto de extremidade específica. Cada solicitação enviada para o ponto de extremidade do webhook conta como uma execução de ação. Por exemplo, a solicitação e o gatilho de webhook HTTP são gatilhos de webhook genéricos. Alguns conectores para serviços ou sistemas também têm gatilhos de webhook.
 
 <a name="actions"></a>
 
 ## <a name="actions"></a>Ações
 
-O aplicativo lógico do Azure monitora as ações "internas", como HTTP, como ações nativas. Por exemplo, ações internas incluem chamadas HTTP, chamadas de Azure Functions ou gerenciamento de API e etapas de fluxo de controle, como condições, loops e instruções switch. Cada ação tem seu próprio tipo de ação. Por exemplo, ações que chamam [conectores](https://docs.microsoft.com/connectors) têm o tipo "ApiConnection". Esses conectores são classificados como conectores Standard ou Enterprise, que são medidos com base em seus respectivos [preços](https://azure.microsoft.com/pricing/details/logic-apps). Conectores empresariais na versão *prévia* são cobrados como conectores padrão.
+O aplicativo lógico do Azure monitora as ações "internas", como HTTP, como ações nativas. Por exemplo, ações internas incluem chamadas HTTP, chamadas de Azure Functions ou gerenciamento de API e etapas de fluxo de controle, como condições, loops e instruções switch. Cada ação tem seu próprio tipo de ação. Por exemplo, ações que chamam [conectores](/connectors) têm o tipo "ApiConnection". Esses conectores são classificados como conectores Standard ou Enterprise, que são medidos com base em seus respectivos [preços](https://azure.microsoft.com/pricing/details/logic-apps). Conectores empresariais na versão *prévia* são cobrados como conectores padrão.
 
 Os aplicativos lógicos do Azure medem todas as ações bem-sucedidas e malsucedidas como execuções. No entanto, os aplicativos lógicos não medim essas ações:
 
@@ -122,7 +122,7 @@ Se você tiver um [ISE ( *ambiente do serviço de integração* )](../logic-apps
 
 Para escolher entre uma conta de integração gratuita, básica ou padrão, examine estas descrições de caso de uso:
 
-* **Gratuito**: para quando você quiser experimentar cenários exploratórios, não cenários de produção. Essa camada está disponível somente para regiões públicas no Azure, por exemplo, oeste dos EUA ou sudeste asiático, mas não para o [Azure China 21vianet](https://docs.microsoft.com/azure/china/overview-operations) ou [Azure governamental](../azure-government/documentation-government-welcome.md).
+* **Gratuito**: para quando você quiser experimentar cenários exploratórios, não cenários de produção. Essa camada está disponível somente para regiões públicas no Azure, por exemplo, oeste dos EUA ou sudeste asiático, mas não para o [Azure China 21vianet](/azure/china/overview-operations) ou [Azure governamental](../azure-government/documentation-government-welcome.md).
 
 * **Básico**: para quando você desejar apenas a manipulação de mensagens ou para atuar como um pequeno parceiro comercial que tenha uma relação de parceiro comercial com uma entidade de negócios maior
 

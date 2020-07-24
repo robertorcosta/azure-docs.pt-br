@@ -3,11 +3,12 @@ title: Automatizar processos do insights Aplicativo Azure usando aplicativos ló
 description: Saiba como você pode automatizar rapidamente os processos repetíveis adicionando o conector do Application Insights ao aplicativo lógico.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: 4a0944e661932d86fac75f78c4faf5be751806c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76a199023ef37fbda27be59fdf70f6ca5d8481bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79473159"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079614"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatize os processos do Application Insights usando os Aplicativos Lógicos
 
@@ -18,7 +19,7 @@ Você está executando repetidamente as mesmas consultas nos dados telemétricos
 
 Com essa integração, você pode automatizar diversos processos sem a necessidade de escrever nenhuma linha de código. É possível criar um Aplicativo Lógico com o conector do Application Insights para automatizar rapidamente qualquer processo do Application Insights. 
 
-Adicione também outras ações. O recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure disponibiliza centenas de ações. Por exemplo, usando um aplicativo lógico, você pode enviar automaticamente uma notificação por email ou criar um bug no Azure DevOps. Você também pode usar um dos muitos [modelos](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) disponíveis para ajudar a acelerar o processo de criação de seu aplicativo lógico. 
+Adicione também outras ações. O recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure disponibiliza centenas de ações. Por exemplo, usando um aplicativo lógico, você pode enviar automaticamente uma notificação por email ou criar um bug no Azure DevOps. Você também pode usar um dos muitos [modelos](../../logic-apps/logic-apps-create-logic-apps-from-templates.md) disponíveis para ajudar a acelerar o processo de criação de seu aplicativo lógico. 
 
 ## <a name="create-a-logic-app-for-application-insights"></a>Criar um aplicativo lógico para o Application Insights
 
@@ -130,13 +131,8 @@ Quando o aplicativo lógico for executado, os destinatários especificados na li
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre como criar [consultas do Analytics](../../azure-monitor/log-query/get-started-queries.md).
-- Saiba mais sobre o [Aplicativos Lógicos](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
+- Saiba mais sobre o [Aplicativos Lógicos](../../logic-apps/logic-apps-overview.md).
 
 
 
 <!--Link references-->
-
-
-
-
-

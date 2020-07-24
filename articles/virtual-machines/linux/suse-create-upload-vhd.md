@@ -8,17 +8,17 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: guybo
-ms.openlocfilehash: f0fe18623d1cea6c7fd692a383a351e0ec76fe91
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: ed14aee756456e35198a501df309fc9eb032898e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132974"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080073"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Preparar uma máquina virtual do SLES ou openSUSE para o Azure
 
 
-Este artigo pressupõe que você já instalou um sistema operacional SUSE ou openSUSE Linux em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina Virtual](https://technet.microsoft.com/library/hh846766.aspx).
+Este artigo pressupõe que você já instalou um sistema operacional SUSE ou openSUSE Linux em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina Virtual](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 ## <a name="sles--opensuse-installation-notes"></a>Notas de instalação do SLES / openSUSE
 * Veja também as [Notas de instalação gerais do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais dicas sobre como preparar o Linux para o Azure.
@@ -133,7 +133,7 @@ Como alternativa à criação de seu próprio VHD, o SUSE também publica imagen
 2. Clique em **Conectar** para abrir a janela da máquina virtual.
 3. No shell, execute o comando '`zypper lr`'. Se este comando retornar uma saída semelhante à seguinte, os repositórios estarão configurados conforme o esperado – nenhum ajuste é necessário (observe que os números de versão podem variar):
 
-   | # | Alias                 | Nome                  | Habilitada | Atualizar
+   | # | Alias                 | Nome                  | habilitado | Atualizar
    | - | :-------------------- | :-------------------- | :------ | :------
    | 1 | Nuvem: Tools_13.1      | Nuvem: Tools_13.1      | Sim     | Sim
    | 2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Sim     | Sim

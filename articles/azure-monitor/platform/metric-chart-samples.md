@@ -7,15 +7,16 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 00935762a5e19ec47074021aff59992fd3b801bf
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 762264cfe7e0441671411e2c277a0796cd527399
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797440"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081518"
 ---
 # <a name="metric-chart-examples"></a>Exemplos de gráfico de métrica 
 
-A plataforma do Azure oferece [mais de mil métricas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), muitas das quais têm dimensões. Ao usar [filtros de dimensão](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), aplicar a [divisão](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), controlar o tipo de gráfico e ajustar as configurações do gráfico você pode criar painéis e exibições de diagnóstico poderosos que fornecem insight sobre a integridade da sua infraestrutura e seus aplicativos. Este artigo mostra alguns exemplos dos gráficos que podem ser criados usando o [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) e explica as etapas necessárias para configurar cada um deles.
+A plataforma do Azure oferece [mais de mil métricas](./metrics-supported.md), muitas das quais têm dimensões. Ao usar [filtros de dimensão](./metrics-charts.md), aplicar a [divisão](./metrics-charts.md), controlar o tipo de gráfico e ajustar as configurações do gráfico você pode criar painéis e exibições de diagnóstico poderosos que fornecem insight sobre a integridade da sua infraestrutura e seus aplicativos. Este artigo mostra alguns exemplos dos gráficos que podem ser criados usando o [Metrics Explorer](./metrics-charts.md) e explica as etapas necessárias para configurar cada um deles.
 
 Deseja compartilhar seus ótimos exemplos de gráficos com o mundo? Contribua com esta página no GitHub e compartilhe seus próprios exemplos de gráfico aqui mesmo!
 
@@ -37,7 +38,7 @@ Exiba a disponibilidade do aplicativo por região para identificar quais localiz
 
 ### <a name="how-to-configure-this-chart"></a>Como configurar este gráfico?
 
-Você precisa primeiro ativar o monitoramento da [Disponibilidade do Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability) para seu site. Depois disso, escolha o recurso do Application Insights e selecione a métrica Disponibilidade. Aplique a divisão na dimensão **Localização da execução**.
+Você precisa primeiro ativar o monitoramento da [Disponibilidade do Application Insights](../app/monitor-web-app-availability.md) para seu site. Depois disso, escolha o recurso do Application Insights e selecione a métrica Disponibilidade. Aplique a divisão na dimensão **Localização da execução**.
 
 ## <a name="volume-of-storage-account-transactions-by-api-name"></a>Volume de transações de conta de armazenamento pelo nome da API
 

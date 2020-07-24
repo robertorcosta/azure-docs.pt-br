@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 77bba9433052c00df671caf73198ff75356b1c9a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0f43d1f780f838fdc49eb055536204026edcc729
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81400165"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079232"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST conversão de texto em fala
 
@@ -52,18 +52,18 @@ O `voices/list` ponto de extremidade permite obter uma lista completa de vozes p
 | Leste dos EUA 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | França Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro da Índia | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Leste do Japão | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Japan East | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Coreia Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-Norte dos EUA | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Norte da Europa | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Centro-Sul dos Estados Unidos | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sudeste Asiático | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sul do Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa Ocidental | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste dos EUA | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste dos EUA 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
-### <a name="request-headers"></a>Cabeçalhos de solicitação
+### <a name="request-headers"></a>Cabeçalhos da solicitação
 
 Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de conversão de texto em fala.
 
@@ -73,7 +73,7 @@ Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações d
 
 ### <a name="request-body"></a>Corpo da solicitação
 
-Um corpo não é necessário `GET` para solicitações a esse ponto de extremidade.
+Um corpo não é necessário para `GET` solicitações a esse ponto de extremidade.
 
 ### <a name="sample-request"></a>Solicitação de exemplo
 
@@ -163,7 +163,7 @@ Essas regiões são suportadas para text-to-speech usando a API REST. Certifique
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-### <a name="request-headers"></a>Cabeçalhos de solicitação
+### <a name="request-headers"></a>Cabeçalhos da solicitação
 
 Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de conversão de texto em fala.
 
@@ -178,18 +178,18 @@ Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações d
 
 Esta é uma lista de formatos de áudio suportados que são enviados em cada solicitação como o cabeçalho `X-Microsoft-OutputFormat`. Cada um incorpora um tipo de taxa de bits e codificação. O serviço de fala dá suporte a saídas de áudio de 24 kHz, 16 kHz e 8 kHz.
 
-|||
-|-|-|
-| `raw-16khz-16bit-mono-pcm` | `raw-8khz-8bit-mono-mulaw` |
-| `riff-8khz-8bit-mono-alaw` | `riff-8khz-8bit-mono-mulaw` |
-| `riff-16khz-16bit-mono-pcm` | `audio-16khz-128kbitrate-mono-mp3` |
-| `audio-16khz-64kbitrate-mono-mp3` | `audio-16khz-32kbitrate-mono-mp3` |
-| `raw-24khz-16bit-mono-pcm` | `riff-24khz-16bit-mono-pcm` |
-| `audio-24khz-160kbitrate-mono-mp3` | `audio-24khz-96kbitrate-mono-mp3` |
-| `audio-24khz-48kbitrate-mono-mp3` | |
+```output
+raw-16khz-16bit-mono-pcm            raw-8khz-8bit-mono-mulaw
+riff-8khz-8bit-mono-alaw            riff-8khz-8bit-mono-mulaw
+riff-16khz-16bit-mono-pcm           audio-16khz-128kbitrate-mono-mp3
+audio-16khz-64kbitrate-mono-mp3     audio-16khz-32kbitrate-mono-mp3
+raw-24khz-16bit-mono-pcm            riff-24khz-16bit-mono-pcm
+audio-24khz-160kbitrate-mono-mp3    audio-24khz-96kbitrate-mono-mp3
+audio-24khz-48kbitrate-mono-mp3     ogg-24khz-16bit-mono-opus
+```
 
 > [!NOTE]
-> Se sua voz selecionada e o formato de saída tiverem diferentes taxas de bits, o áudio é aumentado conforme necessário. No entanto, vozes de 24 kHz `audio-16khz-16kbps-mono-siren` não `riff-16khz-16kbps-mono-siren` dão suporte a formatos de saída e.
+> Se sua voz selecionada e o formato de saída tiverem diferentes taxas de bits, o áudio é aumentado conforme necessário. Ogg-24kHz-16 bits-mono-Opus pode ser decodificado com o [codec Opus](https://opus-codec.org/downloads/)
 
 ### <a name="request-body"></a>Corpo da solicitação
 
@@ -233,7 +233,7 @@ O código de status HTTP para cada resposta indica sucesso ou erros comuns.
 | 400 | Solicitação incorreta | Um parâmetro obrigatório está ausente, vazio ou nulo. Ou então, o valor passado como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é muito longo. |
 | 401 | Não Autorizado | A solicitação não foi autorizada. Verifique se a chave de assinatura ou o token são válidos e se estão na região correta. |
 | 413 | Entidade de solicitação muito grande | A entrada de SSML tem mais de 1024 caracteres. |
-| 415 | Tipo de Mídia Sem Suporte | É possível que o incorreto `Content-Type` tenha sido fornecido. `Content-Type`deve ser definido como `application/ssml+xml`. |
+| 415 | Tipo de Mídia Sem Suporte | É possível que o incorreto `Content-Type` tenha sido fornecido. `Content-Type`deve ser definido como `application/ssml+xml` . |
 | 429 | Número Excessivo de Solicitações | Você excedeu a cota ou a taxa de solicitações permitidas para a sua assinatura. |
 | 502 | Gateway incorreto    | Problema de rede ou do servidor. Também pode indicar cabeçalhos inválidos. |
 

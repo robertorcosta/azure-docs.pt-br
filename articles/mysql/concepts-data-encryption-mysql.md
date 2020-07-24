@@ -6,11 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: e2f732a8cf51c51de1b6125717eafb672d7fff74
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 90ca46ace5f774e288b40a969f8f7e9802e79857
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027402"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080872"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Criptografia de dados do Banco de Dados do Azure para MySQL com uma chave gerenciada pelo cliente
 
@@ -51,7 +52,7 @@ Para que um servidor MySQL use chaves gerenciadas pelo cliente armazenadas no Ke
 * **wrapKey**: para poder criptografar a DEK.
 * **unwrapKey**: para poder descriptografar a DEK.
 
-O administrador do cofre de chaves também pode [habilitar o registro em log de eventos de auditoria do Key Vault](../azure-monitor/insights/azure-key-vault.md), para que eles possam ser auditados posteriormente.
+O administrador do cofre de chaves também pode [habilitar o registro em log de eventos de auditoria do Key Vault](../azure-monitor/insights/key-vault-insights-overview.md), para que eles possam ser auditados posteriormente.
 
 Quando o servidor é configurado para usar a chave gerenciada pelo cliente armazenada no cofre de chaves, o servidor envia a DEK para o cofre de chaves para criptografias. O Key Vault retorna a DEK criptografada, que é armazenada no banco de dados do usuário. De modo semelhante, quando necessário, o servidor envia a DEK protegida para o cofre de chaves para descriptografia. Os auditores poderão usar o Azure Monitor para examinar os logs de eventos do Key Vault se o registro em log estiver habilitado.
 

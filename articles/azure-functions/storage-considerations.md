@@ -3,11 +3,12 @@ title: Considerações de armazenamento do Azure Functions
 description: Saiba mais sobre os requisitos de armazenamento do Azure Functions e sobre a criptografia de dados armazenados.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 324516240d09a5443908cbffec514e4caba2b604
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2efd583b319e3f3b1fa3db307ea4a3cf53710165
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648771"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079597"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerações de armazenamento do Azure Functions
 
@@ -40,7 +41,7 @@ Cada aplicativo de funções exige uma conta de armazenamento para ser operado. 
 
 A conexão da conta de armazenamento é mantida na [configuração de aplicativo AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
 
-As cadeias de conexão da conta de armazenamento deverão ser atualizadas se você regenerar as chaves de armazenamento. [Leia mais sobre o gerenciamento de chaves de armazenamento aqui](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
+As cadeias de conexão da conta de armazenamento deverão ser atualizadas se você regenerar as chaves de armazenamento. [Leia mais sobre o gerenciamento de chaves de armazenamento aqui](../storage/common/storage-account-create.md).
 
 ### <a name="shared-storage-accounts"></a>Contas de armazenamento compartilhadas
 
@@ -79,5 +80,3 @@ Saiba mais sobre as opções de hospedagem do Azure Functions.
 
 > [!div class="nextstepaction"]
 > [Escala e hospedagem do Azure Functions](functions-scale.md)
-
-

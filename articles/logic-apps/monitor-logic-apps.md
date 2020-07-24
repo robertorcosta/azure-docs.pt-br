@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 69d018db26a42c331ff41d242eae54d6fcc43990
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66796a819c0ca7e114d82210a988fc7e13003941
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536242"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078188"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitorar o status de execução, examinar o histórico de gatilho e configurar alertas para aplicativos lógicos do Azure
 
@@ -86,7 +86,7 @@ Cada vez que o gatilho é acionado para um item ou evento, o mecanismo de aplica
      Agora você pode exibir informações como entradas e saídas para essa etapa, por exemplo:
 
    > [!NOTE]
-   > Todos os eventos e detalhes de runtime são criptografados no serviço Aplicativos Lógicos. Eles são descriptografados apenas quando um usuário solicita a exibição desses dados. Você pode [ocultar entradas e saídas no histórico de execução](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) ou controlar o acesso do usuário a essas informações usando o [RBAC (controle de acesso baseado em função) do Azure](../role-based-access-control/overview.md).
+   > Todos os eventos e detalhes de runtime são criptografados no serviço Aplicativos Lógicos. Eles são descriptografados apenas quando um usuário solicita a exibição desses dados. Você pode [ocultar entradas e saídas no histórico de execução](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) ou controlar o acesso do usuário a essas informações usando o [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md).
 
 <a name="review-trigger-history"></a>
 

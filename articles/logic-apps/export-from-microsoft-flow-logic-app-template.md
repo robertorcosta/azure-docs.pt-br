@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: b8bf409d759b74e6a5ef0d840aebbe807a04448a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2a45218118282f4f1cadb29c9022fc05b30f907
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324769"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078744"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportar fluxos do Power Automate e implantar no Aplicativos Lógicos do Azure
 
@@ -19,9 +20,9 @@ Para estender e expandir os recursos do seu fluxo, você pode migrar esse fluxo 
 > [!NOTE]
 > Nem todos os conectores de energia automatizada estão disponíveis nos aplicativos lógicos do Azure. Você pode migrar somente fluxos de energia automatizada que têm conectores equivalentes em aplicativos lógicos do Azure. Por exemplo, o gatilho de botão, o conector de aprovação e o conector de notificação são específicos para a automatização de energia. Atualmente, não há suporte para fluxos baseados em OpenAPI na energia automatizada para exportação e implantação como modelos de aplicativos lógicos.
 >
-> * Para descobrir quais conectores de automatização de energia não têm equivalentes aos aplicativos lógicos, consulte [Power Automate Connectors](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> * Para descobrir quais conectores de automatização de energia não têm equivalentes aos aplicativos lógicos, consulte [Power Automate Connectors](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 >
-> * Para descobrir quais conectores de aplicativos lógicos não têm os equivalentes de energia automatizada, consulte [conectores de aplicativos lógicos](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> * Para descobrir quais conectores de aplicativos lógicos não têm os equivalentes de energia automatizada, consulte [conectores de aplicativos lógicos](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -65,7 +66,7 @@ Para obter mais informações, consulte [aumentar até os aplicativos lógicos d
 
    1. Selecione ou especifique os valores de parâmetro de entrada para seu modelo.
 
-      | Property | Descrição |
+      | Propriedade | Descrição |
       |----------|-------------|
       | **Assinatura** | A assinatura do Azure a ser usada para cobrança |
       | **Grupo de recursos** | O grupo de recursos do Azure a ser usado para seu aplicativo lógico. Você pode usar um grupo existente ou criar um novo grupo. |

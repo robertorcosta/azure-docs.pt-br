@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f996ffa864fb4178ddedecde7c5511d5d9cf39a1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: df318fea4960601dcbfa84149fdc47bedc9104a2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985799"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079818"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Solucionar um problema de erro geral de protocolo RDP em uma VM do Azure
 
@@ -183,7 +183,7 @@ Para obter mais informações, confira [A Área de Trabalho Remota se desconecta
 
 #### <a name="step-1-turn-on-remote-desktop"></a>Etapa 1: Ativar a área de trabalho remota
 
-1. [Anexe o disco do sistema operacional a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Anexe o disco do sistema operacional a uma VM de recuperação](./troubleshoot-recovery-disks-portal-windows.md).
 2. Inicie uma conexão de área de trabalho remota para a VM de recuperação.
 3. Verifique se o disco está sinalizado como **online** no console de gerenciamento de disco. Anote a letra da unidade atribuída ao disco do SO anexado.
 4. Inicie uma conexão de área de trabalho remota para a VM de recuperação.

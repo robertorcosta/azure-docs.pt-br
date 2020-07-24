@@ -4,12 +4,12 @@ description: Saiba como usar os recursos de segurança no Backup do Azure para t
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 24dc108ce4d9c991b1e062c0435b38a63899a249
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d8f8d6937cd93a9da9c82b2ed501c9fbb815b11
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186763"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079342"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger backups híbridos usando o Backup do Azure
 
@@ -24,7 +24,7 @@ Preocupações sobre problemas de segurança, como malware, ransomware e invasã
 >
 > - **Agente de backup do Azure**. Versão mínima do agente 2.0.9052. Depois de habilitar esses recursos, você deverá atualizar para esta versão do agente para realizar operações críticas. <br/>
 > - **Servidor de backup do Azure**. Versão mínima do agente de Backup do Azure 2.0.9052 com o Servidor de Backup do Azure atualização 1. <br/>
-> - **System Center Data Protection Manager**. Versão mínima do agente de Backup do Azure 2.0.9052 com o Data Protection Manager 2012 R2 UR12 ou Data Protection Manager 2016 UR2. <br/>
+> - **Data Protection Manager do System Center**. Versão mínima do agente de Backup do Azure 2.0.9052 com o Data Protection Manager 2012 R2 UR12 ou Data Protection Manager 2016 UR2. <br/>
 
 > [!NOTE]
 > Esses recursos estão disponíveis somente para o cofre dos Serviços de Recuperação. Todos os cofres dos Serviços de Recuperação recém-criados têm esses recursos habilitados por padrão. Para cofres dos Serviços de Recuperação existentes, os usuários habilitam esses recursos usando as etapas mencionadas na seção a seguir. Após a habilitação dos recursos, eles se aplicam a todos computadores do agente dos Serviços de Recuperação, instâncias do Servidor de Backup do Azure e servidores Data Protection Manager registrados com o cofre. Habilitar essa configuração é uma ação única e você não poderá desabilitar esses recursos depois de habilitá-los.
@@ -48,7 +48,7 @@ Se você estiver criando um cofre dos Serviços de Recuperação, você pode usa
     ![Captura de tela das propriedades do cofre dos Serviços de Recuperação](./media/backup-azure-security-feature/security-settings-update.png)
 
     O link de atualização abre a folha **Configurações de Segurança**, que fornece um resumo dos recursos e permite que você os habilite.
-5. Na lista suspensa **Você configurou a Autenticação Multifator do Azure?**, selecione um valor para confirmar se você habilitou a [Autenticação Multifator do Azure](../active-directory/authentication/multi-factor-authentication.md). Se estiver habilitada, você deverá autenticar de outro dispositivo (por exemplo, telefone celular) ao fazer logon no portal do Azure.
+5. Na lista suspensa **Você configurou a Autenticação Multifator do Azure?**, selecione um valor para confirmar se você habilitou a [Autenticação Multifator do Azure](../active-directory/authentication/concept-mfa-howitworks.md). Se estiver habilitada, você deverá autenticar de outro dispositivo (por exemplo, telefone celular) ao fazer logon no portal do Azure.
 
    Ao realizar operações críticas no Backup, você poderá inserir um PIN de segurança, disponível no portal do Azure. A habilitação da Autenticação Multifator do Azure adiciona uma camada de segurança. Apenas usuários autorizados com credenciais válidas do Azure, e autenticados de um segundo dispositivo, podem acessar o portal do Azure.
 6. Para salvar as configurações de segurança, selecione **Habilitar** e clique em **Salvar**. Você só poderá selecionar **Habilitar** depois de selecionar um valor da lista **Você configurou a Autenticação Multifator do Azure** na etapa anterior.
@@ -88,7 +88,7 @@ Como parte da adição de uma camada extra de autenticação para operações cr
 
 Para receber esse PIN:
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 2. Navegue até **serviços de recuperação**  >  **configurações**do cofre  >  **Propriedades**.
 3. Em **PIN de Segurança**, clique em **Gerar**. Isso abre uma folha que contém o PIN a ser inserido na interface do usuário agente dos Serviços de Recuperação do Azure.
     Esse PIN é válido somente por cinco minutos e é gerado automaticamente após esse período.

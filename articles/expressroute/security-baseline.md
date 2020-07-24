@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e539e2a26e53ded8a2c42491c1e1e596a2180ed7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5c81897f74163191de4b167ffa56225ca0698ca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85268587"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079050"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Linha de base de segurança do Azure para ExpressRoute
 
@@ -116,7 +116,7 @@ Use qualquer uma das definições de Azure Policy internas relacionadas à marca
 
 Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar ações em recursos com base em suas marcas.
 
-* [Usar marcas para organizar seus recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Usar marcas para organizar os recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -246,7 +246,7 @@ Além disso, os parceiros que usam a API do Gerenciador de recursos de parceiros
 
 * [Entender o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* [Aproveitar o RBAC na API do Gerenciador de recursos de parceiro do ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-developmentment)
+* [Aproveitar o RBAC na API do Gerenciador de recursos de parceiro do ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -931,7 +931,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ### <a name="103-test-security-response-procedures"></a>10.3: testar procedimentos de resposta de segurança
 
-**Diretriz**: conduza exercícios para testar os recursos de resposta a incidentes de seus sistemas em uma cadência regular. Identifique pontos fracos e lacunas e revise o plano conforme necessário.
+**Orientação**: conduza exercícios para testar os recursos de resposta a incidentes de seus sistemas em uma cadência regular. Identifique pontos fracos e lacunas e revise o plano conforme necessário.
 
 * [Veja a publicação do NIST: Guia para testar, treinar e exercitar programas para planos de TI e recursos](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
@@ -979,7 +979,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Diretrizes**: * [Siga as regras de envolvimento da Microsoft para garantir que os testes de penetração não violem as políticas da Microsoft](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Você pode encontrar mais informações sobre a estratégia da Microsoft e a execução de Red Team e testes de penetração de sites ao vivo em infraestrutura, serviços e aplicativos de nuvem gerenciados pela Microsoft, aqui](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Você pode encontrar mais informações sobre a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura, serviços e aplicativos de nuvem gerenciados pela Microsoft, aqui](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

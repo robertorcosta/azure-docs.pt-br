@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mbullwin
-ms.openlocfilehash: 897e615234e17cfe36790778d00cd56371afd91f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f27771291d95770a693fa56041f7dce3de459d13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560141"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081416"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Fontes de dados de Azure Monitor pastas de trabalho
 
@@ -61,7 +61,7 @@ Para fazer com que um controle de consulta Use essa fonte de dados, use a lista 
 
 ## <a name="azure-data-explorer"></a>Azure Data Explorer
 
-As pastas de trabalho agora têm suporte para a consulta de clusters do [Azure data Explorer](https://docs.microsoft.com/azure/data-explorer/) com a poderosa linguagem de consulta [Kusto](https://docs.microsoft.com/azure/kusto/query/index) .   
+As pastas de trabalho agora têm suporte para a consulta de clusters do [Azure data Explorer](/azure/data-explorer/) com a poderosa linguagem de consulta [Kusto](/azure/kusto/query/index) .   
 
 ![Captura de tela da janela de consulta do Kusto](./media/workbooks-overview/data-explorer.png)
 
@@ -90,7 +90,7 @@ O provedor JSON permite que você crie um resultado de consulta de conteúdo JSO
 > [!NOTE]
 > A maneira sugerida de consultar as informações de alerta do Azure é usando a fonte de dados do [grafo de recursos do Azure](#azure-resource-graph) consultando a `AlertsManagementResources` tabela.
 >
-> Consulte a [referência de tabela do grafo de recursos do Azure](https://docs.microsoft.com/azure/governance/resource-graph/reference/supported-tables-resources)ou o [modelo de alertas](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) para obter exemplos.
+> Consulte a [referência de tabela do grafo de recursos do Azure](../../governance/resource-graph/reference/supported-tables-resources.md)ou o [modelo de alertas](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) para obter exemplos.
 >
 > A fonte de dados de alertas permanecerá disponível por um período de tempo enquanto os autores fazem a transição para usando ARG. O uso desta fonte de dados em modelos não é recomendado. 
 
@@ -113,5 +113,5 @@ Para evitar fazer chamadas automaticamente para hosts não confiáveis ao usar m
 
 * [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.
-* [Dicas de otimização de consulta Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization)
+* [Dicas de otimização de consulta Log Analytics](../log-query/query-optimization.md)
 * 

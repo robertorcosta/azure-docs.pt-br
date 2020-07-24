@@ -3,12 +3,12 @@ title: Instalar o agente de Serviços de Recuperação do Microsoft Azure (MARS)
 description: Saiba como instalar o agente de Serviços de Recuperação do Microsoft Azure (MARS) para fazer backup de computadores Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 7a43f585e978b7d6974ac89fbb5d93f15aebb1d7
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: b9842f6b07621301a0a8a32f5eb7fae5ece153bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855241"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079359"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instalar o agente MARS do backup do Azure
 
@@ -42,10 +42,10 @@ Os dados que estão disponíveis para backup dependem de onde o agente está ins
 
 ## <a name="modify-storage-replication"></a>Modificar a replicação de armazenamento
 
-Por padrão, os cofres usam [GRS (armazenamento com redundância geográfica)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+Por padrão, os cofres usam [GRS (armazenamento com redundância geográfica)](../storage/common/storage-redundancy.md).
 
 * Se o cofre for seu mecanismo de backup primário, recomendamos que você use GRS.
-* Você pode usar o [LRS (armazenamento com redundância local)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para reduzir os custos de armazenamento do Azure.
+* Você pode usar o [LRS (armazenamento com redundância local)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) para reduzir os custos de armazenamento do Azure.
 
 Para modificar o tipo de replicação de armazenamento:
 
@@ -95,7 +95,7 @@ Para usar o emparelhamento da Microsoft, selecione os seguintes serviços, regi�
 * Região do Azure, de acordo com o local do cofre dos serviços de recuperação
 * Armazenamento do Azure, de acordo com o local do cofre dos serviços de recuperação
 
-Para obter mais informações, consulte [requisitos de roteamento do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Para obter mais informações, consulte [requisitos de roteamento do ExpressRoute](../expressroute/expressroute-routing.md).
 
 > [!NOTE]
 > O emparelhamento público foi preterido para novos circuitos.
@@ -131,7 +131,7 @@ Se você já tiver instalado o agente em qualquer computador, certifique-se de e
 
     ![Baixar as credenciais do cofre](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-1. Selecione **Salvar**. O arquivo é baixado para a pasta downloads. Você não pode abrir o arquivo de credenciais do cofre.
+1. Clique em **Salvar**. O arquivo é baixado para a pasta downloads. Você não pode abrir o arquivo de credenciais do cofre.
 
 ## <a name="install-and-register-the-agent"></a>Instalar e registrar o agente
 

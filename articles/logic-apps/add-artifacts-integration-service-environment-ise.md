@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: a4811bcb47120ba37337c73604e33826d9affcbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8fe945b028b574e71ae24b1483ad8e7fd67b01d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830019"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078722"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Adicionar recursos ao ISE (ambiente do serviço de integração) nos aplicativos lógicos do Azure
 
@@ -127,7 +127,7 @@ Para usar conectores personalizados no ISE, crie esses conectores personalizados
 
    ![Selecionar e editar conector personalizado](./media/add-artifacts-integration-service-environment-ise/edit-custom-connectors.png)
 
-1. Continue criando o conector da maneira usual de uma definição de [openapi](https://docs.microsoft.com/connectors/custom-connectors/define-openapi-definition#import-the-openapi-definition) ou [SOAP](https://docs.microsoft.com/connectors/custom-connectors/create-register-logic-apps-soap-connector#2-define-your-connector).
+1. Continue criando o conector da maneira usual de uma definição de [openapi](/connectors/custom-connectors/define-openapi-definition#import-the-openapi-definition) ou [SOAP](/connectors/custom-connectors/create-register-logic-apps-soap-connector#2-define-your-connector).
 
 1. Para gerenciar conectores personalizados em seu ISE, consulte [gerenciar seu ambiente de serviço de integração](../logic-apps/ise-manage-integration-service-environment.md).
 

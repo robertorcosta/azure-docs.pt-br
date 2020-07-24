@@ -6,17 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
-ms.openlocfilehash: 7093e20473b799a3f05ddf30803721636732241e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e7fcde86c9bbf017ac3fca6025a025104b0d864
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77663245"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081569"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Integridade do Agente solução no Azure Monitor
 A solução Integridade do Agente no Azure ajuda você a entender, para todos os agentes que se reportam diretamente ao espaço de trabalho Log Analytics no Azure Monitor ou um grupo de gerenciamento System Center Operations Manager conectado a Azure Monitor, que não respondem e enviam dados operacionais.  Você pode também manter controle de quantos agentes estão implantados, onde eles estão distribuídos geograficamente e executam outras consultas para saber a distribuição dos agentes implantados no Azure, em outros ambientes de nuvem ou no local.    
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de implantar essa solução, confirme se você tem suporte no momento [agentes do Windows](../../log-analytics/log-analytics-windows-agent.md) relatórios no espaço de trabalho do Log Analytics ou em relatórios para um [grupo de gerenciamento do Operations Manager](../../azure-monitor/platform/om-agents.md) integrado com seu espaço de trabalho.
+Antes de implantar essa solução, confirme se você tem suporte no momento [agentes do Windows](../platform/agent-windows.md) relatórios no espaço de trabalho do Log Analytics ou em relatórios para um [grupo de gerenciamento do Operations Manager](../../azure-monitor/platform/om-agents.md) integrado com seu espaço de trabalho.
 
 ## <a name="solution-components"></a>Componentes da solução
 Essa solução consiste nos seguintes recursos que são adicionados ao seu workspace e aos agentes conectados diretamente ou ao grupo de gerenciamento conectado do Operations Manager.
@@ -66,7 +67,7 @@ A solução cria um tipo de registro no espaço de trabalho do Log Analytics.
 ### <a name="heartbeat-records"></a>Registros de pulsação
 Um registro com o tipo **pulsação** é criado.  Esses registros têm as propriedades descritas na tabela a seguir.  
 
-| Property | Descrição |
+| Propriedade | Descrição |
 | --- | --- |
 | `Type` | *Pulsação*|
 | `Category` | O valor é *Agente Direto*, *Agente SCOM* ou *o Servidor de Gerenciamento do SCOM*.|

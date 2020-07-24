@@ -6,11 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: b5c4005c95a88a40a836b9c0f6d1fd01e0417ed0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8211127d7c886b86f97e83a61b3b3ebb055851e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170266"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078670"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Chamar, disparar ou aninhar aplicativos lógicos usando pontos de extremidade HTTPS em aplicativos lógicos do Azure
 
@@ -387,7 +388,7 @@ Para exibir a definição de JSON para a ação de resposta e a definição JSON
 
 #### <a name="q-what-about-url-security"></a>P: O que dizer sobre a segurança de URL?
 
-**R: o**Azure gera com segurança URLs de retorno de chamada de aplicativo lógico usando [SAS (assinatura de acesso compartilhado)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature). Essa assinatura passa como um parâmetro de consulta e deve ser validada antes que seu aplicativo lógico possa ser executado. O Azure gera a assinatura usando uma combinação exclusiva de uma chave secreta por aplicativo lógico, o nome do gatilho e a operação que é executada. Portanto, a menos que alguém tenha acesso à chave secreta do aplicativo lógico, não é possível gerar uma assinatura válida.
+**R: o**Azure gera com segurança URLs de retorno de chamada de aplicativo lógico usando [SAS (assinatura de acesso compartilhado)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Essa assinatura passa como um parâmetro de consulta e deve ser validada antes que seu aplicativo lógico possa ser executado. O Azure gera a assinatura usando uma combinação exclusiva de uma chave secreta por aplicativo lógico, o nome do gatilho e a operação que é executada. Portanto, a menos que alguém tenha acesso à chave secreta do aplicativo lógico, não é possível gerar uma assinatura válida.
 
 > [!IMPORTANT]
 > Para sistemas de produção e de maior segurança, aconselhamos fortemente a chamar seu aplicativo lógico diretamente do navegador por esses motivos:

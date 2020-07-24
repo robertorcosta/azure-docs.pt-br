@@ -9,12 +9,12 @@ ms.subservice: faq
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: cf58b62001ce5d193e3a06973215d82138ad4b59
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 8170cfcbbf200c6ba5030aff5716f46b537d8c97
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855585"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080464"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -71,15 +71,15 @@ Sim! Para obter mais informações, confira a [documentação de zona de conjunt
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>Quais são as práticas recomendadas para o Dimensionamento Automático do Azure?
 
-Para obter as práticas recomendadas para o Dimensionamento Automático, consulte as [Práticas recomendadas para o dimensionamento automático das máquinas virtuais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices).
+Para obter as práticas recomendadas para o Dimensionamento Automático, consulte as [Práticas recomendadas para o dimensionamento automático das máquinas virtuais](../azure-monitor/platform/autoscale-best-practices.md).
 
 ### <a name="where-do-i-find-metric-names-for-autoscaling-that-uses-host-based-metrics"></a>Onde localizar os nomes de métrica para o dimensionamento automático usando as métricas baseadas em host?
 
-Para ver os nomes de métrica para o dimensionamento automático que usa as medidas baseadas em host, consulte o [Suporte para as métricas com o Azure Monitor](https://azure.microsoft.com/documentation/articles/monitoring-supported-metrics/).
+Para ver os nomes de métrica para o dimensionamento automático que usa as medidas baseadas em host, consulte o [Suporte para as métricas com o Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
 ### <a name="are-there-any-examples-of-autoscaling-based-on-an-azure-service-bus-topic-and-queue-length"></a>Há exemplos de dimensionamento automático baseado em um tópico de Azure Service Bus e comprimento da fila?
 
-Sim. Para obter exemplos de dimensionamento automático baseado em um tópico de Azure Service Bus e comprimento de fila, consulte as [Métricas comuns do dimensionamento automático do Azure Monitor](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/).
+Sim. Para obter exemplos de dimensionamento automático baseado em um tópico de Azure Service Bus e comprimento de fila, consulte as [Métricas comuns do dimensionamento automático do Azure Monitor](../azure-monitor/platform/autoscale-common-metrics.md).
 
 Para ver uma fila de Barramento de Serviço, use o seguinte JSON:
 
@@ -104,9 +104,9 @@ Substitua os valores de exemplo pelos URIs (Uniform Resource Identifier) do recu
 
 Você pode criar uma configuração de dimensionamento automático em uma VM para usar as métricas no nível do host ou as métricas baseadas no SO convidado.
 
-Para obter uma lista das métricas com suporte, consulte [Métricas comuns de dimensionamento automático do Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics).
+Para obter uma lista das métricas com suporte, consulte [Métricas comuns de dimensionamento automático do Azure Monitor](../azure-monitor/platform/autoscale-common-metrics.md).
 
-Para obter um exemplo completo dos conjuntos de dimensionamento de máquinas virtuais, consulte a [Configuração avançada do dimensionamento automático usando modelos do Resource Manager para os conjuntos de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets).
+Para obter um exemplo completo dos conjuntos de dimensionamento de máquinas virtuais, consulte a [Configuração avançada do dimensionamento automático usando modelos do Resource Manager para os conjuntos de dimensionamento de máquinas virtuais](../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md).
 
 O exemplo usa a métrica da CPU no nível do host e uma métrica de contagem de mensagens.
 
@@ -114,13 +114,13 @@ O exemplo usa a métrica da CPU no nível do host e uma métrica de contagem de 
 
 ### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>Como defino as regras de alerta em um conjunto de dimensionamento de máquinas virtuais?
 
-Você pode criar alertas nas métricas dos conjuntos de dimensionamento de máquinas virtuais via PowerShell ou CLI do Azure. Para obter mais informações, consulte [exemplos de início rápido do PowerShell do Azure Monitor](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) e [exemplos de início rápido da CLI de plataforma cruzada do Azure Monitor](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
+Você pode criar alertas nas métricas dos conjuntos de dimensionamento de máquinas virtuais via PowerShell ou CLI do Azure. Para obter mais informações, consulte [exemplos de início rápido do PowerShell do Azure Monitor](../azure-monitor/samples/powershell-samples.md#create-metric-alerts) e [exemplos de início rápido da CLI de plataforma cruzada do Azure Monitor](../azure-monitor/samples/cli-samples.md#work-with-alerts).
 
 A TargetResourceId do conjunto de dimensionamento de máquinas virtuais tem esta aparência:
 
 /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
-Você pode escolher qualquer contador de desempenho da VM como a métrica para a qual definir um alerta. Para obter mais informações, consulte as [Métricas do SO convidado para as VMs do Windows baseadas no Resource Manager](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) e as [Métricas do SO convidado para as VMs do Linux](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) no artigo [Métricas comuns de dimensionamento automático do Azure Monitor](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/).
+Você pode escolher qualquer contador de desempenho da VM como a métrica para a qual definir um alerta. Para obter mais informações, consulte as [Métricas do SO convidado para as VMs do Windows baseadas no Resource Manager](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-for-resource-manager-based-windows-vms) e as [Métricas do SO convidado para as VMs do Linux](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-linux-vms) no artigo [Métricas comuns de dimensionamento automático do Azure Monitor](../azure-monitor/platform/autoscale-common-metrics.md).
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>Como configuro o dimensionamento automático em um conjunto de dimensionamento de máquinas virtuais usando o PowerShell?
 
@@ -159,7 +159,7 @@ Use o JSON a seguir:
 
 O código suporta o Windows e o Linux.
 
-Para obter mais informações, veja [Criar ou atualizar um conjunto de dimensionamento de máquinas virtuais](https://msdn.microsoft.com/library/mt589035.aspx).
+Para obter mais informações, veja [Criar ou atualizar um conjunto de dimensionamento de máquinas virtuais](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 
 ### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Como fazer usar certificados autoassinados provisionados para clusters de Service Fabric do Azure?
@@ -169,7 +169,7 @@ Para ver o exemplo mais recente, use a seguinte instrução da CLI do Azure dent
 az sf cluster create -h
 ```
 
-Os certificados autoassinados não podem ser usados para confiança distribuída fornecida por uma Autoridade de Certificação e não devem ser usados para qualquer Cluster do Service Fabric destinado a hospedar soluções de produção empresarial; para obter diretrizes adicionais do Service Fabric Security, examine [Melhores Práticas de Segurança do Azure Service Fabric](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices) e [Cenários de segurança de cluster do Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+Os certificados autoassinados não podem ser usados para confiança distribuída fornecida por uma Autoridade de Certificação e não devem ser usados para qualquer Cluster do Service Fabric destinado a hospedar soluções de produção empresarial; para obter diretrizes adicionais do Service Fabric Security, examine [Melhores Práticas de Segurança do Azure Service Fabric](../security/fundamentals/service-fabric-best-practices.md) e [Cenários de segurança de cluster do Service Fabric](../service-fabric/service-fabric-cluster-security.md).
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Posso especificar um par de chaves SSH para usar para a autenticação do SSH com um conjunto de dimensionamento de máquinas virtuais do Linux a partir de um modelo do Resource Manager?
 
@@ -197,7 +197,7 @@ Inclua **osProfile** em seu modelo:
 
 Esse bloco JSON é usado neste [modelo de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
-Para obter mais informações, veja [Criar ou atualizar um conjunto de dimensionamento de máquinas virtuais](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
+Para obter mais informações, veja [Criar ou atualizar um conjunto de dimensionamento de máquinas virtuais](/rest/api/compute/virtualmachinescalesets/createorupdate#linuxconfiguration).
 
 ### <a name="how-do-i-remove-deprecated-certificates"></a>Como remover certificados preteridos?
 
@@ -227,7 +227,7 @@ Você pode fornecer as chaves públicas SSH em texto sem formatação ao criar u
 Nome do elemento linuxConfiguration | Obrigatório | Type | Descrição
 --- | --- | --- | ---
 ssh | Não | Coleção | Especifica a configuração da chave SSH para um SO Linux
-path | Sim | String | Especifica o caminho de arquivo do Linux no qual as chaves SSH ou o certificado deve estar localizado
+caminho | Sim | String | Especifica o caminho de arquivo do Linux no qual as chaves SSH ou o certificado deve estar localizado
 keyData | Sim | String | Especifica uma chave pública SSH codificada em base64
 
 Para obter um exemplo, consulte [o modelo de início rápido do GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
@@ -240,7 +240,7 @@ Isso poderá ocorrer se você tentar adicionar novamente o mesmo cofre, em vez d
 
 Para adicionar mais segredos do mesmo cofre de chaves, atualize a lista $vmss.properties.osProfile.secrets[0].vaultCertificates.
 
-Para ver a estrutura de entrada esperada, consulte [Criar ou atualizar um conjunto de máquinas virtuais](https://msdn.microsoft.com/library/azure/mt589035.aspx).
+Para ver a estrutura de entrada esperada, consulte [Criar ou atualizar um conjunto de máquinas virtuais](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 Localize o segredo no objeto do conjunto de dimensionamento de máquinas virtuais que está no cofre de chaves. Em seguida, adicione a referência do certificado (a URL e o nome do armazenamento de segredos) à lista associada ao cofre.
 
@@ -268,7 +268,7 @@ Os certificados são adicionados a todas as suas VMs, mesmo as preexistentes. Se
 
 ### <a name="where-do-i-put-certificates-for-linux-vms"></a>Onde coloco os certificados para as VMs do Linux?
 
-Para saber como implantar os certificados para VMs do Linux, consulte [Implantar os certificados para as VMs a partir de um cofre de chaves gerenciado pelo cliente](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/).
+Para saber como implantar os certificados para VMs do Linux, consulte [Implantar os certificados para as VMs a partir de um cofre de chaves gerenciado pelo cliente](/archive/blogs/kv/deploy-certificates-to-vms-from-customer-managed-key-vault).
 
 ### <a name="how-do-i-add-a-new-vault-certificate-to-a-new-certificate-object"></a>Como adiciono um novo certificado do cofre a um novo objeto de certificado?
 
@@ -304,7 +304,7 @@ Se você criar uma VM e atualizar o segredo no cofre de chaves, o novo certifica
 
 Para implantar as chaves públicas .cer em um conjunto de dimensionamento de máquinas virtuais, você pode gerar um arquivo .pfx que contém somente arquivos .cer. Para fazer isso, use `X509ContentType = Pfx`. Por exemplo, carregue o arquivo .cer como um objeto x509Certificate2 no C# ou no PowerShell, em seguida, chame o método.
 
-Para obter mais informações, consulte [Método X509Certificate.Export (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
+Para obter mais informações, consulte [Método X509Certificate.Export (X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?view=netcore-3.1#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_).
 
 ### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>Como fazer transmitir certificados como cadeias de caracteres Base64?
 
@@ -334,7 +334,7 @@ De uma perspectiva de conformidade, os conjuntos de dimensionamento de máquinas
 
 Para obter mais informações, consulte [a central de confiabilidade da Microsoft](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
-### <a name="does-managed-identities-for-azure-resources-work-with-virtual-machine-scale-sets"></a>[ identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) funcionam com conjuntos de escala de máquina virtual?
+### <a name="does-managed-identities-for-azure-resources-work-with-virtual-machine-scale-sets"></a>[ identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) funcionam com conjuntos de escala de máquina virtual?
 
 Sim. Você pode ver alguns modelos de MSI de exemplo nos modelos de início rápido do Azure para [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) e [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
@@ -436,7 +436,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="how-do-i-execute-a-custom-script-thats-hosted-in-a-private-storage-account"></a>Como fazer executar um script personalizado hospedado em uma conta de armazenamento particular?
 
-Para executar um script personalizado hospedado em uma conta de armazenamento privado, defina as configurações protegidas com a chave da conta de armazenamento e o nome. Para obter mais informações, consulte [extensão de script personalizado](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+Para executar um script personalizado hospedado em uma conta de armazenamento privado, defina as configurações protegidas com a chave da conta de armazenamento e o nome. Para obter mais informações, consulte [extensão de script personalizado](../virtual-machines/extensions/custom-script-windows.md?toc=/azure/virtual-machines/windows/toc.json#property-managedidentity).
 
 ## <a name="passwords"></a>Senhas
 
@@ -448,7 +448,7 @@ Há duas maneiras de alterar a senha de VMs em conjuntos de escala.
 
     Atualize as credenciais de administrador diretamente no modelo do conjunto de escala (por exemplo usando o Gerenciador de recursos do Azure, PowerShell ou CLI). Depois que o conjunto de escala é atualizado, todas as novas máquinas virtuais têm as novas credenciais. Máquinas virtuais existentes têm somente as novas credenciais caso tenham as imagens refeitas.
 
-- Redefina a senha usando as extensões de acesso da VM. Certifique-se de seguir os requisitos de senha conforme descrito [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).
+- Redefina a senha usando as extensões de acesso da VM. Certifique-se de seguir os requisitos de senha conforme descrito [aqui](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
     Use o seguinte exemplo do PowerShell:
 
@@ -523,7 +523,7 @@ Para implantar um conjunto de dimensionamento de máquinas virtuais para uma red
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Posso usar conjuntos de escala com Rede Acelerada?
 
-Sim. Para usar a rede acelerada, defina enableAcceleratedNetworking como true nas configurações de networkInterfaceConfigurations do conjunto de dimensionamento. Por exemplo,
+Sim. Para usar a rede acelerada, defina enableAcceleratedNetworking como true nas configurações de networkInterfaceConfigurations do conjunto de dimensionamento. Por exemplo
 
 ```json
 "networkProfile": {
@@ -635,7 +635,7 @@ Sim, é possível mover recursos do conjunto de dimensionamento para uma nova as
 
 ### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>Como atualizo meu conjunto de dimensionamento de máquinas virtuais para uma nova imagem? Como gerencio os patches?
 
-Para atualizar o conjunto de dimensionamento de máquinas virtuais para uma nova imagem e gerenciar os patches, consulte [Atualizar um conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
+Para atualizar o conjunto de dimensionamento de máquinas virtuais para uma nova imagem e gerenciar os patches, consulte [Atualizar um conjunto de dimensionamento de máquinas virtuais](./virtual-machine-scale-sets-upgrade-scale-set.md).
 
 ### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>Posso usar a operação de recriação de imagem para redefinir uma VM sem alterar a imagem? (Ou seja, quero redefinir uma VM para as configurações de fábrica, em vez de uma nova imagem.)
 
@@ -671,7 +671,7 @@ Para ativar o diagnóstico de inicialização, primeiro, crie uma conta de armaz
 }
 ```
 
-Quando uma nova VM for criada, a propriedade InstanceView da VM mostrará os detalhes da captura de tela etc. Aqui está um exemplo:
+Quando uma nova VM for criada, a propriedade InstanceView da VM mostrará os detalhes da captura de tela etc. Este é um exemplo:
 
 ```json
 "bootDiagnostics": {

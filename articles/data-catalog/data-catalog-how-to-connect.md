@@ -4,13 +4,14 @@ description: Artigo de instruções que destaca como se conectar a fontes de dad
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 1190a0f34206004b72730a6af85bbe5db7d9961a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53a861761f819c2127228e7ef688f04d91744d25
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68976781"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081246"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Como se conectar a fontes de dados
 ## <a name="introduction"></a>Introdução
@@ -38,7 +39,7 @@ Ao usar o menu "Abrir em..." para as fontes de dados no portal do Catálogo de D
 | Excel (Top 1000) |.odc |Excel 2010 ou posterior |
 | Power Query |.xlsx |Excel 2016, Excel 2010 ou Excel 2013 com o Power Query para o suplemento do Excel instalado |
 | Power BI Desktop |.pbix |Power BI Desktop de julho de 2016 ou posterior |
-| SQL Server Data Tools |vsweb:// |Visual Studio 2013 Atualização 4 ou posterior com ferramentas do SQL Server instaladas |
+| Ferramentas de dados do SQL Server |vsweb:// |Visual Studio 2013 Atualização 4 ou posterior com ferramentas do SQL Server instaladas |
 | Gerenciador de Relatórios |http:// |Consulte [requisitos do navegador para os Serviços de Relatório do SQL Server](https://technet.microsoft.com/library/ms156511.aspx) |
 
 ## <a name="your-data-your-tools"></a>Seus dados, suas ferramentas
@@ -58,5 +59,5 @@ Para facilitar a descoberta de uma fonte de dados para usuários que não tenham
 ## <a name="summary"></a>Resumo
 O registro de uma fonte de dados no **Catálogo de Dados do Azure** torna os dados descobríveis ao copiar metadados estruturais e descritivos da fonte de dados para o serviço Catálogo. Depois que uma fonte de dados for registrada e descoberta, os usuários poderão se conectar à fonte de dados do menu “Abrir no...” do portal **Catálogo de Dados do Azure** ou usando suas ferramentas de dados à sua escolha.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 * [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como conectar as fontes de dados.

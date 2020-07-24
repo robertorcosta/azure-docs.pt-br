@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: 692fe12d12538bc35e3a22d4af1bd185839f69d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce3d0a5beb5903d29b1deec345cf4673e3492e5d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418516"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080917"
 ---
 # <a name="output-metadata"></a>Metadados de saída
 
-Um trabalho de codificação é associado um ativo (ou ativos) de entrada no qual você deseja executar algumas tarefas de codificação. Por exemplo, codificar um arquivo MP4 em conjuntos de taxa de bits adaptável MP4 H.264; criar uma miniatura; criar sobreposições. Após a conclusão de uma tarefa, um ativo de saída é produzido.  O ativo de saída contém vídeo, áudio, miniaturas e outros arquivos. O ativo de saída também contém um arquivo com metadados sobre o ativo de saída. O nome do arquivo JSON de metadados tem o seguinte formato: `<source_file_name>_manifest.json` (por exemplo, `BigBuckBunny_manifest.json` ).  
+Um trabalho de codificação é associado um ativo (ou ativos) de entrada no qual você deseja executar algumas tarefas de codificação. Por exemplo, codificar um arquivo MP4 em conjuntos de taxa de bits adaptável MP4 H.264; criar uma miniatura; criar sobreposições. Após a conclusão de uma tarefa, um ativo de saída é produzido.  O ativo de saída contém vídeo, áudio, miniaturas e outros arquivos. O ativo de saída também contém um arquivo com metadados sobre o ativo de saída. O nome do arquivo JSON de metadados tem o seguinte formato: `<source_file_name>_manifest.json` (por exemplo, `BigBuckBunny_manifest.json` ). Você deve verificar qualquer * _metadata.jsem e consultar a cadeia de caracteres FilePath no para localizar o nome de arquivo de origem (sem truncamento).
 
 Os serviços de mídia não examinam os ativos de entrada preventivamente para gerar metadados. Os metadados de entrada são gerados somente como um artefato quando um ativo de entrada é processado em um trabalho. Portanto, esse artefato é gravado no ativo de saída. Ferramentas diferentes são usadas para gerar metadados para ativos de entrada e ativos de saída. Portanto, os metadados de entrada têm um esquema um pouco diferente dos metadados de saída.
 
@@ -53,7 +54,7 @@ Cada AssetFile físico pode conter zero ou mais faixas de vídeos intercaladas e
 | **Perfil** |Perfil H264 (aplicável somente ao codec H264).  <br /><br />Exemplo: `"Profile": "High"` |
 | **Level** |Nível H264 (aplicável somente ao codec H264).  <br /><br />Exemplo: `"Level": "3.2"`|
 | **Largura**<br />Obrigatório |Largura do vídeo codificado em pixels.  <br /><br />Exemplo: `"Width": "1280"`|
-| **Altura**<br />Obrigatório |Altura do vídeo codificado em pixels.  <br /><br />Exemplo: `"Height": "720"`|
+| **Tamanho**<br />Obrigatório |Altura do vídeo codificado em pixels.  <br /><br />Exemplo: `"Height": "720"`|
 | **DisplayAspectRatioNumerator**<br />Obrigatório|Numerador de taxa de proporção de exibição do vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioNumerator": 16.0`|
 | **DisplayAspectRatioDenominator**<br />Obrigatório |Denominador de taxa de proporção de exibição do vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioDenominator": 9.0`|
 | **Quadros**<br />Obrigatório |Medida de taxa de quadros de vídeo em formato .3f.  <br /><br />Exemplo: `"Framerate": 29.970`|
@@ -69,7 +70,7 @@ Cada AssetFile físico pode conter zero ou mais faixas de áudio intercaladas em
 | **Id**<br />Obrigatório  |Índice de base zero desta faixa de áudio. **Observação:**  Isso não é necessariamente o TrackID como usado em um arquivo MP4.  <br /><br />Exemplo: `"Id": 2`|
 | **Codec**  |Cadeia de caracteres de codec de faixa de áudio.  <br /><br />Exemplo: `"Codec": "aac"`|
 | **Idioma**|Exemplo: `"Language": "eng"`|
-| **Channels**<br />Obrigatório|Número de canais de áudio.  <br /><br />Exemplo: `"Channels": 2`|
+| **Canais**<br />Obrigatório|Número de canais de áudio.  <br /><br />Exemplo: `"Channels": 2`|
 | **SamplingRate**<br />Obrigatório |Taxa de amostragem de áudio em amostras/s ou Hz.  <br /><br />Exemplo: `"SamplingRate": 48000`|
 | **720p**<br />Obrigatório |Taxa média de bits de áudio em bits por segundo, calculada com base no AssetFile. Conta apenas o conteúdo de transmissão elementar e não inclui a sobrecarga de empacotamento.  <br /><br />Exemplo: `"Bitrate": 128041`|
 
