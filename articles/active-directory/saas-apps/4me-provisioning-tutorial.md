@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 423ba8c7aea9659a4c91f68a01392954c2ba6db2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c83d43fe1a2068fa4c9f24a10c0975610142a84
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77059134"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018680"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Tutorial: configurar o 4me para o provisionamento automático de usuário
 
@@ -127,7 +128,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Mapeamentos de usuário 4me](media/4me-provisioning-tutorial/4me-user-mapping.png)
     
-11. Examine os atributos de usuário que são sincronizados do Azure AD para o 4me na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no 4me para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+11. Examine os atributos de usuário que são sincronizados do Azure AD para o 4me na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no 4me para operações de atualização. Verifique se o [4me dá suporte à filtragem](https://developer.4me.com/v1/scim/users/) no atributo correspondente que você escolheu. Selecione o botão **Salvar** para confirmar as alterações.
 
     ![Mapeamentos de usuário 4me](media/4me-provisioning-tutorial/4me-user-attributes.png)
     

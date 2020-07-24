@@ -3,12 +3,12 @@ title: Suporte para migração do VMware nas migrações para Azure
 description: Saiba mais sobre o suporte para migração de VM do VMware nas migrações para Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: d8a2488e16031a4d960d039d646d9da5de1c1c2e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 5b53ae811786b1712ccd833ff155c408010d4fa4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223696"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022728"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração do VMware
 
@@ -41,7 +41,7 @@ A tabela resume os requisitos de hipervisor do VMware.
 --- | ---
 **VMware vCenter Server** | Versão 5,5, 6,0, 6,5 ou 6,7.
 **VMware vSphere host ESXI** | Versão 5,5, 6,0, 6,5 ou 6,7.
-**vCenter Server permissões** | A migração sem agente usa o [dispositivo de migração](migrate-appliance.md). O dispositivo precisa dessas permissões no vCenter Server:<br/><br/> - **Datastore. procurar**: permitir a navegação de arquivos de log da VM para solucionar problemas de criação e exclusão de instantâneos.<br/><br/> - **Datastore. LowLevelFileOperations**: permitir operações de leitura/gravação/exclusão/renomeação no navegador de repositório de armazenamento, para solucionar problemas de criação e exclusão de instantâneos.<br/><br/> - **VirtualMachine.Configuração. DiskChangeTracking**: permitir habilitar ou desabilitar o controle de alterações de discos de VM para efetuar pull de blocos de dados alterados entre instantâneos.<br/><br/> - **VirtualMachine.Configuração. DiskLease**: permitir operações de concessão de disco para uma VM, ler o disco usando o VMware VSPHERE VDDK (Kit de desenvolvimento de disco virtual).<br/><br/> - **VirtualMachine. Provisioning. AllowDiskAccess**: (especificamente para vSphere 6,0 e superior) permite abrir um disco em uma VM para acesso de leitura aleatório no disco usando o VDDK.<br/><br/> - **VirtualMachine. Provisioning. AllowReadOnlyDiskAccess**: permitir a abertura de um disco em uma VM, para ler o disco usando o VDDK.<br/><br/> - **VirtualMachine. Provisioning. AllowDiskRandomAccess**: permitir a abertura de um disco em uma VM, para ler o disco usando o VDDK.<br/><br/> - **VirtualMachine. Provisioning. AllowVirtualMachineDownload**: permite operações de leitura em arquivos associados a uma VM, para baixar os logs e solucionar problemas se ocorrer falha.<br/><br/> -* * VirtualMachine. SnapshotManagement. * * *: permitir a criação e o gerenciamento de instantâneos de VM para replicação.<br/><br/> - **Máquina virtual. interação. desligar**: permite que a VM seja desligada durante a migração para o Azure.
+**vCenter Server permissões** | A migração sem agente usa o [dispositivo de migração](migrate-appliance.md). O dispositivo precisa dessas permissões no vCenter Server:<br/><br/> - **Datastore. procurar**: permitir a navegação de arquivos de log da VM para solucionar problemas de criação e exclusão de instantâneos.<br/><br/> - **Datastore. LowLevelFileOperations**: permitir operações de leitura/gravação/exclusão/renomeação no navegador de repositório de armazenamento, para solucionar problemas de criação e exclusão de instantâneos.<br/><br/> - **VirtualMachine.Configuração. DiskChangeTracking**: permitir habilitar ou desabilitar o controle de alterações de discos de VM para efetuar pull de blocos de dados alterados entre instantâneos.<br/><br/> - **VirtualMachine.Configuração. DiskLease**: permitir operações de concessão de disco para uma VM, ler o disco usando o VMware VSPHERE VDDK (Kit de desenvolvimento de disco virtual).<br/><br/> - **VirtualMachine. Provisioning. DiskAccess**: (especificamente para vSphere 6,0 e superior) permite abrir um disco em uma VM para acesso de leitura aleatório no disco usando o VDDK.<br/><br/> - **VirtualMachine. Provisioning. ReadOnlyDiskAccess**: permitir a abertura de um disco em uma VM, para ler o disco usando o VDDK.<br/><br/> - **VirtualMachine. Provisioning. DiskRandomAccess**: permitir a abertura de um disco em uma VM, para ler o disco usando o VDDK.<br/><br/> - **VirtualMachine. Provisioning. VirtualMachineDownload**: permite operações de leitura em arquivos associados a uma VM, para baixar os logs e solucionar problemas se ocorrer falha.<br/><br/> - **VirtualMachine. SnapshotManagement. \* **: permitir a criação e o gerenciamento de instantâneos de VM para replicação.<br/><br/> - **Máquina virtual. interação. desligar**: permite que a VM seja desligada durante a migração para o Azure.
 
 
 
@@ -67,7 +67,7 @@ A tabela resume os requisitos de migração sem agente para VMs VMware.
 **E/s de vários caminhos** | Sem suporte.
 **VMotion de armazenamento** | Sem suporte. A replicação não funcionará se uma VM usar o Storage vMotion.
 **NICs agrupadas** | Sem suporte.
-**IPv6** | Sem suporte.
+**Protocolo** | Sem suporte.
 **Disco de destino** | As VMs só podem ser migradas para discos gerenciados (HDD padrão, SSD Premium) no Azure.
 **Replicação simultânea** | 300 VMs por vCenter Server. Se você tiver mais, migre-os em lotes de 300.
 
@@ -127,9 +127,9 @@ A tabela resume o suporte de VM do VMware para VMs VMware que você deseja migra
 **NFS** | Volumes NFS montados como volumes nas VMs não serão replicados.
 **destinos iSCSI** | Não há suporte para VMs com destinos iSCSI para migração sem agente.
 **E/s de vários caminhos** | Sem suporte.
-**VMotion de armazenamento** | Com suporte
+**VMotion de armazenamento** | Suportado
 **NICs agrupadas** | Sem suporte.
-**IPv6** | Sem suporte.
+**Protocolo** | Sem suporte.
 
 
 
@@ -155,7 +155,7 @@ Servidor de processo | O servidor de processo recebe dados de replicação, otim
 
 Todas as VMs locais replicadas para o Azure, com migração baseada em agente ou sem agente) devem atender aos requisitos de VM do Azure resumidos nesta tabela. 
 
-**Componente** | **Requisitos** 
+**Componente** | **Requirements** 
 --- | --- | ---
 Sistema operacional convidado | Verifica os sistemas operacionais de VM VMware com suporte para migração.<br/> Você pode migrar qualquer carga de trabalho em execução em um sistema operacional com suporte. 
 Arquitetura do sistema operacional convidado | 64 bits. 
@@ -163,7 +163,7 @@ Tamanho do disco do sistema operacional | Até 2.048 GB.
 Contagem do disco do sistema operacional | 1 
 Contagem de disco de dados | 64 ou menos. 
 Tamanho do disco de dados | Até 8.095 GB
-Adaptadores de Rede | Há suporte para vários adaptadores.
+Adaptadores de rede | Há suporte para vários adaptadores.
 VHD compartilhado | Sem suporte. 
 Disco FC | Sem suporte. 
 BitLocker | Sem suporte.<br/><br/> O BitLocker deve ser desabilitado antes da migração do computador.

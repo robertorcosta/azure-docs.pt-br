@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a61f7ff69e648262eb721eb61a98b09dbbee924c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0426872c29fa126514f22a5f4fb57f19903c967
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73961434"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021657"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurar o endereçamento IP para conectar a um site local secundário após failover
 
@@ -64,7 +65,7 @@ Os gráficos a seguir ilustram as sub-redes antes e após o failover.
 
 ![Antes do failover](./media/hyper-v-vmm-networking/network-design2.png)
 
-**Após o failover**
+**Depois do failover**
 
 ![Depois do failover](./media/hyper-v-vmm-networking/network-design3.png)
 
@@ -78,12 +79,12 @@ Após o failover, o Site Recovery aloca um endereço IP para cada interface de r
 
 Depois de habilitar a proteção para uma VM, você pode usar o script de exemplo a seguir para verificar o endereço atribuído à VM. Esse endereço IP é definido como o endereço IP de failover e atribuído à VM no momento do failover:
 
-    ```
-    $vm = Get-SCVirtualMachine -Name <VM_NAME>
-    $na = $vm[0].VirtualNetworkAdapters>
-    $ip = Get-SCIPAddress -GrantToObjectID $na[0].id
-    $ip.address 
-    ```
+```powershell
+$vm = Get-SCVirtualMachine -Name <VM_NAME>
+$na = $vm[0].VirtualNetworkAdapters>
+$ip = Get-SCIPAddress -GrantToObjectID $na[0].id
+$ip.address
+```
 
 ## <a name="use-a-different-ip-address"></a>Usar um endereço IP diferente
 
@@ -92,7 +93,7 @@ Neste cenário, os endereços IP das VMs que fazem failover são alterados. A de
 - Use valores TTL baixos para aplicativos de intranet.
 - Use o script a seguir em um plano de recuperação do Site Recovery para atualizar o servidor DNS em tempo hábil. O script não será necessário se você usar o registro DNS dinâmico.
 
-    ```
+    ```powershell
     param(
     string]$Zone,
     [string]$name,
@@ -119,7 +120,7 @@ Neste exemplo, temos endereços IP diferentes em sites primários e secundários
 
 ![Endereço IP diferente - antes do failover](./media/hyper-v-vmm-networking/network-design10.png)
 
-**Após o failover**
+**Depois do failover**
 
 ![Endereço IP diferente - depois do failover](./media/hyper-v-vmm-networking/network-design11.png)
 

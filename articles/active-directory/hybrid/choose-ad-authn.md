@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 3abd93e1699a701140e8b3558dcdf0161110ff6f
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: d02800d39e918478243429971c0d48c4d0c59148
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758122"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020093"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory
 
@@ -29,7 +30,7 @@ Escolher o método de autenticação correto é a principal preocupação para o
 A identidade é o novo plano de controle da segurança de TI, portanto, a autenticação é a proteção de acesso da organização para o novo mundo de nuvem. As organizações precisam de um plano de controle de identidade que reforce a segurança e mantenha os aplicativos de nuvem protegidos contra invasores.
 
 > [!NOTE]
-> Alterar seu método de autenticação requer planejamento, teste e potencialmente tempo de inatividade. A [distribuição em etapas](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) é uma ótima maneira de testar e migrar gradualmente da federação para a autenticação na nuvem.
+> Alterar seu método de autenticação requer planejamento, teste e potencialmente tempo de inatividade. A [distribuição em etapas](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) é uma ótima maneira de testar a migração dos usuários da Federação para a autenticação na nuvem.
 
 ### <a name="out-of-scope"></a>Fora do escopo
 As organizações que não têm um espaço de diretório local existente não são o foco deste artigo. Normalmente, essas empresas criam identidades somente na nuvem, o que não requer uma solução de identidade híbrida. As identidades somente na nuvem existem apenas na nuvem e não estão associadas a identidades locais correspondentes.

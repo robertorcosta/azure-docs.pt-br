@@ -5,27 +5,27 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 04/15/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 10616c8003d9bbbe42cb70bd1bac4193044907c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 170b90816535562d6740449157840cedb00f291d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416988"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020501"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Compartilhar uma exibição personalizada usando uma URL parametrizada
 
-Para compartilhar uma exibição personalizada no Time Series Insights Explorer, você pode criar programaticamente uma URL com parâmetros da exibição personalizada.
+Para compartilhar uma exibição personalizada no Azure Time Series Insights Explorer, você pode criar programaticamente uma URL com parâmetros da exibição personalizada.
 
-O Time Series Insights Explorer dá suporte a parâmetros de consulta de URL para especificar exibições na experiência diretamente da URL. Por exemplo, usando apenas a URL, você pode especificar um ambiente de destino, um predicado de pesquisa e um período de tempo desejado. Quando um usuário seleciona a URL personalizada, a interface fornece um link diretamente para esse ativo no portal de Time Series Insights. Aplicam-se políticas de acesso a dados.
+O Azure Time Series Insights Explorer dá suporte a parâmetros de consulta de URL para especificar exibições na experiência diretamente da URL. Por exemplo, usando apenas a URL, você pode especificar um ambiente de destino, um predicado de pesquisa e um período de tempo desejado. Quando um usuário seleciona a URL personalizada, a interface fornece um link diretamente para esse ativo no portal de Azure Time Series Insights. Aplicam-se políticas de acesso a dados.
 
 > [!TIP]
-> * Veja a [demonstração de time Series insights](https://insights.timeseries.azure.com/samples)gratuita.
-> * Leia a documentação do [Time Series insights Explorer](./time-series-insights-explorer.md) que acompanha.
+> * Veja a [demonstração de Azure Time Series insights](https://insights.timeseries.azure.com/samples)gratuita.
+> * Leia a documentação do [Azure Time Series insights Explorer](./time-series-insights-explorer.md) que acompanha.
 
 ## <a name="environment-id"></a>ID do Ambiente
 
@@ -53,7 +53,7 @@ Para um valor de tempo relativo, use `relativeMillis=<value>` , em que o *valor*
 
 Por exemplo, `&relativeMillis=3600000` exibe os 60 minutos mais recentes dos dados.
 
-Os valores aceitos correspondem ao menu de **tempo rápido** do time Series insights Explorer e incluem:
+Os valores aceitos correspondem ao menu de **tempo rápido** do Azure Time Series insights Explorer e incluem:
 
 * `1800000`(Últimos 30 minutos)
 * `3600000`(Último 60 min)
@@ -66,7 +66,7 @@ Os valores aceitos correspondem ao menu de **tempo rápido** do time Series insi
 
 ### <a name="optional-parameters"></a>Parâmetros opcionais
 
-O `timeSeriesDefinitions=<collection of term objects>` parâmetro especifica os termos de predicado que aparecerão em uma exibição de time Series insights:
+O `timeSeriesDefinitions=<collection of term objects>` parâmetro especifica os termos de predicado que aparecerão em uma exibição de Azure Time Series insights:
 
 | Parâmetro | Item de URL | Descrição |
 | --- | --- | --- |
@@ -98,7 +98,7 @@ O `timeSeriesDefinitions=<collection of term objects>` parâmetro especifica os 
 
 ### <a name="examples"></a>Exemplos
 
-Para adicionar definições de série temporal a um ambiente de Time Series Insights como um parâmetro de URL, acrescente:
+Para adicionar definições de série temporal a um ambiente de Azure Time Series Insights como um parâmetro de URL, acrescente:
 
 ```URL parameter
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
@@ -117,16 +117,16 @@ Você pode construir a seguinte URL com parâmetros para uma exibição:
 https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
-[![URL com parâmetros do Time Series Insights Explorer](media/parameterized-url/share-parameterized-url.png)](media/parameterized-url/share-parameterized-url.png#lightbox)
+[![URL com parâmetros do Azure Time Series Insights Explorer](media/parameterized-url/share-parameterized-url.png)](media/parameterized-url/share-parameterized-url.png#lightbox)
 
 > [!TIP]
 > Consulte o Gerenciador ao vivo [usando o exemplo de URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]) acima.
 
-A URL acima descreve e exibe a exibição parametrizada do Time Series Insights Explorer. 
+A URL acima descreve e exibe a exibição parametrizada do Azure Time Series Insights Explorer. 
 
 * Os predicados com parâmetros.
 
-  [![Predicados com parâmetros Time Series Insights Explorer.](media/parameterized-url/share-parameterized-url-predicates.png)](media/parameterized-url/share-parameterized-url-predicates.png#lightbox)
+  [![Predicados com parâmetros Azure Time Series Insights Explorer.](media/parameterized-url/share-parameterized-url-predicates.png)](media/parameterized-url/share-parameterized-url-predicates.png#lightbox)
 
 * A exibição de gráfico completo compartilhada.
 
@@ -136,4 +136,4 @@ A URL acima descreve e exibe a exibição parametrizada do Time Series Insights 
 
 * Saiba como [consultar dados usando C#](time-series-insights-query-data-csharp.md).
 
-* Saiba mais sobre o [Time Series insights Explorer](./time-series-insights-explorer.md).
+* Saiba mais sobre o [Azure Time Series insights Explorer](./time-series-insights-explorer.md).

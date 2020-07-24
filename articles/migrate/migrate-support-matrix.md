@@ -2,14 +2,14 @@
 title: Matriz de suporte das Migrações para Azure
 description: Fornece um resumo de configurações compatíveis e limitações do serviço de Migrações para Azure.
 ms.topic: conceptual
-ms.date: 04/19/2020
+ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: 8350f557efd9224d92388835f55871cb861eda25
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fae5af9c8717604d71ec2bf2628ea25125d5b2d5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108746"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022711"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte das Migrações para Azure
 
@@ -21,14 +21,16 @@ A tabela resume os cenários de descoberta, avaliação e migração com suporte
 
 **Implantação** | **Detalhes** 
 --- | --- 
-**Descoberta específica do aplicativo** | Você pode descobrir aplicativos, funções e recursos em execução em VMs do VMware. Atualmente, esse recurso está limitado apenas à descoberta. A avaliação está atualmente no nível do computador. Ainda não oferecemos avaliação específica a aplicativo, papel ou recurso. 
-**Avaliação locais** | Avalie cargas de trabalho locais e dados em execução em VMs do VMware, VMs do Hyper-V e servidores físicos. Avalie o uso da Avaliação de Servidor de Migrações para Azure e do Assistente de Migração de Dados da Microsoft (DMA), além de outras ferramentas e ofertas de ISV.
-**Migração local para o Azure** | Migre cargas de trabalho e dados em execução em servidores físicos, VMs do VMware, VMs do Hyper-V, servidores físicos e VMS baseadas em nuvem para o Azure. Use a Avaliação de Servidor de Migrações para Azure e o Serviço de Migração de Banco de Dados do Azure (DMS), além de outras ferramentas e ofertas de ISV, para migração.
+**Descoberta** | Você pode descobrir metadados do computador e dados de desempenho dinâmicos.
+**Descoberta de aplicativo** | Você pode descobrir aplicativos, funções e recursos em execução em VMs do VMware. Atualmente, esse recurso está limitado apenas à descoberta. A avaliação está atualmente no nível do computador. Ainda não oferecemos aplicativos, funções ou avaliações baseadas em recursos. 
+**Avaliação** | Avalie cargas de trabalho locais e dados em execução em VMs do VMware, VMs do Hyper-V e servidores físicos. Avalie usando a avaliação do servidor de migrações para Azure, Assistente de Migração de Dados da Microsoft (DMA), bem como outras ferramentas e ofertas de ISV.
+**Migração** | Migre cargas de trabalho e dados em execução em servidores físicos, VMs do VMware, VMs do Hyper-V, servidores físicos e VMS baseadas em nuvem para o Azure. Use a Avaliação de Servidor de Migrações para Azure e o Serviço de Migração de Banco de Dados do Azure (DMS), além de outras ferramentas e ofertas de ISV, para migração.
 
 > [!NOTE]
 > Atualmente, as ferramentas de ISV não podem enviar dados para Migrações para Azure no Azure Governamental. Você pode usar as ferramentas integradas da Microsoft ou as ferramentas de parceiro de forma independente.
 
 ## <a name="supported-tools"></a>Ferramentas com suporte
+
 
 O suporte a ferramentas específicas é resumido na tabela.
 
@@ -73,7 +75,11 @@ Criar um cofre de chaves para migração sem agente do VMware | Para migrar VMs 
 
 ## <a name="supported-geographies-public-cloud"></a>Regiões geográficas com suporte (nuvem pública)
 
-Você pode criar um projeto de Migrações para Azure em várias regiões geográficas na nuvem pública. Embora os projetos possam ser criados apenas nessas regiões geográficas, você pode avaliar ou migrar computadores para outros locais de destino. A região geográfica do projeto é usada apenas para armazenar os metadados descobertos.
+Você pode criar um projeto de Migrações para Azure em várias regiões geográficas na nuvem pública.
+
+- Embora os projetos possam ser criados apenas nessas regiões geográficas, você pode avaliar ou migrar computadores para outros locais de destino.
+- A região geográfica do projeto é usada apenas para armazenar os metadados descobertos.
+- Ao criar um projeto, você seleciona uma geografia. O projeto e os recursos relacionados são criados em uma das regiões na geografia. A região é alocada pelo serviço migrações para Azure.
 
 **Geografia** | **Local de armazenamento de metadados**
 --- | ---

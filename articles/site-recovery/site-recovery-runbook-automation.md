@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: 25290a66da3d5c8325513b2bea6d27d12ca7da70
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1df17ccb41c974c8939710850b5bb71ee3a5ef1b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134805"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021572"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Adicionar runbooks de Automação do Azure aos planos de recuperação
 
@@ -199,7 +199,7 @@ Em alguns cenários, talvez você não possa criar variáveis separadas para cad
 - Por exemplo, uma recuperação do SharePoint tem dois front-ends. Um aplicativo LOB (linha de negócios) básico tem apenas um front-end.
 - Nesse cenário, você não pode criar variáveis separadas para cada plano de recuperação.
 
-No exemplo a seguir, criamos uma [variável complexa](/powershell/module/servicemanagement/azure/set-azureautomationvariable) na conta de automação do Azure.
+No exemplo a seguir, criamos uma [variável complexa](/powershell/module/servicemanagement/azure.service/set-azureautomationvariable) na conta de automação do Azure.
 
 Fazemos isso especificando vários valores, usando Azure PowerShell.
 

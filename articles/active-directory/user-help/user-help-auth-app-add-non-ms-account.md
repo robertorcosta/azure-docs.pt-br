@@ -11,11 +11,12 @@ ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: b6bda6d35391543e416c377557e34de317e293eb
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 04076ed5b91f8e840a084b784477d07eea5adee7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741581"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015963"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Adicionar contas que não são da Microsoft ao aplicativo Microsoft Authenticator
 
@@ -49,7 +50,7 @@ Adicione sua conta do Google ativando a verificação de dois fatores e, em segu
 
 ### <a name="add-your-google-account-to-the-app"></a>Adicionar sua conta do Google ao aplicativo
 
-1. Na página do Google no computador, vá para a seção **Configurar segunda etapa alternativa** e escolha **Configurar** na seção **Aplicativo Autenticador**.
+1. Na página segurança da conta do Google em seu computador ( https://myaccount.google.com/security) , vá para a seção **adicionar mais segundos etapas para verificar se é você** , escolha **Configurar** na seção **aplicativo autenticador** .
 
 2. Na página **Obter códigos do aplicativo Microsoft Authenticator**, selecione **Android** ou **iPhone** com base no seu tipo de telefone e selecione **Avançar**.
 

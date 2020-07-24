@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: juliako
-ms.openlocfilehash: 1e5f1e38461b7f229f9eb7559aeb6203563fceb6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 45bb8637d37c9c3789a962c9f5ac42227d547637
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200206"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022813"
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Tutorial: criptografar vídeo com o AES-128 e usar o serviço de distribuição de chaves
 
 > [!NOTE]
-> Embora o tutorial use os exemplos do [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), as etapas gerais são as mesmas para [API REST](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) ou outros [SDKs](media-services-apis-overview.md#sdks) suportados.
+> Embora o tutorial use os exemplos do [SDK do .NET](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), as etapas gerais são as mesmas para [API REST](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event?view=azure-cli-latest) ou outros [SDKs](media-services-apis-overview.md#sdks) suportados.
 
 Você pode usar os Serviços de Mídia para a distribuição HTTP Live Streaming (HLS), MPEG-DASH e Smooth Streaming criptografado com o AES usando chaves de criptografia de 128 bits. Os Serviços de Mídia também fornecem o serviço de distribuição de chaves, que distribui chaves de criptografia para usuários autorizados. Se você quiser que os serviços de mídia criptografem dinamicamente o vídeo, associe a chave de criptografia a um localizador de streaming e também configure a política de chave de conteúdo. Quando um fluxo é solicitado por um player, os serviços de mídia usam a chave especificada para criptografar dinamicamente o conteúdo com o AES-128. Para descriptografar o fluxo, o player solicita a chave do serviço de distribuição de chaves. Para determinar se o usuário está autorizado a obter a chave, o serviço avalia a política de chave de conteúdo que você especificou para a chave.
 
@@ -57,8 +57,8 @@ Os itens a seguir são necessários para concluir o tutorial.
 
 * Examine o artigo [Visão geral da proteção de conteúdo](content-protection-overview.md).
 * Instale o Visual Studio Code ou o Visual Studio.
-* [Crie uma conta de Serviços de Mídia](create-account-cli-quickstart.md).
-* Obtenha as credenciais necessárias para usar as APIs dos serviços de mídia seguindo as [APIs de acesso](access-api-cli-how-to.md).
+* [Crie uma conta de Serviços de Mídia](./create-account-howto.md).
+* Obtenha as credenciais necessárias para usar as APIs dos serviços de mídia seguindo as [APIs de acesso](./access-api-howto.md).
 
 ## <a name="download-code"></a>Código de download
 
@@ -81,21 +81,21 @@ Para começar a usar as APIs dos serviços de mídia com o .NET, crie um objeto 
 
 ## <a name="create-an-output-asset"></a>Criar um ativo de saída  
 
-O [Ativo](https://docs.microsoft.com/rest/api/media/assets) de saída armazena o resultado do trabalho de codificação.  
+O [Ativo](/rest/api/media/assets) de saída armazena o resultado do trabalho de codificação.  
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateOutputAsset)]
 
 ## <a name="get-or-create-an-encoding-transform"></a>Obter ou criar uma transformação de codificação
 
-Ao criar um novo exemplo de [Transformação](https://docs.microsoft.com/rest/api/media/transforms), você precisa especificar o que deseja produzir como uma saída. O parâmetro necessário é um objeto **TransformOutput**, como mostrado no código a seguir. Cada **TransformOutput** contém um **Predefinição**. **Predefinição** descreve as instruções passo a passo das operações de processamento de áudio e/ou vídeo que serão usadas para gerar o **TransformOutput** desejado. O exemplo descrito neste artigo usa uma predefinição chamada **AdaptiveStreaming**. A predefinição codifica o vídeo de entrada em uma escada de taxa de bits gerada automaticamente (pares de resolução de taxa de bits) com base na resolução de entrada e na taxa de bits e, em seguida, produz arquivos de MP4 ISO com vídeo H. 264 e áudio AAC correspondentes a cada par de resolução de taxa de bits.
+Ao criar um novo exemplo de [Transformação](/rest/api/media/transforms), você precisa especificar o que deseja produzir como uma saída. O parâmetro necessário é um objeto **TransformOutput**, como mostrado no código a seguir. Cada **TransformOutput** contém um **Predefinição**. **Predefinição** descreve as instruções passo a passo das operações de processamento de áudio e/ou vídeo que serão usadas para gerar o **TransformOutput** desejado. O exemplo descrito neste artigo usa uma predefinição chamada **AdaptiveStreaming**. A predefinição codifica o vídeo de entrada em uma escada de taxa de bits gerada automaticamente (pares de resolução de taxa de bits) com base na resolução de entrada e na taxa de bits e, em seguida, produz arquivos de MP4 ISO com vídeo H. 264 e áudio AAC correspondentes a cada par de resolução de taxa de bits.
 
-Antes de criar uma nova [transformação](https://docs.microsoft.com/rest/api/media/transforms), primeiro verifique se já existe um usando o método **Get** , conforme mostrado no código a seguir. Em Serviços de Mídia v3, os métodos **Get** em entidades retornam **nulo** se a entidade não existe (uma verificação de maiúsculas e minúsculas no nome).
+Antes de criar uma nova [transformação](/rest/api/media/transforms), primeiro verifique se já existe um usando o método **Get** , conforme mostrado no código a seguir. Em Serviços de Mídia v3, os métodos **Get** em entidades retornam **nulo** se a entidade não existe (uma verificação de maiúsculas e minúsculas no nome).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#EnsureTransformExists)]
 
 ## <a name="submit-job"></a>Enviar Trabalho
 
-Conforme mecionado acima, o objeto de [Transformação](https://docs.microsoft.com/rest/api/media/transforms) é a receita e um [Trabalho](https://docs.microsoft.com/rest/api/media/jobs) é a solicitação real para os Serviços de Mídia para aplicar a **Transformação** a um determinado conteúdo de vídeo ou áudio de entrada. O **Trabalho** especifica informações como a localização do vídeo de entrada e a localização da saída.
+Conforme mecionado acima, o objeto de [Transformação](/rest/api/media/transforms) é a receita e um [Trabalho](/rest/api/media/jobs) é a solicitação real para os Serviços de Mídia para aplicar a **Transformação** a um determinado conteúdo de vídeo ou áudio de entrada. O **Trabalho** especifica informações como a localização do vídeo de entrada e a localização da saída.
 
 Neste tutorial, criamos a entrada do trabalho com base em um arquivo que é ingerido diretamente de uma [URL de origem https](job-input-from-http-how-to.md).
 
@@ -103,7 +103,7 @@ Neste tutorial, criamos a entrada do trabalho com base em um arquivo que é inge
 
 ## <a name="wait-for-the-job-to-complete"></a>Aguarde a conclusão do trabalho
 
-O trabalho leva algum tempo para ser concluído. Quando isso ocorrer, você desejará ser notificado. O exemplo de código a seguir mostra como sondar o serviço para o status do [Trabalho](https://docs.microsoft.com/rest/api/media/jobs). Sondagem não é uma prática recomendada para aplicativos de produção devido à latência potencial. A sondagem pode ser acelerada, se houver uso excessivo em uma conta. Os desenvolvedores devem usar a Grade de Eventos. Para obter mais informações, confira [Encaminhar eventos para um ponto de extremidade da Web personalizado](job-state-events-cli-how-to.md).
+O trabalho leva algum tempo para ser concluído. Quando isso ocorrer, você desejará ser notificado. O exemplo de código a seguir mostra como sondar o serviço para o status do [Trabalho](/rest/api/media/jobs). Sondagem não é uma prática recomendada para aplicativos de produção devido à latência potencial. A sondagem pode ser acelerada, se houver uso excessivo em uma conta. Os desenvolvedores devem usar a Grade de Eventos. Para obter mais informações, confira [Encaminhar eventos para um ponto de extremidade da Web personalizado](job-state-events-cli-how-to.md).
 
 O **Trabalho** normalmente passa pelos seguintes estados: **Agendado**, **Enfileirado**, **Processando**, **Concluído** (o estado final). Se o trabalho tiver encontrado um erro, você receberá o estado do **Erro**. Se o trabalho estiver para ser cancelado, você obterá **Cancelando** e **Cancelado** quando estiver pronto.
 
@@ -121,21 +121,21 @@ Quando um fluxo é solicitado por um player, os serviços de mídia usam a chave
 
 Depois que a codificação for concluída e a política de chave de conteúdo for definida, a próxima etapa é disponibilizar o vídeo no ativo de saída para os clientes o reproduzirem. Você disponibiliza o vídeo em duas etapas:
 
-1. Crie um [localizador de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators).
+1. Crie um [localizador de streaming](/rest/api/media/streaminglocators).
 2. Compile as URLs de streaming que os clientes podem usar.
 
 O processo de criação do **localizador de streaming** é chamado publicação. Por padrão, o **localizador de streaming** é válido imediatamente depois que você faz as chamadas à API. Ela dura até ser excluída, a menos que você configure as horas de início e de término opcionais.
 
-Ao criar um [localizador de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), você precisará especificar o **StreamingPolicyName**desejado. Neste tutorial, estamos usando um dos PredefinedStreamingPolicies, que informa aos serviços de mídia do Azure como publicar o conteúdo para streaming. Neste exemplo, a criptografia de envelope AES é aplicada (essa criptografia também é conhecida como criptografia ClearKey porque a chave é entregue ao cliente de reprodução via HTTPS e não uma licença DRM).
+Ao criar um [localizador de streaming](/rest/api/media/streaminglocators), você precisará especificar o **StreamingPolicyName**desejado. Neste tutorial, estamos usando um dos PredefinedStreamingPolicies, que informa aos serviços de mídia do Azure como publicar o conteúdo para streaming. Neste exemplo, a criptografia de envelope AES é aplicada (essa criptografia também é conhecida como criptografia ClearKey porque a chave é entregue ao cliente de reprodução via HTTPS e não uma licença DRM).
 
 > [!IMPORTANT]
-> Ao usar uma [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizada, será necessário estruturar um conjunto limitado dessas políticas para sua conta de Serviço de Mídia e reutilizá-las em seus Localizadores de Streaming, sempre que as mesmas opções e protocolos de criptografia forem necessários. Sua conta de Serviço de Mídia tem uma cota para o número de entradas de StreamingPolicy. Você não deve criar um novo StreamingPolicy para cada localizador de streaming.
+> Ao usar uma [StreamingPolicy](/rest/api/media/streamingpolicies) personalizada, será necessário estruturar um conjunto limitado dessas políticas para sua conta de Serviço de Mídia e reutilizá-las em seus Localizadores de Streaming, sempre que as mesmas opções e protocolos de criptografia forem necessários. Sua conta de Serviço de Mídia tem uma cota para o número de entradas de StreamingPolicy. Você não deve criar um novo StreamingPolicy para cada localizador de streaming.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateStreamingLocator)]
 
 ## <a name="get-a-test-token"></a>Obter um token de teste
 
-Neste tutorial, especificamos que a política de chave de conteúdo tenha uma restrição de token. A política restrita do token deve ser acompanhada por um token emitido por um Serviço de Token de Segurança (STS). Os serviços de mídia dão suporte a tokens no formato [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) e é isso que configuramos no exemplo.
+Neste tutorial, especificamos que a política de chave de conteúdo tenha uma restrição de token. A política restrita do token deve ser acompanhada por um token emitido por um Serviço de Token de Segurança (STS). Os serviços de mídia dão suporte a tokens no formato [JWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) e é isso que configuramos no exemplo.
 
 O ContentKeyIdentifierClaim é usado na **política de chave de conteúdo**, o que significa que o token apresentado ao serviço de distribuição de chaves deve ter o identificador da chave de conteúdo. No exemplo, não especificamos uma chave de conteúdo ao criar o localizador de streaming, o sistema criou um aleatório para nós. Para gerar o token de teste, devemos obter o ContentKeyId para colocar na declaração ContentKeyIdentifierClaim.
 
@@ -143,13 +143,13 @@ O ContentKeyIdentifierClaim é usado na **política de chave de conteúdo**, o q
 
 ## <a name="build-a-dash-streaming-url"></a>Criar uma URL de streaming de DASH
 
-Agora que o [localizador de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) foi criado, você pode obter as URLs de streaming. Para criar uma URL, você precisa concatenar o nome do host [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) e o caminho do **localizador de streaming** . Neste exemplo, o *padrão* do **Ponto de Extremidade de Streaming** é usado. Ao criar uma conta de Serviço de Mídia, este *padrão* **Ponto de Extremidade de Streaming** estará em um estado parado, portanto você precisa chamar **Iniciar**.
+Agora que o [localizador de streaming](/rest/api/media/streaminglocators) foi criado, você pode obter as URLs de streaming. Para criar uma URL, você precisa concatenar o nome do host [StreamingEndpoint](/rest/api/media/streamingendpoints) e o caminho do **localizador de streaming** . Neste exemplo, o *padrão* do **Ponto de Extremidade de Streaming** é usado. Ao criar uma conta de Serviço de Mídia, este *padrão* **Ponto de Extremidade de Streaming** estará em um estado parado, portanto você precisa chamar **Iniciar**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetMPEGStreamingUrl)]
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Limpar os recursos em sua conta de Serviços de Mídia
 
-Em geral, você deve limpar tudo, exceto os objetos que pretende reutilizar (normalmente, você reutilizará transformações, localizadores de streaming e assim por diante). Se desejar que sua conta seja limpa após fazer experimentos, exclua os recursos que não planeja reutilizar. Por exemplo, o código a seguir exclui o trabalho, os ativos criados e a política de chave de conteúdo:
+Em geral, você deve limpar tudo, exceto os objetos que pretende reutilizar (normalmente, você reutilizará transformações, localizadores de streaming e assim por diante). Se desejar que sua conta seja limpa após fazer experimentos, exclua os recursos que não planeja reutilizar. Por exemplo, o seguinte código exclui o trabalho, os ativos criados e a política de chave de conteúdo:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CleanUp)]
 

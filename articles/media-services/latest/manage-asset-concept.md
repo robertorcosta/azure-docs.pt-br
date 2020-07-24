@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9136fd702fad5c12a8ec97a68ff8a592a203d7d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6accd303ba11c4c1406c7a157fa8176972fc7a3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582209"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022900"
 ---
 # <a name="manage-assets"></a>Gerenciar ativos
 
-Nos serviços de mídia do Azure, um [ativo](https://docs.microsoft.com/rest/api/media/assets) é onde você 
+Nos serviços de mídia do Azure, um [ativo](/rest/api/media/assets) é onde você 
 
 * carregar arquivos de mídia em um ativo,
 * ingerir e arquivar transmissões ao vivo em um ativo,
@@ -56,13 +56,13 @@ Depois que os arquivos digitais são carregados no armazenamento e associados a 
     ```
 2. Obter uma URL de SAS com permissões de leitura / gravação que serão usadas para carregar arquivos digitais em contêiner do ativo.
 
-    Você pode usar a API de Serviços de Mídia do Azure [listará as URLs de contêiner do ativo](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
+    Você pode usar a API de Serviços de Mídia do Azure [listará as URLs de contêiner do ativo](/rest/api/media/assets/listcontainersas).
 
-    **AssetContainerSas. listContainerSas** usa um parâmetro [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) no qual você define `expiryTime` . A hora deve ser definida como < 24 horas.
+    **AssetContainerSas. listContainerSas** usa um parâmetro [ListContainerSasInput](/rest/api/media/assets/listcontainersas#listcontainersasinput) no qual você define `expiryTime` . A hora deve ser definida como < 24 horas.
 
-    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) retorna várias URLs SAS, pois há duas chaves de conta de armazenamento para cada conta de armazenamento. Uma conta de armazenamento tem duas chaves porque ajuda com failover e rotação direta das chaves da conta de armazenamento. A primeira URL da SAS representa a primeira chave de conta de armazenamento e a segunda URL da SAS representa a segunda chave.
+    [ListContainerSasInput](/rest/api/media/assets/listcontainersas#listcontainersasinput) retorna várias URLs SAS, pois há duas chaves de conta de armazenamento para cada conta de armazenamento. Uma conta de armazenamento tem duas chaves porque ajuda com failover e rotação direta das chaves da conta de armazenamento. A primeira URL da SAS representa a primeira chave de conta de armazenamento e a segunda URL da SAS representa a segunda chave.
 3. Use as APIs de armazenamento do Azure ou SDKs (por exemplo, a [API REST de armazenamento](../../storage/common/storage-rest-api-auth.md) ou o [SDK do .net](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) para carregar arquivos no contêiner de ativos.
-4. Use as APIs dos Serviços de Mídia v3 para criar uma transformação e um trabalho para processar seu ativo de "entrada". Para obter mais informações, consulte [Transformações e Trabalhos](transform-concept.md).
+4. Use as APIs dos Serviços de Mídia v3 para criar uma transformação e um trabalho para processar seu ativo de "entrada". Para obter mais informações, consulte [Transformações e Trabalhos](./transforms-jobs-concept.md).
 5. Transmitir o conteúdo do ativo de "saída".
 
 ### <a name="create-a-new-asset"></a>Criar um novo ativo
@@ -76,7 +76,7 @@ Depois que os arquivos digitais são carregados no armazenamento e associados a 
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{amsAccountName}/assets/{assetName}?api-version=2018-07-01
 ```
 
-Para obter um exemplo REST, consulte [Criar um ativo com exemplo de REST](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples).
+Para obter um exemplo REST, consulte [Criar um ativo com exemplo de REST](/rest/api/media/assets/createorupdate#examples).
 
 O exemplo mostra como criar o **corpo da solicitação** , onde você pode especificar a descrição, o nome do contêiner, a conta de armazenamento e outras informações úteis.
 
@@ -100,18 +100,18 @@ curl -X PUT \
  Asset asset = await client.Assets.CreateOrUpdateAsync(resourceGroupName, accountName, assetName, new Asset());
 ```
 
-### <a name="see-also"></a>Consulte também
+### <a name="see-also"></a>Confira também
 
 * [Criar uma entrada de trabalho de um arquivo local](job-input-from-local-file-how-to.md)
 * [Criar uma entrada de trabalho de uma URL HTTPS](job-input-from-http-how-to.md)
 
 ## <a name="ingest-and-archive-live-streams-into-an-asset"></a>Ingerir e arquivar transmissões ao vivo em um ativo
 
-Nos serviços de mídia, um objeto de [saída ao vivo](https://docs.microsoft.com/rest/api/media/liveoutputs) é como um gravador de vídeo digital que detectará e registrará seu fluxo ao vivo em um ativo em sua conta de serviços de mídia. O conteúdo gravado é mantido no contêiner definido pelo recurso de [ativo](https://docs.microsoft.com/rest/api/media/assets) .
+Nos serviços de mídia, um objeto de [saída ao vivo](/rest/api/media/liveoutputs) é como um gravador de vídeo digital que detectará e registrará seu fluxo ao vivo em um ativo em sua conta de serviços de mídia. O conteúdo gravado é mantido no contêiner definido pelo recurso de [ativo](/rest/api/media/assets) .
 
 Para obter mais informações, consulte:
 
-* [Usando um DVR em nuvem](live-event-cloud-dvr.md)
+* [Usar um DVR de nuvem](live-event-cloud-dvr.md)
 * [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)
 
 ## <a name="output-the-results-of-a-job-to-an-asset"></a>Gerar os resultados de um trabalho para um ativo
@@ -129,7 +129,7 @@ Para publicar um ativo para streaming, você precisa criar um [localizador de st
 
 Para obter mais informações, consulte:
 
-[Tutorial: carregar, codificar e transmitir vídeos com os serviços de mídia v3](stream-files-tutorial-with-api.md)
+[Tutorial: Fazer upload, codificar e transmitir vídeos com os Serviços de Mídia v3](stream-files-tutorial-with-api.md)
 
 ## <a name="download-results-of-a-job-from-an-output-asset"></a>Baixar resultados de um trabalho de um ativo de saída
 
@@ -145,6 +145,6 @@ Confira [Filtragem, classificação, paginação de entidades dos Serviços de M
 
 Consulte os exemplos de código completos que demonstram como carregar, codificar, analisar, transmitir ao vivo e sob demanda: 
 
-* [Java](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/), 
-* [.Net](https://docs.microsoft.com/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/), 
-* [REST](https://docs.microsoft.com/samples/azure-samples/media-services-v3-rest-postman/azure-media-services-postman-collection/).
+* [Java](/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/), 
+* [.Net](/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/), 
+* [REST](/samples/azure-samples/media-services-v3-rest-postman/azure-media-services-postman-collection/).

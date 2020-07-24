@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/06/2020
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8b7fa5aea835329be8f65a3bb1775ba5b0d97d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ca536ddacb0f81459625b733eb79282e145afba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389846"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016284"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configurar Slack para provisionamento automático de usuário
 
@@ -108,34 +108,34 @@ Esta seção orienta você pela conexão do Azure AD com a API de provisionament
    |Atributo|Type|
    |---|---|
    |ativo|Boolean|
-   |externalId|String|
-   |displayName|String|
+   |externalId|Cadeia de caracteres|
+   |displayName|Cadeia de caracteres|
    |name.familyName|String|
-   |name.givenName|String|
-   |título|String|
-   |emails[type eq "work"].value|String|
-   |userName|String|
-   |Apelido|String|
-   |endereços [tipo EQ "não tipado"]. streetAddress|String|
-   |endereços [tipo EQ "não tipado"]. localidade|String|
-   |endereços [tipo EQ "não tipado"]. região|String|
-   |endereços [tipo EQ "não tipado"]. postalCode|String|
+   |name.givenName|Cadeia de caracteres|
+   |título|Cadeia de caracteres|
+   |emails[type eq "work"].value|Cadeia de caracteres|
+   |userName|Cadeia de caracteres|
+   |Apelido|Cadeia de caracteres|
+   |endereços [tipo EQ "não tipado"]. streetAddress|Cadeia de caracteres|
+   |endereços [tipo EQ "não tipado"]. localidade|Cadeia de caracteres|
+   |endereços [tipo EQ "não tipado"]. região|Cadeia de caracteres|
+   |endereços [tipo EQ "não tipado"]. postalCode|Cadeia de caracteres|
    |endereços [tipo EQ "não tipado"]. país|String|
-   |phoneNumbers[type eq "mobile"].value|String|
-   |phoneNumbers[type eq "work"].value|String|
-   |funções [EQ principal "true"]. valor|String|
-   |localidade|String|
-   |nome. honorificPrefix|String|
-   |fotos [tipo EQ "foto"]. valor|String|
+   |phoneNumbers[type eq "mobile"].value|Cadeia de caracteres|
+   |phoneNumbers[type eq "work"].value|Cadeia de caracteres|
+   |funções [EQ principal "true"]. valor|Cadeia de caracteres|
+   |localidade|Cadeia de caracteres|
+   |nome. honorificPrefix|Cadeia de caracteres|
+   |fotos [tipo EQ "foto"]. valor|Cadeia de caracteres|
    |profileUrl|String|
-   |timezone|String|
+   |timezone|Cadeia de caracteres|
    |userType|String|
-   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. Department|String|
+   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. Department|Cadeia de caracteres|
    |urn: SCIM: esquemas: extensão: Enterprise: 1.0. Manager|Referência|
-   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. employeeNumber|String|
-   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. costCenter|String|
-   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. Organization|String|
-   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. Division|String|
+   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. employeeNumber|Cadeia de caracteres|
+   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. costCenter|Cadeia de caracteres|
+   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. Organization|Cadeia de caracteres|
+   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. Division|Cadeia de caracteres|
 
 12. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory grupos à margem de atraso**.
 
@@ -143,7 +143,7 @@ Esta seção orienta você pela conexão do Azure AD com a API de provisionament
 
       |Atributo|Type|
       |---|---|
-      |displayName|String|
+      |displayName|Cadeia de caracteres|
       |membros|Referência|
 
 14. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -169,7 +169,7 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 2. Confira a [barra de progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
 3. Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
-## <a name="connector-limitations"></a>Limitações do conector
+## <a name="troubleshooting-tips"></a>Dicas de solução de problemas
 
 * Ao configurar o atributo **displayName** do Slack, esteja ciente dos seguintes comportamentos:
 
@@ -179,11 +179,15 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
   
   * As pontuações permitidas são pontos, sublinhados, hifens, apóstrofos, colchetes (por exemplo, ** ( [ { } ] ) **) e separadores (por exemplo, **, /; **).
   
+  * a propriedade displayName não pode ter um caractere ' @ '. Se um ' @ ' estiver incluído, você poderá encontrar um evento ignorado nos logs de provisionamento com a descrição "AttributeValidationFailed".
+
   * Apenas atualiza se essas duas configurações estiverem configuradas no local de trabalho / organização do Slack - **A sincronização de perfil está ativada** e **Os usuários não podem alterar seu nome de exibição**.
-  
+
 * O atributo **userName** do Slack precisa ter menos de 21 caracteres e ter um valor exclusivo.
 
 * A margem de atraso só permite correspondência com os atributos **username** e **email**.  
+  
+* Os códigos erorr comuns estão documentados na documentação de margem de atraso oficial-https://api.slack.com/scim#errors
 
 ## <a name="change-log"></a>Log de alterações
 

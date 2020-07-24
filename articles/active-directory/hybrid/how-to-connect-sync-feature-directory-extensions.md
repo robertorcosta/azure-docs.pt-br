@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3afec7c31488529af9ba15100c914899a0d1d808
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d64bfe66f5fb871ff9f85a5d58d128ac44643846
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357453"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019754"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronização do Azure AD Connect: extensões do Directory
 É possível usar extensões de diretório para estender o esquema no Azure AD (Microsoft Azure Active Directory) com seus próprios atributos do Active Directory local. Esse recurso permite compilar aplicativos LOB ao consumir atributos que continuam gerenciando localmente. Esses atributos podem ser consumidos por meio de [extensões](https://docs.microsoft.com/graph/extensibility-overview
@@ -33,8 +33,8 @@ No momento, nenhuma carga de trabalho do Office 365 consome esses atributos.
 
 Configure quais atributos adicionais você deseja sincronizar no caminho de configurações personalizadas no assistente de instalação.
 
->[!NOTE]
->A caixa Atributos Disponíveis diferencia maiúsculas de minúsculas.
+> [!NOTE]
+> Em versões Azure AD Connect anteriores à 1.2.65.0, a caixa de pesquisa para **atributos disponíveis** diferencia maiúsculas de minúsculas.
 
 ![Assistente de extensão de esquema](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
 

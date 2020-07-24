@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: configurar o provisionamento de entrada do SuccessFactors no Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: configurar o provisionamento de entrada do SuccessFactors no AD e no Azure AD | Microsoft Docs'
 description: Saiba como configurar o provisionamento de entrada do SuccessFactors
 services: active-directory
 author: cmmdesai
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
-ms.openlocfilehash: d9317a68c8967fbe0728e8c47e59dd33367c6163
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77b4336fd9430b523f4f9fa288b7451117f7e0c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84702168"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016965"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Tutorial: configurar o SAP SuccessFactors para Active Directory provisionamento de usuário (versão prévia)
 O objetivo deste tutorial é mostrar as etapas que você precisa executar para provisionar usuários do SuccessFactors Employee central no Active Directory (AD) e no Azure AD, com write-back opcional de endereço de email para SuccessFactors. Essa integração está em visualização pública e dá suporte à recuperação de mais de [70 atributos de usuário](../app-provisioning/sap-successfactors-attribute-reference.md) do SuccessFactors Employee central.

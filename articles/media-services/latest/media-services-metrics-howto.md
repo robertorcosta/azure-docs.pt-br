@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: c230e1e950bb924631032940642a6202acf4ade8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5df104efb65152f5bcb71a86911e694611d8a742
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80382929"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022864"
 ---
 # <a name="monitor-media-services-metrics"></a>Monitorar as métricas dos Serviços de Mídia do Microsoft Azure
 
@@ -28,7 +28,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma conta dos Serviços de Mídia](create-account-cli-how-to.md)
+- [Criar uma conta dos Serviços de Mídia](./create-account-howto.md)
 - Examinar [os logs de diagnóstico e as métricas dos serviços de mídia](media-services-metrics-diagnostic-logs.md)
 
 ## <a name="view-metrics-in-azure-portal"></a>Exibir métricas no portal do Azure
@@ -67,7 +67,7 @@ az monitor metrics list --resource \
 
 Para obter outras métricas, substitua "egresso" pelo nome da métrica em que você está interessado.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Métricas do Azure Monitor](../../azure-monitor/platform/data-platform.md)
 * [Crie, exiba e gerencie alertas de métrica usando Azure monitor](../../azure-monitor/platform/alerts-metric.md).

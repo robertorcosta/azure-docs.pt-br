@@ -12,11 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48727e377c2b6707e570cad103e4b08bcb44a1cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c785e2b13e7d5c57ff6d5ce9161fea1a80da77e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764920"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019532"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy locais existentes
 
@@ -116,7 +117,7 @@ Permita o acesso às seguintes URLs:
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | O conector usa essas URLs para verificar certificados |
 | login.windows.net<br>Secure.aadcdn.microsoftonline p.com<br>*.microsoftonline.com<br>* .microsoftonline-p.com<br>*.msauth.net<br>* .msauthimages.net<br>*.msecnd.net<br>* .msftauth.net<br>*.msftauthimages.net<br>* .phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | O conector usa essas URLs durante o processo de registro. |
 
-Se o firewall ou o proxy permitir a configuração de listas de permissões de DNS, você poderá permitir conexões a \*.msappproxy.net e \*.servicebus.windows.net. Caso contrário, você precisará permitir o acesso aos [intervalos IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Os intervalos de IP são atualizados a cada semana.
+Se o firewall ou o proxy permitir a configuração de listas de permissões de DNS, você poderá permitir conexões a \*.msappproxy.net e \*.servicebus.windows.net. Caso contrário, você precisará permitir o acesso aos [intervalos de IP do Data Center do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Os intervalos de IP são atualizados a cada semana.
 
 Se você não puder permitir a conectividade pelo FQDN e precisar especificar intervalos IP, use estas opções:
 
@@ -152,6 +153,9 @@ Para habilitar isso, siga as próximas etapas:
 4.  Defina as configurações de proxy necessárias. 
 
 Essas configurações fazem com que o conector use o mesmo proxy de encaminhamento para a comunicação com o Azure e para o aplicativo de back-end. Se o conector para a comunicação do Azure não exigir nenhum proxy de encaminhamento ou exigir um proxy de encaminhamento diferente, você poderá configurá-lo modificando o arquivo ApplicationProxyConnectorService.exe.config, conforme descrito nas seções Ignorar proxies de saída ou Usar o servidor proxy de saída.
+
+> [!NOTE]
+> Há várias maneiras de configurar o proxy da Internet no sistema operacional. As configurações de proxy definidas por meio de NETSH WINHTTP (executar `NETSH WINHTTP SHOW PROXY` para verificar) substituem as configurações de proxy que você configurou na etapa 2. 
 
 O serviço atualizador do conector também usará o proxy do computador. Esse comportamento pode ser alterado modificando o arquivo ApplicationProxyConnectorUpdaterService.exe.config.
 

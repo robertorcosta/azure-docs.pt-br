@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: a0eb234d9677c479d2cb404b065da408854168e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c9a7a09d3085b1ec67bf29f142c6e7b205561ef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368355"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021742"
 ---
 # <a name="connect-your-perimeter-81-activity-logs-to-azure-sentinel"></a>Conectar seus logs de atividade do perímetro 81 ao Azure Sentinel
+
+> [!IMPORTANT]
+> O conector de dados do perímetro 81 no Azure Sentinel está atualmente em visualização pública.
+> Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo explica como conectar seu dispositivo de [logs de atividades do perímetro 81](https://www.perimeter81.com/) ao Azure Sentinel. O conector de logs de atividade do perímetro 81 permite que você traga facilmente seus dados do perímetro 81 para o Azure Sentinel, para que você possa exibi-los em pastas de trabalho, usá-los para criar alertas personalizados e incorporá-los para melhorar a investigação.
 

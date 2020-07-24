@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: ef04b1b7b5030189482e89e26e4565397cbdd7c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2226d7a769caf049af30bbca81ca3079d72970b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75779239"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023119"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Criar filtros com o SDK do .NET dos Serviços de Mídia
 
@@ -25,7 +26,7 @@ Ao entregar seu conteúdo aos clientes (streaming de eventos ao vivo ou Video po
 
 Para obter uma descrição detalhada desse recurso e dos cenários em que ele é usado, consulte manifestos e [filtros](filters-concept.md) [dinâmicos](filters-dynamic-manifest-overview.md) .
 
-Este tópico mostra como usar o SDK do .NET dos Serviços de Mídia para definir um filtro para um ativo Video por Demanda e criar [Filtros de Conta](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) e [Filtros de Ativos](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
+Este tópico mostra como usar o SDK do .NET dos Serviços de Mídia para definir um filtro para um ativo Video por Demanda e criar [Filtros de Conta](/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) e [Filtros de Ativos](/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
 
 > [!NOTE]
 > Certifique-se de examinar [presentationTimeRange](filters-concept.md#presentationtimerange).
@@ -33,13 +34,13 @@ Este tópico mostra como usar o SDK do .NET dos Serviços de Mídia para definir
 ## <a name="prerequisites"></a>Pré-requisitos 
 
 - Analise [Filtros e manifestos dinâmicos](filters-dynamic-manifest-overview.md).
-- [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta do Media Services. 
-- Obtenha as informações necessárias para [acessar as APIs](access-api-cli-how-to.md)
+- [Crie uma conta de Serviços de Mídia](./create-account-howto.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta do Media Services. 
+- Obtenha as informações necessárias para [acessar as APIs](./access-api-howto.md)
 - Analise [Carregar, codificar e transmitir usando os Serviços de Mídia do Azure](stream-files-tutorial-with-api.md) para ver como [começar a usar o .NET SDK](stream-files-tutorial-with-api.md#start_using_dotnet)
 
 ## <a name="define-a-filter"></a>Definir um filtro  
 
-No .NET, você configura as seleções de trilha com as classes [ FilterTrackSelection ](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) e [ FilterTrackPropertyCondition ](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet). 
+No .NET, você configura as seleções de trilha com as classes [ FilterTrackSelection ](/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) e [ FilterTrackPropertyCondition ](/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet). 
 
 O código a seguir define um filtro que inclui todas as faixas de áudio que são EC-3 e todas as faixas de vídeo com taxa de bits de 0 a 1000000.
 
@@ -118,5 +119,3 @@ A tabela a seguir mostra alguns exemplos de URLs com filtros:
 ## <a name="next-steps"></a>Próximas etapas
 
 [Vídeos do Stream](stream-files-tutorial-with-api.md) 
-
-

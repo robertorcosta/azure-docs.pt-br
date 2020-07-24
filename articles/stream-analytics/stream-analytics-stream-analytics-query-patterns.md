@@ -8,11 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.openlocfilehash: 78dde3f6706ecbc54daca162ac718911752fa0ca
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c79d810979641d1dc128c741c2124d9b5887aa3d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832955"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020739"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Padrões de consulta comuns no Azure Stream Analytics
 
@@ -83,7 +84,7 @@ FROM Input
 ```
 ## <a name="data-aggregation-over-time"></a>Agregação de dados ao longo do tempo
 
-Para computar informações durante uma janela de tempo, os dados podem ser agregados juntos. Nesse exemplo, uma contagem é computada nos últimos 10 minutos de tempo em relação a cada marca de carro específica.
+Para computar informações durante uma janela de tempo, os dados podem ser agregados juntos. Neste exemplo, uma contagem é calculada nos últimos 10 segundos de tempo para cada marca de carro específica.
 
 **Entrada**:
 

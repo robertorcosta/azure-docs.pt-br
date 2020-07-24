@@ -14,11 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: aa84ad9f48f79a77bad1445dadc8c5c965b13655
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7dc3212007e9b9ec67d0d235135d4d46f20b950
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85248693"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022116"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Push Seguro dos Hubs de Notificação do Azure
 
@@ -121,7 +122,7 @@ Para isso, precisamos gravar a lógica para recuperar o conteúdo seguro do back
 4. Agora, precisamos manipular a notificação de entrada e utilizar o método acima para recuperar o conteúdo a ser exibido. Primeiro, precisamos habilitar o aplicativo iOS para ser executado em segundo plano ao receber uma notificação por push. Em **XCode**, selecione seu projeto de aplicativo no painel à esquerda e depois clique no seu destino de aplicativo principal na seção **Destinos** do painel central.
 5. Então, clique na guia **Recursos** na parte superior do painel central e marque a caixa de seleção **Notificações Remotas**.
 
-    ![][IOS1]
+    ![Captura de tela do XCode, com o projeto de aplicativo selecionado e a guia recursos aberta. A caixa de seleção notificações remotas está marcada.][IOS1]
 
 6. Em `AppDelegate.m`, adicione o método a seguir para manipular notificações por push:
 

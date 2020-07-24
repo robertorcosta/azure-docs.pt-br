@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 723329022d748ee18a07fcaeaecc2aff0e5f707b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a1952f6dccf12de4cb1571dacabecf78c65cd01b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528971"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021640"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Habilitar a recuperação de desastre de zona para zona para máquinas virtuais do Azure
 
@@ -20,7 +20,6 @@ Este artigo descreve como replicar, fazer failover e failback de máquinas virtu
 
 >[!NOTE]
 >
->- Atualmente, Site Recovery não oferece suporte a planos de recuperação para recuperação de desastre de zona para zona por meio do Portal. Use o PowerShell ou a API REST para aproveitar os planos de recuperação para a recuperação de desastre de zona para zona. 
 >- O suporte para a recuperação de desastre de zona para zona está limitado atualmente a duas regiões: Sudeste Asiático e Sul do Reino Unido.  
 >- Site Recovery não move nem armazena os dados do cliente fora da região em que ele é implantado quando o cliente está usando a recuperação de desastre de zona para zona. Os clientes poderão selecionar um cofre dos serviços de recuperação em uma região diferente, se escolherem. O cofre dos serviços de recuperação contém metadados, mas não dados reais do cliente.
 
@@ -69,13 +68,13 @@ Antes de implantar a recuperação de desastre de zona em zona para suas VMs, é
 |Recurso  | Declaração de suporte  |
 |---------|---------|
 |VMs clássicas   |     Sem suporte    |
-|VMs ARM    |    Com suporte    |
-|Azure Disk Encryption V1 (passagem dupla, com AAD)     |     Com suporte |
-|Azure Disk Encryption v2 (passagem única, sem AAD)    |    Com suporte    |
+|VMs ARM    |    Suportado    |
+|Azure Disk Encryption V1 (passagem dupla, com AAD)     |     Suportado |
+|Azure Disk Encryption v2 (passagem única, sem AAD)    |    Suportado    |
 |Discos não gerenciados    |    Sem suporte    |
-|Discos gerenciados    |    Com suporte    |
-|Chaves gerenciadas do cliente    |    Com suporte    |
-|Grupos de posicionamento de proximidade    |    Com suporte    |
+|Discos gerenciados    |    Suportado    |
+|Chaves gerenciadas do cliente    |    Suportado    |
+|Grupos de posicionamento de proximidade    |    Suportado    |
 |Interoperabilidade de backup    |    Há suporte para backup e restauração em nível de arquivo. Backup e restauração de nível de VM e de disco e sem suporte.    |
 |Adicionar/remover quente    |    Os discos podem ser adicionados depois de habilitar a replicação de zona para zona. Não há suporte para a remoção de discos após habilitar a replicação de zona para zona.    | 
 

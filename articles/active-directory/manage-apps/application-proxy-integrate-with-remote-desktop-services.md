@@ -11,16 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/23/2019
+ms.date: 07/22/2020
 ms.author: kenwith
 ms.custom: it-pro
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34f3dcd607a7417932912528167a1120dbfd9b4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cba74c773e1f141db14e06cf0cda8b31d06ba4f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764512"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019515"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure AD
 
@@ -28,7 +29,7 @@ O Serviço de Área de Trabalho Remota e o Proxy de Aplicativo do Azure AD traba
 
 O público-alvo deste artigo é:
 - Os clientes atuais do Proxy de Aplicativo que desejam oferecer mais aplicativos para seus usuários finais publicando aplicativos locais através dos Serviços de Área de Trabalho Remota.
-- Clientes atuais dos Serviços de Área de Trabalho Remota cujo desejo é reduzir a superfície de ataque da respectiva implantação usando o Proxy de Aplicativo do Azure AD. Esse cenário fornece um conjunto limitado de verificação em duas etapas e controles de acesso condicional para RDS.
+- Clientes atuais dos Serviços de Área de Trabalho Remota cujo desejo é reduzir a superfície de ataque da respectiva implantação usando o Proxy de Aplicativo do Azure AD. Esse cenário fornece um conjunto de controles de acesso condicional e de verificação em duas etapas para o RDS.
 
 ## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>Como o Proxy de aplicativo se ajusta na implantação do RDS padrão
 
@@ -45,17 +46,17 @@ Em uma implantação do RDS, a função Web da Área de Trabalho Remota e a fun�
 
 ## <a name="requirements"></a>Requisitos
 
-- Use um cliente que não seja o cliente da web de área de trabalho remota, como o cliente da web não oferece suporte para o Proxy de aplicativo.
-
 - Tanto o ponto de extremidade da Web da Área de Trabalho Remota quanto o ponto de extremidade do Gateway de Área de Trabalho Remota devem estar localizados no mesmo computador e com uma raiz comum. A Web da Área de Trabalho Remota e o Gateway de Área de Trabalho Remota serão publicados como um único aplicativo com o Proxy de Aplicativo para que você possa ter uma experiência de logon único entre os dois aplicativos.
 
 - Você já deverá ter [implantado o RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) e [habilitado o Proxy de Aplicativo](application-proxy-add-on-premises-application.md).
 
-- Esse cenário pressupõe que seus usuários finais passem pelo Internet Explorer em áreas de trabalho do Windows 7 ou do Windows 10 que se conectem por meio da página da Web de RD. Se você precisar de suporte a outros sistemas operacionais, consulte [Suporte a outras configurações de cliente](#support-for-other-client-configurations).
+- Os usuários finais devem usar um navegador compatível para se conectar à Web da área de trabalho remota ou ao cliente da Web da área de trabalho remota. Para obter mais detalhes, consulte [suporte para configurações de cliente](#support-for-other-client-configurations).
 
-- Ao publicar na Web do RD, é recomendável usar o mesmo FQDN interno e externo. Se os FQDNs interno e externo forem diferentes, você deverá desabilitar a Tradução do Cabeçalho de Solicitação para evitar que o cliente receba links inválidos. 
+- Ao publicar na Web do RD, é recomendável usar o mesmo FQDN interno e externo. Se os FQDNs interno e externo forem diferentes, você deverá desabilitar a Tradução do Cabeçalho de Solicitação para evitar que o cliente receba links inválidos.
 
-- No Internet Explorer, habilite o complemento ActiveX do RDS.
+- Se você estiver usando a Web da área de trabalho remota no Internet Explorer, será necessário habilitar o complemento ActiveX do RDS.
+
+- Se você estiver usando o cliente Web da área de trabalho remota, será necessário usar o conector de proxy de aplicativo [versão 1.5.1975 ou posterior](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-release-version-history).
 
 - Para o fluxo de pré-autenticação do Azure AD, os usuários podem se conectar somente aos recursos publicados neles no painel **RemoteApp e áreas de trabalho** . Os usuários não podem se conectar a uma área de trabalho usando o painel **conectar-se a um PC remoto** .
 
@@ -71,7 +72,11 @@ Depois de configurar o RDS e o Proxy de Aplicativo do Azure AD em seu ambiente, 
    - Método de pré-autenticação: Azure Active Directory
    - Converter cabeçalhos de URL: não
 2. Atribua usuários ao aplicativo de Área de Trabalho Remota publicado. Certifique-se também de que todos eles tenham acesso ao RDS.
-3. Deixe o método de logon único para o aplicativo como **Logon único do Azure AD desabilitado**. É solicitado aos usuários que autentiquem uma vez no Azure AD e uma vez para a Web da Área de Trabalho Remota, eles têm logon único para o Gateway de Área de Trabalho Remota.
+3. Deixe o método de logon único para o aplicativo como **Logon único do Azure AD desabilitado**.
+
+   >[!Note]
+   >Os usuários são solicitados a autenticar uma vez no Azure AD e uma vez para a Web da área de trabalho remota, mas têm logon único no gateway RD.
+
 4. Selecione **Azure Active Directory**e, em seguida, **registros do aplicativo**. Escolha seu aplicativo na lista.
 5. Em **gerenciar**, selecione **identidade visual**.
 6. Atualize o campo **URL da Home Page** para apontar para o ponto de extremidade da Web da área de trabalho remota (como `https://\<rdhost\>.com/RDWeb` ).
@@ -110,6 +115,11 @@ Conecte-se à implantação do RDS como administrador e altere o nome do servido
 
 Agora que você configurou a Área de Trabalho Remota, o Proxy de Aplicativo do Azure AD assumiu como o componente voltado para a Internet do RDS. Você pode remover os outros pontos de extremidade voltados para a Internet pública em seus computadores da Web da Área de Trabalho Remota e do Gateway de Área de Trabalho Remota.
 
+### <a name="enable-the-rd-web-client"></a>Habilitar o cliente Web da área de trabalho remota
+Se você também quiser que os usuários possam usar o cliente Web da área de trabalho remota, siga as etapas em [Configurar o cliente web área de trabalho remota para que os usuários](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client-admin) habilitem isso.
+
+O cliente Web Área de Trabalho Remota permite que os usuários acessem a infraestrutura de Área de Trabalho Remota da sua organização por meio de um navegador da Web compatível com HTML5, como Microsoft Edge, Internet Explorer 11, Google Chrome, Safari ou Mozilla Firefox (v 55.0 e posterior).
+
 ## <a name="test-the-scenario"></a>Testar o cenário
 
 Teste o cenário com o Internet Explorer no computador com Windows 7 ou 10.
@@ -121,11 +131,12 @@ Teste o cenário com o Internet Explorer no computador com Windows 7 ou 10.
 
 ## <a name="support-for-other-client-configurations"></a>Suporte para outras configurações de cliente
 
-A configuração descrita neste artigo é para usuários no Windows 7 ou 10, com o Internet Explorer mais o complemento ActiveX do RDS. Se for necessário, no entanto, você poderá dar suporte a outros sistemas operacionais ou navegadores. A diferença está no método de autenticação que você usa.
+A configuração descrita neste artigo destina-se ao acesso ao RDS por meio da Web da área de trabalho remota ou do cliente Web da área de trabalho remota. Se for necessário, no entanto, você poderá dar suporte a outros sistemas operacionais ou navegadores. A diferença está no método de autenticação que você usa.
 
 | Método de autenticação | Configuração de cliente com suporte |
 | --------------------- | ------------------------------ |
-| Pré-autenticação    | Windows 7/10 usando o Internet Explorer + complemento ActiveX do RDS |
+| Pré-autenticação    | Web da área de trabalho remota-Windows 7/10 usando o complemento ActiveX do Internet Explorer + RDS |
+| Pré-autenticação    | Cliente Web RD-navegador da Web compatível com HTML5, como Microsoft Edge, Internet Explorer 11, Google Chrome, Safari ou Mozilla Firefox (v 55.0 e posterior) |
 | Passagem | Qualquer outro sistema operacional que dê suporte ao aplicativo de Área de Trabalho Remota da Microsoft |
 
 O fluxo de pré-autenticação oferece mais benefícios de segurança que o fluxo de passagem. Com a pré-autenticação, você pode usar os recursos de autenticação do Azure AD, como logon único, acesso condicional e verificação em duas etapas para seus recursos locais. Você também pode garantir que somente tráfego autenticado alcance sua rede.
@@ -136,5 +147,5 @@ Para usar a autenticação de passagem, há apenas duas modificações às etapa
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Habilitar acesso remoto ao SharePoint com o Proxy de Aplicativo do Azure AD](application-proxy-integrate-with-sharepoint-server.md)  
-[Considerações de segurança para acessar aplicativos remotamente usando o Proxy de Aplicativo do Azure AD](application-proxy-security.md)
+[Habilitar o acesso remoto ao SharePoint com o Azure proxy de aplicativo do AD](application-proxy-integrate-with-sharepoint-server.md) 
+ [Considerações de segurança para acessar aplicativos remotamente usando o Azure proxy de aplicativo do AD](application-proxy-security.md)

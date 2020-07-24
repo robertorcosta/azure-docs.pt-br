@@ -14,11 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cd2de0929b22dda6e566316c4eda966d8d62e24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2ccf986f81ec3abed54c85640b8afb1c5cf7172
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732643"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015877"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Controlar um diretório não gerenciado como administrador no Azure Active Directory
 
@@ -31,7 +32,7 @@ Durante o processo de controle do administrador, você pode comprovar a propried
 
 * Ao executar um [tomada de administrador "externo"](#external-admin-takeover) de um diretório não gerenciado do Azure, você adiciona o nome de domínio DNS do diretório não gerenciado ao seu diretório gerenciado do Azure. Ao adicionar o nome de domínio, um mapeamento dos usuários para os recursos é criado no diretório gerenciado do Azure, assim os usuários podem continuar a acessar os serviços sem interrupção. 
 
-## <a name="internal-admin-takeover"></a>Controle de administrador interno
+## <a name="internal-admin-takeover"></a>Assumir como administrador interno
 
 Alguns produtos que incluem o SharePoint e OneDrive, como o Office 365, não dão suporte a controle externo. Se esse for o seu cenário, ou se você for um administrador e quiser assumir uma organização não gerenciada ou "sombra" do Azure AD criada por usuários que usaram inscrição de autoatendimento, você pode fazer isso com um tomada de administrador interno.
 
@@ -73,7 +74,7 @@ Ao concluir as etapas anteriores, agora você é o administrador global da Fourt
 > [!NOTE]
 > Qualquer usuário do Power BI ou serviço de Rights Management do Azure que tenha licenças atribuídas na organização do Office 365 deverá salvar seus painéis se o nome de domínio for removido. Eles devem entrar com um nome de usuário como o *usuário \@ fourthcoffeexyz.onmicrosoft.com* , em vez de *usuário \@ fourthcoffee. xyz*.
 
-## <a name="external-admin-takeover"></a>Controle do administrador externo
+## <a name="external-admin-takeover"></a>Assumir como administrador externo
 
 Se você já gerencia uma organização com os serviços do Azure ou o Office 365, não é possível adicionar um nome de domínio personalizado se ele já estiver verificado em outra organização do Azure AD. No entanto, de sua organização gerenciada no Azure AD, você pode assumir uma organização não gerenciada como um tomada de administrador externo. O procedimento geral segue o artigo [Adicionar um domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md).
 
@@ -170,8 +171,8 @@ Um desafio bem-sucedido fará com que você retorne ao prompt sem erros.
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Adicionar um nome de domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md)
-* [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview)
-* [Azure PowerShell](/powershell/azure/overview)
+* [Como instalar e configurar o PowerShell do Azure](/powershell/azure/)
+* [Azure PowerShell](/powershell/azure/)
 * [Referência de Cmdlets do Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 

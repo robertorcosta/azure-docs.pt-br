@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
-ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e188a0e8ee8b5f2037c07c3f15fd78a42852ce9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708290"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023221"
 ---
 # <a name="filters"></a>Filtros
 
@@ -37,8 +38,8 @@ Os serviços de mídia permitem que você crie **filtros de conta** e **filtros 
 
 Existem dois tipos de filtros: 
 
-* [Filtros de conta](https://docs.microsoft.com/rest/api/media/accountfilters) (global) - podem ser aplicados a qualquer recurso na conta dos Serviços de Mídia do Azure, têm vida útil da conta.
-* [Filtros de ativos](https://docs.microsoft.com/rest/api/media/assetfilters) (local) - só podem ser aplicados a um ativo ao qual o filtro foi associado na criação, têm uma vida útil do recurso. 
+* [Filtros de conta](/rest/api/media/accountfilters) (global) - podem ser aplicados a qualquer recurso na conta dos Serviços de Mídia do Azure, têm vida útil da conta.
+* [Filtros de ativos](/rest/api/media/assetfilters) (local) - só podem ser aplicados a um ativo ao qual o filtro foi associado na criação, têm uma vida útil do recurso. 
 
 **Filtros de conta** e tipos de **filtros de ativos** têm exatamente as mesmas propriedades para definir/descrever o filtro. Exceto ao criar o **Filtro de ativos**, você precisa especificar o nome do ativo ao qual deseja associar o filtro.
 
@@ -138,7 +139,7 @@ O exemplo a seguir define um filtro de transmissão ao vivo:
 
 ## <a name="associating-filters-with-streaming-locator"></a>Associando filtros com o localizador de streaming
 
-Você pode especificar uma lista de [ativos ou filtros de conta](filters-concept.md) no [localizador de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). O [Gerenciador dinâmico](dynamic-packaging-overview.md) aplica essa lista de filtros junto com aqueles que seu cliente especifica na URL. Essa combinação gera um [manifesto dinâmico](filters-dynamic-manifest-overview.md), que é baseado em filtros na URL + filtros especificados no localizador de streaming. 
+Você pode especificar uma lista de [ativos ou filtros de conta](filters-concept.md) no [localizador de streaming](/rest/api/media/streaminglocators/create#request-body). O [Gerenciador dinâmico](dynamic-packaging-overview.md) aplica essa lista de filtros junto com aqueles que seu cliente especifica na URL. Essa combinação gera um [manifesto dinâmico](filters-dynamic-manifest-overview.md), que é baseado em filtros na URL + filtros especificados no localizador de streaming. 
 
 Veja os exemplos a seguir:
 
@@ -160,4 +161,3 @@ Os artigos a seguir mostram como criar filtros programaticamente.
 - [Criar filtros com APIs REST](filters-dynamic-manifest-rest-howto.md)
 - [Criar filtros com o .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Criar filtros com a CLI](filters-dynamic-manifest-cli-howto.md)
-

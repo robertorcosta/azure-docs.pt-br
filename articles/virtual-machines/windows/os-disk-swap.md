@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: c96fa4c453911c4ca4b8cf6d8f74647b4532109f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d4abd68e60201a17e56ee105777614c42691bfc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711537"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020331"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>Mudar o disco do sistema operacional usado por uma VM do Azure usando o PowerShell
 
@@ -24,7 +25,7 @@ A VM precisa ser interrompida\desalocada e, em seguida, a ID de recurso do disco
 Certifique-se de que o tipo de armazenamento e o tamanho da VM sejam compatíveis com o disco que você deseja anexar. Por exemplo, se o disco que você deseja usar estiver no armazenamento Premium, a VM precisa ter capacidade de armazenamento Premium (como um tamanho da série DS). Ambos os discos também devem ter o mesmo tamanho.
 E certifique-se de que você não está misturando uma VM não criptografada com um disco do sistema operacional criptografado, isso não é suportado. Se a VM não usar Azure Disk Encryption, o disco do sistema operacional que está sendo trocado não deverá estar usando Azure Disk Encryption.
 
-Obter uma lista de discos em um grupo de recursos usando [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk)
+Obter uma lista de discos em um grupo de recursos usando [Get-AzDisk](/powershell/module/az.compute/get-azdisk)
 
 ```azurepowershell-interactive
 Get-AzDisk -ResourceGroupName myResourceGroup | Format-Table -Property Name

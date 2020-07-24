@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 219e2b77a0f6f30307c43f006fcdd3828d3c8fbf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711843"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021368"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Como implantar e gerenciar um Dispositivo de Nuvem StorSimple no Azure (Atualização 3 e posteriores)
 
@@ -84,7 +84,7 @@ Antes de provisionar o dispositivo de nuvem, você precisa fazer as seguintes pr
 * Para o dispositivo de nuvem, [configure uma rede virtual no Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Se usar o Armazenamento Premium, você deve criar uma rede virtual em uma região do Azure que dá suporte ao Armazenamento Premium. As regiões de armazenamento premium são regiões que correspondem à linha de armazenamento em disco [na lista dos Serviços do Azure por Região](https://azure.microsoft.com/regions/services/).
 * É aconselhável usar o servidor DNS padrão fornecido pelo Azure em vez de especificar o nome do seu próprio servidor DNS. Se o nome do servidor DNS não for válido ou se o servidor DNS não conseguir resolver endereços IP corretamente, a criação do dispositivo de nuvem falhará.
 * Ponto a site e site a site são opcionais, mas não obrigatórios. Se desejar, você pode configurar essas opções para cenários mais avançados.
-* É possível criar [Máquinas virtuais do Azure](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (servidores de host) na rede virtual que podem usar os volumes expostos pelo dispositivo de nuvem. Esses servidores devem atender aos seguintes requisitos:
+* É possível criar [Máquinas virtuais do Azure](../virtual-machines/windows/quick-create-portal.md) (servidores de host) na rede virtual que podem usar os volumes expostos pelo dispositivo de nuvem. Esses servidores devem atender aos seguintes requisitos:
 
   * Ser VMs do Windows ou do Linux com software Iniciador iSCSI instalado.
   * Estar em execução na mesma rede virtual que o dispositivo de nuvem.

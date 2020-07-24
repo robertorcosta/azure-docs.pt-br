@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 674befe7d01d0ef88026afeb2cb9179b167a88ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f621ed1342928b7f05fc8b84bfc2fceadf494fb5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357929"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019724"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Logon Único Contínuo do Azure Active Directory: Perguntas frequentes
 
@@ -102,6 +102,10 @@ Siga estas etapas no servidor local em que você está executando o Azure AD Con
    >A conta de administrador de domínio usada não deve ser um membro do grupo usuários protegidos. Nesse caso, a operação falhará.
 
    2. Chame `Update-AzureADSSOForest -OnPremCredentials $creds`. Esse comando atualiza a chave de descriptografia do Kerberos para a `AZUREADSSO` conta de computador nessa floresta do AD específico e a atualiza no AD do Azure.
+   
+   >[!NOTE]
+   >Se você não for um administrador de domínio e tiver recebido permissões pelo administrador de domínio, deverá chamar`Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
+   
    3. Repita as etapas anteriores para cada floresta do AD em que você configurou o recurso.
 
    >[!IMPORTANT]

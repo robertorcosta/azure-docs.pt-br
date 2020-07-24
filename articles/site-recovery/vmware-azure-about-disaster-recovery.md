@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 6759b2c0f679a865d0bdcf8ea8cd39f258a9cf25
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: dfbdff01064b483085233ece47d1d3b635b68743
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132125"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021453"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Sobre a recuperação de desastres de VMs do VMware para o Azure
 
@@ -23,6 +23,9 @@ Uma estratégia de continuidade de negócios e recuperação de desastres (BCDR)
 
 - [O Backup do Azure](../backup/backup-overview.md) faz o backup de seus dados locais e da VM do Azure. Você pode fazer backup de arquivos e pastas, cargas de trabalho específicas ou uma VM inteira. 
 - [O Azure Site Recovery](site-recovery-overview.md) fornece resiliência e recuperação de desastre para aplicativos e cargas de trabalho em execução em máquinas locais ou VMs de IaaS do Azure. O Site Recovery orquestra a replicação e lida com o failover para o Azure quando ocorrem interrupções. Ele também lida com a recuperação do Azure para seu site principal. 
+
+> [!NOTE]
+> Site Recovery não move nem armazena os dados do cliente fora da região de destino, na qual a recuperação de desastres foi configurada para os computadores de origem. Os clientes poderão selecionar um cofre dos serviços de recuperação em uma região diferente, se escolherem. O cofre dos serviços de recuperação contém metadados, mas não dados reais do cliente.
 
 ## <a name="how-does-site-recovery-do-disaster-recovery"></a>Como o Site Recovery fazer a recuperação de desastres?
 

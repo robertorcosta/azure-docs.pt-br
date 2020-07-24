@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 94c261da0c935cb7a41dde768069099b4e5ed251
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb5e51503fa20cd3ace6070cb1b51f5bf32d0e13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80384068"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016248"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Tutorial: configurar o zoom para o provisionamento automático de usuário
 
@@ -121,11 +121,11 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
    |Atributo|Type|
    |---|---|
-   |userName|String|
+   |userName|Cadeia de caracteres|
    |ativo|Boolean|
-   |name.givenName|String|
-   |name.familyName|String|
-   |emails [tipo EQ "trabalho"]|String|
+   |name.givenName|Cadeia de caracteres|
+   |name.familyName|Cadeia de caracteres|
+   |emails [tipo EQ "trabalho"]|Cadeia de caracteres|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
 
 10. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -153,6 +153,9 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 
 ## <a name="connector-limitations"></a>Limitações do conector
 * O zoom só permite um máximo de 9.999 usuários básicos de hoje.
+
+## <a name="change-log"></a>Log de alterações
+* 05/14/2020-suporte para operações de atualização adicionadas para emails [tipo EQ "trabalho"] atributo.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 99565c8dc8b5cbaea9f449a9f6262a37ae5b66d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46ebb122b0165d469b1c40871d5939e50a8595c9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367182"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016280"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutorial: configurar o floco de neve para provisionamento automático de usuário
 
@@ -120,13 +120,13 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
    |Atributo|Type|
    |---|---|
    |ativo|Boolean|
-   |displayName|String|
-   |emails[type eq "work"].value|String|
-   |userName|String|
+   |displayName|Cadeia de caracteres|
+   |emails[type eq "work"].value|Cadeia de caracteres|
+   |userName|Cadeia de caracteres|
    |name.givenName|String|
    |name.familyName|String|
-   |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: defaultrole|String|
-   |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: defaultwarehouse|String|
+   |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: defaultrole|Cadeia de caracteres|
+   |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: defaultwarehouse|Cadeia de caracteres|
 
 11. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para floco de neve**.
 
@@ -163,6 +163,10 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 ## <a name="connector-limitations"></a>Limitações do conector
 
 * Os tokens SCIM gerados por floco de neve expiram em 6 meses. Lembre-se de que eles precisam ser atualizados antes de expirarem para permitir que as sincronizações de provisionamento continuem funcionando. 
+
+## <a name="change-log"></a>Log de Alterações
+
+* 07/21/2020-exclusão reversível habilitada para todos os usuários (por meio do atributo ativo).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

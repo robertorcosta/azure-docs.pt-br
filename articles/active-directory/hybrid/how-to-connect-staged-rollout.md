@@ -10,16 +10,16 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52684520aed8712aed40318f32a83194f7f86683
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f547aa900c1b8dbea27eceff7ac7ebc86a83e33
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357844"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019821"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação de nuvem usando a distribuição em etapas (versão prévia)
 
-Usando uma abordagem de distribuição em etapas, você pode evitar uma transferência de todo o seu domínio.  Isso permite que você teste seletivamente grupos de usuários com recursos de autenticação de nuvem, como a MFA (autenticação multifator) do Azure, acesso condicional, proteção de identidade para credenciais vazadas, governança de identidade e outros.  Este artigo discute como fazer essa mudança. No entanto, antes de começar a distribuição em etapas, você deve considerar as implicações caso uma ou mais das seguintes condições sejam verdadeiras:
+A distribuição em etapas permite que você teste seletivamente grupos de usuários com recursos de autenticação na nuvem, como a MFA (autenticação multifator) do Azure, acesso condicional, proteção de identidade para credenciais vazadas, governança de identidade e outros, antes de cortar seus domínios.  Este artigo discute como fazer essa mudança. No entanto, antes de começar a distribuição em etapas, você deve considerar as implicações caso uma ou mais das seguintes condições sejam verdadeiras:
     
 -  Atualmente, você está usando um servidor de Autenticação Multifator local. 
 -  Você está usando cartões inteligentes para a autenticação. 
@@ -45,7 +45,7 @@ Para obter uma visão geral do recurso, veja este vídeo chamado “Azure Active
 
 -   Você ter configurado todas as políticas apropriadas de identidade visual do locatário e de acesso condicional necessárias para os usuários que estão sendo migrados para a autenticação na nuvem.
 
--   Caso planeje usar a Autenticação Multifator do Microsoft Azure, recomendamos usar o [registro convergido para redefinição de senha self-service (SSPR) e Autenticação Multifator](../authentication/concept-registration-mfa-sspr-combined.md) para que os usuários registrem seus métodos de autenticação uma vez.
+-   Se você planeja usar a autenticação multifator do Azure, recomendamos o uso [de registro combinado para redefinição de senha de autoatendimento (SSPR) e autenticação multifator](../authentication/concept-registration-mfa-sspr-combined.md) para que os usuários registrem seus métodos de autenticação uma vez.
 
 -   Para usar o recurso de distribuição em etapas, você precisará ser um administrador global em seu locatário.
 
@@ -81,6 +81,8 @@ Os cenários a seguir não têm suporte para distribuição em etapas.
 
 
 - Ao adicionar um grupo de segurança pela primeira vez para a distribuição em etapas, você tem um limite de 200 usuários para evitar um tempo limite de UX (experiência do usuário). Depois de adicionar o grupo, você poderá adicionar mais usuários diretamente a ele conforme necessário.
+
+- Enquanto os usuários estão em distribuição em etapas, a política de expiração de senha é definida como 90 dias sem a opção de personalizá-la. 
 
 
 ## <a name="get-started-with-staged-rollout"></a>Introdução à distribuição em etapas
@@ -173,6 +175,7 @@ Faça o seguinte:
 
    >[!NOTE]
    >Os membros de um grupo são habilitados automaticamente para a distribuição em etapas. Não há suporte para grupos aninhados e dinâmicos na distribuição em etapas.
+   >Ao adicionar um novo grupo, os usuários no grupo (até 200 usuários para um novo grupo) serão atualizados para usar o immidiatly de autenticação gerenciada. Editar um grupo (adicionar ou remover usuários) pode levar até 24 horas para que as alterações entrem em vigor.
 
 ## <a name="auditing"></a>Auditoria
 
