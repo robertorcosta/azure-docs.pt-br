@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 6705d4d1edebe88a577c71b3e48cd837fa7882c6
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: ca40fcb6a2e483e656058835f187dc50bf7bc9ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86222982"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074055"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Criar um Banco de Dados Oracle em uma VM do Azure
 
@@ -325,6 +325,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre outras [Soluções Oracle no Azure](oracle-considerations.md). 
+Saiba mais sobre outras [Soluções Oracle no Azure](./oracle-overview.md). 
 
 Experimente o tutorial [Instalar e configurar o Oracle Automated Storage Management](configure-oracle-asm.md).
