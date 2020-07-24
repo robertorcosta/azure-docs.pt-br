@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/19/2018
 ms.author: genli
-ms.openlocfilehash: e76fc2da8da2325a8bb0cda47c4405c9eb03c8f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b51205fe67bfe5be46491b0238e987fc14f6737
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79249991"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074349"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Solucionar problemas de uma VM Windows anexando o disco do sistema operacional a uma VM de recuperação usando o portal do Azure
 Se ocorrer um erro de disco ou de inicialização na VM (máquina virtual) Windows no Azure, talvez você precise realizar etapas de solução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma atualização de aplicativo com falha que impede a inicialização bem-sucedida da VM. Este artigo fornece detalhes sobre como usar o portal do Azure para conectar o disco rígido virtual a outra VM Windows para corrigir erros e, em seguida, recriar a VM original. 
@@ -38,7 +39,7 @@ O processo de solução de problemas é o seguinte:
 ## <a name="take-a-snapshot-of-the-os-disk"></a>Tirar um instantâneo do disco do sistema operacional
 Um instantâneo é uma cópia completa, somente leitura de um disco rígido virtual (VHD). Recomendamos que você desligue corretamente a VM antes de tirar um instantâneo, para limpar todos os processos em andamento. Para tirar um instantâneo de um disco do sistema operacional, siga estas etapas:
 
-1. Vá para o [portal do Azure](https://portal.azure.com). Selecione **máquinas virtuais** na barra lateral e, em seguida, selecione a VM que tem o problema.
+1. Vá para [portal do Azure](https://portal.azure.com). Selecione **máquinas virtuais** na barra lateral e, em seguida, selecione a VM que tem o problema.
 1. No painel esquerdo, selecione **discos**e, em seguida, selecione o nome do disco do sistema operacional.
     ![Imagem sobre o nome do disco do sistema operacional](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
 1. Na página **visão geral** do disco do sistema operacional, selecione **criar instantâneo**.
@@ -126,9 +127,9 @@ Depois de resolver os erros, desanexe o disco rígido virtual existente da VM de
 
 ## <a name="swap-the-os-disk-for-the-vm"></a>Trocar o disco do sistema operacional da VM
 
-Portal do Azure agora dá suporte à alteração do disco do sistema operacional da VM. Para fazer isso, execute estas etapas:
+Portal do Azure agora dá suporte à alteração do disco do sistema operacional da VM. Para fazer isso, siga estas etapas:
 
-1. Vá para o [portal do Azure](https://portal.azure.com). Selecione **máquinas virtuais** na barra lateral e, em seguida, selecione a VM que tem o problema.
+1. Vá para [portal do Azure](https://portal.azure.com). Selecione **máquinas virtuais** na barra lateral e, em seguida, selecione a VM que tem o problema.
 1. No painel esquerdo, selecione **discos**e, em seguida, selecione **trocar disco do sistema operacional**.
         ![A imagem sobre o disco do sistema operacional de permuta no portal do Azure](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 

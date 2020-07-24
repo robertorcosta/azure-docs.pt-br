@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 2b901c0d77b5bd550e7e98434cf1cba2a61e6bdb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 65679c900baaf0f98a21e4b1f6b1d350c4b945c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656472"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074332"
 ---
 # <a name="azure-serial-console"></a>Console serial do Azure
 
@@ -33,7 +34,7 @@ O console serial funciona da mesma maneira nas VMs e nas instâncias do conjunto
 Para acessar o console serial na sua VM ou na instância do conjunto de dimensionamento de máquinas virtuais, você precisará do seguinte:
 
 - O diagnóstico de inicialização deve ser habilitado para a VM
-- Uma conta de usuário que usa autenticação de senha deve existir na VM. Você pode criar um usuário baseado em senha com a função [Redefinir senha](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) da extensão de acesso à VM. Selecione **Redefinir senha** na seção **Suporte + solução de problemas**.
+- Uma conta de usuário que usa autenticação de senha deve existir na VM. Você pode criar um usuário baseado em senha com a função [Redefinir senha](../extensions/vmaccess.md#reset-password) da extensão de acesso à VM. Selecione **Redefinir senha** na seção **Suporte + solução de problemas**.
 - A conta do Azure que acessa o console serial deve ter a [função Colaborador da máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) na conta de armazenamento do [diagnóstico de inicialização](boot-diagnostics.md) e na VM
 
 > [!NOTE]
@@ -68,7 +69,7 @@ O console serial está disponível para conjuntos de dimensionamento de máquina
 
 
 ### <a name="tls-12-in-serial-console"></a>TLS 1.2 no console serial
-O console serial usa TLS 1.2 de ponta a ponta para proteger toda a comunicação dentro do serviço. O console serial tem uma dependência em uma conta de armazenamento de diagnóstico de inicialização gerenciada pelo usuário e o TLS 1.2 deve ser configurado separadamente para a conta de armazenamento. As instruções para isso estão [aqui](https://docs.microsoft.com/azure/storage/common/storage-security-tls).
+O console serial usa TLS 1.2 de ponta a ponta para proteger toda a comunicação dentro do serviço. O console serial tem uma dependência em uma conta de armazenamento de diagnóstico de inicialização gerenciada pelo usuário e o TLS 1.2 deve ser configurado separadamente para a conta de armazenamento. As instruções para isso estão [aqui](../../storage/common/transport-layer-security-configure-minimum-version.md).
 
 ## <a name="advanced-uses-for-serial-console"></a>Usos avançados para o console serial
 Além do acesso do console à sua VM, o console serial do Azure também pode ser usado para o seguinte:

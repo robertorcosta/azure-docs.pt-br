@@ -3,12 +3,12 @@ title: Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge – Azu
 description: Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo ao vivo em seu dispositivo IoT Edge. Você faria isso, por exemplo, se tiver acesso a um computador Linux local e/ou tiver criado anteriormente uma conta dos serviços de mídia do Azure.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 415d22a47e6563e10a1880429537ab182d1ff7a5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ea7a1026f42cd3d8745559bc195a89b7fbcb69a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519891"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074461"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge
 
@@ -18,10 +18,10 @@ Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um computador Linux que atenda às restrições de HW/SW para análise de vídeo ao vivo
-* Assinatura do Azure para a qual você tem [privilégios de proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
-* [Criar e configurar o Hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)
-* [Registrar IoT Edge dispositivo](https://docs.microsoft.com/azure/iot-edge/how-to-register-device)
-* [Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
+* Assinatura do Azure para a qual você tem [privilégios de proprietário](../../role-based-access-control/built-in-roles.md#owner)
+* [Criar e configurar o Hub IoT](../../iot-hub/iot-hub-create-through-portal.md)
+* [Registrar IoT Edge dispositivo](../../iot-edge/how-to-register-device.md)
+* [Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Criar uma conta de Serviços de Mídia do Azure](../latest/create-account-howto.md)
     * Use uma destas regiões: leste dos EUA 2, EUA Central, norte EUA Central, leste do Japão, oeste dos EUA 2, Oeste EUA Central, leste do Canadá, Sul do Reino Unido, França central, sul da França, Norte da Suíça, Oeste da Suíça e oeste do Japão.
     * É recomendável que você use contas de armazenamento de uso geral v2 (GPv2)
@@ -225,7 +225,7 @@ Depois de criar a implantação, você retorna para a página de IoT Edge do Hub
 2.  Nos detalhes do dispositivo, verifique se o módulo de armazenamento de blob é listado como **Especificado na implantação e Relatado por dispositivo**.
 
 Pode levar alguns instantes para que o módulo seja iniciado no dispositivo e, em seguida, seja relatado de volta para o Hub IoT. Atualize a página para ver o status atualizado.
-Código de status: 200 – OK significa que [o tempo de execução do IOT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime) está íntegro e funcionando bem.
+Código de status: 200 – OK significa que [o tempo de execução do IOT Edge](../../iot-edge/iot-edge-runtime.md) está íntegro e funcionando bem.
 
 ![Status](./media/deploy-iot-edge-device/status.png)
 

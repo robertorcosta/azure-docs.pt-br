@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: f84d4fcd85f1e718f414e63bbe76fd29fa32427d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c87c517a0013fa31ba63ef1f78677fe85f5d287
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869578"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074261"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido do Azure para Windows Server
 Para clientes com o Software Assurance, o Benefício Híbrido do Azure para Windows Server permite usar as licenças locais do Windows Server e executar máquinas virtuais do Windows no Azure por um custo reduzido. Você pode usa o Benefício Híbrido do Azure para Windows Server para implantar novas máquinas virtuais com Windows OS. Este artigo percorre as etapas sobre como implantar novas VMs com o Benefício Híbrido do Azure para Windows Server e como você pode atualizar VMs existentes e em execução. Para saber mais sobre licenciamento e economia de custo do Benefício Híbrido do Azure para Windows Server, consulte a [página de licenciamento do Benefício Híbrido do Azure para Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -65,7 +66,7 @@ az vm create \
 ```
 
 ### <a name="template"></a>Modelo
-Nos modelos do Resource Manager, um parâmetro adicional para `licenseType` deve ser especificado. Você pode ler mais sobre a [criação de modelos do Azure Resource Manager](../../resource-group-authoring-templates.md)
+Nos modelos do Resource Manager, um parâmetro adicional para `licenseType` deve ser especificado. Você pode ler mais sobre a [criação de modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md)
 ```json
 "properties": {
     "licenseType": "Windows_Server",
@@ -189,7 +190,7 @@ Você também pode aprender mais sobre como [Modificar um conjunto de escala de 
 ## <a name="next-steps"></a>Próximas etapas
 - Leia mais sobre [como economizar dinheiro com o benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 - Leia sobre as [Perguntas frequentes sobre Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)
-- Leia mais sobre [Orientação detalhada sobre licenciamento do Benefício Híbrido do Azure para Windows Server](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
+- Leia mais sobre [Orientação detalhada sobre licenciamento do Benefício Híbrido do Azure para Windows Server](/windows-server/get-started/azure-hybrid-benefit)
 - Saiba mais sobre como o [Benefício Híbrido do Azure para Windows Server e o Azure Site Recovery tornam a migração de aplicativos para o Azure ainda mais econômica](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
-- Saiba mais sobre o [Windows 10 no Azure com Direitos de Hospedagem Multilocatário](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
+- Saiba mais sobre o [Windows 10 no Azure com Direitos de Hospedagem Multilocatário](./windows-desktop-multitenant-hosting-deployment.md)
 - Saiba mais sobre como [usar modelos do Resource Manager](../../azure-resource-manager/management/overview.md)

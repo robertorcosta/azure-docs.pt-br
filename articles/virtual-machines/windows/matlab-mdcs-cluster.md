@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: d34481587fd48e2eddfd268c39f6bc4f7c4e0c76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3f3dbd74ef74f091ca923f8c09680c6913ac300
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869414"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074233"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Criar clusters de Servidor de Computação Distribuída MATLAB em VMs do Azure
 Use máquinas virtuais do Microsoft Azure para criar um ou mais clusters de Servidor de Computação Distribuída MATLAB para executar suas cargas de trabalho MATLAB paralelas de computação intensiva. Instale o software de Servidor de Computação Distribuída MATLAB em uma VM para usar como uma imagem de base e usar um modelo de início rápido do Azure ou um script do Azure PowerShell (disponível no [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) para implantar e gerenciar o cluster. Após a implantação, conecte-se ao cluster para executar as cargas de trabalho.
@@ -24,7 +25,7 @@ Usando máquinas virtuais do Azure, você pode criar clusters de Servidor de Com
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Computador cliente** : você precisará de um computador cliente baseado no Windows para se comunicar com o Azure e o cluster de Servidor de Computação Distribuída MATLAB após a implantação.
-* **Azure PowerShell** : consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalá-lo no computador cliente.
+* **Azure PowerShell** : consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/) para instalá-lo no computador cliente.
 * **Assinatura do Azure** : se você não tiver uma assinatura, poderá criar uma [conta gratuita](https://azure.microsoft.com/free/) em apenas alguns minutos. Para clusters maiores, considere uma assinatura pré-paga ou outras opções de compra.
 * **Cota de vCPUs** – talvez seja necessário aumentar a cota de vCPUs para implantar um cluster grande ou mais de um cluster de Servidor de Computação Distribuída MATLAB. Para aumentar uma cota, [abra uma solicitação](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) de atendimento ao cliente online sem encargos.
 * **Licenças da MATLAB, Caixa de Ferramentas de Computação Paralela e Servidor de Computação Distribuída MATLAB** : os scripts assumem que o [Gerenciador de Licença Hospedada MathWorks](https://www.mathworks.com/help/install/license-management.html) é usado para todas as licenças.  

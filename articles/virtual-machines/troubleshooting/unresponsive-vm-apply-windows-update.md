@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 16c8eed3377c2191b4345ec59ec1eba8be01369d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76c3f729a8520c7bff7b49a1d2200d7950f8a9f4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80633951"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074296"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>A VM não está respondendo com o erro "C01A001D" ao aplicar Windows Update
 
@@ -27,7 +27,7 @@ Este artigo fornece etapas para resolver problemas em que Windows Update (KB) ge
 
 ## <a name="symptoms"></a>Sintomas
 
-Ao usar o [diagnóstico de inicialização](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para exibir a captura de tela da VM, a Windows Update (KB) em andamento é exibida, mas falha com o código de erro: ' C01A001D '.
+Ao usar o [diagnóstico de inicialização](./boot-diagnostics.md) para exibir a captura de tela da VM, a Windows Update (KB) em andamento é exibida, mas falha com o código de erro: ' C01A001D '.
 
 ![Windows Update sem resposta](./media/unresponsive-vm-apply-windows-update/unresponsive-windows-update.png)
 
@@ -49,17 +49,17 @@ Um arquivo de núcleo não pode ser criado no sistema de arquivos. O sistema ope
 
 ### <a name="create-and-access-a-repair-vm"></a>Criar e acessar uma VM de reparo
 
-1. Siga [as etapas 1-3 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar uma VM de reparo.
+1. Siga [as etapas 1-3 dos comandos de reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar uma VM de reparo.
 2. Conecte-se à VM de reparo usando Conexão de Área de Trabalho Remota.
 
 ### <a name="free-up-space-on-the-hard-disk"></a>Liberar espaço no disco rígido
 
 Se o disco ainda não for de 1 TB, você deverá redimensioná-lo. Depois que o disco for de 1 TB, execute uma limpeza de disco e uma desfragmentação da unidade.
 
-1. Verifique se o disco está cheio. Se o disco estiver abaixo de 1 TB, [expanda-o para um máximo de 1 TB usando o PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
+1. Verifique se o disco está cheio. Se o disco estiver abaixo de 1 TB, [expanda-o para um máximo de 1 TB usando o PowerShell](../windows/expand-os-disk.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
 2. Depois que o disco for de 1 TB, execute uma limpeza de disco.
-    - [Desanexe o disco de dados da VM quebrada](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk).
-    - [Anexe o disco de dados a uma VM em funcionamento](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm).
+    - [Desanexe o disco de dados da VM quebrada](../windows/detach-disk.md).
+    - [Anexe o disco de dados a uma VM em funcionamento](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
     - Use a [ferramenta de limpeza de disco](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) para liberar espaço.
 3. Após o redimensionamento e a limpeza, desfragmente a unidade:
 
@@ -115,4 +115,4 @@ Se o disco ainda não for de 1 TB, você deverá redimensioná-lo. Depois que o 
 
 ### <a name="rebuild-the-vm"></a>Recompilar a VM
 
-Use [a etapa 5 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para remontar a VM.
+Use [a etapa 5 dos comandos de reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para remontar a VM.

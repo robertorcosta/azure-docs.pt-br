@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
-ms.openlocfilehash: eec52fb2342ee85932a6e24aa4cb292496beccad
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 60be7c234a0166331c35eb6528eae11bfbbf518f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087292"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074310"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>A área de trabalho remota se desconecta com frequência na VM do Azure
 
@@ -95,7 +95,7 @@ Para solucionar esse problema, use o controle Serial ou [repare a VM off-line](#
 
 ### <a name="repair-the-vm-offline"></a>Repare a VM offline
 
-1. [Anexe o disco do sistema operacional a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Anexe o disco do sistema operacional a uma VM de recuperação](./troubleshoot-recovery-disks-portal-windows.md).
 2. Depois que o disco do sistema operacional é anexado à VM de recuperação, verifique se o disco está sinalizado como **on-line** no console de gerenciamento de disco. Anote a letra da unidade atribuída ao disco do SO anexado.
 3. No disco do SO conectado, navegue até a pasta **\windows\system32\config**. Copie todos os arquivos nesta pasta como backup, no caso de uma reversão ser necessária.
 4. Inicie o Editor do registro (regedit.exe).
@@ -184,8 +184,3 @@ Para solucionar esse problema, use o controle Serial ou [repare a VM off-line](#
 
 ## <a name="need-help"></a>Precisa de ajuda? 
 Entre em contato com o suporte. Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
-
-
-
-
-

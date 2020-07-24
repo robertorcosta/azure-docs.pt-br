@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
-ms.openlocfilehash: f5fbd80fc9a8e519cf8f49ab16d7e747c6a8171b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1cc8a43423ecd33218948aaa001fc34877eac60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76045368"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074281"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Solução de problemas de erros de limitação de API 
 
@@ -25,13 +26,13 @@ Solicitações de computação do Azure podem ser limitadas a uma assinatura e p
 
 ## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Limitação pelo Azure Resource Manager vs. provedores de recursos  
 
-Como a porta de entrada para o Azure, o Azure Resource Manager faz a validação de autenticação e de primeira ordem e a limitação de todas as solicitações de API recebidas. Os limites de taxa de chamada do Azure Resource Manager e os cabeçalhos HTTP de resposta de diagnóstico relacionados são descritos [aqui](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling).
+Como a porta de entrada para o Azure, o Azure Resource Manager faz a validação de autenticação e de primeira ordem e a limitação de todas as solicitações de API recebidas. Os limites de taxa de chamada do Azure Resource Manager e os cabeçalhos HTTP de resposta de diagnóstico relacionados são descritos [aqui](../../azure-resource-manager/management/request-limits-and-throttling.md).
  
 Quando um cliente da API do Azure recebe um erro de limitação, o status HTTP é 429 Solicitações Demais. Para entender se a limitação da solicitação é feita pelo Azure Resource Manager ou um provedor de recursos subjacente, como CRP, inspecione `x-ms-ratelimit-remaining-subscription-reads` quanto a solicitações GET e os cabeçalhos de resposta `x-ms-ratelimit-remaining-subscription-writes` quanto a solicitações não GET. Se a contagem de chamada restante está se aproximando de 0, o limite de chamada geral da assinatura definido pelo Azure Resource Manager foi atingido. As atividades de todos os clientes de assinatura são contadas juntas. Caso contrário, a limitação é proveniente de provedor de recursos de destino (aquele tratado pelo segmento `/providers/<RP>` da URL da solicitação). 
 
 ## <a name="call-rate-informational-response-headers"></a>Cabeçalhos de resposta informativa de taxa de chamada 
 
-| parâmetro                            | Formato de valor                           | Exemplo                               | Descrição                                                                                                                                                                                               |
+| Cabeçalho                            | Formato de valor                           | Exemplo                               | Descrição                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Contagem de chamadas à API restante para a política de limitação abrangendo o grupo de operações ou o bucket de recursos, incluindo o destino dessa solicitação                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | O número de contagens de chamadas "cobradas" para essa solicitação HTTP para o limite da política aplicável. Geralmente é 1. Solicitações em lote, por exemplo, para dimensionar um conjunto de dimensionamento de máquinas virtuais, podem cobrar várias contagens. |
@@ -78,8 +79,8 @@ Conforme ilustrado acima, todos os erros de limitação incluem o cabeçalho `Re
 
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>Taxa de chamada da API e analisador de erros de limitação
 Uma versão de visualização de um recurso de solução de problemas está disponível para a API do provedor de recursos de computação. Esses cmdlets do PowerShell fornecem estatísticas sobre a taxa de solicitações da API por intervalo de tempo por operação e as violações de limitação por grupo de operações (política):
--   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
--   [Export-AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
+-   [Export-AzLogAnalyticRequestRateByInterval](/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
+-   [Export-AzLogAnalyticThrottledRequest](/powershell/module/az.compute/export-azloganalyticthrottledrequest)
 
 As estatísticas de chamadas da API podem fornecer uma boa visão do comportamento do (s) cliente (s) de uma assinatura e permitir a fácil identificação de padrões de chamadas que causam limitação.
 
@@ -99,4 +100,4 @@ Os cmdlets do PowerShell usam uma API de serviço REST, que pode ser facilmente 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações orientação de novas tentativas para outros serviços no Azure, veja [Orientação de novas tentativas para serviços específicos](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)
+Para obter mais informações orientação de novas tentativas para outros serviços no Azure, veja [Orientação de novas tentativas para serviços específicos](/azure/architecture/best-practices/retry-service-specific)
