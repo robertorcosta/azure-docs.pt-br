@@ -3,12 +3,12 @@ title: Restaurar o estado do sistema para um Windows Server
 description: Explicação passo a passo para restaurar o estado do sistema do Windows Server de um backup no Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 5212e5ea0ed3a8c0e0a8e9d4fa45f1eb6c901bf5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 8ba4cb5d5617b6a051aec8c54a595e701f62fb87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184441"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067361"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para Windows Server
 
@@ -88,7 +88,7 @@ A terminologia usada nessas etapas inclui:
 6. No painel Selecionar Servidor de Backup, selecione o *Computador de origem* na lista de computadores exibidos.
 7. No painel Selecionar Modo de Recuperação, escolha **Estado do Sistema** e clique em **Avançar**.
 
-    ![Pesquisar](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. No Calendário no painel **Selecionar Volume e Data**, selecione um ponto de recuperação. Você pode restaurar de qualquer ponto de recuperação. As datas em **negrito** indicam a disponibilidade de pelo menos um ponto de recuperação. Depois de selecionar uma data, se vários pontos de recuperação estiverem disponíveis, escolha o ponto de recuperação específico no menu suspenso **hora** .
 
@@ -183,7 +183,7 @@ Este artigo abordará apenas o primeiro cenário, que chama uma restauração no
         >[!NOTE]
         >Se você estiver restaurando todos os dados de Active Directory (e não houver controladores de domínio em funcionamento restantes na floresta), na etapa 9 acima, certifique-se de selecionar **executar uma restauração autoritativa de arquivos de Active Directory**.
 
-    * Use o utilitário [Wbadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) para executar a restauração a partir da linha de comando.
+    * Use o utilitário [Wbadmin](/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) para executar a restauração a partir da linha de comando.
 
         Você precisará do identificador de versão do backup que deseja usar. Você pode obter uma lista de identificadores de versão executando este comando:
 
@@ -193,7 +193,7 @@ Este artigo abordará apenas o primeiro cenário, que chama uma restauração no
 
         Em seguida, você usa esse identificador de versão para executar a restauração.
 
-        Por exemplo, para executar uma [restauração nonauthorative de AD DS e uma restauração autoritativa da pasta SYSVOL](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) usando o backup de 04/30/2020 às 9:00, que é armazenado no recurso compartilhado `\\servername\share` para `server01` , digite:
+        Por exemplo, para executar uma [restauração nonauthorative de AD DS e uma restauração autoritativa da pasta SYSVOL](/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) usando o backup de 04/30/2020 às 9:00, que é armazenado no recurso compartilhado `\\servername\share` para `server01` , digite:
 
         ```cmd
         wbadmin start systemstaterecovery -version:04/30/2020-09:00 -backupTarget:\\servername\share -machine:server01 -authsysvol

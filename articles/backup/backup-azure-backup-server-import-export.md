@@ -3,12 +3,12 @@ title: Backup offline do DPM e do Servidor de Backup do Azure
 description: Com o backup do Azure, você pode enviar dados da rede usando o serviço de importação/exportação do Azure. Este artigo explica o fluxo de trabalho de backup offline para o DPM e o Servidor de Backup do Azure.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 3f02c48ddd2c5cd4831d8c7a84dbbf42f55a562a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f27a38657bb43a1d1153a0372db0e1f9e284eccc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187788"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067349"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Fluxo de trabalho de backup offline para o DPM e o Servidor de Backup do Azure (MABS)
 
@@ -49,7 +49,7 @@ Verifique se os pré-requisitos a seguir foram atendidos antes de iniciar o flux
 
 * No servidor DPM ou MABS, verifique se o Microsoft Edge ou o Internet Explorer 11 está instalado e se o JavaScript está habilitado.
 * Crie uma conta de Armazenamento do Azure na mesma assinatura que o cofre dos Serviços de Recuperação.
-* Verifique se você tem as [permissões necessárias](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para criar o aplicativo do Azure Active Directory. O fluxo de trabalho do Backup Offline cria um aplicativo do Azure Active Directory na assinatura associada à conta de Armazenamento do Azure. O objetivo do aplicativo é fornecer o Backup do Azure com acesso seguro e escopo definido ao Serviço de Importação do Azure, necessário para o fluxo de trabalho de Backup Offline.
+* Verifique se você tem as [permissões necessárias](../active-directory/develop/howto-create-service-principal-portal.md) para criar o aplicativo do Azure Active Directory. O fluxo de trabalho do Backup Offline cria um aplicativo do Azure Active Directory na assinatura associada à conta de Armazenamento do Azure. O objetivo do aplicativo é fornecer o Backup do Azure com acesso seguro e escopo definido ao Serviço de Importação do Azure, necessário para o fluxo de trabalho de Backup Offline.
 * Registre o provedor de recursos Microsoft.ImportExport com a assinatura que possui a conta de Armazenamento do Azure. Para registrar o provedor de recursos:
     1. No menu principal, clique em **Assinaturas**.
     2. Se você estiver inscrito em várias assinaturas, selecione a assinatura que você está usando para o backup offline. Se você usar apenas uma assinatura, ela será exibida.
@@ -64,7 +64,7 @@ Verifique se os pré-requisitos a seguir foram atendidos antes de iniciar o flux
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
-As informações nesta seção ajudam você a concluir o fluxo de trabalho de backup offline, para que seus dados possam ser entregues a um datacenter do Azure e carregados no Armazenamento do Azure. Se tiver dúvidas sobre o Serviço de importação ou qualquer aspecto do processo, confira a documentação da [Visão geral do serviço de importação](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) mencionada anteriormente.
+As informações nesta seção ajudam você a concluir o fluxo de trabalho de backup offline, para que seus dados possam ser entregues a um datacenter do Azure e carregados no Armazenamento do Azure. Se tiver dúvidas sobre o Serviço de importação ou qualquer aspecto do processo, confira a documentação da [Visão geral do serviço de importação](../storage/common/storage-import-export-service.md) mencionada anteriormente.
 
 ## <a name="initiate-offline-backup"></a>Iniciar o backup offline
 
@@ -188,7 +188,7 @@ A quantidade de tempo que leva para processar um trabalho de importação do Azu
 
 ### <a name="monitor-azure-import-job-status"></a>Monitorar o status do trabalho de importação do Azure
 
-Você pode monitorar o status do trabalho de Importação no portal do Azure navegando até a página **trabalhos de Importação/Exportação** e selecionando seu trabalho. Para obter mais informações sobre o status dos trabalhos de Importação, confira o artigo [Serviço de Exportação e Importação de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+Você pode monitorar o status do trabalho de Importação no portal do Azure navegando até a página **trabalhos de Importação/Exportação** e selecionando seu trabalho. Para obter mais informações sobre o status dos trabalhos de Importação, confira o artigo [Serviço de Exportação e Importação de armazenamento](../storage/common/storage-import-export-service.md).
 
 ### <a name="complete-the-workflow"></a>Concluir o fluxo de trabalho
 

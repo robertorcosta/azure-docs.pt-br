@@ -9,21 +9,21 @@ ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: ed6f164adb9e0a6daf24342021087b2cede3289d
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4257b2fab5e0cca0cb016794673ed39ae4973895
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981366"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067408"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>O que há de novo no banco de dados SQL do Azure & SQL Instância Gerenciada?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Este artigo lista os recursos do banco de dados SQL do Azure e do Azure SQL Instância Gerenciada que estão atualmente em visualização pública. Para atualizações e aprimoramentos do banco de dados SQL e do SQL Instância Gerenciada, consulte [SQL database & sql instância gerenciada service updates](https://azure.microsoft.com/updates/?product=sql-database). Para encontrar atualizações e melhorias para outros serviços do Azure, confira [Atualizações de serviço](https://azure.microsoft.com/updates).
 
-## <a name="whats-new"></a>Novidades
+## <a name="whats-new"></a>Quais são as novidades?
 
 A documentação do banco de dados SQL do Azure e do Azure SQL Instância Gerenciada foi dividida em seções separadas. Também atualizamos como nos referimos a uma instância gerenciada da *instância gerenciada do banco de dados SQL do Azure* para o *Azure SQL instância gerenciada*.
 
@@ -50,7 +50,6 @@ Esta tabela fornece uma comparação rápida para a alteração na terminologia:
 
 | Recurso | Detalhes |
 | ---| --- |
-| Novas gerações de hardware das séries Fsv2 e M| Para obter informações, consulte [Gerações de hardware](service-tiers-vcore.md#hardware-generations).|
 | Recuperação acelerada do banco de dados com pools elásticos e bancos de dados individuais | Para obter mais informações, confira [Recuperação acelerada de banco de dados](../accelerated-database-recovery.md).|
 | Descoberta e classificação de dados  |Para obter informações, consulte [Azure SQL Database e Azure Synapse Analytics data discovery & classificação](data-discovery-and-classification-overview.md).|
 | Trabalhos de banco de dados elástico | Para obter mais informações, consulte [Criar, configurar e gerenciar trabalhos elásticos](elastic-jobs-overview.md). |
@@ -98,8 +97,8 @@ Os seguintes recursos estão habilitados no modelo de implantação do SQL Inst�
 
 |Problema  |Data descoberta  |Status  |Data resolvida  |
 |---------|---------|---------|---------|
-|[A restauração do backup manual sem soma de verificação pode falhar](#restoring-manual-backup-without-checksum-might-fail)|Maio de 2020|Tem solução alternativa| |
-|[O Agent não responde na modificação, desabilitação ou habilitação de trabalhos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maio de 2020|Reduzido automaticamente| |
+|[A restauração do backup manual sem soma de verificação pode falhar](#restoring-manual-backup-without-checksum-might-fail)|Maio de 2020|Resolvido|Junho de 2020|
+|[O Agent não responde na modificação, desabilitação ou habilitação de trabalhos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maio de 2020|Resolvido|Junho de 2020|
 |[As permissões no grupo de recursos não são aplicadas ao SQL Instância Gerenciada](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Fev 2020|Tem solução alternativa||
 |[Limitação de failover manual por meio do portal para grupos de failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Tem solução alternativa||
 |[As funções do SQL Agent precisam de permissões EXECUTE explícitas para logons não sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Dez 2019|Tem solução alternativa||
