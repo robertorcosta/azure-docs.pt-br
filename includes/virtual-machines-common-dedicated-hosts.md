@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 7cf03de2efdb1026934985c225a2a9eecbfbb5a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24e4554e2202c8b5452193e1b0f48cf6c8ada5dd
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84902566"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133775"
 ---
 ## <a name="limitations"></a>Limitações
 
@@ -79,7 +79,15 @@ Depois que um host dedicado é provisionado, o Azure o atribui ao servidor físi
 
 ## <a name="quotas"></a>Cotas
 
-Há um limite de cota padrão de 3000 vCPUs para hosts dedicados, por região. Porém, o número de hosts que você pode implantar também é limitado pela cota para a família de tamanho de VM usada para o host. Por exemplo, uma assinatura **paga conforme o uso** pode ter apenas uma cota de 10 vCPUs disponíveis para a série de tamanho de Dsv3, na região leste dos EUA. Nesse caso, você precisa solicitar um aumento de cota para pelo menos 64 vCPUs antes de poder implantar um host dedicado. Selecione o botão **solicitar aumento** no canto superior direito para arquivar uma solicitação, se necessário.
+Há dois tipos de cota que são consumidos quando você implanta um host dedicado.
+
+1. Cota de vCPU de host dedicada. O limite de cota padrão é 3000 vCPUs, por região.
+1. Tamanho da VM na cota da família. Por exemplo, uma assinatura **paga conforme o uso** pode ter apenas uma cota de 10 vCPUs disponíveis para a série de tamanho de Dsv3, na região leste dos EUA. Para implantar um host Dsv3 dedicado, você precisaria solicitar um aumento de cota para pelo menos 64 vCPUs antes de poder implantar o host dedicado. 
+
+Para solicitar um aumento de cota, crie uma solicitação de suporte no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+O provisionamento de um host dedicado consumirá o host dedicado vCPU e a cota de vCPU da família de VMs, mas não consumirá o vCPU regional.
+
 
 ![Captura de tela da página uso e cotas no portal](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 

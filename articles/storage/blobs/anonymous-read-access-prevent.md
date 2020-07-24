@@ -6,27 +6,29 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 07/23/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 24d726f7600c3ba80833640be8036bf0daa2c014
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e30c4142232a2d695204f5c8f612eb44791c847c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518717"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133156"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedir acesso de leitura público anônimo a contêineres e blobs
 
 O acesso de leitura público anônimo a contêineres e blobs no armazenamento do Azure é uma maneira conveniente de compartilhar dados, mas também pode representar um risco de segurança. É importante gerenciar o acesso anônimo criteriosamente e entender como avaliar o acesso anônimo aos seus dados. A complexidade operacional, erro humano ou ataque mal-intencionado contra dados acessíveis publicamente pode resultar em violações de dados dispendiosas. A Microsoft recomenda que você habilite o acesso anônimo somente quando necessário para o cenário do aplicativo.
 
-Por padrão, um usuário com permissões apropriadas pode configurar o acesso público a contêineres e blobs. Você pode impedir todo acesso público no nível da conta de armazenamento. Quando você não permite acesso de blob público para a conta de armazenamento, os contêineres na conta não podem ser configurados para acesso público. Todos os contêineres que já foram configurados para acesso público não aceitarão mais solicitações anônimas. Para obter mais informações, consulte [Configurar acesso de leitura público anônimo para contêineres e blobs](anonymous-read-access-configure.md).
+Por padrão, o acesso público aos dados de blob é sempre proibido. No entanto, a configuração padrão para uma conta de armazenamento permite que um usuário com permissões apropriadas configure o acesso público a contêineres e blobs em uma conta de armazenamento. Para aumentar a segurança, você pode proibir todo o acesso público à conta de armazenamento, independentemente da configuração de acesso público para um contêiner individual. A despermissão do acesso público à conta de armazenamento impede que um usuário habilite o acesso público para um contêiner na conta. A Microsoft recomenda que você não permita o acesso público a uma conta de armazenamento, a menos que seu cenário exija isso. A despermissão de acesso público ajuda a evitar violações de dados causadas por acesso anônimo indesejado.
+
+Quando você não permite acesso de blob público para a conta de armazenamento, o armazenamento do Azure rejeita todas as solicitações anônimas para essa conta. Depois que o acesso público não é permitido para uma conta, os contêineres nessa conta não podem ser subseqüentemente configurados para acesso público. Todos os contêineres que já foram configurados para acesso público não aceitarão mais solicitações anônimas. Para obter mais informações, consulte [Configurar acesso de leitura público anônimo para contêineres e blobs](anonymous-read-access-configure.md).
 
 Este artigo descreve como analisar solicitações anônimas em uma conta de armazenamento e como impedir o acesso anônimo para toda a conta de armazenamento ou para um contêiner individual.
 
 ## <a name="detect-anonymous-requests-from-client-applications"></a>Detectar solicitações anônimas de aplicativos cliente
 
-Quando você não permite acesso de leitura público para uma conta de armazenamento, você corre o risco de rejeitar solicitações para contêineres e blobs que estão atualmente configurados para acesso público. A despermissão de acesso público para uma conta de armazenamento substitui as configurações de acesso público para todos os contêineres nessa conta de armazenamento. Quando o acesso público não é permitido para a conta de armazenamento, qualquer solicitação anônima futura para essa conta falhará.
+Quando você não permite acesso de leitura público para uma conta de armazenamento, você corre o risco de rejeitar solicitações para contêineres e blobs que estão atualmente configurados para acesso público. A despermissão de acesso público para uma conta de armazenamento substitui as configurações de acesso público para contêineres individuais nessa conta de armazenamento. Quando o acesso público não é permitido para a conta de armazenamento, qualquer solicitação anônima futura para essa conta falhará.
 
 Para entender como a despermissão de acesso público pode afetar os aplicativos cliente, a Microsoft recomenda que você habilite o registro em log e as métricas para essa conta e analise padrões de solicitações anônimas em um intervalo de tempo. Use as métricas para determinar o número de solicitações anônimas para a conta de armazenamento e use logs para determinar quais contêineres estão sendo acessados anonimamente.
 

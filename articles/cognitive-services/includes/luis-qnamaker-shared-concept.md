@@ -2,19 +2,17 @@
 title: incluir arquivo
 description: incluir arquivo
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
-ms.author: diberry
-ms.openlocfilehash: 1c3631b4a2964c5e3a8d8267d1934a5822966342
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ac0192da3afa76c3c21056f218f2b249c44d1c36
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673434"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133776"
 ---
 Os serviços cognitivas fornecem dois serviços de processamento de idioma natural, [reconhecimento vocal](../luis/what-is-luis.md) e [QnA Maker](../qnamaker/overview/overview.md), cada um com uma finalidade diferente. Entenda quando usar cada serviço e como eles se complementam.
 
@@ -43,7 +41,7 @@ Se o seu bot de chat receber o texto `How do I get to the Human Resources buildi
 
 ## <a name="when-do-you-use-luis"></a>Quando você usa o LUIS?
 
-Use LUIS quando precisar saber a intenção do expressão como parte de um processo no bot de bate-papo. Continuando com o texto de exemplo, `How do I get to the Human Resources building on the Seattle North campus?` , quando você sabe que a intenção do usuário é encontrar um local, você pode passar detalhes sobre o expressão (extraído com entidades) para outro serviço, como um servidor de transporte, para obter a resposta.
+Use o LUIS quando precisar saber a intenção do enunciado como parte de um processo no chatbot. Continuando com o texto de exemplo, `How do I get to the Human Resources building on the Seattle North campus?` , quando você sabe que a intenção do usuário é encontrar um local, você pode passar detalhes sobre o expressão (extraído com entidades) para outro serviço, como um servidor de transporte, para obter a resposta.
 
 Você não precisa combinar LUIS e QnA Maker para determinar a intenção.
 
@@ -51,7 +49,7 @@ Você pode combinar os dois serviços para esse expressão, se o bot de chat pre
 
 ## <a name="when-do-you-use-qna-maker"></a>Quando você usa QnA Maker?
 
-Use QnA Maker quando você tiver uma base de dados de conhecimento estática de respostas. Essa base de dados de conhecimento é personalizada para suas necessidades e você a criou com documentos como PDFs e URLs.
+Use o QnA Maker quando você tiver uma base de dados de conhecimento estática de respostas. Essa base de dados de conhecimento é personalizada para suas necessidades e você a criou com documentos como PDFs e URLs.
 
 Continuando com o exemplo expressão, `How do I get to the Human Resources building on the Seattle North campus?` , envie o texto, como uma consulta, para o serviço de QnA Maker publicado e receba a melhor resposta.
 
@@ -75,7 +73,7 @@ Se o seu bot de chat precisar de mais informações do que o serviço fornece, p
 
 Use a ferramenta de **[expedição da CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** do bot Framework para ajudar a criar um processo para trabalhar com ambos os serviços. Essa ferramenta cria um aplicativo LUIS superior de tentativas que expedem entre LUIS e QnA Maker como aplicativos filho. [Saiba mais](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs) sobre a integração com o Luis, o QnA Maker e o bot Framework.
 
-Use o exemplo do bot Builder, **NLP com expedição**, em [C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) ou [node. js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch), para implementar esse tipo de bot de chat.
+Use o exemplo do bot Builder, **NLP com expedição**, em [C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) ou [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch), para implementar esse tipo de bot de chat.
 
 ## <a name="best-practices"></a>Práticas recomendadas
 
@@ -86,8 +84,8 @@ Implemente as práticas recomendadas para cada serviço:
 
 ## <a name="see-also"></a>Confira também
 
-* [Reconhecimento Vocal (LUIS)](../luis/what-is-luis.md)
-* [QnA Maker](../qnamaker/overview/overview.md)
+* [Reconhecimento vocal (LUIS)](../luis/what-is-luis.md)
+* [O QnA Maker](../qnamaker/overview/overview.md)
 * [CLI de expedição](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
 * [Amostras do bot Framework](https://github.com/Microsoft/BotBuilder-Samples)
 * [Serviço de bot do Azure](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
