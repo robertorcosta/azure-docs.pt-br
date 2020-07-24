@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/10/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 37f99ade366a73cb96caf55a562a92476223eb6b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 46096e1f3f4266e9c070bd1d67f328241163126b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261636"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004538"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Solucionar problemas de conexão do agente do computador conectado
 
@@ -48,6 +48,9 @@ Veja a seguir um exemplo do comando para habilitar o log detalhado com o agente 
 
 Veja a seguir um exemplo do comando para habilitar o log detalhado com o agente do computador conectado para Linux ao executar uma instalação interativa.
 
+>[!NOTE]
+>Você deve ter permissões de acesso à *raiz* em computadores Linux para executar o **azcmagent**.
+
 ```
 azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
@@ -73,12 +76,15 @@ A tabela a seguir lista alguns dos erros conhecidos e as sugestões sobre como s
 |--------|------|---------------|---------|
 |Falha ao adquirir o fluxo do dispositivo do token de autorização |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is unreachable.` |Não é possível alcançar o `login.windows.net` ponto de extremidade | Verifique a conectividade com o ponto de extremidade. |
 |Falha ao adquirir o fluxo do dispositivo do token de autorização |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is Forbidden`. |O proxy ou o firewall está bloqueando o acesso ao `login.windows.net` ponto de extremidade. | Verifique a conectividade com o ponto de extremidade e se ele não está bloqueado por um firewall ou servidor proxy. |
+|Falha ao adquirir o fluxo do dispositivo do token de autorização  |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp lookup login.windows.net: no such host`. | Política de Grupo Configuração do computador do objeto *\ Modelos Administrativos \ perfis do usuário \ Sistema \ excluir perfis de usuário mais antigos que um número especificado de dias durante a reinicialização do sistema* está habilitado. | Verifique se o GPO está habilitado e direcionado para o computador afetado. Consulte a nota de rodapé <sup>[1](#footnote1)</sup> para obter mais detalhes. |
 |Falha ao adquirir o token de autorização do SPN |`Failed to execute the refresh request. Error = 'Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/token?api-version=1.0: Forbidden'` |O proxy ou o firewall está bloqueando o acesso ao `login.windows.net` ponto de extremidade. |Verifique a conectividade com o ponto de extremidade e se ele não está bloqueado por um firewall ou servidor proxy. |
 |Falha ao adquirir o token de autorização do SPN |`Invalid client secret is provided` |Segredo de entidade de serviço incorreto ou inválido. |Verifique o segredo da entidade de serviço. |
 | Falha ao adquirir o token de autorização do SPN |`Application with identifier 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' was not found in the directory 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant` |Entidade de serviço e/ou ID de locatário incorreta. |Verifique a entidade de serviço e/ou a ID do locatário.|
 |Obter resposta de recurso ARM |`The client 'username@domain.com' with object id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' does not have authorization to perform action 'Microsoft.HybridCompute/machines/read' over scope '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/MSJC01' or the scope is invalid. If access was recently granted, please refresh your credentials."}}" Status Code=403` |Credenciais erradas e/ou permissões |Verifique se você ou a entidade de serviço é membro da função de **integração do computador conectado do Azure** . |
 |Falha ao AzcmagentConnect recurso ARM |`The subscription is not registered to use namespace 'Microsoft.HybridCompute'` |Os provedores de recursos do Azure não estão registrados. |Registre os [provedores de recursos](./agent-overview.md#register-azure-resource-providers). |
 |Falha ao AzcmagentConnect recurso ARM |`Get https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/MSJC01?api-version=2019-03-18-preview:  Forbidden` |O servidor proxy ou o firewall está bloqueando o acesso ao `management.azure.com` ponto de extremidade. |Verifique a conectividade com o ponto de extremidade e se ele não está bloqueado por um firewall ou servidor proxy. |
+
+<a name="footnote1"></a><sup>1</sup> Se esse GPO estiver habilitado e se aplicar a computadores com o agente do computador conectado, ele excluirá o perfil do usuário associado à conta interna especificada para o serviço *himds* . Como resultado, ele também exclui o certificado de autenticação usado para se comunicar com o serviço armazenado em cache no repositório de certificados local por 30 dias. Antes do limite de 30 dias, é feita uma tentativa de renovar o certificado. Para resolver esse problema, siga as etapas para [cancelar o registro do computador](manage-agent.md#unregister-machine) e registrá-lo novamente com o serviço em execução `azcmagent connect` .
 
 ## <a name="next-steps"></a>Próximas etapas
 

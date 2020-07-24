@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 4f02d92e6264a05ed2cb4021adb5ae6312f58a85
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4778ea7781d181a89e7a6b2d6c4ad5d474e9b5c9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146640"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005932"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console serial do Azure para Windows
 
@@ -38,7 +38,7 @@ Para obter a documentação do console serial para o Linux, confira [Console ser
 
 - Sua conta que usa o console serial precisa ter a [função Colaborador da Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) na VM e a conta de armazenamento de [diagnóstico de inicialização](boot-diagnostics.md)
 
-- Sua VM ou a instância do conjunto de dimensionamento de máquinas virtuais precisa ter um usuário baseado em senha. Você pode criar um com a função [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) da extensão de acesso da VM. Selecione **Redefinir senha** na seção **Suporte + solução de problemas**.
+- Sua VM ou a instância do conjunto de dimensionamento de máquinas virtuais precisa ter um usuário baseado em senha. Você pode criar um com a função [reset password](../extensions/vmaccess.md#reset-password) da extensão de acesso da VM. Selecione **Redefinir senha** na seção **Suporte + solução de problemas**.
 
 * A VM da instância do conjunto de dimensionamento de máquinas virtuais precisa ter o [diagnóstico de inicialização](boot-diagnostics.md) habilitado.
 
@@ -50,7 +50,7 @@ Para obter a documentação do console serial para o Linux, confira [Console ser
 > Se você não estiver vendo nada no console serial, verifique se o diagnóstico de inicialização está habilitado na VM ou no conjunto de dimensionamento de máquinas virtuais.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>Ativar o console serial em imagens personalizadas ou antigas
-As imagens mais recentes do Windows Server no Azure têm um SAC [(Console de Administração Especial)](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) habilitado por padrão. O SAC é suportado em versões de servidor do Windows, mas não está disponível em versões de cliente (por exemplo, Windows 10, Windows 8 ou Windows 7).
+As imagens mais recentes do Windows Server no Azure têm um SAC [(Console de Administração Especial)](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v=ws.10)) habilitado por padrão. O SAC é suportado em versões de servidor do Windows, mas não está disponível em versões de cliente (por exemplo, Windows 10, Windows 8 ou Windows 7).
 
 Para imagens mais antigas do Windows Server (criadas antes de fevereiro de 2018), você pode habilitar automaticamente o console serial por meio do recurso de comando de execução do portal do Azure. No portal do Azure, selecione **Executar Comando** e escolha o comando chamado **EnableEMS** na lista.
 
@@ -76,11 +76,11 @@ Se necessário, o SAC pode ser habilitado offline também:
 
 #### <a name="how-do-i-know-if-sac-is-enabled"></a>Como sei se o SAC está habilitado?
 
-Se [SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) não estiver ativado, o console serial não exibirá o prompt do SAC. Em alguns casos, as informações de integridade da VM são mostradas e, em outros casos, ficam em branco. Se você estiver usando uma imagem do Windows Server criada antes de fevereiro de 2018, o SAC provavelmente não estará habilitado.
+Se [SAC](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v=ws.10)) não estiver ativado, o console serial não exibirá o prompt do SAC. Em alguns casos, as informações de integridade da VM são mostradas e, em outros casos, ficam em branco. Se você estiver usando uma imagem do Windows Server criada antes de fevereiro de 2018, o SAC provavelmente não estará habilitado.
 
 ### <a name="enable-the-windows-boot-menu-in-the-serial-console"></a>Ativar o menu de inicialização do Windows no console serial
 
-Se você precisar ativar os prompts do carregador de inicialização do Windows para serem exibidos no console serial, poderá adicionar as seguintes opções adicionais aos dados de configuração da inicialização. Para obter mais informações, consulte [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set).
+Se você precisar ativar os prompts do carregador de inicialização do Windows para serem exibidos no console serial, poderá adicionar as seguintes opções adicionais aos dados de configuração da inicialização. Para obter mais informações, consulte [bcdedit](/windows-hardware/drivers/devtest/bcdedit--set).
 
 1. Conecte-se à sua VM do Windows ou à instância do conjunto de dimensionamento de máquinas virtuais usando a Área de Trabalho Remota.
 
@@ -126,7 +126,7 @@ Para obter informações sobre como configurar o Windows para criar um arquivo d
 As teclas de função estão habilitadas para uso no console serial nas VMs do Windows. A tecla F8 na lista suspensa do console serial fornece a conveniência de acessar facilmente o menu Configurações Avançadas de Inicialização, mas o console serial é compatível com todas as outras teclas de função. Talvez seja necessário selecionar **Fn** + **F1** (ou F2, F3 etc.) no teclado, dependendo do computador no qual você está usando o console serial.
 
 ### <a name="use-wsl-in-serial-console"></a>Use o WSL no console serial
-O Subsistema Windows para Linux (WSL) foi habilitado para o Windows Server 2019 ou posterior, portanto, também é possível habilitar WSL para uso no console serial, se você estiver executando o Windows Server 2019 ou posterior. Isso pode ser benéfico para usuários que estão também familiarizados com os comandos do Linux. Para obter instruções habilitar WSL para o Windows Server, confira o [Guia de instalação](https://docs.microsoft.com/windows/wsl/install-on-server).
+O Subsistema Windows para Linux (WSL) foi habilitado para o Windows Server 2019 ou posterior, portanto, também é possível habilitar WSL para uso no console serial, se você estiver executando o Windows Server 2019 ou posterior. Isso pode ser benéfico para usuários que estão também familiarizados com os comandos do Linux. Para obter instruções habilitar WSL para o Windows Server, confira o [Guia de instalação](/windows/wsl/install-on-server).
 
 ### <a name="restart-your-windows-vmvirtual-machine-scale-set-instance-within-serial-console"></a>Reiniciar a instância do conjunto de dimensionamento de máquinas virtuais/a VM do Windows no Console serial
 Inicie uma reinicialização no console serial acessando o botão de energia e clicando em "Reiniciar VM". Isso iniciará uma reinicialização da VM e você verá uma notificação no portal do Azure sobre a reinicialização.
@@ -147,7 +147,7 @@ O acesso ao console serial é limitado aos usuários que têm uma função de ac
 Todos os dados enviados são criptografados na rede.
 
 ### <a name="audit-logs"></a>Logs de auditoria
-Todo o acesso ao console serial está conectado a logs de [diagnósticos de inicialização](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) da máquina virtual. O acesso a esses logs pertence e é controlado pelo administrador da máquina virtual do Azure.
+Todo o acesso ao console serial está conectado a logs de [diagnósticos de inicialização](./boot-diagnostics.md) da máquina virtual. O acesso a esses logs pertence e é controlado pelo administrador da máquina virtual do Azure.
 
 > [!CAUTION]
 > Nenhuma senha de acesso para o console seja registrada. No entanto, se comandos executados dentro do console contiverem ou gerarem senhas, segredos, nomes de usuário ou qualquer outra forma de informações de identificação pessoal (PII), eles serão gravados nos logs de diagnóstico de inicialização VM. Eles serão gravados juntamente com todos os outro texto visível, como parte da implementação de scrollback do console serial função. Esses logs são circulares e somente indivíduos com permissões de leitura para a conta de armazenamento de diagnósticos têm acesso a eles. No entanto, recomendamos seguir a melhor prática de usar a Área de Trabalho Remota para qualquer coisa que possa envolver segredos e / ou PII.
@@ -173,7 +173,7 @@ Cenário          | Ações no console serial
 :------------------|:-----------------------------------------
 Regras de firewall incorretas | Acesse regras de firewall de Windows seriais de console e correção.
 Corrupção de sistema de arquivos/verificação | Acesse o console serial e recupere o sistema de arquivos.
-Problemas de configuração de RDP | Acesse o console serial e altere as configurações. Para mais informações, consulte a [documentação do RDP](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
+Problemas de configuração de RDP | Acesse o console serial e altere as configurações. Para mais informações, consulte a [documentação do RDP](/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
 Bloqueio de sistema de rede | Acesse o console serial do portal do Azure para gerenciar o sistema. Alguns comandos de rede são listados em [Comandos do Windows: CMD e PowerShell](serial-console-cmd-ps-commands.md).
 Interagir com o carregador de inicialização | Acesso BCD através do console serial. Para obter informações, consulte [Ative o menu de inicialização do Windows no console serial](#enable-the-windows-boot-menu-in-the-serial-console).
 

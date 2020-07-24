@@ -4,11 +4,12 @@ description: Fornece respostas para algumas dúvidas comuns sobre a AVS (Soluç�
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: 1649b5649bd18b7ab53f3cc0196d7dff0f6f5b2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f160e617163f11c02e4d661cbf1c14f63a6772f8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84112698"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003416"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Perguntas frequentes sobre a versão prévia da AVS (Solução VMware no Azure)
 
@@ -84,15 +85,15 @@ Os servidores têm 576 GB de RAM.
 
 **Qual é a capacidade de armazenamento de cada host?**
 
-Cada host ESXi tem dois diskgroups VSAN com uma camada de capacidade de 15,2 TB e uma camada de cache NVMe de 3,2 TB (1,6 TB em cada um dos discos).
+Cada host ESXi tem dois diskgroups vSAN com uma camada de capacidade de 15,2 TB e uma camada de cache NVMe de 3,2 TB (1,6 TB em cada um dos discos).
 
 **Cada host ESXi possui quanto de largura de banda de rede disponível?**
 
 Os hosts ESXi são compatíveis com uma largura de banda de conectividade de até 25 Gbps.
 
-**Os dados são armazenados nos armazenamentos criptografados do VSAN em repouso?**
+**Os dados são armazenados nos armazenamentos do vSAN criptografados em repouso?**
 
-Sim, todos os dados VSAN são criptografados por padrão usando chaves armazenadas no Azure Key Vault.
+Sim, todos os dados vSAN são criptografados por padrão usando chaves armazenadas em Azure Key Vault.
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Hosts, clusters e nuvens privadas
 
@@ -136,7 +137,7 @@ Não, não é necessário usar o NSX no local.
 
 **O que é a atualização e o agendamento de atualização para o software VMware em uma nuvem privada?**
 
-As atualizações do pacote de software de nuvem privada são feitas para manter o software dentro de uma versão da versão mais recente do pacote de software do VMware. As versões de software de nuvem privada podem ser diferentes das versões mais recentes dos componentes individuais de software (ESXi, NSX-T, vCenter, VSAN).
+As atualizações do pacote de software de nuvem privada são feitas para manter o software dentro de uma versão da versão mais recente do pacote de software do VMware. As versões de software de nuvem privada podem ser diferentes das versões mais recentes dos componentes de software individuais (ESXi, NSX-T, vCenter, vSAN).
 
 **Com que frequência a pilha de software de nuvem privada será atualizada?**
 
@@ -215,7 +216,7 @@ Você pode solicitar um aumento de cota [enviando uma solicitação de suporte](
 > ```azurecli-interactive
 > az provider register -n Microsoft.AVS --subscription <your subscription ID>
 > ```
-> Confira outras maneiras de registrar o provedor de recursos em [Provedores e tipos de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+> Confira outras maneiras de registrar o provedor de recursos em [Provedores e tipos de recursos do Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 
 1. No portal do Azure, em **Ajuda e Suporte**, crie uma **Nova solicitação de suporte** e forneça as seguintes informações para o tíquete:
    - **Tipo de problema:** técnico

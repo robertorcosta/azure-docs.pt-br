@@ -2,13 +2,13 @@
 title: Usar um hub de eventos do aplicativo Apache Kafka – Hubs de Eventos do Azure | Microsoft Docs
 description: Este artigo fornece informações sobre a compatibilidade do Apache Kafka com os Hubs de Eventos do Azure.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 733623895176bb3b573c2efcbda8a40b9e2d87c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/20/2020
+ms.openlocfilehash: 6dad797f6769e9804cce7d47ed74794fdddcfb0b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320521"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002471"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Usar Hubs de Eventos do Azure de aplicativos Apache Kafka
 Os Hubs de Eventos fornecem um ponto de extremidade Kafka que pode ser usado por seus aplicativos baseados em Kafka existentes como uma alternativa para executar seu próprio cluster Kafka. Os Hubs de Eventos dão suporte ao [protocolo 1.0 e posterior do Apache Kafka](https://kafka.apache.org/documentation/) e funciona com aplicativos existentes do Kafka, incluindo o MirrorMaker.  
@@ -27,7 +27,7 @@ Os hubs de eventos e Kafka conceitualmente são quase idênticos: ambos são log
 | --- | --- |
 | Cluster | Namespace |
 | Tópico | Hub de evento |
-| Partição | Partição|
+| Partition | Partition|
 | Grupo de Consumidores | Grupo de Consumidores |
 | Deslocamento | Deslocamento|
 
@@ -79,12 +79,10 @@ O recurso Hub de eventos para Kafka permite que você escreva com um protocolo e
 
 Aqui está a lista de recursos de Kafka que ainda não têm suporte:
 
-*   Produtor idempotente
 *   Transação
 *   Compactação
 *   Retenção baseada em tamanho
 *   Compactação do log
-*   Adicionando partições a um tópico existente
 *   Suporte a API de Kafta HTTP
 *   Kafka Streams
 

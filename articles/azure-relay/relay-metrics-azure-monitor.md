@@ -4,12 +4,12 @@ description: Este artigo fornece informações sobre como você pode usar Azure 
 services: service-bus-relay
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0383d99aaca487bb89ab198c42d0ce189ad20249
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42de5205be9a611957a6e340b5eaa55c5b7f52c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314379"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004555"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor"></a>Métricas de retransmissão do Azure no Azure Monitor 
 As métricas da Retransmissão do Azure fornecem o estado dos recursos na sua assinatura do Azure. Com um amplo conjunto de dados de métricas, você pode avaliar a integridade geral dos seus recursos de retransmissão não apenas no nível de namespace, mas também no nível de entidade. Essas estatísticas podem ser importantes, pois elas ajudam você a monitorar o estado da Retransmissão do Azure. As métricas também podem ajudar a solucionar problemas de causa raiz sem a necessidade de entrar em contato com o suporte do Azure.
@@ -29,7 +29,7 @@ As métricas estão habilitadas por padrão e você pode acessar os dados dos ú
 
 É possível monitorar as métricas ao longo do tempo no [Portal do Azure](https://portal.azure.com). O exemplo a seguir mostra como exibir solicitações bem-sucedidas e solicitações de entrada no nível da conta:
 
-![][1]
+![Uma página intitulada "monitor-métricas (visualização)" mostra um gráfico de linha de uso de memória nos últimos 30 dias.][1]
 
 Você também pode acessar as métricas diretamente por meio do namespace. Para fazer isso, selecione seu namespace e clique em **Métricas**. 
 

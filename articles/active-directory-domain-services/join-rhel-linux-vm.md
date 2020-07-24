@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/23/2020
+ms.date: 07/13/2020
 ms.author: iainfou
-ms.openlocfilehash: d43c12681c7230dc4959261ffd6d96f74ea095d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2a6cb422c1133f0ed53d2c1061501a47d9c92f1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734717"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005082"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Ingressar uma máquina virtual Red Hat Enterprise Linux em um domínio Azure Active Directory Domain Services gerenciado
 
@@ -43,7 +44,7 @@ Se você precisar criar uma VM do RHEL Linux ou desejar criar uma VM de teste pa
 
 * [Azure portal](../virtual-machines/linux/quick-create-portal.md)
 * [CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
-* [PowerShell do Azure](../virtual-machines/linux/quick-create-powershell.md)
+* [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 Ao criar a VM, preste atenção às configurações de rede virtual para garantir que a VM possa se comunicar com o domínio gerenciado:
 
@@ -115,7 +116,7 @@ Agora que os pacotes necessários estão instalados na VM, ingresse a VM no dom�
     kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. Por fim, ingresse o computador no domínio gerenciado usando o `realm join` comando. Use a mesma conta de usuário que faz parte do domínio gerenciado que você especificou no comando anterior `kinit` , como `contosoadmin@AADDSCONTOSO.COM` :
+1. Por fim, ingresse a VM no domínio gerenciado usando o `realm join` comando. Use a mesma conta de usuário que faz parte do domínio gerenciado que você especificou no comando anterior `kinit` , como `contosoadmin@AADDSCONTOSO.COM` :
 
     ```console
     sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'
@@ -141,7 +142,7 @@ Successfully enrolled machine in realm
     * Verifique se a VM está implantada na mesma rede virtual, ou emparelhada, na qual o domínio gerenciado está disponível.
     * Confirme se as configurações do servidor DNS para a rede virtual foram atualizadas para apontar para os controladores de domínio do domínio gerenciado.
 
-1. Primeiro, ingresse no domínio usando o `adcli join` comando, esse comando também criará o keytab para autenticar o computador. Use uma conta de usuário que faça parte do domínio gerenciado.
+1. Primeiro, ingresse no domínio usando o `adcli join` comando. esse comando também cria o keytab para autenticar o computador. Use uma conta de usuário que faça parte do domínio gerenciado.
 
     ```console
     sudo adcli join aaddscontoso.com -U contosoadmin

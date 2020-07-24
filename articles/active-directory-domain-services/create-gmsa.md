@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 923502132fdbe0b4a56c0fc23c19475e9074b8ff
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 19b7962462e5cdb03bad0c6004b8c19f781ccc69
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040241"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005269"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-active-directory-domain-services"></a>Criar uma conta de serviço gerenciado de grupo (gMSA) no Azure Active Directory Domain Services
 
@@ -34,7 +35,7 @@ Para concluir este artigo, você precisará dos seguintes recursos e privilégio
 * Um locatário do Azure Active Directory associado com a assinatura, sincronizado com um diretório local ou somente em nuvem.
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * Um domínio gerenciado do Azure Active Directory Domain Services habilitado e configurado no locatário do Azure AD.
-    * Se necessário, conclua o tutorial para [criar e configurar um domínio Azure Active Directory Domain Services gerenciada][create-azure-ad-ds-instance].
+    * Se necessário, conclua o tutorial para [criar e configurar um Azure Active Directory Domain Services domínio gerenciado][create-azure-ad-ds-instance].
 * Uma VM de gerenciamento do Windows Server que é unida ao domínio gerenciado AD DS do Azure.
     * Se necessário, conclua o tutorial para [criar uma VM de gerenciamento][tutorial-create-management-vm].
 

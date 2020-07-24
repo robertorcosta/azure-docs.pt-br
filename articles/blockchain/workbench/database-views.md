@@ -4,15 +4,16 @@ description: Visão geral das exibições do banco de dados SQL do Azure Blockch
 ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: mmercuri
-ms.openlocfilehash: 585084b4c85c48533bdad96d4f99813ef2e418b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e715bd2297c1e051ae92b15d73c945c9e80c3d94
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74325983"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003314"
 ---
 # <a name="azure-blockchain-workbench-database-views"></a>Exibições do banco de dados do Azure Blockchain Workbench
 
-A visualização do Azure Blockchain Workbench fornece dados de razões distribuídas para um banco de dados SQL DB *fora da cadeia* . O banco de dados fora da cadeia torna possível usar o SQL e as ferramentas existentes, como [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), para interagir com os dados do blockchain.
+A visualização do Azure Blockchain Workbench fornece dados de razões distribuídas para um banco de dados SQL DB *fora da cadeia* . O banco de dados fora da cadeia torna possível usar o SQL e as ferramentas existentes, como [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), para interagir com os dados do blockchain.
 
 O Azure Blockchain Workbench fornece um conjunto de exibições de banco de dados que fornecem acesso a dados que poderão ser úteis ao executar as consultas. Essas exibições são extremamente desnormalizadas para tornar mais fácil de obter rapidamente iniciadas criando relatórios, análise e caso contrário consumir dados blockchain com as ferramentas existentes e sem a necessidade de treinar novamente a equipe de banco de dados.
 
@@ -291,7 +292,7 @@ Essa exibição fornece detalhes sobre os membros do consórcio que são provisi
 | ID                 | int           | Não          | Um identificador exclusivo de um usuário |
 | ExternalId         | nvarchar (255) | Não          | Um identificador externo de um usuário. Por padrão, essa ID é o GUID que representa a ID de Azure Active Directory para o usuário. |
 | ProvisioningStatus | int           | Não          |Identifica o status atual do processo de provisionamento para o usuário. Os valores possíveis são: <br />0 – o usuário foi criado pela API<br />1 – uma chave foi sido associada ao usuário no banco de dados<br />2 – o usuário está totalmente provisionado |
-| Nome          | nvarchar (50)  | Sim         | Primeiro nome do usuário |
+| FirstName          | nvarchar (50)  | Sim         | Primeiro nome do usuário |
 | LastName           | nvarchar (50)  | Sim         | O sobrenome do usuário |
 | EmailAddress       | nvarchar (255) | Sim         | O endereço de email do usuário |
 

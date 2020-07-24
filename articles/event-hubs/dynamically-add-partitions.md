@@ -3,12 +3,12 @@ title: Adicionar partições dinamicamente a um hub de eventos nos Hubs de Event
 description: Este artigo mostra como adicionar partições dinamicamente a um hub de eventos nos Hubs de Eventos do Azure.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: ea0477dcc695c7a2fb936daadc3679c94bfac12f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a729147eaa11497c66f82a9764dfee9492786b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317943"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002532"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Adicionar partições dinamicamente a um hub de eventos (tópico do Apache Kafka) nos Hubs de Eventos do Azure
 Os Hubs de Evento fornecem streaming de mensagens por meio de um padrão de consumidor particionado no qual cada consumidor lê somente um subconjunto específico, ou partição, do fluxo de mensagens. Esse padrão permite a escala horizontal para processamento de eventos e fornece outros recursos centrados no fluxo que não estão disponíveis em filas e tópicos. Uma partição é uma sequência ordenada de eventos que é mantida em um hub de eventos. À medida que novos eventos chegam, eles são adicionados ao final dessa sequência. Para obter mais informações sobre partições em geral, confira [Partições](event-hubs-scalability.md#partitions)
@@ -33,7 +33,7 @@ Set-AzureRmEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespac
 ```
 
 ### <a name="cli"></a>CLI
-Use o comando [az eventhubs eventhub update](/cli/azure/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update) da CLI para atualizar partições em um hub de eventos. 
+Use o [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update) comando da CLI para atualizar partições em um hub de eventos. 
 
 ```azurecli-interactive
 az eventhubs eventhub update --resource-group MyResourceGroupName --namespace-name MyNamespaceName --name MyEventHubName --partition-count 12
@@ -64,13 +64,13 @@ Use a API `AlterTopics` (por exemplo, por meio da ferramenta CLI **kafka-topics*
 ## <a name="event-hubs-clients"></a>Clientes dos Hubs de Eventos
 Vejamos como os clientes dos Hubs de Eventos se comportam quando a contagem de partições é atualizada em um hub de eventos. 
 
-Quando você adiciona uma partição a um hub de eventos existente, o cliente do hub de eventos recebe uma "MessagingException" do serviço, informando aos clientes que os metadados da entidade (a entidade é o hub de eventos e os metadados são as informações de partição) foram alterados. Os clientes reabrirão automaticamente os links de AMQP que, em seguida, coletarão as informações de metadados alteradas. Depois disso, os clientes operam normalmente.
+Quando você adiciona uma partição a um hub par existente, o cliente do hub de eventos recebe um `MessagingException` do serviço informando aos clientes que os metadados de entidade (entidade é o Hub de eventos e os metadados são as informações de partição) foram alterados. Os clientes reabrirão automaticamente os links de AMQP que, em seguida, coletarão as informações de metadados alteradas. Depois disso, os clientes operam normalmente.
 
 ### <a name="senderproducer-clients"></a>Clientes do remetente/produtor
 Os Hubs de Eventos fornecem três opções de remetente:
 
 - **Remetente da partição**: nesse cenário, os clientes enviam eventos diretamente para uma partição. Embora as partições sejam identificáveis e os eventos possam ser enviados diretamente a elas, não recomendamos esse padrão. A adição de partições não afeta esse cenário. Recomendamos que você reinicie os aplicativos para que eles possam detectar partições adicionadas recentemente. 
-- **Remetente da chave de partição** – nesse cenário, os clientes enviam os eventos com uma chave para que todos os eventos que pertençam a essa chave terminem na mesma partição. Nesse caso, o serviço faz hash da chave e das rotas para a partição correspondente. A atualização de contagem de partições pode causar problemas de falta de ordem devido à alteração de hash. Portanto, se você se preocupa com a ordenação, verifique se o aplicativo consome todos os eventos de partições existentes antes de aumentar a contagem de partições.
+- **Remetente da chave de partição** – nesse cenário, os clientes enviam os eventos com uma chave para que todos os eventos que pertençam a essa chave terminem na mesma partição. Nesse caso, o serviço faz hash da chave e das rotas para a partição correspondente. A atualização de contagem de partições pode causar problemas fora de ordem devido à alteração de hash. Portanto, se você se preocupa com a ordenação, verifique se o aplicativo consome todos os eventos de partições existentes antes de aumentar a contagem de partições.
 - **Remetente de round robin (padrão)** – nesse cenário, o serviço de Hubs de Eventos faz distribuição round robin dos eventos entre partições. O serviço de Hubs de Eventos reconhece alterações de contagem de partições e solicitará novas partições segundos após uma alteração da contagem de partições.
 
 ### <a name="receiverconsumer-clients"></a>Clientes de receptor/consumidor
@@ -84,7 +84,7 @@ Os Hubs de Eventos fornecem receptores diretos e uma biblioteca de consumidor f�
 ## <a name="apache-kafka-clients"></a>Clientes do Apache Kafka
 Esta seção descreve como clientes do Apache Kafka que usam o ponto de extremidade do Kafka dos Hubs de Eventos do Azure se comportam quando a contagem de partições é atualizada para um hub de eventos. 
 
-Os clientes do Kafka que usam os Hubs de Eventos com o protocolo do Apache Kafka se comportam de maneira diferente dos clientes de hub de eventos que usam o protocolo AMQP. Os clientes do Kafka atualizam os respectivos metadados uma vez a cada `metadata.max.age.ms` milissegundos. Você especifica esse valor nas configurações do cliente. As bibliotecas `librdkafka` também usam a mesma configuração. As atualizações de metadados informam os clientes sobre alterações de serviço, incluindo os aumentos na contagem de partições. Para obter uma lista de configurações, confira [Configurações para Hubs de Eventos do Apache Kafka](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
+Os clientes do Kafka que usam os Hubs de Eventos com o protocolo do Apache Kafka se comportam de maneira diferente dos clientes de hub de eventos que usam o protocolo AMQP. Os clientes do Kafka atualizam os respectivos metadados uma vez a cada `metadata.max.age.ms` milissegundos. Você especifica esse valor nas configurações do cliente. As bibliotecas `librdkafka` também usam a mesma configuração. As atualizações de metadados informam os clientes sobre alterações de serviço, incluindo os aumentos na contagem de partições. Para obter uma lista de configurações, consulte [configurações de Apache Kafka para os hubs de eventos](apache-kafka-configurations.md).
 
 ### <a name="senderproducer-clients"></a>Clientes do remetente/produtor
 Os produtores sempre ditam que as solicitações de envio contêm o destino da partição para cada conjunto de registros produzidos. Portanto, todo o particionamento dos produtores é feito no lado do cliente, com a exibição do produtor mostrando os metadados do agente. Depois que as novas partições forem adicionadas à exibição de metadados do produtor, elas estarão disponíveis para solicitações do produtor.
@@ -100,7 +100,7 @@ Quando um membro do grupo de consumidores executa uma atualização de metadados
     > Enquanto os dados existentes preservarem a ordenação, o hash de partição será interrompido para mensagens com hash após a alteração na contagem de partições devido à adição de partições.
 - A adição de uma partição a uma instância do hub de eventos ou tópico existente é recomendada nos seguintes casos:
     - Quando você usa o método round robin (padrão) de envio de eventos
-     - Estratégias de particionamento padrão do Kafka, por exemplo, estratégia de StickyAssignor
+     - Kafka estratégias de particionamento padrão, exemplo – estratégia de atribuição de adesivo
 
 
 ## <a name="next-steps"></a>Próximas etapas

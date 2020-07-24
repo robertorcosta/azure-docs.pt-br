@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2c5ef71059fd3ba96299624818a13ebe1ae0929b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a25625e085ee07a2dc036fd40f70e6b0376b42a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737845"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003875"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Como usar Azure PowerShell para provisionar SQL Server em máquinas virtuais do Azure
 
@@ -152,7 +152,7 @@ New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-A máquina virtual exige recursos de armazenamento para o disco do sistema operacional para os arquivos de log de dados do SQL Server. Para simplificar, você criará um único disco para ambos. É possível anexar discos adicionais posteriormente usando o cmdlet [Add-Azure Disk](https://docs.microsoft.com/powershell/module/servicemanagement/azure/add-azuredisk) para colocar seus dados do SQL Server e os arquivo de log em discos dedicados. Use o cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) para criar uma conta de Armazenamento Standard em seu novo grupo de recursos. Especifique as variáveis que você inicializou anteriormente para o nome da conta de armazenamento, o nome do SKU de armazenamento e o local.
+A máquina virtual exige recursos de armazenamento para o disco do sistema operacional para os arquivos de log de dados do SQL Server. Para simplificar, você criará um único disco para ambos. É possível anexar discos adicionais posteriormente usando o cmdlet [Add-Azure Disk](/powershell/module/servicemanagement/azure.service/add-azuredisk) para colocar seus dados do SQL Server e os arquivo de log em discos dedicados. Use o cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) para criar uma conta de Armazenamento Standard em seu novo grupo de recursos. Especifique as variáveis que você inicializou anteriormente para o nome da conta de armazenamento, o nome do SKU de armazenamento e o local.
 
 Execute este cmdlet para criar sua nova conta de armazenamento.
 

@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: fc14c3bd069162c390c09fddbfe9169b90bf66ce
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a9d419052f000b220c993109e45d371398607275
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086000"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006443"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Dimensionar clusters do Azure HDInsight
 
 O HDInsight fornece elasticidade com opções para escalar verticalmente e reduzir o número de nós de trabalho em seus clusters. Essa elasticidade permite que você reduza um cluster após horas ou em fins de semana. E expandi-lo durante as demandas de negócios de pico.
 
-Escale verticalmente o cluster antes do processamento periódico em lote para que o cluster tenha recursos adequados. Após a conclusão do processamento, e o uso ficar inativo, reduza verticalmente o cluster HDInsight para menos nós de trabalho.
+Escale verticalmente o cluster antes do processamento periódico em lote para que o cluster tenha recursos adequados.  Após a conclusão do processamento, e o uso ficar inativo, reduza verticalmente o cluster HDInsight para menos nós de trabalho.
 
 Você pode dimensionar um cluster manualmente usando um dos métodos descritos abaixo. Você também pode usar opções de [dimensionamento automático](hdinsight-autoscale-clusters.md) para aumentar e reduzir automaticamente em resposta a determinadas métricas.
 
@@ -36,7 +36,7 @@ A Microsoft fornece os seguintes utilitários para dimensionar clusters:
 |[AzureRM do PowerShell](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[CLI clássica do Azure](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
-|[Azure portal](https://portal.azure.com)|Abra o painel do cluster HDInsight, selecione **tamanho do cluster** no menu à esquerda e, no painel tamanho do cluster, digite o número de nós de trabalho e selecione salvar.|  
+|[Portal do Azure](https://portal.azure.com)|Abra o painel do cluster HDInsight, selecione **tamanho do cluster** no menu à esquerda e, no painel tamanho do cluster, digite o número de nós de trabalho e selecione salvar.|  
 
 ![Opção portal do Azure dimensionar cluster](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
 
@@ -60,7 +60,7 @@ O impacto da alteração do número de nós de dados varia em cada tipo de clust
 
     Quando um cluster Hadoop é reduzido com menos nós de dados, alguns serviços são reiniciados. Esse comportamento faz com que todos os trabalhos em execução e pendentes falhem após a conclusão da operação de dimensionamento. Você pode, no entanto, reenviar os trabalhos quando a operação for concluída.
 
-* HBase no Apache
+* Apache HBase
 
     Você pode adicionar ou remover nós diretamente em seu cluster HBase enquanto ele está em execução. Servidores Regionais são equilibrados automaticamente em alguns minutos após o término da operação de dimensionamento. No entanto, você pode balancear manualmente os servidores regionais. Faça logon no cluster cabeçalho e execute os seguintes comandos:
 
@@ -106,6 +106,14 @@ O impacto da alteração do número de nós de dados varia em cada tipo de clust
 * Kafka
 
     Você deverá redistribuir as réplicas de partições após as operações de dimensionamento. Para obter mais informações, consulte o documento [Alta disponibilidade de dados com o Apache Kafka no HDInsight](./kafka/apache-kafka-high-availability.md).
+
+* Apache Hive LLAP
+
+    Após o dimensionamento para os `N` nós de trabalho, o HDInsight definirá automaticamente as configurações a seguir e reiniciará o hive.
+
+  * Total de consultas simultâneas máximas:`hive.server2.tez.sessions.per.default.queue = min(N, 32)`
+  * Número de nós usados pelo LLAP do hive:`num_llap_nodes  = N`
+  * Número de nó (s) para executar o daemon LLAP do hive:`num_llap_nodes_for_llap_daemons = N`
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Como reduzir com segurança um cluster
 

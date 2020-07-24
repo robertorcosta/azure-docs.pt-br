@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: b9a4cf8b9bbf88ae792f345d330503cb4698c430
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6c4e507df0f112934979d4e59778b667743cf623
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509201"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005949"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Como redefinir o adaptador de rede de uma VM Windows do Azure 
 
@@ -47,7 +47,7 @@ Este artigo mostra como redefinir o adaptador de rede para uma VM do Windows no 
 
 #### <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 
-1. Verifique se você tem [o mais recente Azure PowerShell](/powershell/azure/overview) instalado
+1. Verifique se você tem [o mais recente Azure PowerShell](/powershell/azure/) instalado
 2. Abra uma sessão privilegiada do Azure PowerShell (Executar como administrador). Execute os seguintes comandos:
 
     ```powershell
@@ -84,13 +84,13 @@ Para redefinir o adaptador de rede, siga estas etapas:
 4.  Selecione **Endereços IP**.
 5.  Se a **atribuição de IP privado** não for **estática**, altere-a para **estático**.
 6.  Altere o **endereço IP** para outro endereço IP que está disponível na Sub-rede.
-7.  Selecione **Salvar**.
+7.  Clique em **Salvar**.
 8.  A máquina virtual será reiniciada para inicializar a nova NIC no sistema.
 9.  Tente executar o RDP no computador. Se for bem-sucedido, você poderá optar por reverter o Endereço IP privado para o original.  
 
 #### <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 
-1. Verifique se você tem [as Azure PowerShell mais recentes](/powershell/azure/overview) instaladas.
+1. Verifique se você tem [as Azure PowerShell mais recentes](/powershell/azure/) instaladas.
 2. Abra uma sessão privilegiada do Azure PowerShell (Executar como administrador). Execute os seguintes comandos:
 
     ```powershell

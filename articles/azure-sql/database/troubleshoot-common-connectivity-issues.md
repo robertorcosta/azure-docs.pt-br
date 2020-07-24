@@ -12,12 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: acc61cefbc9d89f11eae5b6549add57871035ddb
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0b28fa788e7b35e94482104d807c228db21f49b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078962"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003909"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Solucionar erros de conexão transitória no banco de dados SQL e no SQL Instância Gerenciada
 
@@ -148,8 +148,8 @@ Por exemplo, se a contagem for igual a 3 e o intervalo for igual a 10 segundos, 
 
 Os parâmetros **ConnectRetryCount** e **ConnectRetryInterval** permitem que seu objeto **SqlConnection** repita a operação de conexão sem informar ou incomodar o programa como, por exemplo, ao devolver o controle ao programa. As tentativas podem ocorrer nas seguintes situações:
 
-- Chamada ao método mySqlConnection.Open
-- Chamada ao método mySqlConnection.Execute
+- Chamada de método SqlConnection. Open
+- SqlConnection.Exechamada do método graciosos
 
 Mas há uma sutileza aqui. Se um erro transitório ocorrer durante a execução da *consulta*, o objeto **SqlConnection** não tentará repetir a operação de conexão. Isso certamente não repete a consulta. No entanto, **SqlConnection** verifica rapidamente a conexão antes de enviar a consulta para execução. Se a verificação rápida detectar um problema de conexão, **SqlConnection** repetirá a operação de conexão. Se a nova tentativa for bem-sucedida, a consulta será enviada para execução.
 

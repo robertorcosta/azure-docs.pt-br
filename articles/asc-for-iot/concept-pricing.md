@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2019
 ms.author: mlottner
-ms.openlocfilehash: fe117cf8d05ba3392b71858acf94d1fc88c1a527
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98afd1eb1f8a73c2d6dd3f293a07cdb70780d238
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311572"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004759"
 ---
 # <a name="pricing-and-associated-costs"></a>Preços e custos associados
 
@@ -54,7 +54,7 @@ Para alterar suas configurações:
 
 A tabela a seguir fornece um resumo dos custos associados e as implicações de cada opção.
 
-|     | Uso | Comentário |
+| Opção | Uso | Comentário |
 | --- | --- | --- |
 | **Armazenamento Log Analytics** |  |
 | Alertas e recomendação de dispositivo| Recomendação e alertas de segurança gerados pelo serviço | Não opcional |
@@ -73,7 +73,7 @@ A tabela a seguir fornece um resumo dos custos associados e as implicações de 
 | | Detalhes sobre investigações de [recomendação](concept-recommendations.md) e [alerta](concept-security-alerts.md) não estão disponíveis |
 |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - Acessar seus [dados brutos de segurança](how-to-security-data-access.md)
 - [Investigar um dispositivo](how-to-investigate-device.md)

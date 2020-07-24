@@ -3,12 +3,12 @@ title: Fazer backup de estado do sistema para o Windows Azure
 description: Saiba como fazer backup do estado do sistema do Windows Server e/ou de computadores Windows para o Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 4319e03f9673baa2be01c1650ac1929204741087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea38b76d9a8b7b8ccc1898ed9450177da2cb2458
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611434"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003696"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Fazer backup de estado do sistema para o Windows Azure
 
@@ -40,7 +40,7 @@ Quando você criar um cofre de Serviços de Recuperação, certifique-se de que 
 
     ![opções de configuração de armazenamento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    Por padrão, seu cofre tem armazenamento com redundância geográfica. Se você usar o Azure como um ponto de extremidade de armazenamento de backup principal, continue a usar **Georredundante**. Se você não usar o Azure como um ponto de extremidade de armazenamento de backup principal, escolha **Localmente redundante**, que reduz os custos de armazenamento do Azure. Leia mais sobre as opções de armazenamento [com redundância geográfica](../storage/common/storage-redundancy-grs.md) e [com redundância local](../storage/common/storage-redundancy-lrs.md) nesta [Visão geral de redundância de armazenamento](../storage/common/storage-redundancy.md).
+    Por padrão, seu cofre tem armazenamento com redundância geográfica. Se você usar o Azure como um ponto de extremidade de armazenamento de backup principal, continue a usar **Georredundante**. Se você não usar o Azure como um ponto de extremidade de armazenamento de backup principal, escolha **Localmente redundante**, que reduz os custos de armazenamento do Azure. Leia mais sobre as opções de armazenamento [com redundância geográfica](../storage/common/storage-redundancy.md) e [com redundância local](../storage/common/storage-redundancy.md) nesta [Visão geral de redundância de armazenamento](../storage/common/storage-redundancy.md).
 
 Agora que você criou um cofre, configure-o para fazer backup do Estado do Sistema do Windows.
 
@@ -174,14 +174,14 @@ Para concluir o backup inicial, use o agente dos Serviços de Recuperação do M
 
 5. Clique em **Fechar** para fechar o assistente. Se você fechar o assistente antes da conclusão do processo de backup, o assistente continuará a ser executado em segundo plano.
     > [!NOTE]
-    > O agente MARS dispara o/VERIFYONLY do SFC como parte das verificações anteriores antes de todos os backups de estado do sistema. Isso é para garantir que os arquivos submetidos a backup como parte do estado do sistema tenham as versões corretas correspondentes à versão do Windows. Saiba mais sobre o verificador de arquivos do sistema (SFC) neste [artigo](https://docs.microsoft.com/windows-server/administration/windows-commands/sfc).
+    > O agente MARS dispara o/VERIFYONLY do SFC como parte das verificações anteriores antes de todos os backups de estado do sistema. Isso é para garantir que os arquivos submetidos a backup como parte do estado do sistema tenham as versões corretas correspondentes à versão do Windows. Saiba mais sobre o verificador de arquivos do sistema (SFC) neste [artigo](/windows-server/administration/windows-commands/sfc).
     >
 
 Depois que o backup inicial for concluído, o status **Trabalho concluído** aparecerá no Console de backup.
 
   ![IR completo](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
-## <a name="questions"></a>Dúvidas?
+## <a name="questions"></a>Perguntas?
 
 Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](https://feedback.azure.com/forums/258995-azure-backup).
 

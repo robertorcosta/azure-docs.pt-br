@@ -1,5 +1,5 @@
 ---
-title: Conexão ao workspace do Azure Synapse usando links privados
+title: Conectar-se a um espaço de trabalho do Synapse usando links privados
 description: Este artigo ensina como conectar-se ao workspace do Azure Synapse usando links privados
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0f2e01390a1ddd179e50523a8b5748994524a52e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17636bf993df5105093ca690e36db22493a2472e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193865"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005966"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Conexão ao workspace do Azure Synapse usando links privados (versão prévia)
 
@@ -47,7 +47,7 @@ Selecione **Avançar: Configuração** para avançar para a próxima parte da co
 
 Na guia **Configuração**, selecione a **Rede virtual** e a **Sub-rede** nas quais o ponto de extremidade privado deve ser criado. Também é necessário criar um registro DNS que é mapeado para o ponto de extremidade privado.
 
-Selecione **Sim** para **Integrar com a zona DNS privada** para integrar seu ponto de extremidade privado a uma zona DNS privada. Se não tiver uma zona DNS privada associada à sua rede virtual, uma nova zona DNS privada será criada. Selecione **Revisar + Criar** quando concluído.
+Selecione **Sim** para **Integrar com a zona DNS privada** para integrar seu ponto de extremidade privado a uma zona DNS privada. Se você não tiver uma zona DNS privada associada à sua Rede Virtual do Microsoft Azure, uma nova zona DNS privada será criada. Selecione **Revisar + Criar** quando concluído.
 
 ![Selecione os detalhes da assinatura e da região](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-4.png)
 
@@ -57,7 +57,7 @@ Quando a implantação for concluída, abra o workspace do Azure Synapse no port
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre a [Rede virtual do workspace gerenciado](./synapse-workspace-managed-vnet.md)
+Saiba mais sobre a [rede virtual do espaço de trabalho gerenciado](./synapse-workspace-managed-vnet.md)
 
 Saiba mais sobre [Pontos de extremidade privados gerenciados](./synapse-workspace-managed-private-endpoints.md)
 

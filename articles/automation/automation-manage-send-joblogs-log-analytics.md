@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0c8863615446f8b14043cd7bd13e529b7efa1e46
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 2fe6cbdbcb0cf5b5c28d34f2059a2b070b059566
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186190"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004742"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Encaminhar os dados de trabalho da Automação do Azure para os logs do Azure Monitor
 
@@ -28,7 +28,7 @@ A Automação do Azure pode enviar fluxos de trabalho e status de trabalho de ru
 
 Para começar a enviar seus logs de Automação para os logs do Azure Monitor, você precisa:
 
-* Da última versão do [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+* Da última versão do [Azure PowerShell](/powershell/azure/).
 * Um workspace do Log Analytics. Para obter mais informações, confira [Introdução aos logs do Azure Monitor](../azure-monitor/overview.md).
 * A ID do recurso para sua conta de Automação do Azure.
 

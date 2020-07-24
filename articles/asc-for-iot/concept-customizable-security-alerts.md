@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 3b39d70c60a4c9701d0a8bafde17b241fe01cc46
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f676c4129b79499eb9ed524821a336b3859dbb3c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311632"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004844"
 ---
-# <a name="azure-security-center-for-iot-security-alerts"></a>Alertas de segurança da Central de Segurança do Azure para IoT
+# <a name="azure-security-center-for-iot-customizable-security-alerts"></a>Central de segurança do Azure para alertas de segurança personalizáveis de IoT
 
 A central de segurança do Azure para IoT analisa continuamente sua solução de IoT usando a análise avançada e a inteligência contra ameaças para alertá-lo sobre atividades mal-intencionadas.
 
@@ -31,7 +31,7 @@ A lista a seguir da central de segurança do Azure para alertas de IoT é defini
 
 ## <a name="iot-hub-alerts-available-for-customization"></a>Alertas do Hub IoT disponíveis para personalização
 
-| Severity | Nome do alerta | Fonte de dados | Descrição | Correção sugerida|
+| Severidade | Nome do alerta | Fonte de dados | Descrição | Correção sugerida|
 |---|---|---|---|---|
 | Baixo      | Alerta personalizado – o número de mensagens da nuvem para o dispositivo no protocolo AMQP está fora do intervalo permitido          | Hub IoT     | O número de mensagens de nuvem para dispositivo (protocolo AMQP) em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.||
 | Baixo      | Alerta personalizado – o número de mensagens da nuvem para o dispositivo rejeitadas no protocolo AMQP está fora do intervalo permitido | Hub IoT     | O número de mensagens de nuvem para dispositivo (protocolo AMQP) rejeitadas pelo dispositivo em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.||
@@ -51,7 +51,7 @@ A lista a seguir da central de segurança do Azure para alertas de IoT é defini
 
 ## <a name="agent-alerts-available-for-customization"></a>Alertas de agente disponíveis para personalização
 
-| Severity | Nome do alerta | Fonte de dados | Descrição | Correção sugerida|
+| Severidade | Nome do alerta | Fonte de dados | Descrição | Correção sugerida|
 |---|---|---|---|---|
 | Baixo      | Alerta poersonalizado – o número de conexões ativas está fora do intervalo permitido  | Agente       | O número de conexões ativas em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.|  Investigue os logs do dispositivo. Saiba onde a conexão foi originada e determine se ela é benigna ou mal-intencionada. Se for mal-intencionada, remova o possível malware e entenda a origem. Se for benigna, adicione a origem à lista de conexões permitidas.  |
 | Baixo      | Alerta personalizado – uma conexão de saída foi criada para um IP que não é permitido                             | Agente       | Uma conexão de saída foi criada para um IP que está fora da sua lista de IPs permitidos. |Investigue os logs do dispositivo. Saiba onde a conexão foi originada e determine se ela é benigna ou mal-intencionada. Se for mal-intencionada, remova o possível malware e entenda a origem. Se for benigna, adicione a origem à lista de IPs permitidos.                        |

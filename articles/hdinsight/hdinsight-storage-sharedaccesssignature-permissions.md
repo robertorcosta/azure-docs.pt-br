@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 3756e7d1f58c37038347888a21d98326cd4eb71f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8ab181eb72b5a3ab54ad8dba19d23288926b8969
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087445"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006306"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usar Assinaturas de Acesso Compartilhado do Armazenamento do Azure para restringir o acesso a dados no HDInsight
 
@@ -31,7 +31,7 @@ O HDInsight tem acesso completo aos dados nas contas de Armazenamento do Azure a
 
 * Um [contêiner de armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md)existente.  
 
-* Se estiver usando o PowerShell, você precisará do [Az Module](https://docs.microsoft.com/powershell/azure/overview).
+* Se estiver usando o PowerShell, você precisará do [Az Module](https://docs.microsoft.com/powershell/azure/).
 
 * Se desejar usar a CLI do Azure e você ainda não a instalou, veja [Instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 

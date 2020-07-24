@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
-ms.openlocfilehash: be206b312394eab6367f179872c8c36b7f4f3d44
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: eaddae04c198742007947831046139d80828534b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083212"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006578"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizar clusters do HDInsight usando a Inicialização
 
@@ -48,7 +48,7 @@ Para obter informações sobre como instalar componentes adicionais no cluster H
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se estiver usando o PowerShell, você precisará do [Az Module](https://docs.microsoft.com/powershell/azure/overview).
+* Se estiver usando o PowerShell, você precisará do [Az Module](https://docs.microsoft.com/powershell/azure/).
 
 ## <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 
@@ -138,7 +138,7 @@ Exemplo de trecho do modelo do Resource Manager para alternar a configuração e
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Criar clusters Apache Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md) fornece instruções sobre como criar um cluster HDInsight usando outras opções personalizadas.
 * [Desenvolver scripts de ação de script para o HDInsight](hdinsight-hadoop-script-actions-linux.md)

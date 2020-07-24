@@ -3,21 +3,25 @@ title: Elemento de interface do usuário de opções
 description: Descreve o elemento Microsoft.Common.OptionsGroup da interface do usuário para o Portal do Azure. Permite que os usuários selecionem as opções disponíveis ao implantar um aplicativo gerenciado.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/09/2020
 ms.author: tomfitz
-ms.openlocfilehash: c1da0b0082bfe046adf9596a10397e9063c888be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa73b4cbded98291a14792a7151df9fdfb885b53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652340"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004176"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Elemento de interface do usuário Microsoft.Common.OptionsGroup
 
-Um controle de seleção com uma linha de opções disponíveis.
+O controle de opções permite que os usuários selecionem uma opção de duas ou mais opções. Um usuário pode selecionar apenas uma opção.
+
+> [!NOTE]
+> No passado, esse controle processava as opções horizontalmente. Agora, o controle apresenta as opções verticalmente como botões de opção.
 
 ## <a name="ui-sample"></a>Exemplo de interface do usuário
 
-![Microsoft.Common.OptionsGroup](./media/managed-application-elements/microsoft.common.optionsgroup.png)
+:::image type="content" source="./media/managed-application-elements/microsoft-common-optionsgroup-2.png" alt-text="Microsoft.Common.OptionsGroup":::
 
 ## <a name="schema"></a>Esquema
 

@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/23/2020
+ms.date: 07/13/2020
 ms.author: iainfou
-ms.openlocfilehash: 062150c5d19a97a13fdd5567c2875bc69c839639
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9eb6a43557da43e8f792bcc3858e7123f2b6c607
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734751"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005150"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Unir uma máquina virtual CentOS Linux a um Azure Active Directory Domain Services domínio gerenciado
 
@@ -43,7 +44,7 @@ Se você precisar criar uma VM CentOS Linux ou desejar criar uma VM de teste par
 
 * [Azure portal](../virtual-machines/linux/quick-create-portal.md)
 * [CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
-* [PowerShell do Azure](../virtual-machines/linux/quick-create-powershell.md)
+* [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 Ao criar a VM, preste atenção às configurações de rede virtual para garantir que a VM possa se comunicar com o domínio gerenciado:
 
@@ -105,7 +106,7 @@ Agora que os pacotes necessários estão instalados na VM, ingresse a VM no dom�
     kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. Por fim, ingresse o computador no domínio gerenciado usando o `realm join` comando. Use a mesma conta de usuário que faz parte do domínio gerenciado que você especificou no comando anterior `kinit` , como `contosoadmin@AADDSCONTOSO.COM` :
+1. Por fim, ingresse a VM no domínio gerenciado usando o `realm join` comando. Use a mesma conta de usuário que faz parte do domínio gerenciado que você especificou no comando anterior `kinit` , como `contosoadmin@AADDSCONTOSO.COM` :
 
     ```console
     sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'

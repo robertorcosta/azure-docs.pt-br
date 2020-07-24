@@ -3,12 +3,12 @@ title: Receber eventos usando o Host do Processador de Eventos - Hubs de Eventos
 description: Este artigo descreve o Host do Processador de Eventos nos Hubs de Eventos do Azure, que simplifica o gerenciamento de ponto de verificação, aluguel e ler eventos paralelo iônico.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 338b4e890d61aca0d48287db6f042f9dc088754b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd11e3ef77ff665a0207a2cf7e63b1b9f2df0e08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320631"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002515"
 ---
 # <a name="event-processor-host"></a>Host do processador de eventos
 > [!NOTE]
@@ -22,7 +22,7 @@ ms.locfileid: "85320631"
 
 Os Hubs de Evento do Azure são um poderoso serviço de ingestão de telemetria que pode ser usado para transmitir milhões de eventos a baixo custo. Este artigo descreve como consumir eventos ingeridos usando o *Host do Processador de Eventos* (EPH); um agente do consumidor inteligente que simplifica o gerenciamento de leitores de pontos de verificação, leasing e eventos paralelos.  
 
-A chave para reduzir os Hubs de Eventos horizontalmente é o modelo de consumidor particionado. Em contraste com o [consumidores concorrentes](https://msdn.microsoft.com/library/dn568101.aspx) padrão, o padrão de consumidor particionado permite alta escala, removendo o gargalo de contenção e promovendo o paralelismo de ponta a ponta.
+A chave para reduzir os Hubs de Eventos horizontalmente é o modelo de consumidor particionado. Em contraste com o [consumidores concorrentes](/previous-versions/msp-n-p/dn568101(v=pandp.10)) padrão, o padrão de consumidor particionado permite alta escala, removendo o gargalo de contenção e promovendo o paralelismo de ponta a ponta.
 
 ## <a name="home-security-scenario"></a>Cenário de segurança inicial
 
@@ -126,7 +126,7 @@ Cada chamada para [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.pro
 
 Em algum momento durante o processamento, convém manter o controle de que você tenha lido e concluído. Manter o controle é crítico se você precisar reiniciar a leitura para não retornar ao início do fluxo. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) simplifica esse acompanhamento usando *pontos de verificação*. Um ponto de verificação é um local, ou deslocamento, para uma determinada partição, dentro de um determinado grupo de consumidores, ponto no qual você está satisfeito com o processamento das mensagens. Marcar um ponto de verificação em **EventProcessorHost** é realizado chamando o método [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) no objeto [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext). Essa operação é feita dentro do método [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync), mas também pode ser feita em [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
 
-## <a name="checkpointing"></a>Ponto de verificação
+## <a name="checkpointing"></a>Definindo o ponto de verificação
 
 O método [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) tem duas sobrecargas: a primeira, sem parâmetros, pontos de verificação para o deslocamento de evento mais alto dentro da coleção retornada por [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync). Esse deslocamento é uma marca de "HIGHWATER"; Ele pressupõe que você processou todos os eventos recentes quando você chamá-lo. Se você usar esse método dessa forma, lembre-se de que você deve chamá-la depois que o seu outro código de processamento de eventos foi retornado. A segunda sobrecarga permite que você especifique uma instância [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata) para o ponto de verificação. Esse método permite que você use um tipo diferente de marca d'água para o ponto de verificação. Com essa marca d'água, você pode implementar uma marca de "baixo nível de água": o menor evento sequenciado que você tenha certeza de que foi processado. Essa sobrecarga é fornecida para permitir flexibilidade no gerenciamento de deslocamento.
 
@@ -162,7 +162,7 @@ Além disso, uma sobrecarga de [RegisterEventProcessorAsync](/dotnet/api/microso
 Veja como funciona a época de recebimento:
 
 ### <a name="with-epoch"></a>Com época
-Época é um identificador exclusivo (valor de época) que o serviço usa para impor a propriedade de partição/concessão. Você cria um receptor baseado em época usando o método [CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) . Esse método cria um receptor baseado em época. O receptor é criado para uma partição de Hub de eventos específica do grupo de consumidores especificado.
+Época é um identificador exclusivo (valor de época) que o serviço usa para impor a propriedade de partição/concessão. Você cria um receptor baseado em época usando o método [CreateEpochReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) . Esse método cria um receptor baseado em época. O receptor é criado para uma partição de Hub de eventos específica do grupo de consumidores especificado.
 
 O recurso época fornece aos usuários a capacidade de garantir que haja apenas um destinatário em um grupo de consumidores em qualquer ponto no tempo, com as seguintes regras:
 
@@ -171,7 +171,7 @@ O recurso época fornece aos usuários a capacidade de garantir que haja apenas 
 - Se houver um receptor com um valor de época E1 e um novo receptor for criado com um valor de época E2 em que E1 > E2, a criação de E2 com falha com o erro: um receptor com época E1 já existe.
 
 ### <a name="no-epoch"></a>Sem época
-Você cria um receptor não baseado em época usando o método [Createreceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) . 
+Você cria um receptor não baseado em época usando o método [Createreceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) . 
 
 Há alguns cenários no processamento de fluxo em que os usuários gostariam de criar vários destinatários em um único grupo de consumidores. Para dar suporte a esses cenários, temos a capacidade de criar um receptor sem época e, nesse caso, permitimos 5 destinatários simultâneos no grupo de consumidores.
 

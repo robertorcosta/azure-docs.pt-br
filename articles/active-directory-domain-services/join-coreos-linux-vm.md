@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/23/2020
+ms.date: 07/13/2020
 ms.author: iainfou
-ms.openlocfilehash: 845b48d84040343f829648f9c7fda2372e3413dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93f16629b74ab76d7b46603d84d52cff4bf1ca13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734734"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005099"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Ingressar uma máquina virtual CoreOS em um domínio gerenciado Azure Active Directory Domain Services
 
@@ -43,7 +44,7 @@ Se você precisar criar uma VM do CoreOS Linux ou desejar criar uma VM de teste 
 
 * [Azure portal](../virtual-machines/linux/quick-create-portal.md)
 * [CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
-* [PowerShell do Azure](../virtual-machines/linux/quick-create-powershell.md)
+* [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 Ao criar a VM, preste atenção às configurações de rede virtual para garantir que a VM possa se comunicar com o domínio gerenciado:
 
@@ -84,7 +85,7 @@ sudo vi /etc/sssd/sssd.conf
 Especifique seu próprio nome de domínio gerenciado para os seguintes parâmetros:
 
 * *domínios* em todas as letras maiúsculas
-* *[Domain/AADDS]* em que AADDS está em todas as letras maiúsculas
+* *[Domain/AADDSCONTOSO]* em que AADDSCONTOSO está em todas as letras maiúsculas
 * *ldap_uri*
 * *ldap_search_base*
 * *krb5_server*
@@ -96,7 +97,7 @@ config_file_version = 2
 services = nss, pam
 domains = AADDSCONTOSO.COM
 
-[domain/AADDSCONTOSO.COM]
+[domain/AADDSCONTOSO]
 id_provider = ad
 auth_provider = ad
 chpass_provider = ad
