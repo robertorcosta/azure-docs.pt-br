@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: c1828bcde5c26c5605b867c115127eb2502bdd86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24c803bd94f56af551f3afa2cb7350219b4fa448
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505334"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124724"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparar para criar o Avere vFXT
 
@@ -38,7 +38,7 @@ Há algumas soluções alternativas para permitir que um não proprietário crie
 |----------|--------|-------|
 | O administrador do grupo de recursos cria o vFXT | A rede virtual, o controlador de cluster e os nós de cluster devem ser criados dentro do grupo de recursos. | Funções de administrador e [colaborador](../role-based-access-control/built-in-roles.md#contributor) de [acesso do usuário](../role-based-access-control/built-in-roles.md#user-access-administrator) , ambas com escopo para o grupo de recursos de destino. |
 | Usar uma rede virtual externa existente | O controlador de cluster e os nós de cluster são criados dentro do grupo de recursos do vFXT, mas usam uma rede virtual existente em um grupo de recursos diferente. | (1) funções de administrador e [colaborador](../role-based-access-control/built-in-roles.md#contributor) de [acesso de usuário](../role-based-access-control/built-in-roles.md#user-access-administrator) com escopo para o grupo de recursos vFXT; e (2) [colaborador de máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [administrador de acesso de usuário](../role-based-access-control/built-in-roles.md#user-access-administrator)e funções de colaborador de [avere](../role-based-access-control/built-in-roles.md#avere-contributor) com escopo definido para o grupo de recursos da rede virtual. |
-| Função personalizada para criadores de cluster | Sem restrições de posicionamento de recursos. Esse método fornece privilégios significativos que não são proprietários. | O proprietário da assinatura cria uma função personalizada de RBAC, conforme explicado neste [artigo](avere-vfxt-non-owner.md). |
+| Função personalizada para criadores de cluster | Sem restrições de posicionamento de recursos. Esse método fornece privilégios significativos que não são proprietários. | O proprietário da assinatura cria uma função personalizada do Azure, conforme explicado neste [artigo](avere-vfxt-non-owner.md). |
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Cota para o cluster vFXT
 
@@ -49,7 +49,7 @@ Verifique se você tem cota suficiente para os seguintes componentes do Azure. S
 >
 > Verifique se a cota está habilitada para a região em que você pretende executar o fluxo de trabalho.
 
-|Componente do Azure|Quota|
+|Componente do Azure|Cota|
 |----------|-----------|
 |Máquinas virtuais|3 ou mais E32s_v3 (um por nó de cluster) |
 |Armazenamento SSD Premium|Espaço do sistema operacional de 200 GB, além de 1 a 4 TB de espaço do cache por nó |

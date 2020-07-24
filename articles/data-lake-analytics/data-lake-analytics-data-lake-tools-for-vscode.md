@@ -3,18 +3,16 @@ title: Usar as Ferramentas do Azure Data Lake para Visual Studio Code
 description: Saiba como usar as Ferramentas do Azure Data Lake para Visual Studio Code para criar, testar e executar scripts U-SQL.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: Jejiang
-ms.author: jejiang
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: how-to
 ms.date: 02/09/2018
-ms.openlocfilehash: 53e0628256ad37d87c260c762c2c5a5c824666b0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b554869864ff71fb31b6c4e2b891fd42c4a380b1
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117654"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126475"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Usar as Ferramentas do Azure Data Lake para Visual Studio Code
 
@@ -355,7 +353,7 @@ Outra maneira de visualizar um arquivo é pelo menu de atalho no caminho complet
 ### <a name="upload-a-file-or-folder"></a>Carregar um arquivo ou uma pasta
 
 1. Clique com o botão direito no editor de scripts e selecione **Carregar Arquivo** ou **Carregar Pasta**.
-2. Escolha um ou vários arquivos caso tenha selecionado **Carregar Arquivo** ou escolha a pasta inteira caso tenha selecionado **Carregar Pasta**. Depois selecionar **Carregar**.
+2. Escolha um ou vários arquivos caso tenha selecionado **Carregar Arquivo** ou escolha a pasta inteira caso tenha selecionado **Carregar Pasta**. Em seguida, selecione **Carregar**.
 3. Escolha a pasta de armazenamento na lista ou selecione **Inserir um caminho** ou **Procurar no caminho raiz**. (**Inserir um caminho** está sendo usado como um exemplo.)
 4. Selecione sua conta do Data Lake Analytics.
 5. Navegue até o caminho da pasta de armazenamento ou digite-o (por exemplo: /output/).

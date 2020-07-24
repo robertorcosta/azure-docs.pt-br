@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: f61b6193a0d2082296a17128b41d7220f9b7e05f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1440bf2b8af85b81355dbc43b695a85994e4b8d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77565886"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124129"
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança de gerenciamento de identidade do Azure
 
@@ -28,7 +29,7 @@ ms.locfileid: "77565886"
  
 Aproveitando os benefícios de segurança do Microsoft Azure AD (Azure Active Directory), você pode:
 
-* Criar e gerenciar uma identidade única para cada usuário em sua empresa híbrida, mantendo usuários, grupos e dispositivos em sincronia. 
+* Crie e gerencie uma identidade única para cada usuário em sua empresa híbrida, mantendo usuários, grupos e dispositivos em sincronia. 
 * Fornecer acesso de SSO para seus aplicativos, incluindo milhares de aplicativos de SaaS pré-integrados.
 * Habilitar a segurança de acesso do aplicativo por meio da imposição da Autenticação Multifator baseada em regras para aplicativos locais e na nuvem.
 * Provisionar o acesso remoto seguro a aplicativos Web locais por meio do Proxy de Aplicativo Azure AD.
@@ -90,10 +91,15 @@ Saiba mais:
 
 O RBAC é um sistema de autorização baseado no Azure Resource Manager que fornece gerenciamento de acesso refinado aos recursos no Azure. RBAC permite granularmente controlar o nível de acesso que os usuários têm. Por exemplo, você pode limitar um usuário para somente gerenciar redes virtuais e outro usuário para gerenciar todos os recursos em um grupo de recursos. O Azure inclui várias funções internas que você pode usar. A seguir são listadas quatro funções internas fundamentais. As três primeiras se aplicam a todos os tipos de recursos.
 
+- [Proprietário](/azure/role-based-access-control/built-in-roles.md#owner) - Possui acesso total a todos os recursos, inclusive o direito de delegar acesso a outros usuários. 
+- [Colaborador](/azure/role-based-access-control/built-in-roles.md#contributor) – Pode criar e gerenciar todos os tipos de recursos do Azure, mas não pode permitir acesso a outras pessoas.
+- [Leitor](/azure/role-based-access-control/built-in-roles.md#reader) - Pode exibir os recursos existentes do Azure.
+- [Administrador de Acesso do Usuário](/azure/role-based-access-control/built-in-roles.md#administrator) - Permite gerenciar o acesso do usuário aos recursos do Azure.
+
 Saiba mais:
 
-* [O que é o RBAC (controle de acesso baseado em função)?](/azure/role-based-access-control/overview)
-* [Funções internas para recursos do Azure](/azure/role-based-access-control/built-in-roles)
+* [O que é o RBAC do Azure (controle de acesso baseado em função do Azure)?](/azure/role-based-access-control/overview)
+* [Funções internas do Azure](/azure/role-based-access-control/built-in-roles)
 
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Relatórios baseados em aprendizado de máquina, alertas e monitoramento de segurança
 

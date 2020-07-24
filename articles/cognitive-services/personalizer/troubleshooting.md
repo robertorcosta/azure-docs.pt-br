@@ -3,13 +3,12 @@ title: Solução de problemas-personalizador
 description: Este artigo contém respostas para perguntas frequentes sobre solução de problemas sobre o personalizador.
 ms.topic: troubleshooting
 ms.date: 02/26/2020
-ms.author: diberry
-ms.openlocfilehash: ca19fbfc505e3e46338a0930773b1879dce788c1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 55b9068dbd7bfbb3ea3972c3381fda6d9cde5076
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586245"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126101"
 ---
 # <a name="personalizer-troubleshooting"></a>Solução de problemas do personalizador
 
@@ -73,11 +72,11 @@ Você pode encontrar a hora em que o modelo foi atualizado pela última vez na p
 
 Isso normalmente ocorre devido a carimbos de data/hora, IDs de usuário ou alguns outros recursos refinados enviados no.
 
-### <a name="i-created-an-offline-evaluation-and-it-succeeded-almost-instantly-why-is-that-i-dont-see-any-results"></a>Criei uma avaliação offline e ela foi bem-sucedida quase instantaneamente. Por que isso acontece? Não vejo nenhum resultado?
+### <a name="i-created-an-offline-evaluation-and-it-succeeded-almost-instantly-why-is-that-i-dont-see-any-results"></a>Criei uma avaliação offline e ela foi bem-sucedida quase instantaneamente. Por quê? Não vejo nenhum resultado?
 
 A avaliação offline usa os dados de modelo treinados dos eventos nesse período de tempo. Se você não enviou dados no período de tempo entre a hora de início e de término da avaliação, ele será concluído sem nenhum resultado. Envie uma nova avaliação offline selecionando um intervalo de tempo com eventos que você conhece que foram enviados ao personalizador.
 
-## <a name="learning-policy"></a>Política de aprendizagem
+## <a name="learning-policy"></a>Política de aprendizado
 
 ### <a name="how-do-i-import-a-learning-policy"></a>Como fazer importar uma política de aprendizado?
 

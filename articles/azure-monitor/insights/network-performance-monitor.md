@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 51111d92e85c6ddbdfac85c333293c2af8b31fbe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 68be8d08939464d200da588c481447f8206c9117
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498949"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117201"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução do Monitor de Desempenho de Rede no Azure
 
@@ -65,6 +65,9 @@ A lista de regiões de suporte para Monitor do ExpressRoute está disponível na
 
 
 ## <a name="set-up-and-configure"></a>Instalar e configurar
+
+> [!NOTE]
+> Você também pode ver o Agente do Log Analytics mencionado como MMA (Microsoft Monitoring Agent) ou Agente do OMS para Linux.
 
 ### <a name="install-and-configure-agents"></a>Instalar e configurar agentes 
 
@@ -155,7 +158,7 @@ Todos os nós que têm um agente instalado neles estão listados na guia **Nós*
 
 1. Marque ou desmarque os nós que você deseja monitorar ou parar de monitorar. 
 2. Selecione **Usar para Monitoramento** ou desmarque essa opção, conforme apropriado. 
-3. Selecione **Salvar**. 
+3. Clique em **Salvar**. 
 
 
 Configure os recursos desejados:

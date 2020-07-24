@@ -11,11 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/08/2020
 ms.custom: contperfq4
-ms.openlocfilehash: df636ce1200d8c3744681a60532b22c409dd81dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8be4169a44b2ef57db8aa49b96f6c5fe85ded1c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430455"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125081"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gerenciar e aumentar cotas para recursos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -71,7 +72,7 @@ Recursos disponíveis:
 | Máximo de nós em um único recurso de Computação do Azure Machine Learning (AmlCompute) | 100 nós |
 | Máximo de processos de MPI de GPU nó | 1-4 |
 | Máximo de trabalhos de GPU nó | 1-4 |
-| Tempo de vida máximo do trabalho | 90 dias<sup>1</sup> |
+| Tempo de vida máximo do trabalho | 21 dias<sup>1</sup> |
 | Tempo de vida máximo de trabalho em um nó de baixa prioridade | 7 dias<sup>2</sup> |
 | Máximo de servidores de parâmetro por nó | 1 |
 

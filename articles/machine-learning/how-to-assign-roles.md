@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: f289be1b3432d9c62b4841c513088afa16e0e447
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff8d532bf1c19ded9567e8c1e4b63e674c01d0d8
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609241"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125166"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar o acesso a um espaço de trabalho do Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ Neste artigo, você aprenderá a gerenciar o acesso a um espaço de trabalho do 
 
 ## <a name="default-roles"></a>Funções padrão
 
-Um espaço de trabalho Azure Machine Learning é um recurso do Azure. Assim como outros recursos do Azure, quando um novo espaço de trabalho Azure Machine Learning é criado, ele vem com três funções padrão. Você pode adicionar usuários ao espaço de trabalho e atribuí-los a uma dessas funções internas.
+Um workspace do Azure Machine Learning é um recurso do Azure. Assim como outros recursos do Azure, quando um novo workspace do Azure Machine Learning é criado, ele vem com três funções padrão. Você pode adicionar usuários ao espaço de trabalho e atribuí-los a uma dessas funções internas.
 
 | Função | Nível de acesso |
 | --- | --- |
@@ -69,7 +69,7 @@ Azure Machine Learning ações internas para muitas operações e tarefas. Para 
 
 ## <a name="create-custom-role"></a>Criar função personalizada
 
-Se as funções internas forem insuficientes, você poderá criar funções personalizadas. As funções personalizadas podem ter permissões de recurso de leitura, gravação, exclusão e computação nesse espaço de trabalho. Você pode tornar a função disponível em um nível de espaço de trabalho específico, um nível de grupo de recursos específico ou um nível de assinatura específico.
+Caso as funções internas sejam insuficientes, você poderá criar funções personalizadas. As funções personalizadas podem ter permissões de recurso de leitura, gravação, exclusão e computação nesse espaço de trabalho. Você pode tornar a função disponível em um nível de espaço de trabalho específico, um nível de grupo de recursos específico ou um nível de assinatura específico.
 
 > [!NOTE]
 > Você deve ser um proprietário do recurso nesse nível para criar funções personalizadas dentro desse recurso.
@@ -117,7 +117,7 @@ Após a implantação, essa função fica disponível no espaço de trabalho esp
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-Para obter mais informações sobre funções personalizadas, consulte [funções personalizadas para recursos do Azure](/azure/role-based-access-control/custom-roles).
+Para obter mais informações sobre funções personalizadas, consulte [funções personalizadas do Azure](/azure/role-based-access-control/custom-roles).
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -128,11 +128,11 @@ A tabela a seguir é um resumo de Azure Machine Learning atividades e as permiss
 
 | Atividade | Escopo de nível de assinatura | Escopo no nível do grupo de recursos | Escopo no nível do espaço de trabalho |
 |---|---|---|---|
-| Criar novo workspace | Não é necessária | Proprietário ou colaborador | N/A (torna-se proprietário ou herda uma função de escopo maior após a criação) |
-| Criar novo cluster de computação | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`workspaces/computes/write` |
-| Criar nova VM de notebook | Não é necessária | Proprietário ou colaborador | Impossível |
-| Criar nova instância de computação | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`workspaces/computes/write` |
-| Atividade do plano de dados como envio de execução, acesso a dados, implantação de modelo ou pipeline de publicação | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`workspaces/*/write` <br/> Você também precisa de um repositório de dados registrado para o espaço de trabalho para permitir que o MSI acesse o dado em sua conta de armazenamento. |
+| Criar novo workspace | Não obrigatório | Proprietário ou colaborador | N/A (torna-se proprietário ou herda uma função de escopo maior após a criação) |
+| Criar novo cluster de computação | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo:`workspaces/computes/write` |
+| Criar nova VM de notebook | Não obrigatório | Proprietário ou colaborador | Impossível |
+| Criar nova instância de computação | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo:`workspaces/computes/write` |
+| Atividade do plano de dados como envio de execução, acesso a dados, implantação de modelo ou pipeline de publicação | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo:`workspaces/*/write` <br/> Você também precisa de um repositório de dados registrado para o espaço de trabalho para permitir que o MSI acesse o dado em sua conta de armazenamento. |
 
 
 ### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>Q. Como fazer listar todas as funções personalizadas em minha assinatura?

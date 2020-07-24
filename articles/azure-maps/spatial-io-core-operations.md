@@ -1,19 +1,19 @@
 ---
 title: Operações de e/s básica | Mapas do Microsoft Azure
 description: Saiba como ler e gravar com eficiência dados XML e delimitados usando bibliotecas principais do módulo de e/s espacial.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0b8fe1b319dc480879944d28f10645025a8cb38e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e142fe348a339e4903d692cad569015edb69f75
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80371450"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124469"
 ---
 # <a name="core-io-operations"></a>Operações de e/s básica
 
@@ -30,7 +30,7 @@ A `atlas.io.core.CsvReader` classe lê cadeias de caracteres que contêm conjunt
 
 Por padrão, o leitor usará o caractere de vírgula como o delimitador. No entanto, o delimitador pode ser alterado para qualquer caractere único ou definido como `'auto'` . Quando definido como `'auto'` , o leitor analisará a primeira linha de texto na cadeia de caracteres. Em seguida, ele selecionará o caractere mais comum da tabela abaixo para usar como o delimitador.
 
-| | |
+| Delimitador | Caractere |
 | :-- | :-- |
 | Vírgula | `,` |
 | Tab | `\t` |

@@ -1,15 +1,15 @@
 ---
 title: Implantar o modelo de solução do consórcio de prova de autoridade Ethereum no Azure
 description: Usar a solução do consórcio de prova de autoridade do Ethereum para implantar e configurar uma rede Ethereum do consórcio de vários membros no Azure
-ms.date: 07/07/2020
+ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 859be5d779663e429ef333c8fd8163c0aa60eab5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d75b5348c49728d2a796257fa4000f6c3a36831d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085915"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124917"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Implantar o modelo de solução do consórcio de prova de autoridade Ethereum no Azure
 
@@ -23,11 +23,14 @@ O modelo de solução pode ser usado por cada membro do consórcio para provisio
 
 Antes de escolher usar o modelo de solução do consórcio de prova de autoridade Ethereum, Compare seu cenário com os casos de uso comuns das opções disponíveis do Azure Blockchain.
 
+> [!IMPORTANT]
+> Considere usar o [serviço Blockchain do Azure](../service/overview.md) em vez do Ethereum no modelo de solução do Azure. O serviço Blockchain do Azure é um serviço gerenciado do Azure com suporte. Ethereum de paridade transição para desenvolvimento e manutenção controlados pela Comunidade. Para obter mais informações, consulte [transicionating Parity Ethereum to OPENETHEREUM DAO](https://www.parity.io/parity-ethereum-openethereum-dao/).
+
 Opção | Modelo de serviço | Caso de uso comum
 -------|---------------|-----------------
-Modelos de Solução | IaaS | Os modelos de solução são Azure Resource Manager modelos que você pode usar para provisionar uma topologia de rede blockchain totalmente configurada. Os modelos implantam e configuram Microsoft Azure serviços de computação, rede e armazenamento para um determinado tipo de rede blockchain. Os modelos de solução são fornecidos sem um contrato de nível de serviço. Use a [página da Microsoft Q&uma pergunta](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) para obter suporte.
-[Serviço do Azure Blockchain](../service/overview.md) | PaaS | O Azure Blockchain Service Preview simplifica a formação, o gerenciamento e a governança de redes do consórcio Blockchain. Use o serviço Blockchain do Azure para soluções que exigem PaaS, gerenciamento de consórcio ou privacidade de contrato e transação.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS e PaaS | A versão prévia do Azure Blockchain Workbench é uma coleção de serviços e recursos do Azure desenvolvidos para ajudar você a criar e implantar aplicativos de blockchain para compartilhar processos empresariais e dados com outras organizações. Use o Azure Blockchain Workbench para o protótipo de uma solução Blockchain ou uma prova de conceito de aplicativo Blockchain. O Azure Blockchain Workbench é fornecido sem um Contrato de Nível de Serviço. Use a [página da Microsoft Q&uma pergunta](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) para obter suporte.
+Modelos de Solução | IaaS | Os modelos de solução são Azure Resource Manager modelos que você pode usar para provisionar uma topologia de rede blockchain totalmente configurada. Os modelos implantam e configuram Microsoft Azure serviços de computação, rede e armazenamento para um determinado tipo de rede blockchain. Os modelos de solução são fornecidos sem um contrato de nível de serviço. Use a [página da Microsoft Q&uma pergunta](/answers/topics/azure-blockchain-workbench.html) para obter suporte.
+[Azure Blockchain Service](../service/overview.md) | PaaS | O Azure Blockchain Service Preview simplifica a formação, o gerenciamento e a governança de redes do consórcio Blockchain. Use o serviço Blockchain do Azure para soluções que exigem PaaS, gerenciamento de consórcio ou privacidade de contrato e transação.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS e PaaS | A versão prévia do Azure Blockchain Workbench é uma coleção de serviços e recursos do Azure desenvolvidos para ajudar você a criar e implantar aplicativos de blockchain para compartilhar processos empresariais e dados com outras organizações. Use o Azure Blockchain Workbench para o protótipo de uma solução Blockchain ou uma prova de conceito de aplicativo Blockchain. O Azure Blockchain Workbench é fornecido sem um Contrato de Nível de Serviço. Use a [página da Microsoft Q&uma pergunta](/answers/topics/azure-blockchain-workbench.html) para obter suporte.
 
 ## <a name="solution-architecture"></a>Arquitetura da solução
 
@@ -94,7 +97,7 @@ Nome de usuário da VM | Nome de usuário de administrador de cada VM implantada
 Tipo de autenticação | O método para autenticar para a máquina virtual. | Senha
 Senha | A senha para a conta de administrador para cada uma das máquinas virtuais implantadas. Todas as VMs têm inicialmente a mesma senha. Você pode alterar a senha após o provisionamento. | 12 a 72 caracteres 
 Subscription | A assinatura para a qual deseja implantar a rede consortium |
-Grupo de recursos| O grupo de recursos para o qual implantar a rede do consórcio. | myResourceGroup
+Grupo de Recursos| O grupo de recursos para o qual implantar a rede do consórcio. | myResourceGroup
 Location | A região do Azure para o grupo de recursos. | Oeste dos EUA 2
 
 Selecione **OK**.
@@ -127,7 +130,7 @@ Tamanho da máquina virtual do nó de mineração | O tamanho de máquina virtua
 
 A máquina virtual e a camada de armazenamento afetam o desempenho da rede.  Use a tabela a seguir para ajudar a escolher a eficiência de custo:
 
-SKU da máquina virtual|Camada de armazenamento|Price|Produtividade|Latency
+SKU da máquina virtual|Camada de armazenamento|Preço|Taxa de transferência|Latency
 ---|---|---|---|---
 F1|SSD Standard|low|low|high
 D2_v3|SSD Standard|média|média|média
@@ -164,7 +167,7 @@ Parâmetro | Descrição | Valor de exemplo
 ----------|-------------|--------------
 Monitoramento | Opção para habilitar o monitoramento | Habilitar
 Conectar-se a logs de Azure Monitor existentes | Opção para criar uma nova instância de logs de Azure Monitor ou ingressar em uma instância existente | Create new
-Location | A região em que a nova instância é implantada | Leste dos EUA
+Location | A região em que a nova instância é implantada | East US
 ID do espaço de trabalho do log Analytics existente (conectar a logs de Azure Monitor existentes = ingressar existente)|ID do espaço de trabalho da instância existente de logs de Azure Monitor||NA
 Chave primária do log Analytics existente (conectar a logs de Azure Monitor existentes = ingressar existente)|A chave primária usada para se conectar à instância existente de logs de Azure Monitor||NA
 
@@ -327,7 +330,7 @@ Por motivos de segurança, o acesso de porta SSH é negado por uma regra de segu
 
     ![habilitar permissão ssh](./media/ethereum-poa-deployment/ssh-enable-allow.png)
 
-1. Selecione **Salvar**. As alterações podem levar alguns minutos para serem aplicadas.
+1. Clique em **Salvar**. As alterações podem levar alguns minutos para serem aplicadas.
 
 Você pode se conectar remotamente às máquinas virtuais para os nós de validador via SSH com o nome de usuário do administrador fornecido e a chave de senha/SSH. O comando SSH para acessar o primeiro nó do validador é listado na saída de implantação do modelo. Por exemplo:
 
@@ -731,10 +734,10 @@ Para fornecer comentários sobre o produto ou solicitar novos recursos, poste um
 
 converse com engenheiros da Microsoft e com os especialistas da comunidade do Azure Blockchain.
 
-* [O Microsoft Q&uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). O suporte de engenharia para modelos blockchain é limitado a problemas de implantação.
+* [O Microsoft Q&uma página de perguntas](/answers/topics/azure-blockchain-workbench.html). O suporte de engenharia para modelos blockchain é limitado a problemas de implantação.
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais soluções de Blockchain do Azure, consulte a [documentação do Blockchain do Azure](https://docs.microsoft.com/azure/blockchain/).
+Para obter mais soluções de Blockchain do Azure, consulte a [documentação do Blockchain do Azure](../index.yml).

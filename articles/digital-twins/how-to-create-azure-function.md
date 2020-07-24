@@ -7,11 +7,12 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3b416e6ccb035ede06a360c2697a9b20ca417d98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e284bc76da9ca40341d72f772aa7ee947a11638
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725895"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124299"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Conectar Azure Functions aplicativos para processamento de dados
 
@@ -77,7 +78,7 @@ Esta é sua função básica do Azure.
 
 Agora você pode compilar e executar a função. Embora o Azure Functions seja, em última análise, destinado a ser executado na nuvem, você também pode executar e depurar o Azure Functions localmente.
 
-Para obter mais informações sobre isso, consulte [depurar o gatilho de grade de eventos localmente](../azure-functions/functions-debug-event-grid-trigger-local.md).
+Para obter mais informações sobre isso, consulte [*depurar o gatilho de grade de eventos localmente*](../azure-functions/functions-debug-event-grid-trigger-local.md).
 
 ### <a name="add-the-azure-digital-twins-sdk-to-your-azure-function-app"></a>Adicionar o SDK do gêmeos digital do Azure ao seu aplicativo de funções do Azure
 
@@ -162,9 +163,9 @@ Use o valor de *principalId* no comando a seguir para atribuir a identidade do a
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-Para obter mais informações sobre identidade gerenciada, consulte [como usar identidades gerenciadas para serviço de aplicativo e Azure Functions](../app-service/overview-managed-identity.md).
+Para obter mais informações sobre identidade gerenciada, consulte [*como usar identidades gerenciadas para serviço de aplicativo e Azure Functions*](../app-service/overview-managed-identity.md).
 
-Por fim, você pode tornar a URL da sua instância de gêmeos digital do Azure acessível para sua função definindo uma variável de ambiente. Para obter mais informações sobre isso, consulte [variáveis de ambiente](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables).
+Por fim, você pode tornar a URL da sua instância de gêmeos digital do Azure acessível para sua função definindo uma variável de ambiente. Para obter mais informações sobre isso, consulte [*variáveis de ambiente*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables).
 
 > [!TIP]
 > A URL da instância do gêmeos digital do Azure é feita adicionando *https://* ao início do *nome de host*da instância do Azure digital gêmeos. Para ver o nome do host, juntamente com todas as propriedades de sua instância, você pode executar `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
@@ -208,7 +209,7 @@ Observe também a **ID de objeto** mostrada nesta página, pois ela será usada 
 
 ### <a name="assign-access-roles"></a>Atribuir funções de acesso
 
-Como o Azure digital gêmeos usa o controle de acesso baseado em função para gerenciar o acesso (consulte [conceitos: segurança para soluções de gêmeos digitais do Azure](concepts-security.md) para obter mais informações sobre isso), você também precisa adicionar uma função para cada aplicativo de funções que deseja permitir para acessar o gêmeos digital do Azure.
+Como o Azure digital gêmeos usa o controle de acesso baseado em função para gerenciar o acesso (consulte [*conceitos: segurança para soluções de gêmeos digitais do Azure*](concepts-security.md) para obter mais informações sobre isso), você também precisa adicionar uma função para cada aplicativo de funções que deseja permitir para acessar o gêmeos digital do Azure.
 
 Para atribuir uma função, você precisa da **ID de recurso** da instância do gêmeos digital do Azure que você criou. Se você não o registrou antes de criar sua instância, poderá recuperá-la usando este comando:
 
@@ -231,4 +232,4 @@ Neste artigo, você seguiu as etapas para configurar uma função do Azure para 
 * Um ponto de extremidade de grade de eventos que recebe mensagens de outros serviços
 
 Em seguida, consulte como criar em sua função básica do Azure para ingerir dados do Hub IoT no gêmeos digital do Azure:
-* [Como: telemetria de ingestão do Hub IoT](how-to-ingest-iot-hub-data.md)
+* [*Como: telemetria de ingestão do Hub IoT*](how-to-ingest-iot-hub-data.md)
