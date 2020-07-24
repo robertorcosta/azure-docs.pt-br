@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 10/23/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 54515b347a95b9315ca9ba87568fb2104c3b2b45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb7d4d8a6f1c1ee55601cdd839e330147e60bcc7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736995"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011066"
 ---
 # <a name="orchestration-modes-preview"></a>Modos de orquestração (versão prévia)
 
@@ -42,7 +42,7 @@ Os conjuntos de dimensionamento de máquinas virtuais oferecerão suporte a dois
 
 ## <a name="orchestration-modes"></a>Modos de orquestração
 
-|                             | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
+| Recurso                     | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
 | Modelo de configuração de VM      | Nenhum                                       | Obrigatório |
 | Adicionando Nova VM ao conjunto de dimensionamento  | As VMs são adicionadas explicitamente ao conjunto de dimensionamento quando a VM é criada. | As VMs são criadas implicitamente e adicionadas ao conjunto de dimensionamento com base nas regras modelo de configuração de VM, contagem de instâncias e dimensionamento automático | |
@@ -51,17 +51,17 @@ Os conjuntos de dimensionamento de máquinas virtuais oferecerão suporte a dois
 | Ciclo de vida da instância (criação por meio de exclusão) | As VMs e seus artefatos (como discos e NICs) podem ser gerenciados de forma independente. | Instâncias e seus artefatos (como discos e NICs) são implícitos para as instâncias do conjunto de dimensionamento que os criam. Eles não podem ser desanexados ou gerenciados separadamente fora do conjunto de dimensionamento |
 | Domínios de falha               | Pode definir domínios de falha. 2 ou 3 com base no suporte regional e 5 para a zona de disponibilidade. | Pode definir domínios de falha indo de 1 a 5 |
 | Atualizar domínios              | Os domínios de atualização são mapeados automaticamente para domínios de falha | Os domínios de atualização são mapeados automaticamente para domínios de falha |
-| Zonas de Disponibilidades          | Dá suporte à implantação regional ou a VMs em uma zona de disponibilidade | Dá suporte à implantação regional ou a vários Zonas de Disponibilidade; Pode definir a estratégia de balanceamento de zona |
+| Zonas de Disponibilidade          | Dá suporte à implantação regional ou a VMs em uma zona de disponibilidade | Dá suporte à implantação regional ou a vários Zonas de Disponibilidade; Pode definir a estratégia de balanceamento de zona |
 | Autoescala                   | Sem suporte                              | Com suporte |
 | Atualização do so                  | Sem suporte                              | Com suporte |
 | Atualizações de modelo               | Sem suporte                              | Com suporte |
 | Controle de instância            | Controle de VM completo. As VMs têm um URI totalmente qualificado que oferece suporte a toda a gama de recursos de gerenciamento de VM do Azure (como Azure Policy, backup do Azure e Azure Site Recovery) | As VMs são recursos dependentes do conjunto de dimensionamento. As instâncias podem ser acessadas para gerenciamento somente por meio do conjunto de dimensionamento. |
 | Modelo de instância              | Definição do modelo Microsoft. Compute/VirtualMachines. | Definição do modelo Microsoft. Compute/VirtualMachineScaleSets/VirtualMachines. |
 | Capacity                    | Um conjunto de dimensionamento vazio pode ser criado; até 200 VMs podem ser adicionadas ao conjunto de dimensionamento | Os conjuntos de dimensionamento podem ser definidos com uma contagem de instâncias 0-1000 |
-| Mover                        | Com suporte                                  | Suportado |
+| Mover                        | Suportado                                  | Suportado |
 | Grupo de posicionamento único = = falso | Sem suporte                          | Com suporte |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte a [visão geral das opções de disponibilidade](availability.md).
+Para obter mais informações, consulte a [visão geral das opções de disponibilidade](../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json).

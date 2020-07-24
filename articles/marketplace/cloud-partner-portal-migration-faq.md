@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: anbene
 ms.author: mingshen
-ms.date: 06/29/2020
-ms.openlocfilehash: e708d9a32d63c306a2d1ee8d06b044652f108dde
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.date: 07/14/2020
+ms.openlocfilehash: eafa6c4911e934d391a380e5eb494ca8f7766959
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231872"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012052"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Perguntas frequentes sobre a transição do Portal do Cloud Partner para o Partner Center
 
@@ -30,7 +30,7 @@ Você pode continuar fazendo negócios como de costume no Partner Center:
 | Novas compras e implantações | Sem alterações. Seus clientes podem continuar comprando e implantando suas ofertas sem interrupções. |
 | Pagamentos | Todas as compras e implantações continuarão a ser pagas normalmente. Saiba mais sobre como ser [pago no mercado comercial](partner-center-portal/get-paid.md). |
 | Integrações de API com APIs existentes de [Portal do Cloud Partner ](cloud-partner-portal-api-overview.md) | As APIs existentes do Portal do Cloud Partner ainda têm suporte e suas integrações existentes ainda funcionam. Saiba mais em [as APIs REST do portal do Cloud Partner terão suporte?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| Análise | Você pode continuar a monitorar as vendas, avaliar o desempenho e otimizar suas ofertas no Marketplace comercial exibindo análise no Partner Center. Saiba mais em [relatórios analíticos do Access para o mercado comercial no Partner Center](partner-center-portal/analytics.md). |
+| Análise | Você pode continuar a monitorar as vendas, avaliar o desempenho e otimizar suas ofertas no Marketplace comercial exibindo análise no Partner Center. Há diferenças entre o modo como os relatórios de análise são exibidos no CPP e no Partner Center. Por exemplo, as **informações do vendedor** em cpp têm uma guia **Orders & Usage** , que exibe dados para ofertas baseadas em uso e ofertas não baseadas em uso, enquanto no Partner Center a página **pedidos** tem uma guia separada para ofertas de SaaS. Saiba mais em [relatórios analíticos do Access para o mercado comercial no Partner Center](partner-center-portal/analytics.md). |
 |||
 
 ## <a name="do-i-need-to-create-a-new-account-to-manage-my-offers-in-partner-center"></a>É necessário criar uma nova conta para gerenciar minhas ofertas no Partner Center?
@@ -50,6 +50,19 @@ A seguir estão os links do Partner Center para páginas comumente usadas no Por
 | Página de histórico | [https://cloudpartner.azure.com/#history](https://cloudpartner.azure.com/#history) | O recurso de histórico ainda não tem suporte no Partner Center. |
 | Painel de informações | [https://cloudpartner.azure.com/#insights](https://cloudpartner.azure.com/#insights) | [https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary) |
 | Relatórios de pagamento | [https://cloudpartner.azure.com/#insights/payout](https://cloudpartner.azure.com/#insights/payout) | [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
+|||
+
+## <a name="payout-report-differences"></a>Diferenças no relatório de pagamento
+
+Essas são as diferenças no relatório de pagamento entre o Portal do Cloud Partner desativado e o Partner Center atual:
+
+| Portal de Parceiros de Nuvem | Partner Center |
+| --- | --- |
+| **Link**: https://cloudpartner.azure.com/ | **Link**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory e https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| **Navegação**: Relatório de pagamento fornecido no Pagamento de Insights | **Navegação**: Relatório de pagamento fornecido no Partner Center - Ícone de Pagamento |
+| **Escopo**:<ul><li>A transação por item de linha está visível para coleta em andamento, coletados e pagos.</li><li>Relatório - mostra todos os itens de linha após a criação da ordem de compra, incluindo a coleta em andamento e a cobrança em andamento, bem como o status de coleta e os itens de linha que ainda não estão qualificados para serem pagos.</li></ul> | **Escopo**:<ul><li>Mostra os itens de linha depois que eles são considerados ganhos qualificados.</li><li>Os clientes pagam para a Microsoft primeiro e depois os ISVs podem ver a inicialização do relatório de pagamento.</li><li>O relatório de pagamento não mostra a coleção em andamento e a cobrança em andamento.</li></ul> |
+| **A transação não está pronta para o pagamento**: Cobrança em andamento | **A transação não está pronta para o pagamento**: Próximo pagamento estimado: O status de pagamento está no estado não processado. |
+| **Status de pagamento**: n/a | **Status de pagamento**:<ul><li>Não processado: O ganho está qualificado para pagamento.</li><li>Próximos: O ganho será enviado ao editor no próximo pagamento mensal.</li><li>Enviado: O pagamento foi enviado ao seu banco.</li></ul> |
 |||
 
 ## <a name="what-about-offers-i-published-in-the-cloud-partner-portal"></a>E quanto às ofertas que publiquei na Portal do Cloud Partner?

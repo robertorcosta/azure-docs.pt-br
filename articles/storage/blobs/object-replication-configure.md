@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 9cb9f1a33c37487f4bfb1419d45d4e42a862d815
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddf9a1309cb4f9156cec3aeb5d2ddd9d22cde485
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888110"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011441"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Configurar a replicação de objeto para blobs de blocos (versão prévia)
 
@@ -36,7 +36,7 @@ Antes de começar, certifique-se de que você se registrou para as seguintes vis
 - [Controle de versão de blob (versão prévia)](versioning-overview.md)
 - [Suporte ao feed de alterações no Armazenamento de Blobs do Azure (versão prévia)](storage-blob-change-feed.md)
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Antes de configurar a replicação de objeto no portal do Azure, crie os contêineres de origem e de destino nas respectivas contas de armazenamento se eles ainda não existirem. Além disso, habilite o controle de versão de blob e o feed de alterações na conta de origem e habilite o controle de versão de blob na conta de destino.
 
@@ -52,7 +52,7 @@ Para criar uma política de replicação no portal do Azure, siga estas etapas:
 
     :::image type="content" source="media/object-replication-configure/configure-replication-policy.png" alt-text="Captura de tela mostrando regras de replicação no portal do Azure":::
 
-1. Se desejar, especifique um ou mais filtros para copiar somente os blobs que correspondam a um padrão de prefixo. Por exemplo, se você especificar um prefixo `b`, somente os blobs cujo nome começar com essa letra serão replicados. Você pode especificar um diretório virtual como parte do prefixo.
+1. Se desejar, especifique um ou mais filtros para copiar somente os blobs que correspondam a um padrão de prefixo. Por exemplo, se você especificar um prefixo `b`, somente os blobs cujo nome começar com essa letra serão replicados. Você pode especificar um diretório virtual como parte do prefixo. A cadeia de caracteres de prefixo não dá suporte a caracteres curinga.
 
     A imagem a seguir mostra filtros que restringem quais blobs são copiados como parte de uma regra de replicação.
 
@@ -68,7 +68,7 @@ Para criar uma política de replicação no portal do Azure, siga estas etapas:
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para criar uma política de replicação com o PowerShell, primeiro instale a versão [2.0.1-Preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) do módulo Az.Storage do PowerShell. Para instalar o módulo de versão prévia, siga estas etapas:
+Para criar uma política de replicação com o PowerShell, primeiro instale a versão [2.0.1-Preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) ou posterior do módulo AZ. Storage PowerShell. Para instalar o módulo de versão prévia, siga estas etapas:
 
 1. Remova as instalações anteriores do Azure PowerShell do Windows usando a configuração **Aplicativos e recursos** em **Configurações**.
 

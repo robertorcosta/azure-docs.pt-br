@@ -7,13 +7,14 @@ ms.date: 01/11/2019
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: a658bfc0815a03d0f6944d1c42eacdd04397458d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1dfcad5a4fb6611543e6421e82889f239f14951
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660897"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010812"
 ---
-# <a name="benchmarking-a-disk"></a>Aplicação de parâmetros de comparação em um disco
+# <a name="benchmark-your-application-on-azure-disk-storage"></a>Avaliar o aplicativo no Armazenamento em Disco do Azure
 
 Os parâmetros de comparação são o processo de simular diferentes cargas de trabalho no aplicativo e avaliar o desempenho do aplicativo para cada carga de trabalho. Usando as etapas descritas no [artigo de planejamento de alto desempenho](premium-storage-performance.md). Ao executar ferramentas de parâmetros de comparação nas VMs que hospedam o aplicativo, você poderá determinar os níveis de desempenho que o aplicativo pode atingir com o Armazenamento Premium. Neste artigo, forneceremos exemplos de parâmetros de comparação de uma VM DS14 Standard provisionada com discos do Armazenamento Premium do Azure.
 

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 23f12278d02715bd94f1ea26abf2bd4b2b03caf1
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 6b95eeaf7dd72c85c3940e3cdc2a71c193c35ff5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187397"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008601"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Gerenciar credenciais na Automação do Azure
 
@@ -44,7 +44,7 @@ Os cmdlets na tabela a seguir são usados para acessar credenciais em seus runbo
 |:--- |:--- |
 | `Get-AutomationPSCredential` |Obtém um objeto `PSCredential` a ser usado em uma configuração de DSC ou runbook. Geralmente, você deve usar esse [cmdlet interno](modules.md#internal-cmdlets) em vez do cmdlet `Get-AzAutomationCredential`, pois o último recupera apenas informações de credenciais. Normalmente, essas informações não são úteis para serem passadas para outro cmdlet. |
 | [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |Obtém uma credencial com um prompt para um nome de usuário e senha. Esse cmdlet faz parte do módulo padrão Microsoft.PowerShell.Security. Consulte [Módulos padrão](modules.md#default-modules).|
-| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | Cria um ativo de credencial. Esse cmdlet faz parte do módulo padrão do Azure. Consulte [Módulos padrão](modules.md#default-modules).|
+| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure.service/new-azureautomationcredential?view=azuresmps-4.0.0) | Cria um ativo de credencial. Esse cmdlet faz parte do módulo padrão do Azure. Consulte [Módulos padrão](modules.md#default-modules).|
 
 Para recuperar objetos `PSCredential` em seu código, você deve importar o módulo `Orchestrator.AssetManagement.Cmdlets`. Para obter mais informações, confira [Gerenciar módulos na Automação do Azure](modules.md).
 

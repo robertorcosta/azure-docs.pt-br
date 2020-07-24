@@ -4,11 +4,12 @@ description: Monitorar topologias complexas de aplicativos com o mapa do aplicat
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 7c5c9173704535b1e34ffde5867bd512e3e02ed8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f9f19ea9370b9da3e69d871e8b53ccf7f64a6a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80989520"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008499"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa do aplicativo: aplicativos distribuídos por triagem
 
@@ -156,7 +157,7 @@ Para [aplicativos ASP.NET Core](asp-net-core.md#adding-telemetryinitializers), a
 
 **Agente Java**
 
-Para o [agente Java 3,0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) , o nome da função de nuvem é definido da seguinte maneira:
+Para o [agente Java 3,0](./java-in-process-agent.md) , o nome da função de nuvem é definido da seguinte maneira:
 
 ```json
 {
@@ -258,15 +259,15 @@ Se você estiver tendo dificuldades para obter o Mapa do aplicativo para trabalh
 
 1. Certifique-se que você está usando um SDK com suporte oficial. SDKs de comunidade/sem suporte podem não dar suporte à correlação.
 
-    Consulte este [artigo](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) para obter uma lista de SDKs com suporte.
+    Consulte este [artigo](./platforms.md) para obter uma lista dos SDKs com suporte.
 
 2. Atualize todos os componentes para a versão mais recente do SDK.
 
-3. Se você estiver usando Azure Functions com C#, atualize para o [Functions v2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+3. Se você estiver usando Azure Functions com C#, atualize para o [Functions v2](../../azure-functions/functions-versions.md).
 
 4. Confirme se o [nome da função de nuvem](#set-cloud-role-name) está configurado corretamente.
 
-5. Se estiver faltando uma dependência, verifique se ele está na lista de [dependências coletadas automaticamente](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Se não, você ainda poderá acompanhá-lo manualmente com uma chamada [acompanhar dependência](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+5. Se estiver faltando uma dependência, verifique se ele está na lista de [dependências coletadas automaticamente](./auto-collect-dependencies.md). Se não, você ainda poderá acompanhá-lo manualmente com uma chamada [acompanhar dependência](./api-custom-events-metrics.md#trackdependency).
 
 ### <a name="too-many-nodes-on-the-map"></a>Muitos nós no mapa
 
@@ -280,7 +281,7 @@ Para corrigir isso, você precisará alterar sua instrumentação para definir c
 
 * O tipo de dependência deve representar o tipo lógico de uma dependência. Por exemplo, HTTP, SQL ou BLOB do Azure são tipos de dependência típicos. Ele não deve conter IDs exclusivas.
 
-* A finalidade do nome da função de nuvem é descrita na [seção acima](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
+* A finalidade do nome da função de nuvem é descrita na [seção acima](#set-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Comentários do Portal
 

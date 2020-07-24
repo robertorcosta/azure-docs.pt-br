@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: d03e911b88e6a7729b0519e74941b47d85a97901
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cc00ecb3810b1499f52ea9f3a0c110e92c75dff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84944620"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009605"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Carregar um VHD no Azure ou copiar um disco gerenciado para outra região-Azure PowerShell
 
@@ -34,7 +34,7 @@ Para carregar o VHD no Azure, você precisará criar um disco gerenciado vazio q
 
 Esse tipo de disco gerenciado tem dois Estados exclusivos:
 
-- ReadToUpload, que significa que o disco está pronto para receber um upload, mas nenhuma [assinatura de acesso seguro](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS) foi gerada.
+- ReadToUpload, que significa que o disco está pronto para receber um upload, mas nenhuma [assinatura de acesso seguro](../../storage/common/storage-sas-overview.md) (SAS) foi gerada.
 - ActiveUpload, o que significa que o disco está pronto para receber um upload e a SAS foi gerada.
 
 > [!NOTE]
@@ -44,7 +44,7 @@ Esse tipo de disco gerenciado tem dois Estados exclusivos:
 
 Para poder criar um HDD padrão vazio para carregamento, você precisará do tamanho do arquivo do VHD que deseja carregar, em bytes. O código de exemplo o levará para você, mas, para você mesmo, você pode usar: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length` . Esse valor é usado ao especificar o parâmetro **-UploadSizeInBytes** .
 
-Agora, no Shell local, crie um HDD padrão vazio para carregamento, especificando a configuração de **carregamento** no parâmetro **-createoption** , bem como o parâmetro **-UploadSizeInBytes** no cmdlet [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) . Em seguida, chame [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) para criar o disco.
+Agora, no Shell local, crie um HDD padrão vazio para carregamento, especificando a configuração de **carregamento** no parâmetro **-createoption** , bem como o parâmetro **-UploadSizeInBytes** no cmdlet [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) . Em seguida, chame [New-AzDisk](/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) para criar o disco.
 
 Substitua `<yourdiskname>` , `<yourresourcegroupname>` e `<yourregion>` Execute os seguintes comandos:
 

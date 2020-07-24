@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 07/20/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 4906ea7c3ed3486a4ce089f51916fb8322761fe9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88856a16dbc197be29ddd88311063df4473a1e40
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559551"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007870"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs do Azure Monitor    
 
@@ -100,12 +100,18 @@ Você também pode [definir o tipo de preço por meio do Azure Resource Manager]
 
 As assinaturas que tinham um workspace do Log Analytics ou um recurso do Application Insights presentes antes de 2 de abril de 2018, ou que estejam vinculadas a um Contrato Enterprise iniciado antes de 1º de fevereiro de 2019, continuarão a ter acesso ao uso dos tipos de preço herdados: **Gratuito**, **Autônomo (por GB)** e **Por Nó (OMS)** .  Os workspaces no tipo de preço Gratuito terão uma ingestão de dados diária limitada a 500 MB (exceto por tipos de dados de segurança coletados pela [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/)) e a retenção de dados será limitada a 7 dias. O tipo de preço Gratuito é destinado apenas para fins de avaliação. Os workspaces nos tipos de preço Autônomo ou Por Nó têm retenção configurável do usuário de 30 a 730 dias.
 
-O tipo de preço Por Nó faz a cobrança por VM monitorada (nó) em uma granularidade de hora. Para cada nó monitorado, são alocados 500 MB de dados por dia ao workspace, os quais não são cobrados. Essa alocação é agregada no nível do workspace. Os dados ingeridos em quantidade acima da alocação diária de dados agregados são cobrados por GB como excedentes de dados. Observe que, em sua fatura, o serviço será **Insight e Análise** para o uso do Log Analytics caso o workspace esteja no tipo de preço Por Nó. 
+O uso no tipo de preço autônomo é cobrado pelo volume de dados ingeridos. Ele é relatado no serviço de **log Analytics** e o medidor é denominado "dados analisados". 
+
+O tipo de preço Por Nó faz a cobrança por VM monitorada (nó) em uma granularidade de hora. Para cada nó monitorado, são alocados 500 MB de dados por dia ao workspace, os quais não são cobrados. Essa alocação é agregada no nível do workspace. Os dados ingeridos em quantidade acima da alocação diária de dados agregados são cobrados por GB como excedentes de dados. Observe que, em sua fatura, o serviço será **Insight e Análise** para o uso do Log Analytics caso o workspace esteja no tipo de preço Por Nó. O uso é relatado em três medidores:
+
+1. Node: é o uso do número de nós monitorados (VMs) em unidades de nó * meses.
+2. Dados excedentes por nó: Este é o número de GB de dados ingeridos excedendo a alocação de dados agregada.
+3. Dados incluídos por nó: esta é a quantidade de dados ingeridos que foram cobertos pela alocação de dados agregados. Esse medidor também é usado quando o espaço de trabalho está em todos os tipos de preço para mostrar a quantidade de dados cobertos pela central de segurança do Azure.
 
 > [!TIP]
 > Caso seu workspace tenha acesso ao tipo de preço **Por Nó**, mas você esteja se perguntando se o custo seria menor em um tipo de preço Pagamento Conforme o Uso, você pode [usar a consulta abaixo](#evaluating-the-legacy-per-node-pricing-tier) para obter uma recomendação facilmente. 
 
-Os workspaces criados antes de abril de 2016 também podem acessar os tipos de preço originais **Standard** e  **Premium** que têm retenção de dados fixa de 30 a 365 dias respectivamente. Novos workspaces não podem ser criados nos tipos de preço **Standard** ou **Premium** e, se um workspace for movido para fora desses tipos, ele não poderá ser movido de volta.
+Os workspaces criados antes de abril de 2016 também podem acessar os tipos de preço originais **Standard** e  **Premium** que têm retenção de dados fixa de 30 a 365 dias respectivamente. Novos workspaces não podem ser criados nos tipos de preço **Standard** ou **Premium** e, se um workspace for movido para fora desses tipos, ele não poderá ser movido de volta. Os medidores de ingestão de dados para essas camadas herdadas são chamados de "dados analisados".
 
 Também há alguns comportamentos entre o uso de tipos de preço herdados do Log Analytics e como o uso é cobrado para a [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/). 
 
@@ -132,15 +138,15 @@ Para definir a retenção padrão do seu workspace:
 
     ![Alterar a configuração de retenção de dados do workspace](media/manage-cost-storage/manage-cost-change-retention-01.png)
 
-Quando a retenção for reduzida, haverá um período de carência de vários dias até que os dados mais antigos sejam removidos. 
-    
-A retenção também pode ser [definida por meio do Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) usando o parâmetro `retentionInDays`. Além disso, caso defina a retenção de dados para 30 dias, você poderá disparar uma limpeza imediata de dados mais antigos usando o parâmetro `immediatePurgeDataOn30Days`, o que pode ser útil para cenários relacionados à conformidade. Essa funcionalidade só é exposta via Azure Resource Manager. 
+Quando a retenção é reduzida, há um período de carência de vários dias antes que os dados anteriores à nova configuração de retenção sejam removidos. 
 
+A retenção também pode ser [definida por meio do Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) usando o parâmetro `retentionInDays`. Ao definir a retenção de dados para 30 dias, você pode disparar uma limpeza imediata de dados mais antigos usando o `immediatePurgeDataOn30Days` parâmetro (eliminando o período de carência de vários dias). Isso pode ser útil para cenários relacionados à conformidade em que a remoção imediata de dados é imperativa. Essa funcionalidade de limpeza imediata só é exposta por meio de Azure Resource Manager. 
+
+Os espaços de trabalho com retenção de 30 dias podem realmente reter dados por 31 dias. Se for imperativo que os dados sejam mantidos por apenas 30 dias, use a Azure Resource Manager para definir a retenção para 30 dias e com o `immediatePurgeDataOn30Days` parâmetro.  
 
 Dois tipos de dados — `Usage` e `AzureActivity` — são retidos por um mínimo de 90 dias por padrão, e não há nenhum custo para esse período de retenção. Caso a retenção do workspace seja aumentada para mais de 90 dias, a retenção desses tipos de dados também será aumentada.  Também não são cobrados encargos de ingestão de dados para esses tipos de dados. 
 
 Os tipos de dados dos recursos do Application Insights baseados em workspace (`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents` e `AppTraces`) também são retidos por 90 dias por padrão, e não há nenhum custo para esse período de retenção. Essa retenção pode ser ajustada usando a funcionalidade de retenção por tipo de dados. 
-
 
 ### <a name="retention-by-data-type"></a>Retenção por tipo de dados
 
@@ -189,14 +195,17 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 ## <a name="manage-your-maximum-daily-data-volume"></a>Gerenciar o volume máximo de dados por dia
 
-É possível configurar um limite diário e limitar a ingestão diária para o workspace, mas seja cuidadoso, pois sua meta não deve ser atingir o limite diário.  Caso contrário, você perderá os dados no restante do dia, o que pode afetar outros serviços e soluções do Azure cuja funcionalidade pode depender de dados atualizados no workspace.  Como resultado, sua capacidade de observar e receber alertas quando as condições de integridade dos recursos que dão suporte a serviços de TI forem afetadas.  O limite diário destina-se a ser usado como uma maneira de gerenciar o aumento inesperado no volume de dados dos recursos gerenciados e permanecer dentro do limite, ou quando você quiser limitar encargos não planejados para o workspace.  
+É possível configurar um limite diário e limitar a ingestão diária para o workspace, mas seja cuidadoso, pois sua meta não deve ser atingir o limite diário.  Caso contrário, você perderá os dados no restante do dia, o que pode afetar outros serviços e soluções do Azure cuja funcionalidade pode depender de dados atualizados no workspace.  Como resultado, sua capacidade de observar e receber alertas quando as condições de integridade dos recursos que dão suporte a serviços de TI forem afetadas.  O limite diário destina-se a ser usado como uma maneira de gerenciar um **aumento inesperado** no volume de dados de seus recursos gerenciados e permanecer dentro do limite ou quando você quiser limitar encargos não planejados para seu espaço de trabalho. Não é apropriado definir um limite diário para que ele seja atendido todos os dias em um espaço de trabalho.
 
 Cada espaço de trabalho tem seu limite diário aplicado em uma hora diferente do dia. A hora de redefinição é mostrada na página de **limite diário** (veja abaixo). Esta hora de redefinição não pode ser configurada. 
 
-Tão logo o limite diário seja alcançado, a coleta de tipos de dados faturáveis é interrompida pelo restante do dia. (A latência inerente à aplicação do limite diário significa que o limite não é aplicado exatamente ao nível de limite diário especificado.) Uma faixa de aviso aparece na parte superior da página do espaço de trabalho Log Analytics selecionado e um evento de operação é enviado para a tabela de *operação* em **LogManagement** categoria. A coleta de dados é retomada após o tempo de redefinição definido em *O limite diário será definido em*. É recomendável definir uma regra de alerta com base nesse evento de operação, configurada para notificar quando o limite de dados diários for alcançado. 
+Tão logo o limite diário seja alcançado, a coleta de tipos de dados faturáveis é interrompida pelo restante do dia. A latência inerente à aplicação do limite diário significa que o limite não é aplicado exatamente ao nível de limite diário especificado. Uma faixa de aviso aparece na parte superior da página do espaço de trabalho do Log Analytics selecionado e um evento de operação é enviado para a tabela *Operação* na categoria **LogManagement**. A coleta de dados é retomada após o tempo de redefinição definido em *O limite diário será definido em*. É recomendável definir uma regra de alerta com base nesse evento de operação, configurada para notificar quando o limite de dados diários for alcançado. 
+
+> [!NOTE]
+> O limite diário não pode parar a coleta de dados exatamente com o nível de Cap especificado e alguns dados em excesso são esperados, especialmente se o espaço de trabalho estiver recebendo grandes volumes de dados.  
 
 > [!WARNING]
-> O limite diário não interrompe a coleta de dados do Azure Sentinel ou da central de segurança do Azure, exceto para espaços de trabalho nos quais a central de segurança do Azure foi instalada antes de 19 de junho de 2017. 
+> O limite diário não interrompe a coleta de dados do Azure Sentinal ou da central de segurança do Azure, exceto para espaços de trabalho nos quais a central de segurança do Azure foi instalada antes de 19 de junho de 2017. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite diário de dados a definir
 

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 5dcdfba6e8dd00c8ba09e5e98293a30d19e51c99
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6201a4e0551f0f75dde65b2bc4b8b560a0f5ea20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635947"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007989"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Visão geral da extensão de Diagnóstico do Azure
 A extensão de Diagnóstico do Azure é um [agente no Azure Monitor](agents-overview.md) que coleta dados de monitoramento do sistema operacional convidado de recursos de computação do Azure, incluindo máquinas virtuais. Este artigo fornece uma visão geral da extensão de Diagnóstico do Azure, incluindo funcionalidades específicas às quais ele dá suporte e opções para instalação e configuração. 
@@ -33,7 +34,7 @@ As principais diferenças a serem consideradas são:
 
 - A extensão de Diagnóstico do Azure só pode ser usada com máquinas virtuais do Azure. O agente do Log Analytics pode ser usado com máquinas virtuais no Azure, em outras nuvens e localmente.
 - A extensão de Diagnóstico do Azure envia dados para o Armazenamento do Azure, para as [Métricas do Azure Monitor](data-platform-metrics.md) (somente Windows) e para os Hubs de Eventos. O agente do Log Analytics coleta dados para os [Logs do Azure Monitor](data-platform-logs.md).
-- O agente do Log Analytics é obrigatório para [soluções](../monitor-reference.md#insights-and-core-solutions), para o [Azure Monitor para VMs](../insights/vminsights-overview.md) e outros serviços, como a [Central de Segurança do Azure](/azure/security-center/).
+- O agente do Log Analytics é obrigatório para [soluções](../monitor-reference.md#insights-and-core-solutions), para o [Azure Monitor para VMs](../insights/vminsights-overview.md) e outros serviços, como a [Central de Segurança do Azure](../../security-center/index.yml).
 
 ## <a name="costs"></a>Custos
 Não há nenhum custo para a extensão de Diagnóstico do Azure, mas pode haver encargos pelos dados ingeridos. Verifique os [preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) para o destino em que você está coletando dados.
@@ -49,8 +50,8 @@ As tabelas a seguir listam os dados que podem ser coletados pela extensão de di
 | Contadores de desempenho | Valores numéricos que medem o desempenho de diferentes aspectos do sistema operacional e das cargas de trabalho. |
 | Logs IIS             | Informações de uso para sites do IIS em execução no sistema operacional convidado. |
 | Logs de aplicativo     | Rastreio de mensagens gravadas pelo seu aplicativo. |
-| Logs do .NET EventSource |Eventos de gravação de código usando a classe [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) do .NET |
-| [Logs do ETW baseados no manifesto](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |Rastreamento de eventos para eventos do Windows gerados por qualquer processo. |
+| Logs do .NET EventSource |Eventos de gravação de código usando a classe [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) do .NET |
+| [Logs do ETW baseados no manifesto](/windows/desktop/etw/about-event-tracing) |Rastreamento de eventos para eventos do Windows gerados por qualquer processo. |
 | Despejos de memória (logs)   | Informações sobre o estado do processo se um aplicativo falhar. |
 | Logs baseados em arquivo    | Logs criados por seu aplicativo ou serviço. |
 | Logs de diagnóstico do agente | Informações sobre o próprio Diagnóstico do Azure. |
@@ -116,4 +117,3 @@ Confira os artigos a seguir para obter detalhes sobre como instalar e configurar
 
 * Saiba como [usar os Contadores de Desempenho no Diagnóstico do Azure](../../cloud-services/diagnostics-performance-counters.md).
 * Caso tenha problemas com o início do diagnóstico ou a localização de seus dados nas tabelas de armazenamento do Azure, confira [Solução de problemas do Diagnóstico do Azure](diagnostics-extension-troubleshooting.md)
-

@@ -5,17 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/08/2020
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dae584bdfa97b2c30cab5f15881323c26366592c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5326fd6adf12d53d836594c8e53bda14e0871e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253351"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009111"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Como fazer: Exigir políticas de proteção de aplicativo e um aplicativo cliente aprovado para acesso ao aplicativo em nuvem com acesso condicional
 
@@ -29,10 +30,11 @@ Este artigo apresenta três cenários para configurar políticas de acesso condi
 
 No acesso condicional, esses aplicativos cliente são sabidamente protegidos por uma política de proteção de aplicativo. Mais informações sobre as políticas de proteção de aplicativo podem ser encontradas no artigo [Visão geral das políticas de proteção de aplicativo](/intune/apps/app-protection-policy)
 
-Para obter uma lista de aplicativos cliente qualificados, confira [Requisito de política de proteção de aplicativo](concept-conditional-access-grant.md).
+> [!WARNING]
+> Nem todos os aplicativos têm suporte como aplicativos aprovados ou dão suporte a políticas de proteção de aplicativo. Para obter uma lista de aplicativos cliente qualificados, confira [Requisito de política de proteção de aplicativo](concept-conditional-access-grant.md#require-app-protection-policy).
 
 > [!NOTE]
->    A cláusula or é usada na política para permitir que os usuários utilizem aplicativos que dão suporte aos controles de concessão **Exigir política de proteção de aplicativo**  ou **Exigir aplicativo cliente aprovado**. Para saber mais sobre quais aplicativos dão suporte ao controle de concessão **Exigir política de proteção de aplicativo**, confira [Requisito de política de proteção de aplicativo](concept-conditional-access-grant.md).
+> "Exigir um dos controles selecionados" em conceder controles é como uma cláusula OR. Isso é usado na política para permitir que os usuários utilizem aplicativos que suportam a **política exigir proteção de aplicativo** ou exigem controles de concessão de **aplicativo cliente aprovados** . **Exigir** que a política de proteção de aplicativo seja imposta se um aplicativo tiver suporte em ambas as políticas. Para saber mais sobre quais aplicativos dão suporte ao controle de concessão **Exigir política de proteção de aplicativo**, confira [Requisito de política de proteção de aplicativo](concept-conditional-access-grant.md#require-app-protection-policy).
 
 ## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>Cenário 1: Aplicativos do Office 365 exigem aplicativos aprovados com políticas de proteção de aplicativo
 
@@ -53,7 +55,7 @@ As organizações devem concluir as etapas a seguir para exigir o uso de um apli
 1. Em **Condições**, selecione **Plataformas de dispositivo**.
    1. Defina **Configurar** como **Sim**.
    1. Inclua **Android** e **iOS**.
-1. Em **condições**, selecione **Aplicativos cliente (versão preliminar)** .
+1. Em **Condições**, selecione **Aplicativos cliente (versão preliminar)** .
    1. Defina **Configurar** como **Sim**.
    1. Selecione **Aplicativos móveis e clientes da área de trabalho** e **Clientes de autenticação moderna**.
 1. Em **Controles de acesso** > **Conceder**, selecione as seguintes opções:

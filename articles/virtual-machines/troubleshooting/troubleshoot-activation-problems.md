@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 44c86dae3c7df8293404c253b94164c37d574158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c89fcf22f669c97f2b17acce57c293eabcf96de
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736927"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009689"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Solucionar problemas de ativação de máquina virtual do Windows Azure
 
@@ -46,9 +46,9 @@ Em geral, problemas de ativação da VM do Azure ocorrem se a VM do Windows não
 ## <a name="solution"></a>Solução
 
 >[!NOTE]
->Se você estiver usando uma VPN site a site e um túnel forçado, consulte [usar rotas personalizadas do Azure para habilitar a ativação do KMS com túnel forçado](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling). 
+>Se você estiver usando uma VPN site a site e um túnel forçado, consulte [usar rotas personalizadas do Azure para habilitar a ativação do KMS com túnel forçado](../../vpn-gateway/vpn-gateway-about-forced-tunneling.md). 
 >
->Se você estiver usando o ExpressRoute e tiver uma rota padrão publicada, consulte posso [bloquear a conectividade com a Internet para redes virtuais conectadas a circuitos do ExpressRoute?](https://docs.microsoft.com/azure/expressroute/expressroute-faqs).
+>Se você estiver usando o ExpressRoute e tiver uma rota padrão publicada, consulte posso [bloquear a conectividade com a Internet para redes virtuais conectadas a circuitos do ExpressRoute?](../../expressroute/expressroute-faqs.md).
 
 ### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Etapa 1 configurar a chave de instalação do cliente KMS apropriada
 
@@ -61,7 +61,7 @@ Para a VM que é criada com base em uma imagem personalizada, você deve configu
     cscript c:\windows\system32\slmgr.vbs /dlv
     ```
 
-2. Se **slmgr.vbs /dlv** mostrar o canal RETAIL, execute os seguintes comandos para definir a [chave de instalação de cliente KMS](https://technet.microsoft.com/library/jj612867%28v=ws.11%29.aspx?f=255&MSPPError=-2147217396) para a versão do Windows Server que está sendo usada e forçá-la para efetuar a ativação novamente: 
+2. Se **slmgr.vbs /dlv** mostrar o canal RETAIL, execute os seguintes comandos para definir a [chave de instalação de cliente KMS](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj612867(v=ws.11)?f=255&MSPPError=-2147217396) para a versão do Windows Server que está sendo usada e forçá-la para efetuar a ativação novamente: 
 
     ```
     cscript c:\windows\system32\slmgr.vbs /ipk <KMS client setup key>
@@ -77,7 +77,7 @@ Para a VM que é criada com base em uma imagem personalizada, você deve configu
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>Etapa 2 Verificar a conectividade entre o serviço KMS do Azure e de VM
 
-1. Baixe e extraia a ferramenta [PSping](https://docs.microsoft.com/sysinternals/downloads/psping) em uma pasta local na VM que não ative. 
+1. Baixe e extraia a ferramenta [PSping](/sysinternals/downloads/psping) em uma pasta local na VM que não ative. 
 
 2. Vá para Iniciar, pesquise no Windows PowerShell, clique com o botão direito no Windows PowerShell e, em seguida, selecione Executar como administrador.
 
@@ -102,7 +102,7 @@ Para a VM que é criada com base em uma imagem personalizada, você deve configu
   
     Além disso, verifique se o tráfego de rede de saída para o ponto de extremidade KMS com a porta 1688 não está bloqueado pelo firewall na VM.
 
-5. Verifique usando o [próximo salto do observador de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) que o tipo do próximo salto da VM em questão para o IP de destino 23.102.135.246 (para kms.Core.Windows.net) ou o IP do ponto de extremidade kms apropriado que se aplica à sua região é **Internet**.  Se o resultado for VirtualAppliance ou VirtualNetworkGateway, é provável que exista uma rota padrão.  Entre em contato com seu administrador de rede e trabalhe com eles para determinar o curso de ação correto.  Essa pode ser uma [rota personalizada](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation) se essa solução for consistente com as políticas da sua organização.
+5. Verifique usando o [próximo salto do observador de rede](../../network-watcher/network-watcher-next-hop-overview.md) que o tipo do próximo salto da VM em questão para o IP de destino 23.102.135.246 (para kms.Core.Windows.net) ou o IP do ponto de extremidade kms apropriado que se aplica à sua região é **Internet**.  Se o resultado for VirtualAppliance ou VirtualNetworkGateway, é provável que exista uma rota padrão.  Entre em contato com seu administrador de rede e trabalhe com eles para determinar o curso de ação correto.  Essa pode ser uma [rota personalizada](./custom-routes-enable-kms-activation.md) se essa solução for consistente com as políticas da sua organização.
 
 6. Depois de verificar a conectividade com sucesso para kms.core.windows.net, execute o seguinte comando no prompt do Windows PowerShell com privilégios elevados. Esse comando tenta a ativação várias vezes.
 
@@ -130,7 +130,7 @@ Sim.
 ### <a name="what-happens-if-windows-activation-period-expires"></a>O que acontece se o período de ativação do Windows expirar? 
 
  
-Quando o período de cortesia expirar e o Windows ainda não está ativado, o Windows Server 2008 R2 e versões posteriores do Windows mostrarão notificações adicionais sobre a ativação. O papel de parede da área de trabalho permanece preto e o Windows Update instalará somente as atualizações de segurança e críticas, mas não as atualizações opcionais. Consulte a seção de Notificações na parte inferior da página [Condições de Licenciamento](https://technet.microsoft.com/library/ff793403.aspx).   
+Quando o período de cortesia expirar e o Windows ainda não está ativado, o Windows Server 2008 R2 e versões posteriores do Windows mostrarão notificações adicionais sobre a ativação. O papel de parede da área de trabalho permanece preto e o Windows Update instalará somente as atualizações de segurança e críticas, mas não as atualizações opcionais. Consulte a seção de Notificações na parte inferior da página [Condições de Licenciamento](/previous-versions/tn-archive/ff793403(v=technet.10)).   
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 

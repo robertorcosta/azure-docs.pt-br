@@ -4,19 +4,21 @@ description: API para criar uma nova oferta ou atualizar uma existente.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/19/2020
-ms.openlocfilehash: 5104d11c1eaf9641f1d631db97dcca036308cd45
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 249eb982ee701ea0a442121c02e55ad98e1f6fb9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115716"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011984"
 ---
 <a name="create-or-modify-an-offer"></a>Criar ou modificar uma oferta
 =========================
 
 > [!NOTE]
-> As APIs de Portal do Cloud Partner são integradas ao Partner Center e continuarão funcionando depois que suas ofertas forem migradas para o Partner Center. A integração apresenta pequenas alterações. Examine as alterações listadas em [portal do Cloud Partner referência de API](./cloud-partner-portal-api-overview.md) para garantir que seu código continue a funcionar após a migração para o Partner Center.
+> As APIs de Portal do Cloud Partner são integradas ao e continuarão funcionando no Partner Center. A transição apresenta pequenas alterações. Examine as alterações listadas em [portal do Cloud Partner referência de API](./cloud-partner-portal-api-overview.md) para garantir que seu código continue funcionando após a transição para o Partner Center. As APIs de CPP só devem ser usadas para produtos existentes que já foram integrados antes da transição para o Partner Center; os novos produtos devem usar as APIs de envio do Partner Center.
 
 Essa chamada atualiza uma oferta específica no namespace do editor ou cria uma nova oferta.
 
@@ -28,12 +30,12 @@ Essa chamada atualiza uma oferta específica no namespace do editor ou cria uma 
 
 |  **Nome**         |  **Descrição**                      |  **Data type**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  Identificador do editor, por exemplo `contoso` |   String |
-| offerId           |  Identificador da oferta                     |   String        |
+| publisherId       |  Identificador do editor, por exemplo `contoso` |   Cadeia de caracteres |
+| offerId           |  Identificador da oferta                     |   Cadeia de caracteres        |
 | api-version       |  Última versão da API            |   Data           |
 |  |  |  |
 
-<a name="header"></a>parâmetro
+<a name="header"></a>Cabeçalho
 ------
 
 |  **Nome**        |  **Valor**               |
@@ -283,4 +285,4 @@ O exemplo a seguir cria uma oferta com o offerID de `contosovirtualmachine`.
 <a name="uploading-artifacts"></a>Carregar artefatos
 -------------------
 
-Artefatos, como imagens e logotipos, devem ser compartilhados, carregando-os para um local acessível na Web e, em seguida, incluindo cada um como um URI na solicitação PUT, como no exemplo acima. O sistema detectará que esses arquivos não estão presentes no armazenamento do Azure Marketplace e baixará esses arquivos no armazenamento.  Como resultado, você descobrirá que as futuras solicitações GET retornarão uma URL de serviço do Azure Marketplace desses arquivos.
+Artefatos, como imagens e logotipos, devem ser compartilhados, carregando-os para um local acessível na Web e, em seguida, incluindo cada um como um URI na solicitação PUT, como no exemplo acima. O sistema detectará que esses arquivos não estão presentes no armazenamento do Azure Marketplace e baixará esses arquivos no armazenamento.  Como resultado, você verá que futuras solicitações GET retornarão uma URL de serviço do Azure Marketplace para esses arquivos.

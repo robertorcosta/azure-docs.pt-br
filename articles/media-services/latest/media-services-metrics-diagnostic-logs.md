@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: f051d02ac06163cf1861ab6bfc6afd0dcbb0ad8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7058160819c9b6ccc3f63511f86e930fcbfc413b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82559532"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011644"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitorar as métricas dos serviços de mídia e os logs de diagnóstico por meio de Azure Monitor
 
@@ -58,7 +58,7 @@ Você também deve examinar as [cotas de conta e os limites](limits-quotas-const
 
 ### <a name="streaming-endpoint"></a>Ponto de Extremidade de Streaming
 
-As métricas de [pontos de extremidade de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) dos serviços de mídia a seguir têm suporte:
+As métricas de [pontos de extremidade de streaming](/rest/api/media/streamingendpoints) dos serviços de mídia a seguir têm suporte:
 
 |Nome da métrica|Nome de exibição|Descrição|
 |---|---|---|

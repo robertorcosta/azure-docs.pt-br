@@ -7,12 +7,12 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: 10d4c2d6650502510bd160cc452ac2289130263b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3e9a14edf9235baff2955c9f8419dc78e45755c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549490"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007972"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalar e configurar a extensão WAD (Diagnóstico do Azure para Windows)
 A [extensão de diagnóstico do Azure](diagnostics-extension-overview.md) é um agente no Azure Monitor que coleta dados de monitoramento do sistema operacional convidado e cargas de trabalho de máquinas virtuais do Azure e outros recursos de computação. Este artigo fornece detalhes sobre como instalar e configurar a extensão de diagnóstico do Windows e uma descrição de como os dados são armazenados na conta de armazenamento do Azure.
@@ -77,7 +77,7 @@ Você pode instalar e configurar a extensão de diagnóstico em uma máquina vir
 Confira [Use monitoramento e diagnóstico com uma VM do Windows e modelos do Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md) sobre como implantar a extensão de diagnóstico com os modelos do Azure Resource Manager. 
 
 ## <a name="azure-cli-deployment"></a>Implantação da CLI do Azure
-A CLI do Azure pode ser usado para implantar a extensão de Diagnóstico do Azure para uma máquina virtual existente usando [az vm extension set](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set) como no exemplo a seguir. 
+A CLI do Azure pode ser usado para implantar a extensão de Diagnóstico do Azure para uma máquina virtual existente usando [az vm extension set](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set) como no exemplo a seguir. 
 
 ```azurecli
 az vm extension set \
@@ -133,7 +133,7 @@ As configurações públicas são definidas no [elemento Public](diagnostics-ext
 
 
 ## <a name="powershell-deployment"></a>Implantação do PowerShell
-O PowerShell pode ser usado para implantar a extensão de Diagnóstico do Azure para uma máquina virtual existente usando [Set-AzVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) como no exemplo a seguir. 
+O PowerShell pode ser usado para implantar a extensão de Diagnóstico do Azure para uma máquina virtual existente usando [Set-AzVMDiagnosticsExtension](/powershell/module/servicemanagement/azure.service/set-azurevmdiagnosticsextension) como no exemplo a seguir. 
 
 ```powershell
 Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `

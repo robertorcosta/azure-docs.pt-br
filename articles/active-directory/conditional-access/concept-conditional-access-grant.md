@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1d30a32a58dd2385a214d813307c645c56afdc8
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 85beb04e39c5c47b9ee71ee96c2dff8910766ea3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024430"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009044"
 ---
 # <a name="conditional-access-grant"></a>Acesso condicional: Grant
 
@@ -30,7 +30,7 @@ O bloco leva em conta quaisquer atribuições e impede o acesso com base na conf
 
 O bloco é um controle poderoso que deve ser atraente com o conhecimento apropriado. Políticas com instruções de bloco podem ter efeitos colaterais indesejados. Os testes e a validação adequados são vitais antes de habilitar em escala. Os administradores devem utilizar ferramentas como o [modo somente de relatório de acesso condicional](concept-conditional-access-report-only.md) e [a ferramenta de What If no acesso condicional](what-if-tool.md) ao fazer alterações.
 
-## <a name="grant-access"></a>Conceder acesso
+## <a name="grant-access"></a>Permitir acesso
 
 Os administradores podem optar por impor um ou mais controles ao conceder acesso. Esses controles incluem as seguintes opções: 
 
@@ -81,7 +81,6 @@ Essa configuração se aplica aos seguintes aplicativos iOS e Android:
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow
-- Microsoft Intune Managed Browser
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
@@ -123,9 +122,22 @@ Para aproveitar esse controle de concessão, o acesso condicional requer que o d
 Essa configuração se aplica aos seguintes aplicativos cliente:
 
 - Microsoft Cortana
+- Microsoft Edge
+- Microsoft Excel
+- Microsoft Office
 - Microsoft OneDrive
+- Microsoft OneNote
 - Microsoft Outlook
 - Microsoft Planner
+- Microsoft Power BI
+- Microsoft PowerPoint
+- Microsoft SharePoint
+- Microsoft Word
+- Várias linhas para o Intune
+- Nove emails calendário de & de email
+
+> [!NOTE]
+> Microsoft Kaizala, Microsoft Skype for Business e Microsoft Visio não dão suporte à concessão de **política de proteção de aplicativo necessária** . Se você precisar que esses aplicativos funcionem, use a concessão de **aplicativos aprovados** por exclusividade. O uso da cláusula or entre as duas concessões não funcionará para esses três aplicativos.
 
 **Comentários**
 

@@ -9,11 +9,12 @@ ms.subservice: availability
 ms.date: 07/01/2019
 ms.reviewer: zivr
 ms.custom: mimckitt
-ms.openlocfilehash: 8e455d4d016f97a466838c07fc7af2422f72cc00
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 1525ef7c1e19aa9821df3f111fdce3518d37afd5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83727090"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011049"
 ---
 # <a name="preview-creating-and-using-proximity-placement-groups-using-powershell"></a>Visualização: Criação e uso dos grupos de posicionamento por proximidade usando o PowerShell
 
@@ -29,7 +30,7 @@ Um grupo de posicionamento por proximidade é um agrupamento lógico usado para 
 
 
 ## <a name="create-a-proximity-placement-group"></a>Criar um grupo de posicionamento de proximidade
-Crie um grupo de posicionamento por proximidade usando o cmdlet [New-AzProximityPlacementGroup](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup). 
+Crie um grupo de posicionamento por proximidade usando o cmdlet [New-AzProximityPlacementGroup](/powershell/module/az.compute/new-azproximityplacementgroup). 
 
 ```azurepowershell-interactive
 $resourceGroup = "myPPGResourceGroup"
@@ -54,7 +55,7 @@ Get-AzProximityPlacementGroup
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de escala
 
-Crie uma escala no grupo de posicionamento por proximidade usando `-ProximityPlacementGroup $ppg.Id` para se referir à ID do grupo de posicionamento por proximidade quando usar [New-AzVMSS](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) para criar o conjunto de dimensionamento.
+Crie uma escala no grupo de posicionamento por proximidade usando `-ProximityPlacementGroup $ppg.Id` para se referir à ID do grupo de posicionamento por proximidade quando usar [New-AzVMSS](/powershell/module/az.compute/new-azvmss) para criar o conjunto de dimensionamento.
 
 ```azurepowershell-interactive
 $scalesetName = "myVM"

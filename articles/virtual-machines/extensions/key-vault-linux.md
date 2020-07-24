@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f209a8b1d7ba5ab4fc213e43d56c04aebc3bd410
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: d2deb59b5a10177b1a6e57046c013ec9dac0fb06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224257"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010794"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual de Key Vault para Linux
 
@@ -71,7 +71,7 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 > [!NOTE]
 > Suas URLs de certificado observadas devem estar no formato `https://myVaultName.vault.azure.net/secrets/myCertName`.
 > 
-> Isso porque o caminho `/secrets` retorna todo o certificado, incluindo a chave privada, enquanto o caminho `/certificates` não faz isso. Mais informações sobre certificados podem ser encontradas aqui: [Certificados do Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Isso porque o caminho `/secrets` retorna todo o certificado, incluindo a chave privada, enquanto o caminho `/certificates` não faz isso. Mais informações sobre certificados podem ser encontradas aqui: [Certificados do Key Vault](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!NOTE]
 > A propriedade ' authenticationSettings ' é opcional para cenários quando a VM tem várias identidades atribuídas.
@@ -88,7 +88,7 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 | typeHandlerVersion | 1.0 | INT |
 | pollingIntervalInS | 3600 | string |
 | certificateStoreName | Ele é ignorado no Linux | string |
-| linkOnRenewal | false | booleano |
+| linkOnRenewal | false | boolean |
 | certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | string |
 | requiredInitialSync | true | booleano |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matriz de cadeia de caracteres
@@ -204,7 +204,7 @@ A CLI do Azure pode ser usada para implantar a extensão da VM do Key Vault em u
 Por favor esteja ciente das seguintes restrições/exigências:
 - Restrições de Key Vault:
   - Ele deve existir no momento da implantação 
-  - A política de acesso do Key Vault deve ser definida para Identidade VM/VMSS usando uma identidade gerenciada. Consulte [Fornecer autenticação do Key Vault com uma identidade gerenciada](../../key-vault/managed-identity.md)
+  - A política de acesso do Key Vault deve ser definida para Identidade VM/VMSS usando uma identidade gerenciada. Consulte [Fornecer autenticação do Key Vault com uma identidade gerenciada](../../key-vault/general/managed-identity.md)
 
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte

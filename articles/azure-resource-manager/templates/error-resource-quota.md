@@ -4,10 +4,11 @@ description: Descreve como resolver erros de cota de recursos ao implantar recur
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.openlocfilehash: 410b086b39d63d03491d390364f4aec6300fc7c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79273781"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007785"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolva erros de cota de recursos
 
@@ -98,7 +99,7 @@ Para solicitar um aumento de cota, vá ao portal e registre um problema de supor
 
 2. Selecione a assinatura que precisa de uma cota maior.
 
-   ![Selecionar uma assinatura](./media/error-resource-quota/select-subscription.png)
+   ![Selecionar assinatura](./media/error-resource-quota/select-subscription.png)
 
 3. Selecionar **uso + cotas**
 

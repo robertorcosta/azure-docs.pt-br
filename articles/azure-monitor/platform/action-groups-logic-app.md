@@ -6,11 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
-ms.openlocfilehash: 655a3acc44a1418778b37fbef85e5df75d042317
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f592c42bc06c6bcd33ce6e10c506f8af0d8e0cf2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78206229"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008380"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como disparar ações complexas com alertas do Azure Monitor
 
@@ -127,7 +128,7 @@ O processo será semelhante se você quiser que o aplicativo lógico execute uma
 
 14. Na parte superior do **Designer de Aplicativos Lógicos**, selecione **Salvar** para salvar seu aplicativo lógico.
 
-15. Abra o grupo de ações existente e adicione uma ação para referenciar o aplicativo lógico. Se você não tiver um grupo de ações existente, consulte [criar e gerenciar grupos de ações no portal do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) para criar um. Não se esqueça de salvar as alterações.
+15. Abra o grupo de ações existente e adicione uma ação para referenciar o aplicativo lógico. Se você não tiver um grupo de ações existente, consulte [criar e gerenciar grupos de ações no portal do Azure](./action-groups.md) para criar um. Não se esqueça de salvar as alterações.
 
     ![Atualizar o grupo de ações](media/action-groups-logic-app/update-action-group.png "Atualizar o grupo de ações")
 
@@ -294,6 +295,5 @@ Aplicativos Lógicos têm um número de diferentes conectores que permitem dispa
 
 ## <a name="next-steps"></a>Próximas etapas
 * Obtenha uma [visão geral dos alertas do log de atividades do Microsoft Azure](../../azure-monitor/platform/alerts-overview.md) e saiba como receber alertas.  
-* Saiba como [configurar alertas sempre que uma notificação de integridade do Serviço do Azure é publicada](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+* Saiba como [configurar alertas sempre que uma notificação de integridade do Serviço do Azure é publicada](../../service-health/alerts-activity-log-service-notifications-portal.md).
 * Saiba mais sobre [grupos de ação](../../azure-monitor/platform/action-groups.md).
-

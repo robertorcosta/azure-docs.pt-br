@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5477eea12ee41bae42365555e38aa95ca0faeb3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 318656a779aa5ba2279f075fcc44589fe2039682
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987096"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009485"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando o PowerShell
 
@@ -81,7 +81,7 @@ Para este exercício, você pode combinar as configurações, ou simplesmente es
 
 * Como a criação de um gateway leva até 45 minutos, o Azure Cloud Shell atingirá o tempo limite periodicamente durante o exercício. Você pode reiniciar o Cloud Shell clicando no canto superior esquerdo do terminal. Redeclare todas as variáveis quando reiniciar o terminal.
 
-* Se você preferir instalar a versão mais recente do módulo do Azure PowerShell localmente, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+* Se você preferir instalar a versão mais recente do módulo do Azure PowerShell localmente, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/).
 
 ### <a name="step-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>Etapa 1 – Planejar os intervalos de endereços IP
 
@@ -364,7 +364,7 @@ Esta etapa deve ser feita no contexto da nova assinatura. Esta parte pode ser ex
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName $Sub5
    ```
-3. Crie um novo grupo de recursos.
+3. Criar um grupo de recursos.
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG5 -Location $Location5

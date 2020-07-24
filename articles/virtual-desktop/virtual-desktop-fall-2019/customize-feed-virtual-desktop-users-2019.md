@@ -1,5 +1,5 @@
 ---
-title: Personalizar feed para usuários da área de trabalho virtual do Windows-Azure
+title: Personalizar feed para área de trabalho virtual do Windows usuários do outono 2019 – Azure
 description: Como personalizar o feed para usuários da área de trabalho virtual do Windows com cmdlets do PowerShell.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 248156c403e7e74665ec1c856588d8a2ca76e208
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9c573fc1aa220b9301e51ef0ccb1190d9243250e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244558"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011219"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Personalizar o feed para usuários da Área de Trabalho Virtual do Windows
 

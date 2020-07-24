@@ -11,18 +11,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
-ms.openlocfilehash: cbba0401815f6754939cdaeb6e7343cf085dff68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc7bfecbcb387fa0da0809a9a2287b243e861c49
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736961"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010862"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Extensão de driver de GPU AMD para Windows
 
-Este artigo fornece uma visão geral da extensão de VM para implantar drivers de GPU AMD em VMs da [série NVv4](https://docs.microsoft.com/azure/virtual-machines/nvv4-series) do Windows. Ao instalar os drivers AMD usando essa extensão, você está aceitando e concordando com os termos do [contrato de licença de usuário final AMD](https://amd.com/radeonsoftwarems). Durante o processo de instalação, a VM pode ser reinicializada para concluir a configuração do driver.
+Este artigo fornece uma visão geral da extensão de VM para implantar drivers de GPU AMD em VMs da [série NVv4](../nvv4-series.md) do Windows. Ao instalar os drivers AMD usando essa extensão, você está aceitando e concordando com os termos do [contrato de licença de usuário final AMD](https://amd.com/radeonsoftwarems). Durante o processo de instalação, a VM pode ser reinicializada para concluir a configuração do driver.
 
-Instruções sobre a instalação manual dos drivers e as versões atuais com suporte estão disponíveis [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup).
+Instruções sobre a instalação manual dos drivers e as versões atuais com suporte estão disponíveis [aqui](../windows/n-series-amd-driver-setup.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -81,7 +81,7 @@ O JSON a seguir mostra o esquema para a extensão.
 
 Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem configuração pós-implantação.
 
-A configuração do JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir o nome e o tipo de recursos filho](../../azure-resource-manager/resource-manager-template-child-resource.md). 
+A configuração do JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir o nome e o tipo de recursos filho](../../azure-resource-manager/templates/child-resource-name-type.md). 
 
 O exemplo a seguir pressupõe que a extensão está aninhada dentro do recurso de máquina virtual. Ao aninhar o recurso de extensão, o JSON é colocado no objeto `"resources": []` da máquina virtual.
 
@@ -153,7 +153,7 @@ A saída de execução da extensão é registrada no seguinte local:
 C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 ```
 
-### <a name="error-codes"></a>Códigos do Erro
+### <a name="error-codes"></a>Códigos de erro
 
 | Código do Erro | Significado | Ação possível |
 | :---: | --- | --- |
@@ -172,4 +172,4 @@ Caso precise de mais ajuda em qualquer ponto deste artigo, entre em contato com 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre extensões, consulte [Recursos e extensões da máquina virtual para Windows](features-windows.md).
 
-Para obter mais informações sobre VMs série N, consulte [tamanhos de máquinas virtuais otimizados para GPU](../windows/sizes-gpu.md).
+Para obter mais informações sobre VMs série N, consulte [tamanhos de máquinas virtuais otimizados para GPU](../sizes-gpu.md).
