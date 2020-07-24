@@ -2,18 +2,19 @@
 title: Como proteger um aplicativo daemon
 titleSuffix: Azure Maps
 description: Use o portal do Azure para gerenciar a autenticação para configurar um aplicativo de daemon confiável.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 4fa3492b0cd71e61900dc4be150cd0f0169379ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 066118622f19d7efac71ddd66ac1abe058008b55
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988311"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126764"
 ---
 # <a name="secure-a-daemon-application"></a>Proteger um aplicativo daemon
 
@@ -113,7 +114,7 @@ Conceda o RBAC ( *controle de acesso baseado em função* ) atribuindo a identid
 > [!div class="mx-imgBorder"]
 > ![Visualizar funções disponíveis](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
-1. Vá para sua **conta do Azure Maps**. Selecione atribuições **de função de controle de acesso (iam)**  >  **Role assignments**.
+1. Vá para sua **conta do Azure Maps**. Selecione **Controle de acesso (IAM)** > **Atribuições de função**.
 
     > [!div class="mx-imgBorder"]
     > ![Conceder RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
@@ -123,7 +124,7 @@ Conceda o RBAC ( *controle de acesso baseado em função* ) atribuindo a identid
     > [!div class="mx-imgBorder"]
     > ![Adicionar atribuição de função](./media/how-to-manage-authentication/add-role-assignment.png)
 
-3. Selecione uma definição de função interna do Azure Maps, como **leitor de dados do Azure Maps** ou **colaborador de dados do Azure Maps**. Em **atribuir acesso a**, selecione **usuário do Azure AD, grupo ou entidade de serviço** ou identidade gerenciada com identidade gerenciada atribuída ao sistema de **identidade gerenciada atribuída pelo usuário**  /  **System assigned Managed identity**. Selecione a entidade de segurança. Depois, selecione **Salvar**.
+3. Selecione uma definição de função interna do Azure Maps, como **leitor de dados do Azure Maps** ou **colaborador de dados do Azure Maps**. Em **atribuir acesso a**, selecione **usuário do Azure AD, grupo ou entidade de serviço** ou identidade gerenciada com identidade gerenciada atribuída ao sistema de **identidade gerenciada atribuída pelo usuário**  /  **System assigned Managed identity**. Selecione a entidade de segurança. Selecione **Salvar**.
 
     > [!div class="mx-imgBorder"]
     > ![Adicionar atribuição de função](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
