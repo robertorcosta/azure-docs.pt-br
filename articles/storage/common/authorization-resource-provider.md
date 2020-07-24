@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 73077b6b25c09c17deb4ad468c79fe6d5ddd648e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 634e1866a2c3e30e0750b9e6f4b2b3f93db2f8dc
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833248"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133105"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Usar o provedor de recursos de armazenamento do Azure para acessar recursos de gerenciamento
 
@@ -26,7 +26,7 @@ Você pode usar o provedor de recursos de armazenamento do Azure para executar a
 
 A Microsoft fornece duas APIs REST para trabalhar com recursos de armazenamento do Azure. Essas APIs formam a base de todas as ações que você pode executar no armazenamento do Azure. A API REST do armazenamento do Azure permite que você trabalhe com dados em sua conta de armazenamento, incluindo dados de BLOB, fila, arquivo e tabela. A API REST do provedor de recursos de armazenamento do Azure permite que você trabalhe com a conta de armazenamento e os recursos relacionados.
 
-Uma solicitação que lê ou grava dados de blob requer permissões diferentes de uma solicitação que executa uma operação de gerenciamento. O RBAC fornece controle refinado sobre permissões para ambos os tipos de recursos. Quando você atribuir uma função de RBAC a uma entidade de segurança, certifique-se de que você entendeu quais permissões o principal será concedido. Para obter uma referência detalhada que descreve quais ações estão associadas a cada função RBAC interna, consulte [funções internas para recursos do Azure](../../role-based-access-control/built-in-roles.md).
+Uma solicitação que lê ou grava dados de blob requer permissões diferentes de uma solicitação que executa uma operação de gerenciamento. O RBAC fornece controle refinado sobre permissões para ambos os tipos de recursos. Quando você atribuir uma função de RBAC a uma entidade de segurança, certifique-se de que você entendeu quais permissões o principal será concedido. Para obter uma referência detalhada que descreve quais ações estão associadas a cada função RBAC interna, consulte [funções internas do Azure](../../role-based-access-control/built-in-roles.md).
 
 O armazenamento do Azure dá suporte ao uso do Azure AD para autorizar solicitações no armazenamento de BLOBs e filas. Para obter informações sobre as funções RBAC para operações de BLOB e de dados de fila, consulte [autorizar o acesso a BLOBs e filas usando o Active Directory](storage-auth-aad.md).
 
@@ -34,7 +34,7 @@ O armazenamento do Azure dá suporte ao uso do Azure AD para autorizar solicita�
 
 Cada assinatura do Azure tem um Azure Active Directory associado que gerencia usuários, grupos e aplicativos. Um usuário, grupo ou aplicativo também é conhecido como uma entidade de segurança no contexto da [plataforma de identidade da Microsoft](/azure/active-directory/develop/). Você pode conceder acesso a recursos em uma assinatura para uma entidade de segurança que é definida no Active Directory usando o controle de acesso baseado em função (RBAC).
 
-Ao atribuir uma função de RBAC a uma entidade de segurança, você também indica o escopo no qual as permissões concedidas pela função estão em vigor. Para operações de gerenciamento, você pode atribuir uma função no nível da assinatura, no grupo de recursos ou na conta de armazenamento. Você pode atribuir uma função de RBAC a uma entidade de segurança usando o [portal do Azure](https://portal.azure.com/), as [ferramentas de CLI do Azure](../../cli-install-nodejs.md), o [PowerShell](/powershell/azureps-cmdlets-docs)ou a [API REST do provedor de recursos de armazenamento do Azure](/rest/api/storagerp).
+Ao atribuir uma função de RBAC a uma entidade de segurança, você também indica o escopo no qual as permissões concedidas pela função estão em vigor. Para operações de gerenciamento, você pode atribuir uma função no nível da assinatura, no grupo de recursos ou na conta de armazenamento. Você pode atribuir uma função de RBAC a uma entidade de segurança usando o [portal do Azure](https://portal.azure.com/), as [ferramentas de CLI do Azure](../../cli-install-nodejs.md), o [PowerShell](/powershell/azure/)ou a [API REST do provedor de recursos de armazenamento do Azure](/rest/api/storagerp).
 
 Para obter mais informações, consulte [o que é o Azure RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md) e [funções de administrador de assinatura clássica, funções de RBAC do Azure e funções de administrador do Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -57,7 +57,7 @@ A terceira coluna na tabela indica se a função interna dá suporte a **Microso
 
 ### <a name="custom-roles-for-management-operations"></a>Funções personalizadas para operações de gerenciamento
 
-O Azure também dá suporte à definição de funções RBAC personalizadas para acesso a recursos de gerenciamento. Para obter mais informações sobre funções personalizadas, consulte [funções personalizadas para recursos do Azure](../../role-based-access-control/custom-roles.md).
+O Azure também dá suporte à definição de funções personalizadas do Azure para acesso a recursos de gerenciamento. Para obter mais informações sobre funções personalizadas, consulte [funções personalizadas do Azure](../../role-based-access-control/custom-roles.md).
 
 ## <a name="code-samples"></a>Exemplos de código
 
