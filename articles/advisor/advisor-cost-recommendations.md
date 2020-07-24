@@ -3,12 +3,12 @@ title: Reduza os custos de serviço usando o Assistente do Azure
 description: Use o Azure Advisor para otimizar o custo de suas implantações do Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: ad8340595b10ce9c729c9c89f0099434c15a9ff2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6fa57726ee37d78438b4e07d329f1af00f157d7e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078554"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057747"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Reduzir os custos de serviço usando o Azure Advisor
 
@@ -89,7 +89,7 @@ Para economizar 60% do custo, é recomendável armazenar seus instantâneos no a
 Usando a inteligência sobre a contagem de objetos do armazenamento de BLOBs do Azure, o tamanho total e as transações, o Advisor detecta se você deve habilitar o gerenciamento do ciclo de vida para dados de camada em uma ou mais de suas contas de armazenamento. Ele solicita que você crie regras de gerenciamento de ciclo de vida para hierarquizar automaticamente seus dados para o armazenamento frio ou de arquivo para otimizar os custos de armazenamento e, ao mesmo tempo, manter seus dados no armazenamento de BLOBs do Azure para compatibilidade de aplicativos.
 
 ## <a name="create-an-ephemeral-os-disk-recommendation"></a>Criar uma recomendação de disco do SO efêmero
-O [disco do so efêmero](https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks) permite que você: 
+O [disco do so efêmero](../virtual-machines/windows/ephemeral-os-disks.md) permite que você: 
 - Economize em custos de armazenamento para discos do sistema operacional. 
 - Obter latência de leitura/gravação inferior para discos do sistema operacional. 
 - Obtenha operações de reimagem de VM mais rápidas redefinindo o sistema operacional (e o disco temporário) para seu estado original.
@@ -114,4 +114,3 @@ Para saber mais sobre as recomendações do Assistente, consulte:
 * [Recomendações de alta disponibilidade do Advisor](advisor-high-availability-recommendations.md)
 * [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
 * [Recomendações de excelência operacional do Advisor](advisor-operational-excellence-recommendations.md)
-

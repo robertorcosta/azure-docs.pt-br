@@ -4,18 +4,18 @@ description: Saiba mais sobre as diferenças de validação de várias proprieda
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 10/12/2019
+ms.date: 07/21/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 2a1507b008903085886f9392f3f4e5461997b6e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82b721d14d114b358939bebecff00bc762b075a6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80128871"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058343"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Diferenças de validação por tipos de conta com suporte (signInAudience)
 
@@ -39,10 +39,10 @@ Consulte a tabela a seguir para obter as diferenças de validação de várias p
 | Certificados ( `keyCredentials` ) | Chave de assinatura simétrica | Chave de assinatura simétrica | Criptografia e chave de assinatura assimétrica | 
 | Segredos do cliente ( `passwordCredentials` ) | Sem limite * | Sem limite * | Se liveSDK estiver habilitado: máximo de 2 segredos de cliente | 
 | Redirecionar URIs ( `replyURLs` ) | Confira [restrições de redirecionamento de URI/URL de resposta e limitações](reply-url.md) para obter mais informações. | | | 
-| Permissões de API ( `requiredResourceAccess` ) | Sem limite * | Sem limite * | Máximo de 30 permissões por recurso permitido (por exemplo, Microsoft Graph) | 
+| Permissões de API ( `requiredResourceAccess` ) | Sem limite * | Sem limite * | Máximo de 50 recursos por aplicativo e 30 permissões por recurso (por exemplo, Microsoft Graph). Limite total de 200 por aplicativo (recursos x permissões). | 
 | Escopos definidos por esta API ( `oauth2Permissions` ) | Comprimento máximo do nome de escopo de 120 caracteres <br><br> Sem limite * no número de escopos definidos | Comprimento máximo do nome de escopo de 120 caracteres <br><br> Sem limite * no número de escopos definidos |  Comprimento máximo do nome de escopo de 40 caracteres <br><br> Máximo de 100 escopos definidos | 
 | Aplicativos cliente autorizados ( `preautorizedApplications` ) | Sem limite * | Sem limite * | Máximo total de 500 <br><br> Máximo de 100 aplicativos cliente definidos <br><br> Máximo de 30 escopos definidos por cliente | 
-| appRoles | Com suporte <br> Sem limite * | Com suporte <br> Sem limite * | Sem suporte | 
+| appRoles | Suportado <br> Sem limite * | Suportado <br> Sem limite * | Sem suporte | 
 | URL de logoff | http://localhosté permitido <br><br> Comprimento máximo de 255 caracteres | http://localhosté permitido <br><br> Comprimento máximo de 255 caracteres | <br><br> https://localhosté permitido, http://localhost falha para MSA <br><br> Comprimento máximo de 255 caracteres <br><br> O esquema HTTP não é permitido <br><br> Não há suporte para curingas | 
 
 * Há um limite global de cerca de 1000 itens em todas as propriedades de coleção no objeto de aplicativo

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca08b81a71cd61e727b11bbeb88c0c235d25c5e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3839c7b87e5d07368727d037b585965dce91303a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554900"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058095"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivos adicionados ao Azure AD
 
@@ -29,6 +29,7 @@ A adição ao Azure AD destina-se a organizações que desejam estar somente em 
 |   | Aplicável a todos os usuários em uma organização |
 | **Propriedade do dispositivo** | Organização |
 | **Sistemas operacionais** | Todos os dispositivos com Windows 10 |
+|   | [Máquinas virtuais do Windows Server 2019 em execução no Azure](howto-vm-sign-in-azure-ad-windows.md) (não há suporte para o Server Core) |
 | **Provisionamento** | Autoatendimento: Configurações ou OOBE do Windows |
 |   | Registro em massa |
 |   | Windows Autopilot |

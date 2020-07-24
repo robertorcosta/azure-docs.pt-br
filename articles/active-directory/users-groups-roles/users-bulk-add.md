@@ -13,11 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a2c9500ecefed02b28c066de80137d8f0882fd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41329f2f5500db35ee76c9880bdbef984413004b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731490"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057896"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Criar usuários em massa no Azure Active Directory
 
@@ -47,6 +48,7 @@ As linhas em um modelo CSV baixado são as seguintes:
 - As colunas necessárias são listadas primeiro.
 - Não recomendamos adicionar novas colunas ao modelo. Todas as colunas extras adicionadas são ignoradas e não são processadas.
 - Recomendamos que você baixe a versão mais recente do modelo CSV sempre que possível.
+- Certifique-se de verificar se não há nenhum espaço em branco indesejado antes/depois de qualquer campo. Para o **nome principal do usuário**, ter esse espaço em branco causaria falha de importação.
 
 ## <a name="to-create-users-in-bulk"></a>Para criar usuários em massa
 

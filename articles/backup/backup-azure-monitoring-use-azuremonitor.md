@@ -4,11 +4,12 @@ description: Monitore as cargas de trabalho de Backup do Azure e crie alertas pe
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 81e4f9f63df19ed57f26be8eb246c6dab1bf512c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: fbd1c7f5e7fab9f77815e782160e855a9a854dc9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714824"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054605"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorar em escala usando o Azure Monitor
 
@@ -55,7 +56,7 @@ Use um grupo de ações para especificar um canal de notificação. Para ver os 
 
 Você pode atender a todos os requisitos de alerta e monitoramento do Log Analytics sozinho ou pode usar o Log Analytics para complementar as notificações internas.
 
-Para obter mais informações, confira [Criar, exibir e gerenciar alertas de log usando o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) e [Criar e gerenciar grupos de ações no portal do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+Para obter mais informações, confira [Criar, exibir e gerenciar alertas de log usando o Azure Monitor](../azure-monitor/platform/alerts-log.md) e [Criar e gerenciar grupos de ações no portal do Azure](../azure-monitor/platform/action-groups.md).
 
 ### <a name="sample-kusto-queries"></a>Consultas de exemplo do Kusto
 
@@ -179,7 +180,7 @@ Para identificar o log apropriado e criar um alerta:
 
 2. Selecione o nome da operação para ver os detalhes relevantes.
 3. Selecione **Nova regra de alerta** para abrir a página **Criar regra**.
-4. Crie um alerta seguindo as etapas em [Criar, exibir e gerenciar alertas do log de atividades usando o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
+4. Crie um alerta seguindo as etapas em [Criar, exibir e gerenciar alertas do log de atividades usando o Azure Monitor](../azure-monitor/platform/alerts-activity-log.md).
 
    ![Nova regra de alerta](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
@@ -192,8 +193,8 @@ Você pode ver todos os alertas criados dos logs de atividades e dos workspaces 
 Embora você possa obter notificações por meio de logs de atividades, é altamente recomendável usar o Log Analytics em vez dos logs de atividades para monitoramento em escala. Veja por quê:
 
 - **Cenários limitados**: as notificações pelos logs de atividades se aplicam somente aos backups de VM do Azure. As notificações devem ser configuradas para cada cofre dos Serviços de Recuperação.
-- **Ajuste de definição**: a atividade de backup agendada não se ajusta à definição mais recente dos logs de atividades. Em vez disso, ela se alinha aos [logs de recursos](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-platform-logs-in-a-workspace). Esse alinhamento causa efeitos inesperados quando os dados que fluem pelo canal do log de atividades são alterados.
-- **Problemas com o canal do log de atividades**: nos cofres dos Serviços de Recuperação, os logs de atividades que são enviados do Backup do Azure seguem um novo modelo. Essa alteração afeta a geração de logs de atividades no Azure Government, no Azure Alemanha e no Azure China 21Vianet. Se os usuários desses serviços de nuvem criarem ou configurarem alertas dos logs de atividades no Azure Monitor, os alertas não serão disparados. Além disso, em todas as regiões públicas do Azure, se um usuário [coletar logs de atividades dos Serviços de Recuperação em um workspace do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), esses logs também não serão exibidos.
+- **Ajuste de definição**: a atividade de backup agendada não se ajusta à definição mais recente dos logs de atividades. Em vez disso, ela se alinha aos [logs de recursos](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Esse alinhamento causa efeitos inesperados quando os dados que fluem pelo canal do log de atividades são alterados.
+- **Problemas com o canal do log de atividades**: nos cofres dos Serviços de Recuperação, os logs de atividades que são enviados do Backup do Azure seguem um novo modelo. Essa alteração afeta a geração de logs de atividades no Azure Government, no Azure Alemanha e no Azure China 21Vianet. Se os usuários desses serviços de nuvem criarem ou configurarem alertas dos logs de atividades no Azure Monitor, os alertas não serão disparados. Além disso, em todas as regiões públicas do Azure, se um usuário [coletar logs de atividades dos Serviços de Recuperação em um workspace do Log Analytics](../azure-monitor/platform/activity-log.md), esses logs também não serão exibidos.
 
 Use um workspace do Log Analytics para monitoramento e alertas em escala para todas as suas cargas de trabalho que são protegidas pelo Backup do Azure.
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 019ae80020dafb54f2c06dd504797f21069914ae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fc50934b4c301b4eea509ecc22e00c62ca091d75
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507056"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056553"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões do Kubernetes com suporte no AKS (Serviço de Kubernetes do Azure)
 
@@ -162,13 +162,13 @@ Se um cluster estiver sem suporte para mais de três (3) versões secundárias e
 
 O plano de controle deve estar dentro de uma janela de versões de todos os pools de nós. Para obter detalhes sobre como atualizar o plano de controle ou pools de nós, visite a documentação sobre como [Atualizar pools de nós](use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
-**Posso ignorar uma versão ao atualizar?**
+**Posso ignorar várias versões do AKS durante a atualização do cluster?**
 
-Não, seguindo as práticas recomendadas do kubernetes, o AKS só permite atualizações para o próximo patch ou para a versão secundária imediatamente. O portal do Azure mostrará apenas as versões para as quais você pode atualizar e na CLI que você pode executar `az aks get-upgrades -n MyAKSCluster -g MyResourceGroup` para ver as atualizações disponíveis de sua versão atual.
+Quando você atualiza um cluster AKS com suporte, as versões secundárias do kubernetes não podem ser ignoradas. Por exemplo, as atualizações entre *1.12. x*  ->  *1.13. x* ou *1.13. x*  ->  *1.14.* x são permitidas, no entanto *1.12. x*  ->  *1.14. x* não é.
 
-**Como posso atualizar para uma versão com suporte se eu tiver várias versões por trás da versão mais recente com suporte?**
+Para atualizar, de *1.12. x*  ->  *1.14.* x, primeiro atualize de *1.12. x*  ->  *1.13. x*e, em seguida, atualize de *1.13. x*  ->  *1.14. x*.
 
-Para permanecer dentro do suporte, você deve evitar a queda de várias versões da lista com suporte no momento, mas se você estiver nessa situação, o AKS sempre permitirá a atualização para a versão mínima com suporte.
+Ignorar várias versões só pode ser feito ao atualizar de uma versão sem suporte de volta para uma versão com suporte. Por exemplo, atualizar de um *1,10. x* sem suporte > um *1.15. x* com suporte pode ser concluído.
 
 ## <a name="next-steps"></a>Próximas etapas
 

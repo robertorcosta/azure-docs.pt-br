@@ -3,15 +3,16 @@ title: Gerenciar servidores e cofres dos Serviços de Recuperação do Microsoft
 description: Neste artigo, saiba como usar o painel Visão geral do cofre dos serviços de recuperação para monitorar e gerenciar seus cofres dos serviços de recuperação.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 598e9198ee7e153d8008389f97c0be399a0186ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b3cc317b8a26b16bbeda9793f87d089f2fbc59f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234603"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054908"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorar e gerenciar cofres dos Serviços de Recuperação
 
-Este artigo explica como usar o painel de **Visão geral** do cofre dos Serviços de Recuperação para monitorar e gerenciar os cofres dos Serviços de Recuperação. Quando você abre um cofre dos Serviços de Recuperação na lista, o painel de **Visão geral** do cofre selecionado será aberto. O painel fornece vários detalhes sobre o cofre. Há *blocos* que mostram: o status de alertas críticos e de aviso, trabalhos de backup em andamento e com falha e a quantidade de armazenamento com redundância local (LRS) e o armazenamento com redundância geográfica (GRS) usados. Se você fizer backup de VMs do Azure no cofre, o bloco [**Status da Pré-Verificação de Backup** exibe todos os itens críticos ou de aviso](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status). A imagem a seguir é o painel de **Visão geral** do **cofre da Contoso**. O bloco **Itens de Backup** mostra que existem nove itens registrados no cofre.
+Este artigo explica como usar o painel de **Visão geral** do cofre dos Serviços de Recuperação para monitorar e gerenciar os cofres dos Serviços de Recuperação. Quando você abre um cofre dos Serviços de Recuperação na lista, o painel de **Visão geral** do cofre selecionado será aberto. O painel fornece vários detalhes sobre o cofre. Há *blocos* que mostram: o status de alertas críticos e de aviso, trabalhos de backup em andamento e com falha e a quantidade de armazenamento com redundância local (LRS) e o armazenamento com redundância geográfica (GRS) usados. Se você fizer backup de VMs do Azure no cofre, o bloco [**Status da Pré-Verificação de Backup** exibe todos os itens críticos ou de aviso](#backup-pre-check-status). A imagem a seguir é o painel de **Visão geral** do **cofre da Contoso**. O bloco **Itens de Backup** mostra que existem nove itens registrados no cofre.
 
 ![painel do cofre dos serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -23,13 +24,13 @@ Os pré-requisitos para este artigo são: uma assinatura do Azure, um cofre dos 
 
 Para monitorar alertas ou exibir dados de gerenciamento sobre um cofre dos Serviços de Recuperação, abra o cofre.
 
-1. Entre no [portal do Azure](https://portal.azure.com/) usando sua assinatura do Azure.
+1. Entre no [portal do Azure](https://portal.azure.com/) usando a assinatura do Azure.
 
 2. No portal do Azure, clique em **Todos os serviços**.
 
    ![Abrir a lista de cofres dos Serviços de Recuperação, etapa 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png)
 
-3. Na caixa de diálogo **Todos os Serviços**, digite **Serviços de Recuperação**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Quando a opção **Cofres dos Serviços de Recuperação** for exibida, clique nela para abrir a lista de cofres dos Serviços de Recuperação na assinatura.
+3. Na caixa de diálogo **Todos os Serviços**, digite **Serviços de Recuperação**. À medida que você começa a digitar, a lista filtra com base em sua entrada. Quando a opção **Cofres dos Serviços de Recuperação** for exibida, clique nela para abrir a lista de cofres dos Serviços de Recuperação na assinatura.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
@@ -109,7 +110,7 @@ Por padrão, todos os detalhes, exceto **Última hora da ocorrência**, são exi
 * Alerta
 * Item de backup
 * Servidor protegido
-* Severity
+* Severidade
 * Duration
 * Hora de criação
 * Status
@@ -177,7 +178,7 @@ Para explorar um tipo específico de instância protegida, clique no item na col
 
 ![Lista de tipos de backup](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
-A lista de máquinas virtuais tem dados úteis: o Grupo de Recursos associados, [Pré-verificação de Backup](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status) anterior, último Status de Backup e a data do Ponto de Restauração mais recente. As reticências, na última coluna, abrem o menu para disparar tarefas comuns. Os dados úteis fornecidos nas colunas são diferentes para cada tipo de backup.
+A lista de máquinas virtuais tem dados úteis: o Grupo de Recursos associados, [Pré-verificação de Backup](#backup-pre-check-status) anterior, último Status de Backup e a data do Ponto de Restauração mais recente. As reticências, na última coluna, abrem o menu para disparar tarefas comuns. Os dados úteis fornecidos nas colunas são diferentes para cada tipo de backup.
 
 ![Lista de tipos de backup](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 
@@ -230,7 +231,7 @@ O Tipo de Item é o tipo de gerenciamento de backup da instância protegida. Há
 É possível exibir uma única operação ou todas as operações. Não é possível selecionar duas ou três operações. As Operações disponíveis são:
 
 * Todas as operações
-* Registre-se
+* Registrar
 * Configurar o backup
 * Backup
 * Restaurar
@@ -244,7 +245,7 @@ O Tipo de Item é o tipo de gerenciamento de backup da instância protegida. Há
 * Todos os status
 * Concluído
 * Em andamento
-* Falhou
+* Com falha
 * Canceled
 * Concluído com avisos
 
@@ -286,4 +287,4 @@ O bloco Armazenamento de Backup no painel mostra o armazenamento consumido no Az
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Restaurar o Windows Server ou o Windows Client do Azure](backup-azure-restore-windows-server.md)
-* Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
+* Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](./backup-overview.md)

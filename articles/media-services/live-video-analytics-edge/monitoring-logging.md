@@ -3,11 +3,12 @@ title: Monitoramento e registro em log – Azure
 description: Este artigo fornece uma visão geral da análise de vídeo ao vivo em IoT Edge monitoramento e registro em log.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 807b0623159e0b50285b89da2835e9dd6cb037aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82e4a5879e4c88e462edcddb02866ec9b671d7fe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260569"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060460"
 ---
 # <a name="monitoring-and-logging"></a>Monitoramento e registro em log
 
@@ -97,7 +98,7 @@ A análise de vídeo ao vivo em IoT Edge emite eventos ou dados de telemetria de
      }
    }
    ```
-Os eventos emitidos pelo módulo são enviados para o [Hub de IOT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)e, daí, podem ser roteados para outros destinos. 
+Os eventos emitidos pelo módulo são enviados para o [Hub de IOT Edge](../../iot-edge/iot-edge-runtime.md#iot-edge-hub)e, daí, podem ser roteados para outros destinos. 
 
 ## <a name="controlling-events"></a>Controle de eventos
 
@@ -109,7 +110,7 @@ Você pode usar as propriedades do módulo CTRL a seguir, conforme documentado n
    
 Os eventos de análise são gerados por nós como o processador de detecção de movimento ou o processador de extensão HTTP, e o coletor de Hub IoT é usado para enviá-los para o Hub de IoT Edge. 
 
-Você pode controlar o [Roteamento de todos os eventos acima](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) por meio de uma propriedade desejada do módulo de $edgeHub "d" (no manifesto de implantação):
+Você pode controlar o [Roteamento de todos os eventos acima](../../iot-edge/module-composition.md#declare-routes) por meio de uma propriedade desejada do módulo de $edgeHub "d" (no manifesto de implantação):
 
 ```
  "$edgeHub": {
@@ -125,20 +126,20 @@ Você pode controlar o [Roteamento de todos os eventos acima](https://docs.micro
  }
 ```
 
-No acima, lvaEdge é o nome da análise de vídeo ao vivo no módulo IoT Edge e a regra de roteamento segue o esquema definido em [declarar rotas](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes).
+No acima, lvaEdge é o nome da análise de vídeo ao vivo no módulo IoT Edge e a regra de roteamento segue o esquema definido em [declarar rotas](../../iot-edge/module-composition.md#declare-routes).
 
 > [!NOTE]
 > Para garantir que os eventos de análise alcancem o Hub de IoT Edge, precisa haver um nó de coletor de Hub IoT downstream de qualquer nó de processador de detecção de movimento e/ou qualquer nó de processador de extensão HTTP.
 
 ## <a name="event-schema"></a>Esquema do evento
 
-Os eventos originam-se no dispositivo de borda e podem ser consumidos na borda ou na nuvem. Eventos gerados pela análise de vídeo ao vivo em IoT Edge estão em conformidade com o [padrão de mensagens de streaming](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) estabelecido pelo Hub IOT do Azure, com propriedades do sistema, propriedades do aplicativo e um corpo.
+Os eventos originam-se no dispositivo de borda e podem ser consumidos na borda ou na nuvem. Eventos gerados pela análise de vídeo ao vivo em IoT Edge estão em conformidade com o [padrão de mensagens de streaming](../../iot-hub/iot-hub-devguide-messages-construct.md) estabelecido pelo Hub IOT do Azure, com propriedades do sistema, propriedades do aplicativo e um corpo.
 
 ### <a name="summary"></a>Resumo
 
 Cada evento, quando observado por meio do Hub IoT, terá um conjunto de propriedades comuns, conforme descrito abaixo.
 
-|Property   |Tipo de propriedade| Tipo de Dados   |Descrição|
+|Propriedade   |Tipo de propriedade| Tipo de Dados   |Descrição|
 |---|---|---|---|
 |message-id |sistema |guid|  ID de evento exclusivo.|
 |topic| applicationproperty |string|    Azure Resource Manager caminho para a conta dos serviços de mídia.|
@@ -199,7 +200,7 @@ A hora do evento é descrita na cadeia de caracteres ISO8601 e a hora em que o e
 
 ## <a name="logging"></a>Registro em log
 
-Assim como com outros módulos IoT Edge, você também pode [examinar os logs de contêiner](https://docs.microsoft.com/azure/iot-edge/troubleshoot#check-container-logs-for-issues) no dispositivo de borda. As informações gravadas nos logs podem ser controladas pelas seguintes propriedades de [MyModule](module-twin-configuration-schema.md) :
+Assim como com outros módulos IoT Edge, você também pode [examinar os logs de contêiner](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) no dispositivo de borda. As informações gravadas nos logs podem ser controladas pelas seguintes propriedades de [MyModule](module-twin-configuration-schema.md) :
 
 * logLevel
 
@@ -221,7 +222,7 @@ Assim como com outros módulos IoT Edge, você também pode [examinar os logs de
 
 Em determinados casos, talvez seja necessário gerar logs mais detalhados do que os descritos acima, para ajudar o suporte do Azure a resolver um problema. Há duas etapas para fazer isso.
 
-Primeiro, você [vincula o armazenamento do módulo ao armazenamento do dispositivo](https://docs.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module#link-module-storage-to-device-storage) por meio de. Se você examinar um [modelo de manifesto de implantação](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) do início rápido, verá:
+Primeiro, você [vincula o armazenamento do módulo ao armazenamento do dispositivo](../../iot-edge/how-to-access-host-storage-from-module.md#link-module-storage-to-device-storage) por meio de. Se você examinar um [modelo de manifesto de implantação](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) do início rápido, verá:
 
 ```
 "createOptions": {

@@ -3,20 +3,17 @@ title: Usar uma chave gerenciada pelo cliente para criptografar discos do Azure 
 description: Traga suas próprias chaves (BYOK) para criptografar o sistema operacional AKS e OS discos de dados.
 services: container-service
 ms.topic: article
-ms.date: 01/12/2020
-ms.openlocfilehash: 6452facc999456c35aa5d1c3bfe6b2f59141b7c5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/17/2020
+ms.openlocfilehash: d8443c9c7a0af7bfb7f146904c913663d82786b8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252038"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057298"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Traga suas próprias chaves (BYOK) com discos do Azure no serviço kubernetes do Azure (AKS)
 
 O Armazenamento do Azure criptografa todos os dados em uma conta de armazenamento em repouso. Por padrão, os dados são criptografados com chaves gerenciadas pela Microsoft. Para obter mais controle sobre as chaves de criptografia, você pode fornecer [chaves gerenciadas pelo cliente][customer-managed-keys] para usar na criptografia em repouso tanto para o sistema operacional quanto para os discos de dados para seus clusters AKs.
-
-> [!NOTE]
-> Os clusters AKS baseados em Linux e Windows BYOK estão disponíveis em [regiões do Azure][supported-regions] que dão suporte à criptografia do lado do servidor de discos gerenciados do Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -164,7 +161,6 @@ kubectl apply -f byok-azure-disk.yaml
 
 ## <a name="limitations"></a>Limitações
 
-* O BYOK só está disponível no GA e na versão prévia em determinadas [regiões do Azure][supported-regions]
 * Criptografia de disco de dados com suporte com o kubernetes versão 1,17 e posterior   
 * Disponível somente em regiões em que há suporte para BYOK
 * A criptografia com chaves gerenciadas pelo cliente atualmente é para novos clusters AKS somente, os clusters existentes não podem ser atualizados

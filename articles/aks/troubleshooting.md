@@ -4,12 +4,12 @@ description: Aprenda a solucionar problemas comuns ao usar o Serviço de Kuberne
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: f334f501335e9e384cfcc35b356e61ab66efe7a8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a65e5e2b507f45fe51a8f6406edae4d96affe227
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243674"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056518"
 ---
 # <a name="aks-troubleshooting"></a>Solução de problemas do AKS
 
@@ -80,7 +80,11 @@ AKS tem planos de controle de alta disponibilidade que são dimensionados vertic
     - https://github.com/helm/helm/issues/4821
     - https://github.com/helm/helm/issues/3500
     - https://github.com/helm/helm/issues/4543
+- **[O tráfego interno entre os nós está sendo bloqueado?](#im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout)**
 
+## <a name="im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout"></a>Estou recebendo `TCP timeouts` , como`dial tcp <Node_IP>:10250: i/o timeout`
+
+Esses tempos limite podem estar relacionados ao tráfego interno entre os nós que estão sendo bloqueados. Verifique se esse tráfego não está sendo bloqueado, como por [grupos de segurança de rede](concepts-security.md#azure-network-security-groups) na sub-rede para os nós do cluster.
 
 ## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Estou tentando habilitar o RBAC (controle de acesso baseado em função) em um cluster existente. Como posso fazer isso?
 

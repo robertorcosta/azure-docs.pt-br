@@ -3,17 +3,18 @@ title: Fazer backup de compartilhamentos de arquivos do Azure com a API REST
 description: Saiba como usar a API REST para fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 2cf385830ec1be17cb62432e6ef9cba7d82a9db1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7059dbae9d448b710880f1f9d72b843a6d77d98b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710602"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055014"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Fazer backup do compartilhamento de arquivos do Azure usando o backup do Azure via API REST
 
 Este artigo descreve como fazer backup de um compartilhamento de arquivos do Azure usando o backup do Azure por meio da API REST.
 
-Este artigo pressupõe que você já criou um cofre de serviços de recuperação e uma política para configurar o backup para seu compartilhamento de arquivos. Se você ainda não fez isso, consulte os tutoriais [criar cofre](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatevault) e [criar política](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatepolicy) REST da API para criar novos cofres e políticas.
+Este artigo pressupõe que você já criou um cofre de serviços de recuperação e uma política para configurar o backup para seu compartilhamento de arquivos. Se você ainda não fez isso, consulte os tutoriais [criar cofre](./backup-azure-arm-userestapi-createorupdatevault.md) e [criar política](./backup-azure-arm-userestapi-createorupdatepolicy.md) REST da API para criar novos cofres e políticas.
 
 Para este artigo, usaremos os seguintes recursos:
 
@@ -31,7 +32,7 @@ Para este artigo, usaremos os seguintes recursos:
 
 ### <a name="discover-storage-accounts-with-unprotected-azure-file-shares"></a>Descobrir contas de armazenamento com compartilhamentos de arquivos do Azure desprotegidos
 
-O cofre precisa descobrir todas as contas de armazenamento do Azure na assinatura com compartilhamentos de arquivos cujo backup pode ser feito no cofre dos serviços de recuperação. Isso é disparado usando a [operação de atualização](https://docs.microsoft.com/rest/api/backup/protectioncontainers/refresh). É uma operação *post* assíncrona que garante que o cofre obtenha a lista mais recente de todos os compartilhamentos de arquivos do Azure desprotegidos na assinatura atual e os ' caches '. Depois que o compartilhamento de arquivos é ' armazenado em cache ', os serviços de recuperação podem acessar o compartilhamento de arquivos e protegê-lo.
+O cofre precisa descobrir todas as contas de armazenamento do Azure na assinatura com compartilhamentos de arquivos cujo backup pode ser feito no cofre dos serviços de recuperação. Isso é disparado usando a [operação de atualização](/rest/api/backup/protectioncontainers/refresh). É uma operação *post* assíncrona que garante que o cofre obtenha a lista mais recente de todos os compartilhamentos de arquivos do Azure desprotegidos na assinatura atual e os ' caches '. Depois que o compartilhamento de arquivos é ' armazenado em cache ', os serviços de recuperação podem acessar o compartilhamento de arquivos e protegê-lo.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
@@ -55,7 +56,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 #### <a name="responses"></a>Respostas
 
-A operação “atualizar” é uma [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que essa operação cria outra operação que precisa ser rastreada separadamente.
+A operação “atualizar” é uma [operação assíncrona](../azure-resource-manager/management/async-operations.md). Isso significa que essa operação cria outra operação que precisa ser rastreada separadamente.
 
 Ele retorna duas respostas: 202 (aceito) quando outra operação é criada e 200 (OK) quando a operação é concluída.
 
@@ -107,7 +108,7 @@ Date   : Mon, 27 Jan 2020 10:53:04 GMT
 
 ### <a name="get-list-of-storage-accounts-that-can-be-protected-with-recovery-services-vault"></a>Obter lista de contas de armazenamento que podem ser protegidas com o cofre dos serviços de recuperação
 
-Para confirmar se o "caching" está concluído, liste todas as contas de armazenamento que poderiam ser protegidas na assinatura. Em seguida, localize a conta de armazenamento desejada na resposta. Isso é feito usando a operação [Get ProtectableContainers](https://docs.microsoft.com/rest/api/backup/protectablecontainers/list) .
+Para confirmar se o "caching" está concluído, liste todas as contas de armazenamento que poderiam ser protegidas na assinatura. Em seguida, localize a conta de armazenamento desejada na resposta. Isso é feito usando a operação [Get ProtectableContainers](/rest/api/backup/protectablecontainers/list) .
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
@@ -159,7 +160,7 @@ Como podemos localizar a conta de armazenamento *testvault2* no corpo da respost
 
 ### <a name="register-storage-account-with-recovery-services-vault"></a>Registrar conta de armazenamento com o cofre dos serviços de recuperação
 
-Esta etapa só será necessária se você não tiver registrado a conta de armazenamento com o cofre anteriormente. Você pode registrar o cofre por meio da [operação ProtectionContainers-Register](https://docs.microsoft.com/rest/api/backup/protectioncontainers/register).
+Esta etapa só será necessária se você não tiver registrado a conta de armazenamento com o cofre anteriormente. Você pode registrar o cofre por meio da [operação ProtectionContainers-Register](/rest/api/backup/protectioncontainers/register).
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}?api-version=2016-12-01
@@ -208,7 +209,7 @@ O corpo da solicitação de criação é o seguinte:
  }
 ```
 
-Para obter a lista completa de definições do corpo da solicitação e outros detalhes, consulte [ProtectionContainers-Register](https://docs.microsoft.com/rest/api/backup/protectioncontainers/register#azurestoragecontainer).
+Para obter a lista completa de definições do corpo da solicitação e outros detalhes, consulte [ProtectionContainers-Register](/rest/api/backup/protectioncontainers/register#azurestoragecontainer).
 
 Essa é uma operação assíncrona e retorna duas respostas: "202 aceito" quando a operação é aceita e "200 OK" quando a operação é concluída.  Para acompanhar o status da operação, use o cabeçalho Location para obter o status mais recente da operação.
 
@@ -240,7 +241,7 @@ Você pode verificar se o registro foi bem-sucedido do valor do parâmetro *regi
 
 ### <a name="inquire-all-unprotected-files-shares-under-a-storage-account"></a>Consultar todos os compartilhamentos de arquivos desprotegidos em uma conta de armazenamento
 
-Você pode consultar os itens que podem ser protegidos em uma conta de armazenamento usando os [contêineres de proteção-](https://docs.microsoft.com/rest/api/backup/protectioncontainers/inquire) operação de consulta. É uma operação assíncrona e os resultados devem ser controlados usando o cabeçalho de local.
+Você pode consultar os itens que podem ser protegidos em uma conta de armazenamento usando os [contêineres de proteção-](/rest/api/backup/protectioncontainers/inquire) operação de consulta. É uma operação assíncrona e os resultados devem ser controlados usando o cabeçalho de local.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/inquire?api-version=2016-12-01
@@ -275,7 +276,7 @@ Date  : Mon, 27 Jan 2020 10:53:05 GMT
 
 ### <a name="select-the-file-share-you-want-to-back-up"></a>Selecione o compartilhamento de arquivos do qual você deseja fazer backup
 
-Você pode listar todos os itens que podem ser protegidos na assinatura e localizar o compartilhamento de arquivos desejado para backup usando a operação [Get backupprotectableItems](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) .
+Você pode listar todos os itens que podem ser protegidos na assinatura e localizar o compartilhamento de arquivos desejado para backup usando a operação [Get backupprotectableItems](/rest/api/backup/backupprotectableitems/list) .
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectableItems?api-version=2016-12-01&$filter={$filter}
@@ -350,7 +351,7 @@ A resposta contém a lista de todos os compartilhamentos de arquivos desprotegid
 
 ### <a name="enable-backup-for-the-file-share"></a>Habilitar o backup para o compartilhamento de arquivos
 
-Depois que o compartilhamento de arquivos relevante for "identificado" com o nome amigável, selecione a política a ser protegida. Para saber mais sobre as políticas existentes no cofre, confira [API de política de lista](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Em seguida, selecione a [política relevante](https://docs.microsoft.com/rest/api/backup/protectionpolicies/get) referindo-se ao nome da política. Para criar políticas, veja o [tutorial de criação de políticas](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatepolicy).
+Depois que o compartilhamento de arquivos relevante for "identificado" com o nome amigável, selecione a política a ser protegida. Para saber mais sobre as políticas existentes no cofre, confira [API de política de lista](/rest/api/backup/backuppolicies/list). Em seguida, selecione a [política relevante](/rest/api/backup/protectionpolicies/get) referindo-se ao nome da política. Para criar políticas, veja o [tutorial de criação de políticas](./backup-azure-arm-userestapi-createorupdatepolicy.md).
 
 Habilitar a proteção é uma operação *Put* assíncrona que cria um "item protegido".
 
@@ -470,7 +471,7 @@ Para disparar um backup sob demanda, a seguir estão os componentes do corpo da 
 | ---------- | -------------------------- | --------------------------------- |
 | Propriedades | AzurefilesharebackupReques | Propriedades de BackupRequestResource |
 
-Para obter uma lista de definições de corpo da solicitação e outros detalhes, veja o [documento sobre como disparar backups de itens protegidos da API REST](https://docs.microsoft.com/rest/api/backup/backups/trigger#request-body).
+Para obter uma lista de definições de corpo da solicitação e outros detalhes, veja o [documento sobre como disparar backups de itens protegidos da API REST](/rest/api/backup/backups/trigger#request-body).
 
 Exemplo de corpo de solicitação
 
@@ -488,7 +489,7 @@ Exemplo de corpo de solicitação
 
 ### <a name="responses"></a>Respostas
 
-Disparar um backup sob demanda é uma [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que essa operação cria outra operação que precisa ser rastreada separadamente.
+Disparar um backup sob demanda é uma [operação assíncrona](../azure-resource-manager/management/async-operations.md). Isso significa que essa operação cria outra operação que precisa ser rastreada separadamente.
 
 Ele retorna duas respostas: 202 (aceito) quando outra operação é criada e 200 (OK) quando a operação é concluída.
 
@@ -539,7 +540,7 @@ Depois que a operação for concluída, ela retornará 200 (OK) com a ID da tare
 }
 ```
 
-Como a tarefa de backup é uma operação longa, ela precisa ser rastreada conforme explicado [no documento sobre monitoramento de trabalhos usando a API REST](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-managejobs#tracking-the-job).
+Como a tarefa de backup é uma operação longa, ela precisa ser rastreada conforme explicado [no documento sobre monitoramento de trabalhos usando a API REST](./backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -3,12 +3,12 @@ title: Introdução ao Azure Advisor
 description: Use o Azure Advisor para otimizar as implantações do Azure.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 0c6c79dd764f92475b3b0121ae46706c0dfc0bcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17b68e220b7011dee2cc8fca440d58d980c28e6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117770"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057688"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introdução ao Azure Advisor
 
@@ -51,13 +51,13 @@ Você também pode exibir as recomendações do Assistente por meio interface de
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>De quais permissões preciso para acessar o Advisor?
  
-Você pode acessar as recomendações do Assistente como *Proprietário*, *Colaborador* ou *Leitor* de uma assinatura.
+Você pode acessar as recomendações do Advisor como *proprietário*, *colaborador*ou *leitor* de uma assinatura, grupo de recursos ou recurso.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Para quais recursos o Advisor fornece recomendações?
 
 O Advisor fornece recomendações para gateway de aplicativo, serviços de aplicativos, conjuntos de disponibilidade, cache do Azure, Azure Data Factory, banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL, banco de dados do Azure para MariaDB, Azure ExpressRoute, Azure Cosmos DB, endereços IP públicos do Azure, SQL Data Warehouse, SQL Servers, contas de armazenamento, perfis do Gerenciador de tráfego e máquinas virtuais.
 
-O Azure Advisor também inclui suas recomendações da [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-recommendations) , que podem incluir recomendações para tipos de recursos adicionais.
+O Azure Advisor também inclui suas recomendações da [central de segurança do Azure](../security-center/security-center-recommendations.md) , que podem incluir recomendações para tipos de recursos adicionais.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Posso adiar ou ignorar uma recomendação?
 

@@ -4,11 +4,12 @@ description: Neste artigo, saiba mais sobre os recursos de monitoramento e notif
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: f4b91302723119e707d12a86480bbaff2eb4bec5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 645bf701a8f8561b2cb4f19378036ada82c4bedd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485097"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054551"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorando cargas de trabalho de backup do Azure
 
@@ -27,7 +28,7 @@ Os trabalhos das seguintes soluções de backup do Azure são mostrados aqui:
 - Backup da VM do Azure
 - Backup de arquivos do Azure
 - Backup de carga de trabalho do Azure, como SQL e SAP HANA
-- Agente de Backup do Azure (MAB)
+- Agente de MARS (Serviços de Recuperação do Microsoft Azure)
 
 Os trabalhos do System Center Data Protection Manager (SC-DPM), Backup do Microsoft Azure Server (MABS) não são exibidos.
 
@@ -43,7 +44,7 @@ Os alertas são principalmente cenários em que os usuários são notificados pa
 Os cenários a seguir são definidos pelo serviço como cenários de alerta.
 
 - Falhas de backup/restauração
-- Backup bem-sucedido com avisos para o Agente de Backup do Azure (MAB)
+- Backup bem-sucedido com avisos para Serviços de Recuperação do Microsoft Azure (MARS) Agent
 - Interromper a proteção com reter dados/parar proteção com excluir dados
 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Os alertas das seguintes soluções de backup do Azure são mostrados aqui
@@ -51,7 +52,7 @@ Os cenários a seguir são definidos pelo serviço como cenários de alerta.
 - Backups de VM do Azure
 - Backups de arquivo do Azure
 - Backups de carga de trabalho do Azure, como SQL, SAP HANA
-- Agente de Backup do Azure (MAB)
+- Agente de MARS (Serviços de Recuperação do Microsoft Azure) 
 
 > [!NOTE]
 > Os alertas do System Center Data Protection Manager (SC-DPM), Backup do Microsoft Azure Server (MABS) não são exibidos aqui.

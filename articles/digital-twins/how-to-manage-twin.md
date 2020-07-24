@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e37c680f6bf9e296230232c0d4e0fab5f50ad3cd
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 48b8175ed5f753ffe7b62d3e97f4fe20f60da5ca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142377"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061592"
 ---
 # <a name="manage-digital-twins"></a>Gerenciar gêmeos digitais
 
 As entidades em seu ambiente são representadas por [gêmeos digital](concepts-twins-graph.md). Gerenciar seu gêmeos digital pode incluir criação, modificação e remoção. Para executar essas operações, você pode usar as [**APIs do DigitalTwins**](how-to-use-apis-sdks.md), o [SDK do .net (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou a [CLI do gêmeos digital do Azure](how-to-use-cli.md).
 
-Este artigo se concentra no gerenciamento de gêmeos digitais; para trabalhar com relações e o [gráfico de bispersão](concepts-twins-graph.md) como um todo, confira [como gerenciar o grafo de entrelaçamento com relações](how-to-manage-graph.md).
+Este artigo se concentra no gerenciamento de gêmeos digitais; para trabalhar com relações e o [gráfico de bispersão](concepts-twins-graph.md) como um todo, confira [*como gerenciar o grafo de entrelaçamento com relações*](how-to-manage-graph.md).
 
 > [!TIP]
 > Todas as funções do SDK são fornecidas em versões síncronas e assíncronas.
@@ -44,7 +44,7 @@ O modelo e os valores de propriedade inicial são fornecidos por meio do `initDa
 
 ### <a name="initialize-properties"></a>Propriedades de inicialização
 
-A API de criação de entrelaçamento aceita um objeto que pode ser serializado em uma descrição JSON válida das propriedades biup. Consulte [Concepts: digital gêmeos e o gráfico de bispersão](concepts-twins-graph.md) para obter uma descrição do formato JSON para um "r".
+A API de criação de entrelaçamento aceita um objeto que pode ser serializado em uma descrição JSON válida das propriedades biup. Consulte [*Concepts: digital gêmeos e o gráfico de bispersão*](concepts-twins-graph.md) para obter uma descrição do formato JSON para um "r".
 
 Você pode criar um objeto de parâmetro manualmente ou usando uma classe auxiliar fornecida. Aqui está um exemplo de cada um.
 
@@ -91,7 +91,7 @@ object result = await client.GetDigitalTwin(id);
 
 Essa chamada retorna dados de texto como uma cadeia de caracteres JSON. 
 
-Para recuperar vários gêmeos usando uma única chamada à API, consulte os exemplos de API de consulta em [instruções: consultar o gráfico de entrelaçamento](how-to-query-graph.md).
+Para recuperar vários gêmeos usando uma única chamada à API, consulte os exemplos de API de consulta em [*instruções: consultar o gráfico de entrelaçamento*](how-to-query-graph.md).
 
 Considere o modelo a seguir (escrito na [DTDL (digital gêmeos Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) que define uma *lua*:
 
@@ -168,7 +168,7 @@ foreach (string prop in twin.CustomProperties.Keys)
 }
 ```
 
-Você pode ler mais sobre as classes auxiliares de serialização em [How-to: Use the Azure digital gêmeos APIs and SDKs](how-to-use-apis-sdks.md).
+Você pode ler mais sobre as classes auxiliares de serialização em [*How-to: Use the Azure digital gêmeos APIs and SDKs*](how-to-use-apis-sdks.md).
 
 ## <a name="update-a-digital-twin"></a>Atualizar uma atualização digital
 
@@ -337,13 +337,13 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 ### <a name="delete-all-digital-twins"></a>Excluir todos os gêmeos digitais
 
-Para obter um exemplo de como excluir todos os gêmeos de uma vez, baixe o aplicativo de exemplo usado no [tutorial: explorar os conceitos básicos com um aplicativo cliente de exemplo](tutorial-command-line-app.md). O arquivo *CommandLoop.cs* faz isso em uma `CommandDeleteAllTwins` função.
+Para obter um exemplo de como excluir todos os gêmeos de uma vez, baixe o aplicativo de exemplo usado no [*tutorial: explorar os conceitos básicos com um aplicativo cliente de exemplo*](tutorial-command-line-app.md). O arquivo *CommandLoop.cs* faz isso em uma `CommandDeleteAllTwins` função.
 
 ## <a name="manage-twins-with-cli"></a>Gerenciar o gêmeos com a CLI
 
-O gêmeos também pode ser gerenciado usando a CLI do gêmeos digital do Azure. Os comandos podem ser encontrados em [How-to: Use the Azure digital gêmeos CLI](how-to-use-cli.md).
+O gêmeos também pode ser gerenciado usando a CLI do gêmeos digital do Azure. Os comandos podem ser encontrados em [*How-to: Use the Azure digital gêmeos CLI*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Consulte como criar e gerenciar relações entre seu gêmeos digital:
-* [Como: gerenciar o grafo de entrelaçamento com relações](how-to-manage-graph.md)
+* [*Como: gerenciar o grafo de entrelaçamento com relações*](how-to-manage-graph.md)

@@ -11,16 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: f0ce0f7d90540274d24a7e0248e6f197b74033a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a8da2355b62d7be36b10ac9a1ce4b53e87b4b288
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416976"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059212"
 ---
-# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-using-c"></a>Gerenciar dados de referência GA de um ambiente do Azure Time Series Insights usando o C#
+# <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c"></a>Gerenciar dados de referência para um ambiente Azure Time Series Insights Gen 1 usando C #
 
-Este artigo demonstra como combinar o C#, o [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) e o Azure Active Directory para fazer solicitações de API programática à [API de Gerenciamento de Dados de Referência](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) GA do Azure Time Series Insights.
+Este artigo demonstra como combinar C#, [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)e Azure Active Directory para fazer solicitações de API programáticas para a api de [Gerenciamento de dados de referência](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)do Azure Time Series insights Gen 1.
 
 > [!TIP]
 > Veja os exemplos de código C# GA em [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
@@ -30,7 +30,7 @@ Este artigo demonstra como combinar o C#, o [MSAL.NET](https://github.com/AzureA
 O código de exemplo abaixo demonstra os seguintes recursos:
 
 * Como adquirir um token de acesso usando o **PublicClientApplication** do [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
-* Operações CREATE, READ, UPDATE e DELETE sequenciais na [API de Gerenciamento de Dados de Referência](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) GA.
+* Operações sequenciais de criação, leitura, atualização e exclusão em relação à [API de gerenciamento de dados de referência](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)Gen 1.
 * Códigos de resposta comuns, incluindo [códigos de erro comuns](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling).
     
     A API de Gerenciamento de Dados de Referência processa cada item individualmente, e um erro em um item não impede que os outros sejam concluídos com êxito. Por exemplo, se a solicitação tiver 100 itens e um item tiver um erro, 99 itens serão gravados e um será rejeitado.
@@ -39,8 +39,8 @@ O código de exemplo abaixo demonstra os seguintes recursos:
 
 Conclua as etapas a seguir antes de usar compilar e executar o código de exemplo:
 
-1. [Provisionar um ambiente GA de Versão Prévia do Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
-).
+1. [Provisionar um ambiente de Azure Time Series insights Gen 1](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
+) .
 
 1. [Criar um conjunto de dados de referência](time-series-insights-add-reference-data-set.md) no ambiente. Use o seguinte esquema de dados de referência:
 
@@ -309,4 +309,4 @@ namespace CsharpTsiMsalGaSample
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia a documentação de referência da [API de Gerenciamento de Dados de Referência](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) GA.
+- Leia a documentação de referência da [API do gerenciamento de dados de referência](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) do Gen 1.

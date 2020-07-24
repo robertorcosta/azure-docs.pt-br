@@ -3,12 +3,12 @@ title: Excluir um cofre de Serviços de Recuperação do Microsoft Azure
 description: Neste artigo, saiba como remover dependências e, em seguida, excluir um cofre dos serviços de recuperação de backup do Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: e6aaab80cabbdd8a58d8adc64409bf1bcd8ebf03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5446c54ac070555987dfc05afa67825f307ee61b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563121"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055202"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Excluir um cofre dos serviços de recuperação de backup do Azure
 
@@ -27,7 +27,7 @@ Se você tentar excluir o cofre sem remover as dependências, encontrará uma da
 
 - O cofre não pode ser excluído porque há recursos existentes nesse cofre. Verifique se não há itens de backup, servidores protegidos ou servidores de gerenciamento de backup associados a este cofre. Cancele o registro dos seguintes contêineres associados a este cofre antes de continuar a exclusão.
 
-- O cofre dos Serviços de Recuperação não pode ser excluído, pois há itens de backup no estado de exclusão temporária no cofre. Os itens com exclusão reversível são excluídos permanentemente após 14 dias após a operação de exclusão. Tente excluir o cofre depois que os itens de backup forem excluídos permanentemente e não houver nenhum item no estado de exclusão reversível deixado no cofre. Para obter mais informações, consulte [exclusão reversível para o backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
+- O cofre dos Serviços de Recuperação não pode ser excluído, pois há itens de backup no estado de exclusão temporária no cofre. Os itens com exclusão reversível são excluídos permanentemente após 14 dias após a operação de exclusão. Tente excluir o cofre depois que os itens de backup forem excluídos permanentemente e não houver nenhum item no estado de exclusão reversível deixado no cofre. Para obter mais informações, consulte [exclusão reversível para o backup do Azure](./backup-azure-security-feature-cloud.md).
 
 ## <a name="proper-way-to-delete-a-vault"></a>Maneira apropriada de excluir um cofre
 
@@ -36,9 +36,9 @@ Se você tentar excluir o cofre sem remover as dependências, encontrará uma da
 
 Para excluir um cofre corretamente, você deve seguir as etapas nesta ordem:
 
-- **Etapa 1**: desabilitar o recurso de exclusão reversível. [Consulte aqui](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) para obter as etapas para desabilitar a exclusão reversível.
+- **Etapa 1**: desabilitar o recurso de exclusão reversível. [Consulte aqui](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) para obter as etapas para desabilitar a exclusão reversível.
 
-- **Etapa 2**: depois de desabilitar a exclusão reversível, verifique se há itens restantes anteriormente no estado de exclusão reversível. Se houver itens no estado de exclusão reversível, você precisará *restaurar* e *excluí* -los novamente. [Siga estas etapas](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#permanently-deleting-soft-deleted-backup-items) para localizar itens de exclusão reversível e excluí-los permanentemente.
+- **Etapa 2**: depois de desabilitar a exclusão reversível, verifique se há itens restantes anteriormente no estado de exclusão reversível. Se houver itens no estado de exclusão reversível, você precisará *restaurar* e *excluí* -los novamente. [Siga estas etapas](./backup-azure-security-feature-cloud.md#permanently-deleting-soft-deleted-backup-items) para localizar itens de exclusão reversível e excluí-los permanentemente.
 
 - **Etapa 3**: você deve verificar todos os três locais a seguir para verificar se há itens protegidos:
 
@@ -209,7 +209,7 @@ Para interromper a proteção e excluir os dados de backup:
            [<CommonParameters>]
     ```
 
-  [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0) sobre como desabilitar a proteção para um item protegido pelo backup do Azure.
+  [Saiba mais](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection) sobre como desabilitar a proteção para um item protegido pelo backup do Azure.
 
 - Interrompa a proteção e exclua dados de todos os itens protegidos por backup na nuvem (por exemplo: VM IaaS, compartilhamento de arquivos do Azure e assim por diante):
 
@@ -225,7 +225,7 @@ Para interromper a proteção e excluir os dados de backup:
        [<CommonParameters>]
     ```
 
-    [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0)   sobre desabilita a proteção para um item protegido por backup.
+    [Saiba mais](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection)   sobre desabilita a proteção para um item protegido por backup.
 
 - Para arquivos e pastas locais protegidos usando o agente de backup do Azure (MARS) fazendo backup no Azure, use o seguinte comando do PowerShell para excluir os dados de backup de cada módulo MARS PowerShell:
 
@@ -263,7 +263,7 @@ Depois de excluir os dados de backup, cancele o registro de todos os contêinere
               [<CommonParameters>]
     ```
 
-    [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) sobre o cancelamento do registro de um Windows Server ou outro contêiner do cofre.
+    [Saiba mais](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) sobre o cancelamento do registro de um Windows Server ou outro contêiner do cofre.
 
 - Para computadores locais protegidos usando o MABS (servidor de Backup do Microsoft Azure) ou o DPM para o Azure (proteção de dados do System Center, gerencie:
 
@@ -278,7 +278,7 @@ Depois de excluir os dados de backup, cancele o registro de todos os contêinere
           [<CommonParameters>]
     ```
 
-    [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) sobre o cancelamento do registro de um contêiner de gerenciamento de backup do cofre.
+    [Saiba mais](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) sobre o cancelamento do registro de um contêiner de gerenciamento de backup do cofre.
 
 Depois de excluir permanentemente os dados de backup e cancelar o registro de todos os contêineres, continue para excluir o cofre.
 
@@ -293,7 +293,7 @@ Para excluir um cofre dos Serviços de Recuperação:
       [<CommonParameters>]
    ```
 
-[Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) sobre como excluir um cofre dos serviços de recuperação.
+[Saiba mais](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) sobre como excluir um cofre dos serviços de recuperação.
 
 ## <a name="delete-the-recovery-services-vault-by-using-cli"></a>Excluir o cofre dos serviços de recuperação usando a CLI
 
@@ -330,7 +330,7 @@ Para excluir o cofre de serviços de recuperação existente, execute o seguinte
                        [--yes]
     ```
 
-    Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest)
+    Para obter mais informações, consulte este [artigo](/cli/azure/backup/vault?view=azure-cli-latest)
 
 ## <a name="delete-the-recovery-services-vault-by-using-azure-resource-manager"></a>Excluir o cofre dos serviços de recuperação usando Azure Resource Manager
 

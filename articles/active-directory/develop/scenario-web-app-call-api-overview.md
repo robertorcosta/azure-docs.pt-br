@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5af9e34baf6115e801fbfe35e6e3895e48b360e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c4bef25a0be12c0335a82345ec998274f1faa67
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80881716"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058400"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Cenário: um aplicativo Web que chama APIs da Web
 
@@ -34,7 +35,7 @@ Este cenário pressupõe que você já passou pelo seguinte cenário:
 
 Você adiciona autenticação ao seu aplicativo Web para que ele possa conectar usuários e chamar uma API da Web em nome do usuário conectado.
 
-![Aplicativo Web que faz chamadas a APIs Web](./media/scenario-webapp/web-app.svg)
+![Aplicativo Web que chama as APIs Web](./media/scenario-webapp/web-app.svg)
 
 Os aplicativos Web que chamam APIs da Web são aplicativos cliente confidenciais.
 É por isso que eles registram um segredo (uma senha de aplicativo ou certificado) com Azure Active Directory (Azure AD). Esse segredo é passado durante a chamada para o Azure AD para obter um token.
@@ -48,7 +49,7 @@ Os aplicativos Web que chamam APIs da Web são aplicativos cliente confidenciais
 
 O desenvolvimento para esse cenário envolve estas tarefas específicas:
 
-- Durante o [registro do aplicativo](scenario-web-app-call-api-app-registration.md), você deve fornecer um URI de resposta, um segredo ou um certificado a ser compartilhado com o Azure AD. Se você implantar seu aplicativo em vários locais, você fornecerá essas informações para cada local.
+- Durante o [registro do aplicativo](scenario-web-app-call-api-app-registration.md), você deve fornecer um URI de resposta, um segredo ou um certificado a ser compartilhado com o Azure AD. Se você implantar seu aplicativo em vários locais, você fornecerá um URI de resposta para cada local.
 - A [configuração do aplicativo](scenario-web-app-call-api-app-configuration.md) deve fornecer as credenciais do cliente que foram compartilhadas com o Azure ad durante o registro do aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas

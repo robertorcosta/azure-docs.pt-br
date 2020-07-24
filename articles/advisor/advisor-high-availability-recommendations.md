@@ -3,12 +3,12 @@ title: Aprimore a confiabilidade do seu aplicativo com o Advisor
 description: Use o Azure Advisor para garantir e melhorar a confiabilidade em implantações críticas do Azure para os negócios.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 928e0b098cb2cf117eff40d2257fc79dbe114f85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1eba688a67a8684cdbb6846b389f83e61b349abe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124615"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057669"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Melhorar a confiabilidade do seu aplicativo usando o Azure Advisor
 
@@ -59,7 +59,7 @@ Se um perfil do Gerenciador de tráfego estiver configurado para roteamento geog
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Use a exclusão reversível em sua conta de armazenamento do Azure para salvar e recuperar dados após substituição ou exclusão acidental
 
-Habilite a [exclusão reversível](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) na conta de armazenamento para que os blobs excluídos passem para um estado de exclusão reversível, em vez de serem excluídos permanentemente. Quando os dados são substituídos, um instantâneo de exclusão reversível é gerado para salvar o estado dos dados substituídos. Usar a exclusão reversível permite que você se recupere de exclusões acidentais ou substituições. O Advisor identifica as contas de armazenamento do Azure que não têm a exclusão reversível habilitada e sugere que você a habilite.
+Habilite a [exclusão reversível](../storage/blobs/soft-delete-overview.md) na conta de armazenamento para que os blobs excluídos passem para um estado de exclusão reversível, em vez de serem excluídos permanentemente. Quando os dados são substituídos, um instantâneo de exclusão reversível é gerado para salvar o estado dos dados substituídos. Usar a exclusão reversível permite que você se recupere de exclusões acidentais ou substituições. O Advisor identifica as contas de armazenamento do Azure que não têm a exclusão reversível habilitada e sugere que você a habilite.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configure seu gateway de VPN como ativo-ativo para ter resiliência de conexão
 
@@ -107,7 +107,7 @@ A partir de 1º de julho de 2020, você não poderá criar novos clusters Kafka 
 A partir de 1º de julho de 2020, você não poderá criar novos clusters Spark usando o Spark 2,1 ou 2,2 no HDInsight 3,6. Você não poderá criar novos clusters Spark usando o Spark 2,3 no HDInsight 4,0. Os clusters existentes serão executados como estão, sem suporte da Microsoft. 
 
 ## <a name="enable-virtual-machine-replication"></a>Habilitar replicação de máquina virtual
-As máquinas virtuais que não têm replicação habilitada para outra região não são resilientes a interrupções regionais. A replicação de máquinas virtuais reduz qualquer impacto adverso nos negócios durante interrupções de região do Azure. O Advisor detecta VMs em que a replicação não está habilitada e recomenda habilitá-la. Ao habilitar a replicação, se houver uma interrupção, você poderá rapidamente abrir suas máquinas virtuais em uma região remota do Azure. [Saiba mais sobre a replicação da máquina virtual.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
+As máquinas virtuais que não têm replicação habilitada para outra região não são resilientes a interrupções regionais. A replicação de máquinas virtuais reduz qualquer impacto adverso nos negócios durante interrupções de região do Azure. O Advisor detecta VMs em que a replicação não está habilitada e recomenda habilitá-la. Ao habilitar a replicação, se houver uma interrupção, você poderá rapidamente abrir suas máquinas virtuais em uma região remota do Azure. [Saiba mais sobre a replicação da máquina virtual.](../site-recovery/azure-to-azure-quickstart.md)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Como acessar as recomendações de alta disponibilidade no Advisor
 

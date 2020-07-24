@@ -3,14 +3,14 @@ title: Referência host.json para o Azure Functions 2.x
 description: Documentação de referência do arquivo host.json do Azure Functions com o runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 8d9ea01ffd5bcf2adb25d4f1b3900ff291438ac8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 629f579642185c5600586473d1280d9b26f4cba3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298490"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055285"
 ---
-# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>host.jsreferência para Azure Functions 2. x e posterior 
+# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referência ao host.json para Azure Functions 2.x e versões posteriores 
 
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Functions tempo de execução que você está usando: "]
 > * [Versão 1](functions-host-json-v1.md)
@@ -145,19 +145,19 @@ Para obter a estrutura JSON completa, consulte o [exemplo anterior host.jsno arq
 > [!NOTE]
 > A amostragem de log pode fazer com que algumas execuções não apareçam na folha do Monitor do Application Insights. Para evitar a amostragem de log, adicione `excludedTypes: "Request"` ao `samplingSettings` valor.
 
-| Property | Padrão | Descrição |
+| Propriedade | Padrão | Descrição |
 | --------- | --------- | --------- | 
 | samplingSettings | N/D | Consulte [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
 | enableLiveMetrics | true | Habilita a coleta de métricas em tempo real. |
 | enableDependencyTracking | true | Habilita o rastreamento de dependência. |
 | enablePerformanceCountersCollection | true | Habilita a coleta de contadores de desempenho kudu. |
-| liveMetricsInitializationDelay | 00:00:15 | Apenas para uso interno. |
+| liveMetricsInitializationDelay | 00:00:15 | Somente para uso interno. |
 | httpAutoCollectionOptions | N/D | Consulte [applicationInsights. httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
 | snapshotConfiguration | N/D | Consulte [applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
 
-|Property | Padrão | Descrição |
+|Propriedade | Padrão | Descrição |
 | --------- | --------- | --------- | 
 | isEnabled | true | Habilita ou desabilita a amostragem. | 
 | maxTelemetryItemsPerSecond | 20 | O número de destino de itens de telemetria registrados por segundo em cada host do servidor. Se seu aplicativo for executado em vários hosts, reduza esse valor para permanecer dentro da taxa de destino de tráfego geral. | 
@@ -173,7 +173,7 @@ Para obter a estrutura JSON completa, consulte o [exemplo anterior host.jsno arq
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights. httpAutoCollectionOptions
 
-|Property | Padrão | Descrição |
+|Propriedade | Padrão | Descrição |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | Habilita ou desabilita informações de solicitação HTTP estendidas para gatilhos HTTP: cabeçalhos de correlação de solicitação de entrada, suporte para chaves de várias instrumentação, método HTTP, caminho e resposta. |
 | enableW3CDistributedTracing | true | Habilita ou desabilita o suporte do protocolo de rastreamento distribuído W3C (e ativa o esquema de correlação herdado). Habilitado por padrão se `enableHttpTriggerExtendedInfoCollection` for verdadeiro. Se `enableHttpTriggerExtendedInfoCollection` for false, esse sinalizador se aplicará somente a solicitações de saída, não a solicitações de entrada. |
@@ -181,9 +181,9 @@ Para obter a estrutura JSON completa, consulte o [exemplo anterior host.jsno arq
 
 ### <a name="applicationinsightssnapshotconfiguration"></a>applicationInsights. snapshotConfiguration
 
-Para obter mais informações sobre instantâneos, consulte [depurar instantâneos em exceções em aplicativos .net](/azure/azure-monitor/app/snapshot-debugger) e [solucionar problemas ao habilitar Application insights depurador de instantâneos ou exibir instantâneos](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
+Para obter mais informações sobre instantâneos, consulte [depurar instantâneos em exceções em aplicativos .net](../azure-monitor/app/snapshot-debugger.md) e [solucionar problemas ao habilitar Application insights depurador de instantâneos ou exibir instantâneos](../azure-monitor/app/snapshot-debugger-troubleshoot.md).
 
-|Property | Padrão | Descrição |
+|Propriedade | Padrão | Descrição |
 | --------- | --------- | --------- | 
 | agentEndpoint | nulo | O ponto de extremidade usado para se conectar ao serviço de Depurador de Instantâneos de Application Insights. Se for NULL, será usado um ponto de extremidade padrão. |
 | captureSnapshotMemoryWeight | 0,5 | O peso dado ao tamanho da memória do processo atual ao verificar se há memória suficiente para tirar um instantâneo. O valor esperado é maior que 0 fração correta (0 < CaptureSnapshotMemoryWeight < 1). |
@@ -275,7 +275,7 @@ Definições de configuração para [monitor de integridade de Host](https://git
 }
 ```
 
-|Property  |Padrão | Descrição |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
 |Habilitado|true|Especifica se o recurso está habilitado. | 
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade em segundo plano. | 
@@ -307,10 +307,10 @@ Controla os comportamentos de registro em log do aplicativo de funções, inclui
 }
 ```
 
-|Property  |Padrão | Descrição |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qual nível de log de arquivos está habilitado.  As opções são: `never`, `always` e `debugOnly`. |
-|logLevel|N/D|Objeto que define a filtragem da categoria de log para funções no aplicativo. As versões 2. x e posteriores seguem o layout de ASP.NET Core para filtragem de categorias de log. Essa configuração permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [Filtragem de logs](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
+|logLevel|N/D|Objeto que define a filtragem da categoria de log para funções no aplicativo. As versões 2. x e posteriores seguem o layout de ASP.NET Core para filtragem de categorias de log. Essa configuração permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [Filtragem de logs](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
 |console|N/D| A configuração de log do [console](#console). |
 |applicationInsights|N/D| A configuração [applicationInsights](#applicationinsights). |
 
@@ -330,7 +330,7 @@ Essa configuração é a filha de [Registro em log](#logging). Ela controla o lo
 }
 ```
 
-|Property  |Padrão | Descrição |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
 |isEnabled|false|Habilita ou desabilita o log de console.| 
 
@@ -374,7 +374,7 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 }
 ```
 
-|Property  |Padrão | Descrição |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|O período em que ocorrem os bloqueios de nível de função. Os bloqueios têm renovação automática.| 
 |listenerLockPeriod|00:01:00|O período em que ocorrem os bloqueios de ouvinte.| 

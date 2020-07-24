@@ -13,11 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44299a55424f9b0338ee49d2742aeedf16db22e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b27bd52ad8794222d52d37032b0cd4fdf99f47b7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732082"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057929"
 ---
 # <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Atribuir funções de administrador personalizadas usando a API do Microsoft Graph no Azure Active Directory 
 
@@ -25,11 +26,11 @@ Você pode automatizar a forma como atribui funções a contas de usuário usand
 
 ## <a name="required-permissions"></a>Permissões necessárias
 
-Conecte-se à sua organização do Azure AD usando uma conta de administrador global ou administrador de identidade privilegiada para atribuir ou remover funções.
+Conecte-se à sua organização do Azure AD usando uma conta de administrador global ou de administrador de função com privilégios para atribuir ou remover funções.
 
 ## <a name="post-operations-on-roleassignment"></a>Operações POST no RoleAssignment
 
-Solicitação HTTP para criar uma atribuição de função entre um usuário e uma definição de função.
+### <a name="example-1-create-a-role-assignment-between-a-user-and-a-role-definition"></a>Exemplo 1: criar uma atribuição de função entre um usuário e uma definição de função.
 
 POST
 
@@ -44,7 +45,7 @@ Corpo
 {
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
-    "resourceScopes":"/"
+    "directoryScopeId":"/"  // Don't use "resourceScope" attribute in Azure AD role assignments. It will be deprecated soon.
 }
 ```
 
@@ -54,7 +55,7 @@ Resposta
 HTTP/1.1 201 Created
 ```
 
-Solicitação HTTP para criar uma atribuição de função na qual a definição de entidade de segurança ou função não existe
+### <a name="example-2-create-a-role-assignment-where-the-principal-or-role-definition-does-not-exist"></a>Exemplo 2: criar uma atribuição de função na qual a definição de entidade ou de função não existe
 
 POST
 
@@ -68,7 +69,7 @@ Corpo
 {
     "principalId":" 2142743c-a5b3-4983-8486-4532ccba12869",
     "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
-    "resourceScopes":"/"
+    "directoryScopeId":"/"  //Don't use "resourceScope" attribute in Azure AD role assignments. It will be deprecated soon.
 }
 ```
 
@@ -77,11 +78,31 @@ Resposta
 ``` HTTP
 HTTP/1.1 404 Not Found
 ```
+### <a name="example-3-create-a-role-assignment-on-a-single-resource-scope"></a>Exemplo 3: criar uma atribuição de função em um único escopo de recurso
 
-Solicitação HTTP para criar uma atribuição de função única com escopo de recurso em uma definição de função interna.
+POST
 
-> [!NOTE] 
-> Atualmente, as funções internas têm uma limitação em que podem ter escopos definidos somente para o escopo "/" de toda a organização ou o escopo "/AU/*". O escopo de recurso único não funciona para funções internas, mas sim para funções personalizadas.
+``` HTTP
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+```
+
+Corpo
+
+``` HTTP
+{
+    "principalId":" 2142743c-a5b3-4983-8486-4532ccba12869",
+    "roleDefinitionId":"e9b2b976-1dea-4229-a078-b08abd6c4f84",    //role template ID of a custom role
+    "directoryScopeId":"/13ff0c50-18e7-4071-8b52-a6f08e17c8cc"  //object ID of an application
+}
+```
+
+Resposta
+
+``` HTTP
+HTTP/1.1 201 Created
+```
+
+### <a name="example-4-create-an-administrative-unit-scoped-role-assignment-on-a-built-in-role-definition-which-is-not-supported"></a>Exemplo 4: criar uma atribuição de função com escopo de unidade administrativa em uma definição de função interna que não tem suporte
 
 POST
 
@@ -94,8 +115,8 @@ Corpo
 ``` HTTP
 {
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
-    "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
-    "resourceScopes":"/ab2e1023-bddc-4038-9ac1-ad4843e7e539"
+    "roleDefinitionId":"29232cdf-9323-42fd-ade2-1d097af3e4de",    //role template ID of Exchange Administrator
+    "directoryScopeId":"/administrativeUnits/13ff0c50-18e7-4071-8b52-a6f08e17c8cc"    //object ID of an administrative unit
 }
 ```
 
@@ -109,23 +130,17 @@ HTTP/1.1 400 Bad Request
         "code":"Request_BadRequest",
         "message":
         {
-            "lang":"en",
-            "value":"Provided authorization scope is not supported for built-in role definitions."},
-            "values":
-            [
-                {
-                    "item":"scope",
-                    "value":"/ab2e1023-bddc-4038-9ac1-ad4843e7e539"
-                }
-            ]
+            "message":"The given built-in role is not supported to be assigned to a single resource scope."
         }
     }
 }
 ```
 
+Somente um subconjunto de funções internas é habilitado para o escopo da unidade administrativa. Consulte [esta documentação](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-admin-units-assign-roles) para obter a lista de funções internas com suporte em uma unidade administrativa.
+
 ## <a name="get-operations-on-roleassignment"></a>Operações GET no RoleAssignment
 
-Solicitação HTTP para obter uma atribuição de função para uma determinada entidade de segurança
+### <a name="example-5-get-role-assignments-for-a-given-principal"></a>Exemplo 5: obter atribuições de função para uma determinada entidade
 
 GET
 
@@ -137,21 +152,25 @@ Resposta
 
 ``` HTTP
 HTTP/1.1 200 OK
-{ 
-    "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1"
-    "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
-    "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
-    "resourceScopes":"/"
-} ,
 {
-    "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
-    "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
-    "roleDefinitionId":"3671d40a-1aac-426c-a0c1-a3821ebd8218",
-    "resourceScopes":"/"
+"value":[
+            { 
+                "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1"
+                "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
+                "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
+                "directoryScopeId":"/"  
+            } ,
+            {
+                "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
+                "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
+                "roleDefinitionId":"fe930be7-5e62-47db-91af-98c3a49a38b1",
+                "directoryScopeId":"/"
+            }
+        ]
 }
 ```
 
-Solicitação HTTP para obter uma atribuição de função para uma determinada definição de função.
+### <a name="example-6-get-role-assignments-for-a-given-role-definition"></a>Exemplo 6: obter atribuições de função para uma determinada definição de função.
 
 GET
 
@@ -164,14 +183,18 @@ Resposta
 ``` HTTP
 HTTP/1.1 200 OK
 {
-    "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
-    "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
-    "roleDefinitionId":"3671d40a-1aac-426c-a0c1-a3821ebd8218",
-    "resourceScopes":"/"
+"value":[
+            {
+                "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
+                "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
+                "roleDefinitionId":"fe930be7-5e62-47db-91af-98c3a49a38b1",
+                "directoryScopeId":"/"
+            }
+     ]
 }
 ```
 
-Solicitação HTTP para obter uma atribuição de função por ID.
+### <a name="example-7-get-a-role-assignment-by-id"></a>Exemplo 7: obter uma atribuição de função por ID.
 
 GET
 
@@ -187,13 +210,44 @@ HTTP/1.1 200 OK
     "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1",
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
-    "resourceScopes":"/"
+    "directoryScopeId":"/"
+}
+```
+
+### <a name="example-8-get-role-assignments-for-a-given-scope"></a>Exemplo 8: obter atribuições de função para um determinado escopo
+
+
+GET
+
+``` HTTP
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=directoryScopeId eq '/d23998b1-8853-4c87-b95f-be97d6c6b610'
+```
+
+Resposta
+
+``` HTTP
+HTTP/1.1 200 OK
+{
+"value":[
+            { 
+                "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1"
+                "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
+                "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
+                "directoryScopeId":"/d23998b1-8853-4c87-b95f-be97d6c6b610"
+            } ,
+            {
+                "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
+                "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
+                "roleDefinitionId":"3671d40a-1aac-426c-a0c1-a3821ebd8218",
+                "directoryScopeId":"/d23998b1-8853-4c87-b95f-be97d6c6b610"
+            }
+        ]
 }
 ```
 
 ## <a name="delete-operations-on-roleassignment"></a>Operações DELETE no RoleAssignment
 
-Solicitação HTTP para excluir uma atribuição de função entre um usuário e uma definição de função.
+### <a name="example-9-delete-a-role-assignment-between-a-user-and-a-role-definition"></a>Exemplo 9: excluir uma atribuição de função entre um usuário e uma definição de função.
 
 Delete (excluir)
 
@@ -206,7 +260,7 @@ Resposta
 HTTP/1.1 204 No Content
 ```
 
-Solicitação HTTP para excluir uma atribuição de função que não existe mais
+### <a name="example-10-delete-a-role-assignment-that-no-longer-exists"></a>Exemplo 10: excluir uma atribuição de função que não existe mais
 
 Delete (excluir)
 
@@ -220,7 +274,7 @@ Resposta
 HTTP/1.1 404 Not Found
 ```
 
-Solicitação HTTP para excluir uma atribuição de função entre uma definição de função interna e individual
+### <a name="example-11-delete-a-role-assignment-between-self-and-global-administrator-role-definition"></a>Exemplo 11: excluir uma atribuição de função entre a definição de função de administrador de si mesmo e global
 
 Delete (excluir)
 
@@ -239,12 +293,14 @@ HTTP/1.1 400 Bad Request
         "message":
         {
             "lang":"en",
-            "value":"Cannot remove self from built-in role definitions."},
+            "value":"Removing self from Global Administrator built-in role is not allowed"},
             "values":null
         }
     }
 }
 ```
+
+Impedimos que os usuários excluam sua própria função de administrador global para evitar um cenário em que um locatário tenha zero administradores globais. A remoção de outras funções atribuídas a si mesma é permitida.
 
 ## <a name="next-steps"></a>Próximas etapas
 

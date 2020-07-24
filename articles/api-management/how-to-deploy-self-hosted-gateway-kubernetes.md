@@ -9,12 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: 51ce2e0dec8b38c9285f4f4e71dd35056b292b66
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: abcda4ea4b14f058325318661daa574494268780
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254275"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056379"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Implantar um gateway auto-hospedado no Kubernetes
 
@@ -35,7 +35,7 @@ Este artigo descreve as etapas para implantar o componente de gateway auto-hospe
 3. Selecione **implantação**.
 4. Um token de acesso na caixa de texto de **token** foi gerado automaticamente para você, com base nos valores padrão de **expiração** e **chave secreta** . Se necessário, escolha valores em um ou ambos os controles para gerar um novo token.
 5. Selecione a guia **kubernetes** em **scripts de implantação**.
-6. Selecione o link de arquivo **<gateway-name>. yml** e baixe o arquivo YAML.
+6. Selecione o link do arquivo ** \<gateway-name\> . yml** e baixe o arquivo YAML.
 7. Selecione o ícone de **cópia** no canto inferior direito da caixa de texto **implantar** para salvar os comandos na `kubectl` área de transferência.
 8. Colar comandos na janela de terminal (ou comando). O primeiro comando cria um segredo kubernetes que contém o token de acesso gerado na etapa 4. O segundo comando aplica o arquivo de configuração baixado na etapa 6 ao cluster kubernetes e espera que o arquivo esteja no diretório atual.
 9. Execute os comandos para criar os objetos kubernetes necessários no [namespace padrão](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) e inicie o pods de gateway auto-hospedado da [imagem de contêiner](https://aka.ms/apim/sputnik/dhub) baixada do registro de contêiner da Microsoft.
@@ -106,6 +106,12 @@ A resolução de nomes DNS desempenha uma função crítica em uma capacidade de
 O arquivo YAML fornecido no portal do Azure aplica a política de [ClusterFirst](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) padrão. Essa política faz com que as solicitações de resolução de nomes não resolvidas pelo DNS do cluster sejam encaminhadas para o servidor DNS upstream herdado do nó.
 
 Para saber mais sobre a resolução de nomes no kubernetes, consulte o [site do kubernetes](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service). Considere a personalização da [política DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) ou da [configuração de DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config) conforme apropriado para sua configuração.
+
+### <a name="custom-domain-names-and-ssl-certificates"></a>Nomes de domínio personalizados e certificados SSL
+
+Se você usar nomes de domínio personalizados para os pontos de extremidade de gerenciamento de API, especialmente se usar um nome de domínio personalizado para o ponto de fim de gerenciamento, talvez seja necessário atualizar o valor de `config.service.endpoint` no arquivo ** \<gateway-name\> . YAML** para substituir o nome de domínio padrão pelo nome de domínio personalizado. Verifique se o ponto de extremidade de gerenciamento pode ser acessado do Pod do gateway auto-hospedado no cluster kubernetes.
+
+Nesse cenário, se o certificado SSL usado pelo ponto de extremidade de gerenciamento não estiver assinado por um certificado de autoridade de certificação conhecido, você deverá verificar se o certificado de autoridade de certificação é confiável pelo Pod do gateway de hospedagem interna.
 
 ### <a name="configuration-backup"></a>Backup de configuração
 Para saber mais sobre o comportamento de gateway auto-hospedado na presença de uma interrupção de conectividade temporária do Azure, consulte [visão geral do gateway de hospedagem interna](self-hosted-gateway-overview.md#connectivity-to-azure).

@@ -3,15 +3,16 @@ title: Perguntas frequentes sobre fazer backup de Arquivos do Azure
 description: Neste artigo, descubra respostas para perguntas comuns sobre como proteger seus compartilhamentos de arquivo do Azure com o serviço de Backup do Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ded1551dad1be34c116e61b9bf59f372169bca5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 134d9520a3c2348b23ec27c6e14eb56468f2002d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488691"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054962"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre como fazer backup de Arquivos do Azure
 
-Este artigo responde perguntas frequentes sobre como fazer backup de Arquivos do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você também pode postar perguntas sobre o serviço de Backup do Azure na página [Perguntas e respostas da Microsoft para discussão](https://docs.microsoft.com/answers/topics/azure-backup.html).
+Este artigo responde perguntas frequentes sobre como fazer backup de Arquivos do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você também pode postar perguntas sobre o serviço de Backup do Azure na página [Perguntas e respostas da Microsoft para discussão](/answers/topics/azure-backup.html).
 
 Para verificar rapidamente as seções neste artigo, use os links à direita, em **Neste artigo**.
 
@@ -55,7 +56,7 @@ Você pode ter até 200 instantâneos para um compartilhamento de arquivos a qua
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share"></a>Posso recuperar a partir de um compartilhamento de arquivos do Azure excluído?
 
-Se o compartilhamento de arquivos estiver no estado de exclusão reversível, primeiro você precisará restaurar o compartilhamento de arquivos para executar a operação de restauração. A operação de restauração colocará o compartilhamento de arquivos no estado ativo, onde você poderá restaurar para qualquer ponto no tempo. Para saber como restaurar o compartilhamento de arquivos, visite [este link](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) ou consulte o [script para restaurar o compartilhamento de arquivos](./scripts/backup-powershell-script-undelete-file-share.md). Se o compartilhamento de arquivos for excluído permanentemente, você não poderá restaurar o conteúdo e os instantâneos.
+Se o compartilhamento de arquivos estiver no estado de exclusão reversível, primeiro você precisará restaurar o compartilhamento de arquivos para executar a operação de restauração. A operação de restauração colocará o compartilhamento de arquivos no estado ativo, onde você poderá restaurar para qualquer ponto no tempo. Para saber como restaurar o compartilhamento de arquivos, visite [este link](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#restore-soft-deleted-file-share) ou consulte o [script para restaurar o compartilhamento de arquivos](./scripts/backup-powershell-script-undelete-file-share.md). Se o compartilhamento de arquivos for excluído permanentemente, você não poderá restaurar o conteúdo e os instantâneos.
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share"></a>Posso restaurar a partir de backups se parar a proteção em um compartilhamento de arquivos do Azure?
 

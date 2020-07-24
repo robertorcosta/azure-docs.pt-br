@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/24/2018
+ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 940ef671ab58074aaded49acb70db68a4971c1f2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 0ec314e6b5abde60102dacfc81c9303cef16e887
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187023"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058630"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como fazer: adicionar funções de aplicativo em seu aplicativo e recebê-las no token
 
@@ -76,7 +76,7 @@ O exemplo a seguir mostra o `appRoles` que você pode atribuir a `users`.
 > [!NOTE]
 >O `displayName` não deve conter espaços.
 
-Você pode definir funções de aplicativo para o `users` de destino, para `applications` ou ambos. Quando disponíveis para `applications`, as funções de aplicativo aparecem como permissões de aplicativo na folha **Permissões Necessárias**. O exemplo a seguir mostra uma função de aplicativo destinada a um `Application`.
+Você pode definir funções de aplicativo para o `users` de destino, para `applications` ou ambos. Quando disponível para o `applications` , as funções de aplicativo aparecem como permissões de aplicativo na seção **gerenciar** > **permissões de API > adicionar uma permissão > minhas APIs > escolher uma API > permissões de aplicativo**. O exemplo a seguir mostra uma função de aplicativo destinada a um `Application`.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -118,6 +118,10 @@ Após adicionar funções de aplicativo em seu aplicativo, você pode atribuir u
 1. Escolha uma função e pressione o botão **Selecionar**.
 1. Pressione o botão **Atribuir** na parte inferior para concluir as atribuições de usuários e grupos ao aplicativo.
 1. Confirme que os usuários e grupos que você adicionou estão aparecendo na lista atualizada de **Usuários e grupos**.
+
+### <a name="receive-roles-in-tokens"></a>Receber funções em tokens
+
+Quando os usuários atribuídos às várias funções de aplicativo entrarem no aplicativo, seus tokens terão suas funções atribuídas na `roles` declaração.
 
 ## <a name="more-information"></a>Mais informações
 

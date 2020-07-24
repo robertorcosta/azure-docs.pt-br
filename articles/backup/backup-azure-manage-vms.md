@@ -4,11 +4,12 @@ description: Saiba como gerenciar e monitorar backups de VM do Azure usando o se
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 6e49d1eed81d15970519299fb6f662c650116d6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e3fb05b054ea682c315654e6df262e49d592597
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248576"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054754"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerenciar backups de VM do Azure com o serviço de backup do Azure
 
@@ -53,6 +54,17 @@ Para exibir as VMs no painel do cofre:
 
 ## <a name="manage-backup-policy-for-a-vm"></a>Gerenciar a política de backup para uma VM
 
+### <a name="modify-backup-policy"></a>Modificar política de backup
+
+Para modificar uma política de backup existente:
+
+1. Entre no [portal do Azure](https://portal.azure.com/). Abra o painel do cofre.
+2. Em **gerenciar políticas de backup >**, selecione a política de backup para o tipo máquina virtual do Azure.
+3.  Clique em modificar e altere as configurações.
+
+
+### <a name="switch-backup-policy"></a>Alternar política de backup 
+
 Para gerenciar uma política de backup:
 
 1. Entre no [portal do Azure](https://portal.azure.com/). Abra o painel do cofre.
@@ -77,6 +89,9 @@ Você pode executar um backup sob demanda de uma VM depois de configurar sua pro
 * Se o backup inicial estiver pendente, o backup sob demanda criará uma cópia completa da VM no cofre dos serviços de recuperação.
 * Se o backup inicial for concluído, um backup sob demanda só enviará alterações do instantâneo anterior para o cofre dos serviços de recuperação. Ou seja, os backups posteriores são sempre incrementais.
 * O período de retenção para um backup sob demanda é o valor de retenção que você especifica ao disparar o backup.
+
+> [!NOTE]
+> O serviço de backup do Azure dá suporte a até nove backups sob demanda por dia, mas a Microsoft recomenda não mais do que quatro backups diários sob demanda para garantir o melhor desempenho.
 
 Para disparar um backup sob demanda:
 
@@ -125,6 +140,9 @@ Para interromper a proteção e excluir dados de uma VM:
 
     ![Excluir dados de backup](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
+> [!NOTE]
+> Depois de concluir a operação de exclusão, os dados de backup serão retidos por 14 dias no [estado de exclusão reversível](./soft-delete-virtual-machines.md). <br>Além disso, você também pode [habilitar ou desabilitar a exclusão reversível](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
+
 ## <a name="resume-protection-of-a-vm"></a>Retomar a proteção de uma VM
 
 Se você escolheu a opção [parar proteção e manter dados de backup](#stop-protection-and-retain-backup-data) durante a proteção da VM de parada, você pode usar o **retomar backup**. Essa opção não estará disponível se você escolher a opção [parar proteção e excluir dados de backup](#stop-protection-and-delete-backup-data) ou [excluir dados de backup](#delete-backup-data).
@@ -157,7 +175,7 @@ Há duas maneiras de excluir os dados de backup de uma VM:
 
   * Para excluir os dados de backup do item, selecione **excluir**. Uma mensagem de notificação permite que você saiba que os dados de backup foram excluídos.
 
-Para proteger seus dados, o backup do Azure inclui o recurso de exclusão reversível. Com a exclusão reversível, mesmo após o backup (todos os pontos de recuperação) de uma VM é excluído, os dados de backup são mantidos por 14 dias adicionais. Para obter mais informações, consulte [a documentação de exclusão reversível](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
+Para proteger seus dados, o backup do Azure inclui o recurso de exclusão reversível. Com a exclusão reversível, mesmo após o backup (todos os pontos de recuperação) de uma VM é excluído, os dados de backup são mantidos por 14 dias adicionais. Para obter mais informações, consulte [a documentação de exclusão reversível](./backup-azure-security-feature-cloud.md).
 
   > [!NOTE]
   > Ao excluir dados de backup, você exclui todos os pontos de recuperação associados. Você não pode escolher pontos de recuperação específicos para excluir.
@@ -172,4 +190,4 @@ Para proteger seus dados, o backup do Azure inclui o recurso de exclusão revers
 
 * Saiba como [fazer backup de VMs do Azure nas configurações da VM](backup-azure-vms-first-look-arm.md).
 * Saiba como [restaurar VMs](backup-azure-arm-restore-vms.md).
-* Saiba como [monitorar backups de VM do Azure](backup-azure-monitor-vms.md).
+* Saiba como [monitorar backups de VM do Azure](./backup-azure-monitoring-built-in-monitor.md).

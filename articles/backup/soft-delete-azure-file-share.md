@@ -3,15 +3,17 @@ title: Proteção acidental de exclusão para compartilhamentos de arquivos do A
 description: Saiba como a exclusão reversível pode proteger seus compartilhamentos de arquivos do Azure contra exclusão acidental.
 ms.topic: conceptual
 ms.date: 02/02/2020
-ms.openlocfilehash: 09d74a135fc43a7758004d77af2ec4c478345a2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 7070cb1ee3881fbec2c6f44eae18f3bc51f8051d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84122272"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054369"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Proteção acidental de exclusão para compartilhamentos de arquivos do Azure usando o backup do Azure
 
-Para fornecer proteção contra ataques cibernéticos ou exclusão acidental, a [exclusão reversível](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) é habilitada para todos os compartilhamentos de arquivos em uma conta de armazenamento quando você configura o backup para qualquer compartilhamento de arquivos na respectiva conta de armazenamento. Com a exclusão reversível, mesmo que um ator mal-intencionado exclua o compartilhamento de arquivos, o conteúdo e os pontos de recuperação (instantâneos) do compartilhamento de arquivos são mantidos por um mínimo de 14 dias adicionais, permitindo a recuperação de compartilhamentos de arquivos sem perda de dados.  
+Para fornecer proteção contra ataques cibernéticos ou exclusão acidental, a [exclusão reversível](../storage/files/storage-files-prevent-file-share-deletion.md) é habilitada para todos os compartilhamentos de arquivos em uma conta de armazenamento quando você configura o backup para qualquer compartilhamento de arquivos na respectiva conta de armazenamento. Com a exclusão reversível, mesmo que um ator mal-intencionado exclua o compartilhamento de arquivos, o conteúdo e os pontos de recuperação (instantâneos) do compartilhamento de arquivos são mantidos por um mínimo de 14 dias adicionais, permitindo a recuperação de compartilhamentos de arquivos sem perda de dados.  
 
 A exclusão reversível tem suporte apenas para contas de armazenamento Standard e Premium e atualmente está habilitada no lado do backup do Azure nessas [regiões](azure-file-share-support-matrix.md).
 
@@ -27,7 +29,7 @@ Quando você configura o backup pela primeira vez para qualquer compartilhamento
 
 ### <a name="can-i-configure-the-number-of-days-for-which-my-snapshots-and-restore-points-will-be-retained-in-soft-deleted-state-after-i-delete-the-file-share"></a>Posso configurar o número de dias pelos quais meus instantâneos e pontos de restauração serão retidos no estado de exclusão reversível depois de excluir o compartilhamento de arquivos?
 
-Sim, você pode definir o período de retenção de acordo com seus requisitos. [Este documento](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal) explica as etapas para configurar o período de retenção. Para contas de armazenamento com compartilhamentos de arquivos com backup, a configuração de retenção mínima deve ser de 14 dias.
+Sim, você pode definir o período de retenção de acordo com seus requisitos. [Este documento](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal) explica as etapas para configurar o período de retenção. Para contas de armazenamento com compartilhamentos de arquivos com backup, a configuração de retenção mínima deve ser de 14 dias.
 
 ### <a name="does-azure-backup-reset-my-retention-setting-because-i-configured-it-to-less-than-14-days"></a>O backup do Azure redefine minha configuração de retenção porque a configurei para menos de 14 dias?
 
@@ -39,14 +41,14 @@ Durante o período de exclusão reversível, o custo de instância protegida e o
 
 ### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-deleted-state"></a>Posso executar uma operação de restauração quando meus dados estiverem no estado de exclusão reversível?
 
-Primeiro, você precisa restaurar o compartilhamento de arquivos com exclusão reversível para executar operações de restauração. A operação de desfazer exclusão trará o compartilhamento de arquivos para o estado de backup, no qual você pode restaurar para qualquer ponto no tempo. Para saber como restaurar o compartilhamento de arquivos, visite [este link](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) ou consulte o [script para restaurar o compartilhamento de arquivos](./scripts/backup-powershell-script-undelete-file-share.md).
+Primeiro, você precisa restaurar o compartilhamento de arquivos com exclusão reversível para executar operações de restauração. A operação de desfazer exclusão trará o compartilhamento de arquivos para o estado de backup, no qual você pode restaurar para qualquer ponto no tempo. Para saber como restaurar o compartilhamento de arquivos, visite [este link](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#restore-soft-deleted-file-share) ou consulte o [script para restaurar o compartilhamento de arquivos](./scripts/backup-powershell-script-undelete-file-share.md).
 
 ### <a name="how-can-i-purge-the-data-of-a-file-share-in-a-storage-account-that-has-at-least-one-protected-file-share"></a>Como posso limpar os dados de um compartilhamento de arquivos em uma conta de armazenamento que tenha pelo menos um compartilhamento de arquivos protegido?
 
 Se você tiver pelo menos um compartilhamento de arquivos protegido em uma conta de armazenamento, isso significará que a exclusão reversível está habilitada para todos os compartilhamentos de arquivos nessa conta e seus dados serão mantidos por 14 dias após a operação de exclusão. Mas se você quiser limpar os dados imediatamente e não quiser que eles sejam retidos, siga estas etapas:
 
-1. Se você já excluiu o compartilhamento de arquivos enquanto a exclusão reversível estava habilitada, primeiro exclua o compartilhamento de arquivos do [portal de arquivos](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) ou usando o script de compartilhamento de [arquivos para restaurar](./scripts/backup-powershell-script-undelete-file-share.md).
-2. Desabilite a exclusão reversível para compartilhamentos de arquivos em sua conta de armazenamento seguindo as etapas mencionadas neste [documento](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#disable-soft-delete).
+1. Se você já excluiu o compartilhamento de arquivos enquanto a exclusão reversível estava habilitada, primeiro exclua o compartilhamento de arquivos do [portal de arquivos](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#restore-soft-deleted-file-share) ou usando o script de compartilhamento de [arquivos para restaurar](./scripts/backup-powershell-script-undelete-file-share.md).
+2. Desabilite a exclusão reversível para compartilhamentos de arquivos em sua conta de armazenamento seguindo as etapas mencionadas neste [documento](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#disable-soft-delete).
 3. Agora, exclua o compartilhamento de arquivos cujo conteúdo você deseja limpar imediatamente.
 
 >[!NOTE]
@@ -57,7 +59,7 @@ Se você tiver pelo menos um compartilhamento de arquivos protegido em uma conta
 
 ### <a name="in-the-context-of-a-file-shares-soft-delete-setting-what-changes-does-azure-backup-do-when-i-unregister-a-storage-account"></a>No contexto da configuração de exclusão reversível de um compartilhamento de arquivos, quais alterações o backup do Azure faz quando eu desregistro uma conta de armazenamento?
 
-No momento do cancelamento do registro, o backup do Azure verifica a configuração do período de retenção para compartilhamentos de arquivos e, se for maior que 14 dias ou menos de 14 dias, ele deixará a retenção como está. No entanto, se a retenção for de 14 dias, consideramos que ela está habilitada pelo backup do Azure e, portanto, desabilitamos a exclusão reversível durante o processo de cancelamento de registro. Se você quiser cancelar o registro da conta de armazenamento enquanto mantém a configuração de retenção como está, habilite-a novamente no painel da conta de armazenamento depois de concluir o cancelamento do registro. Você pode consultar [esse link](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) para obter as etapas de configuração.
+No momento do cancelamento do registro, o backup do Azure verifica a configuração do período de retenção para compartilhamentos de arquivos e, se for maior que 14 dias ou menos de 14 dias, ele deixará a retenção como está. No entanto, se a retenção for de 14 dias, consideramos que ela está habilitada pelo backup do Azure e, portanto, desabilitamos a exclusão reversível durante o processo de cancelamento de registro. Se você quiser cancelar o registro da conta de armazenamento enquanto mantém a configuração de retenção como está, habilite-a novamente no painel da conta de armazenamento depois de concluir o cancelamento do registro. Você pode consultar [esse link](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#restore-soft-deleted-file-share) para obter as etapas de configuração.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -4,12 +4,12 @@ description: Fazer consultas para dados do Advisor no grafo de recursos do Azure
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: sagupt
-ms.openlocfilehash: c0786d1d09ff61ddd9c375c68b7199521e319a4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66bb500d419d1f5537afafd7a2df543ded8cc7ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117826"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057781"
 ---
 # <a name="query-for-advisor-data-in-resource-graph-explorer-azure-resource-graph"></a>Consultar dados do Advisor no Gerenciador de grafo de recursos (grafo de recursos do Azure)
 
@@ -24,7 +24,7 @@ Os recursos do Advisor agora são integrados ao [grafo de recursos do Azure](htt
 
 ## <a name="advisor-resource-types-in-azure-graph"></a>Tipos de recursos do Advisor no grafo do Azure
 
-Tipos de recursos do Advisor disponíveis no [grafo de recursos](https://docs.microsoft.com/azure/governance/resource-graph/): há três tipos de recursos disponíveis para consulta de recursos do Advisor. Aqui está a lista dos recursos que agora estão disponíveis para consulta no grafo de recursos.
+Tipos de recursos do Advisor disponíveis no [grafo de recursos](../governance/resource-graph/index.yml): há três tipos de recursos disponíveis para consulta de recursos do Advisor. Aqui está a lista dos recursos que agora estão disponíveis para consulta no grafo de recursos.
 * Microsoft. Advisor/Configurations
 * Microsoft. Advisor/Recommendations
 * Microsoft. Advisor/supressões
@@ -42,4 +42,4 @@ Para obter mais informações sobre as recomendações do Assistente, consulte:
 * [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
 * [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
 * [Recomendações de excelência operacional do Advisor](advisor-operational-excellence-recommendations.md)
-* [API REST do Advisor](https://docs.microsoft.com/rest/api/advisor/)
+* [API REST do Advisor](/rest/api/advisor/)

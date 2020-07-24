@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 895e33a111fe5bb881d198ee4995b9534ca3d528
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 2e2a7f09ac6ff3be119a07ed0a2162525801ceef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135872"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061860"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Criar SDKs personalizados para o gêmeos digital do Azure usando o REST
 
-No momento, o único SDK do plano de dados publicado para interagir com as APIs do gêmeos digital do Azure é para .NET (C#). Você pode ler sobre o SDK do .NET e as APIs em geral, em [How-to: Use the Azure digital gêmeos APIs and SDKs](how-to-use-apis-sdks.md). Se você estiver trabalhando em outra linguagem, este artigo mostrará como gerar seu próprio SDK no idioma de sua escolha, usando o REST.
+No momento, o único SDK do plano de dados publicado para interagir com as APIs do gêmeos digital do Azure é para .NET (C#). Você pode ler sobre o SDK do .NET e as APIs em geral, em [*How-to: Use the Azure digital gêmeos APIs and SDKs*](how-to-use-apis-sdks.md). Se você estiver trabalhando em outra linguagem, este artigo mostrará como gerar seu próprio SDK no idioma de sua escolha, usando o REST.
 
 ## <a name="set-up-your-machine"></a>Configurar seu computador
 
@@ -37,23 +37,23 @@ npm install -g autorest@2.0.4413
 Para executar o REST no arquivo do Azure digital gêmeos Swagger, siga estas etapas:
 1. Copie o arquivo Swagger do Azure digital gêmeos e sua pasta de exemplos que o acompanha em um diretório de trabalho.
 2. Use uma janela de prompt de comando para alternar para esse diretório de trabalho.
-3. Execute o comando executar como a seguir. Substitua o `<language>` espaço reservado pelo idioma de sua escolha: `--python` , `--java` ,, `--go` etc. (você pode encontrar a lista completa de opções no [Leiame do REST](https://github.com/Azure/autorest).)
+3. Execute o comando executar como a seguir. Substitua o `<language>` espaço reservado pelo idioma de sua escolha: `--python` , `--java` , `--go` e assim por diante. (Você pode encontrar a lista completa de opções no [Leiame do autorest](https://github.com/Azure/autorest).)
 
 ```cmd/sh
 autorest --input-file=adtApiSwagger.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-Como resultado, você verá uma nova pasta chamada *ADTApi* em seu diretório de trabalho. Os arquivos do SDK gerados terão o namespace *ADTApi*, que você continuará a usar no restante dos exemplos de uso neste artigo.
+Como resultado, você verá uma nova pasta chamada *ADTApi* em seu diretório de trabalho. Os arquivos do SDK gerados terão o namespace *ADTApi*. Você continuará a usar esse namespace por meio do restante dos exemplos de uso neste artigo.
 
 O REST oferece suporte a uma ampla variedade de geradores de código de linguagem.
 
 ## <a name="add-the-sdk-to-a-visual-studio-project"></a>Adicionar o SDK a um projeto do Visual Studio
 
-Você pode incluir os arquivos gerados pelo autorest diretamente em uma solução .NET. No entanto, como você provavelmente precisará do SDK do Azure digital gêmeos em vários projetos separados (seus aplicativos cliente, aplicativos Azure Functions e assim por diante), pode ser útil criar um projeto separado (uma biblioteca de classes do .NET) a partir dos arquivos gerados. Você pode então incluir esse projeto de biblioteca de classes em várias soluções como uma referência de projeto.
+Você pode incluir os arquivos gerados pelo autorest diretamente em uma solução .NET. No entanto, é provável que você queira incluir o SDK do gêmeos digital do Azure em vários projetos separados (seus aplicativos cliente, aplicativos Azure Functions e assim por diante). Por esse motivo, pode ser útil criar um projeto separado (uma biblioteca de classes .NET) a partir dos arquivos gerados. Em seguida, você pode incluir esse projeto de biblioteca de classes em várias soluções como uma referência de projeto.
 
 Esta seção fornece instruções sobre como criar o SDK como uma biblioteca de classes, que é seu próprio projeto e pode ser incluído em outros projetos. Essas etapas dependem do **Visual Studio** (você pode instalar a versão mais recente [aqui](https://visualstudio.microsoft.com/downloads/)).
 
-Aqui estão as etapas para fazer isso:
+Siga estas etapas:
 
 1. Criar uma nova solução do Visual Studio para uma biblioteca de classes
 2. Usar *ADTApi* como o nome do projeto
@@ -73,7 +73,7 @@ Para adicioná-los, abra *ferramentas > Gerenciador de pacotes nuget > gerenciar
 
 1. No painel, certifique-se de que a guia *procurar* esteja selecionada
 2. Pesquisar *Microsoft. REST*
-3. Selecione os pacotes *ClientRuntime* e *ClientRuntime. Azure* e adicione-os à sua solução
+3. Selecione os `ClientRuntime` pacotes e e `ClientRuntime.Azure` adicione-os à sua solução
 
 Agora você pode criar o projeto e incluí-lo como uma referência de projeto em qualquer aplicativo de gêmeos digital do Azure que você escreve.
 
@@ -115,7 +115,7 @@ O REST gera dois tipos de padrões de paginação para o SDK:
 
 No padrão de paginação não consulta, há duas versões de cada chamada:
 * Uma versão para fazer a chamada inicial (como `DigitalTwins.ListEdges()` )
-* Uma versão para obter páginas subsequentes, sufixadas com "Next" (como `DigitalTwins.ListEdgesNext()` )
+* Uma versão para obter as páginas a seguir. Essas chamadas têm um sufixo de "Next" (como `DigitalTwins.ListEdgesNext()` )
 
 Aqui está um trecho de código que mostra como recuperar uma lista paginável de relações de saída do Azure digital gêmeos:
 ```csharp
@@ -188,4 +188,4 @@ try
 ## <a name="next-steps"></a>Próximas etapas
 
 Percorra as etapas para criar um aplicativo cliente onde você pode usar seu SDK:
-* [Tutorial: codificar um aplicativo cliente](tutorial-code.md)
+* [*Tutorial: Codificar um aplicativo cliente*](tutorial-code.md)

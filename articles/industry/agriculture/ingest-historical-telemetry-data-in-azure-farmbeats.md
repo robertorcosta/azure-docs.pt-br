@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3833b27e9f90cbffa2320c84877d4eb5bb6520f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7d83c327eb1c37478c0c2e5725136d43a91a009
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82613261"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061223"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos históricos
 
@@ -61,8 +61,14 @@ Siga estas etapas:
     ```azurepowershell-interactive 
     cd
     ```
+    
+6. Execute o comando a seguir. Isso conecta uma conta autenticada a ser usada para solicitações do Azure AD
 
-6. Execute o comando a seguir. Isso baixará um script em seu diretório base.
+    ```azurepowershell-interactive 
+    Connect-AzureAD
+    ```
+
+7. Execute o comando a seguir. Isso baixará um script em seu diretório base.
 
     ```azurepowershell-interactive 
 
@@ -70,7 +76,7 @@ Siga estas etapas:
 
     ```
 
-7. Execute o seguinte script. O script solicita a ID do locatário, que pode ser obtida na **Azure Active Directory**  >  página de**visão geral** Azure Active Directory.
+8. Execute o seguinte script. O script solicita a ID do locatário, que pode ser obtida na **Azure Active Directory**  >  página de**visão geral** Azure Active Directory.
 
     ```azurepowershell-interactive 
 
@@ -78,7 +84,7 @@ Siga estas etapas:
 
     ```
 
-8. Siga as instruções na tela para capturar os valores para **o ponto de extremidade da API**, ID do **locatário**, **ID do cliente**, segredo do **cliente**e cadeia de **conexão do EventHub**.
+9. Siga as instruções na tela para capturar os valores para **o ponto de extremidade da API**, ID do **locatário**, **ID do cliente**, segredo do **cliente**e cadeia de **conexão do EventHub**.
 
 
 ## <a name="create-device-or-sensor-metadata"></a>Criar metadados do dispositivo ou do sensor

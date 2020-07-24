@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6e2a3e6c7fd5ecd305d00278668ad0bfb9a66001
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 34624358a26fbd52db5832cf3531a6f1d3b91e5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142447"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061748"
 ---
 # <a name="understand-event-data"></a>Entender os dados do evento
 
@@ -300,7 +300,7 @@ A notificação correspondente (se executada de forma síncrona pelo serviço, c
 ## <a name="next-steps"></a>Próximas etapas
 
 Consulte como criar pontos de extremidade e rotas para entregar eventos:
-* [Como: gerenciar pontos de extremidade e rotas](how-to-manage-routes.md)
+* [*Como: gerenciar pontos de extremidade e rotas*](how-to-manage-routes.md)
 
 Ou então, saiba mais sobre as APIs do Azure digital gêmeos e as opções do SDK:
-* [Como: usar as APIs e SDKs do gêmeos digital do Azure](how-to-use-apis-sdks.md)
+* [*Como: usar as APIs e SDKs do gêmeos digital do Azure*](how-to-use-apis-sdks.md)

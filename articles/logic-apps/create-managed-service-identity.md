@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 190cc74bc2967cdee7f3154e0d6a6fedd8ee90dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06c10cffcfa5c68b1da8ba366ca270f1c2fa6ea4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565039"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060972"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar o acesso a recursos do Azure usando identidades gerenciadas em Aplicativos Lógicos do Azure
 
@@ -306,8 +306,8 @@ Para usar a identidade gerenciada do aplicativo lógico para autenticação, con
 
 * [Azure portal](#azure-portal-assign-access)
 * [Modelo do Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
-* O Azure PowerShell ([New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)) – para obter mais informações, confira [Adicionar atribuição de função usando o Azure RBAC e o Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-* CLI do Azure ([az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)) – para obter mais informações, confira [Adicionar atribuição de função usando o Azure RBAC e a CLI do Azure](../role-based-access-control/role-assignments-cli.md).
+* O Azure PowerShell ([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)) – para obter mais informações, confira [Adicionar atribuição de função usando o Azure RBAC e o Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+* CLI do Azure ([az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)) – para obter mais informações, confira [Adicionar atribuição de função usando o Azure RBAC e a CLI do Azure](../role-based-access-control/role-assignments-cli.md).
 * [API REST do Azure](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>
@@ -387,18 +387,18 @@ Estas etapas mostram como usar a identidade gerenciada com um gatilho ou uma aç
    | **Autenticação** | Sim | O tipo de autenticação a ser usado para autenticar o acesso ao recurso ou à entidade de destino |
    ||||
 
-   Como um exemplo específico, suponha que você queira executar a [operação Blob de Instantâneo](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob) em um blob na conta de Armazenamento do Azure em que você configurou o acesso para sua identidade anteriormente. No entanto, o [conector do Armazenamento de Blobs do Azure](https://docs.microsoft.com/connectors/azureblob/) não oferece essa operação no momento. Em vez disso, você pode executar essa operação usando a [ação HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) ou [outra operação da API REST de Serviço Blob](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs).
+   Como um exemplo específico, suponha que você queira executar a [operação Blob de Instantâneo](/rest/api/storageservices/snapshot-blob) em um blob na conta de Armazenamento do Azure em que você configurou o acesso para sua identidade anteriormente. No entanto, o [conector do Armazenamento de Blobs do Azure](/connectors/azureblob/) não oferece essa operação no momento. Em vez disso, você pode executar essa operação usando a [ação HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) ou [outra operação da API REST de Serviço Blob](/rest/api/storageservices/operations-on-blobs).
 
    > [!IMPORTANT]
    > Para acessar as contas de armazenamento do Azure por trás de firewalls usando solicitações HTTP e identidades gerenciadas, verifique se você também configurou sua conta de armazenamento com a [exceção que permite o acesso por serviços confiáveis da Microsoft](../connectors/connectors-create-api-azureblobstorage.md#access-trusted-service).
 
-   Para executar a [operação Blob de Instantâneo](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob), a ação HTTP especifica estas propriedades:
+   Para executar a [operação Blob de Instantâneo](/rest/api/storageservices/snapshot-blob), a ação HTTP especifica estas propriedades:
 
    | Propriedade | Obrigatório | Valor de exemplo | Descrição |
    |----------|----------|---------------|-------------|
    | **Método** | Sim | `PUT`| O método HTTP usado pela operação Blob de Instantâneo |
    | **URI** | Sim | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | A ID de recurso para um arquivo do Armazenamento de Blobs do Azure no ambiente do Azure Global (público), que usa essa sintaxe |
-   | **Cabeçalhos** | Sim, para o Armazenamento do Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | Os valores de cabeçalho `x-ms-blob-type` e `x-ms-version` necessários para operações do Armazenamento do Azure. <p><p>**Importante**: no gatilho HTTP de saída e nas solicitações de ação para o Armazenamento do Azure, o cabeçalho requer a propriedade `x-ms-version` e a versão da API para a operação que você deseja executar. <p>Para saber mais, consulte esses tópicos: <p><p>- [Cabeçalhos de solicitação – Blob de Instantâneo](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>- [Controle de versão para serviços de Armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+   | **Cabeçalhos** | Sim, para o Armazenamento do Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | Os valores de cabeçalho `x-ms-blob-type` e `x-ms-version` necessários para operações do Armazenamento do Azure. <p><p>**Importante**: no gatilho HTTP de saída e nas solicitações de ação para o Armazenamento do Azure, o cabeçalho requer a propriedade `x-ms-version` e a versão da API para a operação que você deseja executar. <p>Para saber mais, consulte esses tópicos: <p><p>- [Cabeçalhos de solicitação – Blob de Instantâneo](/rest/api/storageservices/snapshot-blob#request) <br>- [Controle de versão para serviços de Armazenamento do Azure](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
    | **Consultas** | Sim, para esta operação | `comp` = `snapshot` | O nome e o valor do parâmetro de consulta para a operação Blob de Instantâneo. |
    |||||
 
@@ -441,7 +441,7 @@ Estas etapas mostram como usar a identidade gerenciada com um gatilho ou uma aç
    Para obter mais informações sobre como autorizar o acesso com o Azure AD para o Armazenamento do Azure, confira estes tópicos:
 
    * [Autorizar o acesso a blobs e filas do Azure usando o Azure Active Directory](../storage/common/storage-auth-aad.md)
-   * [Autorizar o acesso ao Armazenamento do Azure com o Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
+   * [Autorizar o acesso ao Armazenamento do Azure com o Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
 
 1. Continue criando o aplicativo lógico da maneira desejada.
 

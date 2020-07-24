@@ -4,11 +4,12 @@ description: Saiba como exibir informações de solução de problemas nos logs 
 services: container-service
 ms.topic: article
 ms.date: 03/05/2019
-ms.openlocfilehash: b7a74803af916f9e9de72dd528273007ce37832f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ef38aa76f4ef9152e7bc55a1d74c84ef426f0ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77595375"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056760"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Obter logs de Kubelet dos nós de cluster do AKS (Serviço de Kubernetes do Azure)
 
@@ -31,6 +32,12 @@ Depois de se conectar ao nó, execute o seguinte comando para efetuar pull dos l
 ```console
 sudo journalctl -u kubelet -o cat
 ```
+
+> [!NOTE]
+> Para nós do Windows, os dados de log estão em `C:\k` e podem ser exibidos usando o comando *more* :
+> ```
+> more C:\k\kubelet.log
+> ```
 
 A saída de exemplo a seguir mostra os dados do log de *kubelet*:
 

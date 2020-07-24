@@ -4,11 +4,12 @@ description: Saiba como gerenciar e monitorar backups de agente MARS (Serviços 
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 2cd536e191702e2619030c2e0fa06262d2e004ee
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 376e2d53165ab822f75e635b42106e1fe13282a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057816"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054992"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerenciar backups de agente MARS (Serviços de Recuperação do Microsoft Azure) usando o serviço de backup do Azure
 
@@ -22,7 +23,7 @@ Ao modificar a política de backup, você pode adicionar novos itens, remover it
 - **Remover itens** Use esta opção para remover itens do backup.
   - Use **as configurações de exclusão** para remover todos os itens de um volume em vez de **remover itens**.
   - Limpar todas as seleções em um volume faz com que os backups antigos dos itens sejam retidos de acordo com as configurações de retenção no momento do último backup, sem escopo para modificação.
-  - A seleção desses itens, leva a um primeiro backup completo e novas alterações de política não são aplicadas a backups antigos.
+  - Reselecionando esses itens, os clientes potenciais de um primeiro backup completo e novas alterações de política não são aplicados a backups antigos.
   - Desmarcar o volume inteiro mantém o backup anterior sem nenhum escopo para modificar a política de retenção.
 - **Configurações de exclusão** Use essa opção para excluir itens específicos do backup.
 
@@ -48,7 +49,7 @@ Ao modificar a política de backup, você pode adicionar novos itens, remover it
 
     ![Selecionar os itens](./media/backup-azure-manage-mars/select-item.png)
 
-6. Conclua as etapas subsequentes e clique em **concluir** para concluir a operação.
+6. Conclua as próximas etapas e clique em **concluir** para concluir a operação.
 
 ### <a name="add-exclusion-rules-to-existing-policy"></a>Adicionar regras de exclusão à política existente
 
@@ -70,7 +71,7 @@ Você pode adicionar regras de exclusão para ignorar arquivos e pastas dos quai
 
     ![Selecionar os itens](./media/backup-azure-manage-mars/subfolders-type.png)
 
-5. Conclua as etapas subsequentes e clique em **concluir** para concluir a operação.
+5. Conclua as próximas etapas e clique em **concluir** para concluir a operação.
 
 ### <a name="remove-items-from-existing-policy"></a>Remover itens da política existente
 
@@ -81,7 +82,7 @@ Você pode adicionar regras de exclusão para ignorar arquivos e pastas dos quai
     > [!NOTE]
     > Continue com cuidado ao remover completamente um volume da política.  Se você precisar adicioná-lo novamente, ele será tratado como um novo volume. O próximo backup agendado executará um backup inicial (backup completo) em vez de backup incremental. Se você precisar remover temporariamente e adicionar itens posteriormente, é recomendável usar **as configurações de exclusões** em vez de **remover itens** para garantir o backup incremental em vez do backup completo.
 
-2. Conclua as etapas subsequentes e clique em **concluir** para concluir a operação.
+2. Conclua as próximas etapas e clique em **concluir** para concluir a operação.
 
 ## <a name="stop-protecting-files-and-folder-backup"></a>Parar de proteger arquivos e pastas de backup
 
@@ -108,10 +109,10 @@ Há duas maneiras de interromper a proteção de arquivos e pastas backup:
 1. Na página **modificar ou parar um backup agendado** , selecione **parar de usar este agendamento de backup, mas mantenha os backups armazenados até que uma agenda seja ativada novamente**. Em seguida, selecione **Avançar**.
 
     ![Modificar ou parar um backup agendado.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. Em **Pausar backup agendado** , examine as informações e clique em **concluir**.
+1. Em **Pausar backup agendado**, examine as informações e clique em **concluir**.
 
     ![Modificar ou parar um backup agendado.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. Em **Modificar processo de backup** , verifique se a pausa do backup de agenda está em status de êxito e clique em **fechar** para concluir.
+1. Em **Modificar processo de backup**, verifique se a pausa do backup de agenda está em status de êxito e clique em **fechar** para concluir.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Interromper a proteção e excluir dados de backup
 
@@ -155,17 +156,18 @@ Se você interrompeu a proteção enquanto retém os dados e decidiu retomar a p
 
 Uma frase secreta é usada para criptografar e descriptografar dados durante o backup ou a restauração do seu computador local ou localmente usando o agente MARS para ou do Azure. Se você perdeu ou esqueceu a frase secreta, poderá regenerar a frase secreta (desde que seu computador ainda esteja registrado com o cofre dos serviços de recuperação e o backup esteja configurado) seguindo estas etapas:
 
-- No console do agente Mars, vá para o **painel Ações**  >  **alterar propriedades** >. Em seguida, vá para a **guia criptografia**.<br>
-- Selecione a caixa de seleção **alterar senha** .<br>
-- Insira uma nova senha ou clique em **gerar senha**.
-- Clique em **procurar** para salvar a nova senha.
+1. No console do agente Mars, vá para o **painel Ações**  >  **alterar propriedades** >. Em seguida, vá para a **guia criptografia**.<br>
+1. Selecione a caixa de seleção **alterar senha** .<br>
+1. Insira uma nova senha ou clique em **gerar senha**.
+1. Clique em **procurar** para salvar a nova senha.
 
     ![Gerar frase secreta.](./media/backup-azure-manage-mars/passphrase.png)
-- Clique em **OK** para aplicar as alterações.  Se o [recurso de segurança](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) estiver habilitado no portal do Azure para o cofre dos serviços de recuperação, será solicitado que você insira o PIN de segurança. Para receber o PIN, siga as etapas listadas neste [artigo](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations).<br>
-- Cole o PIN de segurança do portal e clique em **OK** para aplicar as alterações.<br>
+
+1. Clique em **OK** para aplicar as alterações.  Se o [recurso de segurança](./backup-azure-security-feature.md#enable-security-features) estiver habilitado no portal do Azure para o cofre dos serviços de recuperação, será solicitado que você insira o PIN de segurança. Para receber o PIN, siga as etapas listadas neste [artigo](./backup-azure-security-feature.md#authentication-to-perform-critical-operations).<br>
+1. Cole o PIN de segurança do portal e clique em **OK** para aplicar as alterações.<br>
 
     ![Gerar frase secreta.](./media/backup-azure-manage-mars/passphrase2.png)
-- Certifique-se de que a frase secreta seja salva com segurança em um local alternativo (que não seja o computador de origem), preferencialmente na Azure Key Vault. Mantenha o controle de todas as senhas se você tiver várias máquinas cujo backup está sendo feito com os agentes MARS.
+1. Certifique-se de que a frase secreta seja salva com segurança em um local alternativo (que não seja o computador de origem), preferencialmente na Azure Key Vault. Mantenha o controle de todas as senhas se você tiver várias máquinas cujo backup está sendo feito com os agentes MARS.
 
 ## <a name="managing-backup-data-for-unavailable-machines"></a>Gerenciando dados de backup para computadores não disponíveis
 
@@ -182,13 +184,14 @@ Para esses computadores, o serviço de backup do Azure garante que o último pon
 O gerenciamento da política de backup para MARS é feito por meio do console do MARS e não pelo portal. Se você precisar estender as configurações de retenção para os pontos de recuperação existentes antes que eles expirem, será necessário restaurar o computador, instalar o console do MARS e estender a política.
 
 - Para restaurar o computador, execute as seguintes etapas:
-  - [Restaurar a VM em um computador de destino alternativo](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
-  - Recriar o computador de destino com o mesmo nome de host que o computador de origem
-  - Instalar o agente e registrar novamente no mesmo cofre e com a mesma senha
-  - Inicie o cliente MARS para estender a duração da retenção de acordo com seus requisitos
+  1. [Restaurar a VM em um computador de destino alternativo](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  1. Recriar o computador de destino com o mesmo nome de host que o computador de origem
+  1. Instalar o agente e registrar novamente no mesmo cofre e com a mesma senha
+  1. Inicie o cliente MARS para estender a duração da retenção de acordo com seus requisitos
 - Seu computador recentemente restaurado, protegido com MARS, continuará a fazer backups.  
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter informações sobre cenários e limitações com suporte, consulte a [matriz de suporte para o agente Mars](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
+- Para obter informações sobre cenários e limitações com suporte, consulte a [matriz de suporte para o agente Mars](./backup-support-matrix-mars-agent.md).
 - Saiba mais sobre o [comportamento de retenção da política de backup sob demanda](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior).
+- Para perguntas mais frequentes, consulte as [perguntas frequentes do agente Mars](backup-azure-file-folder-backup-faq.md).

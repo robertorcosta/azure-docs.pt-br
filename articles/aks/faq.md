@@ -2,13 +2,13 @@
 title: Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 description: Encontre respostas para algumas das perguntas mais comuns sobre o AKS (Serviço de Kubernetes do Azure).
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.openlocfilehash: ba4ceaf0d7f9e3b344b2a6efbb84f2145c4a2f65
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.date: 07/21/2020
+ms.openlocfilehash: 4d93a4f3b58fc38710184f345fd467b2beb32b1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86275709"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057197"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 
@@ -79,7 +79,7 @@ Ao trabalhar com o grupo de recursos do nó, tenha em mente que não é possíve
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>Posso modificar marcas e outras propriedades dos recursos do AKS no grupo de recursos do nó?
 
-Se você modificar ou excluir as marcas criadas pelo Azure e outras propriedades de recursos no grupo de recursos do nó, poderá obter resultados inesperados, como erros de dimensionamento e atualização. O AKS permite que você crie e modifique marcas personalizadas criadas por usuários finais. O ideal é criar ou modificar marcas personalizadas, por exemplo, para atribuir uma unidade de negócios ou um centro de custo. Isso pode ser feito criando políticas do Azure com um escopo no grupo de recursos gerenciado.
+Se você modificar ou excluir as marcas criadas pelo Azure e outras propriedades de recursos no grupo de recursos do nó, poderá obter resultados inesperados, como erros de dimensionamento e atualização. O AKS permite criar e modificar marcas personalizadas criadas por usuários finais, e você pode adicionar essas marcas ao [criar um pool de nós](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). O ideal é criar ou modificar marcas personalizadas, por exemplo, para atribuir uma unidade de negócios ou um centro de custo. Isso também pode ser obtido com a criação de políticas do Azure com um escopo no grupo de recursos gerenciado.
 
 No entanto, a modificação de **marcas criadas pelo Azure** em recursos no grupo de recursos de nó no cluster AKs é uma ação sem suporte que interrompe o Slo (objetivo de nível de serviço). Para obter mais informações, confira [O AKS oferece um SLA?](#does-aks-offer-a-service-level-agreement)
 
@@ -137,7 +137,7 @@ Os nós de agente do AKS são cobrados como máquinas virtuais padrão do Azure;
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>Posso mover/migrar meu cluster entre locatários do Azure?
 
-O comando `az aks update-credentials` pode ser usado para mover um cluster do AKS entre locatários do Azure. Siga as instruções descritas em [Optar por atualizar ou criar uma entidade de serviço](./update-credentials.md) e [Atualizar o cluster do AKS com novas credenciais](./update-credentials.md#update-aks-cluster-with-new-service-principal-credentials).
+No momento, não há suporte para a movimentação do cluster AKS entre locatários.
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>Posso mover/migrar meu cluster entre assinaturas?
 

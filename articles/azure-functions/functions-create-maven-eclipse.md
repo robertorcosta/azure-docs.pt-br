@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1e4c989e4550c1ea504a08d3cc975f2add5a4ba2
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 6f521cccdc8814fad8605460bf87c0d0fca20378
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054722"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055623"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Criar sua primeira função com Java e Eclipse 
 
@@ -28,7 +28,7 @@ Para desenvolver um aplicativo de funções com Java e Eclipse, você deve ter o
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/), versão 8.
 -  [Apache Maven](https://maven.apache.org), versão 3.0 ou posterior.
 -  [Eclipse](https://www.eclipse.org/downloads/packages/), com suporte a Java e Maven.
--  [CLI do Azure](https://docs.microsoft.com/cli/azure)
+-  [CLI do Azure](/cli/azure)
 
 > [!IMPORTANT] 
 > A variável de ambiente JAVA_HOME deve ser definida como o local de instalação do JDK para concluir este guia de início rápido.
@@ -43,7 +43,7 @@ Para desenvolver um aplicativo de funções com Java e Eclipse, você deve ter o
 1. Certifique-se de preencher valores para todos os campos, incluindo `resourceGroup` , `appName` e `appRegion` (Use outro AppName diferente de **fabrikam-function-20170920120101928**) e, eventualmente, **concluir**.
     ![Create2 do eclipse Maven](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
-O Maven cria os arquivos de projeto em uma nova pasta com um nome de _artifactId_. O código gerado no projeto é uma função [disparada por HTTP](/azure/azure-functions/functions-bindings-http-webhook) simples que ecoa o corpo da solicitação HTTP disparando.
+O Maven cria os arquivos de projeto em uma nova pasta com um nome de _artifactId_. O código gerado no projeto é uma função [disparada por HTTP](./functions-bindings-http-webhook.md) simples que ecoa o corpo da solicitação HTTP disparando.
 
 ## <a name="run-functions-locally-in-the-ide"></a>Executar funções localmente no IDE
 

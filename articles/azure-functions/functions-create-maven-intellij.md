@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7ced455e8124abed75dc7b2bbf7f92eb13613347
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1eb430f94ef545fa74ed225c427a121a47f7cf8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556764"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055792"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Criar sua primeira função do Azure com Java e IntelliJ
 
@@ -44,7 +44,7 @@ Para desenvolver uma função com Java e IntelliJ, instale o software a seguir:
 2. Para entrar sua conta do Azure, abra a barra lateral **Azure Explorer** e, em seguida, clique no ícone **Entrar no Azure** na barra na parte superior (ou no menu IDEA **Ferramentas/Azure/Entrada no Azure**).
     ![O comando de Entrada do IntelliJ no Azure][intellij-azure-login]
 
-3. Na janela **Entrar no Azure**, selecione **Logon do Dispositivo** e, em seguida, clique em **Entrar** ([outras opções de entrada](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/sign-in-instructions)).
+3. Na janela **Entrar no Azure**, selecione **Logon do Dispositivo** e, em seguida, clique em **Entrar** ([outras opções de entrada](/azure/developer/java/toolkit-for-intellij/sign-in-instructions)).
 
    ![A janela Entrar no Azure com o logon no dispositivo selecionado][intellij-azure-popup]
 
@@ -156,7 +156,7 @@ Nesta seção, você usará o Azure Toolkit for IntelliJ para criar um projeto l
 Você criou um projeto de funções Java com uma função disparada por HTTP, executou-o no computador local e implantou-o no Azure. Agora, estenda sua função por meio da...
 
 > [!div class="nextstepaction"]
-> [Adição de uma associação de saída de fila do Armazenamento do Azure](/azure/azure-functions/functions-add-output-binding-storage-queue-java)
+> [Adição de uma associação de saída de fila do Armazenamento do Azure](./functions-add-output-binding-storage-queue-java.md)
 
 
 [marketplace]:./media/functions-create-first-java-intellij/marketplace.png
