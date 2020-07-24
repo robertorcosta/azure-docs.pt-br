@@ -14,11 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f3c7009e5ecb43a809b9a3f703fc5ba289a2fd00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50be33bf0cb89c7baff58e5f8e4a2a23b9a1ecef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669266"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073282"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introdução ao SQL Server grupos de disponibilidade Always On em máquinas virtuais do Azure
 
@@ -40,10 +41,9 @@ Para aumentar a redundância e a alta disponibilidade, as VMs do SQL Server deve
 
 |  | Versão do Windows Server | Versão do SQL Server | Edição do SQL Server | Configuração de quorum do WSFC | DR com várias regiões | Suporte a várias sub-redes | Suporte para um AD existente | DR com várias zonas na mesma região | Suporte para AG de Distribuição sem domínio do AD | Suporte para AG de Distribuição sem cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| [CLI da VM do SQL](availability-group-az-cli-configure.md) | 2016 | 2017 </br>2016   | Ent | Testemunha da nuvem | Não | Sim | Sim | Sim | Não | Não |
-| [Modelos de início rápido](availability-group-quickstart-template-configure.md) | 2016 | 2017</br>2016  | Ent | Testemunha da nuvem | Não | Sim | Sim | Sim | Não | Não |
-| [Manual](availability-group-manually-configure-prerequisites-tutorial.md) | Todos | Tudo | Tudo | Todos | Sim | Sim | Sim | Sim | Sim | Sim |
-| &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
+| **[CLI da VM do SQL](availability-group-az-cli-configure.md)** | 2016 | 2017 </br>2016   | Ent | Testemunha da nuvem | Não | Sim | Sim | Sim | Não | Não |
+| **[Modelos de início rápido](availability-group-quickstart-template-configure.md)** | 2016 | 2017</br>2016  | Ent | Testemunha da nuvem | Não | Sim | Sim | Sim | Não | Não |
+| **[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | Tudo | Todos | Todos | Todos | Sim | Sim | Sim | Sim | Sim | Sim |
 
 O modelo de **cluster do AlwaysOn do SQL Server (versão prévia)** foi removido do Azure Marketplace e não está mais disponível. 
 

@@ -2,13 +2,13 @@
 title: Criar e gerenciar projetos de Migrações para Azure
 description: Localize, crie, gerencie e exclua projetos em migrações para Azure.
 ms.topic: how-to
-ms.date: 04/19/2020
-ms.openlocfilehash: 644ac5ecab9f5384b446c3b1ebe762a5d06aaf12
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/23/2020
+ms.openlocfilehash: d60868f9d0d4c60291cfd92a9e8d11fd3f9a42b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113421"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071795"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Criar e gerenciar projetos de Migrações para Azure
 
@@ -65,7 +65,6 @@ Exclua da seguinte maneira:
     - O tipo de recurso é **Microsoft. Migrate/migrateprojects**.
     - Se o grupo de recursos for usado exclusivamente pelo projeto de migrações para Azure, você poderá excluir o grupo de recursos inteiro.
 
-
 Observe que:
 
 - Quando você exclui, o projeto e os metadados sobre computadores descobertos são excluídos.
@@ -73,6 +72,7 @@ Observe que:
 - Se você estiver usando a análise de dependência com um espaço de trabalho do Azure Log Analytics:
     - Se você anexou um espaço de trabalho Log Analytics à ferramenta de avaliação do servidor, o espaço de trabalho não será excluído automaticamente. O mesmo espaço de trabalho Log Analytics pode ser usado para vários cenários.
     - Se você quiser excluir o espaço de trabalho Log Analytics, faça isso manualmente.
+- A exclusão do projeto é irreversível. Objetos excluídos não podem ser recuperados.
 
 ### <a name="delete-a-workspace-manually"></a>Excluir um espaço de trabalho manualmente
 

@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff6bd1a52e05d55d43969644141f39aed8c8eb63
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75979400"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072644"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformar XML com mapas nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
@@ -42,7 +43,7 @@ Para obter os limites relacionados aos artefatos e às contas de integração co
     | [Gerenciador de Armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Essa ferramenta ajuda a gerenciar de maneira mais fácil as contas de armazenamento e contêineres de blob. Para usar o Gerenciador de Armazenamento, [baixe e instale o Gerenciador de Armazenamento do Azure](https://www.storageexplorer.com/). Em seguida, conecte o Gerenciador de Armazenamento à sua conta de armazenamento seguindo as etapas em [Introdução ao Gerenciador de Armazenamento](../vs-azure-tools-storage-manage-with-storage-explorer.md). Para saber mais, consulte [início rápido: criar um blob no armazenamento de objetos com o Gerenciador de armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Ou, no portal do Azure, encontre e selecione a conta de armazenamento. No menu da sua conta de armazenamento, selecione **Gerenciador de Armazenamento**. |
     |||
 
-  * Para mapas, no momento, você pode adicionar mapas maiores usando a [API de REST de Aplicativos Lógicos do Azure – Mapas](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+  * Para mapas, no momento, você pode adicionar mapas maiores usando a [API de REST de Aplicativos Lógicos do Azure – Mapas](/rest/api/logic/maps/createorupdate).
 
 Não é necessário um aplicativo lógico durante a criação e adição de mapas. No entanto, para usar um mapa, o aplicativo lógico precisa estar vinculado à conta de integração na qual esse mapa está armazenado. Saiba mais [como vincular aplicativos lógicos a contas de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Se você ainda não tiver um aplicativo lógico, saiba [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -219,7 +220,7 @@ Depois de carregar todos os assemblies referenciados no mapa, você poderá carr
 
 ### <a name="add-maps-more-than-2-mb"></a>Adicionar mapas com mais de 2 MB
 
-No momento, para adicionar mapas maiores, use a [API de REST de Aplicativos Lógicos do Azure – Mapas](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+No momento, para adicionar mapas maiores, use a [API de REST de Aplicativos Lógicos do Azure – Mapas](/rest/api/logic/maps/createorupdate).
 
 <!--
 

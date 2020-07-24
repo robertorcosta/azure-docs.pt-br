@@ -6,11 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
-ms.openlocfilehash: 0677c7a0521fe1f63c9c2c9fce65d8dbd8e6d5c4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 5561dfee3ede72f9cd28adbd47caf2db4e634360
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826903"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073586"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Chamar um webhook com um alerta de métrica clássico no Azure Monitor
 
@@ -25,7 +26,7 @@ Para adicionar ou atualizar o URI do webhook, no [Portal do Azure](https://porta
 
 ![Painel Adicionar uma regra de alerta](./media/alerts-webhooks/Alertwebhook.png)
 
-Você também pode configurar um alerta para publicar no URI de um webhook usando [Cmdlets do Azure PowerShell](../samples/powershell-samples.md#create-metric-alerts), uma [CLI entre plataformas](../samples/cli-samples.md#work-with-alerts) ou [APIs REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Você também pode configurar um alerta para publicar no URI de um webhook usando [Cmdlets do Azure PowerShell](../samples/powershell-samples.md#create-metric-alerts), uma [CLI entre plataformas](../samples/cli-samples.md#work-with-alerts) ou [APIs REST do Azure Monitor](/rest/api/monitor/alertrules).
 
 ## <a name="authenticate-the-webhook"></a>Autenticar o webhook
 O webhook pode autenticar usando a autorização baseada em token. O URI do webhook é salvo com uma ID de token. Por exemplo: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
@@ -78,11 +79,11 @@ A operação POST contém o seguinte esquema e conteúdo JSON para todos os aler
 | conditionType |S |Metric, Event |Há suporte para dois tipos de alertas: de métrica e evento. Alertas de métricas são baseados na condição de uma métrica. Alertas de eventos são baseados em um evento no log de atividades. Use esse valor para verificar se o alerta é baseado em uma métrica ou em um evento. |
 | condition |S | |Os campos específicos para verificação com base no valor de **conditionType**. |
 | metricName |Para alertas de métrica | |O nome da métrica define o que a regra monitora. |
-| metricUnit |Para alertas de métrica |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |A unidade permitida na métrica. Consulte os [valores permitidos](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
+| metricUnit |Para alertas de métrica |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |A unidade permitida na métrica. Consulte os [valores permitidos](/previous-versions/azure/reference/dn802430(v=azure.100)). |
 | metricValue |Para alertas de métrica | |O valor real da métrica que causou o alerta. |
 | threshold |Para alertas de métrica | |O valor de limite no qual o alerta é ativado. |
 | windowSize |Para alertas de métrica | |O período que é usado para monitorar a atividade de alertas com base no limite. O valor deve ser entre 5 minutos e 1 dia. O valor deve estar no formato de duração ISO 8601. |
-| timeAggregation |Para alertas de métrica |Average, Last, Maximum, Minimum, None, Total |Como os dados coletados devem ser combinados ao longo do tempo. O valor padrão é Average. Consulte os [valores permitidos](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
+| timeAggregation |Para alertas de métrica |Average, Last, Maximum, Minimum, None, Total |Como os dados coletados devem ser combinados ao longo do tempo. O valor padrão é Average. Consulte os [valores permitidos](/previous-versions/azure/reference/dn802410(v=azure.100)). |
 | operador |Para alertas de métrica | |O operador usado para comparar os dados de métrica atuais com o limite definido. |
 | subscriptionId |S | |A ID de assinatura do Azure. |
 | resourceGroupName |S | |O nome do grupo de recursos do recurso afetado. |
@@ -94,7 +95,7 @@ A operação POST contém o seguinte esquema e conteúdo JSON para todos os aler
 | properties |N |Opcional |Um conjunto de pares chave/valor que tem detalhes sobre o evento. Por exemplo, `Dictionary<String, String>`. O campo de propriedades é opcional. Em um fluxo de trabalho personalizado baseado em aplicativo lógico ou em interface do usuário, os usuários podem inserir pares chave/valor que podem ser transmitidos por meio do conteúdo. Um modo alternativo de transmitir as propriedades personalizadas para o webhook é por meio do próprio URI do webhook (como parâmetros de consulta). |
 
 > [!NOTE]
-> Somente é possível definir o campo de **propriedades** usando [APIs REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+> Somente é possível definir o campo de **propriedades** usando [APIs REST do Azure Monitor](/rest/api/monitor/alertrules).
 >
 >
 
@@ -104,4 +105,3 @@ A operação POST contém o seguinte esquema e conteúdo JSON para todos os aler
 * Saiba como [usar um aplicativo lógico para enviar uma mensagem de SMS por meio do Twilio de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Saiba como [usar um aplicativo lógico para enviar uma mensagem do Slack de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Saiba como [usar um aplicativo lógico para enviar uma mensagem a uma fila do Azure de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
-

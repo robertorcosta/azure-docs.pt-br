@@ -3,15 +3,16 @@ title: Preparação para produção e práticas recomendadas – Azure
 description: Este artigo fornece orientação sobre como configurar e implantar a análise de vídeo ao vivo em IoT Edge módulo em ambientes de produção.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a5a2ff78d456d4423facdf5f3533ee94bc25bfc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260369"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071937"
 ---
 # <a name="production-readiness-and-best-practices"></a>Preparação para produção e práticas recomendadas
 
-Este artigo fornece orientação sobre como configurar e implantar a análise de vídeo ao vivo em IoT Edge módulo em ambientes de produção. Você também deve examinar a [preparação para implantar seu IOT Edge solução no artigo de produção](https://docs.microsoft.com/azure/iot-edge/production-checklist) sobre como preparar sua solução de IOT Edge. 
+Este artigo fornece orientação sobre como configurar e implantar a análise de vídeo ao vivo em IoT Edge módulo em ambientes de produção. Você também deve examinar a [preparação para implantar seu IOT Edge solução no artigo de produção](../../iot-edge/production-checklist.md) sobre como preparar sua solução de IOT Edge. 
 
 > [!NOTE]
 > Você deve consultar os departamentos de ti de suas organizações sobre aspectos relacionados à segurança.

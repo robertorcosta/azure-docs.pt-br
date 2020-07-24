@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 65e1fa07d2af15e9ccb5f85ce4645e3e6c287952
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 44f10bd49a768004fc63a3287799e6b79dd5bae1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960357"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071895"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como compilar um aplicativo Smooth Streaming da Windows Store  
 
@@ -53,7 +53,7 @@ Nesta lição, você criará um aplicativo da Windows Store com um controle Medi
 
 ![Exemplo de aplicativo de Smooth Streaming da Windows Store][PlayerApplication]
 
-Para obter mais informações sobre como desenvolver aplicativos da Windows Store, consulte [Desenvolver Ótimos Aplicativos para o Windows 8](https://msdn.microsoft.com/windows/apps/br229512.aspx). Esta lição contém os seguintes procedimentos:
+Para obter mais informações sobre como desenvolver aplicativos da Windows Store, consulte [Desenvolver Ótimos Aplicativos para o Windows 8](https://developer.microsoft.com/en-us/windows/). Esta lição contém os seguintes procedimentos:
 
 1. Criar um novo projeto da Windows Store
 2. Criar a interface do usuário (XAML)
@@ -141,7 +141,7 @@ Depois de adicionar as referências, você deve selecionar a plataforma de desti
          </StackPanel>
    ```
    O controle MediaElement é usado para a reprodução de mídia. O controle deslizante denominado sliderProgress será usado na próxima lição para controlar o andamento da mídia.
-3. Pressione **CTRL+S** para salvar o arquivo.
+3. Pressione **Ctrl + S** para salvar o arquivo.
 
 O controle MediaElement não oferece suporte a conteúdo de Smooth Streaming pronto para uso. Para habilitar o suporte do Smooth Streaming, você deve registrar o manipulador de fluxo de bytes do Smooth Streaming por extensão de nome de arquivo e tipo MIME.  Para se registrar, você deve usar o método MediaExtensionManager.RegisterByteStreamHandler do namespace Windows.Media.
 
@@ -214,7 +214,7 @@ Nesse arquivo XAML, alguns manipuladores de eventos são associados aos controle
          # endregion
    ```
    O manipulador de eventos sliderProgress_PointerPressed é definido aqui.  Para fazer isso funcionar há mais trabalhos a fazer que serão abordados na próxima lição deste tutorial.
-6. Pressione **CTRL+S** para salvar o arquivo.
+6. Pressione **Ctrl + S** para salvar o arquivo.
 
 O arquivo code-behind concluído deve ser semelhante ao seguinte:
 
@@ -291,7 +291,7 @@ Esta lição contém os seguintes procedimentos:
             "application/vnd.ms-sstr+xml", 
          propertySet);
    ```
-6. Pressione **CTRL+S** para salvar o arquivo.
+6. Pressione **Ctrl + S** para salvar o arquivo.
 
 ### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>Para adicionar o manipulador de eventos no nível do gerenciador de origens adaptáveis
 
@@ -319,7 +319,7 @@ Esta lição contém os seguintes procedimentos:
          adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
            new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
    ```
-5. Pressione **CTRL+S** para salvar o arquivo.
+5. Pressione **Ctrl + S** para salvar o arquivo.
 
 ### <a name="to-add-adaptive-source-level-event-handlers"></a>Para adicionar os manipuladores de eventos de origens adaptáveis
 
@@ -368,7 +368,7 @@ Esta lição contém os seguintes procedimentos:
 
             mediaElement_AdaptiveSourceFailed;
    ```
-5. Pressione **CTRL+S** para salvar o arquivo.
+5. Pressione **Ctrl + S** para salvar o arquivo.
 
 Os mesmos eventos também estão disponíveis no nível do gerenciador de origens adaptáveis, que pode ser usado para manipular a funcionalidade comum a todos os elementos de mídia do aplicativo. Cada AdaptiveSource inclui seus próprios eventos e todos os eventos de AdaptiveSource serão colocados em cascata no AdaptiveSourceManager.
 
@@ -406,7 +406,7 @@ Os mesmos eventos também estão disponíveis no nível do gerenciador de origen
          mediaElement.MediaEnded += MediaEnded;
          mediaElement.MediaFailed += MediaFailed;
    ```
-4. Pressione **CTRL+S** para salvar o arquivo.
+4. Pressione **Ctrl + S** para salvar o arquivo.
 
 ### <a name="to-add-slider-bar-related-code"></a>Para adicionar o código relacionado à barra de controle deslizante
 
@@ -539,7 +539,7 @@ Os mesmos eventos também estão disponíveis no nível do gerenciador de origen
          sliderProgress.Width = mediaElement.Width;
          setupTimer();
    ```
-8. Pressione **CTRL+S** para salvar o arquivo.
+8. Pressione **Ctrl + S** para salvar o arquivo.
 
 ### <a name="to-compile-and-test-the-application"></a>Para compilar e testar o aplicativo
 
@@ -1045,4 +1045,3 @@ Você concluiu a lição 4.  Nesta lição, você adicionará a funcionalidade d
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-

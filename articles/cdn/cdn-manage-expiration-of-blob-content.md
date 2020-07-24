@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: how-to
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: c41e14490842068895aea383d384007f308e9e1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49748b3d77d097e655ee6ec5777022c038841a6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887669"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073130"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gerenciar a expiração do armazenamento de Blobs do Azure na CDN do Azure
 > [!div class="op_single_selector"]
@@ -70,7 +70,7 @@ O método preferido para configuração do cabeçalho `Cache-Control` do blob é
 
    Essa regra de cache global define uma duração de cache de uma hora e afeta todas as solicitações para o ponto de extremidade. Ela substitui todos os cabeçalhos HTTP `Cache-Control` ou `Expires` que são enviados pelo servidor de origem especificado pelo ponto de extremidade.   
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
  
 **Para definir os cabeçalhos de Controle de Cache do arquivo de blob usando regras de cache personalizadas:**
 
@@ -84,14 +84,14 @@ O método preferido para configuração do cabeçalho `Cache-Control` do blob é
 
     A primeira regra de cache personalizada estabelece uma duração de cache de quatro horas para qualquer arquivo de blob na pasta `/blobcontainer1` no servidor de origem especificado pelo ponto de extremidade. A segunda regra substitui a primeira regra somente para o arquivo de blob `blob1.txt` e define uma duração de cache de duas horas para isso.
 
-2. Selecione **Salvar**.
+2. Clique em **Salvar**.
 
 
 ## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Configurando cabeçalhos de Cache-Control usando Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Azure PowerShell](/powershell/azure/overview) é uma das maneiras mais rápidas e eficientes de administrar os serviços do Azure. Use o cmdlet `Get-AzStorageBlob` para obter uma referência para o blob, em seguida, defina a propriedade `.ICloudBlob.Properties.CacheControl`. 
+[Azure PowerShell](/powershell/azure/) é uma das maneiras mais rápidas e eficientes de administrar os serviços do Azure. Use o cmdlet `Get-AzStorageBlob` para obter uma referência para o blob, em seguida, defina a propriedade `.ICloudBlob.Properties.CacheControl`. 
 
 Por exemplo:
 

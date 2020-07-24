@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 29e6aa96ea1c435e4d734e80824e1cedcfe9a761
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d861388c8c7a5ff64a17607736d4c8a292343dec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519313"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071590"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de segurança do Azure
 Este artigo fornece uma introdução aos serviços de segurança no Azure que ajudam a proteger seus dados, recursos e aplicativos na nuvem e atender às necessidades de segurança de sua empresa.
@@ -152,7 +152,7 @@ O controle de acesso no Azure parte de uma perspectiva de cobrança. O propriet�
 
 As assinaturas também têm uma associação com um diretório. O diretório define um conjunto de usuários. Eles podem ser usuários corporativos ou de estudantes que criaram o diretório ou podem ser usuários externos (ou seja, Contas da Microsoft). As assinaturas são acessíveis por um subconjunto desses usuários do diretório que foram atribuídos como um serviço SA (Administrador) ou CA (Coadministrador); a única exceção é que, por motivos de herança, Contas da Microsoft (anteriormente chamadas de Windows Live ID) podem ser atribuídas como SA ou CA sem estarem presentes no diretório.
 
-As empresas direcionadas a segurança devem focar em fornecer aos funcionários as permissões exatas necessárias. Muitas permissões podem expor uma conta a ataques. Permissões insuficientes fazem com que os funcionários não consigam trabalhar com eficiência. O [RBAC (controle de acesso baseado em função) do Azure](../../role-based-access-control/overview.md) ajuda a resolver esse problema oferecendo gerenciamento de acesso refinado para o Azure.
+As empresas direcionadas a segurança devem focar em fornecer aos funcionários as permissões exatas necessárias. Muitas permissões podem expor uma conta a ataques. Permissões insuficientes fazem com que os funcionários não consigam trabalhar com eficiência. O Azure [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) ajuda a resolver esse problema oferecendo gerenciamento de acesso refinado para o Azure.
 
 ![Acesso a recursos protegidos](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
 

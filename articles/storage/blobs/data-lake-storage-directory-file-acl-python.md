@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: tracking-python
-ms.openlocfilehash: 07708de1326e0aba6485b2cf1fb0610d9710cdf7
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 9a3ffd633fc45f054cf335d91e399204d5dda8e4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142470"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070744"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o Python para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2
 
@@ -28,7 +28,7 @@ Este artigo mostra como usar o Python para criar e gerenciar diretórios, arquiv
 > * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 > * Uma conta de armazenamento precisa ter o HNS (namespace hierárquico) habilitado. Siga [estas](data-lake-storage-quickstart-create-account.md) instruções para criar um.
 
-## <a name="set-up-your-project"></a>Configurar o projeto
+## <a name="set-up-your-project"></a>Configurar o seu projeto
 
 Instale a biblioteca de cliente Azure Data Lake Storage para Python usando [Pip](https://pypi.org/project/pip/).
 
@@ -196,6 +196,8 @@ def manage_directory_permissions():
      print(e) 
 ```
 
+Você também pode obter e definir a ACL do diretório raiz de um contêiner. Para obter o diretório raiz, chame o método **FileSystemClient. _get_root_directory_client** .
+
 ## <a name="upload-a-file-to-a-directory"></a>Carregar um arquivo em um diretório 
 
 Primeiro, crie uma referência de arquivo no diretório de destino criando uma instância da classe **DataLakeFileClient** . Carregue um arquivo chamando o método **DataLakeFileClient. append_data** . Certifique-se de concluir o carregamento chamando o método **DataLakeFileClient. flush_data** .
@@ -331,7 +333,7 @@ def list_directory_contents():
      print(e) 
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 * [Documentação de referência da API](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html)
 * [Pacote (índice do pacote do Python)](https://pypi.org/project/azure-storage-file-datalake/)

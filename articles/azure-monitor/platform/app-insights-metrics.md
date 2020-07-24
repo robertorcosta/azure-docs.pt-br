@@ -7,17 +7,18 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 12bc51e800ef5ccd4ad3c72d3860fb22bac5b749
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca8aa62c4119b9b0b7bbed53cf722c694696ef5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77664908"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073572"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights métricas baseadas em log
 
 Application Insights métricas baseadas em log permitem analisar a integridade de seus aplicativos monitorados, criar painéis avançados e configurar alertas. Há dois tipos de métricas:
 
-* As [métricas baseadas em log](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) por trás da cena são convertidas em [consultas Kusto](https://docs.microsoft.com/azure/kusto/query/) de eventos armazenados.
+* As [métricas baseadas em log](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) por trás da cena são convertidas em [consultas Kusto](/azure/kusto/query/) de eventos armazenados.
 * As [métricas padrão](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) são armazenadas como uma série de tempo agregado previamente.
 
 Como as *métricas padrão* são previamente agregadas durante a coleta, elas têm melhor desempenho no momento da consulta. Isso os torna uma opção melhor para o painel e alertas em tempo real. As *métricas baseadas em log* têm mais dimensões, o que as torna a opção superior para análise de dados e diagnóstico ad hoc. Use o [seletor de namespace](metrics-getting-started.md#create-your-first-metric-chart) para alternar entre as métricas padrão e baseadas em log no [Metrics Explorer](metrics-getting-started.md).

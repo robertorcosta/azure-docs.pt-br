@@ -4,12 +4,12 @@ description: Saiba como Azure App serviço ajuda a manter os recursos de BCDR (c
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 8c57cf5054bea898370cdccc7bea4243877d27b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1388dc11254324f74efcbaa55c97cac2ccd0c026
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84946885"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073743"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Mover um aplicativo do serviço de aplicativo para outra região
 
@@ -43,17 +43,17 @@ Determinados recursos, como certificados importados ou conexões híbridas, cont
 
 1. Na [portal do Azure](https://portal.azure.com), navegue até a página de gerenciamento do aplicativo afetado. Em uma região do Azure com falha, o aplicativo afetado mostra um texto de aviso. Clique no texto de aviso.
 
-    ![](media/manage-disaster-recovery/restore-start.png)
+    ![Captura de tela da página do aplicativo impactado. Uma notificação de aviso é visível que descreve a situação e fornece um link para restaurar o aplicativo.](media/manage-disaster-recovery/restore-start.png)
 
-1. Na página **restaurar backup** , configure a operação de restauração de acordo com a tabela a seguir. Ao concluir, clique em **OK**.
+1. Na página **restaurar backup** , configure a operação de restauração de acordo com a tabela a seguir. Quando terminar, clique em **OK**.
 
-   | Setting | Valor | Descrição |
+   | Configuração | Valor | Descrição |
    |-|-|-|
    | **Instantâneo (visualização)** | Selecione um instantâneo. | Os dois instantâneos mais recentes estão disponíveis. |
    | **Restaurar destino** | **Aplicativo existente** | Clique na observação abaixo que diz **clique aqui para alterar o aplicativo de destino de restauração** e selecione o aplicativo de destino. Em um cenário de desastre, você só pode restaurar o instantâneo para um aplicativo em uma região diferente do Azure. |
    | **Restaurar configuração de site** | **Sim** | |
 
-    ![](media/manage-disaster-recovery/restore-configure.png)
+    ![Captura de tela da página restaurar backup. Um instantâneo específico, as opções listadas na tabela anterior e o botão OK são realçados.](media/manage-disaster-recovery/restore-configure.png)
 
 3. Configure [todo o resto](#prepare) do aplicativo de destino para espelhar o aplicativo afetado e verificar sua configuração.
 
@@ -65,7 +65,7 @@ Se você quiser apenas recuperar os arquivos do aplicativo afetado sem restaurá
 
 1. Na [portal do Azure](https://portal.azure.com), navegue até a página de gerenciamento do aplicativo afetado e clique em **obter perfil de publicação**.
 
-    ![](media/manage-disaster-recovery/get-publish-profile.png)
+    ![Captura de tela da página do aplicativo impactado. Uma notificação de aviso está visível, mas não está realçada. Em vez disso, o item obter perfil de publicação será realçado.](media/manage-disaster-recovery/get-publish-profile.png)
 
 1. Abra o arquivo baixado e localize o perfil de publicação que contém `ReadOnly - FTP` em seu nome. Este é o perfil de recuperação de desastre. Por exemplo:
 
@@ -84,7 +84,7 @@ Se você quiser apenas recuperar os arquivos do aplicativo afetado sem restaurá
 
 1. Uma vez conectado, baixe a pasta */site/wwwroot* inteira. A captura de tela a seguir mostra como baixar no [FileZilla](https://filezilla-project.org/).
 
-    ![](media/manage-disaster-recovery/download-content.png)
+    ![Captura de tela de uma hierarquia de arquivos do FileZilla. A pasta wwwroot é realçada e seu menu de atalho fica visível. Nesse menu, o download é realçado.](media/manage-disaster-recovery/download-content.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 [Restaurar um aplicativo no Azure a partir de um instantâneo](app-service-web-restore-snapshots.md)

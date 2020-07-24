@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 3327304916c30863bb4de4b4d18c41ba3c58270d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73e92fa505a994cc5cc2fdb3a297dfd653a596a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982553"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071821"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Carregar arquivos para uma conta dos Serviços de Mídia no portal do Azure 
 
@@ -30,7 +30,7 @@ ms.locfileid: "84982553"
 > 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. Para os arquivos de upload atualizados com o portal, consulte usar o [portal para carregar, codificar e transmitir conteúdo](../latest/manage-assets-quickstart.md).<br/>Além disso, confira: [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. Para os arquivos de upload atualizados com o portal, consulte usar o [portal para carregar, codificar e transmitir conteúdo](../latest/manage-assets-quickstart.md).<br/>Além disso, confira: [serviços de mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Nos Serviços de Mídia do Azure, você pode carregar seus arquivos digitais para um ativo. O ativo pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados desses arquivos). Depois que os arquivos são carregados, o conteúdo é armazenado com segurança na nuvem para processamento adicional e transmissão.
 
@@ -65,5 +65,3 @@ Quando o carregamento é concluído, o novo ativo fica listado no painel **Ativo
 * Saiba como [codificar seus ativos carregados](media-services-portal-encode.md).
 
 * Você também pode usar as Azure Functions para acionar um trabalho de codificação quando arquivo chega no contêiner configurado. Para saber mais, confira o exemplo em [Serviços de Mídia: integração dos Serviços de Mídia do Azure com o Azure Functions e os Aplicativos Lógicos](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/).
-
-

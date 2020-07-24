@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: mesameki
-author: mesameki
+ms.author: mithigpe
+author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.openlocfilehash: 83fc13362a373686ee027fd642f03003b411cd63
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: deeb47b55253b9bf1659dd5eba7bc3465602583b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201440"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072220"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interpretação de modelo na Azure Machine Learning (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,7 +44,7 @@ As classes de interpretação são disponibilizadas por meio de vários pacotes 
 
 * `azureml.contrib.interpret`, visualização e funcionalidades experimentais que você pode tentar.
 
-Use `pip install azureml-interpret` e `pip install azureml-interpret-contrib` para uso geral e `pip install azureml-contrib-interpret` para AutoML use para obter os pacotes de interpretação.
+Use `pip install azureml-interpret` e `pip install azureml-contrib-interpret` para uso geral.
 
 
 > [!IMPORTANT]

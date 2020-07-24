@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/07/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 2193584996ed9f2c4cf5e858b8855c6878159a84
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fa99a5c78fb533d17cb7f70b3545aa9ef6439b32
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520691"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072619"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento de rede durante o treinamento & inferência com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -126,7 +126,7 @@ Você também pode substituir o repositório de armazenamento padrão por módul
 1. Expanda a seção **configurações de saída** .
 1. Selecione **Substituir configurações de saída padrão**.
 1. Selecione **definir configurações de saída**.
-1. Especifique um novo datstore.
+1. Especifique um novo repositório de armazenamento.
 
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Controle de acesso Azure Data Lake Storage Gen2
 
@@ -429,6 +429,8 @@ except ComputeTargetException:
 ```
 
 Após concluir o processo de criação, você treina seu modelo usando o cluster em um experimento. Para obter mais informações, consulte [Selecionar e usar um destino de computação para treinamento](how-to-set-up-training-targets.md).
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 ### <a name="access-data-in-a-compute-instance-notebook"></a>Acessar dados em um bloco de anotações de instância de computação
 

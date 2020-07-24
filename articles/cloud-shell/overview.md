@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: damaerte
-ms.openlocfilehash: 513c3da8031774f5f111ee357b5a3c43e1d09d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0cfd428e1bd380d17049cbc229bb8850793056e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75832500"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073025"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Visão geral do Azure Cloud Shell
 O Azure Cloud Shell é um shell interativo, autenticado e acessível pelo navegador para o gerenciamento de recursos do Azure.
@@ -26,7 +27,7 @@ Ele dá a você a flexibilidade de escolher a experiência de shell que melhor s
 
 Tente do shell.azure.com clicando abaixo.
 
-[![Lançamento de inserção](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
+[![Inserir inicialização](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
 
 Tente no Portal do Azure usando o ícone do Cloud Shell.
 
@@ -60,14 +61,14 @@ O Cloud Shell oferece um editor de texto gráfico integrado com base no Monaco E
 
 ### <a name="integrated-with-docsmicrosoftcom"></a>Integrado a docs.microsoft.com
 
-Você pode usar o Cloud Shell diretamente da documentação hospedada em [docs.microsoft.com](https://docs.microsoft.com). Ele está integrado ao [Microsoft Learn](https://docs.microsoft.com/learn/), ao [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) e à [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure); clique no botão &quot;Experimentar&quot; em um snippet de código para abrir a experiência imersiva de shell. 
+Você pode usar o Cloud Shell diretamente da documentação hospedada em [docs.microsoft.com](https://docs.microsoft.com). Ele está integrado ao [Microsoft Learn](https://docs.microsoft.com/learn/), ao [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) e à [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure); clique no botão &quot;Experimentar&quot; em um snippet de código para abrir a experiência imersiva de shell. 
 
-### <a name="multiple-access-points"></a>Vários pontos de acesso
+### <a name="multiple-access-points"></a>Pontos de acesso múltiplos
 O Cloud Shell é uma ferramenta flexível que pode ser usada a partir de:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
 * [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure)
-* [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [Aplicativo móvel do Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Extensão da Conta do Azure para o Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 

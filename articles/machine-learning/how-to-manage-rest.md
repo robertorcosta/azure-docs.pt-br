@@ -10,11 +10,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 01/31/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 6b74f9cdc5b3317edc8bf2339ba1d2c29f43e55b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90ad8cc87f1d6a1893b96f6201a4260c03c94fee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560168"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072201"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Criar, executar e excluir recursos do Azure ML usando REST
 
@@ -47,7 +48,7 @@ As solicitações de REST administrativas são autenticadas com um fluxo implíc
 - Sua ID do cliente (que será associada ao token criado)
 - Seu segredo do cliente (que você deve proteger)
 
-Você deve ter esses valores da resposta à criação de sua entidade de serviço, conforme discutido em [Configurar a autenticação para recursos de Azure Machine Learning e fluxos de trabalho](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). Se você estiver usando a assinatura de sua empresa, talvez não tenha permissão para criar uma entidade de serviço. Nesse caso, você deve usar uma [assinatura pessoal gratuita ou paga](https://aka.ms/AMLFree).
+Você deve ter esses valores da resposta à criação de sua entidade de serviço. Obter esses valores é discutido em [Configurar a autenticação para recursos de Azure Machine Learning e fluxos de trabalho](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). Se você estiver usando a assinatura de sua empresa, talvez não tenha permissão para criar uma entidade de serviço. Nesse caso, você deve usar uma [assinatura pessoal gratuita ou paga](https://aka.ms/AMLFree).
 
 Para recuperar um token:
 
@@ -199,15 +200,15 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Observe que, para listar os experimentos que o caminho começa com `history/v1.0` while para listar modelos, o caminho começa com `modelmanagement/v1.0` . A API REST é dividida em vários grupos operacionais, cada um com um caminho distinto. Os documentos de referência de API nos links abaixo listam as operações, os parâmetros e os códigos de resposta para as várias operações.
+Observe que, para listar os experimentos que o caminho começa com `history/v1.0` while para listar modelos, o caminho começa com `modelmanagement/v1.0` . A API REST é dividida em vários grupos operacionais, cada um com um caminho distinto. 
 
-|Área|Caminho|Referência|
-|-|-|-|
-|Artifacts|artefato/v 2.0/|[referência da API REST](https://docs.microsoft.com/rest/api/azureml/artifacts)|
-|Armazenamentos de dados|armazenamento de datastore/v 1.0/|[referência da API REST](https://docs.microsoft.com/rest/api/azureml/datastores)|
-|Ajuste de hiperparâmetro|hyperdrive/v 1.0/|[referência da API REST](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
-|Modelos|modelmanagement/v 1.0/|[referência da API REST](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
-|Histórico da execução|execução/v 1.0/e History/v 1.0/|[referência da API REST](https://docs.microsoft.com/rest/api/azureml/runs)|
+|Área|Caminho|
+|-|-|
+|Artifacts|artefato/v 2.0/|
+|Armazenamentos de dados|armazenamento de datastore/v 1.0/|
+|Ajuste de hiperparâmetro|hyperdrive/v 1.0/|
+|Modelos|modelmanagement/v 1.0/|
+|Histórico da execução|execução/v 1.0/e History/v 1.0/|
 
 Você pode explorar a API REST usando o padrão geral de:
 

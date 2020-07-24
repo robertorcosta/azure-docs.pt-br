@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 17ba8f5bbbf0ac17e0ccb6881379a511afc7c1c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19a7bc70bd782f9b684cb48672147f5009e4a08f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833265"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073854"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no Serviço de Aplicativo do Azure
 <a name="Overview"></a>
@@ -170,7 +170,7 @@ Se ocorrerem erros no slot de destino (por exemplo, o slot de produção) após 
 
 <a name="Auto-Swap"></a>
 
-## <a name="configure-auto-swap"></a>Configurar a alternância automática
+## <a name="configure-auto-swap"></a>Configurar a troca automática
 
 > [!NOTE]
 > A troca automática não tem suporte em aplicativos Web no Linux.
@@ -238,7 +238,7 @@ Para rotear o tráfego de produção automaticamente:
 
 1. Vá para a página de recursos do aplicativo e selecione **Slots de implantação**.
 
-2. Na coluna **% do Tráfego** do slot para o qual você deseja rotear, especifique um percentual (entre 0 e 100) para representar a quantidade de tráfego total que deseja rotear. Selecione **Salvar**.
+2. Na coluna **% do Tráfego** do slot para o qual você deseja rotear, especifique um percentual (entre 0 e 100) para representar a quantidade de tráfego total que deseja rotear. Clique em **Salvar**.
 
     ![Definindo um percentual de tráfego](./media/web-sites-staged-publishing/RouteTraffic.png)
 
@@ -262,7 +262,7 @@ Para permitir que os usuários recusem seu aplicativo beta, por exemplo, você p
 
 A cadeia de caracteres `x-ms-routing-name=self` especifica o local de produção. Depois que o navegador do cliente acessa o link, ele é redirecionado para o slot de produção. Cada solicitação subsequente tem o `x-ms-routing-name=self` cookie que fixa a sessão ao slot de produção.
 
-Para permitir que os usuários aceitem seu aplicativo beta, defina o mesmo parâmetro de consulta como o nome do slot de não produção. Aqui está um exemplo:
+Para permitir que os usuários aceitem seu aplicativo beta, defina o mesmo parâmetro de consulta como o nome do slot de não produção. Este é um exemplo:
 
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
@@ -288,7 +288,7 @@ Pesquise e selecione seu aplicativo. Selecione **Deployment slots**  >  *\<slot 
 
 O Azure PowerShell é um módulo que fornece cmdlets para gerenciar o Azure por meio do Windows PowerShell, incluindo suporte ao gerenciamento de slots de implantação no Serviço de Aplicativo do Azure.
 
-Para obter mais informações sobre como instalar e configurar o PowerShell do Azure, e como autenticar o PowerShell do Azure com sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Microsoft Azure](/powershell/azure/overview).  
+Para obter mais informações sobre como instalar e configurar o PowerShell do Azure, e como autenticar o PowerShell do Azure com sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Microsoft Azure](/powershell/azure/).  
 
 ---
 ### <a name="create-a-web-app"></a>Criar um aplicativo Web

@@ -1,14 +1,14 @@
 ---
 title: Monitorar recursos delegados em escala
 description: Saiba como usar efetivamente os logs de Azure Monitor de maneira escalonável nos locatários do cliente que você está gerenciando.
-ms.date: 07/07/2020
+ms.date: 07/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 3be7494f929fc91e2b01bde0b4f26f7c2e4b907b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 758437fdc7a32fd5937434ce10f16a8c792423d3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133464"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072717"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorar recursos delegados em escala
 
@@ -34,10 +34,11 @@ Quando você determinar quais políticas implantar, poderá [implantá-las em su
 
 ## <a name="analyze-the-gathered-data"></a>Analisar os dados coletados
 
-Depois de implantar suas políticas, os dados serão registrados nos espaços de trabalho do Log Analytics que você criou em cada locatário do cliente. Para obter informações sobre todos os clientes gerenciados, você pode usar ferramentas como [pastas de trabalho do Azure monitor](../../azure-monitor/platform/workbooks-overview.md) para coletar e analisar dados a partir de várias fontes.
+Depois de implantar suas políticas, os dados serão registrados nos espaços de trabalho do Log Analytics que você criou em cada locatário do cliente. Para obter informações sobre todos os clientes gerenciados, você pode usar ferramentas como [pastas de trabalho do Azure monitor](../../azure-monitor/platform/workbooks-overview.md) para coletar e analisar dados a partir de várias fontes. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- Explore esta [pasta de trabalho de exemplo criada pelo MVP](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), que controla os relatórios de conformidade de patch [consultando gerenciamento de atualizações logs](../../automation/automation-update-management-query-logs.md) em vários espaços de trabalho do log Analytics. 
 - Saiba mais sobre [o Azure Monitor](../../azure-monitor/index.yml).
 - Saiba mais sobre [os logs de Azure monitor](../../azure-monitor/platform/data-platform-logs.md).
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).

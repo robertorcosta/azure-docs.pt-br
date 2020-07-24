@@ -4,11 +4,12 @@ description: Encaminhe dados do Azure Monitor e do Application Insights para que
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/06/2017
-ms.openlocfilehash: 142e3e19c13710963d239a75bc237b63713c29cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23bba091628eee767fbf292a8a8d772ffab674cb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672201"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073466"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorar os serviços do Azure no Grafana
 Agora você pode monitorar os serviços e aplicativos do Azure do [Grafana](https://grafana.com/) usando o [plug-in da fonte de dados do Monitor do Azure](https://grafana.com/plugins/grafana-azure-monitor-datasource). O plug-in reúne os dados de desempenho do aplicativo coletados pelo Azure Monitor, incluindo vários logs e métricas. Em seguida, exiba esses dados no painel do Grafana.
@@ -23,7 +24,7 @@ Para configurar um servidor Grafana local, [baixe e instale o Grafana em seu amb
 ### <a name="set-up-grafana-on-azure-through-the-azure-marketplace"></a>Configurar o Grafana no Azure por meio do Azure Marketplace
 1. Acesse o Azure Marketplace e escolha Grafana da Grafana Labs.
 
-2. Preencha os nomes e os detalhes. Crie um novo grupo de recursos. Acompanhe os valores escolhidos para o nome de usuário da VM, senha da VM e senha do administrador do servidor do Grafana.  
+2. Preencha os nomes e os detalhes. Criar um grupo de recursos. Acompanhe os valores escolhidos para o nome de usuário da VM, senha da VM e senha do administrador do servidor do Grafana.  
 
 3. Escolha um tamanho de VM e uma conta de armazenamento.
 
@@ -58,9 +59,9 @@ Depois de fazer logon com êxito, você deverá ver que o plug-in de fonte de da
 2. Escolha um nome para a fonte de dados e selecione **Monitor do Azure** como o tipo na lista suspensa.
 
 3. Crie uma entidade de serviço - o Grafana usa uma entidade de serviço do Azure Active Directory para se conectar às APIs do Monitor do Azure e coletar dados. Você deve criar ou usar uma entidade de serviço existente para gerenciar o acesso aos seus recursos do Azure.
-    * Consulte [estas instruções](../../azure-resource-manager/resource-group-create-service-principal-portal.md) para criar uma entidade de serviço. Copie e salve seu ID de locatário (ID do diretório), ID do cliente (ID do aplicativo) e segredo do cliente (valor da chave do aplicativo).
-    * Consulte [Atribuir aplicativo à função](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) para atribuir a função Leitor ao aplicativo Azure Active Directory na assinatura, grupo de recursos ou recurso que você deseja monitorar. 
-    A API do Log Analytics requer a função [ Log Analytics Reader ](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), que inclui as permissões da função Leitor e adiciona a ela.
+    * Consulte [estas instruções](../../active-directory/develop/howto-create-service-principal-portal.md) para criar uma entidade de serviço. Copie e salve seu ID de locatário (ID do diretório), ID do cliente (ID do aplicativo) e segredo do cliente (valor da chave do aplicativo).
+    * Consulte [Atribuir aplicativo à função](../../active-directory/develop/howto-create-service-principal-portal.md) para atribuir a função Leitor ao aplicativo Azure Active Directory na assinatura, grupo de recursos ou recurso que você deseja monitorar. 
+    A API do Log Analytics requer a função [ Log Analytics Reader ](../../role-based-access-control/built-in-roles.md#log-analytics-reader), que inclui as permissões da função Leitor e adiciona a ela.
 
 4. Forneça os detalhes da conexão para as APIs que você deseja usar. Você pode se conectar a todos ou alguns deles. 
     * Se você se conectar a métricas e logs em Azure Monitor, poderá reutilizar as mesmas credenciais selecionando os **mesmos detalhes que Azure monitor API**.
@@ -158,4 +159,3 @@ Se você configurou um ambiente do Grafana no Azure, você será cobrado quando 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Visão geral das métricas do Azure Monitor](data-platform.md)
-

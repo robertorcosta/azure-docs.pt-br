@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: 1596503f5f0a333bf061015827596464aed7558e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd82f7dd821991bbcf57cc7d8105575e0baa4d12
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513637"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070701"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Clonar de um backup da Matriz Virtual StorSimple
 
@@ -127,7 +127,7 @@ Cada compartilhamento tem uma pasta *.backups* que contém os backups mais recen
    * **Backups agendados** nomeados como &lt;Device name&gt;DailySchedule-YYYYMMDD-HHMMSS-UTC.
    * **Backups manuais** nomeados como Ad-hoc-YYYYMMDD-HHMMSS-UTC.
      
-     ![](./media/storsimple-virtual-array-clone/image14.png)
+     ![Captura de tela do explorador de arquivos mostrando a pasta. backups. Dentro dessa pasta, a pasta backups manuais é selecionada.](./media/storsimple-virtual-array-clone/image14.png)
 
 2. Identifique o backup que contém a versão mais recente do arquivo excluído. Embora o nome da pasta contenha um carimbo de data/hora UTC em cada um dos casos anteriores, a hora em que a pasta foi criada é a hora efetiva do dispositivo no momento em que o backup foi iniciado. Use o carimbo de data/hora da pasta para localizar e identificar os backups.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/20/2019
 ms.author: allensu
-ms.openlocfilehash: ba67ea9455c8d7f077eae87f582f05b5c2672735
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7ad3034ff3730cdadcfd55765af01c97df78028
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887623"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073055"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Gerenciar a CDN do Azure com o PowerShell
 O PowerShell fornece um dos métodos mais flexíveis para gerenciar os perfis e os pontos de extremidade de CDN do Azure.  Você pode usar o PowerShell interativamente ou escrevendo scripts para automatizar as tarefas de gerenciamento.  Este tutorial demonstra várias tarefas mais comuns que você pode fazer com o PowerShell para gerenciar os perfis e os pontos de extremidade de CDN do Azure.
@@ -28,7 +28,7 @@ O PowerShell fornece um dos métodos mais flexíveis para gerenciar os perfis e 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para usar o PowerShell para gerenciar os perfis e os pontos de extremidade de CDN do Azure, você deve ter o módulo do Azure PowerShell instalado.  Para aprender a instalar o Azure PowerShell e conectar o Azure usando o cmdlet `Connect-AzAccount` , consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+Para usar o PowerShell para gerenciar os perfis e os pontos de extremidade de CDN do Azure, você deve ter o módulo do Azure PowerShell instalado.  Para aprender a instalar o Azure PowerShell e conectar o Azure usando o cmdlet `Connect-AzAccount` , consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/).
 
 > [!IMPORTANT]
 > Você deve fazer logon com `Connect-AzAccount` antes de executar os cmdlets do Azure PowerShell.
@@ -188,7 +188,7 @@ If($availability.NameAvailable) { Write-Host "Yes, that endpoint name is availab
 Else { Write-Host "No, that endpoint name is not available." }
 ```
 
-## <a name="adding-a-custom-domain"></a>Adicionando um domínio personalizado
+## <a name="adding-a-custom-domain"></a>Adicionar um domínio personalizado
 `New-AzCdnCustomDomain` adiciona um nome de domínio personalizado a um ponto de extremidade existente.
 
 > [!IMPORTANT]

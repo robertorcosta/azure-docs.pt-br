@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
-ms.openlocfilehash: 9807d6eeb07b953ab75b328ce64c5166ca52dd2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: accd7c3ad82853c1f2af0b632326b2798f85b36b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80637516"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073662"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Conectar computadores Linux ao Azure Monitor
 
@@ -30,7 +31,7 @@ Para entender a configuração com suporte, revise [suporte para sistemas operac
 
 O agente do Log Analytics para Linux é composto por vários pacotes. O arquivo de versão contém os seguintes pacotes, que estão disponíveis ao executar o pacote de shell com o `--extract` parâmetro:
 
-**Package** | **Versão** | **Descrição**
+**Pacote** | **Versão** | **Descrição**
 ----------- | ----------- | --------------
 omsagent | 1.12.15 | O agente de Log Analytics para Linux
 omsconfig | 1.1.1 | Agente de configuração para o agente de Log Analytics
@@ -154,6 +155,18 @@ Se a autenticação for necessária em ambos os casos, você precisará especifi
     ```
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
     ``` 
+
+## <a name="supported-linux-hardening"></a>Proteção do Linux com suporte
+O agente do OMS tem suporte limitado para personalização para Linux. 
+
+No momento, há suporte para os seguintes: 
+- FIPs
+
+Os itens a seguir estão planejados, mas ainda não têm suporte:
+- CIS-SELINUX
+
+Outros métodos de proteção e personalização não são suportados nem planejados para o agente do OMS.  
+
 
 ## <a name="upgrade-from-a-previous-release"></a>Atualizar de uma versão anterior
 

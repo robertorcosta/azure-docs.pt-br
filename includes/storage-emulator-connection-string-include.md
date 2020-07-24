@@ -2,16 +2,16 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 07/17/2020
 ms.author: tamram
-ms.openlocfilehash: 8c577db3e9f2bff9e86c3a7c37274630f90dd680
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85e7cb86217340e77a6f597a357c3de1f91fb8d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67172126"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070565"
 ---
-O emulador de armazenamento dá suporte a uma única conta fixa e uma chave de autenticação conhecida para a autenticação da Chave Compartilhada. Essa conta e a chave são as únicas credenciais de Chave Compartilhada permitidas para uso com o emulador de armazenamento. Eles são:
+O azurite dá suporte a uma única conta fixa e uma chave de autenticação conhecida para autenticação de chave compartilhada. Essa conta e a chave são as únicas credenciais de chave compartilhada permitidas para uso com azurite. Eles são:
 
 ```
 Account name: devstoreaccount1
@@ -19,13 +19,13 @@ Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZ
 ```
 
 > [!NOTE]
-> A chave de autenticação suportada pelo emulador de armazenamento destina-se somente para testar a funcionalidade do seu código de autenticação de cliente. Ela não serve para fins de segurança. Você não pode usar sua conta de armazenamento de produção e a chave com o emulador de armazenamento. Você não deve usar a conta de desenvolvimento com dados de produção.
+> A chave de autenticação com suporte do azurite é destinada apenas para testar a funcionalidade do seu código de autenticação de cliente. Ela não serve para fins de segurança. Você não pode usar sua conta de armazenamento de produção e a chave com azurite. Você não deve usar a conta de desenvolvimento com dados de produção.
 > 
-> O emulador de armazenamento oferece suporte à conexão via HTTP apenas. No entanto, o HTTPS é o protocolo recomendado para acessar os recursos em uma conta de armazenamento de produção do Azure.
+> O azurite dá suporte à conexão somente via HTTP. No entanto, o HTTPS é o protocolo recomendado para acessar os recursos em uma conta de armazenamento de produção do Azure.
 > 
 
 #### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>Conectar-se à conta do emulador usando um atalho
-A maneira mais fácil de conectar o emulador de armazenamento do seu aplicativo é configurar uma cadeia de conexão no arquivo de configuração do aplicativo que faz referência ao atalho `UseDevelopmentStorage=true`. Aqui está um exemplo de uma cadeia de conexão para o emulador de armazenamento em um arquivo de *app.config* : 
+A maneira mais fácil de se conectar ao azurite de seu aplicativo é configurar uma cadeia de conexão no arquivo de configuração do aplicativo que faz referência ao atalho `UseDevelopmentStorage=true` . Aqui está um exemplo de uma cadeia de conexão para azurite em um arquivo *app.config* : 
 
 ```xml
 <appSettings>
@@ -40,16 +40,7 @@ Para criar uma cadeia de conexão que referencia o nome da conta do emulador e a
 DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;
 AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;
 BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;
-TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;
 QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;
 ```
 
 Esse valor é idêntico ao atalho mostrado acima, `UseDevelopmentStorage=true`.
-
-#### <a name="specify-an-http-proxy"></a>Especificar um proxy HTTP
-Você também pode especificar um proxy HTTP para usar quando estiver testando seu serviço no emulador de armazenamento. Isso pode ser útil para observar solicitações e respostas HTTP enquanto você estiver depurando operações nos serviços de armazenamento. Para especificar um proxy, adicione a opção `DevelopmentStorageProxyUri` à cadeia de conexão e defina o seu valor para o URI de proxy. Por exemplo, aqui está uma cadeia de conexão que aponta para o emulador de armazenamento e configura um proxy HTTP:
-
-```
-UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
-```
-

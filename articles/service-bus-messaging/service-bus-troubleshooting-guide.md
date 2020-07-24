@@ -2,12 +2,13 @@
 title: Guia de solução de problemas do barramento de serviço do Azure | Microsoft Docs
 description: Este artigo fornece uma lista de exceções de mensagens do barramento de serviço do Azure e ações sugeridas a serem executadas quando a exceção ocorre.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 3b2759916e1f9ef0cec660157f577ff54cd39928
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: 6071aae85daa1852c9384656d7caf5e2deffd84e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340463"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071307"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guia de solução de problemas do barramento de serviço do Azure
 Este artigo fornece dicas de solução de problemas e recomendações para alguns problemas que você pode ver ao usar o barramento de serviço do Azure. 
@@ -15,7 +16,7 @@ Este artigo fornece dicas de solução de problemas e recomendações para algun
 ## <a name="connectivity-certificate-or-timeout-issues"></a>Problemas de conectividade, certificado ou tempo limite
 As etapas a seguir podem ajudá-lo a solucionar problemas de conectividade/certificado/tempo limite para todos os serviços em *. servicebus.windows.net. 
 
-- Navegue até ou [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/` . Ele ajuda a verificar se você tem problemas de filtragem de IP ou de rede virtual ou de cadeia de certificados (mais comuns ao usar o SDK do Java).
+- Navegue até ou [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/` . Ele ajuda a verificar se você tem problemas de filtragem de IP ou de rede virtual ou de cadeia de certificados, que são comuns ao usar o SDK do Java.
 
     Um exemplo de mensagem bem-sucedida:
     
@@ -53,25 +54,48 @@ As etapas a seguir podem ajudá-lo a solucionar problemas de conectividade/certi
 - Obtenha um rastreamento de rede se as etapas anteriores não ajudarem e a analisarem usando ferramentas como o [Wireshark](https://www.wireshark.org/). Entre em contato com [suporte da Microsoft](https://support.microsoft.com/) se necessário. 
 
 ## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problemas que podem ocorrer com atualizações/reinicializações de serviço
-As atualizações e reinicializações do serviço de back-end podem causar o seguinte impacto em seus aplicativos:
 
+### <a name="symptoms"></a>Sintomas
 - As solicitações podem estar momentaneamente limitadas.
 - Pode haver uma queda nas mensagens/solicitações de entrada.
 - O arquivo de log pode conter mensagens de erro.
 - Os aplicativos podem ser desconectados do serviço por alguns segundos.
 
-Se o código do aplicativo utilizar o SDK, a política de repetição já estará interna e ativa. O aplicativo será reconectado sem um impacto significativo no aplicativo/fluxo de trabalho.
+### <a name="cause"></a>Causa
+As atualizações e reinicializações do serviço de back-end podem causar esses problemas em seus aplicativos.
+
+### <a name="resolution"></a>Resolução
+Se o código do aplicativo usar o SDK, a política de repetição já estará interna e ativa. O aplicativo será reconectado sem um impacto significativo no aplicativo/fluxo de trabalho.
 
 ## <a name="unauthorized-access-send-claims-are-required"></a>Acesso não autorizado: as declarações de envio são necessárias
+
+### <a name="symptoms"></a>Sintomas 
 Você pode ver esse erro ao tentar acessar um tópico do barramento de serviço do Visual Studio em um computador local usando uma identidade gerenciada atribuída pelo usuário com permissões de envio.
 
 ```bash
 Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perform this operation.
 ```
 
+### <a name="cause"></a>Causa
+A identidade não tem permissões para acessar o tópico do barramento de serviço. 
+
+### <a name="resolution"></a>Resolução
 Para resolver esse erro, instale a biblioteca [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) .  Para obter mais informações, consulte [autenticação de desenvolvimento local](..\key-vault\service-to-service-authentication.md#local-development-authentication). 
 
 Para saber como atribuir permissões a funções, consulte [autenticar uma identidade gerenciada com Azure Active Directory para acessar os recursos do barramento de serviço do Azure](service-bus-managed-service-identity.md).
+
+## <a name="service-bus-exception-put-token-failed"></a>Exceção do barramento de serviço: falha no token put
+
+### <a name="symptoms"></a>Sintomas
+Ao tentar enviar mais de 1000 mensagens usando a mesma conexão do barramento de serviço, você receberá a seguinte mensagem de erro: 
+
+`Microsoft.Azure.ServiceBus.ServiceBusException: Put token failed. status-code: 403, status-description: The maximum number of '1000' tokens per connection has been reached.` 
+
+### <a name="cause"></a>Causa
+Há um limite para o número de tokens que são usados para enviar e receber mensagens usando uma única conexão a um namespace do barramento de serviço. É 1000. 
+
+### <a name="resolution"></a>Resolução
+Abra uma nova conexão com o namespace do barramento de serviço para enviar mais mensagens.
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja os artigos a seguir: 

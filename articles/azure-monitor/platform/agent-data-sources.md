@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: aec3fe2386ce916c556f6da295a8554fff140259
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a183589c3e5274cf747164cdc33d46044f95e716
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708868"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073695"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Fontes de dados do agente no Azure Monitor
 Os dados coletados pelo Azure Monitor dos agentes são definidos pelas fontes de dados configuradas.  Os dados dos agentes são armazenados como [dados de log](data-platform-logs.md) com um conjunto de registros.  Cada fonte de dados cria registros de um determinado tipo com cada tipo de tendo seu próprio conjunto de propriedades.
@@ -46,7 +47,7 @@ Configure fontes de dados no menu **Dados** nas **Configurações Avançadas** d
 ## <a name="data-collection"></a>Coleta de dados
 As configurações de fonte de dados são entregues aos agentes que estão diretamente conectados ao Azure Monitor em alguns minutos.  Os dados especificados são coletados do agente e entregues diretamente para o Azure Monitor em intervalos específicos a cada fonte de dados.  Consulte a documentação para cada fonte de dados para encontrar essas especificações.
 
-Para agentes do System Center Operations Manager em um grupo de gerenciamento conectado, as configurações de fonte de dados são convertidas em pacotes de gerenciamento e entregues ao grupo de gerenciamento a cada cinco minutos por padrão.  O agente baixa o pacote de gerenciamento como qualquer outro e coleta os dados especificados. Dependendo da fonte de dados, os dados serão enviados para um servidor de gerenciamento que os encaminhará para o Azure Monitor ou o agente enviará os dados para o Azure Monitor sem passar pelo servidor de gerenciamento. Confira [Detalhes da coleta de dados para soluções de monitoramento no Azure](../insights/solutions-inventory.md) para obter detalhes.  Leia mais sobre os detalhes da conexão do Operations Manager e do Azure Monitor e a modificação da frequência de entrega da configuração em [Configurar a integração com o System Center Operations Manager](om-agents.md).
+Para agentes do System Center Operations Manager em um grupo de gerenciamento conectado, as configurações de fonte de dados são convertidas em pacotes de gerenciamento e entregues ao grupo de gerenciamento a cada cinco minutos por padrão.  O agente baixa o pacote de gerenciamento como qualquer outro e coleta os dados especificados. Dependendo da fonte de dados, os dados serão enviados para um servidor de gerenciamento que os encaminhará para o Azure Monitor ou o agente enviará os dados para o Azure Monitor sem passar pelo servidor de gerenciamento. Confira [Detalhes da coleta de dados para soluções de monitoramento no Azure](../monitor-reference.md) para obter detalhes.  Leia mais sobre os detalhes da conexão do Operations Manager e do Azure Monitor e a modificação da frequência de entrega da configuração em [Configurar a integração com o System Center Operations Manager](om-agents.md).
 
 Se o agente não puder se conectar ao Azure Monitor nem ao Operations Manager, ele continuará coletando dados que serão fornecidos quando ele estabelecer uma conexão.  Dados podem ser perdidos se a quantidade de dados atingir o tamanho máximo do cache do cliente, ou se o agente não for capaz de estabelecer uma conexão dentro de 24 horas.
 

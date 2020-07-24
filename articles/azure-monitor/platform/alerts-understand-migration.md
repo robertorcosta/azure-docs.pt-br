@@ -6,11 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: d31c856e17348c23ad61130869af6ae440d3050d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9696167d9addc3029a53f25e289d17bd3add263
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114318"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073620"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Entender como a ferramenta de migração funciona
 
@@ -63,7 +64,7 @@ Todos os alertas clássicos em contas de armazenamento podem ser migrados, excet
 - SASThrottlingError
 - ThrottlingError
 
-As regras de alerta clássicas em métricas de porcentagem devem ser migradas com base no [mapeamento entre métricas de armazenamento antigas e novas](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Os limites precisarão ser modificados adequadamente, pois a nova métrica disponível é absoluta.
+As regras de alerta clássicas em métricas de porcentagem devem ser migradas com base no [mapeamento entre métricas de armazenamento antigas e novas](../../storage/common/storage-metrics-migration.md#metrics-mapping-between-old-metrics-and-new-metrics). Os limites precisarão ser modificados adequadamente, pois a nova métrica disponível é absoluta.
 
 As regras de alerta clássicas em AnonymousThrottlingError, SASThrottlingError e ThrottlingError devem ser divididas em dois novos alertas, pois não há métricas combinadas que forneçam a mesma funcionalidade. Os limites precisarão ser adaptados adequadamente.
 
@@ -72,7 +73,7 @@ As regras de alerta clássicas em AnonymousThrottlingError, SASThrottlingError e
 Todos os alertas clássicos em métricas de Cosmos DB podem ser migrados, exceto alertas nessas métricas:
 
 - Média de solicitações por segundo
-- Nível de Consistência
+- Nível de coerência
 - Http 2xx
 - Http 3xx
 - Http 400

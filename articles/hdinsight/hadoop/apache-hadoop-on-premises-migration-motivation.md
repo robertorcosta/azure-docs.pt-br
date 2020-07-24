@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.openlocfilehash: b975ee8cebdac3855c3fca88b20c01145d11baeb
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1de9fc480c753b2497a1ea4e3438583b3582bc96
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080186"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072787"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – motivação e benefícios
 
@@ -28,7 +28,7 @@ O Azure HDInsight é uma distribuição de nuvem dos componentes do Hadoop. O Az
 - Apache Hive com LLAP
 - Apache Kafka
 - Apache Storm
-- HBase no Apache
+- Apache HBase
 - R
 
 ## <a name="azure-hdinsight-advantages-over-on-premises-hadoop"></a>Vantagens do Azure HDInsight em relação ao Hadoop local
@@ -163,9 +163,9 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 
 ### <a name="azure-requirements-questionnaire"></a>Questionário de requisitos do Azure
 
-|**Tópico**: **infraestrutura** |||
-|---|---|---|
 |**Pergunta**|**Exemplo**|**Resposta**|
+|---|---|---|
+|**Tópico**: **infraestrutura** |||
 | Região preferida|Leste dos EUA||
 |Rede virtual preferida?|Sim||
 |HA/DR necessárias?|Sim||

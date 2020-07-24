@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: 4b5a18f0dc5edc06e4800215e88b694e681b5bbb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 254659c58b9830645211596da0095c33d70e8d95
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960455"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072015"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com controle de acesso usando os serviços de mídia do Azure 
 
@@ -147,12 +148,12 @@ A tabela abaixo mostra o mapeamento.
 
 | **Bloco de construção** | **Tecnologia** |
 | --- | --- |
-| **Player** |[Player de Mídia do Azure](https://azure.microsoft.com/services/media-services/media-player/) |
+| **Jogador** |[Player de Mídia do Azure](https://azure.microsoft.com/services/media-services/media-player/) |
 | **IdP (provedor de identidade)** |Active Directory do Azure (Azure AD) |
 | **STS (serviço de token de segurança)** |Azure AD |
 | **Fluxo de trabalho de proteção de DRM** |Proteção dinâmica dos Serviços de Mídia |
 | **Entrega de licença do DRM** |* Entrega de licença dos Serviços de Mídia (PlayReady, Widevine, FairPlay) <br/>* Servidor de licença Axinom <br/>* Servidor de licença do PlayReady personalizado |
-| **Origem** |Ponto de extremidade de streaming dos Serviços de Mídia |
+| **Ter** |Ponto de extremidade de streaming dos Serviços de Mídia |
 | **Gerenciamento de chaves** |Não é necessário para a implementação de referência |
 | **Gerenciamento de conteúdo** |Aplicativo do console C# |
 
@@ -226,7 +227,7 @@ Para obter mais informações, consulte [autenticação de token JWT nos serviç
 Para obter informações sobre o Azure AD:
 
 * Você pode encontrar informações de desenvolvedor no [Guia do desenvolvedor do Azure Active Directory](../../active-directory/azuread-dev/v1-overview.md).
-* Você pode encontrar informações de administrador em [Administrar seu diretório de locatário do Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
+* Você pode encontrar informações de administrador em [Administrar seu diretório de locatário do Azure AD](../../active-directory/fundamentals/active-directory-whatis.md).
 
 ### <a name="some-issues-in-implementation"></a>Alguns problemas na implementação
 Use as seguintes informações de solução de problemas para obter ajuda com problemas de implementação.
@@ -295,7 +296,7 @@ A substituição de chave de assinatura é um ponto importante a ser considerado
 
 O Azure AD usa padrões do setor para estabelecer confiança entre si mesmo e os aplicativos que usam o Azure AD. Especificamente, o AD do Azure usa uma chave de assinatura que consiste em um par de chaves público e privado. Quando o Azure AD cria um token de segurança que contém informações sobre o usuário, ele é assinado pelo Azure AD com uma chave privada antes de ser devolvido ao aplicativo. Para verificar se o token é válido e se foi originado no Azure AD, o aplicativo deve validar a assinatura do token. O aplicativo usa a chave pública exposta pelo Azure AD que está contida no documento de metadados de federação do locatário. Essa chave pública, e a chave de assinatura da qual ela deriva, é a mesma usada para todos os locatários no Azure AD.
 
-Para obter mais informações sobre a substituição de chave do Azure AD, consulte [Informações importantes sobre substituição de chave de assinatura no Azure AD](../../active-directory/active-directory-signing-key-rollover.md).
+Para obter mais informações sobre a substituição de chave do Azure AD, consulte [Informações importantes sobre substituição de chave de assinatura no Azure AD](../../active-directory/develop/active-directory-signing-key-rollover.md).
 
 Entre o [par de chaves pública/privada](https://login.microsoftonline.com/common/discovery/keys/):
 
@@ -328,7 +329,7 @@ Se você der uma olhada em como um aplicativo Web chama um aplicativo de API em 
 * O Azure AD autentica o aplicativo e retorna um token de acesso JWT que é usado para chamar a API da Web.
 * Via HTTPS, o aplicativo Web usa o token de acesso JWT retornado para adicionar a cadeia de caracteres JWT com uma designação de "Portador" no cabeçalho de "Autorização" da solicitação à API da Web. Então, a API da Web valida o JWT. Se a validação for bem-sucedida, ela retornará o recurso desejado.
 
-Nesse fluxo de identidade do aplicativo, a API da Web confia que o aplicativo Web autenticou o usuário. Por esse motivo, esse padrão é chamado de subsistema confiável. O [diagrama de fluxo de autorização](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code) descreve como o fluxo concessão de código de autorização funciona.
+Nesse fluxo de identidade do aplicativo, a API da Web confia que o aplicativo Web autenticou o usuário. Por esse motivo, esse padrão é chamado de subsistema confiável. O [diagrama de fluxo de autorização](../../active-directory/azuread-dev/v1-protocols-oauth-code.md) descreve como o fluxo concessão de código de autorização funciona.
 
 A aquisição de licença com restrição de token segue o mesmo padrão de subsistema confiável. O serviço de entrega de licença nos Serviços de Mídia é o recurso da API da Web ou o "recurso de back-end" que o aplicativo Web precisa acessar. Onde está o token de acesso?
 

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: c143d8aa24d3479f4619ea2c220d4a0c593f9cb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b18c34f8c0378d22d138b865d72fa4f351d7b8f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77665130"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073630"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gerenciamento do Conector do Application Insights (preterida)
 
@@ -46,7 +47,7 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 | [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Não | A solução não coleta informações de agentes do Windows. |
 | [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não | A solução não coleta informações de agentes do Linux. |
 | [Grupo de gerenciamento do SCOM](../../azure-monitor/platform/om-agents.md) | Não | A solução não coleta informações de agentes em um grupo de gerenciamento de SCOM conectado. |
-| [Conta de armazenamento do Azure](collect-azure-metrics-logs.md) | Não | A solução não coleta informações do armazenamento do Azure. |
+| [Conta de armazenamento do Azure](./resource-logs.md#send-to-log-analytics-workspace) | Não | A solução não coleta informações do armazenamento do Azure. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -173,7 +174,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="generic-fields"></a>Campos genéricos
 
-| Property | Descrição |
+| Propriedade | Descrição |
 | --- | --- |
 | Type | ApplicationInsights |
 | ClientIP |   |
@@ -199,7 +200,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="availability-specific-fields"></a>Campos específicos à disponibilidade
 
-| Property | Descrição |
+| Propriedade | Descrição |
 | --- | --- |
 | TelemetryType | Disponibilidade |
 | AvailabilityTestName | Nome do teste na Web |
@@ -241,7 +242,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="request-specific-fields"></a>Campos específicos à solicitação
 
-| Property | Descrição |
+| Propriedade | Descrição |
 | --- | --- |
 | Type | ApplicationInsights |
 | TelemetryType | Solicitação |
@@ -303,7 +304,7 @@ $Headers = @{
 $Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
 $ConnectionsJson = $Connections | ConvertTo-Json
 ```
-Este script requer um token de autenticação de portador para autenticação no Azure Active Directory. Uma maneira de recuperar esse token é usando um artigo no [site de documentação da API REST](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Clique em **Experimentar** e faça logon na sua assinatura do Azure. É possível copiar o token de portador em **Solicitar versão prévia** conforme mostrado na imagem a seguir.
+Este script requer um token de autenticação de portador para autenticação no Azure Active Directory. Uma maneira de recuperar esse token é usando um artigo no [site de documentação da API REST](/rest/api/loganalytics/datasources/createorupdate). Clique em **Experimentar** e faça logon na sua assinatura do Azure. É possível copiar o token de portador em **Solicitar versão prévia** conforme mostrado na imagem a seguir.
 
 
 ![Token de portador](media/app-insights-connector/bearer-token.png)

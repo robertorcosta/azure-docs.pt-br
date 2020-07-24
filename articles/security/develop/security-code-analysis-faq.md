@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 3d5eac2d3e2f3cd87ddad02aac68ce015163bd00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df995f60867cb2062330e19a2ccfb8c29f173653
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362067"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071435"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 Tem dúvidas? Confira as perguntas frequentes a seguir para obter mais informações.
@@ -106,15 +106,17 @@ Aqui estão os detalhes de dois dos cenários de supressão mais comuns.
 
 A chave de hash do segredo do arquivo de saída CredScan é necessária, conforme mostrado no exemplo a seguir.
 
-        {
-            "tool": "Credential Scanner",
-            "suppressions": [
-            {
-                "hash": "CLgYxl2FcQE8XZgha9/UbKLTkJkUh3Vakkxh2CAdhtY=",
-                "_justification": "Secret used by MSDN sample, it is fake."
-            }
-          ]
-        }
+```js
+{
+    "tool": "Credential Scanner",
+    "suppressions": [
+    {
+        "hash": "CLgYxl2FcQE8XZgha9/UbKLTkJkUh3Vakkxh2CAdhtY=",
+        "_justification": "Secret used by MSDN sample, it is fake."
+    }
+  ]
+}
+```
 
 >[!WARNING]
 > A chave de hash é gerada por uma parte do valor correspondente ou do conteúdo do arquivo. Qualquer revisão de código-fonte pode alterar a chave de hash e desabilitar a regra de supressão.
@@ -133,19 +135,21 @@ Exemplos de regras de supressão válidas:
 - \lib\angular.js
 - angular.js-suprime qualquer arquivo com o mesmo nome
 
-        {
-            "tool": "Credential Scanner",
-            "suppressions": [
-            {
-                "file": "\\files\\AdditonalSearcher.xml", 
-                "_justification": "Additional CredScan searcher specific to my team"
-            },
-            {
-                "file": "\\files\\unittest.pfx", 
-                "_justification": "Legitimate UT certificate file with private key"
-            }
-          ]
-        }      
+```js
+{
+    "tool": "Credential Scanner",
+    "suppressions": [
+    {
+        "file": "\\files\\AdditonalSearcher.xml", 
+        "_justification": "Additional CredScan searcher specific to my team"
+    },
+    {
+        "file": "\\files\\unittest.pfx", 
+        "_justification": "Legitimate UT certificate file with private key"
+    }
+  ]
+}
+```
 
 >[!WARNING] 
 > Todos os segredos futuros adicionados ao arquivo também serão suprimidos automaticamente.
@@ -154,8 +158,8 @@ Exemplos de regras de supressão válidas:
 
 Os recursos a seguir ajudam você a gerenciar com segurança segredos e acessar informações confidenciais de dentro de seus aplicativos:
 
- - [Cofre da Chave do Azure](../../key-vault/index.yml)
- - [Azure Active Directory (Azure AD)](../../azure-sql/database/authentication-aad-overview.md)
+ - [Azure Key Vault](../../key-vault/index.yml)
+ - [Active Directory do Azure (Azure AD)](../../azure-sql/database/authentication-aad-overview.md)
  - [Identidade de Serviço Gerenciada do Azure AD (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Identidades gerenciadas para os recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Identidades gerenciadas no serviço Azure App e Azure Functions](../../app-service/overview-managed-identity.md)

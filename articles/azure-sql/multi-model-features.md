@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: d50a9a064e6fa279d65f196c0f031e60081d86bf
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 59a709a206eb29b875272674ee19e414023cc37f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85979991"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073322"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Funcionalidades de vários modelos do banco de dados SQL do Azure & SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -96,9 +96,6 @@ Em alguns cenários específicos podem ser usados modelos de documentos, em vez 
 
 Os dados espaciais representam informações sobre a localização física e a forma dos objetos geométricos. Esses objetos podem ser locais de ponto ou objetos mais complexos, como países/regiões, estradas ou lagos.
 
-A família de produtos SQL do Azure permite que você analise e consulte dados representados no formato JavaScript Object Notation [(JSON)](https://www.json.org/) e exporte seus dados relacionais como texto JSON.
-
-
  Os dois tipos de dados espaciais com suporte: 
 
 - O tipo Geometria representa dados em um sistema de coordenadas Euclidiano (plano).
@@ -132,7 +129,7 @@ Em alguns cenários específicos podem ser usados modelos de documentos, em vez 
 - É necessário simplificar o modelo de dados, desnormalizando tabelas secundárias ou padrões Entity-Object-Value.
 - Você precisará carregar ou exportar dados armazenados no formato XML sem ferramentas adicionais de análise de dados.
 
-## <a name="key-value-pairs"></a>Pares chave-valor
+## <a name="key-value-pairs"></a>Pares de chave-valor
 
 A família de produtos SQL do Azure não tem tipos especializados ou estruturas que dão suporte a pares chave-valor, pois estruturas de valor-chave podem ser representadas nativamente como tabelas relacionais padrão:
 

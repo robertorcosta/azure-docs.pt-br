@@ -4,11 +4,12 @@ description: Visão geral dos metadados de configuração do aplicativo Azure Bl
 ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
-ms.openlocfilehash: 661e795f0e85f872b1072a8f641b8938115c5d7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ba19bf1d7fdf05014ac199fae9392b5c3249d1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710177"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073084"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referência de configuração do Azure Blockchain Workbench
 
@@ -67,7 +68,7 @@ Tipos de dados com suporte.
 | Tipo | Description |
 |-------|-------------|
 | address  | Tipo de endereço Blockchain, como *contratos* ou *usuários*. |
-| matriz    | Matriz de nível único de tipo inteiro, bool, money ou time. As matrizes podem ser estáticas ou dinâmicas. Use **ElementType** para especificar o tipo de dados dos elementos dentro da matriz. Confira o [exemplo de configuração](#example-configuration-of-type-array). |
+| array    | Matriz de nível único de tipo inteiro, bool, money ou time. As matrizes podem ser estáticas ou dinâmicas. Use **ElementType** para especificar o tipo de dados dos elementos dentro da matriz. Confira o [exemplo de configuração](#example-configuration-of-type-array). |
 | bool     | Tipo de dados Boolean. |
 | contrato | Endereço do contrato de tipo. |
 | enum     | Conjunto enumerado de valores nomeados. Ao usar o tipo de enumeração, você também especifica uma lista de EnumValues. Cada valor é limitado a 255 caracteres. Os caracteres de valor válidos incluem letras maiúsculas e minúsculas (A-Z, a-z) e números (0-9). Confira o [exemplo de configuração e uso em Solidity](#example-configuration-of-type-enum). |
@@ -995,5 +996,4 @@ O arquivo de configuração a seguir para a amostra de transferência do ativo:
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Referência de API REST do Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)
-
+> [Referência de API REST do Azure Blockchain Workbench](/rest/api/azure-blockchain-workbench)

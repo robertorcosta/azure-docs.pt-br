@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 2cc2ac08b9624c1d1d9bee9ce91a7c91189d7f2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 833e2a6f64301c39ba2b9e7959585c3edeab9445
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792428"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072578"
 ---
 # <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Trocar mensagens RosettaNet para integração de empresas B2B em aplicativos lógicos do Azure
 
@@ -81,7 +82,7 @@ Para adicionar uma configuração de processo PIP à sua conta de integração, 
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome** | Sim | Seu nome de PIP |
-   | **Código PIP** | Sim | O código de três dígitos do PIP. Para obter mais informações, consulte [RosettaNet pips](https://docs.microsoft.com/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
+   | **Código PIP** | Sim | O código de três dígitos do PIP. Para obter mais informações, consulte [RosettaNet pips](/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
    | **Versão do PIP** | Sim | O número de versão do PIP, que está disponível com base no seu código PIP selecionado |
    ||||
 
@@ -150,7 +151,7 @@ Para adicionar uma configuração de processo PIP à sua conta de integração, 
       | **Algoritmo de assinatura** | Sim, se a assinatura estiver habilitada | O algoritmo de assinatura a ser usado com base no certificado selecionado |
       | **Certificado** | Sim, se a assinatura estiver habilitada | O certificado a ser usado para assinatura |
       | **Habilitar a criptografia de mensagem** | Não | Criptografar saída com o algoritmo de criptografia e o certificado selecionados. |
-      | **Algoritmo de criptografia** | Sim, se a criptografia estiver habilitada | O algoritmo de criptografia a ser usado com base no certificado selecionado |
+      | **Algoritmo de Criptografia** | Sim, se a criptografia estiver habilitada | O algoritmo de criptografia a ser usado com base no certificado selecionado |
       | **Certificado** | Sim, se a criptografia estiver habilitada | O certificado a ser usado para criptografia |
       ||||
 
@@ -200,7 +201,7 @@ Para acelerar o desenvolvimento e recomendar os padrões de integração, você 
 
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Message** | Sim | A mensagem RosettaNet a ser decodificada  |
+   | **Mensagem** | Sim | A mensagem RosettaNet a ser decodificada  |
    | **Cabeçalhos** | Sim | Os cabeçalhos HTTP que fornecem os valores para a versão, que é a versão RNIF, e o tipo de resposta, que indica o tipo de comunicação entre os parceiros e pode ser síncrono ou assíncrono |
    | **Função** | Sim | A função do parceiro de host no PIP |
    ||||
@@ -229,7 +230,7 @@ Para acelerar o desenvolvimento e recomendar os padrões de integração, você 
 
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Message** | Sim | A mensagem RosettaNet a ser codificada  |
+   | **Mensagem** | Sim | A mensagem RosettaNet a ser codificada  |
    | **Parceiro de host** | Sim | O nome do parceiro de host |
    | **Parceiro convidado** | Sim | O nome do parceiro convidado |
    | **Código PIP** | Sim | O código de PIP |

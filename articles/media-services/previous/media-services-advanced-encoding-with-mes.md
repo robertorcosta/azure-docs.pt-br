@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 1d1ac838befc905c3c2b860551b26928f5114e96
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 8142ef5e2aaaf5831c01215d28eecf8d06e1d8ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955150"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071925"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Executar a codificação avançada personalizando predefinições de MES 
 
@@ -29,7 +30,7 @@ Este tópico mostra como personalizar as predefinições do Media Encoder Standa
 Se você estiver usando uma predefinição XML, lembre-se de preservar a ordem dos elementos, conforme mostrado nas amostras de XML abaixo (por exemplo, KeyFrameInterval deve preceder SceneChangeDetection).
 
 > [!NOTE] 
-> Muitos dos recursos do Advanced Media Services v2 do Media Encoder Standard não estão disponíveis atualmente na v3. Para obter mais informações, consulte [lacunas de recursos](https://docs.microsoft.com/azure/media-services/latest/media-services-v2-vs-v3#feature-gaps-with-respect-to-v2-apis).
+> Muitos dos recursos do Advanced Media Services v2 do Media Encoder Standard não estão disponíveis atualmente na v3. Para obter mais informações, consulte [lacunas de recursos](../latest/media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
 
 ## <a name="support-for-relative-sizes"></a>Suporte para tamanhos relativos
 

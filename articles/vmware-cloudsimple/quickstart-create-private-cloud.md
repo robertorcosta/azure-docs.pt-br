@@ -9,11 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a2fe7daf1476f19f6a6eea83174342fa1273fe14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 487308aca3231650aee3fac5ae127006649e19b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81867973"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073902"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Início rápido-configurar um ambiente de nuvem privada
 
@@ -113,7 +114,7 @@ O cliente VPN é necessário para se conectar ao CloudSimple do seu computador. 
 1. Inicie o portal do CloudSimple e selecione **rede**.
 2. Selecione **Gateway de VPN**.
 3. Na lista de gateways de VPN, clique no gateway de VPN ponto a site.
-4. Selecione **usuários**.
+4. Selecione **Usuários**.
 5. Clique em **baixar minha configuração de VPN**.
 
     ![Baixar configuração de VPN](media/download-p2s-vpn-configuration.png)
@@ -147,7 +148,7 @@ A VLAN/sub-rede será criada.  Agora você pode usar essa ID de VLAN para criar 
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>Conectar seu ambiente a uma rede virtual do Azure
 
-O CloudSimple fornece um circuito de ExpressRoute para sua nuvem privada. Você pode conectar sua rede virtual no Azure ao circuito do ExpressRoute. Para obter detalhes completos sobre como configurar a conexão, siga as etapas em [conexão de rede virtual do Azure usando o ExpressRoute](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-azure-network-connection).
+O CloudSimple fornece um circuito de ExpressRoute para sua nuvem privada. Você pode conectar sua rede virtual no Azure ao circuito do ExpressRoute. Para obter detalhes completos sobre como configurar a conexão, siga as etapas em [conexão de rede virtual do Azure usando o ExpressRoute](./cloudsimple-azure-network-connection.md).
 
 ## <a name="sign-in-to-vcenter"></a>Entrar no vCenter
 
