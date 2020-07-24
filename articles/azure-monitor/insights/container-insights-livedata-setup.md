@@ -4,12 +4,12 @@ description: Este artigo descreve como configurar a exibição em tempo real de 
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: cbd697f743d0d3369a8c35537ac2755ae5d3fc8c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ef3fd6ce2a5be4f3d06a37b135e0f9cf0851effb
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516457"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116713"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Como configurar o recurso de dados dinâmicos (versão prévia)
 
@@ -42,7 +42,7 @@ O portal do Azure solicita que você valide suas credenciais de logon para um cl
 >A autorização para o cluster é gerenciada pelo kubernetes e pelo modelo de segurança com o qual ele está configurado. Os usuários que acessam esse recurso exigem permissão para baixar a configuração do kubernetes (*kubeconfig*), semelhante à execução `az aks get-credentials -n {your cluster name} -g {your resource group}` . Esse arquivo de configuração contém o token de autorização e autenticação para a **função de usuário de cluster do serviço kubernetes do Azure**, no caso de clusters habilitados para RBAC do Azure e do AKS sem autorização de RBAC habilitada. Ele contém informações sobre o Azure AD e detalhes de registro de cliente quando o AKS está habilitado com logon único baseado em SAML do Azure Active Directory (AD).
 
 >[!IMPORTANT]
->Os usuários desses recursos exigem a [função de usuário do cluster kubernetes do Azure](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) para o cluster a fim de baixar o `kubeconfig` e usar esse recurso. Os usuários **não** exigem acesso de colaborador ao cluster para utilizar esse recurso.
+>Os usuários desses recursos exigem a [função de usuário do cluster kubernetes do Azure](../../role-based-access-control/built-in-roles.md) para o cluster a fim de baixar o `kubeconfig` e usar esse recurso. Os usuários **não** exigem acesso de colaborador ao cluster para utilizar esse recurso.
 
 ## <a name="using-clustermonitoringuser-with-rbac-enabled-clusters"></a>Usando o clusterMonitoringUser com clusters habilitados para RBAC
 

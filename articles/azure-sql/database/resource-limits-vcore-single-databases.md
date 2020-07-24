@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 07/09/2020
-ms.openlocfilehash: add2e0cc2852f9ab0b63565841f670ed6c53d9a7
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 07/21/2020
+ms.openlocfilehash: 64a21c0d0edcd035bdf42c3b17c5f2c0131dabfa
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206124"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117036"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -340,29 +340,55 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 
 ## <a name="general-purpose---provisioned-compute---fsv2-series"></a>Computação provisionada de uso geral-série Fsv2
 
-### <a name="fsv2-series-compute-generation-preview"></a>Geração de computação da série Fsv2 (visualização)
+### <a name="fsv2-series-compute-generation-part-1"></a>Geração de computação da série Fsv2 (parte 1)
 
-|Tamanho da computação (objetivo do serviço)|GP_Fsv2_72|
-|:--- | --: |
-|Geração de computação|Série Fsv2|
-|vCores|72|
-|Memória (GB)|136,2|
-|Suporte de columnstore|Sim|
-|Armazenamento OLTP na memória (GB)|N/D|
-|Tamanho máximo de dados (GB)|4096|
-|Tamanho máximo de log (GB)|1024|
-|Tamanho máximo de dados de TempDB (GB)|333|
-|Tipo de armazenamento|SSD remoto|
-|Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|
-|IOPS de dados máximo *|12.800|
-|Taxa máxima de logs (MBps)|30|
-|Máximo de trabalhos simultâneos (solicitações)|3600|
-|Máximo de logons simultâneos|3600|
-|Máximo de sessões simultâneas|30,000|
-|Número de réplicas|1|
-|Multi-AZ|N/D|
-|Escala de leitura|N/D|
-|Armazenamento de backup incluído|Tamanho de BD 1X|
+|Tamanho da computação (objetivo do serviço)|GP_Fsv2_8|GP_Fsv2_10|GP_Fsv2_12|GP_Fsv2_14| GP_Fsv2_16|
+|:---| ---:|---:|---:|---:|---:|
+|Geração de computação|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|
+|vCores|8|10|12|14|16|
+|Memória (GB)|15.1|18,9|22,7|26,5|30,2|
+|Suporte de columnstore|Sim|Sim|Sim|Sim|Sim|
+|Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|
+|Tamanho máximo de dados (GB)|1024|1024|1024|1024|1536|
+|Tamanho máximo de log (GB)|336|336|336|336|512|
+|Tamanho máximo de dados de TempDB (GB)|333|333|333|333|333|
+|Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
+|Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
+|IOPS de dados máximo *|2560|3200|3840|4480|5120|
+|Taxa máxima de logs (MBps)|30|30|30|30|30|
+|Máximo de trabalhos simultâneos (solicitações)|400|500|600|700|800|
+|Máximo de logons simultâneos|800|1000|1200|1.400|1600|
+|Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|
+|Número de réplicas|1|1|1|1|1|
+|Multi-AZ|N/D|N/D|N/D|N/D|N/D|
+|Escala de leitura|N/D|N/D|N/D|N/D|N/D|
+|Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
+
+\*O valor máximo para tamanhos de e/s variando entre 8 KB e 64 KB. IOPS reais são dependentes da carga de trabalho. Para obter detalhes, consulte [governança de e/s de dados](resource-limits-logical-server.md#resource-governance).
+
+### <a name="fsv2-series-compute-generation-part-2"></a>Geração de computação da série Fsv2 (parte 2)
+
+|Tamanho da computação (objetivo do serviço)|GP_Fsv2_18|GP_Fsv2_20|GP_Fsv2_24|GP_Fsv2_32| GP_Fsv2_36|GP_Fsv2_72|
+|:---| ---:|---:|---:|---:|---:|---:|
+|Geração de computação|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|Série Fsv2|
+|vCores|18|20|24|32|36|72|
+|Memória (GB)|34,0|37,8|45,4|60,5|68,0|136,0|
+|Suporte de columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
+|Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
+|Tamanho máximo de dados (GB)|1536|1536|1536|3072|3072|4096|
+|Tamanho máximo de log (GB)|512|512|512|1024|1024|1024|
+|Tamanho máximo de dados de TempDB (GB)|83,25|92,5|111|148|166,5|333|
+|Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
+|Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
+|IOPS de dados máximo *|5760|6400|7680|10240|11520|23040|
+|Taxa máxima de logs (MBps)|30|30|30|30|30|30|
+|Máximo de trabalhos simultâneos (solicitações)|900|1000|1200|1600|1800|3600|
+|Máximo de logons simultâneos|1800|2000|2400|3200|3600|7200|
+|Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|
+|Número de réplicas|1|1|1|1|1|1|
+|Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|
+|Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|
+|Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
 \*O valor máximo para tamanhos de e/s variando entre 8 KB e 64 KB. IOPS reais são dependentes da carga de trabalho. Para obter detalhes, consulte [governança de e/s de dados](resource-limits-logical-server.md#resource-governance).
 
@@ -479,34 +505,65 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 
 ## <a name="business-critical---provisioned-compute---m-series"></a>Computação comercialmente crítica-série M
 
-### <a name="m-series-compute-generation-preview"></a>Geração de computação da série M (versão prévia)
+### <a name="m-series-compute-generation-part-1"></a>Geração de computação da série M (parte 1)
 
-|Tamanho da computação (objetivo do serviço)|BC_M_128|
-|:--- | --: |
-|Geração de computação|Série M|
-|vCores|128|
-|Memória (GB)|3767,1|
-|Suporte de columnstore|Sim|
-|Armazenamento OLTP na memória (GB)|1768|
-|Tamanho máximo de dados (GB)|4096|
-|Tamanho máximo de log (GB)|2.048|
-|Tamanho máximo de dados de TempDB (GB)|4096|
-|Tipo de armazenamento|SSD Local|
-|Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|
-|IOPS de dados máximo *|160.000|
-|Taxa máxima de logs (MBps)|264|
-|Máximo de trabalhos simultâneos (solicitações)|12.800|
-|Máximo de logons simultâneos|12.800|
-|Máximo de sessões simultâneas|30000|
-|Número de réplicas|4|
-|Multi-AZ|Sim|
-|Escala de leitura|Sim|
-|Armazenamento de backup incluído|Tamanho de BD 1X|
+|Tamanho da computação (objetivo do serviço)|BC_M_8|BC_M_10|BC_M_12|BC_M_14|BC_M_16|BC_M_18|
+|:---| ---:|---:|---:|---:|---:|---:|
+|Geração de computação|Série M|Série M|Série M|Série M|Série M|Série M|
+|vCores|8|10|12|14|16|18|
+|Memória (GB)|235,4|294,3|353,2|412,0|470,9|529,7|
+|Suporte de columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
+|Armazenamento OLTP na memória (GB)|64|80|96|112|128|150|
+|Tamanho máximo de dados (GB)|512|640|768|896|1024|1152|
+|Tamanho máximo de log (GB)|171|213|256|299|341|384|
+|Tamanho máximo de dados de TempDB (GB)|256|320|384|448|512|576|
+|Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
+|Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
+|IOPS de dados máximo *|12.499|15.624|18.748|21.873|24.998|28.123|
+|Taxa máxima de logs (MBps)|48|60|72|84|96|108|
+|Máximo de trabalhos simultâneos (solicitações)|800|1,000|1.200|1.400|1.600|1.800|
+|Máximo de logons simultâneos|800|1,000|1.200|1.400|1.600|1.800|
+|Máximo de sessões simultâneas|30000|30000|30000|30000|30000|30000|
+|Número de réplicas|4|4|4|4|4|4|
+|Multi-AZ|Não|Não|Não|Não|Não|Não|
+|Escala de leitura|Sim|Sim|Sim|Sim|Sim|Sim|
+|Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
 \*O valor máximo para tamanhos de e/s variando entre 8 KB e 64 KB. IOPS reais são dependentes da carga de trabalho. Para obter detalhes, consulte [governança de e/s de dados](resource-limits-logical-server.md#resource-governance).
 
 > [!IMPORTANT]
 > Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](file-space-manage.md).
+
+### <a name="m-series-compute-generation-part-2"></a>Geração de computação da série M (parte 2)
+
+|Tamanho da computação (objetivo do serviço)|BC_M_20|BC_M_24|BC_M_32|BC_M_64|BC_M_128|
+|:---| ---:|---:|---:|---:|---:|
+|Geração de computação|Série M|Série M|Série M|Série M|Série M|
+|vCores|20|24|32|64|128|
+|Memória (GB)|588,6|706,3|941,8|1883,5|3767,0|
+|Suporte de columnstore|Sim|Sim|Sim|Sim|Sim|
+|Armazenamento OLTP na memória (GB)|172|216|304|704|1768|
+|Tamanho máximo de dados (GB)|1280|1536|2.048|4096|4096|
+|Tamanho máximo de log (GB)|427|512|683|1024|1024|
+|Tamanho máximo de dados de TempDB (GB)|4096|2.048|1024|768|640|
+|Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
+|Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
+|IOPS de dados máximo *|31.248|37.497|49.996|99.993|160.000|
+|Taxa máxima de logs (MBps)|120|144|192|264|264|
+|Máximo de trabalhos simultâneos (solicitações)|2\.000|2.400|3\.200|6.400|12.800|
+|Máximo de logons simultâneos|2\.000|2.400|3\.200|6.400|12.800|
+|Máximo de sessões simultâneas|30000|30000|30000|30000|30000|
+|Número de réplicas|4|4|4|4|4|
+|Multi-AZ|Não|Não|Não|Não|Não|
+|Escala de leitura|Sim|Sim|Sim|Sim|Sim|
+|Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
+
+\*O valor máximo para tamanhos de e/s variando entre 8 KB e 64 KB. IOPS reais são dependentes da carga de trabalho. Para obter detalhes, consulte [governança de e/s de dados](resource-limits-logical-server.md#resource-governance).
+
+> [!IMPORTANT]
+> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](file-space-manage.md).
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

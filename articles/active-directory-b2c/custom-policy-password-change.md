@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/13/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c159e78d0aa065b53b1164e01309e770302fb1ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6faf9fb3d15709d3897db9a77bf14ebf238e8fbf
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389013"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116362"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a alteração da senha usando políticas personalizadas no Azure Active Directory B2C
 
@@ -65,6 +65,7 @@ Conclua as etapas em [Introdução às políticas personalizadas no Active Direc
               <Item Key="response_types">id_token</Item>
               <Item Key="response_mode">query</Item>
               <Item Key="scope">email openid</Item>
+              <Item Key="grant_type">password</Item>
               <Item Key="UsePolicyInRedirectUri">false</Item>
               <Item Key="HttpBinding">POST</Item>
               <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
@@ -155,7 +156,7 @@ Conclua as etapas em [Introdução às políticas personalizadas no Active Direc
 5. Copie o arquivo *ProfileEdit.xml* que você baixou com o pacote de início e nomeie-o *ProfileEditPasswordChange.xml*.
 6. Abra o novo arquivo e atualize o atributo **PolicyId** com um valor exclusivo. Esse valor é o nome da sua política. Por exemplo, *B2C_1A_profile_edit_password_change*.
 7. Modifique o atributo **ReferenceId** em `<DefaultUserJourney>` para corresponder à ID do novo percurso do usuário criado. Por exemplo, *PasswordChange*.
-8. Salve suas alterações.
+8. Salve as alterações.
 
 Você pode encontrar a política de exemplo [aqui](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
 
@@ -163,7 +164,7 @@ Você pode encontrar a política de exemplo [aqui](https://github.com/Azure-Samp
 
 Ao testar seus aplicativos no Azure AD B2C, pode ser útil ter o token do Azure AD B2C retornado ao `https://jwt.ms` para poder examinar as declarações.
 
-### <a name="upload-the-files"></a>Carregar os arquivos
+### <a name="upload-the-files"></a>Fazer upload dos arquivos
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.

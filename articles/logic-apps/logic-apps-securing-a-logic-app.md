@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 07/03/2020
-ms.openlocfilehash: 902c48f2edcca6eb25958a9f22d6760faf1fcbc2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5b25c56591e64d66901dbcf79dc629f0beb2bbb0
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248706"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117008"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
-Os aplicativos lógicos do Azure dependem do [armazenamento do Azure](https://docs.microsoft.com/azure/storage/) para armazenar e [criptografar automaticamente os dados em repouso](../security/fundamentals/encryption-atrest.md). Essa criptografia protege seus dados e ajuda a atender aos compromissos de segurança e conformidade da organização. Por padrão, o armazenamento do Azure usa chaves gerenciadas pela Microsoft para criptografar seus dados. Para obter mais informações, consulte [Criptografia do Armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md).
+Os aplicativos lógicos do Azure dependem do [armazenamento do Azure](../storage/index.yml) para armazenar e [criptografar automaticamente os dados em repouso](../security/fundamentals/encryption-atrest.md). Essa criptografia protege seus dados e ajuda a atender aos compromissos de segurança e conformidade da organização. Por padrão, o armazenamento do Azure usa chaves gerenciadas pela Microsoft para criptografar seus dados. Para obter mais informações, consulte [Criptografia do Armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md).
 
 Para controlar ainda mais o acesso e proteger dados confidenciais em aplicativos lógicos do Azure, você pode configurar a segurança adicional nessas áreas:
 
@@ -51,7 +51,7 @@ Aqui estão opções que podem ajudá-lo a proteger o acesso a esse tipo de gati
 
 ### <a name="generate-shared-access-signatures-sas"></a>Gerar SAS (assinaturas de acesso compartilhado)
 
-Cada ponto de extremidade de solicitação em um aplicativo lógico inclui uma [SAS (assinatura de acesso compartilhado)](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) na URL do ponto de extremidade, que segue este formato:
+Cada ponto de extremidade de solicitação em um aplicativo lógico inclui uma [SAS (assinatura de acesso compartilhado)](/rest/api/storageservices/constructing-a-service-sas) na URL do ponto de extremidade, que segue este formato:
 
 `https://<request-endpoint-URI>sp=<permissions>sv=<SAS-version>sig=<signature>`
 
@@ -86,7 +86,7 @@ Para gerar uma nova chave de acesso de segurança a qualquer momento, use a API 
 
 #### <a name="create-expiring-callback-urls"></a>Criar URLs de retorno de chamada prestes a expirar
 
-Se você compartilhar a URL do ponto de extremidade para um gatilho baseado em solicitação com outras partes, poderá gerar URLs de retorno de chamada que usam chaves específicas e têm datas de validade. Dessa forma, você pode reverter tranquilamente as chaves ou restringir o acesso para disparar seu aplicativo lógico com base em um período específico. Para especificar uma data de validade para uma URL, use a API REST dos [Aplicativos Lógicos](https://docs.microsoft.com/rest/api/logic/workflowtriggers), por exemplo:
+Se você compartilhar a URL do ponto de extremidade para um gatilho baseado em solicitação com outras partes, poderá gerar URLs de retorno de chamada que usam chaves específicas e têm datas de validade. Dessa forma, você pode reverter tranquilamente as chaves ou restringir o acesso para disparar seu aplicativo lógico com base em um período específico. Para especificar uma data de validade para uma URL, use a API REST dos [Aplicativos Lógicos](/rest/api/logic/workflowtriggers), por exemplo:
 
 ```http
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
@@ -98,7 +98,7 @@ No corpo, inclua a propriedade `NotAfter` usando uma cadeia de caracteres de dat
 
 #### <a name="create-urls-with-primary-or-secondary-secret-key"></a>Criar URLs com chave secreta primária ou secundária
 
-Ao gerar ou listar URLs de retorno de chamada para um gatilho baseado em solicitação, você pode especificar a chave a ser usada para assinar a URL. Para gerar uma URL assinada por uma chave específica, use a [API REST dos Aplicativos Lógicos](https://docs.microsoft.com/rest/api/logic/workflowtriggers), por exemplo:
+Ao gerar ou listar URLs de retorno de chamada para um gatilho baseado em solicitação, você pode especificar a chave a ser usada para assinar a URL. Para gerar uma URL assinada por uma chave específica, use a [API REST dos Aplicativos Lógicos](/rest/api/logic/workflowtriggers), por exemplo:
 
 ```http
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
@@ -110,7 +110,7 @@ No corpo, inclua a propriedade `KeyType` como `Primary` ou `Secondary`. Essa pro
 
 ### <a name="enable-azure-active-directory-oauth"></a>Habilitar o OAuth do Azure Active Directory
 
-Se seu aplicativo lógico começar com um [gatilho de solicitação](../connectors/connectors-native-reqres.md), você poderá habilitar [Azure Active Directory autenticação aberta](/azure/active-directory/develop/) (Azure ad OAuth) criando uma política de autorização para chamadas de entrada para o gatilho de solicitação. Antes de habilitar essa autenticação, revise estas considerações:
+Se seu aplicativo lógico começar com um [gatilho de solicitação](../connectors/connectors-native-reqres.md), você poderá habilitar [Azure Active Directory autenticação aberta](../active-directory/develop/index.yml) (Azure ad OAuth) criando uma política de autorização para chamadas de entrada para o gatilho de solicitação. Antes de habilitar essa autenticação, revise estas considerações:
 
 * Uma chamada de entrada para seu aplicativo lógico pode usar apenas um esquema de autorização, o OAuth do Azure AD ou [SAS (Assinaturas de Acesso Compartilhado)](#sas). Somente esquemas de autorização de [tipo de portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) têm suporte para tokens OAuth, que têm suporte apenas para o gatilho de solicitação.
 
@@ -212,7 +212,7 @@ Junto à SAS (Assinatura de Acesso Compartilhado), você talvez queira limitar o
 Se você quer que seu aplicativo lógico seja acionado apenas como um aplicativo lógico aninhado, na lista de **Endereços IP de entrada permitidos**, selecione **Apenas outros Aplicativos Lógicos**. Essa opção grava uma matriz vazia em seu recurso de aplicativo lógico. Dessa forma, somente chamadas do serviço de Aplicativos Lógicos (aplicativos lógicos pai) podem disparar o aplicativo lógico aninhado.
 
 > [!NOTE]
-> Independentemente do endereço IP, você ainda pode executar um aplicativo lógico que tenha um gatilho baseado em solicitação usando a [API REST dos aplicativos lógicos: gatilhos de fluxo de trabalho –](https://docs.microsoft.com/rest/api/logic/workflowtriggers/run) solicitação de execução ou usando o gerenciamento de API. Porém, esse cenário ainda requer [autenticação](../active-directory/develop/authentication-scenarios.md) em relação à API REST do Azure. Todos os eventos aparecem no Log de Auditoria do Azure. Verifique se você definiu as políticas de controle de acesso de forma adequada.
+> Independentemente do endereço IP, você ainda pode executar um aplicativo lógico que tenha um gatilho baseado em solicitação usando a [API REST dos aplicativos lógicos: gatilhos de fluxo de trabalho –](/rest/api/logic/workflowtriggers/run) solicitação de execução ou usando o gerenciamento de API. Porém, esse cenário ainda requer [autenticação](../active-directory/develop/authentication-vs-authorization.md) em relação à API REST do Azure. Todos os eventos aparecem no Log de Auditoria do Azure. Verifique se você definiu as políticas de controle de acesso de forma adequada.
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Restringir intervalos de IP de entrada no modelo do Azure Resource Manager
 
@@ -263,13 +263,13 @@ Se você [automatizar a implantação para aplicativos lógicos usando modelos d
 
 ### <a name="add-azure-active-directory-open-authentication-or-other-security"></a>Adicionar Open Authentication do Azure Active Directory ou outro método de segurança
 
-Para adicionar mais protocolos de [autenticação](../active-directory/develop/authentication-scenarios.md) ao seu aplicativo lógico, considere usar o serviço de [Gerenciamento de API do Azure](../api-management/api-management-key-concepts.md). Esse serviço ajuda você a expor seu aplicativo lógico como uma API e oferece monitoramento, segurança, política e documentação avançados para qualquer ponto de extremidade. O Gerenciamento de API pode expor um ponto de extremidade público ou privado para seu aplicativo lógico. Para autorizar o acesso a esse ponto de extremidade, você pode usar [OAuth do Azure AD](#azure-active-directory-oauth-authentication) (Open Authorization do Azure Active Directory), [certificado do cliente](#client-certificate-authentication) ou outros padrões de segurança para autorizar o acesso ao ponto de extremidade. Quando o Gerenciamento de API recebe uma solicitação, o serviço envia a solicitação ao aplicativo lógico, fazendo também quaisquer transformações ou restrições necessárias ao longo do caminho. Para permitir que apenas o Gerenciamento de API dispare seu aplicativo lógico, você pode usar as configurações de intervalo de IP de entrada do aplicativo lógico.
+Para adicionar mais protocolos de [autenticação](../active-directory/develop/authentication-vs-authorization.md) ao seu aplicativo lógico, considere usar o serviço de [Gerenciamento de API do Azure](../api-management/api-management-key-concepts.md). Esse serviço ajuda você a expor seu aplicativo lógico como uma API e oferece monitoramento, segurança, política e documentação avançados para qualquer ponto de extremidade. O Gerenciamento de API pode expor um ponto de extremidade público ou privado para seu aplicativo lógico. Para autorizar o acesso a esse ponto de extremidade, você pode usar [OAuth do Azure AD](#azure-active-directory-oauth-authentication) (Open Authorization do Azure Active Directory), [certificado do cliente](#client-certificate-authentication) ou outros padrões de segurança para autorizar o acesso ao ponto de extremidade. Quando o Gerenciamento de API recebe uma solicitação, o serviço envia a solicitação ao aplicativo lógico, fazendo também quaisquer transformações ou restrições necessárias ao longo do caminho. Para permitir que apenas o Gerenciamento de API dispare seu aplicativo lógico, você pode usar as configurações de intervalo de IP de entrada do aplicativo lógico.
 
 <a name="secure-operations"></a>
 
 ## <a name="access-to-logic-app-operations"></a>Acesso a operações de aplicativo lógico
 
-Você pode permitir que apenas usuários ou grupos específicos executem tarefas específicas, como gerenciar, editar e exibir aplicativos lógicos. Para controlar as permissões, use o [RBAC (controle de acesso baseado em função) do Azure](../role-based-access-control/role-assignments-portal.md) para que você possa atribuir funções personalizadas ou internas aos membros em sua assinatura do Azure:
+Você pode permitir que apenas usuários ou grupos específicos executem tarefas específicas, como gerenciar, editar e exibir aplicativos lógicos. Para controlar suas permissões, use o [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/role-assignments-portal.md) para que você possa atribuir funções personalizadas ou internas aos membros em sua assinatura do Azure:
 
 * [Colaborador de Aplicativo Lógico](../role-based-access-control/built-in-roles.md#logic-app-contributor): Permite o gerenciamento de aplicativos lógicos, mas você não pode alterar o acesso a eles.
 
@@ -427,7 +427,7 @@ Aqui estão algumas [considerações para revisão](#obfuscation-considerations)
 
 * Quando você obscurece as entradas ou saídas em um gatilho ou ação, os Aplicativos Lógicos não enviam os dados protegidos para a Análise de Logs do Azure. Além disso, não é possível adicionar [propriedades rastreadas](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) a esse gatilho ou ação para monitoramento.
 
-* A [API dos Aplicativos Lógicos para manipular o histórico de fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/) não retorna saídas seguras.
+* A [API dos Aplicativos Lógicos para manipular o histórico de fluxo de trabalho](/rest/api/logic/) não retorna saídas seguras.
 
 * Para proteger as saídas de uma ação que obscurece entradas ou oculta explicitamente as saídas, ative manualmente as **Saídas Seguras** nessa ação.
 
@@ -613,7 +613,7 @@ Este modelo de exemplo tem várias definições de parâmetros protegidos que us
          "apiVersion": "2016-06-01",
          "properties": {
             "definition": {
-               "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-0601/workflowdefinition.json#",
+               "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
                "actions": {
                   "HTTP": {
                      "type": "Http",
@@ -816,7 +816,7 @@ Para mais informações sobre como proteger serviços usando a autenticação de
 
 ### <a name="azure-active-directory-open-authentication"></a>Autenticação do Azure Active Directory
 
-Em gatilhos de solicitação, você pode usar o [OAuth do Azure Active Directory](/azure/active-directory/develop/), para autenticar chamadas de entrada depois de [configurar as políticas de autorização do Azure AD](#enable-oauth) para seu aplicativo lógico. Para todos os outros gatilhos e ações que fornecem o tipo de autenticação **OAuth do Active Directory** como opção, especifique estes valores de propriedade:
+Em gatilhos de solicitação, você pode usar o [OAuth do Azure Active Directory](../active-directory/develop/index.yml), para autenticar chamadas de entrada depois de [configurar as políticas de autorização do Azure AD](#enable-oauth) para seu aplicativo lógico. Para todos os outros gatilhos e ações que fornecem o tipo de autenticação **OAuth do Active Directory** como opção, especifique estes valores de propriedade:
 
 | Propriedade (designer) | Propriedade (JSON) | Obrigatório | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
@@ -953,7 +953,7 @@ Você pode usar os aplicativos lógicos do Azure no [Azure governamental](../azu
   * [Azure App planos de serviço](../app-service/overview-hosting-plans.md)
   * [Opções de rede do Azure Functions](../azure-functions/functions-networking-options.md)
   * [Hosts dedicados do Azure para máquinas virtuais](../virtual-machines/windows/dedicated-hosts.md)
-  * [Isolamento de máquina virtual no Azure](../virtual-machines/windows/isolation.md)
+  * [Isolamento de máquina virtual no Azure](../virtual-machines/isolation.md)
   * [Implantar serviços dedicados do Azure em redes virtuais](../virtual-network/virtual-network-for-azure-services.md)
 
 * Para criar aplicativos lógicos que são executados em recursos dedicados e podem acessar recursos protegidos por uma rede virtual do Azure, você pode criar um [ISE (ambiente do serviço de integração)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
@@ -965,7 +965,7 @@ Você pode usar os aplicativos lógicos do Azure no [Azure governamental](../azu
 Para saber mais, consulte esses tópicos:
 
 * [Isolamento na nuvem pública do Azure](../security/fundamentals/isolation-choices.md)
-* [Segurança para aplicativos IaaS altamente confidenciais no Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/high-security-iaas)
+* [Segurança para aplicativos IaaS altamente confidenciais no Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)
 
 ## <a name="next-steps"></a>Próximas etapas
 

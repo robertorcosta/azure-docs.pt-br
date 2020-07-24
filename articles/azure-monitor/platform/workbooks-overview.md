@@ -6,14 +6,14 @@ manager: carmonm
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: b06f39de9f977a9f777b21a53e93ca744fccdd93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 044786d6a6aa4f9f3d163090c0edfa3832023b10
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560152"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116945"
 ---
 # <a name="azure-monitor-workbooks"></a>Pastas de trabalho do Azure Monitor
 
@@ -52,9 +52,9 @@ As pastas de trabalho fornecem um conjunto avançado de recursos para visualizar
 
 Para explorar a experiência de pastas de trabalho, primeiro navegue até o serviço de Azure Monitor. Isso pode ser feito digitando **Monitor** na caixa de pesquisa na portal do Azure.
 
-Em seguida, selecione **pastas de trabalho (versão prévia)**.
+Em seguida, selecione **pastas de trabalho**.
 
-![Captura de tela do botão de visualização de pastas de trabalho realçado em uma caixa vermelha](./media/workbooks-overview/workbooks-preview.png)
+![Captura de tela do botão pastas de trabalho realçado em uma caixa vermelha](./media/workbooks-overview/workbooks.png)
 
 ### <a name="gallery"></a>Galeria
 

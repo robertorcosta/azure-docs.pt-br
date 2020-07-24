@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 07/16/2020
 ms.author: jgao
-ms.openlocfilehash: 8906ac7a00a349e2312eb80f5e25e32292a089ab
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: fcdcf563cd88cbf6604877636432a406c1960cff
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134573"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117044"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usar scripts de implantação em modelos (versão prévia)
 
@@ -141,7 +141,7 @@ Detalhes do valor da propriedade:
 - **containerSettings**: Especifique as configurações para personalizar a Instância de Contêiner do Azure.  **containerGroupName** serve para especificar o nome do grupo de contêineres.  Se não for especificado, o nome do grupo será gerado automaticamente.
 - **storageAccountSettings**: Especifique as configurações para usar uma conta de armazenamento existente. Se não for especificado, uma conta de armazenamento será criada automaticamente. Consulte [Usar uma conta de armazenamento existente](#use-existing-storage-account).
 - **azPowerShellVersion**/**azCliVersion**: Especifique a versão de módulo a ser usada. Para obter uma lista de versões do PowerShell e da CLI com suporte, consulte [Pré-requisitos](#prerequisites).
-- **arguments**: Especifique os valores de parâmetro. Os valores são separados por espaços.
+- **arguments**: Especifique os valores de parâmetro. os valores são separados por espaços.
 
     Os scripts de implantação dividem os argumentos em uma matriz de cadeias de caracteres invocando a chamada do sistema [CommandLineToArgvW](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) . Isso é necessário porque os argumentos são passados como uma [propriedade de comando](/rest/api/container-instances/containergroups/createorupdate#containerexec) para a instância de contêiner do Azure e a propriedade Command é uma matriz de cadeia de caracteres.
 
@@ -600,6 +600,34 @@ Você também precisa configurar o compartilhamento de arquivos para montar o di
     ![Cmd do Docker do script de implantação do modelo do Resource Manager](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
 Depois que o script for testado com êxito, você poderá usá-lo como um script de implantação em seus modelos.
+
+## <a name="deployment-script-error-codes"></a>Códigos de erro de script de implantação
+
+| Código do erro | Descrição |
+|------------|-------------|
+| DeploymentScriptInvalidOperation | A definição de recurso de script de implantação no modelo contém nomes de propriedade inválidos. |
+| DeploymentScriptResourceConflict | Não é possível excluir um recurso de script de implantação que está no estado não terminal e a execução não excedeu 1 hora. Ou não é possível executar novamente o mesmo script de implantação com o mesmo identificador de recurso (mesma assinatura, nome do grupo de recursos e nome do recurso), mas conteúdo de corpo de script diferente ao mesmo tempo. |
+| DeploymentScriptOperationFailed | A operação de script de implantação falhou internamente. Entre em contato com o suporte da Microsoft. |
+| DeploymentScriptStorageAccountAccessKeyNotSpecified | A chave de acesso não foi especificada para a conta de armazenamento existente.|
+| DeploymentScriptContainerGroupContainsInvalidContainers | Um grupo de contêineres criado pelo serviço de script de implantação foi modificado externamente e contêineres inválidos foram adicionados. |
+| DeploymentScriptContainerGroupInNonterminalState | Dois ou mais recursos de script de implantação usam o mesmo nome de instância de contêiner do Azure no mesmo grupo de recursos, e um deles ainda não terminou sua execução. |
+| DeploymentScriptStorageAccountInvalidKind | A conta de armazenamento existente do tipo BlobBlobStorage ou BlobStorage não dá suporte a compartilhamentos de arquivos e não pode ser usada. |
+| DeploymentScriptStorageAccountInvalidKindAndSku | A conta de armazenamento existente não oferece suporte a compartilhamentos de arquivos. Para obter uma lista de tipos de conta de armazenamento com suporte, consulte [usar conta de armazenamento existente](#use-existing-storage-account). |
+| DeploymentScriptStorageAccountNotFound | A conta de armazenamento não existe ou foi excluída por um processo ou ferramenta externa. |
+| DeploymentScriptStorageAccountWithServiceEndpointEnabled | A conta de armazenamento especificada tem um ponto de extremidade de serviço. Não há suporte para uma conta de armazenamento com um ponto de extremidade de serviço. |
+| DeploymentScriptStorageAccountInvalidAccessKey | Chave de acesso inválida especificada para a conta de armazenamento existente. |
+| DeploymentScriptStorageAccountInvalidAccessKeyFormat | Formato de chave da conta de armazenamento inválido. Consulte [gerenciar chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md). |
+| DeploymentScriptExceededMaxAllowedTime | O tempo de execução do script de implantação excedeu o valor de tempo limite especificado na definição de recurso de script de implantação. |
+| DeploymentScriptInvalidOutputs | A saída do script de implantação não é um objeto JSON válido. |
+| DeploymentScriptContainerInstancesServiceLoginFailure | A identidade gerenciada atribuída pelo usuário não pôde fazer logon após 10 tentativas com um intervalo de 1 minuto. |
+| DeploymentScriptContainerGroupNotFound | Um grupo de contêineres criado pelo serviço de script de implantação foi excluído por uma ferramenta ou processo externo. |
+| DeploymentScriptDownloadFailure | Falha ao baixar um script de suporte. Consulte [usar script de suporte](#use-supporting-scripts).|
+| DeploymentScriptError | O script do usuário gerou um erro. |
+| DeploymentScriptBootstrapScriptExecutionFailed | O script de inicialização gerou um erro. O script de inicialização é o script do sistema que orquestra a execução do script de implantação. |
+| DeploymentScriptExecutionFailed | Erro desconhecido durante a execução do script de implantação. |
+| DeploymentScriptContainerInstancesServiceUnavailable | Ao criar a instância de contêiner do Azure (ACI), o ACI gerou um erro de serviço indisponível. |
+| DeploymentScriptContainerGroupInNonterminalState | Ao criar a instância de contêiner do Azure (ACI), outro script de implantação está usando o mesmo nome ACI no mesmo escopo (mesma assinatura, nome do grupo de recursos e nome do recurso). |
+| DeploymentScriptContainerGroupNameInvalid | O nome da instância de contêiner do Azure (ACI) especificado não atende aos requisitos de ACI. Consulte [solucionar problemas comuns em instâncias de contêiner do Azure](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment).|
 
 ## <a name="next-steps"></a>Próximas etapas
 

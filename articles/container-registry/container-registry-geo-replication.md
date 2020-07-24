@@ -3,14 +3,14 @@ title: Replicação geográfica de um registro
 description: Comece a criar e gerenciar um registro de contêiner do Azure com replicação geográfica, que permite que o registro atenda a várias regiões com réplicas regionais de vários mestres. A replicação geográfica é um recurso da camada de serviço Premium.
 author: stevelas
 ms.topic: article
-ms.date: 05/11/2020
+ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: 315de5151547c4339255639cb65d1be30f7213ff
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b5d016574fd85047ec349820a747b47d0582958b
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247125"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116794"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicação geográfica no Registro de Contêiner do Azure
 
@@ -95,7 +95,7 @@ O ACR começa a sincronizar imagens em réplicas configurados. Depois de conclu�
 * Quando você envia imagens por push ou pull de um registro com replicação geográfica, o Gerenciador de Tráfego do Azure em segundo plano envia a solicitação para o registro localizado na região mais próxima de você em termos de latência de rede.
 * Depois que você envia uma atualização de imagem ou marca por push para a região mais próxima, demora algum tempo até o Registro de Contêiner do Azure replicar as camadas e manifestos para as demais regiões que você aceitou. As imagens maiores demoram mais tempo para replicar do que as menores. As imagens e marcas são sincronizadas em todas as regiões de replicação com um modelo de consistência eventual.
 * Para gerenciar fluxos de trabalho que dependem de atualizações por push para um registro com replicação geográfica, recomendamos que você configure [webhooks](container-registry-webhook.md) para responder a eventos por push. Você pode configurar webhooks regionais dentro de um registro com replicação geográfica para acompanhar eventos por push, conforme eles são concluídos em todas as regiões com replicação geográfica.
-* Para atender a BLOBs que representam camadas de conteúdo, o registro de contêiner do Azure usa pontos de extremidade de dados. Você pode habilitar [pontos de extremidade de dados dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) para seu registro em cada uma das regiões replicadas geograficamente do registro. Esses pontos de extremidade permitem a configuração de regras de acesso a firewall com escopo bem delimitado.
+* Para atender a BLOBs que representam camadas de conteúdo, o registro de contêiner do Azure usa pontos de extremidade de dados. Você pode habilitar [pontos de extremidade de dados dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) para seu registro em cada uma das regiões replicadas geograficamente do registro. Esses pontos de extremidade permitem a configuração de regras de acesso a firewall com escopo bem delimitado. Para fins de solução de problemas, opcionalmente, você pode [desabilitar o roteamento para uma replicação](#temporarily-disable-routing-to-replication) , mantendo os dados replicados.
 * Se você configurar um [link privado](container-registry-private-link.md) para o registro usando pontos de extremidade privados em uma rede virtual, os pontos de extremidade de dados dedicados em cada uma das regiões com replicação geográfica serão habilitados por padrão. 
 
 ## <a name="delete-a-replica"></a>Excluir uma réplica
@@ -127,9 +127,36 @@ Se esse problema ocorrer, uma solução será aplicar um cache DNS do lado do cl
 
 Para otimizar a resolução DNS para a réplica mais próxima ao efetuar push de imagens, configure um registro com replicação geográfica nas mesmas regiões do Azure da origem das operações de push ou a região mais próxima ao trabalhar fora do Azure.
 
+### <a name="temporarily-disable-routing-to-replication"></a>Desabilitar temporariamente o roteamento para replicação
+
+Para solucionar problemas de operações com um registro replicado geograficamente, talvez você queira desabilitar temporariamente o roteamento do Gerenciador de tráfego para uma ou mais replicações. A partir do CLI do Azure versão 2,8, você pode configurar uma `--region-endpoint-enabled` opção (versão prévia) ao criar ou atualizar uma região replicada. Quando você define a opção de replicação `--region-endpoint-enabled` como `false` , o Gerenciador de tráfego não roteia mais as solicitações Push ou pull do Docker para essa região. Por padrão, o roteamento para todas as replicações é habilitado e a sincronização de dados entre todas as replicações ocorrerá se o roteamento estiver habilitado ou desabilitado.
+
+Para desabilitar o roteamento para uma replicação existente, primeiro execute [AZ ACR Replication List][az-acr-replication-list] para listar as replicações no registro. Em seguida, execute [AZ ACR Replication Update][az-acr-replication-update] e defina `--region-endpoint-enabled false` para uma replicação específica. Por exemplo, para definir a configuração para a replicação *westus* no *myregistry*:
+
+```azurecli
+# Show names of existing replications
+az acr replication list --registry --output table
+
+# Disable routing to replication
+az acr replication update update --name westus \
+  --registry myregistry --resource-group MyResourceGroup \
+  --region-endpoint-enabled false
+```
+
+Para restaurar o roteamento para uma replicação:
+
+```azurecli
+az acr replication update update --name westus \
+  --registry myregistry --resource-group MyResourceGroup \
+  --region-endpoint-enabled true
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Confira a série de tutoriais em três partes, [Replicação geográfica no Registro de Contêiner do Azure](container-registry-tutorial-prepare-registry.md). Percorra a criação de um Registro com replicação geográfica, criando um contêiner e, em seguida, implantando-o com um único comando `docker push` em várias instâncias regionais dos Aplicativos Web para Contêineres.
 
 > [!div class="nextstepaction"]
 > [Replicação geográfica no Registro de Contêiner do Azure](container-registry-tutorial-prepare-registry.md)
+
+[az-acr-replication-list]: /cli/azure/acr/replication#az-acr-replication-list
+[az-acr-replication-update]: /cli/azure/acr/replication#az-acr-replication-update

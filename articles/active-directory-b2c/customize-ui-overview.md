@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/04/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ebf83807629cc56aa381c97a9ce36d90c94d61f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bcf268ba45ee8fefa027263a25ff411344b4669
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388894"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116434"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário no Azure Active Directory B2C
 
@@ -154,7 +155,7 @@ A tabela abaixo lista os fragmentos de HTML que o Azure AD B2C mescla ao element
 | Inscrição da conta local | Contém um formulário para inscrições de conta local baseada em um endereço de email ou um nome de usuário. O formulário pode conter diferentes controles de entrada como caixa de entrada de texto, caixa de entrada de senha, botão de opção, caixas de lista suspensa de seleção única e caixas de seleção múltipla. |
 | Inscrição de conta social | Pode aparecer ao se inscrever usando uma conta existente de um provedor de identidade social, como o Facebook ou Google. Ele é usado quando informações adicionais devem ser coletadas do cliente usando um formulário de inscrição. |
 | Inscrição ou entrada unificada | Controla tanto a inscrição quanto a entrada de clientes, que podem usar provedores de identidade social como Facebook, Google ou contas locais. |
-| Autenticação multifator | Os clientes podem verificar seus números de telefone (usando mensagem de texto ou de voz) durante a inscrição ou entrada. |
+| Autenticação Multifator | Os clientes podem verificar seus números de telefone (usando mensagem de texto ou de voz) durante a inscrição ou entrada. |
 | Erro | Fornece informações de erro para o cliente. |
 
 ## <a name="company-branding-preview"></a>Identidade visual da empresa (versão prévia)
@@ -190,7 +191,7 @@ Depois de configurar a identidade visual da empresa, habilite-a em seus fluxos d
 1. Selecione o fluxo de usuário para o qual você deseja habilitar a identidade visual da empresa. A identidade visual da empresa **não tem suporte** para os tipos de fluxo de usuário *Sign in v1* e de *edição de perfil v1* .
 1. Em **Personalizar**, selecione **layouts de página**e, em seguida, selecione o layout que você deseja marcar. Por exemplo, selecione **página de inscrição ou inscrição unificada**.
 1. Para a **versão de layout de página (visualização)**, escolha a versão **1.2.0** ou superior.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Se você quiser marcar todas as páginas no fluxo do usuário, defina a versão de layout da página para cada layout de página no fluxo do usuário.
 
@@ -239,7 +240,7 @@ Os arquivos HTML e CSS de exemplo nos modelos estão localizados no diretório [
 
 - Se você estiver usando **fluxos de usuário**, você pode começar a personalizar sua interface de usuário com o tutorial:
 
-    [Personalizar a interface do usuário dos aplicativos no Azure Active Directory B2C](tutorial-customize-ui.md).
+    [Personalize a interface do usuário de seus aplicativos no Azure Active Directory B2C](tutorial-customize-ui.md).
 - Se você estiver usando **políticas personalizadas**, poderá começar a personalizar a interface do usuário com o artigo:
 
     [Personalize a interface do usuário do seu aplicativo usando uma política personalizada no Azure Active Directory B2C](custom-policy-ui-customization.md).

@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: tracking-python
-ms.openlocfilehash: 87e4d67086ea9f260becb2d63765e807e2b73546
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: e6965cef0257ee472c08b19e3a9b1c2ec2860128
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985745"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116905"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como usar identidades gerenciadas para o Serviço de Aplicativo e o Azure Functions
 
@@ -84,7 +84,7 @@ As etapas a seguir guiarão você na criação de um aplicativo e na atribuiçã
 
 #### <a name="using-azure-powershell-for-a-web-app"></a>Usando o Azure PowerShell para um aplicativo Web
 
-1. Se necessário, instale o Azure PowerShell usando as instruções encontradas no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Login-AzAccount` para criar uma conexão com o Azure.
+1. Se necessário, instale o Azure PowerShell usando as instruções encontradas no [Guia do Azure PowerShell](/powershell/azure/) e, em seguida, execute `Login-AzAccount` para criar uma conexão com o Azure.
 
 2. Crie um aplicativo da Web usando o Azure PowerShell. Para obter mais exemplos de como usar o Azure PowerShell com o Serviço de Aplicativo, consulte [ Amostras do PowerShell do Serviço de Aplicativo ](../app-service/samples-powershell.md):
 
@@ -107,7 +107,7 @@ As etapas a seguir guiarão você na criação de um aplicativo e na atribuiçã
 
 #### <a name="using-azure-powershell-for-a-function-app"></a>Usando o Azure PowerShell para um aplicativo de funções
 
-1. Se necessário, instale o Azure PowerShell usando as instruções encontradas no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Login-AzAccount` para criar uma conexão com o Azure.
+1. Se necessário, instale o Azure PowerShell usando as instruções encontradas no [Guia do Azure PowerShell](/powershell/azure/) e, em seguida, execute `Login-AzAccount` para criar uma conexão com o Azure.
 
 2. Crie um aplicativo de funções usando o Azure PowerShell. Para obter mais exemplos de como usar o Azure PowerShell com o Azure Functions, confira a [referência do Az.Functions](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions):
 
@@ -208,7 +208,7 @@ As etapas a seguir guiarão você na criação de um aplicativo e na atribuiçã
 > [!NOTE]
 > A versão atual dos commandlets do Azure PowerShell para o Serviço de Aplicativo do Azure não são compatíveis com identidades atribuídas pelo usuário. As instruções abaixo são para o Azure Functions.
 
-1. Se necessário, instale o Azure PowerShell usando as instruções encontradas no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Login-AzAccount` para criar uma conexão com o Azure.
+1. Se necessário, instale o Azure PowerShell usando as instruções encontradas no [Guia do Azure PowerShell](/powershell/azure/) e, em seguida, execute `Login-AzAccount` para criar uma conexão com o Azure.
 
 2. Crie um aplicativo de funções usando o Azure PowerShell. Para obter mais exemplos de como usar o Azure PowerShell com o Azure Functions, confira a [referência do Az.Functions](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions). O script abaixo também usa `New-AzUserAssignedIdentity` que deve ser instalado separadamente de acordo com [Criar, listar ou excluir uma identidade gerenciada atribuída pelo usuário usando o Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
@@ -431,7 +431,7 @@ $accessToken = $tokenResponse.access_token
 
 ### <a name="using-the-microsoftazureservicesappauthentication-library-for-net"></a><a name="asal"></a>Usar a biblioteca de Microsoft.Azure.Services.AppAuthentication do .NET
 
-Para aplicativos e funções .NET, a maneira mais simples de trabalhar com uma identidade gerenciada é por meio do pacote Microsoft.Azure.Services.AppAuthentication. Essa biblioteca também permitirá que você teste seu código localmente em sua máquina de desenvolvimento, usando sua conta de usuário do Visual Studio, a [Azure CLI](/cli/azure) ou a Autenticação Integrada do Active Directory. Para obter mais informações sobre as opções de desenvolvimento local com essa biblioteca, consulte a [Referência Microsoft.Azure.Services.AppAuthentication]. Esta seção mostra a você como começar a usar a biblioteca no seu código.
+Para aplicativos e funções .NET, a maneira mais simples de trabalhar com uma identidade gerenciada é por meio do pacote Microsoft.Azure.Services.AppAuthentication. Essa biblioteca também permitirá que você teste seu código localmente em sua máquina de desenvolvimento, usando sua conta de usuário do Visual Studio, a [Azure CLI](/cli/azure) ou a Autenticação Integrada do Active Directory. Quando hospedado na nuvem, ele usará como padrão uma identidade atribuída pelo sistema, mas você pode personalizar esse comportamento usando uma variável de ambiente de cadeia de conexão que faz referência à ID do cliente de uma identidade atribuída pelo usuário. Para obter mais informações sobre opções de desenvolvimento com essa biblioteca, consulte a [referência Microsoft. Azure. Services. AppAuthentication]. Esta seção mostra a você como começar a usar a biblioteca no seu código.
 
 1. Adicione referências a [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e a qualquer outro pacote NuGet necessário para seu aplicativo. O exemplo abaixo também usa [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
@@ -447,7 +447,17 @@ Para aplicativos e funções .NET, a maneira mais simples de trabalhar com uma i
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
 
-Para saber mais sobre o Microsoft.Azure.Services.AppAuthentication e as operações que ele expõe, consulte a [Referência Microsoft.Azure.Services.AppAuthentication] e [Serviço de Aplicativo e KeyVault com a amostra MSI .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Se você quiser usar uma identidade gerenciada atribuída pelo usuário, poderá definir a `AzureServicesAuthConnectionString` configuração do aplicativo como `RunAs=App;AppId=<clientId-guid>` . Substitua `<clientId-guid>` pela ID do cliente da identidade que você deseja usar. Você pode definir várias dessas cadeias de conexão usando configurações de aplicativo personalizadas e passando seus valores para o Construtor O azureservicetokenprovider.
+
+```csharp
+    var identityConnectionString1 = Environment.GetEnvironmentVariable("UA1_ConnectionString");
+    var azureServiceTokenProvider1 = new AzureServiceTokenProvider(identityConnectionString1);
+    
+    var identityConnectionString2 = Environment.GetEnvironmentVariable("UA2_ConnectionString");
+    var azureServiceTokenProvider2 = new AzureServiceTokenProvider(identityConnectionString2);
+```
+
+Para saber mais sobre como configurar o O azureservicetokenprovider e as operações que ele expõe, consulte a [referência do Microsoft. Azure. Services. AppAuthentication] e o [serviço de aplicativo e o keyvault com o exemplo do MSI .net](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ### <a name="using-the-azure-sdk-for-java"></a>Usando o SDK do Azure para Java
 

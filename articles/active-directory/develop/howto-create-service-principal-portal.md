@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 12389484f63d35eb31b38d5067061dc99b7284f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 479222cc9b67775d359182740dc78865da8cee38
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505980"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115924"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos
 
@@ -29,7 +29,7 @@ Este artigo mostra como usar o portal para criar a entidade de serviço no porta
 > Em vez de criar uma entidade de serviço, considere o uso de identidades gerenciadas para recursos do Azure para a identidade do aplicativo. Se o seu código for executado em um serviço que dá suporte a identidades gerenciadas e a recursos de acesso que dão suporte à autenticação do Azure AD, as identidades gerenciadas são uma opção melhor para você. Para saber mais sobre identidades gerenciadas dos recursos do Azure, incluindo os serviços atualmente com suporte, consulte [O que são identidades gerenciadas para recursos do Azure?](../managed-identities-azure-resources/overview.md).
 
 ## <a name="app-registration-app-objects-and-service-principals"></a>Registro de aplicativo, objetos de aplicativo e entidades de serviço
-Não é possível criar uma entidade de serviço diretamente usando o portal do Azure.  Quando você registra um aplicativo por meio do portal do Azure, um objeto de aplicativo e uma entidade de serviço são automaticamente criados no seu diretório base ou locatário.  Para obter mais informações sobre a relação entre o registro do aplicativo, objetos de aplicativo e entidades de serviço, leia [objetos de aplicativo e entidade de serviço no Azure Active Directory](app-objects-and-service-principals.md).
+Não é possível criar uma entidade de serviço diretamente usando o portal do Azure.  Quando você registra um aplicativo por meio do portal do Azure, um objeto de aplicativo e uma entidade de serviço são criados automaticamente em seu diretório base ou locatário.  Para obter mais informações sobre a relação entre o registro do aplicativo, objetos de aplicativo e entidades de serviço, leia [objetos de aplicativo e entidade de serviço no Azure Active Directory](app-objects-and-service-principals.md).
 
 ## <a name="permissions-required-for-registering-an-app"></a>Permissões necessárias para registrar um aplicativo
 
@@ -178,7 +178,7 @@ Se você optar por não usar um certificado, poderá criar um novo segredo do ap
    ![Copiar o valor do segredo porque você não pode recuperá-lo mais tarde](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Configurar políticas de acesso em recursos
-Tenha em mente que talvez seja necessário configurar permissões de adição em recursos que seu aplicativo precisa acessar. Por exemplo, você também deve [atualizar as políticas de acesso de um cofre de chaves](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) para dar ao aplicativo acesso a chaves, segredos ou certificados.  
+Tenha em mente que talvez seja necessário configurar permissões adicionais em recursos que seu aplicativo precisa acessar. Por exemplo, você também deve [atualizar as políticas de acesso de um cofre de chaves](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) para dar ao aplicativo acesso a chaves, segredos ou certificados.  
 
 1. No [portal do Azure](https://portal.azure.com), navegue até o cofre de chaves e selecione **políticas de acesso**.  
 1. Selecione **Adicionar política de acesso**e, em seguida, selecione as permissões de chave, segredo e certificado que você deseja conceder ao seu aplicativo.  Selecione a entidade de serviço que você criou anteriormente.

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 4112555347ce1d718375fbab3f166c6f2f5deeaa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 338fdcb6ee2ebad98972bead7e16c9bc5944f2b3
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80333514"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117070"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Como solucionar problemas com o agente do Log Analytics para Windows 
 
@@ -37,8 +37,9 @@ Verifique se o firewall ou o proxy está configurado para permitir as seguintes 
 |*.ods.opinsights.azure.com |Porta 443 |Saída|Sim |  
 |*.oms.opinsights.azure.com |Porta 443 |Saída|Sim |  
 |*.blob.core.windows.net |Porta 443 |Saída|Sim |  
+|*. agentsvc.azure-automation.net |Porta 443 |Saída|Sim |  
 
-Para obter informações de firewall necessárias para o Azure Governamental, confira [Gerenciamento do Azure Governamental](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). Se você planeja usar o Hybrid Runbook Worker da Automação do Azure para conectar e se registrar no serviço de automação para usar runbooks ou soluções de gerenciamento em seu ambiente, é necessário ter acesso ao número da porta e as URLs descritas em [Configurar sua rede para o Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+Para obter informações de firewall necessárias para o Azure Governamental, confira [Gerenciamento do Azure Governamental](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). Se você planeja usar o Hybrid Runbook Worker da Automação do Azure para conectar e se registrar no serviço de automação para usar runbooks ou soluções de gerenciamento em seu ambiente, é necessário ter acesso ao número da porta e as URLs descritas em [Configurar sua rede para o Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 Há várias maneiras de verificar se o agente está se comunicando com êxito com Azure Monitor.
 
@@ -103,4 +104,3 @@ Se a consulta retornar resultados, você precisará determinar se um determinado
     |8000 |HealthService |Esse evento especificará se um fluxo de trabalho relacionado a desempenho, evento ou outro tipo de dados coletado não puder encaminhar para o serviço para ingestão no espaço de trabalho. | A ID de evento 2136 da fonte HealthService é escrita junto com esse evento e pode indicar que o agente não pode se comunicar com o serviço, possivelmente devido a uma configuração incorreta do proxy e das configurações de autenticação, interrupção de rede ou o firewall/proxy de rede não permite o tráfego TCP do computador para o serviço.| 
     |10102 e 10103 |Módulos do Serviço de Integridade |O fluxo de trabalho não pôde resolver a fonte de dados. |Isso pode ocorrer se o contador de desempenho ou a instância especificada não existir no computador ou se estiver definido incorretamente nas configurações de dados do espaço de trabalho. Se esse for um [contador de desempenho](data-sources-performance-counters.md#configuring-performance-counters)especificado pelo usuário, verifique se as informações especificadas estão seguindo o formato correto e se existem nos computadores de destino. |
     |26002 |Módulos do Serviço de Integridade |O fluxo de trabalho não pôde resolver a fonte de dados. |Isso pode ocorrer se o log de eventos do Windows especificado não existir no computador. Esse erro pode ser ignorado com segurança se o computador não tiver esse log de eventos registrado; caso contrário, se esse for um [log de eventos](data-sources-windows-events.md#configuring-windows-event-logs)especificado pelo usuário, verifique se as informações especificadas estão corretas. |
-
