@@ -4,11 +4,12 @@ description: Saiba mais sobre os parceiros do Azure Monitor e como você pode ac
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: be309bf6caeb716fee86e4542363f5554b4568fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f40d38d182e1a8c233b15f711fd557a5d72e8f30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248964"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077322"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -249,7 +250,7 @@ O SquaredUp para Azure torna a visualização de aplicativos do Azure linda simp
 
 [Saiba mais.](https://squaredup.com/)
 
-## <a name="sumo-logic"></a>Lógica Sumo
+## <a name="sumo-logic"></a>Sumo Logic
 
 ![Logotipo da lógica do Resumo](./media/partners/SumoLogic.png)
 
@@ -269,8 +270,8 @@ O Turbonomic oferece automação de carga de trabalho para nuvens híbridas otim
 
 - [Saiba mais sobre o Azure Monitor](../../azure-monitor/overview.md)
 - [Acessar métricas usando a API REST](rest-api-walkthrough.md)
-- [Transmitir o Log de Atividades para um serviço que não seja da Microsoft](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [Transmitir logs de recursos para um serviço que não seja da Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [Transmitir o Log de Atividades para um serviço que não seja da Microsoft](./activity-log.md#legacy-collection-methods)
+- [Transmitir logs de recursos para um serviço que não seja da Microsoft](./resource-logs.md#send-to-azure-event-hubs)
 
 
 
@@ -301,4 +302,3 @@ O Turbonomic oferece automação de carga de trabalho para nuvens híbridas otim
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Documentação do Splunk."
 [sumologic-doc]: https://www.sumologic.com/azure "Documentação da SumoLogic"
 [turbonomic-doc]: https://turbonomic.com/ "Introdução ao Turbonomic."
-

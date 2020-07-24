@@ -2,23 +2,23 @@
 title: 'Configurar a autenticação do Azure AD para a conexão VPN do usuário: WAN virtual'
 description: Saiba como configurar a autenticação de Azure Active Directory para VPN de usuário.
 services: virtual-wan
-author: anzaman
+author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: alzam
-ms.openlocfilehash: dd80724d62c71fdec81965fb4aa6a07a6233a288
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2028cae4908214db28de2545f02f5f2997eeb8af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753959"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077478"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Configurar a autenticação de Azure Active Directory para VPN de usuário
 
 Este artigo mostra como configurar a autenticação do Azure AD para VPN de usuário na WAN virtual para se conectar aos seus recursos no Azure por meio de uma conexão VPN OpenVPN. A Autenticação Azure Active Directory só está disponível para gateways usando o protocolo OpenVPN e clientes que executam o Windows.
 
-Esse tipo de conexão exige que um cliente seja configurado no computador cliente. Para obter mais informações sobre WAN virtual, consulte [visão geral da WAN virtual](virtual-wan-about.md).
+Esse tipo de conexão exige que um cliente seja configurado no computador cliente. Para saber mais sobre WAN Virtual, confira a [Visão geral de WAN Virtual](virtual-wan-about.md).
 
 Neste artigo, você aprenderá como:
 
@@ -38,7 +38,7 @@ Neste artigo, você aprenderá como:
 
 Verifique se você atende aos seguintes critérios antes de iniciar a configuração:
 
-* Você tem uma rede virtual à qual deseja se conectar. Verifique se nenhuma das sub-redes das redes locais se sobrepõe às redes virtuais às quais você deseja se conectar. Para criar uma rede virtual no portal do Azure, consulte o guia de [início rápido](../virtual-network/quick-create-portal.md).
+* Você tem uma rede virtual à qual deseja se conectar. Verifique se nenhuma das sub-redes das redes locais se sobrepõe às redes virtuais às quais você deseja se conectar. Para criar uma rede virtual no portal do Azure, consulte o [Início Rápido](../virtual-network/quick-create-portal.md).
 
 * Sua rede virtual não tem gateways de rede virtual. Se sua rede virtual tem um gateway (VPN ou ExpressRoute), remova todos os gateways. Essa configuração requer que as redes virtuais sejam conectadas ao gateway do hub da WAN Virtual.
 

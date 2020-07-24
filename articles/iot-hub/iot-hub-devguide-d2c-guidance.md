@@ -11,11 +11,12 @@ ms.date: 01/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b984ee7ed662bf089e7bcb6fc7e948fb61ed1209
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b86610910ed532e737720bb3b83e773596987aba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733222"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074676"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Diretrizes de comunicações do dispositivo para a nuvem
 
@@ -31,7 +32,7 @@ Ao enviar informações do aplicativo do dispositivo para o back-end da soluçã
 
 Aqui está uma comparação detalhada das várias opções de comunicação do dispositivo para a nuvem.
 
-|  | Mensagens do dispositivo para a nuvem | Propriedades relatadas do dispositivo gêmeo | Carregamentos de arquivos |
+| Fator | Mensagens do dispositivo para a nuvem | Propriedades relatadas do dispositivo gêmeo | Carregamentos de arquivos |
 | ---- | ------- | ---------- | ---- |
 | Cenário | Série de tempo de telemetria e alertas. Por exemplo, os lotes de dados de sensor de 256 KB enviados a cada 5 minutos. | Recursos disponíveis e condições. Por exemplo, o modo atual de conectividade do dispositivo como celular ou WiFi. Sincronização dos fluxos de trabalho de longa duração, como atualizações de software e configuração. | Arquivos de mídia. Lotes grandes de telemetria (geralmente compactados). |
 | Armazenamento e recuperação | Armazenado temporariamente pelo Hub IoT, até sete dias. Somente leitura sequencial. | Armazenados pelo Hub IoT no dispositivo gêmeo. Recuperáveis usando a [linguagem de consulta do Hub IoT](iot-hub-devguide-query-language.md). | Armazenados na conta de Armazenamento do Azure fornecida pelo usuário. |

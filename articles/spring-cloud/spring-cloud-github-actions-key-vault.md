@@ -1,18 +1,20 @@
 ---
-title: Autenticar o Azure Spring Cloud com Key Vault em ações do GitHub
+title: Autenticação do Azure Spring Cloud com o Key Vault no GitHub Actions
 description: Como usar o cofre de chaves com fluxo de trabalho de CI/CD para o Azure Spring Cloud com ações do GitHub
 author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
-ms.openlocfilehash: 4a836ae195674556c486592a421c188f7c40e3f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 433cd9e7b8cfe69ce5008366db884659cccbc149
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484341"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076013"
 ---
-# <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autenticar o Azure Spring Cloud com Key Vault em ações do GitHub
+# <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autenticação do Azure Spring Cloud com o Key Vault no GitHub Actions
 O Key Vault é um local seguro para armazenar chaves. Os usuários corporativos precisam armazenar credenciais para ambientes de CI/CD no escopo que controlam. A chave para obter credenciais no cofre de chaves deve ser limitada ao escopo do recurso.  Ele tem acesso apenas ao escopo do cofre de chaves, não ao escopo do Azure inteiro. É como uma chave que só pode abrir uma caixa forte, e não uma chave mestra, que pode abrir todas as portas em um edifício. É uma maneira de obter uma chave com outra chave, que é útil em um fluxo de trabalho CICD. 
 
 ## <a name="generate-credential"></a>Gerar credencial

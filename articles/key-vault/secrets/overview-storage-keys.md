@@ -9,12 +9,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 58f41742519effc3959a3868345ed77c64db6341
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8f8a333c880850b239fbaba1ea405b94a1460e8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508496"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076738"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gerenciar chaves de conta de armazenamento com Key Vault e o CLI do Azure
 
@@ -46,14 +46,14 @@ Key Vault é um aplicativo da Microsoft que é previamente registrado em todos o
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Público do Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Outros  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Outro  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia, primeiro você deve fazer o seguinte:
 
 - [Instale a CLI do Azure](/cli/azure/install-azure-cli).
-- [Criar um cofre de chaves](quick-create-cli.md)
+- [Criar um cofre de chave](quick-create-cli.md)
 - [Criar uma conta de Armazenamento do Azure](../../storage/common/storage-account-create.md?tabs=azure-cli). O nome da conta de armazenamento deve usar apenas letras minúsculas e números. O comprimento do nome deve ter entre 3 e 24 caracteres.
       
 ## <a name="manage-storage-account-keys"></a>Gerenciar chaves de conta de armazenamento
@@ -90,7 +90,7 @@ az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage
 Observe que as permissões para contas de armazenamento não estão disponíveis na página de "Políticas de acesso" da conta de armazenamento no portal do Azure.
 ### <a name="create-a-key-vault-managed-storage-account"></a>Criar uma conta de armazenamento gerenciado Key Vault
 
- Crie uma conta de armazenamento gerenciado Key Vault usando o comando de [armazenamento CLI do Azure AZ keyvault](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) . Defina um período de regeneração de 90 dias. Após 90 dias, Key Vault regenera `key1` e troca a chave ativa de `key2` para `key1` . `key1`é marcado como a chave ativa. Forneça o comando aos seguintes valores de parâmetro:
+ Crie uma conta de armazenamento gerenciado Key Vault usando o comando de [armazenamento CLI do Azure AZ keyvault](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) . Defina um período de regeneração de 90 dias. Quando for o momento de girar, o keyvault regenerará a chave que não está ativa e, em seguida, definirá a chave recém-criada como ativa. Somente uma das chaves é usada para emitir tokens SAS a qualquer momento, essa é a chave ativa. Forneça o comando aos seguintes valores de parâmetro:
 
 - `--vault-name`: Passe o nome do seu cofre de chaves. Para localizar o nome do cofre de chaves, use o comando CLI do Azure [AZ keyvault List](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-list) .
 - `-n`: Passe o nome da sua conta de armazenamento. Para localizar o nome da sua conta de armazenamento, use o comando CLI do Azure [AZ Storage Account List](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) .

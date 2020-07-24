@@ -1,6 +1,6 @@
 ---
-title: Migrar aplicativos Java Message Service (JMS) do ActiveMQ para o barramento de serviço do Azure | Microsoft Docs
-description: Este artigo explica como migrar aplicativos JMS existentes que interagem com o MQ ativo para interagir com o barramento de serviço do Azure.
+title: Migrar aplicativos Java Message Service (JMS) do Apache ActiveMQ para o barramento de serviço do Azure | Microsoft Docs
+description: Este artigo explica como migrar aplicativos JMS existentes que interagem com o Apache ActiveMQ para interagir com o barramento de serviço do Azure.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -13,32 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
-ms.openlocfilehash: 3da4f693f4cfec47c5456a0c5998f58f5fe02949
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7926e3b8aedde63c3a1a5a57c42b3d4f29cb9797
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122249"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076226"
 ---
-# <a name="migrate-existing-java-message-service-jms-20-applications-from-active-mq-to-azure-service-bus"></a>Migrar aplicativos Java Message Service (JMS) 2,0 do MQ ativo para o barramento de serviço do Azure
+# <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Migrar aplicativos Java Message Service (JMS) 2,0 do Apache ActiveMQ para o barramento de serviço do Azure
 
-O barramento de serviço do Azure dá suporte a cargas de trabalho Java/J2EE e Spring que utilizam a API do Java Message Service (JMS) 2,0 sobre o protocolo AMQP (protocolo de enfileiramento de mensagens avançado).
+Este artigo discute como modificar um aplicativo existente do Java Message Service (JMS) 2,0 que interage com um agente JMS para interagir com o barramento de serviço do Azure em vez disso. Em particular, o artigo aborda a migração do Apache ActiveMQ ou do Amazon MQ.
 
-Este guia descreve o que você deve estar ciente quando deseja modificar um aplicativo Java Message Service (JMS) 2,0 que interage com um agente JMS (especificamente o Apache ActiveMQ ou Amazon MQ) para interagir com o barramento de serviço do Azure.
+O barramento de serviço do Azure dá suporte à plataforma Java 2, Enterprise Edition e Spring cargas de trabalho que usam a API JMS 2,0 sobre o AMQP (protocolo de enfileiramento de mensagens avançado).
 
 ## <a name="before-you-start"></a>Antes de começar
 
 ### <a name="differences-between-azure-service-bus-and-apache-activemq"></a>Diferenças entre o barramento de serviço do Azure e o Apache ActiveMQ
 
-O barramento de serviço do Azure e o Apache ActiveMQ são agentes de mensagens que estão funcionando como provedores JMS para que os aplicativos cliente enviem mensagens e recebam mensagens do. Ambos habilitam a semântica ponto a ponto com **filas** e semântica de publicação/assinatura com **Tópicos** e **assinaturas**. 
+O barramento de serviço do Azure e o Apache ActiveMQ são agentes de mensagens, funcionando como provedores JMS para que os aplicativos cliente enviem mensagens e recebam mensagens do. Ambos habilitam a semântica ponto a ponto com filas e a semântica de publicação/assinatura com tópicos e assinaturas. 
 
-Mesmo assim, há algumas diferenças nos dois.
+Mesmo assim, há algumas diferenças entre as duas, como mostra a tabela a seguir:
 
-| Categoria | MQ ativo | Barramento de Serviço do Azure |
+| Categoria | ActiveMQ | Barramento de Serviço do Azure |
 | --- | --- | --- |
-| Camadas do aplicativo | Monolítico clusterizado | Duas camadas <br> (Gateway + back-end) |
+| Camadas do aplicativo | Monolítico clusterizado | Duas camadas <br> (gateway + back-end) |
 | Suporte a protocolo | <ul> <li>AMQP</li> <li> IGNORAR </li> <li> OpenWire </li> </ul> | AMQP |
-| Modo de provisionamento | <ul> <li> IaaS (local) </li> <li> Amazon MQ (PaaS gerenciado) </li> | PaaS gerenciado |
+| Modo de provisionamento | <ul> <li> IaaS (infraestrutura como serviço), local </li> <li> Amazon MQ (plataforma como serviço gerenciada) </li> | PaaS (plataforma como serviço) gerenciada |
 | Tamanho da mensagem | Configurável pelo cliente | 1 MB (camada Premium) |
 | Alta disponibilidade | Gerenciado pelo cliente | Gerenciado pela plataforma |
 | Recuperação de desastre | Gerenciado pelo cliente | Gerenciado pela plataforma | 
@@ -47,51 +47,43 @@ Mesmo assim, há algumas diferenças nos dois.
 
 [!INCLUDE [service-bus-jms-features-list](../../includes/service-bus-jms-feature-list.md)]
 
-### <a name="caveats"></a>Advertências
+### <a name="considerations"></a>Considerações
 
-A natureza em duas camadas do barramento de serviço do Azure proporciona vários recursos de continuidade de negócios (alta disponibilidade e recuperação de desastre). No entanto, há algumas considerações ao utilizar recursos JMS.
+A natureza em duas camadas do barramento de serviço do Azure proporciona vários recursos de continuidade de negócios (alta disponibilidade e recuperação de desastre). No entanto, há algumas considerações quando você estiver usando recursos JMS.
 
 #### <a name="service-upgrades"></a>Atualizações de serviço
 
-No caso de atualizações e reinicializações do barramento de serviço, filas ou tópicos temporários serão excluídos.
-
-Se o aplicativo for sensível à perda de dados em filas ou tópicos temporários, é recomendável **não** usar filas ou tópicos temporários e usar filas, tópicos e assinaturas duráveis em vez disso.
+No caso de atualizações e reinicializações do barramento de serviço, filas ou tópicos temporários são excluídos. Se seu aplicativo for sensível à perda de dados em filas ou tópicos temporários, não use filas ou tópicos temporários. Use filas duráveis, tópicos e assinaturas em vez disso.
 
 #### <a name="data-migration"></a>Migração de dados
 
-Como parte da migração/modificação de seus aplicativos cliente para interagir com o barramento de serviço do Azure, os dados mantidos no ActiveMQ não serão migrados para o barramento de serviço.
-
-Um aplicativo personalizado pode ser necessário para drenar as filas, os tópicos e as assinaturas do ActiveMQ e a reproduzir as mensagens nas filas, nos tópicos e nas assinaturas do barramento de serviço.
+Como parte da migração e modificação de seus aplicativos cliente para interagir com o barramento de serviço do Azure, os dados mantidos no ActiveMQ não são migrados para o barramento de serviço. Talvez seja necessário um aplicativo personalizado para drenar as filas, os tópicos e as assinaturas do ActiveMQ e, em seguida, reproduzir as mensagens para as filas, os tópicos e as assinaturas do barramento de serviço.
 
 #### <a name="authentication-and-authorization"></a>Autenticação e autorização
 
-O RBAC (controle de acesso baseado em função) apoiado pelo Azure ActiveDirectory é o mecanismo de autenticação preferencial para o barramento de serviço do Azure.
-
-No entanto, como o RBAC não tem suporte no momento devido à falta de suporte à autenticação baseada em declarações pelo Apache QPID JMS.
-
-Por enquanto, há suporte para a autenticação somente com chaves SAS.
+O RBAC (controle de acesso baseado em função), apoiado por Azure Active Directory, é o mecanismo de autenticação preferencial para o barramento de serviço. Como o RBAC, ou a autenticação baseada em declarações, não tem suporte atualmente pelo Apache QPID JMS, no entanto, você deve usar chaves SAS para autenticação.
 
 ## <a name="pre-migration"></a>Pré-migração
 
 ### <a name="version-check"></a>Verificação de versão
 
-Abaixo estão os componentes utilizados durante a gravação dos aplicativos JMS e as versões específicas com suporte. 
+Você usa os seguintes componentes e versões enquanto está gravando os aplicativos JMS: 
 
-| Componentes | Versão |
+| Componente | Versão |
 |---|---|
 | API do Java Message Service (JMS) | 1,1 ou superior |
 | Protocolo AMQP | 1.0 |
 
 ### <a name="ensure-that-amqp-ports-are-open"></a>Verifique se as portas AMQP estão abertas
 
-O barramento de serviço do Azure dá suporte à comunicação por meio do protocolo AMQP. Para essa finalidade, a comunicação pelas portas 5671 (AMQP) e 443 (TCP) precisa ser habilitada. Dependendo de onde os aplicativos cliente estão hospedados, talvez seja necessário um tíquete de suporte para permitir a comunicação por essas portas.
+O barramento de serviço dá suporte à comunicação por meio do protocolo AMQP. Para essa finalidade, habilite a comunicação pelas portas 5671 (AMQP) e 443 (TCP). Dependendo de onde os aplicativos cliente estão hospedados, talvez seja necessário um tíquete de suporte para permitir a comunicação por essas portas.
 
 > [!IMPORTANT]
-> O barramento de serviço do Azure dá suporte **apenas** ao protocolo AMQP 1,0.
+> O barramento de serviço dá suporte apenas ao protocolo AMQP 1,0.
 
-### <a name="set-up-enterprise-configurations-vnet-firewall-private-endpoint-etc"></a>Configurar configurações corporativas (VNET, firewall, ponto de extremidade privado, etc.)
+### <a name="set-up-enterprise-configurations"></a>Configurar as configurações corporativas
 
-O barramento de serviço do Azure permite vários recursos de segurança e alta disponibilidade da empresa. Para saber mais sobre eles, siga os links de documentação abaixo.
+O barramento de serviço permite vários recursos de segurança e alta disponibilidade da empresa. Para obter mais informações, consulte: 
 
   * [Pontos de extremidade de serviço de rede virtual](service-bus-service-endpoints.md)
   * [Firewall](service-bus-ip-filtering.md)
@@ -101,32 +93,29 @@ O barramento de serviço do Azure permite vários recursos de segurança e alta 
 
 ### <a name="monitoring-alerts-and-tracing"></a>Monitoramento, alertas e rastreamento
 
-As métricas são publicadas para cada namespace do barramento de serviço em Azure Monitor e podem ser aproveitadas para alertas e dimensionamento dinâmico de recursos alocados para o namespace.
+Para cada namespace do barramento de serviço, você publica métricas em Azure Monitor. Você pode usar essas métricas para alertas e dimensionamento dinâmico de recursos alocados para o namespace.
 
-Leia mais sobre as diferentes métricas e como configurar alertas nelas em [métricas do barramento de serviço em Azure monitor](service-bus-metrics-azure-monitor.md).
+Para obter mais informações sobre as diferentes métricas e como configurar alertas nelas, consulte [métricas do barramento de serviço em Azure monitor](service-bus-metrics-azure-monitor.md). Você também pode saber mais sobre o [rastreamento do lado do cliente para operações de dados](service-bus-end-to-end-tracing.md) e [log operacional/de diagnóstico para operações de gerenciamento](service-bus-diagnostic-logs.md).
 
-Além disso, leia mais sobre [rastreamento do lado do cliente para operações de dados](service-bus-end-to-end-tracing.md) e [log operacional/de diagnóstico para operações de gerenciamento](service-bus-diagnostic-logs.md)
+### <a name="metrics---new-relic"></a>Métricas-novo Relic
 
-### <a name="metrics---newrelic"></a>Métricas-NewRelic
+Você pode correlacionar quais métricas do ActiveMQ MAP para quais métricas no barramento de serviço do Azure. Consulte o seguinte no site do New Relic:
 
-Veja abaixo um guia prático sobre quais métricas do ActiveMQ são mapeadas para quais métricas no barramento de serviço do Azure. As referências a seguir são referenciadas em NewRelic.
-
-  * [Métricas do ActiveMQ/Amazon MQ NewRelic](https://docs.newrelic.com/docs/integrations/amazon-integrations/aws-integrations-list/aws-mq-integration)
-  * [Métricas de NewRelic do barramento de serviço do Azure](https://docs.newrelic.com/docs/integrations/microsoft-azure-integrations/azure-integrations-list/azure-service-bus-monitoring-integration)
+  * [Novas métricas do ActiveMQ/Amazon MQ New Relic](https://docs.newrelic.com/docs/integrations/amazon-integrations/aws-integrations-list/aws-mq-integration)
+  * [Novas métricas de Relic do barramento de serviço do Azure](https://docs.newrelic.com/docs/integrations/microsoft-azure-integrations/azure-integrations-list/azure-service-bus-monitoring-integration)
 
 > [!NOTE]
-> Atualmente, o NewRelic não tem uma integração direta com o ActiveMQ diretamente, mas tem métricas disponíveis para o Amazon MQ.
-> Como o Amazon MQ é derivado de ActiveMQ, o guia abaixo mapeia as métricas do NewRelic do AmazonMQ para o barramento de serviço do Azure.
+> Atualmente, o New Relic não tem integração direta e integrada com o ActiveMQ, mas eles têm métricas disponíveis para o Amazon MQ. Como o Amazon MQ é derivado de ActiveMQ, a tabela a seguir mapeia as novas métricas Relic do Amazon MQ para o barramento de serviço do Azure.
 >
 
-|Agrupamento de métricas| Métrica AmazonMQ/active MQ | Métrica do barramento de serviço do Azure |
+|Agrupamento de métricas| Métrica do Amazon MQ/ActiveMQ | Métrica do barramento de serviço do Azure |
 |------------|---------------------------|--------------------------|
 |Agente|`CpuUtilization`|`CPUXNS`|
 |Agente|`MemoryUsage`|`WSXNS`|
 |Agente|`CurrentConnectionsCount`|`activeConnections`|
 |Agente|`EstablishedConnectionsCount`|`activeConnections` + `connectionsClosed`|
-|Agente|`InactiveDurableTopicSubscribersCount`|Aproveitar as métricas de assinatura|
-|Agente|`TotalMessageCount`|Aproveitar o nível de fila/tópico/assinatura`activeMessages`|
+|Agente|`InactiveDurableTopicSubscribersCount`|Usar métricas de assinatura|
+|Agente|`TotalMessageCount`|Usar nível de fila/tópico/assinatura`activeMessages`|
 |Fila/tópico|`EnqueueCount`|`incomingMessages`|
 |Fila/tópico|`DequeueCount`|`outgoingMessages`|
 |Fila|`QueueSize`|`sizeBytes`|
@@ -135,28 +124,25 @@ Veja abaixo um guia prático sobre quais métricas do ActiveMQ são mapeadas par
 
 ## <a name="migration"></a>Migração
 
-Para migrar seu aplicativo JMS 2,0 existente para interagir com o barramento de serviço do Azure, as etapas a seguir precisam ser executadas.
+Para migrar seu aplicativo JMS 2,0 existente para interagir com o barramento de serviço, siga as etapas nas várias seções a seguir.
 
-### <a name="export-topology-from-activemq-and-create-the-entities-in-azure-service-bus-optional"></a>Exportar a topologia de ActiveMQ e criar as entidades no barramento de serviço do Azure (opcional)
+### <a name="export-the-topology-from-activemq-and-create-the-entities-in-service-bus-optional"></a>Exportar a topologia de ActiveMQ e criar as entidades no barramento de serviço (opcional)
 
-Para garantir que os aplicativos cliente possam se conectar diretamente ao barramento de serviço do Azure, a topologia, que inclui filas, tópicos e assinaturas, precisa ser migrada do **Apache ActiveMQ** para o **barramento de serviço do Azure**.
+Para garantir que os aplicativos cliente possam se conectar diretamente com o barramento de serviço, migre a topologia (incluindo filas, tópicos e assinaturas) do Apache ActiveMQ para o barramento de serviço.
 
 > [!NOTE]
-> Para aplicativos Java Message Service (JMS), a criação de filas, tópicos e assinaturas é uma operação de tempo de execução. A maioria dos provedores de Java Message Service (JMS) (agentes de mensagens) oferecem a funcionalidade para criar *filas*, *Tópicos* e *assinaturas* em tempo de execução.
->
-> Portanto, a etapa acima é opcional.
->
-> Para garantir que seu aplicativo tenha as permissões para criar a topologia em tempo de execução, verifique se a cadeia de conexão com as permissões de ***SAS ' Manage '*** é usada.
+> Para aplicativos JMS, você cria filas, tópicos e assinaturas como uma operação de tempo de execução. A maioria dos provedores JMS (Message Brokers) oferece a capacidade de criá-los em tempo de execução. É por isso que essa etapa de exportação é considerada opcional. Para garantir que seu aplicativo tenha as permissões para criar a topologia em tempo de execução, use a cadeia de conexão com permissões de SAS `Manage` .
 
-Para fazer isto 
-  * Aproveite as [ferramentas de linha de comando do ActiveMQ](https://activemq.apache.org/activemq-command-line-tools-reference) para exportar a topologia
-  * Recriar a mesma topologia usando um [modelo de Azure Resource Manager](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
-  * Execute o modelo de Azure Resource Manager.
+Para fazer isso:
+
+1. Use as [ferramentas de linha de comando ActiveMQ](https://activemq.apache.org/activemq-command-line-tools-reference) para exportar a topologia.
+1. Recrie a mesma topologia usando um modelo de [Azure Resource Manager](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+1. Execute o modelo de Azure Resource Manager.
 
 
 ### <a name="import-the-maven-dependency-for-service-bus-jms-implementation"></a>Importar a dependência do Maven para implementação JMS do barramento de serviço
 
-Para garantir a conectividade direta com o barramento de serviço do Azure, o pacote ***Azure-ServiceBus-JMS*** precisa ser adicionado como uma dependência para o arquivo Maven, `pom.xml` como mostrado abaixo.
+Para garantir a conectividade direta com o barramento de serviço, adicione o `azure-servicebus-jms` pacote como uma dependência ao `pom.xml` arquivo Maven, da seguinte maneira:
 
 ```xml
 <dependencies>
@@ -171,11 +157,11 @@ Para garantir a conectividade direta com o barramento de serviço do Azure, o pa
 
 ### <a name="application-server-configuration-changes"></a>Alterações de configuração do servidor de aplicativos
 
-Essa parte é personalizada para o servidor de aplicativos que está hospedando seus aplicativos cliente se conectando ao Active MQ.
+Essa parte é personalizada para o servidor de aplicativos que está hospedando os aplicativos cliente que se conectam ao ActiveMQ.
 
 #### <a name="tomcat"></a>Tomcat
 
-Aqui, começamos com a configuração específica para o MQ ativo, conforme mostrado no `/META-INF/context.xml` arquivo.
+Aqui, você começa com a configuração específica para ActiveMQ, conforme mostrado no `/META-INF/context.xml` arquivo.
 
 ```XML
 <Context antiJARLocking="true">
@@ -202,7 +188,7 @@ Aqui, começamos com a configuração específica para o MQ ativo, conforme most
 </Context>
 ```
 
-que pode ser adaptado como abaixo para apontar para o barramento de serviço do Azure
+Adapte isso para apontar para o barramento de serviço, da seguinte maneira:
 
 ```xml
 <Context antiJARLocking="true">
@@ -229,11 +215,9 @@ que pode ser adaptado como abaixo para apontar para o barramento de serviço do 
 
 #### <a name="spring-applications"></a>Aplicativos Spring
 
-##### <a name="update-applicationproperties-file"></a>Atualizar `application.properties` arquivo
+##### <a name="update-the-applicationproperties-file"></a>Atualizar o `application.properties` arquivo
 
-Se estiver usando um aplicativo Spring boot para se conectar ao ActiveMQ.
-
-Aqui, o objetivo é ***remover*** as propriedades específicas do ActiveMQ do `application.properties` arquivo.
+Se você estiver usando um aplicativo Spring boot para se conectar ao ActiveMQ, você deseja remover as propriedades específicas do ActiveMQ do `application.properties` arquivo.
 
 ```properties
 spring.activemq.broker-url=<ACTIVEMQ BROKER URL>
@@ -241,21 +225,21 @@ spring.activemq.user=<ACTIVEMQ USERNAME>
 spring.activemq.password=<ACTIVEMQ PASSWORD>
 ```
 
-Em seguida, ***adicione*** as propriedades específicas do barramento de serviço ao `application.properties` arquivo.
+Em seguida, adicione as propriedades específicas do barramento de serviço ao `application.properties` arquivo.
 
 ```properties
 azure.servicebus.connection-string=Endpoint=myEndpoint;SharedAccessKeyName=mySharedAccessKeyName;SharedAccessKey=mySharedAccessKey
 ```
 
-##### <a name="replace-the-activemqconnectionfactory-with-servicebusjmsconnectionfactory"></a>Substitua o ActiveMQConnectionFactory por ServiceBusJmsConnectionFactory
+##### <a name="replace-activemqconnectionfactory-with-servicebusjmsconnectionfactory"></a>Substitua `ActiveMQConnectionFactory` por `ServiceBusJmsConnectionFactory`
 
-A próxima etapa é substituir a instância de ActiveMQConnectionFactory por ServiceBusJmsConnectionFactory.
+A próxima etapa é substituir a instância do `ActiveMQConnectionFactory` pelo `ServiceBusJmsConnectionFactory` .
 
 > [!NOTE] 
-> As alterações de código reais são específicas para o aplicativo e como as dependências são gerenciadas, mas o exemplo abaixo fornece a orientação sobre ***o que*** deve ser alterado.
+> As alterações de código reais são específicas para o aplicativo e como as dependências são gerenciadas, mas o exemplo a seguir fornece a orientação sobre o que deve ser alterado.
 >
 
-Anteriormente, você pode estar instanciando um objeto da ActiveMQConnectionFactory como mostrado abaixo.
+Anteriormente, você pode ter feito uma instância de um objeto de `ActiveMQConnectionFactory` , da seguinte maneira:
 
 ```java
 
@@ -267,7 +251,7 @@ connection.start();
 
 ```
 
-Isso seria alterado para a instanciação de um objeto do ServiceBusJmsConnectionFactory
+Agora, você está alterando isso para instanciar um objeto de, da seguinte `ServiceBusJmsConnectionFactory` maneira:
 
 ```java
 
@@ -281,15 +265,15 @@ connection.start();
 
 ```
 
-## <a name="post-migration"></a>Após a migração
+## <a name="post-migration"></a>Pós-migração
 
-Agora que você modificou o aplicativo para iniciar o envio e recebimento de mensagens do barramento de serviço do Azure, você deve verificar se ela funciona conforme o esperado. Quando isso for feito, você poderá continuar refinando e modernizando sua pilha de aplicativos.
+Agora que você modificou o aplicativo para começar a enviar e receber mensagens do barramento de serviço, você deve verificar se ele funciona conforme o esperado. Quando isso for feito, você poderá continuar refinando e modernizando sua pilha de aplicativos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Aproveite o [iniciador do Spring boot para o barramento de serviço do Azure JMS](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) para integração direta com o barramento de serviço do Azure.
+Use o [iniciador do Spring boot para o barramento de serviço do Azure JMS](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) para integração direta com o barramento de serviço.
 
-Para saber mais sobre as mensagens do barramento de serviço e o Java Message Service (JMS), consulte os seguintes tópicos:
+Para saber mais sobre o sistema de mensagens do barramento de serviço e JMS, consulte:
 
 * [Barramento de serviço JMS](service-bus-java-how-to-use-jms-api-amqp.md)
 * [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)

@@ -3,18 +3,18 @@ title: 'Métricas no Azure Monitor: Hubs de Eventos do Azure | Microsoft Docs'
 description: Este artigo fornece informações sobre como usar o Monitoramento do Azure com Hubs de Eventos do Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 76df9920c517e8370409bca26e5a6533c7253c1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7841007fa1736c88c30108099f86b99d3dad0fb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314601"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074867"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Métricas de Hubs de Eventos do Azure no Azure Monitor
 
 As métricas dos hubs de eventos fornecem o estado dos recursos dos hubs de eventos em sua assinatura do Azure. Com um amplo conjunto de dados de métricas, você pode avaliar a integridade geral dos seus hubs de eventos não apenas no nível de namespace, mas também no nível de entidade. Essas estatísticas podem ser importantes, pois elas ajudam você a monitorar o estado de seus hubs de eventos. As métricas também podem ajudar a solucionar problemas de causa raiz sem a necessidade de entrar em contato com o suporte do Azure.
 
-O Azure Monitor fornece interfaces de usuário unificadas para monitoramento entre os diferentes serviços do Azure. Para obter mais informações, consulte [Monitoramento no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) e o exemplo [Recuperar métricas do Azure Monitor com o .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) no GitHub.
+O Azure Monitor fornece interfaces de usuário unificadas para monitoramento entre os diferentes serviços do Azure. Para obter mais informações, consulte [Monitoramento no Microsoft Azure](../azure-monitor/overview.md) e o exemplo [Recuperar métricas do Azure Monitor com o .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) no GitHub.
 
 ## <a name="access-metrics"></a>Métricas de acesso
 
@@ -103,7 +103,7 @@ Os Hubs de Evento do Azure dão suporte às seguintes dimensões para métricas 
 O roteamento dos dados de monitoramento (logs de atividades, logs de diagnóstico, etc.) para um hub de eventos com o Azure Monitor permite que você integre facilmente as ferramentas SIEM (gerenciamento de eventos e informações de segurança). Para obter mais informações, consulte os seguintes artigos/Postagens de blog:
 
 - [Transmitir dados de monitoramento do Azure para um hub de eventos para consumo por uma ferramenta externa](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
-- [Introdução à integração de log do Azure](../security/fundamentals/azure-log-integration-overview.md)
+- [Introdução à integração de log do Azure](/previous-versions/azure/security/fundamentals/azure-log-integration-overview)
 - [Usar o Monitor do Azure para integrar às ferramentas de SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
 No cenário em que uma ferramenta SIEM consome dados de log de um hub de eventos, se você não vir mensagens de entrada ou se vir mensagens de entrada, mas nenhuma mensagem de saída no grafo de métricas, siga estas etapas:
@@ -114,7 +114,7 @@ No cenário em que uma ferramenta SIEM consome dados de log de um hub de eventos
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Consulte [Visão geral do Monitoramento do Azure](../monitoring-and-diagnostics/monitoring-overview.md).
+* Consulte [Visão geral do Monitoramento do Azure](../azure-monitor/overview.md).
 * Exemplo de como [Recuperar métricas do Azure Monitor com o .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) no GitHub. 
 
 Para saber mais sobre Hubs de Eventos, acesse os seguintes links:
@@ -129,6 +129,3 @@ Para saber mais sobre Hubs de Eventos, acesse os seguintes links:
 
 [1]: ./media/event-hubs-metrics-azure-monitor/event-hubs-monitor1.png
 [2]: ./media/event-hubs-metrics-azure-monitor/event-hubs-monitor2.png
-
-
-

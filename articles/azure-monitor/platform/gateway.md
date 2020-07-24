@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: a92e96a835f24ac54fa55b05086a35b9a91d609e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 550b4fb7ba17d911618e0b60d16c0a9f9d1f2cfa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80298348"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077271"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conectar computadores sem acesso à Internet usando o gateway de Log Analytics no Azure Monitor
 
@@ -149,7 +149,7 @@ Para instalar um gateway usando o assistente de instalação, siga estas etapas.
 
 ## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>Instalar o gateway de Log Analytics usando a linha de comando
 
-O arquivo baixado para o gateway é um pacote Windows Installer que dá suporte à instalação silenciosa da linha de comando ou de outro método automatizado. Se você não estiver familiarizado com as opções de linha de comando padrão para Windows Installer, consulte [Opções de linha de comando](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).
+O arquivo baixado para o gateway é um pacote Windows Installer que dá suporte à instalação silenciosa da linha de comando ou de outro método automatizado. Se você não estiver familiarizado com as opções de linha de comando padrão para Windows Installer, consulte [Opções de linha de comando](/windows/desktop/msi/command-line-options).
  
 A tabela a seguir realça os parâmetros com suporte na instalação do.
 
@@ -185,11 +185,11 @@ Após a instalação, você pode confirmar que as configurações são aceitas (
 
 ## <a name="configure-network-load-balancing"></a>Configurar o balanceamento de carga de rede
 
-Você pode configurar o gateway para alta disponibilidade usando o NLB (balanceamento de carga de rede) usando o [NLB (balanceamento de carga de rede)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing)da Microsoft, [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)ou balanceadores de carga baseados em hardware. O balanceador de carga gerencia o tráfego redirecionando as conexões solicitadas dos servidores de gerenciamento do Operations Manager ou de agentes do Log Analytics entre seus nós. Se um servidor de Gateway falhar, o tráfego será redirecionado para outros nós.
+Você pode configurar o gateway para alta disponibilidade usando o NLB (balanceamento de carga de rede) usando o [NLB (balanceamento de carga de rede)](/windows-server/networking/technologies/network-load-balancing)da Microsoft, [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)ou balanceadores de carga baseados em hardware. O balanceador de carga gerencia o tráfego redirecionando as conexões solicitadas dos servidores de gerenciamento do Operations Manager ou de agentes do Log Analytics entre seus nós. Se um servidor de Gateway falhar, o tráfego será redirecionado para outros nós.
 
 ### <a name="microsoft-network-load-balancing"></a>Balanceamento de carga de rede da Microsoft
 
-Para saber como projetar e implantar um cluster de balanceamento de carga de rede Windows Server 2016, confira [Balanceamento de carga de rede](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). As etapas a seguir descrevem como configurar uma cluster de balanceamento de carga de rede Microsoft Network.  
+Para saber como projetar e implantar um cluster de balanceamento de carga de rede Windows Server 2016, confira [Balanceamento de carga de rede](/windows-server/networking/technologies/network-load-balancing). As etapas a seguir descrevem como configurar uma cluster de balanceamento de carga de rede Microsoft Network.  
 
 1. Entre no servidor Windows que seja membro do cluster NLB com uma conta administrativa.  
 2. Abra o Gerenciador de Balanceamento de Carga de Rede no gerenciador de servidores, clique em **Ferramentas**e clique em **Gerenciador de Balanceamento de Carga de Rede**.

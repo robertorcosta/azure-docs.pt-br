@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c3c34ea9e32e100d5756a3930ce9d0147363e379
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7ea1995b6d1232b3e4c6371313e5b3d45bdbb756
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027861"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075408"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Usar o Criador para criar mapas internos
 
@@ -31,7 +32,7 @@ Este tutorial mostra como criar mapas internos. Neste tutorial, você aprenderá
 
 Para criar mapas internos:
 
-1. [Faça uma conta do Azure Mapas](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Faça uma conta do Azure Mapas](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtenha uma chave de assinatura primária](quick-demo-map-app.md#get-the-primary-key-for-your-account), também conhecida como a chave primária ou a chave de assinatura.
 3. [Crie um recurso do Criador](how-to-manage-creator.md)
 4. Baixe o [pacote de exemplo do Drawing](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
@@ -51,7 +52,7 @@ A API de upload de dados é uma transação de execução prolongada que impleme
 
 2. Para criar a solicitação, selecione **Novo** outra vez. Na janela **Criar**, selecione **Solicitação**. Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na etapa anterior e clique em **Salvar**.
 
-3. Selecione o método HTTP **POST** na guia do construtor e insira a URL a seguir para carregar o pacote do Drawing no serviço do Azure Mapas. Para essa solicitação e outras solicitações mencionadas neste artigo, substitua `<Azure-Maps-Primary-Subscription-key>` pela sua chave de assinatura primária.
+3. Selecione o método HTTP **POST** na guia do construtor e insira a URL a seguir para carregar o pacote do Drawing no serviço do Azure Mapas. Para essa solicitação e outras solicitações mencionadas neste artigo, substitua `{Azure-Maps-Primary-Subscription-key}` pela sua chave de assinatura primária.
 
     ```http
     https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -66,7 +67,7 @@ A API de upload de dados é uma transação de execução prolongada que impleme
 6. Para verificar o status da chamada à API, crie uma solicitação HTTP **Get** no `status URL` . Você precisará acrescentar sua chave de assinatura primária à URL para autenticação. A solicitação **Get** deve ser semelhante à seguinte URL:
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/{operationId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 7. Quando a solicitação HTTP **Get** for concluída com êxito, ela retornará um `resourceLocation` . O `resourceLocation` contém o exclusivo `udid` para o conteúdo carregado. Opcionalmente, você pode usar a `resourceLocation` URL para recuperar metadados desse recurso na próxima etapa.
@@ -169,7 +170,7 @@ O conjunto de dados é uma coleção de recursos de mapa, como edifícios, níve
 4. Faça uma solicitação **GET** no `statusURL` para obter o `datasetId`. Acrescente sua chave de assinatura primária do Azure Mapas para autenticação. A solicitação deve ser semelhante à seguinte URL:
 
     ```http
-    https://atlas.microsoft.com/dataset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/dataset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 5. Quando a solicitação HTTP **GET** for concluída com êxito, o cabeçalho de resposta conterá o `datasetId` para o conjunto de dados criado. Copie `datasetId`. Você precisará usar o `datasetId` para criar um conjunto de peças.
@@ -198,7 +199,7 @@ Um conjunto de peças é um conjunto de peças de vetor que são renderizadas no
 3. Faça uma solicitação **GET** no `statusURL` para o conjunto de peças. Acrescente sua chave de assinatura primária do Azure Mapas para autenticação. A solicitação deve ser semelhante à seguinte URL:
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 4. Quando a solicitação HTTP **GET** for concluída com êxito, o cabeçalho de resposta conterá o `tilesetId` para o conjunto de peças criado. Copie `tilesetId`.

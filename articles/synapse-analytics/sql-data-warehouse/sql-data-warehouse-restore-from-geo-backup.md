@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2b7e980f2ffd31bd10b481fe4fc8e0617c40717a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c8d78c164cefbab03d9d3fa783c75ded9773d38
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85205077"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075819"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Restauração geográfica para o pool SQL
 
@@ -36,7 +36,7 @@ Para restaurar de um backup geográfico, use o cmdlet [Get-AzSqlDatabaseGeoBacku
 > Você pode executar uma restauração geográfica para Gen2! Para fazer isso, especifique um ServiceObjectiveName de Gen2 (por exemplo, DW1000**c**) como parâmetro opcional.
 >
 
-1. Antes de começar, certifique-se de [instalar Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+1. Antes de começar, certifique-se de [instalar Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Abra o PowerShell.
 3. Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.
 4. Selecione a assinatura que contém a data warehouse a ser restaurada.
@@ -89,7 +89,7 @@ Siga as etapas descritas abaixo para restaurar um pool SQL de um backup geográf
 
    ![Noções básicas](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
-5. Para usar o parâmetro de **dados existente** , selecione **backup** e selecione o backup apropriado nas opções de rolagem para baixo. Clique em **Examinar + Criar**.
+5. Para usar o parâmetro de **dados existente** , selecione **backup** e selecione o backup apropriado nas opções de rolagem para baixo. Clique em **Revisar + Criar**.
 
    ![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 

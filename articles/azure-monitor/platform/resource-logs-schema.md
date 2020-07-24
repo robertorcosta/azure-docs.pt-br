@@ -1,14 +1,15 @@
 ---
-title: Serviços e esquemas com suporte dos logs de recursos do Azure
+title: Serviços e esquemas com suporte dos Logs de Recursos do Azure
 description: Entenda os serviços com suporte e o esquema de eventos para logs de recursos do Azure.
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/15/2020
-ms.openlocfilehash: 37c4093e52caf091489c60a8cdf497cffeffe9ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a97afa3f960393637b8af63c56fba419f853465
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413851"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077053"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema comum e específico de serviço para logs de recursos do Azure
 
@@ -59,7 +60,7 @@ O esquema para logs de recursos varia dependendo do recurso e da categoria de lo
 | Serviços Cognitivos | [Registro em log para serviços cognitivas do Azure](../../cognitive-services/diagnostic-logging.md) |
 | Registro de Contêiner | [Registro em log do registro de contêiner do Azure](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Rede de Distribuição de Conteúdo | [Logs do Azure para CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
-| CosmosDB | [Registro em log do Azure Cosmos DB](../../cosmos-db/logging.md) |
+| CosmosDB | [Registro em log do Azure Cosmos DB](../../cosmos-db/monitor-cosmos-db.md) |
 | Data Factory | [Monitorar data factories usando o Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Acessando logs para Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Acessando logs para Azure Data Lake Store](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
@@ -67,13 +68,13 @@ O esquema para logs de recursos varia dependendo do recurso e da categoria de lo
 | ExpressRoute | Esquema não disponível. |
 | Firewall do Azure | Esquema não disponível. |
 | Hub IoT | [Operações do Hub IoT](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Key Vault |[Log de Azure Key Vault](../../key-vault/general/logging.md) |
+| Key Vault |[Logs do Cofre da Chave do Azure](../../key-vault/general/logging.md) |
 | Serviço de Kubernetes |[Log de kubernetes do Azure](../../aks/view-master-logs.md#log-event-schema) |
 | Load Balancer |[Análise de log para Balanceador de Carga do Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | Aplicativos Lógicos |[Esquema de acompanhamento personalizado dos Aplicativos Lógicos B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de segurança de rede |[Log Analytics para grupos de segurança de rede (NSGs)](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | Proteção contra DDOS | [Gerenciar Proteção contra DDoS do Azure Standard](../../virtual-network/manage-ddos-protection.md) |
-| Power BI dedicado | [Registro em log para Power BI Embedded no Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
+| Power BI dedicado | [Registro em log para Power BI Embedded no Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Serviços de Recuperação | [Modelo de dados para o backup do Azure](../../backup/backup-azure-reports-data-model.md)|
 | Search |[Habilitação e uso da análise de tráfego de pesquisa](../../search/search-traffic-analytics.md) |
 | Barramento de Serviço |[Logs do barramento de serviço do Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -88,6 +89,6 @@ O esquema para logs de recursos varia dependendo do recurso e da categoria de lo
 
 * [Consulte as categorias de log de recursos que você pode coletar](resource-logs-categories.md)
 * [Saiba mais sobre os logs de recursos](../../azure-monitor/platform/platform-logs-overview.md)
-* [Transmitir logs de recurso de recurso para **hubs de eventos**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-* [Alterar as configurações de diagnóstico do log de recursos usando a API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
-* [Analisar logs do Armazenamento do Azure com o Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+* [Transmitir logs de recurso de recurso para **hubs de eventos**](./resource-logs.md#send-to-azure-event-hubs)
+* [Alterar as configurações de diagnóstico do log de recursos usando a API REST do Azure Monitor](/rest/api/monitor/diagnosticsettings)
+* [Analisar logs do Armazenamento do Azure com o Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)

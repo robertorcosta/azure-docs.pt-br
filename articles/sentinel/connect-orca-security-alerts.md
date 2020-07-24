@@ -1,5 +1,5 @@
 ---
-title: Conectar alertas do Orca ao Azure Sentinel | Microsoft Docs
+title: Conectar os alertas de segurança do Orca ao Azure Sentinel | Microsoft Docs
 description: Saiba como conectar dados de alerta de segurança do Orca ao Azure Sentinel, para exibir painéis, criar alertas personalizados e melhorar a investigação.
 services: sentinel
 documentationcenter: na
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 1f2f67281079142f0c4fe4985738dc48332a107d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 735f4b447d7258a9b444f3b75a6537dec20b1307
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530966"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076266"
 ---
-# <a name="connect-your-orca-alerts-to-azure-sentinel"></a>Conectar seus alertas do Orca ao Azure Sentinel 
+# <a name="connect-your-orca-security-alerts-to-azure-sentinel"></a>Conectar seus alertas de segurança do Orca ao Azure Sentinel 
+
+> [!IMPORTANT]
+> O conector de alertas de segurança do Orca no Azure Sentinel está atualmente em visualização pública.
+> Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O Orca Security Alerts Connector permite que você traga facilmente alertas da solução de segurança de [alertas da orca](https://orca.security/) para o Azure Sentinel, para que você possa exibi-los em pastas de trabalho, usá-los para criar alertas personalizados e incorporá-los para melhorar a investigação. A integração entre os alertas de segurança do Orca e o Azure Sentinel usa a API REST.
 

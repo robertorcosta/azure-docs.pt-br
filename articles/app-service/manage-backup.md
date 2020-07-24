@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: d611be27d8d576748019dee46022ca4cb70e966a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b917ef9234ef2e0d36526bc1688dfae2020d6b51
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253436"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075467"
 ---
 # <a name="back-up-your-app-in-azure"></a>Fazer backup de seu aplicativo no Azure
 O recurso de Backup e Restauração no [Serviço de Aplicativo do Azure](overview.md) permite que você crie backups de aplicativos facilmente, de modo manual ou agendado. Você pode configurar os backups para que sejam mantidos até um período indefinido. Você pode restaurar o aplicativo em um instantâneo de um estado anterior, substituindo o aplicativo existente ou restaurando em outro aplicativo.
@@ -159,7 +159,7 @@ O backup de banco de dados do aplicativo é armazenado na raiz do arquivo .zip. 
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 
-É possível automatizar o gerenciamento de backup com scripts, usando a [CLI do Azure](/cli/azure/install-azure-cli) ou o [Azure PowerShell](/powershell/azure/overview).
+É possível automatizar o gerenciamento de backup com scripts, usando a [CLI do Azure](/cli/azure/install-azure-cli) ou o [Azure PowerShell](/powershell/azure/).
 
 Para obter exemplos, consulte:
 

@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 14ecd1a35f8aae8365b7c7dc458712acdb894e62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6045fa475b3bb112afee9ceacd8d6b136087feab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602577"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077193"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usar o Link Privado do Azure para conectar redes com segurança ao Azure Monitor
 
@@ -69,6 +69,23 @@ Por exemplo, se você quiser que as redes virtuais internas VNet1 e VNet2 se con
 ![Diagrama da topologia do AMPLS A](./media/private-link-security/ampls-topology-a-1.png)
 
 ![Diagrama da topologia do AMPLS B](./media/private-link-security/ampls-topology-b-1.png)
+
+### <a name="consider-limits"></a>Considerar limites
+
+Há vários limites que você deve considerar ao planejar sua configuração de link privado:
+
+* Uma VNet só pode se conectar a um objeto AMPLS. Isso significa que o objeto AMPLS deve fornecer acesso a todos os Azure Monitor recursos aos quais a VNet deve ter acesso.
+* Um recurso de Azure Monitor (espaço de trabalho ou componente Application Insights) pode se conectar a 5 AMPLSs no máximo.
+* Um objeto AMPLS pode se conectar a 20 Azure Monitor recursos no máximo.
+* Um objeto AMPLS pode se conectar a 10 pontos de extremidade privados no máximo.
+
+Na topologia abaixo:
+* Cada VNet se conecta a um objeto AMPLS e, portanto, não pode se conectar a outros AMPLSs.
+* AMPLS B conecta-se a 2 VNets: usando 2/10 de suas conexões de ponto de extremidade privadas possíveis.
+* O AMPLS A se conecta a 2 espaços de trabalho e 1 componente do Application insights: usando 3/20 de seus recursos de Azure Monitor possíveis.
+* O espaço de trabalho 2 conecta-se ao AMPLS A e AMPLS B: usando 2/5 de suas conexões AMPLS possíveis.
+
+![Diagrama de limites de AMPLS](./media/private-link-security/ampls-limits.png)
 
 ## <a name="example-connection"></a>Exemplo de conexão
 
@@ -137,13 +154,13 @@ Você criou um ponto de extremidade privado conectado ao Escopo de Link Privado 
 
 ## <a name="configure-log-analytics"></a>Configurar a análise de logs
 
-Vá para o portal do Azure. No recurso de workspace do Log Analytics do Azure Monitor, há um item de menu do lado esquerdo da tela chamado **Isolamento de Rede**. Nesse menu, é possível controlar dois estados diferentes. 
+Acesse o portal do Azure. No recurso de espaço de trabalho Log Analytics há um **isolamento de rede** de item de menu no lado esquerdo. Nesse menu, é possível controlar dois estados diferentes. 
 
 ![Isolamento da rede de LA](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
 
 Primeiro, você pode conectar esse recurso do Log Analytics a qualquer escopo de Link Privado do Azure Monitor ao qual você tenha acesso. Clique em **Adicionar** e selecione o Escopo de Link Privado do Azure Monitor.  Clique em **Aplicar** para conectá-lo. Todos os escopos conectados são exibidos nessa tela. Essa conexão permite que o tráfego nas redes virtuais conectadas acessem esse workspace. Essa conexão tem o mesmo efeito que o executado por meio do escopo, como fizemos em [Conectar recursos do Azure Monitor](#connect-azure-monitor-resources).  
 
-Em segundo lugar, você pode controlar como esse recurso pode ser acessado de um local externo ao dos escopos de link privado listados acima. Se você definir a opção **Permitir acesso à rede pública para ingestão** como **Não**, os computadores fora dos escopos conectados não poderão carregar dados nesse workspace. Se você definir a opção **Permitir acesso à rede pública para consultas** como **Não**, os computadores fora dos escopos não poderão acessar dados nesse workspace. Esses dados incluem acesso a pastas de trabalho, dashboards, experiências de clientes baseadas em API de consulta, insights no portal do Azure e muito mais. As experiências executadas fora do portal do Azure que consomem dados do Log Analytics também precisam estar em execução na VNET privada vinculada.
+Em segundo lugar, você pode controlar como esse recurso pode ser acessado de um local externo ao dos escopos de link privado listados acima. Se você definir a opção **Permitir acesso à rede pública para ingestão** como **Não**, os computadores fora dos escopos conectados não poderão carregar dados nesse workspace. Se você definir a opção **Permitir acesso à rede pública para consultas** como **Não**, os computadores fora dos escopos não poderão acessar dados nesse workspace. Esses dados incluem acesso a pastas de trabalho, dashboards, experiências de clientes baseadas em API de consulta, insights no portal do Azure e muito mais. As experiências em execução fora do portal do Azure e essa consulta Log Analytics dados também precisam estar em execução na VNET vinculada ao privado.
 
 Essa restrição de acesso se aplica apenas aos dados no workspace. Quaisquer alterações, inclusive de ativação/desativação das configurações de acesso, são gerenciadas pelo Azure Resource Manager. Restrinja o acesso ao Resource Manager usando as funções, as permissões, os controles de rede e a auditoria apropriados. Para obter mais informações, confira [Funções, permissões e segurança do Azure Monitor](roles-permissions-security.md).
 
@@ -162,26 +179,26 @@ Em segundo lugar, você pode controlar como esse recurso pode ser acessado de um
 
 Observe que as experiências de consumo fora do portal também precisam estar em execução na VNET vinculada privada que inclui as cargas de trabalho monitoradas. 
 
-Será necessário adicionar ao link privado recursos que hospedem as cargas de trabalho monitoradas. Confira esta [documentação](https://docs.microsoft.com/azure/app-service/networking/private-endpoint) para saber como fazer isso nos Serviços de Aplicativos.
+Será necessário adicionar ao link privado recursos que hospedem as cargas de trabalho monitoradas. Confira esta [documentação](../../app-service/networking/private-endpoint.md) para saber como fazer isso nos Serviços de Aplicativos.
 
 Essa restrição de acesso se aplica apenas aos dados no recurso Application Insights. Quaisquer alterações, inclusive de ativação/desativação das configurações de acesso, são gerenciadas pelo Azure Resource Manager. Como alternativa, é possível restringir o acesso ao Resource Manager usando as funções, permissões, controles de rede e auditoria apropriados. Para obter mais informações, confira [Funções, permissões e segurança do Azure Monitor](roles-permissions-security.md).
 
 > [!NOTE]
 > Para proteger totalmente o Application Insights baseado no workspace, é necessário bloquear o acesso ao recurso do Application Insights e ao workspace subjacente do Log Analytics.
 >
-> O diagnóstico de nível de código (criador de perfil/depurador) precisa que você forneça sua própria conta de armazenamento para dar suporte ao link privado. Aqui está a [documentação](https://docs.microsoft.com/azure/azure-monitor/app/profiler-bring-your-own-storage) para saber como fazer isso.
+> O diagnóstico de nível de código (criador de perfil/depurador) precisa que você forneça sua própria conta de armazenamento para dar suporte ao link privado. Aqui está a [documentação](../app/profiler-bring-your-own-storage.md) para saber como fazer isso.
 
 ## <a name="use-apis-and-command-line"></a>Usar APIs e linha de comando
 
 Você pode automatizar o processo descrito anteriormente usando modelos do Azure Resource Manager e interfaces de linha de comando.
 
-Para criar e gerenciar escopos de link privado, use [az monitor private-link-scope](https://docs.microsoft.com/cli/azure/monitor/private-link-scope?view=azure-cli-latest). Com esse comando, você pode criar escopos, associar workpaces do Log Analytics e componentes do Application Insights e adicionar/remover/aprovar pontos de extremidade privados.
+Para criar e gerenciar escopos de link privado, use [az monitor private-link-scope](/cli/azure/monitor/private-link-scope?view=azure-cli-latest). Com esse comando, você pode criar escopos, associar workpaces do Log Analytics e componentes do Application Insights e adicionar/remover/aprovar pontos de extremidade privados.
 
-Para gerenciar o acesso à rede, use os sinalizadores `[--ingestion-access {Disabled, Enabled}]` e `[--query-access {Disabled, Enabled}]` nos [Workspaces do Log Analytics](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) ou [Componentes do Application Insights](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
+Para gerenciar o acesso à rede, use os sinalizadores `[--ingestion-access {Disabled, Enabled}]` e `[--query-access {Disabled, Enabled}]` nos [Workspaces do Log Analytics](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) ou [Componentes do Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 
 ## <a name="collect-custom-logs-over-private-link"></a>Coletar logs personalizados sobre o link privado
 
-As contas de armazenamento são usadas no processo de ingestão de logs personalizados. Por padrão, são usadas contas de armazenamento gerenciadas por serviços. No entanto, para ingerir logs personalizados em links privados, você deve usar suas contas de armazenamento e associá-las aos workspaces do Log Analytics. Confira mais detalhes sobre como configurar essas contas usando a [linha de comando](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
+As contas de armazenamento são usadas no processo de ingestão de logs personalizados. Por padrão, são usadas contas de armazenamento gerenciadas por serviços. No entanto, para ingerir logs personalizados em links privados, você deve usar suas contas de armazenamento e associá-las aos workspaces do Log Analytics. Confira mais detalhes sobre como configurar essas contas usando a [linha de comando](/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
 
 Para obter mais informações sobre como associar sua conta de armazenamento, confira [Contas de armazenamento de propriedade do cliente para ingestão de log](private-storage.md)
 
@@ -189,7 +206,7 @@ Para obter mais informações sobre como associar sua conta de armazenamento, co
 
 ### <a name="agents"></a>Agentes
 
-As versões mais recentes dos agentes Windows e Linux devem ser usadas em redes privadas para permitir a ingestão segura de telemetria nos workspaces do Log Analytics. As versões mais antigas não conseguem carregar dados de monitoramento em uma rede privada.
+As versões mais recentes dos agentes do Windows e do Linux devem ser usadas em redes privadas para habilitar a ingestão segura para Log Analytics espaços de trabalho. As versões mais antigas não conseguem carregar dados de monitoramento em uma rede privada.
 
 **Agente Windows do Log Analytics**
 
@@ -210,7 +227,7 @@ Para usar as experiências do portal do Azure Monitor, como Application Insights
 
 ### <a name="programmatic-access"></a>Acesso Programático
 
-Para usar API REST, [CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest) ou PowerShell com o Azure Monitor em redes privadas, adicione as [marcas de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) **AzureActiveDirectory** e **AzureResourceManager** ao seu firewall.
+Para usar API REST, [CLI](/cli/azure/monitor?view=azure-cli-latest) ou PowerShell com o Azure Monitor em redes privadas, adicione as [marcas de serviço](../../virtual-network/service-tags-overview.md) **AzureActiveDirectory** e **AzureResourceManager** ao seu firewall.
 
 A adição dessas marcas permite executar ações como: consulta de dados de log, criação e gerenciamento de workspaces do Log Analytics e componentes de IA.
 

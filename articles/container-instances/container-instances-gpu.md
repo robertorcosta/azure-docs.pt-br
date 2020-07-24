@@ -3,12 +3,12 @@ title: Implantar instância de contêiner habilitada para GPU
 description: Saiba como implantar instâncias de contêiner do Azure para executar aplicativos de contêiner de uso intensivo de computação usando recursos de GPU.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: a25efc90573eb338b81f4a6532a632a140c7ab7d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3ddeb7da2667b774724fe05227cefeec5227101a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259591"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076868"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implantar instâncias de contêiner que usam recursos GPU
 
@@ -63,7 +63,7 @@ Ao implantar recursos de GPU, defina os recursos de CPU e memória apropriados p
 
 * **Drivers CUDA** - instâncias de contêiner com os recursos GPU são previamente provisionadas com drivers NVIDIA CUDA e runtimes do contêiner, portanto, você pode usar imagens de contêiner desenvolvido para cargas de trabalho do CUDA.
 
-  Damos suporte ao CUDA 9,0 neste estágio. Por exemplo, você pode usar as seguintes imagens base para o arquivo do Docker:
+  Damos suporte apenas a CUDA 9,0 neste estágio. Por exemplo, você pode usar as seguintes imagens base para o arquivo do Docker:
   * [NVIDIA/CUDA: 9.0-base-Ubuntu 16.04](https://hub.docker.com/r/nvidia/cuda/)
   * [tensorflow/tensorflow: 1.12.0-GPU-PY3](https://hub.docker.com/r/tensorflow/tensorflow)
     

@@ -3,14 +3,15 @@ title: Application Insights para serviços de nuvem do Azure | Microsoft Docs
 description: Monitorar suas funções da Web e de trabalho com eficiência com o Application Insights
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: 17813d17a1c40caac5587e37e279be6376992b90
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf75bb145a3b0d7c861d3c92af972b39de11bcdf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537586"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075423"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para serviços de nuvem do Azure
-O [Application Insights][start] pode monitorar os [aplicativos de serviço de nuvem do Azure](https://azure.microsoft.com/services/cloud-services/) para analisar a disponibilidade, o desempenho, as falhas e o uso combinando os dados de SDKs do Application Insights com os dados do [Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) a partir de seus serviços de nuvem. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
+O [Application Insights][start] pode monitorar os [aplicativos de serviço de nuvem do Azure](https://azure.microsoft.com/services/cloud-services/) para analisar a disponibilidade, o desempenho, as falhas e o uso combinando os dados de SDKs do Application Insights com os dados do [Diagnóstico do Azure](../platform/diagnostics-extension-overview.md) a partir de seus serviços de nuvem. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
 
 ![Visão geral do dashboard](./media/cloudservices/overview-graphs.png)
 
@@ -30,7 +31,7 @@ Esta opção prepara o aplicativo em runtime, oferecendo a você toda a telemetr
 
 Se esta opção for tudo o que você precisa, então você terminou. 
 
-Suas próximas etapas estão [exibindo métricas do seu aplicativo](../../azure-monitor/platform/metrics-charts.md), [consultando seus dados com a análise](../../azure-monitor/app/analytics.md). 
+Suas próximas etapas estão [exibindo métricas do seu aplicativo](../../azure-monitor/platform/metrics-charts.md), [consultando seus dados com a análise](../log-query/log-query-overview.md). 
 
 Para monitorar o desempenho no navegador, talvez você queira configurar os [testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) e [adicionar código às suas páginas da Web](../../azure-monitor/app/javascript.md).
 
@@ -131,7 +132,7 @@ No Visual Studio, configure o SDK do Application Insights para cada projeto de a
 
 Esta etapa só será necessária se você quiser capturar consultas SQL completas em .NET Framework. 
 
-1. Em `\*.csdef` arquivo adicionar [tarefa de inicialização](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) para cada função semelhante a 
+1. Em `\*.csdef` arquivo adicionar [tarefa de inicialização](../../cloud-services/cloud-services-startup-tasks.md) para cada função semelhante a 
 
     ```xml
     <Startup>
@@ -177,7 +178,7 @@ Se não houver nenhum dado, faça o seguinte:
 Para saber mais, consulte a [Solução de problemas][qna].
 
 ## <a name="view-azure-diagnostics-events"></a>Exibir eventos do Diagnóstico do Azure
-É possível encontrar as informações do [Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) no Application Insights, nos seguintes locais:
+É possível encontrar as informações do [Diagnóstico do Azure](../platform/diagnostics-extension-overview.md) no Application Insights, nos seguintes locais:
 
 * Os contadores de desempenho são exibidos como métricas personalizadas. 
 * Os logs de eventos do Windows são mostrados como eventos de rastreamentos e personalizados.
@@ -241,7 +242,7 @@ Para obter uma experiência de diagnóstico avançada, é possível ver o que oc
 
 Para obter essas exibições das funções de trabalho, use um inicializador de telemetria personalizado para definir um atributo de contexto Operation.Id comum para todas as telemetrias. Ao fazer isso, você vê imediatamente se o problema de latência ou falha foi causado por uma dependência ou pelo código. 
 
-Aqui está como:
+Faça assim:
 
 * Defina a ID de correlação em uma CallContext, [conforme mostrado neste exemplo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). Nesse caso, estamos usando a ID de solicitação como correlationId.
 * Adicione uma implementação personalizada de TelemetryInitializer para definir a Operation.Id à correlationId que foi definida anteriormente. Para ver um exemplo, consulte [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13).
@@ -258,7 +259,7 @@ Para obter uma visão geral do seu sistema, é possível exibir os gráficos de 
 
 Se seu sistema usa outros serviços do Azure, como o Stream Analytics, inclua os gráficos de monitoramento deles também. 
 
-Caso tenha um aplicativo cliente móvel, use o [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Crie consultas no [Analytics](../../azure-monitor/app/analytics.md) para exibir a contagem de eventos e fixe-os ao painel.
+Caso tenha um aplicativo cliente móvel, use o [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Crie consultas no [Analytics](../log-query/log-query-overview.md) para exibir a contagem de eventos e fixe-os ao painel.
 
 ## <a name="example"></a>Exemplo
 [O exemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitora um serviço que tem uma função web e duas funções de trabalho.
@@ -283,6 +284,6 @@ Você compilou para .NET 4.6? O .NET 4.6 não tem suporte automático nas funç�
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md 
+[start]: ../../azure-monitor/app/app-insights-overview.md

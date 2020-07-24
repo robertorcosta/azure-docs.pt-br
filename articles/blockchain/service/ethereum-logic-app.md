@@ -4,16 +4,16 @@ description: Use o conector do Ethereum Blockchain com os Aplicativos Lógicos d
 ms.date: 10/14/2019
 ms.topic: how-to
 ms.reviewer: chrisseg
-ms.openlocfilehash: c7b45134e8b5c3e33e5d05d59c006abe103e5bda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61dbda7cd7f486c7a8d838084875b34803833502
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200725"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077037"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Usar o conector do Ethereum Blockchain com os Aplicativos Lógicos do Azure
 
-Use o [conector do Ethereum Blockchain](https://docs.microsoft.com/connectors/blockchainethereum/) com os [Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/) para executar ações de contrato inteligente e responder a eventos de contrato inteligente. Por exemplo, digamos que você deseje criar um microsserviço baseado em REST que retorna informações de um razão do blockchain. Usando um aplicativo lógico, você pode aceitar solicitações HTTP que consultam informações armazenadas em um razão do blockchain.
+Use o [conector do Ethereum Blockchain](/connectors/blockchainethereum/) com os [Aplicativos Lógicos do Azure](../../logic-apps/index.yml) para executar ações de contrato inteligente e responder a eventos de contrato inteligente. Por exemplo, digamos que você deseje criar um microsserviço baseado em REST que retorna informações de um razão do blockchain. Usando um aplicativo lógico, você pode aceitar solicitações HTTP que consultam informações armazenadas em um razão do blockchain.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,14 +52,14 @@ Use gatilhos de evento do Ethereum Blockchain quando desejar que um aplicativo l
 
     ![Designer de Aplicativos Lógicos com propriedades do Gatilho de evento](./media/ethereum-logic-app/event-properties.png)
 
-    | Property | Descrição |
+    | Propriedade | Descrição |
     |----------|-------------|
     | **ABI do Contrato** | O ABI (interface binária de aplicativo) do contrato define as interfaces do contrato inteligente. Para obter mais informações, confira [Obter o ABI do contrato](#get-the-contract-abi). |
     | **Endereço do contrato inteligente** | O endereço do contrato é o endereço de destino do contrato inteligente no Ethereum Blockchain. Para obter mais informações, confira [Obter o endereço do contrato](#get-the-contract-address). |
     | **Nome do evento** | Selecione um evento de contrato inteligente a ser verificado. O evento dispara o aplicativo lógico. |
     | **Intervalo** e **Frequência** | Selecione a frequência com que deseja verificar se há eventos. |
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Para concluir o aplicativo lógico, você pode adicionar uma nova etapa que executa uma ação com base no gatilho de evento do Ethereum Blockchain. Por exemplo, envie um email.
 
@@ -78,7 +78,7 @@ As ações do conector exigem um gatilho. Use uma ação de conector do Ethereum
 1. Altere ou [crie uma conexão de API](#create-an-api-connection) para o Azure Blockchain Service.
 1. Dependendo da ação escolhida, forneça os detalhes a seguir sobre a função de contrato inteligente.
 
-    | Property | Descrição |
+    | Propriedade | Descrição |
     |----------|-------------|
     | **ABI do Contrato** | O ABI do contrato define as interfaces do contrato inteligente. Para obter mais informações, confira [Obter o ABI do contrato](#get-the-contract-abi). |
     | **Código de bytes do contrato** | O código de bytes do contrato inteligente compilado. Para obter mais informações, confira [Obter o código de bytes do contrato](#get-the-contract-bytecode). |
@@ -153,7 +153,7 @@ Uma conexão de API com um blockchain é necessária para o conector do Ethereum
 
 Para ajudar você a configurar uma conexão com um membro do Azure Blockchain Service, a lista a seguir traz as propriedades que podem ser necessárias, dependendo do cenário.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |----------|-------------|
 |**Nome da conexão** | Nome da conexão de API. Obrigatórios. |
 |**Ponto de extremidade RPC do Ethereum** | Endereço HTTP do nó de transação do Azure Blockchain Service. Obrigatórios. Para obter mais informações, confira [Obter o ponto de extremidade RPC](#get-the-rpc-endpoint). |

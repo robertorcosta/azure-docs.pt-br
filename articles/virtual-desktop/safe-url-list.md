@@ -5,15 +5,15 @@ services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9b1bdfc326ff217e68785d823b4af046af3241b7
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 9f7a3b51afa11562123a280da8634e100a22e6b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225037"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075602"
 ---
 # <a name="safe-url-list"></a>Lista de URL segura
 
@@ -33,6 +33,7 @@ As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windo
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Ativação do Windows|Internet|
 |wvdportalstorageblob.blob.core.windows.net|443|Suporte do portal do Azure|AzureCloud|
+| 169.254.169.254 | 80 | [Ponto de extremidade do serviço de metadados de instância do Azure](../virtual-machines/windows/instance-metadata-service.md) | N/D |
 
 >[!IMPORTANT]
 >Agora, a Área de Trabalho Virtual do Windows dá suporte à marca FQDN. Para obter mais informações, confira [Usar o Firewall do Azure para proteger implantações da Área de Trabalho Virtual do Windows](../firewall/protect-windows-virtual-desktop.md).
@@ -59,8 +60,8 @@ A seguinte tabela lista as URLs opcionais às quais suas máquinas virtuais do A
 >Você precisa usar o caractere curinga (*) para URLs que envolvem tráfego de serviço. Se preferir não usar * para o tráfego relacionado ao agente, encontre as URLs sem curinga da seguinte forma:
 >
 >1. Registre suas máquinas virtuais no pool de hosts da Área de Trabalho Virtual do Windows.
->2. Abra o **Visualizador de eventos**, vá para logs do **Windows**  >  **Application**  >  **WVD-Agent** e procure a ID de evento 3702.
->3. Inclua na lista de permissões as URLs encontradas com a ID de Evento 3702. As URLs com a ID de Evento 3702 são específicas da região. Você precisará repetir o processo de desbloqueio com as URLs relevantes para cada região em que você deseja implantar suas máquinas virtuais.
+>2. Abra o **Visualizador de eventos**, vá para logs do **Windows**  >  **Application**  >  **WVD-Agent** e procure a ID de evento 3701.
+>3. Lista de permissões as URLs encontradas na ID do evento 3701. As URLs em ID de evento 3701 são específicas da região. Você precisará repetir o processo de desbloqueio com as URLs relevantes para cada região em que você deseja implantar suas máquinas virtuais.
 
 ## <a name="remote-desktop-clients"></a>Clientes de área de trabalho remota
 

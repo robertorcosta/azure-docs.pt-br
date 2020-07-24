@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 792b95b120f67afcd360730acbd783a3071388b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36118bb99da5f0c7f918009413394d931415886f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77431478"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076375"
 ---
 # <a name="protect-your-network-resources"></a>Proteja seus recursos de rede
 A Central de Segurança do Azure analisa continuamente o estado de segurança de seus recursos do Azure para as práticas recomendadas de segurança de rede. Quando o Security Center identifica possíveis vulnerabilidades de segurança, ele cria recomendações que guiam você pelo processo de configuração dos controles necessários para proteger e proteger seus recursos.
@@ -34,7 +35,7 @@ Este artigo aborda recomendações que se aplicam a seus recursos do Azure de um
 
 A página **Rede** fornece uma visão geral das seções nas quais você pode aprofundar, para obter mais informações sobre a integridade dos recursos de sua rede:
 
-- Mapa de rede (apenas na camada Standard do Azure Security Center)
+- Mapa de rede (somente camada Standard da central de segurança do Azure)
 - Proteção de rede adaptável
 - Recomendações de segurança de rede.
 - Herdado **rede** blade (rede folha anterior) 
@@ -115,7 +116,7 @@ Para fazer drill down em um recurso:
 
 ## <a name="legacy-networking"></a>Sistema de rede herdado <a name ="legacy-networking"></a>
 
-Se você não tiver o nível do Security Center Standard, esta seção explica como exibir recomendações gratuitas de rede.
+Se você não tiver a camada Standard da central de segurança, esta seção explicará como exibir as recomendações de rede gratuita.
 
 Para acessar essas informações, no blade Rede, clique em **Exibir rede legada**. 
 

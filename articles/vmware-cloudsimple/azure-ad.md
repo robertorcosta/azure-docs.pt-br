@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 674ca8bea110d60557d1e50e7b68c9c3f7a92bf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f90f5f4298fcca77e293965ddd377598bcfd1930
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77564577"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077311"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Usar o Azure AD como um provedor de identidade para o vCenter na nuvem privada do CloudSimple
 
@@ -45,7 +46,7 @@ Antes de começar, você precisará de acesso à sua assinatura do Azure com pri
 > [!NOTE]
 > Se você já tiver o Azure AD, poderá ignorar esta seção.
 
-1. Configure o Azure AD em sua assinatura, conforme descrito na [documentação do Azure ad](../active-directory/fundamentals/get-started-azure-ad.md).
+1. Configure o Azure AD em sua assinatura, conforme descrito na [documentação do Azure ad](../active-directory/fundamentals/active-directory-whatis.md).
 2. Habilite Azure Active Directory Premium em sua assinatura, conforme descrito em [inscrever-se para Azure Active Directory Premium](../active-directory/fundamentals/active-directory-get-started-premium.md).
 3. Configure um nome de domínio personalizado e verifique o nome de domínio personalizado conforme descrito em [Adicionar um nome de domínio personalizado para Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
     1. Configure um registro DNS no seu registrador de domínio com as informações fornecidas no Azure.
@@ -58,17 +59,17 @@ Opcionalmente, você pode configurar outros recursos do Azure AD.  Eles não sã
 > [!NOTE]
 > Esta é uma etapa importante para habilitar o Azure AD como uma fonte de identidade para o vCenter.  Para evitar problemas, certifique-se de que todas as etapas sejam executadas corretamente.
 
-1. Habilite os serviços de domínio do Azure AD conforme descrito em [habilitar Azure Active Directory serviços de domínio usando o portal do Azure](../active-directory-domain-services/active-directory-ds-getting-started.md).
-2. Configure a rede que será usada pelos serviços de domínio do Azure AD, conforme descrito em [habilitar Azure Active Directory Domain Services usando o portal do Azure](../active-directory-domain-services/active-directory-ds-getting-started-network.md).
-3. Configure o grupo de administradores para gerenciar Azure AD Domain Services conforme descrito em [habilitar Azure Active Directory Domain Services usando o portal do Azure](../active-directory-domain-services/active-directory-ds-getting-started-admingroup.md).
-4. Atualize as configurações de DNS para seu Azure AD Domain Services conforme descrito em [habilitar Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-dns.md).  Se você quiser se conectar ao AD pela Internet, configure o registro DNS para o endereço IP público dos serviços de domínio do Azure AD para o nome de domínio.
-5. Habilitar a sincronização de hash de senha para usuários.  Esta etapa habilita a sincronização de hashes de senha necessários para a autenticação Kerberos e NTLM (NT LAN Manager) para Azure AD Domain Services. Depois que a sincronização de hashes de senha é configurada, os usuários podem entrar no domínio gerenciado com suas credenciais corporativas. Consulte [habilitar a sincronização de hash de senha para Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
+1. Habilite os serviços de domínio do Azure AD conforme descrito em [habilitar Azure Active Directory serviços de domínio usando o portal do Azure](../active-directory-domain-services/tutorial-create-instance.md).
+2. Configure a rede que será usada pelos serviços de domínio do Azure AD, conforme descrito em [habilitar Azure Active Directory Domain Services usando o portal do Azure](../active-directory-domain-services/tutorial-create-instance.md).
+3. Configure o grupo de administradores para gerenciar Azure AD Domain Services conforme descrito em [habilitar Azure Active Directory Domain Services usando o portal do Azure](../active-directory-domain-services/tutorial-create-instance.md).
+4. Atualize as configurações de DNS para seu Azure AD Domain Services conforme descrito em [habilitar Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md).  Se você quiser se conectar ao AD pela Internet, configure o registro DNS para o endereço IP público dos serviços de domínio do Azure AD para o nome de domínio.
+5. Habilitar a sincronização de hash de senha para usuários.  Esta etapa habilita a sincronização de hashes de senha necessários para a autenticação Kerberos e NTLM (NT LAN Manager) para Azure AD Domain Services. Depois que a sincronização de hashes de senha é configurada, os usuários podem entrar no domínio gerenciado com suas credenciais corporativas. Consulte [habilitar a sincronização de hash de senha para Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md).
     1. Se os usuários somente na nuvem estiverem presentes, eles deverão alterar sua senha usando o <a href="http://myapps.microsoft.com/" target="_blank">painel de acesso do AD do Azure</a> para garantir que os hashes de senha sejam armazenados no formato exigido pelo NTLM ou pelo Kerberos.  Siga as instruções em [habilitar a sincronização de hash de senha para seu domínio gerenciado para contas de usuário somente em nuvem](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).  Esta etapa deve ser feita para usuários individuais e qualquer novo usuário criado no diretório do AD do Azure usando os cmdlets do PowerShell do portal do Azure ou do Azure AD. Os usuários que precisam de acesso aos serviços de domínio do Azure AD devem usar o <a href="http://myapps.microsoft.com/" target="_blank">painel de acesso do Azure ad</a> e acessar seu perfil para alterar a senha.
 
         > [!NOTE]
         > Se a sua organização tiver contas de usuário somente na nuvem, todos os usuários que precisarem usar o Azure Active Directory Domain Services deverão alterar suas senhas. Uma conta de usuário somente na nuvem é uma conta que foi criada no diretório do Azure AD usando o portal do Azure ou os cmdlets do Azure AD PowerShell. Essas contas de usuário não são sincronizadas de um diretório local.
 
-    2. Se você estiver sincronizando senhas do seu Active Directory local, siga as etapas na [documentação do Active Directory](../active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md).
+    2. Se você estiver sincronizando senhas do seu Active Directory local, siga as etapas na [documentação do Active Directory](../active-directory-domain-services/tutorial-configure-password-hash-sync.md).
 
 6.  Configure o LDAP seguro em seu Azure Active Directory Domain Services conforme descrito em [Configurar LDAP seguro (LDAPS) para um domínio gerenciado Azure AD Domain Services](../active-directory-domain-services/tutorial-configure-ldaps.md).
     1. Carregue um certificado para uso pelo LDAP seguro, conforme descrito no tópico do Azure [obter um certificado para LDAP seguro](../active-directory-domain-services/tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap).  O CloudSimple recomenda o uso de um certificado assinado emitido por uma autoridade de certificação para garantir que o vCenter possa confiar no certificado.

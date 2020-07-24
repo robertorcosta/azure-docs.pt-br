@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 225370f3aca3f1b9ff84bb677f3c125de73a99aa
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 73ce7091cd012fd6ccfcc53779ce0dd42be65818
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224376"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077536"
 ---
 # <a name="shared-image-gallery-overview"></a>Visão geral da galeria de imagens compartilhadas
 
@@ -24,4 +24,4 @@ ms.locfileid: "86224376"
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [implantar imagens compartilhadas usando o Azure PowerShell](shared-images.md).
+Saiba como [implantar imagens compartilhadas usando o Azure PowerShell](../shared-images-powershell.md).

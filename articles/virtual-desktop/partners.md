@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 07/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a0853266e4fda4393ba49fb740755e6b8bd03cf5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: d78de3d8e7fadc4b6760fef85fb4b850cc25111e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038048"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075776"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
 
@@ -48,7 +48,22 @@ a tecnologia 10ZiG, com hardware e software de cliente fino e zero de ponta, é 
 
 a liderança do mercado mundial de 10ZiG's em dispositivos de ponto de extremidade de cliente fino e zero e software de gerenciamento para áreas de trabalho virtuais é exemplificado por meio de como eles funcionam para seus clientes. Seu hardware de cliente fino é fornecido com recursos e opções de benefício construídos de acordo com o objetivo de garantir que os clientes recebam os dispositivos de cliente corretos com base em suas necessidades. o 10ZiG personaliza seus dispositivos para caber em ambientes de clientes com clientes baseados em Windows e Linux que fornecem o melhor desempenho possível em áreas de trabalho virtuais, dentro e fora da nuvem.
 
-- [Acesse o site do parceiro](https://www.10zig.com/).
+- [Acesse o site do parceiro](https://www.10zig.com/about/microsoft-wvd).
+
+## <a name="automai"></a>Automai
+
+![Logotipo do Automai](./media/partners/automai.png)
+
+Você pode usar a plataforma de automação robótica do Automai para testar os principais processos de negócios em um ambiente de área de trabalho virtual do Windows antes que sua implantação fique ativa.
+
+Com a ferramenta ScenarioBuilder da Automai e o mecanismo de fluxo de trabalho baseado em GUI, as equipes de ti podem registrar fluxos de trabalho reais do usuário final e convertê-los automaticamente em scripts. Em seguida, o Automai usa processos de execução de bots de áreas de trabalho individuais para emular a atividade do usuário final em uma simulação e relatar os resultados. Isso simplifica muito os processos de teste para que os administradores de ti possam realizar um teste de estresse até mesmo os cenários mais complexos.
+
+Quando estiver pronto para a inicialização, você poderá usar todos os scripts de fluxo de trabalho criados para testes de carga para monitorar continuamente o desempenho em produção. Os bots de Automai podem fazer mais do que apenas o monitoramento de disponibilidade. Os bots também podem testar os fluxos de trabalho do usuário final de locais principais, tirando capturas de tela e coleta de relatórios de erros em tempo real. Isso leva a uma abordagem mais proativa do que reativa para correções de bugs para aplicativos de área de trabalho virtual do Windows.
+
+O Automai permite que você use os mesmos scripts para testes de desempenho, testes funcionais, monitoramento de desempenho e até mesmo automação de processo robótica, tudo em uma plataforma.
+
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B76N).
+- [Acesse o site do parceiro](https://www.automai.com/wvd-testing-monitoring?hs_preview=EyZXkOWu-30742040580).
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -112,6 +127,17 @@ O licenciamento de ponto de extremidade flutuante exclusivo de clientes do siste
 
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yqY8).
 - [Acesse a página do parceiro](https://www.ekransystem.com/product/supported-platforms/windows-virtual-desktop-monitoring).
+
+## <a name="fabulatech"></a>FabulaTech
+
+![Logotipo do FabulaTech](./media/partners/fabulatech.png)
+
+O FabulaTech integra-se perfeitamente a clientes de área de trabalho virtual do Windows. Uma vez instalado, o FabulaTech software começa a funcionar automaticamente quando você estabelece uma conexão com uma área de trabalho remota.
+
+Quando um usuário entra em sua área de trabalho virtual, o software FabulaTech cria um dispositivo virtual. Por exemplo, você pode criar uma webcam virtual, um scanner ou um leitor de impressão digital. Todos os aplicativos em execução em uma sessão remota podem acessar o dispositivo virtual como se fosse um dispositivo físico. Você pode configurar o dispositivo virtual na área de trabalho virtual do Windows com o menu de ícone da bandeja do sistema, o que significa que você também pode usar essa solução em clientes finos. Além disso, toda a comunicação ocorre na conexão de área de trabalho remota existente, o que significa que o firewall está configurado para você. Tudo funciona bem pronto para uso.
+
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B4zO).
+- [Acesse o site do parceiro](https://www.fabulatech.com/partners/microsoft-windows-virtual-desktop/).
 
 ## <a name="flexxible-it"></a>Flexxible-lo
 

@@ -7,10 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79274678"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075258"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Fontes de dados do log de eventos do Windows no Azure Monitor
 Logs de eventos do Windows são uma das mais comuns [fontes de dados](agent-data-sources.md) para coletar dados usando agentes do Windows, pois muitos aplicativos escrevem o log de eventos do Windows.  Você pode coletar eventos de logs padrão como do sistema e aplicativo além de especificar todos os logs personalizados criados por aplicativos que você precisa monitorar.
@@ -39,7 +40,7 @@ O Azure Monitor coleta cada evento que corresponde a uma severidade selecionada 
 ## <a name="windows-event-records-properties"></a>Propriedades de registros de eventos do Windows
 Os registros de eventos do Windows têm um tipo de **evento** e têm as propriedades na tabela a seguir:
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | Computador |Nome do computador do qual o evento foi coletado. |
 | EventCategory |Categoria do evento. |
@@ -51,7 +52,7 @@ Os registros de eventos do Windows têm um tipo de **evento** e têm as propried
 | ParameterXml |Valores de parâmetro de evento em formato XML. |
 | ManagementGroupName |Nome do grupo de gerenciamento para agentes do System Center Operations Manager.  Para outros agentes, esse valor é`AOI-<workspace ID>` |
 | RenderedDescription |Descrição do evento com valores de parâmetro |
-| Origem |Origem do evento. |
+| Fonte |Origem do evento. |
 | SourceSystem |Tipo de agente do qual o evento foi coletado. <br> OpsManager - agente do Windows: conexão direta ou Operations Manager gerenciado <br>  Linux: todos os agentes do Linux  <br>  AzureStorage: Diagnóstico do Azure |
 | TimeGenerated |Data e hora em que o evento foi criado no Windows. |
 | UserName |Nome de usuário da conta que registrou o evento. |

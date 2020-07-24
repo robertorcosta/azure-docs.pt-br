@@ -6,12 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 872eec62e7a629d76533aa6c9906cbdb64c32236
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: fd741a9401a3936ec02939562e8e85046e829d31
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80745547"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075936"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introdução às funções de janela do Stream Analytics
 
@@ -34,7 +35,8 @@ As funções da Janela de Salto pulam para frente um período fixo no tempo. É 
 ![Janela de salto do Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
 ## <a name="sliding-window"></a>Janela Deslizante
-As funções de janela deslizantes, ao contrário das janelas em cascata ou de salto, produzem uma saída **somente** quando ocorre um evento. Cada janela terá pelo menos um evento e a janela avançará continuamente por um ε (Épsilon). Como nas janelas de salto, os eventos podem pertencer a mais de uma janela deslizante.
+
+Janelas deslizantes, diferentemente de em cascata ou de salto, são eventos de saída apenas para pontos no tempo em que o conteúdo da janela realmente é alterado. Em outras palavras, quando um evento entra ou sai da janela. Cada janela tem pelo menos um evento, como no caso de janelas de salto, os eventos podem pertencer a mais de uma janela deslizante
 
 ![Janela deslizante do Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
@@ -49,6 +51,11 @@ Se eventos continuarem dentro do tempo limite especificado, a janela de sessão 
 
 Quando uma chave de partição é fornecida, os eventos são agrupados pela chave e a janela de sessão é aplicada a cada grupo de forma independente. Esse particionamento é útil para casos em que você precisa de diferentes janelas de sessão para diferentes usuários ou dispositivos.
 
+## <a name="snapshot-window"></a>Janela de instantâneo
+
+Instantâneos agrupam eventos que têm o mesmo carimbo de data/hora. Ao contrário de outros tipos de janela, que exigem uma função de janela específica (como [SessionWindow ()](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics), você pode aplicar uma janela de instantâneo adicionando System. Timestamp () à cláusula Group by.
+
+![Stream Analytics janela de instantâneo](media/stream-analytics-window-functions/snapshot.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)

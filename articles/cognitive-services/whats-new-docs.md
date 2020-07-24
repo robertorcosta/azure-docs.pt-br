@@ -7,25 +7,25 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 07/09/2020
-ms.openlocfilehash: da09cb8aa112cdf927c1a67401ab3f6a92e85ece
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 59d19bd2a1dca2a3bc3c6ec3aee9e63b8f12b5d3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225042"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075187"
 ---
 # <a name="cognitive-services-docs-whats-new-for-june-1-2020---june-30-2020"></a>Documentos de serviços cognitivas: novidades para 1º de junho de 2020 – 30 de junho de 2020
 
 Bem-vindo ao que há de novo nos documentos de serviços cognitivas de 1º de junho de 2020 até 30 de junho de 2020. Este artigo lista algumas das principais alterações feitas no docs durante esse período.
 
-## <a name="computer-vision"></a>Visual Computacional
+## <a name="computer-vision"></a>Pesquisa Visual Computacional
 
 ### <a name="updated-articles"></a>Artigos atualizados
 
 - [Início Rápido: Extrair um texto impresso e manuscrito usando a API REST da Pesquisa Visual Computacional e o Java](/azure/cognitive-services/computer-vision/quickstarts/java-hand-text)
 - [Início Rápido: Extrair um texto impresso e manuscrito usando a API REST da Pesquisa Visual Computacional e Python](/azure/cognitive-services/computer-vision/quickstarts/python-hand-text)
 
-## <a name="face"></a>Face
+## <a name="face"></a>Detecção Facial
 
 ### <a name="updated-articles"></a>Artigos atualizados
 
@@ -69,16 +69,16 @@ Bem-vindo ao que há de novo nos documentos de serviços cognitivas de 1º de ju
 ### <a name="new-articles"></a>Novos artigos
 
 - [Conceitos de comandos personalizados](/azure/cognitive-services/speech-service/custom-commands-references)
-- [Adicionar confirmações a um comando](/azure/cognitive-services/speech-service/how-to-custom-commands-add-confirmations)
-- [Configurar o parâmetro como uma entidade de catálogo externo](/azure/cognitive-services/speech-service/how-to-custom-commands-add-external-catalog-string-entity)
+- [Adicionar confirmações a um comando](/azure/cognitive-services/speech-service/how-to-custom-commands-add-interaction-rules#add-confirmations-to-a-command)
+- [Configurar o parâmetro como uma entidade de catálogo externo](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration#configure-parameter-as-external-catalog-entity)
 - [Usar modelos de geração de linguagem para respostas de fala](/azure/cognitive-services/speech-service/how-to-custom-commands-add-language-generation-templates)
-- [Implementando correções em um comando](/azure/cognitive-services/speech-service/how-to-custom-commands-add-one-step-correction)
+- [Implementando correções em um comando](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration)
 - [Adicionar parâmetros a comandos](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameters-to-commands)
-- [Adicionar comandos simples](/azure/cognitive-services/speech-service/how-to-custom-commands-add-simple-commands)
-- [Adicionar validações a parâmetros de comando personalizados](/azure/cognitive-services/speech-service/how-to-custom-commands-add-validations)
-- [Criar um aplicativo de comandos personalizados](/azure/cognitive-services/speech-service/how-to-custom-commands-create-empty-project)
+- [Adicionar comandos simples](/azure/cognitive-services/speech-service/how-to-custom-commands-create-application-with-simple-commands)
+- [Adicionar validações a parâmetros de comando personalizados](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration#add-validation-to-parameters)
+- [Criar um aplicativo de comandos personalizados](/azure/cognitive-services/speech-service/how-to-custom-commands-create-application-with-simple-commands#create-empty-application)
 - [CI/CD para Fala Personalizada](/azure/cognitive-services/speech-service/how-to-custom-speech-continuous-integration-continuous-deployment)
-- [Criar um assistente de voz de ponta a ponta usando comandos personalizados](/azure/cognitive-services/speech-service/quickstart-custom-commands-e2e-application)
+- [Criar um assistente de voz de ponta a ponta usando comandos personalizados](/azure/cognitive-services/speech-service/quickstart-custom-commands-application)
 - [Início Rápido: Testar um modelo usando um arquivo de áudio – Speech Studio](/azure/cognitive-services/speech-service/quickstarts/speech-studio-test-model)
 - [Aprender as noções básicas do Reconhecimento do Locutor](/azure/cognitive-services/speech-service/speaker-recognition-basics)
 - [O que é o serviço de Reconhecimento do Locutor do Azure?](/azure/cognitive-services/speech-service/speaker-recognition-overview)
@@ -89,7 +89,7 @@ Bem-vindo ao que há de novo nos documentos de serviços cognitivas de 1º de ju
 - [O que é a transcrição em lote?](/azure/cognitive-services/speech-service/batch-transcription)
 - [Idiomas compatíveis e suporte de voz para o serviço de Fala](/azure/cognitive-services/speech-service/language-support)
 
-## <a name="text-analytics"></a>Análise de texto
+## <a name="text-analytics"></a>Análise de Texto
 
 ### <a name="updated-articles"></a>Artigos atualizados
 

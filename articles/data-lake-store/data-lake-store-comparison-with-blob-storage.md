@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 3565af1f3e0a002cf3852faef9c2853ff88d46e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ab1e2ed4aeace0ec98cb358f32a07f64c3dfea2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82691735"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075046"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Comparando o Azure Data Lake Storage Gen1 e o armazenamento de BLOBs do Azure
 
@@ -19,8 +19,8 @@ ms.locfileid: "82691735"
 
 A tabela neste artigo resume as diferenças entre o Azure Data Lake Storage Gen1 e o Armazenamento de Blobs do Azure em alguns aspectos fundamentais do processamento de big data. O Armazenamento de Blobs do Azure é um repositório de objetos escalonável de finalidade geral que foi criado para uma ampla variedade de cenários de armazenamento. O Azure Data Lake Storage Gen1 é um repositório de grande escala otimizado para cargas de trabalho de análise de big data.
 
-|  | Azure Data Lake Storage Gen1 | Armazenamento do Blobs do Azure |
-| --- | --- | --- |
+| Categoria | Azure Data Lake Storage Gen1 | Armazenamento do Blobs do Azure |
+| -------- | ---------------------------- | ------------------ |
 | Finalidade |Armazenamento otimizado para cargas de trabalho de análise de big data |Repositório de objeto de uso geral para uma grande variedade de cenários de armazenamento, incluindo análise big data |
 | Casos de uso |Análise de streaming interativa em lotes e dados de aprendizado de máquina, como arquivos de log, dados da IoT, fluxos de cliques, grandes conjuntos de dados |Qualquer tipo de dados de texto ou binários, como back-end de aplicativo, dados de backup, armazenamento de mídia para streaming e dados de uso geral. Adicionalmente, suporte total para cargas de trabalho de análise; lote, interativo, análises de streaming e dados do Azure Machine Learning, como arquivos de log, dados IoT, fluxos de cliques, grandes conjuntos de dados |
 | Conceitos Principais |A conta do Data Lake Storage Gen1 contém pastas, que, por sua vez, contêm dados armazenados como arquivos |A conta de armazenamento tem contêineres, que, por sua vez, têm dados na forma de blobs |
@@ -40,6 +40,6 @@ A tabela neste artigo resume as diferenças entre o Azure Data Lake Storage Gen1
 | Redundância geográfica |Com redundância local (várias cópias de dados em uma região do Azure) |LRS (redundância local), ZRS (redundância de zona), GRS (redundância global), RA-GRS (redundância global com acesso de leitura). Consulte [aqui](../storage/common/storage-redundancy.md) para obter mais informações |
 | Estado do serviço |Disponível para o público geral |Disponível para o público geral |
 | Disponibilidade regional |Veja [aqui](https://azure.microsoft.com/regions/#services) |Disponível em todas as regiões do Azure |
-| Price |Veja [preços](https://azure.microsoft.com/pricing/details/data-lake-store/) |Veja [preços](https://azure.microsoft.com/pricing/details/storage/) |
+| Preço |Consulte os [preços](https://azure.microsoft.com/pricing/details/data-lake-store/) |Consulte os [preços](https://azure.microsoft.com/pricing/details/storage/) |
 
 

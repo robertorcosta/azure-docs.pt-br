@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: da9ec0fc421f0cb2f2a1e6fa65d8c936cfd5a3c7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 78cdf1798d9176c9d3c7b3705a11dccde5e47e67
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515420"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077112"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Contas de armazenamento de propriedade do cliente para ingestão de logs no Azure Monitor
 
@@ -54,7 +54,7 @@ O único método disponível para criar e remover links é por meio da API REST.
 ## <a name="command-line-and-rest-api"></a>Linha de comando e API REST
 
 ### <a name="command-line"></a>Linha de comando
-Para criar e gerenciar contas de armazenamento vinculadas, use [AZ monitor log-Analytics espaço de trabalho vinculado-Storage](/cli/azure/monitor/log-analytics/workspace/linked-storage). Esse comando pode vincular e desvincular contas de armazenamento de um espaço de trabalho e listar as contas de armazenamento vinculadas.
+Para criar e gerenciar contas de armazenamento vinculadas, use [AZ monitor log-Analytics espaço de trabalho vinculado-Storage](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage). Esse comando pode vincular e desvincular contas de armazenamento de um espaço de trabalho e listar as contas de armazenamento vinculadas.
 
 ### <a name="request-and-cli-values"></a>Valores de solicitação e CLI
 

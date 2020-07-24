@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
-ms.openlocfilehash: 87885d9b476582fcce53b8b960d24093693af4ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34c66c3d5739fdc23323a302e3bedfb1b6301d86
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509380"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077902"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple como um destino de backup com o NetBackup
 
@@ -304,7 +304,7 @@ Veja esta exemplo de uma agenda de rotação GFS de quatro semanas, mensal e anu
 |---|---|---|
 | Semanal (1 a 4 semanas) | Sábado | Segunda a sexta-feira |
 | Mensal  | Sábado  |   |
-| Anual | Sábado  |   |
+| Anualmente | Sábado  |   |
 
 ## <a name="assigning-storsimple-volumes-to-a-netbackup-backup-job"></a>Atribuir volumes do StorSimple a um trabalho de backup do NetBackup
 
@@ -415,7 +415,7 @@ A capacidade total do \* inclui 17 TiB de discos do StorSimple e 1 TiB de volume
 | Semana 3 | StorSimple semanas 2 a 4 |   |   |   |   |   |
 | Semana 4 | StorSimple semanas 2 a 4 |   |   |   |   |   |
 | Mensal | StorSimple mensal |   |   |   |   |   |
-| Anual | StorSimple anual  |   |   |   |   |   |
+| Anualmente | StorSimple anual  |   |   |   |   |   |
 
 
 ## <a name="assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Atribua volumes do StorSimple a um trabalho de arquivamento e duplicação do NetBackup
@@ -507,7 +507,7 @@ A seção a seguir descreve como criar um script curto para iniciar e excluir in
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Para iniciar ou excluir um instantâneo de nuvem
 
-1. [Instale o Azure PowerShell](/powershell/azure/overview).
+1. [Instale o Azure PowerShell](/powershell/azure/).
 2. Baixe e instale o script [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) do PowerShell.
 3. No servidor que executa o script, execute o PowerShell como administrador. Execute o script com `-WhatIf $true` para ver as alterações que serão feitas pelo script. Depois que a validação for concluída, passe `-WhatIf $false`. Execute o comando abaixo:
    ```powershell

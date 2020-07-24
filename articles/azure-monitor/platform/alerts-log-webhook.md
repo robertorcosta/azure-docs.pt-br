@@ -7,11 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 6c9bacfc4354351cbbf2eb735414ff3334cd7d0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3311819f021533a28a41daf2c2f08193218fae96
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84323664"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075268"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de webhook para regras de alerta do log
 Quando um [alerta de log é criado no Azure](alerts-log.md), você tem a opção de [configurá-lo usando grupos de ação](action-groups.md) para executar uma ou mais ações. Este artigo descreve as diferentes ações de webhook que estão disponíveis e mostra como configurar um webhook personalizado baseado em JSON.
@@ -25,7 +26,7 @@ Com as ações de webhook, você pode invocar um processo externo por meio de um
 
 As ações de webhook exigem as propriedades indicadas na tabela a seguir.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | **URL de Webhook** |A URL do webhook. |
 | **Carga JSON personalizada** |A carga personalizada a ser enviada com o webhook quando essa opção é escolhida durante a criação do alerta. Para obter mais informações, consulte [Manage log Alerts](alerts-log.md).|
@@ -39,7 +40,7 @@ Os WebHooks incluem uma URL e uma carga formatada em JSON que os dados enviam pa
 | Parâmetro | Variável | Descrição |
 |:--- |:--- |:--- |
 | *AlertRuleName* |#alertrulename |Nome da regra de alerta. |
-| *Severidade* |#severity |Severidade definida para o alerta do log disparado. |
+| *Gravidade* |#severity |Severidade definida para o alerta do log disparado. |
 | *AlertThresholdOperator* |#thresholdoperator |Operador de limite para a regra de alerta, que usa maior ou menor que. |
 | *AlertThresholdValue* |#thresholdvalue |O valor de limite para a regra de alerta. |
 | *LinkToSearchResults* |#linktosearchresults |Link para o portal de análise que retorna os registros da consulta que criou o alerta. |
@@ -264,6 +265,5 @@ A seguinte carga de exemplo é para uma ação personalizada de webhook para qua
 - Saiba mais sobre os [alertas de log nos alertas do Azure](alerts-unified-log.md).
 - Entenda como [Gerenciar alertas de log no Azure](alerts-log.md).
 - Crie e gerencie [grupos de ações no Azure](action-groups.md).
-- Saiba mais sobre o [Application Insights](../../azure-monitor/app/analytics.md).
+- Saiba mais sobre o [Application Insights](../log-query/log-query-overview.md).
 - Saiba mais sobre [consultas de log](../log-query/log-query-overview.md). 
-

@@ -9,11 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 12df9566dd3ddfedd1f4553ad8877258d840858c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: fa8838dd5eca03d9dd85e424f0163eb9ca8ed5e2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960207"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077848"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Referência de dados de monitoramento do Azure Storage
 
@@ -45,6 +46,7 @@ Esta tabela mostra as [métricas de armazenamento de BLOBs](https://docs.microso
 | ------------------- | ----------------- |
 | BlobCapacity | O total de armazenamento de Blob usado na conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensões: **BlobType** e **BlobTier** ([Definição](#metrics-dimensions)) |
 | BlobCount    | O número de objetos blob armazenados na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensões: **BlobType** e **BlobTier** ([Definição](#metrics-dimensions)) |
+| BlobProvisionedSize | A quantidade de armazenamento provisionada na conta de armazenamento. Essa métrica é aplicável somente a contas de armazenamento Premium. <br/><br/> Unidade: bytes <br/> Tipo de agregação: Média |
 | ContainerCount    | O número de contêineres na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 | IndexCapacity     | A quantidade de armazenamento usado pelo Índice ADLS Gen2 Hierárquico <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
@@ -77,6 +79,7 @@ Esta tabela mostra as [métricas de armazenamento de arquivos](https://docs.micr
 | FileCapacity | A quantidade de armazenamento de Arquivos usada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 | FileCount   | O número de arquivos na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 | FileShareCount | O número de compartilhamentos de arquivos na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| FileShareProvisionedIOPS | O número de IOPS provisionados em um compartilhamento de arquivos. Essa métrica é aplicável somente ao armazenamento de arquivos premium. <br/><br/> Unidade: bytes <br/> Tipo de agregação: Média |
 
 ### <a name="transaction-metrics"></a>Métricas de transação
 
@@ -137,7 +140,7 @@ A tabela a seguir lista as propriedades dos logs de recursos do armazenamento do
 }
 ```
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:---|
 |**time** | A hora universal coordenada (UTC) quando a solicitação foi recebida pelo armazenamento. Por exemplo: `2018/11/08 21:09:36.6900118`.|
 |**resourceId** | A ID do recurso da conta de armazenamento. Por exemplo: `/subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|

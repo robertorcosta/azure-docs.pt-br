@@ -3,12 +3,12 @@ title: Suporte de avaliação do VMware nas Migrações para Azure
 description: Saiba mais sobre o suporte para a avaliação de VM DO VMware com a Avaliação do Servidor de Migrações para Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4ca59e3b9eaf62a46ca4df3a582e7b8f290e7da6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1c1e349f31f6650c0f0910642d60193ebc0dd3a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108797"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078014"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação do VMware 
 
@@ -87,7 +87,7 @@ A [análise de dependência](concepts-dependency-visualization.md) ajuda a ident
 **VMs do Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bits).
 **Credenciais do vCenter Server** | A visualização de dependência precisa de uma conta do vCenter Server com acesso somente leitura e privilégios habilitados para Máquinas Virtuais > Operações de Convidado.
 **Permissões de VM do Windows** |  Para a análise de dependência, o dispositivo de Migrações para Azure precisa de uma conta de administrador de domínio ou de uma conta de administrador local para acessar as VMs do Windows.
-**Permissões de VM do Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
+**VMs do Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
 **Conta do Linux** | Para análise de dependência, nos computadores Linux, o dispositivo de Migrações para Azure precisa de uma conta de usuário com privilégio de Raiz.<br/><br/> Como alternativa, a conta de usuário precisa dessas permissões nos arquivos /bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
 **Agentes necessários** | Nenhum agente é necessário nos computadores que você deseja analisar.
 **Ferramentas do VMware** | As ferramentas do VMware (posterior à 10.2) devem ser instaladas e executadas em cada VM que você deseja analisar.

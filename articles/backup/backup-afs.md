@@ -3,16 +3,16 @@ title: Fazer backup de compartilhamentos de arquivo do Azure no portal do Azure
 description: Saiba como usar o portal do Azure para fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: 76bf8e00dede5f227cb862f9c9474844e349e298
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58bcd7ecd7c6fac80f5b78fb2c8b568b63e3e1b2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391139"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077147"
 ---
 # <a name="back-up-azure-file-shares"></a>Backup de compartilhamentos de arquivos do Azure
 
-Este artigo explica como usar o portal do Azure para fazer backup de [compartilhamentos de arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
+Este artigo explica como usar o portal do Azure para fazer backup de [compartilhamentos de arquivos do Azure](../storage/files/storage-files-introduction.md).
 
 Neste artigo, você aprenderá a:
 

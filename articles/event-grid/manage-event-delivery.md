@@ -2,19 +2,22 @@
 title: Mensagens mortas e políticas de repetição – grade de eventos do Azure
 description: Descreve como personalizar opções de entrega de eventos para a Grade de Eventos. Definir um destino de inatividade e especificar o tempo de entrega novamente.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 88e782eb7dafc10956120bdae870aa2eb58778a5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/20/2020
+ms.openlocfilehash: 2ff1d05899fb74583489649154ffa062e857cb95
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105482"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074881"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Mensagens mortas e tentar novas políticas
 
 Ao criar uma assinatura de evento, você pode personalizar as configurações para entrega de eventos. Este artigo mostra como configurar um local de mensagens mortas e personalizar as configurações de repetição. Para obter informações sobre esses recursos, consulte [Entrega e repetição de mensagens da Grade de Eventos](delivery-and-retry.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+> [!NOTE]
+> Para saber mais sobre entrega de mensagens, novas tentativas e mensagens mortas, consulte o artigo conceitual: [entrega e repetição de mensagem da grade de eventos]().
 
 ## <a name="set-dead-letter-location"></a>Defina o local de mensagens mortas
 
@@ -95,7 +98,8 @@ az eventgrid event-subscription create \
   --max-delivery-attempts 18
 ```
 
-Se você definir ambos `event-ttl` e `max-deliver-attempts`, a Grade de Eventos usa o primeiro para expirar, a fim de determinar quando parar a entrega de eventos.
+> [!NOTE]
+> Se você definir ambos `event-ttl` e `max-deliver-attempts`, a Grade de Eventos usa o primeiro para expirar, a fim de determinar quando parar a entrega de eventos. Por exemplo, se você definir 30 minutos como tempo de vida (TTL) e 10 tentativas de entrega máxima. Quando um evento não é entregue após 30 minutos (ou) não é entregue após 10 tentativas, o que ocorrer primeiro, o evento é inativo.  
 
 ### <a name="powershell"></a>PowerShell
 
@@ -123,7 +127,8 @@ New-AzEventGridSubscription `
   -MaxDeliveryAttempt 18
 ```
 
-Se você definir ambos `EventTtl` e `MaxDeliveryAttempt`, a Grade de Eventos usa o primeiro para expirar, a fim de determinar quando parar a entrega de eventos.
+> [!NOTE]
+> Se você definir ambos `event-ttl` e `max-deliver-attempts`, a Grade de Eventos usa o primeiro para expirar, a fim de determinar quando parar a entrega de eventos. Por exemplo, se você definir 30 minutos como tempo de vida (TTL) e 10 tentativas de entrega máxima. Quando um evento não é entregue após 30 minutos (ou) não é entregue após 10 tentativas, o que ocorrer primeiro, o evento é inativo.  
 
 ## <a name="next-steps"></a>Próximas etapas
 

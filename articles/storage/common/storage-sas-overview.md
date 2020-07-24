@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 07/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: b853817b670f59bbfeef9ecd81c70dc63cbd367b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 108dd37370290a68d620a61f84b4553ed59792ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804611"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077871"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)
 
 Uma SAS (assinatura de acesso compartilhado) fornece acesso delegado seguro aos recursos em sua conta de armazenamento sem comprometer a segurança de seus dados. Com uma SAS, você tem controle granular sobre como um cliente pode acessar seus dados. Você pode controlar quais recursos o cliente pode acessar, quais permissões eles têm sobre esses recursos e por quanto tempo a SAS é válida, entre outros parâmetros.
 
-## <a name="types-of-shared-access-signatures"></a>Tipos de assinaturas de Acesso compartilhado.
+## <a name="types-of-shared-access-signatures"></a>Tipos de assinaturas de acesso compartilhado
 
 O armazenamento do Azure dá suporte a três tipos de assinaturas de acesso compartilhado:
 
@@ -109,7 +109,7 @@ As recomendações a seguir para usar assinaturas de acesso compartilhado podem 
 - **Defina uma política de acesso armazenada para uma SAS de serviço.** As políticas de acesso armazenadas oferecem a opção de revogar permissões para uma SAS de serviço sem a necessidade de regenerar as chaves da conta de armazenamento. Defina o vencimento para um momento muito distante no futuro (ou infinito) e certifique-se de que ela seja atualizada regularmente para uma data ainda mais além no futuro.
 - **Use tempos de expiração de curto prazo em uma SAS do serviço SAS ad hoc ou SAS da conta.** Dessa forma, mesmo se uma SAS for comprometida, ela será válida apenas por um breve período. Esta prática será especialmente importante se você não puder fazer referência a uma política de acesso armazenada. Períodos de vencimento breves também limitam a quantidade de dados que podem ser gravados em um blob, limitando o tempo disponível para carregá-los.
 - **Faça com que os clientes renovem a SAS automaticamente, se necessário.** Os clientes devem renovar a SAS bem antes da expiração, para que haja tempo para novas tentativas, caso o serviço que fornece a SAS não esteja disponível. Se o SAS se destinar a ser usado para um pequeno número de operações imediatas e de curta duração que devem ser concluídas no período de expiração, isso poderá ser desnecessário, pois não se espera que a SAS seja renovada. No entanto, se você tiver um cliente que está sempre fazendo solicitações via SAS, surge a possibilidade de expiração. A principal consideração consiste em equilibrar a necessidade de curta duração da SAS (como mencionado acima) com a necessidade de garantir que o cliente solicite renovação com antecedência suficiente (para evitar uma interrupção devido ao vencimento da SAS antes de uma renovação bem-sucedida).
-- **Tenha cuidado com a hora de início da SAS.** Se você definir a hora de início de uma SAS para **agora**, poderão ser observadas falhas intermitentemente para os primeiros minutos devido à defasagem horária (diferenças na hora atual de acordo com computadores diferentes). Em geral, defina a hora de início para pelo menos 15 minutos no passado. Ou então, simplesmente não a defina, o que a tornará imediatamente válida em todos os casos. Em geral, o mesmo também se aplica à hora de vencimento – lembre-se de que pode haver até 15 minutos de defasagem horária em um dos dois sentidos em qualquer solicitação. Para os clientes que usam uma versão de REST anterior à 2012-02-12, a duração máxima de uma SAS que não faz referência a uma política de acesso armazenada é 1 hora, e qualquer política que especifique um período maior do que esse falhará.
+- **Tenha cuidado com a hora de início da SAS.** Se você definir a hora de início de uma SAS para a hora atual, poderá observar falhas que ocorrem intermitentemente pelos primeiros minutos devido a diferentes máquinas com variações sutis da hora atual (conhecida como distorção de relógio). Em geral, defina a hora de início para pelo menos 15 minutos no passado. Ou então, simplesmente não a defina, o que a tornará imediatamente válida em todos os casos. Em geral, o mesmo também se aplica à hora de vencimento – lembre-se de que pode haver até 15 minutos de defasagem horária em um dos dois sentidos em qualquer solicitação. Para os clientes que usam uma versão de REST anterior à 2012-02-12, a duração máxima de uma SAS que não faz referência a uma política de acesso armazenada é 1 hora, e qualquer política que especifique um período maior do que esse falhará.
 - **Tenha cuidado com o formato de data e hora SAS.** Se você definir a hora de início e/ou a expiração de uma SAS, para alguns utilitários (por exemplo, para o utilitário de linha de comando AzCopy), você precisará do formato DateTime como ' +% Y-% m-% dT% H:%M:% SZ ', especificamente incluindo os segundos para que ele funcione usando o token SAS.  
 - **Seja específico com o recurso a ser acessado.** Uma prática recomendada de segurança consiste em fornecer os privilégios mínimos necessários a um usuário. Se um usuário precisar apenas de acesso de leitura a uma única entidade, conceda-lhe acesso de leitura a essa única entidade, e não acesso de leitura/gravação/exclusão a todas as entidades. Isso também ajuda a reduzir o dano caso uma SAS seja comprometida, pois a SAS terá menos poder nas mãos de um invasor.
 - **Entenda que sua conta será cobrada por qualquer uso, incluindo por meio de uma SAS.** Se você fornecer acesso de gravação a um blob, um usuário poderá optar por carregar um blob de 200 GB. Se você também tiver concedido o acesso de leitura, será possível baixá-la 10 vezes, incorrendo em 2 TB de custos de saída. Como mencionado, forneça permissões limitadas para ajudar a reduzir a ações em potencial de usuários mal-intencionados. Use SAS de curta duração para reduzir essa ameaça (mas, tenha cuidado com a defasagem horária na hora de término).

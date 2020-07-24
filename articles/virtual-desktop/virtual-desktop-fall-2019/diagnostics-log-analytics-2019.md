@@ -1,6 +1,6 @@
 ---
-title: Log Analytics de diagnóstico de área de trabalho virtual do Windows – Azure
-description: Como usar o log Analytics com o recurso de diagnóstico de área de trabalho virtual do Windows.
+title: Log Analytics de diagnóstico de área de trabalho virtual do Windows (Outono 2019) – Azure
+description: Saiba como usar o log Analytics com o recurso de diagnóstico do Windows Virtual Desktop (Outono 2019 Release).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: beb48b90afd54b044eb6d0ceaff32b53ebfcdc34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4c59268f63252813c7e08608d5d8ee499b11f53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85205961"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077615"
 ---
-# <a name="use-log-analytics-for-the-diagnostics-feature"></a>Usar Log Analytics para o recurso de diagnóstico
+# <a name="use-log-analytics-for-the-diagnostics-feature-fall-2019-release"></a>Usar Log Analytics para o recurso de diagnóstico (versão 2019 do outono)
 
 >[!IMPORTANT]
 >Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../diagnostics-log-analytics.md).

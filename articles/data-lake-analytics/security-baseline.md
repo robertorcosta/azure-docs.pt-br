@@ -1,20 +1,20 @@
 ---
-title: Linha de base de segurança do Data Lake Analytics para o benchmark de segurança do Azure
+title: Linha de base de segurança do Azure para Data Lake Analytics
 description: A linha de base de segurança Data Lake Analytics fornece diretrizes de procedimento e recursos para implementar as recomendações de segurança especificadas no benchmark de segurança do Azure.
 author: msmbaldwin
 ms.service: data-lake-analytics
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 5e6d5beaad5080bf3081d5f68722623fb62d6c8a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cb93fa266111a0f60a139d7b76a149ba81b486e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530930"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075086"
 ---
-# <a name="data-lake-analytics-security-baseline-for-azure-security-benchmark"></a>Linha de base de segurança do Data Lake Analytics para o benchmark de segurança do Azure
+# <a name="azure-security-baseline-for-data-lake-analytics"></a>Linha de base de segurança do Azure para Data Lake Analytics
 
 A linha de base de segurança do Azure para Data Lake Analytics contém recomendações que ajudarão você a melhorar a postura de segurança de sua implantação.
 

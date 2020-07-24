@@ -3,12 +3,12 @@ title: Bibliotecas de gerenciamento - Hubs de Eventos do Azure | Microsoft Docs
 description: Este artigo fornece informações sobre a biblioteca que você pode usar para gerenciar namespaces de Hubs de Eventos do Azure e entidades do .NET.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f3129ae5586a3096dda89eea3af21eefd1606f30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79656d95cf925c21b0f0c5f2b3bafe6348e0b553
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312986"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074826"
 ---
 # <a name="event-hubs-management-libraries"></a>Bibliotecas de gerenciamento dos Hubs de Eventos
 
@@ -26,7 +26,7 @@ Para começar a usar as bibliotecas de gerenciamento de Hubs de eventos, você d
 
 * [Use o portal do Azure para criar Active Directory aplicativo e entidade de serviço que possa acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Usar a CLI do Azure para criar uma entidade de serviço a fim de acessar recursos](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
+* [Usar a CLI do Azure para criar uma entidade de serviço a fim de acessar recursos](/cli/azure/create-an-azure-service-principal-azure-cli)
 
 Estes tutoriais fornecem uma `AppId` (ID do Cliente), `TenantId` e `ClientSecret` (chave de autenticação), todas usadas para autenticação pelas bibliotecas de gerenciamento. Você deve ter permissões de **Proprietário** para o grupo de recursos no qual você deseja executar.
 

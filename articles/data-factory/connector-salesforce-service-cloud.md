@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: ec2aa5b1492534908adb55544623110242717609
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.openlocfilehash: d83dcc5c86f2dfed5f588738e7799dd708333da1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416670"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076788"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Copiar dados de e para a nuvem do serviço Salesforce usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -50,7 +50,7 @@ O Salesforce tem limites para o total de solicitações de API e as solicitaçõ
 - Se o número de solicitações simultâneas exceder o limite, a limitação será atingida e você verá falhas aleatórias.
 - Se o número total de solicitações exceder o limite, a conta do Salesforce será bloqueada por 24 horas.
 
-Você também pode receber a mensagem de erro "REQUEST_LIMIT_EXCEEDED" em ambos os cenários. Para obter mais informações, veja a seção "Limites de Solicitações da API" na seção [Salesforce Developer Limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limites do Desenvolvedor Salesforce).
+Você também pode receber a mensagem de erro "REQUEST_LIMIT_EXCEEDED" em ambos os cenários. Para obter mais informações, veja a seção "Limites de Solicitações da API" na seção [Salesforce Developer Limits](https://developer.salesforce.com/docs/atlas.en-us.218.0.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm) (Limites do Desenvolvedor Salesforce).
 
 ## <a name="get-started"></a>Introdução
 
@@ -66,7 +66,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Salesforce.
 |:--- |:--- |:--- |
 | type |A propriedade Type deve ser definida como **SalesforceServiceCloud**. |Sim |
 | environmentUrl | Especifique a URL da instância de nuvem do serviço do Salesforce. <br> – O padrão é `"https://login.salesforce.com"`. <br> – Para copiar dados da área restrita, especifique `"https://test.salesforce.com"`. <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, `"https://[domain].my.salesforce.com"`. |Não |
-| Nome de Usuário |Especifique um nome de usuário para a conta de usuário. |Sim |
+| nome de usuário |Especifique um nome de usuário para a conta de usuário. |Sim |
 | password |Especifique um senha para a conta de usuário.<br/><br/>Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | securityToken |Especifique um token de segurança para a conta de usuário. <br/><br/>Para saber mais sobre os tokens de segurança em geral, veja [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Segurança e a API). O token de segurança só poderá ser ignorado se você adicionar o IP do Integration Runtime à [lista de endereços IP confiáveis](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) no Salesforce. Ao usar Azure IR, consulte [Azure Integration Runtime endereços IP](azure-integration-runtime-ip-addresses.md).<br/><br/>Para obter instruções sobre como obter e redefinir um token de segurança, consulte [obter um token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Não |
 | apiVersion | Especifique a versão de API em massa/REST do Salesforce a ser usada, por exemplo, `48.0` . Por padrão, o conector usa [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar dados do Salesforce e usa o [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar dados para o Salesforce. | Não |
@@ -285,16 +285,16 @@ Para consultar os registros com exclusão reversível da lixeira da nuvem do ser
 
 ### <a name="difference-between-soql-and-sql-query-syntax"></a>Diferença entre a sintaxe de consulta SOQL e SQL
 
-Ao copiar dados da nuvem do serviço Salesforce, você pode usar a consulta SOQL ou a consulta SQL. Note que as duas têm suporte diferente de sintaxe e funcionalidade, não combine-as. Você deve usar a consulta SOQL que tem suporte nativo pela nuvem do serviço Salesforce. A tabela a seguir lista as principais diferenças:
+Ao copiar dados da nuvem do serviço Salesforce, você pode usar a consulta SOQL ou a consulta SQL. Note que as duas têm suporte diferente de sintaxe e funcionalidade, não combine-as. É recomendável usar a consulta SOQL, que tem suporte nativo da nuvem do serviço Salesforce. A tabela a seguir lista as principais diferenças:
 
-| Syntax | Modo SOQL | Modo SQL |
+| Sintaxe | Modo SOQL | Modo SQL |
 |:--- |:--- |:--- |
 | Seleção de coluna | É necessário enumerar os campos a serem copiados na consulta, por exemplo,`SELECT field1, filed2 FROM objectname` | `SELECT *` tem suporte além da seleção de colunas. |
 | Aspas | Nomes de campos/objetos não podem ser entre aspas. | Nomes de campos/objetos podem ser entre aspas, p. ex. `SELECT "id" FROM "Account"` |
 | Formato de data/hora |  Consulte os detalhes [aqui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) e exemplos na próxima seção. | Consulte os detalhes [aqui](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) e exemplos na próxima seção. |
 | Valores boolianos | Representado como `False` e `True`, p. ex. `SELECT … WHERE IsDeleted=True`. | Representado como 0 ou 1, p. ex. `SELECT … WHERE IsDeleted=1`. |
-| Renomeação de coluna | Não há suporte. | Com suporte, p. ex.: `SELECT a AS b FROM …`. |
-| Relação | Com suporte, p. ex. `Account_vod__r.nvs_Country__c`. | Não há suporte. |
+| Renomeação de coluna | Sem suporte. | Com suporte, p. ex.: `SELECT a AS b FROM …`. |
+| Relação | Com suporte, p. ex. `Account_vod__r.nvs_Country__c`. | Sem suporte. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Recuperar dados usando um onde cláusula na coluna DateTime
 
@@ -303,7 +303,7 @@ Ao especificar a consulta SQL ou SOQL, preste atenção à diferença de formato
 * **Exemplo de SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **Exemplo de SQL**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
-### <a name="error-of-malformed_querytruncated"></a>Erro de MALFORMED_QUERY: truncado
+### <a name="error-of-malformed_query-truncated"></a>Erro de MALFORMED_QUERY: truncado
 
 Se você encontrar o erro de "MALFORMED_QUERY: TRUNCATE", normalmente, é devido a você ter uma coluna de tipo JunctionIdList nos dados e o Salesforce tem a limitação de dar suporte a esses dados com um grande número de linhas. Para mitigar, tente excluir a coluna JunctionIdList ou limitar o número de linhas a serem copiadas (você pode particionar várias execuções da atividade de cópia).
 
@@ -313,25 +313,25 @@ Quando você copia dados da nuvem do serviço Salesforce, os seguintes mapeament
 
 | Tipo de dados de nuvem do serviço Salesforce | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
-| Numeração automática |String |
+| Numeração automática |Cadeia de caracteres |
 | Caixa de seleção |Boolean |
 | Currency |Decimal |
 | Data |Datetime |
-| Data/hora |Datetime |
-| Email |String |
-| ID |String |
-| Relação de pesquisa |String |
-| Lista de seleção múltipla |String |
+| Date/time |Datetime |
+| Email |Cadeia de caracteres |
+| ID |Cadeia de caracteres |
+| Relação de pesquisa |Cadeia de caracteres |
+| Lista de seleção múltipla |Cadeia de caracteres |
 | Número |Decimal |
 | Porcentagem |Decimal |
-| Telefone |String |
-| Lista de seleção |String |
-| Texto |String |
-| Área de texto |String |
-| Área de texto (longo) |String |
-| Área de texto (Rich) |String |
-| Texto (criptografado) |String |
-| URL |String |
+| Telefone |Cadeia de caracteres |
+| Lista de seleção |Cadeia de caracteres |
+| Texto |Cadeia de caracteres |
+| Área de texto |Cadeia de caracteres |
+| Área de texto (longo) |Cadeia de caracteres |
+| Área de texto (Rich) |Cadeia de caracteres |
+| Texto (criptografado) |Cadeia de caracteres |
+| URL |Cadeia de caracteres |
 
 ## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 

@@ -1,5 +1,5 @@
 ---
-title: Locais de dados para a área de trabalho virtual do Windows-Azure
+title: Locais de dados para área de trabalho virtual do Windows Outono 2019 – Azure
 description: Uma breve visão geral de quais locais os dados e metadados da área de trabalho virtual do Windows são armazenados.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b8cbee74a8f9639fc2c3838f38dabf2a62cf339e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa998ddf8225475bbcf657ed9feee951263d2743
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82614441"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077588"
 ---
 # <a name="data-locations-for-windows-virtual-desktop"></a>Locais de dados para área de trabalho virtual do Windows
 

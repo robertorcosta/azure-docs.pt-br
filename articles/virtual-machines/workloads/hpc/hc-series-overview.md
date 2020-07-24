@@ -12,11 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: a4cd74c9c85ee7413cde9f0fb4cf3ffb54c9b3d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7110f3417937b623260983a9d94e9e6834fc8fc9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906750"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077385"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Visão geral da máquina virtual da série HC
 
@@ -62,6 +63,6 @@ O diagrama a seguir mostra a diferenciação de núcleos reservada para o hiperv
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre os tamanhos de VM do HPC para [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) e [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) no Azure.
+* Saiba mais sobre os tamanhos de VM do HPC para [Linux](../../sizes-hpc.md) e [Windows](../../sizes-hpc.md) no Azure.
 
-* Saiba mais sobre o [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) no Azure.
+* Saiba mais sobre o [HPC](/azure/architecture/topics/high-performance-computing/) no Azure.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 65c4e5d9e0752379541063c8a80a4316196ad7c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38e47469723d767561dd778b8f175780ab181fd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565368"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076248"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Conectar sua solução externa usando o syslog
 
@@ -28,7 +28,7 @@ Você pode conectar qualquer dispositivo local que dê suporte a syslog para o A
 > [!NOTE]
 > Se o seu dispositivo der suporte ao syslog CEF, a conexão será mais completa e você deverá escolher essa opção e seguir as instruções em [conectando dados do CEF](connect-common-event-format.md).
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 O Syslog é um protocolo de registro de eventos em log que é comum para o Linux. Os aplicativos enviarão mensagens que podem ser armazenadas no computador local ou entregues a um coletor de Syslog. Quando o agente do Log Analytics para Linux é instalado, ele configura o daemon do Syslog local para encaminhar mensagens para o agente. O agente envia a mensagem ao Azure Monitor, onde um registro correspondente é criado.
 
@@ -65,7 +65,7 @@ Para obter mais informações, consulte [syslog Data Sources in Azure monitor](.
 
 6. Depois de adicionar todos os recursos que você deseja monitorar e ajustar as opções de severidade para cada um deles, marque a caixa de seleção **aplicar a configuração abaixo a meus computadores**.
 
-7. Selecione **Salvar**. 
+7. Clique em **Salvar**. 
 
 8. No seu dispositivo de syslog, certifique-se de que você está enviando os recursos que você especificou.
 
@@ -94,7 +94,9 @@ Essa detecção requer uma configuração específica do conector de dados syslo
 
 2. Aguarde tempo suficiente para que as informações de syslog sejam coletadas. Em seguida, navegue até **Azure Sentinel-logs**e copie e cole a seguinte consulta:
     
-        Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```console
+    Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```
     
     Altere o **intervalo de tempo** , se necessário, e selecione **executar**.
     

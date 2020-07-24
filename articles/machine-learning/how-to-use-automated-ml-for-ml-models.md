@@ -10,18 +10,23 @@ ms.author: nibaccam
 author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/20/2020
-ms.openlocfilehash: 9871d2ef46a4bbcaa0de7a2aee7d2c91f2bfefab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: ac5357d0f8ba03943af14d7dd4ce6928b20db128
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831906"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074627"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, revisar e implantar modelos de machine learning automatizado com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Neste artigo, você aprenderá a criar, explorar e implantar modelos de machine learning automatizado sem uma única linha de código na interface do estúdio do Azure Machine Learning. O machine learning automatizado é um processo no qual o melhor algoritmo de machine learning a ser usado para seus dados específicos é selecionado para você. Esse processo permite que você gere modelos de machine learning rapidamente. [Saiba mais sobre o machine learning automatizado](concept-automated-ml.md).
+Neste artigo, você aprenderá a criar, explorar e implantar modelos de aprendizado de máquina automatizados sem uma única linha de código no Azure Machine Learning Studio.
+
+>[!IMPORTANT]
+> A experiência de ML automatizada no estúdio de Machine Learning do Azure está em versão prévia. Alguns recursos podem não ter suporte ou ter recursos limitados.
+
+ O machine learning automatizado é um processo no qual o melhor algoritmo de machine learning a ser usado para seus dados específicos é selecionado para você. Esse processo permite que você gere modelos de machine learning rapidamente. [Saiba mais sobre o machine learning automatizado](concept-automated-ml.md).
  
 Para obter um exemplo de ponta a ponta, experimente o [tutorial para criar um modelo de classificação com a interface do ML automatizado do Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
 
@@ -51,18 +56,22 @@ Caso contrário, você verá uma lista das suas experiências recentes de machin
 
 1. Selecione **+ Nova execução de ML automatizado** e preencha o formulário.
 
-1. Selecione um conjunto de dados no seu contêiner de armazenamento ou crie um novo. Os conjuntos de dados podem ser criados a partir de arquivos locais, URLs da Web, armazenamento de dados ou Azure Open Datasets. 
+1. Selecione um conjunto de dados no seu contêiner de armazenamento ou crie um novo. Os conjuntos de dados podem ser criados a partir de arquivos locais, URLs da Web, armazenamento de dados ou Azure Open Datasets. Saiba mais sobre a [criação do conjunto](how-to-create-register-datasets.md)de informações.  
 
     >[!Important]
     > Requisitos para dados de treinamento:
     >* Os dados devem estar em formato de tabela.
     >* O valor que você quer prever (coluna de destino) deve estar presente nos dados.
 
-    1. Para criar um novo conjunto de dados de um arquivo em seu computador local, selecione **Procurar** e, depois, selecione o arquivo. 
+    1. Para criar um novo conjunto de um de um arquivo em seu computador local, selecione **+ criar conjunto** de um e, em seguida, selecione **do arquivo local**. 
 
-    1. Dê um nome exclusivo ao conjunto de dados e forneça uma descrição opcional. 
+    1. No formulário **informações básicas** , dê um nome exclusivo ao seu conjunto de dado e forneça uma descrição opcional. 
 
     1. Selecione **Avançar** para abrir o **Formulário de armazenamento de dados e de seleção de arquivos**. Nesse formulário, você seleciona onde quer carregar seu conjunto de dados, o contêiner de armazenamento padrão que é criado automaticamente com seu espaço de trabalho, ou escolhe um contêiner de armazenamento que deseja usar para o experimento. 
+    
+        1. Se seus dados estiverem atrás de uma rede virtual, você precisará habilitar a função **ignorar a validação** para garantir que o espaço de trabalho possa acessar seus dados. Saiba mais sobre [isolamento de rede e privacidade](how-to-enable-virtual-network.md#machine-learning-studio). 
+    
+    1. Selecione **procurar** para carregar o arquivo de dados para o seu DataSet. 
 
     1. Revise a precisão do formulário de **Configurações e versão prévia**. O formulário é preenchido de forma inteligente com base no tipo de arquivo. 
 
@@ -96,8 +105,11 @@ Caso contrário, você verá uma lista das suas experiências recentes de machin
     Campo|Descrição
     ---|---
     Nome da computação| Insira um nome exclusivo que identifique o contexto da computação.
+    Prioridade da máquina virtual| As máquinas virtuais de baixa prioridade são mais baratas, mas não garantem os nós de computação. 
+    Tipo de máquina virtual| Selecione CPU ou GPU para o tipo de máquina virtual.
     Tamanho da máquina virtual| Selecione o tamanho da máquina virtual da computação.
-    Número mín./máx. de nós (em Configurações Avançadas)| Para analisar os dados, é necessário especificar um ou mais nós. Insira o número máximo de nós da sua computação. Uma Computação do AML tem 6 nós como padrão.
+    Nós mín./máx.| Para analisar os dados, é necessário especificar um ou mais nós. Insira o número máximo de nós da sua computação. Uma Computação do AML tem 6 nós como padrão.
+    Configurações avançadas | Essas configurações permitem que você configure uma conta de usuário e uma rede virtual existente para seu experimento. 
     
     Selecione **Criar**. A criação da nova computação pode levar alguns minutos.
 
@@ -108,20 +120,22 @@ Caso contrário, você verá uma lista das suas experiências recentes de machin
 
 1. No formulário **Tipo de tarefa e configurações**, selecione o tipo de tarefa: classificação, regressão ou previsão. Consulte [tipos de tarefas com suporte](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) para obter mais informações.
 
-    1. Para classificação, você também pode habilitar o aprendizado profundo, o qual é usado para definição de recursos de texto.
+    1. Para **classificação**, você também pode habilitar o aprendizado profundo, que é usado para featurizations de texto.
 
-    1. Para previsão:
-        1. Selecione a coluna de tempo: essa coluna contém os dados de tempo a serem usados.
+    1. Para **previsão** , você pode, 
+    
+        1. Habilitar o aprendizado profundo
+    
+        1. Selecionar *coluna de tempo*: esta coluna contém os dados de hora a serem usados.
 
-        1. Selecione o horizonte de previsão: indique quantas unidades de tempo (minutos/horas/dias/semanas/meses/anos) o modelo será capaz de prever para o futuro. Quanto mais o modelo for usado para fazer previsões do futuro, menos preciso ele será. [Saiba mais sobre previsão e horizonte de previsão](how-to-auto-train-forecast.md).
+        1. Selecione *previsão horizonte*: indica quantas unidades de tempo (minutos/horas/dias/semanas/meses/anos) o modelo será capaz de prever para o futuro. Quanto mais o modelo for usado para fazer previsões do futuro, menos preciso ele será. [Saiba mais sobre previsão e horizonte de previsão](how-to-auto-train-forecast.md).
 
 1. (Opcional) Exibir definições de configuração adicionais: configurações adicionais que você pode usar para controlar melhor o trabalho de treinamento. Caso contrário, os padrões são aplicados com base na seleção e nos dados de experimento. 
 
     Configurações adicionais|Descrição
     ------|------
     Métrica principal| Métrica principal usada para a pontuação do seu modelo. [Saiba mais sobre as métricas do modelo](how-to-configure-auto-train.md#explore-model-metrics).
-    Personalização automática| Selecione para habilitar ou desabilitar o personalização feito pelo Machine Learning automatizado. O personalização automático inclui limpeza, preparação e transformação automáticas de dados para gerar recursos sintéticos. Não tem suporte para o tipo de tarefa de previsão de série temporal. [Saiba mais sobre o personalização](how-to-configure-auto-features.md#featurization). 
-    Explicar o melhor modelo | Selecione para habilitar ou desabilitar a exibição da explicação do melhor modelo recomendado.
+    Explicar o melhor modelo | Selecione para habilitar ou desabilitar o, a fim de mostrar a explicação do melhor modelo recomendado.
     Algoritmo bloqueado| Selecione os algoritmos que você deseja excluir do trabalho de treinamento.
     Critério de saída| Quando qualquer um desses critérios for atendido, o trabalho de treinamento é interrompido. <br> *Tempo do trabalho de treinamento (horas)* : o tempo permitido de execução do trabalho de treinamento. <br> *Limite de pontuação da métrica*:  pontuação mínima da métrica para todos os pipelines. Isso garante que, caso você tenha uma métrica de destino definida e que deseje alcançar, não gastará mais tempo no trabalho de treinamento do que o necessário.
     Validação| Selecione uma das opções de validação cruzada para ser usada no trabalho de treinamento. [Saiba mais sobre a validação cruzada](how-to-configure-cross-validation-data-splits.md#prerequisites).
@@ -185,7 +199,7 @@ A guia **Modelos** contém uma lista dos modelos criados ordenados pela pontuaç
 
 ### <a name="view-training-run-details"></a>Exibir detalhes da execução do treinamento
 
-Faça uma busca detalhada em qualquer dos modelos concluídos para ver detalhes da execução de treinamento, como executar métricas na guia **Detalhes do modelo** ou gráficos de desempenho na guia **Visualizações**. [Saiba mais sobre gráficos](how-to-understand-automated-ml.md).
+Faça uma busca detalhada em qualquer um dos modelos concluídos para ver os detalhes da execução de treinamento, como um resumo do modelo na guia **modelo** ou nos gráficos de métrica de desempenho na guia **métricas** . [saiba mais sobre gráficos](how-to-understand-automated-ml.md).
 
 [![Detalhes da iteração](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
@@ -197,9 +211,14 @@ O ML automatizado ajuda a implantar o modelo sem escrever códigos:
 
 1. Você tem algumas opções de implantação: 
 
-    + Opção 1: para implantar o melhor modelo (de acordo com os critérios de métrica definidos por você), selecione o botão **Implantar o melhor modelo** na guia **Detalhes**.
+    + Opção 1: implante o melhor modelo, de acordo com os critérios de métrica que você definiu. 
+        1. Após a conclusão do experimento, navegue até a página de execução pai selecionando **executar 1** na parte superior da tela. 
+        1.  Selecione o modelo listado na seção de **Resumo do melhor modelo** . 
+        1. Selecione **implantar** na parte superior esquerda da janela. 
 
-    + Opção 2: para implantar uma iteração de modelo específica desse experimento, faça uma busca detalhada no modelo para abrir a guia **Detalhes do modelo** e selecione **Implantar modelo**.
+    + Opção 2: para implantar uma iteração de modelo específica deste experimento.
+        1. Selecione o modelo desejado na guia **modelos**
+        1. Selecione **implantar** na parte superior esquerda da janela.
 
 1. Preencha o painel **Implantar um modelo**.
 
@@ -218,7 +237,7 @@ O ML automatizado ajuda a implantar o modelo sem escrever códigos:
     O menu *Avançado* oferece recursos de implantação padrão, como [coleta de dados](how-to-enable-app-insights.md) e configurações de utilização de recursos. Caso queira substituir esses padrões, você deve fazê-lo nesse menu.
 
 1. Selecione **Implantar**. A implantação pode levar cerca de 20 minutos para ser concluída.
-    Depois que a implantação for iniciada, a guia **detalhes do modelo** será exibida. Consulte o progresso da implantação na seção **implantar status** do painel **Propriedades** . 
+    Depois que a implantação for iniciada, a guia **Resumo do modelo** será exibida. Consulte o progresso da implantação na seção **implantar status** . 
 
 Agora você tem um serviço Web operacional para gerar previsões. Você pode testar as previsões por meio de consultas ao serviço de [Suporte ao Azure Machine Learning interno do Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 

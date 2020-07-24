@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b7ab9e63bfe92967eca22b60dceec0de882768a6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 721f9c623255b964e38da1c0f4b7bbf72d0c721d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531005"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075633"
 ---
 # <a name="windows-virtual-desktop-faq"></a>FAQ sobre área de trabalho virtual do Windows
 
@@ -121,7 +121,7 @@ A tabela a seguir fornece um exemplo de como os recursos de um perfil de FSLogix
 | Recurso | Requisito |
 |---|---|
 | IOPS de estado estável | 10 |
-| Entrar/sair do IOPS | 5 |
+| Entrar/sair do IOPS | 50 |
 
 O exemplo nesta tabela é de um único usuário, mas pode ser usado para estimar os requisitos para o número total de usuários em seu ambiente. Por exemplo, você precisaria de cerca de 1.000 IOPS para 100 usuários e cerca de 5.000 IOPS durante o logon e a saída.
 

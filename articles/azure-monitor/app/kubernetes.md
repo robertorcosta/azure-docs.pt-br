@@ -5,17 +5,18 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: a5e73039db541023b1fd4a9b75e7c14030c8e219
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 4bb1af6ca2126b7ae58a6c836624ec78a071a5a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797895"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075282"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications-with-istio---deprecated"></a>Monitoramento de aplicativo de instrumentação zero para aplicativos hospedados Kubernetes com Istio – Preterido
 
 > [!IMPORTANT]
 > Essa funcionalidade está sendo preterida no momento e não será mais compatível após 1º de agosto de 2020.
-> Atualmente, o monitoramento sem código só pode ser habilitado para [Java por meio de agente autônomo](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). Para outros idiomas, use os SDKs para monitorar seus aplicativos no AKS: [ASP.Net Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), [ASP.Net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net), [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs), [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript) e [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
+> Atualmente, o monitoramento sem código só pode ser habilitado para [Java por meio de agente autônomo](./java-in-process-agent.md). Para outros idiomas, use os SDKs para monitorar seus aplicativos no AKS: [ASP.Net Core](./asp-net-core.md), [ASP.Net](./asp-net.md), [Node.js](./nodejs.md), [JavaScript](./javascript.md) e [Python](./opencensus-python.md).
 
 O Azure Monitor agora usa a tecnologia de malha de serviço em seu cluster do Kubernetes para fornecer monitoramento de aplicativo pronto para qualquer aplicativo Kubernetes hospedado. Com os recursos padrão do Application insights, como [Mapa de Aplicativos](../../azure-monitor/app/app-map.md) para modelar suas dependências, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) para monitoramento em tempo real, visualizações avançadas com o [painel padrão](../../azure-monitor/app/overview-dashboard.md), [Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md) e [Workbooks](../../azure-monitor/platform/workbooks-overview.md). Esse recurso ajudará os usuários a identificar gargalos de desempenho e pontos de acesso de falha em todas as suas cargas de trabalho Kubernetes dentro de um namespace Kubernetes selecionado. Ao aproveitar os investimentos existentes em malha de serviço com tecnologias como o Istio, o Azure Monitor habilita o monitoramento de aplicativo instrumentado automaticamente sem nenhuma mudança no código do aplicativo.
 
@@ -24,10 +25,10 @@ O Azure Monitor agora usa a tecnologia de malha de serviço em seu cluster do Ku
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um [cluster do Kubernetes](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads).
+- Um [cluster do Kubernetes](../../aks/concepts-clusters-workloads.md).
 - Acesso do console para o cluster para executar *kubectl*.
 - Um [recurso do Application Insight](create-new-resource.md)
-- Ter uma malha de serviço. Se o cluster não tiver o Istio implantado, você poderá aprender a [instalar e usar o Istio no Serviço de Kubernetes do Azure](https://docs.microsoft.com/azure/aks/istio-install).
+- Ter uma malha de serviço. Se o cluster não tiver o Istio implantado, você poderá aprender a [instalar e usar o Istio no Serviço de Kubernetes do Azure](../../aks/servicemesh-istio-install.md).
 
 ## <a name="capabilities"></a>Funcionalidades
 

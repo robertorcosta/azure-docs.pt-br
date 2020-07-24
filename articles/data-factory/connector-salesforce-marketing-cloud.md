@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/25/2019
-ms.openlocfilehash: 1a5a2682198f9ce9f5cb39f21e244c723ca513d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: 1f0fb1ee8580c0c7f6eb30228b65e0a3780ef0a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416663"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076802"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Copiar dados da nuvem de Marketing de vendas usando o Azure Data Factory
 
@@ -34,7 +34,7 @@ O conector de nuvem do Salesforce marketing tem suporte para as seguintes ativid
 
 Você pode copiar dados do Salesforce Marketing Cloud para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
-O conector de nuvem de marketing do Salesforce dá suporte à autenticação OAuth 2. Ele é criado sobre a [API REST de nuvem de marketing do Salesforce](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
+O conector de nuvem de marketing do Salesforce dá suporte à autenticação OAuth 2 e dá suporte a tipos de pacotes herdados e avançados. O conector é criado sobre a [API REST de nuvem de marketing do Salesforce](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
 
 >[!NOTE]
 >Esse conector não dá suporte a recuperação de objetos personalizados ou extensões de dados personalizadas.
@@ -52,13 +52,17 @@ As propriedades a seguir têm suporte para o serviço vinculado do Salesforce Ma
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida para: **Salesforce Marketing Cloud** | Sim |
+| connectionProperties | Um grupo de propriedades que define como se conectar ao Salesforce marketing Cloud. | Sim |
+| ***Em `connectionProperties` :*** | | |
+| authenticationType | especifica o método de autenticação a ser usado. Os valores permitidos são `Enhanced sts OAuth 2.0` ou `OAuth_2.0` .<br><br>O pacote de legado de nuvem do Salesforce marketing só dá suporte `OAuth_2.0` ao, enquanto as necessidades avançadas do pacote `Enhanced sts OAuth 2.0` . <br>Desde 1º de agosto de 2019, o Salesforce marketing Cloud removeu a capacidade de criar pacotes herdados. Todos os novos pacotes são pacotes avançados. | Sim |
+| host | Para o pacote avançado, o host deve ser seu [subdomínio](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/your-subdomain-tenant-specific-endpoints.htm) , que é representado por uma cadeia de caracteres de 28 caracteres, começando com as letras "MC", por exemplo, `mc563885gzs27c5t9-63k636ttgm` . <br>Para pacote herdado, especifique `www.exacttargetapis.com` . | Sim |
 | clientId | A ID do cliente associada ao aplicativo do Salesforce Marketing Cloud.  | Sim |
-| clientSecret | O segredo do cliente associada ao aplicativo do Salesforce Marketing Cloud. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou então armazenar a senha no Azure Key Vault e permitir que o ADF copie o pull de atividade desse local ao executar a cópia de dados – saiba mais sobre como [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
+| clientSecret | O segredo do cliente associada ao aplicativo do Salesforce Marketing Cloud. Você pode optar por marcar esse campo como uma SecureString para armazená-lo com segurança no ADF, ou armazenar o segredo em Azure Key Vault e deixar que a atividade de cópia do ADF seja pull a partir daí ao executar a cópia de dados-Saiba mais em [armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é verdadeiro.  | Não |
 | useHostVerification | Especifica se deve ser necessário o nome do host no certificado do servidor para corresponder ao nome do host do servidor ao se conectar via TLS. O valor padrão é verdadeiro.  | Não |
 | usePeerVerification | Especifica se a identidade do servidor deve ser verificada ao se conectar via TLS. O valor padrão é verdadeiro.  | Não |
 
-**Exemplo:**
+**Exemplo: usando a autenticação do STS OAuth 2 avançada para o pacote avançado** 
 
 ```json
 {
@@ -66,14 +70,66 @@ As propriedades a seguir têm suporte para o serviço vinculado do Salesforce Ma
     "properties": {
         "type": "SalesforceMarketingCloud",
         "typeProperties": {
-            "clientId" : "<clientId>",
+            "connectionProperties": {
+                "host": "<subdomain e.g. mc563885gzs27c5t9-63k636ttgm>",
+                "authenticationType": "Enhanced sts OAuth 2.0",
+                "clientId": "<clientId>",
+                "clientSecret": {
+                     "type": "SecureString",
+                     "value": "<clientSecret>"
+                },
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
+        }
+    }
+}
+
+```
+
+**Exemplo: usando a autenticação OAuth 2 para o pacote herdado** 
+
+```json
+{
+    "name": "SalesforceMarketingCloudLinkedService",
+    "properties": {
+        "type": "SalesforceMarketingCloud",
+        "typeProperties": {
+            "connectionProperties": {
+                "host": "www.exacttargetapis.com",
+                "authenticationType": "OAuth_2.0",
+                "clientId": "<clientId>",
+                "clientSecret": {
+                     "type": "SecureString",
+                     "value": "<clientSecret>"
+                },
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
+        }
+    }
+}
+
+```
+
+Se você estava usando o serviço vinculado da nuvem de marketing do Salesforce com a seguinte carga, ele ainda tem suporte como está, enquanto você é sugerido para usar o novo que está avançando, o que adiciona suporte a pacotes avançados.
+
+```json
+{
+    "name": "SalesforceMarketingCloudLinkedService",
+    "properties": {
+        "type": "SalesforceMarketingCloud",
+        "typeProperties": {
+            "clientId": "<clientId>",
             "clientSecret": {
                  "type": "SecureString",
                  "value": "<clientSecret>"
             },
-            "useEncryptedEndpoints" : true,
-            "useHostVerification" : true,
-            "usePeerVerification" : true
+            "useEncryptedEndpoints": true,
+            "useHostVerification": true,
+            "usePeerVerification": true
         }
     }
 }

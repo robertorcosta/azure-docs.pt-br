@@ -4,18 +4,19 @@ description: Saiba como melhorar sua eficiência de consulta do Azure Time Serie
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 04/17/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 63a708f80ad18309269e37c354b047c304a260d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc24c1f49a48e81509961d5d7d01dba60dc50475
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81641287"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077648"
 ---
-# <a name="shape-json-to-maximize-query-performance"></a>Forma JSON para maximizar o desempenho da consulta
+# <a name="shape-json-to-maximize-query-performance-in-your-gen1-environment"></a>Formate JSON para maximizar o desempenho de consulta em seu ambiente Gen1
 
 Este artigo fornece orientação sobre como formatar JSON para maximizar a eficiência de suas consultas de Azure Time Series Insights.
 
@@ -27,16 +28,13 @@ Este artigo fornece orientação sobre como formatar JSON para maximizar a efici
 
 ## <a name="best-practices"></a>Práticas recomendadas
 
-Pense em como você envia eventos para Time Series Insights. Ou seja, você sempre:
+Pense em como você envia eventos para Azure Time Series Insights. Ou seja, você sempre:
 
 1. Envie dados pela rede de maneira mais eficiente possível.
 1. Verifique se os dados estão armazenados de forma que você possa executar agregações adequadas para seu cenário.
-1. Certifique-se de que você não atinja os limites de propriedade máxima de Time Series Insights de:
+1. Certifique-se de que você não atinja os limites de propriedade máxima de Azure Time Series Insights de:
    - 600 propriedades (colunas) para ambientes S1.
    - 800 propriedades (colunas) para ambientes S2.
-
-> [!TIP]
-> Examine [os limites e o planejamento](time-series-insights-update-plan.md) na visualização Azure Time Series insights.
 
 As diretrizes a seguir ajudam a garantir o melhor desempenho de consulta possível:
 
@@ -44,7 +42,7 @@ As diretrizes a seguir ajudam a garantir o melhor desempenho de consulta possív
 1. Não envie propriedades desnecessárias. Se uma propriedade de consulta não for necessária, é melhor não enviá-la. Dessa forma, você evitará limitações de armazenamento.
 1. Use [dados de referência](time-series-insights-add-reference-data-set.md) para evitar o envio de dados estáticos pela rede.
 1. Compartilhe Propriedades de dimensão entre vários eventos para enviar dados pela rede com mais eficiência.
-1. Não use o aninhamento profundo de matriz. O Time Series Insights dá suporte a até dois níveis de matrizes aninhadas que contêm objetos. Time Series Insights mescla matrizes nas mensagens em vários eventos com pares de valor de propriedade.
+1. Não use o aninhamento profundo de matriz. O Azure Time Series Insights dá suporte a até dois níveis de matrizes aninhadas que contêm objetos. Azure Time Series Insights mescla matrizes nas mensagens em vários eventos com pares de valor de propriedade.
 1. Se apenas algumas medidas existirem para a maioria ou todos os eventos, será melhor enviar essas medidas como propriedades separadas dentro do mesmo objeto. Enviá-los separadamente reduz o número de eventos e pode melhorar o desempenho da consulta porque menos eventos precisam ser processados. Quando há várias medidas, enviá-las como valores em uma única propriedade minimiza a possibilidade de atingir o limite máximo da propriedade.
 
 ## <a name="example-overview"></a>Visão geral de exemplo
@@ -60,7 +58,7 @@ Os exemplos são baseados em um cenário onde vários dispositivos enviam sinais
 
 No exemplo a seguir, há uma única mensagem do Hub IoT do Azure em que a matriz externa contém uma seção compartilhada de valores de dimensão comuns. A matriz externa usa dados de referência para aumentar a eficiência da mensagem. Os dados de referência contêm metadados de dispositivo que não são alterados com todos os eventos, mas fornecem propriedades úteis para análise de dados. O envio em lote de valores de dimensão comuns e o uso de dados de referência economiza em bytes enviados pela conexão, o que torna a mensagem mais eficiente.
 
-Considere o seguinte conteúdo JSON enviado ao seu ambiente Time Series Insights GA usando um [objeto de mensagem do dispositivo IOT](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) que é SERIALIZADO em JSON quando enviado para a nuvem do Azure:
+Considere o seguinte conteúdo JSON enviado ao seu ambiente Azure Time Series Insights GA usando um [objeto de mensagem do dispositivo IOT](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) que é SERIALIZADO em JSON quando enviado para a nuvem do Azure:
 
 
 ```JSON
@@ -99,7 +97,7 @@ Considere o seguinte conteúdo JSON enviado ao seu ambiente Time Series Insights
    | FXXX | DADOS\_LINHA | UE |
    | FAAA | DADOS\_LINHA | EUA |
 
-* Time Series Insights tabela de eventos, após o nivelamento:
+* Azure Time Series Insights tabela de eventos, após o nivelamento:
 
    | deviceId | messageId | deviceLocation | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
    | --- | --- | --- | --- | --- | --- |
@@ -110,8 +108,8 @@ Considere o seguinte conteúdo JSON enviado ao seu ambiente Time Series Insights
 > [!NOTE]
 > - A coluna **deviceId** serve como o cabeçalho de coluna para vários dispositivos em uma frota. Tornar o valor **DeviceID** seu próprio nome de propriedade limita o total de dispositivos a 595 (para ambientes S1) ou 795 (para ambientes S2) com as outras cinco colunas.
 > - Propriedades desnecessárias são evitadas (por exemplo, as informações de marca e modelo). Como as propriedades não serão consultadas no futuro, a eliminação delas permitirá uma melhor eficiência na rede e no armazenamento.
-> - Os dados de referência são usados para reduzir o número de bytes transferidos pela rede. Os dois atributos **MessageId** e **deviceLocation** são Unidos usando a propriedade de chave **DeviceID**. Esses dados são associados aos dados de telemetria no momento da entrada e, em seguida, são armazenados em Time Series Insights para consulta.
-> - São usadas duas camadas de aninhamento, que é a quantidade máxima de aninhamento com suporte pelo Time Series Insights. É essencial para evitar matrizes profundamente aninhadas.
+> - Os dados de referência são usados para reduzir o número de bytes transferidos pela rede. Os dois atributos **MessageId** e **deviceLocation** são Unidos usando a propriedade de chave **DeviceID**. Esses dados são associados aos dados de telemetria no momento da entrada e, em seguida, são armazenados em Azure Time Series Insights para consulta.
+> - São usadas duas camadas de aninhamento, que é a quantidade máxima de aninhamento com suporte pelo Azure Time Series Insights. É essencial para evitar matrizes profundamente aninhadas.
 > - As medidas são enviadas como propriedades separadas dentro do mesmo objeto porque há poucas medidas. Aqui, **series.Flow Rate psi** e **series.Engine Oil Pressure ft3/s** são colunas exclusivas.
 
 ## <a name="scenario-two-several-measures-exist"></a>Cenário dois: existem várias medidas
@@ -171,7 +169,7 @@ Carga JSON de exemplo:
    | FAAA | pumpRate | DADOS\_LINHA | EUA | Taxa de Fluxo | ft3/s |
    | FAAA | oilPressure | DADOS\_LINHA | EUA | Pressão de óleo do motor | psi |
 
-* Time Series Insights tabela de eventos, após o nivelamento:
+* Azure Time Series Insights tabela de eventos, após o nivelamento:
 
    | deviceId | series.tagId | messageId | deviceLocation | tipo | unit | timestamp | series.value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -185,7 +183,7 @@ Carga JSON de exemplo:
 > [!NOTE]
 > - As colunas **DeviceID** e **Series. tagId** servem como cabeçalhos de coluna para os vários dispositivos e marcas em uma frota. O uso de cada um como seu próprio atributo limita a consulta ao total de dispositivos 594 (para ambientes S1) ou 794 (para ambientes S2), com as outras seis colunas.
 > - Propriedades desnecessárias foram evitadas, pelo motivo citado no primeiro exemplo.
-> - Os dados de referência são usados para reduzir o número de bytes transferidos pela rede apresentando o **DeviceID**, que é usado para o par exclusivo de **MessageId** e **deviceLocation**. A série de chave composta **. tagId** é usada para o par exclusivo de **tipo** e **unidade**. A chave composta permite que o par **DeviceID** e **Series. tagId** seja usado para se referir a quatro valores: **MessageId, deviceLocation, Type** e **Unit**. Esses dados são associados aos dados de telemetria no momento da entrada. Em seguida, ele é armazenado em Time Series Insights para consulta.
+> - Os dados de referência são usados para reduzir o número de bytes transferidos pela rede apresentando o **DeviceID**, que é usado para o par exclusivo de **MessageId** e **deviceLocation**. A série de chave composta **. tagId** é usada para o par exclusivo de **tipo** e **unidade**. A chave composta permite que o par **DeviceID** e **Series. tagId** seja usado para se referir a quatro valores: **MessageId, deviceLocation, Type** e **Unit**. Esses dados são associados aos dados de telemetria no momento da entrada. Em seguida, ele é armazenado em Azure Time Series Insights para consulta.
 > - Duas camadas de aninhamento são usadas, pelo motivo citado no primeiro exemplo.
 
 ### <a name="for-both-scenarios"></a>Para ambos os cenários
@@ -199,6 +197,6 @@ Para uma propriedade com um grande número de valores possíveis, é melhor envi
 
 - Leia mais sobre como enviar [mensagens de dispositivo do Hub IOT para a nuvem](../iot-hub/iot-hub-devguide-messages-construct.md).
 
-- Leia [Azure Time Series insights sintaxe de consulta](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) para saber mais sobre a sintaxe de consulta para a API REST de acesso a dados Time Series insights.
+- Leia [Azure Time Series insights sintaxe de consulta](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) para saber mais sobre a sintaxe de consulta para a API REST de acesso a dados Azure Time Series insights.
 
 - Saiba [como formatar eventos](./time-series-insights-send-events.md).

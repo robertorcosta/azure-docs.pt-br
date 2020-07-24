@@ -8,27 +8,27 @@ ms.topic: include
 ms.date: 6/9/2020
 ms.author: aschhab
 ms.custom: include file
-ms.openlocfilehash: 3fd4c6416241302a4969d9b3de26fa6b8316c1f7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e4b9925459463ff66685c797f0edaba13883f4d5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122248"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076224"
 ---
-A tabela abaixo lista os recursos do **Java Message Service (JMS)** que atualmente têm suporte e não têm suporte do barramento de serviço do Azure.
+A tabela a seguir lista os recursos do Java Message Service (JMS) que o barramento de serviço do Azure suporta atualmente. Ele também mostra recursos sem suporte.
 
 
-| Recursos | Status |
+| Recurso | Status |
 |---|---|
-| Filas   | Com suporte |
-| Tópicos   | Com suporte |
-| Filas temporárias | Com suporte |
-| Tópicos temporários | Com suporte |
-| Seletores de mensagem | Com suporte |
-| Navegadores de fila | Com suporte |
-| Assinaturas duráveis compartilhadas | Com suporte|
-| Assinaturas duráveis não compartilhadas | Com suporte |
-| Assinaturas não duráveis compartilhadas | Com suporte |
-| Assinaturas não duráveis não compartilhadas | Com suporte |
-| Transações distribuídas | **Sem suporte** |
-| Terminal durável | **Sem suporte** |
+| Filas   | Suportado |
+| Tópicos   | Suportado |
+| Filas temporárias | Suportado |
+| Tópicos temporários | Suportado |
+| Seletores de mensagem | Suportado |
+| Navegadores de fila | Suportado |
+| Assinaturas duráveis compartilhadas | Suportado|
+| Assinaturas duráveis não compartilhadas | Suportado |
+| Assinaturas não duráveis compartilhadas | Suportado |
+| Assinaturas não duráveis não compartilhadas | Suportado |
+| Transações distribuídas | Sem suporte |
+| Terminal durável | Sem suporte |

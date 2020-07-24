@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
-ms.openlocfilehash: 1a00a3c1e0d34a8c7abbcd5bfc7a6771d9e2a4c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 527d9e2e43a4003dd5300c26fc58b1e456186351
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82983033"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077397"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Alta disponibilidade do IBM Db2 LUW nas VMs do Azure no Red Hat Enterprise Linux Server
 
@@ -66,7 +67,7 @@ Antes de iniciar uma instalação, consulte as seguintes notas e documentação 
 
 
 ## <a name="overview"></a>Visão geral
-Para obter alta disponibilidade, o IBM DB2 LUW com HADR é instalado em pelo menos duas máquinas virtuais do Azure, que são implantadas em um [conjunto de disponibilidade do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) ou entre [zonas de disponibilidade do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones). 
+Para obter alta disponibilidade, o IBM DB2 LUW com HADR é instalado em pelo menos duas máquinas virtuais do Azure, que são implantadas em um [conjunto de disponibilidade do Azure](../../windows/tutorial-availability-sets.md) ou entre [zonas de disponibilidade do Azure](./sap-ha-availability-zones.md). 
 
 Os gráficos a seguir exibem uma configuração de duas VMs do Azure do servidor de banco de dados. Ambas as VMs do Azure do servidor de banco de dados têm seu próprio armazenamento anexado e estão em execução. No HADR, uma instância de banco de dados em uma das VMs do Azure tem a função da instância primária. Todos os clientes estão conectados à instância primária. Todas as alterações nas transações de banco de dados são mantidas localmente no log de transações do DB2. Como os registros de log de transações são persistidos localmente, os registros são transferidos via TCP/IP para a instância do banco de dados no segundo servidor de banco de dados, no servidor em espera ou na instância em espera. A instância em espera atualiza o banco de dados local rolando os registros de log de transações transferidos. Dessa forma, o servidor em espera é mantido em sincronia com o servidor primário.
 
@@ -397,10 +398,10 @@ Status do daemon: corosync: ativo/desabilitado pacemaker: ativo/desabilitado PCS
 
 
 ### <a name="configure-azure-load-balancer"></a>Configurar o Azure Load Balancer
-Para configurar Azure Load Balancer, recomendamos que você use o [SKU de Standard Load Balancer do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) e, em seguida, faça o seguinte;
+Para configurar Azure Load Balancer, recomendamos que você use o [SKU de Standard Load Balancer do Azure](../../../load-balancer/load-balancer-overview.md) e, em seguida, faça o seguinte;
 
 > [!NOTE]
-> O Standard Load Balancer SKU tem restrições para acessar endereços IP públicos dos nós sob a Load Balancer. O artigo [conectividade de ponto de extremidade público para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) está descrevendo maneiras de habilitar esses nós para acessar endereços IP públicos
+> O Standard Load Balancer SKU tem restrições para acessar endereços IP públicos dos nós sob a Load Balancer. O artigo [conectividade de ponto de extremidade público para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md) está descrevendo maneiras de habilitar esses nós para acessar endereços IP públicos
 
 
 
@@ -510,7 +511,7 @@ Você pode usar compartilhamentos NFS ou GlusterFS de alta disponibilidade exist
 
 - [GlusterFS em VMs do Azure no Red Hat Enterprise Linux para SAP NetWeaver][glusterfs] 
 - [Alta disponibilidade para SAP NetWeaver em VMs do Azure em Red Hat Enterprise Linux com Azure NetApp Files para aplicativos SAP][anf-rhel]
-- [Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction) (para criar compartilhamentos NFS)
+- [Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-introduction.md) (para criar compartilhamentos NFS)
 
 ## <a name="test-the-cluster-setup"></a>Testar a configuração do cluster
 
@@ -815,7 +816,7 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
      nc_db2id2_ID2      (ocf::heartbeat:azure-lb):      Started az-idb02</code></pre>
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Arquitetura de alta disponibilidade e cenários para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
+- [Arquitetura de alta disponibilidade e cenários para SAP NetWeaver](./sap-high-availability-architecture-scenarios.md)
 - [Configurando o Pacemaker no Red Hat Enterprise Linux no Azure][rhel-pcs-azr]
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533

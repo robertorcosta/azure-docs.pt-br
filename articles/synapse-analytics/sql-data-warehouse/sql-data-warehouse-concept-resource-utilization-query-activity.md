@@ -11,11 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 4dc054d26f0cb64a8f7faf2ffa4b2b688562f404
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 334d37ad36336d1aa737894482fd8f66e929c822
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213543"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077689"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitorando a atividade de consulta e a utilização de recursos no Azure Synapse Analytics
 
@@ -41,9 +42,6 @@ As seguintes métricas estão disponíveis no portal do Azure para o SQL do Syna
 | Percentual de ocorrência no cache    | (ocorrências no cache/perda no cache) * 100, em que ocorrências no cache é a soma de todas as ocorrências de segmentos columnstore no cache SSD local e a perda no cache são as perdas de segmentos columnstore no cache SSD local somadas entre todos os nós | Avg, Min, Max    |
 | Percentual de cache usado   | (cache usado / capacidade de cache) * 100, em que o cache usado é a soma de todos os bytes no cache SSD local entre todos os nós e a capacidade de cache é a soma da capacidade de armazenamento do cache SSD local entre todos os nós | Avg, Min, Max    |
 | Porcentagem de local de tempdb | Utilização de tempdb local em todos os nós de computação - os valores são emitidos a cada cinco minutos | Avg, Min, Max    |
-| Tamanho do armazenamento de dados (GB) | Tamanho total do banco de dados. Isso inclui o espaço usado, reservado e não alocado. O espaço não alocado é mantido para o banco de dados para otimizar o desempenho de consulta e de carga. | SUM |
-| Tamanho da recuperação de desastre (GB) | Tamanho total do backup geográfico realizado a cada 24 horas | SUM |
-| Tamanho de armazenamento de instantâneos (GB) | Tamanho total dos instantâneos obtidos para fornecer pontos de restauração de banco de dados. Isso inclui instantâneos automatizados e definidos pelo usuário. | SUM |
 
 Pontos a serem considerados ao exibir métricas e definir alertas:
 

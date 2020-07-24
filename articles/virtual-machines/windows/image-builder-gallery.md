@@ -7,11 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 65e8818e19ac5ad20bb87fd8eb27a4c36c2839cf
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0db618d63964c6f271f9a14b91849e704cfd7820
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656663"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077521"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Visualização: Criar uma imagem do Windows e distribuí-la para uma Galeria de Imagens Compartilhadas 
 
@@ -23,7 +24,7 @@ Para distribuir a imagem a uma Galeria de Imagens Compartilhadas, o modelo usa [
 
 O Construtor de Imagens do Azure executa automaticamente sysprep para generalizar a imagem. Esse é um comando sysprep genérico que você pode [substituir](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully), se necessário. 
 
-Esteja ciente de quantas vezes você extratifica as personalizações. Você pode executar o comando Sysprep até oito vezes em uma imagem do Windows. Depois de executar o Sysprep oito vezes, você deverá recriar a imagem do Windows. Para obter mais informações, confira [Limites de quantas vezes você pode executar o Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
+Esteja ciente de quantas vezes você extratifica as personalizações. Você pode executar o comando Sysprep até oito vezes em uma imagem do Windows. Depois de executar o Sysprep oito vezes, você deverá recriar a imagem do Windows. Para obter mais informações, confira [Limites de quantas vezes você pode executar o Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 
 > [!IMPORTANT]
 > O Construtor de Imagens do Azure está atualmente em versão prévia pública.
@@ -97,7 +98,7 @@ New-AzResourceGroup `
 
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Criar uma identidade atribuída pelo usuário e definir permissões no grupo de recursos
-O Construtor de Imagens usará a [identidade do usuário](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell) fornecida para injetar a imagem na SIG (Galeria de Imagens Compartilhadas) do Azure. Neste exemplo, você criará uma definição de função do Azure que tem as ações granulares para executar a distribuição da imagem para o SIG. A definição de função será então atribuída à identidade do usuário.
+O Construtor de Imagens usará a [identidade do usuário](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md) fornecida para injetar a imagem na SIG (Galeria de Imagens Compartilhadas) do Azure. Neste exemplo, você criará uma definição de função do Azure que tem as ações granulares para executar a distribuição da imagem para o SIG. A definição de função será então atribuída à identidade do usuário.
 
 ```powershell
 # setup role def names, these need to be unique

@@ -4,15 +4,15 @@ description: Saiba como transmitir logs de recursos do Azure para um espaço de 
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 492aae69895d62c784d15cd77405d0c52ec13e3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a7b24de860b543778d7e6ceabc95d10bf7c44c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84946881"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077080"
 ---
 # <a name="azure-resource-logs"></a>Logs de recursos do Azure
 Os logs de recursos do Azure são [logs de plataforma](platform-logs-overview.md) que fornecem informações sobre as operações que foram executadas em um recurso do Azure. O conteúdo dos logs de recursos varia de acordo com o serviço do Azure e o tipo de recurso. Os logs de recursos não são coletados por padrão. Você deve criar uma configuração de diagnóstico para cada recurso do Azure para enviar seus logs de recursos para um Log Analytics espaço de trabalho para usar com [logs de Azure monitor](data-platform-logs.md), hubs de eventos do Azure para encaminhar fora do Azure ou para o armazenamento do Azure para arquivamento.
@@ -43,7 +43,7 @@ Considere o exemplo a seguir em que as configurações de diagnóstico estão se
 
 A tabela AzureDiagnostics terá a seguinte aparência:  
 
-| ResourceProvider    | Categoria     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | Categoria     | Um  | B  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft. Service1 | AuditLogs    | X1 | Y1 | z1 |    |    |    |    |    |    |
 | Microsoft. Service1 | ErrorLogs    |    |    |    | q1 | W1 | E1 |    |    |    |
@@ -60,7 +60,7 @@ O exemplo acima resultaria em três tabelas sendo criadas:
  
 - Tabela *Service1AuditLogs* da seguinte maneira:
 
-    | Provedor de recursos | Categoria | A | B | C |
+    | Provedor de recursos | Categoria | Um | B | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | X1 | Y1 | z1 |
     | Service1 | AuditLogs | x5 | y5 | z5 |
@@ -85,17 +85,15 @@ O exemplo acima resultaria em três tabelas sendo criadas:
 
 
 ### <a name="select-the-collection-mode"></a>Selecione o modo de coleta
-A maioria dos recursos do Azure gravará dados no espaço de trabalho no modo de **diagnóstico do Azure** ou **específico do recurso,** sem lhe dar uma opção. Consulte a [documentação de cada serviço](diagnostic-logs-schema.md) para obter detalhes sobre qual modo ele usa. Todos os serviços do Azure eventualmente usarão o modo específico do recurso. Como parte dessa transição, alguns recursos permitirão que você selecione um modo na configuração de diagnóstico. Especifique o modo específico do recurso para as novas configurações de diagnóstico, pois isso torna os dados mais fáceis de gerenciar e pode ajudá-lo a evitar migrações complexas em uma data posterior.
+A maioria dos recursos do Azure gravará dados no espaço de trabalho no modo de **diagnóstico do Azure** ou **específico do recurso,** sem lhe dar uma opção. Consulte a [documentação de cada serviço](./resource-logs-schema.md) para obter detalhes sobre qual modo ele usa. Todos os serviços do Azure eventualmente usarão o modo específico do recurso. Como parte dessa transição, alguns recursos permitirão que você selecione um modo na configuração de diagnóstico. Especifique o modo específico do recurso para as novas configurações de diagnóstico, pois isso torna os dados mais fáceis de gerenciar e pode ajudá-lo a evitar migrações complexas em uma data posterior.
   
    ![Seletor de modo de configurações de diagnóstico](media/resource-logs-collect-workspace/diagnostic-settings-mode-selector.png)
 
-
-
-
 > [!NOTE]
-> Atualmente, o **diagnóstico do Azure** e o modo **específico do recurso** só podem ser selecionados ao definir a configuração de diagnóstico no portal do Azure. Se você definir a configuração usando a CLI, o PowerShell ou a API REST, o **diagnóstico do Azure**será padronizado.
+> Para obter um exemplo de como definir o modo de coleta usando um modelo do Resource Manager, consulte [exemplos de modelo do Resource Manager para configurações de diagnóstico em Azure monitor](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault).
 
-Você pode modificar uma configuração de diagnóstico existente para o modo específico do recurso. Nesse caso, os dados que já foram coletados permanecerão na tabela _AzureDiagnostics_ até que sejam removidos de acordo com sua configuração de retenção para o espaço de trabalho. Novos dados serão coletados na tabela dedicada. Use o operador [Union](https://docs.microsoft.com/azure/kusto/query/unionoperator) para consultar dados em ambas as tabelas.
+
+Você pode modificar uma configuração de diagnóstico existente para o modo específico do recurso. Nesse caso, os dados que já foram coletados permanecerão na tabela _AzureDiagnostics_ até que sejam removidos de acordo com sua configuração de retenção para o espaço de trabalho. Novos dados serão coletados na tabela dedicada. Use o operador [Union](/azure/kusto/query/unionoperator) para consultar dados em ambas as tabelas.
 
 Continue a assistir ao blog de [atualizações do Azure](https://azure.microsoft.com/updates/) para obter anúncios sobre os serviços do Azure que dão suporte ao modo específico do recurso.
 
@@ -191,7 +189,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
 
 Cada blob PT1H.json contém um blob JSON de eventos que ocorreram dentro de uma hora especificada na URL do blob (por exemplo, h=12). Durante a hora presente, os eventos são acrescentados ao arquivo PT1H.json conforme eles ocorrem. O valor de minuto (m = 00) é sempre 00, pois os eventos do log de recursos são divididos em BLOBs individuais por hora.
 
-Dentro do PT1H.jsno arquivo, cada evento é armazenado com o formato a seguir. Isso usará um esquema comum de nível superior, mas será exclusivo para cada serviço do Azure, conforme descrito em [esquema de logs de recursos](diagnostic-logs-schema.md).
+Dentro do PT1H.jsno arquivo, cada evento é armazenado com o formato a seguir. Isso usará um esquema comum de nível superior, mas será exclusivo para cada serviço do Azure, conforme descrito em [esquema de logs de recursos](./resource-logs-schema.md).
 
 ``` JSON
 {"time": "2016-07-01T00:00:37.2040000Z","systemId": "46cdbb41-cb9c-4f3d-a5b4-1d458d827ff1","category": "NetworkSecurityGroupRuleCounter","resourceId": "/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/TESTNSG","operationName": "NetworkSecurityGroupCounters","properties": {"vnetResourceGuid": "{12345678-9012-3456-7890-123456789012}","subnetPrefix": "10.3.0.0/24","macAddress": "000123456789","ruleName": "/subscriptions/ s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/default-allow-rdp","direction": "In","type": "allow","matchedConnections": 1988}}
