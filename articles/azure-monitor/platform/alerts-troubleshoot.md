@@ -6,11 +6,12 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: 3e9eb9d0910e4c0e00e57eac80c09910f214db6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3eed095d87d1e1fa1f210b360822ceefdbe0521
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300766"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045244"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Solucionando problemas em alertas de Azure Monitor
 
@@ -240,13 +241,13 @@ Se você recebeu um erro ao tentar criar, atualizar ou excluir uma [regra de aç
 
 1. **Você recebeu um erro de permissão?**  
 
-    Você deve ter a [função interna de colaborador de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)ou as permissões específicas relacionadas a regras de ação e alertas.
+    Você deve ter a [função interna de colaborador de monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-contributor)ou as permissões específicas relacionadas a regras de ação e alertas.
 
 1. **Você verificou os parâmetros da regra de ação?**  
 
-    Verifique a [documentação da regra de ação](alerts-action-rules.md)ou o comando [set-AzActionRule do PowerShell da regra de ação](https://docs.microsoft.com/powershell/module/az.alertsmanagement/Set-AzActionRule?view=azps-3.5.0) . 
+    Verifique a [documentação da regra de ação](alerts-action-rules.md)ou o comando [set-AzActionRule do PowerShell da regra de ação](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0) . 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Se estiver usando um alerta de log, consulte também [Solucionando problemas de alertas de log](alert-log-troubleshoot.md).
+- Se estiver usando um alerta de log, consulte também [Solucionando problemas de alertas de log](./alerts-troubleshoot-log.md).
 - Volte para a [portal do Azure](https://portal.azure.com) para verificar se você resolveu seu problema com as diretrizes acima 

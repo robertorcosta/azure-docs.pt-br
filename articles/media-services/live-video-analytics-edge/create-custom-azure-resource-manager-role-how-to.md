@@ -3,15 +3,16 @@ title: Criar função de Azure Resource Manager personalizada e atribuir à enti
 description: Este artigo fornece orientação sobre como criar uma função de Azure Resource Manager personalizada e atribuir à entidade de serviço para análise de vídeo ao vivo em IoT Edge usando CLI do Azure.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: be317ac1e86fd38c72b87734909004a64dc2938b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb4c9a1f90ab50f7070184fc9a394d9e6edb833a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260509"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043164"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Criar função de Azure Resource Manager personalizada e atribuir à entidade de serviço
 
-A análise de vídeo ao vivo na instância do módulo IoT Edge precisa de uma conta ativa dos serviços de mídia do Azure para que ela funcione corretamente. A relação entre a análise de vídeo ao vivo no módulo IoT Edge e a conta de serviço de mídia do Azure é estabelecida por meio de um conjunto de propriedades de módulo de propriedade. Uma dessas propriedades de cópia é uma [entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) que permite que a instância do módulo se comunique e dispare as operações necessárias na conta dos serviços de mídia. Para minimizar a inutilização potencial e/ou a exposição acidental de dados do dispositivo de borda, essa entidade de serviço deve ter a menor quantidade de privilégios.
+A análise de vídeo ao vivo na instância do módulo IoT Edge precisa de uma conta ativa dos serviços de mídia do Azure para que ela funcione corretamente. A relação entre a análise de vídeo ao vivo no módulo IoT Edge e a conta de serviço de mídia do Azure é estabelecida por meio de um conjunto de propriedades de módulo de propriedade. Uma dessas propriedades de cópia é uma [entidade de serviço](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) que permite que a instância do módulo se comunique e dispare as operações necessárias na conta dos serviços de mídia. Para minimizar a inutilização potencial e/ou a exposição acidental de dados do dispositivo de borda, essa entidade de serviço deve ter a menor quantidade de privilégios.
 
 Este artigo mostra as etapas para criar uma função de Azure Resource Manager personalizada com Azure Cloud Shell, que é usada para criar uma entidade de serviço.
 
@@ -22,7 +23,7 @@ Os pré-requisitos para este artigo são os seguintes:
 * Assinatura do Azure com assinatura de proprietário.
 * Um Azure Active Directory com privilégios para criar um aplicativo e atribuir a entidade de serviço a uma função.
 
-A maneira mais fácil de verificar se a sua conta tem as permissões adequadas é por meio do portal. Consulte [Verificar permissão necessária](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+A maneira mais fácil de verificar se a sua conta tem as permissões adequadas é por meio do portal. Consulte [Verificar permissão necessária](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="overview"></a>Visão geral  
 
@@ -48,7 +49,7 @@ Se você não tiver uma conta de serviço de mídia, use as etapas a seguir para
     ```
     az account set --subscription " <yourSubscriptionName or yourSubscriptionId>"
     ```
-1. Crie um [grupo de recursos](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) e uma [conta de armazenamento](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
+1. Crie um [grupo de recursos](/cli/azure/group?view=azure-cli-latest#az-group-create) e uma [conta de armazenamento](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
 1. Agora, crie uma conta de serviço de mídia do Azure usando o seguinte modelo de comando no Cloud Shell:
 
     ```
@@ -84,8 +85,8 @@ Esse comando produz uma resposta como esta:
 ```
 1. A saída de uma entidade de serviço com autenticação de senha inclui a chave de senha que, nesse caso, é o parâmetro "AadSecret". 
 
-    Certifique-se de que tenha copiado esse valor já que não será possível recuperá-lo posteriormente. Se você esquecer a senha, [redefina as credenciais da entidade de serviço](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#reset-credentials).
-1. A appId e a chave de locatário aparecem na saída como "AadClientId" e "AadTenantId", respectivamente. Eles são usados na autenticação de entidade de serviço. Registre seus valores, mas eles podem ser recuperados a qualquer momento com o comando [az ad sp list](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list).
+    Certifique-se de que tenha copiado esse valor já que não será possível recuperá-lo posteriormente. Se você esquecer a senha, [redefina as credenciais da entidade de serviço](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#reset-credentials).
+1. A appId e a chave de locatário aparecem na saída como "AadClientId" e "AadTenantId", respectivamente. Eles são usados na autenticação de entidade de serviço. Registre seus valores, mas eles podem ser recuperados a qualquer momento com o comando [az ad sp list](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list).
 
 ### <a name="create-a-custom-role-definition"></a>Criar uma definição de função personalizada  
 
@@ -170,7 +171,7 @@ O comando acima imprimirá o objectId da entidade de serviço.
 “objectId” : “<yourObjectId>”,
 ```
 
-Use o modelo de [comando AZ role Assignment Create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) para vincular a função personalizada com a entidade de serviço:
+Use o modelo de [comando AZ role Assignment Create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) para vincular a função personalizada com a entidade de serviço:
 
 ```
 az role assignment create --role “LVAEdge User” --assignee-object-id < objectId>    

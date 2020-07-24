@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 4f5ad6fd0444c40d95bf4c2f1105959bde07245d
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 24c3ec1ee16123cef0c4e2bd230bfdb66915fc9f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276304"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040587"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria do banco de dados SQL do Azure e do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -79,6 +79,9 @@ Você pode configurar a auditoria para diferentes tipos de ações e grupos de a
 O banco de dados SQL do Azure e o Azure Synapse Audit armazenam 4000 caracteres de data para campos de caractere em um registro de auditoria. Quando os valores de **instrução** ou **data_sensitivity_information** retornados de uma ação auditável contêm mais de 4000 caracteres, os dados após os primeiros 4000 caracteres serão **truncados e não auditados**.
 A seção a seguir descreve a configuração de auditoria usando o Portal do Azure.
 
+  > [!NOTE]
+  > Não é possível habilitar a auditoria em um pool SQL Synapse pausado. Para habilitar a auditoria, cancele a pausa do pool SQL do Synapse. Saiba mais sobre o [pool SQL do Synapse](https://docs.microsoft.com/azure/synapse-analytics/sql/best-practices-sql-pool).
+
 1. Vá para o [Portal do Azure](https://portal.azure.com).
 2. Navegue até **auditoria** no título segurança no seu banco de **dados SQL** ou no painel do **SQL Server** .
 3. Se preferir configurar uma política de auditoria de servidor, selecione o link **Exibir configurações do servidor** na página de auditoria do banco de dados. Depois, é possível exibir ou modificar as configurações de auditoria do servidor. As políticas de auditoria de servidor se aplicam a todos os bancos de dados existentes e recém-criados neste servidor.
@@ -119,10 +122,6 @@ Para configurar a gravação de logs de auditoria em um espaço de trabalho do L
 Para obter mais detalhes sobre os espaços de trabalho de logs de Azure Monitor, consulte [projetando sua implantação de logs de Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Auditoria para destino do hub de eventos
-
-> [!WARNING]
-> Habilitar a auditoria em um servidor que tem um pool de banco de dados SQL faz com que **o pool de banco de dados SQL seja retomado e recolocado novamente,** o que pode incorrer em encargos de cobrança.
-> Não é possível habilitar a auditoria em um pool de banco de dados SQL em pausa. Para habilitá-lo, cancele a pausa do pool de banco de dados SQL.
 
 Para configurar a gravação de logs de auditoria para um hub de eventos, selecione **Hub de Eventos (versão prévia)** e abra **Detalhes do Hub de Eventos**. Selecione o hub de eventos no qual os logs serão gravados e, em seguida, clique em **OK**. Verifique se o hub de eventos está na mesma região que o banco de dados e o servidor.
 

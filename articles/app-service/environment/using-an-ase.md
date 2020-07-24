@@ -7,11 +7,12 @@ ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fd1ffc8636e11ca20bc32b4b6f600e03d923d8b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9bfd601642ff9d6b5b5c5a1c2c508d1821e19c7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83125801"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042181"
 ---
 # <a name="use-an-app-service-environment"></a>Usar um Ambiente do Serviço de Aplicativo
 
@@ -61,7 +62,7 @@ Para criar um aplicativo em um ASE:
 
     f. Selecione uma pilha de tempo de execução.
 
-    (por exemplo, Selecione **Linux** ou **Windows**. 
+    g. Selecione **Linux** ou **Windows**. 
 
     h. Selecione seu ASE na lista suspensa **região** . 
 
@@ -142,7 +143,7 @@ As configurações de DNS para o sufixo de domínio padrão do ASE não restring
 
 A zona chamada *. &lt; asename &gt; . appserviceenvironment.net* é globalmente exclusivo. Antes de 2019 de maio, os clientes conseguiram especificar o sufixo de domínio do ASE ILB. Se você quisesse usar *. contoso.com* para o sufixo de domínio, você poderia fazer isso e isso incluiria o site do SCM. Há desafios com esse modelo, incluindo; Gerenciamento do certificado SSL padrão, falta de logon único com o site do SCM e a necessidade de usar um certificado curinga. O processo de atualização de certificado padrão do ASE ILB também foi interrompido e causou a reinicialização do aplicativo. Para resolver esses problemas, o comportamento do ASE ILB foi alterado para usar um sufixo de domínio com base no nome do ASE e com um sufixo de propriedade da Microsoft. A alteração no comportamento do ASE ILB afeta apenas o ILB ASEs feito após 2019 de maio. ILB ASEs preexistente ainda deve gerenciar o certificado padrão do ASE e sua configuração de DNS.
 
-## <a name="publishing"></a>Publicação
+## <a name="publishing"></a>Publicando
 
 Em um ASE, assim como no serviço de aplicativo multilocatário, você pode publicar por estes métodos:
 
@@ -208,7 +209,7 @@ Para criar um alerta em seus logs, siga as instruções em [criar, exibir e gere
 
 Se você tiver vários ASEs, talvez queira que alguns ASEs sejam atualizados antes de outros. No objeto do **Gerenciador de recursos de HostingEnvironment** do ase, você pode definir um valor para **upgradePreference**. A configuração **upgradePreference** pode ser configurada usando um modelo, ARMClient ou https://resources.azure.com . Os três valores possíveis são:
 
-- **Nenhum**: o Azure atualizará seu ASE em nenhum lote específico. Esse valor é o padrão.
+- **Nenhum**: o Azure atualizará seu ASE em nenhum lote específico. Este é o valor padrão.
 - **Antecipadamente**: seu ase será atualizado na primeira metade das atualizações do serviço de aplicativo.
 - **Tarde**: seu ase será atualizado na segunda metade das atualizações do serviço de aplicativo.
 
@@ -250,6 +251,30 @@ Para excluir um ASE:
     ![Exclusão de ASE][3]
 
 1. Selecione **OK**.
+
+## <a name="ase-cli"></a>CLI DO ASE
+
+Há recursos de linha de comando para administrar em um ASE.  Os comandos AZ CLI estão indicados abaixo.
+
+```azurecli
+C:\>az appservice ase --help
+
+Group
+    az appservice ase : Manage App Service Environments v2.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    create         : Create app service environment.
+    delete         : Delete app service environment.
+    list           : List app service environments.
+    list-addresses : List VIPs associated with an app service environment.
+    list-plans     : List app service plans associated with an app service environment.
+    show           : Show details of an app service environment.
+    update         : Update app service environment.
+
+For more specific examples, use: az find "az appservice ase"
+```
+
+
 
 <!--Image references-->
 [1]: ./media/using_an_app_service_environment/usingase-appcreate.png

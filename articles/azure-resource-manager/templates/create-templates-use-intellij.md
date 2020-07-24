@@ -4,16 +4,16 @@ description: Saiba como criar seu primeiro modelo do Azure Resource Manager usan
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
-ms.openlocfilehash: fa09fbe8d239bbe10c0762d3aad7e19df23a9044
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: bce3d8ff2662ff62e1493cb26d797619b65c2762
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057442"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040744"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Criar e implantar modelos de ARM usando a ideia IntelliJ
 
-Saiba como implantar um modelo de Azure Resource Manager (ARM) no Azure usando a ideia IntelliJ e o processo de edição e atualização do modelo diretamente do IDE. Os modelos de ARM são arquivos JSON que definem os recursos que você precisa implantar para sua solução. Para entender os conceitos associados à implantação e ao gerenciamento de soluções do Azure, confira a [visão geral da implantação de modelo](overview.md).
+Saiba como implantar um modelo de Azure Resource Manager (ARM) no Azure usando a ideia IntelliJ e o processo de edição e atualização do modelo diretamente do IDE. Os modelos do ARM são arquivos JSON que definem os recursos necessários para implantar sua solução. Para entender os conceitos associados à implantação e ao gerenciamento de soluções do Azure, confira a [visão geral da implantação de modelo](overview.md).
 
 ![Diagrama do portal de modelos do Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
@@ -27,7 +27,7 @@ Para concluir este artigo, você precisa do seguinte:
 
 * Um [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate Edition ou Community Edition instalado
 * O [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053) instalado; confira o [guia de gerenciamento de plug-ins do IntelliJ](https://www.jetbrains.com/help/idea/managing-plugins.html) para obter mais informações
-* Estar [conectado](/java/azure/intellij/azure-toolkit-for-intellij-sign-in-instructions) à sua conta do Azure para o Azure Toolkit for IntelliJ
+* Estar [conectado](/azure/developer/java/toolkit-for-intellij/sign-in-instructions) à sua conta do Azure para o Azure Toolkit for IntelliJ
 
 ## <a name="deploy-a-quickstart-template"></a>Implantar um modelo de Início Rápido
 

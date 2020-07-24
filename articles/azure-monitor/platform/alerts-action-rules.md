@@ -4,12 +4,12 @@ description: Noções básicas sobre as regras de ação no Azure Monitor são e
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 573567386ba9cbaf8b36440fda5073f899fcdfc7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 083db4ad046ee586f139309b62eedf0fcc2ffa6a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112333"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045727"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (visualização)
 
@@ -21,14 +21,13 @@ As regras de ação ajudam a definir ou suprimir ações em qualquer escopo de A
 
 ### <a name="suppression-of-alerts"></a>Supressão de alertas
 
-Há muitos cenários em que é útil suprimir as notificações que os alertas geram. Esses cenários variam desde a supressão durante uma janela de manutenção planejada até a supressão fora do horário comercial. Por exemplo, a equipe responsável pelo **ContosoVM** deseja suprimir notificações de alerta para o próximo final de semana, pois o **ContosoVM** está passando por manutenção planejada. 
+Há muitos cenários em que é útil suprimir as notificações que os alertas geram. Esses cenários variam desde a supressão durante uma janela de manutenção planejada até a supressão fora do horário comercial. Por exemplo, a equipe responsável pelo **ContosoVM** deseja suprimir notificações de alerta para o próximo final de semana, pois o **ContosoVM** está passando por manutenção planejada.
 
 Embora a equipe possa desabilitar cada regra de alerta configurada no **ContosoVM** manualmente (e habilitá-la novamente após a manutenção), não é um processo simples. As regras de ação ajudam a definir a supressão de alerta em escala com a capacidade de configurar com flexibilidade o período de supressão. No exemplo anterior, a equipe pode definir uma regra de ação em **ContosoVM** que suprime todas as notificações de alerta do fim de semana.
 
-
 ### <a name="actions-at-scale"></a>Ações em escala
 
-Embora as regras de alerta ajudem a definir o grupo de ações que dispara quando o alerta é gerado, os clientes geralmente têm um grupo de ação comum em seu escopo de operações. Por exemplo, uma equipe responsável pelo grupo de recursos **ContosoRG** provavelmente definirá o mesmo grupo de ações para todas as regras de alerta definidas em **ContosoRG**. 
+Embora as regras de alerta ajudem a definir o grupo de ações que dispara quando o alerta é gerado, os clientes geralmente têm um grupo de ação comum em seu escopo de operações. Por exemplo, uma equipe responsável pelo grupo de recursos **ContosoRG** provavelmente definirá o mesmo grupo de ações para todas as regras de alerta definidas em **ContosoRG**.
 
 As regras de ação ajudam a simplificar esse processo. Ao definir as ações em escala, um grupo de ações pode ser disparado para qualquer alerta gerado no escopo configurado. No exemplo anterior, a equipe pode definir uma regra de ação em **ContosoRG** que disparará o mesmo grupo de ações para todos os alertas gerados nele.
 
@@ -37,11 +36,13 @@ As regras de ação ajudam a simplificar esse processo. Ao definir as ações em
 
 ## <a name="configuring-an-action-rule"></a>Configuração de uma regra de ação
 
+### <a name="portal"></a>[Portal](#tab/portal)
+
 Você pode acessar o recurso selecionando **Gerenciar ações** na página de aterrissagem de **alertas** no Azure monitor. Em seguida, selecione **regras de ação (versão prévia)**. Você pode acessar as regras selecionando **regras de ação (versão prévia)** no painel da página de aterrissagem para alertas.
 
 ![Regras de ação da página de aterrissagem de Azure Monitor](media/alerts-action-rules/action-rules-landing-page.png)
 
-Selecione **+ nova regra de ação**. 
+Selecione **+ nova regra de ação**.
 
 ![Adicionar nova regra de ação](media/alerts-action-rules/action-rules-new-rule.png)
 
@@ -49,7 +50,7 @@ Como alternativa, você pode criar uma regra de ação enquanto estiver configur
 
 ![Adicionar nova regra de ação](media/alerts-action-rules/action-rules-alert-rule.png)
 
-Agora você deve ver a página de fluxo para criar regras de ação. Configure os seguintes elementos: 
+Agora você deve ver a página de fluxo para criar regras de ação. Configure os seguintes elementos:
 
 ![Novo fluxo de criação de regra de ação](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
@@ -61,9 +62,9 @@ Primeiro, escolha o escopo (assinatura do Azure, grupo de recursos ou recurso de
 
 ### <a name="filter-criteria"></a>Critérios de filtragem
 
-Além disso, você pode definir filtros para limitá-los a um subconjunto específico de alertas. 
+Além disso, você pode definir filtros para limitá-los a um subconjunto específico de alertas.
 
-Os filtros disponíveis são: 
+Os filtros disponíveis são:
 
 * **Severidade**: a opção para selecionar uma ou mais severidades de alerta. **Severity = Sev1** significa que a regra de ação é aplicável a todos os alertas definidos como Sev1.
 * **Monitorar serviço**: um filtro baseado no serviço de monitoramento de origem. Esse filtro também é de seleção múltipla. Por exemplo, **Monitor Service = "Application insights"** significa que a regra de ação é aplicável a todos os alertas baseados em Application insights.
@@ -73,7 +74,7 @@ Os filtros disponíveis são:
 * **Descrição**: uma correspondência de Regex (expressão regular) que define uma correspondência de cadeia de caracteres com a descrição, definida como parte da regra de alerta. Por exemplo, a **Descrição contém ' prod '** corresponderá a todos os alertas que contêm a cadeia de caracteres "Prod" em suas descrições.
 * **Contexto de alerta (carga)**: uma correspondência Regex que define uma correspondência de cadeia de caracteres em relação aos campos de contexto de alerta da carga de um alerta. Por exemplo, o **contexto de alerta (carga) contém ' computador-01 '** que corresponderá a todos os alertas cujas cargas contenham a cadeia de caracteres "computador-01".
 
-Esses filtros são aplicados em conjunto um com o outro. Por exemplo, se você definir o **tipo de recurso ' = máquinas virtuais** e **severidade ' = Sev0**, você filtrou para todos os alertas do **Sev0** somente em suas VMs. 
+Esses filtros são aplicados em conjunto um com o outro. Por exemplo, se você definir o **tipo de recurso ' = máquinas virtuais** e **severidade ' = Sev0**, você filtrou para todos os alertas do **Sev0** somente em suas VMs.
 
 ![Filtros de regra de ação](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 
@@ -83,7 +84,7 @@ Em seguida, configure a regra de ação para o suporte de supressão de alerta o
 
 #### <a name="suppression"></a>Supressão
 
-Se você selecionar **supressão**, configure a duração da supressão de ações e notificações. Selecione uma das seguintes opções:
+Se você selecionar **supressão**, configure a duração da supressão de ações e notificações. Escolha uma das seguintes opções:
 * **De agora (sempre)**: suprime todas as notificações indefinidamente.
 * **Em um horário agendado**: suprime notificações dentro de uma duração limitada.
 * **Com uma recorrência**: suprime notificações em uma agenda recorrente diária, semanal ou mensal.
@@ -92,7 +93,7 @@ Se você selecionar **supressão**, configure a duração da supressão de açõ
 
 #### <a name="action-group"></a>Grupo de ações
 
-Se você selecionar **grupo de ações** na alternância, adicione um grupo de ações existente ou crie um novo. 
+Se você selecionar **grupo de ações** na alternância, adicione um grupo de ações existente ou crie um novo.
 
 > [!NOTE]
 > Você pode associar apenas um grupo de ações a uma regra de ação.
@@ -104,7 +105,83 @@ Se você selecionar **grupo de ações** na alternância, adicione um grupo de a
 Por fim, configure os seguintes detalhes para a regra de ação:
 * Nome
 * Grupo de recursos no qual ele foi salvo
-* Descrição 
+* Descrição
+
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Você pode criar regras de ação com o CLI do Azure usando o comando [AZ monitor Action-regra Create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) .  A `az monitor action-rule` referência é apenas uma das muitas [referências CLI do Azure para Azure monitor](/cli/azure/azure-cli-reference-for-monitor).
+
+### <a name="prepare-your-environment"></a>Prepare o seu ambiente
+
+1. [Instalar a CLI do Azure](/cli/azure/install-azure-cli)
+
+   Se preferir, você também pode usar Azure Cloud Shell para concluir as etapas neste artigo.  Azure Cloud Shell é um ambiente de shell interativo que você usa por meio de seu navegador.  Inicie Cloud Shell usando um destes métodos:
+
+   - Abra Cloud Shell acessando[https://shell.azure.com](https://shell.azure.com)
+
+   - Selecione o botão **Cloud Shell** na barra de menus no canto superior direito da [portal do Azure](https://portal.azure.com)
+
+1. Entrar.
+
+   Se você estiver usando uma instalação local da CLI, entre usando o comando [AZ login](/cli/azure/reference-index#az-login) .  Siga as etapas exibidas em nosso terminal para concluir o processo de autenticação.
+
+    ```azurecli
+    az login
+    ```
+
+1. Instalar a extensão `alertsmanagement`
+
+   O `az monitor action-rule` comando é uma extensão experimental do CLI do Azure principal. Saiba mais sobre referências de extensão na [extensão de uso com CLI do Azure](/cli/azure/azure-cli-extensions-overview?).
+
+   ```azurecli
+   az extension add --name alertsmanagement
+   ```
+
+   O seguinte aviso é esperado.
+
+   ```output
+   The installed extension `alertsmanagement` is experimental and not covered by customer support.  Please use with discretion.
+   ```
+
+### <a name="create-action-rules-with-the-azure-cli"></a>Criar regras de ação com o CLI do Azure
+
+Consulte o conteúdo de referência do CLI do Azure para o [AZ monitor Action-regra Create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) para saber mais sobre os parâmetros obrigatórios e opcionais.
+
+Crie uma regra de ação para suprimir as notificações em um grupo de recursos.
+
+```azurecli
+az monitor action-rule create --resource-group MyResourceGroupName \
+                              --name MyNewActionRuleName \
+                              --location Global \
+                              --status Enabled \
+                              --rule-type Suppression \
+                              --scope-type ResourceGroup \
+                              --scope /subscriptions/0b1f6471-1bf0-4dda-aec3-cb9272f09590/resourceGroups/MyResourceGroupName \
+                              --suppression-recurrence-type Always \
+                              --alert-context Contains Computer-01 \
+                               --monitor-service Equals "Log Analytics"
+```
+
+Crie uma regra de ação para suprimir as notificações de todos os alertas do Sev4 em todas as VMs na assinatura, todos os finais de semana.
+
+```azurecli
+az monitor action-rule create --resource-group MyResourceGroupName \
+                              --name MyNewActionRuleName \
+                              --location Global \
+                              --status Enabled \
+                              --rule-type Suppression \
+                              --severity Equals Sev4 \
+                              --target-resource-type Equals Microsoft.Compute/VirtualMachines \
+                              --suppression-recurrence-type Weekly \
+                              --suppression-recurrence 0 6 \
+                              --suppression-start-date 12/09/2018 \
+                              --suppression-end-date 12/18/2018 \
+                              --suppression-start-time 06:00:00 \
+                              --suppression-end-time 14:00:00
+
+```
+
+* * *
 
 ## <a name="example-scenarios"></a>Cenários de exemplo
 
@@ -132,7 +209,7 @@ A contoso deseja suprimir as notificações de todos os alertas de log gerados p
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Cenário 3: grupo de ações definido em um grupo de recursos
 
-A contoso definiu [um alerta de métrica em um nível de assinatura](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Mas ele deseja definir as ações que disparam especificamente para alertas gerados a partir do grupo de recursos **ContosoRG**.
+A contoso definiu [um alerta de métrica em um nível de assinatura](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Mas ele deseja definir as ações que disparam especificamente para alertas gerados a partir do grupo de recursos **ContosoRG**.
 
 **Solução:** Crie uma regra de ação com:
 * Scope = **ContosoRG**
@@ -140,15 +217,39 @@ A contoso definiu [um alerta de métrica em um nível de assinatura](https://doc
 * Grupo de ação definido como **ContosoActionGroup**
 
 > [!NOTE]
-> *Grupos de ação definidos em regras de ação e regras de alerta operam de forma independente, sem eliminação de duplicação.* No cenário descrito anteriormente, se um grupo de ações for definido para a regra de alerta, ele será disparado em conjunto com o grupo de ação definido na regra de ação. 
+> *Grupos de ação definidos em regras de ação e regras de alerta operam de forma independente, sem eliminação de duplicação.* No cenário descrito anteriormente, se um grupo de ações for definido para a regra de alerta, ele será disparado em conjunto com o grupo de ação definido na regra de ação.
 
 ## <a name="managing-your-action-rules"></a>Gerenciando suas regras de ação
+
+### <a name="portal"></a>[Portal](#tab/portal)
 
 Você pode exibir e gerenciar suas regras de ação no modo de exibição de lista:
 
 ![Exibição de lista de regras de ação](media/alerts-action-rules/action-rules-list-view.png)
 
 A partir daqui, você pode habilitar, desabilitar ou excluir regras de ação em escala, marcando a caixa de seleção ao lado delas. Quando você seleciona uma regra de ação, sua página de configuração é aberta. A página ajuda a atualizar a definição da regra de ação e a habilitá-la ou desabilitá-la.
+
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Você pode exibir e gerenciar suas regras de ação usando o comando [AZ monitor Action-Rule](/cli/azure/ext/alertsmanagement/monitor) da CLI do Azure.
+
+Antes de gerenciar as regras de ação com o CLI do Azure, prepare seu ambiente usando as instruções fornecidas em [Configurando uma regra de ação](#configuring-an-action-rule).
+
+```azurecli
+# List all action rules for a subscription
+az monitor action-rule list
+
+# Get details of an action rule
+az monitor action-rule show --resource-group MyResourceGroupName --name MyActionRuleName
+
+# Update an action rule.
+az monitor action-rule update --resource-group MyResourceGroupName --name MyActionRuleName --status Disabled
+
+# Delete an action rule.
+az monitor action-rule delete --resource-group MyResourceGroupName --name MyActionRuleName
+```
+
+* * *
 
 ## <a name="best-practices"></a>Práticas recomendadas
 
@@ -181,12 +282,12 @@ Depois de definir o recurso de destino para sua regra de alerta, você pode ver 
 * Um subconjunto: por exemplo, a regra de alerta que você está definindo está em uma assinatura e a regra de ação está em um grupo de recursos dentro da assinatura.
 * Um superconjunto: por exemplo, a regra de alerta que você está definindo está em um grupo de recursos e a regra de ação está na assinatura que contém o grupo de recursos.
 * Uma interseção: por exemplo, a regra de alerta que você está definindo está em **VM1** e **VM2**, e a regra de ação está em **VM2** e **VM3**.
-    
+
 ![Regras de ação sobrepostas](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)
 
 ### <a name="can-i-see-the-alerts-that-have-been-suppressed-by-an-action-rule"></a>Posso ver os alertas que foram suprimidos por uma regra de ação?
 
-Na [página lista de alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-managing-alert-instances), você pode escolher uma coluna adicional chamada **status de supressão**. Se a notificação de uma instância de alerta foi suprimida, ela mostraria esse status na lista.
+Na [página lista de alertas](./alerts-managing-alert-instances.md), você pode escolher uma coluna adicional chamada **status de supressão**. Se a notificação de uma instância de alerta foi suprimida, ela mostraria esse status na lista.
 
 ![Instâncias de alerta suprimidas](media/alerts-action-rules/action-rules-suppressed-alerts.png)
 
@@ -200,7 +301,7 @@ A supressão sempre tem precedência no mesmo escopo.
 
    `action rule AR2 defined for VM2 and VM3 with action group AG1`
 
-Para cada alerta em VM1 e VM3, o grupo de ações AG1 seria disparado uma vez. Para cada alerta no **VM2**, o grupo de ações AG1 seria disparado duas vezes, porque as regras de ação não eliminam a duplicação de ações. 
+Para cada alerta em VM1 e VM3, o grupo de ações AG1 seria disparado uma vez. Para cada alerta no **VM2**, o grupo de ações AG1 seria disparado duas vezes, porque as regras de ação não eliminam a duplicação de ações.
 
 ### <a name="what-happens-if-i-have-a-resource-monitored-in-two-separate-action-rules-and-one-calls-for-action-while-another-for-suppression-for-example-vm2-in-the-following-scenario"></a>O que acontece se eu tiver um recurso monitorado em duas regras de ação separadas e uma chamada para ação enquanto outra para supressão? Por exemplo, **VM2** no cenário a seguir:
 
@@ -208,7 +309,7 @@ Para cada alerta em VM1 e VM3, o grupo de ações AG1 seria disparado uma vez. P
 
    `action rule AR2 defined for VM2 and VM3 with suppression`
 
-Para cada alerta no VM1, o grupo de ações AG1 seria disparado uma vez. As ações e notificações para cada alerta em VM2 e VM3 serão suprimidas. 
+Para cada alerta no VM1, o grupo de ações AG1 seria disparado uma vez. As ações e notificações para cada alerta em VM2 e VM3 serão suprimidas.
 
 ### <a name="what-happens-if-i-have-an-alert-rule-and-an-action-rule-defined-for-the-same-resource-calling-different-action-groups-for-example-vm1-in-the-following-scenario"></a>O que acontece se eu tiver uma regra de alerta e uma regra de ação definida para o mesmo recurso chamando grupos de ação diferentes? Por exemplo, **VM1** no cenário a seguir:
 
@@ -216,8 +317,8 @@ Para cada alerta no VM1, o grupo de ações AG1 seria disparado uma vez. As aç�
 
    `action rule AR1 defined for VM1 with action group AG1`
 
-Para cada alerta no VM1, o grupo de ações AG1 seria disparado uma vez. Sempre que a regra de alerta "rule1" for disparada, ela também disparará o AG2 adicionalmente. Grupos de ação definidos em regras de ação e regras de alerta operam de forma independente, sem eliminação de duplicação. 
+Para cada alerta no VM1, o grupo de ações AG1 seria disparado uma vez. Sempre que a regra de alerta "rule1" for disparada, ela também disparará o AG2 adicionalmente. Grupos de ação definidos em regras de ação e regras de alerta operam de forma independente, sem eliminação de duplicação.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Saiba mais sobre alertas no Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)
+- [Saiba mais sobre alertas no Azure](./alerts-overview.md)

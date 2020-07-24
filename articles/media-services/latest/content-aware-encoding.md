@@ -12,15 +12,16 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3669919a8ddf4ffcbcf0d3e7e060c62f4c8df1c6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234889"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039135"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Usar a predefinição de codificação com reconhecimento de conteúdo para localizar o valor de taxa de bits ideal para uma determinada resolução
 
-Para preparar o conteúdo para entrega por [streaming de taxa de bits adaptável](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), o vídeo precisa ser codificado em taxas de bits múltiplas (alta para baixa). Isso garante uma degradação normal da qualidade, pois a taxa de bits é reduzida, portanto, é a resolução do vídeo. Essa codificação de taxa de bits múltipla usa uma chamada de escada de codificação – uma tabela de resoluções e taxas de bits, consulte as [predefinições de codificação interna](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)dos serviços de mídia.
+Para preparar o conteúdo para entrega por [streaming de taxa de bits adaptável](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), o vídeo precisa ser codificado em taxas de bits múltiplas (alta para baixa). Isso garante uma degradação normal da qualidade, pois a taxa de bits é reduzida, portanto, é a resolução do vídeo. Essa codificação de taxa de bits múltipla usa uma chamada de escada de codificação – uma tabela de resoluções e taxas de bits, consulte as [predefinições de codificação interna](/rest/api/media/transforms/createorupdate#encodernamedpreset)dos serviços de mídia.
 
 Você deve estar ciente do conteúdo que está processando e personalizar/ajustar a escada de codificação à complexidade do vídeo individual. Em cada resolução, há uma taxa de bits além da qual qualquer aumento na qualidade não é um tanto enganoso – o codificador opera com esse valor de taxa de bits ideal. O próximo nível de otimização é selecionar as resoluções com base no conteúdo – por exemplo, um vídeo de uma apresentação do PowerPoint não se beneficia da sua saída abaixo de 720p. Indo além, o codificador pode ser transtarefado para otimizar as configurações de cada uma das capturas dentro do vídeo. 
 
@@ -81,7 +82,7 @@ TransformOutput[] output = new TransformOutput[]
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Tutorial: carregar, codificar e transmitir vídeos com os serviços de mídia v3](stream-files-tutorial-with-api.md)
-* [Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-REST](stream-files-tutorial-with-rest.md)
+* [Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – REST](stream-files-tutorial-with-rest.md)
 * [Tutorial: codificar um arquivo remoto com base na URL e transmitir a video-CLI](stream-files-cli-quickstart.md)
 * [Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-.NET](stream-files-dotnet-quickstart.md)
 * [Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-Node.js](stream-files-nodejs-quickstart.md)

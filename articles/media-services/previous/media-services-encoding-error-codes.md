@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 5c038f0be31acea52c2ef07d43f0dbaf3434a371
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b40bc8521755fae08e851e5b324979d5798e3dcd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "64709516"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042865"
 ---
 # <a name="encoding-error-codes"></a>Códigos de erro de codificação
 
-A tabela a seguir lista os códigos de erro que podem ser retornados caso um erro tenha sido encontrado durante a execução de tarefas de codificação.  Para obter detalhes do erro em seu código do .NET, use a classe [ErrorDetails](https://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) . Para obter detalhes do erro em seu código REST, use a API REST [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) .
+A tabela a seguir lista os códigos de erro que podem ser retornados caso um erro tenha sido encontrado durante a execução de tarefas de codificação.  Para obter detalhes do erro em seu código do .NET, use a classe [ErrorDetails](/previous-versions/azure/jj126075(v=azure.100)) . Para obter detalhes do erro em seu código REST, use a API REST [ErrorDetail](/rest/api/media/operations/errordetail) .
 
 | ErrorDetail.Code | Causas possíveis para erro |
 | --- | --- |
-| Unknown (desconhecido) |Erro desconhecido ao executar a tarefa |
+| Desconhecido |Erro desconhecido ao executar a tarefa |
 | ErrorDownloadingInputAssetMalformedContent |Categoria de erros que abrange erros ao baixar um ativo de entrada, como nomes de arquivo inválidos, arquivo com comprimento zero, formatos incorretos e assim por diante. |
 | ErrorDownloadingInputAssetServiceFailure |Categoria de erros que aborda problemas no lado do serviço - por exemplo, erros de rede ou armazenamento durante o download. |
 | ErrorParsingConfiguration |Categoria de erros em que a tarefa \<see cref="MediaTask.PrivateData"/> (configuração) não é válida, por exemplo, a configuração não é uma predefinição de sistema válida ou contém XML inválido. |

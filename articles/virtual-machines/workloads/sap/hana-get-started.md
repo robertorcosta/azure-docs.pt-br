@@ -15,34 +15,34 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
-ms.openlocfilehash: e017e082472e7a4a2fab6a2845e52d3dc7acc460
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec63d08b164a3ed767a7622a9829beaf73e65ef3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80123363"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042314"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Instalação do SAP HANA em máquinas virtuais do Azure
 ## <a name="introduction"></a>Introdução
 Este guia ajuda você a apontar para os recursos certos para implantar o HANA em máquinas virtuais do Azure com êxito. Este guia vai apontar para os recursos de documentação que você precisa verificar antes de instalar SAP HANA em uma VM do Azure. Portanto, você pode executar as etapas corretas para terminar com uma configuração com suporte de SAP HANA em VMs do Azure.  
 
 > [!NOTE]
-> Esta guia descreve as implantações do SAP HANA em VMs do Azure. Para obter informações sobre como implantar SAP HANA em instâncias grandes do HANA, consulte [como instalar e configurar SAP Hana (instâncias grandes) no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation).
+> Esta guia descreve as implantações do SAP HANA em VMs do Azure. Para obter informações sobre como implantar SAP HANA em instâncias grandes do HANA, consulte [como instalar e configurar SAP Hana (instâncias grandes) no Azure](./hana-installation.md).
  
 ## <a name="prerequisites"></a>Pré-requisitos
 Este guia também pressupõe que você esteja familiarizado com:
 * SAP HANA e SAP NetWeaver e como instalá-los no local.
 * Como instalar e operar SAP HANA e instâncias de aplicativo SAP no Azure.
 * Os conceitos e procedimentos documentados em:
-   * Planejando a implantação do SAP no Azure, que inclui o planejamento de rede virtual do Azure e o uso do armazenamento do Azure. Confira [SAP NetWeaver em máquinas virtuais do Azure – guia de planejamento e implementação](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
-   * Princípios de implantação e maneiras de implantar VMs no Azure. Confira [implantação de máquinas virtuais do Azure para SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
-   * Conceitos de alta disponibilidade para SAP HANA, conforme documentado em [SAP Hana alta disponibilidade para máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
+   * Planejando a implantação do SAP no Azure, que inclui o planejamento de rede virtual do Azure e o uso do armazenamento do Azure. Confira [SAP NetWeaver em máquinas virtuais do Azure – guia de planejamento e implementação](./planning-guide.md)
+   * Princípios de implantação e maneiras de implantar VMs no Azure. Confira [implantação de máquinas virtuais do Azure para SAP](./deployment-guide.md)
+   * Conceitos de alta disponibilidade para SAP HANA, conforme documentado em [SAP Hana alta disponibilidade para máquinas virtuais do Azure](./sap-hana-availability-overview.md)
 
 ## <a name="step-by-step-before-deploying"></a>Passo a passo antes de implantar
 Nesta seção, são listadas as diferentes etapas que você precisa executar antes de começar com a instalação do SAP HANA em uma máquina virtual do Azure. O pedido é enumerado e, como tal, deve ser seguido como enumerado:
 
-1. Nem todos os cenários de implantação possíveis têm suporte no Azure. Portanto, você deve verificar o documento [carga de trabalho SAP nos cenários de máquina virtual do Azure com suporte](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations) para o cenário que você tem em mente com sua implantação de SAP Hana. Se o cenário não estiver listado, você precisará pressupor que ele não foi testado e, como resultado, não tem suporte
-2. Supondo que você tenha uma ideia aproximada do seu requisito de memória para sua implantação de SAP HANA, você precisa encontrar uma VM de ajuste do Azure. Nem todas as VMs certificadas para o SAP NetWeaver, conforme documentado em [#1928533 de observação de suporte SAP](https://launchpad.support.sap.com/#/notes/1928533), são SAP Hana certificados. A fonte de verdade para VMs SAP HANA certificadas do Azure é o site [SAP Hana o diretório de hardware](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). As unidades que começam com **S** são unidades de [instâncias grandes do Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) e não VMs do Azure.
+1. Nem todos os cenários de implantação possíveis têm suporte no Azure. Portanto, você deve verificar o documento [carga de trabalho SAP nos cenários de máquina virtual do Azure com suporte](./sap-planning-supported-configurations.md) para o cenário que você tem em mente com sua implantação de SAP Hana. Se o cenário não estiver listado, você precisará pressupor que ele não foi testado e, como resultado, não tem suporte
+2. Supondo que você tenha uma ideia aproximada do seu requisito de memória para sua implantação de SAP HANA, você precisa encontrar uma VM de ajuste do Azure. Nem todas as VMs certificadas para o SAP NetWeaver, conforme documentado em [#1928533 de observação de suporte SAP](https://launchpad.support.sap.com/#/notes/1928533), são SAP Hana certificados. A fonte de verdade para VMs SAP HANA certificadas do Azure é o site [SAP Hana o diretório de hardware](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). As unidades que começam com **S** são unidades de [instâncias grandes do Hana](./hana-overview-architecture.md) e não VMs do Azure.
 3. Diferentes tipos de VM do Azure têm versões de sistema operacional mínimas diferentes para SUSE Linux ou Red Hat Linux. No site [SAP Hana o diretório de hardware](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure), você precisa clicar em uma entrada na lista de unidades SAP Hana certificados para obter dados detalhados dessa unidade. Além da carga de trabalho do HANA com suporte, as versões do sistema operacional com suporte nessas unidades para SAP HANA estão listadas
 4. A partir das versões do sistema operacional, você precisa considerar certas versões mínimas do kernel. Essas versões mínimas estão documentadas nestas notas de suporte do SAP:
     - [Nota de suporte SAP #2814271 SAP HANA falha no backup no Azure com erro de soma de verificação](https://launchpad.support.sap.com/#/notes/2814271)
@@ -57,7 +57,7 @@ Nesta fase, você precisa percorrer as etapas de implantação das VMs para inst
 
 1. Escolha a imagem base da galeria do Azure. Se desejar criar sua própria imagem do sistema operacional para SAP HANA, você precisará saber todos os pacotes diferentes necessários para uma instalação bem-sucedida do SAP HANA. Caso contrário, é recomendável usar as imagens SUSE e Red Hat para SAP ou SAP HANA da Galeria de imagens do Azure. Essas imagens incluem os pacotes necessários para uma instalação bem-sucedida do HANA. Com base em seu contrato de suporte com o provedor do sistema operacional, você precisa escolher uma imagem na qual você traga sua própria licença. Ou você escolhe uma imagem do sistema operacional que inclui suporte
 2. Se você escolher uma imagem do sistema operacional convidado que exige a ativação de sua própria licença, será necessário registrar a imagem do sistema operacional com sua assinatura, para que você possa baixar e aplicar os patches mais recentes. Esta etapa exigirá acesso público à Internet. A menos que você configure sua instância privada do, por exemplo, um servidor SMT no Azure.
-3. Decida a configuração de rede da VM. Você pode ler mais informações no documento [SAP Hana configurações de infraestrutura e operações no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations). Tenha em mente que não há cotas de taxa de transferência de rede que você pode atribuir a placas de rede virtual no Azure. Como resultado, a única finalidade de direcionar o tráfego por meio de diferentes vNICs é baseada em considerações de segurança. Confiamos em você para encontrar um comprometimento com suporte entre a complexidade do roteamento de tráfego por meio de vários vNICs e os requisitos impostos por aspectos de segurança.
+3. Decida a configuração de rede da VM. Você pode ler mais informações no documento [SAP Hana configurações de infraestrutura e operações no Azure](./hana-vm-operations.md). Tenha em mente que não há cotas de taxa de transferência de rede que você pode atribuir a placas de rede virtual no Azure. Como resultado, a única finalidade de direcionar o tráfego por meio de diferentes vNICs é baseada em considerações de segurança. Confiamos em você para encontrar um comprometimento com suporte entre a complexidade do roteamento de tráfego por meio de vários vNICs e os requisitos impostos por aspectos de segurança.
 3. Aplique os patches mais recentes ao sistema operacional depois que a VM for implantada e registrada. Registrado com sua própria assinatura. Ou, no caso de você escolher uma imagem que inclui suporte ao sistema operacional, a VM já deve ter acesso aos patches. 
 4. Aplique as ajustadas necessárias para SAP HANA. Essas músicas estão listadas nas seguintes notas de suporte do SAP:
 
@@ -71,8 +71,8 @@ Nesta fase, você precisa percorrer as etapas de implantação das VMs para inst
     -  [Nota de suporte SAP #2455582-Linux: executando aplicativos SAP compilados com GCC 6. x](https://launchpad.support.sap.com/#/notes/0002455582)
     -  [Nota de suporte da SAP #2382421-otimizando a configuração de rede no HANA e no nível do sistema operacional](https://launchpad.support.sap.com/#/notes/2382421)
 
-1. Selecione o tipo de armazenamento do Azure para SAP HANA. Nesta etapa, você precisa decidir sobre o layout de armazenamento para SAP HANA instalação. Você vai usar discos do Azure anexados ou compartilhamentos NFS nativos do Azure. Os tipos de armazenamento do Azure que ou com suporte e combinações de diferentes tipos de armazenamento do Azure que podem ser usados, são documentados em [SAP Hana configurações de armazenamento de máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). Use as configurações documentadas como ponto de partida. Para sistemas que não são de produção, você pode configurar a taxa de transferência ou o IOPS mais baixos. Para fins de produção, talvez seja necessário configurar um pouco mais de taxa de transferência e IOPS.
-2. Certifique-se de que você configurou o [Azure acelerador de gravação](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) para seus volumes que contêm os logs de transação do DBMS ou logs de refazer quando estiver usando as VMs série M ou Mv2. Esteja atento às limitações de Acelerador de Gravação conforme documentado.
+1. Selecione o tipo de armazenamento do Azure para SAP HANA. Nesta etapa, você precisa decidir sobre o layout de armazenamento para SAP HANA instalação. Você vai usar discos do Azure anexados ou compartilhamentos NFS nativos do Azure. Os tipos de armazenamento do Azure que ou com suporte e combinações de diferentes tipos de armazenamento do Azure que podem ser usados, são documentados em [SAP Hana configurações de armazenamento de máquina virtual do Azure](./hana-vm-operations-storage.md). Use as configurações documentadas como ponto de partida. Para sistemas que não são de produção, você pode configurar a taxa de transferência ou o IOPS mais baixos. Para fins de produção, talvez seja necessário configurar um pouco mais de taxa de transferência e IOPS.
+2. Certifique-se de que você configurou o [Azure acelerador de gravação](../../linux/how-to-enable-write-accelerator.md) para seus volumes que contêm os logs de transação do DBMS ou logs de refazer quando estiver usando as VMs série M ou Mv2. Esteja atento às limitações de Acelerador de Gravação conforme documentado.
 2. Verifique se a [rede acelerada do Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) está habilitada nas VMs implantadas.
 
 > [!NOTE]
@@ -84,26 +84,21 @@ Uma das especificações do Azure é a instalação de uma extensão de VM do Az
 -  A [Nota sap 2191498](https://launchpad.support.sap.com/#/notes/2191498/E) aborda o monitoramento aprimorado do SAP com VMs do Linux no Azure 
 -  A [Nota SAP 1102124](https://launchpad.support.sap.com/#/notes/1102124/E) discute informações sobre o SAPOSCOL no Linux 
 -  A [Observação da sap 2178632](https://launchpad.support.sap.com/#/notes/2178632/E) aborda as principais métricas de monitoramento para SAP no Microsoft Azure
--  [Implantação de Máquinas Virtuais do Azure para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca)
+-  [Implantação de Máquinas Virtuais do Azure para SAP NetWeaver](./deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca)
 
 ## <a name="sap-hana-installation"></a>Instalação do SAP HANA
 Com as máquinas virtuais do Azure implantadas e os sistemas operacionais registrados e configurados, você pode instalar o SAP HANA de acordo com a instalação do SAP. Como um bom começo para chegar a esta documentação, comece com este site da SAP [recursos do Hana](https://www.sap.com/products/hana/implementation/resources.html)
 
-Para SAP HANA configurações de expansão usando discos conectados diretamente do armazenamento Premium do Azure ou ultra Disk, leia as especificações no documento [SAP Hana configurações de infraestrutura e operações no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations#configuring-azure-infrastructure-for-sap-hana-scale-out)
+Para SAP HANA configurações de expansão usando discos conectados diretamente do armazenamento Premium do Azure ou ultra Disk, leia as especificações no documento [SAP Hana configurações de infraestrutura e operações no Azure](./hana-vm-operations.md#configuring-azure-infrastructure-for-sap-hana-scale-out)
 
 
 ## <a name="additional-resources-for-sap-hana-backup"></a>Recursos adicionais para backup de SAP HANA
 Para obter informações sobre como fazer backup de bancos de dados do SAP HANA em VMs do Azure, consulte:
-* [Guia de backup para SAP HANA em máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
-* [Backup do Azure do SAP HANA no nível do arquivo](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
+* [Guia de backup para SAP HANA em máquinas virtuais do Azure](./sap-hana-backup-guide.md)
+* [Backup do Azure do SAP HANA no nível do arquivo](./sap-hana-backup-file-level.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 Leia a documentação:
 
-- [Configurações de infraestrutura do SAP HANA e operações no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
-- [Configurações de armazenamento de máquina virtual do SAP HANA no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
-
-
-
-
-
+- [Configurações de infraestrutura do SAP HANA e operações no Azure](./hana-vm-operations.md)
+- [Configurações de armazenamento de máquina virtual do SAP HANA no Azure](./hana-vm-operations-storage.md)

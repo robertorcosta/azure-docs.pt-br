@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
-ms.openlocfilehash: 0a6df626f9567b51a8371c17004b454f9c5b4597
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 60bcdac0d7e19c424b007980294898638814d586
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202040"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044870"
 ---
 # <a name="what-is-a-keyword"></a>O que é uma palavra-chave?
 
@@ -33,10 +33,13 @@ Com a personalização, o desempenho e os recursos de integração da palavra-ch
 
 ## <a name="get-started-with-custom-keywords"></a>Introdução às palavras-chave personalizadas
 
-* Tutorial: como [criar uma palavra-chave personalizada usando o Speech Studio](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
-* Tutorial: como [Ativar voz para seu produto com o SDK de fala, usando C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-* Início rápido: [reconhecer palavras-chave com o SDK de fala, em plataforma universal do Windows usando C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
-* Início rápido: [reconhecer palavras-chave com o SDK de fala, no Android usando Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
+* Consulte [noções básicas de palavras-chave personalizadas](custom-keyword-basics.md) para uso básico e padrões de design.
+* Como [Ativar voz para seu produto com o SDK de fala, usando C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+
+## <a name="see-samples-on-github"></a>Consulte os exemplos no GitHub
+
+* [Reconhecer palavras-chave com o SDK de fala, em Plataforma Universal do Windows usando C #](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
+* [Reconhecer palavras-chave com o SDK de fala, no Android usando Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
 
 ## <a name="next-steps"></a>Próximas etapas
 

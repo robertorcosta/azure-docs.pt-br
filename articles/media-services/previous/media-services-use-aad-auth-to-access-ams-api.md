@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8e1aeaf105ce371e965b433ac78e2b257f4bc18b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d73c280e3f5639b11e0d07b9ef2f775f48cd3c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81682039"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038481"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD  
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 A API dos Serviços de Mídia do Azure é uma API RESTful. Você pode usá-la para executar operações em recursos de mídia usando uma API REST ou os SDKs de cliente disponíveis. Os Serviços de Mídia do Azure oferecem um SDK de cliente dos Serviços de Mídia para o Microsoft .NET. Para estar autorizado a acessar os recursos e a API dos Serviços de Mídia, primeiro você deve ser autenticado. 
 
@@ -148,12 +149,11 @@ Solução: para que a solicitação REST dos Serviços de Mídia seja bem-sucedi
 
 Os seguintes artigos são visões gerais dos conceitos de autenticação do Azure AD: 
 
-- [Cenários de autenticação abordados pelo Azure AD](../../active-directory/develop/authentication-scenarios.md)
-- [Adicionar, atualizar ou remover um aplicativo no Azure AD](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
+- [Cenários de autenticação abordados pelo Azure AD](../../active-directory/develop/authentication-vs-authorization.md)
+- [Adicionar, atualizar ou remover um aplicativo no Azure AD](../../active-directory/develop/quickstart-register-app.md)
 - [Configurar e gerenciar o Controle de Acesso Baseado em Função usando o PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Use o portal do Azure para [Acessar a autenticação do Azure AD para consumir a API dos Serviços de Mídia do Azure](media-services-portal-get-started-with-aad.md).
 * Use a autenticação do Azure AD para [acessar a API dos serviços de mídia do Azure com o .net](media-services-dotnet-get-started-with-aad.md).
-

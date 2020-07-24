@@ -3,33 +3,46 @@ ms.service: logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.date: 11/03/2016
-ms.openlocfilehash: 8b5f72f18ee5bf9c1e4dbaaa87d6705f55b09bc5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/21/2020
+ms.openlocfilehash: 27df83552b450b7657c0595d1d419001df98148c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524193"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040226"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta do Azure; você pode criar uma [conta gratuita](https://azure.microsoft.com/free)
 * Uma conta do [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) 
 
-Para poder usar sua conta do OneDrive em um aplicativo lógico, autorize-o a se conectar à sua conta do OneDrive.  Você pode fazer isso de forma fácil usando seu aplicativo lógico no portal do Azure. 
+Antes de usar sua conta do OneDrive com aplicativos lógicos, você deve autorizar que os aplicativos lógicos se conectem à sua conta do OneDrive na portal do Azure.
 
-Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta do OneDrive:
+Siga estas etapas para autorizar os aplicativos lógicos a se conectarem à sua conta do OneDrive:  
 
-1. Crie um aplicativo lógico. No designer de Aplicativos Lógicos, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa e então digite "onedrive" na caixa de pesquisa. Selecione um dos gatilhos ou ações:  
-   ![Uma caixa de diálogo intitulada "mostrar APIs gerenciadas da Microsoft" tem uma caixa de pesquisa que contém "onedrive". Abaixo, está uma lista de quatro gatilhos. Primeiro, na lista, é "OneDrive-quando um arquivo é criado", que é selecionado.](./media/connectors-create-api-onedrive/onedrive-1.png)
-2. Se você não tiver criado quaisquer conexões OneDrive anteriormente, será solicitado a entrar usando suas credenciais do OneDrive:  
-   ![Uma caixa de diálogo intitulada "OneDrive-quando um arquivo é criado" tem um botão rotulado "entrar".](./media/connectors-create-api-onedrive/onedrive-2.png)
-3. Selecione **Entrar** e insira seu nome de usuário e senha. Selecione **entrar**:  
-   ![Uma caixa de diálogo intitulada "entrar" instrui você a "usar seu conta Microsoft". Ele tem duas caixas de texto rotuladas como "email ou telefone" e "senha". ela também tem uma caixa de seleção rotulada como "Mantenha-me conectado" e um botão rotulado como "entrar".](./media/connectors-create-api-onedrive/onedrive-3.png)   
-   
-    Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar aos dados da sua conta do OneDrive e usá-los. 
+1. Entre no portal do Azure. 
+
+1. Em **Serviços do Azure**, selecione **aplicativos lógicos**. Em seguida, selecione o nome do seu aplicativo lógico na lista.
+
+1. No menu do aplicativo lógico, selecione **Designer de aplicativo lógico** em **ferramentas de desenvolvimento**.
+
+1. No designer de aplicativos lógicos, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa e, em seguida, digite *onedrive* na caixa de pesquisa. Selecione o gatilho ou a ação a ser usada:
+
+   ![Captura de tela do designer de aplicativos lógicos, mostrando a lista de ações da API do OneDrive a serem adicionadas.](./media/connectors-create-api-onedrive/onedrive-1.png)
+
+2. Se você ainda não tiver criado nenhuma conexão com o OneDrive, siga o prompt para entrar usando suas credenciais do OneDrive:  
+
+   ![Captura de tela do designer de aplicativos lógicos, mostrando prompt de entrada para a API do OneDrive.](./media/connectors-create-api-onedrive/onedrive-2.png)
+
+3. Selecione **Entrar** e insira seu nome de usuário e senha. Selecione **entrar**: 
+
+   ![Captura de tela da página de entrada conta Microsoft para autorização da API do OneDrive.](./media/connectors-create-api-onedrive/onedrive-3.png)   
+
+    Essas credenciais são usadas para autorizar seu aplicativo lógico a acessar os dados em sua conta do OneDrive. 
+
 4. Selecione **Sim** para autorizar o aplicativo lógico para usar sua conta do OneDrive:  
-   ![Uma caixa de diálogo intitulada "permitir que este aplicativo acesse suas informações?" solicita permissão para fazer as quatro coisas a seguir: 1) "entrar automaticamente", 2) "acessar seus endereços de email", 3) "acessar suas informações a qualquer momento" e 4) "acessar arquivos do OneDrive". Há um botão "Sim" para conceder permissão e um botão "não" para negar. Há um link para alterar essas permissões de aplicativo.](./media/connectors-create-api-onedrive/onedrive-4.png)   
-5. Observe que a conexão foi criada. Agora, continue com as outras etapas no seu aplicativo lógico:  
-   ![Uma caixa de diálogo intitulada "quando um arquivo é criado" tem uma caixa de texto intitulada "pasta" com um botão procurar associado.](./media/connectors-create-api-onedrive/onedrive-5.png)
 
+   ![Captura de tela de conta Microsoft autorização para aplicativos lógicos, mostrando as ações permitidas.](./media/connectors-create-api-onedrive/onedrive-4.png)   
+   
+5. A conexão agora está listada na etapa. Selecione salvar e, em seguida, continuar criando seu aplicativo lógico. 
+
+   ![Captura de tela do designer de aplicativos lógicos, mostrando o editor de ações com a conexão de API do OneDrive.](./media/connectors-create-api-onedrive/onedrive-5.png)

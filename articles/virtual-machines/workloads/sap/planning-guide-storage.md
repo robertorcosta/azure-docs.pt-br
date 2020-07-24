@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e64624865a314a7487a7ce474c1e5e56e3d9277
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65fbd84a6fa4b03db9f5dfce81eeba23aceebbc9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362995"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042300"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipos de Armazenamento do Azure para carga de trabalho SAP
 O Azure tem vários tipos de armazenamento que diferem amplamente em recursos, taxa de transferência, latência e preços. Alguns dos tipos de armazenamento não são, ou do uso limitado para cenários SAP. Enquanto que vários tipos de armazenamento do Azure são adequados ou otimizados para cenários de carga de trabalho SAP específicos. Especialmente para SAP HANA, alguns tipos de armazenamento do Azure receberam certificação para o uso com SAP HANA. Neste documento, vamos percorrer os diferentes tipos de armazenamento e descrever sua capacidade e usabilidade com cargas de trabalho do SAP e componentes SAP.
@@ -32,11 +32,11 @@ Comentário sobre as unidades usadas em todo este artigo. Os fornecedores de nuv
 
 Microsoft Azure armazenamento de HDD Standard, SSD Standard, armazenamento Premium do Azure e ultra Disk mantém o VHD base (com o sistema operacional) e os discos de dados anexados à VM ou VHDs em três cópias em três nós de armazenamento diferentes. O failover para outra réplica e a propagação de uma nova réplica no caso de uma falha de nó de armazenamento é transparente. Como resultado dessa redundância, **não** é necessário usar qualquer tipo de camada de redundância de armazenamento em vários discos do Azure. Esse fato é chamado de Armazenamento com Redundância Local (LRS). LRS é o padrão para esses tipos de armazenamento no Azure. [Azure NetApp files](https://azure.microsoft.com/services/netapp/) fornece redundância suficiente para alcançar os mesmos SLAs que o armazenamento do Azure nativo.
 
-Há vários outros métodos de redundância, que são todos descritos no artigo replicação de [armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) que se aplicam a alguns dos diferentes tipos de armazenamento que o Azure tem a oferecer. 
+Há vários outros métodos de redundância, que são todos descritos no artigo replicação de [armazenamento do Azure](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) que se aplicam a alguns dos diferentes tipos de armazenamento que o Azure tem a oferecer. 
 
 ### <a name="azure-managed-disks"></a>Managed disks do Azure
 
-Managed disks são um tipo de recurso no Azure Resource Manager que pode ser usado em vez de VHDs que são armazenados em contas de armazenamento do Azure. Managed Disks alinhar automaticamente com o [conjunto de disponibilidade] [Virtual-Machines-Manage-Availability] da máquina virtual à qual eles estão anexados e, portanto, aumentar a disponibilidade de sua máquina virtual e os serviços que estão em execução na máquina virtual. Para obter mais informações, leia o [artigo de visão geral](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
+Managed disks são um tipo de recurso no Azure Resource Manager que pode ser usado em vez de VHDs que são armazenados em contas de armazenamento do Azure. Managed Disks alinhar automaticamente com o [conjunto de disponibilidade] [Virtual-Machines-Manage-Availability] da máquina virtual à qual eles estão anexados e, portanto, aumentar a disponibilidade de sua máquina virtual e os serviços que estão em execução na máquina virtual. Para obter mais informações, leia o [artigo de visão geral](../../windows/managed-disks-overview.md).
 
 Relacionado à resiliência, este exemplo demonstra a vantagem dos Managed disks:
 
@@ -61,9 +61,9 @@ O armazenamento persistente é necessário na carga de trabalho do SAP em vário
 - Compartilhamentos de arquivos ou discos compartilhados que contêm seu diretório de transporte global para NetWeaver ou S/4HANA. O conteúdo desses compartilhamentos é consumido por software em execução em várias VMs ou é usado para criar cenários de cluster de failover de alta disponibilidade
 - O diretório/sapmnt ou compartilhamentos de arquivos comuns para processos EDI ou semelhantes. O conteúdo desses compartilhamentos é consumido por software em execução em várias VMs ou é usado para criar cenários de cluster de failover de alta disponibilidade
 
-Nas próximas seções, os diferentes tipos de armazenamento do Azure e sua usabilidade para a carga de trabalho do SAP são discutidos que se aplicam aos três cenários acima. Uma categorização geral de como os diferentes tipos de armazenamento do Azure devem ser usados está documentada no artigo [quais tipos de disco estão disponíveis no Azure?](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types). As recomendações para usar os diferentes tipos de armazenamento do Azure para carga de trabalho do SAP não serão muito diferentes.
+Nas próximas seções, os diferentes tipos de armazenamento do Azure e sua usabilidade para a carga de trabalho do SAP são discutidos que se aplicam aos quatro cenários acima. Uma categorização geral de como os diferentes tipos de armazenamento do Azure devem ser usados está documentada no artigo [quais tipos de disco estão disponíveis no Azure?](../../linux/disks-types.md). As recomendações para usar os diferentes tipos de armazenamento do Azure para carga de trabalho do SAP não serão muito diferentes.
 
-Para obter restrições de suporte nos tipos de armazenamento do Azure para o SAP NetWeaver/camada de aplicativo de S/4HANA, leia a [Nota de suporte do sap 2015553](https://launchpad.support.sap.com/#/notes/2015553) para obter SAP Hana os tipos de armazenamento do Azure certificados e com suporte, leia o artigo [SAP Hana configurações de armazenamento de máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
+Para obter restrições de suporte nos tipos de armazenamento do Azure para o SAP NetWeaver/camada de aplicativo de S/4HANA, leia a [Nota de suporte do sap 2015553](https://launchpad.support.sap.com/#/notes/2015553) para obter SAP Hana os tipos de armazenamento do Azure certificados e com suporte, leia o artigo [SAP Hana configurações de armazenamento de máquina virtual do Azure](./hana-vm-operations-storage.md).
 
 As seções que descrevem os diferentes tipos de armazenamento do Azure fornecerão mais informações sobre as restrições e as possibilidades usando o armazenamento com suporte do SAP. 
 
@@ -72,7 +72,7 @@ Antes de entrar nos detalhes, estamos apresentando o resumo e as recomendações
 
 | Cenário de uso | HDD Standard | SSD Standard | Armazenamento Premium | Disco Ultra | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| Disco do sistema operacional | Não é adequado |  restrito adequado (não Prod) | recomendável | Não é possível | Não é possível |
+| Disco do SO | Não é adequado |  restrito adequado (não Prod) | recomendável | Não é possível | Não é possível |
 | Diretório de transporte global | sem suporte | sem suporte | recomendável | recomendável | recomendável |
 | /sapmnt | Não é adequado | restrito adequado (não Prod) | recomendável | recomendável | recomendável |
 | SAP HANA de volume de dados DBMS famílias de VMs M/Mv2 | sem suporte | sem suporte | recomendável | recomendável | recomendado<sup>2</sup> |
@@ -84,7 +84,7 @@ Antes de entrar nos detalhes, estamos apresentando o resumo e as recomendações
 | Famílias de VMs não do HANA de volume de log de DBMS não-M/Mv2 | sem suporte | restrito adequado (não Prod) | adequado para carga de trabalho média | recomendável | sem suporte |
 
 
-<sup>1</sup> com o uso do [Azure acelerador de gravação](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) para famílias de VM M/Mv2 para volumes de log/restauração de log <sup>2</sup> usando o seja requer/Hana/data, bem como/Hana/log para estar em seja 
+<sup>1</sup> com o uso do [Azure acelerador de gravação](../../windows/how-to-enable-write-accelerator.md) para famílias de VM M/Mv2 para volumes de log/restauração de log <sup>2</sup> usando o seja requer/Hana/data, bem como/Hana/log para estar em seja 
 
 Características que você pode esperar da lista de diferentes tipos de armazenamento, como:
 
@@ -101,7 +101,7 @@ Características que você pode esperar da lista de diferentes tipos de armazena
 | Redundância geográfica | Não para discos gerenciados | Não para discos gerenciados | não | não | não |
 
 
-<sup>1</sup> com uso de [acelerador de gravação do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) para famílias de VM M/Mv2 para volumes de log/restauração de log
+<sup>1</sup> com uso de [acelerador de gravação do Azure](../../windows/how-to-enable-write-accelerator.md) para famílias de VM M/Mv2 para volumes de log/restauração de log
 
 <sup>2</sup> os custos dependem de IOPS e taxa de transferência provisionados
 
@@ -123,7 +123,7 @@ O armazenamento do SSD Premium do Azure foi introduzido com o objetivo de fornec
 * SLAs para IOPS e taxa de transferência
 * Menos variabilidade na latência de e/s
 
-Esse tipo de armazenamento destina-se a cargas de trabalho do DBMS, tráfego de armazenamento que exige baixa latência de milissegundos de dígito único, e os SLAs em IOPS e taxa de transferência de custo no caso do armazenamento Premium do Azure não são o volume de dados real armazenado em tais discos, mas a categoria de tamanho de um disco, independentemente da quantidade de dados armazenados no disco. Você também pode criar discos no armazenamento Premium que não estão mapeando diretamente para as categorias de tamanho mostradas no artigo [SSD Premium](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#premium-ssd). As conclusões deste artigo são:
+Esse tipo de armazenamento destina-se a cargas de trabalho do DBMS, tráfego de armazenamento que exige baixa latência de milissegundos de dígito único, e os SLAs em IOPS e taxa de transferência de custo no caso do armazenamento Premium do Azure não são o volume de dados real armazenado em tais discos, mas a categoria de tamanho de um disco, independentemente da quantidade de dados armazenados no disco. Você também pode criar discos no armazenamento Premium que não estão mapeando diretamente para as categorias de tamanho mostradas no artigo [SSD Premium](../../linux/disks-types.md#premium-ssd). As conclusões deste artigo são:
 
 - O armazenamento é organizado em intervalos. Por exemplo, um disco no intervalo de 513 GiB a 1024 GiB capacidade compartilha os mesmos recursos e os mesmos custos mensais
 - O IOPS por GiB não está controlando linear nas categorias de tamanho. Discos menores abaixo de 32 GiB têm taxas de IOPS maiores por GiB. Para discos além de 32 GiB a 1024 GiB, a taxa de IOPS por GiB está entre 4-5 IOPS por GiB. Para discos maiores de até 32.767 GiB, a taxa de IOPS por GiB está abaixo de 1
@@ -134,10 +134,10 @@ O Azure tem um SLA de VM de instância única de 99,9% que está vinculado ao us
 
 A matriz de recursos para a carga de trabalho do SAP é semelhante a:
 
-| Funcionalidade| Comentário| Observações/links | 
+| Recurso| Comentário| Observações/links | 
 | --- | --- | --- | 
 | VHD de base do so | apropriados | todos os sistemas |
-| Disco de dados | apropriados | todos os sistemas – [especialmente para SAP Hana](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) |
+| Disco de dados | apropriados | todos os sistemas – [especialmente para SAP Hana](../../windows/how-to-enable-write-accelerator.md) |
 | Diretório de transporte global do SAP | YES | [Com suporte](https://launchpad.support.sap.com/#/notes/2015553) |
 | Sapmnt SAP | apropriados | todos os sistemas |
 | Armazenamento de backup | apropriados | para armazenamento de curto prazo de backups |
@@ -146,15 +146,15 @@ A matriz de recursos para a carga de trabalho do SAP é semelhante a:
 | Latency | baixo para médio | - |
 | SLA DE IOPS | YES | - |
 | IOPS linear para capacidade | semilineares entre colchetes  | [Preço do disco gerenciado](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| IOPS máximo por disco | 20.000 [depende do tamanho do disco](https://azure.microsoft.com/pricing/details/managed-disks/) | Considere também [os limites da VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) |
+| IOPS máximo por disco | 20.000 [depende do tamanho do disco](https://azure.microsoft.com/pricing/details/managed-disks/) | Considere também [os limites da VM](../../linux/sizes.md) |
 | SLA de produtividade | YES | - |
 | Taxa de transferência linear para a capacidade | semilineares entre colchetes | [Preço do disco gerenciado](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| Certificado pelo HANA | YES | [especialmente para SAP HANA](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) |
+| Certificado pelo HANA | YES | [especialmente para SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
 | Instantâneos de disco possíveis | YES | - |
-| Instantâneos de VM de backup do Azure possíveis | YES | exceto para [acelerador de gravação](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) discos armazenados em cache  |
+| Instantâneos de VM de backup do Azure possíveis | YES | exceto para [acelerador de gravação](../../windows/how-to-enable-write-accelerator.md) discos armazenados em cache  |
 | Custos | MEDIUM | - |
 
-O armazenamento Premium do Azure não atende SAP HANA KPIs de latência de armazenamento com os tipos de cache comuns oferecidos com o armazenamento Premium do Azure. Para atender aos KPIs de latência de armazenamento para SAP HANA gravações de log, você precisa usar o cache de Acelerador de Gravação do Azure, conforme descrito no artigo [habilitar acelerador de gravação](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator). O Azure Acelerador de Gravação beneficia todos os outros sistemas DBMS para suas gravações de log de transações e refazer gravações de log. Portanto, é recomendável usá-lo em todas as implantações do SAP DBMS. Por SAP HANA, o uso do Azure Acelerador de Gravação em conjunto com o armazenamento Premium do Azure é obrigatório.
+O armazenamento Premium do Azure não atende SAP HANA KPIs de latência de armazenamento com os tipos de cache comuns oferecidos com o armazenamento Premium do Azure. Para atender aos KPIs de latência de armazenamento para SAP HANA gravações de log, você precisa usar o cache de Acelerador de Gravação do Azure, conforme descrito no artigo [habilitar acelerador de gravação](../../windows/how-to-enable-write-accelerator.md). O Azure Acelerador de Gravação beneficia todos os outros sistemas DBMS para suas gravações de log de transações e refazer gravações de log. Portanto, é recomendável usá-lo em todas as implantações do SAP DBMS. Por SAP HANA, o uso do Azure Acelerador de Gravação em conjunto com o armazenamento Premium do Azure é obrigatório.
 
 
 
@@ -162,7 +162,7 @@ O armazenamento Premium do Azure não atende SAP HANA KPIs de latência de armaz
 
 
 ### <a name="azure-burst-functionality-for-premium-storage"></a>Funcionalidade de intermitência do Azure para armazenamento Premium
-Para discos de armazenamento Premium do Azure menores ou iguais a 512 GiB em capacidade, a funcionalidade de intermitência é oferecida. A maneira exata de como funciona a intermitência de disco é descrita no artigo [intermitência de disco](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting). Ao ler o artigo, você entende o conceito de acumular IOPS e taxa de transferência nos momentos em que a carga de trabalho de e/s está abaixo do IOPS nominal e da taxa de transferência dos discos (para obter detalhes sobre a taxa de transferência nominal, consulte [preço do disco gerenciado](https://azure.microsoft.com/pricing/details/managed-disks/)). Você vai acumular o Delta de IOPS e a taxa de transferência entre o uso atual e os valores nominais do disco. As intermitências são limitadas a um máximo de 30 minutos.
+Para discos de armazenamento Premium do Azure menores ou iguais a 512 GiB em capacidade, a funcionalidade de intermitência é oferecida. A maneira exata de como funciona a intermitência de disco é descrita no artigo [intermitência de disco](../../linux/disk-bursting.md). Ao ler o artigo, você entende o conceito de acumular IOPS e taxa de transferência nos momentos em que a carga de trabalho de e/s está abaixo do IOPS nominal e da taxa de transferência dos discos (para obter detalhes sobre a taxa de transferência nominal, consulte [preço do disco gerenciado](https://azure.microsoft.com/pricing/details/managed-disks/)). Você vai acumular o Delta de IOPS e a taxa de transferência entre o uso atual e os valores nominais do disco. As intermitências são limitadas a um máximo de 30 minutos.
 
 Os casos ideais em que essa funcionalidade de intermitência pode ser planejada provavelmente serão os volumes ou discos que contêm arquivos de dados para o DBMS diferente. A carga de trabalho de e/s esperada nesses volumes, especialmente com sistemas de pequeno a médio porte, deve parecer com a seguinte aparência:
 
@@ -184,15 +184,15 @@ Os discos Ultra do Azure proporcionam uma alta taxa de transferência, alta IOPS
 Ao criar um ultra Disk, você tem três dimensões que pode definir:
 
 - A capacidade do disco. Os intervalos são de 4 GiB a 65.536 GiB
-- IOPS provisionado para o disco. Valores máximos diferentes se aplicam à capacidade do disco. Leia o artigo [ultra Disk](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-disk) para obter mais detalhes
-- Largura de banda de armazenamento provisionada. A largura de banda máxima diferente se aplica de acordo com a capacidade do disco. Leia o artigo [ultra Disk](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-disk) para obter mais detalhes
+- IOPS provisionado para o disco. Valores máximos diferentes se aplicam à capacidade do disco. Leia o artigo [ultra Disk](../../linux/disks-types.md#ultra-disk) para obter mais detalhes
+- Largura de banda de armazenamento provisionada. A largura de banda máxima diferente se aplica de acordo com a capacidade do disco. Leia o artigo [ultra Disk](../../linux/disks-types.md#ultra-disk) para obter mais detalhes
 
 O custo de um único disco é determinado pelas três dimensões que você pode definir para os discos específicos separadamente. 
 
 
 A matriz de recursos para a carga de trabalho do SAP é semelhante a:
 
-| Funcionalidade| Comentário| Observações/links | 
+| Recurso| Comentário| Observações/links | 
 | --- | --- | --- | 
 | VHD de base do so | Não funciona | - |
 | Disco de dados | apropriados | todos os sistemas  |
@@ -218,7 +218,7 @@ A matriz de recursos para a carga de trabalho do SAP é semelhante a:
 
 
 ## <a name="azure-netapp-files-anf"></a>Arquivos do Azure NetApp (seja)
-[Azure NetApp files](https://azure.microsoft.com/services/netapp/) é o resultado de uma cooperação entre a Microsoft e a NetApp com o objetivo de fornecer alto desempenho do NFS nativo e compartilhamentos SMB. A ênfase é fornecer alta largura de banda e armazenamento de baixa latência que permita cenários de implantação de DBMS e, ao longo do tempo, habilite também a funcionalidade operacional típica do armazenamento do NetApp por meio do Azure. Os compartilhamentos de NFS/SMB são oferecidos em três níveis de serviço diferentes que se diferenciam na taxa de transferência de armazenamento e no preço. Os níveis de serviço são documentados no artigo [níveis de serviço para Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). Para os diferentes tipos de carga de trabalho do SAP, os seguintes níveis de serviço são altamente recomendados:
+[Azure NetApp files](https://azure.microsoft.com/services/netapp/) é o resultado de uma cooperação entre a Microsoft e a NetApp com o objetivo de fornecer alto desempenho do NFS nativo e compartilhamentos SMB. A ênfase é fornecer alta largura de banda e armazenamento de baixa latência que permita cenários de implantação de DBMS e, ao longo do tempo, habilite também a funcionalidade operacional típica do armazenamento do NetApp por meio do Azure. Os compartilhamentos de NFS/SMB são oferecidos em três níveis de serviço diferentes que se diferenciam na taxa de transferência de armazenamento e no preço. Os níveis de serviço são documentados no artigo [níveis de serviço para Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). Para os diferentes tipos de carga de trabalho do SAP, os seguintes níveis de serviço são altamente recomendados:
 
 - Carga de trabalho do SAP DBMS: desempenho, idealmente ultra
 - Compartilhamento SAPMNT: desempenho, idealmente ultra
@@ -231,10 +231,10 @@ Atualmente, o armazenamento seja tem suporte para vários cenários de carga de 
 
 - Fornecendo compartilhamentos SMB ou NFS para o diretório de transporte global da SAP
 - O compartilhamento sapmnt em cenários de alta disponibilidade, conforme documentado em:
-    - [Alta disponibilidade para SAP NetWeaver em VMs do Azure no Windows com Azure NetApp Files (SMB) para aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb)
-    - [Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server com o Azure NetApp Files para aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
-    - [Alta disponibilidade de máquinas virtuais do Azure para SAP NetWeaver em Red Hat Enterprise Linux com Azure NetApp Files para aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
-- SAP HANA implantações usando o NFS v 4.1 compartilhamentos para volumes/Hana/data e/Hana/log e/ou NFS v 4.1 ou NFS v3 para volumes/Hana/Shared, conforme documentado no artigo [SAP Hana configurações de armazenamento de máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+    - [Alta disponibilidade para SAP NetWeaver em VMs do Azure no Windows com Azure NetApp Files (SMB) para aplicativos SAP](./high-availability-guide-windows-netapp-files-smb.md)
+    - [Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server com o Azure NetApp Files para aplicativos SAP](./high-availability-guide-suse-netapp-files.md)
+    - [Alta disponibilidade de máquinas virtuais do Azure para SAP NetWeaver em Red Hat Enterprise Linux com Azure NetApp Files para aplicativos SAP](./high-availability-guide-rhel-netapp-files.md)
+- SAP HANA implantações usando o NFS v 4.1 compartilhamentos para volumes/Hana/data e/Hana/log e/ou NFS v 4.1 ou NFS v3 para volumes/Hana/Shared, conforme documentado no artigo [SAP Hana configurações de armazenamento de máquina virtual do Azure](./hana-vm-operations-storage.md)
 
 > [!NOTE]
 > Nenhuma outra carga de trabalho DBMS tem suporte para compartilhamentos NFS ou SMB baseados em Azure NetApp Files. Atualizações e alterações serão fornecidas se isso for alterado.
@@ -247,7 +247,7 @@ Como já no armazenamento Premium do Azure, um tamanho de taxa de transferência
 
 A matriz de recursos para a carga de trabalho do SAP é semelhante a:
 
-| Funcionalidade| Comentário| Observações/links | 
+| Recurso| Comentário| Observações/links | 
 | --- | --- | --- | 
 | VHD de base do so | Não funciona | - |
 | Disco de dados | apropriados | Somente SAP HANA  |
@@ -258,9 +258,9 @@ A matriz de recursos para a carga de trabalho do SAP é semelhante a:
 | Resiliência | LRS | Nenhum GRS ou ZRS disponível para discos |
 | Latency | muito baixo | - |
 | SLA DE IOPS | YES | - |
-| IOPS linear para capacidade | estritamente linear  | Dependente do [nível de serviço](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) |
+| IOPS linear para capacidade | estritamente linear  | Dependente do [nível de serviço](../../../azure-netapp-files/azure-netapp-files-service-levels.md) |
 | SLA de produtividade | YES | - |
-| Taxa de transferência linear para a capacidade | semilineares entre colchetes | Dependente do [nível de serviço](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) |
+| Taxa de transferência linear para a capacidade | semilineares entre colchetes | Dependente do [nível de serviço](../../../azure-netapp-files/azure-netapp-files-service-levels.md) |
 | Certificado pelo HANA | YES | - |
 | Instantâneos de disco possíveis | YES | - |
 | Instantâneos de VM de backup do Azure possíveis | Não | - |
@@ -280,7 +280,7 @@ Funcionalidade interna adicional do armazenamento seja:
 ## <a name="azure-standard-ssd-storage"></a>Armazenamento SSD standard do Azure
 Em comparação com o armazenamento HDD standard do Azure, o armazenamento SSD standard do Azure oferece melhor disponibilidade, consistência, confiabilidade e latência. Ele é otimizado para cargas de trabalho que precisam de desempenho consistente em níveis de IOPS inferiores. Esse armazenamento é o armazenamento mínimo usado para sistemas SAP que não são de produção que têm baixa IOPS e demandas de taxa de transferência. A matriz de recursos para a carga de trabalho do SAP é semelhante a:
 
-| Funcionalidade| Comentário| Observações/links | 
+| Recurso| Comentário| Observações/links | 
 | --- | --- | --- | 
 | VHD de base do so | restrito adequado | sistemas de não produção |
 | Disco de dados | restrito adequado | alguns sistemas que não são de produção com baixas demandas de IOPS e latência |
@@ -307,7 +307,7 @@ Em comparação com o armazenamento HDD standard do Azure, o armazenamento SSD s
 ## <a name="azure-standard-hdd-storage"></a>Armazenamento HDD standard do Azure
 O armazenamento de HDD Standard do Azure era o único tipo de armazenamento quando a infraestrutura do Azure obteve a certificação para a carga de trabalho do SAP NetWeaver no ano de 2014. No ano 2014, as máquinas virtuais do Azure eram pequenas e baixas na taxa de transferência de armazenamento. Portanto, esse tipo de armazenamento foi capaz de apenas acompanhar as demandas. O armazenamento é ideal para cargas de trabalho sem distinção de latência, que você dificilmente experimenta no espaço SAP. Com a crescente taxa de transferência de VMs do Azure e a maior carga de trabalho que essas VMs estão produzindo, esse tipo de armazenamento não é mais considerado para o uso com cenários SAP. A matriz de recursos para a carga de trabalho do SAP é semelhante a:
 
-| Funcionalidade| Comentário| Observações/links | 
+| Recurso| Comentário| Observações/links | 
 | --- | --- | --- | 
 | VHD de base do so | Não é adequado | - |
 | Disco de dados | Não é adequado | - |
@@ -335,11 +335,11 @@ Ao contrário dos cenários locais, o tipo de VM individual que você está sele
 
 | Tipo de armazenamento| Linux | Windows | Comentários |
 | --- | --- | --- | --- |
-| HDD Standard | [Tamanhos para VMs do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) | [Tamanhos de VMs do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) | Provavelmente é difícil tocar nos limites de armazenamento de VMs médias ou grandes |
-| SSD Standard | [Tamanhos para VMs do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) | [Tamanhos de VMs do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) | Provavelmente é difícil tocar nos limites de armazenamento de VMs médias ou grandes |
-| Armazenamento Premium | [Tamanhos para VMs do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) | [Tamanhos de VMs do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) | IOPS fácil de acessar ou limites de VM de taxa de transferência de armazenamento com a configuração de armazenamento |
-| Armazenamento de ultra Disk | [Tamanhos para VMs do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) | [Tamanhos de VMs do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) | IOPS fácil de acessar ou limites de VM de taxa de transferência de armazenamento com a configuração de armazenamento |
-| Azure NetApp Files | [Tamanhos para VMs do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) | [Tamanhos de VMs do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) | O tráfego de armazenamento está usando largura de banda de produtividade de rede e não largura de banda de armazenamento |
+| HDD Standard | [Tamanhos para VMs do Linux no Azure](../../linux/sizes.md) | [Tamanhos de VMs do Windows no Azure](../../windows/sizes.md) | Provavelmente é difícil tocar nos limites de armazenamento de VMs médias ou grandes |
+| SSD Standard | [Tamanhos para VMs do Linux no Azure](../../linux/sizes.md) | [Tamanhos de VMs do Windows no Azure](../../windows/sizes.md) | Provavelmente é difícil tocar nos limites de armazenamento de VMs médias ou grandes |
+| Armazenamento Premium | [Tamanhos para VMs do Linux no Azure](../../linux/sizes.md) | [Tamanhos de VMs do Windows no Azure](../../windows/sizes.md) | IOPS fácil de acessar ou limites de VM de taxa de transferência de armazenamento com a configuração de armazenamento |
+| Armazenamento de ultra Disk | [Tamanhos para VMs do Linux no Azure](../../linux/sizes.md) | [Tamanhos de VMs do Windows no Azure](../../windows/sizes.md) | IOPS fácil de acessar ou limites de VM de taxa de transferência de armazenamento com a configuração de armazenamento |
+| Azure NetApp Files | [Tamanhos para VMs do Linux no Azure](../../linux/sizes.md) | [Tamanhos de VMs do Windows no Azure](../../windows/sizes.md) | O tráfego de armazenamento está usando largura de banda de produtividade de rede e não largura de banda de armazenamento |
 
 Como limitações, você pode observar que:
 
@@ -365,7 +365,7 @@ Algumas regras precisam ser seguidas na distribuição:
 
 A distribuição em vários discos menores é a melhor maneira de atingir um bom preço/taxa de desempenho usando o armazenamento Premium do Azure. É entendido que a distribuição tem alguma sobrecarga adicional de gerenciamento e implantação.
 
-Para obter recomendações de tamanho de distribuição específicas, leia a documentação do DBMS diferente, como [SAP Hana configurações de armazenamento de máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
+Para obter recomendações de tamanho de distribuição específicas, leia a documentação do DBMS diferente, como [SAP Hana configurações de armazenamento de máquina virtual do Azure](./hana-vm-operations-storage.md).
 
 
 
@@ -373,6 +373,6 @@ Para obter recomendações de tamanho de distribuição específicas, leia a doc
 ## <a name="next-steps"></a>Próximas etapas
 Leia os artigos:
 
-- [Considerações para Implantação do DBMS de Máquinas Virtuais do Azure para carga de trabalho do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
-- [Configurações de armazenamento de máquina virtual do SAP HANA no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+- [Considerações para Implantação do DBMS de Máquinas Virtuais do Azure para carga de trabalho do SAP](./dbms_guide_general.md)
+- [Configurações de armazenamento de máquina virtual do SAP HANA no Azure](./hana-vm-operations-storage.md)
  

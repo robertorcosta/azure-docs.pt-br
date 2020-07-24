@@ -1,5 +1,5 @@
 ---
-title: Em vez de ETL, projete o ELT para o pool SQL Synapse | Microsoft Docs
+title: Criar uma estratégia de carregamento de dados do polybase para o pool do SQL
 description: Em vez de ETL, crie um processo ELT (extração, carregamento e transformação) para carregar dados ou pool do SQL.
 services: synapse-analytics
 author: kevinvngo
@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 49ffb848dbcbed72776a5d767bb4b4872978af20
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ca1f535c7f2d949e1f71a06ba9efab2818ee0201
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965428"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046782"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Criando uma estratégia de carregamento de dados do polybase para o pool do SQL Synapse do Azure
 
-Os tradicionais data warehouses SMP usam um processo ETL (Extrair, Transformar e Carregar) para carregar dados. O pool SQL do Azure é uma arquitetura MPP (processamento paralelo maciço) que aproveita a escalabilidade e a flexibilidade dos recursos de computação e armazenamento. A utilização de um processo ELT (Extrair, Carregar e Transformar) pode aproveitar o MPP e eliminar recursos necessários para transformar os dados antes do carregamento.
+Os data warehouses SMP tradicionais usam um processo ETL (extração, transformação e carregamento) para carregar dados. O pool SQL do Azure é uma arquitetura MPP (processamento paralelo maciço) que aproveita a escalabilidade e a flexibilidade dos recursos de computação e armazenamento. O uso de um processo ELT (extração, carregamento e transformação) pode aproveitar o MPP e eliminar os recursos necessários para transformar os dados antes do carregamento.
 
 Embora o pool do SQL dê suporte a muitos métodos de carregamento, incluindo opções não polybase, como BCP e API do SQL BulkCopy, a maneira mais rápida e escalonável de carregar a data é por meio do polybase.  O PolyBase é uma tecnologia que acessa dados externos armazenados no Armazenamento de Blobs do Azure ou no Azure Data Lake Storage por meio da linguagem T-SQL.
 
@@ -27,7 +27,7 @@ Embora o pool do SQL dê suporte a muitos métodos de carregamento, incluindo op
 
 ## <a name="what-is-elt"></a>O que é ELT?
 
-ELT (Extrair, Carregar e Transformar) é um processo pelo qual os dados são extraídos de um sistema de origem, carregados para um data warehouse e transformados.
+O ELT (extração, carregamento e transformação) é um processo pelo qual os dados são extraídos de um sistema de origem, carregados em um data warehouse e, em seguida, transformados.
 
 As etapas básicas para implementar um polybase para o pool do SQL são:
 
@@ -58,7 +58,7 @@ Se você estiver exportando do SQL Server, poderá usar a [ferramenta de linha d
 |       SMALLINT        |                           SMALLINT                           |
 |          INT          |                             INT                              |
 |        BIGINT         |                            BIGINT                            |
-|        booleano        |                             bit                              |
+|        boolean        |                             bit                              |
 |        double         |                            FLOAT                             |
 |         FLOAT         |                             real                             |
 |        double         |                            money                             |
@@ -95,7 +95,7 @@ Talvez seja necessário preparar e limpar os dados em sua conta de armazenamento
 
 Antes que você possa carregar os seus dados, você precisa definir tabelas externas no seu data warehouse. O PolyBase usa tabelas externas para definir e acessar os dados no Armazenamento do Microsoft Azure. Uma tabela externa é semelhante a uma exibição de banco de dados. A tabela externa contém o esquema de tabela e aponta para os dados armazenados fora do data warehouse.
 
-Definir tabelas externas envolve a especificação da fonte de dados, o formato dos arquivos de texto e as definições de tabela. Estes são os tópicos de sintaxe do T-SQL que você precisará:
+Definir tabelas externas envolve a especificação da fonte de dados, o formato dos arquivos de texto e as definições de tabela. O que vem a seguir são os tópicos de sintaxe T-SQL que você precisará:
 
 - [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)

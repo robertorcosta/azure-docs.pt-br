@@ -1,6 +1,6 @@
 ---
-title: Balanceamento de carga do pool de hosts da área de trabalho virtual do Windows-Azure
-description: Métodos de balanceamento de carga do pool de hosts para um ambiente de área de trabalho virtual do Windows.
+title: Balanceamento de carga do pool de hosts da área de trabalho virtual do Windows (Outono 2019) – Azure
+description: Saiba mais sobre os métodos de balanceamento de carga do pool de hosts para um ambiente de área de trabalho virtual do Windows (lançamento 2019).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e2bfbd580d0e114cf4a135879340745107183b6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50819fc6b1e13aeb1c0eddf306ecdfbe8147a44f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82614805"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046266"
 ---
-# <a name="host-pool-load-balancing-methods"></a>Métodos de balanceamento de carga de pool de host
+# <a name="host-pool-load-balancing-methods-fall-2019-release"></a>Métodos de balanceamento de carga do pool de hosts (versão 2019 do outono)
 
 >[!IMPORTANT]
 >Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../host-pool-load-balancing.md).

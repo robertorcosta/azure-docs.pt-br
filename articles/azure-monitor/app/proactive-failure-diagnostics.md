@@ -4,12 +4,12 @@ description: Alerta para alterações incomuns na taxa de solicitações com fal
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 35c1769672e11cd7d1ec2f628b9d763dc8b90ac3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27cf38a1cfcf8a9f87582ab3e78b48e78f3c63c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254779"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045813"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detecção Inteligente - anomalias de falha
 O [Application Insights](../../azure-monitor/app/app-insights-overview.md) alertará você automaticamente, quase em tempo real, se seu aplicativo Web experimentar um aumento anormal de solicitações com falha. Ele detecta um aumento excepcional na taxa de solicitações de HTTP ou chamadas de dependência são relatadas como falha. Nas solicitações, as solicitações com falha geralmente têm códigos de resposta de 400 ou superior. Para ajudar você na triagem e no diagnóstico do problema, uma análise das características das falhas e dados relacionados do aplicativo são fornecidos nos detalhes do alerta. Também há links para portal do Application Insights, onde você pode obter um diagnóstico mais detalhado. O recurso não precisa de qualquer configuração, pois usa algoritmos de aprendizado de máquina para prever a taxa normal de falhas.
@@ -61,13 +61,13 @@ Os alertas são acionados por nosso algoritmo patenteado de machine learning, po
 
 ## <a name="configure-alerts"></a>Configurar alertas
 
-Você pode desabilitar a regra de alerta de Detecção Inteligente no portal ou usando o Azure Resource Manager ([consulte o exemplo de modelo](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)).
+Você pode desabilitar a regra de alerta de Detecção Inteligente no portal ou usando o Azure Resource Manager ([consulte o exemplo de modelo](./proactive-arm-config.md)).
 
-Essa regra de alerta é criada com um [grupo de ações](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) associado, chamado "Detecção Inteligente do Application Insights", que contém ações de email e webhook e pode ser estendido para disparar ações adicionais quando o alerta for acionado.
+Essa regra de alerta é criada com um [grupo de ações](../platform/action-groups.md) associado, chamado "Detecção Inteligente do Application Insights", que contém ações de email e webhook e pode ser estendido para disparar ações adicionais quando o alerta for acionado.
 
 > [!NOTE]
-> As notificações por email enviadas por essa regra de alerta agora, por padrão, são enviadas aos usuários associados a funções de leitor de monitoramento e colaborador de monitoramento da assinatura. Saiba mais sobre esse assunto [aqui](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification).
-> As notificações enviadas por essa regra de alerta seguem o [esquema de alerta comum](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
+> As notificações por email enviadas por essa regra de alerta agora, por padrão, são enviadas aos usuários associados a funções de leitor de monitoramento e colaborador de monitoramento da assinatura. Saiba mais sobre esse assunto [aqui](./proactive-email-notification.md).
+> As notificações enviadas por essa regra de alerta seguem o [esquema de alerta comum](../platform/alerts-common-schema.md).
 >
 
 Abra a página Alertas. As regras de alerta de anomalias de falha são incluídas com todos os alertas que você definiu manualmente e é possível ver se está em estado de alerta no momento.
@@ -348,7 +348,7 @@ A Detecção Inteligente de anomalias de falha complementa outros recursos disti
 
 *Alguns dos alertas são sobre problemas conhecidos e não quero recebê-los.*
 
-* Você pode usar o recurso de supressão de [regras de ação de alerta](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules).
+* Você pode usar o recurso de supressão de [regras de ação de alerta](../platform/alerts-action-rules.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Estas ferramentas de diagnóstico ajudam você a inspecionar os dados do seu aplicativo:

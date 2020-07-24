@@ -5,15 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/09/2020
+ms.date: 07/20/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: a1b2f74af02db1560dbcdd0bf0c72976dc6dcea8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8edb36345de4516077b3c857cff33389062cc7f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022326"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044551"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Solucionar problemas de conectores do Azure Data Factory
 
@@ -156,12 +157,28 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 - **Mensagem**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
 
 
-### <a name="error-code--adlsgen2timeouterror"></a>Código de erro:  AdlsGen2TimeoutError
+### <a name="error-code-adlsgen2timeouterror"></a>Código de erro: AdlsGen2TimeoutError
 
 - **Mensagem**: `Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
 
 
 ## <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
+
+### <a name="error-message-the-underlying-connection-was-closed-could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>Mensagem de erro: a conexão subjacente foi fechada: não foi possível estabelecer uma relação de confiança para o canal seguro de SSL/TLS.
+
+- **Sintomas**: a atividade de cópia falha com o seguinte erro: 
+
+    ```
+    Message: Failure happened on 'Sink' side. ErrorCode=UserErrorFailedFileOperation,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Upload file failed at path STAGING/PLANT/INDIARENEWABLE/LiveData/2020/01/14\\20200114-0701-oem_gibtvl_mannur_data_10min.csv.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=System.Net.WebException,Message=The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.,Source=System,''Type=System.Security.Authentication.AuthenticationException,Message=The remote certificate is invalid according to the validation procedure.,Source=System,'.
+    ```
+
+- **Causa**: falha na validação do certificado durante o HANDSHAKE de TLS.
+
+- **Resolução**: solução alternativa: Use cópia em etapas para ignorar a validação de TLS para ADLS Gen1. Você precisa reproduzir esse problema e reunir o rastreamento do Netmon e, em seguida, envolver sua equipe de rede para verificar a configuração de rede local seguindo [Este artigo](self-hosted-integration-runtime-troubleshoot-guide.md#how-to-collect-netmon-trace).
+
+
+    ![Solucionar problemas ADLS Gen1](./media/connector-troubleshoot-guide/adls-troubleshoot.png)
+
 
 ### <a name="error-message-the-remote-server-returned-an-error-403-forbidden"></a>Mensagem de erro: O servidor remoto retornou um erro: (403) Forbidden
 
@@ -221,6 +238,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 - **Causa**: Se a mensagem de erro contiver "InvalidOperationException", geralmente ela é causada por dados de entrada inválidos.
 
 - **Recomendação**:  Para identificar em qual linha está o problema, habilite o recurso de tolerância a falhas na atividade de cópia, que pode redirecionar as linhas problemáticas para o armazenamento para uma investigação mais aprofundada. Documento de referência: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
+
 
 
 ### <a name="error-code--sqlunauthorizedaccess"></a>Código de erro:  SqlUnauthorizedAccess
@@ -371,7 +389,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Resolução:** Em um coletor de atividade de cópia, nas configurações do PolyBase, defina a opção "**usar padrão de tipo**" como false.
 
-### <a name="error-message-java-exception-messagehdfsbridgecreaterecordreader"></a>Mensagem de erro: Java exception message:HdfsBridge::CreateRecordReader
+### <a name="error-message-java-exception-message-hdfsbridgecreaterecordreader"></a>Mensagem de erro: mensagem de exceção Java: HdfsBridge:: CreateRecordReader
 
 - **Sintomas**: Você copia dados para o SQL Data Warehouse do Azure usando o PolyBase e encontra o seguinte erro:
 
@@ -423,7 +441,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Mensagem**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **Causa**: Quando você definir “firstRowAsHeader” na atividade, a primeira linha será usada como nome da coluna. Esse erro significa que a primeira linha contém um valor vazio. Por exemplo:  “ColumnA,,ColumnB”.
+- **Causa**: Quando você definir “firstRowAsHeader” na atividade, a primeira linha será usada como nome da coluna. Esse erro significa que a primeira linha contém um valor vazio. Por exemplo: ' ColumnA,, coluna b '.
 
 - **Recomendação**:  Verifique a primeira linha e corrija o valor se houver um valor vazio.
 

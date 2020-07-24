@@ -12,16 +12,16 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 900e76fff3e5ccf88fa1e25ebea97f26e406a358
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6780942d922f885c7afebd8e64f4f28654c3800e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610363"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042539"
 ---
 # <a name="deploy-micro-focus-enterprise-server-50-to-aks"></a>Implantar o micro Focus Enterprise Server 5,0 em AKS
 
-Em outro [artigo](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/run-enterprise-server-container), descrevi as etapas para executar o micro Focus Enterprise Server 5,0 em um contêiner do Docker. Como um acompanhamento, gostaria de mostrar a você como levá-lo uma etapa além e implantar essa imagem do Docker que você criou no serviço kubernetes do Azure (AKS).
+Em outro [artigo](./run-enterprise-server-container.md), descrevi as etapas para executar o micro Focus Enterprise Server 5,0 em um contêiner do Docker. Como um acompanhamento, gostaria de mostrar a você como levá-lo uma etapa além e implantar essa imagem do Docker que você criou no serviço kubernetes do Azure (AKS).
 
 O serviço kubernetes do Azure é um serviço de orquestração gerenciado baseado em kubernetes. Ele permite que você implante, dimensione e gerencie contêineres do Docker (e outros aplicativos baseados em contêiner) em um cluster de hosts de contêiner.
 

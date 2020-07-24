@@ -12,11 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/02/2020
 ms.author: juliako
-ms.openlocfilehash: 5bd4c9aa3fde9e3fa596ce5a18b892edfab60af5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7667f7c5194762b227c3cddd5bea5ed9d50a96e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84325058"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042622"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de versão do Video Indexer de serviços de mídia do Azure
 
@@ -28,6 +29,18 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 * Problemas conhecidos
 * Correções de bug
 * Funcionalidades preteridas
+
+## <a name="june-2020"></a>Junho de 2020
+
+### <a name="search-by-topics"></a>Pesquisar por tópicos
+
+Agora você pode usar a API de pesquisa para procurar vídeos com tópicos específicos (somente API).
+
+Os tópicos são adicionados como parte do `textScope` (parâmetro opcional). Consulte [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) para obter detalhes.  
+
+### <a name="labels-enhancement"></a>Aprimoramento de rótulos
+
+O rotulador de rótulo foi atualizado e agora inclui mais rótulos visuais que podem ser identificados.
 
 ## <a name="may-2020"></a>Maio de 2020
 

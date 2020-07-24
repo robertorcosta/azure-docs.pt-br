@@ -1,5 +1,5 @@
 ---
-title: Pontuar Modelo de Imagem
+title: Usar o módulo modelo de imagem de Pontuação
 titleSuffix: Azure Machine Learning
 description: Saiba como usar o módulo modelo de imagem de pontuação em Azure Machine Learning para gerar previsões usando um modelo de imagem treinado.
 services: machine-learning
@@ -9,11 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 021572aef673cf88f7744a0a210ef794c739448b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b949603b3e6ee51311f9c54f3e1326217f00c82d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450080"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039101"
 ---
 # <a name="score-image-model"></a>Pontuar Modelo de Imagem
 

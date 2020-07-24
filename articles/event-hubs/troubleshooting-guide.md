@@ -3,12 +3,12 @@ title: Solucionar problemas de conectividade-hubs de eventos do Azure | Microsof
 description: Este artigo fornece informações sobre como solucionar problemas de conectividade com os hubs de eventos do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 15c93873a25e70b0f9a88fc5ea621b90d58e7581
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b85c0895d1c8f165f494d29013adea014187dd23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322383"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039320"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>Solucionar problemas de conectividade-hubs de eventos do Azure
 Há várias razões para os aplicativos cliente não poderem se conectar a um hub de eventos. Os problemas de conectividade que você enfrenta podem ser permanentes ou transitórios. Se o problema ocorrer o tempo todo (permanente), talvez você queira verificar a cadeia de conexão, as configurações de firewall da sua organização, as configurações de firewall de IP, as configurações de segurança de rede (pontos de extremidade de serviço, pontos de extremidade privados, etc.) e muito mais. Para problemas transitórios, atualizar para a versão mais recente do SDK, executar comandos para verificar pacotes ignorados e obter rastreamentos de rede pode ajudar a solucionar os problemas. 
@@ -48,7 +48,7 @@ telnet <yournamespacename>.servicebus.windows.net 5671
 ```
 
 ### <a name="verify-that-ip-addresses-are-allowed-in-your-corporate-firewall"></a>Verificar se os endereços IP são permitidos em seu firewall corporativo
-Quando você estiver trabalhando com o Azure, às vezes terá que permitir intervalos de endereços IP específicos ou URLs em seu firewall corporativo ou proxy para acessar todos os serviços do Azure que você está usando ou tentando usar. Verifique se o tráfego é permitido em endereços IP usados pelos hubs de eventos. Para endereços IP usados pelos hubs de eventos do Azure: consulte [intervalos de IP do Azure e marcas de serviço – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519) e [marca de serviço-EventHub](network-security.md#service-tags).
+Quando você estiver trabalhando com o Azure, às vezes terá que permitir intervalos de endereços IP específicos ou URLs em seu firewall corporativo ou proxy para acessar todos os serviços do Azure que você está usando ou tentando usar. Verifique se o tráfego é permitido em endereços IP usados pelos hubs de eventos. Para endereços IP usados pelos hubs de eventos do Azure: consulte [intervalos de IP e marcas de serviço do Azure – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519).
 
 Além disso, verifique se o endereço IP do seu namespace é permitido. Para localizar os endereços IP corretos para permitir suas conexões, siga estas etapas:
 
@@ -75,13 +75,16 @@ Se você usar a redundância de zona para seu namespace, precisará executar alg
     ```
 3. Execute nslookup para cada um com sufixos S1, S2 e S3 para obter os endereços IP de todas as três instâncias em execução em três zonas de disponibilidade. 
 
+### <a name="verify-that-azureeventgrid-service-tag-is-allowed-in-your-network-security-groups"></a>Verifique se a marca de serviço AzureEventGrid é permitida em seus grupos de segurança de rede
+Se seu aplicativo estiver em execução dentro de uma sub-rede e houver um grupo de segurança de rede associado, confirme se a saída da Internet é permitida ou se a marca de serviço AzureEventGrid é permitida. Consulte [marcas de serviço de rede virtual](../virtual-network/service-tags-overview.md) e pesquise `EventHub` .
+
 ### <a name="check-if-the-application-needs-to-be-running-in-a-specific-subnet-of-a-vnet"></a>Verificar se o aplicativo precisa estar em execução em uma sub-rede específica de uma vnet
 Confirme se seu aplicativo está sendo executado em uma sub-rede de rede virtual que tem acesso ao namespace. Se não for, execute o aplicativo na sub-rede que tem acesso ao namespace ou adicione o endereço IP do computador no qual o aplicativo está sendo executado no [Firewall de IP](event-hubs-ip-filtering.md). 
 
 Quando você cria um ponto de extremidade de serviço de rede virtual para um namespace de Hub de eventos, o namespace aceita o tráfego somente da sub-rede associada ao ponto de extremidade de serviço. Há uma exceção a esse comportamento. Você pode adicionar endereços IP específicos no firewall de IP para habilitar o acesso ao ponto de extremidade público do hub de eventos. Para obter mais informações, consulte [pontos de extremidade de serviço de rede](event-hubs-service-endpoints.md).
 
 ### <a name="check-the-ip-firewall-settings-for-your-namespace"></a>Verifique as configurações de firewall de IP para seu namespace
-Verifique se o endereço IP do computador no qual o aplicativo está sendo executado não está bloqueado pelo firewall de IP.  
+Verifique se o endereço IP público do computador no qual o aplicativo está sendo executado não está bloqueado pelo firewall de IP.  
 
 Por padrão, os namespaces dos Hubs de Eventos são acessíveis da Internet, desde que a solicitação acompanhe autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
@@ -108,9 +111,9 @@ Habilite os logs de diagnóstico para [eventos de conexão de rede virtual dos h
 ### <a name="check-if-the-namespace-can-be-accessed-using-only-a-private-endpoint"></a>Verifique se o namespace pode ser acessado usando apenas um ponto de extremidade privado
 Se o namespace de hubs de eventos estiver configurado para ser acessível somente por meio do ponto de extremidade privado, confirme se o aplicativo cliente está acessando o namespace sobre o ponto de extremidade privado. 
 
-O [serviço de vínculo privado do Azure](../private-link/private-link-overview.md) permite que você acesse os hubs de eventos do Azure por meio de um **ponto de extremidade privado** em sua rede virtual. O ponto de extremidade privado é uma interface de rede que conecta você de forma privada e segura a um serviço com tecnologia do Link Privado do Azure. O ponto de extremidade privado usa um endereço IP privado de sua VNet, colocando efetivamente em sua VNet. Todo o tráfego para o serviço pode ser roteado por meio do ponto de extremidade privado; assim, nenhum gateway, nenhum dispositivo NAT, nenhuma conexão ExpressRoute ou VPN e nenhum endereço IP público é necessário. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você pode se conectar a uma instância de um recurso do Azure, fornecendo o nível mais alto de granularidade no controle de acesso.
+O [serviço de vínculo privado do Azure](../private-link/private-link-overview.md) permite que você acesse os hubs de eventos do Azure por meio de um **ponto de extremidade privado** em sua rede virtual. O ponto de extremidade privado é uma interface de rede que conecta você de forma privada e segura a um serviço com tecnologia do Link Privado do Azure. O ponto de extremidade privado usa um endereço IP privado de sua rede virtual, efetivamente colocando o serviço em sua rede virtual. Todo o tráfego para o serviço pode ser roteado por meio do ponto de extremidade privado; assim, nenhum gateway, nenhum dispositivo NAT, nenhuma conexão ExpressRoute ou VPN e nenhum endereço IP público é necessário. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você pode se conectar a uma instância de um recurso do Azure, fornecendo o nível mais alto de granularidade no controle de acesso.
 
-Para obter mais informações, consulte [Configurar pontos de extremidade privados](private-link-service.md). 
+Para obter mais informações, consulte [Configurar pontos de extremidade privados](private-link-service.md). Consulte a seção **validar se a conexão de ponto de extremidade privado funciona** para confirmar que um ponto de extremidade privado é usado. 
 
 ### <a name="troubleshoot-network-related-issues"></a>Solucionar problemas relacionados à rede
 Para solucionar problemas relacionados à rede com os hubs de eventos, siga estas etapas: 
@@ -160,7 +163,7 @@ Problemas de conectividade transitórios podem ocorrer devido a atualizações e
 - Os aplicativos podem ser desconectados do serviço por alguns segundos.
 - As solicitações podem estar momentaneamente limitadas.
 
-Se o código do aplicativo utilizar o SDK, a política de repetição já estará interna e ativa. O aplicativo será reconectado sem um impacto significativo no aplicativo/fluxo de trabalho. Caso contrário, tente conectar-se novamente ao serviço depois de alguns minutos para ver se os problemas desaparecem. 
+Se o código do aplicativo utilizar o SDK, a política de repetição já estará interna e ativa. O aplicativo será reconectado sem um impacto significativo no aplicativo/fluxo de trabalho. A captura desses erros transitórios, o backup e a repetição da chamada garantirá que seu código seja resiliente a esses problemas transitórios.
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja os artigos a seguir:

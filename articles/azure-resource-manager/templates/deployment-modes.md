@@ -2,12 +2,13 @@
 title: Modos de implantação
 description: Descreve como especificar se um modo de implantação completo ou incremental deve ser usado com o Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 01/17/2020
-ms.openlocfilehash: 1077d92f076797fb03c4fe750b353e2306f9b6de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.openlocfilehash: f20f41e989e1a994b7806aecf6e7cee5a4c27014
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460238"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040436"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implantação do Azure Resource Manager
 
@@ -20,6 +21,9 @@ O modo padrão é incremental.
 ## <a name="complete-mode"></a>Modo completo
 
 No modo completo, o Gerenciador de recursos **exclui** recursos existentes no grupo de recursos, mas que não são especificados no modelo.
+
+> [!NOTE]
+> Sempre use a [operação What-If](template-deploy-what-if.md) antes de implantar um modelo no modo completo. What-If mostra quais recursos serão criados, excluídos ou modificados. Use What-If para evitar a exclusão acidental de recursos.
 
 Se o seu modelo inclui um recurso que não está implantado porque a [condição](conditional-resource-deployment.md) é avaliada como false, o resultado depende de qual versão da API REST você usa para implantar o modelo. Se você usar uma versão anterior à 2019-05-10, o recurso **não será excluído**. Com o 2019-05-10 ou posterior, o recurso **é excluído**. As versões mais recentes do Azure PowerShell e CLI do Azure excluir o recurso.
 
@@ -49,6 +53,8 @@ No modo incremental, o Gerenciador de recursos **deixa inalterados** recursos ex
 
 > [!NOTE]
 > Ao reimplantar um recurso existente no modo incremental, todas as propriedades são reaplicadas. As **Propriedades não são adicionadas incrementalmente**. Um mal-entendido comum é considerar que as propriedades que não são especificadas no modelo permanecem inalteradas. Se você não especificar determinadas propriedades, o Resource Manager interpretará a implantação como substituindo esses valores. As propriedades que não estão incluídas no modelo são redefinidas para os valores padrão. Especifique todos os valores não padrão para o recurso, não apenas aqueles que você está atualizando. A definição de recurso no modelo sempre contém o estado final do recurso. Ele não pode representar uma atualização parcial para um recurso existente.
+>
+> Em casos raros, as propriedades que você especifica para um recurso são realmente implementadas como um recurso filho. Por exemplo, quando você fornece valores de configuração de site para um aplicativo Web, esses valores são implementados no tipo de recurso filho `Microsoft.Web/sites/config` . Se você reimplantar o aplicativo Web e especificar um objeto vazio para os valores de configuração do site, o recurso filho não será atualizado. No entanto, se você fornecer novos valores de configuração de site, o tipo de recurso filho será atualizado.
 
 ## <a name="example-result"></a>Resultados de exemplo
 

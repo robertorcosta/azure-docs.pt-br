@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 9bb22b12a7b3e972ff144bd121db4288801e2488
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07b5ae99b98c6c6bbf4dc903cd1b583eb655a825
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732945"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041409"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Solucionando problemas do agente de Application Insights (anteriormente denominado Status Monitor v2)
 
@@ -54,7 +55,7 @@ Você pode usar ferramentas de solução de problemas para ver o comportamento d
 
 ### <a name="conflict-with-iis-shared-configuration"></a>Conflito com a configuração compartilhada do IIS
 
-Se você tiver um cluster de servidores Web, talvez esteja usando uma [configuração compartilhada](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+Se você tiver um cluster de servidores Web, talvez esteja usando uma [configuração compartilhada](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
 O HttpModule não pode ser injetado nessa configuração compartilhada.
 Execute o comando Enable em cada servidor Web para instalar a DLL no GAC de cada servidor.
 
@@ -137,7 +138,7 @@ Examine a [referência da API](status-monitor-v2-api-reference.md) para obter um
 3. Expanda **Opções Avançadas**.
 4. Desmarque estas caixas de seleção:
     - **Rápida**
-    - **Mesclar**
+    - **Mesclagem**
     - **Coleção de símbolos .NET**
 5. Defina estes **provedores adicionais**:`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 

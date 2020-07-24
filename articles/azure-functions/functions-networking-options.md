@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 03402828720272851f9b74000d5bcb79405885a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a88570805a9fc23904bfe82f91813b3460d0b10
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117218"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045942"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede do Azure Functions
 
@@ -119,7 +119,7 @@ Por exemplo, suponha que você deseja configurar o Azure Cosmos DB para aceitar 
 
 ## <a name="hybrid-connections"></a>Conexões Híbridas
 
-[Conexões Híbridas](../service-bus-relay/relay-hybrid-connections-protocol.md) é um recurso da Retransmissão do Azure que você pode usar para acessar recursos do aplicativo em outras redes. Ele fornece acesso de seu aplicativo para um ponto de extremidade do aplicativo. Não é possível usá-lo para acessar seu aplicativo. O recurso Conexões Híbridas está disponível para funções executadas no Windows em todos os planos, exceto no plano de Consumo.
+[Conexões Híbridas](../azure-relay/relay-hybrid-connections-protocol.md) é um recurso da Retransmissão do Azure que você pode usar para acessar recursos do aplicativo em outras redes. Ele fornece acesso de seu aplicativo para um ponto de extremidade do aplicativo. Não é possível usá-lo para acessar seu aplicativo. O recurso Conexões Híbridas está disponível para funções executadas no Windows em todos os planos, exceto no plano de Consumo.
 
 Conforme usado no Azure Functions, cada conexão híbrida se correlaciona com uma única combinação de host e de porta TCP. Isso significa que o ponto de extremidade de conexões híbridas pode estar em qualquer sistema operacional e em qualquer aplicativo, desde que você esteja acessando uma porta de escuta TCP. O recurso Conexões Híbridas não sabe e nem se importa com o protocolo de aplicativo ou o que você está acessando. Ele apenas fornece acesso à rede.
 

@@ -3,11 +3,12 @@ title: Gravação de vídeo contínua-Azure
 description: A CVR (gravação contínua de vídeo) refere-se ao processo de gravar continuamente o vídeo de uma fonte de vídeo. Este tópico discute o que é o CVR.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 9a785125d4cfb2324224f4676e1d429342ec325c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76af97fe1398421f5f37cfca32127d926ce56bac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260619"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043310"
 ---
 # <a name="continuous-video-recording"></a>Gravação de vídeo contínua  
 
@@ -33,7 +34,7 @@ A análise de vídeo ao vivo no IoT Edge dá suporte à operação em condiçõe
     "localMediaCacheMaximumSizeMiB": "2048",
     "localMediaCachePath": "/var/lib/azuremediaservices/tmp/",
 ```
-As duas últimas propriedades são relevantes para a gravação resiliente (também são propriedades obrigatórias para um nó de coletor de ativos). A propriedade localMediaCachePath informa o coletor de ativos para usar esse caminho de pasta para armazenar em cache os dados de mídia antes de carregar para o ativo. Você pode ver [este](https://docs.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module) artigo para entender como o módulo de borda pode usar o armazenamento local do dispositivo. A propriedade localMediaCacheMaximumSizeMiB define a quantidade de espaço em disco que o coletor de ativos pode usar como um cache (1 MiB = 1024 * 1024 bytes). 
+As duas últimas propriedades são relevantes para a gravação resiliente (também são propriedades obrigatórias para um nó de coletor de ativos). A propriedade localMediaCachePath informa o coletor de ativos para usar esse caminho de pasta para armazenar em cache os dados de mídia antes de carregar para o ativo. Você pode ver [este](../../iot-edge/how-to-access-host-storage-from-module.md) artigo para entender como o módulo de borda pode usar o armazenamento local do dispositivo. A propriedade localMediaCacheMaximumSizeMiB define a quantidade de espaço em disco que o coletor de ativos pode usar como um cache (1 MiB = 1024 * 1024 bytes). 
 
 Se o seu módulo de borda perder a conectividade por um tempo muito longo e o conteúdo armazenado na pasta de cache atingir o valor localMediaCacheMaximumSizeMiB, o coletor de ativos começará a descartar os dados do cache, a partir dos dados mais antigos. Por exemplo, se o dispositivo perdeu a conectividade em 10h e o cache atinge o limite máximo de 18:00, o coletor de ativos começa a excluir os dados registrados em 10h. 
 
@@ -51,7 +52,7 @@ A propriedade segmentLength garante que o módulo de borda carregará vídeo no 
 >Confira [este](playback-recordings-how-to.md) artigo para o efeito que o segmentLength tem na reprodução.
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Gravação de vídeo baseada em eventos](event-based-video-recording-concept.md)
 * [Reprodução de conteúdo gravado](video-playback-concept.md)

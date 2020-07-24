@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 05/31/2019
 ms.author: allensu
-ms.openlocfilehash: 3c61407b2a0c9d0423d1f856101400771e27d846
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a49912bc2275e478d657f06587c4ddc830210d3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887415"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040216"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Substituir o comportamento do HTTP usando a CDN do Azure por meio do mecanismo de regras da Verizon Premium
 
@@ -55,7 +55,7 @@ Para acessar o mecanismo de regras, será necessário primeiro selecionar **Gere
     ![Novas opções de regra CDN](./media/cdn-rules-engine/cdn-new-rule.png)
    
    > [!IMPORTANT]
-   > A ordem na qual são listadas várias regras afeta como elas são manipuladas. Uma regra subsequente poderá substituir as ações especificadas por uma regra anterior.
+   > A ordem na qual são listadas várias regras afeta como elas são manipuladas. Uma regra subsequente poderá substituir as ações especificadas por uma regra anterior. Por exemplo, se você tiver uma regra que permita o acesso a um recurso com base em uma propriedade de solicitação e uma regra que negue acesso a todas as solicitações, a segunda regra substituirá a primeira. As regras substituirão as regras anteriores somente se interagirem com as mesmas propriedades.
    >
 
 3. Insira um nome na caixa de texto **Nome/Descrição** .

@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 765deda747d46a9ee5b6913c192fa1a43c56d35d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2336916f7d47b38a12ee0418353a249b5eaa3801
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385885"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042403"
 ---
 # <a name="azure-active-directory-b2c-partners"></a>Parceiros de Azure Active Directory B2C
 
-Nossa rede de parceiros estende nossos recursos de solução para ajudá-lo a criar experiências de usuário final diretas. Com o Azure AD B2C, você pode integrar com parceiros para habilitar os métodos de autenticação multifator, habilitar a autenticação de cliente segura (SCA), executar o controle de acesso baseado em função e combater a fraude por meio da verificação de identidade e da prova. Use nossas orientações detalhadas para aprender a integrar aplicativos aos parceiros listados abaixo.
+Nossa rede de parceiros estende nossos recursos de solução para ajudá-lo a criar experiências de usuário final diretas. Com o Azure AD B2C, você pode integrar com parceiros para habilitar os métodos de autenticação multifator, habilitar a autenticação de cliente segura (SCA), executar o controle de acesso baseado em função e combater a fraude por meio da verificação de identidade e da prova. Use nossas instruções detalhadas de exemplo para aprender a integrar aplicativos aos parceiros listados abaixo.
 
 >[!NOTE]
 >O [site da comunidade Azure Active Directory B2C no GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/) também fornece políticas personalizadas de exemplo da Comunidade.
@@ -30,8 +30,10 @@ Nossa rede de parceiros estende nossos recursos de solução para ajudá-lo a cr
 | Partner (parceiro) | Orientações de descrição e integração  |
 | :--- | :--- |
 | ![Logotipo](./media/partner-gallery/arkose-logo.png) | O [arkose Labs](./partner-arkose-labs.md) é um provedor de soluções de prevenção de fraude que ajuda as organizações a proteger contra ataques de bot, ataques de tomada de conta e aberturas de contas fraudulentas.
+| ![Logotipo](./media/partner-gallery/experian-logo.png) | O [Experian](./partner-experian.md) é um provedor de verificação de identidade e de provação que executa avaliações de risco com base em atributos de usuário para evitar fraudes.|
 | ![Logotipo](./media/partner-gallery/idology-logo.png) | O [IDology](./partner-idology.md) é um provedor de verificação de identidade e de provação com soluções de verificação de ID, soluções de prevenção de fraudes, soluções de conformidade e outras.|
 | ![Logotipo](./media/partner-gallery/itsme-logo.png) | o [ITSM](./partner-itsme.md) é uma solução de identificação digital em conformidade com os serviços de autenticação e confiança (eiDAS) para permitir que os usuários se conectem com segurança sem leitores de cartão, senhas, autenticação de dois fatores e vários códigos de PIN. |
+| ![Logotipo](./media/partner-gallery/lexisnexis-logo.png) | O [LexisNexis](./partner-lexisnexis.md) é um provedor de validação de identidade e criação de perfil que verifica a identificação do usuário e fornece uma avaliação de risco abrangente com base no dispositivo do usuário. |
 | ![Logotipo](./media/partner-gallery/trusona-logo.png) | A integração do [Trusona](./partner-trusona.md) ajuda você a entrar com segurança e permite a autenticação sem senha, a autenticação multifator e a verificação de licença digital.|
 | ![Logotipo](./media/partner-gallery/twilio-logo.png) | [Twilio Verify app](./partner-twilio.md) fornece várias soluções para habilitar a MFA (autenticação multifator) por meio de OTP (senha de uso único) do SMS, uma senha de uso único baseada em tempo (TOTP) e notificações por push e para atender aos requisitos de SCA para a diretiva de serviços de pagamento 2 (PSD2).|
 | ![Logotipo](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) é um provedor de verificação de identidade e de provação com base no padrão de digitação do usuário, fornece soluções de verificação de ID que forçam a autenticação multifator e ajuda a cumprir os requisitos de SCA para a diretiva 2 de serviços de pagamento (PSD2). |

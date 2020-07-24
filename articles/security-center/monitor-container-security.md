@@ -8,11 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 76bf38c9d15e977b39922fdfbc7d30f533707cda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f558aaa367d156a8a4fa8633f113c6480236f5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801369"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038607"
 ---
 # <a name="monitor-the-security-of-your-containers"></a>Monitorar a segurança de seus contêineres
 
@@ -35,13 +36,11 @@ Esta página explica como usar os recursos de segurança do contêiner descritos
 
 1. Para disparar a verificação de uma imagem, envie-a por push para o registro. 
 
-    Quando a verificação for concluída (normalmente após aproximadamente 10 minutos), as descobertas estarão disponíveis nas recomendações da central de segurança.
-    
+    Quando a verificação for concluída (normalmente após aproximadamente 2 minutos, mas pode ter até 15 minutos), as descobertas estarão disponíveis como recomendações da central de segurança como esta:
 
 1. Para exibir as descobertas, vá para a página **recomendações** . Se forem encontrados problemas, você verá a seguinte recomendação:
 
     ![Recomendação para corrigir problemas ](media/monitor-container-security/acr-finding.png)
-
 
 1. Selecione a recomendação. 
     A página detalhes da recomendação é aberta com informações adicionais. Essas informações incluem a lista de registros com imagens vulneráveis ("recursos afetados") e as etapas de correção. 

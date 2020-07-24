@@ -6,32 +6,16 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8fce451d9b806d2fa9a4f3d9e1c117de0aaa9fc0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bdde2076039a6f7687e06edef6dfd6f6f5148ce4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530972"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044141"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemas conhecidos no Azure digital gêmeos
 
 Este artigo fornece informações sobre problemas conhecidos associados ao Azure digital gêmeos.
-
-## <a name="managing-event-routes-in-the-azure-portal"></a>Gerenciando rotas de eventos no portal do Azure
-
-Se você tiver entrado no portal com um [**MSA (conta Microsoft pessoal)**](https://account.microsoft.com/account/Account), como uma *@outlook.com* conta, verá uma tela informando *que precisa de permissão para exibir as rotas de eventos* ao tentar gerenciar as rotas de eventos no portal, independentemente do seu nível de permissão.
-
-:::image type="content" source="media/troubleshoot-known-issues/event-route-need-permission.png" alt-text="Captura de tela da portal do Azure do erro de permissão ao tentar criar rotas de eventos em uma instância do gêmeos digital do Azure":::
-
-### <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
-
-Os usuários que atualmente não conseguem gerenciar rotas de eventos no portal ainda podem gerenciar rotas de eventos usando a CLI ou APIs do gêmeos digital do Azure. Alternar para uma dessas ferramentas para o gerenciamento de rota de eventos é a estratégia recomendada para atenuar esse problema.
-
-As instruções para isso podem ser encontradas em [*como: gerenciar pontos de extremidade e rotas*](how-to-manage-routes.md).
-
-### <a name="possible-causes"></a>Possíveis causas
-
-Você entrou no portal com um [MSA (conta Microsoft pessoal)](https://account.microsoft.com/account/Account), como uma *@outlook.com* conta. O gerenciamento de rotas de eventos no portal do Azure está atualmente disponível apenas para usuários do Azure em contas de domínio corporativo.
 
 ## <a name="400-client-error-bad-request-in-cloud-shell"></a>"erro de cliente 400: solicitação inadequada" em Cloud Shell
 

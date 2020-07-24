@@ -6,13 +6,14 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 05/11/2020
-ms.openlocfilehash: 4d0d56dc4d6e7fa7765439e7387d67bb80a6ec9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a31c089971b7e70e70c5906480deb2b17c197b9f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124628"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043611"
 ---
-# <a name="known-issues"></a>Problemas conhecidos #
+# <a name="known-issues"></a>Problemas Conhecidos #
 
 A versão atual tem os seguintes problemas conhecidos:
 
@@ -49,7 +50,7 @@ A versão atual tem os seguintes problemas conhecidos:
 
 - Os ativos que são somente áudio não serão reproduzidos por meio do AzureHtml5JS Tech.
   - Se você quiser reproduzir ativos sem áudio, poderá fazê-lo inserindo áudio em branco usando a [ferramenta do Gerenciador de serviços de mídia do Azure](https://aka.ms/amse)
-  - Instruções sobre como inserir áudio silencioso podem ser encontradas [aqui](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
+  - Instruções sobre como inserir áudio silencioso podem ser encontradas [aqui](../previous/media-services-advanced-encoding-with-mes.md#silent_audio)
 
 ## <a name="flash"></a>Piscando ##
 

@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens
-ms.openlocfilehash: bbf2039ad695f332b69bd5429ff527a4a2534e26
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 3ec2a0e38f3bead5fbab8a119099bb5bbc3ded2e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026977"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042110"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Usando pontos de extremidade privados para configuração de Azure App
 
@@ -22,9 +22,6 @@ O uso de pontos de extremidade privados para seu repositório de configuração 
 - Proteja os detalhes de configuração do aplicativo Configurando o firewall para bloquear todas as conexões com a configuração do aplicativo no ponto de extremidade público.
 - Aumente a segurança para a VNet (rede virtual) garantindo que os dados não escapem da VNet.
 - Conecte-se com segurança ao repositório de configurações do aplicativo de redes locais que se conectam à VNet usando [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [expressroute ao qual](../expressroute/expressroute-locations.md) com emparelhamento privado.
-
-> [!NOTE]
-> A funcionalidade de ponto de extremidade privada agora está disponível em todas as regiões *, exceto* na Índia central. Na região da **Índia central** , Azure app configuração oferece o uso de pontos de extremidade privados como uma visualização pública. As ofertas de visualização pública permitem que os clientes experimentem os novos recursos antes do lançamento oficial.  Os serviços e recursos de visualização pública não são destinados ao uso em produção.
 
 ## <a name="conceptual-overview"></a>Visão geral conceitual
 

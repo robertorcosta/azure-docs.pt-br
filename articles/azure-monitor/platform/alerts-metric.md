@@ -6,11 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: cefccd08ea66638f08f00e280fe2704444a7f916
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b535cda8fe7d98748eb0657a599a61ed1f8549d2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79369379"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045371"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor
 
@@ -89,7 +90,7 @@ O procedimento a seguir descreve como criar uma regra de alerta de métrica no p
 
 ## <a name="with-azure-cli"></a>Com a CLI do Azure
 
-As seções anteriores descreveram como criar, exibir e gerenciar regras de alerta de métrica usando portal do Azure. Esta seção descreve como fazer o mesmo usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) de multiplataforma. O modo mais rápido de começar a usar a CLI do Azure é com o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). Para este artigo, usaremos Cloud Shell.
+As seções anteriores descreveram como criar, exibir e gerenciar regras de alerta de métrica usando portal do Azure. Esta seção descreve como fazer o mesmo usando a [CLI do Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) de multiplataforma. O modo mais rápido de começar a usar a CLI do Azure é com o [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest). Para este artigo, usaremos Cloud Shell.
 
 1. Vá para portal do Azure, clique em **Cloud Shell**.
 
@@ -139,4 +140,3 @@ As seções anteriores descreveram como criar, exibir e gerenciar regras de aler
 - [Compreender como os alertas de métrica funcionam](alerts-metric-overview.md).
 - [Entender como funcionam os alertas de métrica com a condição de Limites Dinâmicos](alerts-dynamic-thresholds.md).
 - [Compreender o esquema de web hook para alertas de métrica](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
-

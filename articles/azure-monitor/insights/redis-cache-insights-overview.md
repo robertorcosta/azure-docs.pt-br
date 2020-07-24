@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/21/2020
-ms.openlocfilehash: 469b402c694bcfae5a826c03ea35dbef2c365148
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70bf39011761bcf59c8270ecdcc0542e326aef42
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945402"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045864"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Explorar o Azure Monitor para Cache do Azure para Redis (versão prévia)
 
@@ -120,7 +120,7 @@ Quando você seleciona **Falhas** na parte superior da página, a tabela **Falha
 
 ### <a name="metric-definitions"></a>Definições de Métrica
 
-Para obter uma lista completa das definições de métrica que compõem essas pastas de trabalho, confira o [artigo sobre métricas disponíveis e intervalos de relatório](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals).
+Para obter uma lista completa das definições de métrica que compõem essas pastas de trabalho, confira o [artigo sobre métricas disponíveis e intervalos de relatório](../../azure-cache-for-redis/cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
 ## <a name="view-from-an-azure-cache-for-redis-resource"></a>Exibição de um recurso do Cache do Azure para Redis
 
@@ -156,7 +156,7 @@ Selecionar qualquer uma das outras guias para **Desempenho** ou **Operações** 
 
 ## <a name="pin-export-and-expand"></a>Fixar, exportar e expandir
 
-Para fixar qualquer seção de métrica em um [painel do Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards), selecione o símbolo de alfinete na parte superior direita da seção.
+Para fixar qualquer seção de métrica em um [painel do Azure](../../azure-portal/azure-portal-dashboards.md), selecione o símbolo de alfinete na parte superior direita da seção.
 
 ![Uma seção de métrica com o símbolo de alfinete realçado](./media/cosmosdb-insights-overview/pin.png)
 
@@ -186,6 +186,6 @@ Para obter diretrizes de solução de problemas, consulte o artigo dedicado de s
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Configure [alertas de métrica](../platform/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications.md) para configurar alertas automatizados que auxiliam na detecção de problemas.
+* Configure [alertas de métrica](../platform/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications-portal.md) para configurar alertas automatizados que auxiliam na detecção de problemas.
 
 * Conheça os cenários compatíveis com as pastas de trabalho, como criar ou personalizar relatórios e muito mais, examinando [Criar relatórios interativos com pastas de trabalho do Azure Monitor](../platform/workbooks-overview.md).

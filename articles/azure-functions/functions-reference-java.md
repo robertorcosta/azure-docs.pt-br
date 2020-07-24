@@ -3,20 +3,26 @@ title: Referência do desenvolvedor de Java para o Azure Functions
 description: Entenda como desenvolver funções usando Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 339615ac99f231fd293a7ea15c853d43da8f998a
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: f1c2c3a3b6c28813cc9ecd9eb794e26e1e60d5e2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057595"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041535"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia do desenvolvedor de Java do Azure Functions
 
-O runtime do Azure Functions dá suporte ao [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/). Este guia contém informações sobre as complexidades de escrever Azure Functions com Java.
+Este guia contém informações detalhadas para ajudá-lo a desenvolver com sucesso Azure Functions usando o Java.
 
-Como acontece com outras linguagens, um Aplicativo de funções pode ter uma ou mais funções. Uma função Java é um método `public`, decorado com a anotação `@FunctionName`. Esse método define a entrada para uma função Java e deve ser exclusivo em um pacote específico. Um Aplicativo de funções escrito em Java pode ter várias classes com vários métodos públicos anotados com `@FunctionName`.
+Como desenvolvedor de Java, se você for novo no Azure Functions, considere primeiro ler um dos seguintes artigos:
 
-Este artigo pressupõe que você já tenha lido a [Referência do desenvolvedor do Azure Functions](functions-reference.md). Você também deve concluir um dos seguintes guias de início rápido do Functions: [Criar sua primeira função Java usando o Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java) ou [Criar sua primeira função Java na linha de comando com o Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).
+| Introdução | Conceitos| 
+| -- | -- |  
+| <ul><li>[Função Java usando Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java)</li><li>[Função Java/Maven com terminal/prompt de comando](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java)</li><li>[Função Java usando gradle](functions-create-first-java-gradle.md)</li><li>[Função Java usando o eclipse](functions-create-maven-eclipse.md)</li><li>[Função Java usando a ideia IntelliJ](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Guia do desenvolvedor](functions-reference.md)</li><li>[Opções de hospedagem](functions-scale.md)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li></ul> |
+
+## <a name="java-function-basics"></a>Noções básicas da função Java
+
+Uma função Java é um método `public`, decorado com a anotação `@FunctionName`. Esse método define a entrada para uma função Java e deve ser exclusivo em um pacote específico. O pacote pode ter várias classes com vários métodos públicos anotados com `@FunctionName` . Um único pacote é implantado em um aplicativo de funções no Azure. Ao executar no Azure, o aplicativo de funções fornece a implantação, execução e contexto de gerenciamento para suas funções Java individuais.
 
 ## <a name="programming-model"></a>Modelo de programação 
 
@@ -48,7 +54,7 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-Para começar a usar esse arquétipo, confira o [Início rápido do Java](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java). 
+Para começar a usar esse arquétipo, confira o [Início rápido do Java](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java). 
 
 ## <a name="folder-structure"></a>Estrutura de pastas
 
@@ -87,7 +93,7 @@ Você pode colocar mais de uma função em um projeto. Evite colocar suas funç�
 Use as anotações Java incluídas no pacote [com.microsoft.azure.functions.annotation. *](/java/api/com.microsoft.azure.functions.annotation) para ligar entradas e saídas a seus métodos. Para obter mais informações, confira os [documentos de referência Java](/java/api/com.microsoft.azure.functions.annotation).
 
 > [!IMPORTANT] 
-> Você precisa configurar uma conta de Armazenamento do Azure em [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) para executar localmente os gatilhos de armazenamento de Blob do Azure, armazenamento de Filas do Azure ou Armazenamento de Tabelas do Azure.
+> Você precisa configurar uma conta de Armazenamento do Azure em [local.settings.json](./functions-run-local.md#local-settings-file) para executar localmente os gatilhos de armazenamento de Blob do Azure, armazenamento de Filas do Azure ou Armazenamento de Tabelas do Azure.
 
 Exemplo:
 
@@ -125,9 +131,58 @@ Aqui está o `function.json` correspondente gerado pelo [azure-functions-maven-p
 
 ```
 
+## <a name="java-versions"></a>Versões do Java
+
+_O suporte para Java 11 está atualmente em visualização_
+
+A versão do Java usada durante a criação do aplicativo de funções no qual as funções são executadas no Azure é especificada no arquivo de pom.xml. O arquétipo Maven atualmente gera um pom.xml para Java 8, que você pode alterar antes da publicação. A versão do Java no pom.xml deve corresponder à versão na qual você desenvolveu e testou localmente seu aplicativo. 
+
+### <a name="supported-versions"></a>Versões com suporte
+
+A tabela a seguir mostra as versões Java com suporte atuais para cada versão principal do tempo de execução do functions, por sistema operacional:
+
+| Versão do Functions | Versões Java (Windows) | Versões Java (Linux) |
+| ----- | ----- | --- |
+| 3.x | 11 (versão prévia)<br/>8<sup>\*</sup> | 11 (versão prévia)<br/>8 |
+| 2. x | 8 | N/D |
+
+<sup>\*</sup>Esse é o padrão atual do pom.xml gerado pelo arquétipo Maven.
+
+### <a name="specify-the-deployment-version"></a>Especificar a versão de implantação
+
+Atualmente, o arquétipo do Maven gera um pom.xml que tem como alvo o Java 8. Os seguintes elementos no pom.xml precisam ser atualizados para criar um aplicativo de funções que executa o Java 11.
+
+| Elemento |  Valor de Java 8 | Valor do Java 11 | Descrição |
+| ---- | ---- | ---- | --- |
+| **`Java.version`** | 1.8 | 11 | Versão do Java usada pelo plug-in Maven-Compiler-. |
+| **`JavaVersion`** | 8 | 11 | Versão do Java hospedada pelo aplicativo de funções no Azure. |
+
+Os exemplos a seguir mostram as configurações para Java 8 nas seções relevantes do arquivo pom.xml:
+
+#### `Java.version`
+:::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="12-19" highlight="14":::
+
+#### `JavaVersion`
+:::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="77-85" highlight="80":::
+
+> [!IMPORTANT]
+> Você deve ter a variável de ambiente JAVA_HOME definida corretamente para o diretório do JDK que é usado durante a compilação de código usando o Maven. Certifique-se de que a versão do JDK seja pelo menos tão alta quanto a `Java.version` configuração. 
+
+### <a name="specify-the-deployment-os"></a>Especificar o so de implantação
+
+O Maven também permite especificar o sistema operacional no qual seu aplicativo de funções é executado no Azure. Use o `os` elemento para escolher o sistema operacional. 
+
+| Elemento |  Windows | Linux | Docker |
+| ---- | ---- | ---- | --- |
+| **`os`** | windows | Linux | docker |
+
+O exemplo a seguir mostra a configuração do sistema operacional na `runtime` seção do arquivo pom.xml:
+
+:::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="77-85" highlight="79":::
+ 
 ## <a name="jdk-runtime-availability-and-support"></a>Suporte e disponibilidade de runtime do JDK 
 
-Para o desenvolvimento local de aplicativos de funções Java, baixe e use os JDKs Java 8 [Azul Zulu Enterprise para Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) do[Azul Systems](https://www.azul.com/downloads/azure-only/zulu/). O Azure Functions usa o runtime do JDK Java 8 da Azul quando você implanta seus aplicativos de funções na nuvem.
+Para o desenvolvimento local de aplicativos de funções Java, baixe e use o [azul Zulu Enterprise para o Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java JDKs dos [sistemas azul](https://www.azul.com/downloads/azure-only/zulu/). Azure Functions usa um tempo de execução de Java JDK azul quando você implanta seu aplicativo de funções na nuvem.
 
 O [Suporte do Azure](https://azure.microsoft.com/support/) está disponível para solucionar problemas com os JDKs e os aplicativos de funções com um [plano de suporte qualificado](https://azure.microsoft.com/support/plans/).
 
@@ -334,7 +389,7 @@ Você invoca essa função em uma HttpRequest. Ela grava vários valores no arma
 
 ## <a name="metadata"></a>Metadados
 
-Poucos gatilhos enviam [gatilhos de metadados](/azure/azure-functions/functions-triggers-bindings) juntamente com dados de entrada. Você pode usar a anotação `@BindingName` para associar aos metadados do gatilho.
+Poucos gatilhos enviam [gatilhos de metadados](./functions-triggers-bindings.md) juntamente com dados de entrada. Você pode usar a anotação `@BindingName` para associar aos metadados do gatilho.
 
 
 ```Java

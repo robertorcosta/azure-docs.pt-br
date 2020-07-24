@@ -5,20 +5,21 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 01/21/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2812b535c7aef7987db7106bfa6b07e15a1b61c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fa47c81aede9de5d083f16f9e1705f687ad39a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81263379"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046438"
 ---
-# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorar e melhorar a limitação para reduzir a latência no Azure Time Series Insights
+# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights-gen1"></a>Monitorar e mitigar a limitação para reduzir a latência no Azure Time Series Insights Gen1
 
 Quando a quantidade de dados de entrada excede a configuração do ambiente, você pode enfrentar latência ou limitação no Azure Time Series Insights.
 
@@ -26,14 +27,14 @@ Quando a quantidade de dados de entrada excede a configuração do ambiente, voc
 
 Provavelmente, você enfrentará latência e limitação quando:
 
-- Adicionar uma origem de evento que contém os dados antigos que podem exceder a taxa de entrada alocada (o Time Series Insights precisará ser atualizado).
+- Adicione uma origem de evento que contenha dados antigos que possam exceder sua taxa de entrada alocada (Azure Time Series Insights precisará ser atualizada).
 - Adicionar mais origens de evento em um ambiente, resultando em um pico de eventos adicionais (que poderá exceder a capacidade do ambiente).
-- Enviar por push grandes quantidades de eventos históricos para uma origem de evento, resultando em um retardo (o Time Series Insights precisará ser atualizado).
+- Envie grandes quantidades de eventos históricos para uma origem de evento, resultando em um atraso (Azure Time Series Insights precisará ser atualizado).
 - Unir os dados de referência com a telemetria, resultando em um tamanho de evento maior. O tamanho máximo de pacote permitido é 32 KB; pacotes de dados maiores que 32 KB são truncados.
 
 ## <a name="video"></a>Vídeo
 
-### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Saiba mais sobre o comportamento de entrada de dados Time Series Insights e como planejar para ele.</br>
+### <a name="learn-about-azure-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Saiba mais sobre o comportamento de entrada de dados Azure Time Series Insights e como planejar para ele.</br>
 
 > [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
@@ -41,9 +42,9 @@ Provavelmente, você enfrentará latência e limitação quando:
 
 Os alertas podem ajudá-lo a diagnosticar e atenuar problemas de latência que ocorrem em seu ambiente.
 
-1. No portal do Azure, selecione o ambiente do Time Series Insights. Em seguida, selecione **alertas**.
+1. Na portal do Azure, selecione seu ambiente de Azure Time Series Insights. Em seguida, selecione **alertas**.
 
-   [![Adicionar um alerta ao seu ambiente de Time Series Insights](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
+   [![Adicionar um alerta ao seu ambiente de Azure Time Series Insights](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
 
 1. Selecione **+ Nova regra de alerta**. O painel **criar regra** será exibido. Selecione **Adicionar** em **condição**.
 
@@ -73,7 +74,7 @@ Os alertas podem ajudá-lo a diagnosticar e atenuar problemas de latência que o
 
 ## <a name="throttling-and-ingress-management"></a>Limitação e gerenciamento de entrada
 
-* Se você estiver sendo limitado, um valor para o *intervalo de tempo de mensagens recebidas de entrada* será registrado informando a você sobre quantos segundos por trás do ambiente de análise de séries temporais são do tempo real em que a mensagem atinge a origem do evento (excluindo o tempo de indexação do Appx. 30-60 segundos).  
+* Se você estiver sendo limitado, um valor para o *retardo de tempo de mensagens recebidas de entrada* será registrado informando a você como há muitos segundos atrás do ambiente de Azure Time Series insights do tempo real em que a mensagem atinge a origem do evento (excluindo o tempo de indexação de Appx. 30-60 segundos).  
 
   *Retardo de contagem de mensagens recebidas de entrada* também deve ter um valor, permitindo que você determine a quantas mensagens atrás você está.  A maneira mais fácil de alcançar é aumentar a capacidade do seu ambiente para um tamanho que permitirá superar a diferença.  
 
@@ -83,7 +84,7 @@ Os alertas podem ajudá-lo a diagnosticar e atenuar problemas de latência que o
 
   Por exemplo, se você tiver três unidades S1 provisionadas (ou 2.100 eventos por capacidade de entrada por minuto), poderá definir um alerta **Eventos de Entrada Armazenados** para >= 1.900 eventos por 2 horas. Caso você esteja excedendo esse limite constantemente e, portanto, disparando o alerta, provavelmente, está com um provisionamento insuficiente.  
 
-* Se você suspeitar que está sendo limitado, poderá comparar as **mensagens de entrada recebidas** com as mensagens de saída da origem do evento.  Se a entrada no Hub de Eventos for maior que as **Mensagens de Entrada Recebidas**, provavelmente, o Time Series Insights está sendo limitado.
+* Se você suspeitar que está sendo limitado, poderá comparar as **mensagens de entrada recebidas** com as mensagens de saída da origem do evento.  Se a entrada no Hub de eventos for maior do que as **mensagens de entrada recebidas**, suas Azure Time Series insights provavelmente estão sendo limitadas.
 
 ## <a name="improving-performance"></a>Melhorando o desempenho
 
@@ -93,6 +94,6 @@ Para reduzir a limitação ou a latência enfrentada, a melhor maneira de corrig
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia sobre como [diagnosticar e resolver problemas em seu ambiente de time Series insights](time-series-insights-diagnose-and-solve-problems.md).
+- Leia sobre como [diagnosticar e resolver problemas em seu ambiente de Azure Time Series insights](time-series-insights-diagnose-and-solve-problems.md).
 
-- Saiba [como dimensionar seu ambiente de time Series insights](time-series-insights-how-to-scale-your-environment.md).
+- Saiba [como dimensionar seu ambiente de Azure Time Series insights](time-series-insights-how-to-scale-your-environment.md).

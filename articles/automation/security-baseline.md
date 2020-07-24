@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 88f06bd30c97f857cd5a81068322a95c480a7b34
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 3b86c249630f7bfa5c2d319577c66d750b0f6268
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187414"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045915"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Linha de base de segurança do Azure para automação
 
@@ -376,7 +376,7 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 **Diretrizes**: sempre que possível, use o SSO com Azure Active Directory em vez de configurar credenciais autônomas individuais por serviço. Use as recomendações de gerenciamento de acesso e identidade da central de segurança do Azure.
 
-* [Logon único para aplicativos no Azure Active Directory](../active-directory/manage-apps/what-is-single-sign-on.md)
+* [Logon único em aplicativos no Azure Active Directory](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 * [Como monitorar identidade e acesso na Central de Segurança do Azure](../security-center/security-center-identity-access.md)
 
@@ -918,7 +918,7 @@ Ao usar o recurso Hybrid Runbook Worker, use a recomendação da central de segu
 
 * [Compreendendo os efeitos do Azure Policy](../governance/policy/concepts/effects.md)
 
-* [Implantar uma conta de automação usando um modelo de Azure Resource Manager](./automation-create-account-template.md#deploy-the-template)
+* [Implantar uma conta de automação usando um modelo de Azure Resource Manager](./quickstart-create-automation-account-template.md#deploy-the-template)
 
 * [Azure Policy os internos de exemplo para a automação do Azure](./policy-samples.md)
 
@@ -1064,7 +1064,7 @@ Ao usar o recurso de Hybrid Runbook Worker, use a configuração de estado de au
 
 **Diretriz**: implemente o verificador de credenciais para identificar credenciais no código. O verificador de credenciais também encorajará a migração de credenciais descobertas para locais mais seguros, como o Azure Key Vault.
 
-* [Como configurar o verificador de credenciais](https://secdevtools.azurewebsites.net/helpcredscan.htm)
+* [Como configurar o verificador de credenciais](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -1124,7 +1124,7 @@ Use o recurso de integração de controle do código-fonte para manter seus runb
 
 * [Referência de modelo de Azure Resource Manager para recursos de automação do Azure](/azure/templates/microsoft.automation/allversions)
 
-* [Criar uma conta de Automação usando um modelo do Azure Resource Manager](./automation-create-account-template.md)
+* [Criar uma conta de Automação usando um modelo do Azure Resource Manager](./quickstart-create-automation-account-template.md)
 
 * [Exportação única e de vários recursos para um modelo no portal do Azure](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1150,7 +1150,7 @@ Use o recurso de integração de controle do código-fonte para manter seus runb
 
 * [Referência de modelo de Azure Resource Manager para recursos de automação do Azure](/azure/templates/microsoft.automation/allversions)
 
-* [Criar uma conta de Automação usando um modelo do Azure Resource Manager](./automation-create-account-template.md)
+* [Criar uma conta de Automação usando um modelo do Azure Resource Manager](./quickstart-create-automation-account-template.md)
 
 * [Exportação única e de vários recursos para um modelo no portal do Azure](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1230,9 +1230,9 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Responsabilidade**: Cliente
 
-### <a name="103-test-security-response-procedures"></a>10.3: Testar procedimentos de resposta de segurança
+### <a name="103-test-security-response-procedures"></a>10.3: testar procedimentos de resposta de segurança
 
-**Diretriz**: Conduza regularmente exercícios para testar os recursos de resposta a incidentes de seus sistemas para ajudar a proteger seus recursos do Azure. Identifique pontos fracos e lacunas e revise o plano conforme necessário.
+**Orientação**: conduza exercícios para testar os recursos de resposta a incidentes de seus sistemas em uma cadência regular para ajudar a proteger seus recursos do Azure. Identifique pontos fracos e lacunas e revise o plano conforme necessário.
 
 * [Publicação do NIST - Guia para testar, treinar e exercitar programas para planos de TI e capacidades](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 

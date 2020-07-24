@@ -4,14 +4,14 @@ description: Problemas comuns com Azure Monitor alertas de métrica e possíveis
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 07/15/2020
+ms.date: 07/21/2020
 ms.subservice: alerts
-ms.openlocfilehash: 0d569facb6c2b58222980cfa1488de3b1f5fb60f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 98cd7a4d31f4d7053426f44dd02a876759688cc7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515760"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045228"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solucionando problemas em alertas de métrica Azure Monitor 
 
@@ -32,7 +32,7 @@ Se você acredita que um alerta de métrica deve ter sido acionado, mas não foi
 
 2. Disparado **mas sem notificação** -examine a [lista de alertas acionados](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) para ver se você pode localizar o alerta acionado. Se você puder ver o alerta na lista, mas tiver um problema com algumas de suas ações ou notificações, consulte mais informações [aqui](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
 
-3. **Já ativo** -Verifique se já há um alerta acionado na série temporal de métricas para a qual você esperava receber um alerta. Os alertas de métricas são monitorados, o que significa que, uma vez que um alerta é disparado em uma série temporal específica, alertas adicionais nessa série de tempo não são acionados até que o problema não seja mais observado. Essa opção de design reduz o ruído. O alerta é resolvido automaticamente quando a condição de alerta não é atendida por três avaliações consecutivas.
+3. **Já ativo** -Verifique se já há um alerta acionado na série temporal de métricas para a qual você esperava receber um alerta. Os alertas de métricas são com estado, o que significa que, uma vez que um alerta é acionado em uma série temporal de métrica específica, alertas adicionais nessa série temporal não serão acionados até que o problema não seja mais observado. Essa opção de design reduz o ruído. O alerta é resolvido automaticamente quando a condição de alerta não é atendida por três avaliações consecutivas.
 
 4. **Dimensões usadas** -se você tiver selecionado alguns [valores de dimensão para uma métrica](./alerts-metric-overview.md#using-dimensions), a regra de alerta monitorará cada série temporal de métrica individual (conforme definido pela combinação de valores de dimensão) para uma violação de limite. Para monitorar também a série temporal da métrica agregada (sem nenhuma dimensão selecionada), configure uma regra de alerta adicional na métrica sem selecionar dimensões.
 
@@ -47,7 +47,7 @@ Se você acredita que seu alerta de métrica não deveria ter sido acionado, mas
 1. Examine a [lista de alertas acionados](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) para localizar o alerta acionado e clique para exibir seus detalhes. Examine as informações fornecidas sob **por que o alerta foi acionado?** para ver o gráfico de métrica, o **valor de métrica**e o **valor de limite** no momento em que o alerta foi disparado.
 
     > [!NOTE] 
-    > Se você estiver usando o tipo de condição de Limites dinâmicos e acha que os limites usados não estavam corretos, faça comentários usando o ícone de rosto triste. Esses comentários afetarão a pesquisa de algoritmos do Machine Learning e ajudarão a melhorar as detecções futuras.
+    > Se você estiver usando um tipo de condição de limites dinâmicos e considerar que os limites usados não estavam corretos, forneça comentários usando o ícone de rosto triste. Esses comentários afetarão a pesquisa de algoritmos do Machine Learning e ajudarão a melhorar as detecções futuras.
 
 2. Se você tiver selecionado vários valores de dimensão para uma métrica, o alerta será disparado quando **qualquer** uma das séries temporais de métricas (conforme definido pela combinação de valores de dimensão) violar o limite. Para obter mais informações sobre como usar dimensões em alertas de métrica, consulte [aqui](./alerts-metric-overview.md#using-dimensions).
 
@@ -67,7 +67,7 @@ Se você acredita que seu alerta de métrica não deveria ter sido acionado, mas
 
 ## <a name="cant-find-the-metric-to-alert-on---virtual-machines-guest-metrics"></a>Não é possível encontrar a métrica para alertar sobre as métricas de convidado de máquinas virtuais
 
-Para alertar sobre as métricas do sistema operacional convidado de máquinas virtuais (por exemplo, memória, espaço em disco), verifique se você instalou o agente necessário para coletar esses dados para Azure Monitor métricas:
+Para alertar sobre as métricas do sistema operacional convidado de máquinas virtuais (por exemplo: memória, espaço em disco), verifique se você instalou o agente necessário para coletar esses dados para Azure Monitor métricas:
 - [Para VMs do Windows](./collect-custom-metrics-guestos-resource-manager-vm.md)
 - [Para VMs do Linux](./collect-custom-metrics-linux-telegraf.md)
 
@@ -106,12 +106,35 @@ Os alertas de métricas são monitorados por padrão e, portanto, alertas adicio
 > [!NOTE] 
 > Fazer uma regra de alerta de métrica sem monitoração de estado impede que os alertas disparados se tornem resolvidos, mesmo depois que a condição não for mais satisfeita, os alertas disparados permanecerão em um estado disparado até o período de retenção
 
+## <a name="define-an-alert-rule-on-a-custom-metric-that-isnt-emitted-yet"></a>Definir uma regra de alerta em uma métrica personalizada que ainda não foi emitida
+
+Ao criar uma regra de alerta de métrica, o nome da métrica é validado em relação à [API de definições de métrica](https://docs.microsoft.com/rest/api/monitor/metricdefinitions/list) para verificar se ela existe. Em alguns casos, você gostaria de criar uma regra de alerta em uma métrica personalizada mesmo antes de ela ser emitida. Por exemplo, ao criar (usando um modelo ARM) um recurso Application Insights que emitirá uma métrica personalizada, juntamente com uma regra de alerta que monitora essa métrica.
+
+Para evitar a falha da implantação ao tentar validar as definições da métrica personalizada, você pode usar o parâmetro *skipMetricValidation* na seção critérios da regra de alerta, o que fará com que a validação da métrica seja ignorada. Consulte o exemplo abaixo para saber como usar esse parâmetro em um modelo do ARM (para obter exemplos de modelos do ARM completos para criar regras de alerta de métrica, consulte [aqui]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)).
+
+```json
+"criteria": {
+    "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+        "allOf": [
+            {
+                    "name" : "condition1",
+                        "metricName": "myCustomMetric",
+                "metricNamespace": "myCustomMetricNamespace",
+                        "dimensions":[],
+                        "operator": "GreaterThan",
+                        "threshold" : 10,
+                        "timeAggregation": "Average",
+                    "skipMetricValidation": true
+        }
+              ]
+        }
+```
 
 ## <a name="metric-alert-rules-quota-too-small"></a>Cota de regras de alerta de métrica muito pequena
 
 O número permitido de regras de alerta de métrica por assinatura está sujeito aos [limites de cota](../service-limits.md).
 
-Se você tiver atingido o limite de cota, as etapas a seguir podem ajudar a resolver o problema:
+Se você atingiu o limite de cota, as etapas a seguir podem ajudar a resolver o problema:
 1. Tente excluir ou desabilitar as regras de alerta de métricas que não são mais usadas.
 
 2. Alterne para o uso de regras de alerta de métrica que monitoram vários recursos. Com esse recurso, uma única regra de alerta pode monitorar vários recursos usando apenas uma regra de alerta contada em relação à cota. Para obter mais informações sobre esse recurso e os tipos de recursos com suporte, consulte [aqui](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
@@ -133,7 +156,7 @@ Para verificar o uso atual de regras de alerta de métrica, siga as etapas abaix
 3. Certifique-se de não filtrar para um grupo de recursos, tipo de recurso ou recurso específico
 4. No controle suspenso **tipo de sinal** , selecione **métricas**
 5. Verifique se o controle DropDown de **status** está definido como **habilitado**
-6. O número total de regras de alerta de métricas é exibido acima da lista de regras
+6. O número total de regras de alerta de métricas é exibido acima da lista de regras de alerta
 
 ### <a name="from-api"></a>Na API
 
@@ -152,7 +175,7 @@ Se você estiver executando problemas para criar, atualizar, recuperar ou exclui
 
 ### <a name="rest-api"></a>API REST
 
-Examine o [guia da API REST](/rest/api/monitor/metricalerts/) para verificar se você está transmitindo todos os parâmetros corretamente
+Examine o [guia da API REST](/rest/api/monitor/metricalerts/) para verificar se você está passando todos os parâmetros corretamente
 
 ### <a name="powershell"></a>PowerShell
 
@@ -171,13 +194,13 @@ Verifique se você está usando os comandos da CLI corretos para alertas de mét
 
 ### <a name="general"></a>Geral
 
-- Caso esteja recebendo um erro de `Metric not found`:
+- Se você estiver recebendo um `Metric not found` erro:
 
    - Para uma métrica de plataforma: Verifique se você está usando o nome da **métrica** na [página Azure monitor métricas com suporte](./metrics-supported.md)e não o **nome de exibição da métrica**
 
    - Para uma métrica personalizada: Verifique se a métrica já está sendo emitida (não é possível criar uma regra de alerta em uma métrica personalizada que ainda não exista) e que você está fornecendo o namespace da métrica personalizada (consulte um exemplo de modelo ARM [aqui](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
 
-- Caso esteja criando [alertas de métrica em logs](./alerts-metric-logs.md), verifique se as dependências apropriadas estão incluídas. Confira o [modelo de exemplo](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+- Se você estiver criando [alertas de métricas em logs](./alerts-metric-logs.md), verifique se as dependências apropriadas estão incluídas. Confira o [modelo de exemplo](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 - Se você estiver criando uma regra de alerta que contenha vários critérios, observe as seguintes restrições:
 
@@ -197,7 +220,7 @@ Para criar uma regra de alerta de métrica, você precisará ter as seguintes pe
 
 ## <a name="naming-restrictions-for-metric-alert-rules"></a>Restrições de nomenclatura para regras de alerta de métrica
 
-Observe as seguintes restrições para nomes de regra de alerta de métrica:
+Considere as seguintes restrições para nomes de regra de alerta de métrica:
 
 - Nomes de regra de alerta de métrica não podem ser alterados (renomeados) depois de criados
 - Os nomes de regra de alerta de métrica devem ser exclusivos em um grupo de recursos
@@ -209,10 +232,10 @@ Observe as seguintes restrições para nomes de regra de alerta de métrica:
 
 Os alertas de métricas dão suporte a alertas em métricas multidimensionais, bem como suporte para definir várias condições (até 5 condições por regra de alerta).
 
-Observe as seguintes restrições ao usar dimensões em uma regra de alerta que contém várias condições:
-1. Você só pode selecionar um valor por dimensão dentro de cada condição.
-2. Você não pode usar a opção "selecionar todos os valores atuais e futuros" (selecione \* ).
-3. Quando as métricas que são configuradas em condições diferentes dão suporte à mesma dimensão, um valor de dimensão configurado deve ser definido explicitamente da mesma forma para todas essas métricas (nas condições relevantes).
+Considere as seguintes restrições ao usar dimensões em uma regra de alerta que contenha várias condições:
+- Você só pode selecionar um valor por dimensão dentro de cada condição.
+- Você não pode usar a opção "selecionar todos os valores atuais e futuros" (selecione \* ).
+- Quando as métricas que são configuradas em condições diferentes dão suporte à mesma dimensão, um valor de dimensão configurado deve ser definido explicitamente da mesma forma para todas essas métricas (nas condições relevantes).
 Por exemplo:
     - Considere uma regra de alerta de métrica que é definida em uma conta de armazenamento e monitora duas condições:
         * Total de **transações** > 5
