@@ -9,11 +9,11 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 633b1b9fb47bde171efbcb56d632cd16bb6095b4
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 3e4e6ab2823f1d9685e62657d00db19310ccd82f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75928150"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544903"
 ---
-Caso prefira começar a usar agora, exiba ou baixe todos os <a href="https://aka.ms/speech/github-csharp">Exemplos do SDK de Fala do C#</a> no GitHub. Caso contrário, vamos começar.
+Veja ou baixe todas as <a href="https://aka.ms/speech/github-csharp">Amostras em C# do SDK de Fala</a> no GitHub. 

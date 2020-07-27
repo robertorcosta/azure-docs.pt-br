@@ -1,5 +1,5 @@
 ---
-title: Backup do Azure Key Vault | Microsoft Docs
+title: Fazer backup de um segredo, uma chave ou um certificado armazenado no Azure Key Vault | Microsoft Docs
 description: Use este documento para ajudar a fazer backup de um segredo, uma chave ou um certificado armazenado no Azure Key Vault.
 services: key-vault
 author: ShaneBala-keyvault
@@ -10,111 +10,114 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: sudbalas
-ms.openlocfilehash: 8a152e2771f0b207e81f42c6ecae2e4d14605051
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 76ceba11ffeb5569e250fab6bc47fe8faf019361
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156266"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521098"
 ---
 # <a name="azure-key-vault-backup"></a>Backup do Azure Key Vault
 
-Este documento mostrará como executar um backup dos segredos, das chaves e dos certificados individuais armazenados no cofre de chaves. Esse backup destina-se a fornecer uma cópia offline de todos os segredos no caso improvável de você perder o acesso ao cofre de chaves.
+Este documento mostra como fazer backup de segredos, chaves e certificados armazenados no cofre de chaves. Um backup destina-se a fornecer uma cópia offline de todos os segredos no caso improvável de você perder o acesso ao cofre de chaves.
 
 ## <a name="overview"></a>Visão geral
 
-O Key Vault fornece automaticamente vários recursos para manter a disponibilidade e evitar a perda de dados. Esse backup deverá ser tentado apenas se houver uma justificativa comercial crítica para manter um backup dos seus segredos. O backup de segredos no cofre de chaves pode apresentar desafios operacionais adicionais, como a manutenção de vários conjuntos de logs, permissões e backups quando os segredos expiram ou giram.
+O Azure Key Vault fornece automaticamente vários recursos para ajudar você a manter a disponibilidade e evitar a perda de dados. Faça backup dos segredos somente se você tiver uma justificativa comercial crítica. O backup de segredos no cofre de chaves pode introduzir desafios operacionais, como a manutenção de vários conjuntos de logs, permissões e backups quando os segredos expiram ou são girados.
 
-O Key Vault mantém a disponibilidade em cenários de desastre e fará automaticamente o failover das solicitações para uma região emparelhada sem exigir nenhuma intervenção por parte do usuário. Para obter mais informações, confira o link a seguir. [Recuperação de desastre do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance)
+O Key Vault mantém a disponibilidade em cenários de desastre e fará automaticamente o failover das solicitações para uma região emparelhada sem exigir nenhuma intervenção por parte do usuário. Para obter mais informações, confira [Disponibilidade e redundância do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).
 
-O Key Vault protege contra exclusão acidental e mal-intencionada de seus segredos por meio de proteção contra limpeza e exclusão reversível. Se você quiser proteção contra exclusão acidental ou mal-intencionada de seus segredos, configure a exclusão reversível e limpe os recursos de proteção no cofre de chaves. Para obter mais informações, confira o documento a seguir. [Recuperação do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)
+Caso deseje obter proteção contra a exclusão acidental ou mal-intencionada de segredos, configure a exclusão temporária e limpe os recursos de proteção no cofre de chaves. Para obter mais informações, confira [Visão geral da exclusão temporária do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete).
 
 ## <a name="limitations"></a>Limitações
 
-No momento, o Azure Key Vault não dá suporte a um modde fazer backup de um cofre de chaves inteiro em uma operação. Qualquer tentativa de usar os comandos listados neste documento para executar um backup automatizado de um cofre de chaves não terá suporte da Microsoft nem da equipe do Azure Key Vault.
+No momento, o Key Vault não fornece uma forma de fazer backup de todo um cofre de chaves em uma só operação. Qualquer tentativa de usar os comandos listados neste documento para fazer um backup automatizado de um cofre de chaves poderá resultar em erros e não terá suporte da Microsoft nem da equipe do Azure Key Vault. 
 
-A tentativa de usar os comandos mostrados no documento abaixo para criar a automação personalizada pode resultar em erros.
+Considere também as seguintes consequências:
 
-* O backup de segredos com várias versões pode causar erros de tempo limite.
-* O backup cria um instantâneo pontual. Os segredos podem ser renovados durante um backup, causando uma incompatibilidade de chaves de criptografia.
-* Exceder os limites de serviço do cofre de chaves para solicitações por segundo fará com que o cofre de chaves seja limitado e causará falha no backup.
+* O backup de segredos que têm várias versões poderá causar erros de tempo limite.
+* Um backup cria um instantâneo pontual. Os segredos podem ser renovados durante um backup, causando incompatibilidade das chaves de criptografia.
+* Se você exceder os limites de serviço do cofre de chaves de solicitações por segundo, o cofre de chaves será restrito e o backup falhará.
 
 ## <a name="design-considerations"></a>Considerações sobre o design
 
-Quando você faz backup de um objeto armazenado no Key Vault (segredo, chave ou certificado), a operação de backup baixa o objeto como um blob criptografado. Este blob não pode ser descriptografado fora do Azure. Para obter dados utilizáveis desse blob, você deve restaurar o blob em um cofre de chaves na mesma Assinatura do Azure e Geografia do Azure.
-[Geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
+Quando você fizer backup de um objeto do cofre de chaves, como um segredo, uma chave ou um certificado, a operação de backup baixará o objeto como um blob criptografado. Esse blob não poderá ser descriptografado fora do Azure. Para obter dados utilizáveis desse blob, restaure o blob em um cofre de chaves na mesma assinatura e [geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Nível de colaborador ou permissões mais altas em uma assinatura do Azure
-* Um cofre de chave primária que contém segredos dos quais você deseja fazer backup
+Para fazer backup de um objeto do cofre de chaves, você precisará ter: 
+
+* Permissões no nível de colaborador ou superiores em uma assinatura do Azure.
+* Um cofre de chaves primário que contenha os segredos que você deseja copiar em backup.
 * Um cofre de chaves secundário em que os segredos serão restaurados.
 
-## <a name="back-up-and-restore-with-azure-portal"></a>Fazer backup e restaurar com o portal do Azure
+## <a name="back-up-and-restore-from-the-azure-portal"></a>Backup e restauração por meio do portal do Azure
+
+Siga as etapas desta seção para fazer backup de objetos e restaurá-los usando o portal do Azure.
 
 ### <a name="back-up"></a>Fazer backup
 
-1. Navegue até o Portal do Azure.
+1. Vá para o portal do Azure.
 2. Selecione seu cofre de chaves.
-3. Navegue até o objeto (segredo, chave ou certificado) do qual você deseja fazer backup.
+3. Acesse o objeto (segredo, chave ou certificado) que deseja copiar em backup.
 
-    ![Imagem](../media/backup-1.png)
+    ![Captura de tela mostrando o local de seleção da configuração de Chaves e um objeto em um cofre de chaves.](../media/backup-1.png)
 
 4. Selecione o objeto.
-5. Selecione "Baixar Backup"
+5. Selecione **Baixar Backup**.
 
-    ![Imagem](../media/backup-2.png)
+    ![Captura de tela mostrando o local de seleção do botão Baixar Backup em um cofre de chaves.](../media/backup-2.png)
     
-6. Clique no botão "Baixar".
+6. Selecione **Baixar**.
 
-    ![Imagem](../media/backup-3.png)
+    ![Captura de tela mostrando o local de seleção do botão Baixar em um cofre de chaves.](../media/backup-3.png)
     
 7. Armazene o blob criptografado em uma localização segura.
 
 ### <a name="restore"></a>Restaurar
 
-1. Navegue até o Portal do Azure.
+1. Vá para o portal do Azure.
 2. Selecione seu cofre de chaves.
-3. Navegue até o tipo de objeto (segredo, chave ou certificado) que você deseja restaurar.
-4. Selecione "Restaurar Backup"
+3. Acesse o tipo de objeto (segredo, chave ou certificado) que deseja restaurar.
+4. Selecione **Restaurar Backup**.
 
-    ![Imagem](../media/backup-4.png)
+    ![Captura de tela mostrando o local de seleção de Restaurar Backup em um cofre de chaves.](../media/backup-4.png)
     
-5. Navegue até a localização em que você armazenou o blob criptografado.
-6. Selecione "Ok".
+5. Acesse a localização em que você armazenou o blob criptografado.
+6. Selecione **OK**.
 
-## <a name="back-up-and-restore-with-the-azure-cli"></a>Fazer backup e restaurar com a CLI do Azure
+## <a name="back-up-and-restore-from-the-azure-cli"></a>Backup e restauração por meio da CLI do Azure
 
 ```azurecli
-## Login To Azure
+## Log in to Azure
 az login
 
-## Set your Subscription
+## Set your subscription
 az account set --subscription {AZURE SUBSCRIPTION ID}
 
-## Register Key Vault as a Provider
+## Register Key Vault as a provider
 az provider register -n Microsoft.KeyVault
 
-## Backup a Certificate in Key Vault
+## Back up a certificate in Key Vault
 az keyvault certificate backup --file {File Path} --name {Certificate Name} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Backup a Key in Key Vault
+## Back up a key in Key Vault
 az keyvault key backup --file {File Path} --name {Key Name} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Backup a Secret in Key Vault
+## Back up a secret in Key Vault
 az keyvault secret backup --file {File Path} --name {Secret Name} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Restore a Certificate in Key Vault
+## Restore a certificate in Key Vault
 az keyvault certificate restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Restore a Key in Key Vault
+## Restore a key in Key Vault
 az keyvault key restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Restore a Secret in Key Vault
+## Restore a secret in Key Vault
 az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Ative o registro em log e o monitoramento para seu Azure Key Vault. [Logs do Cofre da Chave do Azure](https://docs.microsoft.com/azure/key-vault/general/logging)
+Ative o [log e o monitoramento](https://docs.microsoft.com/azure/key-vault/general/logging) para o Key Vault.

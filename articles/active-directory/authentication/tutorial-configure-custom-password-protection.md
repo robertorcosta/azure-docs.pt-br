@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/27/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4abb15462689470c87e9cf5ba8d5be8af2e45bfd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 642082b3fe23e0d007e21409062fe8e777728cc3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78253116"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518532"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Tutorial: Configurar senhas proibidas personalizadas para proteção de senha do Azure Active Directory
 
@@ -36,12 +36,12 @@ Para concluir este tutorial, você precisará dos seguintes recursos e privilég
     * Se necessário, [crie um gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Uma conta com privilégios de *administrador global*.
 * Um usuário que não seja administrador com uma senha que você conheça, como *testuser*. Você testará um evento de alteração de senha usando essa conta neste tutorial.
-    * Se você precisar criar um usuário, confira [Início rápido: Adicionar novos usuários ao Azure Active Directory](../add-users-azure-active-directory.md).
+    * Se você precisar criar um usuário, confira [Início rápido: Adicionar novos usuários ao Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
     * Para testar a operação de alteração de senha usando uma senha proibida, o locatário do Azure AD precisará ser [configurado para a redefinição de senha por autoatendimento](tutorial-enable-sspr.md).
 
 ## <a name="what-are-banned-password-lists"></a>O que são listas de senhas proibidas?
 
-O Azure AD inclui uma lista global de senhas proibidas. O conteúdo da lista global de senhas proibidas não se baseia em nenhuma fonte de dados externa. Em vez disso, a lista global de senhas proibidas se baseia nos resultados contínuos da telemetria e da análise de segurança do Azure AD. Quando um usuário ou um administrador tenta alterar ou redefinir as respectivas credenciais, a senha desejada é verificada em relação à lista de senhas proibidas. A solicitação de alteração de senha falhará se houver uma correspondência na lista global de senhas proibidas.
+O Azure AD inclui uma lista global de senhas proibidas. O conteúdo da lista global de senhas proibidas não se baseia em nenhuma fonte de dados externa. Em vez disso, a lista global de senhas proibidas se baseia nos resultados contínuos da telemetria e da análise de segurança do Azure AD. Quando um usuário ou um administrador tenta alterar ou redefinir as respectivas credenciais, a senha desejada é verificada em relação à lista de senhas proibidas. A solicitação de alteração de senha falhará se houver uma correspondência na lista global de senhas proibidas. Não é possível editar essa lista global padrão de senhas proibidas.
 
 Para oferecer flexibilidade em quais senhas são permitidas, você também pode definir uma lista personalizada de senhas proibidas. A lista personalizada de senhas proibidas funciona junto com a lista global de senhas proibidas para impor senhas fortes na sua organização. Os termos específicos da organização podem ser adicionados à lista personalizada de senhas proibidas, como os seguintes exemplos:
 
@@ -91,7 +91,7 @@ Em um ambiente híbrido, você também pode [implantar a proteção de senha do 
 Para ver a lista personalizada de senhas proibidas em ação, tente alterar a senha para uma variação de uma que você adicionou na seção anterior. Quando o Azure AD tenta processar a alteração de senha, é feita a correspondência da senha em relação a uma entrada na lista personalizada de senhas proibidas. Um erro é então exibido para o usuário.
 
 > [!NOTE]
-> Antes que o usuário possa redefinir a senha no portal baseado na Web, o locatário do Azure AD precisa ser [configurado para a redefinição de senha por autoatendimento](tutorial-enable-sspr.md).
+> Antes que o usuário possa redefinir a senha no portal baseado na Web, o locatário do Azure AD precisa ser [configurado para a redefinição de senha por autoatendimento](tutorial-enable-sspr.md). Se necessário, o usuário poderá [se registrar na SSPR em https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).
 
 1. Acesse a página **Meus Aplicativos** em [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. No canto superior direito, selecione o seu nome e, em seguida, escolha **Perfil** no menu suspenso.

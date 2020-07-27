@@ -5,24 +5,29 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 04/24/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: a25fe090c88d2540bdf63cd6479d25b879090a38
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 70a73cb1f855840831f2e1107baa94dfd54868a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202551"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518480"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Habilitar o write-back da redefinição de senha por autoatendimento do Azure Active Directory para um ambiente local
 
 Com a SSPR (redefinição de senha por autoatendimento) do Azure AD (Azure Active Directory), os usuários podem atualizar as respectivas senhas ou desbloquear as respectivas contas usando um navegador da Web. Em um ambiente híbrido em que o Azure AD está conectado a um ambiente local do AD DS (Active Directory Domain Services), esse cenário pode fazer com que as senhas sejam diferentes entre os dois diretórios.
 
 O write-back de senha pode ser usado para sincronizar alterações de senha no Azure AD de volta para seu ambiente local do AD DS. O Azure AD Connect fornece um mecanismo seguro para enviar essas alterações de senha do Azure AD de volta para um diretório local existente.
+
+> [!IMPORTANT]
+> Este tutorial mostra como um administrador pode habilitar a redefinição de senha por autoatendimento novamente para um ambiente local. Se você for um usuário final já registrado para redefinição de senha por autoatendimento e precisar voltar à sua conta, vá para https://aka.ms/sspr.
+>
+> Se sua equipe de TI não tiver habilitado a capacidade de redefinir sua própria senha, entre em contato com sua assistência técnica para obter mais assistência.
 
 Neste tutorial, você aprenderá como:
 
@@ -35,7 +40,7 @@ Neste tutorial, você aprenderá como:
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
-* Um locatário do Azure AD em funcionamento com pelo menos uma licença de avaliação Premium P1 ou P2 do Azure AD habilitada.
+* Um locatário funcional do Azure AD com, pelo menos, uma licença de avaliação do Azure AD Premium P1 habilitada.
     * Se necessário, [crie um gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * Para obter mais informações, confira [Requisitos de licenciamento para o SSPR do Azure AD](concept-sspr-licensing.md).
 * Uma conta com privilégios de *administrador global*.
@@ -43,7 +48,7 @@ Para concluir este tutorial, você precisará dos seguintes recursos e privilég
     * Se necessário, [conclua o tutorial anterior para habilitar o SSPR do Azure AD](tutorial-enable-sspr.md).
 * Um ambiente local do AD DS existente configurado com uma versão atual do Azure AD Connect.
     * Se necessário, configure o Azure AD Connect usando as configurações [Expressas](../hybrid/how-to-connect-install-express.md) ou [Personalizadas](../hybrid/how-to-connect-install-custom.md).
-    * Para usar o write-back de senha, os controladores de domínio precisam ser o Windows Server 2012 ou posterior.
+    * Para usar o write-back de senha, os controladores de domínio precisam executar o Windows Server 2012 ou posterior.
 
 ## <a name="configure-account-permissions-for-azure-ad-connect"></a>Configurar permissões de conta para Azure AD Connect
 
@@ -54,11 +59,9 @@ Para trabalhar corretamente com o write-back do SSPR, a conta especificada no Az
 * **Redefinir senha**
 * **Permissões de gravação** em `lockoutTime`
 * **Permissões de gravação** em `pwdLastSet`
-* **Direitos estendidos** para "Não permitir expiração de senha" em um dos seguintes:
-   * O objeto raiz de *cada domínio* na floresta
-   * As unidades organizacionais (OUs) do usuário que você deseja que estejam no escopo para SSPR
+* **Direitos estendidos** para "Não permitir expiração da senha" no objeto raiz de *cada domínio* nessa floresta, caso ainda não estejam definidos.
 
-Se você não atribuir essas permissões, mesmo que o write-back pareça estar configurado corretamente, os usuários verão erros ao tentar gerenciar as respectivas senhas locais na nuvem. As permissões precisam ser aplicadas para que **esse objeto e todos os objetos descendentes** de "Não Permitir Expiração de Senha" sejam exibidos.  
+Se você não atribuir essas permissões, o write-back poderá parecer estar configurado corretamente, mas os usuários receberão erros ao tentar gerenciar as respectivas senhas locais na nuvem. As permissões precisam ser aplicadas para que **esse objeto e todos os objetos descendentes** de "Não Permitir Expiração de Senha" sejam exibidos.  
 
 > [!TIP]
 >
@@ -74,7 +77,7 @@ Para configurar as permissões apropriadas para que ocorra o write-back de senha
 1. Na lista suspensa **Aplica-se a**, selecione os **objetos de Usuário Descendente**.
 1. Em *Permissões*, selecione a caixa para a seguinte opção:
     * **Redefinir senha**
-1. Em *Permissões*, marque as caixas das opções a seguir. Você precisa percorrer a lista para encontrar essas opções, que podem já estar definidas por padrão:
+1. Em *Permissões*, marque as caixas das opções a seguir. Role a lista para encontrar essas opções, que podem já estar definidas por padrão:
     * **Gravar lockoutTime**
     * **Gravar pwdLastSet**
 
@@ -89,13 +92,13 @@ As políticas de senha no ambiente local do AD DS podem impedir que as redefini�
 Se você atualizar a política de grupo, aguarde a política atualizada ser replicada ou use o comando `gpupdate /force`.
 
 > [!Note]
-> Para que as senhas sejam alteradas imediatamente, o write-back de senha precisa ser definido como 0. No entanto, se os usuários aderirem às políticas locais e a *Duração mínima da senha* for definida como um valor maior que zero, o write-back de senha continuará funcionando depois que as políticas locais forem avaliadas. 
+> Para que as senhas sejam alteradas imediatamente, o write-back de senha precisará ser definido como 0. No entanto, se os usuários obedecerem às políticas locais e o *Tempo de vida mínimo da senha* for definido com um valor maior que zero, o write-back de senha continuará funcionando depois que as políticas locais forem avaliadas.
 
 ## <a name="enable-password-writeback-in-azure-ad-connect"></a>Habilitar write-back de senha no Azure AD Connect
 
 Uma das opções de configuração no Azure AD Connect é para o write-back de senha. Quando essa opção é habilitada, os eventos de alteração de senha fazem o Azure AD Connect sincronizar as credenciais atualizadas de volta para o ambiente local do AD DS.
 
-Para habilitar o write-back de redefinição de senha por autoatendimento, primeiro habilite a opção de write-back no Azure AD Connect. Em seu servidor de Azure AD Connect, conclua as seguintes etapas:
+Para habilitar o write-back de SSPR, primeiro habilite a opção de write-back no Azure AD Connect. Em seu servidor de Azure AD Connect, conclua as seguintes etapas:
 
 1. Entre no servidor do Azure AD Connect e inicie o assistente de configuração do **Azure AD Connect**.
 1. Na página de **Boas-vindas**, selecione **Configurar**.

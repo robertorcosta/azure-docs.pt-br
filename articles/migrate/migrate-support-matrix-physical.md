@@ -3,12 +3,12 @@ title: Suporte para avaliação de servidor físico nas migrações para Azure
 description: Saiba mais sobre o suporte para avaliação de servidor físico com a avaliação de servidor de migrações para Azure
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 226f49dc2a1603aba5eaa2f03ead32b815ac34b5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e28c1fd3dd117491360a1671955a6ec028033c01
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101683"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171617"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matriz de suporte para avaliação do servidor físico 
 
@@ -34,7 +34,7 @@ Para avaliar servidores físicos, você cria um projeto de migrações para Azur
 | **Suporte**                | **Detalhes**               
 | :-------------------       | :------------------- |
 | **Implantação de servidor físico**       | O servidor físico pode ser autônomo ou implantado em um cluster. |
-| **Permissões**           | **Windows:** Você precisa ser um administrador de domínio em todos os servidores Windows que deseja descobrir. A conta de usuário deve ser adicionada a estes grupos: Usuários de Gerenciamento Remoto, Usuários do Monitor de Desempenho e Usuários do Log de Desempenho. <br/><br/> **Linux:** Você precisa de uma conta raiz nos servidores Linux que deseja descobrir. |
+| **Permissões**           | **Windows:** Use uma conta de domínio para computadores ingressados no domínio e uma conta local para computadores que ingressaram no domínio. A conta de usuário deve ser adicionada a estes grupos: Usuários de Gerenciamento Remoto, Usuários do Monitor de Desempenho e Usuários do Log de Desempenho. <br/><br/> **Linux:** Você precisa de uma conta raiz nos servidores Linux que deseja descobrir. |
 | **Sistema operacional** | Todos os sistemas operacionais, exceto o Windows Server 2003 e o SUSE Linux, podem ser avaliados quanto à migração. |
 
 

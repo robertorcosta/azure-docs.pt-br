@@ -1,6 +1,6 @@
 ---
-title: Atualizações de serviço de pool de hosts da Área de Trabalho Virtual do Windows – Azure
-description: Como criar um pool de host de validação para monitorar atualizações de serviço antes de distribuir atualizações para a produção.
+title: Atualizações de serviço do pool de host da Área de Trabalho Virtual do Windows (outono de 2019) – Azure
+description: Saiba como criar um pool de host de validação para monitorar as atualizações de serviço antes de distribuí-las para produção.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fe6b047d10b8aef8faf81365cae940b05b3d798c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 806c3396d9188ea6abc5f779a26d99247d802ebe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117734"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527568"
 ---
-# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Criar um pool de hosts para validar as atualizações de serviço
+# <a name="tutorial-create-a-host-pool-to-validate-service-updates-fall-2019-release"></a>Tutorial: Criar um pool de host para validar as atualizações de serviço (versão de outono de 2019)
 
 >[!IMPORTANT]
 >Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../create-validation-host-pool.md).

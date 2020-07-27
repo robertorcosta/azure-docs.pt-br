@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/01/2019
+ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: b8935dd4138095aa9b8e84ddf75c06307f9ce00d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f14ac279f14feb3f83490ab96965d4355bed125
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483628"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169440"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para o Azure NetApp Files
 
@@ -42,7 +42,7 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
 * Usuário/grupo local e suporte LDAP para NFSv 4.1  
   Atualmente, o NFSv 4.1 dá suporte ao acesso raiz somente a volumes. Consulte [Configurar o domínio padrão do nfsv 4.1 para Azure NetApp files](azure-netapp-files-configure-nfsv41-domain.md). 
 
-## <a name="best-practice"></a>Melhor prática
+## <a name="best-practice"></a>Prática recomendada
 
 * Você deve garantir que está usando as instruções de montagem adequadas para o volume.  Confira [montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
 
@@ -76,7 +76,7 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
         O campo **cota disponível** mostra a quantidade de espaço não utilizado no pool de capacidade escolhido que você pode usar para a criação de um novo volume. O tamanho do novo volume não pode exceder a cota disponível.  
 
     * **Rede virtual**  
-        Especifique a rede virtual (VNet) do Azure da qual você deseja acessar o volume.  
+        Especifique a VNet (rede virtual) do Azure da qual você deseja acessar o volume.  
 
         A VNET especificada precisa ter uma sub-rede delegada ao Azure NetApp Files. O serviço Azure NetApp Files pode ser acessado somente na mesma VNET ou em uma VNET que esteja na mesma região do volume por meio do emparelhamento VNET. Também é possível acessar o volume na rede local por meio do ExpressRoute.   
 
@@ -89,6 +89,12 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
         ![Criar um volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Criar sub-rede](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * Se você quiser aplicar uma política de instantâneo existente ao volume, clique em **Mostrar seção avançada** para expandi-la e selecione uma política de instantâneo no menu suspenso. 
+
+        Para obter informações sobre como criar uma política de instantâneo, consulte [gerenciar instantâneos](azure-netapp-files-manage-snapshots.md).
+
+        ![Mostrar seleção avançada](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 4. Clique em **Protocolo** e, em seguida, conclua as seguintes ações:  
     * Selecione **NFS** como o tipo de protocolo para o volume.   

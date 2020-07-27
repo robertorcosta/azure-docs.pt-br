@@ -3,24 +3,27 @@ title: Analisar os custos do Azure com o Aplicativo Power BI
 description: Este artigo explica como instalar e usar o aplicativo Power BI do Gerenciamento de Custos do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/16/2020
+ms.date: 07/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 53340c72a6456b24b52cff6d7eda9d4a34db6564
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: bd5e2c999df180c80c58711a6428678b2bb4fefa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888197"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537911"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analisar os custos com o aplicativo Power BI do Gerenciamento de Custos do Azure para EA (Enterprise Agreements)
 
 Este artigo explica como instalar e usar o aplicativo Power BI do Gerenciamento de Custos do Azure. O aplicativo ajuda a analisar e gerenciar seus custos do Azure no Power BI. Você pode usar o aplicativo para monitorar custos, tendências de uso e identificar opções de otimização de custos para reduzir seus gastos.
 
-Você faz o download do aplicativo no Power BI Desktop. Você pode usar o aplicativo como está, ou pode modificá-lo para estender os filtros, exibições e visualizações padrões para personalizar as suas necessidades. Em seguida, use-o para juntar dados adicionais para criar relatórios personalizados e obter visualizações holísticas do seu custo geral de negócios.
+Você pode usar o aplicativo como está, ou pode modificá-lo para estender os filtros, exibições e visualizações padrões para personalizar as suas necessidades. Em seguida, use-o para juntar dados adicionais para criar relatórios personalizados e obter visualizações holísticas do seu custo geral de negócios.
 
 No momento, o Aplicativo Power BI do Gerenciamento de Custos do Azure dá suporte apenas a clientes com um [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
+
+> [!NOTE]
+> Os aplicativos de modelo do Power BI não dão suporte ao download do arquivo PBIX.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

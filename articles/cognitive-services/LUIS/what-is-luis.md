@@ -3,12 +3,12 @@ title: O que é Reconhecimento Vocal (LUIS)?
 description: O Reconhecimento Vocal (LUIS) é um serviço de API baseado em nuvem que aplica inteligência de aprendizado de máquina personalizado em um texto de linguagem natural de conversação do usuário prever o significado geral, e extrair informações detalhadas relevantes.
 ms.topic: overview
 ms.date: 05/05/2020
-ms.openlocfilehash: 26e1dfd5a610be9470d05080ca1559eec47196ab
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 231a6580a6776b82173865744e9e8757c2fa08f1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675986"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538030"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é Reconhecimento Vocal (LUIS)?
 
@@ -61,7 +61,7 @@ O modelo LUIS começa com categorias de intenções de usuário chamadas **[inte
 
 ## <a name="query-prediction-endpoint"></a>Ponto de extremidade de previsão da consulta
 
-Depois que o aplicativo é treinado e publicado no ponto de extremidade, o aplicativo cliente envia expressões à API de [ponto de extremidade](https://go.microsoft.com/fwlink/?linkid=2092356) da previsão publicada. A API aplica o aplicativo à expressão para análise e responde com os resultados da previsão em um formato JSON.
+Depois que o aplicativo é treinado e publicado no ponto de extremidade, o aplicativo cliente envia expressões à API de [ponto de extremidade](https://go.microsoft.com/fwlink/?linkid=2092356) da previsão publicada. A API aplica o modelo ao enunciado para análise e responde com os resultados da previsão em um formato JSON.
 
 A resposta mínima do ponto de extremidade JSON, contém a expressão de consulta e a intenção de maior pontuação. Ele também pode extrair dados, como a entidade e o sentimento geral do **Tipo de contato** seguinte.
 

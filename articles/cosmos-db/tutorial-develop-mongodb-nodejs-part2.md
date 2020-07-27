@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: f9ce90a64ca038c99fe4ba63e66f7e5abbd196f6
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: a796ae32033dbc09b1f5b888ded9ea5e1f4c457e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119164"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523478"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Criar um aplicativo Angular com a API do Azure Cosmos DB para MongoDB – criar um aplicativo Node.js Express
 
@@ -147,11 +147,11 @@ Este tutorial também requer:
 
 7. Salva todos os arquivos modificados. 
 
-8. No Visual Studio Code, clique no botão **Depurar**![Ícone de depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png), clique no botão de Engrenagem ![Botão de engrenagem no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). O novo arquivo launch.json abre no Visual Studio Code.
+8. No Visual Studio Code, clique no botão **Depurar** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png"::: e no botão de engrenagem :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png":::. O novo arquivo launch.json abre no Visual Studio Code. 
 
 8. Na linha 11 do arquivo launch.json, altere `"${workspaceFolder}\\server"` para `"program": "${workspaceRoot}/src/server/index.js"` e salve o arquivo.
 
-9. Clique no botão **Iniciar Depuração**![ícone de depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png) para executar o aplicativo.
+9. Clique no botão **Iniciar Depuração** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png"::: para executar o aplicativo.
 
     O aplicativo deve ser executado sem erros.
 

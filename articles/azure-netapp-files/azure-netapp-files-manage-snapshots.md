@@ -1,6 +1,6 @@
 ---
 title: Gerenciar instantâneos por meio do Azure NetApp Files | Microsoft Docs
-description: Descreve como criar um instantâneo para um volume ou restaurar de um instantâneo para um novo volume por meio do Azure NetApp Files.
+description: Descreve como criar e gerenciar instantâneos usando o Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,24 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/03/2020
+ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: ed13c61646bd2a6672b613964507d291a69a6821
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebbf83e1abe6140614a45bfa89570cdf19283f8f
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483594"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169628"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerenciar instantâneos por meio do Azure NetApp Files
 
-Você pode usar Azure NetApp Files para criar manualmente um instantâneo sob demanda para um volume ou restaurar de um instantâneo para um novo volume. O serviço de Azure NetApp Files não cria instantâneos de volume automaticamente.  
+Azure NetApp Files dá suporte à criação de instantâneos sob demanda e ao uso de políticas de instantâneo para agendar a criação automática de instantâneos.  Você também pode restaurar um instantâneo para um novo volume.  
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Criar um instantâneo sob demanda para um volume
 
-Você pode criar instantâneos somente sob demanda. Políticas de instantâneo não são compatíveis atualmente.
+Você pode criar instantâneos de volume sob demanda. 
 
-1.  Na folha Volume, clique em **Instantâneos**.
+1.  Vá para o volume para o qual você deseja criar um instantâneo. Clique em **instantâneos**.
 
     ![Navegar para instantâneos](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshots.png)
 
@@ -43,47 +43,109 @@ Você pode criar instantâneos somente sob demanda. Políticas de instantâneo n
 
 4. Clique em **OK**. 
 
+## <a name="manage-snapshot-policies"></a>Gerenciar políticas de instantâneo
+
+Você pode agendar para que os instantâneos de volume sejam feitos automaticamente usando políticas de instantâneo. Você também pode modificar uma política de instantâneo, conforme necessário, ou excluir uma política de instantâneo que não é mais necessária.  
+
+### <a name="create-a-snapshot-policy"></a>Criar uma política de instantâneo 
+
+Uma política de instantâneo permite que você especifique a frequência de criação de instantâneos em ciclos por hora, diários, semanais ou mensais. Você também precisa especificar o número máximo de instantâneos a serem retidos para o volume.  
+
+1.  No modo de exibição de conta do NetApp, clique em **política de instantâneo**.
+
+    ![Navegação de política de instantâneo](../media/azure-netapp-files/snapshot-policy-navigation.png)
+
+2.  Na janela política de instantâneo, defina estado da política como **habilitado**. 
+
+3.  Clique na guia por **hora**, **dia**, **semana**ou **mês** para criar políticas de instantâneo por hora, diárias, semanais ou mensais. Especifique o **número de instantâneos a serem mantidos**.  
+
+    Consulte [limites de recursos para Azure NetApp files](azure-netapp-files-resource-limits.md) sobre o número máximo de instantâneos permitidos para um volume. 
+
+    O exemplo a seguir mostra a configuração de política de instantâneo por hora. 
+
+    ![Política de instantâneo por hora](../media/azure-netapp-files/snapshot-policy-hourly.png)
+
+    O exemplo a seguir mostra a configuração de política de instantâneo diária.
+
+    ![Política de instantâneo diária](../media/azure-netapp-files/snapshot-policy-daily.png)
+
+    O exemplo a seguir mostra a configuração de política de instantâneo semanal.
+
+    ![Política de instantâneo semanal](../media/azure-netapp-files/snapshot-policy-weekly.png)
+
+    O exemplo a seguir mostra a configuração de política de instantâneo mensal.
+
+    ![Política de instantâneo mensal](../media/azure-netapp-files/snapshot-policy-monthly.png) 
+
+4.  Clique em **Save** (Salvar).  
+
+Se você precisar criar políticas de instantâneo adicionais, repita a etapa 3.
+As políticas que você criou aparecem na página política de instantâneo.
+
+Se desejar que um volume use a política de instantâneo, você precisará [aplicar a política ao volume](azure-netapp-files-manage-snapshots.md#apply-a-snapshot-policy-to-a-volume). 
+
+### <a name="apply-a-snapshot-policy-to-a-volume"></a>Aplicar uma política de instantâneo a um volume
+
+Se desejar que um volume use uma política de instantâneo que você criou, você precisará aplicar a política ao volume. 
+
+1.  Vá para a página **volumes** , clique com o botão direito do mouse no volume ao qual você deseja aplicar uma política de instantâneo e selecione **Editar**.
+
+    ![Menu com o botão direito em volumes](../media/azure-netapp-files/volume-right-cick-menu.png) 
+
+2.  Na janela Editar, em **política de instantâneo**, selecione uma política a ser usada para o volume.  Clique em **OK** para aplicar a política.  
+
+    ![Edição de política de instantâneo](../media/azure-netapp-files/snapshot-policy-edit.png) 
+
+### <a name="modify-a-snapshot-policy"></a>Modificar uma política de instantâneo 
+
+Você pode modificar uma política de instantâneo existente para alterar o estado da política, a frequência do instantâneo (por hora, diariamente, semanalmente ou mensalmente) ou o número de instantâneos a serem mantidos.  
+ 
+1.  No modo de exibição de conta do NetApp, clique em **política de instantâneo**.
+
+2.  Clique com o botão direito do mouse na política de instantâneo que você deseja modificar e selecione **Editar**.
+
+    ![Política de instantâneo-menu do clique com o botão direito](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
+
+3.  Faça as alterações na janela política de instantâneo exibida e clique em **salvar**. 
+
+### <a name="delete-a-snapshot-policy"></a>Excluir uma política de instantâneo 
+
+Você pode excluir uma política de instantâneo que não deseja mais manter.   
+
+1.  No modo de exibição de conta do NetApp, clique em **política de instantâneo**.
+
+2.  Clique com o botão direito do mouse na política de instantâneo que você deseja modificar e selecione **excluir**.
+
+    ![Política de instantâneo-menu do clique com o botão direito](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
+
+3.  Clique em **Sim** para confirmar que deseja excluir a política de instantâneo.   
+
+    ![Confirmação de exclusão de política de instantâneo](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
+
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>Restaurar um instantâneo para um novo volume
 
 No momento, você pode restaurar um instantâneo somente para um novo volume. 
-1. Vá para a folha **Gerenciar Instantâneos** da folha do Volume para exibir a lista de instantâneos. 
-2. Selecione um instantâneo para restaurar.  
-3. Clique com o botão direito do mouse no nome do instantâneo e selecione **Restaurar para o novo volume** da opção de menu.  
+1. Selecione **instantâneos** na folha volume para exibir a lista de instantâneos. 
+2. Clique com o botão direito do mouse no instantâneo a ser restaurado e selecione **restaurar para novo volume** na opção de menu.  
 
     ![Restaurar instantâneo para o novo volume](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
-4. Na janela Novo Volume, forneça informações para o novo volume:  
+3. Na janela criar um volume, forneça informações para o novo volume:  
     * **Nomes**   
         Especifique o nome para o volume que você está criando.  
         
         O nome precisa ser exclusivo em um grupo de recursos. Ele precisa ter, pelo menos, três caracteres.  Deve usar qualquer caractere alfanumérico.
 
-    * **Caminho do arquivo**     
-        Especifique o caminho do arquivo que será usado para criar o caminho de exportação para o novo volume. O caminho de exportação é usado para montar e acessar o volume.   
-        
-        Um destino de montagem é o ponto de extremidade do endereço IP do serviço NFS. Eles são gerados automaticamente.   
-        
-        O nome do caminho do arquivo pode conter apenas letras, números e hifens ("-"). O nome deve ter entre 16 e 40 caracteres. 
-
     * **Cota**  
-        Especifique a quantidade de armazenamento lógico que é alocada para o volume.  
+        Especifique a quantidade de armazenamento lógico que você deseja alocar para o volume.  
 
-        O campo **cota disponível** mostra a quantidade de espaço não utilizado no pool de capacidade escolhido que você pode usar para a criação de um novo volume. O tamanho do novo volume não pode exceder a cota disponível.
+    ![Restaurar para novo volume](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
-    *   **Rede virtual**  
-        Especifique a rede virtual (VNet) do Azure da qual você deseja acessar o volume.  
-        A VNET especificada precisa ter uma sub-rede delegada ao Azure NetApp Files. Você pode acessar o Azure NetApp Files somente na mesma VNET ou em uma VNET que esteja na mesma região do volume por meio do emparelhamento VNET. Você pode acessar o volume de sua rede local por meio da rota expressa. 
-
-    * **Sub-rede**  
-        Especifique a sub-rede que você deseja usar para o volume.  
-        A sub-rede especificada precisa ser delegada ao serviço Azure NetApp Files. Crie uma sub-rede selecionando **Criar nova** no campo Sub-rede.  
-   <!--
-    ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
-   -->
-
-5. Clique em **OK**.   
+4. Clique em **revisar + criar**.  Clique em **Criar**.   
+    O novo volume usa o mesmo protocolo usado pelo instantâneo.   
     O novo volume para o qual o instantâneo é restaurado é exibido na folha Volumes.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Compreender a hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Compreender a hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Limites de recursos do Azure NetApp Files](azure-netapp-files-resource-limits.md)

@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: cd6e075448c68b6d2c65832d128e14c016c69c7c
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 28080517a33f1bbf9bee3436493f178b60c0d161
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85601404"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523597"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obter a propriedade de cobrança das assinaturas do Azure para sua conta do MPA
 
@@ -155,6 +155,12 @@ Algumas das solicitações de transição do cliente podem exigir um processo de
 O diretório das assinaturas do Azure que são transferidas precisa corresponder ao diretório do cliente que foi selecionado ao estabelecer o relacionamento do CSP.
 
 Se esses dois diretórios não forem correspondentes, as assinaturas não poderão ser transferidas. Você precisa estabelecer um novo relacionamento de revendedor CSP com o cliente selecionando o diretório das assinaturas do Azure ou alterando o diretório das assinaturas do Azure para que correspondam ao diretório de relacionamento entre o CSP e o cliente. Para obter mais informações, confira [Associar uma assinatura existente ao Azure AD Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory).
+
+### <a name="ea-subscription-in-the-non-orgnization-directory"></a>Assinatura do EA no diretório que não são da organização
+
+As assinaturas do EA de diretórios que não são da organização podem ser transferidas, desde que o diretório tenha um relacionamento de revendedor com o CSP. Se o diretório não tiver uma relação de revendedor, você precisará verificar se tem o usuário da organização no diretório como um *administrador global* que possa aceitar o relacionamento com o parceiro. A parte do nome de domínio do nome de usuário precisa ser o nome de domínio padrão inicial "[nome de domínio]. onmicrosoft.com" ou um nome de domínio personalizado confirmado e não federado, como "contoso.com".  
+
+Para adicionar um novo usuário ao diretório, confira [Guia de início rápido: Adicionar novos usuários ao Azure Active Directory para adicionar o novo usuário ao diretório do AAD](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Verificar o acesso a um Contrato de Parceiro da Microsoft
 

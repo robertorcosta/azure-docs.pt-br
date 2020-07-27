@@ -11,14 +11,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 1f6c178c1f8813300d3473ad3b788ecd7e7b573e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: bf4e2b04c540ee5672bea6e097496ced5a0d622a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84115392"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528869"
 ---
-# <a name="use-cli-to-add-an-azure-sql-managed-instance-to-a-failover-group"></a>Usar a CLI para adicionar uma Instância Gerenciada de SQL do Azure a um grupo de failover
+# <a name="use-cli-to-create-an-azure-sql-managed-instance-to-a-failover-group"></a>Usar a CLI para criar uma Instância Gerenciada de SQL do Azure em um grupo de failover
 
 Este exemplo de script da CLI do Azure cria duas instâncias gerenciadas, adiciona-as a um grupo de failover e, em seguida, testa o failover da instância gerenciada primária para a instância gerenciada secundária.
 
@@ -46,7 +46,7 @@ az group delete --name $resource
 
 Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
-| | |
+| Comando | Descrição |
 |---|---|
 | [az network vnet](/cli/azure/network/vnet) | Comandos de rede virtual.  |
 | [az network vnet subnet](/cli/azure/network/vnet/subnet) | Comandos de sub-rede de rede virtual. |

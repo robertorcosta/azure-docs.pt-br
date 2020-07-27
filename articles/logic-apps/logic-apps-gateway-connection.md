@@ -3,15 +3,15 @@ title: Acessar fontes de dados locais
 description: Conectar-se a fontes de dados locais de aplicativos lógicos do Azure criando um recurso de gateway de dados local do Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: arthii, logicappspm
+ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
-ms.date: 02/14/2020
-ms.openlocfilehash: b216fa668483ef6fc30c1054dd4f65361ad17934
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/21/2020
+ms.openlocfilehash: 94fedc5dc6c9f420fbf14f80618a6daeefe908b2
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065949"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87172049"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conectar-se a fontes de dados locais dos Aplicativos Lógicos do Azure
 
@@ -50,15 +50,15 @@ Nos aplicativos lógicos do Azure, o gateway de dados local dá suporte aos [con
 
 O aplicativo lógico do Azure dá suporte a operações de leitura e gravação por meio do gateway de dados. No entanto, essas operações têm [limites no tamanho da carga](/data-integration/gateway/service-gateway-onprem#considerations). Embora o próprio gateway não incorra em custos adicionais, o [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md) se aplica a esses conectores e a outras operações nos aplicativos lógicos do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Você já [instalou o gateway de dados local em um computador local](../logic-apps/logic-apps-gateway-install.md).
 
 * Você está usando a [mesma conta e assinatura do Azure](../logic-apps/logic-apps-gateway-install.md#requirements) que foi usada ao instalar o gateway de dados. Essa conta do Azure deve pertencer a um único [locatário ou diretório do Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology).
 
-* A instalação do gateway ainda não está registrada e reivindicada por outro recurso de gateway do Azure.
+* A instalação do gateway ainda não está registrada e reivindicada por outro recurso de gateway do Azure existente no portal do Azure.
 
-  Ao criar um recurso de gateway no portal do Azure, você seleciona uma instalação de gateway, que vincula o recurso de gateway e apenas esse recurso de gateway. Em Aplicativos Lógicos do Azure, gatilhos e ações locais usam o recurso de gateway para se conectar a fontes de dados locais. Nesses gatilhos e ações, você seleciona sua assinatura do Azure e o recurso de gateway associado que deseja usar. Cada recurso de gateway vincula-se a apenas uma instalação de gateway, que é vinculada a apenas uma conta do Azure.
+  Ao criar um recurso de gateway no portal do Azure, você seleciona uma instalação de gateway que vincula ao recurso de gateway e somente esse recurso de gateway. Cada recurso de gateway pode vincular a apenas uma instalação de gateway, que pode ser vinculada a apenas uma conta do Azure. Em aplicativos lógicos do Azure, gatilhos locais e ações usam o recurso de gateway ao se conectarem a fontes de dados locais. Desde que você tenha acesso à assinatura, você pode selecionar entre diferentes assinaturas do Azure que estão associadas a um recurso de gateway diferente. O aplicativo lógico e o recurso de gateway não precisam usar a mesma assinatura do Azure.
 
   > [!NOTE]
   > Somente o administrador de gateway pode criar o recurso de gateway no portal do Azure. Atualmente, as entidades de serviço não têm suporte. 
@@ -107,6 +107,8 @@ Após criar o recurso de gateway e associar a assinatura do Azure a esse recurso
 1. Selecione **Conectar por meio do gateway de dados local**.
 
 1. Em **gateways**, na lista **assinaturas** , selecione sua assinatura do Azure que tenha o recurso de gateway desejado.
+
+   Desde que você tenha acesso à assinatura, você pode selecionar entre diferentes assinaturas do Azure que estão associadas a um recurso de gateway diferente. O aplicativo lógico e o recurso de gateway não precisam usar a mesma assinatura do Azure.
 
 1. Na lista **Gateway de conexão** , que mostra os recursos de gateway disponíveis em sua assinatura selecionada, selecione o recurso de gateway desejado. Cada recurso de gateway é vinculado a uma única instalação de gateway.
 

@@ -3,12 +3,12 @@ title: Avalie grandes números de VMs VMware para migração para o Azure com mi
 description: Descreve como avaliar grandes números de VMs VMware para migração para o Azure usando o serviço migrações para Azure. e
 ms.topic: how-to
 ms.date: 03/23/2020
-ms.openlocfilehash: d404583b1bad474a5e24e8c7cf060aeb80d610bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6490a5448bb68dcccd61784d149e9765107400c2
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80336864"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171909"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Avalie grandes números de VMs VMware para migração para o Azure
 
@@ -34,8 +34,10 @@ Ao planejar a avaliação de um grande número de VMs VMware, há algumas coisas
 
 - **Planejar projetos de migrações para Azure**: Descubra como implantar projetos de migrações para Azure. Por exemplo, se seus data centers estiverem em geografias diferentes, ou se você precisar armazenar metadados relacionados à migração, à avaliação ou ao migrar em uma geografia diferente, talvez precise de vários projetos. 
 - **Dispositivos de plano**: as migrações para Azure usam um dispositivo de migrações do Azure local, implantado como uma VM VMware, para descobrir continuamente as VMs. O dispositivo monitora as alterações de ambiente, como adicionar VMs, discos ou adaptadores de rede. Ele também envia metadados e dados de desempenho sobre eles para o Azure. Você precisa descobrir quantos dispositivos você precisa implantar.
-- **Planejar contas para descoberta**: o dispositivo de migrações para Azure usa uma conta com acesso a vCenter Server para descobrir VMs para avaliação e migração. Se você estiver descobrindo mais de 10.000 VMs, configure várias contas.
+- **Planejar contas para descoberta**: o dispositivo de migrações para Azure usa uma conta com acesso a vCenter Server para descobrir VMs para avaliação e migração. Se você estiver descobrindo mais de 10.000 VMs, configure várias contas, pois elas são necessárias não há nenhuma sobreposição entre VMs descobertas de dois dispositivos em um projeto. 
 
+> [!NOTE]
+> Se você estiver configurando vários dispositivos, verifique se não há nenhuma sobreposição entre as VMs nas contas do vCenter fornecidas. Uma descoberta com tal sobreposição é um cenário sem suporte. Se uma VM for descoberta por mais de um dispositivo, isso resultará em duplicatas na descoberta e em problemas, permitindo, ao mesmo tempo, a replicação para a VM usando a portal do Azure na migração de servidor.
 
 ## <a name="planning-limits"></a>Limites de planejamento
  
@@ -45,18 +47,19 @@ Use os limites resumidos nesta tabela para planejamento.
 --- | --- 
 **Projetos das Migrações para Azure** | Avalie até 35.000 VMs em um projeto.
 **Dispositivo de Migrações para Azure** | Um dispositivo pode descobrir até 10.000 VMs em um vCenter Server.<br/> Um dispositivo só pode se conectar a um único vCenter Server.<br/> Um dispositivo só pode ser associado a um único projeto de migrações para Azure.<br/>  Qualquer número de dispositivos pode ser associado a um único projeto de migrações para Azure. <br/><br/> 
-**Group** | Você pode adicionar até 35.000 VMs em um único grupo.
+**Grupo** | Você pode adicionar até 35.000 VMs em um único grupo.
 **Avaliação de migrações para Azure** | É possível avaliar até 35.000 VMs em uma única avaliação.
 
 Com esses limites em mente, aqui estão alguns exemplos de implantações:
 
 
 **servidor vCenter** | **VMs no servidor** | **Recomendação** | **Ação**
----|---|---
+---|---|---|---
 Um | < 10.000 | Um projeto de migrações para Azure.<br/> Um dispositivo.<br/> Uma conta do vCenter para descoberta. | Configure o dispositivo, conecte-se a vCenter Server com uma conta.
-Um | > 10.000 | Um projeto de migrações para Azure.<br/> Vários dispositivos.<br/> Várias contas do vCenter. | Configure o dispositivo para cada 10.000 VMs.<br/><br/> Configure as contas do vCenter e divida o inventário para limitar o acesso de uma conta a menos de 10.000 VMs.<br/> Conecte cada dispositivo ao vCenter Server com uma conta.<br/> Você pode analisar dependências entre computadores que são descobertos com dispositivos diferentes.
+Um | > 10.000 | Um projeto de migrações para Azure.<br/> Vários dispositivos.<br/> Várias contas do vCenter. | Configure o dispositivo para cada 10.000 VMs.<br/><br/> Configure as contas do vCenter e divida o inventário para limitar o acesso de uma conta a menos de 10.000 VMs.<br/> Conecte cada dispositivo ao vCenter Server com uma conta.<br/> Você pode analisar dependências entre computadores que são descobertos com dispositivos diferentes. <br/> <br/> Verifique se não há nenhuma sobreposição entre as VMs nas contas do vCenter fornecidas. Uma descoberta com tal sobreposição é um cenário sem suporte. Se uma VM for descoberta por mais de um dispositivo, isso resultará em duplicatas na descoberta e em problemas, permitindo, ao mesmo tempo, a replicação para a VM usando a portal do Azure na migração de servidor.
 Vários | < 10.000 |  Um projeto de migrações para Azure.<br/> Vários dispositivos.<br/> Uma conta do vCenter para descoberta. | Configurar dispositivos, conecte-se a vCenter Server com uma conta.<br/> Você pode analisar dependências entre computadores que são descobertos com dispositivos diferentes.
-Vários | > 10.000 | Um projeto de migrações para Azure.<br/> Vários dispositivos.<br/> Várias contas do vCenter. | Se vCenter Server descoberta < VMs 10.000, configure um dispositivo para cada vCenter Server.<br/><br/> Se vCenter Server descoberta > VMs 10.000, configure um dispositivo para cada 10.000 VMs.<br/> Configure as contas do vCenter e divida o inventário para limitar o acesso de uma conta a menos de 10.000 VMs.<br/> Conecte cada dispositivo ao vCenter Server com uma conta.<br/> Você pode analisar dependências entre computadores que são descobertos com dispositivos diferentes.
+Vários | > 10.000 | Um projeto de migrações para Azure.<br/> Vários dispositivos.<br/> Várias contas do vCenter. | Se vCenter Server descoberta < VMs 10.000, configure um dispositivo para cada vCenter Server.<br/><br/> Se vCenter Server descoberta > VMs 10.000, configure um dispositivo para cada 10.000 VMs.<br/> Configure as contas do vCenter e divida o inventário para limitar o acesso de uma conta a menos de 10.000 VMs.<br/> Conecte cada dispositivo ao vCenter Server com uma conta.<br/> Você pode analisar dependências entre computadores que são descobertos com dispositivos diferentes. <br/><br/> Verifique se não há nenhuma sobreposição entre as VMs nas contas do vCenter fornecidas. Uma descoberta com tal sobreposição é um cenário sem suporte. Se uma VM for descoberta por mais de um dispositivo, isso resultará em duplicatas na descoberta e em problemas, permitindo, ao mesmo tempo, a replicação para a VM usando a portal do Azure na migração de servidor.
+
 
 
 ## <a name="plan-discovery-in-a-multi-tenant-environment"></a>Planejar a descoberta em um ambiente multilocatário

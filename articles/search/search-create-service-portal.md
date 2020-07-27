@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/24/2020
-ms.openlocfilehash: f802ec10410d0a412e29d9ad51bb409a5d099f31
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.date: 07/14/2020
+ms.openlocfilehash: 18204777a8e61b577b257b67cdd12bed1a5534fa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562530"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529617"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Início Rápido: Criar um serviço da Pesquisa Cognitiva do Azure no portal
 
@@ -27,11 +27,11 @@ Prefere o PowerShell? Use o [modelo de serviço](https://azure.microsoft.com/res
 
 ## <a name="before-you-start"></a>Antes de começar
 
-As propriedades de serviço a seguir são corrigidas durante o tempo de vida do serviço, e a alteração delas exige um novo serviço. Ao criar um serviço, pense em como você vai usá-lo:
+As propriedades de serviço a seguir são corrigidas durante o tempo de vida do serviço; a alteração de cada uma delas exige um novo serviço. Como elas são corrigidas, considere as implicações de uso conforme você preenche cada propriedade:
 
-* nome (examine [estas sugestões](#name-the-service) de nomes de serviços)
-* camada (Gratuita, Básica ou Standard [afeta a cobrança](search-sku-tier.md) e define um limite ascendente para a capacidade)
-* região (escolha uma localização que tenha serviços relacionados. Para integração aos Serviços Cognitivos ou ao Azure Machine Learning, a colocalização de serviços na mesma região é um requisito)
+* o nome do serviço passa a fazer parte do ponto de extremidade da URL ([examine as dicas](#name-the-service) para obter nomes de serviço úteis).
+* a camada de serviço [afeta a cobrança](search-sku-tier.md) e define um limite ascendente na capacidade.
+* a região do serviço pode determinar a disponibilidade de determinados cenários. Se você estiver interessado em mineração de conhecimento e enriquecimento de IA, precisará dos Serviços Cognitivos e, possivelmente, do Azure Machine Learning na mesma região do Azure Cognitive Search.
 
 ## <a name="subscribe-free-or-paid"></a>Assinar (gratuito ou pago)
 

@@ -1,5 +1,5 @@
 ---
-title: Porta da frente do Azure
+title: 'Tutorial: Configurar o mecanismo de regras – Azure Front Door'
 description: Este artigo fornece um tutorial sobre como configurar o mecanismo de regras no portal do Azure e na CLI.
 services: frontdoor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: a931a12889cec67baf6ef2db09091c8ec581ef08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b40bb0e426571acc66d4f5f1b992fb4c6b67494a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321555"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536945"
 ---
 # <a name="configure-your-rules-engine"></a>Configurar o mecanismo de regras
 
-Este artigo fornece etapas para criar uma configuração de mecanismo de regras e sua primeira regra no portal do Azure e na CLI. 
+Este artigo fornece as etapas usadas para criar uma configuração do mecanismo de regras e a sua primeira regra no portal do Azure e na CLI. 
 
 ## <a name="configure-rules-engine-in-azure-portal"></a>Configurar o mecanismo de regras no portal do Azure
 1. Antes de criar uma configuração de mecanismo de regras, [crie uma Front Door](quickstart-create-front-door.md).
@@ -35,7 +35,7 @@ Este artigo fornece etapas para criar uma configuração de mecanismo de regras 
     > [!NOTE]
     >- Para excluir uma condição ou ação da regra, use a lixeira no lado direito da condição ou ação específica.
     > - Para criar uma regra que se aplica a todo o tráfego de entrada, não especifique nenhuma condição.
-    > - Para interromper a avaliação de regras depois que a primeira condição de correspondência for atendida, marque **parar de avaliar a regra restante**. Se essa opção estiver marcada e todas as condições de correspondência de uma regra específica forem atendidas, as regras restantes na configuração não serão executadas.  
+    > - Para interromper a avaliação de regras depois que a primeira condição de correspondência for atendida, marque **Interromper a avaliação da regra restante**. Se essa opção estiver marcada e todas as condições de correspondência de determinada regra forem atendidos, as regras restantes na configuração não serão executadas.  
 
     ![localizar o mecanismo de regras](./media/front-door-rules-engine/rules-engine-tutorial-4.png) 
 

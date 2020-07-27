@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 17bc5c6a76a270cac611ed2342ffe9e38d84bd7b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f6ea9ea3209e84d365706207db079a400fb7cb6f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75468621"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544310"
 ---
-Se você preferir começar a usar agora, exiba ou baixe todas as <a href="https://aka.ms/speech/github-python">amostras do SDK de Fala do Python</a> no GitHub. Caso contrário, vamos começar.
+Veja ou baixe todas as <a href="https://aka.ms/speech/github-python">Amostras em Python do SDK de Fala</a> no GitHub. 

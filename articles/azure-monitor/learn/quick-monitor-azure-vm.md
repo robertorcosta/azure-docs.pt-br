@@ -1,18 +1,18 @@
 ---
-title: Monitorar um recurso do Azure com o Azure Monitor
-description: Saiba como coletar e analisar dados para um recurso do Azure no Azure Monitor.
+title: Monitorar uma máquina virtual do Azure com o Azure Monitor
+description: Saiba como coletar e analisar dados para uma máquina virtual do Azure no Azure Monitor.
 ms.service: azure-monitor
 ms. subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 99e8afa0a92ba8bb53505e2519efec7baafbcf48
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 40c7b9e5a8b7c38c9468d54e69ca7a73c5f2d46b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84805112"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516389"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Início Rápido: Monitorar uma máquina virtual do Azure com o Azure Monitor
 O [Azure Monitor](../overview.md) inicia a coleta de dados das máquinas virtuais do Azure no momento em que elas são criadas. Neste guia de início rápido você obterá uma breve explicação dos dados que são coletados automaticamente para uma VM do Azure e como exibi-los no portal do Azure. Em seguida, você habilitará o [Azure Monitor para VMs](../insights/vminsights-overview.md) para sua VM, o que permitirá que os agentes na VM coletem e analisem dados do sistema operacional convidado, incluindo processos e suas dependências.
@@ -107,4 +107,4 @@ Quando você cria um workspace do Log Analytics, ele precisa ser configurado par
 Neste guia de início rápido, você habilitou o Azure Monitor para VMs para uma máquina virtual e configurou o workspace do Log Analytics para coletar eventos para o sistema operacional convidado. Para saber como exibir e analisar os dados, continue lendo o tutorial.
 
 > [!div class="nextstepaction"]
-> [Exibir ou analisar dados no Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md)
+> [Exibir ou analisar dados no Log Analytics](../log-query/get-started-portal.md)

@@ -1,5 +1,5 @@
 ---
-title: Tabelas de metadados compartilhados do Azure Synapse Analytics
+title: Tabelas de metadados compartilhados
 description: O Azure Synapse Analytics fornece um modelo de metadados compartilhados em que a criação de uma tabela no Apache Spark o tornará acessível por meio dos mecanismos SQL sob demanda (versão prévia) e pool de SQL sem duplicação dos dados.
 services: sql-data-warehouse
 author: MikeRys
@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 257847a34821ad48d0491472cf7365932f7740c0
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: d9efafdbc3545bebb3b90b3f64c14f45d8be82e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080782"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496019"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabelas de metadados compartilhados do Azure Synapse Analytics
 

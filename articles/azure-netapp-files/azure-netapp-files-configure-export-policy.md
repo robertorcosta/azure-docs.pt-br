@@ -7,21 +7,25 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 10/18/2019
-ms.openlocfilehash: e59648ee76b6715029c690329cbf8f4f1eee7243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/24/2020
+ms.openlocfilehash: 6d990b94210383ba4b30569693f4471f43306ed2
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483645"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169842"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Configurar a política de exportação para um volume do NFS
 
-Opcionalmente, você pode configurar a política de exportação para controlar o acesso a um volume de Azure NetApp Files. Azure NetApp Files política de exportação dá suporte apenas a volumes NFS.  Há suporte para NFSv3 e NFSv4. 
+Você pode configurar a política de exportação para controlar o acesso a um volume de Azure NetApp Files. Azure NetApp Files política de exportação dá suporte a volumes que usam o protocolo NFS (NFSv3 e NFSv 4.1) e o protocolo dual (NFSv3 e SMB). 
+
+Você pode criar até cinco regras de política de exportação.
 
 ## <a name="steps"></a>Etapas 
 
-1.  Clique em **Exportar política** no painel de navegação Azure NetApp files. 
+1.  Na página volumes, selecione o volume para o qual você deseja configurar a política de exportação e clique em **Exportar política**. 
+
+    Você também pode configurar a política de exportação durante a criação do volume.
 
 2.  Especifique informações para os campos a seguir para criar uma regra de política de exportação:   
     *  **Index**   
@@ -39,7 +43,11 @@ Opcionalmente, você pode configurar a política de exportação para controlar 
         * Leitura e Gravação
         * Somente leitura
 
-    ![Exportar política](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
+    * **Acesso à raiz**  
+        Especifique se a `root` conta pode acessar o volume.  Por padrão, o acesso à raiz é definido como **ativado**e a `root` conta tem acesso ao volume.
+
+        ![Exportar política](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
+
 
 
 ## <a name="next-steps"></a>Próximas etapas 

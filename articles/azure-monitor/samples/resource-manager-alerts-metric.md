@@ -1,18 +1,18 @@
 ---
-title: Criar um alerta de métrica com um modelo do Resource Manager
-description: Saiba como criar um modelo do Resource Manager para criar um alerta de métrica.
+title: Exemplos de modelo do Resource Manager para alertas de métrica
+description: Este artigo fornece modelos do Resource Manager de exemplo usados para criar alertas de métrica no Azure Monitor.
 author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 27d592a2702f9e2e8fda9094796cf2e37400621b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 793a4b3e8ea0dde2e4ad755cbff5a07a36c44cb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83853298"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515369"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Amostras de modelo do Resource Manager para regras de alerta de métrica no Azure Monitor
 
@@ -20,7 +20,7 @@ Este artigo fornece exemplos de como usar os [modelos do Azure Resource Manager]
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-Consulte [Recursos com suporte para alertas de métrica no Azure Monitor](../platform/alerts-metric-near-real-time.md) para obter uma lista de recursos que podem ser usados com as regras de alerta de métrica. Uma explicação do esquema e das propriedades de uma regra de alerta está disponível em [Alertas de métrica – Criar ou atualizar](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+Consulte [Recursos com suporte para alertas de métrica no Azure Monitor](../platform/alerts-metric-near-real-time.md) para obter uma lista de recursos que podem ser usados com as regras de alerta de métrica. Uma explicação do esquema e das propriedades de uma regra de alerta está disponível em [Alertas de métrica – Criar ou atualizar](/rest/api/monitor/metricalerts/createorupdate).
 
 > [!NOTE]
 > Modelo de recursos para criar alertas de métrica para o tipo de recurso: O espaço de trabalho do Azure Log Analytics (ou seja `Microsoft.OperationalInsights/workspaces`), requer etapas adicionais. Para obter detalhes, consulte [Alerta de métrica para logs – Modelo de recursos](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
@@ -1094,7 +1094,7 @@ Por exemplo, algumas das séries temporais em potencial que são monitoradas por
 
 Você pode usar o modelo a seguir para criar uma regra de alerta de métrica de limite estático mais avançada em uma métrica personalizada.
 
-Para saber mais sobre as métricas personalizadas no Azure Monitor, confira [Métricas personalizadas no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
+Para saber mais sobre as métricas personalizadas no Azure Monitor, confira [Métricas personalizadas no Azure Monitor](../platform/metrics-custom-overview.md).
 
 Ao criar uma regra de alerta em uma métrica personalizada, você precisará especificar o nome da métrica e o namespace da métrica. Verifique também se a métrica personalizada já está sendo relatada, pois não é possível criar uma regra de alerta em uma métrica personalizada que ainda não existe.
 
@@ -1325,7 +1325,7 @@ Salve o json abaixo como customstaticmetricalert.json para usar neste passo a pa
 
 >[!NOTE]
 >
-> Você pode encontrar o namespace de métrica de uma métrica personalizada específica [pesquisando as suas métricas personalizadas por meio do portal do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)
+> Você pode encontrar o namespace de métrica de uma métrica personalizada específica [pesquisando as suas métricas personalizadas por meio do portal do Azure](../platform/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
 
 
 ## <a name="multiple-resources"></a>Recursos múltiplos

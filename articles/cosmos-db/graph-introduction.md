@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: lbosq
-ms.openlocfilehash: 18f8be607516857d1631f43d3bef9e2ae233c995
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3dc534d1cbb195cd93ede091503222b297b17059
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248639"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523733"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introdução à API do Gremlin no Azure Cosmos DB
 
@@ -52,7 +52,7 @@ Estes são recursos diferenciados oferecidos pela API do Gremlin do Azure Cosmos
 
 * **Indexação automática**
 
-  Por padrão, o Azure Cosmos DB indexa automaticamente todas as propriedades dentro dos nós (também chamados de vértices) e bordas do grafo e não espera ou exige qualquer esquema ou criação de índices secundários. Saiba mais sobre a [indexação no Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview).
+  Por padrão, o Azure Cosmos DB indexa automaticamente todas as propriedades dentro dos nós (também chamados de vértices) e das bordas no grafo e não espera nem exige nenhum esquema ou a criação de índices secundários. Saiba mais sobre a [indexação no Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview).
 
 * **Compatibilidade com o Apache TinkerPop**
 

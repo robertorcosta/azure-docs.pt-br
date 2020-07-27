@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 99b27ec53d955079b5f73986408e698955c0969b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ed06aef4d494fbdce5a07c5bc50bad9737ba5433
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77021637"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497039"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutorial: Criar um painel do provedor do Power BI
 
 
 
-Ao criar a sua solução de monitoramento contínuo de pacientes, crie também um dashboard para a equipe de atendimento de um hospital visualizar os dados dos pacientes. Neste tutorial, você aprenderá a criar um dashboard de streaming em tempo real do Power BI com base no modelo de aplicativo de monitoramento contínuo de pacientes do IoT Central.
+Ao criar a sua solução de monitoramento contínuo de pacientes, crie também um dashboard para a equipe de atendimento de um hospital visualizar os dados dos pacientes. Neste tutorial, você aprenderá a criar um dashboard de streaming em tempo real do Power BI com base no modelo de aplicativo de monitoramento contínuo de pacientes do IoT Central. Se o caso de uso não exigir acesso a dados em tempo real, você poderá usar o [Dashboard do Power BI do IoT Central](../core/howto-connect-powerbi.md), que tem um processo de implantação simplificado. 
 
 >[!div class="mx-imgBorder"]
 >![GIF do dashboard](media/dashboard-gif-3.gif)

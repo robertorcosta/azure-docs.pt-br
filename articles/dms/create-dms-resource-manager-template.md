@@ -1,30 +1,34 @@
 ---
 title: Criar instância do DMS (modelo do Azure Resource Manager)
-description: Saiba como criar um Serviço de Migração de Banco de Dados usando o modelo do Azure Resource Manager.
+description: Saiba como criar um Serviço de Migração de Banco de Dados usando um modelo do ARM (Azure Resource Manager).
 author: MashaMSFT
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: dms
-ms.openlocfilehash: 9e0d537a948e960c90737cc3f367940a0ffca74c
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: dbc09c3fa1dc1878d4feea5c5e7fd8b68e0c11f1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852448"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537438"
 ---
-# <a name="create-instance-of-azure-database-migration-service-azure-resource-manager-template"></a>Criar instância do Serviço de Migração de Banco de Dados do Azure (modelo do Azure Resource Manager)
+# <a name="quickstart-create-instance-of-azure-database-migration-service-using-arm-template"></a>Início Rápido: Criar uma instância do Serviço de Migração de Banco de Dados do Azure usando um modelo do ARM
 
-Use esse modelo do Azure Resource Manager para implantar uma instância do Serviço de Migração de Banco de Dados do Azure. 
+Use esse modelo do ARM (Azure Resource Manager) para implantar uma instância do Serviço de Migração de Banco de Dados do Azure. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-database-migration-simple-deploy%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O modelo do ARM do Serviço de Migração de Banco de Dados do Azure requer o seguinte: 
 
-- A versão mais recente da [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) e/ou do [PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7). 
+- A versão mais recente da [CLI do Azure](/cli/azure/install-azure-cli) e/ou do [PowerShell](/powershell/scripting/install/installing-powershell). 
 - Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="review-the-template"></a>Examinar o modelo
@@ -39,7 +43,7 @@ Há três recursos do Azure definidos no modelo:
 - [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Cria a sub-rede. 
 - [Microsoft.DataMigration/services](/azure/templates/microsoft.datamigration/services): Implanta uma instância do Serviço de Migração de Banco de Dados do Azure. 
 
-Mais modelos de Serviços de Migração de Banco de Dados do Azure podem ser encontrados na [galeria de modelos de início rápido](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datamigration).
+Mais modelos de Serviços de Migração de Banco de Dados do Azure podem ser encontrados na [galeria de modelos de início rápido](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datamigration&pageNumber=1&sort=Popular).
 
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
@@ -105,7 +109,7 @@ Write-Host "Press [ENTER] to continue..."
 Para obter um tutorial passo a passo que orienta você durante o processo de criação de um modelo, confira:
 
 > [!div class="nextstepaction"]
-> [ Tutorial: Criar e implantar seu primeiro modelo do Azure Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Tutorial: Criar e implantar seu primeiro modelo do Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
 
 Para outras maneiras de implantar o Serviço de Migração de Banco de Dados do Azure, confira: 
 - [Azure portal](quickstart-create-data-migration-service-portal.md)

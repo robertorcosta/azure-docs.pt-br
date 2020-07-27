@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: memildin
-ms.openlocfilehash: 3b7181550fd76f158ec04e9779f4301bd74484e1
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 72c0c33c973219a9701c8a7c8d45324681e14850
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435971"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529770"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Início Rápido: Integrar computadores Linux à Central de Segurança do Azure
 Depois de integrar suas assinaturas do Azure, é possível habilitar a Central de Segurança para recursos Linux que estão sendo executados fora do Azure, por exemplo, localmente ou em outras nuvens, por meio do provisionamento de um agente. O agente é chamado de agente do Log Analytics, mas também é conhecido como agente do OMS.
@@ -29,7 +29,7 @@ Este início rápido mostra como instalar o agente em um computador Linux.
 ## <a name="prerequisites"></a>Pré-requisitos
 Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, pode se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Você precisará usar o tipo de preço Standard da Central de Segurança antes de começar este início rápido. Consulte [Integrar sua assinatura do Azure ao Centro de Segurança Standard](security-center-get-started.md) para obter instruções de atualização. Você pode experimentar a camada Standard da Central de Segurança sem nenhum custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+Você precisará usar o tipo de preço Standard da Central de Segurança antes de começar este guia de início rápido. Consulte [Integrar sua assinatura do Azure ao Centro de Segurança Standard](security-center-get-started.md) para obter instruções de atualização. Você pode experimentar a camada Standard da Central de Segurança sem nenhum custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="add-new-linux-computer"></a>Adicionar novo computador Linux
 
@@ -56,7 +56,7 @@ Você precisará usar o tipo de preço Standard da Central de Segurança antes d
 
    ![Instalar o agente][5]
 
-Os logs para o agente podem ser encontrados em: */var/opt/microsoft/omsagent/\<ID do workspace>/log/*
+Encontre os logs do agente em: */var/opt/microsoft/omsagent/\<workspace id>/log/*
 
   ![Logs para agente][6]
 

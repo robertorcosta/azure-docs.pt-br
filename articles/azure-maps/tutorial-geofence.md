@@ -1,68 +1,62 @@
 ---
-title: 'Tutorial: Criar uma cerca geográfica e controlar dispositivos em um mapa | Microsoft Azure Mapas'
+title: 'Tutorial: Criar uma cerca geográfica e controlar dispositivos no Microsoft Azure Mapas'
 description: Saiba como configurar um limite geográfico e acompanhar os dispositivos em relação ao limite geográfico usando o Serviço Espacial dos Microsoft Azure Mapas.
-author: philmea
-ms.author: philmea
-ms.date: 1/15/2020
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 7/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 126829f12d71e40511c26e781cb191988c1d031e
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 775d98b992f2bca4441c868873ceaeb2389db81a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80333859"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517310"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configurar um limite geográfico usando o Azure Mapas
 
-Este tutorial orienta você pelas etapas básicas para configurar uma cerca geográfica usando o Azure Mapas. Considere esse cenário, um gerente de canteiro de obras precisa monitorar equipamentos perigosos potenciais. O gerente precisa garantir que os equipamentos permaneçam nas áreas de construção gerais escolhidas. Essa área de construção geral é um parâmetro rígido. As regulamentações exigem que os equipamentos permaneçam dentro desse parâmetro e as violações são relatadas ao Operations Manager.  
+Este tutorial ensina as noções básicas de criação e uso dos serviços de Cerca Geográfica do Azure Mapas no contexto do seguinte cenário:
 
-Usaremos a API de Upload de Dados para armazenar um limite geográfico e usar a API de Limite Geográfico para verificar a localização dos equipamentos em relação ao limite geográfico. A API de Upload de Dados e a API de Limite Geográfico são provenientes dos Azure Mapas. Também usaremos a Grade de Eventos do Azure para transmitir os resultados do limite geográfico e configurar uma notificação de acordo com os resultados desse limite. Para saber mais sobre a Grade de Eventos, confira [Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/overview).
+*Um Gerenciador de Sites de construção precisa acompanhar o equipamento conforme ele entra e sai dos perímetros de uma área de construção. Sempre que uma parte do equipamento sair ou entrar nesses perímetros, uma notificação por email será enviada para o Operations Manager.*
 
-Neste tutorial, abordaremos como:
+O Azure Mapas fornece vários serviços para dar suporte ao acompanhamento de equipamentos que entram e saem da área de construção no cenário acima. Neste tutorial, abordaremos como:
 
 > [!div class="checklist"]
-> * Carregue a área do limite geográfico no Azure Mapas, serviço de dados usando a API de Upload de Dados.
-> *   Configure uma Grade de Eventos para manipular eventos de limite geográfico.
-> *   Configure o manipulador de eventos do limite geográfico.
-> *   Configure alertas em resposta a eventos do limite geográfico usando os Aplicativos Lógicos.
-> *   Use APIs do serviço do limite geográfico do Azure Mapas para controlar se um ativo de construção está ou não dentro do local de construção.
-
+> * Carregue os [Dados GeoJSON de delimitação geográfica](geofence-geojson.md) que define as áreas do site de construção que desejamos monitorar. Usaremos a [API de Carregamento de Dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) para carregar cercas geográficas como coordenadas em polígono na sua conta do Azure Mapas.
+> * Configure dois [Aplicativos Lógicos](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) que, quando disparados, enviarão notificações por email para o Operations Manager do site de construção quando o equipamento entrar e sair da área de cerca geográfica.
+> * Use a [Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/overview) para assinar eventos de entrada e saída de cerca geográfica do Azure Mapas. Vamos configurar duas assinaturas de evento do web hook que chamarão os pontos de extremidade HTTP definidos nos dois Aplicativos Lógicos. Em seguida, os Aplicativos Lógicos enviarão as notificações por email apropriadas de equipamentos que se movem além da cerca geográfica ou que entram nela.
+> * Use a [Pesquisa de API de GET de Cerca Geográfica](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) para receber notificações quando uma parte do equipamento sair e entrar em áreas de cerca geográfica.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="create-an-azure-maps-account"></a>Criar uma conta dos Mapas do Azure 
+1. [Fazer uma conta do Azure Mapas](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Obtenha uma chave de assinatura primária](quick-demo-map-app.md#get-the-primary-key-for-your-account), também conhecida como a chave primária ou a chave de assinatura.
 
-Siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura da conta dos Azure Mapas no tipo de preço S1. As etapas em [Obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) mostram como recuperar a chave primária da sua conta. Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](./how-to-manage-authentication.md).
+Este tutorial usa o aplicativo [Postman](https://www.postman.com/), mas você pode escolher um ambiente de desenvolvimento de API diferente.
 
-## <a name="upload-geofences"></a>Carregar limites geográficos
+## <a name="upload-geofencing-geojson-data"></a>Carregando dados GeoJSON de delimitação geográfica
 
-Supomos que o limite geográfico principal é subsite1, que tem um tempo de expiração definido. Você pode criar mais limites geográficos aninhados de acordo com suas necessidades. Esses conjuntos de limites podem ser usados para acompanhar diferentes áreas de construção dentro da área de construção geral. Por exemplo, subsite1 pode ser o local em que o trabalho está ocorrendo durante as semanas 1 a 4 da agenda. Subsite2 pode ser o local em que o trabalho ocorre durante as semanas 5 a 7. Todos esses limites podem ser carregados como um só conjunto de dados no início do projeto. Esses limites são usados para acompanhar as regras com base em tempo e espaço. 
+Neste tutorial, vamos carregar dados GeoJSON de delimitação geográfica que contenham um `FeatureCollection`. O `FeatureCollection` contém duas cercas geográficas que definem áreas poligonais no site de construção. A primeira cerca geográfica não tem restrições ou hora de término. A segunda só pode ser consultada durante o horário comercial (9h às 17h PST) e não será mais válida após 1º de janeiro de 2022. Para obter mais informações sobre o formato GeoJSON, confira [Dados de GeoJSON de delimitação geográfica](geofence-geojson.md).
 
-Para carregar o limite geográfico do canteiro de obras usando a API de Upload de Dados, usaremos o aplicativo Postman. Instale o [aplicativo Postman](https://www.getpostman.com/) e crie uma conta gratuita. 
+>[!TIP]
+>Você pode atualizar os dados de Delimitação Geográfica a qualquer momento. Para obter mais informações sobre como atualizar os seus dados, confira a [API de Carregamento de Dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)
 
-Depois que o aplicativo Postman for instalado, siga estas etapas para carregar o limite geográfico do canteiro de obras usando a API de Upload de Dados dos Azure Mapas.
+1. Abra o aplicativo Postman. Próximo à parte superior do aplicativo Postman, selecione **Novo**. Na janela **Criar**, selecione **Coleção**.  Nomeie a coleção e selecione o botão **Criar**.
 
-1. Abra o aplicativo Postman e clique em novo | Criar novo e selecione Solicitar. Insira um nome de solicitação para o upload de dados de limite geográfico, selecione uma coleção ou uma pasta em que salvá-los e clique em Salvar.
+2. Para criar a solicitação, selecione **Novo** outra vez. Na janela **Criar**, selecione **Solicitação**. Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na etapa anterior e clique em **Salvar**.
 
-    ![Carregar cercas geográficas usando Postman](./media/tutorial-geofence/postman-new.png)
-
-2. Selecione o método HTTP POST na guia compilador e insira a URL a seguir para fazer uma solicitação POST.
+3. Selecione o método HTTP **POST** na guia do construtor e insira a URL a seguir para carregar os dados de delimitação geográfica no serviço do Azure Mapas. Para essa solicitação e outras solicitações mencionadas neste artigo, substitua `{Azure-Maps-Primary-Subscription-key}` pela sua chave de assinatura primária.
 
     ```HTTP
-    https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
+    https://atlas.microsoft.com/mapData/upload?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&dataFormat=geojson
     ```
-    
-    O parâmetro GEOJSON no caminho da URL representa o formato dos dados sendo carregados.
 
-3. Clique em **Parâmetros** e insira os seguintes pares de chave/valor a serem usados para a URL da solicitação POST. Substitua {subscription-key} pela chave de assinatura dos Azure Mapas, também conhecida como chave primária.
-   
-    ![Parâmetros para carregar dados (cerca geográfica) no Postman](./media/tutorial-geofence/postman-key-vals.png)
+    O parâmetro _geojson_ no caminho da URL representa o formato dos dados que estão sendo carregados.
 
-4. Clique em **Corpo** e, em seguida, selecione o formato de entrada bruto e escolha JSON como o formato de entrada na lista suspensa. Forneça o seguinte JSON como dados a serem carregados:
+4. Clique na guia **Corpo**. Selecione **bruto** e escolha **JSON** como o formato de entrada. Copie e cole os seguintes dados GeoJSON na área de texto **Corpo**:
 
    ```JSON
    {
@@ -133,11 +127,11 @@ Depois que o aplicativo Postman for instalado, siga estas etapas para carregar o
           "properties": {
             "geometryId": "2",
             "validityTime": {
-              "expiredTime": "2019-01-15T00:00:00",
-              "validityPeriod": [
+            "expiredTime": "2022-01-01T00:00:00",
+            "validityPeriod": [
                 {
-                  "startTime": "2019-01-08T01:00:00",
-                  "endTime": "2019-01-08T17:00:00",
+                  "startTime": "2020-07-15T16:00:00",
+                  "endTime": "2020-07-15T24:00:00",
                   "recurrenceType": "Daily",
                   "recurrenceFrequency": 1,
                   "businessDayOnly": true
@@ -150,138 +144,338 @@ Depois que o aplicativo Postman for instalado, siga estas etapas para carregar o
    }
    ```
 
-5. Clique em enviar e revise o cabeçalho de resposta. Após uma solicitação bem-sucedida, o cabeçalho **Localização** conterá o URI de status. O URI de status estará no formato a seguir. O valor de uploadStatusId não fica entre { }. É uma prática comum usar { } para mostrar valores que o usuário precisa inserir ou valores que são diferentes para um usuário diferente.
+5. Clique no botão azul **Enviar** e aguarde a solicitação ser processada. Depois que a solicitação for concluída, vá para a guia **Cabeçalhos** da resposta. Copie o valor da chave **Local**, que é `status URL`.
+
+    ```http
+    https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0
+    ```
+
+6. Para verificar o status da chamada à API, crie uma solicitação HTTP **GET** em `status URL`. Você precisará acrescentar sua chave de assinatura primária à URL para autenticação. A solicitação **GET** deve ser semelhante à seguinte URL:
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
+   https://atlas.microsoft.com/mapData/<operationId>/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-6. Copie o URI de status e acrescente a chave de assinatura. O formato do URI de status deverá ser semelhante ao mostrado abaixo. Observe que, no formato abaixo, você alteraria a {subscription-key}, não incluindo as { }, para a sua chave de assinatura.
+7. Quando a solicitação HTTP **GET** for concluída com êxito, ela retornará um `resourceLocation`. O `resourceLocation` contém o `udid` exclusivo para o conteúdo carregado. Você precisará salvar este `udid` para consultar a API de GET de Cerca Geográfica na última seção deste tutorial. Opcionalmente, você poderá usar a URL do `resourceLocation` para recuperar metadados desse recurso na próxima etapa.
 
-   ```HTTP
-   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
-   ```
+      ```json
+      {
+          "status": "Succeeded",
+          "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0"
+      }
+      ```
 
-7. Para obter a `udId`, abra uma nova guia no aplicativo Postman e selecione o método GET HTTP na guia do construtor. Faça uma solicitação GET no URI de status da etapa anterior. Se o upload de dados for bem-sucedido, você receberá a udId no corpo da resposta. Copie o udId para uso posterior.
+8. Para recuperar metadados de conteúdo, crie uma solicitação HTTP **GET** na URL do `resourceLocation` que foi recuperada na etapa 7. Certifique-se de acrescentar a sua chave de assinatura primária à URL para autenticação. A solicitação **GET** deve ser semelhante à seguinte URL:
 
-   ```JSON
-   {
-    "status": "Succeeded",
-    "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udId}?api-version=1.0"
-   }
-   ```
+    ```http
+   https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    ```
 
-## <a name="set-up-an-event-handler"></a>Configurar um manipulador de eventos
+9. Quando o a solicitação HTTP **GET** for concluída com êxito, o corpo da resposta conterá o `udid` especificado no `resourceLocation` da etapa 7, a localização para acessar/baixar o conteúdo no futuro e outros metadados sobre o conteúdo, como data de criação/atualização, tamanho e assim por diante. Um exemplo da resposta geral é:
 
-Nesta seção, criaremos um manipulador de eventos que recebe notificações. Esse manipulador de eventos deverá notificar o Operations Manager sobre eventos de entrada e saída de qualquer equipamento.
+    ```json
+    {
+        "udid": "{udid}",
+        "location": "https://atlas.microsoft.com/mapData/{udid}?api-version=1.0",
+        "created": "7/15/2020 6:11:43 PM +00:00",
+        "updated": "7/15/2020 6:11:45 PM +00:00",
+        "sizeInBytes": 1962,
+        "uploadStatus": "Completed"
+    }
+    ```
 
-Criamos dois serviços de [Aplicativos Lógicos](https://docs.microsoft.com/azure/event-grid/event-handlers#logic-apps) para manipular eventos de entrada e de saída. Quando os eventos nos Aplicativos Lógicos forem disparados, mais eventos serão disparados em sequência. A ideia é enviar alertas, nesse caso, emails para o Operations Manager. A figura a seguir ilustra a criação de um Aplicativo Lógico para o evento de entrada no limite geográfico. Da mesma forma, você pode criar outro para o evento de saída. Você pode ver todos os [manipuladores de eventos com suporte](https://docs.microsoft.com/azure/event-grid/event-handlers) para obter mais informações.
+## <a name="create-logic-app-workflows"></a>Criar fluxos de trabalho de Aplicativo Lógico
 
-1. Crie um aplicativo lógico no portal do Azure. Selecione o aplicativo lógico no Azure Marketplace. Em seguida, selecione o botão **Criar**.
+Nesta seção, criaremos dois pontos de extremidade de [Aplicativo Lógico](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) que dispararão uma notificação por email. Mostraremos como criar o primeiro gatilho que enviará notificações por email sempre que o ponto de extremidade for chamado.
 
-   ![Criar Aplicativos Lógicos do Azure para manipular eventos de cerca geográfica](./media/tutorial-geofence/logic-app.png)
+1. Entre no [Portal do Azure](https://portal.azure.com)
 
-2. No menu Configurações do Aplicativo Lógico, navegue até **Designer de Aplicativo Lógico**
+2. No canto superior esquerdo do [portal do Azure](https://portal.azure.com), clique em **Criar um recurso**.
 
-3. Selecione um gatilho de solicitação HTTP e, em seguida, selecione "Nova Etapa". No Outlook Connector, selecione "Enviar um email" como uma ação
+3. Na caixa *Pesquisar no Marketplace*, digite **Aplicativo Lógico**.
+
+4. Nos *Resultados*, selecione **Aplicativo Lógico**. Clique no botão **Criar**.
+
+5. Na página **Aplicativo Lógico**, insira os seguintes valores:
+    * A *Assinatura* que você deseja usar para esse aplicativo lógico.
+    * O nome do *Grupo de recursos* para esse aplicativo lógico. Você pode optar por *Criar novo* ou *Usar existente* em relação ao grupo de recursos.
+    * O *nome do seu Aplicativo Lógico*. Nesse caso, usaremos `Equipment-Enter` como o nome.
+
+    Para este tutorial, mantenha o restante dos valores nas configurações padrão.
+
+    :::image type="content" source="./media/tutorial-geofence/logic-app-create.png" alt-text="Criar um aplicativo lógico":::
+
+6. Clique no botão **Examinar + Criar**. Examine as configurações e clique em **Criar** para enviar a implantação. Quando a implantação for concluída com êxito, clique em **Acessar o recurso**. Você será levado para o **Designer de Aplicativo Lógico**
+
+7. Agora, selecionaremos um tipo de gatilho. Role um pouco para baixo até a seção *Iniciar com um gatilho comum**. Clique em **Quando uma solicitação HTTP for recebida**.
+
+     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Criar um gatilho HTTP do aplicativo lógico":::
+
+8. Clique em **Salvar** no canto superior direito do Designer. A **URL de HTTP POST** será gerada automaticamente. Salve a URL, pois você precisará dela na próxima seção para criar um ponto de extremidade de evento.
+
+    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="JSON e URL de solicitação HTTP do Aplicativo Lógico":::
+
+9. Selecione **+ Nova Etapa**. Agora, escolha uma ação. Digite `outlook.com email` na caixa de pesquisa. Na lista **Ações**, role para baixo e clique em **Enviar um email (V2)** .
   
-   ![Esquema dos Aplicativos Lógicos](./media/tutorial-geofence/logic-app-schema.png)
+    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Criar um designer de aplicativo lógico":::
 
-4. Preencha os campos para enviar um email. Mantenha a URL HTTP; ela será gerada automaticamente depois que você clicar em "Salvar"
+10. Entrar na conta do Outlook.com. Certifique-se de clicar em **Sim** para permitir que o Aplicativo Lógico acesse a conta. Preencha os campos para enviar um email.
 
-   ![Gerar um ponto de extremidade de Aplicativos Lógicos](./media/tutorial-geofence/logic-app-endpoint.png)
+    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Criar uma etapa Enviar email do aplicativo lógico":::
 
-5. Salve o Aplicativo Lógico para gerar o ponto de extremidade de URL HTTP e copie a URL HTTP.
+    >[!TIP]
+    > Você pode recuperar dados de resposta GeoJSON, como `geometryId` ou `deviceId`, nas suas notificações por email configurando o Aplicativo Lógico para ler os dados enviados pela Grade de Eventos. Para obter informações sobre como configurar o Aplicativo Lógico para consumir e transmitir dados de evento em notificações por email, confira [Tutorial: enviar notificações por email sobre os eventos do Hub IoT do Azure usando os Aplicativos Lógicos e a Grade de Eventos](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps).
 
-## <a name="create-an-azure-maps-events-subscription"></a>Criar uma assinatura de Eventos do Azure Mapas
+11. Clique em **Salvar** no canto superior esquerdo do Designer de Aplicativos Lógicos.
 
-O Azure Mapas dá suporte a três tipos de evento. Você pode dar uma olhada nos tipos de evento compatíveis do Azure Mapas [aqui](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps). Precisamos de duas assinaturas de evento diferentes, uma para o evento de entrada e uma para os eventos de saída.
+12. Repita as etapas 3 a 11 para criar um segundo Aplicativo Lógico para notificar o gerente quando o equipamento sair do site de construção. Nome do Aplicativo Lógico `Equipment-Exit`.
 
-Siga as etapas abaixo para criar uma assinatura de evento para eventos de entrada no limite geográfico. Você pode assinar eventos de saída do limite geográfico de maneira semelhante.
+## <a name="create-azure-maps-events-subscriptions"></a>Criar assinaturas de Eventos do Azure Mapas
 
-1. Navegue até a conta dos Azure Mapas. No painel, selecione Assinaturas. Clique no nome da sua assinatura e selecione **Eventos** no menu Configurações.
+O Azure Mapas dá suporte a três tipos de evento. Você pode dar uma olhada nos tipos de evento compatíveis do Azure Mapas [aqui](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps).  Precisaremos criar duas assinaturas de evento diferentes: uma para os eventos de entrada de cerca geográfica e outra para os eventos de saída.
 
-   ![Navegue até os eventos da conta do Azure Mapas](./media/tutorial-geofence/events-tab.png)
+Siga as etapas abaixo para criar uma assinatura de evento para eventos de entrada no limite geográfico. Você pode assinar eventos de saída de cerca geográfica repetindo as etapas de maneira semelhante.
 
-2. Para criar uma assinatura de evento, selecione Assinatura de Evento na página de eventos.
+1. Navegue até a conta dos Azure Mapas. No painel, selecione **Assinaturas**. Clique no nome da sua assinatura e selecione **Eventos** no menu Configurações.
 
-   ![Criar uma assinatura de Eventos do Azure Mapas](./media/tutorial-geofence/create-event-subscription.png)
+    :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Navegue até os Eventos da conta do Azure Mapas":::
 
-3. Nomeie a assinatura de eventos e assine o tipo de evento Entrada. Agora, selecione Web Hook como "Tipo de Ponto de Extremidade". Clique em "Selecionar um ponto de extremidade" e copie o ponto de extremidade da URL HTTP do Aplicativo Lógico para "{Endpoint}"
+2. Para criar uma assinatura de evento, selecione **+ Assinatura de Evento** na página de eventos.
 
-   ![Detalhes da assinatura de Eventos do Azure Mapas](./media/tutorial-geofence/events-subscription.png)
+    :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Criar uma assinatura de Eventos do Azure Mapas":::
 
+3. Na página **Criar Assinatura de Eventos**, insira os seguintes valores:
+    * O *Nome* da assinatura de evento.
+    * O *Esquema de Evento* deve ser *Esquema de Grade de Eventos*.
+    * O *Nome do Tópico do Sistema* dessa assinatura de evento. Neste caso, usaremos `Contoso-Construction`.
+    * Em *Filtrar os Tipos de Evento*, escolha `Geofence Entered` como o tipo de evento.
+    * Para o *Tipo de Ponto de Extremidade*, escolha `Web Hook`.
+    * Para *Ponto de extremidade*, copie a URL de HTTP POST para o Aplicativo Lógico. Insira o ponto de extremidade que você criou na seção anterior. Se você esqueceu de salvá-lo, basta voltar ao Designer de Aplicativo Lógico e copiá-lo na etapa do gatilho HTTP.
 
-## <a name="use-geofence-api"></a>Usar a API de limite geográfico
+    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Detalhes da assinatura de Eventos do Azure Mapas":::
 
-Use a API de Limite Geográfico para verificar se um **dispositivo**, nesse caso, os equipamentos, está dentro ou fora de um limite geográfico. Vamos consultar a API GET de Limite Geográfico em diferentes localizações, para as quais determinado equipamento foi movido ao longo do tempo. A figura a seguir ilustra cinco localizações com cinco equipamentos de construção. 
+4. Clique em **Criar**.
 
-> [!Note]
-> O cenário e o comportamento se baseiam na mesma **identificação do dispositivo**, de modo que ela reflita as cinco localizações diferentes, como na figura abaixo.
+5. Repita as etapas 1 a 4 para o ponto de extremidade de Saída do Aplicativo Lógico criado na seção anterior. Na etapa 3, certifique-se de escolher `Geofence Exited` como o tipo de evento.
 
-A "deviceId" é uma ID exclusiva que você fornece para o dispositivo na solicitação GET, ao consultar a localização. Quando você faz uma solicitação assíncrona para o **limite geográfico de pesquisa – API GET**, a "deviceId" ajuda na publicação de eventos de limite geográfico para esse dispositivo, em relação ao limite geográfico especificado. Neste tutorial, fizemos solicitações assíncronas à API com uma "deviceId" exclusiva. As solicitações no tutorial são feitas em ordem cronológica, como no diagrama. A propriedade "isEventPublished" na resposta é publicada sempre que um dispositivo entra no limite geográfico ou sai dele. Você não precisa registrar um dispositivo para acompanhar este tutorial.
+## <a name="use-search-geofence-get-api"></a>Usar a Pesquisa de API de GET de Cerca Geográfica
 
-Vamos voltar ao diagrama. Cada uma dessas cinco localizações é usada para avaliar as alterações de status de entrada no limite geográfico e saída desse limite em relação ao limite propriamente dito. Se ocorrer uma alteração de estado, o serviço do limite geográfico disparará um evento, que será enviado para o Aplicativo Lógico pela Grade de Eventos. Como resultado, o gerente de operações receberá a notificação de entrada ou saída correspondente por email.
+Agora, usaremos a [Pesquisa de API de GET de Cerca Geográfica](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) para enviar notificações por email para o Operations Manager quando um equipamento entrar ou sair das cercas geográficas.
+
+Cada equipamento tem um `deviceId`. Neste tutorial, vamos acompanhar um só equipamento, cuja ID exclusiva é `device_1`.
+
+Para maior clareza, o diagrama a seguir mostra os cinco localizações do equipamento ao longo do tempo, começando na localização de *Início*, que está em algum lugar do lado de fora das cercas geográficas. Neste tutorial, a localização de *Início* é indefinida, já que não consultamos o dispositivo nessa localização.
+
+Se consultarmos a [Pesquisa de API de GET de Cerca Geográfica](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) com uma localização de equipamento que indica a entrada ou saída de cerca geográfica inicial, a Grade de Eventos chamará o ponto de extremidade do Aplicativo Lógico apropriado para enviar uma notificação por email para o Operations Manager.
+
+Cada uma das sessões a seguir fazem as solicitações de API de Delimitação Geográfica de HTTP GET usando as cinco diferentes coordenadas de localização dos equipamentos.
 
 ![Mapa de cerca geográfica no Azure Mapas](./media/tutorial-geofence/geofence.png)
 
-No aplicativo Postman, abra uma nova guia na mesma coleção criada acima. Selecione o método HTTP GET na guia do compilador:
+### <a name="equipment-location-1-47638237-122132483"></a>Localização do Equipamento 1 (47,638237,-122,132483)
 
-A seguir estão cinco solicitações de API HTTP GET de Delimitação Geográfica, com diferentes coordenadas de localização dos equipamentos. As coordenadas são observadas em ordem cronológica. Cada solicitação é seguida pelo corpo da resposta.
- 
-1. Localização 1:
-    
+1. Próximo à parte superior do aplicativo Postman, selecione **Novo**. Na janela **Criar**, selecione **Solicitação**.  Insira um **Nome de solicitação** para a solicitação. Usaremos o nome *Localização 1*. Selecione a coleção que você criou na seção [Carregar dados GeoJSON de delimitação geográfica](#upload-geofencing-geojson-data) e escolha **Salvar**.
+
+2. Selecione o método HTTP **GET** na guia construtor e insira a URL a seguir. Certifique-se de substituir `{Azure-Maps-Primary-Subscription-key}` pela chave de assinatura primária e `{udid}` pelo `udid` salvo na seção [Carregar dados GeoJSON de delimitação geográfica](#upload-geofencing-geojson-data).
+
    ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
-   ![Consulta 1 do limite geográfico](./media/tutorial-geofence/geofence-query1.png)
 
-   Na resposta acima, a distância negativa do limite geográfico principal significa que os equipamentos estão dentro do limite geográfico. A distância positiva do limite geográfico do subsite significa que os equipamentos estão fora do limite geográfico do subsite. 
+3. Clique no botão **Enviar**. O GeoJSON a seguir aparecerá na janela de resposta.
 
-2. Localização 2: 
-   
+    ```json
+    {
+      "geometries": [
+        {
+          "deviceId": "device_1",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "1",
+          "distance": -999.0,
+          "nearestLat": 47.638291,
+          "nearestLon": -122.132483
+        },
+        {
+          "deviceId": "device_1",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "2",
+          "distance": 999.0,
+          "nearestLat": 47.638053,
+          "nearestLon": -122.13295
+        }
+      ],
+      "expiredGeofenceGeometryId": [],
+      "invalidPeriodGeofenceGeometryId": [],
+      "isEventPublished": true
+    }
+    ```
+
+4. Na resposta GeoJSON acima, a distância negativa da cerca geográfica principal significa que os equipamentos estão dentro da cerca geográfica. A distância positiva do limite geográfico do subsite significa que os equipamentos estão fora do limite geográfico do subsite. Como esta é a primeira vez que o dispositivo está localizado na cerca geográfica do site principal, o parâmetro `isEventPublished` é definido como `true` e o Operations Manager recebe uma notificação por email de que o equipamento entrou na cerca geográfica.
+
+### <a name="location-2-4763800-122132531"></a>Localização 2 (47,63800,-122,132531)
+
+1. Próximo à parte superior do aplicativo Postman, selecione **Novo**. Na janela **Criar**, selecione **Solicitação**.  Insira um **Nome de solicitação** para a solicitação. Usaremos o nome *Localização 2*. Selecione a coleção que você criou na seção [Carregar dados GeoJSON de delimitação geográfica](#upload-geofencing-geojson-data) e escolha **Salvar**.
+
+2. Selecione o método HTTP **GET** na guia construtor e insira a URL a seguir. Certifique-se de substituir `{Azure-Maps-Primary-Subscription-key}` pela chave de assinatura primária e `{udid}` pelo `udid` salvo na seção [Carregar dados GeoJSON de delimitação geográfica](#upload-geofencing-geojson-data).
+
    ```HTTP
    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
-    
-   ![Consulta 2 do limite geográfico](./media/tutorial-geofence/geofence-query2.png)
 
-   Se você examinar a resposta JSON anterior cuidadosamente, verá que os equipamentos estão fora do subsite, mas dentro do limite principal. Nenhum evento é disparado e nenhum email é enviado.
+3. Clique no botão **Enviar**. O seguinte GeoJSON aparecerá na janela de resposta:
 
-3. Localização 3: 
-  
-   ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
-   ```
+    ```json
+    {
+      "geometries": [
+        {
+          "deviceId": "device_01",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "1",
+          "distance": -999.0,
+          "nearestLat": 47.637997,
+          "nearestLon": -122.132399
+        },
+        {
+          "deviceId": "device_01",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "2",
+          "distance": 999.0,
+          "nearestLat": 47.63789,
+          "nearestLon": -122.132809
+        }
+      ],
+      "expiredGeofenceGeometryId": [],
+      "invalidPeriodGeofenceGeometryId": [],
+      "isEventPublished": false
+    }
+    ````
 
-   ![Consulta 3 do limite geográfico](./media/tutorial-geofence/geofence-query3.png)
+4. Na resposta GeoJSON acima, o equipamento permaneceu na cerca geográfica do site principal e não entrou na cerca geográfica do subsite. Como resultado, o parâmetro `isEventPublished` é definido como `false` e o Operations Manager não receberá notificações por email.
 
-   Ocorreu uma alteração de estado e agora o equipamento está dentro dos limites geográficos principal e de subsite. Essa alteração faz com que um evento seja publicado e uma notificação por email será enviada ao Operations Manager.
+### <a name="location-3-4763810783315048-12213336020708084"></a>Localização 3 (47,63810783315048,-122,13336020708084)
 
-4. Localização 4: 
+1. Próximo à parte superior do aplicativo Postman, selecione **Novo**. Na janela **Criar**, selecione **Solicitação**.  Insira um **Nome de solicitação** para a solicitação. Usaremos o nome *Localização 3*. Selecione a coleção que você criou na seção [Carregar dados GeoJSON de delimitação geográfica](#upload-geofencing-geojson-data) e escolha **Salvar**.
 
-   ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
-   ```
-  
-   ![Consulta 4 do limite geográfico](./media/tutorial-geofence/geofence-query4.png)
+2. Selecione o método HTTP **GET** na guia construtor e insira a URL a seguir. Certifique-se de substituir `{Azure-Maps-Primary-Subscription-key}` pela chave de assinatura primária e `{udid}` pelo `udid` salvo na seção [Carregar dados GeoJSON de delimitação geográfica](#upload-geofencing-geojson-data).
 
-   Observando cuidadosamente a resposta correspondente, você pode observar que nenhum evento for publicado aqui, embora o equipamento tenha saído do limite geográfico do subsite. Se você examinar a hora especificada do usuário na solicitação GET, poderá ver que o limite geográfico do subsite expirou para essa hora. O equipamento ainda está no limite geográfico principal. Você também pode ver a ID de geometria do limite geográfico do subsite sob `expiredGeofenceGeometryId` no corpo da resposta.
+    ```HTTP
+      https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
+      ```
 
+3. Clique no botão **Enviar**. O seguinte GeoJSON aparecerá na janela de resposta:
 
-5. Localização 5:
-      
-   ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
-   ```
+    ```json
+    {
+      "geometries": [
+        {
+          "deviceId": "device_01",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "1",
+          "distance": -999.0,
+          "nearestLat": 47.638294,
+          "nearestLon": -122.133359
+        },
+        {
+          "deviceId": "device_01",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "2",
+          "distance": -999.0,
+          "nearestLat": 47.638161,
+          "nearestLon": -122.133549
+        }
+      ],
+      "expiredGeofenceGeometryId": [],
+      "invalidPeriodGeofenceGeometryId": [],
+      "isEventPublished": true
+    }
+    ````
 
-   ![Consulta 5 do limite geográfico](./media/tutorial-geofence/geofence-query5.png)
+4. Na resposta GeoJSON acima, o equipamento permaneceu na cerca geográfica do site principal, mas entrou na cerca geográfica do subsite. Como resultado, o parâmetro `isEventPublished` é definido como `true` e o Operations Manager receberá uma notificação por email indicando que o equipamento entrou em uma cerca geográfica.
 
-   Você pode ver que o equipamento saiu do limite geográfico do local de construção principal. Um evento é publicado e um email de alerta é enviado para o Operations Manager.
+    >[!NOTE]
+    >Se o equipamento tivesse sido transferido para o subsite após o horário comercial, nenhum evento seria publicado e o Operations Manager não receberia nenhuma notificação.  
+
+### <a name="location-4-47637988-1221338344"></a>Localização 4 (47,637988,-122,1338344)
+
+1. Próximo à parte superior do aplicativo Postman, selecione **Novo**. Na janela **Criar**, selecione **Solicitação**.  Insira um **Nome de solicitação** para a solicitação. Usaremos o nome *Localização 4*. Selecione a coleção que você criou na seção [Carregar dados GeoJSON de delimitação geográfica](#upload-geofencing-geojson-data) e escolha **Salvar**.
+
+2. Selecione o método HTTP **GET** na guia construtor e insira a URL a seguir. Certifique-se de substituir `{Azure-Maps-Primary-Subscription-key}` pela chave de assinatura primária e `{udid}` pelo `udid` salvo na seção [Carregar dados GeoJSON de delimitação geográfica](#upload-geofencing-geojson-data).
+
+    ```HTTP
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&userTime=2023-01-16&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    ```
+
+3. Clique no botão **Enviar**. O seguinte GeoJSON aparecerá na janela de resposta:
+
+    ```json
+    {
+      "geometries": [
+        {
+          "deviceId": "device_01",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "1",
+          "distance": -999.0,
+          "nearestLat": 47.637985,
+          "nearestLon": -122.133907
+        }
+      ],
+      "expiredGeofenceGeometryId": [
+        "2"
+      ],
+      "invalidPeriodGeofenceGeometryId": [],
+      "isEventPublished": false
+    }
+    ````
+
+4. Na resposta GeoJSON acima, o equipamento permaneceu na cerca geográfica do site principal, mas saiu da cerca geográfica do subsite. No entanto, se você observar, o valor de `userTime` está após o `expiredTime`, conforme definido nos dados de cerca geográfica. Como resultado, o parâmetro `isEventPublished` é definido como `false` e o Operations Manager não receberá uma notificação por email.
+
+### <a name="location-547637988-1221338344"></a>Localização 5 (47,637988,-122,1338344)
+
+1. Próximo à parte superior do aplicativo Postman, selecione **Novo**. Na janela **Criar**, selecione **Solicitação**.  Insira um **Nome de solicitação** para a solicitação. Usaremos o nome *Localização 4*. Selecione a coleção que você criou na seção [Carregar dados GeoJSON de delimitação geográfica](#upload-geofencing-geojson-data) e escolha **Salvar**.
+
+2. Selecione o método HTTP **GET** na guia construtor e insira a URL a seguir. Certifique-se de substituir `{Azure-Maps-Primary-Subscription-key}` pela chave de assinatura primária e `{udid}` pelo `udid` salvo na seção [Carregar dados GeoJSON de delimitação geográfica](#upload-geofencing-geojson-data).
+
+    ```HTTP
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    ```
+
+3. Clique no botão **Enviar**. O seguinte GeoJSON aparecerá na janela de resposta:
+
+    ```json
+    {
+      "geometries": [
+      {
+        "deviceId": "device_01",
+        "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+        "geometryId": "1",
+        "distance": -999.0,
+        "nearestLat": 47.637985,
+        "nearestLon": -122.133907
+      },
+      {
+        "deviceId": "device_01",
+        "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+        "geometryId": "2",
+        "distance": 999.0,
+        "nearestLat": 47.637945,
+        "nearestLon": -122.133683
+      }
+      ],
+      "expiredGeofenceGeometryId": [],
+      "invalidPeriodGeofenceGeometryId": [],
+      "isEventPublished": true
+    }
+    ````
+
+4. Na resposta GeoJSON acima, o equipamento saiu da cerca geográfica do site principal. Como resultado, o parâmetro `isEventPublished` é definido como `true` e o Operations Manager receberá uma notificação por email indicando que o equipamento saiu de uma cerca geográfica.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a configurar o limite geográfico carregando-o nos Azure Mapas e no serviço Dados usando a API de Upload de Dados. Você também aprendeu a usar a Grade de Eventos do Azure Mapas para assinar e manipular eventos de limite geográfico. 
+> [!div class="nextstepaction"]
+> [Manipular tipos de conteúdo em Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)
 
-* Confira [Manipular tipos de conteúdo em Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type) para aprender a usar os Aplicativos Lógicos para analisar JSON a fim de criar uma lógica mais complexa.
-* Para saber mais sobre os manipuladores de eventos na Grade de Eventos, confira [manipuladores de eventos compatíveis na Grade de Eventos](https://docs.microsoft.com/azure/event-grid/event-handlers).
+> [!div class="nextstepaction"]
+> [Enviar notificações por email usando os Aplicativos Lógicos e a Grade de Eventos](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps)
+
+> [!div class="nextstepaction"]
+> [Manipuladores de Eventos com suporte na Grade de Eventos](https://docs.microsoft.com/azure/event-grid/event-handlers).

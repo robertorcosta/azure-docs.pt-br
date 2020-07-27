@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 06/24/2020
+ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 151e7d286dac91ddd0e988027968f2e44a83e35e
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 8b4d58163c28e00c30c5b0f9db3a6ff259fbf5ae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362638"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536911"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure
 
@@ -26,15 +26,14 @@ Uma maneira de controlar o acesso à saída de rede em uma sub-rede do Azure é 
 
 O tráfego de rede está sujeito às regras de firewall configuradas quando o tráfego de rede para o firewall foi roteado como a sub-rede de gateway padrão.
 
-Para este tutorial, você criará uma única VNET simplificada com três sub-redes para facilitar a implantação.
+Para este tutorial, você criará uma só VNet simplificada com duas sub-redes para facilitar a implantação.
 
 Para implantações de produção, é recomendado um [modelo de hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), em que o firewall é, por si só, a VNet. Os servidores de carga de trabalho estão em VNets emparelhadas na mesma região que uma ou mais sub-redes.
 
 * **AzureFirewallSubnet**: o firewall está nesta sub-rede.
 * **Workload-SN**: o servidor de carga de trabalho está nessa sub-rede. O tráfego de rede dessa sub-rede passa pelo firewall.
-* **Jump-SN** -o servidor “jump” está nessa sub-rede. O servidor jump tem um endereço IP público a que você pode se conectar usando a Área de Trabalho Remota. A partir daí, você pode se conectar (usando outra Área de Trabalho Remota) ao servidor de carga de trabalho.
 
-![Infraestrutura de rede do tutorial](media/tutorial-firewall-rules-portal/Tutorial_network.png)
+![Infraestrutura de rede do tutorial](media/tutorial-firewall-deploy-portal/tutorial-network.png)
 
 Neste tutorial, você aprenderá como:
 
@@ -44,6 +43,7 @@ Neste tutorial, você aprenderá como:
 > * Criar uma rota padrão
 > * Configure uma regra de aplicativo para permitir acesso a www.google.com
 > * Configurar uma regra de rede para permitir o acesso a servidores DNS externos
+> * Configurar uma regra NAT para permitir uma Área de Trabalho Remota para o servidor de teste
 > * Testar o firewall
 
 Se preferir, você pode concluir este tutorial usando o [Azure PowerShell](deploy-ps.md).
@@ -52,7 +52,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="set-up-the-network"></a>Configurar a rede
 
-Primeiro, crie um grupo de recursos para conter os recursos necessários à implantação do firewall. Em seguida, crie uma VNET, sub-redes e servidores de teste.
+Primeiro, crie um grupo de recursos para conter os recursos necessários à implantação do firewall. Em seguida, crie uma VNet, as sub-redes e um servidor de teste.
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -74,62 +74,52 @@ Essa VNET conterá três sub-redes.
 
 1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
 1. Selecione **Rede** > **Rede virtual**.
-1. Em **Nome**, digite **Test-FW-VN**.
-1. Em **Espaço de endereço**, digite **10.0.0.0/16**.
-1. Em **Assinatura**, selecione sua assinatura.
-1. Para **Grupo de recursos**, selecione **Test-FW-RG**.
-1. Em **local**, selecione o mesmo local usado anteriormente.
-1. Em **Sub-rede**, digite **AzureFirewallSubnet** em **Nome**. O firewall estará nessa sub-rede e o nome da sub-rede **precisa** ser AzureFirewallSubnet.
-1. Em **Intervalo de endereços**, digite **10.0.1.0/26**.
-1. Aceite as outras configurações padrão e selecione **Criar**.
+2. Em **Assinatura**, selecione sua assinatura.
+3. Para **Grupo de recursos**, selecione **Test-FW-RG**.
+4. Em **Nome**, digite **Test-FW-VN**.
+5. Em **Região**, selecione a mesma localização usada anteriormente.
+6. Selecione **Avançar: Endereços IP**.
+7. Em **Espaço de endereços IPv4**, digite **10.0.0.0/16**.
+8. Em **Sub-rede**, selecione **Padrão**.
+9. Em **Nome da sub-rede**, digite **AzureFirewallSubnet**. O firewall estará nessa sub-rede e o nome da sub-rede **precisa** ser AzureFirewallSubnet.
+10. Em **Intervalo de endereços**, digite **10.0.1.0/26**.
+11. Clique em **Salvar**.
 
-### <a name="create-additional-subnets"></a>Criar sub-redes adicionais
+   Em seguida, crie uma sub-rede para o servidor de carga de trabalho.
 
-Em seguida, crie sub-redes para o servidor jump e uma sub-rede para os servidores de carga de trabalho.
+1. Selecione **Adicionar sub-rede**.
+4. Em **Nome da sub-rede**, digite **Workload-SN**.
+5. Para **Intervalo de endereços da sub-rede**, digite **10.0.2.0/24**.
+6. Selecione **Adicionar**.
+7. Selecione **Examinar + criar**.
+8. Selecione **Criar**.
 
-1. No menu do portal do Azure, selecione **Grupos de recursos** ou pesquise e selecione *Grupos de recursos* em qualquer página. Em seguida, selecione **Test-FW-RG**.
-2. Selecione a rede virtual **Test-FW-VN**.
-3. Selecione **Sub-redes** >  **+Sub-rede**.
-4. Em **Nome**, digite **Workload-SN**.
-5. Em **Intervalo de endereços**, digite **10.0.2.0/24**.
-6. Selecione **OK**.
+### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Crie outra sub-rede denominada **Jump-SN**, intervalo de endereços **10.0.3.0/24**.
-
-### <a name="create-virtual-machines"></a>Criar máquinas virtuais
-
-Agora crie as máquinas virtuais de jump e carga de trabalho e coloque-as nas sub-redes apropriadas.
+Agora crie a máquina virtual da carga de trabalho e coloque-a na sub-rede **Workload-SN**.
 
 1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
-2. Clique em **Computação** e, em seguida, selecione **Datacenter do Windows Server 2016** na lista em Destaque.
-3. Insira esses valores para a máquina virtual:
+2. Selecione **Computação** e **Máquina virtual**.
+3. **Windows Server 2016 Datacenter** na lista Em destaque.
+4. Insira esses valores para a máquina virtual:
 
    |Configuração  |Valor  |
    |---------|---------|
    |Resource group     |**Test-FW-RG**|
-   |Nome da máquina virtual     |**Srv-Jump**|
+   |Nome da máquina virtual     |**Srv-Work**|
    |Região     |Igual ao anterior|
-   |Nome de usuário administrador     |**azureuser**|
-   |Senha     |**Azure123456!**|
+   |Imagem|Windows Server 2019 Datacenter|
+   |Nome de usuário administrador     |Digite um nome de usuário|
+   |Senha     |Digite uma senha|
 
-4. Em **Regras de porta de entrada**, para **Portas de entrada públicas**, selecione **Permitir portas selecionadas**.
-5. Em **Selecionar portas de entrada**, selecione **RDP (3389)** .
-
+4. Em **Regras de porta de entrada**, **Portas de entrada públicas**, selecione **Nenhuma**.
 6. Aceite os outros padrões e selecione **Próximo: Discos**.
 7. Aceite os padrões de disco e selecione **Avançar: Rede**.
-8. Verifique se **Test-FW-VN** está selecionado para a rede virtual e se a sub-rede é **Jump-SN**.
-9. Para **IP público**, aceite o novo nome de endereço IP público padrão (Srv-Jump-ip).
+8. Verifique se **Test-FW-VN** está selecionado para a rede virtual e se a sub-rede é **Workload-SN**.
+9. Em **IP Público**, selecione **Nenhum**.
 11. Aceite os outros padrões e selecione **Próximo: Gerenciamento**.
 12. Selecione **Desligar** para desabilitar o diagnóstico de inicialização. Aceite os outros padrões e selecione **Examinar + criar**.
 13. Examine as configurações na página de resumo e, em seguida, selecione **Criar**.
-
-Use as informações na tabela a seguir para definir outra máquina virtual chamada **Srv-Work**. O restante da configuração é o mesmo da máquina virtual Srv-Jump.
-
-|Configuração  |Valor  |
-|---------|---------|
-|Sub-rede|**Workload-SN**|
-|IP público|**Nenhuma**|
-|Porta de entrada públicas|**Nenhuma**|
 
 ## <a name="deploy-the-firewall"></a>Implantar o firewall
 
@@ -143,18 +133,18 @@ Implante o firewall na VNET.
    |Configuração  |Valor  |
    |---------|---------|
    |Subscription     |\<your subscription\>|
-   |Resource group     |**Test-FW-RG** |
+   |Grupo de recursos     |**Test-FW-RG** |
    |Nome     |**Test-FW01**|
    |Location     |Selecionar o mesmo local usado anteriormente|
    |Escolher uma rede virtual     |**Usar existente**: **Test-FW-VN**|
-   |Endereço IP público     |**Adicionar nova**. O endereço IP público deve ser do tipo SKU Standard.|
+   |Endereço IP público     |**Adicionar nova**<br>**Nome**: **fw-pip**|
 
 5. Selecione **Examinar + criar**.
 6. Examine o resumo e selecione **Criar** para criar o firewall.
 
    Isso levará alguns minutos para ser implantado.
 7. Após a implantação ser concluída, vá para o grupo de recursos **Test-FW-RG** e selecione o firewall **Test-FW01**.
-8. Anote o endereço IP privado. Você o usará mais tarde quando criar a rota padrão.
+8. Anote os endereços IP públicos e privados do firewall. Você usará esses endereços mais tarde.
 
 ## <a name="create-a-default-route"></a>Criar uma rota padrão
 
@@ -185,7 +175,7 @@ Para a sub-rede **Workload-SN**, configure a rota de saída padrão para atraves
 
 ## <a name="configure-an-application-rule"></a>Configurar uma regra de aplicativo
 
-Essa é a regra de aplicativo que permite o acesso de saída para www.google.com.
+Essa é a regra de aplicativo que permite o acesso de saída para `www.google.com`.
 
 1. Abra **Test-FW-RG** e selecione o firewall **Test-FW01**.
 2. Na página **Test-FW01**, em **Configurações**, selecione **Regras**.
@@ -198,7 +188,7 @@ Essa é a regra de aplicativo que permite o acesso de saída para www.google.com
 9. Em **Tipo de origem**, selecione **Endereço IP**.
 10. Em **Origem**, digite **10.0.2.0/24**.
 11. Em **Protocol:port**, digite **http, https**.
-12. Para **FQDNS de destino**, digite **www.google.com**
+12. Em **FQDNS de Destino**, digite **`www.google.com`**
 13. Selecione **Adicionar**.
 
 O Firewall do Azure inclui uma coleção de regras internas para FQDNs de infraestrutura que têm permissão por padrão. Esses FQDNs são específicos da plataforma e não podem ser usados para outras finalidades. Para saber mais, veja [FQDNs de infraestrutura](infrastructure-fqdns.md).
@@ -216,11 +206,31 @@ Essa é a regra de rede que permite o acesso de saída para dois endereços IP n
 7. Em **Protocolo**, selecione **UDP**.
 9. Em **Tipo de origem**, selecione **Endereço IP**.
 1. Em **Origem**, digite **10.0.2.0/24**.
-2. Em **Endereço de destino**, digite **209.244.0.3,209.244.0.4**
+2. Em **Tipo de destino**, selecione **Endereço IP**.
+3. Em **Endereço de destino**, digite **209.244.0.3,209.244.0.4**
 
    Esses são servidores DNS públicos operados pelo CenturyLink.
 1. Em **Portas de Destino**, digite **53**.
 2. Selecione **Adicionar**.
+
+## <a name="configure-a-dnat-rule"></a>Configurar uma regra de DNAT
+
+Essa regra permite que você conecte uma Área de Trabalho Remota à máquina virtual Srv-Work por meio do firewall.
+
+1. Selecione a guia **Coleção de regras NAT**.
+2. Selecione **Adicionar coleção de regras do NAT**.
+3. Em **Nome**, digite **rdp**.
+4. Digite **200** em **Prioridade**.
+5. Em **Regras**, para **Nome**, digite **rdp-nat**.
+6. Em **Protocolo**, selecione **TCP**.
+7. Em **Tipo de origem**, selecione **Endereço IP**.
+8. Para **Origem**, digite **\*** .
+9. Em **Endereço de destino**, digite o endereço IP público do firewall.
+10. Em **Portas de Destino**, digite **3389**.
+11. Em **Endereço convertido**, digite o endereço IP privado do **Srv-work**.
+12. Para **Porta traduzida**, digite **3389**.
+13. Selecione **Adicionar**.
+
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Altere os endereços DNS primário e secundário para o adaptador de rede **Srv-Wprk**
 
@@ -238,14 +248,13 @@ Para fins de teste neste tutorial, você vai configurar os endereços DNS primá
 
 Agora teste o firewall para confirmar se ele funciona conforme o esperado.
 
-1. No portal do Azure, reveja as configurações de rede da máquina virtual **Srv-Work** e anote o endereço IP privado.
-2. Conecte uma área de trabalho remota à máquina virtual **Srv-Jump** e entre. De lá, abra uma conexão de área de trabalho remota para o endereço IP privado **Srv-Work**.
-3. Abra o Internet Explorer e navegue até https://www.google.com.
+1. Conecte uma Área de Trabalho Remota ao endereço IP público do firewall e entre na máquina virtual **Srv-Work**. 
+3. Abra o Internet Explorer e navegue até `https://www.google.com`.
 4. Selecione **OK** > **Fechar** nos alertas de segurança do Internet Explorer.
 
    Você deve ver a página inicial do Google.
 
-5. Navegue até https://www.microsoft.com.
+5. Navegue até `https://www.microsoft.com`.
 
    Você deve ser bloqueado pelo firewall.
 

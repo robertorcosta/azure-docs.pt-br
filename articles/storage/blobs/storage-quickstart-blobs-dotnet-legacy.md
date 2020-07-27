@@ -7,16 +7,19 @@ ms.date: 07/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: d52877129fe256253410f1d38011fa0343dd433d
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 5205506e3e7a32423dd9b438b648ff4af5136caa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84455936"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528546"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Início Rápido: Biblioteca de clientes do Armazenamento do Blob v11 para .NET
 
 Introdução à biblioteca de clientes do Armazenamento de Blobs do Azure v11 para .NET. O Armazenamento de Blobs do Azure é uma solução de armazenamento de objetos da Microsoft para a nuvem. Siga as etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O Armazenamento de Blobs é otimizado para armazenar grandes quantidades de dados não estruturados.
+
+> [!NOTE]
+> Este guia de início rápido usa uma versão herdada da biblioteca de clientes do Armazenamento de Blobs do Azure. Para começar a usar a última versão, confira [Guia de Início Rápido: Biblioteca de clientes do Armazenamento de Blobs do Azure para .NET](storage-quickstart-blobs-dotnet.md).
 
 Use a biblioteca de clientes do Armazenamento de Blobs do Azure para .NET para:
 
@@ -27,7 +30,12 @@ Use a biblioteca de clientes do Armazenamento de Blobs do Azure para .NET para:
 * Listar todos os blobs em um contêiner
 * Excluir um contêiner
 
-[Documentação de referência da API](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [Código-fonte da biblioteca](https://github.com/Azure/azure-storage-net/tree/master/Blob) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [Exemplos](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
+Recursos adicionais:
+
+* [Documentação de referência da API](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet)
+* [Código-fonte da biblioteca](https://github.com/Azure/azure-storage-net/tree/master/Blob)
+* [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+* [Amostras](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 

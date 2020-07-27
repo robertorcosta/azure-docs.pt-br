@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 07/24/2020
 ms.author: jingwang
-ms.openlocfilehash: d37a9bd4cc29ee60f9833ffbcb5a2701a19bbaa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bac673f5c8c8d6a4e2b368938a0c08c893518022
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416821"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171272"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para o Oracle usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -52,7 +52,7 @@ Especificamente, este conector Oracle oferece suporte a:
 > [!Note]
 > Não há suporte para servidor proxy do Oracle.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
 
@@ -76,6 +76,8 @@ O serviço vinculado do Oracle oferece suporte às seguintes propriedades:
 
 >[!TIP]
 >Se você receber um erro, "ORA-01025: parâmetro UPI fora do intervalo" e a versão do Oracle for 8i, adicione `WireProtocolMode=1` à sua cadeia de conexão. Em seguida, tente novamente.
+
+Se você tiver várias instâncias do Oracle para o cenário de failover, poderá criar o serviço vinculado do Oracle e preencher o host primário, a porta, o nome de usuário, a senha, etc. e adicionar uma nova "**Propriedades de conexão adicionais**" com o nome de propriedade como `AlternateServers` e o valor como `(HostName=<secondary host>:PortNumber=<secondary port>:ServiceName=<secondary service name>)` -não perca os colchetes e preste atenção aos dois-pontos ( `:` ) como separador. Por exemplo, o seguinte valor de servidores alternativos define dois servidores de banco de dados alternativos para failover de conexão: `(HostName=AccountingOracleServer:PortNumber=1521:SID=Accounting,HostName=255.201.11.24:PortNumber=1522:ServiceName=ABackup.NA.MyCompany)` .
 
 Mais propriedades de conexão que você pode definir na cadeia de conexão por seu caso:
 

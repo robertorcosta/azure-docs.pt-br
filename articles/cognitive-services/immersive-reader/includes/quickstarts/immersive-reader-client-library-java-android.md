@@ -9,49 +9,49 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/10/2020
 ms.author: dylankil
-ms.openlocfilehash: f1d5a5cf6fb23ce3ccf92faf75d80cbe760b9bdc
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: d7b027ead90c0bde8611fc08f19f261c934de2e8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038104"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86545045"
 ---
 A [Leitura Avançada](https://www.onenote.com/learningtools) é uma ferramenta projetada de forma inclusiva que implementa técnicas comprovadas para melhorar a compreensão da leitura.
 
-Neste guia de início rápido, você criará um aplicativo do Android do zero e integrará a Leitura Avançada. Um exemplo de funcionamento completo deste Início Rápido está disponível [aqui](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-java-android).
+Neste guia de início rápido, você criará um aplicativo do Android do zero e integrará a Leitura Avançada. Uma amostra funcional completa deste guia de início rápido está disponível [no GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-java-android).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um recurso de Leitura Avançada configurado para autenticação do Azure Active Directory. Siga [estas instruções](../../how-to-create-immersive-reader.md) para a configuração. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do ambiente. Salve a saída da sessão em um arquivo de texto para referência futura.
-* [Git](https://git-scm.com/)
-* [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk)
-* [Android Studio](https://developer.android.com/studio)
+* [Git](https://git-scm.com/).
+* [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk).
+* [Android Studio](https://developer.android.com/studio).
 
 ## <a name="create-an-android-project"></a>Criar um projeto Android
 
-Inicie um novo projeto no Android Studio. O código-fonte deste exemplo está disponível como parte do [SDK de Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-java-android)
+Inicie um novo projeto no Android Studio. O código-fonte deste exemplo está disponível como parte do [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-java-android).
 
 ![Novo Projeto](../../media/android/java/android-studio-create-project.png)
 
-Na janela Escolher seu projeto, selecione **Atividade Vazia** e clique em 'Avançar'.
+Na janela **Escolher o projeto**, selecione **Atividade Vazia** e **Avançar**.
 
 ![Projeto de Atividade Vazia](../../media/android/java/android-studio-empty-activity.png)
 
 ## <a name="configure-the-project"></a>Configurar o projeto
 
-Nomeie o projeto 'QuickstartJava', selecione uma localização para salvá-lo, escolha 'Java' como a linguagem de programação e clique em 'Concluir'.
+Nomeie o projeto **QuickstartJava** e selecione uma localização para salvá-lo. Selecione **Java** como a linguagem de programação e **Concluir**.
 
 ![Configurar o projeto](../../media/android/java/android-studio-configure-project.png)
 
 ## <a name="set-up-assets-and-authentication"></a>Configurar os ativos e a autenticação
 
-Criar a pasta **/assets**
+Crie uma pasta **/assets**.
 
-![Criar uma pasta Ativos](../../media/android/java/android-studio-assets-folder.png)
+![Criar uma pasta de ativos](../../media/android/java/android-studio-assets-folder.png)
 
- Crie um arquivo chamado **env** dentro da pasta de ativos. Adicione o texto a seguir, fornecendo valores conforme apropriado. Lembre-se de não fazer commit desse arquivo env no controle do código-fonte, pois ele contém segredos que não devem ser disponibilizados publicamente.
+ Crie um arquivo chamado **env** dentro da pasta de ativos. Adicione os nomes e os valores a seguir e forneça os valores, conforme apropriado. Não faça commit desse arquivo env no controle do código-fonte, pois ele contém segredos que não devem ser disponibilizados publicamente.
 
 ![Criar um arquivo env](../../media/android/java/android-studio-create-env-file.png)
 
@@ -65,7 +65,7 @@ SUBDOMAIN=<YOUR_SUBDOMAIN>
 
 ## <a name="add-dependencies"></a>Adicionar dependências
 
-Substitua as dependências existentes no arquivo **build.gradle** pelas implementações abaixo para habilitar o Gson (análise e serialização JSON) e o dotenv para referenciar as variáveis definidas no arquivo env. Talvez seja necessário sincronizar o projeto novamente ao implementar atividades mais adiante neste guia de início rápido.
+Substitua as dependências existentes no arquivo **build.gradle** pelas implementações a seguir para habilitar o Gson (análise e serialização JSON) e o dotenv para referenciar as variáveis definidas no arquivo env. Você poderá precisar sincronizar o projeto novamente quando implementar atividades mais adiante neste guia de início rápido.
 
 ```build.gradle
 dependencies {
@@ -84,7 +84,7 @@ dependencies {
 
 ## <a name="update-app-strings-and-layout-resources"></a>Atualizar cadeias de caracteres do aplicativo e recursos de layout
 
-Substitua o conteúdo em **res/strings/strings.xml** pelas cadeias de caracteres abaixo a serem usadas no aplicativo.
+Substitua o conteúdo de **res/strings/strings.xml** pelas cadeias de caracteres a seguir a serem usadas no aplicativo.
 
 ![strings.xml do aplicativo](../../media/android/java/android-studio-strings.png)
 
@@ -102,7 +102,7 @@ Substitua o conteúdo em **res/strings/strings.xml** pelas cadeias de caracteres
 </resources>
 ```
 
-Substitua o conteúdo em **res/layout/activity_main.xml** pelo XML abaixo a ser usado no aplicativo. Este é o layout da interface do usuário do aplicativo.
+Substitua o conteúdo de **res/layout/activity_main.xml** pelo XML a seguir a ser usado no aplicativo. Este XML é o layout da interface do usuário do aplicativo.
 
 ![activity_main.xml do aplicativo](../../media/android/java/android-studio-activity-main-xml.png)
 
@@ -203,7 +203,7 @@ Substitua o conteúdo em **res/layout/activity_main.xml** pelo XML abaixo a ser 
 
 ## <a name="add-the-web-view-layout"></a>Adicionar o layout de modo de exibição da Web
 
-Na pasta **res/layout/** , crie um arquivo de recurso de Layout, nomeie-o **activity_immersive_reader** e substitua o conteúdo dele pelo XML abaixo. Isso adiciona o componente WebView a ser usado pelo código Java de IRActivity que será criado em uma etapa posterior; por enquanto, ele está indefinido e causará erros.
+Na pasta **res/layout/** , crie um arquivo de recurso de Layout e nomeie-o **activity_immersive_reader**. Em seguida, substitua o conteúdo dele pelo XML a seguir. Esse XML adiciona o componente WebView a ser usado pelo código Java IRActivity que será criado em uma etapa posterior. Por enquanto, ele não está definido e causará erros.
 
 ![Criar um arquivo de recurso de Layout](../../media/android/java/android-studio-new-layout-resource.png)
 
@@ -256,9 +256,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Creates a new activity, finds its content and the Immersive Reader button
- * when clicked the app sends the content to the Immersive Reader SDK and
- * Launches the Immersive Reader
+ * Creates a new activity, finds its content and the Immersive Reader button.
+ * When clicked, the app sends the content to the Immersive Reader SDK and
+ * launches the Immersive Reader.
  */
 public class MainActivity extends Activity {
 
@@ -287,13 +287,13 @@ public class MainActivity extends Activity {
 }
 ```
 
-Criaremos mais 16 arquivos de classe Java na pasta **/Java/com.example.quickstartjava**. Cada uma dessas classes é usada pelo aplicativo para integrar o SDK de Leitura Avançada. Com cada novo arquivo, há algumas classes referenciadas no código que ainda não existem e serão criadas posteriormente. Depois que todas as classes forem criadas, não deverá haver erros de referência nula.
+Criaremos mais 16 arquivos de classe Java na pasta **/Java/com.example.quickstartjava**. Cada uma dessas classes é usada pelo aplicativo para integrar o SDK da Leitura Avançada. Com cada novo arquivo, há algumas classes referenciadas no código que ainda não existem e serão criadas posteriormente. Depois que todas as classes forem criadas, não deverá haver erros de referência nula.
 
-Crie um arquivo de classe Java **ImmersiveReader.java** clicando com o botão direito do mouse na pasta no Android Studio e selecionando 'Novo' e 'Classe Java'. Você usará esse mesmo método de criação de arquivos de classe Java para cada arquivo de classe Java criado.
+Para criar um arquivo de classe Java **ImmersiveReader.java**, clique com o botão direito do mouse na pasta no Android Studio, selecione **Novo** e **Classe Java**. Você usará esse mesmo método para criar arquivos de classe Java para cada arquivo de classe Java criado.
 
 ![ImmersiveReader](../../media/android/java/android-studio-immersivereader-java.png)
 
-Substitua o conteúdo de **ImmersiveReader.java** pelo código a seguir.
+Substitua o conteúdo de **ImmersiveReader.java** pelo seguinte código:
 
 ```ImmersiveReader.java
 /**
@@ -347,7 +347,7 @@ public class ImmersiveReader {
      * @param dataToRead - Content to be read
      * @return IRError - IRError, with following error codes:
      * a) Error.NONE in case of successful launch of Immersive Reader
-     * b) Error.INVALID_ACCESS_TOKEN in case of empty access token.
+     * b) Error.INVALID_ACCESS_TOKEN in case of empty access token
      * c) Error.INVALID_STATE in case of empty activity
      * d) Error.INVALID_CONTENT in case of empty list of text chunks
      */
@@ -377,7 +377,7 @@ Crie um arquivo de classe Java **IRActivity.java**.
 
 ![IRActivity](../../media/android/java/android-studio-iractivity-java.png)
 
-Substitua o conteúdo de **IRActivity.java** pelo código a seguir.
+Substitua o conteúdo de **IRActivity.java** pelo seguinte código:
 
 ```IRActivity.java
 /**
@@ -408,8 +408,8 @@ public class ImmersiveReader {
 
     /**
      * Interface to accept access token from client app.
-     * Note that it is client's responsibility to give a valid Access Token whenever getAccessToken() is requested.
-     * In favor of latency perf, there would be no further validation by Immersive Reader module except to ensure that the provided access token is non-empty string
+     * Note that it is the client's responsibility to give a valid Access Token whenever getAccessToken() is requested.
+     * In favor of latency perf, there would be no further validation by Immersive Reader module except to ensure that the provided access token is non-empty string.
      */
     @Keep
     public interface IAuthenticator {
@@ -461,7 +461,7 @@ Crie um arquivo de classe Java **IRError.java**.
 
 ![IRError](../../media/android/java/android-studio-irerror-java.png)
 
-Substitua o conteúdo de **IRError.java** pelo código a seguir.
+Substitua o conteúdo de **IRError.java** pelo seguinte código:
 
 ```IRError.java
 /**
@@ -540,7 +540,7 @@ Crie um arquivo de classe Java **Error.java**.
 
 ![Erro](../../media/android/java/android-studio-error-java.png)
 
-Substitua o conteúdo de **Error.java** pelo código a seguir.
+Substitua o conteúdo de **Error.java** pelo seguinte código:
 
 ```Error.java
 /**
@@ -571,7 +571,7 @@ Crie um arquivo de classe Java **ReadableContent.java**.
 
 ![ReadableContent](../../media/android/java/android-studio-readablecontent-java.png)
 
-Substitua o conteúdo de **ReadableContent.java** pelo código a seguir.
+Substitua o conteúdo de **ReadableContent.java** pelo seguinte código:
 
 ```ReadableContent.java
 /**
@@ -615,7 +615,7 @@ Crie um arquivo de classe Java **ReadableTextChunk.java**.
 
 ![ReadableTextChunk](../../media/android/java/android-studio-readabletextchunk-java.png)
 
-Substitua o conteúdo de **ReadableTextChunk.java** pelo código a seguir.
+Substitua o conteúdo de **ReadableTextChunk.java** pelo seguinte código:
 
 ```ReadableTextChunk.java
 /**
@@ -647,7 +647,7 @@ Crie um arquivo de classe Java **IRDataHolder.java**.
 
 ![IRDataHolder](../../media/android/java/android-studio-irdataholder-java.png)
 
-Substitua o conteúdo de **IRDataHolder.java** pelo código a seguir.
+Substitua o conteúdo de **IRDataHolder.java** pelo seguinte código:
 
 ```IRDataHolder.java
 /**
@@ -663,7 +663,7 @@ import androidx.annotation.Keep;
  * A thin singleton class that is used to hold the Client's IAuthenticator's implementation and the Content to be read.
  * This is required for two reasons:
  * 1) As per Android guidelines, data being passed via intent should be limited to a few KBs. Alternative is to use Singleton holder classes like this one.
- * 2) We need a way to make callbacks survive app configuration changes and killed in background scenarios
+ * 2) We need a way to make callbacks survive app configuration changes and killed in background scenarios.
  */
 
 @Keep
@@ -712,7 +712,7 @@ Crie um arquivo de classe Java **IRAuthenticator.java**.
 
 ![IRAuthenticator](../../media/android/java/android-studio-irauthenticator-java.png)
 
-Substitua o conteúdo de **IRAuthenticator.java** pelo código a seguir.
+Substitua o conteúdo de **IRAuthenticator.java** pelo seguinte código:
 
 ```IRAuthenticator.java
 /**
@@ -739,10 +739,10 @@ import java.net.URL;
 
 import static java.net.HttpURLConnection.HTTP_OK;
 
-// This sample app uses the Dotenv is a module that loads environment variables from a .env file to better manage secrets.
+// This sample app uses the Dotenv. It's a module that loads environment variables from a .env file to better manage secrets.
 // https://github.com/cdimascio/java-dotenv
-// Be sure to add a "env" file to the /assets folder
-// instead of '.env', use 'env'
+// Be sure to add a "env" file to the /assets folder.
+// Instead of '.env', use 'env'.
 
 public class IRAuthenticator implements ImmersiveReader.IAuthenticator {
     private static final String LOG_TAG = "IRAuthenticator";
@@ -823,7 +823,7 @@ Crie um arquivo de classe Java **IRLauncher.java**.
 
 ![IRLauncher](../../media/android/java/android-studio-irlauncher-java.png)
 
-Substitua o conteúdo de **IRLauncher.java** pelo código a seguir.
+Substitua o conteúdo de **IRLauncher.java** pelo seguinte código:
 
 ```IRLauncher.java
 /**
@@ -853,7 +853,7 @@ import java.util.concurrent.Callable;
 import io.github.cdimascio.dotenv.Dotenv;
 
 /**
- * Responsible for setting up the web view with appropriate bridging between JS and Java to launch the Immersive reader url for reading the content
+ * Responsible for setting up the web view with appropriate bridging between JavaScript and Java to launch the Immersive Reader url for reading the content.
  */
 
 public class IRLauncher {
@@ -876,7 +876,7 @@ public class IRLauncher {
         // Invoked in case of empty access token or empty content request to be read
         void onFailure(IRError error);
 
-        // Invoked when Immersive reader is exiting (e.g.) user pressed back in the immersive reader experience
+        // Invoked when Immersive Reader is exiting (e.g.) user pressed back in the Immersive Reader experience
         void onExit();
     }
 
@@ -981,7 +981,7 @@ public class IRLauncher {
             }
         });
 
-        // Prepare and set the WebAppInterface to hear back from the JS
+        // Prepare and set the WebAppInterface to hear back from the JavaScript
         WebAppInterface jsInterface = new WebAppInterface(new WebAppInterface.WebAppListener() {
             @Override
             public void onShowToast(String toast) {
@@ -1016,7 +1016,7 @@ Crie um arquivo de classe Java **IRStore.java**.
 
 ![IRStore](../../media/android/java/android-studio-irstore-java.png)
 
-Substitua o conteúdo de **IRStore.java** pelo código a seguir.
+Substitua o conteúdo de **IRStore.java** pelo seguinte código:
 
 ```IRStore.java
 /**
@@ -1041,7 +1041,7 @@ Crie um arquivo de classe Java **AuthenticationTask.java**.
 
 ![AuthenticationTask](../../media/android/java/android-studio-authenticationtask-java.png)
 
-Substitua o conteúdo de **AuthenticationTask.java** pelo código a seguir.
+Substitua o conteúdo de **AuthenticationTask.java** pelo seguinte código:
 
 ```AuthenticationTask.java
 /**
@@ -1098,7 +1098,7 @@ Crie um arquivo de classe Java **Chunk.java**.
 
 ![Chunk](../../media/android/java/android-studio-chunk-java.png)
 
-Substitua o conteúdo de **Chunk.java** pelo código a seguir.
+Substitua o conteúdo de **Chunk.java** pelo seguinte código:
 
 ```Chunk.java
 /**
@@ -1112,8 +1112,8 @@ import androidx.annotation.Keep;
 
 /**
  * The chunk object that will be sent to the Immersive Reader SDK.
- * The content is a string of text, the lang is a string, e.g. 'll-cc'
- * and the mimeType is also a string, e.g. 'text/plain'
+ * The content is a string of text, the lang is a string, e.g. 'll-cc',
+ * and the mimeType is also a string, e.g. 'text/plain'.
  */
 
 @Keep
@@ -1135,7 +1135,7 @@ Crie um arquivo de classe Java **Content.java**.
 
 ![Conteúdo](../../media/android/java/android-studio-content-java.png)
 
-Substitua o conteúdo de **Content.java** pelo código a seguir.
+Substitua o conteúdo de **Content.java** pelo seguinte código:
 
 ```Content.java
 /**
@@ -1171,7 +1171,7 @@ Crie um arquivo de classe Java **Options.java**.
 
 ![Opções](../../media/android/java/android-studio-options-java.png)
 
-Substitua o conteúdo de **Options.java** pelo código a seguir.
+Substitua o conteúdo de **Options.java** pelo seguinte código:
 
 ```Options.java
 /**
@@ -1205,7 +1205,7 @@ Crie um arquivo de classe Java **Message.java**.
 
 ![Mensagem](../../media/android/java/android-studio-message-java.png)
 
-Substitua o conteúdo de **Message.java** pelo código a seguir.
+Substitua o conteúdo de **Message.java** pelo seguinte código:
 
 ```Message.java
 /**
@@ -1217,7 +1217,7 @@ import androidx.annotation.Keep;
 
 /**
  * The message object that will be sent to the Immersive Reader SDK.
- * This object contains the access token, sub domain, Content and Options.
+ * This object contains the access token, sub domain, Content, and Options.
  */
 
 @Keep
@@ -1243,7 +1243,7 @@ Crie um arquivo de classe Java **WebAppInterface.java**.
 
 ![WebAppInterface](../../media/android/java/android-studio-webappinterface-java.png)
 
-Substitua o conteúdo de **WebAppInterface.java** pelo código a seguir.
+Substitua o conteúdo de **WebAppInterface.java** pelo seguinte código:
 
 ```WebAppInterface.java
 /**
@@ -1257,7 +1257,7 @@ import androidx.annotation.Keep;
 import android.webkit.JavascriptInterface;
 
 /**
- * JavaScript interface implementation passed to the WebView to enable talking between JS and Java
+ * JavaScript interface implementation passed to the WebView to enable talking between JavaScript and Java.
  */
 
 @Keep
@@ -1290,13 +1290,13 @@ public class WebAppInterface {
 
 ## <a name="add-the-app-html-to-the-web-view"></a>Adicionar o HTML do aplicativo ao modo de exibição da Web
 
-A implementação do modo de exibição da Web precisará do HTML para funcionar. Clique com o botão direito do mouse na pasta **/assets**, crie um arquivo e nomeie-o **immersiveReader.html**.
+A implementação do modo de exibição da Web precisa do HTML para funcionar. Clique com o botão direito do mouse na pasta **/assets**, crie um arquivo e nomeie-o **immersiveReader.html**.
 
 ![Criar um arquivo HTML](../../media/android/java/android-studio-immersive-reader-html.png)
 
 ![Localização do ativo HTML](../../media/android/java/android-studio-immersive-reader-html-assets.png)
 
-Adicione o HTML e o JavaScript abaixo. Isso adicionará o SDK de Leitura Avançada ao aplicativo e o usará para iniciar a Leitura Avançada usando o código do aplicativo que escrevemos.
+Adicione o HTML e o JavaScript a seguir. Esse código adiciona o SDK da Leitura Avançada ao aplicativo e o usa para abrir a Leitura Avançada usando o código do aplicativo que escrevemos.
 
 ```immersiveReader.html
 <!-- Copyright (c) Microsoft Corporation. All rights reserved.
@@ -1353,7 +1353,7 @@ Licensed under the MIT License. -->
 
 ![AndroidManifest](../../media/android/java/android-studio-android-manifest-xml.png)
 
-Como o aplicativo precisa fazer chamadas de rede ao SDK de Leitura Avançada para de funcionar, precisamos garantir que as permissões de aplicativo sejam configuradas para permitir o acesso à rede. Substitua o conteúdo de **/manifests/AndroidManifest.xml** pelo XML abaixo.
+Como o aplicativo precisa fazer chamadas de rede ao SDK da Leitura Avançada para funcionar, precisamos verificar se as permissões de aplicativo são configuradas para permitir o acesso à rede. Substitua o conteúdo de **/manifests/AndroidManifest.xml** pelo seguinte XML:
 
 ```AndroidManifest.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -1384,12 +1384,12 @@ Como o aplicativo precisa fazer chamadas de rede ao SDK de Leitura Avançada par
 </manifest>
 ```
 
-## <a name="running-the-app"></a>Executando o aplicativo
+## <a name="run-the-app"></a>Executar o aplicativo
 
-Use o Android Studio para executar o aplicativo em um emulador de dispositivo. Quando clicar no botão **Leitura Avançada**, você verá a Leitura Avançada iniciada com o conteúdo no aplicativo.
+Use o Android Studio para executar o aplicativo em um emulador de dispositivo. Quando você seleciona a **Leitura Avançada**, ela é aberta com o conteúdo no aplicativo.
 
 ![Leitura Avançada](../../media/android/java/android-studio-device-emulator.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Explore o [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk) e a [Referência de SDK da Leitura Avançada](../../reference.md)
+Explore o [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk) e a [referência de SDK da Leitura Avançada](../../reference.md).

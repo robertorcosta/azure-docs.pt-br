@@ -8,16 +8,17 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4949d5f2621957d6830625fe798601db4472a75d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 8c52b2141d2f29303939facf89d4a59fb3d333fd
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064919"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171880"
 ---
 # <a name="about-virtual-hub-routing"></a>Sobre o roteamento de hub virtual
 
-Os recursos de roteamento em um hub virtual são fornecidos por um roteador que gerencia todo o roteamento entre gateways usando Border Gateway Protocol (BGP). Um hub virtual pode conter vários gateways, como um gateway de VPN site a site, gateway de ExpressRoute, gateway de ponto a site, firewall do Azure. Esse roteador também fornece conectividade de trânsito entre redes virtuais que se conectam a um hub virtual e podem dar suporte a uma taxa de transferência agregada de 50 Gbps. Esses recursos de roteamento se aplicam aos clientes de WAN virtual padrão.
+Os recursos de roteamento em um hub virtual são fornecidos por um roteador que gerencia todo o roteamento entre gateways usando Border Gateway Protocol (BGP). Um hub virtual pode conter vários gateways, como um gateway de VPN site a site, gateway de ExpressRoute, gateway de ponto a site, firewall do Azure. Esse roteador também fornece conectividade de trânsito entre redes virtuais que se conectam a um hub virtual e podem dar suporte a uma taxa de transferência agregada de 50 Gbps. Esses recursos de roteamento se aplicam aos clientes de WAN virtual padrão. 
 
 Para configurar o roteamento, consulte [como configurar o roteamento de Hub virtual](how-to-virtual-hub-routing.md).
 
@@ -79,6 +80,15 @@ As tabelas de rotas agora têm recursos para associação e propagação. Uma ta
 Para usar novos recursos de tabela de rotas, aguarde até a semana de 3 de agosto para que a implantação seja concluída no Azure. Se você tiver rotas pré-existentes na seção de roteamento para o Hub no portal do Azure, você precisará primeiro excluí-las e, em seguida, tentar criar novas tabelas de rotas (disponíveis na seção de tabelas de rotas para o Hub em portal do Azure)
 
 * **Clientes de WAN Virtual Básica com rotas preexistentes no hub virtual**: Para usar as novas funcionalidades de tabela de rotas, aguarde até a semana de 3 de agosto para que a implantação seja concluída no Azure. Se você tiver rotas pré-existentes da seção Roteamento para o hub no portal do Azure, precisará primeiro excluí-las e depois **atualizar** sua WAN Virtual Básica para a WAN Virtual Standard. Confira [Atualizar uma WAN Virtual de Básica para Standard](upgrade-virtual-wan.md).
+
+## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>Considerações sobre roteamento de WAN virtual
+
+Considere o seguinte ao configurar o roteamento de WAN virtual:
+
+* Todas as conexões de ramificação (ponto a site, site a site e ExpressRoute) precisam ser associadas à tabela de rotas padrão. Dessa forma, todas as ramificações aprenderão os mesmos prefixos.
+* Todas as conexões de ramificação precisam propagar suas rotas para o mesmo conjunto de tabelas de rotas. Por exemplo, se você decidir que as ramificações devem ser propagadas para a tabela de rotas padrão, essa configuração deverá ser consistente em todas as ramificações. Como resultado, todas as conexões associadas à tabela de rotas padrão poderão alcançar todas as ramificações.
+* No momento, não há suporte para Branch a Branch por meio do firewall do Azure.
+* Ao usar o Firewall do Azure em várias regiões, todas as redes virtuais spoke devem ser associadas à mesma tabela de rotas. Por exemplo, ter um subconjunto do VNets passando pelo firewall do Azure enquanto outros VNets ignoram o Firewall do Azure no mesmo Hub virtual não é possível.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ac581b45f3aefe7a386f25c978bfc09adda4e39f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7964f96afc59464c28cabb9e1d5c7961fc765a3d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460470"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501765"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Tutorial: Proteger um servidor Web em uma máquina virtual do Linux no Azure com certificados TLS/SSL armazenados no Key Vault
 Para proteger servidores Web, um certificado de protocolo TLS, anteriormente conhecido como protocolo SSL, pode ser usado para criptografar o tráfego da Web. Esses certificados TLS/SSL podem ser armazenados no Azure Key Vault e permitem implantações seguras de certificados em VMs (máquinas virtuais) do Linux no Azure. Neste tutorial, você aprenderá a:
@@ -30,7 +30,7 @@ Para proteger servidores Web, um certificado de protocolo TLS, anteriormente con
 > * Criar uma VM e instalar o servidor Web NGINX
 > * Inserir o certificado na VM e configurar o NGINX com uma associação de TLS
 
-Este tutorial usa a CLI dentro do [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizada para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimentar** na parte superior de um bloco de código qualquer.
+Este tutorial usa a CLI dentro do [Azure Cloud Shell](../../cloud-shell/overview.md), que é constantemente atualizada para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimentar** na parte superior de um bloco de código qualquer.
 
 Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
@@ -48,7 +48,7 @@ Antes de criar um Key Vault e os certificados, crie um grupo de recursos com [az
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Em seguida, crie um Key Vault com o [az keyvault create](/cli/azure/keyvault) e habilite-o para ser usado quando você implantar uma VM. Cada Key Vault requer um nome exclusivo e deve ter todas as letras minúsculas. Substitua *\<mykeyvault>* no exemplo a seguir por seu próprio nome exclusivo do Key Vault:
+Em seguida, crie um Key Vault com o [az keyvault create](/cli/azure/keyvault) e habilite-o para ser usado quando você implantar uma VM. Cada Key Vault requer um nome exclusivo e deve ter todas as letras minúsculas. Substitua *\<mykeyvault>* no exemplo a seguir com seu próprio nome exclusivo do Key Vault:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -135,7 +135,7 @@ az vm open-port \
 
 
 ### <a name="test-the-secure-web-app"></a>Testar o aplicativo Web protegido
-Agora, você pode abrir um navegador da Web e digitar *https:\/\/\<publicIpAddress>* na barra de endereços. Forneça seu próprio endereço de IP público do processo de criação da máquina virtual. Se você usou um certificado autoassinado, aceite o aviso de segurança:
+Agora, abra um navegador da Web e insira *https:\/\/\<publicIpAddress>* na barra de endereços. Forneça seu próprio endereço de IP público do processo de criação da máquina virtual. Se você usou um certificado autoassinado, aceite o aviso de segurança:
 
 ![Aceite o aviso de segurança do navegador da web](./media/tutorial-secure-web-server/browser-warning.png)
 

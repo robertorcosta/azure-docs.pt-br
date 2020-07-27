@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 65ff0ab03abdbd3b403d37700dc8df4fa5eee73a
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: cb3bb363b1d6be72fe8941cad509b4c3525cfa15
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116595"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169422"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
@@ -87,7 +87,7 @@ Para registrar um aplicativo em seu locatário do Azure AD B2C, você pode usar 
 
 Em seguida, exponha a API adicionando um escopo:
 
-1. Em **Gerenciar**, selecione **Expor uma API**.
+1. No menu à esquerda, em **gerenciar**, selecione **expor uma API**.
 1. Selecione **Adicionar um escopo** e **Salvar e continuar** para aceitar o URI da ID do aplicativo padrão.
 1. Insira os valores a seguir para criar um escopo que permita a execução da política personalizada em seu locatário Azure AD B2C:
     * **Nome do escopo**: `user_impersonation`
@@ -110,13 +110,13 @@ Em seguida, exponha a API adicionando um escopo:
 
 Em seguida, especifique que o aplicativo deve ser tratado como um cliente público:
 
-1. Em **Gerenciar**, selecione **Autenticação**.
+1. No menu à esquerda, em **gerenciar**, selecione **autenticação**.
 1. Em **Configurações avançadas**, habilite **Tratar aplicativo como um cliente público** (selecione **Sim**). Verifique se **"allowPublicClient": true** está definido no manifesto do aplicativo. 
 1. Clique em **Salvar**.
 
 Agora conceda permissões ao escopo da API que você expôs anteriormente no registro de *IdentityExperienceFramework*:
 
-1. Em **Gerenciar**, selecione **Permissões de API**.
+1. No menu à esquerda, em **gerenciar**, selecione **permissões de API**.
 1. Em **Permissões Configuradas**, selecione **Adicionar uma permissão**.
 1. Selecione a guia **Minhas APIs** e o aplicativo **IdentityExperienceFramework**.
 1. Em **Permissão**, selecione o escopo **user_impersonation** que você definiu anteriormente.

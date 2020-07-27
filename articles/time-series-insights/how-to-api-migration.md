@@ -8,14 +8,14 @@ ms.author: shresha
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 07/23/2020
 ms.custom: shresha
-ms.openlocfilehash: 6cd06c31b56ce89a13af9bae8c77dc73efd69ef7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a5721748f023ea5f098b71d8d43dbda53721c54d
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87096007"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171709"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrando para novas Azure Time Series Insights versões da API do Gen2
 
@@ -23,30 +23,30 @@ ms.locfileid: "87096007"
 
 Se você tiver criado um ambiente de Azure Time Series Insights Gen2 quando ele estava em visualização pública (antes de 16 de julho de 2020), atualize seu ambiente de TSI para usar as novas versões disponíveis em geral de APIs seguindo as etapas descritas neste artigo.
 
-A nova versão de API é `2020-07-31` e usa uma [sintaxe de expressão de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)atualizada. 
+A nova versão de API é `2020-07-31` e usa uma [sintaxe de expressão de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)atualizada.
 
 Os usuários devem migrar as [variáveis de modelo de série temporal](./concepts-variables.md)de seu ambiente, consultas salvas, Power bi consultas e quaisquer ferramentas personalizadas fazendo chamadas para os pontos de extremidade da API. Se você tiver dúvidas ou preocupações sobre o processo de migração, envie um tíquete de suporte por meio do portal do Azure e mencione este documento.
 
 > [!IMPORTANT]
-> A versão de API de visualização `2018-11-01-preview` continuará a ter suporte até 31 de outubro de 2020. Conclua todas as etapas aplicáveis dessa migração antes de evitar qualquer interrupção no serviço. 
+> A versão de API de visualização `2018-11-01-preview` continuará a ter suporte até 31 de outubro de 2020. Conclua todas as etapas aplicáveis dessa migração antes de evitar qualquer interrupção no serviço.
 
 ## <a name="migrate-time-series-model-and-saved-queries"></a>Migrar o modelo de série temporal e consultas salvas
 
-Para ajudar os usuários a migrar suas [variáveis de modelo de série temporal](./concepts-variables.md) e consultas salvas, há uma ferramenta interna disponível por meio do [Azure Time Series insights Explorer](https://insights.timeseries.azure.com). Navegue até o ambiente que você deseja migrar e siga as etapas abaixo. **Você pode concluir a migração parcialmente e retornar para concluí-la mais tarde. no entanto, nenhuma das atualizações pode ser revertida.** 
+Para ajudar os usuários a migrar suas [variáveis de modelo de série temporal](./concepts-variables.md) e consultas salvas, há uma ferramenta interna disponível por meio do [Azure Time Series insights Explorer](https://insights.timeseries.azure.com). Navegue até o ambiente que você deseja migrar e siga as etapas abaixo. **Você pode concluir a migração parcialmente e retornar para concluí-la mais tarde. no entanto, nenhuma das atualizações pode ser revertida.**
 
 > [!NOTE]
 > Você deve ser um colaborador para o ambiente para fazer atualizações no modelo de série temporal e consultas salvas. Se você não for um colaborador, poderá migrar suas consultas pessoais salvas. Examine [as políticas de acesso do ambiente](./concepts-access-policies.md) e seu nível de acesso antes de continuar.
 
-1. Você será solicitado pelo Explorer para atualizar a sintaxe usada pelas suas variáveis de modelo de série temporal e consultas salvas. 
-   
-    [![Prompt](media/api-migration/ux-prompt.png)](media/v2-update-overview/overview-one.png#lightbox)
-    
-    Se você fechar acidentalmente a notificação, ela poderá ser encontrada no painel de notificação. 
+1. Você será solicitado pelo Explorer para atualizar a sintaxe usada pelas suas variáveis de modelo de série temporal e consultas salvas.
+
+    [![Aviso](media/api-migration/ux-prompt.png)](media/v2-update-overview/overview-one.png#lightbox)
+
+    Se você fechar acidentalmente a notificação, ela poderá ser encontrada no painel de notificação.
 
 1. Clique em **Mostrar atualizações** para abrir a ferramenta de migração.
-    
-1. Clique em **tipos de download**. Como a migração substituirá os tipos atuais para alterar a sintaxe variável, será necessário salvar uma cópia dos seus tipos atuais. A ferramenta irá notificá-lo quando os tipos tiverem sido baixados. 
-   
+
+1. Clique em **tipos de download**. Como a migração substituirá os tipos atuais para alterar a sintaxe variável, será necessário salvar uma cópia dos seus tipos atuais. A ferramenta irá notificá-lo quando os tipos tiverem sido baixados.
+
     [![Tipos de download](media/api-migration/ux-migration-tool.png)](media/v2-update-overview/overview-one.png#lightbox)
 
 1. Clique em **Atualizar variáveis**. A ferramenta o notificará quando as variáveis tiverem sido atualizadas.
@@ -56,35 +56,34 @@ Para ajudar os usuários a migrar suas [variáveis de modelo de série temporal]
 
     [![Atualizar variáveis](media/api-migration/ux-migration-tool-downloaded-types.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-2. Clique em **Atualizar consultas salvas**. A ferramenta o notificará quando as variáveis tiverem sido atualizadas.
-   
+1. Clique em **Atualizar consultas salvas**. A ferramenta o notificará quando as variáveis tiverem sido atualizadas.
+
     [![Atualizar consultas salvas](media/api-migration/ux-migration-tool-updated-variables.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-3. Clique em **Concluído**.
+1. Clique em **Concluído**.
 
     [![Migração concluída](media/api-migration/ux-migration-tool-updated-saved-queries.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-
-Examine o ambiente atualizado criando um gráfico de algumas das variáveis recém-criadas e das consultas salvas. Se você vir qualquer comportamento inesperado durante o gráfico, envie-nos comentários usando a ferramenta de comentários no Gerenciador. 
+Examine o ambiente atualizado criando um gráfico de algumas das variáveis recém-criadas e das consultas salvas. Se você vir qualquer comportamento inesperado durante o gráfico, envie-nos comentários usando a ferramenta de comentários no Gerenciador.
 
 ## <a name="migrate-power-bi-queries"></a>Migrar Power BI consultas
 
-Se você tiver gerado consultas usando o conector de Power BI, elas estão fazendo chamadas para Azure Time Series Insights usando a versão da API de visualização e a sintaxe da expressão de série temporal antiga. Essas consultas continuarão a recuperar dados com êxito até que a API de visualização seja preterida. 
+Se você tiver gerado consultas usando o conector de Power BI, elas estão fazendo chamadas para Azure Time Series Insights usando a versão da API de visualização e a sintaxe da expressão de série temporal antiga. Essas consultas continuarão a recuperar dados com êxito até que a API de visualização seja preterida.
 
-Para atualizar as consultas para usar a nova versão de API e a nova sintaxe de expressão de série temporal, as consultas precisarão ser regeneradas no Explorer. Leia mais sobre como [criar consultas usando o conector de Power bi](./how-to-connect-power-bi.md). 
+Para atualizar as consultas para usar a nova versão de API e a nova sintaxe de expressão de série temporal, as consultas precisarão ser regeneradas no Explorer. Leia mais sobre como [criar consultas usando o conector de Power bi](./how-to-connect-power-bi.md).
 
 > [!NOTE]
-> Você deve estar usando a versão de julho de 2020 do Power BI Desktop. Caso contrário, você poderá ver um [erro de versão de conteúdo de consulta inválido](./how-to-diagnose-troubleshoot.md#problem-power-bi-connector-shows-unable-to-connect). 
+> Você deve estar usando a versão de julho de 2020 do Power BI Desktop. Caso contrário, você poderá ver um [erro de versão de conteúdo de consulta inválido](./how-to-diagnose-troubleshoot.md#problem-power-bi-connector-shows-unable-to-connect).
 
 ## <a name="migrate-custom-applications"></a>Migrar aplicativos personalizados
 
-Se seu aplicativo personalizado estiver fazendo chamadas para os seguintes pontos de extremidade REST, será suficiente atualizar a versão da API para `2020-07-31` no URI: 
+Se seu aplicativo personalizado estiver fazendo chamadas para os seguintes pontos de extremidade REST, será suficiente atualizar a versão da API para `2020-07-31` no URI:
 
 - APIs de Modelo de Série Temporal
   - APIs de configurações de modelo
     - [Obter](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
     - [Atualização](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
-  - APIs da instância 
+  - APIs da instância
     - [Todas as operações de lote](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
     - [Lista](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/list)
     - [Pesquisar](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search)
@@ -96,8 +95,7 @@ Se seu aplicativo personalizado estiver fazendo chamadas para os seguintes ponto
     - [Excluir, obter operações](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
     - [Lista](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
 
-
-Para os seguintes pontos de extremidade REST, você deve atualizar a versão da API para `2020-07-31` no URI e verificar se todas as ocorrências da `tsx` Propriedade usam a [sintaxe da expressão de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)atualizada. 
+Para os seguintes pontos de extremidade REST, você deve atualizar a versão da API para `2020-07-31` no URI e verificar se todas as ocorrências da `tsx` Propriedade usam a [sintaxe da expressão de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)atualizada.
 
 - APIs de tipos
   - [Operação put](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
@@ -106,12 +104,12 @@ Para os seguintes pontos de extremidade REST, você deve atualizar a versão da 
   - [Série](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
   - [GetAggregateSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
 
-
 ### <a name="examples"></a>Exemplos
 
 #### <a name="typesbatchput"></a>TypesBatchPut
 
-Corpo de solicitação antigo (usado por `2018-11-01-preview` ): 
+Corpo de solicitação antigo (usado por `2018-11-01-preview` ):
+
 ```JSON
 {
   "put": [
@@ -139,6 +137,7 @@ Corpo de solicitação antigo (usado por `2018-11-01-preview` ):
 ```
 
 Corpo da solicitação atualizado (usado por `2020-07-31` ):
+
 ```JSON
 {
   "put": [
@@ -169,7 +168,8 @@ Como alternativa, o `filter` também pode ser `$event.Mode.String = 'outdoor'` .
 
 #### <a name="getevents"></a>GetEvents
 
-Corpo de solicitação antigo (usado por `2018-11-01-preview` ): 
+Corpo de solicitação antigo (usado por `2018-11-01-preview` ):
+
 ```JSON
 {
   "getEvents": {
@@ -195,6 +195,7 @@ Corpo de solicitação antigo (usado por `2018-11-01-preview` ):
 ```
 
 Corpo da solicitação atualizado (usado por `2020-07-31` ):
+
 ```JSON
 {
   "getEvents": {
@@ -219,10 +220,12 @@ Corpo da solicitação atualizado (usado por `2020-07-31` ):
 }
 ```
 
-Como alternativa, o `filter` também pode ser `($event['Value'].Double != null) OR ($event['Status'].String = 'Good')` . 
+Como alternativa, o `filter` também pode ser `($event['Value'].Double != null) OR ($event['Status'].String = 'Good')` .
 
 #### <a name="getseries"></a>Série
-Corpo de solicitação antigo (usado por `2018-11-01-preview` ): 
+
+Corpo de solicitação antigo (usado por `2018-11-01-preview` ):
+
 ```JSON
 {
   "getSeries": {
@@ -252,6 +255,7 @@ Corpo de solicitação antigo (usado por `2018-11-01-preview` ):
 ```
 
 Corpo da solicitação atualizado (usado por `2020-07-31` ):
+
 ```JSON
 {
   "getSeries": {
@@ -280,10 +284,12 @@ Corpo da solicitação atualizado (usado por `2020-07-31` ):
 }
 ```
 
-Como alternativa, o `value` também pode ser `$event['Bar-Pressure-Offset'].Double` . Se nenhum tipo de dados for especificado, o tipo de dados sempre será considerado duplo. A notação de colchete deve ser usada para escapar do caractere especial ( `-` ). 
+Como alternativa, o `value` também pode ser `$event['Bar-Pressure-Offset'].Double` . Se nenhum tipo de dados for especificado, o tipo de dados sempre será considerado duplo. A notação de colchete deve ser usada para escapar do caractere especial ( `-` ).
 
 #### <a name="getaggregateseries"></a>GetAggregateSeries
-Corpo de solicitação antigo (usado por `2018-11-01-preview` ): 
+
+Corpo de solicitação antigo (usado por `2018-11-01-preview` ):
+
 ```JSON
 {
   "aggregateSeries": {
@@ -314,6 +320,7 @@ Corpo de solicitação antigo (usado por `2018-11-01-preview` ):
 ```
 
 Corpo da solicitação atualizado (usado por `2020-07-31` ):
+
 ```JSON
   "aggregateSeries": {
     "timeSeriesId": [

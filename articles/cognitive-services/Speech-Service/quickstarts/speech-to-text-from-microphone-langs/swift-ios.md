@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: Reconhecer a fala de um microfone, Swift – Serviço de Fala'
+title: 'Início Rápido: Reconhecer fala, Swift – Serviço de Fala (iOS)'
 titleSuffix: Azure Cognitive Services
-description: Saiba como reconhecer fala em Swift no iOS usando o SDK de Fala
+description: Saiba como criar um aplicativo para reconhecer fala no Swift para um dispositivo iOS usando o SDK de Fala dos Serviços Cognitivos.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: chlandsi
-ms.openlocfilehash: 95c69aad24ff10b49bdc09411553e6ed43bfdccd
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: c4a66b1581049b90a419a1b62ba837fc832fd748
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391427"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512702"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-ios-by-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em Swift no iOS usando o SDK de Fala
 

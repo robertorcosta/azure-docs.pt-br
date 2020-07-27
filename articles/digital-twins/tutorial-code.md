@@ -7,12 +7,12 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: deb69f6ca8f1499f43c12d606434719571a1f400
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: b1039bb94626dec35eff040e023a84283d9d3a4a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027880"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537404"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Codificação com as APIs dos Gêmeos Digitais do Azure
 
@@ -47,7 +47,7 @@ Isso criará vários arquivos dentro do diretório, incluindo um chamado *Progra
 Em seguida, adicione duas dependências necessárias para trabalhar com os Gêmeos Digitais do Azure:
 
 ```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.2
+dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
 dotnet add package Azure.identity
 ```
 
@@ -174,7 +174,7 @@ No diretório em que você criou o projeto, crie um arquivo *.json* chamado *Sam
 > Se você estiver usando o Visual Studio para este tutorial, o ideal será selecionar o arquivo JSON recém-criado e definir a propriedade *Copiar para o Diretório de Saída* na inspeção de propriedade como *Copiar se for o Mais Recente* ou *Sempre Copiar*. Isso permitirá que o Visual Studio localize o arquivo JSON com o caminho padrão quando você executar o programa com **F5** durante o restante do tutorial.
 
 > [!TIP] 
-> Há uma [amostra de Validador DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) independente de linguagem que pode ser usada para verificar os documentos do modelo e ver se a DTDL é válida. Ela se baseia na biblioteca do analisador de DTDL, que é explicada mais detalhadamente em [Como: analisar e validar modelos](how-to-use-parser.md).
+> Há uma [amostra de Validador DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) independente de linguagem que pode ser usada para verificar os documentos do modelo e ver se a DTDL é válida. Ela se baseia na biblioteca do analisador de DTDL, que é explicada mais detalhadamente em [*Como analisar e validar modelos*](how-to-use-parser.md).
 
 Em seguida, adicione mais um código a *Program.cs* para carregar o modelo recém-criado na sua instância dos Gêmeos Digitais do Azure.
 
@@ -185,7 +185,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Models;
 ```
 
 Em seguida, prepare-se para usar os métodos assíncronos no SDK do serviço C#, alterando a assinatura do método `Main` para permitir a execução assíncrona. 
@@ -531,7 +530,7 @@ namespace minimal
 ```
 ## <a name="clean-up-resources"></a>Limpar os recursos
  
-A instância usada neste tutorial pode ser reutilizada no próximo tutorial, [Tutorial: Explorar os conceitos básicos com um aplicativo cliente de exemplo](tutorial-command-line-app.md). Se você pretende prosseguir para o próximo tutorial, mantenha a instância dos Gêmeos Digitais do Azure configurada aqui.
+A instância usada neste tutorial pode ser reutilizada no próximo tutorial, [*Tutorial: Explorar os conceitos básicos com um aplicativo cliente de exemplo*](tutorial-command-line-app.md). Se você pretende prosseguir para o próximo tutorial, mantenha a instância dos Gêmeos Digitais do Azure configurada aqui.
  
 Se você não precisa mais dos recursos criados neste tutorial, siga estas etapas para excluí-los.
 
@@ -561,8 +560,8 @@ Neste tutorial, você criou um aplicativo cliente de console .NET do zero. Você
 Prossiga para o próximo tutorial e explore as coisas que você pode fazer com um aplicativo cliente de exemplo: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Explorar os conceitos básicos com um aplicativo cliente de exemplo](tutorial-command-line-app.md)
+> [*Tutorial: Explorar os conceitos básicos com um aplicativo cliente de exemplo*](tutorial-command-line-app.md)
 
 Incremente também o código que você escreveu neste tutorial aprendendo mais operações de gerenciamento nos artigos de instruções ou comece examinando a documentação dos conceitos para saber mais sobre os elementos com os quais você trabalhou no tutorial.
-* [Instruções: Gerenciar modelos personalizados](how-to-manage-model.md)
-* [Conceitos: Modelos personalizados](concepts-models.md)
+* [*Como gerenciar modelos personalizados*](how-to-manage-model.md)
+* [*Conceitos: modelos personalizados*](concepts-models.md)

@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.reviewer: trbye, jmartens, larryfr
+ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 06/23/2020
+ms.date: 07/16/2020
 ms.custom: Build2020, tracking-python
-ms.openlocfilehash: e5665bd5ad2baa35b497c8b4fe19b0cb93bdb2a7
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: bf0aa51c64eea0aa58e679c4f9f44686ce7b9ffb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023356"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520622"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Executar inferência de lote em grandes quantidades de dados usando o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,6 +33,7 @@ Neste artigo, você aprenderá as seguintes tarefas:
 > * Escrever seu script de inferência.
 > * Criar um [pipeline de machine learning](concept-ml-pipelines.md) contendo ParallelRunStep e executar a inferência de lote em imagens de teste do MNIST. 
 > * Reenviar uma execução de inferência de lote com novos parâmetros e entrada de dados. 
+> * Exiba os resultados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -159,9 +160,7 @@ Objetos [`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-
 ```python
 from azureml.pipeline.core import Pipeline, PipelineData
 
-output_dir = PipelineData(name="inferences", 
-                          datastore=def_data_store, 
-                          output_path_on_compute="mnist/results")
+output_dir = PipelineData(name="inferences", datastore=def_data_store)
 ```
 
 ## <a name="prepare-the-model"></a>Preparar o modelo
@@ -266,17 +265,17 @@ Agora você tem tudo o que precisa: as entradas de dados, o modelo, a saída e o
 
 ### <a name="prepare-the-environment"></a>Preparar o ambiente
 
-Primeiro, especifique as dependências de seu script. Isso permitirá que você instale pacotes pip e configure o ambiente. Inclua sempre os pacotes **azureml-core** e **azureml-dataprep[pandas, fuse]** .
+Primeiro, especifique as dependências de seu script. Isso permitirá que você instale pacotes pip e configure o ambiente.
 
-Se você usar uma imagem personalizada do Docker (user_managed_dependencies=True), também deverá ter o conda instalado.
+Inclua sempre **azureml-core** e **azureml-dataset-runtime[pandas, fuse]** na lista de pacotes pip. Se você usar uma imagem personalizada do Docker (user_managed_dependencies=True), também deverá ter o conda instalado.
 
 ```python
 from azureml.core.environment import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 
-batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.13.1", "pillow",
-                                                          "azureml-core", "azureml-dataprep[pandas, fuse]"])
+batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.15.2", "pillow", 
+                                                          "azureml-core", "azureml-dataset-runtime[pandas, fuse]"])
 
 batch_env = Environment(name="batch_environment")
 batch_env.python.conda_dependencies = batch_conda_deps
@@ -286,7 +285,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 
 ### <a name="specify-the-parameters-using-parallelrunconfig"></a>Especificar os parâmetros usando ParallelRunConfig
 
-`ParallelRunConfig` é a principal configuração para a instância `ParallelRunStep` no pipeline do Azure Machine Learning. Use-o para encapsular o script e configurar os parâmetros necessários, incluindo todos os itens a seguir:
+`ParallelRunConfig` é a principal configuração para a instância `ParallelRunStep` no pipeline do Azure Machine Learning. Use-a para encapsular o script e configurar os parâmetros necessários, incluindo todas as seguintes entradas:
 - `entry_script`: Um script de usuário como um caminho de arquivo local que será executado em paralelo em vários nós. Se `source_directory` estiver presente, use um caminho relativo. Caso contrário, use qualquer caminho que seja acessível no computador.
 - `mini_batch_size`: O tamanho do minilote passado para uma única chamada de `run()`. (opcional; o valor padrão é arquivos `10` para FileDataset e `1MB` para TabularDataset.)
     - Para `FileDataset`, é o número de arquivos com um valor mínimo de `1`. Você pode combinar vários arquivos em um minilote.
@@ -305,7 +304,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 - `run_invocation_timeout`: O tempo limite de invocação do método `run()` em segundos. (opcional; o valor padrão é `60`)
 - `run_max_try`: contagem máxima de tentativas de `run()` para um minilote. Um `run()` falhará se uma exceção for gerada ou nada será retornado quando `run_invocation_timeout` for atingido (opcional; o valor padrão é `3`). 
 
-Você pode especificar `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` e `run_max_try` como `PipelineParameter` para que, ao reenviar uma execução de pipeline, você possa ajustar os valores de parâmetro. Neste exemplo, você usará PipelineParameter para `mini_batch_size` e `Process_count_per_node` e vai alterar esses valores ao reenviar uma execução mais tarde. 
+Especifique `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` e `run_max_try` como `PipelineParameter`, de modo que, ao reenviar uma execução de pipeline, você possa ajustar os valores de parâmetro. Neste exemplo, você usará PipelineParameter para `mini_batch_size` e `Process_count_per_node` e vai alterar esses valores ao reenviar uma execução mais tarde. 
 
 Este exemplo pressupõe que você esteja usando o script `digit_identification.py` que foi discutido anteriormente. Se você usar seu próprio script, altere os parâmetros `source_directory` e `entry_script` correspondentemente.
 
@@ -379,7 +378,7 @@ pipeline_run.wait_for_completion(show_output=True)
 
 ## <a name="resubmit-a-run-with-new-data-inputs-and-parameters"></a>Reenviar uma execução com novas entradas de dados e parâmetros
 
-Como você fez as entradas e várias configurações como `PipelineParameter`, você pode reenviar uma execução de inferência de lote com uma entrada de conjunto de dados diferente e ajustar os parâmetros sem precisar criar um pipeline. Você usará o mesmo armazenamento de dados, mas usará apenas uma única imagem como entradas de dados.
+Como você fez as entradas e várias configurações como `PipelineParameter`, reenvie uma execução de inferência de lote com outra entrada de conjunto de dados e ajuste os parâmetros sem precisar criar outro pipeline. Você usará o mesmo armazenamento de dados, mas usará apenas uma única imagem como entradas de dados.
 
 ```python
 path_on_datastore = mnist_blob.path('mnist/0.png')
@@ -392,6 +391,28 @@ pipeline_run_2 = experiment.submit(pipeline,
 )
 
 pipeline_run_2.wait_for_completion(show_output=True)
+```
+## <a name="view-the-results"></a>Exibir os resultados
+
+Os resultados da execução acima são gravados no armazenamento de dados especificado no objeto PipelineData como os dados de saída, que, nesse caso, são chamados *inferências*. Os resultados são armazenados no contêiner de blob padrão. Acesse sua conta de armazenamento e veja-os por meio do Gerenciador de Armazenamento; o caminho do arquivo é azureml-blobstore-*GUID*/azureml/*RunId*/*output_dir*.
+
+Baixe também esses dados para ver os resultados. Veja abaixo o código de exemplo para exibir as dez primeiras linhas.
+
+```python
+import pandas as pd
+import tempfile
+
+batch_run = pipeline_run.find_step_run(parallelrun_step.name)[0]
+batch_output = batch_run.get_output_data(output_dir.name)
+
+target_dir = tempfile.mkdtemp()
+batch_output.download(local_path=target_dir)
+result_file = os.path.join(target_dir, batch_output.path_on_datastore, parallel_run_config.append_row_file_name)
+
+df = pd.read_csv(result_file, delimiter=":", header=None)
+df.columns = ["Filename", "Prediction"]
+print("Prediction has ", df.shape[0], " rows")
+df.head(10) 
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -1,5 +1,5 @@
 ---
-title: Conectar o código do dispositivo de exemplo do IoT Plug and Play Preview ao Hub IoT   Microsoft Docs
+title: Conectar o código da versão prévia do IoT Plug and Play ao Hub IoT – Java | Microsoft Docs
 description: Usando Java, compile e execute o código do dispositivo de exemplo do IoT Plug and Play Preview que se conecta a um Hub IoT. Use a ferramenta Azure IoT Explorer para exibir as informações enviadas pelo dispositivo ao hub.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: aa676dd374eccf2a4b5c4622689ed402c8679e5a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c85763ffb12ac93f3aff667c4660afa22ca6a99f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76964797"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521234"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-java"></a>Início Rápido: Conectar um aplicativo de exemplo de dispositivo IoT Plug and Play Preview ao Hub IoT (Java)
 

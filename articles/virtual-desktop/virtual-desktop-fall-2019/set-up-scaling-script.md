@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 442dfc1667027bd39b138d59a28542138cc4a1ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 690f59c643f1fe8c8cfc74758a0f8f13b129f78a
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085921"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87172070"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Dimensionar hosts da sessão usando a Automação do Azure
 
@@ -60,10 +60,10 @@ No entanto, a ferramenta também tem as seguintes limitações:
 
 - Essa solução se aplica somente a VMs de host de sessão de várias sessões em pool.
 - Essa solução gerencia as VMs em qualquer região, mas só pode ser usada na mesma assinatura que a sua conta de automação do Azure e o aplicativo lógico do Azure.
-- O tempo de execução máximo de um trabalho no runbook é de 3 horas. Se iniciar ou parar as VMs no pool de hosts demorar mais do que isso, o trabalho falhará. Para obter mais detalhes, consulte [recursos compartilhados](../../automation/automation-runbook-execution.md#fair-share)
+- O tempo de execução máximo de um trabalho no runbook é de 3 horas. Se iniciar ou parar as VMs no pool de hosts demorar mais do que isso, o trabalho falhará. Para obter mais detalhes, consulte [recursos compartilhados](../../automation/automation-runbook-execution.md#fair-share).
 
 >[!NOTE]
->A ferramenta de dimensionamento controla o modo de balanceamento de carga do pool de hosts que está dimensionando. Ela o define para o balanceamento de carga em largura para os horários de pico e fora de pico.
+>A ferramenta de dimensionamento controla o modo de balanceamento de carga do pool de hosts que está sendo dimensionado no momento. A ferramenta usa o modo de balanceamento de carga em primeiro lugar para os horários de pico e fora do horário de pico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -140,7 +140,7 @@ Agora que você tem uma conta de automação do Azure, também precisará criar 
 
 Uma [conta Executar como da automação do Azure](../../automation/manage-runas-account.md) fornece autenticação para gerenciar recursos no Azure com cmdlets do Azure. Quando você cria uma conta Executar como, ela cria um novo usuário de entidade de serviço no Azure Active Directory e atribui a função colaborador ao usuário da entidade de serviço no nível da assinatura. Uma conta Executar como do Azure é uma ótima maneira de autenticar com segurança com certificados e um nome da entidade de serviço sem a necessidade de armazenar um nome de usuário e senha em um objeto de credencial. Para saber mais sobre a autenticação da conta Executar como, consulte [limitar permissões da conta Executar como](../../automation/manage-runas-account.md#limit-run-as-account-permissions).
 
-Todo usuário que é membro da função Administradores de Assinatura e coadministrador da assinatura pode criar uma conta Executar como seguindo as instruções da próxima seção.
+Qualquer usuário que seja membro da função Administradores de assinatura e coadministrador da assinatura pode criar uma conta Executar como.
 
 Para criar uma conta Executar como em sua conta de automação do Azure:
 

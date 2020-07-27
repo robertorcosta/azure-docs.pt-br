@@ -1,6 +1,6 @@
 ---
 title: Criar um serviço de link privado no Link Privado do Azure
-description: Neste início rápido, você usará um modelo do Azure Resource Manager para criar um serviço de link privado.
+description: Neste guia de início rápido, você usará um modelo do ARM (Azure Resource Manager) para criar um serviço de link privado.
 services: private-link
 author: mblanco77
 ms.service: private-link
@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: c9ed628501e8fa02b816a1564b91620404dfc379
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 2a3c7245a4e6c69e87791ca3364ad588b82572c6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817628"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529600"
 ---
-# <a name="quickstart-create-a-private-link-service-by-using-an-azure-resource-manager-template"></a>Início Rápido: Criar um serviço de link privado usando um modelo do Azure Resource Manager
+# <a name="quickstart-create-a-private-link-service-by-using-an-arm-template"></a>Início Rápido: Criar um serviço de link privado usando um modelo do ARM
 
-Neste início rápido, você usará um modelo do Azure Resource Manager para criar um serviço de link privado.
+Neste guia de início rápido, você usará um modelo do ARM (Azure Resource Manager) para criar um serviço de link privado.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Também é possível concluir este início rápido usando o [portal do Azure](create-private-link-service-portal.md), o [Azure PowerShell](create-private-link-service-powershell.md) ou a [CLI do Azure](create-private-link-service-cli.md).
 
-## <a name="prerequisite"></a>Pré-requisito
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisa de uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-private-link-service"></a>Criar um serviço de Link Privado
+## <a name="review-the-template"></a>Examinar o modelo
 
 Este modelo cria um serviço de link privado.
 
-### <a name="review-the-template"></a>Examinar o modelo
-
-O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/).
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-privatelink-service/).
 
 :::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json" range="001-432" highlight="263-289":::
 
@@ -48,13 +50,13 @@ Vários recursos do Azure são definidos no modelo:
 - [**Microsoft.Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses): há dois endereços IP públicos, um para cada máquina virtual.
 - [**Microsoft.Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints): o ponto de extremidade privado usado para acessar o serviço.
 
-### <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-the-template"></a>Implantar o modelo
 
-Veja como implantar o modelo do Azure Resource Manager no Azure:
+Veja como implantar o modelo do ARM no Azure:
 
 1. Para entrar no Azure e abrir o modelo, selecione **Implantar no Azure**. O modelo cria uma máquina virtual, um balanceador de carga padrão, um serviço de link privado, um ponto de extremidade privado, uma rede e uma máquina virtual a ser validada.
 
-   [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
+   [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
 
 2. Selecione ou crie o grupo de recursos.
 3. Digite o nome de usuário e a senha do administrador da máquina virtual.
@@ -63,7 +65,7 @@ Veja como implantar o modelo do Azure Resource Manager no Azure:
 ## <a name="validate-the-deployment"></a>Validar a implantação
 
 > [!NOTE]
-> O modelo do Azure Resource Manager gera um nome exclusivo para o recurso myConsumerVm<b>{uniqueid}</b> da máquina virtual. Substitua o valor gerado por **{uniqueid}** .
+> O modelo do ARM gera um nome exclusivo para o recurso myConsumerVm<b>{uniqueid}</b> da máquina virtual. Substitua o valor gerado por **{uniqueid}** .
 
 ### <a name="connect-to-a-vm-from-the-internet"></a>Conecte uma VM a partir da Internet
 
@@ -95,7 +97,7 @@ Conecte-se à VM _myConsumerVm{uniqueid}_ da Internet da seguinte forma:
 Veja como se conectar ao servidor http da VM usando o ponto de extremidade privado.
 
 1.  Vá até a Área de Trabalho Remota do _myConsumerVm{uniqueid}_ .
-2.  Abra um navegador e insira o endereço do ponto de extremidade privado: http://10.0.0.5/.
+2.  Abra um navegador e insira o endereço do ponto de extremidade privado: `http://10.0.0.5/`.
 3.  A página padrão do IIS é exibida.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

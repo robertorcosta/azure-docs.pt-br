@@ -618,6 +618,14 @@
           href: vs-active-directory-webapi-what-happened.md
         - name: Diagnosticar erros durante a autenticação
           href: vs-active-directory-error.md
+    - name: Colocar um aplicativo no mercado
+      items:
+        - name: Publicar na Loja de Aplicativos
+          href: v2-howto-get-appsource-certified.md
+        - name: Publicar na Galeria de Aplicativos do Azure AD
+          href: v2-howto-app-gallery-listing.md
+        - name: Publicar no Painel do Vendedor do Office 365
+          href: 'https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store'
 - name: Referência
   items:
     - name: Manifesto do aplicativo

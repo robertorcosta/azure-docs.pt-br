@@ -1,6 +1,6 @@
 ---
-title: Porta da frente do Azure
-description: Este artigo fornece uma lista contínua de alterações recentes que são feitas na porta frontal do Azure.
+title: Alterações recentes no Azure Front Door
+description: Este artigo fornece uma lista contínua das alterações recentes feitas no Azure Front Door.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: d00ed607322205daefd80c111b83483524c4a742
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26e3e242a5085e228e426ad2cba51b1f1982ad74
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321513"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521472"
 ---
 # <a name="whats-new-in-azure-front-door"></a>Quais são as novidades do Azure Front Door?
 

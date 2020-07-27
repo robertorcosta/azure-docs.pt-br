@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 0b28de7af16053093cd0108224188cdd615fce55
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 3e4404589e180be730579b8cbbfadd132502585a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435513"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529311"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Proteger seus recursos com a Central de Segurança do Azure
 A Central de Segurança limita a exposição a ameaças por meio de controles de acesso e de aplicativo a fim de bloquear atividades mal-intencionadas. O acesso de VM (máquina virtual) JIT (Just-In-Time) reduz a exposição a ataques permitindo que você negue o acesso persistente às VMs. Em vez disso, você fornece acesso controlado e auditado às VMs somente quando for necessário. Controles de aplicativo adaptáveis ajudam a proteger VMs contra malware, controlando quais aplicativos podem ser executados em suas VMs. A Central de Segurança usa o aprendizado de máquina para analisar os processos em execução na VM e ajuda a aplicar regras de lista de permissões usando essa inteligência.
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá a:
 > * Configurar uma política de controle de aplicativo
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para percorrer os recursos abordados neste tutorial, você deve estar em um tipo de preço da Central de Segurança Padrão. Você pode experimentar a Central de Segurança Standard sem nenhum custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Integração da sua assinatura do Azure à Central de Segurança Standard](security-center-get-started.md) orienta você sobre como fazer upgrade para Standard.
+Para acompanhar os recursos abordados neste tutorial, você precisará usar um tipo de preço Standard da Central de Segurança. Você pode experimentar a Central de Segurança Standard sem nenhum custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Integração da sua assinatura do Azure à Central de Segurança Standard](security-center-get-started.md) orienta você sobre como fazer upgrade para Standard.
 
 ## <a name="manage-vm-access"></a>Gerenciar acesso à VM
 O acesso JIT à VM pode ser usado para bloquear o tráfego de entrada às suas VMs do Azure, reduzindo a exposição aos ataques, fornecendo acesso fácil para conectar às VMs quando necessário.
@@ -94,12 +94,12 @@ Os controles de aplicativo adaptáveis ajudam você a definir um conjunto de apl
 4. Após concluir suas seleções, selecione **Criar**.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
-Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de início rápido. Se planejar continuar a trabalhar com os tutoriais e os guias de início rápido subsequentes, continue executando o nível Standard e mantenha o provisionamento automático habilitado. Se você não planejar continuar ou quiser retornar para a camada Gratuita:
+Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de início rápido. Se pretender continuar trabalhando com os próximos tutoriais e guias de início rápido, continue executando a camada Standard e mantenha o provisionamento automático habilitado. Se você não planejar continuar ou quiser retornar para a camada Gratuita:
 
 1. Retorne ao menu principal da Central de Segurança e selecione a **Política de segurança**.
 2. Selecione a assinatura ou a política que você deseja retornar para Gratuita. A **Política de segurança** abre.
 3. Em **COMPONENTES DE POLÍTICA**, selecione **Tipo de preços**.
-4. Selecione **Gratuita** para alterar a assinatura da camada Standard para a camada Gratuita.
+4. Selecione **Gratuita** para alterar a assinatura da camada Standard para a Camada gratuita.
 5. Clique em **Salvar**.
 
 Se quiser desabilitar o provisionamento automático:
