@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/24/2020
+ms.date: 07/17/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c37c5a125bce23f8f2a813b5df4516323c2a2c12
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 2ef1fab7a6f32f45ee3047a24610085a2133a339
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83343439"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102436"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos discos gerenciados
 
@@ -45,22 +45,30 @@ Para proteger contra desastres regionais, o [Backup do Azure](../articles/backup
 
 ### <a name="upload-your-vhd"></a>Faça upload do seu VHD
 
- O upload direto facilita a transferência do VHD para um disco gerenciado do Azure. Anteriormente, você precisava seguir um processo mais envolvido que incluía preparar seus dados em uma conta de armazenamento. Agora, há menos etapas. É mais fácil fazer upload das VMs locais para o Azure e para grandes discos gerenciados. Além disso, o processo de backup e de restauração foi simplificado. Isso também reduz o custo ao permitir que você faça upload dos dados para discos gerenciados diretamente sem anexá-los às VMs. É possível usar o upload direto para carregar VHDs de até 32 TiB de tamanho.
+O upload direto facilita a transferência do VHD para um disco gerenciado do Azure. Anteriormente, você precisava seguir um processo mais envolvido que incluía preparar seus dados em uma conta de armazenamento. Agora, há menos etapas. É mais fácil fazer upload das VMs locais para o Azure e para grandes discos gerenciados. Além disso, o processo de backup e de restauração foi simplificado. Isso também reduz o custo ao permitir que você faça upload dos dados para discos gerenciados diretamente sem anexá-los às VMs. É possível usar o upload direto para carregar VHDs de até 32 TiB de tamanho.
 
- Para saber como transferir seu VHD para o Azure, confira os artigos da [CLI](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) ou do [PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).
+Para saber como transferir seu VHD para o Azure, confira os artigos da [CLI](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) ou do [PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).
 
-## <a name="encryption"></a>Criptografia
+## <a name="security"></a>Segurança
+
+### <a name="private-links"></a>Links Privados
+
+Os discos gerenciados são compatíveis com o uso de Links Privados para importar ou exportar um disco gerenciado interno da sua rede. Os Links Privados permitem que você gere um URI de SAS (Assinatura de Acesso Compartilhado) com limite de tempo para discos gerenciados e instantâneos desanexados que podem ser usados para exportar os dados para outras regiões para expansão regional, recuperação de desastre e para análise forense. Use também o URI de SAS para carregar diretamente o VHD em um disco vazio local. Agora você pode aproveitar os [Links Privados](../articles/private-link/private-link-overview.md) para restringir a exportação e a importação de discos gerenciados para que isso só possa ocorrer dentro de sua rede virtual do Azure. Os Links Privados oferecem a garantia de que seus dados trafeguem apenas na rede de backbone protegida da Microsoft.
+
+Para saber como habilitar Links Privados para importar ou exportar um disco gerenciado, consulte os artigos da [CLI](../articles/virtual-machines/linux/disks-export-import-private-links-cli.md) ou do [Portal](../articles/virtual-machines/disks-enable-private-links-for-import-export-portal.md).
+
+### <a name="encryption"></a>Criptografia
 
 Os discos gerenciados oferecem dois tipos diferentes de criptografia. O primeiro é a SSE (Criptografia do Serviço de Armazenamento), executada pelo serviço de armazenamento. O segundo é o ADE (Azure Disk Encryption), que pode ser habilitado nos discos do sistema operacional e de dados das VMs.
 
-### <a name="server-side-encryption"></a>Criptografia no servidor
+#### <a name="server-side-encryption"></a>Criptografia no servidor
 
-A [Criptografia no Servidor do Azure](../articles/virtual-machines/windows/disk-encryption.md) fornece criptografia em repouso e protege seus dados para atender aos compromissos de conformidade e segurança da organização. A criptografia no servidor está habilitada por padrão para todos os discos gerenciados, instantâneos e imagens em todas as regiões nas quais os discos gerenciados estão disponíveis. (Os discos temporários, por outro lado, não são criptografados pela Criptografia do Serviço de Armazenamento; confira [Funções de Disco: discos temporários](#temporary-disk)).
+A criptografia no servidor fornece criptografia em repouso e protege seus dados para atender aos compromissos de conformidade e segurança da sua organização. A criptografia no servidor está habilitada por padrão para todos os discos gerenciados, instantâneos e imagens em todas as regiões nas quais os discos gerenciados estão disponíveis. (Os discos temporários, por outro lado, não são criptografados pela criptografia do lado do servidor, a menos que você habilite a criptografia no host; consulte [Funções de disco: discos temporários](#temporary-disk)).
 
-Você poderá permitir que o Azure gerencie as chaves para você (essas são chaves gerenciadas pela plataforma) ou você poderá gerenciar as chaves por conta própria (essas são chaves gerenciadas pelo cliente). Visite o [página de Perguntas frequentes do Managed Disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para obter mais detalhes.
+Você poderá permitir que o Azure gerencie as chaves para você (essas são chaves gerenciadas pela plataforma) ou você poderá gerenciar as chaves por conta própria (essas são chaves gerenciadas pelo cliente). Veja o artigo [Criptografia no lado do servidor do Armazenamento em Disco do Azure](../articles/virtual-machines/windows/disk-encryption.md) para obter detalhes.
 
 
-### <a name="azure-disk-encryption"></a>Azure Disk Encryption
+#### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
 O Azure Disk Encryption permite criptografar os discos do sistema operacional e os discos de dados usados por uma Máquina Virtual IaaS. Essa criptografia inclui discos gerenciados. No Windows, as unidades são criptografadas usando a tecnologia de criptografia BitLocker padrão do setor. No Linux, os discos são criptografados usando a tecnologia DM-Crypt. Esse processo de criptografia é integrado ao Azure Key Vault para permitir que você controle e gerencie as chaves de criptografia de disco. Para obter mais informações, confira [Azure Disk Encryption para VMs do Linux](../articles/virtual-machines/linux/disk-encryption-overview.md) ou [Azure Disk Encryption para VMs do Windows](../articles/virtual-machines/windows/disk-encryption-overview.md).
 
@@ -84,7 +92,7 @@ Esse disco tem uma capacidade máxima de 2.048 GiB.
 
 Cada VM contém um disco temporário, que não é um disco gerenciado. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados, como arquivos de paginação ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou durante a [reimplantação de uma VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Durante uma reinicialização padrão bem-sucedida da VM, os dados no disco temporário devem persistir.  
 
-Em VMs do Linux do Azure, o disco temporário é normalmente /dev/sdb e em VMs do Windows, o disco temporário é D: por padrão. O disco temporário não é criptografado pela Criptografia do Lado do Servidor (confira [Criptografia](#encryption)).
+Em VMs do Linux do Azure, o disco temporário é normalmente /dev/sdb e em VMs do Windows, o disco temporário é D: por padrão. O disco temporário não é criptografado pela criptografia do servidor, a menos que você habilite a criptografia no host.
 
 ## <a name="managed-disk-snapshots"></a>Instantâneos de disco gerenciado
 

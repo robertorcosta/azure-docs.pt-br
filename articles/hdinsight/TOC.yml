@@ -939,8 +939,6 @@
           href: ./control-network-traffic.md
         - name: Endereços IP necessários para NSGs e UDRs
           href: ./hdinsight-management-ip-addresses.md
-        - name: Marcas de serviço para o Firewall do Azure
-          href: ./hdinsight-service-tags.md
         - name: Criptografia de disco de chave gerenciada pelo cliente
           href: ./disk-encryption.md
         - name: Sincronização LDAP no Ranger e no Apache Ambari
@@ -967,8 +965,12 @@
           href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
         - name: Usar o firewall para restringir o tráfego de saída
           href: ./hdinsight-restrict-outbound-traffic.md
+        - name: Criar políticas do ponto de extremidade de serviço
+          href: ./service-endpoint-policies.md
         - name: Configurar solução de virtualização de rede
           href: ./network-virtual-appliance.md
+        - name: Marcas de serviço para o Firewall do Azure
+          href: ./hdinsight-service-tags.md
         - name: Solucionar problemas
           items:
             - name: Problemas de autenticação do ESP

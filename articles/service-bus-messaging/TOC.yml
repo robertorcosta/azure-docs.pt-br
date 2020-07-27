@@ -110,6 +110,9 @@
                   href: authenticate-application.md
         - name: Controles de segurança interna
           href: service-bus-messaging-security-controls.md
+        - name: Controles de segurança do Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Segurança de rede
           href: network-security.md
 - name: Guias de instruções

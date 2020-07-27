@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação do Azure Machine Learning
-summary: Saiba como treinar, implantar e gerenciar modelos de machine learning, experimentos de AutoML e pipelines em escala com o Azure Machine Learning. Os tutoriais, exemplos de código, as referências de API e mais mostram como fazer isso.
+summary: Saiba como treinar, implantar e gerenciar modelos de machine learning, usar AutoML e executar pipelines em escala com o Azure Machine Learning.  Os tutoriais, exemplos de código, as referências de API e mais mostram como fazer isso.
 metadata:
   title: Documentação do Azure Machine Learning
-  description: Saiba como treinar, implantar e gerenciar modelos de machine learning, experimentos de AutoML e pipelines em escala com o Azure Machine Learning. Os tutoriais, exemplos de código, as referências de API e mais mostram como fazer isso.
+  description: Saiba como treinar, implantar e gerenciar modelos de machine learning, usar AutoML e executar pipelines em escala com o Azure Machine Learning. Os tutoriais, exemplos de código, as referências de API e mais mostram como fazer isso.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 04/30/2020
-  ms.openlocfilehash: 57a16ca35699f11c55e12c494a4cbb93bac8a334
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.date: 07/30/2020
+  ms.openlocfilehash: 1006874272fa4798d9e56cbc76d7b039e697c413
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83592994"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87047789"
 landingContent:
 - title: Introdução ao aprendizado de máquina
   linkLists:
@@ -31,14 +31,14 @@ landingContent:
       url: tutorial-first-experiment-automated-ml.md
     - text: RStudio
       url: tutorial-1st-r-experiment.md
-- title: Usar a experiência Web do estúdio
+- title: Usar o designer e o AutoML no estúdio
   linkLists:
   - linkListType: overview
     links:
+    - text: O que é o AutoML (machine learning automatizado)?
+      url: concept-automated-ml.md
     - text: O que é o designer (arrastar e soltar)?
       url: concept-designer.md
-    - text: O que é o aprendizado de máquina automatizado?
-      url: concept-automated-ml.md
     - text: Como escolher um algoritmo
       url: how-to-select-algorithms.md
   - linkListType: tutorial
@@ -51,7 +51,7 @@ landingContent:
       url: tutorial-designer-automobile-price-train-score.md
     - text: Criar um projeto de rotulagem de imagens
       url: tutorial-labeling.md
-- title: Usar o SDK do Python
+- title: Treinar com o SDK do Python
   linkLists:
   - linkListType: tutorial
     links:
@@ -71,19 +71,19 @@ landingContent:
       url: how-to-machine-learning-interpretability.md
     - text: Aprendizado profundo versus ML
       url: concept-deep-learning-vs-machine-learning.md
-    - text: Treinar com Scikit-learn
+    - text: Treinar e registrar modelos de Scikit-learn
       url: how-to-train-scikit-learn.md
-    - text: Treinar com TensorFlow
+    - text: Treinar e registrar modelos de TensorFlow
       url: how-to-train-tensorflow.md
-    - text: Treinar com PyTorch
+    - text: Treinar e registrar modelos de PyTorch
       url: how-to-train-pytorch.md
-    - text: Treinar com Keras
+    - text: Treinar e registrar modelos de Keras
       url: how-to-train-keras.md
     - text: Aprendizado de reforço
       url: how-to-use-reinforcement-learning.md
     - text: O que são pipelines de ML?
       url: concept-ml-pipelines.md
-- title: Implantar e gerenciar modelos (MLOps)
+- title: 'MLOps: Implantar e gerenciar modelos'
   linkLists:
   - linkListType: how-to-guide
     links:

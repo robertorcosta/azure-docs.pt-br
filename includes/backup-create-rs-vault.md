@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: c0f717e26534151585a51badf4bb1fe1ba58eb00
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
-ms.translationtype: MT
+ms.openlocfilehash: 8586d90631e8d38fa020ff9dab3f626aaedb2760
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970511"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003695"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
-Um cofre dos serviços de recuperação é uma entidade de gerenciamento que armazena pontos de recuperação criados ao longo do tempo e fornece uma interface para executar operações relacionadas ao backup. Isso inclui fazer backups sob demanda, executar restaurações e criar políticas de backup.
+Um cofre dos Serviços de Recuperação é uma entidade de gerenciamento que armazena pontos de recuperação criados ao longo do tempo e que fornece uma interface para executar operações relacionadas a backup. Isso inclui fazer backups sob demanda, executar restaurações e criar políticas de backup.
 
 Para criar um cofre dos Serviços de Recuperação, siga estas etapas.
 
@@ -52,6 +52,10 @@ Para criar um cofre dos Serviços de Recuperação, siga estas etapas.
       >
       >
 
+1. Depois de fornecer os valores, selecione **Examinar + criar**.
+
+    ![Criar o cofre dos Serviços de Recuperação](./media/backup-create-rs-vault/review-and-create.png)
+
 1. Quando você estiver pronto para criar o cofre dos Serviços de Recuperação, clique em **Criar**.
 
     ![Criar o cofre dos Serviços de Recuperação](./media/backup-create-rs-vault/click-create-button.png)
@@ -61,4 +65,4 @@ Para criar um cofre dos Serviços de Recuperação, siga estas etapas.
      ![Atualizar a lista de cofres de backup](./media/backup-create-rs-vault/refresh-button.png)
 
 >[!IMPORTANT]
-> É altamente recomendável revisar as configurações padrão de **tipo de replicação de armazenamento** e configurações de **segurança** antes de configurar backups no cofre. Para obter mais informações, consulte a seção [definir redundância de armazenamento](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) .
+> É altamente recomendável examinar as configurações padrão de **tipo de Replicação de Armazenamento** e **Configurações de segurança** antes de configurar backups no cofre. Para obter mais informações, confira a seção [Definir redundância de armazenamento](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy).

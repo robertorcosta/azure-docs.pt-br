@@ -96,6 +96,7 @@
     - name: Edições Enterprise versus Basic
       href: concept-editions.md
     - name: Planejar e gerenciar custos
+      displayName: low priority VM
       href: concept-plan-manage-cost.md
     - name: Designer (ML do tipo "arrastar e soltar")
       items:
@@ -166,6 +167,9 @@
             - name: Proteger serviços Web com o TLS
               displayName: ssl
               href: how-to-secure-web-service.md
+            - name: Aumentar resiliência
+              displayName: 'high availability, disaster recovery'
+              href: how-to-high-availability-machine-learning.md
             - name: Usar a identidade do Azure AD em implantações do AKS
               href: how-to-use-azure-ad-identity.md
             - name: Regenerar chaves de acesso de armazenamento
@@ -217,6 +221,9 @@
         - name: Configurar ambientes de software
           displayName: 'pip, Conda, anaconda'
           href: how-to-use-environments.md
+        - name: Usar pacotes privados do Python
+          displayName: 'pip, Conda, anaconda'
+          href: how-to-use-private-python-packages.md
         - name: Habilitar o registro em log
           displayName: 'troubleshoot, log, files, tracing'
           href: how-to-enable-logging.md
@@ -356,6 +363,9 @@
           href: how-to-deploy-and-where.md
         - name: Cenários de implantação
           items:
+            - name: Usar modelos existentes
+              displayName: publish existing model
+              href: how-to-deploy-existing-model.md
             - name: Instâncias de computação do Azure ML
               href: how-to-deploy-local-container-notebook-vm.md
             - name: Serviço de Kubernetes do Azure
@@ -374,18 +384,15 @@
               href: how-to-deploy-functions.md
             - name: Pesquisa Cognitiva do Azure
               href: how-to-deploy-model-cognitive-search.md
-            - name: Dispositivos do Azure IoT Edge
-              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/context/ml-context
+            - name: Usar imagem personalizada do Docker
+              href: how-to-deploy-custom-docker-image.md
+            - name: IoT Edge
+              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
             - name: Inferência de FPGA
               href: how-to-deploy-fpga-web-service.md
-            - name: Imagens do Docker personalizadas
-              href: how-to-deploy-custom-docker-image.md
-            - name: Modelos de ML não Azure
-              displayName: publish existing model
-              href: how-to-deploy-existing-model.md
         - name: Solucionar problemas e depurar
           href: how-to-troubleshoot-deployment.md
-        - name: Chamar ponto de extremidade de serviço
+        - name: Criar clientes
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
         - name: Monitorar modelos
@@ -393,8 +400,6 @@
             - name: Coletar e avaliar dados de modelo
               displayName: track production
               href: how-to-enable-data-collection.md
-            - name: Detectar descompasso de dados
-              href: how-to-monitor-data-drift.md
             - name: Monitorar com Application Insights
               href: how-to-enable-app-insights.md
         - name: Implantar o serviço inferência criptografado

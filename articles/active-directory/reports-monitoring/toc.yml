@@ -84,6 +84,8 @@
           href: troubleshoot-missing-data-download.md
         - name: Não é possível acessar as APIs do Graph para relatórios
           href: troubleshoot-graph-api.md
+        - name: Auditar dados na alteração do domínio verificado
+          href: troubleshoot-audit-data-verified-domain.md
 - name: Referência
   expanded: true
   items:

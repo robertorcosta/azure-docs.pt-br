@@ -16,7 +16,11 @@
       href: tutorial-access-private-cloud.md
     - name: 5 – Escalar uma nuvem privada
       href: tutorial-scale-private-cloud.md
-    - name: 6 – Criar uma biblioteca de conteúdo
+    - name: 6 – criar um segmento de rede do NSX-T
+      href: tutorial-nsx-t-network-segment.md
+    - name: 7 – Par local para nuvem privada
+      href: tutorial-expressroute-global-reach-private-cloud.md
+    - name: 8 – Implantar VM por meio da biblioteca de conteúdo
       href: tutorial-deploy-vm-content-library.md
 - name: Conceitos
   items:
@@ -34,6 +38,8 @@
       href: concepts-upgrades.md
 - name: Guias de instruções
   items:
+    - name: Avaliação de migração da AVS
+      href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
     - name: Configurar HCX
       href: hybrid-cloud-extension-installation.md
     - name: Gerenciar DHCP

@@ -3,30 +3,24 @@ author: baanders
 description: arquivo de inclusão dos Gêmeos Digitais do Azure – configurar o Cloud Shell e a extensão de IoT
 ms.service: digital-twins
 ms.topic: include
-ms.date: 5/25/2020
+ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: 6f472865c131b873f1ae0a21fa9ec55865fb2b29
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
-ms.translationtype: MT
+ms.openlocfilehash: b7c91d648c06970d53799c6ff505919dea17b3c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86277977"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032163"
 ---
-[!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
-
-### <a name="set-up-cloud-shell-session"></a>Configurar uma sessão do Cloud Shell
-
-Depois que você abrir uma janela do Cloud Shell, a primeira coisa a fazer será fazer logon e definir o contexto do shell para a sua assinatura nesta sessão. Execute estes comandos no seu Cloud Shell:
+Para começar a trabalhar com os Gêmeos Digitais do Azure em uma janela aberta do [Azure Cloud Shell](https://shell.azure.com), faça logon e defina o contexto do shell da sua assinatura para esta sessão. Execute estes comandos no seu Cloud Shell:
 
 ```azurecli
 az login
-az account set --subscription <your-Azure-subscription-ID>
+az account set --subscription "<your-Azure-subscription-ID>"
 ```
 > [!TIP]
-> Você também pode definir sua assinatura usando o nome da sua assinatura. Use este comando: 
-> ```azurecli
-> az account set --subscription "your-Azure-subscription-name"
-> 
+> Você também pode usar o nome da sua assinatura em vez da ID no comando acima. 
+
 Se esta é a primeira vez que você usa essa assinatura com os Gêmeos Digitais do Azure, execute este comando para se registrar no namespace dos Gêmeos Digitais do Azure. (Se você não tiver certeza disso, não haverá problemas em executá-lo novamente mesmo que já tenha feito isso no passado.)
 
 ```azurecli
@@ -41,22 +35,22 @@ Primeiro, execute este comando para ver uma lista de todas as extensões que voc
 az extension list
 ```
 
-Na saída, procure o `"name"` campo de cada entrada de lista para ver os nomes das extensões.
+A saída é uma matriz de todas as extensões que você tem atualmente. Procure o campo `"name"` para cada entrada de lista para ver os nomes das extensões.
 
-Use a saída para determinar quais dos comandos a seguir devem ser executados para a configuração de extensão (você pode executar mais de um).
-* Se a lista contiver `azure-iot` : você já tem a extensão. Execute este comando para verificar se você tem a atualização mais recente:
+Use a saída para determinar quais dos comandos a seguir devem ser executados para a configuração da extensão (você pode executar mais de um).
+* Se a lista contiver `azure-iot`: Você já tem a extensão. Execute este comando para verificar se você tem a atualização mais recente e se não há mais atualizações disponíveis:
 
    ```azurecli-interactive
    az extension update --name azure-iot
    ```
 
-* Se a **lista não contiver** `azure-iot` : você precisa instalar a extensão. Use este comando:
+* Se a lista **não** contém `azure-iot`: Você precisa instalar a extensão. Use este comando:
 
     ```azurecli-interactive
     az extension add --name azure-iot
     ```
 
-* Se a lista contiver `azure-iot-cli-ext` : esta é a versão herdada da extensão. Somente uma versão da extensão deve ser instalada de cada vez, portanto, você deve desinstalar a extensão herdada. Use este comando:
+* Se a lista contiver `azure-iot-cli-ext`: Essa é a versão herdada da extensão. Somente uma versão da extensão deve ser instalada de cada vez, portanto, você deve desinstalar a extensão herdada. Use este comando:
 
    ```azurecli-interactive
    az extension remove --name azure-cli-iot-ext

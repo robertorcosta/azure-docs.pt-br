@@ -351,6 +351,8 @@
           items:
             - name: Criar alertas nas métricas
               href: howto-hyperscale-alert-on-metric.md
+            - name: Acessar logs do banco de dados
+              href: howto-hyperscale-logging.md
         - name: Solucionar problemas
           items:
             - name: Solucionar erros de conexão

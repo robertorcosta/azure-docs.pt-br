@@ -1,23 +1,23 @@
 ---
-title: Criar alertas do supervisor do Azure para novas recomendações usando o modelo do Resource Manager
-description: Criar alertas do supervisor do Azure para nova recomendação
+title: Criar alertas do Assistente do Azure para novas recomendações usando o modelo do Resource Manager
+description: Criar alertas do Assistente do Azure para novas recomendações
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: ef15891cc01d0481c6253023de262f14dce0ec81
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
-ms.translationtype: MT
+ms.openlocfilehash: 2becfbbc63beb6451e5e877c5a60553d98650494
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921066"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057820"
 ---
-# <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>Início rápido: criar alertas do supervisor do Azure sobre novas recomendações usando um modelo do ARM
+# <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>Início Rápido: Criar alertas do Assistente do Azure sobre novas recomendações usando o modelo do ARM
 
-Este artigo mostra como configurar um alerta para novas recomendações do Azure Advisor usando um modelo de Azure Resource Manager (modelo ARM).
+Este artigo mostra como configurar um alerta de novas recomendações do Assistente do Azure usando um modelo do ARM (Azure Resource Manager).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Sempre que o Azure Advisor detecta uma nova recomendação para um de seus recursos, um evento é armazenado no [log de atividades do Azure](/azure/azure-monitor/platform/activity-logs-overview). Você pode configurar alertas para esses eventos do Azure Advisor usando uma experiência de criação de alertas específica de recomendação. Você pode selecionar uma assinatura e, opcionalmente, um grupo de recursos para especificar os recursos nos quais deseja receber alertas.
+Sempre que o Assistente do Azure detecta uma nova recomendação para um de seus recursos, um evento é armazenado no [log de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md). Você pode configurar alertas para esses eventos no Assistente do Azure usando uma experiência de criação de alertas específica para recomendação. Você pode selecionar uma assinatura e, opcionalmente, um grupo de recursos para especificar os recursos nos quais deseja receber alertas.
 
 Você também pode determinar os tipos de recomendações usando essas propriedades:
 
@@ -25,24 +25,24 @@ Você também pode determinar os tipos de recomendações usando essas proprieda
 - Nível de impacto
 - Tipo de recomendação
 
-Você também pode configurar a ação que ocorrerá quando um alerta for disparado por:  
+Você também pode configurar a ação que ocorrerá quando um alerta for disparado:  
 
-- Selecionando um grupo de ação existente
-- Criando um novo grupo de ação
+- Selecionando um grupo de ações existente
+- Como criar um grupo de ações
 
 Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../azure-monitor/platform/action-groups.md).
 
 > [!NOTE]
-> Atualmente, os alertas do Advisor estão disponíveis apenas para alta disponibilidade, desempenho e recomendações de custo. Não há suporte para recomendações de segurança.
+> Atualmente, os alertas do Assistente estão disponíveis apenas para recomendações de Alta Disponibilidade, Desempenho e Custo. Não há suporte para recomendações de segurança.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- Para executar os comandos do computador local, instale CLI do Azure ou os módulos Azure PowerShell. Para obter mais informações, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli) e [instalar Azure PowerShell](/powershell/azure/install-az-ps).
+- Para executar os comandos do computador local, instale a CLI do Azure ou os módulos do Azure PowerShell. Para obter mais informações, confira [Instalar o CLI do Azure](/cli/azure/install-azure-cli) e [Instalar o Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="review-the-template"></a>Examinar o modelo
 
-O modelo a seguir cria um grupo de ações com um destino de email e habilita todas as notificações de integridade do serviço para a assinatura de destino. Salve este modelo como *CreateAdvisorAlert.jsem*.
+O modelo a seguir cria um grupo de ações com um destino de email e habilita todas as notificações de integridade de serviço para a assinatura de destino. Salve esse modelo como *CreateAdvisorAlert.json*.
 
 ```json
 {
@@ -141,12 +141,12 @@ O modelo a seguir cria um grupo de ações com um destino de email e habilita to
 
 O modelo define dois recursos:
 
-- [Microsoft. insights/actionGroups](/azure/templates/microsoft.insights/actiongroups)
-- [Microsoft. insights/activityLogAlerts](/azure/templates/microsoft.insights/activityLogAlerts)
+- [Microsoft.Insights/actionGroups](/azure/templates/microsoft.insights/actiongroups)
+- [Microsoft.Insights/activityLogAlerts](/azure/templates/microsoft.insights/activityLogAlerts)
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
-Implante o modelo usando qualquer método padrão para [implantar um modelo ARM](../azure-resource-manager/templates/deploy-portal.md) , como os exemplos a seguir, usando a CLI e o PowerShell. Substitua os valores de exemplo para o **grupo de recursos**e o **EmailAddress** pelos valores apropriados para seu ambiente. O nome do espaço de trabalho deve ser exclusivo entre todas as assinaturas do Azure.
+Implante o modelo usando qualquer método padrão para [implantar um modelo do ARM](../azure-resource-manager/templates/deploy-portal.md) como os exemplos a seguir usando a CLI e o PowerShell. Substitua os valores do exemplo de **Grupo de Recursos** e **emailAddress** pelos valores apropriados para o seu ambiente. O nome do workspace deve ser exclusivo entre todas as assinaturas do Azure.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -167,7 +167,7 @@ New-AzResourceGroupDeployment -Name CreateAdvisorAlert -ResourceGroupName my-res
 
 ## <a name="validate-the-deployment"></a>Validar a implantação
 
-Verifique se o espaço de trabalho foi criado usando um dos comandos a seguir. Substitua os valores de exemplo do **grupo de recursos** pelo valor usado acima.
+Verifique se o workspace foi criado usando um dos comandos a seguir. Substitua os valores do exemplo para **Grupo de Recursos** pelo valor que você usou acima.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -185,7 +185,7 @@ Get-AzActivityLogAlert -ResourceGroupName my-resource-group -Name AdvisorAlertsT
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se planejar continuar trabalhando com os tutoriais e inícios rápidos subsequentes, deixe esses recursos onde estão. Quando não for mais necessário, exclua o grupo de recursos, que exclui a regra de alerta e os recursos relacionados. Para excluir o grupo de recursos usando CLI do Azure ou Azure PowerShell
+Se planejar continuar trabalhando com os tutoriais e inícios rápidos subsequentes, deixe esses recursos onde estão. Quando não for mais necessário, exclua o grupo de recursos, o que excluirá a regra de alerta e os recursos relacionados. Para excluir o grupo de recursos usando a CLI do Azure ou o Azure PowerShell
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 

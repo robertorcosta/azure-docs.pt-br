@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
-ms.openlocfilehash: 2cfd376f595ae70daf9ab468d464dd9c8ff13d74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 994a7726adec07f2f6533d460d05469a0f3c7bf3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334757"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102453"
 ---
 | Recurso | Limite |
 | --- | --- |
-| [Máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) por serviço de nuvem<sup>1</sup> |50 |
-| Pontos de extremidade de entrada por serviço de nuvem<sup>2</sup> |150 |
+| Máquinas virtuais por serviço de nuvem <sup>1</sup> |50 |
+| Pontos de extremidade de entrada por serviço de nuvem <sup>2</sup> |150 |
 
-<sup>1</sup> As máquinas virtuais criadas usando o modelo de implantação clássico em vez de Azure Resource Manager são armazenadas automaticamente em um serviço de nuvem. Você pode adicionar mais máquinas virtuais a esse serviço de nuvem para disponibilidade e balanceamento de carga. 
+<sup>1</sup> Máquinas virtuais criadas usando o modelo de implantação clássico em vez do Azure Resource Manager são armazenadas automaticamente em um serviço de nuvem. Você pode adicionar mais máquinas virtuais a esse serviço de nuvem para disponibilidade e balanceamento de carga. 
 
-<sup>2</sup>Pontos de extremidade de entrada permitem comunicações com uma máquina virtual de fora do serviço de nuvem da máquina virtual. As máquinas virtuais no mesmo serviço de nuvem ou rede virtual podem se comunicar automaticamente umas com as outras. Para obter mais informações, consulte [como configurar pontos de extremidade para uma máquina virtual](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 
+<sup>2</sup> Pontos de extremidade de entrada permitem comunicações com uma máquina virtual de fora do serviço de nuvem da máquina virtual. As máquinas virtuais no mesmo serviço de nuvem ou rede virtual podem se comunicar automaticamente umas com as outras.  

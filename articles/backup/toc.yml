@@ -89,6 +89,8 @@
           href: backup-azure-monitor-alert-faq.md
     - name: Arquitetura de backup
       href: backup-architecture.md
+    - name: Diretrizes e melhores práticas
+      href: guidance-best-practices.md
 - name: Guias de como fazer
   items:
     - name: Cofre dos Serviços de Recuperação
@@ -375,6 +377,9 @@
           href: encryption-at-rest-with-cmk.md
         - name: Controles de segurança interna
           href: backup-security-controls.md
+        - name: Controles de segurança do Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Linha de base de segurança
           href: security-baseline.md
     - name: Solucionar problemas

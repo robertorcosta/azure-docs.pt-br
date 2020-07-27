@@ -46,6 +46,8 @@
           href: expand-existing-host-pool.md
         - name: Gerenciar grupos de aplicativos com o PowerShell
           href: manage-app-groups-powershell.md
+    - name: Excluir um pool de host
+      href: delete-host-pool.md
     - name: Criar um contêiner de perfil
       items:
         - name: Usar um compartilhamento de arquivo baseado em VM
@@ -72,6 +74,8 @@
           href: set-up-customize-master-image.md
         - name: Instalar o Office em uma imagem de VHD mestre
           href: install-office-on-wvd-master-image.md
+    - name: Dimensionar hosts da sessão automaticamente
+      href: set-up-scaling-script.md
     - name: Personalizar feed
       href: customize-feed-for-virtual-desktop-users.md
     - name: Usar diagnóstico de serviço
@@ -108,6 +112,8 @@
       href: store-fslogix-profile.md
     - name: Integrações de parceiro
       href: partners.md
+    - name: Perguntas frequentes da Área de Trabalho Virtual do Windows
+      href: faq.md
     - name: Perguntas frequentes sobre o Windows 10 Enterprise de várias sessões
       href: windows-10-multisession-faq.md
     - name: Localizações de dados

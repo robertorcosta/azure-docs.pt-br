@@ -33,6 +33,8 @@
           href: storage-files-networking-overview.md
         - name: Impedir exclusões acidentais de dados
           href: storage-files-prevent-file-share-deletion.md
+        - name: Fazer backup de compartilhamentos de arquivos
+          href: ../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Criptografia em repouso
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Criptografia em repouso com chaves gerenciadas pelo cliente
@@ -83,6 +85,54 @@
           href: storage-files-how-to-create-large-file-share.md
         - name: Criar um compartilhamento de arquivo premium
           href: storage-how-to-create-premium-fileshare.md
+    - name: Proteção de dados
+      items:
+        - name: Habilitar exclusão reversível
+          href: storage-files-enable-soft-delete.md
+        - name: Alterar a forma como os dados são replicados
+          href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Gerenciar redundância de dados
+          items:
+            - name: Alterar a forma como os dados são replicados
+              href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Criar aplicativos altamente disponíveis
+              href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Gerenciar recuperação de desastre
+          items:
+            - name: Verificar a propriedade Horário da Última Sincronização
+              href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Iniciar failover da conta
+              href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Fazer backup de compartilhamentos de arquivos
+          items:
+            - name: Portal
+              href: ../../backup/backup-afs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: CLI
+              href: ../../backup/backup-afs-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: PowerShell
+              href: ../../backup/backup-azure-afs-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: API REST
+              href: ../../backup/backup-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Restaurar compartilhamentos de arquivos
+          items:
+            - name: Portal
+              href: ../../backup/restore-afs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: CLI
+              href: ../../backup/restore-afs-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: PowerShell
+              href: ../../backup/restore-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: API REST
+              href: ../../backup/restore-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Gerenciar compartilhamentos de arquivos
+          items:
+            - name: Portal
+              href: ../../backup/manage-afs-backup.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: CLI
+              href: ../../backup/manage-afs-backup-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: PowerShell
+              href: ../../backup/manage-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: API REST
+              href: ../../backup/manage-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Implantar
       items:
         - name: Implantar os Arquivos do Azure
@@ -125,26 +175,10 @@
           href: storage-sync-files-server-registration.md
         - name: Adicionar um ponto de extremidade do Servidor de Sincronização de Arquivos do Azure
           href: storage-sync-files-server-endpoint.md
-        - name: Habilitar exclusão reversível
-          href: storage-files-enable-soft-delete.md
         - name: Gerenciar o armazenamento nas nuvens independentes do Azure
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Alterar a forma como os dados são replicados
-          href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Iniciar um failover da conta
           href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Gerenciar redundância de dados
-          items:
-            - name: Alterar a forma como os dados são replicados
-              href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Criar aplicativos altamente disponíveis
-              href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Gerenciar recuperação de desastre
-          items:
-            - name: Verificar a propriedade Horário da Última Sincronização
-              href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Iniciar failover da conta
-              href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Authenticate
       items:
         - name: Habilitar autenticação e autorização do Azure AD DS no local
@@ -243,9 +277,11 @@
           href: storage-sync-files-troubleshoot.md
         - name: Solucionar problemas de exclusão de Arquivos do Azure
           href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
+        - name: Solucionar problemas de backup de compartilhamentos de arquivos
+          href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Referência
   items:
-    - name: Referência de armazenamento dos Compartilhamentos de Arquivos do Azure
+    - name: Referência do Arquivos do Azure
       href: ../files/reference.md
     - name: Modelo do Resource Manager
       displayName: arm
