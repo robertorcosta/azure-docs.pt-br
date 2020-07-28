@@ -16,4 +16,4 @@ ms.locfileid: "87125268"
 
 Em seguida, selecione *permissões de API* na barra de menus para verificar se este registro de aplicativo contém permissões de leitura/gravação para o gêmeos digital do Azure. Você deverá ver uma entrada como esta:
 
-:::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/verify-api-permissions.png" alt-text="Exibição do portal das permissões de API para o registro do aplicativo do Azure AD, mostrando "acesso de leitura/gravação" para o gêmeos digital do Azure":::
+:::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/verify-api-permissions.png" alt-text="Exibição do portal das permissões de API para o registro do aplicativo do Azure AD, mostrando acesso de leitura/gravação para o gêmeos digital do Azure":::
