@@ -143,6 +143,9 @@
           href: cluster-security-certificates.md
         - name: Gerenciamento de certificados no Service Fabric
           href: cluster-security-certificate-management.md
+        - name: Controles de segurança do Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Linha de base de segurança para o Azure Security Benchmark
           href: security-baseline.md
     - name: Terminologia
