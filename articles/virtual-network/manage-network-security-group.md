@@ -1,7 +1,7 @@
 ---
 title: Criar, alterar ou excluir um Grupo de Segurança de Rede do Azure
 titlesuffix: Azure Virtual Network
-description: Saiba onde encontrar informações sobre regras de segurança e como criar, alterar ou excluir um grupo de segurança de rede.
+description: Saiba como criar, alterar ou excluir um Grupo de Segurança de Rede.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: dfb6426ec4e75f6484df37008522b966ebc3af6f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 38fe9582595969ac92d3468b3b7e8c0a9d793c0c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281252"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708273"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou excluir um Grupo de Segurança de Rede
 
@@ -96,7 +96,7 @@ Para saber mais sobre as configurações comuns do Azure listadas, veja as segui
 - [Log de atividades](../azure-monitor/platform/platform-logs-overview.md)
 - [Controle de acesso (IAM)](../role-based-access-control/overview.md)
 - [Marcas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Bloqueios](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Bloquea](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Script de automação](../azure-resource-manager/templates/export-template-portal.md)
 
 #### <a name="commands"></a>Comandos
@@ -160,7 +160,7 @@ Há um limite para quantas regras por grupo de segurança de rede você pode cri
 
 4. <a name="security-rule-settings"></a>Selecione **Adicionar**. Selecione ou adicione valores para as seguintes configurações e, em seguida, selecione **OK**:
 
-    | Configuração | Valor | Detalhes |
+    | Setting | Valor | Detalhes |
     | ------- | ----- | ------- |
     | **Origem** | Um destes:<ul><li>**Qualquer**</li><li>**Endereços IP**</li><li>**Marca de serviço** (regra de segurança de entrada) ou **VirtualNetwork** (regra de segurança de saída)</li><li>**&nbsp;Grupo de segurança de aplicativo &nbsp;**</li></ul> | <p>Se você escolher **endereços IP**, também deverá especificar os **endereços IP de origem/intervalos de CIDR**.</p><p>Se você escolher a **marca de serviço**, também poderá escolher uma marca de serviço de **origem**.</p><p>Se você escolher **grupo de segurança de aplicativo**, também deverá escolher um grupo de segurança de aplicativo existente. Se você escolher o **grupo de segurança de aplicativo** para a **origem** e o **destino**, as interfaces de rede dentro dos dois grupos de segurança de aplicativo deverão estar na mesma rede virtual.</p> |
     | **Intervalos de CIDR/endereços IP de origem** | Uma lista delimitada por vírgulas de endereços IP e intervalos CIDR (roteamento entre domínios sem classificação) | <p>Essa configuração será exibida se você alterar a **origem** para **endereços IP**. Você deve especificar um único valor ou uma lista separada por vírgulas de vários valores. Um exemplo de vários valores é `10.0.0.0/16, 192.188.1.1` . Há limites para o número de valores que podem ser especificados. Para obter mais detalhes, consulte [limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).</p><p>Se o endereço IP especificado for atribuído a uma VM do Azure, especifique seu endereço IP privado, não seu endereço IP público. O Azure processa as regras de segurança depois de converter o endereço IP público em um endereço IP privado para regras de segurança de entrada, mas antes de converter um endereço IP privado em um endereço IP público para regras de saída. Para saber mais sobre endereços IP públicos e privados no Azure, consulte [Tipos de endereços IP](virtual-network-ip-addresses-overview-arm.md).</p> |
@@ -174,7 +174,7 @@ Há um limite para quantas regras por grupo de segurança de rede você pode cri
     | **Intervalos de portas de destino** | Um destes:<ul><li>Uma única porta, como`80`</li><li>Um intervalo de portas, como`1024-65535`</li><li>Uma lista separada por vírgulas de portas únicas e/ou intervalos de porta, como`80, 1024-65535`</li><li>Um asterisco ( `*` ) para permitir o tráfego em qualquer porta</li></ul> | Assim como acontece com os **intervalos de porta de origem**, você pode especificar uma ou várias portas e intervalos. Há limites para o número que você pode especificar. Para obter mais detalhes, consulte [limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). |
     | **Protocolo** | **Qualquer**, **TCP**, **UDP**ou **ICMP** | Você pode restringir a regra ao protocolo TCP, UDP (User Datagram Protocol) ou ICMP (protocolo de mensagens de controle da Internet). O padrão é que a regra seja aplicada a todos os protocolos. |
     | **Ação** | **Permitir** ou **negar** | Essa configuração especifica se essa regra permite ou nega o acesso para a configuração de origem e destino fornecida. |
-    | **Prioridade** | Um valor entre 100 e 4096 que é exclusivo para todas as regras de segurança no grupo de segurança de rede | O Azure processa as regras de segurança em ordem de prioridade. Quanto menor o número, maior a prioridade. É recomendável deixar uma lacuna entre os números de prioridade ao criar regras, como 100, 200 e 300. Deixar as lacunas facilita a adição de regras no futuro, para que você possa dar a elas uma prioridade maior ou menor do que as regras existentes. |
+    | **Priority** | Um valor entre 100 e 4096 que é exclusivo para todas as regras de segurança no grupo de segurança de rede | O Azure processa as regras de segurança em ordem de prioridade. Quanto menor o número, maior a prioridade. É recomendável deixar uma lacuna entre os números de prioridade ao criar regras, como 100, 200 e 300. Deixar as lacunas facilita a adição de regras no futuro, para que você possa dar a elas uma prioridade maior ou menor do que as regras existentes. |
     | **Nome** | Um nome exclusivo para a regra dentro do grupo de segurança de rede | O nome pode ter até 80 caracteres. Ele deve começar com uma letra ou número e deve terminar com uma letra, número ou sublinhado. O nome pode conter apenas letras, números, sublinhados, pontos ou hifens. |
     | **Descrição** | Uma descrição de texto | Opcionalmente, você pode especificar uma descrição de texto para a regra de segurança. |
 

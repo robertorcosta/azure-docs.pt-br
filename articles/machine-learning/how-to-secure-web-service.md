@@ -5,18 +5,18 @@ description: Saiba como habilitar o HTTPS para proteger um serviço Web que é i
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
-ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 3e10841852b8a89b344d3bfd9311db8abe15642a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: seodec18
+ms.openlocfilehash: cb766a81cda822377eeda09cab75d19111523bef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319534"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84432863"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Use o TLS para proteger um serviço Web por meio do Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

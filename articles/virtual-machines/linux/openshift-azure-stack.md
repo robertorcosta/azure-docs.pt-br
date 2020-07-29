@@ -5,16 +5,16 @@ author: haroldwongms
 manager: joraio
 ms.service: virtual-machines-linux
 ms.subservice: workloads
-ms.topic: how-to
+ms.topic: article
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 3729dbbc54d15d4641f5e514582f1437e790ef19
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 51abfd1cbb438d0987554040867625f7fb71630b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374025"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "81758225"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Implantar o OpenShift Container Platform ou OKD no Azure Stack
 

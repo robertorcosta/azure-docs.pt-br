@@ -5,17 +5,17 @@ description: Depure seus pipelines de Azure Machine Learning no Python. Aprenda 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.topic: conceptual
-ms.custom: troubleshooting, tracking-python
-ms.openlocfilehash: 6fa75c0c6ec6146ca59f6eaf4593b4912ae823c1
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: tracking-python
+ms.openlocfilehash: 3eb0cf85dce02595f3679a96b497e286682840bc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372953"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84557426"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e solucionar problemas de pipelines do aprendizado de máquina
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Neste artigo, você aprenderá a depurar e solucionar problemas de [pipelines do
 * Depurar usando Application Insights
 * Depurar interativamente usando Visual Studio Code (VS Code) e o Ferramentas Python para Visual Studio (PTVSD)
 
-## <a name="azure-machine-learning-sdk"></a>SDK do Azure Machine Learning
+## <a name="debug-and-troubleshoot-in-the-azure-machine-learning-sdk"></a>Depuração e solução de problemas no SDK do Azure Machine Learning
 As seções a seguir fornecem uma visão geral das armadilhas comuns ao criar pipelines e estratégias diferentes para depurar seu código em execução em um pipeline. Use as dicas a seguir quando estiver tendo problemas para fazer com que um pipeline seja executado conforme o esperado.
 
 ### <a name="testing-scripts-locally"></a>Testar scripts localmente
@@ -89,7 +89,7 @@ A tabela a seguir contém problemas comuns durante o desenvolvimento de pipeline
 
 A tabela a seguir fornece informações para opções de depuração diferentes para pipelines. Não é uma lista completa, já que existem outras opções, além das Azure Machine Learning, Python e OpenCensus mostradas aqui.
 
-| Biblioteca                    | Type   | Exemplo                                                          | Destino                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
+| Biblioteca                    | Tipo   | Exemplo                                                          | Destination                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SDK do Azure Machine Learning | Métrica | `run.log(name, val)`                                             | Interface do usuário do portal do Azure Machine Learning             | [Como acompanhar experimentos](how-to-track-experiments.md#available-metrics-to-track)<br>[classe azureml. Core. Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
 | Impressão/log do Python    | Log    | `print(val)`<br>`logging.info(message)`                          | Logs de driver, designer de Azure Machine Learning | [Como acompanhar experimentos](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Registro em log do Python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
@@ -127,13 +127,9 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-## <a name="azure-machine-learning-designer-preview"></a>Azure Machine Learning Designer (versão prévia)
+## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer-preview"></a>Depuração e solução de problemas no designer de Azure Machine Learning (versão prévia)
 
 Esta seção fornece uma visão geral de como solucionar problemas de pipelines no designer. Para pipelines criados no designer, você pode encontrar o arquivo de **70_driver_log** na página de criação ou na página de detalhes de execução de pipeline.
-
-### <a name="enable-logging-for-real-time-endpoints"></a>Habilitar o registro em log para pontos de extremidade em tempo real
-
-Para solucionar problemas e depurar pontos de extremidade em tempo real no designer, você deve habilitar o log do Application insights usando o SDK. O registro em log permite solucionar problemas e depurar questões de uso e implantação de modelo. Para obter mais informações, consulte [Logging for deployed Models](how-to-enable-logging.md#logging-for-deployed-models). 
 
 ### <a name="get-logs-from-the-authoring-page"></a>Obter logs da página de criação
 
@@ -160,10 +156,10 @@ Você também pode encontrar os arquivos de log para execuções específicas na
 > [!IMPORTANT]
 > Para atualizar um pipeline da página de detalhes de execução do pipeline, você deve **clonar** a execução do pipeline para um novo rascunho do pipeline. Uma execução de pipeline é um instantâneo do pipeline. Ele é semelhante a um arquivo de log e não pode ser alterado. 
 
-## <a name="application-insights"></a>Application Insights
+## <a name="debug-and-troubleshoot-in-application-insights"></a>Depuração e solução de problemas no Application Insights
 Para obter mais informações sobre como usar a biblioteca do OpenCensus Python dessa maneira, consulte este guia: [depurar e solucionar problemas de pipelines do Machine Learning no Application insights](how-to-debug-pipelines-application-insights.md)
 
-## <a name="visual-studio-code"></a>Visual Studio Code
+## <a name="debug-and-troubleshoot-in-visual-studio-code"></a>Depuração e solução de problemas no Visual Studio Code
 
 Em alguns casos, talvez seja necessário depurar interativamente o código Python usado em seu pipeline de ML. Usando Visual Studio Code (VS Code) e o Ferramentas Python para Visual Studio (PTVSD), você pode anexar ao código conforme ele é executado no ambiente de treinamento.
 
@@ -180,7 +176,7 @@ Em alguns casos, talvez seja necessário depurar interativamente o código Pytho
 
 Para saber mais sobre como usar uma rede virtual do Azure com Azure Machine Learning, confira [trabalhos de inferência e experimentação seguros do Azure ml em uma rede virtual do Azure](how-to-enable-virtual-network.md).
 
-### <a name="how-it-works"></a>Como isso funciona
+### <a name="how-it-works"></a>Como funciona
 
 Suas etapas de pipeline ML executam scripts Python. Esses scripts são modificados para executar as seguintes ações:
     

@@ -3,16 +3,16 @@ title: Conecte-se ao Office 365 Outlook
 description: Automatizar tarefas e fluxos de trabalho que gerenciam email, contatos e calendários no Office 365 Outlook usando aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 01/08/2020
 tags: connectors
-ms.openlocfilehash: aa5be3d58ee1a0a40d0b817e1f5999ccd4bc423d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b0f2b8b9c369fdb42c7e0e7f77fc090424ae3729
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319228"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "75732647"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gerenciar emails, contatos e calendários no Outlook do Office 365 usando os Aplicativos Lógicos do Azure
 
@@ -29,9 +29,9 @@ Você pode usar qualquer gatilho para iniciar o fluxo de trabalho, por exemplo, 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-
 * Uma [conta do Office 365](https://www.office.com/)
+
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
 
 * O aplicativo lógico no qual você deseja acessar sua conta do Outlook do Office 365. Para iniciar o fluxo de trabalho com um gatilho do Outlook do Office 365, você precisa ter um [aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para adicionar uma ação do Outlook do Office 365 ao seu fluxo de trabalho, seu aplicativo lógico precisa já ter um gatilho.
 
@@ -46,9 +46,6 @@ Um [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um even
    ![Selecione o gatilho para iniciar seu aplicativo lógico](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
 1. Se você for solicitado a entrar, forneça suas credenciais do Office 365 para que seu aplicativo lógico possa se conectar à sua conta. Caso contrário, se a conexão já existir, forneça as informações para as propriedades do gatilho.
-
-   > [!NOTE]
-   > Sua conexão não expirará até ser revogada, mesmo se você alterar suas credenciais de entrada. Para obter mais informações, consulte [Vida útil do token configurável no Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
 
    Este exemplo seleciona o calendário que o gatilho verifica, por exemplo:
 
@@ -80,9 +77,6 @@ Uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma ope
 
 1. Se você for solicitado a entrar, forneça suas credenciais do Office 365 para que seu aplicativo lógico possa se conectar à sua conta. Caso contrário, se a conexão já existir, forneça as informações para as propriedades da ação.
 
-   > [!NOTE]
-   > Sua conexão não expirará até ser revogada, mesmo se você alterar suas credenciais de entrada. Para obter mais informações, consulte [Vida útil do token configurável no Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
-
    Este exemplo seleciona a pasta contatos na qual a ação cria o novo contato, por exemplo:
 
    ![Configurar as propriedades da ação](./media/connectors-create-api-office365-outlook/select-contacts-folder.png)
@@ -91,9 +85,9 @@ Uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma ope
 
 1. Selecione **Salvar** na barra de ferramentas do designer.
 
-## <a name="connector-reference"></a>Referência de conector
+## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Para obter detalhes técnicos sobre esse conector, como gatilhos, ações e limites, conforme descrito pelo arquivo Swagger do conector, consulte a [página de referência do conector](/connectors/office365/). 
+Para obter detalhes técnicos sobre gatilhos, ações e limites, conforme descrito no arquivo Swagger do conector, consulte a [página de referência do conector](/connectors/office365connector/). 
 
 ## <a name="next-steps"></a>Próximas etapas
 
