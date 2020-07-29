@@ -5,17 +5,17 @@ description: Saiba como readaptar modelos com pipelines publicados no designer d
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
-ms.topic: conceptual
-ms.custom: how-to, designer
-ms.openlocfilehash: 181d79c6aef87999bc1b4242a70870edf60ad7df
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: designer
+ms.openlocfilehash: c466684bf5c07b5e88e8052c29aa9fb0b8583a89
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319619"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84430063"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Readaptação de modelos com o designer do Azure Machine Learning (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -34,8 +34,6 @@ Neste artigo, você aprenderá como:
 
 * Um workspace do Azure Machine Learning com o SKU Enterprise.
 * Conclua a parte 1 desta série de instruções, [Transformação de dados no designer](how-to-designer-transform-data.md).
-
-[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 Este artigo também pressupõe que você tenha conhecimentos básicos sobre a criação de pipelines no designer. Para obter uma introdução guiada, conclua o [tutorial](tutorial-designer-automobile-price-train-score.md). 
 

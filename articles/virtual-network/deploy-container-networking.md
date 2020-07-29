@@ -1,6 +1,6 @@
 ---
 title: Implantar a rede de contêiner de rede virtual do Azure | Microsoft Docs
-description: Saiba como implantar o plug-in CNI (interface de rede de contêiner de rede virtual) do Azure para clusters kubernetes.
+description: Saiba como implantar o plug-in de CNI (adaptador de rede de contêiner) da Rede Virtual do Azure para clusters Kubernetes que você mesmo implanta, usando o Mecanismo do ACS, e para contêineres do Docker.
 services: virtual-network
 documentationcenter: na
 author: aanandr
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 09a0574666441138c143932e843080e8745f1b40
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7cae4b579a933c03ec3a08a00ef032c57d15093f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289592"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710007"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Implantar o plug-in do adaptador de rede de contêiner da Rede Virtual do Azure
 
