@@ -4,26 +4,22 @@ description: Fornece um resumo das configurações de suporte e limitações ao 
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: d0172ecab682b69f255eedb9270a6208b52dac45
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7d01f0f64fd183204fb7617040325e7d1b6e553e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514536"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289503"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de suporte para backup de compartilhamento de arquivos do Azure
 
 Você pode usar o [serviço de Backup do Azure](./backup-overview.md) para fazer backup de compartilhamentos de arquivos do Azure. Este artigo resume as configurações de suporte ao fazer backup de compartilhamentos de arquivos do Azure com o Backup do Azure.
 
-## <a name="supported-regions"></a>Regiões com suporte
+## <a name="supported-regions"></a>Regiões compatíveis
 
 ### <a name="ga-regions-for-azure-file-shares-backup"></a>Regiões de GA para backup de compartilhamentos de arquivos do Azure
 
 O backup de compartilhamentos de arquivos do Azure está disponível em todas as regiões, **exceto** para: Alemanha central (soberanas), Alemanha Nordeste (soberanas), Leste da China, leste da China 2, Norte da China, norte da China 2, US gov Iowa
-
-### <a name="supported-regions-for-accidental-delete-protection"></a>Regiões com suporte para proteção acidental de exclusão
-
-Oeste EUA Central, sudeste da Austrália, Canadá central, Oeste EUA Central, sul da Índia, norte EUA Central, leste do Japão, sul do Brasil, Sul EUA Central, leste da Austrália, leste dos EUA, leste dos EUA 2
 
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento com suporte
 

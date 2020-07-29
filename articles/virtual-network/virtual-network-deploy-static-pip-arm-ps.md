@@ -1,6 +1,6 @@
 ---
 title: Criar uma VM com um endereço IP público estático - PowerShell | Microsoft Docs
-description: Saiba como criar uma VM com um endereço IP público estático usando o PowerShell.
+description: Crie uma VM (máquina virtual) com um endereço IP público estático usando o PowerShell. Endereços IP públicos estáticos são endereços que nunca mudam.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: allensu
-ms.openlocfilehash: 03a619a647da247347492076e9fd36414565bf33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ca83836771af8448f6510ab27d0ac5f2973b35c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84703134"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287705"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>Crie uma máquina virtual com um endereço IP público estático usando o PowerShell
 
@@ -63,7 +64,7 @@ Você pode concluir as etapas a seguir no seu computador local ou usando o Shell
 > [!WARNING]
 > Não modifique as configurações do endereço IP no sistema operacional da máquina virtual. O sistema operacional fica ciente dos endereços IP públicos do Azure. Embora você possa adicionar configurações de endereço IP privado ao sistema operacional, recomendamos não fazê-lo, a menos que seja necessário, e somente depois de ler [Adicionar um endereço IP privado a um sistema operacional](virtual-network-network-interface-addresses.md#private).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você poderá usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém:
 

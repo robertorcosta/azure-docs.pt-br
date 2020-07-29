@@ -1,6 +1,6 @@
 ---
-title: Criar área de trabalho virtual do Windows Outono 2019 pool de hosts PowerShell-Azure
-description: Como criar um pool de host na Área de Trabalho Virtual do Windows com cmdlets do PowerShell.
+title: Criar o pool de hosts da área de trabalho virtual do Windows (clássico) PowerShell-Azure
+description: Como criar um pool de hosts na área de trabalho virtual do Windows (clássico) com cmdlets do PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 552a3fdd20d67d81fe0c6a81a965fd3231da643d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7bc1e229711ef24b07641c5767f5f60c17a3b97c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527635"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291288"
 ---
-# <a name="create-a-host-pool-with-powershell"></a>Criar um pool de host com o PowerShell
+# <a name="create-a-host-pool-in-windows-virtual-desktop-classic-with-powershell"></a>Criar um pool de hosts na área de trabalho virtual do Windows (clássico) com o PowerShell
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../create-host-pools-powershell.md).
+>Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../create-host-pools-powershell.md).
 
 Pools de hosts são uma coleção de uma ou mais máquinas virtuais idênticas dentro dos ambientes de locatário da Área de Trabalho Virtual do Windows. Cada pool de hosts pode conter um grupo de aplicativo com o qual os usuários podem interagir como se eles estivessem em uma área de trabalho física.
 

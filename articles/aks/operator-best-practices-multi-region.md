@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4e2a1fc08851e4e625bfc59419fc274ebbce1c8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 578560eccb13ff4b9169e11b0674859acc1fc901
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251189"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285859"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para continuidade dos negócios e recuperação de desastres no Serviço de Kubernetes do Azure (AKS)
 
@@ -57,9 +57,9 @@ O Gerenciador de tráfego executa pesquisas DNS e retorna o ponto de extremidade
 
 Para obter informações sobre como configurar pontos de extremidade e roteamento, consulte [Configurar o método de roteamento de tráfego geográfico usando o Gerenciador de tráfego](../traffic-manager/traffic-manager-configure-geographic-routing-method.md).
 
-### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Roteamento de aplicativos da camada 7 com o serviço de porta frontal do Azure
+### <a name="application-routing-with-azure-front-door-service"></a>Roteamento de aplicativos com o serviço de porta frontal do Azure
 
-O Gerenciador de tráfego usa o DNS (camada 3) para formatar o tráfego. O [serviço de porta frontal do Azure](../frontdoor/front-door-overview.md) fornece uma opção de roteamento http/https (camada 7). Recursos adicionais do serviço de porta frontal do Azure incluem término de TLS, domínio personalizado, firewall do aplicativo Web, reescrita de URL e afinidade de sessão. Examine as necessidades de seu tráfego de aplicativo para entender qual é a solução mais adequada.
+Usando o protocolo anycast baseado em TCP dividido, o [serviço de porta frontal do Azure](../frontdoor/front-door-overview.md) garante que os usuários finais se conectem imediatamente ao pop da porta frontal mais próximo (ponto de presença). Recursos adicionais do serviço de porta frontal do Azure incluem término de TLS, domínio personalizado, firewall do aplicativo Web, reescrita de URL e afinidade de sessão. Examine as necessidades de seu tráfego de aplicativo para entender qual é a solução mais adequada.
 
 ### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Regiões de interconexão com emparelhamento de rede virtual global
 

@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: a5b8ac3d46f21f299f3e56dab24a1b5f342fb4b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6640a6e807bdcc7a08476a18467745330742ee2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309944"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289290"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Resolver problemas de failback no local do Azure
 
@@ -28,7 +29,7 @@ O failback envolve essencialmente duas etapas principais. Para a primeira etapa,
 - Se você não conseguir acessar o servidor de configuração do servidor de processo, use o Telnet para verificar a conectividade com o servidor de configuração na porta 443. Você também pode tentar executar ping no servidor de configuração do servidor de processo. Um servidor de processo também deve ter uma pulsação quando ele está conectado ao servidor de configuração.
 - Um servidor do Windows Server 2008 R2 SP1 que é protegido como um servidor de local físico não pode ser com falha do Azure para um site local.
 - Não é possível fazer failback nas seguintes circunstâncias:
-    - Você migrou computadores para o Azure. [Saiba mais](migrate-overview.md#what-do-we-mean-by-migration).
+    - Você migrou computadores para o Azure. 
     - Uma VM foi movida para outro grupo de recursos.
     - A VM do Azure foi excluída.
     - A proteção da VM foi desabilitada.
@@ -63,7 +64,7 @@ Esse problema pode ocorrer se já houver uma VM com o mesmo nome no servidor de 
 Para resolver o problema:
 
 * Selecione um servidor de destino mestre diferente em um host diferente, de modo que a nova proteção crie a máquina em um host diferente, onde os nomes não entrem em conflito.
-* Você também pode usar vMotion para mover o destino mestre para um host diferente no qual não ocorra conflito entre os nomes. Se a VM existente for um computador perdido, renomeie-a para que a nova VM possa ser criada no mesmo host ESXi.
+* Você também pode usar o VMotion para mover o destino mestre para um host diferente em que a colisão de nome não acontecerá. Se a VM existente for um computador perdido, renomeie-a para que a nova VM possa ser criada no mesmo host ESXi.
 
 
 ### <a name="error-code-78093"></a>Código de erro 78093
@@ -97,4 +98,4 @@ Esse problema ocorre quando a VM local é criada em um host que não possui mem�
 Para resolver o problema:
 
 * Provisione mais memória no host ESXi.
-* Além disso, você pode usar o vMotion para mover a VM para outro host ESXi que tenha memória suficiente para inicializar a VM.
+* Além disso, você pode usar o VMotion para mover a VM para outro host ESXi com memória suficiente para inicializar a VM.

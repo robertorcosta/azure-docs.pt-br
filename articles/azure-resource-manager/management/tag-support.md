@@ -2,13 +2,13 @@
 title: Suporte a marcas para recursos
 description: Mostra quais tipos de recursos do Azure suportam tags. Fornece detalhes para todos os serviços do Azure.
 ms.topic: conceptual
-ms.date: 07/06/2020
-ms.openlocfilehash: f59e50e3eadb50db97756aa990f4de822a8ba089
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.date: 07/28/2020
+ms.openlocfilehash: 2ebf55a15233c401904460d459a118fc46142ac3
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026365"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337986"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso dá suporte a [marcas](tag-resources.md). A coluna rotulada **dá suporte a marcas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna rotulada como **marca no relatório de custo** indica se esse tipo de recurso passa a marca para o relatório de custo. Você pode exibir os custos por marcas na [análise de custo de gerenciamento de custos](../../cost-management-billing/costs/group-filter.md) e na [fatura de cobrança do Azure e nos dados de uso diário](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -322,6 +322,10 @@ Pule para um namespace de provedor de recursos:
 > | automationAccounts / runbooks | Sim | Sim |
 > | automationAccounts/softwareUpdateConfigurations | Não | Não |
 > | automationAccounts / webhooks | Não | Não |
+
+>[!NOTE]
+>A automação do Azure só dá suporte à criação de, no máximo, 15 pares de nome/valor de marca para cada recurso de automação.
+> 
 
 ## <a name="microsoftavs"></a>Microsoft.AVS
 
@@ -841,7 +845,7 @@ Pule para um namespace de provedor de recursos:
 > | CloudConnectors | Não | Não |
 > | Conectores | Sim | Sim |
 > | costAllocationRules | Não | Não |
-> | Departments | Não | Não |
+> | Departamentos | Não | Não |
 > | Dimensões | Não | Não |
 > | EnrollmentAccounts | Não | Não |
 > | Port | Não | Não |

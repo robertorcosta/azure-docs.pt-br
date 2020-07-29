@@ -3,16 +3,18 @@ title: Versões de cluster com suporte no Azure Service Fabric
 description: Saiba mais sobre as versões de cluster no Azure Service Fabric, incluindo um link para as versões mais recentes do blog da equipe do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 211197ced52ca094d375d3ae212957fa25a523fc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d849b4471bf11183dc02735c7373f858f0c773be
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091633"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289318"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões do Service Fabric com suporte
 
 Verifique se o cluster está sempre executando uma versão de Service Fabric do Azure com suporte. No mínimo 60 dias depois de anunciarmos o lançamento de uma nova versão do Service Fabric, o suporte para a versão anterior termina. Você encontrará anúncios de novas versões no blog da [equipe do Service Fabric](https://azure.microsoft.com/updates/?product=service-fabric).
+
+Para uma determinada versão do Service Fabric Runtime, você pode usar as versões especificadas ou mais antigas dos pacotes SDK/NuGet. As versões mais recentes dos pacotes não têm suporte e podem ter problemas de direcionamento de clusters mais antigos, pois eles podem ter alterações de protocolo ou recurso que não têm suporte nesses ambientes.
 
 Consulte os seguintes documentos para obter detalhes sobre como manter o cluster executando uma versão de Service Fabric com suporte:
 

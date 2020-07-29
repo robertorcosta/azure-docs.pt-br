@@ -3,12 +3,12 @@ title: Marcar recursos, grupos de recursos e assinaturas para a organização l�
 description: Mostra como aplicar marcas para organizar os recursos do Azure para cobrança e gerenciamento.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: fa56fac79855b438a0cd1c10ed1008d69ca3e2fe
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 08612831007eeba781a473ca704d92a52ab0a638
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323869"
+ms.locfileid: "87337527"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Use marcas para organizar os recursos e a hierarquia de gerenciamento do Azure
 
@@ -17,7 +17,7 @@ Você aplica marcas aos recursos, grupos de recursos e assinaturas do Azure para
 Para obter recomendações sobre como implementar uma estratégia de marcação, consulte [nomenclatura de recursos e guia de decisão de marcação](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
 > [!IMPORTANT]
-> Os nomes de marca não diferenciam maiúsculas de minúsculas para operações. Uma marca com um nome de marca, independentemente de maiúsculas e minúsculas, é atualizada ou recuperada. No entanto, o provedor de recursos pode manter a embalagem que você fornecer para o nome da marca. Você verá essa capitalização nos relatórios de custo.
+> Os nomes de marca não diferenciam maiúsculas de minúsculas para operações. Uma marca com um nome de marca, independentemente de maiúsculas e minúsculas, é atualizada ou recuperada. No entanto, o provedor de recursos pode manter a capitalização que você fornece para o nome da marca. Você verá essa capitalização nos relatórios de custo.
 > 
 > Os valores de marca diferenciam maiúsculas de minúsculas.
 

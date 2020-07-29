@@ -1,29 +1,30 @@
 ---
-title: Configurar um laboratório de SolidWorks para a engenharia com Azure Lab Services | Microsoft Docs
-description: Saiba como configurar um laboratório para cursos de engenharia usando o SolidWorks.
+title: Configurar um laboratório de SOLIDWORKS para a engenharia com Azure Lab Services | Microsoft Docs
+description: Saiba como configurar um laboratório para cursos de engenharia usando o SOLIDWORKS.
 author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: fa1b93bd71c1319bf8705c8c84cdb3e6f9da19e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5511ad5a517bbd320ce3d66de90a8aec084c7e15
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443801"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290726"
 ---
-# <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Configurar um laboratório para classes de engenharia usando o SolidWorks
+# <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Configurar um laboratório para classes de engenharia usando o SOLIDWORKS
 
-O [SolidWorks](https://www.solidworks.com/) fornece um ambiente de CAD (design auxiliado por computador) 3D para modelagem de objetos sólidos e é usado em uma variedade de campos de engenharia.  Com o SolidWorks, os engenheiros podem facilmente criar, Visualizar, simular e documentar seus designs.
+O [SolidWorks](https://www.solidworks.com/) fornece um ambiente de CAD (design auxiliado por computador) 3D para modelagem de objetos sólidos e é usado em diferentes tipos de campos de engenharia.  Com o SOLIDWORKS, os engenheiros podem facilmente criar, Visualizar, simular e documentar seus designs.
 
-Uma opção de licenciamento comumente usada por universidades é o licenciamento de rede de SolidWorks.   Com essa opção, os usuários compartilham um pool de licenças que são gerenciadas por um servidor de licenciamento.  Esse tipo de licença às vezes é chamado de licença "flutuante" porque você só precisa ter licenças suficientes para o número de usuários simultâneos.  Quando um usuário é feito usando o SolidWorks, sua licença volta para o pool de licenças gerenciado centralmente para que ele possa ser reutilizado por outro usuário.
+Uma opção de licenciamento comumente usada por universidades é o licenciamento de rede de SOLIDWORKS.   Com essa opção, os usuários compartilham um pool de licenças que são gerenciadas por um servidor de licenciamento.  Esse tipo de licença às vezes é chamado de licença "flutuante" porque você só precisa ter licenças suficientes para o número de usuários simultâneos.  Quando um usuário é feito usando o SOLIDWORKS, sua licença volta para o pool de licenças gerenciado centralmente para que ele possa ser reutilizado por outro usuário.
 
-Neste artigo, mostraremos como configurar uma classe que usa o SolidWorks 2019 e o licenciamento de rede.
+Neste artigo, mostraremos como configurar uma classe que usa o SOLIDWORKS 2019 e o licenciamento de rede.
 
 ## <a name="license-server"></a>Servidor de licenças
 
-O licenciamento de rede do SolidWorks requer que você tenha o Gerenciador de licenças do SolidNetWork instalado e ativado no servidor de licença.  Esse servidor de licença normalmente está localizado na sua rede local ou em uma rede privada no Azure.  Para obter mais informações sobre como configurar o Gerenciador de licenças do SolidNetWork em seu servidor, consulte [Instalando e ativando um Gerenciador de licenças](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) no guia de instalação do SolidWorks.  Ao configurá-lo, lembre-se do **número da porta** e do [**número de série**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm) que são usados, pois eles serão necessários em etapas posteriores.
+O licenciamento de rede do SOLIDWORKS requer que você tenha o Gerenciador de licenças do SolidNetWork instalado e ativado no servidor de licença.  Esse servidor de licença normalmente está localizado na sua rede local ou em uma rede privada no Azure.  Para obter mais informações sobre como configurar o Gerenciador de licenças do SolidNetWork em seu servidor, consulte [Instalando e ativando um Gerenciador de licenças](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) no guia de instalação do SolidWorks.  Ao configurá-lo, lembre-se do **número da porta** e do [**número de série**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm) que são usados, pois eles serão necessários em etapas posteriores.
 
-Depois que o servidor de licença estiver configurado, você precisará emparelhar a [rede virtual (VNet)](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) para sua [conta de laboratório](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account).  O emparelhamento de rede deve ser feito antes da criação do laboratório para que as máquinas virtuais do laboratório possam acessar o servidor de licença e vice-versa.
+Depois que o servidor de licença estiver configurado, você precisará emparelhar a [rede virtual (VNet)](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) para sua [conta de laboratório](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account).  O emparelhamento de rede deve ser feito antes da criação do laboratório para que as máquinas virtuais do laboratório possam acessar o servidor de licença e o contrário.
 
 > [!NOTE]
 > Você deve verificar se as portas apropriadas estão abertas nos firewalls para permitir a comunicação entre as máquinas virtuais do laboratório e o servidor de licença.  Por exemplo, consulte as instruções sobre como [modificar as portas de computador do Gerenciador de licenças para o Firewall do Windows](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) que mostram como adicionar regras de entrada e saída ao firewall do servidor de licenças.  Talvez você também precise abrir portas para as máquinas virtuais do laboratório.  Siga as etapas no artigo sobre [configurações de firewall para laboratórios](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-firewall-settings) para obter mais informações sobre isso, incluindo como obter o endereço IP público do laboratório.
@@ -41,7 +42,7 @@ Habilite as configurações descritas na tabela a seguir para a conta do laborat
 |Imagem do Marketplace| Habilite a imagem do Windows 10 pro para uso em sua conta de laboratório.|
 
 > [!NOTE]
-> Além do Windows 10, o SolidWorks dá suporte a outras versões do Windows.  Consulte [SolidWorks System Requirements](https://www.solidworks.com/sw/support/SystemRequirements.html) para obter detalhes.
+> Além do Windows 10, o SOLIDWORKS dá suporte a outras versões do Windows.  Consulte [SolidWorks System Requirements](https://www.solidworks.com/sw/support/SystemRequirements.html) para obter detalhes.
 
 ### <a name="lab-settings"></a>Configurações do laboratório
 
@@ -60,17 +61,17 @@ Use as configurações na tabela abaixo ao configurar um laboratório de sala de
 
 ## <a name="template-virtual-machine-configuration"></a>Configuração de máquina virtual de modelo
 
-As etapas nesta seção mostram como configurar sua máquina virtual de modelo baixando os arquivos de instalação do SolidWorks e instalando o software cliente:
+As etapas nesta seção mostram como configurar sua máquina virtual de modelo baixando os arquivos de instalação do SOLIDWORKS e instalando o software cliente:
 
 1. Inicie a máquina virtual de modelo e conecte-se ao computador usando o RDP.
 
-1. Baixe os arquivos de instalação do software cliente do SolidWorks. Você tem duas opções para baixar:
+1. Baixe os arquivos de instalação do software cliente do SOLIDWORKS. Você tem duas opções para baixar:
    - Baixe do [portal do cliente do SolidWorks](https://login.solidworks.com/nidp/idff/sso?id=cpenglish&sid=1&option=credential&sid=1&target=https%3A%2F%2Fcustomerportal.solidworks.com%2F).
    - Baixar de um diretório em um servidor.  Se você usou essa opção, precisará garantir que o servidor esteja acessível a partir da máquina virtual de modelo.  Por exemplo, esse servidor pode estar localizado na mesma rede virtual emparelhada com sua conta de laboratório.
   
-    Para obter detalhes, consulte [instalação em computadores individuais no](http://help.solidworks.com/2019/english/Installation/install_guide/c_installing_on_individual_computers.htm?id=fc149e8a968a422a89e2a943265758d3#Pg0) guia de instalação do SolidWorks no SolidWorks.
+    Para obter detalhes, consulte [instalação em computadores individuais no](http://help.solidworks.com/2019/english/Installation/install_guide/c_installing_on_individual_computers.htm?id=fc149e8a968a422a89e2a943265758d3#Pg0) guia de instalação do SOLIDWORKS no SolidWorks.
 
-1. Depois que os arquivos de instalação forem baixados, instale o software cliente usando o Gerenciador de instalação do SolidWorks. Veja detalhes sobre como [instalar um cliente de licença](http://help.solidworks.com/2019/english/installation/install_guide/t_installing_snl_license_client.htm) no guia de instalação do SolidWorks.
+1. Depois que os arquivos de instalação forem baixados, instale o software cliente usando o Gerenciador de instalação do SOLIDWORKS. Veja detalhes sobre como [instalar um cliente de licença](http://help.solidworks.com/2019/english/installation/install_guide/t_installing_snl_license_client.htm) no guia de instalação do SolidWorks.
 
     > [!NOTE]
     > Na caixa de diálogo **Adicionar servidor** , você será solicitado a fornecer o **número da porta** usada para o servidor de licença e o nome ou endereço IP do servidor de licença.

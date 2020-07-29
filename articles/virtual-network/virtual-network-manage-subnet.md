@@ -1,7 +1,7 @@
 ---
 title: Adicionar, alterar ou excluir uma sub-rede de rede virtual do Azure
 titlesuffix: Azure Virtual Network
-description: Saiba como adicionar, alterar ou excluir uma sub-rede de rede virtual no Azure.
+description: Saiba onde encontrar informações sobre redes virtuais e como adicionar, alterar ou excluir uma sub-rede de rede virtual no Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
-ms.openlocfilehash: b43fb027116d746a60c9cd4e690e63181fff4ade
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15fe5d6d16948875253d65e70d9d440214a4a2e8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711010"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286097"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou excluir uma sub-rede da rede virtual
 
@@ -47,7 +48,7 @@ A conta na qual você entra ou se conecta ao Azure com, deve ser atribuída à f
 
 4. Na caixa de diálogo **Adicionar sub-rede** , insira valores para as seguintes configurações:
 
-    | Setting | Descrição |
+    | Configuração | Descrição |
     | --- | --- |
     | **Nome** | O nome deve ser exclusivo na rede virtual. Para obter máxima compatibilidade com outros serviços do Azure, é recomendável usar uma letra como o primeiro caractere do nome. Por exemplo, o Gateway de Aplicativo do Azure não implantará em uma sub-rede cujo nome começa com um número. |
     | **Intervalo de endereços** | <p>O intervalo deve ser exclusivo dentro do espaço de endereçamento para a rede virtual. O intervalo não pode se sobrepor a outros intervalos de endereços de sub-rede na rede virtual. O espaço de endereçamento deve ser especificado utilizando a notação CIDR (Roteamento Entre Domínios sem Classes).</p><p>Por exemplo, em uma rede virtual com o espaço de endereço *10.0.0.0/16*, você pode definir um espaço de endereço de sub-rede de *10.0.0.0/22*. O menor intervalo que você pode especificar é */29*, que fornece oito endereços IP para a sub-rede. O Azure reserva o primeiro e o último endereço em cada sub-rede para conformidade de protocolo. Três endereços adicionais são reservados para uso pelo serviço do Azure. Como resultado, a definição de uma sub-rede com um intervalo de endereços */29* resulta em três endereços IP utilizáveis na sub-rede.</p><p>Caso pretenda conectar uma rede virtual a um gateway de VPN, será necessário criar uma sub-rede de gateway. Saiba mais sobre [considerações de intervalo de endereços específico para sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Sob condições específicas, você pode alterar o intervalo de endereços depois que a sub-rede é adicionada. Para saber como alterar um intervalo de endereços de sub-rede, consulte [Alterar as configurações de sub-rede](#change-subnet-settings).</p> |
@@ -77,7 +78,7 @@ A conta na qual você entra ou se conecta ao Azure com, deve ser atribuída à f
 
 5. Na página sub-rede, altere qualquer uma das seguintes configurações:
 
-    | Setting | Descrição |
+    | Configuração | Descrição |
     | --- | --- |
     | **Intervalo de endereços** | Se nenhum recurso for implantado dentro da sub-rede, você poderá alterar o intervalo de endereços. Se houver recursos na sub-rede, você deverá mover os recursos para outra sub-rede ou excluí-los da sub-rede primeiro. As etapas necessárias para mover ou excluir um recurso variam de acordo com o recurso. Para saber como mover ou excluir recursos que estão em sub-redes, leia a documentação de cada um desses tipos de recursos. Consulte as restrições para o **intervalo de endereços** na etapa 4 de [Adicionar uma sub-rede](#add-a-subnet). |
     | **Usuários** | É possível controlar o acesso à sub-rede utilizando funções internas ou suas próprias funções personalizadas. Para saber mais sobre como atribuir funções e usuários para acessar a sub-rede, consulte [Adicionar uma atribuição de função](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment). |
@@ -85,7 +86,7 @@ A conta na qual você entra ou se conecta ao Azure com, deve ser atribuída à f
     | **Pontos de extremidade de serviço** | <p>Consulte pontos de extremidade de serviço na etapa 4 de [Adicionar uma sub-rede](#add-a-subnet). Ao habilitar um ponto de extremidade de serviço para uma sub-rede existente, certifique-se de que nenhuma tarefa crítica está executando qualquer recurso na sub-rede. Pontos de extremidade de serviço alternam rotas em cada interface de rede na sub-rede. Os pontos de extremidade de serviço vão de usar a rota padrão com o prefixo de endereço *0.0.0.0/0* e o tipo do próximo salto da *Internet*, para usar uma nova rota com os prefixos de endereço do serviço e um tipo de próximo salto de *VirtualNetworkServiceEndpoint*.</p><p>Durante a troca, todas as conexões TCP abertas podem ser finalizadas. O ponto de extremidade de serviço não está habilitado até que o tráfego flua para o serviço para todas as interfaces de rede sejam atualizados com a nova rota. Para saber mais sobre roteamento, consulte [Roteamento de tráfego de rede virtual](virtual-networks-udr-overview.md).</p> |
     | **Delegação de sub-rede** | Consulte pontos de extremidade de serviço na etapa 4 de [Adicionar uma sub-rede](#add-a-subnet). A delegação de sub-rede pode ser modificada para ter nenhuma ou várias delegações habilitadas para ela. Se um recurso para um serviço já estiver implantado na sub-rede, a delegação de sub-rede não poderá ser adicionada ou removida até que todos os recursos do serviço sejam removidos. Para delegar para um serviço diferente, selecione o serviço que você deseja delegar na lista **Serviços**. |
 
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ### <a name="commands"></a>Comandos
 

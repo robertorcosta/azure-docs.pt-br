@@ -6,14 +6,14 @@ author: rodrigoaatmicrosoft
 ms.author: rodrigoa
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/18/2019
-ms.openlocfilehash: c79d810979641d1dc128c741c2124d9b5887aa3d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c22f028779090e735bf6f91d5ecc1fc572f190ab
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020739"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87313635"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Padrões de consulta comuns no Azure Stream Analytics
 
@@ -28,200 +28,6 @@ Este artigo descreve soluções para vários padrões comuns de consulta com bas
 O Azure Stream Analytics dá suporte ao processamento de eventos em formatos de dados CSV, JSON e Avro.
 
 JSON e Avro podem conter tipos complexos, como matrizes ou objetos aninhados (registros). Para obter mais informações sobre como trabalhar com esses tipos de dados complexos, consulte o artigo [Análise de JSON e AVRO](stream-analytics-parsing-json.md).
-
-## <a name="simple-pass-through-query"></a>Consulta passagem simples
-
-É possível usar uma consulta de passagem simples para copiar os dados de fluxo de entrada para a saída. Por exemplo, se um fluxo de dados contendo informações em tempo real de veículos precisar ser salvo em uma análise de carta, uma simples consulta de passagem fará isso.
-
-**Entrada**:
-
-| Faça | Hora | Peso |
-| --- | --- | --- |
-| Marca1 |2015-01-01T00:00:01.0000000Z |"1000" |
-| Marca1 |2015-01-01T00:00:02.0000000Z |"2000" |
-
-**Saída**:
-
-| Faça | Hora | Peso |
-| --- | --- | --- |
-| Marca1 |2015-01-01T00:00:01.0000000Z |"1000" |
-| Marca1 |2015-01-01T00:00:02.0000000Z |"2000" |
-
-**Consulta**:
-
-```SQL
-SELECT
-    *
-INTO Output
-FROM Input
-```
-
-Uma consulta **SELECT** * projeta todos os campos de um evento de entrada e os envia para a saída. Da mesma forma, também é possível usar a **SELECT** para projetar apenas os campos obrigatórios da entrada. Nesse exemplo, se os campos *Modelo* e *Tempo* do veículo forem os únicos campos obrigatórios a serem salvos, eles podem ser especificados na instrução **SELECT**.
-
-**Entrada**:
-
-| Faça | Hora | Peso |
-| --- | --- | --- |
-| Marca1 |2015-01-01T00:00:01.0000000Z |1000 |
-| Marca1 |2015-01-01T00:00:02.0000000Z |2000 |
-| Marca2 |2015-01-01T00:00:04.0000000Z |1500 |
-
-**Saída**:
-
-| Faça | Hora |
-| --- | --- |
-| Marca1 |2015-01-01T00:00:01.0000000Z |
-| Marca1 |2015-01-01T00:00:02.0000000Z |
-| Marca2 |2015-01-01T00:00:04.0000000Z |
-
-**Consulta**:
-
-```SQL
-SELECT
-    Make, Time
-INTO Output
-FROM Input
-```
-## <a name="data-aggregation-over-time"></a>Agregação de dados ao longo do tempo
-
-Para computar informações durante uma janela de tempo, os dados podem ser agregados juntos. Neste exemplo, uma contagem é calculada nos últimos 10 segundos de tempo para cada marca de carro específica.
-
-**Entrada**:
-
-| Faça | Hora | Peso |
-| --- | --- | --- |
-| Marca1 |2015-01-01T00:00:01.0000000Z |1000 |
-| Marca1 |2015-01-01T00:00:02.0000000Z |2000 |
-| Marca2 |2015-01-01T00:00:04.0000000Z |1500 |
-
-**Saída**:
-
-| Faça | Contagem |
-| --- | --- |
-| Marca1 | 2 |
-| Marca2 | 1 |
-
-**Consulta**:
-
-```SQL
-SELECT
-    Make,
-    COUNT(*) AS Count
-FROM
-    Input TIMESTAMP BY Time
-GROUP BY
-    Make,
-    TumblingWindow(second, 10)
-```
-
-Essa agregação agrupa os carros por *Modelo* e os conta a cada 10 segundos. A saída apresenta o *Modelo* e a *Contagem* de carros que passaram pelo pedágio.
-
-TumblingWindow é uma função de exibição de janelas usada para agrupar eventos. As agregações podem ser aplicadas em todos os eventos agrupados. Para saber mais, confira [funções de exibição de janelas](stream-analytics-window-functions.md).
-
-Para obter mais informações sobre a agregação, consulte [funções de agregação](/stream-analytics-query/aggregate-functions-azure-stream-analytics).
-
-## <a name="data-conversion"></a>Conversão de dados
-
-Os dados podem ser convertidos em tempo real por meio do método **CAST**. Por exemplo, o peso do carro pode ser convertido do tipo **nvarchar (max)** para o tipo **bigint** e ser usado em um cálculo numérico.
-
-**Entrada**:
-
-| Faça | Hora | Peso |
-| --- | --- | --- |
-| Marca1 |2015-01-01T00:00:01.0000000Z |"1000" |
-| Marca1 |2015-01-01T00:00:02.0000000Z |"2000" |
-
-**Saída**:
-
-| Faça | Peso |
-| --- | --- |
-| Marca1 |3000 |
-
-**Consulta**:
-
-```SQL
-SELECT
-    Make,
-    SUM(CAST(Weight AS BIGINT)) AS Weight
-FROM
-    Input TIMESTAMP BY Time
-GROUP BY
-    Make,
-    TumblingWindow(second, 10)
-```
-
-Use uma instrução **CAST** para especificar o tipo de dados. Veja a lista de tipos de dados com suporte em [Tipos de dados (Azure Stream Analytics)](/stream-analytics-query/data-types-azure-stream-analytics).
-
-Para obter mais informações sobre [funções de conversão de dados](/stream-analytics-query/conversion-functions-azure-stream-analytics).
-
-## <a name="string-matching-with-like-and-not-like"></a>Correspondência de cadeia de caracteres com LIKE e NOT LIKE
-
-**LIKE** e **NOT LIKE** podem ser usados para verificar se um campo corresponde a um determinado padrão. Por exemplo, um filtro pode ser criado para retornar apenas as placas que começam com a letra “A” e terminam com o número 9.
-
-**Entrada**:
-
-| Faça | License_plate | Hora |
-| --- | --- | --- |
-| Marca1 |ABC-123 |2015-01-01T00:00:01.0000000Z |
-| Marca2 |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Marca3 |ABC-369 |2015-01-01T00:00:03.0000000Z |
-
-**Saída**:
-
-| Faça | License_plate | Hora |
-| --- | --- | --- |
-| Marca2 |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Marca3 |ABC-369 |2015-01-01T00:00:03.0000000Z |
-
-**Consulta**:
-
-```SQL
-SELECT
-    *
-FROM
-    Input TIMESTAMP BY Time
-WHERE
-    License_plate LIKE 'A%9'
-```
-
-Use a instrução **LIKE** para verificar o valor do campo **License_plate**. Ele deve começar com a letra “A”, ter uma qualquer cadeia de caracteres com nenhum ou mais caracteres, e terminar com o número 9.
-
-## <a name="specify-logic-for-different-casesvalues-case-statements"></a>Especifique a lógica para casos/valores diferentes (instruções CASE)
-
-Instruções **CASE** podem fornecer cálculos diferentes para campos diferentes com base em um critério específico. Por exemplo, atribua a pista “A” a carros da *Marca1* e a pista “B” para qualquer outro modelo.
-
-**Entrada**:
-
-| Faça | Hora |
-| --- | --- |
-| Marca1 |2015-01-01T00:00:01.0000000Z |
-| Marca2 |2015-01-01T00:00:02.0000000Z |
-| Marca2 |2015-01-01T00:00:03.0000000Z |
-
-**Saída**:
-
-| Faça |Dispatch_to_lane | Hora |
-| --- | --- | --- |
-| Marca1 |"A" |2015-01-01T00:00:01.0000000Z |
-| Marca2 |"B" |2015-01-01T00:00:02.0000000Z |
-
-**Solução**:
-
-```SQL
-SELECT
-    Make
-    CASE
-        WHEN Make = "Make1" THEN "A"
-        ELSE "B"
-    END AS Dispatch_to_lane,
-    System.TimeStamp() AS Time
-FROM
-    Input TIMESTAMP BY Time
-```
-
-A expressão **CASE** compara uma expressão com um conjunto de expressões simples para determinar seu resultado. Nesse exemplo, os veículos da *Marca1* são enviados para a pista “A”, enquanto os veículos de qualquer outro modelo serão atribuídos à pista “B”.
-
-Para obter mais informações, consulte a [expressão CASE](/stream-analytics-query/case-azure-stream-analytics).
 
 ## <a name="send-data-to-multiple-outputs"></a>Enviar dados para várias saídas
 
@@ -308,40 +114,91 @@ HAVING [Count] >= 3
 
 Para obter mais informações, consulte a [cláusula **WITH**](/stream-analytics-query/with-azure-stream-analytics).
 
-## <a name="count-unique-values"></a>Contagem de valores exclusivos
+## <a name="simple-pass-through-query"></a>Consulta passagem simples
 
-É possível usar **COUNT** e **DISTINCT** para contar a quantidade de valores de campo exclusivos que aparecem no fluxo em uma janela de tempo. Uma consulta pode ser criada para calcular quantas *Marcas* de carro exclusivas passaram por uma cabine de pedágio em uma janela de dois segundos.
+É possível usar uma consulta de passagem simples para copiar os dados de fluxo de entrada para a saída. Por exemplo, se um fluxo de dados contendo informações em tempo real de veículos precisar ser salvo em uma análise de carta, uma simples consulta de passagem fará isso.
 
 **Entrada**:
+
+| Faça | Hora | Peso |
+| --- | --- | --- |
+| Marca1 |2015-01-01T00:00:01.0000000Z |"1000" |
+| Marca1 |2015-01-01T00:00:02.0000000Z |"2000" |
+
+**Saída**:
+
+| Faça | Hora | Peso |
+| --- | --- | --- |
+| Marca1 |2015-01-01T00:00:01.0000000Z |"1000" |
+| Marca1 |2015-01-01T00:00:02.0000000Z |"2000" |
+
+**Consulta**:
+
+```SQL
+SELECT
+    *
+INTO Output
+FROM Input
+```
+
+Uma consulta **SELECT** * projeta todos os campos de um evento de entrada e os envia para a saída. Da mesma forma, também é possível usar a **SELECT** para projetar apenas os campos obrigatórios da entrada. Nesse exemplo, se os campos *Modelo* e *Tempo* do veículo forem os únicos campos obrigatórios a serem salvos, eles podem ser especificados na instrução **SELECT**.
+
+**Entrada**:
+
+| Faça | Hora | Peso |
+| --- | --- | --- |
+| Marca1 |2015-01-01T00:00:01.0000000Z |1000 |
+| Marca1 |2015-01-01T00:00:02.0000000Z |2000 |
+| Marca2 |2015-01-01T00:00:04.0000000Z |1500 |
+
+**Saída**:
 
 | Faça | Hora |
 | --- | --- |
 | Marca1 |2015-01-01T00:00:01.0000000Z |
 | Marca1 |2015-01-01T00:00:02.0000000Z |
-| Marca2 |2015-01-01T00:00:01.0000000Z |
-| Marca2 |2015-01-01T00:00:02.0000000Z |
-| Marca2 |2015-01-01T00:00:03.0000000Z |
+| Marca2 |2015-01-01T00:00:04.0000000Z |
 
-**Saída:**
-
-| Count_make | Hora |
-| --- | --- |
-| 2 |2015-01-01T00:00:02.000Z |
-| 1 |2015-01-01T00:00:04.000Z |
-
-**Consulta:**
+**Consulta**:
 
 ```SQL
 SELECT
-     COUNT(DISTINCT Make) AS Count_make,
-     System.TIMESTAMP() AS Time
-FROM Input TIMESTAMP BY TIME
-GROUP BY 
-     TumblingWindow(second, 2)
+    Make, Time
+INTO Output
+FROM Input
 ```
 
-**COUNT(DISTINCT Make)** retorna a contagem de valores distintos na coluna **Marca** dentro de uma janela de tempo.
-Para obter mais informações, consulte a [função de agregação **COUNT**](/stream-analytics-query/count-azure-stream-analytics).
+## <a name="string-matching-with-like-and-not-like"></a>Correspondência de cadeia de caracteres com LIKE e NOT LIKE
+
+**LIKE** e **NOT LIKE** podem ser usados para verificar se um campo corresponde a um determinado padrão. Por exemplo, um filtro pode ser criado para retornar apenas as placas que começam com a letra “A” e terminam com o número 9.
+
+**Entrada**:
+
+| Faça | License_plate | Hora |
+| --- | --- | --- |
+| Marca1 |ABC-123 |2015-01-01T00:00:01.0000000Z |
+| Marca2 |AAA-999 |2015-01-01T00:00:02.0000000Z |
+| Marca3 |ABC-369 |2015-01-01T00:00:03.0000000Z |
+
+**Saída**:
+
+| Faça | License_plate | Hora |
+| --- | --- | --- |
+| Marca2 |AAA-999 |2015-01-01T00:00:02.0000000Z |
+| Marca3 |ABC-369 |2015-01-01T00:00:03.0000000Z |
+
+**Consulta**:
+
+```SQL
+SELECT
+    *
+FROM
+    Input TIMESTAMP BY Time
+WHERE
+    License_plate LIKE 'A%9'
+```
+
+Use a instrução **LIKE** para verificar o valor do campo **License_plate**. Ele deve começar com a letra “A”, ter uma qualquer cadeia de caracteres com nenhum ou mais caracteres, e terminar com o número 9.
 
 ## <a name="calculation-over-past-events"></a>Cálculo de eventos passados
 
@@ -375,69 +232,6 @@ WHERE
 Use **LAG** para espiar o fluxo de entrada de um evento atrás, recuperando o valor *Marca* e comparando-o ao valor *Marca* do evento atual e gerar o evento.
 
 Para obter mais informações, consulte [**LAG**](/stream-analytics-query/lag-azure-stream-analytics).
-
-## <a name="retrieve-the-first-event-in-a-window"></a>Recuperar o primeiro evento em uma janela
-
-É possível usar o **IsFirst** para recuperar o primeiro evento em uma janela de tempo. Por exemplo, a saída das informações do primeiro carro em cada intervalo de 10 minutos.
-
-**Entrada**:
-
-| License_plate | Faça | Hora |
-| --- | --- | --- |
-| DXE 5291 |Marca1 |2015-07-27T00:00:05.0000000Z |
-| YZK 5704 |Marca3 |2015-07-27T00:02:17.0000000Z |
-| RMV 8282 |Marca1 |2015-07-27T00:05:01.0000000Z |
-| YHN 6970 |Marca2 |2015-07-27T00:06:00.0000000Z |
-| VFE 1616 |Marca2 |2015-07-27T00:09:31.0000000Z |
-| QYF 9358 |Marca1 |2015-07-27T00:12:02.0000000Z |
-| MDR 6128 |Marca4 |2015-07-27T00:13:45.0000000Z |
-
-**Saída**:
-
-| License_plate | Faça | Hora |
-| --- | --- | --- |
-| DXE 5291 |Marca1 |2015-07-27T00:00:05.0000000Z |
-| QYF 9358 |Marca1 |2015-07-27T00:12:02.0000000Z |
-
-**Consulta**:
-
-```SQL
-SELECT 
-    License_plate,
-    Make,
-    Time
-FROM 
-    Input TIMESTAMP BY Time
-WHERE 
-    IsFirst(minute, 10) = 1
-```
-
-**IsFirst** também pode particionar os dados e calcular o primeiro evento para cada *Marca* de carro específica encontrada em cada intervalo de 10 minutos.
-
-**Saída**:
-
-| License_plate | Faça | Hora |
-| --- | --- | --- |
-| DXE 5291 |Marca1 |2015-07-27T00:00:05.0000000Z |
-| YZK 5704 |Marca3 |2015-07-27T00:02:17.0000000Z |
-| YHN 6970 |Marca2 |2015-07-27T00:06:00.0000000Z |
-| QYF 9358 |Marca1 |2015-07-27T00:12:02.0000000Z |
-| MDR 6128 |Marca4 |2015-07-27T00:13:45.0000000Z |
-
-**Consulta**:
-
-```SQL
-SELECT 
-    License_plate,
-    Make,
-    Time
-FROM 
-    Input TIMESTAMP BY Time
-WHERE 
-    IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
-```
-
-Para obter mais informações, consulte [**IsFirst**](/stream-analytics-query/isfirst-azure-stream-analytics).
 
 ## <a name="return-the-last-event-in-a-window"></a>Retorna o último evento de uma janela
 
@@ -492,6 +286,89 @@ A primeira etapa na consulta localiza o carimbo de data/hora máximo em janelas 
 
 Para obter mais informações sobre a união de fluxos, consulte [**JOIN**](/stream-analytics-query/join-azure-stream-analytics).
 
+## <a name="data-aggregation-over-time"></a>Agregação de dados ao longo do tempo
+
+Para computar informações durante uma janela de tempo, os dados podem ser agregados juntos. Neste exemplo, uma contagem é calculada nos últimos 10 segundos de tempo para cada marca de carro específica.
+
+**Entrada**:
+
+| Faça | Hora | Peso |
+| --- | --- | --- |
+| Marca1 |2015-01-01T00:00:01.0000000Z |1000 |
+| Marca1 |2015-01-01T00:00:02.0000000Z |2000 |
+| Marca2 |2015-01-01T00:00:04.0000000Z |1500 |
+
+**Saída**:
+
+| Faça | Contagem |
+| --- | --- |
+| Marca1 | 2 |
+| Marca2 | 1 |
+
+**Consulta**:
+
+```SQL
+SELECT
+    Make,
+    COUNT(*) AS Count
+FROM
+    Input TIMESTAMP BY Time
+GROUP BY
+    Make,
+    TumblingWindow(second, 10)
+```
+
+Essa agregação agrupa os carros por *Modelo* e os conta a cada 10 segundos. A saída apresenta o *Modelo* e a *Contagem* de carros que passaram pelo pedágio.
+
+TumblingWindow é uma função de exibição de janelas usada para agrupar eventos. As agregações podem ser aplicadas em todos os eventos agrupados. Para saber mais, confira [funções de exibição de janelas](stream-analytics-window-functions.md).
+
+Para obter mais informações sobre a agregação, consulte [funções de agregação](/stream-analytics-query/aggregate-functions-azure-stream-analytics).
+
+## <a name="periodically-output-values"></a>Valores de saída periódica
+
+Caso haja eventos irregulares ou ausentes, uma saída de intervalo regular pode ser gerada a partir de uma entrada de dados mais esparsa. Por exemplo, gere um evento a cada 5 segundos que relatam o ponto de dados visto mais recentemente.
+
+**Entrada**:
+
+| Hora | Valor |
+| --- | --- |
+| "2014-01-01T06:01:00" |1 |
+| "2014-01-01T06:01:05" |2 |
+| "2014-01-01T06:01:10" |3 |
+| "2014-01-01T06:01:15" |4 |
+| "2014-01-01T06:01:30" |5 |
+| "2014-01-01T06:01:35" |6 |
+
+**(10 primeiras linhas) de saída**:
+
+| Window_end | Last_event.Time | Last_event.Value |
+| --- | --- | --- |
+| 2014-01-01T14:01:00.000Z |2014-01-01T14:01:00.000Z |1 |
+| 2014-01-01T14:01:05.000Z |2014-01-01T14:01:05.000Z |2 |
+| 2014-01-01T14:01:10.000Z |2014-01-01T14:01:10.000Z |3 |
+| 2014-01-01T14:01:15.000Z |2014-01-01T14:01:15.000Z |4 |
+| 2014-01-01T14:01:20.000Z |2014-01-01T14:01:15.000Z |4 |
+| 2014-01-01T14:01:25.000Z |2014-01-01T14:01:15.000Z |4 |
+| 2014-01-01T14:01:30.000Z |2014-01-01T14:01:30.000Z |5 |
+| 2014-01-01T14:01:35.000Z |2014-01-01T14:01:35.000Z |6 |
+| 2014-01-01T14:01:40.000Z |2014-01-01T14:01:35.000Z |6 |
+| 2014-01-01T14:01:45.000Z |2014-01-01T14:01:35.000Z |6 |
+
+**Consulta**:
+
+```SQL
+SELECT
+    System.Timestamp() AS Window_end,
+    TopOne() OVER (ORDER BY Time DESC) AS Last_event
+FROM
+    Input TIMESTAMP BY Time
+GROUP BY
+    HOPPINGWINDOW(second, 300, 5)
+```
+
+Essa consulta gera eventos a cada 5 segundos e gera o último evento recebido anteriormente. A duração da **HOPPINGWINDOW** determina por quanto tempo a consulta tenta encontrar o evento mais recente.
+
+Para obter mais informações, consulte [Janela de salto](/stream-analytics-query/hopping-window-azure-stream-analytics).
 
 ## <a name="correlate-events-in-a-stream"></a>Correlacionar eventos presentes em um fluxo
 
@@ -565,6 +442,224 @@ WHERE
 
 É possível usar a função **LAST** para recuperar o último evento dentro de uma condição específica. Nesse exemplo, a condição é um evento do tipo Início, particionando a pesquisa por **PARTITION BY** usuário e recurso. Dessa forma, cada usuário e recurso é tratado de modo independente ao pesquisar o evento de Início. **LIMIT DURATION** limita a hora de pesquisa em 1 hora atrás entre os eventos de Término e de Início.
 
+## <a name="count-unique-values"></a>Contagem de valores exclusivos
+
+É possível usar **COUNT** e **DISTINCT** para contar a quantidade de valores de campo exclusivos que aparecem no fluxo em uma janela de tempo. Uma consulta pode ser criada para calcular quantas *Marcas* de carro exclusivas passaram por uma cabine de pedágio em uma janela de dois segundos.
+
+**Entrada**:
+
+| Faça | Hora |
+| --- | --- |
+| Marca1 |2015-01-01T00:00:01.0000000Z |
+| Marca1 |2015-01-01T00:00:02.0000000Z |
+| Marca2 |2015-01-01T00:00:01.0000000Z |
+| Marca2 |2015-01-01T00:00:02.0000000Z |
+| Marca2 |2015-01-01T00:00:03.0000000Z |
+
+**Saída:**
+
+| Count_make | Hora |
+| --- | --- |
+| 2 |2015-01-01T00:00:02.000Z |
+| 1 |2015-01-01T00:00:04.000Z |
+
+**Consulta:**
+
+```SQL
+SELECT
+     COUNT(DISTINCT Make) AS Count_make,
+     System.TIMESTAMP() AS Time
+FROM Input TIMESTAMP BY TIME
+GROUP BY 
+     TumblingWindow(second, 2)
+```
+
+**COUNT(DISTINCT Make)** retorna a contagem de valores distintos na coluna **Marca** dentro de uma janela de tempo.
+Para obter mais informações, consulte a [função de agregação **COUNT**](/stream-analytics-query/count-azure-stream-analytics).
+
+## <a name="retrieve-the-first-event-in-a-window"></a>Recuperar o primeiro evento em uma janela
+
+É possível usar o **IsFirst** para recuperar o primeiro evento em uma janela de tempo. Por exemplo, a saída das informações do primeiro carro em cada intervalo de 10 minutos.
+
+**Entrada**:
+
+| License_plate | Faça | Hora |
+| --- | --- | --- |
+| DXE 5291 |Marca1 |2015-07-27T00:00:05.0000000Z |
+| YZK 5704 |Marca3 |2015-07-27T00:02:17.0000000Z |
+| RMV 8282 |Marca1 |2015-07-27T00:05:01.0000000Z |
+| YHN 6970 |Marca2 |2015-07-27T00:06:00.0000000Z |
+| VFE 1616 |Marca2 |2015-07-27T00:09:31.0000000Z |
+| QYF 9358 |Marca1 |2015-07-27T00:12:02.0000000Z |
+| MDR 6128 |Marca4 |2015-07-27T00:13:45.0000000Z |
+
+**Saída**:
+
+| License_plate | Faça | Hora |
+| --- | --- | --- |
+| DXE 5291 |Marca1 |2015-07-27T00:00:05.0000000Z |
+| QYF 9358 |Marca1 |2015-07-27T00:12:02.0000000Z |
+
+**Consulta**:
+
+```SQL
+SELECT 
+    License_plate,
+    Make,
+    Time
+FROM 
+    Input TIMESTAMP BY Time
+WHERE 
+    IsFirst(minute, 10) = 1
+```
+
+**IsFirst** também pode particionar os dados e calcular o primeiro evento para cada *Marca* de carro específica encontrada em cada intervalo de 10 minutos.
+
+**Saída**:
+
+| License_plate | Faça | Hora |
+| --- | --- | --- |
+| DXE 5291 |Marca1 |2015-07-27T00:00:05.0000000Z |
+| YZK 5704 |Marca3 |2015-07-27T00:02:17.0000000Z |
+| YHN 6970 |Marca2 |2015-07-27T00:06:00.0000000Z |
+| QYF 9358 |Marca1 |2015-07-27T00:12:02.0000000Z |
+| MDR 6128 |Marca4 |2015-07-27T00:13:45.0000000Z |
+
+**Consulta**:
+
+```SQL
+SELECT 
+    License_plate,
+    Make,
+    Time
+FROM 
+    Input TIMESTAMP BY Time
+WHERE 
+    IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
+```
+
+Para obter mais informações, consulte [**IsFirst**](/stream-analytics-query/isfirst-azure-stream-analytics).
+
+## <a name="remove-duplicate-events-in-a-window"></a>Remover eventos duplicados em uma janela
+
+Ao realizar uma operação, como calcular médias sobre eventos em uma determinada janela de tempo, os eventos duplicados devem ser filtrados. No exemplo a seguir, o segundo evento é uma cópia do primeiro.
+
+**Entrada**:  
+
+| DeviceId | Hora | Atributo | Valor |
+| --- | --- | --- | --- |
+| 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
+| 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
+| 2 |2018-07-27T00:00:01.0000000Z |Temperatura |40 |
+| 1 |2018-07-27T00:00:05.0000000Z |Temperatura |60 |
+| 2 |2018-07-27T00:00:05.0000000Z |Temperatura |50 |
+| 1 |2018-07-27T00:00:10.0000000Z |Temperatura |100 |
+
+**Saída**:  
+
+| AverageValue | deviceId |
+| --- | --- |
+| 70 | 1 |
+|45 | 2 |
+
+**Consulta**:
+
+```SQL
+With Temp AS (
+SELECT
+    COUNT(DISTINCT Time) AS CountTime,
+    Value,
+    DeviceId
+FROM
+    Input TIMESTAMP BY Time
+GROUP BY
+    Value,
+    DeviceId,
+    SYSTEM.TIMESTAMP()
+)
+
+SELECT
+    AVG(Value) AS AverageValue, DeviceId
+INTO Output
+FROM Temp
+GROUP BY DeviceId,TumblingWindow(minute, 5)
+```
+
+**COUNT(DISTINCT Time)** retorna o número de valores distintos na coluna Time dentro de uma janela de tempo. A saída da primeira etapa pode ser usada para computar a média por dispositivo, descartando cópias.
+
+Para obter mais informações, consulte [COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics).
+
+## <a name="specify-logic-for-different-casesvalues-case-statements"></a>Especifique a lógica para casos/valores diferentes (instruções CASE)
+
+Instruções **CASE** podem fornecer cálculos diferentes para campos diferentes com base em um critério específico. Por exemplo, atribua a pista “A” a carros da *Marca1* e a pista “B” para qualquer outro modelo.
+
+**Entrada**:
+
+| Faça | Hora |
+| --- | --- |
+| Marca1 |2015-01-01T00:00:01.0000000Z |
+| Marca2 |2015-01-01T00:00:02.0000000Z |
+| Marca2 |2015-01-01T00:00:03.0000000Z |
+
+**Saída**:
+
+| Faça |Dispatch_to_lane | Hora |
+| --- | --- | --- |
+| Marca1 |"A" |2015-01-01T00:00:01.0000000Z |
+| Marca2 |"B" |2015-01-01T00:00:02.0000000Z |
+
+**Solução**:
+
+```SQL
+SELECT
+    Make
+    CASE
+        WHEN Make = "Make1" THEN "A"
+        ELSE "B"
+    END AS Dispatch_to_lane,
+    System.TimeStamp() AS Time
+FROM
+    Input TIMESTAMP BY Time
+```
+
+A expressão **CASE** compara uma expressão com um conjunto de expressões simples para determinar seu resultado. Nesse exemplo, os veículos da *Marca1* são enviados para a pista “A”, enquanto os veículos de qualquer outro modelo serão atribuídos à pista “B”.
+
+Para obter mais informações, consulte a [expressão CASE](/stream-analytics-query/case-azure-stream-analytics).
+
+## <a name="data-conversion"></a>Conversão de dados
+
+Os dados podem ser convertidos em tempo real por meio do método **CAST**. Por exemplo, o peso do carro pode ser convertido do tipo **nvarchar (max)** para o tipo **bigint** e ser usado em um cálculo numérico.
+
+**Entrada**:
+
+| Faça | Hora | Peso |
+| --- | --- | --- |
+| Marca1 |2015-01-01T00:00:01.0000000Z |"1000" |
+| Marca1 |2015-01-01T00:00:02.0000000Z |"2000" |
+
+**Saída**:
+
+| Faça | Peso |
+| --- | --- |
+| Marca1 |3000 |
+
+**Consulta**:
+
+```SQL
+SELECT
+    Make,
+    SUM(CAST(Weight AS BIGINT)) AS Weight
+FROM
+    Input TIMESTAMP BY Time
+GROUP BY
+    Make,
+    TumblingWindow(second, 10)
+```
+
+Use uma instrução **CAST** para especificar o tipo de dados. Veja a lista de tipos de dados com suporte em [Tipos de dados (Azure Stream Analytics)](/stream-analytics-query/data-types-azure-stream-analytics).
+
+Para obter mais informações sobre [funções de conversão de dados](/stream-analytics-query/conversion-functions-azure-stream-analytics).
+
 ## <a name="detect-the-duration-of-a-condition"></a>Detectar a duração de uma condição
 
 Para condições que abrangem vários eventos, é possível usar a função **LAG** para identificar a duração dessa condição. Por exemplo, suponha que um bug resultou no peso incorreto de todos os carros (acima de 9.000 quilos). Queremos calcular a duração do bug.
@@ -612,52 +707,6 @@ A primeira instrução **SELECT** correlaciona a medição de peso atual com a m
 
 End_fault é o evento sem falha atual no qual o evento anterior tinha falha, e Start_fault é o último evento sem falha antes disso.
 
-## <a name="periodically-output-values"></a>Valores de saída periódica
-
-Caso haja eventos irregulares ou ausentes, uma saída de intervalo regular pode ser gerada a partir de uma entrada de dados mais esparsa. Por exemplo, gere um evento a cada 5 segundos que relatam o ponto de dados visto mais recentemente.
-
-**Entrada**:
-
-| Hora | Valor |
-| --- | --- |
-| "2014-01-01T06:01:00" |1 |
-| "2014-01-01T06:01:05" |2 |
-| "2014-01-01T06:01:10" |3 |
-| "2014-01-01T06:01:15" |4 |
-| "2014-01-01T06:01:30" |5 |
-| "2014-01-01T06:01:35" |6 |
-
-**(10 primeiras linhas) de saída**:
-
-| Window_end | Last_event.Time | Last_event.Value |
-| --- | --- | --- |
-| 2014-01-01T14:01:00.000Z |2014-01-01T14:01:00.000Z |1 |
-| 2014-01-01T14:01:05.000Z |2014-01-01T14:01:05.000Z |2 |
-| 2014-01-01T14:01:10.000Z |2014-01-01T14:01:10.000Z |3 |
-| 2014-01-01T14:01:15.000Z |2014-01-01T14:01:15.000Z |4 |
-| 2014-01-01T14:01:20.000Z |2014-01-01T14:01:15.000Z |4 |
-| 2014-01-01T14:01:25.000Z |2014-01-01T14:01:15.000Z |4 |
-| 2014-01-01T14:01:30.000Z |2014-01-01T14:01:30.000Z |5 |
-| 2014-01-01T14:01:35.000Z |2014-01-01T14:01:35.000Z |6 |
-| 2014-01-01T14:01:40.000Z |2014-01-01T14:01:35.000Z |6 |
-| 2014-01-01T14:01:45.000Z |2014-01-01T14:01:35.000Z |6 |
-
-**Consulta**:
-
-```SQL
-SELECT
-    System.Timestamp() AS Window_end,
-    TopOne() OVER (ORDER BY Time DESC) AS Last_event
-FROM
-    Input TIMESTAMP BY Time
-GROUP BY
-    HOPPINGWINDOW(second, 300, 5)
-```
-
-Essa consulta gera eventos a cada 5 segundos e gera o último evento recebido anteriormente. A duração da **HOPPINGWINDOW** determina por quanto tempo a consulta tenta encontrar o evento mais recente.
-
-Para obter mais informações, consulte [Janela de salto](/stream-analytics-query/hopping-window-azure-stream-analytics).
-
 ## <a name="process-events-with-independent-time-substreams"></a>Processar eventos com hora independente (subfluxos)
 
 Os eventos podem chegar atrasados ou fora de ordem devido a distorções de relógio entre produtores de eventos, desvios de clock entre partições ou latência de rede.
@@ -701,55 +750,6 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 A cláusula **TIMESTAMP BY OVER** examina cada linha do tempo do dispositivo de modo independente usando subfluxos. O evento de saída para cada *TollID* é gerado conforme é computado, o que significa que os eventos estão na ordem em relação a cada *TollID* em vez de ser reordenados como se todos os dispositivos estivessem no mesmo relógio.
 
 Para obter mais informações, consulte [TIMESTAMP BY OVER](/stream-analytics-query/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering).
-
-## <a name="remove-duplicate-events-in-a-window"></a>Remover eventos duplicados em uma janela
-
-Ao realizar uma operação, como calcular médias sobre eventos em uma determinada janela de tempo, os eventos duplicados devem ser filtrados. No exemplo a seguir, o segundo evento é uma cópia do primeiro.
-
-**Entrada**:  
-
-| deviceId | Hora | Atributo | Valor |
-| --- | --- | --- | --- |
-| 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
-| 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
-| 2 |2018-07-27T00:00:01.0000000Z |Temperatura |40 |
-| 1 |2018-07-27T00:00:05.0000000Z |Temperatura |60 |
-| 2 |2018-07-27T00:00:05.0000000Z |Temperatura |50 |
-| 1 |2018-07-27T00:00:10.0000000Z |Temperatura |100 |
-
-**Saída**:  
-
-| AverageValue | deviceId |
-| --- | --- |
-| 70 | 1 |
-|45 | 2 |
-
-**Consulta**:
-
-```SQL
-With Temp AS (
-SELECT
-    COUNT(DISTINCT Time) AS CountTime,
-    Value,
-    DeviceId
-FROM
-    Input TIMESTAMP BY Time
-GROUP BY
-    Value,
-    DeviceId,
-    SYSTEM.TIMESTAMP()
-)
-
-SELECT
-    AVG(Value) AS AverageValue, DeviceId
-INTO Output
-FROM Temp
-GROUP BY DeviceId,TumblingWindow(minute, 5)
-```
-
-**COUNT(DISTINCT Time)** retorna o número de valores distintos na coluna Time dentro de uma janela de tempo. A saída da primeira etapa pode ser usada para computar a média por dispositivo, descartando cópias.
-
-Para obter mais informações, consulte [COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics).
 
 ## <a name="session-windows"></a>Janela de sessão
 
@@ -885,6 +885,7 @@ O sucesso e a falha são definidos usando o valor Return_Code e, depois que a co
 Para obter mais informações, consulte [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics).
 
 ## <a name="geofencing-and-geospatial-queries"></a>Consultas de delimitação geográfica e geoespaciais
+
 O Azure Stream Analytics fornece funções geoespaciais internas que podem ser usadas para implementar cenários como gerenciamento de frota, compartilhamento de caronas, carros conectados e acompanhamento de ativos.
 Os dados geoespaciais podem ser ingeridos em formatos GeoJSON ou WKT como parte do fluxo de eventos ou de dados de referência.
 Por exemplo, uma empresa especializada na fabricação de máquinas para a impressão de passaportes que concede suas máquinas para governos e consulados. A localização dessas máquinas é muito controlada para evitar extravios e seu possível uso para a falsificação de passaportes. Cada máquina vem equipada com um rastreador GPS, cujas informações são retransmitidas para um trabalho do Azure Stream Analytics.

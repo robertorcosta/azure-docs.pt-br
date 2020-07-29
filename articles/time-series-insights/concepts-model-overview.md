@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 98951dc29b7c8504cbf1654a810ebba933fef3a1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 74a20e46858aada48151809c5bedf1f93076827e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495373"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289958"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Modelo de série temporal no Azure Time Series Insights Gen2
 
@@ -24,7 +24,7 @@ Este artigo descreve o modelo de série temporal, os recursos e como começar a 
 > [!TIP]
 >
 > * Vá para o ambiente de [demonstração do farm de vento da Contoso](https://insights.timeseries.azure.com/preview/samples) para obter um exemplo de modelo de série temporal em tempo real.
-> * Saiba [como trabalhar com o modelo de série temporal](time-series-insights-update-how-to-tsm.md) usando o Azure Time Series insights Explorer Gen2.
+> * Saiba [como trabalhar com o modelo de série temporal](/azure/time-series-insights/how-to-edit-your-model) usando o Azure Time Series insights Explorer Gen2.
 
 ## <a name="summary"></a>Resumo
 
@@ -75,7 +75,7 @@ Esses componentes são combinados para especificar um modelo de série temporal 
 
 [![Gráfico de visão geral do modelo de série temporal](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-Um modelo de série temporal pode ser criado e gerenciado por meio do [Azure Time Series insights Explorer Gen2](time-series-insights-update-how-to-tsm.md). As configurações do modelo de série temporal podem ser gerenciadas por meio da [API de configurações do modelo](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
+Um modelo de série temporal pode ser criado e gerenciado por meio do [Azure Time Series insights Explorer Gen2](/azure/time-series-insights/concepts-model-overview). As configurações do modelo de série temporal podem ser gerenciadas por meio da [API de configurações do modelo](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
 
 ## <a name="time-series-model-instances"></a>Instâncias do modelo do Time Series
 
@@ -283,12 +283,13 @@ Os tipos estão em conformidade com o seguinte exemplo de JSON:
   ]
 }
 ```
+
 Os tipos de modelo de série temporal podem ter muitas variáveis que especificam fórmulas e regras de computação em eventos. Leia mais sobre [como definir variáveis de modelo de série temporal](./concepts-variables.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia a documentação de referência do [modelo de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) para obter mais informações sobre como editar o modelo por meio de APIs.
+* Leia a documentação de referência do [modelo de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) para obter mais informações sobre como editar o modelo por meio de APIs.
 
-- Explore as fórmulas e computações que você pode criar com [variáveis de modelo de série temporal](./concepts-variables.md)
+* Explore as fórmulas e computações que você pode criar com [variáveis de modelo de série temporal](./concepts-variables.md)
 
-- Saiba mais sobre como [consultar dados](concepts-query-overview.md) no Azure Time Series insights Gen2
+* Saiba mais sobre como [consultar dados](concepts-query-overview.md) no Azure Time Series insights Gen2

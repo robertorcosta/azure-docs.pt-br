@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/08/2020
-ms.openlocfilehash: 118c80b27d10714703d631f0e2560540eb2d39cf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 53f151c63c85e958aad3bd0eaf16c50294bf250f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012545"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287226"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um espaço de trabalho Azure Machine Learning?
 
@@ -116,6 +116,9 @@ Quando você cria um novo workspace, ele automaticamente cria vários recursos d
 
 > [!NOTE]
 > Além de criar novas versões, você também pode usar os serviços existentes do Azure.
+
+> [!IMPORTANT]
+> Se você quiser usar uma conta de armazenamento do Azure existente, ela não poderá ser uma conta Premium (Premium_LRS e Premium_GRS). Ele também não pode ter um namespace hierárquico (usado com Azure Data Lake Storage Gen2). Não há suporte para armazenamento Premium ou namespace hierárquico com a conta de armazenamento _padrão_ do espaço de trabalho. Você pode usar o armazenamento Premium ou o namespace hierárquico com contas _de armazenamento não padrão_ .
 
 ## <a name="next-steps"></a>Próximas etapas
 

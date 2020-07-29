@@ -5,12 +5,12 @@ description: Saiba como criar e usar um balanceador de carga interno para expor 
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 58aadc4fadb93a4f6eb47214f580f7a2bebdf49c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec8fd1f1b32d5bba6dc4dc756e1f95f4a74f9a96
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056829"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285876"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Usar um balanceador de carga interno com o AKS (Serviço de Kubernetes do Azure)
 
@@ -25,7 +25,9 @@ Este artigo considera que já existe um cluster do AKS. Se precisar de um cluste
 
 A CLI do Azure versão 2.0.59 ou posterior também precisa estar instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
-A entidade de serviço de cluster AKS precisará de permissão para gerenciar recursos de rede se você usar uma sub-rede ou grupo de recursos existente. Em geral, atribua a função *Colaborador de rede* à sua entidade de serviço nos recursos delegados. Em vez de uma entidade de serviço, você pode usar a identidade gerenciada atribuída pelo sistema para permissões. Para obter mais informações, confira [Usar identidades gerenciadas](use-managed-identity.md). Para obter mais informações sobre permissões, confira [Delegar acesso do AKS a outros recursos do Azure][aks-sp].
+A entidade de serviço de cluster AKS precisará de permissão para gerenciar recursos de rede se você usar uma sub-rede ou grupo de recursos existente. Para obter informações, consulte [usar a rede kubenet com seus próprios intervalos de endereços IP no AKs (serviço kubernetes do Azure)][use-kubenet] ou [Configurar a rede CNI do Azure no serviço kubernetes do Azure (AKs)][advanced-networking]. Se você estiver configurando o balanceador de carga para usar um [endereço IP em uma sub-rede diferente][different-subnet], verifique se a entidade de serviço de cluster AKs também tem acesso de leitura a essa sub-rede.
+
+Em vez de uma entidade de serviço, você também pode usar a identidade gerenciada atribuída ao sistema para permissões. Para obter mais informações, confira [Usar identidades gerenciadas](use-managed-identity.md). Para obter mais informações sobre permissões, confira [Delegar acesso do AKS a outros recursos do Azure][aks-sp].
 
 ## <a name="create-an-internal-load-balancer"></a>Criar um balanceador de carga interno
 
@@ -65,7 +67,7 @@ internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 
 ## <a name="specify-an-ip-address"></a>Especificar um endereço IP
 
-Se você quiser usar um endereço IP específico com o balanceador de carga interno, adicione a propriedade *loadBalancerIP* ao manifesto YAML do balanceador de carga. O endereço IP especificado deve residir na mesma sub-rede que o cluster do AKS e não deve ser atribuído a um recurso. Por exemplo, você não deve usar um endereço IP no intervalo designado para a sub-rede kubernetes.
+Se você quiser usar um endereço IP específico com o balanceador de carga interno, adicione a propriedade *loadBalancerIP* ao manifesto YAML do balanceador de carga. Nesse cenário, o endereço IP especificado deve residir na mesma sub-rede que o cluster AKS e ainda não deve ser atribuído a um recurso. Por exemplo, você não deve usar um endereço IP no intervalo designado para a sub-rede kubernetes.
 
 ```yaml
 apiVersion: v1
@@ -91,6 +93,8 @@ $ kubectl get service internal-app
 NAME           TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
 internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 ```
+
+Para obter mais informações sobre como configurar o balanceador de carga em uma sub-rede diferente, consulte [especificar uma sub-rede diferente][different-subnet]
 
 ## <a name="use-private-networks"></a>Usar redes privadas
 
@@ -153,3 +157,4 @@ Saiba mais sobre os serviços do Kubernetes na [documentação dos serviços do 
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
+[different-subnet]: #specify-a-different-subnet

@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 598e361949b000724645c841910b1682a7bbb1a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d75e7e7b4870f46c978fd70039441c8851844082
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81258449"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337952"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Conectar o MXChip IoT DevKit ao acelerador de solução de Monitoramento Remoto do Azure IoT
 
@@ -133,7 +134,5 @@ Se você encontrar problemas, consulte [as perguntas frequentes do kit de desenv
 Agora que você aprendeu como conectar a um dispositivo DevKit para o acelerador de solução de Monitoramento Remoto do Azure IoT e visualizar os dados de sensor, aqui estão as próximas etapas sugeridas:
 
 * [Visão geral dos aceleradores de solução do Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-
-* [Conectar um dispositivo MXChip IoT DevKit ao seu aplicativo Azure IoT Central](/azure/iot-central/core/howto-connect-devkit)
 
 * [Kit de desenvolvedor de IoT](https://microsoft.github.io/azure-iot-developer-kit/) 

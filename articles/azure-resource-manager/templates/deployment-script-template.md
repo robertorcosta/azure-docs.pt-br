@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 07/24/2020
 ms.author: jgao
-ms.openlocfilehash: fcdcf563cd88cbf6604877636432a406c1960cff
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 4094e610bb290fc11656dc192f3d0a495f679dc5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117044"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291793"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usar scripts de implantação em modelos (versão prévia)
 
@@ -556,48 +556,7 @@ A execução do script de implantação é uma operação idempotente. Se nenhum
 
 ## <a name="configure-development-environment"></a>Configurar o ambiente de desenvolvimento
 
-Você pode usar uma imagem de contêiner pré-configurada do Docker como seu ambiente de desenvolvimento de script de implantação. Para instalar o Docker, consulte [obter Docker](https://docs.docker.com/get-docker/).
-Você também precisa configurar o compartilhamento de arquivos para montar o diretório que contém os scripts de implantação no contêiner do Docker.
-
-1. Efetuar pull da imagem de contêiner do script de implantação para o computador local:
-
-    ```command
-    docker pull mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    O exemplo usa a versão 2.7.0 do PowerShell.
-
-    Para efetuar pull de uma imagem da CLI de um Registro de Contêiner da Microsoft (MCR):
-
-    ```command
-    docker pull mcr.microsoft.com/azure-cli:2.0.80
-    ```
-
-    Este exemplo usa a versão 2.0.80 da CLI. O script de implantação usa as imagens de contêineres da CLI padrão encontradas [aqui](https://hub.docker.com/_/microsoft-azure-cli).
-
-1. Execute a imagem do Docker localmente.
-
-    ```command
-    docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    Substitua a **&lt;letra da unidade do host>** e o **&lt;nome do diretório de host>** com uma pasta existente na unidade compartilhada.  Ele mapeia a pasta para a pasta **/data** no contêiner. Por exemplo, para mapear D:\docker:
-
-    ```command
-    docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    **—** significa manter a imagem de contêiner ativa.
-
-    Um exemplo de CLI:
-
-    ```command
-    docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
-    ```
-
-1. A captura de tela a seguir mostra como executar um script do PowerShell, Considerando que você tem um arquivo de helloworld.ps1 na unidade compartilhada.
-
-    ![Cmd do Docker do script de implantação do modelo do Resource Manager](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
+Você pode usar uma imagem de contêiner pré-configurada como seu ambiente de desenvolvimento de script de implantação. Para obter mais informações, consulte [Configurar o ambiente de desenvolvimento para scripts de implantação em modelos](./deployment-script-template-configure-dev.md).
 
 Depois que o script for testado com êxito, você poderá usá-lo como um script de implantação em seus modelos.
 

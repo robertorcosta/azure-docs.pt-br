@@ -5,12 +5,12 @@ services: automation
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 74250a54d7b835ceb37614450de07e9e3baefd83
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 1ec2aed0a2cceebe4685cf75c7007d1ce0785615
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183147"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87293088"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solucionar problemas do Gerenciamento de Atualizações
 
@@ -387,7 +387,7 @@ Esse problema pode ocorrer por um dos seguintes motivos:
 * O computador está desligado e inacessível.
 * O computador tem um problema de conectividade de rede e, portanto, o Hybrid Worker no computador está inacessível.
 * Houve uma atualização no MMA que alterou a ID do computador de origem.
-* Se você tiver atingido o limite de 2000 trabalhos simultâneos em uma conta de automação, a execução de atualização foi limitada. Cada implantação é considerada um trabalho e cada computador em uma implantação de atualização conta como um trabalho. Qualquer outro trabalho de automação ou implantação de atualização em execução no momento em sua conta de automação conta para o limite de trabalhos simultâneos.
+* A execução de atualização foi limitada se você atingiu o limite de 200 trabalhos simultâneos em uma conta de automação. Cada implantação é considerada um trabalho e cada computador em uma implantação de atualização conta como um trabalho. Qualquer outro trabalho de automação ou implantação de atualização em execução no momento em sua conta de automação conta para o limite de trabalhos simultâneos.
 
 ### <a name="resolution"></a>Resolução
 

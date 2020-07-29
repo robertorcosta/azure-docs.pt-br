@@ -1,15 +1,15 @@
 ---
 title: O consórcio de malha de hiperrazãos no serviço de kubernetes do Azure (AKS)
 description: Como implantar e configurar a rede do consórcio do Fabric do Microsoft Azure no serviço kubernetes
-ms.date: 07/07/2020
+ms.date: 07/27/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 1e90eeccb015b4d5ef78b79297565ddde9cfa305
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fe06af9364ceb1d97588cac88335cb39c45f0e0f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081263"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286046"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>O consórcio de malha de hiperrazãos no serviço de kubernetes do Azure (AKS)
 
@@ -28,13 +28,15 @@ Antes de optar por usar um modelo de solução, Compare seu cenário com os caso
 
 Opção | Modelo de serviço | Caso de uso comum
 -------|---------------|-----------------
-Modelos de Solução | IaaS | Os modelos de solução são Azure Resource Manager modelos que você pode usar para provisionar uma topologia de rede blockchain totalmente configurada. Os modelos implantam e configuram Microsoft Azure serviços de computação, rede e armazenamento para um determinado tipo de rede blockchain. Os modelos de solução são fornecidos sem um contrato de nível de serviço. Use a [página da Microsoft Q&uma pergunta](/answers/topics/azure-blockchain-workbench.html) para obter suporte.
-[Azure Blockchain Service](../service/overview.md) | PaaS | O Azure Blockchain Service Preview simplifica a formação, o gerenciamento e a governança de redes do consórcio Blockchain. Use o serviço Blockchain do Azure para soluções que exigem PaaS, gerenciamento de consórcio ou privacidade de contrato e transação.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS e PaaS | A versão prévia do Azure Blockchain Workbench é uma coleção de serviços e recursos do Azure desenvolvidos para ajudar você a criar e implantar aplicativos de blockchain para compartilhar processos empresariais e dados com outras organizações. Use o Azure Blockchain Workbench para o protótipo de uma solução Blockchain ou uma prova de conceito de aplicativo Blockchain. O Azure Blockchain Workbench é fornecido sem um Contrato de Nível de Serviço. Use a [página da Microsoft Q&uma pergunta](/answers/topics/azure-blockchain-workbench.html) para obter suporte.
+Modelos de Solução | IaaS | Os modelos de solução são Azure Resource Manager modelos que você pode usar para provisionar uma topologia de rede blockchain totalmente configurada. Os modelos implantam e configuram Microsoft Azure serviços de computação, rede e armazenamento para um determinado tipo de rede blockchain. Os modelos de solução são fornecidos sem um contrato de nível de serviço. Use a [Página de P e R da Microsoft](/answers/topics/azure-blockchain-workbench.html) para obter suporte.
+[Serviço do Azure Blockchain](../service/overview.md) | PaaS | O Azure Blockchain Service Preview simplifica a formação, o gerenciamento e a governança de redes do consórcio Blockchain. Use o serviço Blockchain do Azure para soluções que exigem PaaS, gerenciamento de consórcio ou privacidade de contrato e transação.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS e PaaS | A versão prévia do Azure Blockchain Workbench é uma coleção de serviços e recursos do Azure desenvolvidos para ajudar você a criar e implantar aplicativos de blockchain para compartilhar processos empresariais e dados com outras organizações. Use o Azure Blockchain Workbench para o protótipo de uma solução Blockchain ou uma prova de conceito de aplicativo Blockchain. O Azure Blockchain Workbench é fornecido sem um Contrato de Nível de Serviço. Use a [Página de P e R da Microsoft](/answers/topics/azure-blockchain-workbench.html) para obter suporte.
 
 ## <a name="hyperledger-fabric-consortium-architecture"></a>Arquitetura do consórcio de malha de multirazãor
 
-Para criar uma rede de malha de multirazão no Azure, você precisa implantar o serviço de pedidos e a organização com nós pares. Os diferentes componentes fundamentais que são criados como parte da implantação do modelo são:
+Para criar uma rede de malha de multirazão no Azure, você precisa implantar o serviço de pedidos e a organização com nós pares. Usando o modelo de solução de serviço de infraestrutura do Microsoft Azure kubernetes, você pode criar nós de pedido ou nós de mesmo nível. Você precisa implantar o modelo para cada nó que deseja criar.
+
+Os diferentes componentes fundamentais que são criados como parte da implantação do modelo são:
 
 - **Nós do solicitante**: um nó que é responsável pela ordenação da transação no razão. Junto com outros nós, os nós ordenados formam o serviço de pedidos da rede de malha de terceiros.
 
@@ -58,22 +60,13 @@ O modelo na implantação gira vários recursos do Azure em sua assinatura. Os d
 - **Disco gerenciado do Azure**: o disco gerenciado do Azure é para armazenamento persistente para o banco de dados de estado mundial do nó de par e do razão.
 - **IP público**: um ponto de extremidade IP público do cluster AKs implantado para fazer a interface com o cluster.
 
-## <a name="hyperledger-fabric-blockchain-network-setup"></a>Configuração de rede de Blockchain de malha de multirazão
+## <a name="deploy-the-ordererpeer-organization"></a>Implantar a organização do solicitante/par
 
 Para começar, você precisa de uma assinatura do Azure que possa suportar a implantação de várias máquinas virtuais e contas de armazenamento padrão. Se você não tiver uma assinatura do Azure, poderá [ criar uma conta gratuita do Azure ](https://azure.microsoft.com/free/).
 
-Configure a rede Blockchain de malha do multirazão usando as seguintes etapas:
+Para começar a usar a implantação de componentes de rede do HLF, navegue até a [portal do Azure](https://portal.azure.com).
 
-- [Implantar a organização do solicitante/par](#deploy-the-ordererpeer-organization)
-- [Criar o consórcio](#build-the-consortium)
-
-## <a name="deploy-the-ordererpeer-organization"></a>Implantar a organização do solicitante/par
-
-Para começar a usar a implantação de componentes de rede do HLF, navegue até a [portal do Azure](https://portal.azure.com). Selecione **criar um recurso > Blockchain** > Pesquisar por **malha de Hiperrazões no serviço kubernetes do Azure**.
-
-1. Selecione **criar** para iniciar a implantação do modelo. O **serviço criar malha de kubernetes no Azure** é exibido.
-
-    ![Malha de multirazão no modelo do serviço kubernetes do Azure](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-fabric-aks.png)
+1. Selecione **criar um recurso > Blockchain** > Pesquisar por **malha de Hiperrazão no serviço kubernetes do Azure (versão prévia)**.
 
 2. Insira os detalhes do projeto na página **noções básicas** .
 
@@ -136,7 +129,7 @@ Para criar o blockchain Consortium após implantar o serviço de pedidos e os n�
 > O script do Azure HLF (azhlf) fornecido é para ajudar apenas com cenários de demonstração/DevTest. O canal e o consórcio criados por esse script têm políticas básicas de HLF para simplificar o cenário de demonstração/DevTest. Para a configuração de produção, é recomendável atualizar as políticas de HLF do canal/consórcio de acordo com as necessidades de conformidade da sua organização usando as APIs nativas do HLF.
 
 
-Todos os comandos para executar o script HLF do Azure podem ser executados por meio da linha de comando do Azure bash. Interface (CLI). Você pode fazer logon na versão da Web do shell do Azure por meio de  ![Malha de multirazão no modelo do serviço kubernetes do Azure](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) no canto superior direito do portal do Azure. No prompt de comando, digite bash e insira para mudar para a CLI do bash.
+Todos os comandos para executar o script HLF do Azure podem ser executados por meio da linha de comando do Azure bash. Interface (CLI). Você pode entrar na versão da Web do shell do Azure por meio da   ![ malha do Microsoft Azure no modelo de serviço kubernetes no ](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) canto superior direito do portal do Azure. No prompt de comando, digite bash e insira para mudar para a CLI do bash ou escolha *bash* na barra de ferramentas do Shell.
 
 Consulte o [shell do Azure](../../cloud-shell/overview.md) para obter mais informações.
 
@@ -147,17 +140,17 @@ A imagem a seguir mostra o processo passo a passo para criar o Consórcio entre 
 
 ![Malha de multirazão no modelo do serviço kubernetes do Azure](./media/hyperledger-fabric-consortium-azure-kubernetes-service/process-to-build-consortium-flow-chart.png)
 
-Siga os comandos abaixo para a configuração inicial do aplicativo cliente: 
+Conclua as seções para a configuração inicial do aplicativo cliente: 
 
-1.  [Baixar arquivos do aplicativo cliente](#download-client-application-files)
-2.  [Variáveis de ambiente de instalação](#setup-environment-variables)
-3.  [Importar perfil de conexão da organização, usuário administrador e MSP](#import-organization-connection-profile-admin-user-identity-and-msp)
+1. Baixar arquivos do aplicativo cliente
+1. Configurar variáveis de ambiente
+1. Importar perfil de conexão da organização, usuário administrador e MSP
 
-Depois de concluir a configuração inicial, você pode usar o aplicativo cliente para obter as operações abaixo:  
+Depois de concluir a configuração inicial, use o aplicativo cliente para obter as seguintes operações:  
 
-- [Comandos de gerenciamento de canal](#channel-management-commands)
-- [Comandos de gerenciamento do consórcio](#consortium-management-commands)
-- [Comandos de gerenciamento do Chaincode](#chaincode-management-commands)
+- Gerenciamento de canal
+- Gerenciamento de consórcio
+- Gerenciamento de Chaincode
 
 ### <a name="download-client-application-files"></a>Baixar arquivos do aplicativo cliente
 
@@ -168,19 +161,16 @@ curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kuberne
 cd azhlfTool
 npm install
 npm run setup
-
 ```
-Esses comandos clonarão o código do aplicativo cliente do Azure HLF do repositório GitHub público, seguido do carregamento de todos os pacotes NPM dependentes. Após a execução bem-sucedida do comando, você poderá ver uma pasta node_modules no diretório atual. Todos os pacotes necessários são carregados na pasta node_modules.
 
+Esses comandos clonarão o código do aplicativo cliente do Azure HLF do repositório GitHub público, seguido do carregamento de todos os pacotes NPM dependentes. Após a execução bem-sucedida do comando, você poderá ver uma pasta node_modules no diretório atual. Todos os pacotes necessários são carregados na pasta node_modules.
 
 ### <a name="setup-environment-variables"></a>Configurar variáveis de ambiente
 
 > [!NOTE]
 > Todas as variáveis ambientais seguem a Convenção de nomenclatura de recursos do Azure.
 
-
-**Definir as variáveis de ambiente abaixo para o cliente da organização do solicitante**
-
+#### <a name="set-environment-variables-for-orderer-organization-client"></a>Definir variáveis de ambiente para o cliente da organização do solicitante
 
 ```bash
 ORDERER_ORG_SUBSCRIPTION=<ordererOrgSubscription>
@@ -189,7 +179,8 @@ ORDERER_ORG_NAME=<ordererOrgName>
 ORDERER_ADMIN_IDENTITY="admin.$ORDERER_ORG_NAME"
 CHANNEL_NAME=<channelName>
 ```
-**Definir as variáveis de ambiente abaixo para o cliente de organização par**
+
+#### <a name="set-the-environment-variables-for-peer-organization-client"></a>Definir as variáveis de ambiente para o cliente de organização par
 
 ```bash
 PEER_ORG_SUBSCRIPTION=<peerOrgSubscritpion>
@@ -202,7 +193,7 @@ CHANNEL_NAME=<channelName>
 > [!NOTE]
 > Com base no número de pares de organizações em seu Consórcio, talvez seja necessário repetir os comandos de par e definir a variável de ambiente de acordo.
 
-**Definir as variáveis de ambiente abaixo para configurar a conta de armazenamento do Azure**
+#### <a name="set-the-environment-variables-for-setting-up-azure-storage-account"></a>Definir as variáveis de ambiente para configurar a conta de armazenamento do Azure
 
 ```bash
 STORAGE_SUBSCRIPTION=<subscriptionId>
@@ -212,7 +203,7 @@ STORAGE_LOCATION=<azureStorageAccountLocation>
 STORAGE_FILE_SHARE=<azureFileShareName>
 ```
 
-Siga as etapas abaixo para a criação da conta de armazenamento do Azure. Se você já tiver a conta de armazenamento do Azure criada, ignore estas etapas
+Use as etapas a seguir para a criação da conta de armazenamento do Azure. Se você já tiver a conta de armazenamento do Azure criada, ignore estas etapas.
 
 ```bash
 az account set --subscription $STORAGE_SUBSCRIPTION
@@ -220,14 +211,14 @@ az group create -l $STORAGE_LOCATION -n $STORAGE_RESOURCE_GROUP
 az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $STORAGE_LOCATION --sku Standard_LRS
 ```
 
-Siga as etapas abaixo para uma criação de compartilhamento de arquivos na conta de armazenamento do Azure. Se você já tiver um compartilhamento de arquivos criado, ignore estas etapas
+Use as etapas a seguir para uma criação de compartilhamento de arquivos na conta de armazenamento do Azure. Se você já tiver um compartilhamento de arquivos criado, ignore estas etapas
 
 ```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 az storage share create  --account-name $STORAGE_ACCOUNT  --account-key $STORAGE_KEY  --name $STORAGE_FILE_SHARE
 ```
 
-Siga as etapas abaixo para gerar uma cadeia de conexão de compartilhamento de arquivos do Azure
+Use as etapas a seguir para gerar uma cadeia de conexão de compartilhamento de arquivos do Azure.
 
 ```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
@@ -256,39 +247,13 @@ Para a organização par:
 ./azhlf msp import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
 ```
 
-### <a name="channel-management-commands"></a>Comandos de gerenciamento de canal
-
-> [!NOTE]
-> Antes de começar com qualquer operação de canal, verifique se a configuração inicial do aplicativo cliente está concluída.  
-
-Estes são os dois comandos de gerenciamento de canal:
-
-1. [Comando Criar canal](#create-channel-command)
-2. [Definindo o comando de pares de âncora](#setting-anchor-peers-command)
-
-
-#### <a name="create-channel-command"></a>Comando Criar canal
+### <a name="create-channel-command"></a>Comando Criar canal
 
 No cliente da organização do solicitante, emita o comando para criar um novo canal. Este comando criará um canal com apenas a organização do solicitante nele.  
 
 ```bash
 ./azhlf channel create -c $CHANNEL_NAME -u $ORDERER_ADMIN_IDENTITY -o $ORDERER_ORG_NAME
 ```
-
-#### <a name="setting-anchor-peers-command"></a>Definindo o comando de pares de âncora
-No cliente da organização par, emita o comando a seguir para definir os pares de âncora para a organização par no canal especificado.
-
->[!NOTE]
-> Antes de executar esse comando, verifique se a organização par foi adicionada ao canal usando comandos de gerenciamento do consórcio.
-
-```bash
-./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY
-```
-
-`<anchorPeersList>`é uma lista separada por espaços de nós pares a serem definidos como um par âncora. Por exemplo:
-
-  - Defina `<anchorPeersList>` como "ponto1" se desejar definir somente o nó do ponto1 como um par âncora.
-  - Defina `<anchorPeersList>` como "ponto1" "Ponto3" se você quiser definir o ponto1 e o nó Ponto3 como um par âncora.
 
 ### <a name="consortium-management-commands"></a>Comandos de gerenciamento do consórcio
 
@@ -324,6 +289,21 @@ Execute os comandos abaixo na ordem determinada para adicionar uma organização
 
 Da mesma forma, para adicionar mais organizações pares no canal, atualize as variáveis de ambiente par de acordo com a organização par necessária e execute as etapas de 1 a 4.
 
+### <a name="set-anchor-peers-command"></a>Definir comando de pares de âncora
+
+No cliente de organização par, emita o comando para definir os pares de âncora para a organização par no canal especificado.
+
+>[!NOTE]
+> Antes de executar esse comando, verifique se a organização par foi adicionada ao canal usando comandos de gerenciamento do consórcio.
+
+```bash
+./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
+```
+
+`<anchorPeersList>`é uma lista separada por espaços de nós pares a serem definidos como um par âncora. Por exemplo:
+
+  - Defina `<anchorPeersList>` como "ponto1" se desejar definir somente o nó do ponto1 como um par âncora.
+  - Defina `<anchorPeersList>` como "ponto1" "Ponto3" se você quiser definir o ponto1 e o nó Ponto3 como um par âncora.
 
 ### <a name="chaincode-management-commands"></a>Comandos de gerenciamento do Chaincode
 
@@ -344,7 +324,7 @@ CC_VERSION=<chaincodeVersion>
 # Default value is 'golang'  
 CC_LANG=<chaincodeLanguage>  
 # CC_PATH contains the path where your chaincode is place.
-# If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/chaincode/src/chaincode_example02/go”
+# If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go”
 CC_PATH=<chaincodePath>  
 # Channel on which chaincode is to be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  

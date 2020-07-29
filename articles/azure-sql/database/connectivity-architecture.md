@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 3d8bf23dcb9bfc390b9e165bcf38bf8feea5135f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc96cc704533c2b4fb5dc25b41a2440c66849b53
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833665"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289074"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Banco de dados SQL do Azure e arquitetura de conectividade do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -80,7 +80,7 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Central2 da Austrália   | 20.36.113.0 |
 | Leste da Austrália       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
 | Sudeste da Austrália | 191.239.192.109, 13.73.109.251 |
-| Sul do Brasil         | 104.41.11.5, 191.233.200.14 |
+| Brazil South         | 104.41.11.5, 191.233.200.14 |
 | Canadá Central       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | Leste do Canadá          | 40.86.226.166      |
 | Centro dos EUA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
@@ -89,7 +89,7 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Norte da China          | 139.219.15.17      |
 | Norte da China 2        | 40.73.50.0         |
 | Leste da Ásia            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
-| Leste dos EUA              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | Leste dos EUA 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 |
 | França Central       | 40.79.137.0, 40.79.129.1 |
 | Alemanha Central      | 51.4.144.100       |
@@ -97,7 +97,7 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Centro da Índia        | 104.211.96.159     |
 | Sul da Índia          | 104.211.224.146    |
 | Oeste da Índia           | 104.211.160.80     |
-| Leste do Japão           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
+| Japan East           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
 | Oeste do Japão           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 |
 | Coreia Central        | 52.231.32.42       |
 | Sul da Coreia          | 52.231.200.86      |
@@ -107,7 +107,7 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Oeste da Noruega          | 51.120.216.0       |
 | Norte da África do Sul   | 102.133.152.0      |
 | Oeste da África do Sul    | 102.133.24.0       |
-| Centro-Sul dos Estados Unidos     | 13.66.62.124, 23.98.162.75, 104.214.16.32   |
+| Centro-Sul dos Estados Unidos     | 13.66.62.124, 23.98.162.75, 104.214.16.32, 20.45.121.1, 20.49.88.1   |
 | Sudeste da Ásia      | 104.43.15.0, 23.100.117.95, 40.78.232.3   |
 | Norte da Suíça    | 51.107.56.0, 51.107.57.0 |
 | Oeste da Suíça     | 51.107.152.0, 51.107.153.0 |
@@ -116,9 +116,9 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Sul do Reino Unido             | 51.140.184.11      |
 | Oeste do Reino Unido              | 51.141.8.11        |
 | Centro-Oeste dos EUA      | 13.78.145.25       |
-| Europa Ocidental          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
+| Europa Ocidental          | 40.68.37.158, 191.237.232.75, 104.40.168.105, 52.236.184.163  |
 | Oeste dos EUA              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
-| Oeste dos EUA 2            | 13.66.226.202, 40.78.240.8  |
+| Oeste dos EUA 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
 |                      |                    |
 
 ## <a name="next-steps"></a>Próximas etapas
