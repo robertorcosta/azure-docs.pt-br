@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 7ec89d985c025814d903ae9a16f9b0f5123b3571
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef16339d9a584eb12c611a25d636a9287265953a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056430"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284329"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparação baseada em recursos dos níveis de gerenciamento de API do Azure
 
@@ -31,7 +31,7 @@ Cada [tipo de preço](https://aka.ms/apimpricing) de Gerenciamento de API oferec
 | Integração do Azure AD<sup>1</sup>                                                             | Não          | Sim       | Não    | Sim      | Sim     |
 | Suporte de rede virtual (VNet)                                                               | Não          | Sim       | Não    | Não       | Sim     |
 | Implantação em várias regiões                                                                      | Não          | Não        | Não    | Não       | Sim     |
-| Vários nomes de domínio personalizado                                                                 | Não          | Não        | Não    | Não       | Sim     |
+| Vários nomes de domínio personalizado                                                                 | Não          | Sim        | Não    | Não       | Sim     |
 | Portal do desenvolvedor<sup>2</sup>                                                                 | Não          | Sim       | Sim   | Sim      | Sim     |
 | Cache embutido                                                                               | Não          | Sim       | Sim   | Sim      | Sim     |
 | Análise integrada                                                                           | Não          | Sim       | Sim   | Sim      | Sim     |

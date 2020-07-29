@@ -7,23 +7,24 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 32fa54ef0d8eccaf8745ee37cb028d4f3c6d73eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7dab9753334a1f071d85d0d2bccbd88340e37634
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79247287"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284091"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorar, receber e enviar eventos com Hubs de Eventos do Azure e Aplicativos Lógicos do Azure
 
-Este artigo mostra como é possível monitorar e gerenciar eventos enviados para os [Hubs de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md) a partir de um aplicativo lógico com o conector de Hubs de Eventos do Azure. Dessa forma, é possível aplicativos lógicos que automatizam tarefas e fluxos de trabalho para verificar, enviar e receber eventos do Hub de Eventos. Para obter informações técnicas específicas do conector, consulte a [referência do conector dos hubs de eventos do Azure](https://docs.microsoft.com/connectors/eventhubs/) </a> .
+Este artigo mostra como é possível monitorar e gerenciar eventos enviados para os [Hubs de Eventos do Azure](../event-hubs/event-hubs-about.md) a partir de um aplicativo lógico com o conector de Hubs de Eventos do Azure. Dessa forma, é possível aplicativos lógicos que automatizam tarefas e fluxos de trabalho para verificar, enviar e receber eventos do Hub de Eventos. Para obter informações técnicas específicas do conector, consulte a [referência do conector dos hubs de eventos do Azure](/connectors/eventhubs/) </a> .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
 
-* Um [namespace dos Hubs de Eventos e Hub de Eventos do Azure](../event-hubs/event-hubs-create.md)
+* Um [namespace de hubs de eventos do Azure e um hub de eventos](../event-hubs/event-hubs-create.md)
 
-* O aplicativo lógico no qual você deseja acessar o Hub de Eventos. Para iniciar o aplicativo lógico com um gatilho dos Hubs de Eventos do Azure, será necessário um [aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* O aplicativo lógico no qual você deseja acessar o Hub de Eventos. Para iniciar seu aplicativo lógico com um gatilho de hubs de eventos do Azure, você precisa de um [aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Se ainda não estiver familiarizado com aplicativo lógicos, consulte [O que são os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início Rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
@@ -172,7 +173,7 @@ Na lista ações, selecione esta ação: **enviar evento-hubs de eventos**
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo de Swagger do conector, confira a [página de referência do conector](https://docs.microsoft.com/connectors/eventhubs/).
+Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo de Swagger do conector, confira a [página de referência do conector](/connectors/eventhubs/).
 
 > [!NOTE]
 > Para aplicativos lógicos em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), a versão rotulada do ISE do conector usa os [limites de mensagem do ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) em vez disso.

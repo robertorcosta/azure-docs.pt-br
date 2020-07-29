@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: e31a10b1086679b7c2493f5a6d6b62f75e363dd4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3b074bb1d439a6d20ac476f4e10b6a26b7107be8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036464"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284703"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usar o console serial para acessar o GRUB e o modo de usuário único
 O carregador de inicialização global unificado (GRUB) é provavelmente a primeira coisa que você vê ao inicializar uma VM (máquina virtual). Como ele é exibido antes do sistema operacional ser iniciado, o GRUB não é acessível via SSH. No GRUB, você pode modificar a configuração de inicialização para inicializar no modo de usuário único, entre outras coisas.
@@ -241,7 +241,7 @@ Para habilitar o modo de usuário único no Oracle Linux, siga as instruções a
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o console serial, consulte:
 * [Documentação do console serial do Linux](serial-console-linux.md)
-* [Usar o console serial para habilitar o GRUB em várias distribuições](/archive/blogs/linuxonazure/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time)
+* [Usar o console serial para habilitar o GRUB em várias distribuições](http://linuxonazure.azurewebsites.net/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * [Usar o console serial para chamadas NMI e SysRq](serial-console-nmi-sysrq.md)
 * [Console serial para VMs do Windows](serial-console-windows.md)
 * [Diagnóstico de inicialização](boot-diagnostics.md)

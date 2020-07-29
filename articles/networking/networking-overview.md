@@ -1,6 +1,6 @@
 ---
 title: Visão geral dos serviços de rede do Azure
-description: Saiba mais sobre os serviços de rede no Azure e seus recursos-serviços de conectividade, serviços de proteção de aplicativos, serviços de entrega de aplicativos e monitoramento de rede.
+description: Saiba mais sobre os serviços de rede no Azure, incluindo serviços de conectividade, serviços de proteção de aplicativos, serviços de entrega de aplicativos e monitoramento de rede.
 services: networking
 documentationcenter: na
 author: KumudD
@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 097d2b4dffd1dda02d8e342a11b3a907bad4e90a
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 5b32f6b368af62bad13a505472a9ddd4709c032c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851655"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282153"
 ---
 # <a name="azure-networking-services-overview"></a>Visão geral dos serviços de rede do Azure
 
@@ -53,7 +53,7 @@ A Rede Virtual do Azure (VNet) é o bloco de construção fundamental de sua red
 Para obter mais informações, consulte [o que é a rede virtual do Azure?](../virtual-network/virtual-networks-overview.md).
 
 ### <a name="expressroute"></a><a name="expressroute"></a>ExpressRoute
-O ExpressRoute permite que você estenda suas redes locais para a nuvem da Microsoft por uma conexão privada, facilitada por um provedor de conectividade. Essa conexão é privada. O tráfego não passa pela Internet. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como o Microsoft Azure, o Office 365 e o Dynamic 365.  Para obter mais informações, consulte [o que é o ExpressRoute?](../expressroute/expressroute-introduction.md).
+O ExpressRoute permite que você estenda suas redes locais para a nuvem da Microsoft por uma conexão privada, facilitada por um provedor de conectividade. Essa conexão é privada. O tráfego não passa pela Internet. Com o ExpressRoute, estabeleça conexões com os serviços em nuvem da Microsoft, como Microsoft Azure, Office 365 e Dynamics 365.  Para obter mais informações, consulte [o que é o ExpressRoute?](../expressroute/expressroute-introduction.md).
 
 ![Azure ExpressRoute](./media/networking-overview/expressroute-connection-overview.png)
 
@@ -71,7 +71,7 @@ WAN Virtual do Azure é um serviço de rede que fornece conectividade de ramific
 ![Diagrama de WAN virtual](./media/networking-overview/virtualwan1.png)
 
 ### <a name="azure-dns"></a><a name="dns"></a>DNS do Azure
-O DNS do Azure é um serviço de hospedagem para domínios DNS que fornece a resolução de nomes usando a infraestrutura do Microsoft Azure. Ao hospedar seus domínios no Azure, você pode gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas e faturamento que os outros serviços do Azure. Para obter mais informações, consulte [o que é o DNS do Azure?](../dns/dns-overview.md).
+O DNS do Azure é um serviço de hospedagem para domínios DNS que fornece resolução de nomes usando a infraestrutura do Microsoft Azure. Ao hospedar seus domínios no Azure, você pode gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas e faturamento que os outros serviços do Azure. Para obter mais informações, consulte [o que é o DNS do Azure?](../dns/dns-overview.md).
 
 ### <a name="azure-bastion"></a><a name="bastion"></a>Azure Bastion
 O serviço Azure Bastion é um novo serviço de PaaS, totalmente gerenciado pela plataforma e provisionado dentro de sua rede virtual. Ele fornece conectividade de RDP/SSH contínua e segura às suas máquinas virtuais, diretamente no portal do Azure, via TLS. Quando você se conecta usando o Azure Bastion, suas máquinas virtuais não precisam de um endereço IP público. Para obter mais informações, consulte [o que é a bastiões do Azure?](../bastion/bastion-overview.md).
@@ -97,7 +97,7 @@ Esta seção descreve os serviços de rede no Azure que ajudam a proteger seus r
 |[Firewall do Azure](#firewall)|Firewall do Azure é um serviço de segurança de rede gerenciado e baseado em nuvem que protege seus recursos de Rede Virtual do Azure. É um firewall como serviço totalmente com estado com alta disponibilidade interna e escalabilidade de nuvem irrestrita.|<p>[Implantar um firewall do Azure em uma vnet](../firewall/tutorial-firewall-deploy-portal.md)</p> <p>[-Implantar um firewall do Azure em uma rede híbrida](../firewall/tutorial-hybrid-ps.md)</p> <p>[Filtrar o tráfego de entrada com o Firewall do Azure DNAT](../firewall/tutorial-firewall-dnat.md)</p>|
 |[Grupos de segurança de rede](#nsg)|Controle completo de nó final distribuído granular na VM/sub-rede para todos os fluxos de tráfego de rede|[Filtrar o tráfego de rede usando grupos de segurança de rede](../virtual-network/tutorial-filter-network-traffic.md)|
 |[Pontos de extremidade de serviço de rede virtual](#serviceendpoints)|Permite limitar o acesso à rede para alguns recursos de serviço do Azure a uma sub-rede de rede virtual|[Restringir o acesso à rede para recursos PaaS](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md)|
-[Link Privado](#privatelink)|Permite que você acesse os serviços de PaaS do Azure (por exemplo, armazenamento do Azure e banco de dados SQL) e serviços hospedados de Propriedade do cliente/parceiro do Azure por meio de um ponto de extremidade privado em sua rede virtual.|<p>[Criar um ponto de extremidade privado](../private-link/create-private-endpoint-portal.md)</p><p>[Criar um serviço de vínculo privado](../private-link/create-private-link-service-portal.md)</p>|
+[Link privado](#privatelink)|Permite que você acesse os serviços de PaaS do Azure (por exemplo, armazenamento do Azure e banco de dados SQL) e serviços hospedados de Propriedade do cliente/parceiro do Azure por meio de um ponto de extremidade privado em sua rede virtual.|<p>[Criar um ponto de extremidade privado](../private-link/create-private-endpoint-portal.md)</p><p>[Criar um serviço de vínculo privado](../private-link/create-private-link-service-portal.md)</p>|
 |||
 ### <a name="ddos-protection"></a><a name="ddosprotection"></a>Proteção contra DDoS 
 A [proteção contra DDoS do Azure](../virtual-network/manage-ddos-protection.md) fornece medidas defensivas contra as ameaças de DDoS mais sofisticadas. O serviço fornece recursos aprimorados de mitigação de DDoS para seu aplicativo e recursos implantados em suas redes virtuais. Além disso, os clientes que usam a proteção contra DDoS do Azure têm acesso ao suporte de resposta rápida a DDoS para envolver especialistas em DDoS durante um ataque ativo.

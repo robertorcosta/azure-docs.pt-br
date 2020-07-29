@@ -5,12 +5,12 @@ description: Saiba como instalar e configurar um controlador de entrada NGINX co
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: 89068210e0a2656c0a0642417532b28d8f10d93a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 38caddeece7b8e2a49d09e25a22e9996cf65d069
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130844"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87335946"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Crie um controlador de entrada com um endereço IP público estático no AKS (Serviço de Kubernetes do Azure)
 
@@ -67,7 +67,10 @@ O controlador de entrada também precisa ser agendado em um nó do Linux. Os nó
 > [!TIP]
 > Se você quiser habilitar a [preservação de IP de origem do cliente][client-source-ip] para solicitações a contêineres em seu cluster, adicione `--set controller.service.externalTrafficPolicy=Local` ao comando Helm install. O IP de origem do cliente é armazenado no cabeçalho da solicitação em *X-forwardd-for*. Ao usar um controlador de entrada com preservação de IP de origem do cliente habilitada, a passagem TLS não funcionará.
 
-Atualize o script a seguir com o **endereço IP** do controlador de entrada e um **nome exclusivo** que você deseja usar para o prefixo FQDN:
+Atualize o script a seguir com o **endereço IP** do controlador de entrada e um **nome exclusivo** que você deseja usar para o prefixo FQDN.
+
+> [!IMPORTANT]
+> Você deve atualizar substituir *STATIC_IP* e *DNS_LABEL* com seu próprio endereço IP e nome exclusivo ao executar o comando.
 
 ```console
 # Create a namespace for your ingress resources
@@ -83,7 +86,7 @@ helm install nginx-ingress stable/nginx-ingress \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set controller.service.loadBalancerIP="STATIC_IP" \
-    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="demo-aks-ingress"
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="DNS_LABEL"
 ```
 
 Quando o serviço de balanceador de carga do Kubernetes é criado para o controlador de entrada NGINX, seu endereço IP estático é atribuído, conforme mostrado na seguinte saída de exemplo:
@@ -372,7 +375,7 @@ Agora, adicione o caminho */hello-world-two* para o FQDN, como *`https://demo-ak
 
 ![Exemplo de aplicativo dois](media/ingress/app-two.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este artigo usou o Helm para instalar os componentes de ingresso, os certificados e os aplicativos de exemplo. Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, você pode excluir o namespace de exemplo inteiro ou os recursos individuais.
 

@@ -8,15 +8,15 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 07/08/2020
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 0f3682338c9373f3ba30c8b32ea5cf4132c18949
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: be4211d793c593dac50d5764d7a15e7daa21c3f4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048272"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320146"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e usar destinos de computação para treinamento de modelo 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -98,7 +98,7 @@ Azure Machine Learning cluster de computação é uma infraestrutura de computa�
 
 É possível usar a Computação do Azure Machine Learning para distribuir o processo de treinamento em um cluster de nós de computação de CPU ou GPU na nuvem. Para obter mais informações sobre os tamanhos de máquina virtual que incluem GPUs, consulte os [Tamanhos de máquinas virtuais com GPU otimizadas](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
 
-A Computação do Machine Learning do Azure tem limites padrão como o número de núcleos que podem ser alocados. Para obter mais informações, consulte [Gerenciar e solicitar cotas para recursos do Azure](/how-to-manage-quotas.md).
+A Computação do Machine Learning do Azure tem limites padrão como o número de núcleos que podem ser alocados. Para obter mais informações, consulte [Gerenciar e solicitar cotas para recursos do Azure](how-to-manage-quotas.md).
 
 
 > [!TIP]

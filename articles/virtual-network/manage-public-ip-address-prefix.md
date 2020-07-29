@@ -1,7 +1,7 @@
 ---
 title: Criar, alterar ou excluir um prefixo de endereço IP público do Azure
 titlesuffix: Azure Virtual Network
-description: Saiba como criar, alterar ou excluir um prefixo de endereço IP público.
+description: Saiba mais sobre prefixos de endereço IP público e onde encontrar informações adicionais se você não estiver familiarizado com eles. Saiba também como criar, alterar ou excluir um.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: 4eac4a7ecc6febedd205fcde45ea550dd15a6b93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85e649944b155fc9e51fe01c282fc7f34f8a00d2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84703835"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283156"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Criar, alterar ou excluir um prefixo de endereço IP público
 
@@ -45,10 +46,10 @@ Prefixos do endereço IP público têm um encargo. Para detalhes, consulte o [pr
 3. Em **Prefixo de endereço IP público**, selecione **Criar**.
 4. Insira ou selecione valores para as configurações a seguir, em **Criar prefixo de endereço IP público** e, em seguida, selecione **Criar**:
 
-   |Setting|Obrigatório?|Detalhes|
+   |Configuração|Necessário?|Detalhes|
    |---|---|---|
    |Subscription|Sim|Deve existir na mesma [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que o recurso ao qual você deseja associar o endereço IP público.|
-   |Resource group|Sim|Pode existir no mesmo ou em outro [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) que o recurso ao qual você deseja associar o endereço IP público.|
+   |Grupo de recursos|Sim|Pode existir no mesmo ou em outro [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) que o recurso ao qual você deseja associar o endereço IP público.|
    |Nome|Sim|O nome deve ser exclusivo no grupo de recursos selecionado.|
    |Região|Sim|Deve existir no mesma [região](https://azure.microsoft.com/regions)que os endereços IP públicos que você atribuirá endereços do intervalo.|
    |Tamanho do prefixo|Sim| O tamanho do prefixo que você precisa. Um /28 ou 16 endereços IP é o padrão.
@@ -68,7 +69,7 @@ Após criar um prefixo, você deverá criar endereços IP estáticos a partir do
 3. Quando aparecer nos resultados da pesquisa, selecione-o e clique em **+Adicionar endereço IP** na seção Visão geral.
 4. Insira ou selecione valores para as seguintes configurações em **Criar um endereço IP público**. Como um prefixo é para SKU Standard, IPv4 e estático, é necessário apenas fornecer as seguintes informações:
 
-   |Setting|Obrigatório?|Detalhes|
+   |Configuração|Necessário?|Detalhes|
    |---|---|---|
    |Nome|Sim|O nome do endereço IP público deve ser exclusivo no grupo de recursos selecionado.|
    |Tempo limite de ociosidade (minutos)|Não|Por quantos minutos manter uma conexão TCP ou HTTP aberta sem depender de clientes para enviar mensagens keep alive. |

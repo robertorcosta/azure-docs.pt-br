@@ -1,6 +1,6 @@
 ---
-title: Implantar a ferramenta de diagnóstico para a área de trabalho virtual do Windows-Azure
-description: Como implantar a ferramenta de diagnóstico UX para a área de trabalho virtual do Windows.
+title: Implantar a ferramenta de diagnóstico para a área de trabalho virtual do Windows (clássico)-Azure
+description: Como implantar a ferramenta de diagnóstico UX para a área de trabalho virtual do Windows (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 544610f4011f7ad12d5b311aab3afd4bc1373ac5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf05d495442a39b42fddf5f373fb2616bf0c6fbe
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362332"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285094"
 ---
-# <a name="deploy-the-diagnostics-tool"></a>Implantar a ferramenta de diagnóstico
+# <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Implantar a ferramenta de diagnóstico da área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
+>Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows.
 
 >[!IMPORTANT]
 >A partir de 16 de março de 2020, desabilitamos temporariamente as consultas de diagnóstico que afetaram a experiência do usuário devido à maior demanda no serviço. Isso fará com que a ferramenta pare de funcionar porque depende dessas consultas para funcionar. Atualizaremos este artigo quando as consultas de diagnóstico estiverem disponíveis novamente.

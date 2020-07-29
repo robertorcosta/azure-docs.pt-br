@@ -4,16 +4,16 @@ description: Este artigo fornece os pré-requisitos para usar o Microsoft Azure 
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8ad34d0a3db3b2b9d3662329e95b27c214dfc247
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb625624fa6faa4fdf3ef4fba3b49a0d2d5d7e09
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088505"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284533"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Criando e configurando um cofre de chaves para Azure Disk Encryption com o Azure AD (versão anterior)
 
@@ -220,7 +220,7 @@ Use [atualização de keyvault az](/cli/azure/keyvault#az-keyvault-update) para 
 1. Selecione sua keyvault, vá para **Access Policies** e **Clique para mostrar as políticas de acesso avançadas**.
 2. Selecione a caixa rotulada **habilitar o acesso ao Azure Disk Encryption para criptografia de volume**.
 3. Selecione **habilitar o acesso às máquinas virtuais do Azure para implantação** e/ou **habilitar acesso ao Azure Resource Manager para implantação de modelo**, se necessário. 
-4. Clique em **Save** (Salvar).
+4. Clique em **Salvar**.
 
 ![Cofre de chaves do Azure, políticas de acesso avançadas](../media/disk-encryption/keyvault-portal-fig4.png)
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 9363f400754a38d4cc6efd29ac48d7a0476de66f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0ed237debc2395ed307658b2d57a541574f9478a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524294"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284142"
 ---
 # <a name="add-parameters-to-commands"></a>Adicionar parâmetros a comandos
 
@@ -42,30 +42,29 @@ Edite o comando de **ativação** existente para ativar e desativar vários disp
         ```
         On or Off?
         ```
-   1. Selecione **Atualização**.
+   1. Selecione **Atualizar**.
 
        > [!div class="mx-imgBorder"]
        > ![Criar resposta de parâmetro necessária](media/custom-commands/add-required-on-off-parameter-response.png)
    
-   1. Agora, configuramos as propriedades de parâmetros. Para obter uma explicação de todas as propriedades de configuração de um comando, acesse [referências](./custom-commands-references.md). Configure o restante das propriedades do parâmetro da seguinte maneira:
+   1. Agora, configuramos as propriedades de parâmetros. Para obter uma explicação de todas as propriedades de configuração de um comando, acesse [referências](./custom-commands-references.md). Configure as propriedades do parâmetro da seguinte maneira:
       
 
        | Configuração      | Valor sugerido     | Descrição                                                      |
        | ------------------ | ----------------| ---------------------------------------------------------------------|
        | Nome               | `OnOff`           | Um nome descritivo para o parâmetro                                                                           |
        | É global          | unchecked       | Caixa de seleção que indica se um valor para esse parâmetro é globalmente aplicado a todos os comandos no aplicativo|
-       | Necessária           | checked         | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando |
+       | Obrigatório           | checked         | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando |
        | Resposta para o parâmetro obrigatório      |Editor simples >`On or Off?`      | Um prompt para solicitar o valor desse parâmetro quando ele não for conhecido |
-       | Tipo               | Cadeia de caracteres          | O tipo de parâmetro, como número, Cadeia de caracteres, data/hora ou Geografia   |
+       | Type               | String          | O tipo de parâmetro, como número, Cadeia de caracteres, data/hora ou Geografia   |
        | Configuração      | Aceitar valores de entrada predefinidos do catálogo interno | Para cadeias de caracteres, isso limita as entradas a um conjunto de valores possíveis |
        | Valores de entrada predefinidos     | `on`, `off`           | Conjunto de valores possíveis e seus aliases         |
        
         
-   1. Para adicionar valores de entrada predefinidos, selecione **Adicionar uma entrada predefinida** e na janela **novo item** , digite o **nome** conforme fornecido na tabela acima. Nesse caso, não estamos usando aliases, portanto, você pode deixá-lo em branco. 
-
-    > [!div class="mx-imgBorder"]
-
-    > ![Criar parâmetro](media/custom-commands/create-on-off-parameter.png)
+   1. Para adicionar valores de entrada predefinidos, selecione **Adicionar uma entrada predefinida** e na janela **novo item** , digite o **nome** conforme fornecido na tabela acima. Nesse caso, não estamos usando aliases, portanto, você pode deixá-lo em branco.
+   
+      > [!div class="mx-imgBorder"]
+      > ![Criar parâmetro](media/custom-commands/create-on-off-parameter.png)
 
    1. Selecione **salvar** para salvar todas as configurações do parâmetro.
  
@@ -78,9 +77,9 @@ Edite o comando de **ativação** existente para ativar e desativar vários disp
        | ------------------ | --------------------- |
        | Nome               | `SubjectDevice`         |
        | É global          | unchecked             |
-       | Necessária           | checked               |
+       | Obrigatório           | checked               |
        | Resposta para o parâmetro obrigatório     | Editor simples >`Which device do you want to control?`    | 
-       | Tipo               | Cadeia de caracteres                |          |
+       | Type               | String                |          |
        | Configuração      | Aceitar valores de entrada predefinidos do catálogo interno | 
        | Valores de entrada predefinidos | `tv`, `fan`               |
        | Aliases ( `tv` )      | `television`, `telly`     |
@@ -107,7 +106,7 @@ turn something {OnOff}
 turn something
 ```
 
-Selecione **Salvar**.
+Clique em **Salvar**.
 
 > [!TIP]
 > No editor de sentenças de exemplo, use chaves para fazer referência aos parâmetros. - `turn {OnOff} the {SubjectDevice}`Use a guia para preenchimento automático apoiado por parâmetros criados anteriormente.
@@ -118,16 +117,17 @@ Modifique a regra de conclusão existente **ConfirmationResponse**.
 
 1. Na seção **condições** , selecione **Adicionar uma condição**.
 1. Na janela **nova condição** , na lista **tipo** , selecione **parâmetros necessários**. Na lista de verificação abaixo, verifique **Onoff** e **SubjectDevice**.
+1. Deixe **IsGlobal** como desmarcado.
 1. Selecione **Criar**.
 1. Na seção **ações** , edite a ação **Enviar resposta de fala** existente passando o mouse sobre a ação e selecionando o botão Editar. Desta vez, fazer uso dos parâmetros **Onoff** e **SubjectDevice** recém-criados
 
     ```
     Ok, turning the {SubjectDevice} {OnOff}
     ```
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="try-it-out"></a>Experimente
-1. Selecione o ícone de **treinamento** presente na parte superior do painel direito.
+1. Selecione o ícone de **treinamento** na parte superior do painel direito.
 
 1. Quando o treinamento for concluído, selecione **testar**. Uma janela **testar seu aplicativo** será exibida.
  Experimente algumas interações.
@@ -150,9 +150,9 @@ Adicionar nova **temperatura** de parâmetro com a seguinte configuração
 | Configuração      | Valor sugerido     |
 | ------------------ | ----------------|
 | Nome               | `Temperature`           |
-| Necessária           | checked         |
+| Obrigatório           | checked         |
 | Resposta para o parâmetro obrigatório      | Editor simples >`What temperature would you like?`
-| Tipo               | Número          |
+| Type               | Número          |
 
 
 Edite o exemplo declarações para os valores a seguir.
@@ -187,9 +187,9 @@ Adicione um parâmetro chamado **DateTime** com a configuração a seguir.
    | Configuração                           | Valor sugerido                     | 
    | --------------------------------- | ----------------------------------------|
    | Nome                              | `DateTime`                               |
-   | Necessária                          | checked                                 |
+   | Obrigatório                          | checked                                 |
    | Resposta para o parâmetro obrigatório   | Editor simples >`For what time?`            | 
-   | Tipo                              | Datetime                                |
+   | Type                              | Datetime                                |
    | Padrões de data                     | Se a data estiver ausente, use hoje mesmo            |
    | Padrões de tempo                     | Se o tempo estiver ausente, use o início do dia     |
 

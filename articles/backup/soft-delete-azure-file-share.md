@@ -4,18 +4,16 @@ description: Saiba como a exclusão reversível pode proteger seus compartilhame
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7070cb1ee3881fbec2c6f44eae18f3bc51f8051d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ec2d3bf84aed19b608a92b6f21cd1674ba5b7cf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054369"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282697"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Proteção acidental de exclusão para compartilhamentos de arquivos do Azure usando o backup do Azure
 
-Para fornecer proteção contra ataques cibernéticos ou exclusão acidental, a [exclusão reversível](../storage/files/storage-files-prevent-file-share-deletion.md) é habilitada para todos os compartilhamentos de arquivos em uma conta de armazenamento quando você configura o backup para qualquer compartilhamento de arquivos na respectiva conta de armazenamento. Com a exclusão reversível, mesmo que um ator mal-intencionado exclua o compartilhamento de arquivos, o conteúdo e os pontos de recuperação (instantâneos) do compartilhamento de arquivos são mantidos por um mínimo de 14 dias adicionais, permitindo a recuperação de compartilhamentos de arquivos sem perda de dados.  
-
-A exclusão reversível tem suporte apenas para contas de armazenamento Standard e Premium e atualmente está habilitada no lado do backup do Azure nessas [regiões](azure-file-share-support-matrix.md).
+Para fornecer proteção contra ataques cibernéticos ou exclusão acidental, a [exclusão reversível](../storage/files/storage-files-prevent-file-share-deletion.md) é habilitada para todos os compartilhamentos de arquivos em uma conta de armazenamento quando você configura o backup para qualquer compartilhamento de arquivos na respectiva conta de armazenamento. Com a exclusão reversível, mesmo que um ator mal-intencionado exclua o compartilhamento de arquivos, o conteúdo e os pontos de recuperação (instantâneos) do compartilhamento de arquivos são mantidos por um mínimo de 14 dias adicionais, permitindo a recuperação de compartilhamentos de arquivos sem perda de dados.  A exclusão reversível tem suporte para contas de armazenamento Standard e Premium e a configuração é habilitada pelo backup do Azure para todas as contas de armazenamento que hospedam compartilhamentos de arquivos de backup.
 
 O fluxograma a seguir mostra as diferentes etapas e os Estados de um item de backup quando a exclusão reversível está habilitada para compartilhamentos de arquivos em uma conta de armazenamento:
 

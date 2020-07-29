@@ -3,12 +3,12 @@ title: Iniciar computadores usando runbooks de automação no Azure DevTest Labs
 description: Saiba como iniciar máquinas virtuais em um laboratório no Azure DevTest Labs usando runbooks de automação do Azure.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 72ce964b451fb6bcd1e93d75e6ae674c7608d63a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 231e79d594aab7c59fa21f9ee512abaa9ac67043
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481894"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282255"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Iniciar máquinas virtuais em um laboratório em ordem usando runbooks de automação do Azure
 O recurso de [inicialização](devtest-lab-set-lab-policy.md#set-autostart) automática do DevTest Labs permite que você configure VMs para iniciar automaticamente em um horário especificado. No entanto, esse recurso não dá suporte a computadores para iniciar em uma ordem específica. Há vários cenários em que esse tipo de automação seria útil.  Um cenário é onde uma VM Jumpbox em um laboratório precisa ser iniciada primeiro, antes das outras VMs, pois o Jumpbox é usado como o ponto de acesso para as outras VMs.  Este artigo mostra como configurar uma conta de automação do Azure com um runbook do PowerShell que executa um script. O script usa marcas em VMs no laboratório para permitir que você controle a ordem de inicialização sem precisar alterar o script.
@@ -16,11 +16,11 @@ O recurso de [inicialização](devtest-lab-set-lab-policy.md#set-autostart) auto
 ## <a name="setup"></a>Instalação
 Neste exemplo, as VMs no laboratório precisam ter a marca **StartupOrder** adicionada com o valor apropriado (0, 1, 2, etc.). Designe qualquer computador que não precise ser iniciado como-1.
 
-## <a name="create-an-azure-automation-account"></a>Criar uma conta de Automação do Azure
+## <a name="create-an-azure-automation-account"></a>Criar uma conta da Automação do Azure
 Crie uma conta de automação do Azure seguindo as instruções neste [artigo](../automation/automation-create-standalone-account.md). Escolha a opção **contas Executar como** ao criar a conta. Depois que a conta de automação for criada, abra a página **módulos** e selecione **Atualizar módulos do Azure** na barra de menus. Os módulos padrão são várias versões antigas e sem a atualização o script pode não funcionar.
 
 ## <a name="add-a-runbook"></a>Adicionar um runbook
-Agora, para adicionar um runbook à conta de automação, selecione **Runbooks** no menu à esquerda. Selecione **Adicionar um runbook** no menu e siga as instruções para [criar um runbook do PowerShell](../automation/automation-first-runbook-textual-powershell.md).
+Agora, para adicionar um runbook à conta de automação, selecione **Runbooks** no menu à esquerda. Selecione **Adicionar um runbook** no menu e siga as instruções para [criar um runbook do PowerShell](../automation/learn/automation-tutorial-runbook-textual-powershell.md).
 
 ## <a name="powershell-script"></a>Script do PowerShell
 O script a seguir usa o nome da assinatura, o nome do laboratório como parâmetros. O fluxo do script é obter todas as VMs no laboratório e, em seguida, analisar as informações de marca para criar uma lista de nomes de VM e sua ordem de inicialização. O script percorre as VMs na ordem e inicia as VMs. Se houver várias VMs em um número de ordem específico, elas serão iniciadas de forma assíncrona usando trabalhos do PowerShell. Por padrão, para as VMs que não têm uma marca, defina o valor de inicialização como a última (10). elas serão iniciadas por último.  Se o laboratório não quiser que a VM seja iniciada de forma automática, defina o valor da marca como 11 e ela será ignorada.

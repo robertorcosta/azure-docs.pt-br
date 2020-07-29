@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: 59d5c6c4a9c3af70eb08e9d5a05d516f4b8b8bdd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d85fe36bb948ae9a0c81fa25f87450c7f5fe93b7
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87096121"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337255"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-preview"></a>Cache do Azure para Redis com o link privado do Azure (versão prévia)
 O ponto de extremidade privado do Azure é uma interface de rede que conecta você de forma privada e segura ao cache do Azure para Redis da plataforma Azure link privado. 
@@ -71,9 +71,9 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
     |------------------|-----------------------------------------------------------------|
     | **Detalhes do projeto**  |                                                                 |
     | Subscription     | Clique na lista suspensa e selecione sua assinatura.                                  |
-    | Grupo de Recursos   | Menu suspenso e selecione um grupo de recursos. |
+    | Grupo de recursos   | Menu suspenso e selecione um grupo de recursos. |
     | **Detalhes da instância** |                                                                 |
-    | Nome             | Digita**\<virtual-network-name>**                                    |
+    | Nome             | Insira **\<virtual-network-name>**                                    |
     | Região           | Não**\<region-name>** |
 
 4. Selecione a guia **endereços IP** ou selecione o botão **Avançar: endereços IP** na parte inferior da página.
@@ -82,7 +82,7 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 
     | Configuração            | Valor                      |
     |--------------------|----------------------------|
-    | Espaço de endereço IPv4 | Digita**\<IPv4-address-space>** |
+    | Espaço de endereço IPv4 | Insira **\<IPv4-address-space>** |
 
 6. Em **nome da sub-rede**, selecione a palavra **padrão**.
 
@@ -90,8 +90,8 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 
     | Configuração            | Valor                      |
     |--------------------|----------------------------|
-    | Nome da sub-rede | Digita**\<subnet-name>** |
-    | Intervalo de endereços da sub-rede | Digita**\<subnet-address-range>**
+    | Nome da sub-rede | Insira **\<subnet-name>** |
+    | Intervalo de endereços da sub-rede | Insira **\<subnet-address-range>**
 
 8. Clique em **Salvar**.
 
@@ -142,10 +142,16 @@ Nesta seção, você criará um ponto de extremidade privado e o conectará ao c
 
 9. Selecione o botão **próximo: marcas** na parte inferior da página.
 
-10. Na guia **marcas** , digite o nome e o valor se desejar categorizar o recurso. Essa etapa é opcional.
+10. Na guia **marcas** , digite o nome e o valor se desejar categorizar o recurso. Esta etapa é opcional.
 
     :::image type="content" source="media/cache-private-link/12-tags-private-endpoint.png" alt-text="Marcas para o link privado.":::
 
 11. Selecione  **Analisar + criar**. Você é levado para a guia **revisar + criar**,   na qual o Azure valida sua configuração.
 
 12. Quando a mensagem de **validação verde aprovada** for exibida, selecione **criar**.
+
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para saber mais sobre o link privado, consulte a [documentação do link privado do Azure](https://docs.microsoft.com/azure/private-link/private-link-overview). 
+

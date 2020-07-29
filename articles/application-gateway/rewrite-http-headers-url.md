@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
-ms.openlocfilehash: 46cb4d0d099cd21db3ce51c337d3b059206bb425
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87096048"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281184"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Reescrever cabeçalhos HTTP e URL com o gateway de aplicativo
 
@@ -109,25 +109,25 @@ O gateway de aplicativo dá suporte às seguintes variáveis de servidor:
 | add_x_forwarded_for_proxy | O campo de cabeçalho de solicitação de cliente X encaminhado-para com a `client_ip` variável (consulte a explicação mais adiante nesta tabela) acrescentado a ele no formato IP1, IP2, IP3 e assim por diante. Se o campo X-Forwarded-for não estiver no cabeçalho de solicitação do cliente, a `add_x_forwarded_for_proxy` variável será igual à `$client_ip` variável.   Essa variável é particularmente útil quando você deseja reescrever o cabeçalho X-Forwardd-for definido pelo gateway de aplicativo para que o cabeçalho contenha apenas o endereço IP sem as informações de porta. |
 | ciphers_supported         | Uma lista de codificações com suporte do cliente.               |
 | ciphers_used              | A cadeia de caracteres de codificações usada para uma conexão TLS estabelecida. |
-| client_ip                 | O endereço IP do cliente do qual o gateway de aplicativo recebeu a solicitação. Se houver um proxy reverso antes do gateway de aplicativo e do cliente de origem, *client_ip* retornará o endereço IP do proxy reverso. |
+| client_ip                 | O endereço IP do cliente do qual o gateway de aplicativo recebeu a solicitação. Se houver um proxy reverso antes do gateway de aplicativo e do cliente de origem, o `client_ip` retornará o endereço IP do proxy reverso. |
 | client_port               | A porta do cliente.                                             |
 | client_tcp_rtt            | Informações sobre a conexão TCP do cliente. Disponível em sistemas que dão suporte à opção de soquete TCP_INFO. |
 | client_user               | Quando a autenticação HTTP é usada, o nome de usuário fornecido para autenticação. |
-| host                      | Nesta ordem de precedência: o nome do host da linha de solicitação, o nome do host do campo de cabeçalho de solicitação do host ou o nome do servidor que corresponde a uma solicitação. Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , o valor do host será *contoso.com* |
+| host                      | Nesta ordem de precedência: o nome do host da linha de solicitação, o nome do host do campo de cabeçalho de solicitação do host ou o nome do servidor que corresponde a uma solicitação. Exemplo: na solicitação `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , o valor do host será`contoso.com` |
 | *nome* do cookie_             | O *nome* do cookie.                                           |
 | http_method               | O método usado para fazer a solicitação de URL. Por exemplo, GET ou POST. |
 | http_status               | O status da sessão. Por exemplo, 200, 400 ou 403.           |
 | http_version              | O protocolo de solicitação. Geralmente, HTTP/1.0, HTTP/1.1 ou HTTP/2.0. |
-| query_string              | A lista de pares de variáveis/valores que segue o "?" na URL solicitada. Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , QUERY_STRING valor será *ID = 123&título = Fabrikam* |
+| query_string              | A lista de pares de variáveis/valores que segue o "?" na URL solicitada. Exemplo: na solicitação `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , QUERY_STRING valor será`id=123&title=fabrikam` |
 | received_bytes            | O comprimento da solicitação (incluindo a linha de solicitação, o cabeçalho e o corpo da solicitação). |
 | request_query             | Os argumentos na linha de solicitação.                           |
 | request_scheme            | O esquema de solicitação: http ou HTTPS.                           |
-| request_uri               | O URI de solicitação original completo (com argumentos). Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , REQUEST_URI valor será */article.aspx? id = 123&title = Fabrikam* |
+| request_uri               | O URI de solicitação original completo (com argumentos). Exemplo: na solicitação `http://contoso.com:8080/article.aspx?id=123&title=fabrikam*` , REQUEST_URI valor será`/article.aspx?id=123&title=fabrikam` |
 | sent_bytes                | O número de bytes enviados a um cliente.                        |
 | server_port               | A porta do servidor que aceitou uma solicitação.              |
 | ssl_connection_protocol   | O protocolo de uma conexão TLS estabelecida.               |
 | ssl_enabled               | "Ativado" se a conexão opera no modo TLS. Caso contrário, uma cadeia de caracteres vazia. |
-| uri_path                  | Identifica o recurso específico no host que o cliente Web deseja acessar. Essa é a parte do URI de solicitação sem os argumentos. Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , uri_path valor será */article.aspx* |
+| uri_path                  | Identifica o recurso específico no host que o cliente Web deseja acessar. Essa é a parte do URI de solicitação sem os argumentos. Exemplo: na solicitação `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , uri_path valor será`/article.aspx` |
 
  
 
@@ -230,7 +230,7 @@ Agora, se o usuário solicitar *contoso.com/Listing?Category=any*, ele será cor
 
 Considere um cenário de um site de compras em que o link visível do usuário deve ser simples e legível, mas o servidor back-end precisa dos parâmetros da cadeia de caracteres de consulta para mostrar o conteúdo correto.
 
-Nesse caso, o gateway de aplicativo pode capturar parâmetros da URL e adicionar pares de chave-valor de cadeia de caracteres de consulta dos da URL. Por exemplo, digamos que o usuário deseja reescrever, https://www.contoso.com/fashion/shirts para https://www.contoso.com/buy.aspx?category=fashion&product=shirts , pode ser obtido por meio da seguinte configuração de regravação de URL.
+Nesse caso, o gateway de aplicativo pode capturar parâmetros da URL e adicionar pares de chave-valor de cadeia de caracteres de consulta dos da URL. Por exemplo, digamos que o usuário deseja reescrever, `https://www.contoso.com/fashion/shirts` para `https://www.contoso.com/buy.aspx?category=fashion&product=shirts` , pode ser obtido por meio da seguinte configuração de regravação de URL.
 
 **Condição** – se a variável de servidor `uri_path` for igual ao padrão`/(.+)/(.+)`
 

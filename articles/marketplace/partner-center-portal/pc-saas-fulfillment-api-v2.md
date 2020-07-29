@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 06/10/2020
-ms.openlocfilehash: f501e84e988d340ba710e49d30caddbe56006c8a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: f40da30ff0d702078861367dea810cc8ca1ab91b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109409"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305135"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-microsoft-commercial-marketplace"></a>APIs de preenchimento de SaaS versão 2 no Microsoft Commercial Marketplace
 
@@ -615,7 +617,7 @@ Atualizar (aumentar ou diminuir) a quantidade de estações compradas para uma a
 
 A quantidade de assentos não pode ser maior que o permitido no plano atual.  Nesse caso, o plano deve ser alterado antes da alteração da quantidade.
 
-##### <a name="patchhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Patch`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="patchhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Distribuído`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 

@@ -1,6 +1,6 @@
 ---
-title: Ambiente de área de trabalho virtual do Windows (Outono 2019) – Azure
-description: Saiba mais sobre os elementos básicos de um ambiente de área de trabalho virtual do Windows (Outono de 2019), como locatários e pools de hosts.
+title: Ambiente de área de trabalho virtual do Windows (clássico)-Azure
+description: Os elementos básicos de um ambiente de área de trabalho virtual do Windows (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8cb41b4f94b14a94c79b490e38889825fd9d8d1a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2c019dd187c0ccd7a63f71c0373a0388135afda9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082640"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285009"
 ---
-# <a name="windows-virtual-desktop-environment-fall-2019-release"></a>Ambiente de área de trabalho virtual do Windows (versão 2019 de outono)
+# <a name="windows-virtual-desktop-classic-environment"></a>Ambiente de área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../environment-setup.md).
+>Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../environment-setup.md).
 
 A área de trabalho virtual do Windows é um serviço que oferece aos usuários acesso fácil e seguro a seus desktops e RemoteApps virtualizados. Este tópico lhe dirá um pouco mais sobre a estrutura geral do ambiente de área de trabalho virtual do Windows.
 

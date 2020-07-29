@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 238bcc6c706f2fab969c98b73ca879d064498693
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: efd51e90bb14f3d97b76eb6ac45b384192bb8da0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026502"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311561"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicativo de página única: Registro do aplicativo
 
 Para registrar um aplicativo de página única (SPA) na plataforma de identidade da Microsoft, conclua as etapas a seguir. As etapas de registro diferem entre MSAL.js 1,0, que é compatível com o fluxo de concessão implícita, e MSAL.js 2,0, que é compatível com o fluxo de código de autorização com PKCE.
+
+[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="create-the-app-registration"></a>Criar o registro do aplicativo
 
@@ -67,7 +69,7 @@ Siga estas etapas para adicionar um URI de redirecionamento para um aplicativo d
 
 Você concluiu o registro do seu aplicativo de página única (SPA) e configurou um URI de redirecionamento para o qual o cliente será redirecionado e todos os tokens de segurança serão enviados. Quando selecionou **Tokens de ID**, **Tokens de acesso** ou as duas opções, você habilitou o fluxo de concessão implícita.
 
-Siga o [tutorial](tutorial-v2-javascript-spa.md) para obter mais diretrizes. 
+Siga o [tutorial](tutorial-v2-javascript-spa.md) para obter mais diretrizes.
 
 ## <a name="note-about-authorization-flows"></a>Observação sobre fluxos de autorização
 

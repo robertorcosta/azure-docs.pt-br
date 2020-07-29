@@ -1,6 +1,6 @@
 ---
-title: Problemas de diagnóstico de área de trabalho virtual do Windows – Outono de 2019 – Azure
-description: Como usar o recurso de diagnóstico da Área de Trabalho Virtual do Windows para diagnosticar problemas.
+title: Problemas de diagnóstico da área de trabalho virtual do Windows (clássico)-Azure
+description: Como usar o recurso de diagnóstico da área de trabalho virtual (clássica) do Windows para diagnosticar problemas.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0aad1c780c6695c771d3cfea04509acde65c051e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 257ad5aa11bfaece70f676b452119d7800e2d1e2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085853"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285043"
 ---
-# <a name="identify-and-diagnose-issues"></a>Identificar e diagnosticar problemas
+# <a name="identify-and-diagnose-issues-in-windows-virtual-desktop-classic"></a>Identificar e diagnosticar problemas na área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../diagnostics-role-service.md).
+>Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../diagnostics-role-service.md).
 
 A Área de Trabalho Virtual do Windows oferece um recurso de diagnóstico que permite ao administrador identificar problemas por meio de uma única interface. As funções da Área de Trabalho Virtual do Windows registram uma atividade de diagnóstico sempre que um usuário interage com o sistema. Cada log contém informações relevantes, como as funções da Área de Trabalho Virtual do Windows envolvidas na transação, mensagens de erro, informações do locatário e informações do usuário. As atividades de diagnóstico são criadas pelas ações do usuário final e do administrador e podem ser categorizadas em três buckets principais:
 

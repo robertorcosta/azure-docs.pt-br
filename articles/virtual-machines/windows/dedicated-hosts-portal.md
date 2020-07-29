@@ -3,17 +3,17 @@ title: Implantar hosts dedicados do Azure usando o portal
 description: Implante VMs em hosts dedicados usando o Portal.
 author: cynthn
 ms.service: virtual-machines-windows
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 444f7cd7094a688c43d9aedce67d293e3c32e273
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a4ce9d360e226a9934c30b749ea0284f5ace9cf0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508552"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284584"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Implantar VMs em hosts dedicados usando o portal
 

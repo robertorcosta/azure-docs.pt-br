@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: ricarlse
 ms.custom: seodec18
-ms.openlocfilehash: a3bd48f32dfcee1a666ff842cfcab2384a5459ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5bf7a1e3cc2bfa8ccf42d05e199c58b8c9314fce
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67849256"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281694"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para Provedores de Soluções na Nuvem (CSP)
 A Microsoft fornece serviços de hiperescala para revendedores e distribuidores tradicionais (CSP) poderem provisionar rapidamente novos serviços e soluções para seus clientes sem a necessidade de investir no desenvolvimento desses novos serviços. Para permitir que o Provedor de Soluções na Nuvem (CSP) tenha a capacidade de gerenciar esses novos serviços diretamente, a Microsoft oferece programas e APIs que permitem que o CSP gerencie recursos do Microsoft Azure em nome de seus clientes. Um desses recursos é o ExpressRoute. o ExpressRoute permite que o CSP conecte os recursos do cliente aos serviços do Azure. o ExpressRoute é um link de comunicações privado de alta velocidade para serviços do Azure. 
@@ -130,5 +130,5 @@ O serviço Provedor de Soluções de Nuvem oferece uma maneira de aumentar seu v
 Encontre mais informações nestes links:
 
 [Azure no programa Cloud Solution Provider](https://docs.microsoft.com/azure/cloud-solution-provider).  
-[Prepare-se para a transação como um Provedor de Soluções da Nuvem](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
-[Recursos do Provedor de Soluções da Nuvem da Microsoft](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).
+[Prepare-se para a transação como um Provedor de Soluções da Nuvem](https://partner.microsoft.com/solutions/cloud-reseller-pre-launch).  
+[Recursos do Provedor de Soluções da Nuvem da Microsoft](https://partner.microsoft.com/solutions/cloud-reseller-resources).

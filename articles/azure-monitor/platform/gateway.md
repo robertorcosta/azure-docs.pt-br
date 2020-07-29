@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 550b4fb7ba17d911618e0b60d16c0a9f9d1f2cfa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 94c668e7ffaff81fed9c2e511bc38239069fa43e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077271"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305203"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conectar computadores sem acesso à Internet usando o gateway de Log Analytics no Azure Monitor
 
@@ -89,7 +89,7 @@ O gateway de Log Analytics está disponível nestes idiomas:
 
 O gateway de Log Analytics dá suporte apenas a TLS (segurança de camada de transporte) 1,0, 1,1 e 1,2.  Ele não dá suporte a protocolo SSL (SSL).  Para garantir a segurança dos dados em trânsito para Log Analytics, configure o gateway para usar pelo menos o TLS 1,2. Versões mais antigas de TLS ou SSL são vulneráveis. Embora eles atualmente permitam compatibilidade com versões anteriores, evite usá-los.  
 
-Para obter mais informações, examine [Enviando dados com segurança usando o TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
+Para obter mais informações, examine [Enviando dados com segurança usando o TLS 1.2](./data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Número de conexões de agente com suporte
 
@@ -153,7 +153,7 @@ O arquivo baixado para o gateway é um pacote Windows Installer que dá suporte 
  
 A tabela a seguir realça os parâmetros com suporte na instalação do.
 
-|Parâmetros| Observações|
+|parâmetros| Observações|
 |----------|------| 
 |PORTNUMBER | Número da porta TCP para o gateway a ser escutado |
 |ACIONISTA | Endereço IP do servidor proxy |
@@ -388,4 +388,5 @@ Para obter ajuda, selecione o ícone de ponto de interrogação no canto superio
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Adicione fontes de dados](../../azure-monitor/platform/agent-data-sources.md) para coletar dados de fontes conectadas e armazene os dados em seu espaço de trabalho do log Analytics.
+[Adicione fontes de dados](./agent-data-sources.md) para coletar dados de fontes conectadas e armazene os dados em seu espaço de trabalho do log Analytics.
+
