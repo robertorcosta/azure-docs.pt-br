@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 760938b3b3abcd5f6909af3ee5ac5fda179470fa
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 878b2685eb46af567f4dc7f50f0d10ca244143d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289385"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392005"
 ---
 # <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB SDK do .NET v2 para a API do SQL: download e notas de versão
 > [!div class="op_single_selector"]
@@ -44,17 +44,14 @@ ms.locfileid: "87289385"
 ## <a name="release-notes"></a>Notas de versão
 
 > [!NOTE]
-> Se você estiver usando o .NET Framework, consulte a versão mais recente 3.x do[ .NET SDK](sql-api-sdk-dotnet-standard.md), que tem como alvo o .NET Standard.
-
-As seguintes subversões dos SDKs do .NET estão disponíveis na versão 2. x. x:
+> Se você estiver usando o .NET Framework, consulte a versão mais recente 3.x do[ .NET SDK](sql-api-sdk-dotnet-standard.md), que tem como alvo o .NET Standard. 
 
 [!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v2/changelog.md)]
 
-## <a name="faq"></a>Perguntas frequentes
 
+## <a name="faq"></a>Perguntas frequentes
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Confira também
-
 Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 

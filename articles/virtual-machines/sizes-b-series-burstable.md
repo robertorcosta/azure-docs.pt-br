@@ -5,15 +5,15 @@ services: virtual-machines
 ms.subservice: sizes
 author: ayshakeen
 ms.service: virtual-machines
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: e3a5d2228074ed358244b49bdf283c09f777ddee
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6e7411f30ac0ef03ecd621f4cf6db5cd9350201b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292078"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678538"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos expansíveis da máquina virtual da série B
 
@@ -90,7 +90,7 @@ Linha de base: 270%
 
 Para um D16s_v3 que tem 16 vCPUs e 64 GiB de memória, a taxa horária é $0.936 por hora (mensalmente $673.92) e para B16ms com 16 vCPUs e 64 GiB de memória a taxa é $0.794 por hora (mensalmente $547.86). <b>Isso resulta em uma economia de 15%!</b>
 
-## <a name="q--a"></a>Perguntas e Respostas
+## <a name="q--a"></a>Perguntas e respostas
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>P: como obter 135% da linha de base de desempenho de uma VM?
 
@@ -135,7 +135,7 @@ por exemplo, na instância acima, sua linha de base é de 20% e se você usar 10
 
 **R: o** B1ls só dá suporte a imagens do Linux e, se você implantar qualquer outra imagem do sistema operacional, talvez não obtenha a melhor experiência do cliente.
 
-## <a name="other-sizes-and-information"></a>Outros tamanhos e informações
+## <a name="other-sizes"></a>Outros tamanhos
 
 - [Propósito geral](sizes-general.md)
 - [Computação otimizada](sizes-compute.md)
@@ -143,10 +143,6 @@ por exemplo, na instância acima, sua linha de base é de 20% e se você usar 10
 - [Armazenamento otimizado](sizes-storage.md)
 - [GPU otimizada](sizes-gpu.md)
 - [Computação de alto desempenho](sizes-hpc.md)
-
-Calculadora de preços: [calculadora de preços](https://azure.microsoft.com/pricing/calculator/)
-
-Mais informações sobre tipos de discos: [tipos de disco](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
 
 ## <a name="next-steps"></a>Próximas etapas
 

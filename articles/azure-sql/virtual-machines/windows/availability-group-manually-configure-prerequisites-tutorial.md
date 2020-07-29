@@ -3,7 +3,7 @@ title: 'Tutorial: pré-requisitos para um grupo de disponibilidade'
 description: Este tutorial mostra como configurar os pré-requisitos para criar um grupo de disponibilidade SQL Server Always On em máquinas virtuais do Azure.
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: MikeRayMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
-ms.author: mathoma
+ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 881fa116b1a44d4714002f71e6ebd163279d8c70
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b72e894b7280a2d3e0fa978125e53ae79b2d20e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284295"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669351"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Pré-requisitos para a criação de grupos de disponibilidade Always On em SQL Server em máquinas virtuais do Azure
 
@@ -276,7 +276,7 @@ Depois de criar o primeiro controlador de domínio e habilitar o DNS no primeiro
 
 3. Selecione **personalizado**e digite o endereço IP privado do controlador de domínio primário.
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
 ### <a name="configure-the-second-domain-controller"></a>Configurar o segundo controlador de domínio
 
@@ -287,7 +287,7 @@ Após a reinicialização do controlador de domínio primário, você pode confi
 3. Altere o endereço do servidor DNS preferencial para o endereço do controlador de domínio.
 4. Em **central de rede e compartilhamento**, selecione a interface de rede.
 
-   ![Adaptador de rede](./media/availability-group-manually-configure-prerequisites-tutorial-/26-networkinterface.png)
+   ![interface de rede](./media/availability-group-manually-configure-prerequisites-tutorial-/26-networkinterface.png)
 
 5. Selecione **Propriedades**.
 6. Selecione **protocolo IP versão 4 (TCP/IPv4)** e, em seguida, selecione **Propriedades**.
@@ -320,7 +320,7 @@ Após a reinicialização do controlador de domínio primário, você pode confi
     >A página **Opções de DNS** poderá avisar que não foi possível criar uma delegação para este servidor DNS. Você pode ignorar esse aviso em ambientes que não são de produção.
     >
 
-22. Selecione **Avançar** até que a caixa de diálogo atinja a verificação de **pré-requisitos** . Em seguida, selecione **Instalar**.
+22. Selecione **Avançar** até que a caixa de diálogo atinja a verificação de **pré-requisitos** . Em seguida, selecione **instalar**.
 
 Depois que o servidor concluir as alterações de configuração, reinicie-o.
 

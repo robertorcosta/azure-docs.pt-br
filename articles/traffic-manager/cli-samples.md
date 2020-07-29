@@ -1,6 +1,6 @@
 ---
 title: Exemplos da CLI do Azure para o Gerenciador de Tráfego | Microsoft Docs
-description: Saiba mais sobre um script de CLI do Azure que você pode usar para direcionar o tráfego entre várias regiões para alta disponibilidade de aplicativo.
+description: Exemplos de CLI do Azure
 services: virtual-network
 documentationcenter: virtual-network
 author: rohinkoul
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: rohink
-ms.openlocfilehash: fb50c13817f10f74610db68121087c125a6f91f6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3b14cf2058f425f650d827e10ef0ca77f1278b55
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286420"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "76938007"
 ---
 # <a name="azure-cli-samples-for-traffic-manager"></a>Exemplos da CLI do Azure para o Gerenciador de Tráfego
 
