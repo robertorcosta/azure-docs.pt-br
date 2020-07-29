@@ -46,7 +46,7 @@
           href: ./samples/pattern-logical-operators.md
         - name: Campos
           href: ./samples/pattern-fields.md
-        - name: Parâmetros
+        - name: parâmetros
           href: ./samples/pattern-parameters.md
         - name: Detalhes do efeito
           href: ./samples/pattern-effect-details.md
@@ -228,6 +228,8 @@
           href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: Recursos
   items:
+    - name: Problemas conhecidos
+      href: 'https://github.com/azure/azure-policy#known-issues'
     - name: GitHub - Exemplos de Política do Azure
       href: 'https://github.com/Azure/azure-policy'
     - name: GitHub – Repositório de políticas da comunidade
@@ -246,8 +248,8 @@
           href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
         - name: Tarefa de correção
           href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
-    - name: Vídeo - Compilação de 2018
-      href: 'https://channel9.msdn.com/events/Build/2018/THR2030'
+    - name: Vídeo – Ignite de 2019
+      href: 'https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions'
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Calculadora de preço

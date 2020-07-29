@@ -1,6 +1,5 @@
 ---
-title: Usar os exemplos de conjuntos de dados
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clássico): Usar as amostras de conjuntos de dados – Azure'
 description: Descrições dos conjuntos de dados usados em modelos de exemplo incluídos no Machine Learning Studio (clássico). É possível usar esses conjuntos de dados de exemplo para seus testes.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 3cd7d880efaa5c69301c25c69d55f4b21dd97242
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43f26133cb7fe36a399e2d98ca3e2129b88f52e8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321845"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326300"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Usar os conjuntos de dados de exemplo no Azure Machine Learning Studio (clássico)
+
+**APLICA-SE AO:** ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) 
+
 
 [top]: #machine-learning-sample-datasets
 
