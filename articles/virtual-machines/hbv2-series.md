@@ -4,15 +4,15 @@ description: Especificações para as VMs da série HBv2.
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/03/2020
 ms.author: amverma
-ms.openlocfilehash: f9717105c9241777d72a8943e87f33ab31c8038c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 730065333fde7431b7018ef0a6e614e12727d7ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288487"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84673846"
 ---
 # <a name="hbv2-series"></a>Série HBv2
 
@@ -26,7 +26,7 @@ Atualizações de preservação de memória: Sem suporte
 
 | Tamanho | vCPU | Processador | Memória (GB) | Largura de banda de memória GB/s | Frequência de CPU base (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho de RDMA (GB/s) | Suporte a MPI | Armazenamento temporário (GB) | Discos de dados máximos | Máximo de NICs Ethernet |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_HB120rs_v2 | 120 | AMD EPYC 7V12 | 480 | 350 | 2.45 | 3.1 | 3.3 | 200 | Todos | 480 + 960 | 8 | 1 |
+| Standard_HB120rs_v2 | 120 | AMD EPYC 7V12 | 480 | 350 | 2.45 | 3.1 | 3.3 | 200 | Tudo | 480 + 960 | 8 | 1 |
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]

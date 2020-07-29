@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 7c12cfc21668a13586d94089a7049f6f0d6066d7
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d997c6d4eae93290cbb1e4cafe6c7ad662a65933
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336915"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85336869"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -49,7 +49,7 @@ Abaixo há uma visão geral de exemplo do ciclo de vida de CI/CD em um Azure Dat
 
 1.  Depois que uma solicitação de pull for aprovada e as alterações forem mescladas no branch mestre, as alterações serão publicadas no alocador de desenvolvimento.
 
-1.  Quando a equipe estiver pronta para implantar as alterações em uma fábrica de teste ou UAT (teste de aceitação do usuário), a equipe vai para o Azure Pipelines versão e implanta a versão desejada da fábrica de desenvolvimento em UAT. Essa implantação ocorre como parte de uma tarefa do Azure Pipelines e usa parâmetros do modelo do Resource Manager para aplicar a configuração apropriada.
+1.  Quando a equipe estiver pronta para implantar as alterações em um alocador de teste ou UAT, ela acessará a versão do Azure Pipelines e implantará a versão desejada do alocador de desenvolvimento em UAT. Essa implantação ocorre como parte de uma tarefa do Azure Pipelines e usa parâmetros do modelo do Resource Manager para aplicar a configuração apropriada.
 
 1.  Depois que as alterações tiverem sido verificadas no alocador de testes, implante no alocador de produção usando a próxima tarefa da versão de pipelines.
 

@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 34608a085c0d60e0ce07e5d198622f80a43f8b38
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: eb943bfe36be10d1e95d569a5c1bf48563e909c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284074"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711282"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Criar e gerenciar BLOBs no armazenamento de BLOBs do Azure usando o aplicativo lógico do Azure
 
@@ -20,7 +20,7 @@ Este artigo mostra como você pode acessar e gerenciar arquivos armazenados como
 
 Suponha que você tem uma ferramenta que é atualizada em um site do Azure. que atua como o gatilho do aplicativo lógico. Quando esse evento ocorre, você pode fazer com que o aplicativo lógico atualize um arquivo em seu contêiner de armazenamento de blobs, o que é uma ação no aplicativo lógico.
 
-Se ainda não estiver familiarizado com aplicativo lógicos, consulte [O que são os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início Rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para obter informações técnicas específicas do conector, confira a [Referência do conector do Armazenamento de Blobs do Azure](/connectors/azureblobconnector/).
+Se ainda não estiver familiarizado com aplicativo lógicos, consulte [O que são os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início Rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para obter informações técnicas específicas do conector, confira a [Referência do conector do Armazenamento de Blobs do Azure](https://docs.microsoft.com/connectors/azureblobconnector/).
 
 > [!IMPORTANT]
 > Os aplicativos lógicos não podem acessar diretamente as contas de armazenamento que estão atrás de firewalls se estiverem na mesma região. Como alternativa, você pode ter seus aplicativos lógicos e a conta de armazenamento em regiões diferentes. Para obter mais informações sobre como habilitar o acesso de aplicativos lógicos do Azure a contas de armazenamento por trás de firewalls, consulte a seção [acessar contas de armazenamento por trás de firewalls](#storage-firewalls) mais adiante neste tópico.
@@ -137,7 +137,7 @@ Este exemplo obtém apenas o conteúdo de um blob. Para exibir o conteúdo, adic
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter mais detalhes técnicos sobre esse conector, como gatilhos, ações e limites, conforme descrito pelo arquivo Swagger do conector, consulte a [página de referência do conector](/connectors/azureblobconnector/).
+Para obter mais detalhes técnicos sobre esse conector, como gatilhos, ações e limites, conforme descrito pelo arquivo Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/azureblobconnector/).
 
 > [!NOTE]
 > Para aplicativos lógicos em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), a versão rotulada do ISE do conector usa os [limites de mensagem do ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) em vez disso.
@@ -194,7 +194,7 @@ Para configurar a exceção e o suporte de identidade gerenciada, siga estas eta
 1. No fluxo de trabalho do aplicativo lógico, adicione e configure a ação HTTP ou o gatilho para acessar a conta ou a entidade de armazenamento.
 
    > [!IMPORTANT]
-   > Para a ação HTTP de saída ou chamadas de gatilho para contas de armazenamento do Azure, verifique se o cabeçalho da solicitação inclui a `x-ms-version` propriedade e a versão da API para a operação que você deseja executar na conta de armazenamento. Para obter mais informações, consulte [autenticar o acesso com identidade gerenciada](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) e [controle de versão para serviços de armazenamento do Azure](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
+   > Para a ação HTTP de saída ou chamadas de gatilho para contas de armazenamento do Azure, verifique se o cabeçalho da solicitação inclui a `x-ms-version` propriedade e a versão da API para a operação que você deseja executar na conta de armazenamento. Para obter mais informações, consulte [autenticar o acesso com identidade gerenciada](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) e [controle de versão para serviços de armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
 
 1. Nessa ação, [Selecione a identidade gerenciada](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) a ser usada para autenticação.
 
@@ -207,4 +207,3 @@ Se você usar uma camada dedicada para o [Gerenciamento de API](../api-managemen
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)
-

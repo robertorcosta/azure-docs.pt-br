@@ -6,25 +6,15 @@ ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 977dcc71fd25b19e09cfa9126bf01d380f581aca
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 234da921b4f0d1243ca8cfdb12ba2d851db2b43f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289108"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "77658686"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Guia de transição do designer de Azure Monitor exibição para pastas de trabalho
 O [Designer de exibição](view-designer.md) é um recurso do Azure monitor que permite que você crie modos de exibição personalizados para ajudá-lo a Visualizar dados em seu espaço de trabalho do log Analytics, com gráficos, listas e linhas do tempo. Eles estão sendo desativados e substituídos por pastas de trabalho que fornecem funcionalidade adicional. Este artigo fornece uma visão geral do processo de conversão de suas exibições existentes em pastas de trabalho do.
-
-## <a name="retirement-schedule"></a>Cronograma de desativação
-
-| Alterar | O que isso significa | Data esperada |
-|:---|:---|:---|
-| Desabilite a criação de novas exibições criadas por meio do designer de exibição. | Você não poderá mais criar e salvar novas exibições personalizadas no portal do Azure.| Novembro de 2020 |
-| Desabilite a função editar para exibições existentes com o designer de exibição. | Você não poderá mais modificar e salvar as alterações em seus modos de exibição personalizados existentes. | Novembro de 2020 |
-| Desabilitar a implantação de modos de exibição em Log Analytics espaços de trabalho | Você não poderá mais implantar exibições personalizadas usando o ARM para Log Analytics espaços de trabalho. | Março de 2021 |
-| O designer de exibição não está mais disponível no portal do Azure | A experiência do portal não dará mais suporte ao designer de exibição. | Junho de 2021 |
-| Exibições personalizadas removidas do resumo do espaço de trabalho | Você não poderá mais acessar seus dados de exibição personalizados. | Dezembro de 2021 |
 
 ## <a name="workbooks-overview"></a>Visão geral das pastas de trabalho
 As [pastas de trabalho](../insights/vminsights-workbooks.md) combinam texto, consultas de [log](../log-query/query-language.md), métricas e parâmetros em relatórios interativos sofisticados. Os membros da equipe com o mesmo acesso aos recursos do Azure também podem editar pastas de trabalho.

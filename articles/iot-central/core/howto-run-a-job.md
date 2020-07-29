@@ -7,12 +7,12 @@ author: sarahhubbard
 ms.author: sahubbar
 ms.date: 06/08/2020
 ms.topic: how-to
-ms.openlocfilehash: 6073f71eb21ba4a6739647964d4888044d6ee59a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: dec9abc38bc0354ef3d22994a7988bfb006f5769
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283564"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609651"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Criar e executar um trabalho em seu aplicativo de IoT Central do Azure
 
@@ -43,11 +43,7 @@ Esta seção mostra como criar e executar um trabalho. Ele mostra como definir o
     > [!NOTE]
     > Você pode exibir até 30 dias de histórico para os trabalhos executados anteriormente.
 
-7. Clique no trabalho salvo e execute o trabalho clicando no botão Executar. Executar um pop-up de trabalho será exibido. Confirme clicando no botão Executar trabalho. 
-
-    ![Executar um trabalho](./media/howto-run-a-job/run-job.png)
-
-8. O trabalho passa por diferentes fases de pendente, em execução e concluído. Os detalhes de execução do trabalho contêm métricas de resultados, detalhes de duração e grade de lista de dispositivos. Nesta visão geral, você também pode selecionar **log de resultados** para baixar um arquivo CSV dos detalhes do seu trabalho, incluindo os dispositivos e seus valores de status. Essas informações podem ser úteis para a solução de problemas.
+7. Para obter uma visão geral do seu trabalho, selecione o trabalho a ser exibido na lista. Esta visão geral contém os detalhes do trabalho, dispositivos e valores de status do dispositivo. Nesta visão geral, você também pode selecionar **baixar detalhes do trabalho** para baixar um arquivo CSV dos detalhes do trabalho, incluindo os dispositivos e seus valores de status. Essas informações podem ser úteis para a solução de problemas:
 
     ![Exibir status do dispositivo](./media/howto-run-a-job/download-details.png)
 
@@ -55,23 +51,13 @@ Esta seção mostra como criar e executar um trabalho. Ele mostra como definir o
 
 Para interromper um de seus trabalhos em execução, abra-o e selecione **parar**. O status do trabalho muda para refletir que o trabalho foi interrompido. A seção de **Resumo** mostra quais dispositivos foram concluídos, com falha ou ainda estão pendentes.
 
+Para executar um trabalho que está parado no momento, selecione-o e, em seguida, selecione **executar**. O status do trabalho muda para refletir que o trabalho agora está em execução novamente. A seção de **Resumo** continua a ser atualizada com o progresso mais recente.
+
 ![Gerenciar trabalho](./media/howto-run-a-job/manage-job.png)
-
-Quando o trabalho estiver no estado parado, você poderá clicar em **continuar** para retomar a execução do trabalho. O status do trabalho muda para refletir que o trabalho agora está em execução novamente. A seção de **Resumo** continua a ser atualizada com o progresso mais recente.
-
-![Trabalho parado](./media/howto-run-a-job/stopped-job.png)
 
 ## <a name="copy-a-job"></a>Copiar um trabalho
 
-Para copiar um de seus trabalhos existentes, selecione-o na página **trabalhos** e selecione **detalhes do trabalho**. A página de detalhes do trabalho será exibida. 
-
-![Detalhes do trabalho](./media/howto-run-a-job/job-details.png)
-
-Clique em **copiar**
-
-![Detalhes do trabalho](./media/howto-run-a-job/job-details-copy.png)
-
-Uma cópia da configuração do trabalho é aberta para você editar e a **cópia** é anexada ao nome do trabalho. Você pode salvar ou executar o novo trabalho:
+Para copiar um de seus trabalhos existentes, selecione-o na página **trabalhos** e selecione **copiar**. Uma cópia da configuração do trabalho é aberta para você editar e a **cópia** é anexada ao nome do trabalho. Você pode salvar ou executar o novo trabalho:
 
 ![Trabalho de cópia](./media/howto-run-a-job/copy-job.png)
 
@@ -82,7 +68,7 @@ Depois que um trabalho é criado, a coluna **status** é atualizada com a mensag
 | Mensagem de status       | Significado do status                                          |
 | -------------------- | ------------------------------------------------------- |
 | Concluído            | Este trabalho foi executado em todos os dispositivos.              |
-| Com falha               | Esse trabalho falhou e não foi totalmente executado nos dispositivos.  |
+| Falhou               | Esse trabalho falhou e não foi totalmente executado nos dispositivos.  |
 | Pendente              | Esse trabalho ainda não começou a ser executado em dispositivos.         |
 | Executando              | Esse trabalho está sendo executado nos dispositivos.             |
 | Parado              | Este trabalho foi interrompido manualmente por um usuário.           |
@@ -91,8 +77,8 @@ A mensagem de status é seguida por uma visão geral dos dispositivos no trabalh
 
 | Mensagem de status       | Significado do status                                                     |
 | -------------------- | ------------------------------------------------------------------ |
-| Com sucesso            | O número de dispositivos em que o trabalho foi executado com êxito.       |
-| Com falha               | O número de dispositivos nos quais o trabalho falhou ao ser executado.       |
+| Êxito            | O número de dispositivos em que o trabalho foi executado com êxito.       |
+| Falhou               | O número de dispositivos nos quais o trabalho falhou ao ser executado.       |
 
 ### <a name="view-the-device-status-values"></a>Exibir os valores de status do dispositivo
 
@@ -101,7 +87,7 @@ Para exibir o status do trabalho e de todos os dispositivos afetados, abra o tra
 | Mensagem de status       | Significado do status                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
 | Concluído            | O trabalho executado neste dispositivo.                                     |
-| Com falha               | Falha ao executar o trabalho neste dispositivo. A mensagem de erro mostra mais informações.  |
+| Falhou               | Falha ao executar o trabalho neste dispositivo. A mensagem de erro mostra mais informações.  |
 | Pendente              | O trabalho ainda não foi executado neste dispositivo.                                   |
 
 Para baixar um arquivo CSV que inclui os detalhes do trabalho e a lista de dispositivos e seus valores de status, selecione **baixar**.

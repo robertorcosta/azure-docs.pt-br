@@ -7,6 +7,7 @@ description: Descreve como configurar um cluster do Serviço de Kubernetes do Az
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres
 ms.openlocfilehash: 60f6c466e7c016ccd07e37b2f0d1ce9989fb8f9f
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83995880"
