@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 121b3ced2e021f3907983623ea60185286797670
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a74fe2bf6b326dac782ac75418a7f4960e66501a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024429"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87274996"
 ---
 # <a name="conditional-access-conditions"></a>Acesso Condicional: condições
 
@@ -63,6 +63,9 @@ Mais informações sobre locais podem ser encontradas no artigo, [qual é a cond
 ## <a name="client-apps-preview"></a>Aplicativos do cliente (versão prévia)
 
 Por padrão, as políticas de acesso condicional se aplicam a aplicativos e aplicativos baseados em navegador que utilizam protocolos de autenticação modernos. Além desses aplicativos, os administradores podem optar por incluir clientes do Exchange ActiveSync e outros clientes que utilizem protocolos herdados.
+
+> [!NOTE]
+> A alternância configurar Sim/não na condição aplicativos cliente foi removida para facilitar a visualização de quais aplicativos cliente estão selecionados. Isso não afeta a qual aplicativo de cliente uma política existente se aplica.
 
 - Navegador
    - Isso inclui aplicativos baseados na Web que usam protocolos como SAML, WS-Federation, OpenID Connect ou serviços registrados como um cliente confidencial do OAuth.

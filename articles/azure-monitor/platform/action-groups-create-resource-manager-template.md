@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a97fd56f1dc3409666ad86e81a7ac74fee076fa1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5c02812d4c97b94667fcddcb275243e7a9b36b29
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505679"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321897"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Criar um grupo de ações com um modelo do Resource Manager
 Este artigo mostra como você pode usar um [modelo do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar grupos de ações. Usando modelos, você pode configurar automaticamente os grupos de ações que podem ser reutilizados em determinados tipos de alertas. Esses grupos de ações garantem que todas as partes corretas serão notificadas quando um alerta for disparado.
@@ -163,6 +163,7 @@ Para criar um grupo de ações usando um modelo do Resource Manager, você cria 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [grupos de ação](../../azure-monitor/platform/action-groups.md).
+* Saiba mais sobre [grupos de ação](./action-groups.md).
 * Saiba mais sobre [alertas](alerts-overview.md).
-* Saiba como adicionar [Alertas usando um modelo do Resource Manager](../../azure-monitor/platform/alerts-activity-log.md).
+* Saiba como adicionar [Alertas usando um modelo do Resource Manager](./alerts-activity-log.md).
+

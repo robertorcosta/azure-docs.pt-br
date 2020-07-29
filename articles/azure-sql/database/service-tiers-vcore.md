@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 07/21/2020
-ms.openlocfilehash: c54979efbbd164a11614b92d9a337a86e2f221fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24c7e0a3c9a7d3c28823db0418e17cb94bc101ec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007734"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325059"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Visão geral do modelo vCore-banco de dados SQL do Azure e Azure SQL Instância Gerenciada 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -83,7 +83,7 @@ Para regiões em que o Gen4/Gen5 está disponível, consulte [disponibilidade de
 - Dependendo da carga de trabalho, a série Fsv2 pode fornecer mais desempenho de CPU por vCore do que Gen5, e o tamanho vCore de 72 pode fornecer mais desempenho de CPU para menos custo do que 80 vCores em Gen5. 
 - O Fsv2 fornece menos memória e tempdb por vCore do que outros Hardwares, de modo que as cargas de trabalho sensíveis a esses limites podem querer considerar a Gen5 ou a série M em vez disso.  
 
-Fsv2-Series somente com suporte na camada de Uso Geral. Para regiões em que a Fsv2-Series está disponível, consulte [disponibilidade da série Fsv2](#fsv2-series).
+Fsv2-Series somente com suporte na camada de Uso Geral. Para regiões em que a Fsv2-Series está disponível, consulte [disponibilidade da série Fsv2](#fsv2-series-1).
 
 
 ### <a name="m-series"></a>Série M
@@ -91,7 +91,7 @@ Fsv2-Series somente com suporte na camada de Uso Geral. Para regiões em que a F
 - A série M é uma opção de hardware com otimização de memória para cargas de trabalho que exigem mais memória e limites de computação mais altos do que o fornecido pelo Gen5.
 - A série M fornece 29 GB por vCore e até 128 vCores, o que aumenta o limite de memória em relação ao Gen5 por 8x a quase 4 TB.
 
-A série M só tem suporte na camada de Comercialmente Crítico e não oferece suporte à redundância de zona.  A assinatura deve ser um tipo de oferta paga, incluindo pré-pago ou Enterprise Agreement (EA). Para regiões em que a série M está disponível, consulte [disponibilidade da série m](#m-series).
+A série M só tem suporte na camada de Comercialmente Crítico e não oferece suporte à redundância de zona.  A assinatura deve ser um tipo de oferta paga, incluindo pré-pago ou Enterprise Agreement (EA). Para regiões em que a série M está disponível, consulte [disponibilidade da série m](#m-series-1).
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).

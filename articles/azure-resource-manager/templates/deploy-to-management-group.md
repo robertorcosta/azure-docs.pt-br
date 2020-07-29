@@ -2,27 +2,48 @@
 title: Implantar recursos no grupo de gerenciamento
 description: Descreve como implantar recursos no escopo do grupo de gerenciamento em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: 863d1330412fa238b820eb0f1f05351fc723de6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: a17387aef4d35c042d1fe0b02f1c6fd447e4a918
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460306"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321795"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Criar recursos no nível do grupo de gerenciamento
 
-À medida que sua organização amadureceu, talvez seja necessário definir e atribuir [políticas](../../governance/policy/overview.md) ou [controles de acesso baseado em função](../../role-based-access-control/overview.md) para um grupo de gerenciamento. Com os modelos de nível de grupo de gerenciamento, você pode aplicar políticas declarativamente e atribuir funções no nível do grupo de gerenciamento.
+À medida que sua organização amadureceu, você pode implantar um modelo de Azure Resource Manager (modelo ARM) para criar recursos no nível do grupo de gerenciamento. Por exemplo, talvez seja necessário definir e atribuir [políticas](../../governance/policy/overview.md) ou [controles de acesso baseado em função](../../role-based-access-control/overview.md) para um grupo de gerenciamento. Com os modelos de nível de grupo de gerenciamento, você pode aplicar políticas declarativamente e atribuir funções no nível do grupo de gerenciamento.
 
 ## <a name="supported-resources"></a>Recursos compatíveis
 
-Você pode implantar os seguintes tipos de recursos no nível do grupo de gerenciamento:
+Nem todos os tipos de recursos podem ser implantados no nível do grupo de gerenciamento. Esta seção lista os tipos de recursos com suporte.
 
-* [implantações](/azure/templates/microsoft.resources/deployments) – para modelos aninhados que são implantados em assinaturas ou grupos de recursos.
+Para plantas do Azure, use:
+
+* [artifacts](/azure/templates/microsoft.blueprint/blueprints/artifacts)
+* [blueprints](/azure/templates/microsoft.blueprint/blueprints)
+* [blueprintAssignments](/azure/templates/microsoft.blueprint/blueprintassignments)
+* [versões](/azure/templates/microsoft.blueprint/blueprints/versions)
+
+Para políticas do Azure, use:
+
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+* [remediations](/azure/templates/microsoft.policyinsights/remediations)
+
+Para o controle de acesso baseado em função, use:
+
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+
+Para modelos aninhados que são implantados em assinaturas ou grupos de recursos, use:
+
+* [implantações](/azure/templates/microsoft.resources/deployments)
+
+Para gerenciar seus recursos, use:
+
+* [marcas](/azure/templates/microsoft.resources/tags)
 
 ### <a name="schema"></a>Esquema
 
@@ -74,6 +95,95 @@ Você pode fornecer um nome da implantação ou usar o nome da implantação pad
 
 O local não pode ser alterado para cada nome de implantação. Você não pode criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local que a implantação anterior para esse nome.
 
+## <a name="deployment-scopes"></a>Escopos de implantação
+
+Ao implantar em um grupo de gerenciamento, você pode direcionar o grupo de gerenciamento especificado no comando de implantação ou outros grupos de gerenciamento no locatário. Você também pode direcionar assinaturas ou grupos de recursos dentro de um grupo de gerenciamento. O usuário que está implantando o modelo deve ter acesso ao escopo especificado.
+
+Os recursos definidos na seção de recursos do modelo são aplicados ao grupo de gerenciamento do comando de implantação.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        management-group-level-resources
+    ],
+    "outputs": {}
+}
+```
+
+Para direcionar outro grupo de gerenciamento, adicione uma implantação aninhada e especifique a `scope` propriedade.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-10-01",
+            "name": "nestedDeployment",
+            "scope": "[variables('mgId')]",
+            "location": "eastus",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    nested-template
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Para direcionar uma assinatura dentro do grupo de gerenciamento, use uma implantação aninhada e a `subscriptionId` propriedade. Para direcionar um grupo de recursos dentro dessa assinatura, adicione outra implantação aninhada e a `resourceGroup` propriedade.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      "name": "nestedSub",
+      "location": "westus2",
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Resources/deployments",
+              "apiVersion": "2020-06-01",
+              "name": "nestedRG",
+              "resourceGroup": "rg2",
+              "properties": {
+                "mode": "Incremental",
+                "template": {
+                  nested-template
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
 ## <a name="use-template-functions"></a>Usar funções de modelo
 
 Para implantações de grupo de gerenciamento, há algumas considerações importantes ao usar funções de modelo:
@@ -95,7 +205,7 @@ Para implantações de grupo de gerenciamento, há algumas considerações impor
   /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```
 
-## <a name="create-policies"></a>Criar políticas
+## <a name="azure-policy"></a>Azure Policy
 
 ### <a name="define-policy"></a>Definir política
 
@@ -165,9 +275,85 @@ O exemplo a seguir atribui uma definição de política existente ao grupo de ge
 }
 ```
 
-## <a name="template-sample"></a>Exemplo de modelo
+## <a name="deploy-to-subscription-and-resource-group"></a>Implantar na assinatura e no grupo de recursos
 
-* [Crie um grupo de recursos, uma política e uma atribuição de política](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
+De uma implantação em nível de grupo de gerenciamento, você pode direcionar uma assinatura dentro do grupo de gerenciamento. O exemplo a seguir cria um grupo de recursos em uma assinatura e implanta uma conta de armazenamento para esse grupo de recursos.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "nestedsubId": {
+      "type": "string"
+    },
+    "nestedRG": {
+      "type": "string"
+    },
+    "storageAccountName": {
+      "type": "string"
+    },
+    "nestedLocation": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      "name": "nestedSub",
+      "location": "[parameters('nestedLocation')]",
+      "subscriptionId": "[parameters('nestedSubId')]",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+          },
+          "variables": {
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Resources/resourceGroups",
+              "apiVersion": "2020-06-01",
+              "name": "[parameters('nestedRG')]",
+              "location": "[parameters('nestedLocation')]",
+            },
+            {
+              "type": "Microsoft.Resources/deployments",
+              "apiVersion": "2020-06-01",
+              "name": "nestedSubRG",
+              "resourceGroup": "[parameters('nestedRG')]",
+              "dependsOn": [
+                "[parameters('nestedRG')]"
+              ],
+              "properties": {
+                "mode": "Incremental",
+                "template": {
+                  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                  "contentVersion": "1.0.0.0",
+                  "resources": [
+                    {
+                      "type": "Microsoft.Storage/storageAccounts",
+                      "apiVersion": "2019-04-01",
+                      "name": "[parameters('storageAccountName')]",
+                      "location": "[parameters('nestedLocation')]",
+                      "sku": {
+                        "name": "Standard_LRS"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 06/25/2020
-ms.openlocfilehash: 4235e948dba76c0b2926d9965ccd2fcb072cad62
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/28/2020
+ms.openlocfilehash: 2aa267f3c04225699d3ce65b5f8ee3b573ac0c78
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520776"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323750"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -389,8 +389,7 @@ Esta seção lista os endereços IP de saída para o serviço de Aplicativos Ló
 
 > [!TIP]
 > Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar a [marca de serviço](../virtual-network/service-tags-overview.md), **LogicApps**, em vez de especificar os endereços IP dos Aplicativos Lógicos de saída para cada região.
-> Essa marca funciona nas regiões em que o serviço de Aplicativos Lógicos está disponível.
-> Para os conectores gerenciados, você deve continuar a usar os endereços IP.
+> Para conectores gerenciados, você pode opcionalmente usar a marca de serviço **AzureConnectors** , em vez de especificar prefixos de endereço IP do conector gerenciado de saída para cada região. Essas marcas funcionam nas regiões em que o serviço de aplicativos lógicos está disponível. 
 
 <a name="multi-tenant-outbound"></a>
 

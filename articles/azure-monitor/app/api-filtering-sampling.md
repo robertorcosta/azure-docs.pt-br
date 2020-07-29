@@ -3,12 +3,12 @@ title: Filtragem e pré-processamento no SDK do Application Insights | Microsoft
 description: Escreva processadores de telemetria e inicializadores de telemetria para que o SDK filtre ou adicione Propriedades aos dados antes que a telemetria seja enviada ao portal de Application Insights.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: adaada3589fd0db1c7d47b788ad50d570defe780
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a16dc7bc9f6f3c49640d320fbfbffaa7acbed6b9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014619"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323206"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrar e pré-processar telemetria no SDK do Application Insights
 
@@ -17,7 +17,7 @@ Você pode gravar e configurar plug-ins para o SDK do Application Insights para 
 * [Amostragem](sampling.md) reduz o volume de telemetria sem afetar as estatísticas. Ele mantém juntos os pontos de dados relacionados para que você possa navegar entre eles ao diagnosticar um problema. No portal, as contagens totais são multiplicadas para compensar a amostragem.
 * A filtragem com processadores de telemetria permite filtrar a telemetria no SDK antes que ele seja enviado ao servidor. Por exemplo, você pode reduzir o volume de telemetria excluindo as solicitações de robôs. A filtragem é uma abordagem mais básica para reduzir o tráfego do que a amostragem. Ele permite mais controle sobre o que é transmitido, mas afeta suas estatísticas. Por exemplo, você pode filtrar todas as solicitações bem-sucedidas.
 * [Inicializadores de telemetria adicionam ou modificam Propriedades](#add-properties) para qualquer telemetria enviada de seu aplicativo, o que inclui a telemetria dos módulos padrão. Por exemplo, você pode adicionar valores calculados ou números de versão por meio dos quais filtrar os dados no Portal.
-* [A API do SDK](../../azure-monitor/app/api-custom-events-metrics.md) é usada para enviar eventos personalizados e métricas.
+* [A API do SDK](./api-custom-events-metrics.md) é usada para enviar eventos personalizados e métricas.
 
 Antes de começar:
 
@@ -34,7 +34,7 @@ Para filtrar a telemetria, você escreve um processador de telemetria e o regist
 > [!WARNING]
 > Filtrar a telemetria enviada do SDK usando processadores pode distorcer as estatísticas que você vê no portal e dificultar a seguir os itens relacionados.
 >
-> Em vez disso, considere usar a [amostragem](../../azure-monitor/app/sampling.md).
+> Em vez disso, considere usar a [amostragem](./sampling.md).
 >
 >
 
@@ -352,7 +352,7 @@ Insira um inicializador de telemetria logo após o código de inicialização qu
 </script>
 ```
 
-Para obter um resumo das propriedades não personalizadas disponíveis no item de telemetria, consulte [Application insights modelo de dados de exportação](../../azure-monitor/app/export-data-model.md).
+Para obter um resumo das propriedades não personalizadas disponíveis no item de telemetria, consulte [Application insights modelo de dados de exportação](./export-data-model.md).
 
 Você pode adicionar quantos inicializadores desejar. Eles são chamados na ordem em que são adicionados.
 
@@ -542,7 +542,7 @@ Qual é a diferença entre os processadores de telemetria e inicializadores de t
 
 ## <a name="reference-docs"></a>Documentos de Referência
 
-* [Visão geral da API](../../azure-monitor/app/api-custom-events-metrics.md)
+* [Visão geral da API](./api-custom-events-metrics.md)
 * [Referência do ASP.NET](/previous-versions/azure/dn817570(v=azure.100))
 
 ## <a name="sdk-code"></a>Código do SDK
@@ -552,6 +552,7 @@ Qual é a diferença entre os processadores de telemetria e inicializadores de t
 * [SDK do JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next-steps"></a><a name="next"></a>Próximas etapas
-* [Pesquisar eventos e logs](../../azure-monitor/app/diagnostic-search.md)
-* [Amostragem](../../azure-monitor/app/sampling.md)
+* [Pesquisar eventos e logs](./diagnostic-search.md)
+* [exemplos](./sampling.md)
 * [Solução de problemas](../faq.md)
+

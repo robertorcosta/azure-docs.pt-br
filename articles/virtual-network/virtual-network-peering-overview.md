@@ -1,7 +1,7 @@
 ---
 title: Emparelhamento de Rede Virtual do Azure
 titlesuffix: Azure Virtual Network
-description: Saiba mais sobre o emparelhamento de rede virtual no Azure.
+description: Saiba mais sobre o emparelhamento de rede virtual no Azure, incluindo como ele permite que você conecte redes na rede virtual do Azure.
 services: virtual-network
 documentationcenter: na
 author: altambaw
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: e1a2babef17e23457e1f41d8ec0a20a442452c23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ba0caa2546fdb9d4845e2c7adf87a06d906dd12
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84232962"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265153"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 

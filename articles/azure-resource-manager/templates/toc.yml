@@ -279,7 +279,7 @@
           href: template-syntax.md
         - name: Escrever expressões de modelo
           href: template-expressions.md
-        - name: Parâmetros
+        - name: parâmetros
           href: template-parameters.md
         - name: Variáveis
           href: template-variables.md
@@ -302,6 +302,8 @@
         - name: Script de implantação
           displayName: custom script
           href: deployment-script-template.md
+        - name: Criar ambiente de desenvolvimento de script de implantação
+          href: deployment-script-template-configure-dev.md
         - name: Modularizar modelos
           displayName: 'linked templates, nested templates'
           href: linked-templates.md
@@ -313,7 +315,7 @@
             - name: Propriedades
               displayName: 'iteration,copy'
               href: copy-properties.md
-            - name: Variáveis
+            - name: variáveis
               displayName: 'iteration,copy'
               href: copy-variables.md
             - name: outputs

@@ -10,19 +10,19 @@
       items:
         - name: Introdução
           href: get-started.md
-        - name: Etapa 1 Criar um workspace do Synapse
+        - name: 1 Criar um workspace do Synapse
           href: get-started-create-workspace.md
-        - name: Etapa 2 Analisar usando um pool de SQL
+        - name: 2 Analisar usando um pool de SQL
           href: get-started-analyze-sql-pool.md
-        - name: Etapa 3 Analisar usando o Spark
+        - name: 3 Analisar usando o Spark
           href: get-started-analyze-spark.md
-        - name: Etapa 4 Analisar usando o SQL sob demanda
+        - name: 4 Analisar usando o SQL sob demanda
           href: get-started-analyze-sql-on-demand.md
-        - name: Etapa 5 Analisar dados em uma conta de armazenamento
+        - name: 5 Analisar dados em uma conta de armazenamento
           href: get-started-analyze-storage.md
-        - name: Etapa 6 – Orquestrar com pipelines
+        - name: 6 Orquestrar com pipelines
           href: get-started-pipelines.md
-        - name: Etapa 7 – Visualizar com o Power BI
+        - name: 7 Visualizar com o Power BI
           href: get-started-visualize-power-bi.md
     - name: Roteiro
       href: overview-cheat-sheet.md
@@ -264,6 +264,8 @@
                   href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Cache de conjunto de resultados
               href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Previsões de aprendizado de máquina
+              href: ./sql-data-warehouse/sql-data-warehouse-predict.md
             - name: Tabelas
               items:
                 - name: Visão geral

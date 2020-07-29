@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: afcad5df1072f2eb474e54aaeca866735a12c5c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 340eb1a983f074a5ab934a30c55649852ec08b62
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424458"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325144"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solução Wire Data 2.0 (versão prévia) no Azure Monitor
 
@@ -166,7 +167,7 @@ As seções a seguir listam os sistemas operacionais com suporte para o Dependen
 
 Execute as seguintes etapas para configurar a solução Wire Data para seus workspaces.
 
-1. Habilite a solução de Análise do Log de Atividades do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) ou usando o processo descrito em [Adicionar soluções de monitoramento do Galeria de soluções](../../azure-monitor/insights/solutions.md).
+1. Habilite a solução de Análise do Log de Atividades do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) ou usando o processo descrito em [Adicionar soluções de monitoramento do Galeria de soluções](./solutions.md).
 2. Instale o Dependency Agent em cada computador em que você deseja obter dados. O Dependency Agent pode monitorar conexões a vizinhos imediatos, portanto, talvez você não precise de um agente em todos os computadores.
 
 > [!NOTE]
@@ -181,7 +182,7 @@ O Dependency Agent é instalado em computadores que executam o Windows por meio 
 
 Use as etapas a seguir para instalar o agente de dependência em cada computador que executa o Windows:
 
-1. Instale o agente do Log Analytics seguindo as etapas em [Coletar dados de computadores Windows hospedados em seu ambiente](../../azure-monitor/platform/agent-windows.md).
+1. Instale o agente do Log Analytics seguindo as etapas em [Coletar dados de computadores Windows hospedados em seu ambiente](../platform/agent-windows.md).
 2. Baixe o agente de dependência do Windows usando o link na seção anterior e execute-o usando o seguinte comando:`InstallDependencyAgent-Windows.exe`
 3. Acompanhe o assistente para instalar o agente.
 4. Se o Agente de Dependência não for iniciado, verifique os logs para obter informações de erro detalhadas. Para Agentes do Windows, o diretório de log será %Programfiles%\Microsoft Dependency Agent\logs.
@@ -192,7 +193,7 @@ Use as opções da tabela a seguir para instalar a partir de uma linha de comand
 
 InstallDependencyAgent-Windows.exe /?
 
-| **Identificar** | **Descrição** |
+| **Sinalizador** | **Descrição** |
 | --- | --- |
 | <code>/?</code> | Obtenha uma lista das opções de linha de comando. |
 | <code>/S</code> | Realize uma instalação silenciosa sem solicitações ao usuário. |
@@ -207,7 +208,7 @@ O Dependency Agent é instalado em computadores Linux por meio de Installdepende
 
 Use as seguintes etapas para instalar o Dependency Agent em cada computador com o Linux:
 
-1. Instale o agente do Log Analytics seguindo as etapas em [Coletar dados de computadores Linux hospedados em seu ambiente](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
+1. Instale o agente do Log Analytics seguindo as etapas em [Coletar dados de computadores Linux hospedados em seu ambiente](../learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
 2. Baixe o Agente de Dependência do Linux usando o link na seção anterior e, em seguida, instale-o como raiz usando o seguinte comando: sh InstallDependencyAgent-Linux64.bin
 3. Se o Agente de Dependência não for iniciado, verifique os logs para obter informações de erro detalhadas. Em agentes do Linux, o diretório de log é /var/opt/microsoft/dependency-agent/log.
 
@@ -217,7 +218,7 @@ Para ver uma lista dos sinalizadores de instalação, execute o programa de inst
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **Identificar** | **Descrição** |
+| **Sinalizador** | **Descrição** |
 | --- | --- |
 | <code>-help</code> | Obtenha uma lista das opções de linha de comando. |
 | <code>-s</code> | Realize uma instalação silenciosa sem solicitações ao usuário. |
@@ -383,7 +384,7 @@ A coleta de dados coleta metadados sobre o tráfego de rede usando os agentes qu
 
 Um registro com um tipo de _WireData_ é criado para cada tipo de dados de entrada. Os registros do WireData têm as propriedades mostradas na tabela a seguir:
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |---|---|
 | Computador | Nome do computador em que os dados foram coletados |
 | TimeGenerated | Hora do registro |
@@ -394,7 +395,7 @@ Um registro com um tipo de _WireData_ é criado para cada tipo de dados de entra
 | IPVersion | Versão IP |
 | Direção | Entrada ou saída |
 | MaliciousIP | Endereço IP de uma fonte mal-intencionada conhecida |
-| Severity | Gravidade de suspeita de malware |
+| Severidade | Gravidade de suspeita de malware |
 | RemoteIPCountry | País/região do endereço IP remoto |
 | ManagementGroupName | Nome do grupo de gerenciamento do Operations Manager |
 | SourceSystem | Fonte na qual o dados foram coletados |
@@ -415,4 +416,5 @@ Um registro com um tipo de _WireData_ é criado para cada tipo de dados de entra
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Pesquise nos logs](../../azure-monitor/log-query/log-query-overview.md) para exibir registros detalhados da pesquisa de dados de transmissão.
+- [Pesquise nos logs](../log-query/log-query-overview.md) para exibir registros detalhados da pesquisa de dados de transmissão.
+

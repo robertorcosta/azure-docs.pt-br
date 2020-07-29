@@ -1,10 +1,10 @@
-- name: Área de Trabalho Virtual do Windows versão Fall 2019
+- name: Área de Trabalho Virtual do Windows (clássico)
   href: ../index.yml
 - name: Visão geral
   items:
     - name: O que é a Área de Trabalho Virtual do Windows?
       href: ../overview.md
-    - name: Documentação da versão Spring 2020
+    - name: Documentação da Área de Trabalho Virtual do Windows
       href: ../create-host-pools-azure-marketplace.md
 - name: Tutoriais
   items:

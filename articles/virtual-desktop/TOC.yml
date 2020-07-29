@@ -1,4 +1,4 @@
-- name: Área de Trabalho Virtual do Windows versão Spring 2020
+- name: Área de Trabalho Virtual do Windows
   href: index.yml
 - name: Visão geral
   items:
@@ -6,7 +6,7 @@
       href: overview.md
     - name: Novidades
       href: whats-new.md
-    - name: Documentação da versão Fall 2019
+    - name: Documentação da Área de Trabalho Virtual do Windows (clássico)
       href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutoriais
   items:

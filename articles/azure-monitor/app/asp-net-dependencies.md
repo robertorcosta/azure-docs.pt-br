@@ -3,16 +3,16 @@ title: Acompanhamento de dependência no Azure Application Insights | Microsoft 
 description: Monitore chamadas de dependência de seu aplicativo Web local ou Microsoft Azure com Application Insights.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 9980db352e5d2c342131e0d6a2cd1248adb10810
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7f42c19c835e4f5c49f4d7aa91504b606a09f5b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067719"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321370"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rastreamento de dependência no insights Aplicativo Azure 
 
-Uma *dependência* é um componente que é chamado pelo seu aplicativo. Normalmente, ele é um serviço chamado usando HTTP, um banco de dados ou um sistema de arquivos. [Application insights](../../azure-monitor/app/app-insights-overview.md) mede a duração de chamadas de dependência, se sua falha ou não, juntamente com informações adicionais, como nome de dependência e assim por diante. Você pode investigar chamadas de dependência específicas e correlacioná-las a solicitações e exceções.
+Uma *dependência* é um componente que é chamado pelo seu aplicativo. Normalmente, ele é um serviço chamado usando HTTP, um banco de dados ou um sistema de arquivos. [Application insights](./app-insights-overview.md) mede a duração de chamadas de dependência, se sua falha ou não, juntamente com informações adicionais, como nome de dependência e assim por diante. Você pode investigar chamadas de dependência específicas e correlacioná-las a solicitações e exceções.
 
 ## <a name="automatically-tracked-dependencies"></a>Dependências rastreadas automaticamente
 
@@ -202,6 +202,7 @@ Assim como todos os Application Insights SDK, o módulo de coleta de dependênci
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Exceções](../../azure-monitor/app/asp-net-exceptions.md)
-* [Dados do usuário e da página](../../azure-monitor/app/javascript.md)
-* [Disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Exceções](./asp-net-exceptions.md)
+* [Dados do usuário e da página](./javascript.md)
+* [Disponibilidade](./monitor-web-app-availability.md)
+

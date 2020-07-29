@@ -1,6 +1,6 @@
 ---
-title: Conectar à área de trabalho virtual do Windows Outono 2019 Windows 10 ou 7 – Azure
-description: Como se conectar à área de trabalho virtual do Windows usando o cliente de área de trabalho do Windows.
+title: Conectar-se à área de trabalho virtual do Windows (clássico) Windows 10 ou 7-Azure
+description: Como se conectar à área de trabalho virtual do Windows (clássico) usando o cliente de área de trabalho do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,24 +8,24 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3bddfe22f70c1044ca02fb41a1959884f41797bb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d420927727c2d2209c00f4852188c4a2d8e4342d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083541"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270321"
 ---
-# <a name="connect-with-the-windows-desktop-client---fall-2019"></a>Conectar-se ao cliente de área de trabalho do Windows-Outono 2019
+# <a name="connect-with-the-windows-desktop-classic-client"></a>Conectar-se ao cliente do Windows Desktop (clássico)
 
 > Aplica-se a: Windows 7, Windows 10 e Windows 10 IoT Enterprise
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../connect-windows-7-10.md).
+>Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../connect-windows-7-10.md).
 
 Você pode acessar os recursos da área de trabalho virtual do Windows em dispositivos com Windows 7, Windows 10 e Windows 10 IoT Enterprise usando o cliente de área de trabalho do Windows. O cliente não dá suporte ao Windows 8 ou Windows 8.1.
 
 >[!NOTE]
->O cliente do Windows padroniza automaticamente para a versão de área de trabalho virtual do Windows no outono 2019. No entanto, se o cliente detectar que o usuário também tem recursos de Azure Resource Manager, ele adicionará automaticamente os recursos ou notificará o usuário de que eles estão disponíveis.
+>O cliente Windows usa automaticamente como padrão a área de trabalho virtual do Windows (clássico). No entanto, se o cliente detectar que o usuário também tem recursos de Azure Resource Manager, ele adicionará automaticamente os recursos ou notificará o usuário de que eles estão disponíveis.
 
 > [!IMPORTANT]
 > A Área de Trabalho Virtual do Windows não dá suporte ao cliente de RADC (Conexões de RemoteApp e Área de Trabalho) nem ao cliente de Conexão de Área de Trabalho Remota (MSTSC).
@@ -63,8 +63,8 @@ Há duas maneiras de assinar um workspace. O cliente pode tentar descobrir os re
 1. Na página principal do cliente, selecione **assinar com a URL**.
 2. Insira a URL do workspace ou o endereço de email:
    - Se você usar a **URL do workspace**, use aquela que o administrador lhe forneceu. Se estiver acessando recursos da Área de Trabalho Virtual do Windows, será possível usar uma das seguintes URLs:
-     - Área de Trabalho Virtual do Windows no outono de 2019: `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
-     - Área de Trabalho Virtual do Windows na primavera de 2020: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+     - Área de trabalho virtual do Windows (clássica):`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
+     - Área de trabalho virtual do Windows:`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
    - Se você estiver usando o campo **email** , insira seu endereço de email. Isso instrui o cliente a procurar uma URL associada ao seu endereço de email se seu administrador tiver configurado a [descoberta de email](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 3. Selecione **Avançar**.
 4. Entre com sua conta quando solicitado.

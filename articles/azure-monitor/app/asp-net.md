@@ -3,16 +3,16 @@ title: Configurar análise de aplicativo Web do ASP.NET com o Azure Application 
 description: Configure ferramentas de análise de desempenho, de disponibilidade e do comportamento do usuário para seu site ASP.NET, hospedado localmente ou no Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: 7dd60be0a3f2ee7e1a0d306fa007bed166746115
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e51fb43a9e088c991af2132b6a5d2257da8d78a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886827"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324209"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurar o Application Insights para seu site ASP.NET
 
-Este procedimento configura seu aplicativo da Web ASP.NET para enviar telemetria para o serviço [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Ele funciona para aplicativos ASP.NET hospedados em seu próprio servidor IIS local ou na nuvem. Você obtém gráficos e uma linguagem de consulta eficiente que ajudarão a compreender o desempenho de seu aplicativo e como as pessoas estão usando-o, além de alertas automáticos sobre falhas ou problemas de desempenho. Muitos desenvolvedores acham esses recursos excelentes como estão, mas você também pode estender e personalizar a telemetria se for necessário.
+Este procedimento configura seu aplicativo da Web ASP.NET para enviar telemetria para o serviço [Azure Application Insights](./app-insights-overview.md). Ele funciona para aplicativos ASP.NET hospedados em seu próprio servidor IIS local ou na nuvem. Você obtém gráficos e uma linguagem de consulta eficiente que ajudarão a compreender o desempenho de seu aplicativo e como as pessoas estão usando-o, além de alertas automáticos sobre falhas ou problemas de desempenho. Muitos desenvolvedores acham esses recursos excelentes como estão, mas você também pode estender e personalizar a telemetria se for necessário.
 
 A instalação leva apenas alguns cliques no Visual Studio. Você tem a opção de evitar cobranças limitando o volume de telemetria. Esta funcionalidade permite experimentar e depurar, ou monitorar um site com poucos usuários. Quando você decidir que deseja prosseguir e monitorar seu site de produção, é fácil aumentar o limite mais tarde.
 
@@ -54,7 +54,7 @@ Se você deseja definir o grupo de recursos ou o local onde os dados estão arma
 
  Telemetria será enviada para o [portal do Azure](https://portal.azure.com), durante a depuração e depois de ter publicado seu aplicativo.
 > [!NOTE]
-> Se você não quiser enviar telemetria para o portal durante a depuração, adicione o SDK do Application Insights ao seu aplicativo, mas não configure um recurso no portal. Você pode ver a telemetria no Visual Studio enquanto você está depurando. Posteriormente, você pode retornar a esta página de configuração, ou você poderia esperar até depois de implantar seu aplicativo e [ative telemetria em tempo de execução](../../azure-monitor/app/status-monitor-v2-overview.md).
+> Se você não quiser enviar telemetria para o portal durante a depuração, adicione o SDK do Application Insights ao seu aplicativo, mas não configure um recurso no portal. Você pode ver a telemetria no Visual Studio enquanto você está depurando. Posteriormente, você pode retornar a esta página de configuração, ou você poderia esperar até depois de implantar seu aplicativo e [ative telemetria em tempo de execução](./status-monitor-v2-overview.md).
 
 ## <a name="step-2-run-your-app"></a><a name="run"></a> Etapa 2: Executar seu aplicativo
 Execute o aplicativo com F5. Abra páginas diferentes para gerar alguma telemetria.
@@ -77,7 +77,7 @@ Na janela de pesquisa do Application Insights do Visual Studio, você verá os d
 > [!Tip]
 > Caso você não veja os dados, verifique se o intervalo de tempo está correto e clique no ícone Pesquisa.
 
-[Saiba mais sobre as ferramentas do Application Insights no Visual Studio](../../azure-monitor/app/visual-studio.md).
+[Saiba mais sobre as ferramentas do Application Insights no Visual Studio](./visual-studio.md).
 
 <a name="monitor"></a>
 ### <a name="see-telemetry-in-web-portal"></a>Conferir telemetria no portal da Web
@@ -93,14 +93,14 @@ O portal é aberto em uma exibição da telemetria do aplicativo.
 No portal, clique em qualquer bloco ou gráfico para ver mais detalhes.
 
 ## <a name="step-4-publish-your-app"></a>Etapa 4: Publicar seu aplicativo
-Publica seu aplicativo no servidor IIS ou no Azure. Observe o [Fluxo de Métricas Ativo](../../azure-monitor/app/live-stream.md) para verificar se tudo está funcionando corretamente.
+Publica seu aplicativo no servidor IIS ou no Azure. Observe o [Fluxo de Métricas Ativo](./live-stream.md) para verificar se tudo está funcionando corretamente.
 
 A telemetria se acumula no portal do Application Insights, onde você pode monitorar as métricas, pesquisar a telemetria. Você também pode usar a poderosa [Linguagem de consulta do Kusto](/azure/kusto/query/) para analisar o uso e o desempenho ou para encontrar eventos específicos.
 
-Você também pode continuar a analisar a telemetria no [Visual Studio](../../azure-monitor/app/visual-studio.md) com ferramentas como pesquisa de diagnóstico e de [tendências](../../azure-monitor/app/visual-studio-trends.md).
+Você também pode continuar a analisar a telemetria no [Visual Studio](./visual-studio.md) com ferramentas como pesquisa de diagnóstico e de [tendências](./visual-studio-trends.md).
 
 > [!NOTE]
-> Se seu aplicativo enviar telemetria suficiente para se aproximar das [limitações](../../azure-monitor/app/pricing.md#limits-summary), a [amostragem](../../azure-monitor/app/sampling.md) automática será ativada. A amostragem reduz a quantidade de telemetria enviada do seu aplicativo, preservando dados correlacionados para fins de diagnóstico.
+> Se seu aplicativo enviar telemetria suficiente para se aproximar das [limitações](./pricing.md#limits-summary), a [amostragem](./sampling.md) automática será ativada. A amostragem reduz a quantidade de telemetria enviada do seu aplicativo, preservando dados correlacionados para fins de diagnóstico.
 >
 >
 
@@ -120,27 +120,28 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 
 Há tópicos alternativos para conferir se você está interessado em:
 
-* [Instrumentar um aplicativo Web em runtime](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Serviços de Nuvem do Azure](../../azure-monitor/app/cloudservices.md)
+* [Instrumentar um aplicativo Web em runtime](./monitor-performance-live-website-now.md)
+* [Serviços de Nuvem do Azure](./cloudservices.md)
 
 ### <a name="more-telemetry"></a>Mais telemetria
 
-* **[Navegador e página carregam dados](../../azure-monitor/app/javascript.md)** -insira um snippet de código em suas páginas da Web.
-* **[Obtenha monitoramento de dependência e de exceção mais detalhado](../../azure-monitor/app/monitor-performance-live-website-now.md)** -instale o Monitor de Status no seu servidor.
-* **[Eventos personalizados de código](../../azure-monitor/app/api-custom-events-metrics.md)** para contagem, tempo ou medição de ações do usuário.
-* **[Obter dados de log](../../azure-monitor/app/asp-net-trace-logs.md)** - correlacionar dados de log com a telemetria.
+* **[Navegador e página carregam dados](./javascript.md)** -insira um snippet de código em suas páginas da Web.
+* **[Obtenha monitoramento de dependência e de exceção mais detalhado](./monitor-performance-live-website-now.md)** -instale o Monitor de Status no seu servidor.
+* **[Eventos personalizados de código](./api-custom-events-metrics.md)** para contagem, tempo ou medição de ações do usuário.
+* **[Obter dados de log](./asp-net-trace-logs.md)** - correlacionar dados de log com a telemetria.
 
 ### <a name="analysis"></a>Análise
 
-* **[Trabalhar com o Application Insights no Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Inclui informações sobre a depuração de telemetria, pesquisa de diagnóstico e análise por meio de código.
-* **[Analytics](../../azure-monitor/log-query/get-started-portal.md)** - a linguagem de consulta poderosa.
+* **[Trabalhar com o Application Insights no Visual Studio](./visual-studio.md)**<br/>Inclui informações sobre a depuração de telemetria, pesquisa de diagnóstico e análise por meio de código.
+* **[Analytics](../log-query/get-started-portal.md)** - a linguagem de consulta poderosa.
 
 ### <a name="alerts"></a>Alertas
 
-* [Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md): Crie testes para garantir que o site esteja visível na Web.
-* [Diagnóstico inteligente](../../azure-monitor/app/proactive-diagnostics.md): Esses testes são executados automaticamente, portanto, nenhuma configuração adicional será necessária. Eles informam se o aplicativo tem uma taxa incomum de solicitações com falha.
-* [Alertas de métrica](../../azure-monitor/platform/alerts-log.md): Definir alertas para avisar se uma métrica ultrapassar um limite. Você pode defini-los em métricas personalizadas que você codifica em seu aplicativo.
+* [Testes de disponibilidade](./monitor-web-app-availability.md): Crie testes para garantir que o site esteja visível na Web.
+* [Diagnóstico inteligente](./proactive-diagnostics.md): Esses testes são executados automaticamente, portanto, nenhuma configuração adicional será necessária. Eles informam se o aplicativo tem uma taxa incomum de solicitações com falha.
+* [Alertas de métrica](../platform/alerts-log.md): Definir alertas para avisar se uma métrica ultrapassar um limite. Você pode defini-los em métricas personalizadas que você codifica em seu aplicativo.
 
 ### <a name="automation"></a>Automação
 
-* [Automatizar a criação de um recurso adicional do Application Insights](../../azure-monitor/app/powershell.md)
+* [Automatizar a criação de um recurso adicional do Application Insights](./powershell.md)
+

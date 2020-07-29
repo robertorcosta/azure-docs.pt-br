@@ -1,6 +1,6 @@
 ---
 title: Criar, alterar ou excluir um endereço IP público do Azure | Microsoft Docs
-description: Aprenda a criar, alterar ou excluir um endereço IP público.
+description: Criar, alterar ou excluir um endereço IP público. Além disso, saiba como um endereço IP público é um recurso com suas próprias configurações configuráveis.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 7da6c0f88ae68f473e57590824e675299f7d524b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c0766dc063932c5fdd41a4e21ac11befd84a0e5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068568"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265102"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Criar, alterar ou excluir um endereço IP público
 
@@ -46,7 +46,7 @@ Os endereços IP públicos têm um encargo nominal. Para ver os preços, acesse 
 
 ## <a name="create-a-public-ip-address"></a>Criar um endereço IP público
 
-1. No menu do portal do Azure ou na **Página inicial**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
 2. Digite *endereço ip público* em *Pesquisar na caixa Marketplace*. Quando os **Endereços IP públicos** aparecerem nos resultados da pesquisa, clique nele.
 3. Em **endereço IP público**, selecione **Criar**.
 4. Insira, ou selecione os valores para as configurações a seguir em **Criar endereço IP público**, em seguida, selecione **Criar**:

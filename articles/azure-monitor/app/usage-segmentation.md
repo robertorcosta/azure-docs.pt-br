@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0d605286df70988852d1650be58cfb2c395de814
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d11b12ba37d543ec21985c52c4ffb3399bfc56d1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539798"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323512"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Análise de usuários, sessões e eventos no Application Insights
 
-Descubra quando as pessoas usam seu aplicativo Web, em quais páginas elas estão mais interessadas, onde os usuários estão localizados e quais navegadores e sistemas operacionais eles usam. Analisar a telemetria de negócios e de uso com o [Application Insights do Azure](../../azure-monitor/app/app-insights-overview.md).
+Descubra quando as pessoas usam seu aplicativo Web, em quais páginas elas estão mais interessadas, onde os usuários estão localizados e quais navegadores e sistemas operacionais eles usam. Analisar a telemetria de negócios e de uso com o [Application Insights do Azure](./app-insights-overview.md).
 
 ![Captura de tela de Usuários do Application Insights](./media/usage-segmentation/0001-users.png)
 
@@ -29,9 +29,9 @@ Três das folhas de uso usam a mesma ferramenta para dividir a telemetria do seu
 
 * **Ferramenta de usuários**: Quantas pessoas usaram seu aplicativo e seus recursos.  Os usuários são contados usando IDs anônimas armazenadas em cookies do navegador. Uma única pessoa que usar diferentes navegadores ou computadores será contada como mais de um usuário.
 * **Ferramenta de sessões**: Quantas sessões de atividade do usuário incluíram determinadas páginas e recursos de seu aplicativo. Uma sessão é contada após meia hora de inatividade do usuário ou após 24 horas contínuas de uso.
-* **Ferramenta de eventos**: Com que frequência determinadas páginas e recursos de seu aplicativo são usados. Uma exibição de página é contada quando um navegador carrega uma página do seu aplicativo, desde que você a tenha [instrumentado](../../azure-monitor/app/javascript.md). 
+* **Ferramenta de eventos**: Com que frequência determinadas páginas e recursos de seu aplicativo são usados. Uma exibição de página é contada quando um navegador carrega uma página do seu aplicativo, desde que você a tenha [instrumentado](./javascript.md). 
 
-    Um evento personalizado representa uma ocorrência de algo que esteja acontecendo em seu aplicativo, geralmente uma interação do usuário, como um clique de botão ou a conclusão de uma tarefa. Insira o código em seu aplicativo para [gerar eventos personalizados](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
+    Um evento personalizado representa uma ocorrência de algo que esteja acontecendo em seu aplicativo, geralmente uma interação do usuário, como um clique de botão ou a conclusão de uma tarefa. Insira o código em seu aplicativo para [gerar eventos personalizados](./api-custom-events-metrics.md#trackevent).
 
 ## <a name="querying-for-certain-users"></a>Consultas a determinados usuários
 
@@ -62,5 +62,6 @@ A seção **Conheça seus usuários** mostra informações sobre cinco usuários
     - [Funis](usage-funnels.md)
     - [Retenção](usage-retention.md)
     - [Fluxos de Usuário](usage-flows.md)
-    - [Pastas de trabalho](../../azure-monitor/platform/workbooks-overview.md)
+    - [Pastas de trabalho](../platform/workbooks-overview.md)
     - [Adicionar contexto de usuário](usage-send-user-context.md)
+

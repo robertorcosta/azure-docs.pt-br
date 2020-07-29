@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: f34389785c0f4a43bfcab3e50f2dcd132b2cb629
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8abd9d7f33a07141418ad67cc2128af40ad0bd51
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505798"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324753"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Transição da pesquisa de logs do Log Analytics para os logs do Azure Monitor
 Recentemente, a pesquisa de logs do Log Analytics foi substituída por uma nova experiência de análise de logs do Azure Monitor. Atualmente, a página Pesquisa de logs ainda pode ser acessada por meio do item de menu **Logs (clássico)** na página **Workspaces do Log Analytics** no portal do Azure, mas será removida em 15 de fevereiro de 2019. Este artigo descreve as diferenças entre as duas experiências para ajudar você a fazer a transição da pesquisa de logs. 
@@ -44,7 +44,7 @@ Para salvar a consulta atual nos logs do Azure Monitor, selecione **Salvar**. Al
 ![Salvar a consulta de log](media/log-search-transition/save-query-logs.png)
 
 ## <a name="saved-queries"></a>Consultas salvas
-Na Pesquisa de Logs, as consultas salvas ficam disponíveis por meio do item da barra de ações **Pesquisas salvas**. Nos logs do Azure Monitor, acesse as consultas salvas no [Gerenciador de Consultas](../log-query/get-started-portal.md#save-queries).
+Na Pesquisa de Logs, as consultas salvas ficam disponíveis por meio do item da barra de ações **Pesquisas salvas**. Nos logs do Azure Monitor, acesse as consultas salvas no [Gerenciador de Consultas](./get-started-portal.md#save-queries).
 
 ![Gerenciador de consultas](media/log-search-transition/query-explorer.png)
 
@@ -69,3 +69,4 @@ Nos logs do Azure Monitor, [crie um alerta com base na consulta de log](../platf
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre a nova [experiência de logs do Azure Monitor](get-started-portal.md).
+

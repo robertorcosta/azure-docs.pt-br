@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: 1dda2df64dc116a950498aaf581ec39a86db72bb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 080af271870362e6e0633aaf590820f2fadb6144
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505730"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325382"
 ---
 # <a name="azure-monitor-log-queries"></a>Consultas de log do Azure Monitor
 
@@ -26,15 +26,15 @@ Os logs do Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log
 
 ## <a name="concepts"></a>Conceitos
 
-- [Analisar dados de log no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) fornece uma breve visão geral das consultas de log e descreve como os dados de log do Azure Monitor são estruturados.
+- [Analisar dados de log no Azure Monitor](./log-query-overview.md) fornece uma breve visão geral das consultas de log e descreve como os dados de log do Azure Monitor são estruturados.
 - [Exibir e analisar dados de log no Azure Monitor](./log-query-overview.md) explica os portais nos quais você pode criar e executar consultas de log.
 
 ## <a name="reference"></a>Referência
 
 - A [Referência da linguagem de consulta](/azure/kusto/query) é a referência completa da linguagem de consulta do Kusto.
 - As [diferenças na linguagem de consulta de log do Azure Monitor](data-explorer-difference.md) descrevem as diferenças entre as versões da linguagem de consulta do Kusto.
-- [Propriedades padrão nos registros de log do Azure Monitor](../../azure-monitor/platform/log-standard-properties.md) descreve as propriedades que são padrão para todos os dados de log do Azure Monitor.
-- [Executar consultas entre logs de recursos no Azure Monitor](../../azure-monitor/log-query/cross-workspace-query.md) descreve como escrever consultas de log que usam dados de vários workspaces do Log Analytics e aplicativos do Application Insights.
+- [Propriedades padrão nos registros de log do Azure Monitor](../platform/log-standard-properties.md) descreve as propriedades que são padrão para todos os dados de log do Azure Monitor.
+- [Executar consultas entre logs de recursos no Azure Monitor](./cross-workspace-query.md) descreve como escrever consultas de log que usam dados de vários workspaces do Log Analytics e aplicativos do Application Insights.
 
 ## <a name="examples"></a>Exemplos
 
@@ -58,3 +58,4 @@ Os logs do Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log
 ## <a name="next-steps"></a>Próximas etapas
 
 - Acesse a [documentação de referência completa da linguagem de consulta do Kusto](/azure/kusto/query/).
+

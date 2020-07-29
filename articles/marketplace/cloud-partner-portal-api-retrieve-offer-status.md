@@ -4,15 +4,15 @@ description: API para recuperar o status atual da oferta.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 5652e7b6123a9836c574059e83101a073eea56ea
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 336f23f83c33bcee1887d0e41710e686b794a663
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535868"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87272004"
 ---
 # <a name="retrieve-offer-status"></a>Recuperar status da oferta
 
@@ -151,10 +151,10 @@ Recupera o status atual da oferta.
 |  NeverPublished              | A oferta nunca foi publicada.                          |
 |  NotStarted                  | A oferta é nova e não iniciada.                            |
 |  WaitingForPublisherReview   | A oferta aguarda aprovação do editor.                 |
-|  Em execução                     | O envio da oferta está sendo processado.                     |
-|  Teve êxito                   | O envio da oferta concluiu o processamento.               |
+|  Executando                     | O envio da oferta está sendo processado.                     |
+|  Com sucesso                   | O envio da oferta concluiu o processamento.               |
 |  Canceled                    | O envio da oferta foi cancelado.                           |
-|  Failed (Falha)                      | O envio da oferta falhou.                                 |
+|  Com falha                      | O envio da oferta falhou.                                 |
 |  |  |
 
 ### <a name="step-status"></a>Status da etapa

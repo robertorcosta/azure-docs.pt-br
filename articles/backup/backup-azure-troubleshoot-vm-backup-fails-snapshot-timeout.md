@@ -1,22 +1,71 @@
 ---
 title: Solucionar problemas de agente e extensão
 description: Sintomas, causas e resoluções para falhas do Backup do Azure relacionados a agente, extensão e discos.
-ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 55af4bddb5a963a831c1438400a7a243cca20573
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5bf52606e6fa5de6a122a65432da87de1491e17f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538812"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324736"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha do Backup do Azure: problemas com o agente ou a extensão
 
 Este artigo fornece etapas de solução de problemas que podem ajudar você a resolver erros de Backup do Azure relacionados à comunicação com a extensão e o agente da VM.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+## <a name="step-by-step-guide-to-troubleshoot-backup-failures"></a>Guia passo a passo para solucionar problemas de falhas de backup
+
+As falhas de backup mais comuns podem ser autoresolvidas seguindo as etapas de solução de problemas listadas abaixo:
+
+### <a name="step-1-check-azure-vm-health"></a>Etapa 1: verificar a integridade da VM do Azure
+
+- **Verifique se o estado de provisionamento da VM do Azure está ' em execução '**: se o [estado de provisionamento da VM](https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle#provisioning-states) estiver no estado **parado/desalocado/atualizando** , ele irá interferir na operação de backup. Abra *portal do Azure > VM > visão geral >* e verifique o status da VM para garantir que ela esteja **em execução** e repita a operação de backup.
+- **Revisar atualizações ou reinicializações pendentes do so**: Verifique se não há nenhuma atualização do sistema operacional pendente ou reinicializações pendentes na VM.
+
+### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>Etapa 2: verificar a integridade do serviço do agente convidado de VM do Azure
+
+- **Verifique se o serviço agente convidado de VM do Azure foi iniciado e atualizado**:
+  - Em uma VM do Windows:
+    - Navegue até **Services. msc** e verifique se o **serviço de agente convidado de VM do Windows Azure** está em execução. Além disso, verifique se a [versão mais recente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) está instalada. Para saber mais, consulte [problemas do agente convidado de VM do Windows](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).
+    - O agente de VM do Azure é instalado por padrão em qualquer VM do Windows implantada da imagem do Azure Marketplace do portal, do PowerShell, da interface de linha de comando ou de um modelo de Azure Resource Manager. Uma [instalação manual do agente](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows#manual-installation) pode ser necessária quando você cria uma imagem de VM personalizada que é implantada no Azure.
+    - Examine a matriz de suporte para verificar se a VM é executada no [sistema operacional Windows com suporte](backup-support-matrix-iaas.md#operating-system-support-windows).
+  - Na VM do Linux,
+    - Verifique se o serviço do agente convidado de VM do Azure está em execução executando o comando `ps-e` . Além disso, verifique se a [versão mais recente](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) está instalada. Para saber mais, consulte [problemas do agente convidado de VM do Linux](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
+    - Verifique se as [dependências do agente de VM do Linux em pacotes do sistema](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) têm a configuração com suporte. Por exemplo: a versão do Python com suporte é 2,6 e superior.
+    - Examine a matriz de suporte para verificar se a VM é executada no [sistema operacional Linux com suporte.](backup-support-matrix-iaas.md#operating-system-support-linux)
+
+### <a name="step-3-check-azure-vm-extension-health"></a>Etapa 3: verificar a integridade da extensão de VM do Azure
+
+- **Verifique se todas as extensões de VM do Azure estão no estado ' provisionamento bem-sucedido '**: se alguma extensão estiver em um estado de falha, ela poderá interferir no backup.
+- *Abra portal do Azure > VM > configurações > extensões > status de extensões* e verifique se todas as extensões estão em estado de **provisionamento bem-sucedido** .
+- Verifique se todos os [problemas de extensão](https://docs.microsoft.com/azure/virtual-machines/extensions/overview#troubleshoot-extensions) foram resolvidos e repita a operação de backup.
+- **Verifique se o aplicativo de sistema com+** está em execução. Além disso, o **serviço de coordenador de transações distribuídas** deve ser executado como uma conta de serviço de **rede**. Siga as etapas neste artigo para [solucionar problemas de com+ e MSDTC](backup-azure-vms-troubleshoot.md#extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error).
+
+### <a name="step-4-check-azure-backup-vm-extension-health"></a>Etapa 4: verificar a integridade da extensão de VM do backup do Azure
+
+O backup do Azure usa a extensão de instantâneo da VM para obter um backup consistente com o aplicativo da máquina virtual do Azure. O backup do Azure instalará a extensão como parte do primeiro backup agendado disparado após habilitar o backup.
+
+- **Verifique se a extensão VMSnapshot não está em um estado de falha**: siga as etapas listadas nesta [seção](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) para verificar e garantir que a extensão de backup do Azure esteja íntegra.
+
+- **Verifique se o antivírus está bloqueando a extensão**: determinados softwares antivírus podem impedir a execução de extensões.
+  
+  No momento da falha do backup, verifique se há entradas de log em ***Visualizador de eventos logs de aplicativo*** com o ***nome do aplicativo com falha: IaaSBcdrExtension.exe***. Se você vir entradas, pode ser que o antivírus configurado na VM esteja restringindo a execução da extensão de backup. Teste excluindo os seguintes diretórios na configuração de antivírus e repita a operação de backup.
+  - `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
+  - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
+
+- **Verifique se o acesso à rede é necessário**: os pacotes de extensão são baixados do repositório de extensões de armazenamento do Azure e os carregamentos de status de extensão são postados no armazenamento do Azure. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows#network-access).
+  - Se você estiver usando uma versão sem suporte do agente, será necessário permitir o acesso de saída no armazenamento do Microsoft Azure nessa região por meio da VM.
+  - Se você tiver bloqueado o acesso ao `168.63.129.16` usando o firewall convidado ou com um proxy, as extensões falharão independentemente das anteriores. As portas 80, 443 e 32526 são necessárias, [saiba mais](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows#network-access).
+
+- **Verifique se o DHCP está habilitado na VM convidada**: isso é necessário para obter o endereço de host ou de malha do DHCP para que o backup da VM IaaS funcione. Se você precisar de um IP privado estático, deverá configurá-lo por meio do portal do Azure ou do PowerShell e certificar-se de que a opção DHCP dentro da VM esteja habilitada, [saiba mais](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken).
+
+- **Verifique se o Serviço gravador VSS está em execução**: Siga estas etapas para [solucionar problemas do gravador VSS](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
+- **Siga as diretrizes de práticas recomendadas de backup**: examine as [práticas recomendadas para habilitar o backup de VM do Azure](backup-azure-vms-introduction.md#best-practices).
+- **Examinar as diretrizes para discos criptografados**: se você estiver habilitando o backup para VMs com disco criptografado, certifique-se de ter fornecido todas as permissões necessárias. Para saber mais, confira [fazer backup e restaurar a VM do Azure criptografada](backup-azure-vms-encryption.md#encryption-support).
 
 ## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - o agente de VM não pode se comunicar com o Backup do Azure
 

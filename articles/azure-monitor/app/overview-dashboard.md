@@ -3,11 +3,12 @@ title: Painel de Visão geral do Azure Application Insights | Microsfoft Docs
 description: Monitore aplicativos com a funcionalidade do Azure Application Insights e do Painel de Visão Geral.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: e5188972d9058b85a9765c7d33f6209b37245d7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c8aa4460a545f032eaa60560de00efff27ae1ef
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669889"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322526"
 ---
 # <a name="application-insights-overview-dashboard"></a>Painel de visão geral do Application Insights
 
@@ -56,6 +57,7 @@ Se você selecionar **definir configurações de bloco** e definir um intervalo 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Funis](../../azure-monitor/app/usage-funnels.md)
-- [Retenção](../../azure-monitor/app/usage-retention.md)
-- [Fluxos de Usuário](../../azure-monitor/app/usage-flows.md)
+- [Funis](./usage-funnels.md)
+- [Retenção](./usage-retention.md)
+- [Fluxos de Usuário](./usage-flows.md)
+

@@ -4,12 +4,12 @@ description: Introdução ao Application Insights. Analise o uso, disponibilidad
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 2b93e7f0fdb909a40667b001fa99929b3cfe27ad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d624286d214a86364fe85192bf5ede885d4b6a78
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014158"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323444"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitore o desempenho em aplicativos da web
 
@@ -23,9 +23,9 @@ No lado do cliente, o Application Insights pode realizar a telemetria de página
 ## <a name="set-up-performance-monitoring"></a><a name="setup"></a>Configurar o monitoramento de desempenho
 Se você ainda não tem o Application Insights adicionado ao seu projeto (ou seja, não tem o ApplicationInsights.config), escolha uma destas formas para começar:
 
-* [Aplicativos Web ASP.NET](../../azure-monitor/app/asp-net.md)
-  * [Adicionar monitoramento de exceção](../../azure-monitor/app/asp-net-exceptions.md)
-  * [Adicionar monitoramento de dependência](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Aplicativos Web ASP.NET](./asp-net.md)
+  * [Adicionar monitoramento de exceção](./asp-net-exceptions.md)
+  * [Adicionar monitoramento de dependência](./monitor-performance-live-website-now.md)
 * [Aplicativos da web de Java EE](./java-in-process-agent.md)
 
 ## <a name="exploring-performance-metrics"></a><a name="view"></a>Explorando métricas de desempenho
@@ -106,7 +106,7 @@ Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Encontrar e corrigir gargalos de desempenho com uma experiência de investigação de desempenho
 
-Use a experiência de investigação de desempenho para examinar operações em seu aplicativo Web que apresentam lentidão no desempenho. Você pode selecionar rapidamente uma operação lenta específica e usar o [Criador de Perfil](../../azure-monitor/app/profiler.md) para determinar, em nível de código, a causa raiz da lentidão nessas operações. Usando a nova distribuição de duração mostrada para a operação selecionada, que você pode rapidamente avaliar o quão problemática essa experiência é para seus clientes. Você pode ver quantas das interações do usuário foram afetadas para cada operação lenta. No exemplo a seguir, decidimos examinar mais detalhadamente a experiência para a operação GET Customers/Details. Na distribuição de duração, vemos que há três picos. O pico mais à esquerda é próximo de 400 ms e representa uma ótima experiência responsiva. O pico intermediário é próximo de 1,2 s e representa uma experiência mediana. Por fim, em 3,6 s, temos outro pico pequeno que representa a experiência no 99º percentil, que provavelmente fará com que nossos clientes saiam insatisfeitos. Essa experiência é dez vezes mais lenta do que a experiência ótima para a mesma operação. 
+Use a experiência de investigação de desempenho para examinar operações em seu aplicativo Web que apresentam lentidão no desempenho. Você pode selecionar rapidamente uma operação lenta específica e usar o [Criador de Perfil](./profiler.md) para determinar, em nível de código, a causa raiz da lentidão nessas operações. Usando a nova distribuição de duração mostrada para a operação selecionada, que você pode rapidamente avaliar o quão problemática essa experiência é para seus clientes. Você pode ver quantas das interações do usuário foram afetadas para cada operação lenta. No exemplo a seguir, decidimos examinar mais detalhadamente a experiência para a operação GET Customers/Details. Na distribuição de duração, vemos que há três picos. O pico mais à esquerda é próximo de 400 ms e representa uma ótima experiência responsiva. O pico intermediário é próximo de 1,2 s e representa uma experiência mediana. Por fim, em 3,6 s, temos outro pico pequeno que representa a experiência no 99º percentil, que provavelmente fará com que nossos clientes saiam insatisfeitos. Essa experiência é dez vezes mais lenta do que a experiência ótima para a mesma operação. 
 
 ![Três picos de duração de GET Customers/Details](./media/web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 
@@ -142,12 +142,13 @@ A experiência de investigação de desempenho mostra insights relevantes ao lad
 
 <!--Link references-->
 
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
+[greenbrown]: ./asp-net.md
 [qna]: ../faq.md
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[redfield]: ./monitor-performance-live-website-now.md
+[start]: ./app-insights-overview.md
 [usage]: usage-overview.md
-[livestream]: ../../azure-monitor/app/live-stream.md
-[snapshot]: ../../azure-monitor/app/snapshot-debugger.md
+[livestream]: ./live-stream.md
+[snapshot]: ./snapshot-debugger.md
+

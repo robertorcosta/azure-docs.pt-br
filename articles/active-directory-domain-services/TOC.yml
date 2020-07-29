@@ -31,6 +31,8 @@
       href: powershell-create-instance.md
     - name: Criar um domínio gerenciado usando um modelo
       href: template-create-instance.md
+    - name: Configurar a sincronização no escopo usando o PowerShell do Azure AD
+      href: powershell-scoped-synchronization.md
 - name: Conceitos
   items:
     - name: Bases de administração

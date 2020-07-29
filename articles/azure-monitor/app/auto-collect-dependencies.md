@@ -5,12 +5,12 @@ ms.topic: reference
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: ba7830cc1c0a3e6a563b4343b37ec07f7d508af4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2227facfcf469bc22034da0da504b390cc0deee1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087978"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324175"
 ---
 # <a name="dependency-auto-collection"></a>Coleta automática de dependência
 
@@ -84,13 +84,14 @@ Veja abaixo a lista atualmente com suporte de chamadas de dependência que são 
 
 | Bibliotecas de comunicação | Versões |
 | ------------------------|----------|
-| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | Tudo |
+| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | Todos |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Configurar o acompanhamento de dependência personalizado para [.NET](../../azure-monitor/app/asp-net-dependencies.md).
-- Configurar o acompanhamento de dependência personalizado para [Java](../../azure-monitor/app/java-agent.md).
-- Configure o acompanhamento de dependência personalizado para [Python OpenCensus](../../azure-monitor/app/opencensus-python-dependency.md).
-- [Escrever telemetria de dependência personalizada](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
-- Consulte [modelo de dados](../../azure-monitor/app/data-model.md) para modelo de dados e tipos do Application Insights.
-- Confira as [plataformas](../../azure-monitor/app/platforms.md) com suporte do Application Insights.
+- Configurar o acompanhamento de dependência personalizado para [.NET](./asp-net-dependencies.md).
+- Configurar o acompanhamento de dependência personalizado para [Java](./java-agent.md).
+- Configure o acompanhamento de dependência personalizado para [Python OpenCensus](./opencensus-python-dependency.md).
+- [Escrever telemetria de dependência personalizada](./api-custom-events-metrics.md#trackdependency)
+- Consulte [modelo de dados](./data-model.md) para modelo de dados e tipos do Application Insights.
+- Confira as [plataformas](./platforms.md) com suporte do Application Insights.
+
