@@ -13,12 +13,12 @@ ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 1478ee1396390e26d333230b0254578ec748ef6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc93f4062851f01dd127c108ca60bc240a1940e6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477253"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311748"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>Controle o ITP no Safari e em outros navegadores em que os cookies de terceiros são bloqueados
 
@@ -46,7 +46,7 @@ Para a plataforma de identidade da Microsoft, SPAs e clientes nativos seguem dir
 
 Os SPAs têm duas restrições adicionais:
 
-* [O URI de redirecionamento deve ser marcado como o tipo `spa`](v2-oauth2-auth-code-flow.md#setup-required-for-single-page-apps) para habilitar CORS em pontos de extremidade de logon.
+* [O URI de redirecionamento deve ser marcado como o tipo `spa`](v2-oauth2-auth-code-flow.md#redirect-uri-setup-required-for-single-page-apps) para habilitar CORS em pontos de extremidade de logon.
 * Os tokens de atualização emitidos pelo fluxo de código de autorização para URIs de redirecionamento `spa` têm um tempo de vida de 24 horas em vez de um tempo de vida de 90 dias.
 
 ![Fluxo de código para aplicativos SPA](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)

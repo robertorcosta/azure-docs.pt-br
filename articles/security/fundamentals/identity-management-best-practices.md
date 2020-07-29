@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 35fd95272530ed31f8ee197679e9368ca74ebef1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 852a8c8eb7e6a87739c58967eefd6c18e996b225
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089661"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367394"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Práticas recomendadas de Gerenciamento de Identidade do Azure e segurança de controle de acesso
 
@@ -204,7 +204,7 @@ A equipe de segurança precisa ver os recursos do Azure para avaliar e corrigir 
 Você pode usar o [RBAC](/azure/role-based-access-control/overview) para atribuir permissões a usuários, grupos e aplicativos em um determinado escopo. O escopo de uma atribuição de função pode ser uma assinatura, um grupo de recursos ou um único recurso.
 
 **Melhor prática**: Separar tarefas dentro da equipe e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos. Em vez de apresentar todos irrestrito permissões em sua assinatura do Azure ou recursos, permita apenas determinadas ações para um escopo específico.
-**Detalhe**: Use [funções internas do RBAC](/azure/role-based-access-control/built-in-roles) no Azure para atribuir privilégios aos usuários.
+**Detalhe**: use [funções internas do Azure](/azure/role-based-access-control/built-in-roles) no Azure para atribuir privilégios a usuários.
 
 > [!Note]
 > Permissões específicas criam complexidade e confusão desnecessárias, acumuladas em uma configuração "herdada" que é difícil de corrigir, devido ao medo de quebrar algo. Evite permissões específicas para cada recurso. Em vez disso, use grupos de gerenciamento para permissões de toda a empresa e grupos de recursos para permissões nas assinaturas. Evite permissões específicas para cada usuário. Em vez disso, atribua acesso a grupos do Azure Active Directory.

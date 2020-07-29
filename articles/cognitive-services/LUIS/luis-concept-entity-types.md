@@ -3,12 +3,12 @@ title: Tipos de entidade-LUIS
 description: Uma entidade extrai dados de um usuário expressão no tempo de execução de previsão. Uma finalidade _opcional_e secundária é impulsionar a previsão da intenção ou de outras entidades usando a entidade como um recurso.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 61dc0688cd304a672321f846a3ae5798c271345d
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: ced4a3e23b8e532b54d0b3cf974dab233b81b375
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676481"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337612"
 ---
 # <a name="extract-data-with-entities"></a>Extrair dados com entidades
 
@@ -32,7 +32,7 @@ As entidades precisam ser rotuladas consistentemente em todos os declarações d
 
 |Enunciado|Entidade|Dados|
 |--|--|--|
-|Comprar três passagens para Nova York|Número predefinido<br>Destino|3<br>Nova Iorque|
+|Comprar três passagens para Nova York|Número predefinido<br>Destino|3<br>Nova York|
 
 
 ### <a name="entities-are-optional-but-recommended"></a>As entidades são opcionais, mas recomendadas
@@ -77,6 +77,12 @@ Para criar com eficiência as entidades aprendidas pelo computador:
 * Seu rotulamento deve ser consistente entre as intenções. Isso inclui até mesmo declarações que você fornece na intenção **None** que inclui essa entidade. Caso contrário, o modelo não será capaz de determinar as sequências com eficiência.
 * Se você tiver uma entidade aprendida por máquina com subentidades, certifique-se de que as diferentes ordens e variantes da entidade e das subentidades sejam apresentadas no declarações rotulado. O exemplo rotulado declarações deve incluir todos os formulários válidos e incluir entidades que aparecem e que estão ausentes e também reordenadas dentro do expressão.
 * Evite sobreajustar as entidades a um conjunto muito fixo. O **superajuste** acontece quando o modelo não é generalizado e é um problema comum em modelos de aprendizado de máquina. Isso implica que o aplicativo não funcionaria em novos dados adequadamente. Por sua vez, você deve variar o exemplo rotulado declarações para que o aplicativo possa generalizar além dos exemplos limitados que você fornecer. Você deve variar as diferentes subentidades com alteração suficiente para o modelo considerar mais o conceito, em vez de apenas os exemplos mostrados.
+
+## <a name="effective-prebuilt-entities"></a>Entidades predefinidas efetivas
+
+Para criar entidades efetivas que extraem dados comuns, como aqueles fornecidos pelas [entidades predefinidas](luis-reference-prebuilt-entities.md), recomendamos o processo a seguir.
+
+Melhore a extração de dados colocando seus próprios dados em uma entidade como um recurso. Dessa forma, todos os rótulos adicionais de seus dados aprenderão o contexto de onde existem nomes de pessoas em seu aplicativo.
 
 <a name="composite-entity"></a>
 <a name="list-entity"></a>

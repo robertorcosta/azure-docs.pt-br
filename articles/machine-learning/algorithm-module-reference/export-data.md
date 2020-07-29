@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 279ba2ca5b82d7bad5b55736179f92a0146bdc84
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/28/2020
+ms.openlocfilehash: 904b3ce1c2d05d713ee1ae99662148217f2a358e
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048156"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337816"
 ---
 # <a name="export-data-module"></a>Exportar módulo de dados
 
@@ -41,6 +41,9 @@ Antes de exportar seus dados, você precisa primeiro registrar um repositório d
 1. Selecione **exportar dados** para abrir o painel **Propriedades** .
 
 1. Para o **repositório de armazenamento**, selecione um repositório de armazenamento existente na lista suspensa. Você também pode criar um novo repositório de armazenamento. Verifique como [acessar dados do Access nos serviços de armazenamento do Azure](../how-to-access-data.md).
+
+    > [!NOTE]
+    > Não há suporte para a exportação de dados de um determinado tipo de dados para uma coluna de banco de dados SQL especificada como outro tipo de dado.
 
 1. A caixa de seleção, **regenerar saída**, decide se o módulo deve ser executado para regenerar a saída em tempo de execução. 
 

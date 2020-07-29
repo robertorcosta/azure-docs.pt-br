@@ -3,16 +3,16 @@ title: Azure DevTest Labs o uso em vários laboratórios e assinaturas
 description: Saiba como relatar o uso de Azure DevTest Labs em vários laboratórios e assinaturas.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8650244df4c8eb08d4ccc87b1e23fe1e3d047c54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d2663113e929145308f5a5712b968f3551668c2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483424"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287275"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Relatório de Azure DevTest Labs uso em vários laboratórios e assinaturas
 
-A maioria das grandes organizações deseja controlar o uso de recursos para ser mais eficiente com esses recursos visualizando tendências e exceções no uso. Com base no uso de recursos, os proprietários ou gerentes de laboratório podem personalizar os laboratórios para [melhorar o uso de recursos e os custos](https://docs.microsoft.com/azure/billing/billing-getting-started). No Azure DevTest Labs, você pode baixar o uso de recursos por laboratório, permitindo uma análise mais profunda dos padrões de uso. Esses padrões de uso podem ajudar a identificar as alterações para melhorar a eficiência. A maioria das empresas quer o uso de laboratório individual e o uso geral em [vários laboratórios e assinaturas](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
+A maioria das grandes organizações deseja controlar o uso de recursos para ser mais eficiente com esses recursos visualizando tendências e exceções no uso. Com base no uso de recursos, os proprietários ou gerentes de laboratório podem personalizar os laboratórios para [melhorar o uso de recursos e os custos](../cost-management-billing/manage/getting-started.md). No Azure DevTest Labs, você pode baixar o uso de recursos por laboratório, permitindo uma análise mais profunda dos padrões de uso. Esses padrões de uso podem ajudar a identificar as alterações para melhorar a eficiência. A maioria das empresas quer o uso de laboratório individual e o uso geral em [vários laboratórios e assinaturas](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
 
 Este artigo discute como lidar com informações de uso de recursos em vários laboratórios e assinaturas.
 
@@ -24,8 +24,8 @@ Esta seção discute como exportar o uso de recursos para um único laboratório
 
 Antes de poder exportar o uso de recursos do DevTest Labs, você precisa configurar uma conta de armazenamento do Azure para permitir que os diferentes arquivos que contêm os dados de uso sejam armazenados. Há duas maneiras comuns de executar a exportação de dados:
 
-* [API REST do DevTest Labs](https://docs.microsoft.com/rest/api/dtl/labs/exportresourceusage) 
-* O módulo AZ. Resource do PowerShell [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) com a ação de `exportResourceUsage` , a ID de recurso do laboratório e os parâmetros necessários. 
+* [API REST do DevTest Labs](/rest/api/dtl/labs/exportresourceusage) 
+* O módulo AZ. Resource do PowerShell [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) com a ação de `exportResourceUsage` , a ID de recurso do laboratório e os parâmetros necessários. 
 
     O artigo [exportar ou excluir dados pessoais](personal-data-delete-export.md) contém um exemplo de script do PowerShell com informações detalhadas sobre os dados exportados. 
 
@@ -48,8 +48,8 @@ Esses arquivos são armazenados no contêiner de blob *labresourceusage* sob o n
 
 Para exportar as informações de uso para vários laboratórios, considere o uso do 
 
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/), disponível em muitas linguagens, incluindo o PowerShell ou 
-* [Runbook de automação do Azure](https://docs.microsoft.com/azure/automation/), use o PowerShell, o Python ou um designer gráfico personalizado para gravar o código de exportação.
+* [Azure Functions](../azure-functions/index.yml), disponível em muitas linguagens, incluindo o PowerShell ou 
+* [Runbook de automação do Azure](../automation/index.yml), use o PowerShell, o Python ou um designer gráfico personalizado para gravar o código de exportação.
 
 Usando essas tecnologias, você pode executar exportações de laboratório individuais em todos os laboratórios em uma data e hora específicas. 
 
@@ -69,7 +69,7 @@ Algumas soluções de armazenamento comuns são: [SQL Server](https://azure.micr
 
 ## <a name="visualizing-data-and-gathering-insights"></a>Visualizando dados e coletando informações
 
-Use uma ferramenta de visualização de dados de sua escolha para se conectar ao armazenamento de longo prazo para exibir os dados de uso e coletar informações para verificar a eficiência do uso. Por exemplo, [Power bi](https://docs.microsoft.com/power-bi/power-bi-overview) pode ser usado para organizar e exibir os dados de uso. 
+Use uma ferramenta de visualização de dados de sua escolha para se conectar ao armazenamento de longo prazo para exibir os dados de uso e coletar informações para verificar a eficiência do uso. Por exemplo, [Power bi](/power-bi/power-bi-overview) pode ser usado para organizar e exibir os dados de uso. 
 
 Você pode usar [Azure data Factory](https://azure.microsoft.com/services/data-factory/) para criar, vincular e gerenciar seus recursos em uma única interface de local. Se for necessário um controle maior, o recurso individual poderá ser criado dentro de um único grupo de recursos e gerenciado independentemente do serviço de Data Factory.  
 

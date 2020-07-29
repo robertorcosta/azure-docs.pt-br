@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: df56f53b64a35737700529b80c004efeb31eaabc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4da024eb4eb3747b8e0d6b291ca5b00df12aaeab
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80348669"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367513"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Práticas recomendadas de configuração do Azure App
 
@@ -42,7 +42,7 @@ Os *Rótulos* são um atributo nas chaves. Eles são usados para criar variantes
 
 A configuração de aplicativo trata todas as chaves armazenadas com ela como entidades independentes. A configuração do aplicativo não tenta inferir nenhuma relação entre as chaves ou para herdar valores de chave com base em sua hierarquia. Você pode agregar vários conjuntos de chaves, no entanto, usando rótulos acoplados ao empilhamento de configuração adequado no código do aplicativo.
 
-Vejamos um exemplo. Suponha que você tenha uma configuração chamada **Asset1**, cujo valor pode variar com base no ambiente de desenvolvimento. Você cria uma chave chamada "Asset1" com um rótulo vazio e um rótulo chamado "desenvolvimento". No primeiro rótulo, você coloca o valor padrão para **Asset1**e coloca um valor específico para "desenvolvimento" no último.
+Vamos examinar um exemplo. Suponha que você tenha uma configuração chamada **Asset1**, cujo valor pode variar com base no ambiente de desenvolvimento. Você cria uma chave chamada "Asset1" com um rótulo vazio e um rótulo chamado "desenvolvimento". No primeiro rótulo, você coloca o valor padrão para **Asset1**e coloca um valor específico para "desenvolvimento" no último.
 
 No seu código, você primeiro recupera os valores de chave sem rótulos e, em seguida, recupera o mesmo conjunto de valores de chave pela segunda vez com o rótulo "desenvolvimento". Quando você recupera os valores da segunda vez, os valores anteriores das chaves são substituídos. O sistema de configuração do .NET Core permite que você "empilhe" vários conjuntos de dados de configuração em cima um do outro. Se existir uma chave em mais de um conjunto, o último conjunto que a contém será usado. Com uma estrutura de programação moderna, como o .NET Core, você obterá essa capacidade de empilhamento gratuitamente se usar um provedor de configuração nativo para acessar a configuração do aplicativo. O trecho de código a seguir mostra como você pode implementar o empilhamento em um aplicativo .NET Core:
 
@@ -81,7 +81,7 @@ Solicitações excessivas para a configuração do aplicativo podem resultar na 
 
 * Assista a uma única *chave do Sentinela*, em vez de observar as chaves individuais. Atualize todas as configurações somente se a chave do Sentinela for alterada. Consulte [usar a configuração dinâmica em um aplicativo ASP.NET Core](enable-dynamic-configuration-aspnet-core.md) para obter um exemplo.
 
-* Use a grade de eventos do Azure para receber notificações quando a configuração for alterada, em vez de sondar constantemente qualquer alteração. Consulte [rotear eventos de configuração de Azure app para um ponto de extremidade da Web](./howto-app-configuration-event.md) para obter mais informações
+* Use a grade de eventos do Azure para receber notificações quando a configuração for alterada, em vez de sondar constantemente qualquer alteração. Para obter mais informações, consulte [rotear eventos de configuração de Azure app para um ponto de extremidade da Web](./howto-app-configuration-event.md)
 
 ## <a name="importing-configuration-data-into-app-configuration"></a>Importando dados de configuração para configuração de aplicativo
 

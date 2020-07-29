@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: a153a3735bbc46dbbce7e58374e1015ac1ec0bfb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: daf4eb4492f723b049dc62a16351e04ffc252337
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133173"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289256"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurar acesso de leitura público anônimo para contêineres e blobs
 
-O armazenamento do Azure dá suporte ao acesso de leitura público anônimo opcional para contêineres e blobs. Por padrão, o acesso anônimo aos seus dados nunca é permitido. A menos que você habilite explicitamente o acesso anônimo, todas as solicitações para um contêiner e seus BLOBs devem ser autorizadas usando o Azure Active Directory (Azure AD) ou a autorização de chave compartilhada. Quando você define a configuração de nível de acesso público de um contêiner para permitir acesso anônimo, os clientes podem ler dados nesse contêiner sem autorizar a solicitação.
+O armazenamento do Azure dá suporte ao acesso de leitura público anônimo opcional para contêineres e blobs. Por padrão, o acesso anônimo aos seus dados nunca é permitido. A menos que você habilite explicitamente o acesso anônimo, todas as solicitações para um contêiner e seus BLOBs devem ser autorizadas. Quando você define a configuração de nível de acesso público de um contêiner para permitir acesso anônimo, os clientes podem ler dados nesse contêiner sem autorizar a solicitação.
 
 > [!WARNING]
 > Quando um contêiner é configurado para acesso público, qualquer cliente pode ler dados nesse contêiner. O acesso público apresenta um risco de segurança potencial, portanto, se o seu cenário não exigir, a Microsoft recomenda que você o desproíba para a conta de armazenamento. Para obter mais informações, consulte [impedir o acesso de leitura público anônimo a contêineres e blobs](anonymous-read-access-prevent.md).
@@ -41,7 +41,7 @@ A tabela a seguir resume como ambas as configurações juntos afetam o acesso p�
 
 ## <a name="allow-or-disallow-public-read-access-for-a-storage-account"></a>Permitir ou impedir acesso de leitura público para uma conta de armazenamento
 
-Por padrão, o acesso público é permitido para contêineres individuais em uma conta de armazenamento. Quando o acesso público é permitido, um usuário com as permissões apropriadas pode modificar a configuração de acesso público de um contêiner para habilitar o acesso público anônimo aos dados nesse contêiner.
+Por padrão, uma conta de armazenamento é configurada para permitir que um usuário com as permissões apropriadas habilite o acesso público a um contêiner. Quando o acesso público é permitido, um usuário com as permissões apropriadas pode modificar a configuração de acesso público de um contêiner para habilitar o acesso público anônimo aos dados nesse contêiner. Os dados de blob nunca estão disponíveis para acesso público, a menos que o usuário tenha a etapa adicional para definir explicitamente a configuração de acesso público do contêiner.
 
 Tenha em mente que o acesso público a um contêiner é sempre desativado por padrão e deve ser configurado explicitamente para permitir solicitações anônimas. Independentemente da configuração na conta de armazenamento, seus dados nunca estarão disponíveis para acesso público, a menos que um usuário com permissões apropriadas aceite essa etapa adicional para habilitar o acesso público no contêiner.
 
@@ -52,7 +52,7 @@ A despermissão de acesso público para a conta de armazenamento impede o acesso
 
 Para permitir ou impedir o acesso público para uma conta de armazenamento, use o portal do Azure ou CLI do Azure para configurar a propriedade **blobPublicAccess** da conta. Essa propriedade está disponível para todas as contas de armazenamento que são criadas com o modelo de implantação Azure Resource Manager. Para obter mais informações, consulte [visão geral da conta de armazenamento](../common/storage-account-overview.md).
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para permitir ou impedir o acesso público para uma conta de armazenamento no portal do Azure, siga estas etapas:
 
@@ -135,7 +135,7 @@ Você não pode alterar o nível de acesso público para um blob individual. O n
 
 Para definir o nível de acesso público de um contêiner, use o portal do Azure ou CLI do Azure. Você pode definir o nível de acesso público do contêiner ao criar o contêiner ou atualizar essa configuração em um contêiner existente.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para atualizar o nível de acesso público para um ou mais contêineres existentes no portal do Azure, siga estas etapas:
 

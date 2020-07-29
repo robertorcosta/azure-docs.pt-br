@@ -12,12 +12,12 @@ ms.date: 03/28/2019
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae90a682ea2d1abb8159ec28ed02ed122494f512
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0f45cc2444a14fc138d201e3d7f81e687f53d3ac
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019243"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285893"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usar restrições de locatário para gerenciar o acesso aos aplicativos de nuvem de SaaS
 
@@ -69,6 +69,11 @@ A configuração a seguir é necessária para habilitar as restrições de locat
 
 Para cada solicitação de entrada para login.microsoftonline.com, login.microsoft.com e login.windows.net, insira dois cabeçalhos HTTP: *Restrict-Access-To-Tenants* e *Restrict-Access-Context*.
 
+> [!NOTE]
+> Ao configurar a interceptação de SSL e a injeção de cabeçalho, certifique-se de que o tráfego para https://device.login.microsoftonline.com é excluído. Essa URL é usada para a autenticação do dispositivo e a execução de interrupção e inspeção do TLS pode interferir na autenticação de certificado do cliente, o que pode causar problemas com o registro de dispositivo e o acesso condicional baseado no dispositivo.
+
+
+
 Os cabeçalhos devem incluir os seguintes elementos:
 
 - Para *restringir o acesso-para-locatários*, use um valor de \<permitted tenant list\> , que é uma lista separada por vírgulas de locatários que você deseja permitir que os usuários acessem. Qualquer domínio que é registrado com um locatário pode ser usado para identificar o locatário nessa lista. Por exemplo, para permitir o acesso aos locatários Contoso e Fabrikam, o par nome/valor é semelhante a: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
@@ -81,6 +86,9 @@ Os cabeçalhos devem incluir os seguintes elementos:
 Para impedir que os usuários insiram seu próprio cabeçalho HTTP com locatários não aprovados, o proxy precisará substituir o cabeçalho *Restrict-Access-To-Tenants* se ele já estiver presente na solicitação recebida.
 
 Os clientes devem ser forçados a usar o proxy para todas as solicitações para login.microsoftonline.com, login.microsoft.com e login.windows.net. Por exemplo, se os arquivos PAC forem usados para direcionar os clientes para usar o proxy, os usuários finais não deverão ser capazes de editar ou desabilitar os arquivos PAC.
+
+> [!NOTE]
+> Não inclua subdomínios em *. login.microsoftonline.com na sua configuração de proxy. Isso incluirá device.login.microsoftonline.com e poderá interferir na autenticação de certificado do cliente, que é usada no registro de dispositivos e nos cenários de acesso condicional com base no dispositivo. Configure o servidor proxy para excluir device.login.microsoftonline.com do TLS break-and-inspecionar e injeção de cabeçalho.
 
 ## <a name="the-user-experience"></a>A experiência do usuário
 

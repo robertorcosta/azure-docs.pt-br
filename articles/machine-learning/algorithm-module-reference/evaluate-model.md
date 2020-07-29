@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/08/2020
-ms.openlocfilehash: fe0d3819701e062fa2253bc6dd0c3a28eaeaadfb
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 07/27/2020
+ms.openlocfilehash: 7f37a598c31f340e66437a6478512fad1f79121f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171101"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285944"
 ---
 # <a name="evaluate-model-module"></a>Módulo Avaliar modelo
 
@@ -80,9 +80,9 @@ As métricas a seguir são relatadas ao avaliar modelos de classificação biná
   
 -   **Precisão** mede a qualidade de um modelo de classificação como a proporção entre os resultados verdadeiros com o total de casos.  
   
--   A **precisão** é a proporção entre os resultados verdadeiros com os resultados positivos.  
+-   A **precisão** é a proporção entre os resultados verdadeiros com os resultados positivos. Precisão = TP/(TP + FP)  
   
--   **Recall** é a fração de todos os resultados corretos retornados pelo modelo.  
+-   **Recall** é a fração da quantidade total de instâncias relevantes que foram realmente recuperadas. Recall = TP/(TP + FN)  
   
 -   A **Pontuação F1** é calculada como a média ponderada de precisão e RECALL entre 0 e 1, em que o valor de Pontuação F1 ideal é 1.  
   

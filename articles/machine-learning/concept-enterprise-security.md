@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 94724ea44b52ae885594fe55b67d74a03e339dab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 723c30856593044c91220b4e3ab267ab140c5ffd
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012839"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366920"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para o Azure Machine Learning
 
@@ -75,7 +75,7 @@ A tabela a seguir lista algumas das principais operações do Azure Machine Lear
 | Exibir modelos/imagens | ✓ | ✓ | ✓ |
 | Chamar serviço Web | ✓ | ✓ | ✓ |
 
-Caso as funções internas não atendam às suas necessidades, você poderá criar funções personalizadas. As funções personalizadas têm suporte apenas para operações no workspace e na Computação do Machine Learning. As funções personalizadas podem ter permissões de leitura, gravação ou exclusão no workspace e em seu recurso de computação. Você pode tornar a função disponível em níveis específicos do workspace, do grupo de recursos ou da assinatura. Para obter mais informações, consulte [Gerenciar usuários e funções em um workspace de Azure Machine Learning](how-to-assign-roles.md).
+Caso as funções internas não atendam às suas necessidades, você poderá criar funções personalizadas. As funções personalizadas têm suporte para controlar todas as operações dentro de um espaço de trabalho, como a criação de uma computação, o envio de uma execução, o registro de um armazenamento de um datastore ou a implantação de um modelo. As funções personalizadas podem ter permissões de leitura, gravação ou exclusão nos vários recursos de um espaço de trabalho, como clusters, repositórios de armazenamento, modelos e pontos de extremidade. Você pode tornar a função disponível em níveis específicos do workspace, do grupo de recursos ou da assinatura. Para obter mais informações, consulte [Gerenciar usuários e funções em um workspace de Azure Machine Learning](how-to-assign-roles.md).
 
 > [!WARNING]
 > O Azure Machine Learning tem suporte com a colaboração entre empresas do Azure Active Directory, mas ainda não tem suporte com a colaboração entre consumidores do Azure Active Directory.
@@ -154,10 +154,6 @@ Para usar suas próprias chaves (gerenciadas pelo cliente) para criptografar a i
 Para habilitar o provisionamento de uma instância do Cosmos DB em sua assinatura com chaves gerenciadas pelo cliente, execute as seguintes ações:
 
 * Registre os provedores de recursos Microsoft. MachineLearning e Microsoft.DocumentDB em sua assinatura, se ainda não tiver feito isso.
-
-* Autorize o aplicativo Machine Learning (no Gerenciamento de Identidade e Acesso) com permissões de colaborador em sua assinatura.
-
-    ![Autorizar o “aplicativo Azure Machine Learning” no Gerenciamento de Identidade e Acesso no portal](./media/concept-enterprise-security/authorize-azure-machine-learning.png)
 
 * Use os parâmetros a seguir ao criar o workspace do Azure Machine Learning. Ambos os parâmetros são obrigatórios e têm suporte para SDK, CLI, APIs REST e modelos do Resource Manager.
 

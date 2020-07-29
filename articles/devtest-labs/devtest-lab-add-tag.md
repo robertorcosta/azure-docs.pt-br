@@ -3,12 +3,12 @@ title: Adicionar marcas a um laboratório no Azure DevTest Labs | Microsoft Docs
 description: Saiba como adicionar uma marca a um laboratório no Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: bf835cee705012fd175a3132edde1d241311c576
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30f0f2ed4b8cc98985326db652371b8ceb16bfb4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482999"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287590"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Adicionar marcas a um laboratório no Azure DevTest Labs
 
@@ -52,7 +52,7 @@ As seguintes limitações se aplicam a marcas:
 * O nome da marca é limitado a 512 caracteres e o valor da marca é limitado a 256 caracteres. Para contas de armazenamento, o nome da marca é limitado a 128 caracteres e o valor da marca é limitado a 256 caracteres.
 * Marcas aplicadas ao grupo de recursos não são herdadas pelos recursos desse grupo de recursos.
 
-[Usar marcas para organizar os recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) fornece mais detalhes sobre o uso de marcas no Azure, incluindo como gerenciar marcas usando o PowerShell ou a CLI do Azure.
+[Usar marcas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md) fornece mais detalhes sobre o uso de marcas no Azure, incluindo como gerenciar marcas usando o PowerShell ou a CLI do Azure.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

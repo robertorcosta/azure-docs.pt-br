@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b3ed5d6605097b31dfaa58a2d37e71d3a6702bee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f7e9a76309b4d9dcd010b85d1b55f340374be5c4
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537474"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337918"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Sobre a linguagem de consulta para o gêmeos digital do Azure
 
@@ -28,7 +28,7 @@ O Azure digital gêmeos fornece recursos de consulta extensivos em relação ao 
 > Todas as operações de consulta do Azure digital gêmeos diferenciam maiúsculas de minúsculas.
 
 Aqui estão as operações disponíveis na linguagem Repositório de Consultas do Azure digital gêmeos:
-* Obter gêmeos por propriedades de gêmeos digital.
+* Obter gêmeos por propriedades de gêmeos digital (incluindo [marcas](how-to-use-tags.md)).
 * Obter gêmeos pelas interfaces do gêmeos digital.
 * Obter gêmeos por propriedades de relação.
 * Obter gêmeos em vários tipos de relação ( `JOIN` consultas). Há limitações no número de `JOIN` s permitido (um nível para visualização pública).

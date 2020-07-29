@@ -3,12 +3,12 @@ title: Como proteger sua hierarquia de recursos – Governança do Azure
 description: Saiba como proteger sua hierarquia de recursos com configurações de hierarquia que incluem a definição do grupo de gerenciamento padrão.
 ms.date: 05/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 50b5ba1bccf3d603b6d273892d0c903d433786f3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 2f8d3d7ff85552fe18a49137450aefe91d0d02c9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127989"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366765"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Como proteger a hierarquia de recursos
 
@@ -23,7 +23,7 @@ A configuração de qualquer uma das configurações de hierarquia requer as dua
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
 
-Essas operações só permitem que um usuário leia e atualize as configurações de hierarquia. As operações não fornecem nenhum outro acesso à hierarquia do grupo de gerenciamento ou aos recursos na hierarquia. Ambas as operações estão disponíveis na função RBAC interna **Administrador de Configurações de Hierarquia**.
+Essas operações só permitem que um usuário leia e atualize as configurações de hierarquia. As operações não fornecem nenhum outro acesso à hierarquia do grupo de gerenciamento ou aos recursos na hierarquia. Ambas as operações estão disponíveis no **administrador de configurações de hierarquia**de funções internas do Azure.
 
 ## <a name="setting---default-management-group"></a>Configuração – Grupo de gerenciamento padrão
 
