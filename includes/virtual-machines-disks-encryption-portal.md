@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a8702f14bfb9aed5a3595203dde1d86ea56a151b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 950fd82e14902c3a7a94fddb44d50ac372ebe119
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133777"
+ms.locfileid: "87176996"
 ---
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-portal](virtual-machines-disks-encryption-create-key-vault-portal.md)]
 
@@ -42,7 +42,7 @@ O processo de implantação de VM é semelhante ao processo de implantação pad
 1. Navegue até uma VM que está na mesma região que um de seus conjuntos de criptografia de disco.
 1. Abra a VM e selecione **parar**.
 
-    ![Captura de tela da sobreposição principal para sua VM de exemplo. Com o botão parar realçado](media/virtual-machines-disk-encryption-portal/server-side-encryption-stop-vm-to-encrypt-disk-fix.png)
+    ![Captura de tela da sobreposição principal para sua VM de exemplo, com o botão parar realçado.](media/virtual-machines-disk-encryption-portal/server-side-encryption-stop-vm-to-encrypt-disk-fix.png)
 
 1. Após a interrupção da VM, selecione **discos** e, em seguida, selecione o disco que você deseja criptografar.
 

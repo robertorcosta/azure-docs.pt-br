@@ -3,7 +3,7 @@ title: Visão geral do SQL Server grupos de disponibilidade Always On
 description: Este artigo apresenta SQL Server grupos de disponibilidade Always On em máquinas virtuais do Azure.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: 601eebb1-fc2c-4f5b-9c05-0e6ffd0e5334
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 50be33bf0cb89c7baff58e5f8e4a2a23b9a1ecef
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0e676e1c97c0039490137aa12b06fc88e457646f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073282"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286812"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introdução ao SQL Server grupos de disponibilidade Always On em máquinas virtuais do Azure
 
@@ -43,7 +43,7 @@ Para aumentar a redundância e a alta disponibilidade, as VMs do SQL Server deve
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
 | **[CLI da VM do SQL](availability-group-az-cli-configure.md)** | 2016 | 2017 </br>2016   | Ent | Testemunha da nuvem | Não | Sim | Sim | Sim | Não | Não |
 | **[Modelos de início rápido](availability-group-quickstart-template-configure.md)** | 2016 | 2017</br>2016  | Ent | Testemunha da nuvem | Não | Sim | Sim | Sim | Não | Não |
-| **[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | Tudo | Todos | Todos | Todos | Sim | Sim | Sim | Sim | Sim | Sim |
+| **[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | Todos | Todos | Todos | Todos | Sim | Sim | Sim | Sim | Sim | Sim |
 
 O modelo de **cluster do AlwaysOn do SQL Server (versão prévia)** foi removido do Azure Marketplace e não está mais disponível. 
 

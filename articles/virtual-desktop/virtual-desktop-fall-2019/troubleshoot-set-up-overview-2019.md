@@ -1,6 +1,6 @@
 ---
-title: Visão geral da solução de problemas de área de trabalho virtual do Windows — Outono 2019 – Azure
-description: Uma visão geral para solucionar problemas durante a configuração de um ambiente de locatário de área de trabalho virtual do Windows.
+title: Visão geral da solução de problemas da área de trabalho virtual do Windows (clássica)-Azure
+description: Uma visão geral para solucionar problemas durante a configuração de um ambiente de locatário da área de trabalho virtual do Windows (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 82ac5a8178973396c4c1975cb1c84d23e61430f7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: efcdc203884a5aaff3b02e730f1dddb7fff66e95
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87069929"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289830"
 ---
-# <a name="troubleshooting-overview-feedback-and-support"></a>Visão geral da solução de problemas, comentários e suporte
+#  <a name="windows-virtual-desktop-classic-troubleshooting-overview-feedback-and-support"></a>Visão geral, comentários e suporte da área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../troubleshoot-set-up-overview.md).
+>Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../troubleshoot-set-up-overview.md).
 
 Este artigo fornece uma visão geral dos problemas que você pode encontrar ao configurar um ambiente de locatário de área de trabalho virtual do Windows e fornece maneiras de resolver os problemas.
 

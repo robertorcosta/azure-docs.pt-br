@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 19b7962462e5cdb03bad0c6004b8c19f781ccc69
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 723b8cf7a71e5af672c8665040645d55645fe9f7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005269"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281847"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-active-directory-domain-services"></a>Criar uma conta de serviço gerenciado de grupo (gMSA) no Azure Active Directory Domain Services
 
@@ -76,7 +76,7 @@ Agora, crie um gMSA usando o cmdlet [New-ADServiceAccount][New-ADServiceAccount]
 * **-Name** é definido como *WebFarmSvc*
 * Parâmetro **-path** especifica a UO personalizada para o gMSA criado na etapa anterior.
 * As entradas DNS e os nomes de entidade de serviço são definidos para *WebFarmSvc.aaddscontoso.com*
-* As entidades de segurança no *AADDSCONTOSO-Server $* têm permissão para recuperar a senha, usar a identidade.
+* As entidades de segurança no *AADDSCONTOSO-Server $* têm permissão para recuperar a senha e usar a identidade.
 
 Especifique seus próprios nomes e nomes de domínio.
 
