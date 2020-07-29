@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 34d2d96e28f90249ad25788f6994dac63f83b1f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6a686f6915e332893f619e66944591999063a07c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261611"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288160"
 ---
 # <a name="add-a-bar-chart-layer"></a>Adicionar uma camada de gráfico de barras
 
-A **camada do gráfico de barras** é útil para levar dados para a próxima dimensão, permitindo a visualização de dados de localização como barras 3D ou cilindros no mapa. Semelhante à camada de bolha, o gráfico de barras mais tarde pode facilmente Visualizar duas métricas ao mesmo tempo usando a altura de cor e relativa. Para que as barras tenham altura, uma medida precisa ser adicionada ao Bucket de **tamanho** do painel **campos** . Se uma medida não for fornecida, barras sem altura como quadrados simples ou círculos, dependendo da opção de **forma de barra** .
+A **camada do gráfico de barras** é útil para levar dados para a próxima dimensão, permitindo a visualização de dados de localização como barras 3D ou cilindros no mapa. Semelhante à camada de bolha, o gráfico de barras mais tarde pode facilmente Visualizar duas métricas ao mesmo tempo usando a altura de cor e relativa. Para que as barras tenham altura, uma medida precisa ser adicionada ao Bucket de **tamanho** do painel **campos** . Se uma medida não for fornecida, as barras sem altura serão mostradas como quadrados simples ou círculos, dependendo da opção de **forma de barra** .
 
 > [!div class="mx-imgBorder"]
 > ![Um mapa que exibe dados do ponto usando a camada do gráfico de barras](media/power-bi-visual/bar-chart-layer-styled.png)

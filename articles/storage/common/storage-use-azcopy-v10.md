@@ -4,15 +4,15 @@ description: AzCopy é um utilitário de linha de comando que você pode usar pa
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/23/2019
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: bb18e2b0af6f04cee5b6be11afbb2d2aabdadb4b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 08e70265399a67ee58ad66e06adffbfd30b20e10
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143001"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289225"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -65,8 +65,8 @@ Use esta tabela como um guia:
 
 | Tipo de armazenamento | Método de autorização atualmente com suporte |
 |--|--|
-|**Armazenamento de Blobs** | SAS do Azure AD & |
-|**Armazenamento de BLOBs (namespace hierárquico)** | SAS do Azure AD & |
+|**Armazenamento de Blobs** | Azure AD e SAS |
+|**Armazenamento de BLOBs (namespace hierárquico)** | Azure AD e SAS |
 |**Armazenamento de arquivos** | Somente SAS |
 
 ### <a name="option-1-use-azure-active-directory"></a>Opção 1: usar Azure Active Directory
@@ -111,7 +111,7 @@ Depois de verificar se a identidade do usuário recebeu o nível de autorizaçã
 azcopy login
 ```
 
-Se você pertencer a mais de uma organização, inclua a ID de locatário da organização à qual a conta de armazenamento pertence.
+Se você receber um erro, tente incluir a ID de locatário da organização à qual a conta de armazenamento pertence.
 
 ```azcopy
 azcopy login --tenant-id=<tenant-id>

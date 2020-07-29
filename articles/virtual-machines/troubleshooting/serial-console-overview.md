@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 65679c900baaf0f98a21e4b1f6b1d350c4b945c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28c5a3085d84b25deb7c5ee09a9c9cc4d7a06819
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074332"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374058"
 ---
 # <a name="azure-serial-console"></a>Console serial do Azure
 
@@ -27,8 +27,7 @@ O console serial no portal do Azure fornece acesso a um console baseado em texto
 
 O console serial funciona da mesma maneira nas VMs e nas instâncias do conjunto de dimensionamento de máquinas virtuais. Neste documento, todas as menções às VMs incluirão implicitamente as instâncias do conjunto de dimensionamento de máquinas virtuais, salvo indicação em contrário.
 
-> [!NOTE]
-> O console serial está em disponibilidade geral nas regiões globais do Azure e em versão prévia pública no Azure Governmental. Ele ainda não está disponível na nuvem do Azure China.
+O console serial está geralmente disponível em regiões globais do Azure e em visualização pública no Azure governamental. Ele ainda não está disponível na nuvem do Azure China.
 
 ## <a name="prerequisites-to-access-the-azure-serial-console"></a>Pré-requisitos para acessar o console serial do Azure
 Para acessar o console serial na sua VM ou na instância do conjunto de dimensionamento de máquinas virtuais, você precisará do seguinte:
@@ -36,16 +35,17 @@ Para acessar o console serial na sua VM ou na instância do conjunto de dimensio
 - O diagnóstico de inicialização deve ser habilitado para a VM
 - Uma conta de usuário que usa autenticação de senha deve existir na VM. Você pode criar um usuário baseado em senha com a função [Redefinir senha](../extensions/vmaccess.md#reset-password) da extensão de acesso à VM. Selecione **Redefinir senha** na seção **Suporte + solução de problemas**.
 - A conta do Azure que acessa o console serial deve ter a [função Colaborador da máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) na conta de armazenamento do [diagnóstico de inicialização](boot-diagnostics.md) e na VM
+- Implantações clássicas não são suportadas. A VM ou a instância do conjunto de dimensionamento de máquinas virtuais precisa usar o modelo de implantação do Azure Resource Manager.
 
 > [!NOTE]
-> Implantações clássicas não são suportadas. A VM ou a instância do conjunto de dimensionamento de máquinas virtuais precisa usar o modelo de implantação do Azure Resource Manager.
+> O console serial é incompatível atualmente com uma conta de armazenamento de diagnóstico de inicialização gerenciada. Para usar o console serial, verifique se você está usando uma conta de armazenamento personalizada.
 
 ## <a name="get-started-with-the-serial-console"></a>Introdução ao console serial
 O console serial para VMs e conjunto de dimensionamento de máquinas virtuais pode ser acessado apenas pelo portal do Azure:
 
 ### <a name="serial-console-for-virtual-machines"></a>Console serial para Máquinas Virtuais
 É simples usar o console serial para VMs. Basta clicar em **Console serial** na seção **Suporte + Solucionar problemas** no portal do Azure.
-  1. Abra o [Portal do Azure](https://portal.azure.com).
+  1. Abra o [portal do Azure](https://portal.azure.com).
 
   1. Navegue até **Todos os recursos** e selecione uma Máquina Virtual. A página de visão geral da VM é aberta.
 

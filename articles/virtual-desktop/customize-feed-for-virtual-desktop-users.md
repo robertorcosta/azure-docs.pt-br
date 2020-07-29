@@ -8,20 +8,17 @@ ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7ae4e4916333439956216c11e0c7e738b4e2fff1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f11b4f58a41a3d8ed964169216fda00e7477f7d3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527771"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288766"
 ---
 # <a name="customize-the-feed-for-windows-virtual-desktop-users"></a>Personalizar o feed para usuários da área de trabalho virtual do Windows
 
 >[!IMPORTANT]
->Este conteúdo se aplica à atualização da Spring 2020 com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows na versão 2019, sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/customize-feed-virtual-desktop-users-2019.md).
->
-> A atualização 2020 da Área de Trabalho Virtual do Windows está em versão prévia pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Esse conteúdo se aplica à área de trabalho virtual do Windows com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows (clássico) sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/customize-feed-virtual-desktop-users-2019.md).
 
 Você pode personalizar o feed para que os recursos do RemoteApp e da área de trabalho remota apareçam de maneira reconhecível para seus usuários.
 
@@ -118,7 +115,7 @@ Você pode alterar o nome de exibição de uma área de trabalho remota publicad
 
 6. Selecione o aplicativo que você deseja atualizar e insira um novo **nome de exibição**.
 
-7. Selecione **Salvar**. O aplicativo que você editou agora deve exibir o nome atualizado.
+7. Clique em **Salvar**. O aplicativo que você editou agora deve exibir o nome atualizado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

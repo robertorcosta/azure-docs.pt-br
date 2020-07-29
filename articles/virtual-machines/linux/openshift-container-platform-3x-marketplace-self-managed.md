@@ -5,17 +5,17 @@ author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
 ms.subservice: workloads
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 08d32e4b7806ec53f48389b127ab34371271cf07
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 36adf35c5fbfc3e88b7d9af425ebabc852707e69
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527227"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374092"
 ---
 # <a name="configure-prerequisites"></a>Configurar pré-requisitos
 
@@ -63,9 +63,9 @@ Insira valores para os parâmetros de entrada e clique em **OK**.
 |-----------------------|-----------------|
 | Nome de usuário do administrador da VM | O usuário administrador a ser criado em todas as instâncias de VM |
 | Chave pública SSH para usuário administrador | Chave pública SSH usada para fazer logon na VM-não deve ter uma frase secreta |
-| Assinatura | Assinatura do Azure na qual implantar o cluster |
-| Grupo de Recursos | Criar um novo grupo de recursos ou selecionar um grupo de recursos vazio existente para recursos de cluster |
-| Localização | Região do Azure na qual implantar o cluster |
+| Subscription | Assinatura do Azure na qual implantar o cluster |
+| Grupo de recursos | Criar um novo grupo de recursos ou selecionar um grupo de recursos vazio existente para recursos de cluster |
+| Location | Região do Azure na qual implantar o cluster |
 
    ![Folha noções básicas da oferta](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>

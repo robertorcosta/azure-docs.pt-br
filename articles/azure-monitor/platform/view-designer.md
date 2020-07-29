@@ -6,18 +6,28 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/10/2019
-ms.openlocfilehash: 6e351abeede6d1057a9b37ab1f1cfb9021ccd06e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c0af92bdec6248a38040f972734764fa1bc10226
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505083"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289103"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Criar exibições personalizadas usando o designer de exibição no Azure Monitor
 Usando o designer de exibição no Azure Monitor, você pode criar uma variedade de exibições personalizadas na portal do Azure que podem ajudá-lo a Visualizar dados em seu espaço de trabalho do Log Analytics. Este artigo apresenta uma visão geral do Designer de Exibição e procedimentos para criar e editar exibições personalizadas.
 
 > [!IMPORTANT]
-> As exibições no Azure Monitor estão sendo desativadas e substituídas por [pastas de trabalho](workbooks-overview.md) que fornecem funcionalidade adicional. Confira [Azure monitor guia de transição do designer de exibição para pastas de trabalho](view-designer-conversion-overview.md) para obter detalhes sobre como converter suas exibições existentes em pastas de trabalho.
+> As exibições no Azure Monitor estão sendo desativadas e substituídas por [pastas de trabalho](workbooks-overview.md) que fornecem funcionalidade adicional. Confira [Azure monitor guia de transição do designer de exibição para pastas de trabalho](view-designer-conversion-overview.md) para obter detalhes sobre como converter suas exibições existentes em pastas de trabalho. Consulte a tabela a seguir para ver as etapas que serão executadas nos próximos meses.
+> 
+> | Alterar | O que isso significa | Data esperada |
+> |:---|:---|:---|
+> | Desabilite a criação de novas exibições criadas por meio do designer de exibição. | Você não poderá mais criar e salvar novas exibições personalizadas no portal do Azure.| Novembro de 2020 |
+> | Desabilite a função editar para exibições existentes com o designer de exibição. | Você não poderá mais modificar e salvar as alterações em seus modos de exibição personalizados existentes. | Novembro de 2020 |
+> | Desabilitar a implantação de modos de exibição em Log Analytics espaços de trabalho | Você não poderá mais implantar exibições personalizadas usando o ARM para Log Analytics espaços de trabalho. | Março de 2021 |
+> | O designer de exibição não está mais disponível no portal do Azure | A experiência do portal não dará mais suporte ao designer de exibição. | Junho de 2021 |
+> | Exibições personalizadas removidas do resumo do espaço de trabalho | Você não poderá mais acessar seus dados de exibição personalizados. | Dezembro de 2021 |
+ 
+
 
 Para obter mais informações sobre o Designer de Exibição, consulte:
 
@@ -34,7 +44,7 @@ As exibições criadas com o Designer de Exibição contêm os elementos descrit
 
 | Parte | Descrição |
 |:--- |:--- |
-| Blocos | São exibidos na sua página de **visão geral** do Azure monitor. Cada bloco exibe um resumo visual da exibição personalizada que representa. Cada tipo de bloco fornece uma visualização diferente de seus registros. Você seleciona um bloco para exibir uma exibição personalizada. |
+| Tiles | São exibidos na sua página de **visão geral** do Azure monitor. Cada bloco exibe um resumo visual da exibição personalizada que representa. Cada tipo de bloco fornece uma visualização diferente de seus registros. Você seleciona um bloco para exibir uma exibição personalizada. |
 | Exibição personalizada | Exibida quando você seleciona um bloco. Cada exibição contém uma ou mais partes de visualização. |
 | Partes de visualização | Apresente uma visualização dos dados no espaço de trabalho Log Analytics com base em uma ou mais [consultas de log](../log-query/log-query-overview.md). A maioria das partes inclui um cabeçalho, que fornece uma visualização de alto nível e uma lista que exibe os melhores resultados. Cada tipo de parte fornece uma visualização diferente dos registros no espaço de trabalho do Log Analytics. Você seleciona elementos na parte para executar uma consulta de log que fornece registros detalhados. |
 
@@ -49,7 +59,7 @@ As exibições que foram criadas com o Designer de Exibição exibem as opções
 
 As opções estão descritas na tabela a seguir:
 
-| Opção | Descrição |
+| Opção | DESCRIÇÃO |
 |:--|:--|
 | Atualizar   | Atualiza a exibição com os dados mais recentes. | 
 | Logs      | Abre o [log Analytics](../log-query/log-query-overview.md) para analisar dados com consultas de log. |

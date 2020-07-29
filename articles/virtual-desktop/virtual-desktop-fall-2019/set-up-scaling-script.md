@@ -1,6 +1,6 @@
 ---
-title: Dimensionar hosts da sessão com a Automação do Azure – Azure
-description: Como dimensionar automaticamente os hosts da sessão da Área de Trabalho Virtual do Windows com a Automação do Azure.
+title: Dimensionar sessão hospeda área de trabalho virtual do Windows da automação do Azure (clássico) – Azure
+description: Como dimensionar automaticamente hosts de sessão da área de trabalho virtual (clássica) do Windows com a automação do Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 690f59c643f1fe8c8cfc74758a0f8f13b129f78a
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 4c09ce867a7d4dbc11c42485c39c40bd427fa451
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172070"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288635"
 ---
-# <a name="scale-session-hosts-using-azure-automation"></a>Dimensionar hosts da sessão usando a Automação do Azure
+# <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Dimensionar hosts de sessão da área de trabalho virtual (clássica) do Windows usando a automação do Azure
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
+>Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows.
 
 É possível reduzir o custo total de implantação da Área de Trabalho Virtual do Windows dimensionando suas VMs (máquinas virtuais). Isso significa desligar e desalocar VMs de host da sessão fora do horário de pico de uso, voltar a ligá-las e realocá-las durante os horários de pico.
 

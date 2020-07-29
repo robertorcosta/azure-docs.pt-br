@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 25aafee59c7f5f7ae59aa2fd7871de8926907f68
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ae34840c04c3a1d2fb3646046792c97ed6f521a0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261381"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289438"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a solicitações HTTPS de entrada nos Aplicativos Lógicos do Azure
 
@@ -24,7 +24,7 @@ Com [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e o ga
 
 * Receber e responder a uma chamada HTTPS de outro aplicativo lógico.
 
-O gatilho de solicitação é compatível com a [Autenticação Aberta do Azure Active Directory](/azure/active-directory/develop/) (Azure AD OAuth) para autorizar chamadas de entrada para seu aplicativo lógico. Para obter mais informações sobre como habilitar essa autenticação, consulte [Acesso seguro e dados em Aplicativos Lógicos do Azure – Habilitar a autenticação do Azure AD OAuth](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+O gatilho de solicitação é compatível com a [Autenticação Aberta do Azure Active Directory](../active-directory/develop/index.yml) (Azure AD OAuth) para autorizar chamadas de entrada para seu aplicativo lógico. Para obter mais informações sobre como habilitar essa autenticação, consulte [Acesso seguro e dados em Aplicativos Lógicos do Azure – Habilitar a autenticação do Azure AD OAuth](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +36,7 @@ O gatilho de solicitação é compatível com a [Autenticação Aberta do Azure 
 
 ## <a name="transport-layer-security-tls"></a>Protocolo TLS
 
-* As chamadas de entrada dão suporte *apenas* a TLS (Transport Layer Security) 1,2. Se você obtiver erros de handshake de TLS, use o TLS 1.2. Para mais informações, consulte [Solucionar o problema do TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem). As chamadas de saída dão suporte a TLS 1,0, 1,1 e 1,2, com base na capacidade do ponto de extremidade de destino.
+* As chamadas de entrada dão suporte *apenas* a TLS (Transport Layer Security) 1,2. Se você obtiver erros de handshake de TLS, use o TLS 1.2. Para mais informações, consulte [Solucionar o problema do TLS 1.0](/security/solving-tls1-problem). As chamadas de saída dão suporte a TLS 1,0, 1,1 e 1,2, com base na capacidade do ponto de extremidade de destino.
 
 * As chamadas de entrada dão suporte a esses conjuntos de codificação:
 
@@ -287,3 +287,4 @@ Seu aplicativo lógico mantém a solicitação de entrada aberta por [tempo limi
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Conectores para Aplicativos Lógicos](../connectors/apis-list.md)
+

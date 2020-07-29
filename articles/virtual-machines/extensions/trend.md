@@ -1,25 +1,19 @@
 ---
 title: Instalar o Trend Micro Deep Security em uma VM
 description: Este artigo descreve como instalar e configurar o Trend Micro security em uma VM criada com o modelo de implantação Clássico no Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: axayjo
-manager: gwallace
-editor: ''
 tags: azure-service-management
-ms.assetid: e991b635-f1e2-483f-b7ca-9d53e7c22e2a
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
-ms.openlocfilehash: c4a4f641283a9a4771a236ba844cfe296b31c28c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bed1d567aa48a11c01ae952e6a4a2028e260e6e0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082671"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288521"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Windows
 
@@ -100,4 +94,4 @@ Leva alguns minutos para o agente abrir quando ele está instalado. Depois disso
 
 <!-- Link references -->
 [Como fazer logon em uma máquina virtual que executa o Windows Server]:../windows/classic/connect-logon.md
-[Recursos e extensões de VM do Azure]: https://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Recursos e extensões de VM do Azure]: features-windows.md

@@ -3,12 +3,12 @@ title: Pontos de extremidade de serviço de Rede Virtual - Hubs de Eventos do Az
 description: Este artigo fornece informações sobre como adicionar um ponto de extremidade de serviço do Microsoft. EventHub a uma rede virtual.
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 134e310e0859bb6c0a50630f467513e07e6ff390
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5d1f6bb8e1160a328c30cfd6ef1726e3cf011aee
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066695"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288011"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usar pontos de extremidade de serviço de Rede Virtual com Hubs de Eventos do Azure
 
@@ -25,7 +25,6 @@ O resultado é um relacionamento privado e isolado entre as cargas de trabalho a
 >
 > Cenários comuns do Azure que não funcionam com Redes Virtuais (observe que a lista **NÃO** é exaustiva):
 > - Stream Analytics do Azure
-> - Integração com a Grade de Eventos do Azure
 > - Rotas do Hub IoT do Azure
 > - Device Explorer do Azure IoT
 >
@@ -60,7 +59,7 @@ Esta seção mostra como usar portal do Azure para adicionar um ponto de extremi
 2. No menu à esquerda, selecione a opção **Rede**. Se você selecionar a opção **Todas as redes**, o hub de eventos aceitará conexões de qualquer endereço IP. Essa configuração é equivalente a uma regra que aceita o intervalo de endereço IP 0.0.0.0/0. 
 
     ![Firewall – opção "Todas as redes" selecionada](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. Para restrct o acesso a redes específicas, selecione a opção **redes selecionadas** na parte superior da página.
+1. Para restringir o acesso a redes específicas, selecione a opção **redes selecionadas** na parte superior da página.
 2. Na seção **rede virtual** da página, selecione * * + Adicionar rede virtual existente * * *. Selecione **+ criar nova rede virtual** se desejar criar uma nova VNet. 
 
     ![adicionar rede virtual existente](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
@@ -85,9 +84,9 @@ O modelo do Resource Manager a seguir permite incluir uma regra da rede virtual 
 
 Parâmetros de modelo:
 
-* **namespaceName**: namespace de Hubs de Eventos.
-* **vnetRuleName**: nome da regra da Rede Virtual a ser criada.
-* **virtualNetworkingSubnetId**: caminho do Resource Manager totalmente qualificado para a sub-rede da rede virtual, por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
+* `namespaceName`: Namespace de hubs de eventos.
+* `vnetRuleName`: Nome da regra de rede virtual a ser criada.
+* `virtualNetworkingSubnetId`: Caminho do Gerenciador de recursos totalmente qualificado para a sub-rede da rede virtual; por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
 
 > [!NOTE]
 > Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"** , que não restringe as conexões.

@@ -1,23 +1,23 @@
 ---
-title: Configurar GPU para área de trabalho virtual do Windows Outono 2019 – Azure
-description: Como habilitar a renderização e a codificação acelerada por GPU na Área de Trabalho Virtual do Windows.
+title: Configurar GPU para área de trabalho virtual do Windows (clássico)-Azure
+description: Como habilitar o processamento e a codificação com aceleração de GPU na área de trabalho virtual do Windows (clássico).
 services: virtual-desktop
 author: gundarev
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: denisgun
-ms.openlocfilehash: bbb0985e309601562587f3f1b26427f46a4a8987
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e6c8fe95508937604c53d817d60dd637352fb6fa
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087162"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288685"
 ---
-# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-fall-2019"></a>Configurar a aceleração da GPU (unidade de processamento gráfico) para a área de trabalho virtual do Windows Outono de 2019
+# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-classic"></a>Configurar a aceleração da GPU (unidade de processamento gráfico) para a área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../configure-vm-gpu.md).
+>Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../configure-vm-gpu.md).
 
 A Área de Trabalho Virtual do Windows dá suporte à renderização e à codificação acelerada por GPU para obter melhor desempenho do aplicativo e escalabilidade. A aceleração de GPU é particularmente fundamental para aplicativos com uso intensivo de gráficos.
 

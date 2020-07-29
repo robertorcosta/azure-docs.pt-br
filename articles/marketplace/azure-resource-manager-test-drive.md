@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/19/2020
-ms.openlocfilehash: 401ffaaa0fa8c8e298a3a1891d93f2c9039d7820
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.author: keferna
+author: keferna
+ms.openlocfilehash: 92fd4d629585ed465e2891be2dce1c1bdc8c88e6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102932"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287939"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager test drive
 
@@ -40,7 +42,7 @@ Um modelo de implantação contém todos os recursos do Azure que compõem sua s
 
 Depois de criar o pacote de recursos desejado, grave e crie o modelo de test drive ARM. Como test drive executa implantações em um modo totalmente automatizado, os modelos de test drive têm algumas restrições:
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 A maioria dos modelos tem um conjunto de parâmetros que definem nomes de recursos, tamanhos de recursos (como tipos de contas de armazenamento ou tamanhos de máquina virtual), nomes de usuário e senhas, nomes DNS e assim por diante. Quando você implanta soluções usando o portal do Azure, pode preencher manualmente todos esses parâmetros, escolher nomes de DNS disponíveis ou nomes de conta de armazenamento e assim por diante.
 
@@ -70,10 +72,10 @@ Você pode usar qualquer nome válido para seus parâmetros; test drive reconhec
 
 | Tipo de metadados   | Tipo de parâmetro  | Descrição     | Valor de exemplo    |
 |---|---|---|---|
-| **baseuri**     | string          | URI base do seu pacote de implantação| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
-| **usu**    | string          | Novo nome de usuário aleatório.| admin68876      |
+| **baseuri**     | cadeia de caracteres          | URI base do seu pacote de implantação| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **usu**    | cadeia de caracteres          | Novo nome de usuário aleatório.| admin68876      |
 | **password**    | cadeia de caracteres segura    | Nova senha aleatória | Lp!ACS\^2kh     |
-| **ID da sessão**   | string          | ID de sessão de test drive exclusiva (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **ID da sessão**   | cadeia de caracteres          | ID de sessão de test drive exclusiva (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="baseuri"></a>baseuri
 

@@ -3,12 +3,12 @@ title: Integração dos Hubs de Eventos do Azure com o Serviço de Link Privado 
 description: Saiba como integrar os Hubs de Eventos do Azure com o Serviço de Link Privado do Azure
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: bfed3f8e4c19463e10b721006d742726cf916900
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a07204615c4d81373d744e83862e6de14c7f8165
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512241"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287953"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integração dos Hubs de Eventos do Azure com o Link Privado do Azure
 O Serviço de Link Privado do Azure permite acessar os Serviços do Azure (por exemplo, os Hubs de Eventos do Azure, o Armazenamento do Azure e o Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um **ponto de extremidade privado** em sua rede virtual.
@@ -26,9 +26,7 @@ Para obter mais informações, confira [O que é o Link Privado do Azure?](../pr
 > Não há suporte para serviços confiáveis da Microsoft quando as Redes Virtuais são usadas.
 >
 > Cenários comuns do Azure que não funcionam com Redes Virtuais (observe que a lista **NÃO** é exaustiva):
-> - Azure Monitor (configuração de diagnóstico)
 > - Stream Analytics do Azure
-> - Integração com a Grade de Eventos do Azure
 > - Rotas do Hub IoT do Azure
 > - Device Explorer do Azure IoT
 >

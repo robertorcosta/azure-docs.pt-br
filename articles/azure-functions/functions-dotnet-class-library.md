@@ -2,13 +2,13 @@
 title: Referência do desenvolvedor de C# do Azure Functions
 description: Entenda como desenvolver no Azure Functions usando NodeJS.
 ms.topic: conceptual
-ms.date: 09/12/2018
-ms.openlocfilehash: 9ecc2dad8d1d520b44972022d47c312f495d5c38
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/24/2020
+ms.openlocfilehash: 7c00dcd3648ef175d4e834fceef3444f7943e70b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506496"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288190"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
 
@@ -31,7 +31,7 @@ As versões do tempo de execução do Functions funcionam com versões específi
 | ---- | ---- |
 | Funções 3. x | .NET Core 3.1 |
 | Funções 2.x | .NET Core 2.2 |
-| Funções 1.x | .NET Framework 4.6 |
+| Funções 1.x | .NET Framework 4.7 |
 
 Para saber mais, consulte [visão geral das versões do Azure Functions Runtime](functions-versions.md)
 
@@ -138,7 +138,7 @@ O processo de compilação cria um arquivo *function.json* em uma pasta de funç
 
 A finalidade desse arquivo é fornecer informações para o controlador de escala a ser usado para as [decisões de dimensionamento no plano de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work). Por esse motivo, o arquivo não tem informações de associações de entrada ou saída, apenas de gatilho.
 
-O arquivo *function.json* gerado inclui uma propriedade `configurationSource` que indica o runtime a ser usado em atributos .NET para associações, em vez da configuração do *function.json*. Este é um exemplo:
+O arquivo *function.json* gerado inclui uma propriedade `configurationSource` que indica o runtime a ser usado em atributos .NET para associações, em vez da configuração do *function.json*. Veja um exemplo:
 
 ```json
 {
