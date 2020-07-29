@@ -6,11 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8d2e573f34895207a455838b5fc64f95560943d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02d1bd9d204d88ba90218b1254c66ac0da80be85
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670909"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323495"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Solucionar problemas de ferramentas de análise de comportamento do usuário no Application Insights
 Dúvidas sobre as [ferramentas de análise de comportamento do usuário no Application Insights](usage-overview.md): [Usuários, Sessões, Eventos](usage-segmentation.md), [Funis](usage-funnels.md), [Fluxos dos Usuários](usage-flows.md), [Retenção](usage-retention.md), ou Coortes? Aqui estão algumas respostas.
@@ -18,13 +19,13 @@ Dúvidas sobre as [ferramentas de análise de comportamento do usuário no Appli
 ## <a name="counting-users"></a>Contagem de usuários
 **As ferramentas de análise de comportamento do usuário mostram que meu aplicativo tem um usuário/sessão, mas sei que meu aplicativo tem muitos usuários/sessões. Como corrigir essas contagens incorretas?**
 
-Todos os eventos de telemetria do Application Insights possuem um [ID de usuário anônimo](../../azure-monitor/app/data-model-context.md) e uma [ID de sessão](../../azure-monitor/app/data-model-context.md) como duas de suas propriedades padrão. Por padrão, todas as ferramentas de análise de uso fazem a contagem de usuários e sessões com base nessas IDs. Se essas propriedades padrão não estiverem sendo populadas com IDs exclusivas para cada usuário e sessão do seu aplicativo, você verá uma contagem incorreta de usuários e sessões nas ferramentas de análise de uso.
+Todos os eventos de telemetria do Application Insights possuem um [ID de usuário anônimo](./data-model-context.md) e uma [ID de sessão](./data-model-context.md) como duas de suas propriedades padrão. Por padrão, todas as ferramentas de análise de uso fazem a contagem de usuários e sessões com base nessas IDs. Se essas propriedades padrão não estiverem sendo populadas com IDs exclusivas para cada usuário e sessão do seu aplicativo, você verá uma contagem incorreta de usuários e sessões nas ferramentas de análise de uso.
 
-Se você estiver monitorando um aplicativo Web, a solução mais fácil é adicionar o [SDK de JavaScript do Application Insights](../../azure-monitor/app/javascript.md) para seu aplicativo, e certifique-se de que o snippet de código de script tenha sido carregado em cada página que você deseja monitorar. O SDK de JavaScript gera automaticamente as IDs de usuário anônimo e sessões, e preenche os eventos de telemetria com essas IDs que são enviadas do seu aplicativo.
+Se você estiver monitorando um aplicativo Web, a solução mais fácil é adicionar o [SDK de JavaScript do Application Insights](./javascript.md) para seu aplicativo, e certifique-se de que o snippet de código de script tenha sido carregado em cada página que você deseja monitorar. O SDK de JavaScript gera automaticamente as IDs de usuário anônimo e sessões, e preenche os eventos de telemetria com essas IDs que são enviadas do seu aplicativo.
 
 Se você estiver monitorando um serviço Web (sem interface de usuário), [Crie um inicializador de telemetria que preencha as propriedades de ID de usuário anônimo e de sessões](usage-send-user-context.md), de acordo com noções do serviço das sessões e usuários exclusivos.
 
-Se o seu aplicativo estiver enviando [IDs de usuário autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), você pode realizar a contagem com base nas IDs de usuários autenticados na ferramenta de usuários. Na lista suspensa "Mostrar", escolha "Usuários autenticados".
+Se o seu aplicativo estiver enviando [IDs de usuário autenticado](./api-custom-events-metrics.md#authenticated-users), você pode realizar a contagem com base nas IDs de usuários autenticados na ferramenta de usuários. Na lista suspensa "Mostrar", escolha "Usuários autenticados".
 
 Atualmente, as ferramentas de análise de comportamento do usuário não são compatíveis com a contagem de usuários ou com sessões baseadas nas propriedades que não sejam o ID de usuário anônimo, ID de usuário autenticado ou ID de sessão.
 

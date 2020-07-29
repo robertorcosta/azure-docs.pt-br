@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 4ffbe10a1f9a1629c74c144b8773a7de89890576
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8e56c4da0eec3338de7863a2ee158e804cf406c0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132000"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325552"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Funções, permissões e segurança no Azure Monitor
 
@@ -188,4 +188,5 @@ Para saber mais, confira [Segurança de rede e Armazenamento do Azure](../../sto
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Leia sobre RBAC e permissões no Gerenciador de Recursos](../../role-based-access-control/overview.md)
-* [Leia a visão geral do monitoramento no Azure](../../azure-monitor/overview.md)
+* [Leia a visão geral do monitoramento no Azure](../overview.md)
+

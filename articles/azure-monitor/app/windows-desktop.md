@@ -3,19 +3,19 @@ title: Monitorando uso e desempenho de aplicativos de área de trabalho do Windo
 description: Analise o uso e o desempenho de seu aplicativo da área de trabalho do Windows com o Application Insights.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: ddb602536e1b8bbc987c4ba366e2007163c814ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 17613fc6cea24643c2b88182e7e56a1d216b2da8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499181"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323410"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitorando uso e desempenho de aplicativos de área de trabalho clássica do Windows
 
-Aplicativos hospedados localmente, no Azure e em outras nuvens podem tirar proveito do Application Insights. A única limitação é a necessidade de [permitir a comunicação](../../azure-monitor/app/ip-addresses.md) para o serviço do Application Insights. Para monitorar os aplicativos da Plataforma Universal do Windows (UWP), recomendamos o [Visual Studio App Center](../../azure-monitor/learn/mobile-center-quickstart.md).
+Aplicativos hospedados localmente, no Azure e em outras nuvens podem tirar proveito do Application Insights. A única limitação é a necessidade de [permitir a comunicação](./ip-addresses.md) para o serviço do Application Insights. Para monitorar os aplicativos da Plataforma Universal do Windows (UWP), recomendamos o [Visual Studio App Center](../learn/mobile-center-quickstart.md).
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>Para enviar telemetria ao Application Insights a partir de um aplicativo do Windows clássico
-1. No [portal do Azure](https://portal.azure.com), [crie um recurso Application Insights](../../azure-monitor/app/create-new-resource.md ). 
+1. No [portal do Azure](https://portal.azure.com), [crie um recurso Application Insights](./create-new-resource.md). 
 2. Faça uma cópia da chave de instrumentação.
 3. No Visual Studio, edite os pacotes NuGet do seu projeto de aplicativo e adicione Microsoft.ApplicationInsights.WindowsServer. (Ou escolha Microsoft. ApplicationInsights se você quiser apenas a API base, sem os módulos de coleta de telemetria padrão.)
 4. Defina a chave de instrumentação no seu código:
@@ -27,7 +27,7 @@ Aplicativos hospedados localmente, no Azure e em outras nuvens podem tirar prove
     `<InstrumentationKey>`*sua chave*`</InstrumentationKey>` 
    
     Se você usar ApplicationInsights.config, verifique se suas propriedades no Gerenciador de Soluções estão definidas como **Ação de Compilação = Conteúdo, Copiar para Diretório de Saída = Copiar**.
-5. [Use a API](../../azure-monitor/app/api-custom-events-metrics.md) para enviar telemetria.
+5. [Use a API](./api-custom-events-metrics.md) para enviar telemetria.
 6. Execute seu aplicativo e veja a telemetria no recurso que você criou na portal do Azure.
 
 ## <a name="example-code"></a><a name="telemetry"></a>Código de exemplo
@@ -175,7 +175,8 @@ namespace WindowsFormsApp2
 > Embora você possa usar tecnicamente um processador de telemetria, conforme descrito acima, mesmo se você estiver no [tipo de preço corporativo herdado (por nó)](./pricing.md#legacy-enterprise-per-node-pricing-tier), isso resultará em potencial para cobrança excessiva devido à incapacidade de distinguir corretamente os nós para os preços por nó.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Criar um dashboard](../../azure-monitor/app/overview-dashboard.md)
-* [Pesquisa de Diagnóstico](../../azure-monitor/app/diagnostic-search.md)
-* [Explorar métricas](../../azure-monitor/platform/metrics-charts.md)
+* [Criar um dashboard](./overview-dashboard.md)
+* [Pesquisa de Diagnóstico](./diagnostic-search.md)
+* [Explorar métricas](../platform/metrics-charts.md)
 * [Escrever consultas do Analytics](../log-query/log-query-overview.md)
+

@@ -3,12 +3,12 @@ title: Application Insights para aplicativos de serviço do Worker (aplicativos 
 description: Monitorando aplicativos .NET Core/. NET Framework não HTTP com Azure Monitor Application Insights.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 7ae146c6c010f067973c9fbae4c90bd1116d7c21
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d429a1e0515d24d1c9953af7815dadf2488be302
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499198"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325399"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights para aplicativos de serviço de trabalho (aplicativos não HTTP)
 
@@ -290,7 +290,7 @@ O exemplo completo é compartilhado [aqui](https://github.com/microsoft/Applicat
 
 Esse aplicativo de console também usa o mesmo padrão `TelemetryConfiguration` e pode ser personalizado da mesma maneira que os exemplos na seção anterior.
 
-## <a name="run-your-application"></a>Executar seu aplicativo
+## <a name="run-your-application"></a>Execute seu aplicativo.
 
 Execute seu aplicativo. Os operadores de exemplo de todas as versões acima acima fazem uma chamada http a cada segundo para bing.com e também emite alguns logs usando ILogger. Essas linhas são encapsuladas dentro `StartOperation` da chamada de `TelemetryClient` , que é usada para criar uma operação (neste exemplo, `RequestTelemetry` denominada "Operation"). Application Insights coletará esses logs do ILogger (aviso ou acima por padrão) e dependências, e eles serão correlacionados à `RequestTelemetry` relação com pai-filho. A correlação também funciona com limites de processo/rede. Por exemplo, se a chamada foi feita para outro componente monitorado, ela também será correlacionada a esse pai.
 
@@ -542,7 +542,8 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Use a API](../../azure-monitor/app/api-custom-events-metrics.md) para enviar seus próprios eventos e métricas para uma exibição detalhada do desempenho e do uso do seu aplicativo.
-* [Rastreie dependências adicionais não rastreadas automaticamente](../../azure-monitor/app/auto-collect-dependencies.md).
-* [Enriquecer ou filtrar telemetria coletada automaticamente](../../azure-monitor/app/api-filtering-sampling.md).
+* [Use a API](./api-custom-events-metrics.md) para enviar seus próprios eventos e métricas para uma exibição detalhada do desempenho e do uso do seu aplicativo.
+* [Rastreie dependências adicionais não rastreadas automaticamente](./auto-collect-dependencies.md).
+* [Enriquecer ou filtrar telemetria coletada automaticamente](./api-filtering-sampling.md).
 * [Injeção de dependência em ASP.NET Core](/aspnet/core/fundamentals/dependency-injection).
+

@@ -3,12 +3,12 @@ title: Habilitar Azure Monitor para contêineres | Microsoft Docs
 description: Este artigo descreve como habilitar e configurar Azure Monitor para contêineres para que você possa entender como o contêiner está sendo executado e quais problemas relacionados ao desempenho foram identificados.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 5131d7b8a357075345b5165398d5fa9fc06b5ad8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1cb393faded714593ce635669f585d5979ee69b8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499011"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320299"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Habilitar Azure Monitor para contêineres
 
@@ -28,7 +28,7 @@ Você pode habilitar Azure Monitor para contêineres para uma nova implantação
 - O Portal do Azure
 - Azure PowerShell
 - A CLI do Azure
-- [Terraform e AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
+- [Terraform e AKS](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -131,3 +131,4 @@ Para habilitar Azure Monitor para contêineres, use um dos métodos descritos na
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você habilitou o monitoramento, você pode começar a analisar o desempenho dos clusters kubernetes hospedados no AKS (serviço kubernetes do Azure), Azure Stack ou em outro ambiente. Para saber como usar Azure Monitor para contêineres, consulte [Exibir o desempenho do cluster kubernetes](container-insights-analyze.md).
+

@@ -5,17 +5,18 @@ description: Use o link privado do Azure para acessar com segurança seu espaço
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/14/2020
-ms.openlocfilehash: 4e76a7adf7435cc1bdee3bb4e64f8cc699a16724
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a723c76f04c85bffd7ae4d1d1e8bf5b65ad4619
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031211"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326487"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configurar o link privado do Azure para um espaço de trabalho Azure Machine Learning (versão prévia)
 
@@ -30,6 +31,8 @@ O link privado do Azure permite que você se conecte ao seu espaço de trabalho 
 > O link privado do Azure não afeta o plano de controle do Azure (operações de gerenciamento), como excluir o espaço de trabalho ou gerenciar recursos de computação. Por exemplo, criando, atualizando ou excluindo um destino de computação. Essas operações são executadas pela Internet pública normalmente.
 >
 > Não há suporte para a versão prévia de instâncias de computação do Azure Machine Learning em um workspace em que o Link Privado está habilitado.
+>
+> Você pode encontrar problemas ao tentar acessar o ponto de extremidade privado para seu espaço de trabalho se você estiver usando o Mozilla Firefox. Esse problema pode estar relacionado ao DNS sobre HTTPS no Mozilla. É recomendável usar o Microsoft Edge do Google Chrome como uma solução alternativa.
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Criar um espaço de trabalho que usa um ponto de extremidade privado
 

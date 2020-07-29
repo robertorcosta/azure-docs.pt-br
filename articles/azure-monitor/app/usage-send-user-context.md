@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: a3a59b6658e6ea0229f65492b20b5f5f2882d12a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 46b7479df6d087915cfe81895a786a528da6b9bb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499232"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327898"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Enviar IDs de contexto de usuário para permitir experiências de uso no Azure Application Insights
 
@@ -30,7 +30,7 @@ Para acompanhar o que um usuário faz ao longo do tempo, o Application Insights 
 - Sessões: Inclua a ID da sessão.
 
 > [!NOTE]
-> Este é um artigo avançado que descreve as etapas manuais para acompanhar a atividade do usuário com o Application Insights. Com muitos aplicativos Web, **talvez estas etapas não sejam necessárias**, pois, geralmente, os SDKs padrão do lado do servidor em conjunto com o [SDK do JavaScript do lado do cliente/navegador](../../azure-monitor/app/website-monitoring.md ), são suficientes para controlar automaticamente a atividade de usuário. Se você não tiver configurado o [monitoramento do lado do cliente](../../azure-monitor/app/website-monitoring.md ) além do SDK do lado do servidor, faça isso primeiro e teste se as ferramentas de análise de comportamento do usuário estão apresentando o desempenho esperado.
+> Este é um artigo avançado que descreve as etapas manuais para acompanhar a atividade do usuário com o Application Insights. Com muitos aplicativos Web, **talvez estas etapas não sejam necessárias**, pois, geralmente, os SDKs padrão do lado do servidor em conjunto com o [SDK do JavaScript do lado do cliente/navegador](./website-monitoring.md), são suficientes para controlar automaticamente a atividade de usuário. Se você não tiver configurado o [monitoramento do lado do cliente](./website-monitoring.md) além do SDK do lado do servidor, faça isso primeiro e teste se as ferramentas de análise de comportamento do usuário estão apresentando o desempenho esperado.
 
 ## <a name="choosing-user-ids"></a>Escolher as IDs de usuário
 
@@ -134,4 +134,5 @@ namespace MvcWebRole.Telemetry
     - [Usuários, Sessões e Eventos](usage-segmentation.md)
     - [Funis](usage-funnels.md)
     - [Retenção](usage-retention.md)
-    - [Pastas de trabalho](../../azure-monitor/platform/workbooks-overview.md)
+    - [Pastas de trabalho](../platform/workbooks-overview.md)
+

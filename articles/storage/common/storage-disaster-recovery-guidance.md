@@ -10,11 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 4b1abe8efb4baaf260005df1a4ee5b6d1645715a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9bd2db8bcc427118a76f87e49ade422a74a11c1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84169212"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276900"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperação de desastres e failover da conta de armazenamento
 
@@ -67,7 +68,7 @@ A Microsoft também recomenda que você projete seu aplicativo de forma a se pre
 
 O failover de conta gerenciada pelo cliente permite que você falhe toda a conta de armazenamento para a região secundária se a primária ficar indisponível por qualquer motivo. Quando você força um failover para a região secundária, os clientes podem começar a gravar os dados no ponto de extremidade secundário depois que o failover estiver concluído. O failover normalmente leva cerca de uma hora.
 
-### <a name="how-an-account-failover-works"></a>Como o failover de conta funciona
+### <a name="how-an-account-failover-works"></a>Como um failover de conta funciona
 
 Em circunstâncias normais, um cliente grava dados em uma conta de armazenamento do Azure na região primária e esses dados são copiados assincronamente para a região secundária. A imagem a seguir mostra o cenário quando a região primária está disponível:
 
@@ -129,9 +130,9 @@ Depois que um failover for concluído, os clientes poderão ler novamente e grav
 
 Como o provedor de recursos de armazenamento do Azure não faz failover, a propriedade [Location](/dotnet/api/microsoft.azure.management.storage.models.trackedresource.location) retornará o local primário original após a conclusão do failover.
 
-### <a name="azure-virtual-machines"></a>Máquinas Virtuais do Azure
+### <a name="azure-virtual-machines"></a>Máquinas virtuais do Azure
 
-As máquinas virtuais (VMs) do Azure não realizarão o failover como parte de um failover de conta. Se a região primária ficar indisponível, e você fizer o failover para a região secundária, será preciso recriar todas as VMs após o failover. Além disso, há uma possível perda de dados associada ao failover da conta. A Microsoft recomenda as seguintes diretrizes de [alta disponibilidade](../../virtual-machines/windows/manage-availability.md) e [recuperação de desastres](../../virtual-machines/virtual-machines-disaster-recovery-guidance.md) específicas para máquinas virtuais no Azure.
+As máquinas virtuais (VMs) do Azure não realizarão o failover como parte de um failover de conta. Se a região primária ficar indisponível, e você fizer o failover para a região secundária, será preciso recriar todas as VMs após o failover. Além disso, há uma possível perda de dados associada ao failover da conta. A Microsoft recomenda as seguintes diretrizes de [alta disponibilidade](../../virtual-machines/windows/manage-availability.md) e [recuperação de desastres](../../virtual-machines/windows/backup-recovery.md) específicas para máquinas virtuais no Azure.
 
 ### <a name="azure-unmanaged-disks"></a>Discos não gerenciados do Azure
 
@@ -170,7 +171,7 @@ Se sua conta de armazenamento estiver configurada para acesso de leitura para o 
 
 Em circunstâncias extremas em que uma região for perdida devido a um desastre significativo, a Microsoft poderá iniciar um failover regional. Nesse caso, nenhuma ação sua é necessária. Você não terá acesso para gravação na conta de armazenamento até que o failover gerenciado pela Microsoft seja concluído. Seus aplicativos poderão ler a partir da região secundária se sua conta de armazenamento estiver configurada para RA-GRS ou RA-GZRS.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Uso da redundância geográfica para criar aplicativos altamente disponíveis](geo-redundant-design.md)
 - [Iniciar um failover da conta](storage-initiate-account-failover.md)

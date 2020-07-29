@@ -6,34 +6,34 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 0d080c18a1af9549373750b787093fec03b32006
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1d3b3215fe05ef2f57805b5df2b441f360f45df2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073600"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322339"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de log no Azure Monitor
 
-Os alertas de log são um dos tipos de alertas que têm suporte nos [alertas do Azure](../../azure-monitor/platform/alerts-overview.md). Os alertas de log permitem que os usuários usem a plataforma de análise do Azure como base para alertas.
+Os alertas de log são um dos tipos de alertas que têm suporte nos [alertas do Azure](./alerts-overview.md). Os alertas de log permitem que os usuários usem a plataforma de análise do Azure como base para alertas.
 
-O Alerta de Log consiste em regras de Pesquisa de Logs criadas para o [Azure Monitor Logs](../log-query/get-started-portal.md) ou o [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). Para saber mais sobre seu uso, consulte [Criar alertas de log no Azure](../../azure-monitor/platform/alerts-log.md)
+O Alerta de Log consiste em regras de Pesquisa de Logs criadas para o [Azure Monitor Logs](../log-query/get-started-portal.md) ou o [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events). Para saber mais sobre seu uso, consulte [Criar alertas de log no Azure](./alerts-log.md)
 
 > [!NOTE]
-> Os dados de log populares do [Azure Monitor Logs](../log-query/get-started-portal.md) agora também estão disponíveis na plataforma de métricas no Azure Monitor. Para obter uma exibição detalhada, confira [Alerta de métrica para logs](../../azure-monitor/platform/alerts-metric-logs.md)
+> Os dados de log populares do [Azure Monitor Logs](../log-query/get-started-portal.md) agora também estão disponíveis na plataforma de métricas no Azure Monitor. Para obter uma exibição detalhada, confira [Alerta de métrica para logs](./alerts-metric-logs.md)
 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Regra de alerta de pesquisa de log - definição e tipos
 
-As regras de pesquisa de log são criadas pelos Alertas do Azure para executar consultas de log automaticamente em intervalos regulares.  Se os resultados da consulta de log corresponderem a critérios específicos, um registro de alerta será criado. A regra pode executar automaticamente uma ou mais ações usando os [Grupos de Ação](../../azure-monitor/platform/action-groups.md). A função [Colaborador do Monitoramento do Azure](../../azure-monitor/platform/roles-permissions-security.md) pode ser necessária para criar, modificar e atualizar alertas de log e direitos de acesso e execução de consulta para os destinos de análise na regra de alerta ou na consulta de alerta. Caso o usuário que está criando não tenha acesso a todos os destinos de análise na regra de alerta ou consulta de alerta-a criação da regra pode falhar ou a regra de alerta de log será executada com resultados parciais.
+As regras de pesquisa de log são criadas pelos Alertas do Azure para executar consultas de log automaticamente em intervalos regulares.  Se os resultados da consulta de log corresponderem a critérios específicos, um registro de alerta será criado. A regra pode executar automaticamente uma ou mais ações usando os [Grupos de Ação](./action-groups.md). A função [Colaborador do Monitoramento do Azure](./roles-permissions-security.md) pode ser necessária para criar, modificar e atualizar alertas de log e direitos de acesso e execução de consulta para os destinos de análise na regra de alerta ou na consulta de alerta. Caso o usuário que está criando não tenha acesso a todos os destinos de análise na regra de alerta ou consulta de alerta-a criação da regra pode falhar ou a regra de alerta de log será executada com resultados parciais.
 
 As regras de pesquisa de log são definidas pelos detalhes a seguir:
 
-- **Consulta de log**.  A consulta que é executada cada vez que a regra de alerta é acionada.  Os registros retornados por essa consulta são usados para determinar se um alerta é disparado. A consulta do Analytics pode ser para um workspace específico do Log Analytics ou para um aplicativo do Application Insights e, até mesmo, abranger [vários recursos do Log Analytics e do Application Insights](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights), desde que o usuário tenha direitos de acesso, bem como de consulta a todos os recursos. 
+- **Consulta de log**.  A consulta que é executada cada vez que a regra de alerta é acionada.  Os registros retornados por essa consulta são usados para determinar se um alerta é disparado. A consulta do Analytics pode ser para um workspace específico do Log Analytics ou para um aplicativo do Application Insights e, até mesmo, abranger [vários recursos do Log Analytics e do Application Insights](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights), desde que o usuário tenha direitos de acesso, bem como de consulta a todos os recursos. 
     > [!IMPORTANT]
-    > suporte [a consultas entre recursos](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) em alertas de log para Application insights e alertas de log para [log Analytics configurados usando apenas a API scheduledQueryRules](../../azure-monitor/platform/alerts-log-api-switch.md) .
+    > suporte [a consultas entre recursos](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) em alertas de log para Application insights e alertas de log para [log Analytics configurados usando apenas a API scheduledQueryRules](./alerts-log-api-switch.md) .
 
-    Alguns comandos e combinações de análise são incompatíveis com o uso em alertas de log; para obter mais detalhes, confira [Consultas de alertas de log no Azure Monitor](../../azure-monitor/platform/alerts-log-query.md).
+    Alguns comandos e combinações de análise são incompatíveis com o uso em alertas de log; para obter mais detalhes, confira [Consultas de alertas de log no Azure Monitor](./alerts-log-query.md).
 
 - **Período de tempo**.  Especifica o intervalo de tempo para a consulta. A consulta retorna somente os registros que foram criados dentro desse intervalo de tempo atual. O período de tempo restringe os dados buscados para consulta de log para evitar abusos e contorna qualquer comando de tempo (como atrás) usados na consulta de log. <br>*Por exemplo, se o período de tempo for definido como 60 minutos e a consulta for executada às 1:15 PM, somente os registros criados entre 12:15 PM e 1:15 PM serão retornados para executar a consulta de log. Agora, se a consulta de log usar o comando de tempo como atrás (7D), a consulta de log será executada somente para dados entre 12:15 e 1:15 PM-como se os dados existirem apenas nos últimos 60 minutos. E não por sete dias de dados, conforme especificado na consulta de log.*
 
@@ -41,7 +41,7 @@ As regras de pesquisa de log são definidas pelos detalhes a seguir:
 
 - **Limite**.  Os resultados da pesquisa de logs são avaliados para determinar se um alerta deve ser criado.  O limite é diferente para os diferentes tipos de regras de alerta da pesquisa de logs.
 
-As regras de pesquisa de logs para o [Logs do Azure Monitor](../log-query/get-started-portal.md) ou o [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events) podem ser de dois tipos. Cada um desses tipos é descrito detalhadamente nas seções a seguir.
+As regras de pesquisa de logs para o [Logs do Azure Monitor](../log-query/get-started-portal.md) ou o [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events) podem ser de dois tipos. Cada um desses tipos é descrito detalhadamente nas seções a seguir.
 
 - **[Número de resultados](#number-of-results-alert-rules)**. Alerta único criado quando o número de registros retornados pela pesquisa de logs excedeu um número especificado.
 - **[Medida métrica](#metric-measurement-alert-rules)**.  Alerta criado para cada objeto nos resultados da pesquisa de logs com valores que excedem o limite especificado.
@@ -81,7 +81,7 @@ As regras de alerta de **medição de métrica** criam um alerta para cada objet
 - **Campo de grupo**: Um registro com um valor agregado será criado para cada instância do campo e um alerta pode ser gerado para cada um deles.  Por exemplo, se você quisesse gerar um alerta para cada computador, você usaria **by Computer**. Caso haja vários campos de grupo especificados na consulta do alerta, o usuário pode especificar qual campo deve ser usado para classificar os resultados usando o parâmetro **Agregar em** (metricColumn)
 
     > [!NOTE]
-    > A opção *Agregar em* (metricColumn) está disponível para alertas de log do tipo Medição métrica para o Application Insights e registra alertas somente para o [Log Analytics configurado usando a API scheduledQueryRules](../../azure-monitor/platform/alerts-log-api-switch.md).
+    > A opção *Agregar em* (metricColumn) está disponível para alertas de log do tipo Medição métrica para o Application Insights e registra alertas somente para o [Log Analytics configurado usando a API scheduledQueryRules](./alerts-log-api-switch.md).
 
 - **Intervalo**: Define o intervalo de tempo durante o qual os dados são agregados.  Por exemplo, se você especificasse **cinco minutos**, um registro seria criado para cada instância do campo de grupo agregada em intervalos de 5 minutos durante o período de tempo especificado para o alerta.
 
@@ -152,22 +152,23 @@ Preços aplicáveis aos Alertas de Log estão disponíveis na página [Preços d
 - Alertas de log no Application Insights mostrados com o nome exato do alerta, juntamente com o grupo de recursos e propriedades do alerta
 - Alertas de log no Log Analytics mostrados com o nome exato do alerta, juntamente com o grupo de recursos e propriedades do alerta, quando criados usando [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules)
 
-A [API herdada do Log Analytics](../../azure-monitor/platform/api-alerts.md) tem ações de alerta e agendamentos como parte de Pesquisa Salva do Log Analytics e não [Recursos do Azure](../../azure-resource-manager/management/overview.md) adequados. Portanto, para habilitar a cobrança para esses alertas de log herdados criados para o Log Analytics usando o portal do Azure **sem** [mudar para a nova API](../../azure-monitor/platform/alerts-log-api-switch.md) ou via [API herdada do Log Analytics](../../azure-monitor/platform/api-alerts.md), regras de pseudoalerta ocultas são criadas no `microsoft.insights/scheduledqueryrules` para cobrança no Azure. As regras de pseudoalerta oculta criadas para cobrança em `microsoft.insights/scheduledqueryrules` conforme mostrado em `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` juntamente com propriedades de alerta e grupo de recursos.
+A [API herdada do Log Analytics](./api-alerts.md) tem ações de alerta e agendamentos como parte de Pesquisa Salva do Log Analytics e não [Recursos do Azure](../../azure-resource-manager/management/overview.md) adequados. Portanto, para habilitar a cobrança para esses alertas de log herdados criados para o Log Analytics usando o portal do Azure **sem** [mudar para a nova API](./alerts-log-api-switch.md) ou via [API herdada do Log Analytics](./api-alerts.md), regras de pseudoalerta ocultas são criadas no `microsoft.insights/scheduledqueryrules` para cobrança no Azure. As regras de pseudoalerta oculta criadas para cobrança em `microsoft.insights/scheduledqueryrules` conforme mostrado em `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` juntamente com propriedades de alerta e grupo de recursos.
 
 > [!NOTE]
 > Se caracteres inválidos como `<, >, %, &, \, ?, /` estiverem presentes, eles serão substituídos por `_` no nome da regra de pseudoalerta oculta e, portanto, também na fatura do Azure.
 
 Remova os recursos ocultos scheduleQueryRules criados para cobrança de regras de alerta usando [API herdada do Log Analytics](api-alerts.md), o usuário pode executar qualquer uma das seguintes ações:
 
-- Qualquer usuário pode [alternar a preferência de API para as regras de alerta no workspace do Log Analytics](../../azure-monitor/platform/alerts-log-api-switch.md) e sem perda de suas regras de alerta ou movimentação de monitoramento para a [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) em conformidade com o Azure Resource Manager. Isso elimina a necessidade de regras de pseudoalerta ocultas para cobrança.
-- Ou se o usuário não desejar mudar a preferência de API, ele precisará **excluir** a agenda original e a ação de alerta usando a [API herdada do Log Analytics](api-alerts.md) ou excluir no [portal do Azure a regra de alerta de log original](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)
+- Qualquer usuário pode [alternar a preferência de API para as regras de alerta no workspace do Log Analytics](./alerts-log-api-switch.md) e sem perda de suas regras de alerta ou movimentação de monitoramento para a [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) em conformidade com o Azure Resource Manager. Isso elimina a necessidade de regras de pseudoalerta ocultas para cobrança.
+- Ou se o usuário não desejar mudar a preferência de API, ele precisará **excluir** a agenda original e a ação de alerta usando a [API herdada do Log Analytics](api-alerts.md) ou excluir no [portal do Azure a regra de alerta de log original](./alerts-log.md#view--manage-log-alerts-in-azure-portal)
 
-Além disso, para os recursos ocultos do scheduleQueryRules criados para a cobrança de regras de alerta usando a [API de log Analytics herdada](api-alerts.md), qualquer operação de modificação como Put falhará. Como as `microsoft.insights/scheduledqueryrules` pseudovariáveis de tipo são para fins de cobrança, as regras de alerta criadas usando a [API de log Analytics herdada](api-alerts.md). Qualquer modificação de regra de alerta deve ser feita usando a [API de log Analytics herdada](api-alerts.md) (ou) o usuário pode [alternar a preferência de API para que as regras de alerta usem a](../../azure-monitor/platform/alerts-log-api-switch.md) [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) em vez disso.
+Além disso, para os recursos ocultos do scheduleQueryRules criados para a cobrança de regras de alerta usando a [API de log Analytics herdada](api-alerts.md), qualquer operação de modificação como Put falhará. Como as `microsoft.insights/scheduledqueryrules` pseudovariáveis de tipo são para fins de cobrança, as regras de alerta criadas usando a [API de log Analytics herdada](api-alerts.md). Qualquer modificação de regra de alerta deve ser feita usando a [API de log Analytics herdada](api-alerts.md) (ou) o usuário pode [alternar a preferência de API para que as regras de alerta usem a](./alerts-log-api-switch.md) [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) em vez disso.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a [criação de alertas de log no Azure](../../azure-monitor/platform/alerts-log.md).
+* Saiba mais sobre a [criação de alertas de log no Azure](./alerts-log.md).
 * Entenda os [webhooks nos alertas de log no Azure](alerts-log-webhook.md).
-* Saiba mais sobre os [Alertas do Azure](../../azure-monitor/platform/alerts-overview.md).
+* Saiba mais sobre os [Alertas do Azure](./alerts-overview.md).
 * Saiba mais sobre o [Application Insights](../log-query/log-query-overview.md).
-* Saiba mais sobre [log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+* Saiba mais sobre [log Analytics](../log-query/log-query-overview.md).
+

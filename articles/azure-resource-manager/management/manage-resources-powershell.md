@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 2c14e8ae7de48752466cea43205445d5bb4856c9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: ce3c0409ba077d81023188530b660eb210daf4d1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055351"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326793"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Gerenciar recursos do Azure usando o Azure PowerShell
 
@@ -59,7 +59,7 @@ Para obter mais informações, veja [Implantar recursos com modelos do Resource 
 
 ## <a name="deploy-a-resource-group-and-resources"></a>Implantar um grupo de recursos e recursos
 
-Você pode criar um grupo de recursos e implantar recursos no grupo. Para saber mais, confira [Create resource group and deploy resources](../templates/deploy-to-subscription.md#resource-group-and-resources) (Criar grupo de recursos e implantar recursos).
+Você pode criar um grupo de recursos e implantar recursos no grupo. Para saber mais, confira [Create resource group and deploy resources](../templates/deploy-to-subscription.md#resource-groups) (Criar grupo de recursos e implantar recursos).
 
 ## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>Implantar recursos em várias assinaturas ou grupos de recursos
 

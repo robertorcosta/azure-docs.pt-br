@@ -1,6 +1,5 @@
 ---
-title: Habilitar log de serviço Web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clássico): habilitar log de serviço Web-Azure'
 description: Saiba como habilitar o registro em log para serviços da Web Machine Learning Studio (clássico). O registro em log fornece informações adicionais para ajudar a solucionar problemas com as APIs.
 services: machine-learning
 author: likebupt
@@ -11,13 +10,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: 71516641ab5110511d58f7e453759271aff9885a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baaad137e4a5bc5268642addb5779961b7be3b04
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705824"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326232"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Habilitar o registro em log para serviços Web Azure Machine Learning Studio (clássico)
+
+**aplica-se a:** ![ Não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) 
+
 
 Este documento fornece informações sobre o recurso de log dos serviços Web Machine Learning Studio (clássico). O registro em log fornece informações adicionais, além de apenas um número de erro e uma mensagem, que podem ajudá-lo a solucionar suas chamadas para as APIs de Machine Learning Studio (clássicas).  
 
@@ -41,7 +44,7 @@ Você habilita o registro em log no portal de [Serviços Web Azure Machine Learn
 
    ![Selecionar o nível de log](./media/web-services-logging/enable-logging.png)
 
-6. Clique em **Save** (Salvar).
+6. Clique em **Salvar**.
 
 7. Para os serviços Web Clássicos, crie o contêiner **ml-diagnostics**.
 
@@ -49,7 +52,7 @@ Você habilita o registro em log no portal de [Serviços Web Azure Machine Learn
 
    1. No [portal do Azure](https://portal.azure.com), vá para a conta de armazenamento associada ao serviço Web.
 
-   2. Em **Serviço Blob**, clique em **Contêineres**.
+   2. Em **serviço blob**, clique em **contêineres**.
 
    3. Se o contêiner **ml-diagnostics** não existir, clique em **+Contêiner**, dê ao contêiner o nome "ml-diagnostics" e selecione o **Tipo de acesso** como "Blob". Clique em **OK**.
 

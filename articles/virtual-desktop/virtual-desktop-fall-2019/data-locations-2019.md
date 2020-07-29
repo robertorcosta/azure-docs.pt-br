@@ -1,6 +1,6 @@
 ---
-title: Locais de dados para área de trabalho virtual do Windows Outono 2019 – Azure
-description: Uma breve visão geral de quais locais os dados e metadados da área de trabalho virtual do Windows são armazenados.
+title: Locais de dados para a área de trabalho virtual do Windows (clássico)-Azure
+description: Uma breve visão geral de quais locais os dados e metadados da área de trabalho virtual do Windows (clássico) são armazenados.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fa998ddf8225475bbcf657ed9feee951263d2743
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0e12e17914374a64ecd2d17a8e73c6ebf20328d9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077588"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270032"
 ---
-# <a name="data-locations-for-windows-virtual-desktop"></a>Locais de dados para área de trabalho virtual do Windows
+# <a name="data-locations-for-windows-virtual-desktop-classic"></a>Locais de dados para a área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../data-locations.md).
+>Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../data-locations.md).
 
 A área de trabalho virtual do Windows está disponível atualmente para todas as localizações geográficas. Inicialmente, os metadados de serviço só podem ser armazenados na geografia de Estados Unidos (EUA). Os administradores podem escolher o local para armazenar os dados do usuário ao criarem as máquinas virtuais do pool de hosts e serviços associados, como servidores de arquivos. Saiba mais sobre as geografias do Azure no [mapa de datacenter do Azure](https://azuredatacentermap.azurewebsites.net/).
 

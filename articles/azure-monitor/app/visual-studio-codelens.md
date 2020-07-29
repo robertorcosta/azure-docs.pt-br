@@ -7,15 +7,15 @@ ms.author: daviste
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: 5354379b73eca46e35c41cc0cf580b113dae7e8c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2a562378ae626351922e43d33f38e62331ab58de
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499249"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323478"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Telemetria do Application Insights no Visual Studio CodeLens
-Métodos no código de seu aplicativo Web podem ser anotados com telemetria sobre exceções de tempo de execução e tempos de resposta de solicitação. Se você instalar o [Application Insights do Azure](../../azure-monitor/app/app-insights-overview.md) em seu aplicativo, a telemetria aparecerá no Visual Studio [CodeLens](/visualstudio/ide/find-code-changes-and-other-history-with-codelens?view=vs-2015) -as anotações na parte superior de cada função em que você está acostumado a ver informações úteis, como o número de casas em que a função é referenciada ou a última pessoa que o editou.
+Métodos no código de seu aplicativo Web podem ser anotados com telemetria sobre exceções de tempo de execução e tempos de resposta de solicitação. Se você instalar o [Application Insights do Azure](./app-insights-overview.md) em seu aplicativo, a telemetria aparecerá no Visual Studio [CodeLens](/visualstudio/ide/find-code-changes-and-other-history-with-codelens?view=vs-2015) -as anotações na parte superior de cada função em que você está acostumado a ver informações úteis, como o número de casas em que a função é referenciada ou a última pessoa que o editou.
 
 ![CodeLens](./media/visual-studio-codelens/codelens-overview.png)
 
@@ -70,6 +70,7 @@ Para obter mais detalhes, clique nas solicitações no indicador do CodeLens:
 ## <a name="next-steps"></a><a name="next"></a>Próximas etapas
 |  |  |
 | --- | --- |
-| **[Trabalhar com o Application Insights no Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Pesquisar telemetria, ver dados em CodeLens e configurar o Application Insights. Tudo no Visual Studio. |![Clique com o botão direito no projeto e escolha Application Insights, Pesquisar.](./media/visual-studio-codelens/34.png) |
-| **[Adicionar mais dados](../../azure-monitor/app/asp-net-more.md)**<br/>Monitorar o uso, a disponibilidade, as dependências e as exceções. Integrar rastreamentos de estruturas de logs. Escrever telemetria personalizada. |![Visual Studio](./media/visual-studio-codelens/64.png) |
-| **[Trabalhando com o portal do Application Insights](../../azure-monitor/app/overview-dashboard.md)**<br/>Painéis, poderosas ferramentas de diagnóstico e análise, alertas, um mapa de dependências em tempo real de seu aplicativo e a exportação de telemetria. |![Visual Studio](./media/visual-studio-codelens/62.png) |
+| **[Trabalhar com o Application Insights no Visual Studio](./visual-studio.md)**<br/>Pesquisar telemetria, ver dados em CodeLens e configurar o Application Insights. Tudo no Visual Studio. |![Clique com o botão direito no projeto e escolha Application Insights, Pesquisar.](./media/visual-studio-codelens/34.png) |
+| **[Adicionar mais dados](./asp-net-more.md)**<br/>Monitorar o uso, a disponibilidade, as dependências e as exceções. Integrar rastreamentos de estruturas de logs. Escrever telemetria personalizada. |![Visual Studio](./media/visual-studio-codelens/64.png) |
+| **[Trabalhando com o portal do Application Insights](./overview-dashboard.md)**<br/>Painéis, poderosas ferramentas de diagnóstico e análise, alertas, um mapa de dependências em tempo real de seu aplicativo e a exportação de telemetria. |![Visual Studio](./media/visual-studio-codelens/62.png) |
+

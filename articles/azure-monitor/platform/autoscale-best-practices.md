@@ -4,12 +4,12 @@ description: Padrões de dimensionamento automático no Azure para Aplicativos W
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 47da813498ef2cd4d16aeaa5ab31eff24b1db267
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 414716fbbb36167e52c4f3b98c70ae7696ffea8f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539526"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327048"
 ---
 # <a name="best-practices-for-autoscale"></a>Práticas recomendadas para Dimensionamento Automático
 O dimensionamento automático do Azure Monitor aplica-se somente aos [Conjuntos de Dimensionamento de Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aos [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/), ao [Serviço de Aplicativo – Aplicativos Web](https://azure.microsoft.com/services/app-service/web/) e aos [Serviços de Gerenciamento de API](../../api-management/api-management-key-concepts.md).
@@ -22,7 +22,7 @@ O dimensionamento automático do Azure Monitor aplica-se somente aos [Conjuntos 
   Uma configuração de dimensionamento automático tem um valor máximo, mínimo e padrão de instâncias.
 * Um trabalho de dimensionamento automático sempre lê a métrica associada para expandir, verificando se ele ultrapassou o limite configurado para escalar ou reduzir horizontalmente. Você pode exibir uma lista de métricas que o dimensionamento automático pode dimensionar em [métricas comuns de dimensionamento automático do Azure Monitor](autoscale-common-metrics.md).
 * Todos os limites são calculados em um nível de instância. Por exemplo, "escalar horizontalmente por uma instância quando a média da CPU > 80% quando a contagem de instâncias for 2" significa escalar horizontalmente quando a média da CPU em todas as instâncias for maior que 80%.
-* Todas as falhas de dimensionamento automático são registradas no log de atividades. Você pode configurar um [alerta do log de atividades](./../../azure-monitor/platform/activity-log-alerts.md) para que você possa ser notificado por email, SMS, webhook, sempre que houver uma falha de dimensionamento automático.
+* Todas as falhas de dimensionamento automático são registradas no log de atividades. Você pode configurar um [alerta do log de atividades](./activity-log-alerts.md) para que você possa ser notificado por email, SMS, webhook, sempre que houver uma falha de dimensionamento automático.
 * Da mesma forma, todas as ações de escala bem-sucedidas são lançadas no Log de atividades. Você pode configurar um alerta de log de atividades para que possa ser notificado por email, SMS, webhook, sempre que houver uma ação de dimensionamento automático bem-sucedida. Você também pode configurar as notificações por e-mail ou webhook para obter notificações de ações de dimensionamento bem-sucedidas através do guia de notificações nas configurações de dimensionamento automático.
 
 ## <a name="autoscale-best-practices"></a>Práticas recomendadas de dimensionamento automático
@@ -151,3 +151,4 @@ Além de usar os alertas do log de atividades, você também pode configurar as 
 ## <a name="next-steps"></a>Próximas etapas
 - [Crie um alerta do log de atividades para monitorar todas as operações do mecanismo de dimensionamento automático em sua assinatura.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Crie um Alerta de Log de Atividades para monitorar todas as operações de escalar horizontalmente/reduzir horizontalmente com falha na sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+

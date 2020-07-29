@@ -2,21 +2,25 @@
 title: 'Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure V8 para Java'
 description: Crie uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, use a biblioteca de cliente de armazenamento do Azure V8 para Java para carregar um blob no armazenamento do Azure, baixar um blob e listar os BLOBs em um contêiner.
 author: mhopkins-msft
+ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 01/24/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: e7986add466bc42b092763acfeceebc8a6523bbe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ab45495283f8751912d93e9799958a8effc887a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80473994"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323733"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Início rápido: gerenciar BLOBs com o SDK do Java V8
 
 Neste início rápido, você aprenderá a gerenciar blobs usando o Java. Os blobs são objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, mídia de streaming e dados de arquivos. Você carregará, baixará e listará os BLOBs. Você também criará, definirá permissões em e excluirá contêineres.
+
+> [!NOTE]
+> Este guia de início rápido usa uma versão herdada da biblioteca de clientes do Armazenamento de Blobs do Azure. Para começar a usar a versão mais recente, consulte [início rápido: gerenciar BLOBs com o SDK do Java V12](storage-quickstart-blobs-java.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

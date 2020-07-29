@@ -6,11 +6,12 @@ author: brahmnes
 ms.author: bfung
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 194a2da23c8fb405c492df8f6ee173cc97fde4ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1cc9893a309dcdf7ac575494d164052bb0c617c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671327"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325671"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Habilitar Depurador de Instantâneos para aplicativos .NET no Azure Service Fabric, serviço de nuvem e máquinas virtuais
 
@@ -20,11 +21,11 @@ Se seu aplicativo for executado no Azure Service Fabric, serviço de nuvem, máq
     
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>Configurar a coleta de instantâneo para aplicativos ASP.NET
 
-1. [Habilite o Application Insights no seu aplicativo web](../../azure-monitor/app/asp-net.md), se você ainda não tiver feito isso.
+1. [Habilite o Application Insights no seu aplicativo web](./asp-net.md), se você ainda não tiver feito isso.
 
 2. Inclua o pacote do NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) em seu aplicativo.
 
-3. Se necessário, personalize a configuração de Depurador de Instantâneos adicionada ao [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). A configuração padrão de Depurador de Instantâneos está quase sempre vazia e todas as configurações são opcionais. Veja um exemplo que mostra uma configuração equivalente à configuração padrão:
+3. Se necessário, personalize a configuração de Depurador de Instantâneos adicionada ao [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). A configuração padrão de Depurador de Instantâneos está quase sempre vazia e todas as configurações são opcionais. Veja um exemplo que mostra uma configuração equivalente à configuração padrão:
 
     ```xml
     <TelemetryProcessors>
@@ -58,12 +59,12 @@ Se seu aplicativo for executado no Azure Service Fabric, serviço de nuvem, máq
     </TelemetryProcessors>
     ```
 
-4. Os instantâneos são coletados apenas em exceções que são relatadas ao Application Insights. Em alguns casos (por exemplo, versões mais antigas da plataforma .NET), talvez seja necessário [configurar coleta de exceção](../../azure-monitor/app/asp-net-exceptions.md#exceptions) para ver exceções com instantâneos no portal.
+4. Os instantâneos são coletados apenas em exceções que são relatadas ao Application Insights. Em alguns casos (por exemplo, versões mais antigas da plataforma .NET), talvez seja necessário [configurar coleta de exceção](./asp-net-exceptions.md#exceptions) para ver exceções com instantâneos no portal.
 
 
 ## <a name="configure-snapshot-collection-for-applications-using-aspnet-core-20-or-above"></a>Configurar a coleta de instantâneos para aplicativos usando o ASP.NET Core 2,0 ou superior
 
-1. [Habilite o Application Insights no seu aplicativo web Núcleo do ASP.NET](../../azure-monitor/app/asp-net-core.md), se você ainda não tiver feito isso.
+1. [Habilite o Application Insights no seu aplicativo web Núcleo do ASP.NET](./asp-net-core.md), se você ainda não tiver feito isso.
 
     > [!NOTE]
     > Verifique se o seu aplicativo faz referência à versão 2.1.1 ou mais recente do pacote Microsoft.ApplicationInsights.AspNetCore.
@@ -150,7 +151,7 @@ Se seu aplicativo for executado no Azure Service Fabric, serviço de nuvem, máq
 
 ## <a name="configure-snapshot-collection-for-other-net-applications"></a>Configurar a coleta de instantâneo para outros aplicativos .NET
 
-1. Se seu aplicativo ainda não está instrumentado com o Application Insights, comece [habilitando o Application Insights e definindo a chave de instrumentação](../../azure-monitor/app/windows-desktop.md).
+1. Se seu aplicativo ainda não está instrumentado com o Application Insights, comece [habilitando o Application Insights e definindo a chave de instrumentação](./windows-desktop.md).
 
 2. Adicione o pacote do NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) em seu aplicativo.
 
@@ -179,3 +180,4 @@ Se seu aplicativo for executado no Azure Service Fabric, serviço de nuvem, máq
 - Gere o tráfego para o aplicativo que pode disparar uma exceção. Em seguida, aguarde de 10 a 15 minutos para que os instantâneos sejam enviados para a instância de Application Insights.
 - Consulte [instantâneos](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) na portal do Azure.
 - Para obter ajuda com a solução de problemas de Depurador de Instantâneos, consulte [depurador de instantâneos solução de problemas](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
+

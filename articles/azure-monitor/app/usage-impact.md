@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4481e62fb15b5ec21b48deb00f1438abf01aa27a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fffb83fe680572c2448323a61b767a401c9a4834
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041471"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323699"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análise do Impact com o Application Insights
 
@@ -28,7 +28,7 @@ Mas, a análise do desempenho é apenas um subconjunto dos recursos do Impact. C
 ![Conversão da captura de tela por navegadores](./media/usage-impact/0004-browsers.png)
 
 > [!NOTE]
-> O recurso Application Insights deve conter exibições de página ou eventos personalizados para usar a ferramenta Impact. [Saiba como configurar seu aplicativo para coletar exibições de página automaticamente com o SDK do JavaScript do Application Insights](../../azure-monitor/app/javascript.md). Também se lembre de que, como você está analisando a correlação, o tamanho de exemplo importa.
+> O recurso Application Insights deve conter exibições de página ou eventos personalizados para usar a ferramenta Impact. [Saiba como configurar seu aplicativo para coletar exibições de página automaticamente com o SDK do JavaScript do Application Insights](./javascript.md). Também se lembre de que, como você está analisando a correlação, o tamanho de exemplo importa.
 >
 >
 
@@ -85,5 +85,6 @@ Como o impacto acaba sendo calculado varia de acordo com a análise feita por m�
     - [Funis](usage-funnels.md)
     - [Retenção](usage-retention.md)
     - [Fluxos de Usuário](usage-flows.md)
-    - [Pastas de trabalho](../../azure-monitor/platform/workbooks-overview.md)
+    - [Pastas de trabalho](../platform/workbooks-overview.md)
     - [Adicionar contexto de usuário](usage-send-user-context.md)
+

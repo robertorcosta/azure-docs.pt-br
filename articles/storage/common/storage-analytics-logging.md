@@ -5,15 +5,16 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: b1134f5538663f5b04e77270fee1a715b32a4f3e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 061c7f6a45b8667b7fd03d62bee67c695bec5e68
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675912"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276781"
 ---
 # <a name="azure-storage-analytics-logging"></a>Log da Análise de Armazenamento do Azure
 
@@ -63,7 +64,7 @@ Se tiver um grande volume de dados de log com vários arquivos para cada hora, v
 A maioria das ferramentas de navegação de armazenamento permite exibir os metadados de blobs. Além disso, você pode ler essas informações usando o PowerShell ou de forma programática. O seguinte snippet do PowerShell é um exemplo de filtragem da lista de blobs de log pelo nome, para especificar uma hora, e por metadados, para identificar apenas os logs que contêm operações de **gravação**.  
 
  ```powershell
- Get-AzureStorageBlob -Container '$logs' |  
+ Get-AzStorageBlob -Container '$logs' |  
  Where-Object {  
      $_.Name -match 'table/2014/05/21/05' -and   
      $_.ICloudBlob.Metadata.LogType -match 'write'  
@@ -136,20 +137,20 @@ Especifique os serviços de armazenamento que deseja registrar em log e o perío
 
 ### <a name="enable-storage-logging-using-powershell"></a>Habilitar o registro em log do Armazenamento usando o PowerShell  
 
- Use o PowerShell em seu computador local para configurar o Registro em Log do Armazenamento em sua conta de armazenamento usando o cmdlet do PowerShell do Azure **Get-AzureStorageServiceLoggingProperty** para recuperar as configurações atuais e o cmdlet **Set-AzureStorageServiceLoggingProperty** para alterar as configurações atuais.  
+ Você pode usar o PowerShell em seu computador local para configurar o log de armazenamento em sua conta de armazenamento usando o cmdlet Azure PowerShell **Get-AzStorageServiceLoggingProperty** para recuperar as configurações atuais e o cmdlet **set-AzStorageServiceLoggingProperty** para alterar as configurações atuais.  
 
  Os cmdlets que controlam o Registro em Log do Armazenamento usam um parâmetro **LoggingOperations** que é uma cadeia de caracteres contendo uma lista de tipos de solicitação separados por vírgulas para o log. Os três tipos possíveis de solicitação são **leitura**, **gravação** e **exclusão**. Para desativar o registro em log, use o valor **none** no parâmetro **LoggingOperations**.  
 
  O seguinte comando ativa o registro em log para solicitações de leitura, gravação e exclusão no serviço de Fila em sua conta de armazenamento padrão com a retenção definida como cinco dias:  
 
 ```powershell
-Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
+Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
  O seguinte comando desativa o registro em log para o serviço de tabela em sua conta de armazenamento padrão:  
 
 ```powershell
-Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
+Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
  Para saber mais sobre como configurar os cmdlets do Azure PowerShell para funcionar com sua assinatura do Azure e como escolher a conta de armazenamento padrão para usar, confira: [Como instalar e configurar o Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  

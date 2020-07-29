@@ -4,15 +4,16 @@ description: Modelo de dados do Application Insights para telemetria de exceçõ
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: fa9bc4efd9549cbcb1d50439989c5dea79d9d60c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6732fb3dde79abd5c69e2b0a91710bdd2356d6aa
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671929"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320588"
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>Telemetria de exceções: modelo de dados do Application Insights
 
-Um [Application Insights](../../azure-monitor/app/app-insights-overview.md), uma instância da exceção representa uma exceção tratada ou sem tratamento que ocorreu durante a execução do aplicativo monitorado.
+Um [Application Insights](./app-insights-overview.md), uma instância da exceção representa uma exceção tratada ou sem tratamento que ocorreu durante a execução do aplicativo monitorado.
 
 ## <a name="problem-id"></a>ID do Problema
 
@@ -39,5 +40,6 @@ Nível de severidade de rastreamento. O valor pode ser `Verbose`, `Information`,
 ## <a name="next-steps"></a>Próximas etapas
 
 - Consulte [modelo de dados](data-model.md) para modelo de dados e tipos do Application Insights.
-- Aprenda a [diagnosticar exceções em seus aplicativos Web com o Application Insights](../../azure-monitor/app/asp-net-exceptions.md).
-- Confira as [plataformas](../../azure-monitor/app/platforms.md) com suporte do Application Insights.
+- Aprenda a [diagnosticar exceções em seus aplicativos Web com o Application Insights](./asp-net-exceptions.md).
+- Confira as [plataformas](./platforms.md) com suporte do Application Insights.
+

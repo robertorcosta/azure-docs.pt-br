@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 28bbf9749375a4523237e840c217977853cd4ddd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4e2557b114b5eb90b03e59dc64cbd6e69c7dd9a4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539815"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326572"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
-A amostragem é um recurso do [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). É a maneira recomendada para reduzir o tráfego de telemetria, os custos de dados e os custos de armazenamento, preservando uma análise estatisticamente correta dos dados do aplicativo. A amostragem também ajuda a evitar Application Insights limitação da telemetria. O filtro de amostragem seleciona itens relacionados, para que você possa navegar entre os itens quando estiver fazendo investigações de diagnóstico.
+A amostragem é um recurso do [Azure Application Insights](./app-insights-overview.md). É a maneira recomendada para reduzir o tráfego de telemetria, os custos de dados e os custos de armazenamento, preservando uma análise estatisticamente correta dos dados do aplicativo. A amostragem também ajuda a evitar Application Insights limitação da telemetria. O filtro de amostragem seleciona itens relacionados, para que você possa navegar entre os itens quando estiver fazendo investigações de diagnóstico.
 
 Quando as contagens de métricas são apresentadas no portal, elas são renormalizadas para levar em consideração a amostragem. Isso minimiza qualquer efeito nas estatísticas.
 
@@ -25,7 +25,7 @@ Quando as contagens de métricas são apresentadas no portal, elas são renormal
 * A amostragem de taxa fixa está disponível em versões recentes dos SDKs de Application Insights para ASP.NET, ASP.NET Core, Java (tanto o agente quanto o SDK) e o Python.
 * A amostragem de ingestão funciona no ponto de extremidade do serviço de Application Insights. Ele só se aplica quando nenhuma outra amostragem está em vigor. Se o SDK amostras de sua telemetria, a amostragem de ingestão será desabilitada.
 * Para aplicativos Web, se você registrar eventos personalizados e precisar garantir que um conjunto de eventos seja mantido ou descartado em conjunto, os eventos deverão ter o mesmo `OperationId` valor.
-* Se você escrever consultas de Análise, deverá [levar em conta a amostragem](../../azure-monitor/log-query/aggregations.md). Em particular, em vez de simplesmente contar registros, você deve usar `summarize sum(itemCount)`.
+* Se você escrever consultas de Análise, deverá [levar em conta a amostragem](../log-query/aggregations.md). Em particular, em vez de simplesmente contar registros, você deve usar `summarize sum(itemCount)`.
 * Alguns tipos de telemetria, incluindo métricas de desempenho e métricas personalizadas, são sempre mantidos, independentemente de a amostragem estar habilitada ou não.
 
 A tabela a seguir resume os tipos de amostragem disponíveis para cada SDK e tipo de aplicativo:
@@ -34,7 +34,7 @@ A tabela a seguir resume os tipos de amostragem disponíveis para cada SDK e tip
 |-|-|-|-|
 | ASP.NET | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-aspnet-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-applications) | Somente se nenhuma outra amostragem estiver em vigor |
 | ASP.NET Core | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Somente se nenhuma outra amostragem estiver em vigor |
-| Verificação de | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-azure-functions) | Não | Somente se nenhuma outra amostragem estiver em vigor |
+| Funções do Azure | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-azure-functions) | Não | Somente se nenhuma outra amostragem estiver em vigor |
 | Java | Não | [Sim](#configuring-fixed-rate-sampling-for-java-applications) | Somente se nenhuma outra amostragem estiver em vigor |
 | Node.JS | Não | [Sim](./nodejs.md#sampling) | Somente se nenhuma outra amostragem estiver em vigor
 | Python | Não | [Sim](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Somente se nenhuma outra amostragem estiver em vigor |
@@ -72,9 +72,9 @@ As contagens de métrica, como a taxa de solicitações e a taxa de exceções s
 ### <a name="configuring-adaptive-sampling-for-aspnet-applications"></a>Configurando a amostragem adaptável para aplicativos ASP.NET
 
 > [!NOTE]
-> Esta seção se aplica a aplicativos ASP.NET, não a ASP.NET Core aplicativos. [Saiba mais sobre como configurar a amostragem adaptável para aplicativos ASP.NET Core mais adiante neste documento.](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications)
+> Esta seção se aplica a aplicativos ASP.NET, não a ASP.NET Core aplicativos. [Saiba mais sobre como configurar a amostragem adaptável para aplicativos ASP.NET Core mais adiante neste documento.](#configuring-adaptive-sampling-for-aspnet-core-applications)
 
-No [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md) , você pode ajustar vários parâmetros no `AdaptiveSamplingTelemetryProcessor` nó. Os números mostrados são os valores padrão:
+No [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md) , você pode ajustar vários parâmetros no `AdaptiveSamplingTelemetryProcessor` nó. Os números mostrados são os valores padrão:
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
   
@@ -146,7 +146,7 @@ Em vez de definir o parâmetro de amostragem no `.config` arquivo, você pode de
     builder.Build();
     ```
 
-    ([Saiba mais sobre os processadores de telemetria](../../azure-monitor/app/api-filtering-sampling.md#filtering).)
+    ([Saiba mais sobre os processadores de telemetria](./api-filtering-sampling.md#filtering).)
 
 Você também pode ajustar a taxa de amostragem para cada tipo de telemetria individualmente ou pode até mesmo excluir determinados tipos de amostra:
 
@@ -222,7 +222,7 @@ No Metrics Explorer, as taxas como as contagens de solicitações e de exceçõe
 
 ### <a name="configuring-fixed-rate-sampling-for-aspnet-applications"></a>Configurando a amostragem de taxa fixa para aplicativos ASP.NET
 
-1. **Desabilitar amostragem adaptável**: no [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md) , remova ou comente o `AdaptiveSamplingTelemetryProcessor` nó.
+1. **Desabilitar amostragem adaptável**: no [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md) , remova ou comente o `AdaptiveSamplingTelemetryProcessor` nó.
 
     ```xml
     <TelemetryProcessors>
@@ -233,7 +233,7 @@ No Metrics Explorer, as taxas como as contagens de solicitações e de exceçõe
         -->
     ```
 
-2. **Habilitar o módulo de amostragem de taxa fixa.** Adicione este trecho a [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md) :
+2. **Habilitar o módulo de amostragem de taxa fixa.** Adicione este trecho a [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md) :
    
     ```XML
     <TelemetryProcessors>
@@ -265,7 +265,7 @@ No Metrics Explorer, as taxas como as contagens de solicitações e de exceçõe
     builder.Build();
     ```
 
-    ([Saiba mais sobre os processadores de telemetria](../../azure-monitor/app/api-filtering-sampling.md#filtering).)
+    ([Saiba mais sobre os processadores de telemetria](./api-filtering-sampling.md#filtering).)
 
 ### <a name="configuring-fixed-rate-sampling-for-aspnet-core-applications"></a>Configurando a amostragem de taxa fixa para aplicativos ASP.NET Core
 
@@ -331,7 +331,7 @@ Por padrão, nenhuma amostragem está habilitada no Java Agent e no SDK. Atualme
 
 #### <a name="configuring-java-sdk"></a>Configurando o SDK do Java
 
-1. Baixe e configure seu aplicativo Web com o [SDK Application insights Java](../../azure-monitor/app/java-get-started.md)mais recente.
+1. Baixe e configure seu aplicativo Web com o [SDK Application insights Java](./java-get-started.md)mais recente.
 
 2. **Habilite o módulo amostragem de taxa fixa** adicionando o seguinte trecho ao `ApplicationInsights.xml` arquivo:
 
@@ -366,7 +366,7 @@ Os tipos de telemetria que podem ser incluídos ou excluídos da amostragem são
 
 ### <a name="configuring-fixed-rate-sampling-for-opencensus-python-applications"></a>Configurando a amostragem de taxa fixa para aplicativos OpenCensus Python
 
-Instrumente seu aplicativo com os mais recentes [OpenCensus Azure monitor exportadores](../../azure-monitor/app/opencensus-python.md).
+Instrumente seu aplicativo com os mais recentes [OpenCensus Azure monitor exportadores](./opencensus-python.md).
 
 > [!NOTE]
 > A amostragem de taxa fixa não está disponível para o exportador de métricas. Isso significa que as métricas personalizadas são os únicos tipos de telemetria em que a amostragem não pode ser configurada. O exportador de métricas enviará toda a telemetria que ele acompanha.
@@ -446,7 +446,7 @@ Defina a taxa de amostragem na página Uso e custos estimados:
 
 Assim como outros tipos de amostragem, o algoritmo retém os itens relacionados de telemetria. Por exemplo, quando você estiver analisando a telemetria na Pesquisa, poderá localizar a solicitação relacionada a uma exceção específica. As contagens de métrica como a taxa de solicitação e a taxa de exceções são mantidas corretamente.
 
-Os pontos de dados que são descartados pela amostragem não estão disponíveis em nenhum recurso do Application Insights como [Exportação Contínua](../../azure-monitor/app/export-telemetry.md).
+Os pontos de dados que são descartados pela amostragem não estão disponíveis em nenhum recurso do Application Insights como [Exportação Contínua](./export-telemetry.md).
 
 A amostragem de ingestão não funciona enquanto a amostragem adaptável ou de taxa fixa está em operação. A amostragem adaptável é habilitada por padrão quando o SDK do ASP.NET ou o SDK do ASP.NET Core está sendo usado, ou quando Application Insights está habilitado no [serviço Azure app](azure-web-apps.md) ou usando status monitor. Quando a telemetria é recebida pelo ponto de extremidade de serviço Application Insights, ela examina a telemetria e, se a taxa de amostragem for relatada para menos de 100% (o que indica que a telemetria está sendo amostrada), a taxa de amostragem de ingestão definida será ignorada.
 
@@ -473,7 +473,7 @@ As principais vantagens da amostragem são:
 
 **Use a amostragem de taxa fixa se:**
 
-* Você deseja obter a amostragem sincronizada entre o cliente e o servidor para que, quando estiver investigando eventos na [pesquisa](../../azure-monitor/app/diagnostic-search.md), você possa navegar entre eventos relacionados no cliente e no servidor, como exibições de página e solicitações HTTP.
+* Você deseja obter a amostragem sincronizada entre o cliente e o servidor para que, quando estiver investigando eventos na [pesquisa](./diagnostic-search.md), você possa navegar entre eventos relacionados no cliente e no servidor, como exibições de página e solicitações HTTP.
 * Você tiver certeza sobre a porcentagem de amostragem apropriada para seu aplicativo. Ela deve ser alta o suficiente para obter métricas precisas, mas abaixo da taxa que excede sua cota de preços e limitações.
 
 **Use a amostragem adaptável:**
@@ -561,7 +561,7 @@ A precisão da aproximação depende principalmente do percentual de amostragem 
 
 *Há alguns eventos raros que sempre desejo ver. Como posso fazê-los passar pelo módulo de amostragem?*
 
-* A melhor maneira de conseguir isso é escrever um [personalizada telemetryinitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)personalizado, que define o `SamplingPercentage` para 100 no item de telemetria que você deseja reter, conforme mostrado abaixo. À medida que inicializadores são garantidos para serem executados antes dos processadores de telemetria (incluindo amostragem), isso garante que todas as técnicas de amostragem ignorem esse item de quaisquer considerações de amostragem. Inicializadores de telemetria personalizados estão disponíveis no SDK do ASP.NET, no SDK do ASP.NET Core, no SDK do JavaScript e no SDK do Java. Por exemplo, você pode configurar um inicializador de telemetria usando o SDK do ASP.NET:
+* A melhor maneira de conseguir isso é escrever um [personalizada telemetryinitializer](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)personalizado, que define o `SamplingPercentage` para 100 no item de telemetria que você deseja reter, conforme mostrado abaixo. À medida que inicializadores são garantidos para serem executados antes dos processadores de telemetria (incluindo amostragem), isso garante que todas as técnicas de amostragem ignorem esse item de quaisquer considerações de amostragem. Inicializadores de telemetria personalizados estão disponíveis no SDK do ASP.NET, no SDK do ASP.NET Core, no SDK do JavaScript e no SDK do Java. Por exemplo, você pode configurar um inicializador de telemetria usando o SDK do ASP.NET:
 
     ```csharp
     public class MyTelemetryInitializer : ITelemetryInitializer
@@ -586,5 +586,6 @@ Antes do v 2.5.0-beta2 do SDK do ASP.NET e v 2.2.0-Beta3 do SDK ASP.NET Core, a 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [filtragem](../../azure-monitor/app/api-filtering-sampling.md) pode fornecer um controle mais restrito do que o SDK envia.
+* [filtragem](./api-filtering-sampling.md) pode fornecer um controle mais restrito do que o SDK envia.
 * Leia o artigo rede do desenvolvedor [otimizar a telemetria com Application insights](/archive/msdn-magazine/2017/may/devops-optimize-telemetry-with-application-insights).
+

@@ -3,12 +3,12 @@ title: Perguntas comuns sobre a migração de servidor de migrações para Azure
 description: Obtenha respostas para perguntas comuns sobre como usar a migração de servidor de migração do Azure para migrar computadores.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 282f7ab27eead59fc87a95ea7d397268177f4f2c
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: af40aecaa1614542074cf87ce95eb81492233bdc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224121"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321217"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migração de servidor de migrações para Azure: perguntas comuns
 
@@ -27,7 +27,7 @@ Examine as geografias compatíveis para [nuvens públicas](migrate-support-matri
 
 O método de replicação sem agente para VMware usa instantâneos do VMware e o CBT (controle de bloqueio alterado) VMware.
 
-Veja o processo:
+Este é o processo:
 
 1. Quando você inicia a replicação, um ciclo de replicação inicial é agendado. No ciclo inicial, um instantâneo da VM é tirado. O instantâneo é usado para replicar os VMDK (discos) de VMs. 
 2. Após a conclusão do ciclo de replicação inicial, os ciclos de replicação delta são agendados periodicamente.
@@ -80,7 +80,7 @@ Não. As migrações para Azure dão suporte à migração somente para discos g
 
 ## <a name="how-many-vms-can-i-replicate-at-one-time-by-using-agentless-migration"></a>Quantas VMs posso replicar ao mesmo tempo usando a migração sem agente?
 
-No momento, você pode migrar 100 VMs por instância do vCenter Server simultaneamente. Migre em lotes de 10 VMs.
+No momento, você pode migrar 300 VMs por instância do vCenter Server simultaneamente. Migre em lotes de 10 VMs.
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Como fazer a replicação de limitação no uso do dispositivo de migração do Azure para replicação do VMware sem agente?  
 
@@ -106,7 +106,7 @@ Migrar computadores tratando-os como servidores físicos é útil em vários cen
 
 ## <a name="i-deployed-two-or-more-appliances-to-discover-vms-in-my-vcenter-server-however-when-i-try-to-migrate-the-vms-i-only-see-vms-corresponding-to-one-of-the-appliance"></a>Implantei dois (ou mais) dispositivos para descobrir VMs em meu vCenter Server. No entanto, quando tento migrar as VMs, só vejo as VMs correspondentes a um dos dispositivos.
 
-Embora esse possa ser um bom caso de uso, atualmente não há suporte para ele. Implantar dois (ou mais) dispositivos para descobrir o mesmo conjunto de VMs causa um problema de serviço no qual a propriedade da VM continua alternando entre os dois dispositivos. Esse é o motivo pelo qual você vê as VMs aparecendo e desaparecendo. Nesses casos, para resolver o problema, você deve excluir um dispositivo e fazer uma atualização complexa.
+Se houver vários dispositivos configurados, será necessário que não haja nenhuma sobreposição entre as VMs nas contas do vCenter fornecidas. Uma descoberta com tal sobreposição é um cenário sem suporte.
 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>Preciso do VMware vCenter para migrar VMs VMware?
 Para [migrar VMs VMware](server-migrate-overview.md) usando a migração baseada em agente do VMware ou sem agente, os hosts ESXi nos quais as VMs estão localizadas devem ser gerenciados pelo vCenter Server. Se você não tiver vCenter Server, poderá migrar VMs VMware migrando-as como servidores físicos. [Saiba mais](migrate-support-matrix-physical-migration.md).

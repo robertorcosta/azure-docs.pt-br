@@ -4,15 +4,15 @@ description: Como criar uma nova oferta de serviço gerenciado para listagem no 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: JnHs
-ms.author: jenhayes
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ms.date: 07/07/2020
-ms.openlocfilehash: 3bb663dcdf007bf77d1b9f2b46af532774af22e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 193781e078f12dec553d98c15699c7e665966a87
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086380"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326607"
 ---
 # <a name="create-a-managed-service-offer"></a>Criar uma oferta de serviço gerenciado
 
@@ -42,7 +42,7 @@ Insira uma **ID da oferta**. Esse é um identificador exclusivo para cada oferta
 Insira um **Alias da oferta**. Esse é o nome usado para a oferta no Partner Center.
 
 * Esse nome não é usado no Marketplace e é diferente do nome da oferta e de outros valores mostrados aos clientes.
-* O Alias da oferta não pode ser alterado depois que você seleciona **Criar**.
+* O Alias da oferta não poderá ser alterado depois que você selecionar a opção **Criar**.
 
 Selecione **Criar** para gerar a oferta e continuar.
 

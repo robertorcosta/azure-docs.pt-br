@@ -4,16 +4,16 @@ description: Modelo de dados do Application Insights para telemetria de métrica
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 44f0b070a7c0da416002d9bf7e509d643a96dc7a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f8e787b8a94987e7d68e12a0e4e69f4c63e21e19
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540002"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320571"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetria de métricas: modelo de dados do Application Insights
 
-Há dois tipos de telemetria de métricas com suporte do [Application Insights](../../azure-monitor/app/app-insights-overview.md): medida única e métrica agregada previamente. A medida única é apenas um nome e valor. A métrica agregada previamente especifica os valores mínimo e máximo da métrica no intervalo de agregação e o desvio padrão desses valores.
+Há dois tipos de telemetria de métricas com suporte do [Application Insights](./app-insights-overview.md): medida única e métrica agregada previamente. A medida única é apenas um nome e valor. A métrica agregada previamente especifica os valores mínimo e máximo da métrica no intervalo de agregação e o desvio padrão desses valores.
 
 A telemetria de métrica agregada previamente supõe que esse período de agregação foi de um minuto.
 
@@ -49,7 +49,7 @@ Peso da métrica agregada. Não deve ser definido para uma medida.
 
 Valor mínimo da métrica agregada. Não deve ser definido para uma medida.
 
-## <a name="max"></a>Máx
+## <a name="max"></a>Max
 
 Valor máximo da métrica agregada. Não deve ser definido para uma medida.
 
@@ -65,6 +65,7 @@ Métrica com a propriedade personalizada `CustomPerfCounter` definida para `true
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como usar a [API do Application Insights para métricas e eventos personalizados](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric).
+- Saiba como usar a [API do Application Insights para métricas e eventos personalizados](./api-custom-events-metrics.md#trackmetric).
 - Consulte [modelo de dados](data-model.md) para modelo de dados e tipos do Application Insights.
-- Confira as [plataformas](../../azure-monitor/app/platforms.md) com suporte do Application Insights.
+- Confira as [plataformas](./platforms.md) com suporte do Application Insights.
+

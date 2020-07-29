@@ -1,6 +1,6 @@
 ---
-title: Criação do pool de hosts do locatário do Windows Virtual Desktop-Azure
-description: Como solucionar e resolver problemas de locatário e pool de hosts durante a instalação de um ambiente de locatário de área de trabalho virtual do Windows.
+title: Criação do pool de hosts de locatários da área de trabalho virtual (clássica) do Windows
+description: Como solucionar e resolver problemas de locatário e pool de hosts durante a instalação de um ambiente de locatário da área de trabalho virtual do Windows (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aad3bffeba4395ba415fb99a3667d04d18769a47
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: bd9a6dd5d11ab69635d610eee3f92a90e942b576
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026688"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87269590"
 ---
-# <a name="tenant-and-host-pool-creation"></a>Criação do pool de host e de locatário
+# <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Criação de locatários e pool de hosts na área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../troubleshoot-set-up-issues.md).
+>Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../troubleshoot-set-up-issues.md).
 
 Este artigo aborda problemas durante a configuração inicial do locatário da área de trabalho virtual do Windows e da infraestrutura do pool de hosts da sessão relacionada.
 

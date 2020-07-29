@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 06/22/2020
-ms.openlocfilehash: 3edb8da6d535ac7817c29db254aa84efd92321b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: 4ac95fa81fdbee237cacaa1541e333bb70c370fa
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012970"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323291"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
@@ -154,7 +154,7 @@ Em seu espaço de trabalho no Azure Machine Learning Studio, crie uma nova inst�
 Você também pode criar uma instância
 * Diretamente da [experiência de notebooks integrados](tutorial-1st-experiment-sdk-setup.md#azure)
 * No Portal do Azure
-* No modelo do Azure Resource Manager
+* Do modelo de Azure Resource Manager. Para obter um modelo de exemplo, consulte [criar um Azure Machine Learning modelo de instância de computação](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
 * Com [Azure Machine Learning SDK](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)
 * Da [extensão da CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 

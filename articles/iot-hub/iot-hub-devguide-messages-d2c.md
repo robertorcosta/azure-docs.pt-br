@@ -8,12 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 18a37731171be5894a1481fb35569c9c7cf307f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+ms.openlocfilehash: a8c53dd2755f239763ff572e34dbdf7f73caa8a4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84790510"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327711"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usar o roteamento de mensagens do Hub IoT para enviar mensagens do dispositivo para a nuvem para diferentes pontos de extremidade
 
@@ -53,7 +55,7 @@ Você pode usar [SDKs e integração padrão dos Hubs de Eventos](iot-hub-devgui
 
 Há dois serviços de armazenamento que o Hub IoT pode rotear mensagens para as contas-- [armazenamento de BLOBs do Azure](../storage/blobs/storage-blobs-introduction.md) e [Azure data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2). Contas de Azure Data Lake Storage são contas de armazenamento [hierárquicas habilitadas para namespaces](../storage/blobs/data-lake-storage-namespace.md)criadas com base no armazenamento de BLOBs. Ambos usam BLOBs para seu armazenamento.
 
-O Hub IoT dá suporte à gravação de dados no armazenamento do Azure no formato [Apache Avro](https://avro.apache.org/) , bem como no formato JSON. O padrão é AVRO. O formato de codificação só pode ser definido quando o ponto de extremidade do armazenamento de BLOBs é configurado. O formato não pode ser editado para um ponto de extremidade existente. Ao usar a codificação JSON, você deve definir o contentType como **Application/JSON** e ContentEncoding como **UTF-8** nas [Propriedades do sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)de mensagens. Esses dois valores não diferenciam maiúsculas de minúsculas. Se a codificação de conteúdo não estiver definida, o Hub IoT gravará as mensagens no formato codificado 64 base. Você pode selecionar o formato de codificação usando o Hub IoT criar ou atualizar a API REST, especificamente o [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), o portal do Azure, o [CLI do Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)ou o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). O diagrama a seguir mostra como selecionar o formato de codificação no portal do Azure.
+O Hub IoT dá suporte à gravação de dados no armazenamento do Azure no formato [Apache Avro](https://avro.apache.org/) , bem como no formato JSON. O padrão é AVRO. O formato de codificação só pode ser definido quando o ponto de extremidade do armazenamento de BLOBs é configurado. O formato não pode ser editado para um ponto de extremidade existente. Ao usar a codificação JSON, você deve definir o contentType como **Application/JSON** e ContentEncoding como **UTF-8** nas [Propriedades do sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)de mensagens. Esses dois valores não diferenciam maiúsculas de minúsculas. Se a codificação de conteúdo não estiver definida, o Hub IoT gravará as mensagens no formato codificado 64 base. Você pode selecionar o formato de codificação usando o Hub IoT criar ou atualizar a API REST, especificamente o [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), o portal do Azure, o [CLI do Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)ou o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint). O diagrama a seguir mostra como selecionar o formato de codificação no portal do Azure.
 
 ![Codificação de ponto de extremidade de armazenamento de BLOB](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 

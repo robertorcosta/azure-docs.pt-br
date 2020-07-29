@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 4e5d4af74ab54479a49963369cb99dbc19fca848
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 413616034dfe7d1f13612ba12ba86014af62c704
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505269"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325620"
 ---
 # <a name="logs-in-azure-monitor"></a>Logs no Azure Monitor
 
@@ -42,14 +42,14 @@ A tabela a seguir lista as diferentes maneiras em que você pode usar os Logs no
 |  | Descrição |
 |:---|:---|
 | **Analisar** | Use o [Log Analytics](../log-query/get-started-portal.md) no portal do Azure para gravar [consultas de log](../log-query/log-query-overview.md) e analisar interativamente os dados de log usando o poderoso mecanismo de análise do Data Explorer.<br>Use o [console de análise do Application Insights](../log-query/log-query-overview.md) no portal do Azure para gravar consultas de log e analisar interativamente os dados de log do Application Insights. |
-| **Visualizar** | Fixe os resultados de consultas renderizados como tabelas ou gráficos em um [painel do Azure](../../azure-portal/azure-portal-dashboards.md).<br>Crie uma [pasta de trabalho](../platform/workbooks-overview.md) para combinar com vários conjuntos de dados em um relatório interativo. <br>Exportar os resultados de uma consulta para o [Power BI](powerbi.md) a fim de usar visualizações diferentes e compartilhar com usuários fora do Azure.<br>Exporte os resultados de uma consulta para o [Grafana](grafana-plugin.md) a fim de aproveitar o painel da ferramenta e combinar com outras fontes de dados.|
+| **Visualizar** | Fixe os resultados de consultas renderizados como tabelas ou gráficos em um [painel do Azure](../../azure-portal/azure-portal-dashboards.md).<br>Crie uma [pasta de trabalho](./workbooks-overview.md) para combinar com vários conjuntos de dados em um relatório interativo. <br>Exportar os resultados de uma consulta para o [Power BI](powerbi.md) a fim de usar visualizações diferentes e compartilhar com usuários fora do Azure.<br>Exporte os resultados de uma consulta para o [Grafana](grafana-plugin.md) a fim de aproveitar o painel da ferramenta e combinar com outras fontes de dados.|
 | **Alerta** | Configurar uma [regra de alerta de log](alerts-log.md) que envia uma notificação ou realiza [ação automatizada](action-groups.md) quando os resultados da consulta correspondem a um resultado específico.<br>Configure uma [regra de alerta de métrica](alerts-metric-logs.md) em determinados logs de dados de log extraídos como métricas. |
 | **Recuperar** | Acesse os resultados da consulta de log em uma linha de comando usando a [CLI do Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Acesse os resultados da consulta de log em uma linha de comando usando os [cmdlets do PowerShell](/powershell/module/az.operationalinsights).<br>Acesse os resultados da consulta de log em um aplicativo personalizado usando a [API REST](https://dev.loganalytics.io/). |
-| **Exportar** | Crie um fluxo de trabalho para recuperar dados de log e copie-os para uma localização externa usando os [Aplicativos Lógicos](~/articles/logic-apps/index.yml). |
+| **Exportar** | Crie um fluxo de trabalho para recuperar dados de log e copie-os para uma localização externa usando os [Aplicativos Lógicos](../../logic-apps/index.yml). |
 
 
 ## <a name="how-is-data-in-azure-monitor-logs-structured"></a>Como os dados são estruturados nos Logs do Azure Monitor?
-Os dados coletados pelos Logs do Azure Monitor são armazenados em um [workspace do Log Analytics](../platform/design-logs-deployment.md). Cada workspace contém várias tabelas que armazenam dados de uma origem específica. Embora todas as tabelas compartilhem [algumas propriedades comuns](log-standard-properties.md), cada uma tem um conjunto exclusivo de propriedades de acordo com o tipo de dados que armazena. Um novo workspace terá um conjunto padrão de tabelas e mais tabelas serão adicionadas por diferentes soluções de monitoramento e outros serviços que gravam no workspace em questão.
+Os dados coletados pelos Logs do Azure Monitor são armazenados em um [workspace do Log Analytics](./design-logs-deployment.md). Cada workspace contém várias tabelas que armazenam dados de uma origem específica. Embora todas as tabelas compartilhem [algumas propriedades comuns](log-standard-properties.md), cada uma tem um conjunto exclusivo de propriedades de acordo com o tipo de dados que armazena. Um novo workspace terá um conjunto padrão de tabelas e mais tabelas serão adicionadas por diferentes soluções de monitoramento e outros serviços que gravam no workspace em questão.
 
 Os dados de log do Application Insights usam o mesmo mecanismo do Log Analytics como workspaces, mas ficam armazenados separadamente para cada aplicativo monitorado. Cada aplicativo tem um conjunto padrão de tabelas para armazenar dados como solicitações de aplicativo, exceções e exibições de página.
 
@@ -133,3 +133,4 @@ O Azure Monitor pode coletar dados de log de várias origens no Azure e de recur
 - Saiba mais sobre a [plataforma de dados do Azure Monitor](data-platform.md).
 - Saiba mais sobre as [métricas no Azure Monitor](data-platform-metrics.md).
 - Saiba mais sobre os [dados de monitoramento disponíveis](data-sources.md) para diferentes recursos no Azure.
+

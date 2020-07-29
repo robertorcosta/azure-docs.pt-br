@@ -6,16 +6,16 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 19a0e94206691dc741020374bf5c827ba423515d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c53b43d811e5e2b9cd8d70e3c8e05af444895154
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008346"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320639"
 ---
 # <a name="availability-alerts"></a>Alertas de disponibilidade
 
-[Application Insights do Azure](../../azure-monitor/app/app-insights-overview.md) envia solicitações da Web ao aplicativo em intervalos regulares de pontos no mundo todo. Ele poderá alertá-lo se seu aplicativo não estiver respondendo ou se responder muito devagar.
+[Application Insights do Azure](./app-insights-overview.md) envia solicitações da Web ao aplicativo em intervalos regulares de pontos no mundo todo. Ele poderá alertá-lo se seu aplicativo não estiver respondendo ou se responder muito devagar.
 
 ## <a name="enable-alerts"></a>Habilitar alertas
 
@@ -65,7 +65,7 @@ Usando [novos alertas unificados](../platform/alerts-overview.md), você pode al
 
 ## <a name="automate-alerts"></a>Automatizar alertas
 
-Para automatizar esse processo com modelos de Azure Resource Manager, consulte a documentação [criar um alerta de métrica com o modelo do Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) .
+Para automatizar esse processo com modelos de Azure Resource Manager, consulte a documentação [criar um alerta de métrica com o modelo do Resource Manager](../platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) .
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
@@ -75,3 +75,4 @@ Para automatizar esse processo com modelos de Azure Resource Manager, consulte a
 
 * [Testes na Web com diversas etapas](availability-multistep.md)
 * [Testes na Web de ping de URL](monitor-web-app-availability.md)
+

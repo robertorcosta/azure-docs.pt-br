@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03d0367b3794069908b31ee7af1250fd70f1bdf7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7319adfc88eedb007677a78693ab0b2e514e646f
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525204"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171663"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 
@@ -104,6 +104,7 @@ Para obter informações sobre a integração dos serviços do Azure em componen
 
 ## <a name="change-log"></a>Log de alterações
 
+- 07/23/2020: foi adicionado o artigo [salvar em SAP Hana em instâncias grandes com um Azure reserva](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) explicando o que você precisa saber antes de comprar uma reserva de SAP Hana em instâncias grandes e como fazer a compra
 - 07/16/2020: descrever como usar Azure PowerShell para instalar a nova extensão de VM para SAP no [Guia de implantação](deployment-guide.md)
 - 7/04/2020: lançamento do [Azure monitor para soluções SAP (versão prévia)](./azure-monitor-overview.md)
 - 07/01/2020: sugerindo uma configuração de armazenamento com menos custo com base na funcionalidade de intermitência de armazenamento Premium do Azure no documento [SAP Hana configurações de armazenamento de máquina virtual do Azure](./hana-vm-operations-storage.md) 

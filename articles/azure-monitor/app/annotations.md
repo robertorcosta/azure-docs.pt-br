@@ -3,12 +3,12 @@ title: Anotações de versão para o Application Insights | Microsoft Docs
 description: Adicione uma implantação ou compile marcadores para seus gráficos do gerenciador de métricas no Application Insights.
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: 8f6ffed8ae2039ec36ec8bd86518e6b359da65ec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8e9e0cb49343524e8a45831566cf802b1c8c5d9b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093027"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320656"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotações sobre gráficos de métricas no Application Insights
 
@@ -34,7 +34,7 @@ Você só precisa instalar a extensão uma vez para sua organização DevOps do 
 
 Crie uma chave de API separada para cada um dos modelos de versão de Azure Pipelines.
 
-1. Entre no [portal do Azure](https://portal.azure.com) e abra o recurso Application insights que monitora seu aplicativo. Ou, se você não tiver uma, [crie um novo recurso de Application insights](../../azure-monitor/app/app-insights-overview.md).
+1. Entre no [portal do Azure](https://portal.azure.com) e abra o recurso Application insights que monitora seu aplicativo. Ou, se você não tiver uma, [crie um novo recurso de Application insights](./app-insights-overview.md).
    
 1. Abra a guia **acesso à API** e copie a **ID de Application insights**.
    
@@ -115,5 +115,6 @@ Você pode modificar o script, por exemplo, para criar anotações para o passad
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar um item de trabalho](../../azure-monitor/app/diagnostic-search.md#create-work-item)
-* [Automação com o PowerShell](../../azure-monitor/app/powershell.md)
+* [Criar um item de trabalho](./diagnostic-search.md#create-work-item)
+* [Automação com o PowerShell](./powershell.md)
+

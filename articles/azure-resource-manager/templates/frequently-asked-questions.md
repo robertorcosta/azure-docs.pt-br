@@ -2,15 +2,15 @@
 title: Perguntas frequentes sobre o modelo ARM
 description: Perguntas frequentes sobre modelos de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 05/30/2020
+ms.date: 07/27/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: fb4bac00c4d971e7b056c18fe609d77b077dbcbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e23334daf0f4f6d5a6917af49c786d47c4557375
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85296858"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327252"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Perguntas frequentes sobre modelos do ARM
 
@@ -48,7 +48,7 @@ Este artigo responde a perguntas frequentes sobre modelos de Azure Resource Mana
 
   Para saber mais sobre a nova linguagem de modelo, [Inscreva-se para notificações](https://aka.ms/armLangUpdates).
 
-  Para obter a visualização das especificações do modelo, [ingresse na lista de espera](https://aka.ms/templateSpecsWaitlist).
+  Para saber mais sobre as especificações de modelo, consulte [Azure Resource Manager especificações de modelo (versão prévia)](template-specs.md).
 
 ## <a name="creating-and-testing-templates"></a>Criando e testando modelos
 
@@ -64,7 +64,7 @@ Este artigo responde a perguntas frequentes sobre modelos de Azure Resource Mana
 
 * **Posso criar um grupo de recursos em um modelo ARM e implantar recursos nele?**
 
-  Sim, você pode criar um grupo de recursos em um modelo ao implantar o modelo no nível de sua assinatura do Azure. Para obter um exemplo de como criar um grupo de recursos e implantar recursos, consulte [grupo de recursos e recursos](deploy-to-subscription.md#resource-group-and-resources).
+  Sim, você pode criar um grupo de recursos em um modelo ao implantar o modelo no nível de sua assinatura do Azure. Para obter um exemplo de como criar um grupo de recursos e implantar recursos, consulte [grupo de recursos e recursos](deploy-to-subscription.md#resource-groups).
 
 * **Posso criar uma assinatura em um modelo do ARM?**
 
@@ -102,7 +102,7 @@ Este artigo responde a perguntas frequentes sobre modelos de Azure Resource Mana
 
   Sim.
 
-## <a name="template-specs"></a>Especificações do modelo
+## <a name="template-specs"></a>Especificações de Modelo
 
 * **Como posso ficar envolvido na versão de visualização das especificações de modelo?**
 

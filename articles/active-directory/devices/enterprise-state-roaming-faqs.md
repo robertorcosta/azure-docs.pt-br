@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad76835b0c72b691e1ef8810f2c58dedb8f597d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35669a7d80907e2335c68b1da9010f5879aa6c7c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78672385"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87274078"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Configurações e perguntas frequentes sobre o roaming de dados
 
@@ -23,20 +24,20 @@ Este artigo responde a algumas dúvidas que os administradores de TI podem ter s
 
 ## <a name="what-data-roams"></a>Quais dados são movidos?
 
-**Configurações do Windows**: as configurações internas do PC do sistema operacional Windows. Em geral, essas são as configurações que personalizam seu PC e incluem as seguintes grandes categorias:
+**Configurações do Windows**: as configurações do PC criadas no sistema operacional Windows. Em geral, essas são as configurações que personalizam seu PC e incluem as seguintes grandes categorias:
 
-* *Tema*, que inclui recursos como configurações de tema e barra de tarefas da área de trabalho.
-* *Configurações do Internet Explorer*, incluindo guias abertas recentemente e favoritos.
+* *Tema*, que inclui recursos como as configurações de tema da área de trabalho e da barra de tarefas.
+* *Configurações do Internet Explorer*, incluindo guias e favoritos abertos recentemente.
 * *Configurações do navegador Microsoft Edge*, como favoritos e lista de leitura.
 * *Senhas*, incluindo senhas da Internet, perfis de Wi-Fi e outros.
 * *Preferências de idioma*, que incluem configurações para layouts de teclado, idioma do sistema, data e hora e muito mais.
 * *Recursos de facilidade de acesso*, como tema de alto contraste, Narrador e Lupa.
-* *Outras configurações do Windows*, como as configurações de mouse.
+* *Outras configurações do Windows*, como configurações do mouse.
 
 > [!NOTE]
 > Este artigo se aplica ao navegador baseado em HTML herdado do Microsoft Edge, iniciado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador Microsoft Edge Chromium lançado em 15 de janeiro de 2020. Para obter mais informações sobre o comportamento de sincronização para o novo Microsoft Edge, consulte o artigo [sincronização do Microsoft Edge](/deployedge/microsoft-edge-enterprise-sync).
 
-**Dados de aplicativo**: os aplicativos Universais do Windows podem gravar dados de configurações em uma pasta de roaming e todos os dados gravados nessa pasta serão automaticamente sincronizados. Cabe ao desenvolvedor de aplicativos individuais criar um aplicativo para tirar proveito desse recurso. Para obter mais informações sobre como desenvolver um aplicativo universal do Windows que usa roaming, consulte a [API de armazenamento de AppData](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e o blog do desenvolvedor de [roaming do Windows 8 AppData](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+**Dados de aplicativo**: os aplicativos Universais do Windows podem gravar dados de configurações em uma pasta de roaming e todos os dados gravados nessa pasta serão automaticamente sincronizados. Cabe ao desenvolvedor de aplicativos individuais criar um aplicativo para tirar proveito desse recurso. Para obter mais informações sobre como desenvolver um aplicativo universal do Windows que usa roaming, consulte a [API de armazenamento de AppData](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e o blog do desenvolvedor de [roaming do Windows 8 AppData](https://blogs.windows.com/windowsdeveloper/2016/05/04/roaming-app-data-and-the-user-experience/).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Qual conta é usada para a sincronização de configurações?
 
