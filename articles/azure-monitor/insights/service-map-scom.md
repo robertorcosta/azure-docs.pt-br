@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: b1756bd72dc78bfafc8959c4ff1c8f95d255c931
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 049c30613c358bf22616eaa2042a7fd6e42b9f61
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067574"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326028"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrar System Center Operations Manager com o recurso de mapa de Azure Monitor para VMs
 
@@ -139,9 +139,10 @@ O design atual apresenta os seguintes problemas e limitações:
 Para obter a documentação oficial do Azure sobre como criar uma entidade de serviço, consulte:
 
 * [Criar uma entidade de serviço usando o PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Criar uma entidade de serviço usando a CLI do Azure](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Criar uma entidade de serviço usando a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 * [Criar uma entidade de serviço usando o portal do Azure](../../active-directory/develop/howto-create-service-principal-portal.md)
 
 ### <a name="suggestions"></a>Sugestões
 
 Você tem algum comentário para nós sobre a integração com Azure Monitor para VMs recurso de mapa ou esta documentação? Visite nossa [página de voz do usuário](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), onde você pode sugerir recursos ou votar em sugestões existentes.
+

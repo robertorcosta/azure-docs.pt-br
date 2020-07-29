@@ -1,6 +1,5 @@
 ---
-title: Parâmetros de serviço Web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clássico): parâmetros de serviço Web-Azure'
 description: Como usar Parâmetros de Serviço Web de Azure Machine Learning para modificar o comportamento do seu modelo quando o serviço Web é acessado.
 services: machine-learning
 author: likebupt
@@ -12,13 +11,17 @@ ms.subservice: studio
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/12/2017
-ms.openlocfilehash: c274579e756b3c22920023d68501981d5b4a8b01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de3fb4a0dab08a13327c910d1e09ecbf0afcec8c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705858"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326249"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Usar parâmetros de serviço Web Azure Machine Learning Studio (clássico)
+
+**aplica-se a:** ![ Não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) 
+
 
 Um serviço Web de Azure Machine Learning é criado pela publicação de um experimento com módulos com parâmetros configuráveis. Em alguns casos, talvez você queira alterar o comportamento do módulo durante a execução do serviço Web. *Parâmetros de serviço Web* permitem que você execute essa tarefa. 
 
@@ -52,7 +55,7 @@ Por exemplo, vamos supor que temos um experimento com um módulo [Exportar Dados
    * Em **Especifique o tipo de autenticação**, selecione "Conta".
    * Insira as informações de conta para o armazenamento de blobs do Azure. 
 
-3. Clique no ícone à direita de **Caminho para o blob que começa com o parâmetro contêiner**. Ele é semelhante ao seguinte:
+3. Clique no ícone à direita de **Caminho para o blob que começa com o parâmetro contêiner**. Ela tem esta aparência:
    
    ![Ícone do Parâmetro de Serviço Web](./media/web-service-parameters/icon.png)
    

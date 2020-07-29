@@ -4,15 +4,15 @@ description: Depure instantâneos são coletados automaticamente quando exceçõ
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: c920ab019d5d802ea862ab923297670da766a456
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 58fbb0cee5e4f06c20d31b4b5011582957f6f6c3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049677"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325637"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantâneos em exceções em aplicativos .NET
-Quando ocorrer uma exceção, você pode coletar automaticamente um Instantâneo de Depuração de seu aplicativo web ativo. O instantâneo mostra o estado do código-fonte e variáveis no momento em que a exceção foi lançada. O Depurador de Instantâneos no [insights do aplicativo Azure](../../azure-monitor/app/app-insights-overview.md) monitora a telemetria de exceção do seu aplicativo Web. Ele coleta instantâneos em suas exceções com mais lançamentos para que você tenha as informações necessárias para diagnosticar problemas na produção. Inclua o [pacote NuGet do coletor de instantâneos](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) em seu aplicativo e, opcionalmente, configure os parâmetros de coleção no [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Os instantâneos aparecem em [exceções](../../azure-monitor/app/asp-net-exceptions.md) no portal de Application insights.
+Quando ocorrer uma exceção, você pode coletar automaticamente um Instantâneo de Depuração de seu aplicativo web ativo. O instantâneo mostra o estado do código-fonte e variáveis no momento em que a exceção foi lançada. O Depurador de Instantâneos no [insights do aplicativo Azure](./app-insights-overview.md) monitora a telemetria de exceção do seu aplicativo Web. Ele coleta instantâneos em suas exceções com mais lançamentos para que você tenha as informações necessárias para diagnosticar problemas na produção. Inclua o [pacote NuGet do coletor de instantâneos](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) em seu aplicativo e, opcionalmente, configure os parâmetros de coleção no [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Os instantâneos aparecem em [exceções](./asp-net-exceptions.md) no portal de Application insights.
 
 Você pode exibir instantâneos de depuração no portal para ver a pilha de chamadas e inspecionar variáveis em cada quadro da pilha de chamadas. Para obter uma experiência de depuração mais potente com o código-fonte, abra instantâneos com o Visual Studio 2019 Enterprise. No Visual Studio, você também pode [definir Snappoints para fazer instantâneos de forma interativa](https://aka.ms/snappoint) sem esperar por uma exceção.
 
@@ -62,7 +62,7 @@ Depois que uma exceção tiver ocorrido em seu aplicativo e um instantâneo tive
 
 ![Página falhas](./media/snapshot-debugger/failures-page.png)
 
-Selecione uma operação ou exceção no painel direito para abrir o painel de **detalhes de transação de ponta a ponta** e, em seguida, selecione o evento de exceção. Se um instantâneo estiver disponível para a exceção determinada, um botão **abrir instantâneo de depuração** aparecerá no painel direito com detalhes para a [exceção](../../azure-monitor/app/asp-net-exceptions.md).
+Selecione uma operação ou exceção no painel direito para abrir o painel de **detalhes de transação de ponta a ponta** e, em seguida, selecione o evento de exceção. Se um instantâneo estiver disponível para a exceção determinada, um botão **abrir instantâneo de depuração** aparecerá no painel direito com detalhes para a [exceção](./asp-net-exceptions.md).
 
 ![Botão Abrir Instantâneo de Depuração na exceção](./media/snapshot-debugger/e2e-transaction-page.png)
 
@@ -85,8 +85,8 @@ O instantâneo baixado contém os arquivos de símbolo encontrados no servidor d
 
 ## <a name="how-snapshots-work"></a>Como os instantâneos funcionam
 
-O Coletor de Instantâneo é implementado como um [Processador do Application Insights Telemetry](../../azure-monitor/app/configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). Quando seu aplicativo é executado, o Processador de Telemetria do Coletor de Instantâneo será adicionado ao pipeline de telemetria do aplicativo.
-Cada vez que o aplicativo chama [TrackException](../../azure-monitor/app/asp-net-exceptions.md#exceptions), o Coletor de Instantâneo calcula uma ID do problema do tipo de exceção sendo gerada e o método que a gerou.
+O Coletor de Instantâneo é implementado como um [Processador do Application Insights Telemetry](./configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). Quando seu aplicativo é executado, o Processador de Telemetria do Coletor de Instantâneo será adicionado ao pipeline de telemetria do aplicativo.
+Cada vez que o aplicativo chama [TrackException](./asp-net-exceptions.md#exceptions), o Coletor de Instantâneo calcula uma ID do problema do tipo de exceção sendo gerada e o método que a gerou.
 Cada vez que o aplicativo chama TrackException, um contador é incrementado para a ID do Problema apropriada. Quando o contador alcançar o valor `ThresholdForSnapshotting`, a ID do Problema será adicionada a um Plano de Coleta.
 
 O Snapshot Collector também monitora as exceções geradas assinando o evento [AppDomain.CurrentDomain.FirstChanceException](/dotnet/api/system.appdomain.firstchanceexception). Quando esse evento for acionado, a ID do Problema da exceção será calculada e comparada com as IDs de Problema no Plano de Coleta.
@@ -139,5 +139,6 @@ Habilite Depurador de Instantâneos Application Insights para seu aplicativo:
 Além Application Insights Depurador de Instantâneos:
  
 * [Definir snappoints em seu código](/visualstudio/debugger/debug-live-azure-applications) para obter instantâneos sem esperar por uma exceção.
-* [Diagnosticar exceções em seus aplicativos Web](../../azure-monitor/app/asp-net-exceptions.md) explica como deixar as exceções mais visíveis para o Application Insights.
-* A [Detecção Inteligente](../../azure-monitor/app/proactive-diagnostics.md) descobre automaticamente anomalias de desempenho.
+* [Diagnosticar exceções em seus aplicativos Web](./asp-net-exceptions.md) explica como deixar as exceções mais visíveis para o Application Insights.
+* A [Detecção Inteligente](./proactive-diagnostics.md) descobre automaticamente anomalias de desempenho.
+

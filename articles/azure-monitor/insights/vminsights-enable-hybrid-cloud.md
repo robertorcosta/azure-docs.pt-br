@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 013515e0608bf790ceef8dc13d9d547496306610
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea060ec9ba755a197e2969c0bf58050eb1d62a03
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092840"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325960"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-environment"></a>Habilitar Azure Monitor para VMs para um ambiente híbrido
 
@@ -24,7 +24,7 @@ Antes de começar, examine os [pré-requisitos](vminsights-enable-overview.md) e
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 >[!NOTE]
->O Dependency Agent de Mapa do Azure Monitor para VMs não transmite dados por conta própria e não exige alterações em firewalls ou portas. Os dados do mapa são sempre transmitidos pelo agente de Log Analytics para o serviço Azure Monitor, diretamente ou por meio do [gateway do Operations Management Suite](../../azure-monitor/platform/gateway.md) se as suas políticas de segurança de ti não permitirem que computadores na rede se conectem à Internet.
+>O Dependency Agent de Mapa do Azure Monitor para VMs não transmite dados por conta própria e não exige alterações em firewalls ou portas. Os dados do mapa são sempre transmitidos pelo agente de Log Analytics para o serviço Azure Monitor, diretamente ou por meio do [gateway do Operations Management Suite](../platform/gateway.md) se as suas políticas de segurança de ti não permitirem que computadores na rede se conectem à Internet.
 
 As etapas para concluir essa tarefa são resumidas da seguinte maneira:
 
@@ -48,7 +48,7 @@ Instale o Dependency Agent manualmente em computadores Windows executando `Insta
 
 A tabela a seguir destaca os parâmetros compatíveis com a instalação do agente por meio da linha de comando.
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 |:--|:--|
 | /? | Retorna uma lista das opções de linha de comando. |
 | /S | Realiza uma instalação silenciosa sem a interação do usuário. |
@@ -145,7 +145,7 @@ configuration VMInsights {
 ## <a name="enable-performance-counters"></a>Habilitar contadores de desempenho
 
 Se o espaço de trabalho do Log Analytics referenciado pela solução ainda não estiver configurado para coletar os contadores de desempenho necessários para a solução, você precisará habilitá-los. Você pode fazer isso de uma das duas maneiras:
-* Manualmente, conforme descrito em [Fontes de dados de desempenho do Windows e do Linux no Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
+* Manualmente, conforme descrito em [Fontes de dados de desempenho do Windows e do Linux no Log Analytics](../platform/data-sources-performance-counters.md)
 * Baixando e executando um script do PowerShell que está disponível na [Galeria de Azure PowerShell](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
 ## <a name="deploy-azure-monitor-for-vms"></a>Implantar o Azure Monitor para VMs
@@ -259,3 +259,4 @@ Agora que o monitoramento está habilitado para suas máquinas virtuais, essas i
 - Para exibir as dependências de aplicativos descobertas, confira [Exibir o Mapa do Azure Monitor para VMs](vminsights-maps.md).
 
 - Para identificar afunilamentos e a utilização geral com o desempenho da VM, consulte [Exibir o desempenho da VM do Azure](vminsights-performance.md).
+

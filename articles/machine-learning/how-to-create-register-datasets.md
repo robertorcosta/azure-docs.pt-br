@@ -5,18 +5,19 @@ description: Saiba como criar conjuntos de dados de Azure Machine Learning para 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 06/29/2020
-ms.openlocfilehash: c082c74ab448fda0926b5aab52088bf00fb719bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a220a7279cbb5ba75c8aa803cb4bd709442a52fe
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031143"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326385"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de Azure Machine Learning de os
 
@@ -53,7 +54,7 @@ O fator principal é o quão grande o conjunto de espaço está na memória, ou 
  
 Se você estiver usando o pandas, não há motivo para ter mais de 1 vCPU, pois isso é tudo o que ele usará. Você pode facilmente paralelizar para muitos vCPUs em um único Azure Machine Learning instância/nó de computação por meio de Modin e Dask/Ray e escalar horizontalmente para um cluster grande, se necessário, simplesmente alterando `import pandas as pd` para `import modin.pandas as pd` . 
  
-Se você não conseguir obter um virtual grande o suficiente para os dados, terá duas opções: Use uma estrutura como Spark ou Dask para executar o processamento nos dados de "memória insuficiente", ou seja, o dataframe é carregado na partição de RAM por partição e processado, com o resultado final sendo coletado no final. Se isso for muito lento, o Spark ou o Dask permitirão que você Escale horizontalmente para um cluster que ainda pode ser usado interativamente. 
+Se não for possível obter uma máquina virtual grande o suficiente para os dados, você terá duas opções: Use uma estrutura como Spark ou Dask para executar o processamento nos dados "sem memória", ou seja, o dataframe é carregado na partição de RAM por partição e processado, com o resultado final sendo coletado no final. Se isso for muito lento, o Spark ou o Dask permitirão que você Escale horizontalmente para um cluster que ainda pode ser usado interativamente. 
 
 ## <a name="dataset-types"></a>Tipos de conjunto de dados
 
@@ -82,7 +83,7 @@ Para criar conjuntos de itens de um [repositório de armazenamento do Azure](how
 
 #### <a name="create-a-tabulardataset"></a>Criar um TabularDataset
 
-Use o [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-) método na `TabularDatasetFactory` classe para ler os arquivos no formato. csv ou. tsv e para criar um TabularDataset não registrado. Se você estiver lendo de vários arquivos, os resultados serão agregados em uma representação tabular. 
+Use o [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) método na `TabularDatasetFactory` classe para ler os arquivos no formato. csv ou. tsv e para criar um TabularDataset não registrado. Se você estiver lendo de vários arquivos, os resultados serão agregados em uma representação tabular. 
 
 O código a seguir obtém o espaço de trabalho existente e o repositório de armazenamento desejado pelo nome. E, em seguida, passa o repositório de armazenamento e os locais de arquivo para o `path` parâmetro para criar um novo TabularDataset, `weather_ds` .
 
@@ -125,8 +126,8 @@ titanic_ds.take(3).to_pandas_dataframe()
 |Index|Passageiroid|Survived|Pclass|Nome|Sexo|Idade|SibSp|Parch|Tíquete|Tarifa|Cabine|Embarcou
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|Falso|3|Braund, Sr. Owen Harris|masculino|22,0|1|0|A/5 21171|7,2500||S
-1|2|Verdadeiro|1|Cumings, Sra. John Bradley (Florence Briggs th...|feminino|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|Verdadeiro|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
+1|2|True|1|Cumings, Sra. John Bradley (Florence Briggs th...|feminino|38,0|1|0|PC 17599|71,2833|C85|C
+2|3|True|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 Para criar um conjunto de dados a partir de um dataframe do pandas na memória, grave-os em um arquivo local, como um CSV, e crie seu conjunto de dado a partir desse arquivo. O código a seguir demonstra esse fluxo de trabalho.
 

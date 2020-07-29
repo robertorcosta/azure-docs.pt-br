@@ -3,14 +3,15 @@ title: Monitorar aplicativos Java em execução no local — Application Insight
 description: Monitoramento do desempenho de aplicativos para aplicativos Java executados localmente sem instrumentar o aplicativo. Rastreamento distribuído e mapa de aplicativos.
 ms.topic: conceptual
 author: MS-jgol
+ms.custom: devx-track-java
 ms.author: jgol
 ms.date: 04/16/2020
-ms.openlocfilehash: 6c083e24ce44272ef9394b8418d3dc66771ceb8a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c2d35a6f379b0d7cf3c4c7d61e5e679553e5302f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014262"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326878"
 ---
 # <a name="java-codeless-application-monitoring-on-premises---azure-monitor-application-insights---public-preview"></a>Monitoramento de aplicativos não codificados em Java locais — Application Insights do Azure Monitor — versão prévia pública
 

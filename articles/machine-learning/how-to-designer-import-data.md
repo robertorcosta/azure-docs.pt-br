@@ -5,17 +5,17 @@ description: Saiba como importar dados para o designer de Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.custom: designer
-ms.openlocfilehash: 7a204310454cb636e26e6366d4ff7375f4faea8d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 92568ceb9c7f0a428189647f259a3f84278eb612
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207517"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326997"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importar dados para o designer de Azure Machine Learning (versão prévia)
 
@@ -23,6 +23,8 @@ Neste artigo, você aprenderá a importar seus próprios dados para o designer p
 
 * **Conjuntos de dados do Azure Machine Learning** - Registre [conjuntos de dados](concept-data.md#datasets) no Azure Machine Learning para habilitar recursos avançados que ajudam a gerenciar os dados.
 * **Módulo Importar Dados** – Use o módulo [Importar Dados](algorithm-module-reference/import-data.md) para acessar diretamente os dados de fontes de dados online.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="use-azure-machine-learning-datasets"></a>Usar conjuntos de dados do Azure Machine Learning
 

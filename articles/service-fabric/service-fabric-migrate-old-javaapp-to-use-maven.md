@@ -4,13 +4,14 @@ description: Atualize aplicativos Java mais antigos que costumavam usar o SDK de
 author: rapatchi
 ms.topic: conceptual
 ms.date: 08/23/2017
+ms.custom: devx-track-java
 ms.author: rapatchi
-ms.openlocfilehash: 0e8154039dde3de571e7960b244ab1d43cc764c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f65194cde25deac8c03d6ddc3a7c0b928aaca171
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82204280"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327303"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Atualize seu aplicativo Java de Service Fabric anterior para buscar bibliotecas Java do Maven
 Service Fabric binários Java foram movidos do SDK do Java do Service Fabric para hospedagem do Maven. Você pode usar o **mavencentral** para buscar as dependências mais recentes do Service Fabric Java. Este guia ajudará você a atualizar os aplicativos Java existentes criados para o SDK Service Fabric Java usando o modelo Yeoman ou o Eclipse para ser compatível com a compilação baseada no Maven.

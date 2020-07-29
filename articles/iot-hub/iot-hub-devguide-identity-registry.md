@@ -11,11 +11,14 @@ ms.date: 08/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e9d5eae4ef926a5c05265b91526d03a17ca57781
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: 675f25107a2e4f0ddedf468dc06afea36ffc6151
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674947"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327745"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Entender o registro de identidade no Hub IoT
 
@@ -121,7 +124,7 @@ Mensagem de notificação para dispositivo:
 |operationTimestamp | Carimbo de data/hora ISO8601 da operação |
 |iothub-message-schema | deviceLifecycleNotification |
 
-Corpo: esta seção está no formato JSON e representa o gêmeo da identidade de dispositivo criada. Por exemplo,
+Corpo: esta seção está no formato JSON e representa o gêmeo da identidade de dispositivo criada. Por exemplo:
 
 ```json
 {
@@ -157,7 +160,7 @@ moduleId | ID do módulo |
 operationTimestamp | Carimbo de data/hora ISO8601 da operação |
 iothub-message-schema | moduleLifecycleNotification |
 
-Corpo: esta seção está no formato JSON e representa o gêmeo da identidade de módulo criada. Por exemplo,
+Corpo: esta seção está no formato JSON e representa o gêmeo da identidade de módulo criada. Por exemplo:
 
 ```json
 {
@@ -185,7 +188,7 @@ Corpo: esta seção está no formato JSON e representa o gêmeo da identidade de
 
 As identidades do dispositivo são representadas como documentos JSON com as seguintes propriedades:
 
-| Property | Opções | Descrição |
+| Propriedade | Opções | Descrição |
 | --- | --- | --- |
 | deviceId |obrigatória, somente leitura em atualizações |Uma cadeia de caracteres que diferencia maiúsculas de minúsculas (com até 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits, mais determinados caracteres especiais: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
 | generationId |obrigatória, somente leitura |Uma cadeia de caracteres que diferencia maiúsculas de minúsculas com até 128 caracteres gerada pelo Hub IoT. Esse valor é usado para distinguir os dispositivos com a mesma **deviceId** quando são excluídos e recriados. |
@@ -209,7 +212,7 @@ As identidades do dispositivo são representadas como documentos JSON com as seg
 
 As identidades do módulo são representadas como documentos JSON com as seguintes propriedades:
 
-| Property | Opções | Descrição |
+| Propriedade | Opções | Descrição |
 | --- | --- | --- |
 | deviceId |obrigatória, somente leitura em atualizações |Uma cadeia de caracteres que diferencia maiúsculas de minúsculas (com até 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits, mais determinados caracteres especiais: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
 | moduleId |obrigatória, somente leitura em atualizações |Uma cadeia de caracteres que diferencia maiúsculas de minúsculas (com até 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits, mais determinados caracteres especiais: `- . + % _ # * ? ! ( ) , : = @ $ '`. |

@@ -1,6 +1,5 @@
 ---
-title: Importar/exportar dados nos serviços Web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clássico): importar/exportar dados em serviços Web – Azure'
 description: Saiba como usar os módulos Importar Dados e Exportar Dados para enviar e receber dados de um serviço Web.
 services: machine-learning
 author: likebupt
@@ -11,14 +10,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: b844a18a5acbd7a631bfe3b650dfa155d0e064ba
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2e1395e23ec8fa3bbd787b5b12a810f6e9720392
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076650"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326215"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Implantar os serviços Web do Azure Machine Learning Studio (clássico) que usam os módulos Importar Dados e Exportar Dados
+
+**aplica-se a:** ![ Não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) 
+
 
 Quando você cria um experimento de previsão, normalmente adiciona uma entrada e uma saída de serviço Web. Ao implantar o experimento, os consumidores poderão enviar e receber dados do serviço Web por meio de entradas e saídas. Para alguns aplicativos, os dados do cliente podem estar disponíveis a partir de um feed de dados ou já residirem em uma fonte de dados externa, como o armazenamento de Blobs do Azure. Nesses casos, eles não precisam de dados de leitura e gravação usando saídas e entradas do serviço Web. Em vez disso, eles podem usar o BES (Serviço de execução de lote) para ler dados da fonte de dados usando um módulo Importar Dados e gravar os resultados de pontuação em um local de dados diferente usando um módulo Exportar Dados.
 

@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 2fcf3b4c91e87453e2cf605eb717b75ed7d64d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9ca2dc9d907e65b2679c08d8d2b6482f02ba53d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85105919"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327881"
 ---
-# <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerenciar o acesso a dados de log e espaços de trabalho no Azure Monitor
+# <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerenciar acesso a dados de log e workspaces no Azure Monitor
 
 Azure Monitor armazena dados de [log](data-platform-logs.md) em um espaço de trabalho log Analytics. Um espaço de trabalho é um contêiner que inclui informações de dados e de configuração. Para gerenciar o acesso aos dados de log, você executa várias tarefas administrativas relacionadas ao seu espaço de trabalho.
 
@@ -134,7 +134,7 @@ Os membros da função *Leitor do Log Analytics* podem:
 
 A função de leitor do Log Analytics inclui as seguintes ações do Azure:
 
-| Tipo    | Permissão | Descrição |
+| Type    | Permissão | Descrição |
 | ------- | ---------- | ----------- |
 | Ação | `*/read`   | Capacidade de exibir todos os recursos do Azure e a configuração do recurso. Inclui exibir: <br> Status de extensão da máquina virtual <br> Configuração do diagnóstico do Azure nos recursos <br> Todas as propriedades e configurações de todos os recursos. <br> Para espaços de trabalho, ele permite permissões totalmente irrestritas para ler as configurações do espaço de trabalho e executar a consulta nos dados. Veja as opções mais granulares acima. |
 | Ação | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Preterido, sem necessidade de atribuí-los aos usuários. |
@@ -310,6 +310,7 @@ Uma abordagem alternativa para gerenciar o acesso a logs personalizados é atrib
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Consulte a [visão geral do agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para reunir dados de computadores no datacenter ou outro ambiente de nuvem.
+* Consulte a [visão geral do agente do Log Analytics](./log-analytics-agent.md) para reunir dados de computadores no datacenter ou outro ambiente de nuvem.
 
-* Consulte [coletar dados sobre máquinas virtuais do Azure](../../azure-monitor/learn/quick-collect-azurevm.md) para configurar a coleta de dados de VMs do Azure.
+* Consulte [coletar dados sobre máquinas virtuais do Azure](../learn/quick-collect-azurevm.md) para configurar a coleta de dados de VMs do Azure.
+

@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 81e27c0f62e921eb468c78521e426c8917da250a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 56438389ea8a371335facd3cfd0b2d4161b421c3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014131"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326555"
 ---
 # <a name="connection-strings"></a>Cadeias de conexão
 
@@ -274,14 +274,15 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 
 Introdução ao runtime com:
 
-* [Aplicativos hospedados no IIS na VM do Azure e no conjunto de dimensionamento de máquinas virtuais do Azure](../../azure-monitor/app/azure-vm-vmss-apps.md)
-* [Servidor IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Aplicativos Web do Azure](../../azure-monitor/app/azure-web-apps.md)
+* [Aplicativos hospedados no IIS na VM do Azure e no conjunto de dimensionamento de máquinas virtuais do Azure](./azure-vm-vmss-apps.md)
+* [Servidor IIS](./monitor-performance-live-website-now.md)
+* [Aplicativos Web do Azure](./azure-web-apps.md)
 
 Introdução ao tempo de desenvolvimento com:
 
-* [ASP.NET](../../azure-monitor/app/asp-net.md)
-* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
-* [Java](../../azure-monitor/app/java-get-started.md)
-* [Node.js](../../azure-monitor/app/nodejs.md)
-* [Python](../../azure-monitor/app/opencensus-python.md)
+* [ASP.NET](./asp-net.md)
+* [ASP.NET Core](./asp-net-core.md)
+* [Java](./java-get-started.md)
+* [Node.js](./nodejs.md)
+* [Python](./opencensus-python.md)
+

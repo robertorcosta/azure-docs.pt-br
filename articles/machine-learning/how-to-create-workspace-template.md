@@ -5,17 +5,17 @@ description: Saiba como usar um modelo do Azure Resource Manager para criar um w
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/09/2020
-ms.custom: seoapril2019
-ms.openlocfilehash: 49a1b190ece4ae4e937757e88af325a29f4825c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: db0b87787e34796e9dd7c91d6e4b53738145a25a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031109"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326368"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usar um modelo do Azure Resource Manager para criar um workspace para o Azure Machine Learning
 
@@ -118,6 +118,9 @@ New-AzResourceGroupDeployment `
 ---
 
 Por padrão, todos os recursos criados como parte do modelo são novos. No entanto, você também tem a opção de usar os recursos existentes. Ao fornecer parâmetros adicionais ao modelo, você pode usar os recursos existentes. Por exemplo, se você quiser usar uma conta de armazenamento existente, defina o valor de **storageAccountOption** como **existente** e forneça o nome da sua conta de armazenamento no parâmetro **storageAccountName** .
+
+> [!IMPORTANT]
+> Se você quiser usar uma conta de armazenamento do Azure existente, ela não poderá ser uma conta Premium (Premium_LRS e Premium_GRS). Ele também não pode ter um namespace hierárquico (usado com Azure Data Lake Storage Gen2). Não há suporte para armazenamento Premium ou namespace hierárquico com a conta de armazenamento padrão do espaço de trabalho.
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)
 
@@ -374,7 +377,7 @@ Ao definir o `vnetOption` valor do parâmetro como `new` ou `existing` , você p
 
 ### <a name="only-deploy-workspace-behind-private-endpoint"></a>Implantar apenas espaço de trabalho por trás do ponto de extremidade privado
 
-Se os recursos associados não estiverem atrás de uma rede virtual, você poderá definir o parâmetro **privateEndpointType** como `AutoAproval` ou `ManualApproval` para implantar o espaço de trabalho por trás de um ponto de extremidade privado.
+Se os recursos associados não estiverem atrás de uma rede virtual, você poderá definir o parâmetro **privateEndpointType** como `AutoAproval` ou `ManualApproval` para implantar o espaço de trabalho por trás de um ponto de extremidade privado. Isso pode ser feito para espaços de trabalho novos e existentes. Ao atualizar um espaço de trabalho existente, preencha os parâmetros do modelo com as informações do espaço de trabalho existente.
 
 > [!IMPORTANT]
 > A implantação só é válida em regiões que dão suporte a pontos de extremidade privados.
@@ -753,3 +756,4 @@ Para evitar esse problema, recomendamos uma das seguintes abordagens:
 
 * [Implantar recursos com modelos do Resource Manager e API REST do Resource Manager](../azure-resource-manager/templates/deploy-rest.md).
 * [Criar e implantar grupos de recursos do Azure por meio do Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
+* [Para outros modelos relacionados a Azure Machine Learning, consulte o repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates)

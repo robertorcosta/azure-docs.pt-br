@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 57cc3624a38fbec1e5bef7bb281363d34acef2b1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 25604bde3afbbef0d541bc21996b59e98b3090f4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505594"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327490"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de log usando o Azure Monitor
 
@@ -77,8 +77,8 @@ O termo **alerta de log** descreve alertas em que uma consulta de log no [espaç
 1. Escolha a frequência com que o alerta é executado em **frequência**. 
 
     Os **Alertas de Log** podem se basear em:
-    - [Número de Registros](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules): um alerta será criado se a contagem de registros retornada pela consulta for maior ou menor que o valor fornecido.
-    - [Medição de Métrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules): um alerta será criado se cada *valor agregado* nos resultados exceder o valor limite fornecido e estiver *agrupado por* valor escolhido. O número de violações de um alerta é o número de vezes que o limite é excedido no período escolhido. Especifique o Total de violações para qualquer combinação de violações no conjunto de resultados ou as Violações consecutivas para exigir que as violações ocorram em amostras consecutivas.
+    - [Número de Registros](./alerts-unified-log.md#number-of-results-alert-rules): um alerta será criado se a contagem de registros retornada pela consulta for maior ou menor que o valor fornecido.
+    - [Medição de Métrica](./alerts-unified-log.md#metric-measurement-alert-rules): um alerta será criado se cada *valor agregado* nos resultados exceder o valor limite fornecido e estiver *agrupado por* valor escolhido. O número de violações de um alerta é o número de vezes que o limite é excedido no período escolhido. Especifique o Total de violações para qualquer combinação de violações no conjunto de resultados ou as Violações consecutivas para exigir que as violações ocorram em amostras consecutivas.
 
 
 1. Clique em **Concluído**. 
@@ -100,7 +100,7 @@ O termo **alerta de log** descreve alertas em que uma consulta de log no [espaç
     Algumas funcionalidades adicionais estão disponíveis para substituir as ações padrão:
 
     - **Notificação por email**: substitui o *assunto de email* no email enviado por meio do grupo de ações. Não é possível modificar o corpo do email e esse campo **não** se destina ao endereço de email.
-    - **Incluir carga JSON personalizada**: substitui o JSON de webhook usado por grupos de ação supondo que o grupo de ações contenha um tipo de webhook. Para obter mais informações sobre formatos de webhook, consulte [ação de webhook para alertas de log](../../azure-monitor/platform/alerts-log-webhook.md). A opção Exibir Webhook é fornecida para verificar o formato usando dados JSON de exemplo.
+    - **Incluir carga JSON personalizada**: substitui o JSON de webhook usado por grupos de ação supondo que o grupo de ações contenha um tipo de webhook. Para obter mais informações sobre formatos de webhook, consulte [ação de webhook para alertas de log](./alerts-log-webhook.md). A opção Exibir Webhook é fornecida para verificar o formato usando dados JSON de exemplo.
 
         ![Substituições de ação para alertas de Log](media/alerts-log/AlertsPreviewOverrideLog.png)
 
@@ -212,7 +212,7 @@ O json de exemplo acima pode ser salvo como (digamos) sampleScheduledQueryRule.j
 
 ### <a name="log-alert-with-cross-resource-query-using-azure-resource-template"></a>Alerta do log com consulta entre recursos usando o Modelo de Recurso do Azure
 
-A seguir vemos a estrutura para a [criação de Regras de Consulta Agendada](/rest/api/monitor/scheduledqueryrules/createorupdate) com base em modelo de recursos usando a [consulta de pesquisa de logs entre recursos](../../azure-monitor/log-query/cross-workspace-query.md) de [alerta de log do tipo medida de métrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules), com o conjunto de dados de exemplo como variáveis.
+A seguir vemos a estrutura para a [criação de Regras de Consulta Agendada](/rest/api/monitor/scheduledqueryrules/createorupdate) com base em modelo de recursos usando a [consulta de pesquisa de logs entre recursos](../log-query/cross-workspace-query.md) de [alerta de log do tipo medida de métrica](./alerts-unified-log.md#metric-measurement-alert-rules), com o conjunto de dados de exemplo como variáveis.
 
 ```json
 
@@ -319,7 +319,7 @@ Azure Monitor-a [API de regras de consulta agendada](/rest/api/monitor/scheduled
 - [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) : cmdlet do PowerShell para criar ou atualizar objeto especificando parâmetros de ação para um alerta de log. Usado como entrada pelo cmdlet [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) e [set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) .
 - [New-AzScheduledQueryRuleAznsActionGroup](/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : cmdlet do PowerShell para criar ou atualizar objetos especificando parâmetros de grupos de ação para um alerta de log. Usado como entrada pelo cmdlet [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) .
 - [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : cmdlet do PowerShell para criar ou atualizar objeto especificando parâmetros de condição de gatilho para alerta de log. Usado como entrada pelo cmdlet [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) .
-- [New-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : cmdlet do PowerShell para criar ou atualizar objeto especificando parâmetros de condição de gatilho de métrica para o [alerta de log do tipo de medição métrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Usado como entrada pelo cmdlet [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) .
+- [New-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : cmdlet do PowerShell para criar ou atualizar objeto especificando parâmetros de condição de gatilho de métrica para o [alerta de log do tipo de medição métrica](./alerts-unified-log.md#metric-measurement-alert-rules). Usado como entrada pelo cmdlet [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) .
 - [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule) : cmdlet do PowerShell para listar regras de alerta de log existentes ou uma regra de alerta de log específica
 - [Update-AzScheduledQueryRule](/powershell/module/az.monitor/update-azscheduledqueryrule) : cmdlet do PowerShell para habilitar ou desabilitar a regra de alerta de log
 - [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule): cmdlet do PowerShell para excluir uma regra de alerta de log existente
@@ -363,7 +363,8 @@ Operação bem-sucedida, 201 será retornado para a criação da regra de alerta
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre os [alertas de log nos alertas do Azure](../../azure-monitor/platform/alerts-unified-log.md)
-* Entender [Ações de Webhook para alertas de log](../../azure-monitor/platform/alerts-log-webhook.md)
+* Saiba mais sobre os [alertas de log nos alertas do Azure](./alerts-unified-log.md)
+* Entender [Ações de Webhook para alertas de log](./alerts-log-webhook.md)
 * Saiba mais sobre o [Application insights](../log-query/log-query-overview.md)
 * Saiba mais sobre [consultas de log](../log-query/log-query-overview.md).
+
