@@ -9,15 +9,15 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.author: kenwith
-ms.reviewer: paulgarn
+ms.author: ryanwi
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2d745ddcf7b1d5bd7976a0ca8461c13d8ae3c849
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1cd79b1f9e4cd3afadee250da0c184c0c5b8ac07
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282374"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "80886170"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plataforma de identidade da Microsoft e fluxo de declaração de portador SAML do OAuth 2.0
 O fluxo de declaração do portador SAML do OAuth 2.0 permite solicitar um token de acesso OAuth usando uma declaração SAML quando um cliente precisa usar uma relação de confiança existente. A assinatura aplicada à declaração SAML fornece autenticação do aplicativo autorizado. Uma declaração SAML é um token de segurança XML emitido por um provedor de identidade e consumido por um provedor de serviços. O provedor de serviços depende do conteúdo para identificar a entidade da declaração para fins relacionados à segurança.
