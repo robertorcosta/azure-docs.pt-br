@@ -2,13 +2,13 @@
 title: Marcar recursos, grupos de recursos e assinaturas para a organização lógica
 description: Mostra como aplicar marcas para organizar os recursos do Azure para cobrança e gerenciamento.
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 9dd025818a64a8ece1f4218a8341a40ecc617829
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/27/2020
+ms.openlocfilehash: fa56fac79855b438a0cd1c10ed1008d69ca3e2fe
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056915"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323869"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Use marcas para organizar os recursos e a hierarquia de gerenciamento do Azure
 
@@ -438,7 +438,7 @@ Para armazenar diversos valores em uma única marca, aplica uma cadeia de caract
 
 ### <a name="apply-tags-from-resource-group"></a>Aplicar marcas do grupo de recursos
 
-Para aplicar marcas de um grupo de recursos a um recurso, use a função [resourcegroup](../templates/template-functions-resource.md#resourcegroup) . Ao obter o valor da marca, use a `tags[tag-name]` sintaxe em vez da `tags.tag-name` sintaxe, porque alguns caracteres não são analisados corretamente na notação de ponto.
+Para aplicar marcas de um grupo de recursos a um recurso, use a função [resourcegroup ()](../templates/template-functions-resource.md#resourcegroup) . Ao obter o valor da marca, use a `tags[tag-name]` sintaxe em vez da `tags.tag-name` sintaxe, porque alguns caracteres não são analisados corretamente na notação de ponto.
 
 ```json
 {
@@ -576,9 +576,9 @@ As marcas aplicadas ao grupo de recursos ou à assinatura não são herdadas pel
 
 ## <a name="tags-and-billing"></a>Marcas e cobrança
 
-Você pode usar marcas para agrupar os dados de cobrança. Por exemplo, se estiver executando várias VMs para organizações diferentes, use marcas para agrupar o uso por centro de custo. Você também pode usar marcas para categorizar os custos pelo ambiente de runtime, como por exemplo, o uso de cobrança para VMs em execução no ambiente de produção.
+Você pode usar marcas para agrupar os dados de cobrança. Por exemplo, se estiver executando várias VMs para organizações diferentes, use as marcas para agrupar o uso por centro de custo. Você também pode usar marcas para categorizar os custos pelo ambiente de runtime, como por exemplo, o uso de cobrança para VMs em execução no ambiente de produção.
 
-Você pode recuperar as informações sobre as marcações por meio das [APIs RateCard e Uso de Recursos do Azure](../../cost-management-billing/manage/usage-rate-card-overview.md) ou do arquivo de uso CSV (com valores separados por vírgula). Você baixar o arquivo de uso do [Centro de Contas do Azure](https://account.azure.com/Subscriptions) ou do Portal do Azure. Para saber mais, confira [Baixar ou exibir sua fatura de cobrança e dados de uso diário do Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Ao baixar o arquivo de uso do Centro de Contas do Azure, selecione **Versão 2**. Para os serviços que dão suporte a marcas com cobrança, as marcas aparecerão na coluna **Marcas**.
+Você pode recuperar informações sobre marcas por meio de [APIs de uso de recursos do Azure e de cartão de taxa](../../cost-management-billing/manage/usage-rate-card-overview.md) ou o arquivo CSV (valores separados por vírgula) de uso. Você baixar o arquivo de uso do [Centro de Contas do Azure](https://account.azure.com/Subscriptions) ou do Portal do Azure. Para saber mais, confira [Baixar ou exibir sua fatura de cobrança e dados de uso diário do Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Ao baixar o arquivo de uso do Centro de Contas do Azure, selecione **Versão 2**. Para os serviços que dão suporte a marcas com cobrança, as marcas aparecerão na coluna **Marcas**.
 
 Para operações de API REST, confira [Referência da API REST de cobrança do Azure](/rest/api/billing/).
 
@@ -596,6 +596,8 @@ As seguintes limitações se aplicam a marcas:
    > Atualmente, as zonas DNS do Azure e os serviços do Traffic Manager também não permitem o uso de espaços na marca.
    >
    > A porta frontal do Azure não dá suporte ao uso de `#` no nome da marca.
+   >
+   > A automação do Azure e a CDN do Azure dão suporte apenas a 15 marcas em recursos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,11 +8,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 5e27cf51d50b3094adca6ce8d3846ef358f78482
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: Data Analytics'
+ms.openlocfilehash: 6a8f39ae5d73bade2c86a7e15efe75956c2aed24
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201540"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327558"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualizar dados de sensor em tempo real de seu hub IoT do Azure em um aplicativo Web
 
@@ -197,7 +201,7 @@ Nesta seção, você provisiona um aplicativo Web no Serviço de Aplicativo e im
    az webapp deployment source config-local-git -n <your web app name> -g <your resource group name>
    ```
 
-7. Adicione um remoto ao clone que referencie o repositório Git para o aplicativo Web no Serviço de Aplicativo. Para \<URL de clone do Git\>, use a URL retornada na etapa anterior. Execute o seguinte comando na janela Comando.
+7. Adicione um remoto ao clone que referencie o repositório Git para o aplicativo Web no Serviço de Aplicativo. Para \<Git clone URL\> , use a URL retornada na etapa anterior. Execute o seguinte comando na janela Comando.
 
    ```cmd
    git remote add webapp <Git clone URL>

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: 07c38cbd2d77a3cca594acd974705af35d8189b9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7718bd5cbc3c3fc3c9632818f769c05cd1617361
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516338"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321863"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Coletar logs de atividades do Azure em Azure Monitor entre locatários Azure Active Directory (Herdado)
 
@@ -127,9 +127,9 @@ Para obter o cadeia de conexão e o nome do Hub de Eventos, siga as etapas em [V
    |Configuração | Descrição  |
    |:---|:---|
    | Nome           | Nome exclusivo para o aplicativo lógico. |
-   | Assinatura   | Selecione a assinatura do Azure que contém o aplicativo lógico. |
-   | Grupo de Recursos | Selecione um grupo de recursos do Azure existente ou crie um novo para o aplicativo lógico. |
-   | Localização       | Selecione a região do datacenter para implantar seu aplicativo lógico. |
+   | Subscription   | Selecione a assinatura do Azure que contém o aplicativo lógico. |
+   | Grupo de recursos | Selecione um grupo de recursos do Azure existente ou crie um novo para o aplicativo lógico. |
+   | Location       | Selecione a região do datacenter para implantar seu aplicativo lógico. |
    | Log Analytics  | Selecione se você deseja registrar em log o status de cada execução do seu aplicativo lógico em um espaço de trabalho Log Analytics.  |
 
     
@@ -340,4 +340,5 @@ A etapa final é verificar o espaço de trabalho do Log Analytics para certifica
 Neste artigo, você criou um aplicativo lógico para ler os logs de atividades do Azure de um hub de eventos e enviá-los para o espaço de trabalho do Log Analytics para análise. Para saber mais sobre a visualização de dados em um espaço de trabalho, incluindo a criação de painéis, examine o tutorial para visualizar dados.
 
 > [!div class="nextstepaction"]
-> [Tutorial Visualizar dados de pesquisa de logs](./../../azure-monitor/learn/tutorial-logs-dashboards.md)
+> [Tutorial Visualizar dados de pesquisa de logs](../learn/tutorial-logs-dashboards.md)
+

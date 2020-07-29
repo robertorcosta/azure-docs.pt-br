@@ -4,12 +4,12 @@ description: Automatizar relatórios personalizados diariamente/semanalmente/men
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 4eb580b90c0bf9acafc4e8f805c2eef7eaae06d3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: abd87af1a9cf61aba21e9231350aabc661e5091b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540070"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320401"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar relatórios personalizados com dados do Azure Application Insights
 
@@ -95,7 +95,7 @@ availabilityResults
 
     ![Configurações de aplicativo do Azure](./media/automate-custom-reports/config.png)
 
-7. Crie três novas configurações do aplicativo com valores correspondentes apropriados ``AI_APP_ID``, ``AI_APP_KEY``, e ``SendGridAPI``. Selecione **Salvar**.
+7. Crie três novas configurações do aplicativo com valores correspondentes apropriados ``AI_APP_ID``, ``AI_APP_KEY``, e ``SendGridAPI``. Clique em **Salvar**.
 
      ![Captura de tela de interface de integração função](./media/automate-custom-reports/app-settings.png)
     
@@ -150,7 +150,8 @@ Este passos apenas aplicam se você não tiver já uma conta SendGrip configurad
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre como criar [consultas do Analytics](../../azure-monitor/log-query/get-started-queries.md).
+* Saiba mais sobre como criar [consultas do Analytics](../log-query/get-started-queries.md).
 * Saiba mais sobre [dados consultando programaticamente do Application Insights](https://dev.applicationinsights.io/)
 * Saiba mais sobre o [Aplicativos Lógicos](../../logic-apps/logic-apps-overview.md).
 * Saiba mais sobre o [Microsoft Flow](https://ms.flow.microsoft.com).
+

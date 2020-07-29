@@ -3,12 +3,12 @@ title: Visão geral dos recursos - Hubs de Eventos do Azure | Microsoft Docs
 description: Este artigo fornece detalhes sobre os recursos e a terminologia dos Hubs de Eventos do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 034983074ddc6faf324d70a18a9a49b8df659649
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2de83be023c32df067712146937f880092025a44
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537302"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87172113"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Recursos e terminologia em Hubs de Eventos do Azure
 
@@ -118,7 +118,7 @@ Ao se conectar a partições, é uma prática comum usar um mecanismo de leasing
 - O [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) para .net
 - O [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient) para Java
 - O [EventHubConsumerClient](/python/api/azure-eventhub/azure.eventhub.aio.eventhubconsumerclient) para Python
-- O [EventHubSoncumerClient](/javascript/api/@azure/event-hubs/eventhubconsumerclient) para JavaScript/TypeScript
+- O [EventHubConsumerClient](/javascript/api/@azure/event-hubs/eventhubconsumerclient) para JavaScript/TypeScript
 
 #### <a name="read-events"></a>Ler eventos
 

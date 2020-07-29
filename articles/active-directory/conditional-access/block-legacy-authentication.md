@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd66bc742d0832cba5d6f302bfe30c85e2d82716
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d3df4eee14e5ce2f0638058efde0f80d0e5b051
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253334"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275472"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como fazer: Bloquear autenticação herdada para Azure AD com Acesso Condicional   
 
@@ -84,7 +85,7 @@ Antes de poder bloquear a autenticação herdada em seu diretório, primeiro voc
 
 1. Navegue até o **portal do Azure** > **Azure Active Directory** > **Entradas**.
 1. Adicione a coluna Aplicativo cliente se ela não for exibida clicando em **Colunas** > **Aplicativo cliente**.
-1. **Adicionar filtros** > **Aplicativo cliente** > selecione todos os protocolos de autenticação herdados e clique em **Aplicar**.
+1. **Adicionar filtros**  >  > de **aplicativo cliente** selecione todos os protocolos de autenticação herdados. Selecione fora do diálogo de filtragem blox para aplicar suas seleções e feche a caixa de diálogo.
 
 A filtragem mostrará apenas as tentativas de entrada feitas por protocolos de autenticação herdados. Clicar em cada tentativa de entrada individual mostrará detalhes adicionais. O campo **Aplicativo cliente** na guia **Informações básicas** indicarão qual protocolo de autenticação herdado foi usado.
 

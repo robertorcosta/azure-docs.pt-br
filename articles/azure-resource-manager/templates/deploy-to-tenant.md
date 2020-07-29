@@ -2,13 +2,13 @@
 title: Implantar recursos no locatário
 description: Descreve como implantar recursos no escopo do locatário em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.openlocfilehash: 45541bcbea5a80e55dbc9f80e1eae8e17189bf6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: a6523ff70dc7307713bb6aecf90e2ea9f8e2bfdd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945436"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321744"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos no nível do locatário
 
@@ -16,15 +16,32 @@ ms.locfileid: "84945436"
 
 ## <a name="supported-resources"></a>Recursos compatíveis
 
-Você pode implantar os seguintes tipos de recursos no nível do locatário:
+Nem todos os tipos de recursos podem ser implantados no nível de locatário. Esta seção lista os tipos de recursos com suporte.
 
-* [implantações](/azure/templates/microsoft.resources/deployments) - para modelos aninhados que são implantados em grupos de gerenciamento ou assinaturas.
-* [managementGroups](/azure/templates/microsoft.management/managementgroups)
+Para políticas do Azure, use:
+
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+
+Para o controle de acesso baseado em função, use:
+
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+
+Para modelos aninhados que são implantados em grupos de gerenciamento, assinaturas ou grupos de recursos, use:
+
+* [implantações](/azure/templates/microsoft.resources/deployments)
+
+Para criar grupos de gerenciamento, use:
+
+* [managementGroups](/azure/templates/microsoft.management/managementgroups)
+
+Para gerenciar custos, use:
+
+* [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
+* [sobre](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
+* [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
 
 ### <a name="schema"></a>Esquema
 
@@ -93,6 +110,56 @@ Para implantações no nível do locatário, você deve fornecer um local para a
 Você pode fornecer um nome da implantação ou usar o nome da implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
 
 O local não pode ser alterado para cada nome de implantação. Você não pode criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local que a implantação anterior para esse nome.
+
+## <a name="deployment-scopes"></a>Escopos de implantação
+
+Ao implantar em um locatário, você pode direcionar o locatário ou grupos de gerenciamento, assinaturas e grupos de recursos no locatário. O usuário que está implantando o modelo deve ter acesso ao escopo especificado.
+
+Os recursos definidos na seção de recursos do modelo são aplicados ao locatário.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        tenant-level-resources
+    ],
+    "outputs": {}
+}
+```
+
+Para direcionar um grupo de gerenciamento dentro do locatário, adicione uma implantação aninhada e especifique a `scope` propriedade.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "nestedMG",
+            "scope": "[variables('mgId')]",
+            "location": "eastus",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    nested-template
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
 
 ## <a name="use-template-functions"></a>Usar funções de modelo
 

@@ -6,27 +6,27 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: bfd25c2572e91c2984f2845e08941614fff65570
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 77684ffef6be988dbb6b7057ba8c56f5227007b6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539764"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326062"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Usando a solução Mapa do Serviço no Azure
 
 O Mapa do Serviço descobre automaticamente os componentes de aplicativo em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Com o Mapa do Serviço é possível exibir seus servidores da maneira desejada: como sistemas interconectados que fornecem serviços críticos. O Mapa do Serviço mostra conexões entre servidores, processos, latência de conexão de entrada e saída e portas em qualquer arquitetura conectada a TCP, sem a necessidade de configuração diferente da instalação de um agente.
 
-Este artigo descreve os detalhes de integração e como usar o Mapa do Serviço. Para obter informações sobre como configurar os pré-requisitos para essa solução, consulte [habilitar a Azure monitor para VMs visão geral](vminsights-enable-overview.md#prerequisites). Para resumir, você precisa do seguinte:
+Este artigo descreve os detalhes de integração e como usar o Mapa do Serviço. Os pré-requisitos da solução são os seguintes:
 
-* Um espaço de trabalho Log Analytics para habilitar essa solução.
+* Um espaço de trabalho Log Analytics em uma [região com suporte](vminsights-configure-workspace.md#supported-regions).
 
-* O agente de Log Analytics instalado no computador Windows ou no servidor Linux configurado para relatar o mesmo espaço de trabalho com o qual você habilitou a solução.
+* O [agente de log Analytics](vminsights-enable-overview.md#agents) instalado no computador Windows ou no servidor Linux conectado ao mesmo espaço de trabalho com o qual você habilitou a solução.
 
-* O Dependency Agent instalado no computador Windows ou no servidor Linux.
+* O [Dependency Agent](vminsights-enable-overview.md#agents) instalado no computador Windows ou no servidor Linux.
 
 >[!NOTE]
->Se o Mapa do Serviço já foi implantado, também será possível exibir os mapas no Azure Monitor para VMs, que inclui recursos adicionais para monitorar a integridade e o desempenho da VM. Para saber mais, consulte [visão geral do Azure Monitor para VMs](../../azure-monitor/insights/vminsights-overview.md). Para saber mais sobre as diferenças entre a solução de Mapa do Serviço e o recurso de mapa de Azure Monitor para VMs, consulte as [perguntas frequentes](../faq.md#azure-monitor-for-vms)a seguir.
+>Se o Mapa do Serviço já foi implantado, também será possível exibir os mapas no Azure Monitor para VMs, que inclui recursos adicionais para monitorar a integridade e o desempenho da VM. Para saber mais, consulte [visão geral do Azure Monitor para VMs](./vminsights-overview.md). Para saber mais sobre as diferenças entre a solução de Mapa do Serviço e o recurso de mapa de Azure Monitor para VMs, consulte as [perguntas frequentes](../faq.md#azure-monitor-for-vms)a seguir.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -304,7 +304,7 @@ O painel **Atualizações do Computador** exibe dados da solução de Gerenciame
 
 ## <a name="log-analytics-records"></a>Registros do Log Analytics
 
-Dados de inventário do processo e do computador do Mapa do Serviço estão disponíveis para [pesquisa](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
+Dados de inventário do processo e do computador do Mapa do Serviço estão disponíveis para [pesquisa](../log-query/log-query-overview.md) no Log Analytics. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
 
 Um registro é gerado por hora para cada computador e processo exclusivo, além dos registros que são gerados quando um processo ou computador inicia ou é integrado ao Mapa do Serviço. Esses registros têm as propriedades descritas nas tabelas a seguir. Os campos e valores nos eventos ServiceMapComputer_CL mapeiam para campos do recurso do Computador na API do ServiceMap do Azure Resource Manager. Os campos e valores nos eventos ServiceMapProcess_CL mapeiam para os campos do recurso do Processo na API do ServiceMap do Azure Resource Manager. O campo ResourceName_s corresponde ao campo de nome no recurso do Gerenciador de Recursos correspondente. 
 
@@ -550,7 +550,7 @@ Para obter mais informações sobre a coleta e uso de dados, consulte a [Políti
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre [pesquisas de logs](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics para recuperar dados coletados pelo Mapa do Serviço.
+Saiba mais sobre [pesquisas de logs](../log-query/log-query-overview.md) no Log Analytics para recuperar dados coletados pelo Mapa do Serviço.
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
@@ -603,3 +603,4 @@ Verifique o `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` 
 ## <a name="suggestions"></a>Sugestões
 
 Você tem algum comentário sobre o Mapa de Serviço ou sobre esta documentação?  Visita nossa [página Voz do Usuário](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), onde você pode sugerir recursos ou votar em sugestões existentes.
+

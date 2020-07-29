@@ -4,16 +4,16 @@ description: Obtenha uma visão geral do que você pode fazer com alertas de mé
 ms.date: 07/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 05e25a67279786ef4679552503e577b1b1a382ea
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9ac034eb144e5873f8f73ab7b1d7459394ce4775
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539424"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327133"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entender como funcionam os alertas de métrica no Azure Monitor
 
-Os alertas de métrica no Azure Monitor funcionam com métricas multidimensionais. Essas métricas podem ser [métricas de plataforma](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [métricas personalizadas](../../azure-monitor/platform/metrics-custom-overview.md), [logs populares do Azure Monitor convertidos em métricas](../../azure-monitor/platform/alerts-metric-logs.md) e métricas do Application Insights. Os alertas de métrica verificam, em intervalos regulares, se as condições em uma ou mais séries temporais de métrica são verdadeiras e notificam você quando as condições são atendidas. Os alertas de métrica são baseados em estado, ou seja, eles só enviam notificações quando o estado é alterado.
+Os alertas de métrica no Azure Monitor funcionam com métricas multidimensionais. Essas métricas podem ser [métricas de plataforma](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [métricas personalizadas](./metrics-custom-overview.md), [logs populares do Azure Monitor convertidos em métricas](./alerts-metric-logs.md) e métricas do Application Insights. Os alertas de métrica verificam, em intervalos regulares, se as condições em uma ou mais séries temporais de métrica são verdadeiras e notificam você quando as condições são atendidas. Os alertas de métrica são baseados em estado, ou seja, eles só enviam notificações quando o estado é alterado.
 
 ## <a name="how-do-metric-alerts-work"></a>Como funcionam os alertas de métrica?
 
@@ -135,7 +135,7 @@ Até agora, você viu como um único alerta de métrica pode ser usado para moni
 
 No momento, esse recurso tem suporte para métricas de plataforma (não métricas personalizadas) para os seguintes serviços nas seguintes nuvens do Azure:
 
-| Serviço | Azure público | Governo | China |
+| Serviço | Azure público | Governamental | China |
 |:--------|:--------|:--------|:--------|
 | Máquinas virtuais  | **Sim** | Não | Não |
 | Bancos de dados do SQL Server | **Sim** | **Sim** | Não |
@@ -152,7 +152,7 @@ Você pode especificar o escopo do monitoramento por uma única regra de alerta 
 >
 > O escopo de uma regra de alerta de métrica de vários recursos deve conter pelo menos um recurso do tipo de recurso selecionado.
 
-Criar regras de alerta de métrica que monitorem vários recursos é como [criar qualquer outro alerta de métrica](alerts-metric.md) que monitore um único recurso. A única diferença é que você selecionaria todos os recursos que quisesse monitorar. Você também pode criar essas regras por meio de [modelos do Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Você receberá notificações individuais para cada recurso monitorado.
+Criar regras de alerta de métrica que monitorem vários recursos é como [criar qualquer outro alerta de métrica](alerts-metric.md) que monitore um único recurso. A única diferença é que você selecionaria todos os recursos que quisesse monitorar. Você também pode criar essas regras por meio de [modelos do Azure Resource Manager](./alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Você receberá notificações individuais para cada recurso monitorado.
 
 > [!NOTE]
 >
@@ -164,12 +164,13 @@ Para alertas de métrica, normalmente você será notificado em menos de 5 minut
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>Tipos de recursos com suporte para alertas de métrica
 
-Você pode encontrar a lista completa dos tipos de recursos com suporte neste [artigo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+Você pode encontrar a lista completa dos tipos de recursos com suporte neste [artigo](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba como criar, exibir e gerenciar alertas de métrica no Azure](alerts-metric.md)
-- [Saiba como criar alertas de métrica usando modelos do Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md)
+- [Saiba como criar alertas de métrica usando modelos do Azure Resource Manager](./alerts-metric-create-templates.md)
 - [Saiba mais sobre grupos de ação](action-groups.md)
 - [Saiba mais sobre o tipo de condição de Limites Dinâmicos](alerts-dynamic-thresholds.md)
+

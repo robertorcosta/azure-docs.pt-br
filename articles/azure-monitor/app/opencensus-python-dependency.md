@@ -6,18 +6,18 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: tracking-python
-ms.openlocfilehash: e99ea1d5a90455a4c470346fbbe5d1095c426e81
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c5f78535a3bd5ab93d3020d14a6242257c492297
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499453"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321285"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>Acompanhar dependências com Python OpenCensus
 
 Uma dependência é um componente externo que é chamado por seu aplicativo. Os dados de dependência são coletados usando o OpenCensus Python e suas várias integrações. Os dados são enviados para Application Insights em Azure Monitor como `dependencies` telemetria.
 
-Primeiro, instrumentar seu aplicativo Python com o [SDK do Python OpenCensus](../../azure-monitor/app/opencensus-python.md)mais recente.
+Primeiro, instrumentar seu aplicativo Python com o [SDK do Python OpenCensus](./opencensus-python.md)mais recente.
 
 ## <a name="in-process-dependencies"></a>Dependências em processo
 
@@ -170,8 +170,9 @@ config_integration.trace_integrations(['sqlalchemy'])
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Mapa do aplicativo](../../azure-monitor/app/app-map.md)
-* [Disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Pesquisar](../../azure-monitor/app/diagnostic-search.md)
-* [Consulta de log (Analytics)](../../azure-monitor/log-query/log-query-overview.md)
-* [Diagnóstico da transação](../../azure-monitor/app/transaction-diagnostics.md)
+* [Mapa do aplicativo](./app-map.md)
+* [Disponibilidade](./monitor-web-app-availability.md)
+* [Pesquisar](./diagnostic-search.md)
+* [Consulta de log (Analytics)](../log-query/log-query-overview.md)
+* [Diagnóstico da transação](./transaction-diagnostics.md)
+

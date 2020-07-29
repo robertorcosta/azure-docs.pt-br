@@ -4,12 +4,14 @@ description: Este artigo mostra como compilar, implantar e depurar aplicativos d
 author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
+ms.custom: devx-track-java
 ms.author: pepogors
-ms.openlocfilehash: 999dbb8c36c4e0413f287b2a73cf39ab4acd15f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc65deb924a9f3367c2ea1d7c71544743ccf2697
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75610039"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327354"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Desenvolver aplicativos Java do Microsoft Azure Service Fabric com o Visual Studio Code
 
@@ -39,7 +41,7 @@ Abra o VS Code.  Clique no ícone do Explorer na **Barra de atividade** e clique
 
 ![Aplicativo de votação Java no workspace](./media/service-fabric-develop-java-applications-with-vs-code/java-voting-application.png)
 
-## <a name="build-the-application"></a>Compilar o aplicativo
+## <a name="build-the-application"></a>Criar o aplicativo
 
 1. Aperte (Ctrl + Shift + p) para abrir a **Paleta de comandos** no visual Studio Code.
 2. Pesquise e selecione o **Service Fabric: criar comando do Aplicativo**. A saída de compilação é enviada para o terminal integrado.

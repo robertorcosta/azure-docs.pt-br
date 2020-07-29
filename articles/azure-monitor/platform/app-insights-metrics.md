@@ -7,19 +7,19 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: ca8aa62c4119b9b0b7bbed53cf722c694696ef5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9ea98df4b6cd8572412e7082b451feac3736919c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073572"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327065"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights métricas baseadas em log
 
 Application Insights métricas baseadas em log permitem analisar a integridade de seus aplicativos monitorados, criar painéis avançados e configurar alertas. Há dois tipos de métricas:
 
-* As [métricas baseadas em log](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) por trás da cena são convertidas em [consultas Kusto](/azure/kusto/query/) de eventos armazenados.
-* As [métricas padrão](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) são armazenadas como uma série de tempo agregado previamente.
+* As [métricas baseadas em log](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) por trás da cena são convertidas em [consultas Kusto](/azure/kusto/query/) de eventos armazenados.
+* As [métricas padrão](../app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) são armazenadas como uma série de tempo agregado previamente.
 
 Como as *métricas padrão* são previamente agregadas durante a coleta, elas têm melhor desempenho no momento da consulta. Isso os torna uma opção melhor para o painel e alertas em tempo real. As *métricas baseadas em log* têm mais dimensões, o que as torna a opção superior para análise de dados e diagnóstico ad hoc. Use o [seletor de namespace](metrics-getting-started.md#create-your-first-metric-chart) para alternar entre as métricas padrão e baseadas em log no [Metrics Explorer](metrics-getting-started.md).
 
@@ -38,11 +38,11 @@ Quando você plota a mesma métrica no [Metrics Explorer](metrics-getting-starte
 - A dimensão de **gráfico dividido** selecionada é convertida em uma propriedade resumida extra. Por exemplo, se você dividir o gráfico por *local*e plotar usando uma granularidade de tempo de 5 minutos, a cláusula *resumete* será resumida *... por compartimento (carimbo de data/hora, 5 m), local*.
 
 > [!NOTE]
-> Se você for novo na linguagem de consulta do Kusto, comece copiando e colando instruções Kusto no painel de consulta Log Analytics sem fazer nenhuma modificação. Clique em **executar** para ver o gráfico básico. Ao começar a entender a sintaxe da linguagem de consulta, você pode começar a fazer pequenas modificações e ver o impacto de sua alteração. Explorar seus próprios dados é uma ótima maneira de começar a concretizar todo o poder da [log Analytics](../../azure-monitor/log-query/get-started-portal.md) e [Azure monitor](../../azure-monitor/overview.md).
+> Se você for novo na linguagem de consulta do Kusto, comece copiando e colando instruções Kusto no painel de consulta Log Analytics sem fazer nenhuma modificação. Clique em **executar** para ver o gráfico básico. Ao começar a entender a sintaxe da linguagem de consulta, você pode começar a fazer pequenas modificações e ver o impacto de sua alteração. Explorar seus próprios dados é uma ótima maneira de começar a concretizar todo o poder da [log Analytics](../log-query/get-started-portal.md) e [Azure monitor](../overview.md).
 
 ## <a name="availability-metrics"></a>Métricas de disponibilidade
 
-As métricas na categoria disponibilidade permitem que você veja a integridade do seu aplicativo Web, conforme observado em pontos em todo o mundo. [Configure os testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) para começar a usar qualquer métrica dessa categoria.
+As métricas na categoria disponibilidade permitem que você veja a integridade do seu aplicativo Web, conforme observado em pontos em todo o mundo. [Configure os testes de disponibilidade](../app/monitor-web-app-availability.md) para começar a usar qualquer métrica dessa categoria.
 
 ### <a name="availability-availabilityresultsavailabilitypercentage"></a>Disponibilidade (availabilityResults/availabilityPercentage)
 A métrica de *disponibilidade* mostra a porcentagem de execuções de teste na Web que não detectaram nenhum problema. O menor valor possível é 0, o que indica que todas as execuções de teste na Web falharam. O valor de 100 significa que todas as execuções de testes na Web passaram pelos critérios de validação.
@@ -59,7 +59,7 @@ availabilityResults
 
 ### <a name="availability-test-duration-availabilityresultsduration"></a>Duração do teste de disponibilidade (availabilityResults/Duration)
 
-A métrica *duração do teste de disponibilidade* mostra quanto tempo levou para o teste na Web ser executado. Para os [testes da Web de várias etapas](../../azure-monitor/app/availability-multistep.md), a métrica reflete o tempo de execução total de todas as etapas.
+A métrica *duração do teste de disponibilidade* mostra quanto tempo levou para o teste na Web ser executado. Para os [testes da Web de várias etapas](../app/availability-multistep.md), a métrica reflete o tempo de execução total de todas as etapas.
 
 |Unidade de medida|Agregações com suporte|Dimensões com suporte|
 |---|---|---|---|---|---|
@@ -92,7 +92,7 @@ availabilityResults
 As métricas do navegador são coletadas pelo SDK Application Insights JavaScript de navegadores de usuários finais reais. Eles fornecem ótimos percepções sobre a experiência dos seus usuários com seu aplicativo Web. As métricas de navegador normalmente não são amostradas, o que significa que elas fornecem maior precisão dos números de uso em comparação com as métricas do lado do servidor que podem ser distorcidas por amostragem.
 
 > [!NOTE]
-> Para coletar métricas do navegador, seu aplicativo deve ser instrumentado com o [SDK Application insights JavaScript](../../azure-monitor/app/javascript.md).
+> Para coletar métricas do navegador, seu aplicativo deve ser instrumentado com o [SDK Application insights JavaScript](../app/javascript.md).
 
 ### <a name="browser-page-load-time-browsertimingstotalduration"></a>Tempo de carregamento de página do navegador (browserTimings/totalDuration)
 
@@ -210,7 +210,7 @@ dependencies
 
 ### <a name="exceptions-exceptionscount"></a>Exceções (exceções/contagem)
 
-Cada vez que você registra uma exceção em Application Insights, há uma chamada para o [método trackexception ()](../../azure-monitor/app/api-custom-events-metrics.md#trackexception) do SDK. A métrica de exceções mostra o número de exceções registradas.
+Cada vez que você registra uma exceção em Application Insights, há uma chamada para o [método trackexception ()](../app/api-custom-events-metrics.md#trackexception) do SDK. A métrica de exceções mostra o número de exceções registradas.
 
 |Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
 |---|---|---|---|
@@ -224,7 +224,7 @@ exceptions
 
 ### <a name="failed-requests-requestsfailed"></a>Solicitações com falha (solicitações/falha)
 
-A contagem de solicitações de servidor rastreadas que foram marcadas como *com falha*. Por padrão, o SDK do Application Insights marca automaticamente cada solicitação do servidor que retornou o código de resposta HTTP 5xx ou 4xx como uma solicitação com falha. Você pode personalizar essa lógica modificando a propriedade *Success* do item telemetria de solicitação em um [inicializador de telemetria personalizado](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
+A contagem de solicitações de servidor rastreadas que foram marcadas como *com falha*. Por padrão, o SDK do Application Insights marca automaticamente cada solicitação do servidor que retornou o código de resposta HTTP 5xx ou 4xx como uma solicitação com falha. Você pode personalizar essa lógica modificando a propriedade *Success* do item telemetria de solicitação em um [inicializador de telemetria personalizado](../app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 |Unidade de medida|Agregações com suporte|Dimensões previamente agregadas|Observações|
 |---|---|---|---|
@@ -254,7 +254,7 @@ exceptions
 
 ## <a name="performance-counters"></a>Contadores de desempenho
 
-Use as métricas na categoria **contadores de desempenho** para acessar os contadores de desempenho do [sistema coletados pelo Application insights](../../azure-monitor/app/performance-counters.md).
+Use as métricas na categoria **contadores de desempenho** para acessar os contadores de desempenho do [sistema coletados pelo Application insights](../app/performance-counters.md).
 
 ### <a name="available-memory-performancecountersavailablememory"></a>Memória disponível (performanceCounters/availableMemory)
 
@@ -492,3 +492,4 @@ union traces, requests, pageViews, dependencies, customEvents, availabilityResul
 | summarize dcount(user_AuthenticatedId) by bin(timestamp, 1h)
 | render barchart
 ```
+

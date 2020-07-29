@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: d7c3613a0ddce217e9d07c3fc2eba55b78c53a1b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7421162ed68a879d9f935a3efd5c6267e159a648
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516508"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324294"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Criar um espaço de trabalho do Log Analytics com a CLI do Azure 2.0
 
@@ -24,8 +24,8 @@ A CLI do Azure 2.0 é usada para criar e gerenciar recursos do Azure da linha de
 
 Para outras fontes, como as VMs do Azure e as VMs do Windows ou do Linux em seu ambiente, veja os tópicos a seguir:
 
-* [Coletar dados de máquinas virtuais do Azure](../learn/quick-collect-azurevm.md)
-* [Coletar dados de um computador Linux híbrido](../learn/quick-collect-linux-computer.md)
+* [Coletar dados de máquinas virtuais do Azure](./quick-collect-azurevm.md)
+* [Coletar dados de um computador Linux híbrido](./quick-collect-linux-computer.md)
 * [Coletar dados de um computador Windows híbrido](quick-collect-windows-computer.md)
 
 Se você não tiver uma assinatura do Azure, crie [uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -133,3 +133,4 @@ Agora que já tem um workspace disponível, você pode configurar a coleta de mo
 * Adicione o [System Center Operations Manager como uma fonte de dados](../platform/om-agents.md) para coletar dados de agentes que se reportam ao seu grupo de gerenciamento do Operations Manager e armazene-o em seu repositório de espaço de trabalho do Log Analytics.  
 * Conecte-se ao [Configuration Manager](../platform/collect-sccm.md) para importar computadores que são membros de coleções na hierarquia.  
 * Examine as [soluções de monitoramento](../insights/solutions.md) disponíveis e como adicionar ou remover uma solução do workspace.
+

@@ -8,12 +8,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.custom: mqtt
-ms.openlocfilehash: 35337a99706f25d62964e08a5b16cd8e81f315c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- mqtt
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: c80823513dd65d68d74be62ca1194f843623d2dc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81730290"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323019"
 ---
 # <a name="upload-files-with-iot-hub"></a>Carregar arquivos com o Hub IoT
 
@@ -97,7 +101,7 @@ Opcionalmente, quando um dispositivo notifica o Hub IoT de que o upload foi conc
 
 Como explicado em [Pontos de extremidade](iot-hub-devguide-endpoints.md), o Hub IoT fornece notificações de upload de arquivos por meio de um ponto de extremidade voltado para o serviço (**/messages/servicebound/fileuploadnotifications**) como mensagens. A semântica de recebimento para notificações de upload de arquivo é a mesma das mensagens da nuvem para o dispositivo e tem o mesmo [ciclo de vida da mensagem](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). Cada mensagem recuperada do ponto de extremidade de notificação de upload de arquivos é um registro JSON com as seguintes propriedades:
 
-| Property | Descrição |
+| Propriedade | Descrição |
 | --- | --- |
 | EnqueuedTimeUtc |Carimbo de data/hora que indica quando a notificação foi criada. |
 | DeviceId |**DeviceId** do dispositivo que carregou o arquivo. |
@@ -123,7 +127,7 @@ Como explicado em [Pontos de extremidade](iot-hub-devguide-endpoints.md), o Hub 
 
 Cada hub IoT tem as seguintes opções de configuração para notificações de upload de arquivos:
 
-| Property | Descrição | Intervalo e padrão |
+| Propriedade | Descrição | Intervalo e padrão |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |Controla se as notificações de upload de arquivos serão gravadas no ponto de extremidade de notificações de arquivo. |Bool. Padrão: True. |
 | **fileNotifications.ttlAsIso8601** |TTL padrão para notificações de upload de arquivos. |Intervalo ISO_8601 de até 48H (mínimo de um minuto). Padrão: 1 hora. |

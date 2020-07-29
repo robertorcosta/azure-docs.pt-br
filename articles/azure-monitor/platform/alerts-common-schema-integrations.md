@@ -4,12 +4,12 @@ description: Saiba como criar um aplicativo lógico que aproveita o esquema de a
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/27/2019
-ms.openlocfilehash: 05349554f4c5e076562a75d48d58e0849986d6cc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a7893f41e3e4cce737853fc168c1931f3bf7b532
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539492"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322084"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Como integrar o esquema de alerta comum com aplicativos lógicos
 
@@ -137,5 +137,6 @@ Este artigo pressupõe que o leitor esteja familiarizado com
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba mais sobre grupos de ações](../../azure-monitor/platform/action-groups.md).
+* [Saiba mais sobre grupos de ações](./action-groups.md).
 * [Saiba mais sobre o esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs).
+

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: b0ae621791fb989fbb1fdab6a045bc8e9707bc74
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 989399bcc86547b914deb442fa9793f6d79d0606
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846521"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325314"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -77,10 +78,10 @@ Para criar uma conexão, você precisará preparar a ferramenta de ITSM para per
 
 Dependendo do produto de ITSM ao qual você está se conectando, use as seguintes etapas:
 
-- [SCSM (System Center Service Manager)](../../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
-- [ServiceNow](../../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
-- [Provance](../../azure-monitor/platform/itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
-- [Cherwell](../../azure-monitor/platform/itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
+- [SCSM (System Center Service Manager)](./itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
+- [ServiceNow](./itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
+- [Provance](./itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
+- [Cherwell](./itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
 
 Depois de preparar as ferramentas de ITSM, siga as etapas abaixo para criar uma conexão:
 
@@ -93,7 +94,7 @@ Depois de preparar as ferramentas de ITSM, siga as etapas abaixo para criar uma 
 
    ![Adicionar conexão de ITSM](media/itsmc-overview/add-new-itsm-connection.png)
 
-4. Especifique as configurações de conexão, conforme descrito no [artigo Configurando a conexão de ITSMC com seus produtos/serviços de ITSM](../../azure-monitor/platform/itsmc-connections.md).
+4. Especifique as configurações de conexão, conforme descrito no [artigo Configurando a conexão de ITSMC com seus produtos/serviços de ITSM](./itsmc-connections.md).
 
    > [!NOTE]
    >
@@ -150,13 +151,13 @@ O painel também fornece informações sobre o status do conector que podem ser 
 
 Também visualize os incidentes sincronizados nos computadores afetados, na solução Mapa do Serviço.
 
-O Mapa do Serviço descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Ele permite que você exiba os seus servidores da maneira como pensa neles – como sistemas interconectados que fornecem serviços essenciais. O Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP sem nenhuma configuração necessária além da instalação de um agente. [Saiba mais](../../azure-monitor/insights/service-map.md).
+O Mapa do Serviço descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Ele permite que você exiba os seus servidores da maneira como pensa neles – como sistemas interconectados que fornecem serviços essenciais. O Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP sem nenhuma configuração necessária além da instalação de um agente. [Saiba mais](../insights/service-map.md).
 
 Se estiver usando a solução Mapa do Serviço, exiba os itens da central de serviços criados nas soluções de ITSM, conforme mostrado no seguinte exemplo:
 
 ![Tela do Log Analytics](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-Mais informações: [Mapa do Serviço](../../azure-monitor/insights/service-map.md)
+Mais informações: [Mapa do Serviço](../insights/service-map.md)
 
 
 ## <a name="additional-information"></a>Informações adicionais
@@ -284,7 +285,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
    - Verifique se você digitou corretamente o nome de usuário, a senha, a ID do cliente e o segredo do cliente para cada uma das conexões.  
    - verifique se você tem privilégios suficientes no produto de ITSM correspondente para fazer a conexão.  
    - Para conexões do Service Manager,  
-   - verifique se o aplicativo Web está implantado com êxito e se a conexão híbrida está criada. Para verificar se a conexão está estabelecida com êxito com o computador do Service Manager local, visite a URL do aplicativo Web conforme detalhado na documentação para fazer a [conexão híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
+   - verifique se o aplicativo Web está implantado com êxito e se a conexão híbrida está criada. Para verificar se a conexão está estabelecida com êxito com o computador do Service Manager local, visite a URL do aplicativo Web conforme detalhado na documentação para fazer a [conexão híbrida](./itsmc-connections.md#configure-the-hybrid-connection).  
 
 2. Se os dados do ServiceNow não estiverem sendo sincronizados com o Log Analytics, verifique se a instância do ServiceNow não está em suspensão. As instâncias de desenvolvimento do ServiceNow, às vezes, entram em suspensão quando ficam ociosas por um longo período. Caso contrário, relate o problema.
 3. Se os alertas do Log Analytics são disparados mas os itens de trabalho não são criados no produto de ITSM ou se os itens de configuração não são criados/vinculados aos itens de trabalho ou para obter qualquer outra informação genérica, procure nos seguintes locais:
@@ -294,7 +295,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Solucionar problemas de implantação do aplicativo Web do Service Manager
 1.  No caso de problemas com a implantação do aplicativo Web, verifique se que você tem permissões suficientes na assinatura mencionada para criar/implantar recursos.
 2.  Se você receber um erro **"A referência de objeto não está definida para a instância de um objeto"** ao executar o [script](itsmc-service-manager-script.md), verifique se você inseriu valores válidos na seção **Configuração do Usuário**.
-3.  Se você não conseguir criar o namespace de retransmissão do barramento de serviço, certifique-se de que o provedor de recursos necessário está registrado na assinatura. Se ele não estiver registrado, crie manualmente o namespace de retransmissão do barramento de serviço usando o Portal do Azure. Você também pode criá-lo ao [criar a conexão híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) do Portal do Azure.
+3.  Se você não conseguir criar o namespace de retransmissão do barramento de serviço, certifique-se de que o provedor de recursos necessário está registrado na assinatura. Se ele não estiver registrado, crie manualmente o namespace de retransmissão do barramento de serviço usando o Portal do Azure. Você também pode criá-lo ao [criar a conexão híbrida](./itsmc-connections.md#configure-the-hybrid-connection) do Portal do Azure.
 
 
 ## <a name="contact-us"></a>Fale conosco
@@ -302,4 +303,5 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 Em caso de dúvidas ou comentários sobre o Conector de Gerenciamento de Serviço de TI, entre em contato conosco pelo email [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 
 ## <a name="next-steps"></a>Próximas etapas
-[Adicionar produtos/serviços de ITSM ao Conector de Gerenciamento de Serviço de TI](../../azure-monitor/platform/itsmc-connections.md).
+[Adicionar produtos/serviços de ITSM ao Conector de Gerenciamento de Serviço de TI](./itsmc-connections.md).
+

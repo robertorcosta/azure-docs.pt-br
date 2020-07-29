@@ -1,6 +1,6 @@
 ---
-title: PowerShell da área de trabalho virtual do Windows (Outono 2019) – Azure
-description: Como solucionar problemas com o PowerShell ao configurar um ambiente de locatário de área de trabalho virtual do Windows (Outono de 2019).
+title: PowerShell da área de trabalho virtual do Windows (clássico)-Azure
+description: Como solucionar problemas com o PowerShell ao configurar um ambiente de locatário da área de trabalho virtual do Windows (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3171cc54de57b70a18a3f1b9ee3317cf29f79d4b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 04ef12d6de8820740be687bd09ffaa5a8e69eb86
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085802"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87269607"
 ---
-# <a name="windows-virtual-desktop-powershell-fall-2019-release"></a>PowerShell de área de trabalho virtual do Windows (versão 2019 de outono)
+# <a name="windows-virtual-desktop-classic-powershell"></a>PowerShell da área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../troubleshoot-powershell.md).
+>Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../troubleshoot-powershell.md).
 
 Use este artigo para resolver erros e problemas ao usar o PowerShell com a área de trabalho virtual do Windows. Para obter mais informações sobre Serviços de Área de Trabalho Remota PowerShell, consulte [Windows Virtual Desktop PowerShell](/powershell/module/windowsvirtualdesktop/).
 

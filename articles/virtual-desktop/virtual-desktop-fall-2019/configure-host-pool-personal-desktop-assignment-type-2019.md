@@ -1,6 +1,6 @@
 ---
-title: Atribuição de área de trabalho pessoal do Windows virtual (Outono 2019) – Azure
-description: Saiba como configurar o tipo de atribuição para uma área de trabalho virtual do Windows (Outono da versão 2019) pool de hosts de área de trabalho pessoal.
+title: Tipo de atribuição de área de trabalho virtual do Windows (clássico)-Azure
+description: Como configurar o tipo de atribuição para um pool de hosts pessoais da área de trabalho virtual do Windows (clássico).
 services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 036e144922fcb49c486813b8668d944dd771536e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 76b68ba0a51d250e4ce143314c9126597133e97f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087179"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271035"
 ---
-# <a name="configure-the-personal-desktop-host-pool-assignment-type-fall-2019-release"></a>Configurar o tipo de atribuição de pool de hosts de área de trabalho pessoal (versão 2019 de outono)
+# <a name="configure-the-personal-desktop-host-pool-assignment-type-for-windows-virtual-desktop-classic"></a>Configurar o tipo de atribuição do pool de hosts de área de trabalho pessoal para o Windows Virtual Desktop (clássico)
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../configure-host-pool-personal-desktop-assignment-type.md).
+>Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../configure-host-pool-personal-desktop-assignment-type.md).
 
 Você pode configurar o tipo de atribuição de seu pool de hosts da área de trabalho pessoal para ajustar o ambiente da Área de Trabalho Virtual do Windows e atender melhor às suas necessidades. Neste tópico, mostraremos como configurar a atribuição automática ou direta para seus usuários.
 

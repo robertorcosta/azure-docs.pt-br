@@ -3,11 +3,12 @@ title: Filtrar Aplicativo Azure telemetria de informações em seu aplicativo We
 description: Reduza o tráfego da telemetria filtrando os eventos que você não precisa monitorar.
 ms.topic: conceptual
 ms.date: 3/14/2019
-ms.openlocfilehash: 020e54132e0ca0a9f9ccf0236f94515877015637
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd53a0e02eb43bdf7cde4952ed4835c6d1cdd126
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659910"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322577"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrar a telemetria no aplicativo Web Java
 
@@ -22,7 +23,7 @@ Os filtros prontos para uso incluem:
 
 > [!NOTE]
 > Os filtros distorcem as métricas do aplicativo. Por exemplo, você pode decidir que, para diagnosticar respostas lentas, vai definir um filtro para descartar tempos rápidos de resposta. Mas você deve estar ciente de que a média dos tempos de resposta relatada pelo Application Insights será mais lenta que a velocidade verdadeira e a contagem de solicitações será menor que a contagem real.
-> Se isso for um problema, use [Amostragem](../../azure-monitor/app/sampling.md).
+> Se isso for um problema, use [Amostragem](./sampling.md).
 
 ## <a name="setting-filters"></a>Definindo filtros
 
@@ -151,7 +152,7 @@ Filtre a telemetria para fontes sintéticas específicas:
 
 ### <a name="telemetry-event-filter"></a>Filtro de eventos de telemetria
 
-Filtra eventos personalizados (registrados usando [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)).
+Filtra eventos personalizados (registrados usando [TrackEvent()](./api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -167,7 +168,7 @@ Filtra eventos personalizados (registrados usando [TrackEvent()](../../azure-mon
 
 ### <a name="trace-telemetry-filter"></a>Filtro de telemetria de rastreamento
 
-Filtra rastreamentos de log (registrados usando [TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) ou um [coletor de estrutura de registros](java-trace-logs.md)).
+Filtra rastreamentos de log (registrados usando [TrackTrace()](./api-custom-events-metrics.md#tracktrace) ou um [coletor de estrutura de registros](java-trace-logs.md)).
 
 ```XML
 
@@ -267,4 +268,5 @@ Você precisará criar seus próprios parâmetros de filtro no `application.prop
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Amostragem](../../azure-monitor/app/sampling.md) — considere a amostragem como uma alternativa que não distorce suas métricas.
+* [Amostragem](./sampling.md) — considere a amostragem como uma alternativa que não distorce suas métricas.
+

@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2020
+ms.date: 07/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68b1cdede5fddd0bf74571da1924e0059a21d3af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 332d9a9ec28c4309fb1cf1d3e24d3cfd2d7d13d9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791802"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321965"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Exibir logs de atividade para alterações do RBAC do Azure
 
@@ -36,7 +37,7 @@ Aqui estão as operações relacionadas ao RBAC do Azure que são registradas no
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-A maneira mais fácil para começar é exibir os logs de atividade com o portal do Azure. A captura de tela a seguir mostra um exemplo de operações de atribuição de função no log de atividades. Ele também inclui uma opção para baixar os logs como um arquivo CSV.
+A maneira mais fácil para começar é exibir os logs de atividades com o portal do Azure. A captura de tela a seguir mostra um exemplo de operações de atribuição de função no log de atividades. Ele também inclui uma opção para baixar os logs como um arquivo CSV.
 
 ![Logs de atividade usando o portal – captura de tela](./media/change-history-report/activity-log-portal.png)
 
@@ -44,7 +45,7 @@ O log de atividades no portal tem vários filtros. Aqui estão os filtros relaci
 
 | Filtrar | Valor |
 | --------- | --------- |
-| Categoria de evento | <ul><li>Administrativo</li></ul> |
+| Categoria de evento | <ul><li>Administrativa</li></ul> |
 | Operação | <ul><li>Criar atribuição de função</li><li>Excluir atribuição de função</li><li>Criar ou atualizar definição de função personalizada</li><li>Excluir definição de função personalizada</li></ul> |
 
 Para obter mais informações sobre logs de atividade, consulte [Exibir logs de atividades para monitorar ações em recursos](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
@@ -80,6 +81,7 @@ $_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
 Properties              :
                           statusCode     : Created
                           serviceRequestId: 11111111-1111-1111-1111-111111111111
+                          eventCategory  : Administrative
 
 Caller                  : alain@example.com
 EventTimestamp          : 2/27/2020 9:18:05 PM
@@ -88,6 +90,18 @@ Properties              :
                           requestbody    : {"Id":"22222222-2222-2222-2222-222222222222","Properties":{"PrincipalId":"33333333-3333-3333-3333-333333333333","RoleDefinitionId":"/subscriptions/00000000-0000-0000-0000-000000000000/providers
                           /Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c","Scope":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"}}
 
+```
+
+Se você estiver usando uma entidade de serviço para criar atribuições de função, a propriedade do chamador será uma ID de objeto. Você pode usar [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) para obter informações sobre a entidade de serviço.
+
+```Example
+Caller                  : 44444444-4444-4444-4444-444444444444
+EventTimestamp          : 6/4/2020 9:43:08 PM
+$_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
+Properties              : 
+                          statusCode     : Created
+                          serviceRequestId: 55555555-5555-5555-5555-555555555555
+                          category       : Administrative
 ```
 
 ## <a name="azure-cli"></a>CLI do Azure

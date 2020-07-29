@@ -3,14 +3,15 @@ title: 'Início rápido: análise de aplicativo Web Java com o Aplicativo Azure 
 description: 'Monitoramento de desempenho de aplicativos usando o Application Insights para aplicativos Web Java. '
 ms.topic: conceptual
 author: lgayhardt
+ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: d3835f88eb581693d10f68a9a495329466a657a2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 464bf650cbcaa99e947a21f5a87a5872f7b11178
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014483"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326912"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Início rápido: introdução ao Application Insights em um projeto Web Java
 
@@ -131,7 +132,7 @@ O SDK do Application Insights procura a chave nesta ordem:
 2. Variável de ambiente: APPINSIGHTS_INSTRUMENTATIONKEY
 3. Arquivo de configuração: *ApplicationInsights.xml*
 
-Você também pode [defini-lo no código](../../azure-monitor/app/api-custom-events-metrics.md#ikey):
+Você também pode [defini-lo no código](./api-custom-events-metrics.md#ikey):
 
 ```java
     String instrumentationKey = "00000000-0000-0000-0000-000000000000";
@@ -146,7 +147,7 @@ Você também pode [defini-lo no código](../../azure-monitor/app/api-custom-eve
 
 [Instale o agente Java](java-agent.md) para capturar chamadas http de saída, consultas JDBC, log de aplicativo e melhor nomenclatura de operação.
 
-## <a name="run-your-application"></a>Executar seu aplicativo
+## <a name="run-your-application"></a>Execute seu aplicativo.
 Execute-o no modo de depuração no computador de desenvolvimento ou publique em seu servidor.
 
 ## <a name="view-your-telemetry-in-application-insights"></a>Exibir sua telemetria no Application Insights
@@ -307,16 +308,17 @@ O Application Insights pode testar seu site em intervalos regulares para verific
 * [Monitorar chamadas de dependência](java-agent.md)
 * [Monitorar os contadores de desempenho do Unix](java-collectd.md)
 * Adicionar [monitoramento a suas páginas da Web](javascript.md) para monitorar tempos de carregamento de página, chamadas AJAX e exceções do navegador.
-* Gravar [telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md) para controlar o uso no navegador ou no servidor.
+* Gravar [telemetria personalizada](./api-custom-events-metrics.md) para controlar o uso no navegador ou no servidor.
 * Use a [análise](../log-query/log-query-overview.md) para consultas poderosas sobre a telemetria do seu aplicativo
 * Para saber mais, visite [Azure para desenvolvedores Java](/java/azure).
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[api]: ./api-custom-events-metrics.md
+[apiexceptions]: ./api-custom-events-metrics.md#trackexception
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
+[metrics]: ../platform/metrics-charts.md
 [usage]: javascript.md
+

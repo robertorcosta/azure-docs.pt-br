@@ -6,11 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 09c1899004bd93d0f2365c3bbc000c37459e8d89
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: a81c4f32385cf06238f36ca0162923f93d682807
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797828"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323716"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Descobrir como os clientes estão usando seu aplicativo com os Funis do Application Insights
 
@@ -36,7 +37,7 @@ A captura de tela a seguir mostra um exemplo do tipo de dados gerado pela ferram
 ### <a name="funnels-features"></a>Recursos de funis
 A captura de tela anterior inclui cinco áreas realçadas. Esses são recursos de Funis. A lista a seguir explica mais sobre cada área correspondente na captura de tela:
 1. Se seu aplicativo for amostrado, você verá um banner de amostragem. A seleção da faixa abre um painel de contexto, explicando coo desativar a amostragem. 
-2. Você pode exportar o funil para [Power BI](../../azure-monitor/app/export-power-bi.md ).
+2. Você pode exportar o funil para [Power BI](./export-power-bi.md).
 3. Selecione uma etapa para ver mais detalhes à direita. 
 4. O gráfico de conversão de histórico mostra as taxas de conversão nos últimos 90 dias. 
 5. Compreenda melhor seus usuários ao acessar a ferramenta de usuários. Você pode usar filtros em cada etapa. 
@@ -45,7 +46,7 @@ A captura de tela anterior inclui cinco áreas realçadas. Esses são recursos d
   * [Visão geral do uso](usage-overview.md)
   * [Usuários, Sessões e Eventos](usage-segmentation.md)
   * [Retenção](usage-retention.md)
-  * [Pastas de trabalho](../../azure-monitor/platform/workbooks-overview.md)
+  * [Pastas de trabalho](../platform/workbooks-overview.md)
   * [Adicionar contexto de usuário](usage-send-user-context.md)
-  * [Exportar para o Power BI](../../azure-monitor/app/export-power-bi.md )
+  * [Exportar para o Power BI](./export-power-bi.md)
 

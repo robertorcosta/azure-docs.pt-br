@@ -4,17 +4,17 @@ description: Compare as pontuações de parâmetro de computação SPECint para 
 author: cynthn
 ms.service: virtual-machines-windows
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: c3e0fdc398d3b0b851c6f548119858e6c41a5a19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 019c627743c344fc0f07c8954ebdfdf2eca0437b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583910"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87267040"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Pontuações de parâmetro de comparação de computação de VMs do Windows
 As pontuações de benchmark SPECInt a seguir mostram o desempenho de computação para selecionar VMs do Azure executando o Windows Server. As pontuações de parâmetro de comparação de computação também estão disponíveis para [VMs do Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -30,11 +30,11 @@ As pontuações de benchmark SPECInt a seguir mostram o desempenho de computaç�
 | Standard_A2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2,20 GHz | 14 | 28,9 | 0,6 | 
 | Standard_A2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 10 | 27,4 | 1.6 | 
 | Standard_A2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 17 | 28,9 | 1.8 | 
-| Standard_A2m_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2,20 GHz | 14 | 29,0 | 0.5 | 
+| Standard_A2m_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2,20 GHz | 14 | 29,0 | 0,5 | 
 | Standard_A2m_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 11 | 26,3 | 0,8 | 
 | Standard_A2m_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 21 | 28,4 | 1.0 | 
 | Standard_A4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2,20 GHz | 27 | 56,6 | 1.0 | 
-| Standard_A4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 13 | 52,8 | 2,0 | 
+| Standard_A4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 13 | 52,8 | 2.0 | 
 | Standard_A4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 15 | 52,1 | 4.5 | 
 | Standard_A4m_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2,20 GHz | 17 | 56,4 | 1.8 | 
 | Standard_A4m_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 6 | 53,4 | 1.9 | 
@@ -60,7 +60,7 @@ As pontuações de benchmark SPECInt a seguir mostram o desempenho de computaç�
 | Standard_B1ms | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 47 | 6.4 | 0,2 | 
 | Standard_B2ms | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 36 | 19,8 | 0,8 | 
 | Standard_B2s | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 2 | 13.0 | 0,0 | 
-| Standard_B2s | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 29 | 13.0 | 0.5 | 
+| Standard_B2s | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 29 | 13.0 | 0,5 | 
 | Standard_B4ms | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 6 | 27,1 | 1.0 | 
 | Standard_B4ms | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 43 | 28,3 | 0.7 | 
 | Standard_B8ms | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 3 | 42,0 | 0,0 | 
@@ -172,7 +172,7 @@ As pontuações de benchmark SPECInt a seguir mostram o desempenho de computaç�
 | Standard_D5_v2 | 16 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 5 | 466,0 | 0,0 | 
 | Standard_D11_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 22 | 66,4 | 2.9 | 
 | Standard_D11_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 27 | 69,0 | 6.7 | 
-| Standard_D12_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 24 | 127,7 | 4.6 | 
+| Standard_D12_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 24 | 127,7 | 4,6 | 
 | Standard_D12_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 20 | 135,9 | 9.3 | 
 | Standard_D13_v2 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 16 | 237,4 | 6.6 | 
 | Standard_D13_v2 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 28 | 250,2 | 3.8 | 
@@ -242,7 +242,7 @@ As pontuações de benchmark SPECInt a seguir mostram o desempenho de computaç�
 | Tamanho | vCPUs | Nós NUMA | CPU | Execuções | Taxa base média | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_F1s | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 31 | 33,2 | 1.0 | 
-| Standard_F1s | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 41 | 35,1 | 2,0 | 
+| Standard_F1s | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 41 | 35,1 | 2.0 | 
 | Standard_F2s | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 18 | 63,7 | 1.8 | 
 | Standard_F2s | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 21 | 66,6 | 3.8 | 
 | Standard_F4s | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 14 | 128,4 | 2.9 | 
@@ -250,15 +250,15 @@ As pontuações de benchmark SPECInt a seguir mostram o desempenho de computaç�
 | Standard_F8s | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 11 | 234,9 | 3.7 | 
 | Standard_F8s | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 19 | 251,2 | 4.5 | 
 | Standard_F16s | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 9 | 413,9 | 3.6 | 
-| Standard_F16s | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 36 | 471,8 | 7.5 | 
+| Standard_F16s | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 36 | 471,8 | 7,5 | 
 
 ## <a name="f---compute-optimized"></a>F - Otimizado para Computação
 
 | Tamanho | vCPUs | Nós NUMA | CPU | Execuções | Taxa base média | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_F1 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 15 | 32,8 | 1.8 | 
-| Standard_F1 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 13 | 33,3 | 2,0 | 
-| Standard_F2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 27 | 64,9 | 6,0 | 
+| Standard_F1 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 13 | 33,3 | 2.0 | 
+| Standard_F2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 27 | 64,9 | 6.0 | 
 | Standard_F2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 21 | 67,8 | 4,9 | 
 | Standard_F4 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 18 | 128,4 | 3.3 | 
 | Standard_F4 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 32 | 132,1 | 7.8 | 
@@ -307,7 +307,7 @@ As pontuações de benchmark SPECInt a seguir mostram o desempenho de computaç�
 | Tamanho | vCPUs | Nós NUMA | CPU | Execuções | Taxa base média | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_L4s | 4 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2,00 GHz | 29 | 122,7 | 6.6 | 
-| Standard_L8s | 8 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2,00 GHz | 30 | 223,3 | 7.5 | 
+| Standard_L8s | 8 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2,00 GHz | 30 | 223,3 | 7,5 | 
 | Standard_L16s | 16 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2,00 GHz | 31 | 397,3 | 2.5 | 
 | Standard_L32s | 32 | 2 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2,00 GHz | 31 | 766,1 | 3,5 | 
 
@@ -318,9 +318,9 @@ As pontuações de benchmark SPECInt a seguir mostram o desempenho de computaç�
 | Standard_M8-2ms | 2 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 15 | 42.1 | 2.1 | 
 | Standard_M8-4ms | 4 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 13 | 81,6 | 2.9 | 
 | Standard_M16-4ms | 4 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 14 | 82,5 | 2.5 | 
-| Standard_M16-8ms | 8 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 20 | 157,2 | 6,0 | 
+| Standard_M16-8ms | 8 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 20 | 157,2 | 6.0 | 
 | Standard_M32-8ms | 8 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 18 | 162,5 | 2.1 | 
-| Standard_M32-16ms | 16 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 12 | 306,5 | 0.5 | 
+| Standard_M32-16ms | 16 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 12 | 306,5 | 0,5 | 
 | Standard_M64 | 64 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 11 | 1010,9 | 5.4 | 
 | Standard_M64-16ms | 16 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 13 | 316,0 | 2.4 | 
 | Standard_M64 32ms | 32 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 12 | 586,8 | 5.4 | 
@@ -335,7 +335,7 @@ As pontuações de benchmark SPECInt a seguir mostram o desempenho de computaç�
 | Standard_M128s | 128 | 4 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 12 | 1775,8 | 11,6 | 
 | Standard_M16ms | 16 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 20 | 293,1 | 11,8 | 
 | Standard_M32ls | 32 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 13 | 535,2 | 4.8 | 
-| Standard_M32ms | 32 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 11 | 534,1 | 4.6 | 
+| Standard_M32ms | 32 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 11 | 534,1 | 4,6 | 
 | Standard_M32ms | 32 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 1 | 589,0 | 0,0 | 
 | Standard_M32ts | 32 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 12 | 538,6 | 3.2 | 
 | Standard_M64ls | 64 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2,50 GHz | 13 | 1015,2 | 10.0 | 

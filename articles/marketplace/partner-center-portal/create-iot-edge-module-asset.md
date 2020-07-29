@@ -4,15 +4,15 @@ description: Saiba mais sobre os requisitos técnicos e de configuração que se
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
-ms.author: mingshen
+author: keferna
+ms.author: keferna
 ms.date: 04/03/2020
-ms.openlocfilehash: 685ac2a383bcc0b85121112b9b5df4aa7650ab59
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dec0711c4763983e520d247fd8b775b1810e0479
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101164"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324634"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Prepare seus recursos técnicos do módulo IoT Edge
 
@@ -130,7 +130,7 @@ Os parceiros são notificados sempre que há uma alteração significativa que a
 
 - Matriz de suporte de so/Arch da camada 1 com suporte pelo IoT Edge
 - Módulo do IoT do SDK
-- runtime do IoT Edge
+- Runtime do IoT Edge
 - Diretrizes de certificação de módulo IoT Edge
 
 Os parceiros devem atualizar e recertificar suas ofertas, publicando-as novamente no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace).
