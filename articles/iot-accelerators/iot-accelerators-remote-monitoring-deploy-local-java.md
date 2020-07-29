@@ -3,17 +3,18 @@ title: Implantar a solução de monitoramento remoto localmente-IntelliJ IDE-Azu
 description: Este guia de instruções mostra como implantar o acelerador de solução de monitoramento remoto em seu computador local usando o IntelliJ para teste e desenvolvimento.
 author: v-krghan
 manager: dominicbetts
+ms.custom: devx-track-java
 ms.author: v-krghan
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: b201200ebf6807d7301dfd8c52e3137a29784eb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7554843db247ade1cddff78902430a5d84debe1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82187204"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319160"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Implantar o acelerador de solução de Monitoramento Remoto localmente – IntelliJ
 
@@ -228,7 +229,7 @@ Para obter mais informações sobre como executar o Nginx, consulte [Nginx for W
 
 Para acessar o painel da solução de monitoramento remoto, vá para `http://localhost:9000` em seu navegador.
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
 Para evitar encargos desnecessários, remova os serviços de nuvem da sua assinatura do Azure depois de concluir o teste. Para remover os serviços, vá para o [portal do Azure](https://ms.portal.azure.com)e exclua o grupo de recursos criado pelo script **Start. cmd** .
 

@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 09d9ed5e008acd5354cc673e39365f59ab7f64e8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: d6c46575ed497c5067b3ffc5c745e79f814bc212
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109171"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304370"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Cobrança limitada usando o serviço de medição do Marketplace
 
@@ -84,7 +86,7 @@ As dimensões de cobrança são compartilhadas entre todos os planos para uma of
 Os atributos, que definem a própria dimensão, são compartilhados entre todos os planos para uma oferta.  Antes de publicar a oferta, uma alteração feita nesses atributos do contexto de qualquer plano afetará a definição da dimensão em todos os planos.  Depois de publicar a oferta, esses atributos não serão mais editáveis.  Esses atributos são:
 
 * ID
-* Nome de exibição
+* Nome de Exibição
 * Unidade de medida
 
 Os outros atributos de uma dimensão são específicos para cada plano e podem ter valores diferentes do plano para o plano.  Antes de publicar o plano, você pode editar esses valores e somente esse plano será afetado.  Depois de publicar o plano, esses atributos não serão mais editáveis.  Esses atributos são:
@@ -131,7 +133,7 @@ Como uma dimensão usada com o serviço de medição do Marketplace representa u
 Depois que uma oferta é publicada com uma dimensão, os detalhes de nível de oferta para essa dimensão não podem mais ser alterados:
 
 * ID
-* Nome de exibição
+* Nome de Exibição
 * Unidade de medida
 
 Depois que um plano é publicado, os detalhes de nível de plano não podem mais ser alterados:

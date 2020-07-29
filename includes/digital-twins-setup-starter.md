@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
-ms.openlocfilehash: 3f19674c0e25ebf5cddc2dfb45580a15d04fad46
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dcc616dd8d30bfadb751df9ba24d71d72675428a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095707"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371440"
 ---
 >[!NOTE]
 >Essas operações devem ser concluídas por um usuário com uma função de *proprietário* na assinatura do Azure. Embora algumas partes possam ser concluídas sem essa permissão elevada, a cooperação de um proprietário será necessária para configurar completamente uma instância utilizável. Veja mais informações sobre isso na seção [*pré-requisitos: permissões necessárias*](#prerequisites-permission-requirements) abaixo.
@@ -38,6 +38,6 @@ Se você for um proprietário, o `roleDefinitionName` valor na saída será *pro
 
 :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/owner-role.png" alt-text="Janela Cloud Shell mostrando a saída do comando AZ role Assignment List":::
 
-Se você achar que o valor é *colaborador* ou algo diferente do *proprietário*, você pode entrar em contato com o proprietário da assinatura e prosseguir de uma das seguintes maneiras:
-* Solicitar que o proprietário conclua as etapas neste artigo em seu nome
-* Solicitar que o proprietário eleve você ao proprietário na assinatura também, para que você tenha as permissões para continuar. Se isso é apropriado depende de sua organização e sua função dentro dela.
+Se você achar que o valor é *colaborador* ou algo diferente do *proprietário*, você pode proceder de uma das seguintes maneiras:
+* Entre em contato com o proprietário da assinatura e solicite que o proprietário conclua as etapas neste artigo em seu nome
+* Entre em contato com o proprietário da assinatura ou com a função de administrador de acesso do usuário na assinatura e solicite que eles elevem você ao proprietário na assinatura para que você tenha as permissões para continuar. Se isso é apropriado depende de sua organização e sua função dentro dela.

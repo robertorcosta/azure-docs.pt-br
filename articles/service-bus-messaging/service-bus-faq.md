@@ -3,12 +3,12 @@ title: Perguntas frequentes (FAQ) sobre o Barramento de Serviço | Microsoft Doc
 description: Este artigo fornece respostas para algumas das perguntas frequentes sobre o barramento de serviço do Azure.
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 01d7869a158a3c2b5418f38f2a5d88fc161796c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 04ff12d28be1dd232c5666b17d8a121f8020ca89
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083847"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371236"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Barramento de serviço do Azure-perguntas frequentes (FAQ)
 
@@ -78,7 +78,7 @@ Se você usar a redundância de zona para seu namespace, precisará executar alg
 3. Execute nslookup para cada um com sufixos s1, s2 e s3 para obter os endereços IP de todas as três instâncias em execução em três zonas de disponibilidade, 
 
 ### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>Onde posso encontrar o endereço IP do cliente que envia/recebe mensagens de/para um namespace? 
-Não registramos em log os endereços IP de clientes que enviam ou recebem mensagens de/para seu namespace. Regenerar chaves para que todos os clientes existentes não consigam autenticar e examinar as configurações de[RBAC](authenticate-application.md#built-in-rbac-roles-for-azure-service-bus)(controle de acesso baseado em função) para garantir que somente os usuários ou aplicativos permitidos tenham acesso ao namespace. 
+Não registramos em log os endereços IP de clientes que enviam ou recebem mensagens de/para seu namespace. Regenerar chaves para que todos os clientes existentes não consigam autenticar e examinar as configurações de[RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)(controle de acesso baseado em função) para garantir que somente os usuários ou aplicativos permitidos tenham acesso ao namespace. 
 
 Se você estiver usando um namespace **Premium** , use [filtragem de IP](service-bus-ip-filtering.md), pontos de extremidade de serviço de [rede virtual](service-bus-service-endpoints.md)e [pontos de extremidade privados](private-link-service.md) para limitar o acesso ao namespace. 
 

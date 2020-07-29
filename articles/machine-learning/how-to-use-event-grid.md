@@ -5,21 +5,22 @@ description: Configure aplicativos, processos ou fluxos de trabalho de machine l
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 5c4eae49b849b7dc5dbf7c27d50e241b2a4f36e4
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 3b6f115e27b5cf956a524bd1a610797c689b5d6c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135955"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319483"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Disparar aplicativos, processos ou fluxos de trabalho de CI/CD com base em eventos de Azure Machine Learning (versão prévia)
 
-Neste artigo, você aprenderá a configurar aplicativos, processos ou fluxos de trabalho de CI/CD controlados por eventos com base em eventos do Azure Machine Learning, como emails de notificação de falha ou execuções de pipeline de ML, quando determinadas condições são detectadas pela [Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/). 
+Neste artigo, você aprenderá a configurar aplicativos, processos ou fluxos de trabalho de CI/CD controlados por eventos com base em eventos do Azure Machine Learning, como emails de notificação de falha ou execuções de pipeline de ML, quando determinadas condições são detectadas pela [Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/).
 
 O Azure Machine Learning gerencia todo o ciclo de vida do processo de machine learning, incluindo treinamento de modelo, implantação de modelo e monitoramento. Você pode usar a Grade de Eventos para reagir a eventos do Azure Machine Learning, como a conclusão de execuções de treinamento, o registro e a implantação de modelos e a detecção de descompasso de dados, usando arquiteturas modernas sem servidor. Em seguida, é possível assinar e consumir eventos como o status de execução alterado, conclusão da execução, registro de modelo, implantação de modelo e detecção de descompasso de dados em um workspace.
 

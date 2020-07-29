@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: 4f27fc9542d6c4e9027c7a1a0d4daeb7cb079e81
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9b81dbce9f73c76ceea0f7842d731d00f905fb01
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321540"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371508"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treinar automaticamente um modelo de previsão de série temporal
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -130,7 +130,7 @@ Para tarefas de previsão, o machine learning automatizado usa etapas de pré-pr
 
 * Detectar a frequência de amostragem da série temporal (por exemplo, por hora, diária, semanal) e criar registros novos para pontos de tempo ausentes para tornar a série contínua.
 * Imputar valores ausentes no destino (via preenchimento à frente) e colunas de recurso (usando valor mediano de coluna)
-* Criar recursos baseados em agregação para habilitar efeitos fixos em diferentes séries
+* Criar recursos com base em identificadores de série temporal para habilitar efeitos fixos em diferentes séries
 * Criar recursos baseados em tempo para auxiliar no aprendizado de padrões sazonais
 * Codificar variáveis categóricas em quantidades numéricas
 
@@ -139,21 +139,21 @@ O objeto [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-au
 | Nome&nbsp;do parâmetro | Descrição | Obrigatório |
 |-------|-------|-------|
 |`time_column_name`|Usado para especificar a coluna datetime nos dados de entrada usados para criar a série temporal e inferir sua frequência.|✓|
-|`grain_column_names`|Nomes que definem grupos de séries individuais nos dados de entrada. Se a agregação não for definida, o conjunto de dados será considerado uma série temporal.||
-|`max_horizon`|Define o horizonte de previsão máximo desejado em unidades de frequência de série temporal. As unidades são baseadas no intervalo de tempo dos seus dados de treinamento (por exemplo, mensalmente, semanalmente) em que o forecaster deve prever.|✓|
+|`time_series_id_column_names`|Os nomes de coluna usados para identificar exclusivamente a série temporal em dados que têm várias linhas com o mesmo carimbo de data/hora. Se os identificadores de série temporal não estiverem definidos, o conjunto de dados será considerado uma série temporal.||
+|`forecast_horizon`|Define quantos períodos encaminhar você gostaria de prever. O horizonte está em unidades da frequência da série temporal. As unidades são baseadas no intervalo de tempo dos seus dados de treinamento (por exemplo, mensalmente, semanalmente) em que o forecaster deve prever.|✓|
 |`target_lags`|Número de linhas para retardar os valores de destino com base na frequência dos dados. O retardo é representado como uma lista ou um único inteiro. O retardo deve ser usado quando a relação entre as variáveis independentes e a variável dependente não corresponde ou se correlaciona por padrão. Por exemplo, a previsão da demanda de um produto em um dado mês pode depender do preço de mercadorias específicas 3 meses antes disso. Neste exemplo, você pode querer retardar o destino (demanda) negativamente por 3 meses para que o modelo seja treinado na relação correta.||
 |`target_rolling_window_size`|*n* períodos históricos para usar os valores previstos gerado, <= o tamanho do conjunto de treinamento. Se omitido, *n* será o tamanho total do conjunto de treinamento. Especifique esse parâmetro quando desejar considerar apenas certa quantidade de histórico no treinamento do modelo.||
 |`enable_dnn`|Habilitar previsão de DNNs.||
 
 Para saber mais, confira a [documentação de referência do ](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
-Crie as configurações de série temporal como um objeto de dicionário. Defina o `time_column_name` para o campo `day_datetime` no conjunto de dados. Defina o parâmetro `grain_column_names` para garantir que **dois grupos de série temporal** sejam criados para os dados: um para o armazenamento A e B. Por último, defina `max_horizon` para 50 para fazer a previsão do conjunto de teste completo. Defina uma janela de previsão para 10 períodos com `target_rolling_window_size` e especifique um retardo único nos valores de destino para dois períodos à frente com o parâmetro `target_lags`. Recomendamos definir `max_horizon`, `target_rolling_window_size` e `target_lags` como “automático”, que detectará automaticamente esses valores para você. No exemplo abaixo, as configurações “automáticas” foram usadas para esses parâmetros. 
+Crie as configurações de série temporal como um objeto de dicionário. Defina o `time_column_name` para o campo `day_datetime` no conjunto de dados. Defina o parâmetro `time_series_id_column_names` para garantir que **dois grupos de série temporal** sejam criados para os dados: um para o armazenamento A e B. Por último, defina `forecast_horizon` para 50 para fazer a previsão do conjunto de teste completo. Defina uma janela de previsão para 10 períodos com `target_rolling_window_size` e especifique um retardo único nos valores de destino para dois períodos à frente com o parâmetro `target_lags`. Recomendamos definir `forecast_horizon`, `target_rolling_window_size` e `target_lags` como “automático”, que detectará automaticamente esses valores para você. No exemplo abaixo, as configurações “automáticas” foram usadas para esses parâmetros. 
 
 ```python
 time_series_settings = {
     "time_column_name": "day_datetime",
-    "grain_column_names": ["store"],
-    "max_horizon": "auto",
+    "time_series_id_column_names": ["store"],
+    "forecast_horizon": "auto",
     "target_lags": "auto",
     "target_rolling_window_size": "auto",
     "preprocess": True,
@@ -163,7 +163,7 @@ time_series_settings = {
 > [!NOTE]
 > As etapas de pré-processamento automatizado de machine learning (normalização de recursos, manipulação de dados ausentes, conversão de texto em números etc.) tornam-se parte do modelo subjacente. Ao usar o modelo para previsões, as mesmas etapas de pré-processamento aplicadas durante o treinamento são aplicadas aos dados de entrada automaticamente.
 
-Ao definir `grain_column_names` no snippet de código acima, o AutoML criará dois grupos de série temporal separados, também conhecidos como séries temporais múltiplas. Se nenhuma agregação for definida, o AutoML assumirá que o conjunto de data é uma única série temporal. Para saber mais sobre série temporal única, consulte [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
+Ao definir `time_series_id_column_names` no snippet de código acima, o AutoML criará dois grupos de série temporal separados, também conhecidos como séries temporais múltiplas. Se nenhum identificador de série temporal for definido, AutoML assumirá que o conjunto de os é uma única série temporal. Para saber mais sobre série temporal única, consulte [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
 
 Crie um objeto `AutoMLConfig` padrão especificando o tipo de tarefa `forecasting` e envie o experimento. Após a conclusão do modelo, recupere a melhor iteração de execução.
 
@@ -221,6 +221,32 @@ Para mais informações sobre a computação do AML e tamanhos de VM que incluam
 
 Veja o [notebook de previsão de produção de bebidas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) para conhecer um exemplo de código detalhado que aproveita DNNs.
 
+### <a name="customize-featurization"></a>Personalizar o personalização
+Você pode personalizar suas configurações de personalização para garantir que os dados e recursos usados para treinar seu modelo de ML resultem em previsões relevantes. 
+
+Para personalizar o featurizations, especifique `"featurization": FeaturizationConfig` em seu `AutoMLConfig` objeto. Se você estiver usando o Azure Machine Learning Studio para seu experimento, consulte o [artigo de instruções](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+
+As personalizações com suporte incluem:
+
+|Personalização|Definição|
+|--|--|
+|**Atualização de finalidade de coluna**|Substituir o tipo de recurso detectado automaticamente para a coluna especificada.|
+|**Atualização de parâmetro do transformador** |Atualize os parâmetros para o transformador especificado. Atualmente dá suporte a *imputer* (fill_value e mediana).|
+|**Remover colunas** |Especifica que as colunas a serem descartadas são destacados.|
+
+Crie o `FeaturizationConfig` objeto definindo as configurações do personalização:
+```python
+featurization_config = FeaturizationConfig()
+# `logQuantity` is a leaky feature, so we remove it.
+featurization_config.drop_columns = ['logQuantitity']
+# Force the CPWVOL5 feature to be of numeric type.
+featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
+# Fill missing values in the target column, Quantity, with zeroes.
+featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
+# Fill mising values in the `INCOME` column with median value.
+featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
+```
+
 ### <a name="target-rolling-window-aggregation"></a>Agregações de janelas sem interrupção como destino
 Frequentemente, a melhor informação que um forecaster pode ter é um valor recente no destino. Criar estatísticas cumulativas do destino pode aumentar a precisão das suas previsões. Ter agregações de janelas sem interrupção como destino permite adicionar uma agregação sem interrupção de valores de dados como recursos. Para habilitar as janelas sem interrupção como destino, defina `target_rolling_window_size` para o tamanho de janela inteiro desejado. 
 
@@ -271,7 +297,7 @@ rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
 rmse
 ```
 
-Agora que a precisão geral do modelo foi determinada, a próxima etapa mais realista é usar o modelo para prever valores futuros desconhecidos. Forneça um conjunto de dados no mesmo formato do conjunto de teste `test_data`, mas com datetimes futuros, e o conjunto de previsão resultante será os valores previstos para cada etapa da série temporal. Suponha que os últimos registros de série temporal no conjunto de dados eram de 31/12/2018. Para prever a demanda do dia seguinte (ou quantos períodos forem necessários prever, até `max_horizon`), crie um único registro de série temporal para cada loja para 01/01/2019.
+Agora que a precisão geral do modelo foi determinada, a próxima etapa mais realista é usar o modelo para prever valores futuros desconhecidos. Forneça um conjunto de dados no mesmo formato do conjunto de teste `test_data`, mas com datetimes futuros, e o conjunto de previsão resultante será os valores previstos para cada etapa da série temporal. Suponha que os últimos registros de série temporal no conjunto de dados eram de 31/12/2018. Para prever a demanda do dia seguinte (ou quantos períodos forem necessários prever, até `forecast_horizon`), crie um único registro de série temporal para cada loja para 01/01/2019.
 
 ```output
 day_datetime,store,week_of_year
@@ -282,7 +308,7 @@ day_datetime,store,week_of_year
 Repita as etapas necessárias para carregar esses dados futuros em um dataframe e, em seguida, execute `best_run.predict(test_data)` para prever valores futuros.
 
 > [!NOTE]
-> Não é possível prever valores para o número de períodos maiores que `max_horizon`. Você precisa treinar de novo o modelo com um horizonte maior se quiser prever valores futuros além do horizonte atual.
+> Não é possível prever valores para o número de períodos maiores que `forecast_horizon`. Você precisa treinar de novo o modelo com um horizonte maior se quiser prever valores futuros além do horizonte atual.
 
 ## <a name="next-steps"></a>Próximas etapas
 

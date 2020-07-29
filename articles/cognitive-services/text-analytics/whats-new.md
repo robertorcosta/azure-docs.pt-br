@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: 3d9fb7f3fa01c06cc778e4062dd1d136e9c6e342
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f2ce8f300ae7586fc16fd9170ec290b19875d01c
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103391"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371117"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
@@ -23,7 +23,7 @@ O API de Análise de Texto é atualizado em uma base contínua. Para se manter a
 
 ## <a name="july-2020"></a>Julho de 2020
 
-### <a name="text-analytics-for-health-container-public-gated-preview"></a>Análise de Texto para visualização de portão público do contêiner de integridade
+### <a name="text-analytics-for-health-container---public-gated-preview"></a>Análise de Texto para contêiner de integridade – visualização de portão público
 
 O Análise de Texto para o contêiner de integridade agora está em uma visualização de entrada pública, que permite extrair informações de textos não estruturados em idiomas em inglês em documentos clínicos, como: formulários de ingestão de pacientes, notas do médico, documentos de pesquisa e resumos de descarga. No momento, você não será cobrado por Análise de Texto para uso do contêiner de integridade. 
 

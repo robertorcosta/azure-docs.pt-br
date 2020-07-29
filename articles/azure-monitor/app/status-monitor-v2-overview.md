@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 6a51da4f4685d7d7b1c597d8a9b9dd78270f29b1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0fa0b0d5e3620fc45a104ea31fd3bcbedd673da1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499266"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318939"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Implantar Azure Monitor agente de Application Insights para servidores locais
 
@@ -76,13 +76,14 @@ Cada uma dessas opções é descrita nas [instruções detalhadas](status-monito
 
 Exiba sua telemetria:
 
-* [Explore as métricas](../../azure-monitor/platform/metrics-charts.md) para monitorar o desempenho e o uso.
-* [Pesquise eventos e logs](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
+* [Explore as métricas](../platform/metrics-charts.md) para monitorar o desempenho e o uso.
+* [Pesquise eventos e logs](./diagnostic-search.md) para diagnosticar problemas.
 * [Use a análise](../log-query/log-query-overview.md) para consultas mais avançadas.
-* [Crie painéis](../../azure-monitor/app/overview-dashboard.md).
+* [Crie painéis](./overview-dashboard.md).
 
 Adicione mais telemetria:
 
 * [Crie testes na Web](monitor-web-app-availability.md) para ter a certeza de que seu site continua ativo.
-* [Adicione telemetria de cliente Web](../../azure-monitor/app/javascript.md) para ver exceções do código de página da Web e para habilitar chamadas de rastreamento.
-* [Adicione o SDK do Application insights ao seu código](../../azure-monitor/app/asp-net.md) para que você possa inserir chamadas de rastreamento e log.
+* [Adicione telemetria de cliente Web](./javascript.md) para ver exceções do código de página da Web e para habilitar chamadas de rastreamento.
+* [Adicione o SDK do Application insights ao seu código](./asp-net.md) para que você possa inserir chamadas de rastreamento e log.
+

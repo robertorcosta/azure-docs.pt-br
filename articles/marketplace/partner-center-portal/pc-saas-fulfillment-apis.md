@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 218a0624f7e4adc1aa188dbd62db217bf79202f8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: d9413deb99ce938429d05f7c6348c5914e7dd2b1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109290"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304132"
 ---
 # <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>APIs de preenchimento de SaaS no Microsoft Commercial Marketplace
 
@@ -45,7 +47,7 @@ No cenário de revendedor (CSP), um CSP está comprando a oferta de SaaS em nome
 
 O Publicador não precisa implementar nenhum dos fluxos de chamada à API de forma diferente para esse cenário.
 
-Para obter mais informações sobre o CSP, consulte https://partner.microsoft.com/en-us/licensing .
+Para obter mais informações sobre o CSP, consulte https://partner.microsoft.com/licensing .
 
 >[!Warning]
 >A versão atual desta API é a versão 2, que deve ser usada para todas as novas ofertas de SaaS. A versão 1 da API foi preterida e está sendo mantida para dar suporte às ofertas existentes.

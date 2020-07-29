@@ -1,5 +1,5 @@
 ---
-title: Configurar uma instância e autenticação (manual)
+title: Configurar uma instância e uma autenticação (manual)
 titleSuffix: Azure Digital Twins
 description: Consulte como configurar uma instância do serviço gêmeos do Azure digital, incluindo a autenticação adequada. Versão manual.
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8d0e965360caab704bcf6c8f7d29e7bba421207e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d2d5ce0bc988badc6f25726206a953d87de7eaa2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125880"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371441"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-manual"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (manual)
 
@@ -35,7 +35,7 @@ Nesta seção, você **criará uma nova instância do Azure digital gêmeos** us
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * Uma região para a implantação. Para ver quais regiões dão suporte ao Azure digital gêmeos, visite [*produtos do Azure disponíveis por região*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* Um nome para sua instância. O nome da nova instância deve ser exclusivo dentro da região (ou seja, se outra instância de gêmeos digital do Azure nessa região já estiver usando o nome escolhido, será solicitado que você escolha um nome diferente).
+* Um nome para sua instância. O nome da nova instância deve ser exclusivo na região da sua assinatura (ou seja, se sua assinatura tiver outra instância de gêmeos digital do Azure na região que já está usando o nome que você escolher, será solicitado que você escolha um nome diferente).
 
 Use esses valores no comando a seguir para criar a instância:
 
@@ -68,9 +68,8 @@ Esta seção mostrará como criar uma atribuição de função para um usuário 
 
 Para conceder a um usuário permissões para gerenciar uma instância do gêmeos digital do Azure, você deve atribuir a função de _**proprietário do gêmeos digital do Azure (versão prévia)**_ na instância. 
 
-Observe que essa função é diferente de...
-* a função de *proprietário* em toda a assinatura do Azure. O *proprietário do gêmeos digital do Azure (versão prévia)* é uma função no gêmeos digital do Azure e tem o escopo definido para essa instância de gêmeos digital do Azure individual.
-* a função de *proprietário* no gêmeos digital do Azure. Essas são duas funções de gerenciamento de gêmeos digitais do Azure diferentes e o *proprietário do gêmeos digital do Azure (versão prévia)* é a função que deve ser usada para gerenciamento durante a visualização.
+> [!NOTE]
+> Observe que essa função é diferente da função de *proprietário* do Azure AD, que também pode ser atribuída no escopo da instância de gêmeos digital do Azure. Essas são duas funções de gerenciamento distintas, e o *proprietário* do Azure ad não concede acesso aos recursos do plano de dados que são concedidos com o *proprietário do Azure digital gêmeos (versão prévia)*.
 
 Use o comando a seguir para atribuir a função (deve ser executada por um proprietário da assinatura do Azure):
 
@@ -100,7 +99,7 @@ Depois de configurar uma instância do gêmeos digital do Azure, é comum intera
 Esse registro de aplicativo é onde você configura permissões de acesso para as [APIs do Azure digital gêmeos](how-to-use-apis-sdks.md). Posteriormente, o aplicativo cliente será autenticado no registro do aplicativo e, como resultado, receberá as permissões de acesso configuradas para as APIs.
 
 >[!TIP]
-> Como proprietário da assinatura, você pode preferir configurar um novo registro de aplicativo para cada nova instância de gêmeos digital do Azure *ou* para fazer isso apenas uma vez e estabelecer um único registro de aplicativo que será compartilhado entre todas as instâncias de gêmeos digitais do Azure na assinatura. É assim que isso é feito dentro do próprio locatário da Microsoft.
+> Como proprietário da assinatura, você pode preferir configurar um novo registro de aplicativo para cada nova instância de gêmeos digital do Azure *ou* para fazer isso apenas uma vez e estabelecer um único registro de aplicativo que será compartilhado entre todas as instâncias de gêmeos digitais do Azure na assinatura.
 
 ### <a name="create-the-registration"></a>Criar o registro
 

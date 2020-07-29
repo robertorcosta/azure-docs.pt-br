@@ -5,16 +5,18 @@ description: Como selecionar algoritmos de Azure Machine Learning para aprendiza
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 05/07/2020
-ms.openlocfilehash: 582d6077a4b84e5b2d8c0d69da7b00b807a355b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ad0d2c520d5347e36a9cead4ed6c5526d885ca4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433151"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319517"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Como selecionar algoritmos para Azure Machine Learning
 
@@ -45,7 +47,7 @@ Alguns algoritmos de aprendizado fazem suposições específicas sobre a estrutu
 
 A tabela a seguir resume algumas das características mais importantes dos algoritmos das famílias de classificação, regressão e clustering:
 
-| **Algoritmo** | **Correta** | **Tempo de treinamento** | **Linearidade** | **Parâmetros** | **Observações** |
+| **Algoritmo** | **Precisão** | **Tempo de treinamento** | **Linearidade** | **Parâmetros** | **Observações** |
 | --- |:---:|:---:|:---:|:---:| --- |
 | **Família de classificação** | | | | | |
 | [Regressão logística de duas classes](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri) |Satisfatório  |Rápido |Sim |4 | |

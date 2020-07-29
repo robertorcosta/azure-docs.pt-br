@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram
-ms.openlocfilehash: 4ade2c2e60373298eecf4e85df7fffeae4f45207
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79712c50a5ad46d7d435868606011f458fe48e2e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82176610"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370744"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gerenciar chaves de acesso da conta de armazenamento
 
@@ -32,7 +32,7 @@ Você pode exibir e copiar as chaves de acesso da conta com o portal do Azure, o
 Para exibir e copiar as chaves de acesso ou a cadeia de conexão da conta de armazenamento do portal do Azure:
 
 1. Navegue até sua conta de armazenamento no [portal do Azure](https://portal.azure.com).
-1. Em **configurações**, selecione **chaves de acesso**. Suas chaves de acesso da conta são exibidas, bem como a cadeia de conexão completa para cada chave.
+1. Em **Configurações**, selecione **Chaves de acesso**. Suas chaves de acesso da conta são exibidas, bem como a cadeia de conexão completa para cada chave.
 1. Localize o valor da **chave** em **key1**e clique no botão **copiar** para copiar a chave da conta.
 1. Como alternativa, você pode copiar a cadeia de conexão inteira. Encontre o valor da **Cadeia de conexão** em **key1** e clique no botão **Copiar** para copiar a cadeia de conexão.
 
@@ -65,7 +65,7 @@ az storage account keys list \
 
 Você pode usar qualquer uma das duas chaves para acessar o armazenamento do Azure, mas, em geral, é uma boa prática usar a primeira chave e reservar o uso da segunda chave para quando você estiver girando as chaves.
 
-Para exibir ou ler as chaves de acesso de uma conta, o usuário deve ser um administrador de serviço ou deve ser atribuído a uma função RBAC que inclui a **ação Microsoft. Storage/storageAccounts/listkeys/**. Algumas funções RBAC internas que incluem essa ação são as funções de função de serviço de operador **proprietário**, **colaborador**e **chave de conta de armazenamento** . Para obter mais informações sobre a função de administrador de serviços, consulte [funções clássicas de administrador de assinatura, funções RBAC do Azure e funções do Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md). Para obter informações detalhadas sobre funções internas para o armazenamento do Azure, consulte a seção **armazenamento** em [funções internas do Azure para o RBAC do Azure](../../role-based-access-control/built-in-roles.md#storage).
+Para exibir ou ler as chaves de acesso de uma conta, o usuário deve ser um administrador de serviço ou deve ser atribuído a uma função RBAC que inclui a **ação Microsoft. Storage/storageAccounts/listkeys/**. Algumas funções internas do Azure que incluem essa ação são as funções de função de serviço de **operador de chave de conta de armazenamento** , **colaborador**e **proprietário**. Para obter mais informações sobre a função de administrador de serviços, consulte [funções clássicas de administrador de assinatura, funções RBAC do Azure e funções do Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md). Para obter informações detalhadas sobre funções internas para o armazenamento do Azure, consulte a seção **armazenamento** em [funções internas do Azure para o RBAC do Azure](../../role-based-access-control/built-in-roles.md#storage).
 
 ## <a name="use-azure-key-vault-to-manage-your-access-keys"></a>Usar Azure Key Vault para gerenciar suas chaves de acesso
 
@@ -89,9 +89,9 @@ Para girar suas chaves de acesso da conta de armazenamento no portal do Azure:
 
 1. Atualize as cadeias de conexão no código do aplicativo para fazer referência à chave de acesso secundária da conta de armazenamento.
 1. Navegue até sua conta de armazenamento no [portal do Azure](https://portal.azure.com).
-1. Em **configurações**, selecione **chaves de acesso**.
+1. Em **Configurações**, selecione **Chaves de acesso**.
 1. Para regenerar a chave de acesso primária para sua conta de armazenamento, selecione o botão **regenerar** ao lado da chave de acesso primária.
-1. Atualize as cadeias de conexão em seu código para fazer referência à nova chave de acesso primária.
+1. Atualize as cadeias de conexão no código para referenciar a nova chave de acesso primária.
 1. Regenere a chave de acesso secundária da mesma maneira.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -107,7 +107,7 @@ Para girar as chaves de acesso da conta de armazenamento com o PowerShell:
       -KeyName key1
     ```
 
-1. Atualize as cadeias de conexão em seu código para fazer referência à nova chave de acesso primária.
+1. Atualize as cadeias de conexão no código para referenciar a nova chave de acesso primária.
 1. Regenere a chave de acesso secundária da mesma maneira. Para regenerar a chave secundária, use `key2` como o nome da chave em vez de `key1` .
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -124,7 +124,7 @@ Para girar suas chaves de acesso da conta de armazenamento com CLI do Azure:
       --key primary
     ```
 
-1. Atualize as cadeias de conexão em seu código para fazer referência à nova chave de acesso primária.
+1. Atualize as cadeias de conexão no código para referenciar a nova chave de acesso primária.
 1. Regenere a chave de acesso secundária da mesma maneira. Para regenerar a chave secundária, use `key2` como o nome da chave em vez de `key1` .
 
 ---
@@ -132,7 +132,7 @@ Para girar suas chaves de acesso da conta de armazenamento com CLI do Azure:
 > [!NOTE]
 > A Microsoft recomenda usar apenas uma das chaves em todos os aplicativos ao mesmo tempo. Se você usar a Chave 1 em alguns lugares e a Chave 2 em outros, nãos será possível alternar as chaves sem que algum aplicativo perca o acesso.
 
-Para girar as chaves de acesso de uma conta, o usuário deve ser um administrador de serviço ou deve ser atribuído a uma função RBAC que inclui a **ação Microsoft. Storage/storageAccounts/regeneratekey/**. Algumas funções RBAC internas que incluem essa ação são as funções de função de serviço de operador **proprietário**, **colaborador**e **chave de conta de armazenamento** . Para obter mais informações sobre a função de administrador de serviços, consulte [funções clássicas de administrador de assinatura, funções RBAC do Azure e funções do Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md). Para obter informações detalhadas sobre funções RBAC internas para o armazenamento do Azure, consulte a seção **armazenamento** em [funções internas do Azure para o RBAC do Azure](../../role-based-access-control/built-in-roles.md#storage).
+Para girar as chaves de acesso de uma conta, o usuário deve ser um administrador de serviço ou deve ser atribuído a uma função RBAC que inclui a **ação Microsoft. Storage/storageAccounts/regeneratekey/**. Algumas funções internas do Azure que incluem essa ação são as funções de função de serviço de **operador de chave de conta de armazenamento** , **colaborador**e **proprietário**. Para obter mais informações sobre a função de administrador de serviços, consulte [funções clássicas de administrador de assinatura, funções RBAC do Azure e funções do Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md). Para obter informações detalhadas sobre as funções internas do Azure para o armazenamento do Azure, consulte a seção **armazenamento** em [funções internas do Azure para o RBAC do Azure](../../role-based-access-control/built-in-roles.md#storage).
 
 ## <a name="next-steps"></a>Próximas etapas
 

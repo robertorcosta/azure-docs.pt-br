@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 34453dacd763b8b6a2bff3d977a7bc9b2ab78ca9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef8c4754afc921eaeb68a84fbd8147f336a4940c
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089321"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370267"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Linha de base de segurança do Azure para Synapse Analytics
 
@@ -314,7 +314,7 @@ Como alternativa, você pode habilitar e dados integrados para o Azure Sentinel.
 
 Ao implantar o SQL do Azure pela primeira vez, você especifica um logon de administrador e uma senha associada para esse logon. Essa conta administrativa é chamada de administrador do servidor. Você pode identificar as contas de administrador de um banco de dados abrindo o portal do Azure e navegando até a guia Propriedades do servidor ou instância gerenciada. Você também pode configurar uma conta de administrador do Azure AD com permissões administrativas completas. isso será necessário se você quiser habilitar a autenticação Azure Active Directory.
 
-Para operações de gerenciamento, use as funções internas do Azure RBAC (controle de acesso baseado em função) do Azure que devem ser explicitamente atribuídas. Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
+Para operações de gerenciamento, use as funções internas do Azure que devem ser atribuídas explicitamente. Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
 
 * [Autenticação para banco de dados SQL](https://docs.microsoft.com/azure/azure-sql/database/security-overview#authentication)
 
@@ -328,7 +328,7 @@ Para operações de gerenciamento, use as funções internas do Azure RBAC (cont
 
 * [Como gerenciar logons existentes e contas de administrador no SQL Azure](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
 
-* [Funções internas do RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+* [Funções internas do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1026,7 +1026,7 @@ Examine previamente qualquer conteúdo que esteja sendo carregado em recursos n�
 
 Se você estiver usando uma chave gerenciada pelo cliente para criptografar sua chave de criptografia de banco de dados, verifique se o backup da chave está sendo feito.
 
-* [Backup e restauração no pool do SQL Synapse do Azure](https://docs.microsoft.coms/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Backup e restauração no pool do SQL Synapse do Azure](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 * [Como fazer backup de chaves de Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 

@@ -4,11 +4,12 @@ description: Diagnóstico de transação de ponta a ponta do Application Insight
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 39c4c51a1bc84e06efac3674b1ee5b487f9e6729
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 552e80d6c90a18180ab41dce72e995b6804a91bc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671130"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318905"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnóstico de transação entre componentes unificado
 
@@ -55,15 +56,15 @@ Esse painel recolhível mostra os detalhes de qualquer item selecionado no gráf
 
 ![Detalhes de exceção](media/transaction-diagnostics/exceptiondetail.png)
 
-## <a name="search-results"></a>Resultados da Pesquisa
+## <a name="search-results"></a>Resultados da pesquisa
 
 Esse painel recolhível mostra os outros resultados que atendem aos critérios de filtro. Clique em qualquer resultado para atualizar os respectivos detalhes listados nas três seções acima. Tentamos encontrar exemplos que têm mais probabilidade de ter detalhes disponíveis de todos os componentes, mesmo que a amostragem esteja em vigor em qualquer um deles. Eles são mostrados como exemplos "sugeridos".
 
-![Resultados da Pesquisa](media/transaction-diagnostics/searchResults.png)
+![Resultados da pesquisa](media/transaction-diagnostics/searchResults.png)
 
 ## <a name="profiler-and-snapshot-debugger"></a>Profiler e depurador de instantâneos
 
-O [Application Insights Profiler](../../azure-monitor/app/profiler.md) ou o [depurador de instantâneos](snapshot-debugger.md) ajuda com diagnósticos de nível de código de problemas de falha e desempenho. Com essa experiência, você pode ver Rastreamentos do Profiler ou instantâneos de qualquer componente com um único clique.
+O [Application Insights Profiler](./profiler.md) ou o [depurador de instantâneos](snapshot-debugger.md) ajuda com diagnósticos de nível de código de problemas de falha e desempenho. Com essa experiência, você pode ver Rastreamentos do Profiler ou instantâneos de qualquer componente com um único clique.
 
 Se você não conseguiu obter o criador de perfil, entre em contato com **serviceprofilerhelp \@ Microsoft.com**
 
@@ -94,3 +95,4 @@ As linhas do tempo são ajustadas para as distorções do relógio no gráfico d
 *Por que na nova experiência está faltando a maioria das consultas de itens relacionados?*
 
 Isso ocorre por design. Todos os itens relacionados, em todos os componentes, já estão disponíveis no lado esquerdo (seções superior e inferior). A nova experiência tem dois itens relacionados que o lado esquerdo não abrange: toda a telemetria de cinco minutos antes e depois desse evento e a linha do tempo do usuário.
+

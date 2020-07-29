@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 85bd6f4192f5c1f47856851ab53521a101340007
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 52427cbaa418e0335797fe0a98c26c3fb84cf670
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109256"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304166"
 ---
 # <a name="register-a-saas-application"></a>Registrar um aplicativo SaaS
 
@@ -87,7 +89,7 @@ Postar<br>
 
 ##### <a name="response"></a>*Resposta*
 
-|  Nome     |  Type         |  Description |
+|  Nome     |  Type         |  DESCRIÇÃO |
 |  ------   |  ---------------  | ------------ |
 |  200 OK   |  TokenResponse    |  Solicitação bem-sucedida. |
 

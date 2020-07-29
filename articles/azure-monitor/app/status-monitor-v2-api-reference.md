@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 32fd0da0095c34c4ef199eb703881e048473f0a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2f814c54aeca8a337f786beb8da1b98accbeef7e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499351"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318990"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Referência da API do agente do Application Insights Azure Monitor
 
@@ -44,7 +44,7 @@ Habilite o mecanismo de instrumentação se:
 PS C:\> Enable-InstrumentationEngine
 ```
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 #### <a name="-acceptlicense"></a>-AcceptLicense
 **Adicional.** Use essa opção para aceitar a licença e a política de privacidade em instalações sem periféricos.
@@ -101,7 +101,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 ```
 
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 #### <a name="-instrumentationkey"></a>-InstrumentationKey
 **Necessário.** Use esse parâmetro para fornecer uma chave de instrumentação única para uso por todos os aplicativos no computador de destino.
@@ -192,7 +192,7 @@ Reinicie o IIS para que as alterações entrem em vigor.
 PS C:\> Disable-InstrumentationEngine
 ```
 
-### <a name="parameters"></a>Parâmetros 
+### <a name="parameters"></a>parâmetros 
 
 #### <a name="-verbose"></a>-Verbose
 **Parâmetro comum.** Use essa opção para gerar logs detalhados.
@@ -221,7 +221,7 @@ Esse cmdlet removerá as edições do applicationHost.config do IIS e removerá 
 PS C:\> Disable-ApplicationInsightsMonitoring
 ```
 
-### <a name="parameters"></a>Parâmetros 
+### <a name="parameters"></a>parâmetros 
 
 #### <a name="-verbose"></a>-Verbose
 **Parâmetro comum.** Use essa opção para exibir logs detalhados.
@@ -263,7 +263,7 @@ Obtém o arquivo de configuração e imprime os valores no console.
 PS C:\> Get-ApplicationInsightsMonitoringConfig
 ```
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 Nenhum parâmetro é necessário.
 
@@ -426,7 +426,7 @@ listdlls64.exe -accepteula w3wp
 0x000000000ad60000  0x108000  C:\Windows\TEMP\2.4.0.0.Microsoft.ApplicationInsights.Extensions.Intercept_x64.dll
 ```
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 #### <a name="no-parameters"></a>(Sem parâmetros)
 
@@ -491,7 +491,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
           @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
 ```
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 #### <a name="-instrumentationkey"></a>-InstrumentationKey
 **Necessário.** Use esse parâmetro para fornecer uma chave de instrumentação única para uso por todos os aplicativos no computador de destino.
@@ -582,7 +582,7 @@ Você tem três opções ao coletar eventos:
 4. Por padrão, se nenhuma opção for especificada, ambos os tipos de eventos serão coletados.
 
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 #### <a name="-maxdurationinminutes"></a>-MaxDurationInMinutes
 **Adicional.** Use esse parâmetro para definir por quanto tempo esse script deve coletar eventos. O padrão é de 5 minutos.
@@ -638,14 +638,15 @@ Timeout Reached. Stopping...
 
   Exiba sua telemetria:
  - [Explore as métricas](../platform/metrics-charts.md) para monitorar o desempenho e o uso.
-- [Pesquise eventos e logs](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
+- [Pesquise eventos e logs](./diagnostic-search.md) para diagnosticar problemas.
 - Use a [análise](../log-query/log-query-overview.md) para consultas mais avançadas.
-- [Crie painéis](../../azure-monitor/app/overview-dashboard.md).
+- [Crie painéis](./overview-dashboard.md).
  
  Adicione mais telemetria:
  - [Crie testes na Web](monitor-web-app-availability.md) para ter a certeza de que seu site continua ativo.
-- [Adicione telemetria de cliente Web](../../azure-monitor/app/javascript.md) para ver exceções do código de página da Web e para habilitar chamadas de rastreamento.
-- [Adicione o SDK do Application insights ao seu código](../../azure-monitor/app/asp-net.md) para que você possa inserir chamadas de rastreamento e log.
+- [Adicione telemetria de cliente Web](./javascript.md) para ver exceções do código de página da Web e para habilitar chamadas de rastreamento.
+- [Adicione o SDK do Application insights ao seu código](./asp-net.md) para que você possa inserir chamadas de rastreamento e log.
  
  Faça mais com Application Insights agente:
  - Use nosso guia para [solucionar problemas](status-monitor-v2-troubleshoot.md) do Application insights Agent.
+

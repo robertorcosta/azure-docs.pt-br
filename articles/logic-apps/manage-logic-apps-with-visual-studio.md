@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
-ms.openlocfilehash: 9cf964b8b5ebbfe5f790a1e325b48cd4179cf4ee
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: cde8db5310e3ede2721ba327b28c789ccd0b7dd0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127665"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280759"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gerenciar aplicativos lógicos com Visual Studio
 
@@ -100,7 +100,7 @@ No Visual Studio, você pode abrir aplicativos lógicos criados anteriormente e 
 
 ## <a name="download-from-azure"></a>Baixar pelo Azure
 
-É possível baixar aplicativos lógicos pelo [Portal do Azure](https://portal.azure.com) e salvá-los como modelos do [Azure Resource Manager](../azure-resource-manager/management/overview.md). Em seguida, você poderá editar localmente os modelos com o Visual Studio e personalizar aplicativos lógicos para diferentes ambientes de implantação.  O download de aplicativos lógicos *parametriza * automaticamente suas definições dentro dos [modelos do Resource Manager](../azure-resource-manager/templates/overview.md), que também usam JSON (JavaScript Object Notation).
+Você pode [baixar](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource) aplicativos lógicos do [portal do Azure](https://portal.azure.com) e salvá-los como [Azure Resource Manager](../azure-resource-manager/management/overview.md) modelos. Em seguida, você poderá editar localmente os modelos com o Visual Studio e personalizar aplicativos lógicos para diferentes ambientes de implantação.  O download de aplicativos lógicos *parametriza * automaticamente suas definições dentro dos [modelos do Resource Manager](../azure-resource-manager/templates/overview.md), que também usam JSON (JavaScript Object Notation).
 
 1. No Visual Studio, usando o Cloud Explorer, [abra o aplicativo lógico que você deseja baixar do Azure](#open-designer).
 
@@ -204,7 +204,7 @@ Se você editar o aplicativo lógico no Portal do Azure e quiser manter essas al
 
 * No Visual Studio, na barra de ferramentas do designer do aplicativo lógico, selecione **Atualizar**.
 
-  - ou -
+  -ou-
 
 * No Visual Studio Cloud Explorer, abra o menu de atalho do aplicativo lógico e selecione **Atualizar**.
 
