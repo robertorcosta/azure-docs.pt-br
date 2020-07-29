@@ -3,19 +3,20 @@ title: Exportar para o Power BI do Azure Application Insights | Microsoft Docs
 description: As consultas do Analytics podem ser exibidas no Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 0e17ca6e07ec76f0a7a1cb04f7aa13619fb9970c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51a553452643fc979846ab4604762f11c5b7ff68
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77663990"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324362"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentar o Power BI do Application Insights
-O [Power BI](https://www.powerbi.com/) é um conjunto de ferramentas de negócios que ajudam a analisar dados e a compartilhar informações. Painéis avançados estão disponíveis em cada dispositivo. Você pode combinar dados de várias fontes, incluindo consultas do Analytics do [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
+O [Power BI](https://www.powerbi.com/) é um conjunto de ferramentas de negócios que ajudam a analisar dados e a compartilhar informações. Painéis avançados estão disponíveis em cada dispositivo. Você pode combinar dados de várias fontes, incluindo consultas do Analytics do [Azure Application Insights](./app-insights-overview.md).
 
 Há três métodos de exportação de dados do Application Insights para Power BI:
 
 * [**Exportar consultas do Analytics**](#export-analytics-queries). Este é o método preferencial. Grave qualquer consulta que você deseja e exporte-a para o Power BI. Você pode colocar essa consulta em um painel com outros dados.
-* [**A exportação contínua e o Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). Este método será útil, se você quiser armazenar os dados por longos períodos de tempo. Se você não tiver um requisito de retenção de dados estendido, use o método de consulta de análise de exportação. A exportação contínua e o Stream Analytics envolvem mais trabalho para configurar e sobrecarga adicional de armazenamento.
+* [**A exportação contínua e o Azure Stream Analytics**](./export-stream-analytics.md). Este método será útil, se você quiser armazenar os dados por longos períodos de tempo. Se você não tiver um requisito de retenção de dados estendido, use o método de consulta de análise de exportação. A exportação contínua e o Stream Analytics envolvem mais trabalho para configurar e sobrecarga adicional de armazenamento.
 * **Adaptador do Power BI**. O conjunto de gráficos é predefinido, mas você pode adicionar suas próprias consultas de outras fontes.
 
 > [!NOTE]
@@ -30,7 +31,7 @@ Para importar sua consulta do Application Insights, você deve usar a versão da
 Instale o [Power bi desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Exportar uma consulta do Analytics
-1. [Abra o Analytics e escreva sua consulta](../../azure-monitor/log-query/get-started-portal.md).
+1. [Abra o Analytics e escreva sua consulta](../log-query/get-started-portal.md).
 2. Teste e ajuste a consulta até ficar satisfeito com os resultados. Certifique-se de que a consulta seja executada corretamente no Analytics antes de ser exportada.
 3. No menu **Exportar**, escolha **Power BI (M)**. Salve o arquivo de texto.
    
@@ -55,7 +56,7 @@ Instale o [Power bi desktop](https://powerbi.microsoft.com/en-us/desktop/).
 8. Atualize o relatório manualmente em intervalos ou configure uma atualização agendada na página de opções.
 
 ### <a name="export-a-funnel"></a>Exportar um Funil
-1. [Faça seu funil](../../azure-monitor/app/usage-funnels.md).
+1. [Faça seu funil](./usage-funnels.md).
 2. Selecione **Power BI**.
 
    ![Captura de tela do botão do Power BI](./media/export-power-bi/button.png)
@@ -111,7 +112,7 @@ Se reduzir o conjunto de dados da consulta de análise não atender às suas nec
  ```
 
 ## <a name="about-sampling"></a>Sobre amostragem
-Dependendo da quantidade de dados enviados pelo aplicativo, talvez você queira usar o recurso de amostragem adaptativa que envia apenas uma porcentagem da sua telemetria. Isso também será verdadeiro se você tiver definido manualmente a amostragem no SDK ou na ingestão. [Saiba mais sobre amostragem](../../azure-monitor/app/sampling.md).
+Dependendo da quantidade de dados enviados pelo aplicativo, talvez você queira usar o recurso de amostragem adaptativa que envia apenas uma porcentagem da sua telemetria. Isso também será verdadeiro se você tiver definido manualmente a amostragem no SDK ou na ingestão. [Saiba mais sobre amostragem](./sampling.md).
 
 ## <a name="power-bi-adapter-deprecated"></a>Adaptador Power BI (preterido)
 Esse método cria um painel completo de telemetria para você. O conjunto de dados inicial é predefinido, mas você pode adicionar mais dados a ele.
@@ -145,5 +146,5 @@ Após a importação inicial, o painel e os relatórios continuarão a ser atual
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Power BI - Saiba mais](https://www.powerbi.com/learning/)
-* [Tutorial do Analytics](../../azure-monitor/log-query/get-started-portal.md)
+* [Tutorial do Analytics](../log-query/get-started-portal.md)
 

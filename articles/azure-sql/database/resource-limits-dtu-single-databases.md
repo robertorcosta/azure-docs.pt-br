@@ -4,19 +4,19 @@ description: Esta página descreve alguns limites comuns de recursos de DTU para
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 099094338deba63f678337b7ea13dd9ce9800084
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fa8901f2a219b0693cee17bc4d0ab78da615c415
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517681"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325093"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra de DTU – banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,14 +38,14 @@ As tabelas a seguir mostram os recursos disponíveis para um único banco de dad
 | :--- | --: |
 | Número máximo de DTUs | 5 |
 | Armazenamento incluído (GB) | 2 |
-| Opções de espaço de armazenamento máximo (GB) | 2 |
+| Armazenamento máximo (GB) | 2 |
 | Armazenamento máximo OLTP na memória (GB) |N/D |
 | Máximo de trabalhos simultâneos (solicitações) | 30 |
 | Máximo de sessões simultâneas | 300 |
 |||
 
 > [!IMPORTANT]
-> A camada de serviço básica fornece menos de um vCore (CPU).  Para cargas de trabalho com uso intensivo de CPU, é recomendável uma camada de serviço S3 ou superior. 
+> A camada de serviço básica fornece menos de um vCore (CPU).  Para cargas de trabalho com uso intensivo de CPU, é recomendável uma camada de serviço S3 ou superior.
 >
 >Em relação ao armazenamento de dados, a camada de serviço básica é colocada em blobs de páginas padrão. Os blobs de páginas padrão usam mídia de armazenamento baseada em HDD (unidade de disco rígido) e são mais adequados para desenvolvimento, teste e outras cargas de trabalho acessadas com pouca frequência que são menos sensíveis à variabilidade de desempenho.
 >
@@ -55,15 +55,17 @@ As tabelas a seguir mostram os recursos disponíveis para um único banco de dad
 | **Tamanho da computação** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|
 | Número máximo de DTUs | 10 | 20 | 50 | 100 |
-| Armazenamento incluído (GB) | 250 | 250 | 250 | 250 |
-| Opções de espaço de armazenamento máximo (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
+| Armazenamento incluído (GB) <sup>1</sup> | 250 | 250 | 250 | 250 |
+| Armazenamento máximo (GB) | 250 | 250 | 250 | 1024 |
 | Armazenamento máximo OLTP na memória (GB) | N/D | N/D | N/D | N/D |
 | Máximo de trabalhos simultâneos (solicitações)| 60 | 90 | 120 | 200 |
 | Máximo de sessões simultâneas |600 | 900 | 1200 | 2400 |
 ||||||
 
+<sup>1</sup> consulte [Opções de preços do banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/single/) para obter detalhes sobre custos adicionais incorridos devido a qualquer armazenamento extra provisionado.
+
 > [!IMPORTANT]
-> As camadas padrão S0, S1 e S2 fornecem menos de um vCore (CPU).  Para cargas de trabalho com uso intensivo de CPU, é recomendável uma camada de serviço S3 ou superior. 
+> As camadas padrão S0, S1 e S2 fornecem menos de um vCore (CPU).  Para cargas de trabalho com uso intensivo de CPU, é recomendável uma camada de serviço S3 ou superior.
 >
 >Em relação ao armazenamento de dados, as camadas de serviço S0 e S1 padrão são colocadas em blobs de páginas padrão. Os blobs de páginas padrão usam mídia de armazenamento baseada em HDD (unidade de disco rígido) e são mais adequados para desenvolvimento, teste e outras cargas de trabalho acessadas com pouca frequência que são menos sensíveis à variabilidade de desempenho.
 >
@@ -73,29 +75,33 @@ As tabelas a seguir mostram os recursos disponíveis para um único banco de dad
 | **Tamanho da computação** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|
 | Número máximo de DTUs | 200 | 400 | 800 | 1600 | 3000 |
-| Armazenamento incluído (GB) | 250 | 250 | 250 | 250 | 250 |
-| Opções de espaço de armazenamento máximo (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
+| Armazenamento incluído (GB) <sup>1</sup> | 250 | 250 | 250 | 250 | 250 |
+| Armazenamento máximo (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 | Armazenamento máximo OLTP na memória (GB) | N/D | N/D | N/D | N/D |N/D |
 | Máximo de trabalhos simultâneos (solicitações)| 400 | 800 | 1600 | 3200 |6000 |
 | Máximo de sessões simultâneas |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
+
+<sup>1</sup> consulte [Opções de preços do banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/single/) para obter detalhes sobre custos adicionais incorridos devido a qualquer armazenamento extra provisionado.
 
 ### <a name="premium-service-tier"></a>Camada de serviço Premium
 
 | **Tamanho da computação** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
 | Número máximo de DTUs | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| Armazenamento incluído (GB) | 500 | 500 | 500 | 500 | 4096 * | 4096 * |
-| Opções de espaço de armazenamento máximo (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 * | 4096 * |
+| Armazenamento incluído (GB) <sup>1</sup> | 500 | 500 | 500 | 500 | 4096 <sup>2</sup> | 4096 <sup>2</sup> |
+| Armazenamento máximo (GB) | 1024 | 1024 | 1024 | 1024 | 4096 <sup>2</sup> | 4096 <sup>2</sup> |
 | Armazenamento máximo OLTP na memória (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Máximo de trabalhos simultâneos (solicitações)| 200 | 400 | 800 | 1600 | 2800 | 6400 |
 | Máximo de sessões simultâneas | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
-\*De 1024 GB até 4096 GB em incrementos de 256 GB
+<sup>1</sup> consulte [Opções de preços do banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/single/) para obter detalhes sobre custos adicionais incorridos devido a qualquer armazenamento extra provisionado.
+
+<sup>2</sup> de 1024 gb até 4096 GB em incrementos de 256 GB.
 
 > [!IMPORTANT]
-> Mais de 1 TB de armazenamento na camada Premium está disponível atualmente em todas as regiões, exceto: Leste da China, Norte da China, Alemanha central, Alemanha nordeste, Oeste EUA Central, regiões de US DoD e central do governo dos EUA. Nessas regiões, o armazenamento máximo na camada Premium é limitado a 1 TB.  Para obter mais informações, confira [Limitações atuais de P11-P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+> Mais de 1 TB de armazenamento na camada Premium está disponível atualmente em todas as regiões, exceto: Leste da China, Norte da China, Alemanha central, Alemanha nordeste, Oeste EUA Central, regiões de US DoD e central do governo dos EUA. Nessas regiões, o armazenamento máximo na camada Premium é limitado a 1 TB.  Para obter mais informações, confira [Limitações atuais de P11-P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
 > [!NOTE]
 > Para `tempdb` limites, consulte [limites de tempdb](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 

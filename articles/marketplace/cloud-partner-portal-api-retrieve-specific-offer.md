@@ -4,15 +4,15 @@ description: API para recuperar a oferta especificada no namespace do Publicador
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: bf64645f672e54849064d86f9250a62efeac8d66
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9f3ba6b2f13b9f2bb1d538db84723e3a9baaef12
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087400"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271834"
 ---
 # <a name="retrieve-a-specific-offer"></a>Recuperar uma oferta específica
 
@@ -199,7 +199,7 @@ Também é possível recuperar uma versão específica da oferta, recuperar a of
 |  NeverPublished             | A oferta nunca foi publicada.               |
 |  NotStarted                 | A oferta é nova e não iniciada.              |
 |  WaitingForPublisherReview  | A oferta aguarda aprovação do editor.      |
-|  Em execução                    | O envio da oferta está sendo processado.          |
+|  Executando                    | O envio da oferta está sendo processado.          |
 |  Com sucesso                  | O envio da oferta concluiu o processamento.    |
 |  Canceled                   | O envio da oferta foi cancelado.                |
 |  Com falha                     | O envio da oferta falhou.                      |

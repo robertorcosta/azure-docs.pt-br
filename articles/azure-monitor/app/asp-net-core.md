@@ -3,12 +3,12 @@ title: Aplicativo Azure insights para aplicativos ASP.NET Core | Microsoft Docs
 description: Monitorar aplicativos web ASP.NET Core de disponibilidade, desempenho e uso.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 1d5ce4fe2a3ceb3235b77916aa408c681f81b0de
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 770cc3f34487f837631a98c6f652d8746ae2c2df
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517222"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321387"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicativos ASP.NET Core
 
@@ -116,7 +116,7 @@ O [SDK do Application insights para ASP.NET Core](https://nuget.org/packages/Mic
     > [!NOTE]
     > Uma chave de instrumentação especificada no código vence sobre a variável de ambiente `APPINSIGHTS_INSTRUMENTATIONKEY` , que vence em outras opções.
 
-## <a name="run-your-application"></a>Executar seu aplicativo
+## <a name="run-your-application"></a>Execute seu aplicativo.
 
 Execute seu aplicativo e faça solicitações a ele. A telemetria agora deve fluir para Application Insights. O SDK do Application Insights coleta automaticamente as solicitações da Web de entrada para seu aplicativo, juntamente com a telemetria a seguir também.
 
@@ -221,7 +221,7 @@ Consulte as [configurações configuráveis `ApplicationInsightsServiceOptions` 
 
 O SDK do Application Insights para ASP.NET Core dá suporte à amostragem de taxa fixa e adaptável. A amostragem adaptável é habilitada por padrão. 
 
-Para obter mais informações, consulte [Configurar a amostragem adaptável para aplicativos ASP.NET Core](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
+Para obter mais informações, consulte [Configurar a amostragem adaptável para aplicativos ASP.NET Core](./sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
 
 ### <a name="adding-telemetryinitializers"></a>Adicionando TelemetryInitializers
 
@@ -459,8 +459,9 @@ Esse SDK requer `HttpContext` e, portanto, não funciona em nenhum aplicativo n�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Explore os fluxos de usuário](../../azure-monitor/app/usage-flows.md) para entender como os usuários navegam pelo aplicativo.
+* [Explore os fluxos de usuário](./usage-flows.md) para entender como os usuários navegam pelo aplicativo.
 * [Configure uma coleção de instantâneos](./snapshot-debugger.md) para ver o estado do código-fonte e as variáveis no momento em que uma exceção é lançada.
-* [Use a API](../../azure-monitor/app/api-custom-events-metrics.md) para enviar seus próprios eventos e métricas para uma exibição detalhada do desempenho e do uso do seu aplicativo.
-* Use os [Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) para verificar seu aplicativo constante em todo o mundo.
+* [Use a API](./api-custom-events-metrics.md) para enviar seus próprios eventos e métricas para uma exibição detalhada do desempenho e do uso do seu aplicativo.
+* Use os [Testes de disponibilidade](./monitor-web-app-availability.md) para verificar seu aplicativo constante em todo o mundo.
 * [Injeção de dependência no ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
+

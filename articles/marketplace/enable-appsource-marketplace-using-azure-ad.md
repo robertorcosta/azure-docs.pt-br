@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2020
-ms.openlocfilehash: eab7b556dc45d03bf440a3bc63aa6bf2d799face
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/24/2020
+ms.openlocfilehash: 4c700a61de80968b17585faf92e268fef8d86f0e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103616"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323257"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integre sua listagem de marketplace comercial ao Azure Active Directory
 
@@ -40,10 +40,11 @@ As várias [opções de listagem e tipos de ofertas](determine-your-listing-type
 | Contêineres  | N/D | N/D | N/D | Não |
 | Serviços de Consultoria  | Não | N/D | N/D | N/D |
 
-Para obter mais informações sobre os requisitos técnicos de SaaS, consulte [Guia de publicação de oferta de aplicativo SaaS](marketplace-saas-applications-technical-publishing-guide.md).
+Para obter mais informações sobre os requisitos técnicos de SaaS, consulte [Azure AD e ofertas de SaaS transactáveis no mercado comercial](./azure-ad-saas.md).
 
 ## <a name="azure-ad-integration"></a>Integração com o Azure AD
 
+- Para obter detalhes sobre como integrar o Azure AD para suas ofertas de SaaS (software como serviço), consulte [ofertas do Azure AD e SaaS transdesejadas no Marketplace comercial](./azure-ad-saas.md).
 - Para obter informações sobre como habilitar o logon único integrando o Azure AD à sua listagem, consulte [Azure Active Directory para desenvolvedores](../active-directory/develop/index.yml).
 - Para obter detalhes sobre o logon único do Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory?](../active-directory/manage-apps/what-is-single-sign-on.md).
 

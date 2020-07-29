@@ -6,18 +6,18 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: tracking-python
-ms.openlocfilehash: c9d69c0f39d9cad52dc86c3ab33d202c88131ab0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6eae11e2157904b47582f78a601c8d2900e61247
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753204"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324583"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Acompanhar solicitações de entrada com Python OpenCensus
 
 Os dados de solicitação de entrada são coletados usando Python OpenCensus e suas várias integrações. Acompanhe os dados de solicitação de entrada enviados aos seus aplicativos Web criados com base nas estruturas populares da Web `django` `flask` e no `pyramid` . Os dados são enviados para Application Insights em Azure Monitor como `requests` telemetria.
 
-Primeiro, instrumentar seu aplicativo Python com o [SDK do Python OpenCensus](../../azure-monitor/app/opencensus-python.md)mais recente.
+Primeiro, instrumentar seu aplicativo Python com o [SDK do Python OpenCensus](./opencensus-python.md)mais recente.
 
 ## <a name="tracking-django-applications"></a>Acompanhamento de aplicativos Django
 
@@ -119,8 +119,9 @@ Primeiro, instrumentar seu aplicativo Python com o [SDK do Python OpenCensus](..
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Mapa do aplicativo](../../azure-monitor/app/app-map.md)
-* [Disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Pesquisar](../../azure-monitor/app/diagnostic-search.md)
-* [Consulta de log (Analytics)](../../azure-monitor/log-query/log-query-overview.md)
-* [Diagnóstico da transação](../../azure-monitor/app/transaction-diagnostics.md)
+* [Mapa do aplicativo](./app-map.md)
+* [Disponibilidade](./monitor-web-app-availability.md)
+* [Pesquisar](./diagnostic-search.md)
+* [Consulta de log (Analytics)](../log-query/log-query-overview.md)
+* [Diagnóstico da transação](./transaction-diagnostics.md)
+

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: e5dc290a40342e0797001dde6cab90e12dd5cf39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dba058dce09e958a2ae769d927a5569fb3e42113
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77662171"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324549"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agregações avançadas nas consultas de log do Azure Monitor
 
@@ -183,7 +184,8 @@ Consulte outras lições para usar a [linguagem de consulta Kusto](/azure/kusto/
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)
 - [Funções de agregação](aggregations.md)
-- [Agregações avançadas](advanced-aggregations.md)
+- [Agregações avançadas]()
 - [JSON e estruturas de dados](json-data-structures.md)
 - [Junções](joins.md)
 - [Gráficos](charts.md)
+

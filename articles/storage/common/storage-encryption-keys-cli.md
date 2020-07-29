@@ -10,12 +10,12 @@ ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d6fa4bbaf9b37c93ef4efbe405087c39395df63d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4d54a8bf9fb5a1f31a29e41ecea545b43dbe58cf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086006"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276679"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configurar chaves gerenciadas pelo cliente com Azure Key Vault usando CLI do Azure
 
@@ -97,7 +97,7 @@ Ao configurar a criptografia com chaves gerenciadas pelo cliente, você pode opt
 
 ### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>Configurar a criptografia para rotação automática de chaves gerenciadas pelo cliente
 
-Para configurar a criptografia para rotação automática de chaves gerenciadas pelo cliente, instale [CLI do Azure versão 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) ou posterior. Para obter mais informações, consulte [Instalar a CLI do Azure](/azure/install-azure-cli).
+Para configurar a criptografia para rotação automática de chaves gerenciadas pelo cliente, instale [CLI do Azure versão 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) ou posterior. Para obter mais informações, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Para girar automaticamente as chaves gerenciadas pelo cliente, omita a versão da chave ao configurar chaves gerenciadas pelo cliente para a conta de armazenamento. Chame [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) para atualizar as configurações de criptografia da conta de armazenamento, conforme mostrado no exemplo a seguir. Inclua o `--encryption-key-source` parâmetro e defina-o como `Microsoft.Keyvault` para habilitar chaves gerenciadas pelo cliente para a conta. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores.
 

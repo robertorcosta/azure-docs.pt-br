@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: 9581bb17e29a25b618a90aece5675d132c14a97c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ca697fe0174a62532f3fa9ffbc5b3fcfc0c06ad7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081484"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321268"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas no Azure Monitor (versão prévia)
 
@@ -28,7 +28,7 @@ Métricas personalizadas podem ser enviadas ao Monitor do Azure por vários mét
 - Instrua seu aplicativo usando o SDK do Azure Application Insights e envie a telemetria personalizada ao Monitor do Azure. 
 - Instale a extensão WAD (Windows Azure Diagnostics) em [VM](collect-custom-metrics-guestos-resource-manager-vm.md), [máquina virtual do Azure configurada](collect-custom-metrics-guestos-resource-manager-vmss.md), [VM clássica](collect-custom-metrics-guestos-vm-classic.md) ou [Serviços em nuvem clássicos](collect-custom-metrics-guestos-vm-cloud-service-classic.md) e enviar contadores de desempenho para o Monitor do Azure. 
 - Instale o [agente InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) em sua VM do Azure Linux e envie as métricas usando o plug-in de saída do Monitor do Azure.
-- Envie métricas personalizadas [diretamente para a API REST do Azure monitor](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
+- Envie métricas personalizadas [diretamente para a API REST do Azure monitor](./metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
 
 ## <a name="pricing-model-and-retention"></a>Modelo de preços e retenção
 
@@ -192,7 +192,7 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 |Centro-Oeste dos EUA | https: \/ /westcentralus.Monitoring.Azure.com |
 |Oeste dos EUA 2       | https: \/ /westus2.Monitoring.Azure.com |
 |Centro-Norte dos EUA | https: \/ /northcentralus.Monitoring.Azure.com
-|South Central US| https: \/ /southcentralus.Monitoring.Azure.com |
+|Centro-Sul dos Estados Unidos| https: \/ /southcentralus.Monitoring.Azure.com |
 |Centro dos EUA      | https: \/ /centralus.Monitoring.Azure.com |
 |Canadá Central | https: \/ /canadacentral.Monitoring.Azure.com |
 |East US| https: \/ /eastus.Monitoring.Azure.com |
@@ -235,6 +235,7 @@ Use métricas personalizadas de diferentes serviços:
  - [Conjunto de escala de máquina virtual](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Máquinas virtuais do Azure (clássico)](collect-custom-metrics-guestos-vm-classic.md)
  - [Linux Virtual Machine usando o agente Telegraf](collect-custom-metrics-linux-telegraf.md)
- - [REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
+ - [REST API](./metrics-store-custom-rest-api.md)
  - [Serviços de nuvem clássico](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  
+

@@ -4,15 +4,15 @@ description: API para recuperar uma lista resumida de ofertas em um namespace do
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 22d22feb3931f466647c2c4d94bdf924568f2dc5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 39d07751c708d5555799ecbb3b3bc66d3f44f43a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535885"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271953"
 ---
 # <a name="retrieve-offers"></a>Recuperar ofertas
 
@@ -90,8 +90,8 @@ Recupera uma lista resumida de ofertas em um namespace do editor.
 |  NeverPublished              | A oferta nunca foi publicada.                  |
 |  NotStarted                  | A oferta é nova e não iniciada.                 |
 |  WaitingForPublisherReview   | A oferta aguarda aprovação do editor.         |
-|  Em execução                     | O envio da oferta está sendo processado.             |
-|  Teve êxito                   | O envio da oferta concluiu o processamento.       |
+|  Executando                     | O envio da oferta está sendo processado.             |
+|  Com sucesso                   | O envio da oferta concluiu o processamento.       |
 |  Canceled                    | O envio da oferta foi cancelado.                   |
-|  Failed (Falha)                      | O envio da oferta falhou.                         |
+|  Com falha                      | O envio da oferta falhou.                         |
 |  |  |

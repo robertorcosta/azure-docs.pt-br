@@ -1,6 +1,5 @@
 ---
-title: Treinar novamente um serviço Web clássico
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clássico): treinar novamente o serviço Web clássico-Azure'
 description: Saiba como treinar novamente um modelo e atualizar um serviço Web clássico para usar o modelo treinado recentemente no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: c1dd91a800c8e807d527f24a381262bde97d792c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d24449f942a8c0da6774ebb2aa85f94a3088b36c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080305"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324940"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Readaptação e implantação de um serviço Web clássico do Studio (clássico)
+
+**aplica-se a:** ![ Não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) 
+
 
 Treinar novamente os modelos de machine learning é uma forma de fazer com que eles permaneçam precisos e baseados nos dados mais relevantes disponíveis. Este artigo mostrará como readaptar um serviço Web clássico do Studio (clássico). Para obter um guia sobre como treinar novamente um novo serviço Web de estúdio (clássico), [Veja este artigo de instruções.](retrain-machine-learning-model.md)
 
@@ -58,7 +60,7 @@ Siga estas etapas para obter a URL DO PATCH correta usando o portal da Web:
 1. Entre no portal [Serviços Web do Azure Machine Learning](https://services.azureml.net/).
 1. Clique em **Serviços Web** ou **Serviços Web Clássicos** na parte superior.
 1. Clique no serviço Web de pontuação com o qual você está trabalhando (se você não tiver modificado o nome padrão do serviço Web, ele terminará em "[Pontuação Exp.]").
-1. Clique em **+NOVO**.
+1. Clique em **+ novo**.
 1. Depois do ponto de extremidade ser adicionado, clique no nome dele.
 1. No URL do **Patch**, clique em **Ajuda da API** para abrir a página de ajuda de aplicação de patch.
 

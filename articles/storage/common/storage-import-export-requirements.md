@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 877d1442c346b321562cb396a77224a6b40c7df2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7b7915e1b7779c4d0359b9ac190574c43a624cbe
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087230"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276390"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos do sistema para Importação/Exportação do Azure
 
@@ -50,7 +50,7 @@ Para saber mais sobre as contas de armazenamento, confira [Azure storage account
 Cada trabalho pode ser usado para transferir dados para apenas uma conta de armazenamento, ou por meio dela. Em outras palavras, um único trabalho de importação/exportação não pode estender-se por várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-account-create.md).
 
 > [!IMPORTANT]
-> Para contas de armazenamento em que o recurso de [pontos de extremidade de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)foi   habilitado, use a configuração **permitir serviços confiáveis da Microsoft...** para habilitar o serviço de [importação/exportação](/storage-network-security.md) para executar importação/exportação de dados de/para o Azure.
+> Para contas de armazenamento em que o recurso de [pontos de extremidade de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)foi   habilitado, use a configuração **permitir serviços confiáveis da Microsoft...** para habilitar o serviço de [importação/exportação](/azure/storage/common/storage-network-security) para executar importação/exportação de dados de/para o Azure.
 
 ## <a name="supported-storage-types"></a>Tipos de armazenamento com suporte
 
@@ -72,7 +72,7 @@ Para o serviço de Importação/Exportação do Azure, você precisa de discos c
 Os discos na lista a seguir têm suporte para uso com o serviço de Importação/Exportação.
 
 
-|Tipo de disco  |Tamanho  |Suportado |
+|Tipo de disco  |Tamanho  |Com suporte |
 |---------|---------|---------|
 |SSD    |   2,5"      |SATA III          |
 |HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |

@@ -5,18 +5,18 @@ description: Saiba como acessar um espaço de trabalho Azure Machine Learning us
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.reviewer: jmartens
-ms.author: larryfr
-author: Blackmist
-ms.date: 06/30/2020
-ms.custom: seodec18
-ms.openlocfilehash: ff8d532bf1c19ded9567e8c1e4b63e674c01d0d8
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.topic: conceptual
+ms.reviewer: Blackmist
+ms.author: nigup
+author: nishankgu
+ms.date: 07/24/2020
+ms.custom: how-to, seodec18
+ms.openlocfilehash: 2e787bb494c1e919a235b762b4d8c5250c8cda61
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125166"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321608"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar o acesso a um espaço de trabalho do Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,9 +29,10 @@ Um workspace do Azure Machine Learning é um recurso do Azure. Assim como outros
 
 | Função | Nível de acesso |
 | --- | --- |
-| **Leitor** | Ações somente leitura no espaço de trabalho. Os leitores podem listar e exibir ativos (incluindo credenciais de [repositório de armazenamento](how-to-access-data.md) ) em um espaço de trabalho, mas não podem criar ou atualizar esses ativos. |
+| **Leitor** | Ações somente leitura no espaço de trabalho. Os leitores podem listar e exibir ativos, incluindo credenciais de [repositório de armazenamento](how-to-access-data.md) , em um espaço de trabalho. Os leitores não podem criar nem atualizar esses ativos. |
 | **Colaborador** | Exiba, crie, edite ou exclua (onde aplicável) ativos em um espaço de trabalho. Por exemplo, os colaboradores podem criar um experimento, criar ou anexar um cluster de computação, enviar uma execução e implantar um serviço Web. |
 | **Proprietário** | Acesso completo ao espaço de trabalho, incluindo a capacidade de exibir, criar, editar ou excluir ativos (onde aplicável) em um espaço de trabalho. Além disso, você pode alterar as atribuições de função. |
+| **Função personalizada** | Permite que você personalize o acesso a operações de plano de dados ou controle específico em um espaço de trabalho. Por exemplo, o envio de uma execução, a criação de uma computação, a implantação de um modelo ou o registro de um conjunto de uma. |
 
 > [!IMPORTANT]
 > O acesso à função pode ser definido para vários níveis no Azure. Por exemplo, alguém com acesso de proprietário a um espaço de trabalho pode não ter acesso de proprietário ao grupo de recursos que contém o espaço de trabalho. Para obter mais informações, consulte [como o RBAC funciona](/azure/role-based-access-control/overview#how-rbac-works).
@@ -47,7 +48,7 @@ Se você for um proprietário de um espaço de trabalho, poderá adicionar e rem
 - [REST API](/azure/role-based-access-control/role-assignments-rest)
 - [Modelos do Gerenciador de Recursos do Azure](/azure/role-based-access-control/role-assignments-template)
 
-Se você instalou a [CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md), também poderá usar um comando da CLI para atribuir funções aos usuários.
+Se você instalou a [CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md), poderá usar comandos da CLI para atribuir funções a usuários:
 
 ```azurecli-interactive 
 az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
@@ -74,17 +75,18 @@ Caso as funções internas sejam insuficientes, você poderá criar funções pe
 > [!NOTE]
 > Você deve ser um proprietário do recurso nesse nível para criar funções personalizadas dentro desse recurso.
 
-Para criar uma função personalizada, primeiro Construa um arquivo JSON de definição de função que especifique a permissão e o escopo para a função. O exemplo a seguir define uma função personalizada denominada "cientista de dados" com escopo em um nível de espaço de trabalho específico:
+Para criar uma função personalizada, primeiro Construa um arquivo JSON de definição de função que especifique a permissão e o escopo para a função. O exemplo a seguir define uma função personalizada denominada "data cientista Custom" com escopo em um nível de espaço de trabalho específico:
 
-`data_scientist_role.json` :
+`data_scientist_custom_role.json` :
 ```json
 {
-    "Name": "Data Scientist",
+    "Name": "Data Scientist Custom",
     "IsCustom": true,
     "Description": "Can run experiment but can't create or delete compute.",
     "Actions": ["*"],
     "NotActions": [
         "Microsoft.MachineLearningServices/workspaces/*/delete",
+        "Microsoft.MachineLearningServices/workspaces/write",
         "Microsoft.MachineLearningServices/workspaces/computes/*/write",
         "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
         "Microsoft.Authorization/*/write"
@@ -97,6 +99,7 @@ Para criar uma função personalizada, primeiro Construa um arquivo JSON de defi
 
 > [!TIP]
 > Você pode alterar o `AssignableScopes` campo para definir o escopo dessa função personalizada no nível da assinatura, no nível do grupo de recursos ou em um nível de espaço de trabalho específico.
+> A função personalizada acima é apenas um exemplo, consulte algumas [funções personalizadas sugeridas para o serviço de Azure Machine Learning](#customroles).
 
 Essa função personalizada pode fazer tudo no espaço de trabalho, exceto pelas seguintes ações:
 
@@ -117,23 +120,233 @@ Após a implantação, essa função fica disponível no espaço de trabalho esp
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-Para obter mais informações sobre funções personalizadas, consulte [funções personalizadas do Azure](/azure/role-based-access-control/custom-roles).
+Para obter mais informações sobre funções personalizadas, consulte [funções personalizadas do Azure](/azure/role-based-access-control/custom-roles). Para obter mais informações sobre as operações (ações e não ações) utilizáveis com funções personalizadas, consulte [operações do provedor de recursos](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 
-### <a name="q-what-are-the-permissions-needed-to-perform-various-actions-in-the-azure-machine-learning-service"></a>Q. Quais são as permissões necessárias para executar várias ações no serviço de Azure Machine Learning?
+### <a name="q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service"></a>Q. Quais são as permissões necessárias para executar alguns cenários comuns no serviço de Azure Machine Learning?
 
-A tabela a seguir é um resumo de Azure Machine Learning atividades e as permissões necessárias para realizá-las no menor escopo. Como exemplo, se uma atividade puder ser executada com um escopo de espaço de trabalho (coluna 4), todo o escopo mais alto com essa permissão também funcionará automaticamente. Todos os caminhos nesta tabela são **caminhos relativos** para `Microsoft.MachineLearningServices/` .
+A tabela a seguir é um resumo de Azure Machine Learning atividades e as permissões necessárias para realizá-las no menor escopo. Por exemplo, se uma atividade puder ser executada com um escopo de espaço de trabalho (coluna 4), todo o escopo mais alto com essa permissão também funcionará automaticamente:
+
+> [!IMPORTANT]
+> Todos os caminhos nesta tabela que começam com `/` são **caminhos relativos** para `Microsoft.MachineLearningServices/` :
 
 | Atividade | Escopo de nível de assinatura | Escopo no nível do grupo de recursos | Escopo no nível do espaço de trabalho |
-|---|---|---|---|
-| Criar novo workspace | Não obrigatório | Proprietário ou colaborador | N/A (torna-se proprietário ou herda uma função de escopo maior após a criação) |
-| Criar novo cluster de computação | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo:`workspaces/computes/write` |
-| Criar nova VM de notebook | Não obrigatório | Proprietário ou colaborador | Impossível |
-| Criar nova instância de computação | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo:`workspaces/computes/write` |
-| Atividade do plano de dados como envio de execução, acesso a dados, implantação de modelo ou pipeline de publicação | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo:`workspaces/*/write` <br/> Você também precisa de um repositório de dados registrado para o espaço de trabalho para permitir que o MSI acesse o dado em sua conta de armazenamento. |
+| ----- | ----- | ----- | ----- |
+| Criar novo workspace | Não é necessária | Proprietário ou colaborador | N/A (torna-se proprietário ou herda uma função de escopo maior após a criação) |
+| Atualizar a edição do espaço de trabalho | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`/workspaces/write` |
+| Solicitar cota de Amlcompute de nível de assinatura ou definir cota de nível de espaço de trabalho | Proprietário, ou colaborador, ou função personalizada </br>permitindo que`/locations/updateQuotas/action`</br> no escopo da assinatura | Não autorizado | Não autorizado |
+| Criar novo cluster de computação | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`/workspaces/computes/write` |
+| Criar nova instância de computação | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`/workspaces/computes/write` |
+| Enviando qualquer tipo de execução | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
+| Publicando um ponto de extremidade de pipeline | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Implantando um modelo registrado em um recurso AKS/ACI | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
+| Pontuação em relação a um ponto de extremidade AKS implantado | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (quando você não estiver usando a autenticação do AAD) ou `"/workspaces/read"` (quando estiver usando a autenticação de token) |
+| Acessando o armazenamento usando blocos de anotações interativos | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
+| Criar nova função personalizada | Proprietário, colaborador ou função personalizada que permite`Microsoft.Authorization/roleDefinitions/write` | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`/workspaces/computes/write` |
 
+
+### <a name="q-are-we-publishing-azure-built-in-roles-for-the-machine-learning-service"></a>Q. Estamos publicando funções internas do Azure para o serviço de Machine Learning?
+
+No momento, não estamos publicando [funções internas do Azure](/azure/role-based-access-control/built-in-roles) para o serviço Machine Learning. Uma função interna quando publicada não pode ser atualizada e ainda estamos confirmando as definições de função com base nos comentários e nos cenários dos clientes. 
+
+<a id="customroles"></a>
+
+### <a name="q-are-there-some-custom-role-templates-for-the-most-common-scenarios-in-machine-learning-service"></a>Q. Há alguns modelos de função personalizada para os cenários mais comuns no serviço Machine Learning?
+
+Sim, aqui estão alguns cenários comuns com definições de função propostas personalizadas que você pode usar como base para definir suas próprias funções personalizadas:
+
+* __Personalizar o cientista de dados__: permite que um cientista de dados execute todas as operações dentro de um espaço de trabalho **, exceto**:
+
+    * Criação de computação
+    * Implantando modelos em um cluster AKS de produção
+    * Implantando um ponto de extremidade de pipeline em produção
+
+    `data_scientist_custom_role.json` :
+    ```json
+    {
+        "Name": "Data Scientist Custom",
+        "IsCustom": true,
+        "Description": "Can run experiment but can't create or delete compute or deploy production endpoints.",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/*/read",
+            "Microsoft.MachineLearningServices/workspaces/*/action",
+            "Microsoft.MachineLearningServices/workspaces/*/delete",
+            "Microsoft.MachineLearningServices/workspaces/*/write"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
+            "Microsoft.Authorization/*",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/write",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
+            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
+
+* __Personalizado de cientista de dados restrito__: uma definição de função mais restrita sem curingas nas ações permitidas. Ele pode executar todas as operações dentro de um espaço de trabalho **, exceto**:
+
+    * Criação de computação
+    * Implantando modelos em um cluster AKS de produção
+    * Implantando um ponto de extremidade de pipeline em produção
+
+    `data_scientist_restricted_custom_role.json` :
+    ```json
+    {
+        "Name": "Data Scientist Restricted Custom",
+        "IsCustom": true,
+        "Description": "Can run experiment but can't create or delete compute or deploy production endpoints",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/*/read",
+            "Microsoft.MachineLearningServices/workspaces/computes/start/action",
+            "Microsoft.MachineLearningServices/workspaces/computes/stop/action",
+            "Microsoft.MachineLearningServices/workspaces/computes/restart/action",
+            "Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action",
+            "Microsoft.MachineLearningServices/workspaces/notebooks/storage/read",
+            "Microsoft.MachineLearningServices/workspaces/notebooks/storage/write",
+            "Microsoft.MachineLearningServices/workspaces/notebooks/storage/delete",
+            "Microsoft.MachineLearningServices/workspaces/notebooks/samples/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+            "Microsoft.MachineLearningServices/workspaces/experiments/write",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action",
+            "Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write",
+            "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
+            "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
+            "Microsoft.MachineLearningServices/workspaces/environments/write",
+            "Microsoft.MachineLearningServices/workspaces/models/write",
+            "Microsoft.MachineLearningServices/workspaces/modules/write",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/write", 
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/delete",
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/write",
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/delete",
+            "Microsoft.MachineLearningServices/workspaces/computes/listNodes/action",
+            "Microsoft.MachineLearningServices/workspaces/environments/build/action"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/computes/write",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/delete",
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.Authorization/*",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/preview/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/profile/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/preview/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/schema/read",    
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/schema/read",
+            "Microsoft.MachineLearningServices/workspaces/datastores/write",
+            "Microsoft.MachineLearningServices/workspaces/datastores/delete"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
+
+* __MLOps Custom__: permite que você atribua uma função a uma entidade de serviço e use-a para automatizar seus pipelines do MLOps. Por exemplo, para enviar execuções em um pipeline já publicado:
+
+    `mlops_custom_role.json` :
+    ```json
+    {
+        "Name": "MLOps Custom",
+        "IsCustom": true,
+        "Description": "Can run pipelines against a published pipeline endpoint",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/read",
+            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/read",
+            "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/read",
+            "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/read",
+            "Microsoft.MachineLearningServices/workspaces/environments/read",    
+            "Microsoft.MachineLearningServices/workspaces/metadata/secrets/read",
+            "Microsoft.MachineLearningServices/workspaces/modules/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/read",
+            "Microsoft.MachineLearningServices/workspaces/datastores/read",
+            "Microsoft.MachineLearningServices/workspaces/environments/write",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+            "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
+            "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
+            "Microsoft.MachineLearningServices/workspaces/environments/build/action",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/computes/write",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/delete",
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.Authorization/*"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
+
+* __Administração de espaço de trabalho__: permite que você execute todas as operações dentro do escopo de um espaço de trabalho, **exceto**:
+
+    * Criando um novo workspace
+    * Atribuindo cotas de nível de espaço de trabalho ou de assinatura
+    * Atualizando a edição do espaço de trabalho
+
+    O administrador do espaço de trabalho também não pode criar uma nova função. Ele só pode atribuir funções internas ou personalizadas existentes dentro do escopo de seu espaço de trabalho:
+
+    `workspace_admin_custom_role.json` :
+    ```json
+    {
+        "Name": "Workspace Admin Custom",
+        "IsCustom": true,
+        "Description": "Can perform all operations except quota management and upgrades",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/*/read",
+            "Microsoft.MachineLearningServices/workspaces/*/action",
+            "Microsoft.MachineLearningServices/workspaces/*/write",
+            "Microsoft.MachineLearningServices/workspaces/*/delete",
+            "Microsoft.Authorization/roleAssignments/*"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/write"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
+
+<a name="labeler"></a>
+* __Labeler Custom__: permite que você defina uma função com escopo apenas para rotular dados:
+
+    `labeler_custom_role.json` :
+    ```json
+    {
+        "Name": "Labeler Custom",
+        "IsCustom": true,
+        "Description": "Can label data for Labeling",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/read",
+            "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
+            "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
 
 ### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>Q. Como fazer listar todas as funções personalizadas em minha assinatura?
 
@@ -142,6 +355,39 @@ No CLI do Azure, execute o comando a seguir.
 ```azurecli-interactive
 az role definition list --subscription <sub-id> --custom-role-only true
 ```
+
+### <a name="q-how-do-i-find-the-operations-supported-by-the-machine-learning-service"></a>Q. Como fazer encontrar as operações com suporte no serviço de Machine Learning?
+
+No CLI do Azure, execute o comando a seguir.
+
+```azurecli-interactive
+az provider operation show –n Microsoft.MachineLearningServices
+```
+
+Eles também podem ser encontrados na lista de [operações do provedor de recursos](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+
+
+### <a name="q-what-are-some-common-gotchas-when-using-azure-rbac"></a>Q. Quais são algumas armadilhas comuns ao usar o RBAC do Azure?
+
+Aqui estão algumas coisas que você deve conhecer enquanto usa controles de acesso com base em função do Azure:
+
+- Quando você cria um recurso no Azure, digamos um espaço de trabalho, você não é diretamente o proprietário do espaço de trabalho. Sua função é herdada da função de escopo mais alta na qual você está autorizado nessa assinatura. Como exemplo, se você for um administrador de rede e tiver as permissões para criar um espaço de trabalho Machine Learning, a função de administrador de rede será atribuída a esse espaço de trabalho e não à função proprietário.
+- Quando há duas atribuições de função para o mesmo usuário do AAD com seções conflitantes de ações/não ações, suas operações listadas em ações de uma função podem não ter efeito se elas também estiverem listadas como ações em outra função. Para saber mais sobre como o Azure analisa as atribuições de função, leia [como o RBAC do Azure determina se um usuário tem acesso a um recurso](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
+- Para implantar seus recursos de computação dentro de uma VNet, você precisa ter permissões explicitamente para "Microsoft. Network/virtualNetworks/Join/Action" nesse recurso de VNet.
+- Às vezes, pode levar até 1 hora para que as atribuições de nova função entrem em vigor nas permissões armazenadas em cache em toda a pilha.
+
+
+### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>Q. Quais permissões eu preciso para usar uma identidade gerenciada atribuída pelo usuário com meus clusters do Amlcompute?
+
+Para atribuir uma identidade atribuída ao usuário em clusters Amlcompute, é necessário ter permissões de gravação para criar a computação e ter a [função de operador de identidade gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Para obter mais informações sobre RBAC com identidades gerenciadas, leia [como gerenciar a identidade atribuída ao usuário](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
+
+
+### <a name="q-do-we-support-role-based-access-controls-on-the-studio-portal"></a>Q. Há suporte para controles de acesso baseado em função no portal do estúdio?
+
+O Azure Machine Learning Studio dá suporte a controles de acesso baseados em função. 
+
+> [!IMPORTANT]
+> Depois de atribuir uma função personalizada com permissões específicas a um cientista de dados em seu espaço de trabalho, as ações correspondentes (como adicionar um botão de computação) são ocultadas automaticamente dos usuários. Ocultar esses itens impede qualquer confusão de ver controles que retornam uma notificação de acesso não autorizado do serviço quando usados.
 
 ### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>Q. Como fazer encontrar a definição de função para uma função em minha assinatura?
 

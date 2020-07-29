@@ -416,6 +416,8 @@
                   href: how-to-custom-commands-add-interaction-rules.md
                 - name: Adicionar modelos de geração de linguagem para respostas de fala
                   href: how-to-custom-commands-add-language-generation-templates.md
+                - name: Usar a Voz Personalizada
+                  href: how-to-custom-commands-use-custom-voice.md
             - name: Integração
               items:
                 - name: Integrar com um aplicativo cliente usando o SDK de Fala
@@ -452,6 +454,8 @@
               href: faq-voice-assistants.md
             - name: SDK de fala
               href: speech-sdk.md
+            - name: Criptografia de comandos personalizados de dados em repouso
+              href: custom-commands-encryption-of-data-at-rest.md
     - name: Direct Line Speech
       items:
         - name: O que é o Direct Line Speech?

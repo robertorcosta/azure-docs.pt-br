@@ -1,0 +1,104 @@
+---
+title: Azure Active Directory entidade de serviço com o SQL do Azure
+description: Os aplicativos do Azure AD (entidades de serviço) dão suporte à criação de usuário do Azure AD no banco de dados SQL do Azure, Azure SQL Instância Gerenciada e Azure Synapse Analytics
+ms.service: sql-db-mi
+ms.subservice: security
+ms.custom: azure-synapse
+ms.topic: conceptual
+author: GithubMirek
+ms.author: mireks
+ms.reviewer: vanto
+ms.date: 07/27/2020
+ms.openlocfilehash: bfe609dc480dcdb71f162ca1bfd383a27257fedc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321693"
+---
+# <a name="azure-active-directory-service-principal-with-azure-sql"></a>Azure Active Directory entidade de serviço com o SQL do Azure
+
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
+
+O suporte para a criação de usuário do Azure Active Directory (Azure AD) no banco de dados SQL do Azure (BD SQL) e no [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) em nome de aplicativos do Azure AD (entidades de serviço) estão atualmente em **Visualização pública**.
+
+> [!NOTE]
+> Essa funcionalidade já tem suporte para o SQL Instância Gerenciada.
+
+## <a name="service-principal-azure-ad-applications-support"></a>Suporte à entidade de serviço (aplicativos do Azure AD)
+
+Este artigo se aplica a aplicativos que são integrados ao Azure AD e fazem parte do registro do Azure AD. Esses aplicativos geralmente precisam de acesso de autenticação e autorização ao SQL do Azure para executar várias tarefas. Esse recurso na **Visualização pública** agora permite que as entidades de serviço criem usuários do Azure AD no banco de dados SQL e no Azure Synapse. Houve uma limitação para impedir a criação de objetos do Azure AD em nome de aplicativos do Azure AD que foram removidos.
+
+Quando um aplicativo do Azure AD é registrado usando o portal do Azure ou um comando do PowerShell, dois objetos são criados no locatário do Azure AD:
+
+- Um objeto de aplicativo
+- Um objeto de entidade de serviço
+
+Para obter mais informações sobre os aplicativos do Azure AD, consulte [objetos de aplicativo e entidade de serviço no Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) e [criar uma entidade de serviço do Azure com Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-4.2.0).
+
+O banco de dados SQL, o Azure Synapse e o SQL Instância Gerenciada dão suporte aos seguintes objetos do Azure AD:
+
+- Usuários do Azure AD (gerenciados, federados e convidados)
+- Grupos do Azure AD (gerenciados e federados)
+-  Aplicativos do Azure AD 
+
+O comando T-SQL `CREATE USER [Azure_AD_Object] FROM EXTERNAL PROVIDER` em nome de um aplicativo do Azure ad agora tem suporte para o banco de dados SQL e o Azure Synapse.
+
+## <a name="functionality-of-azure-ad-user-creation-using-service-principals"></a>Funcionalidade da criação de usuário do Azure AD usando entidades de serviço
+
+O suporte a essa funcionalidade é útil nos processos de automação de aplicativo do Azure AD em que os objetos do Azure AD são criados e mantidos no banco de dados SQL e no Azure Synapse sem interação humana. As entidades de serviço podem ser um administrador do Azure AD para o servidor lógico do SQL, como parte de um grupo ou um usuário individual. O aplicativo pode automatizar a criação de objetos do Azure AD no banco de dados SQL e no Azure Synapse quando executado como administrador do sistema e não requer nenhum privilégio SQL adicional. Isso permite uma automação completa de uma criação de usuário de banco de dados. Esse recurso também tem suporte para identidade gerenciada atribuída pelo sistema e identidade gerenciada atribuída pelo usuário. Para obter mais informações, consulte [o que são identidades gerenciadas para recursos do Azure?](../../active-directory/managed-identities-azure-resources/overview.md)
+
+## <a name="enable-service-principals-to-create-azure-ad-users"></a>Habilitar entidades de serviço para criar usuários do Azure AD
+
+Para habilitar uma criação de objeto do Azure AD no banco de dados SQL e no Azure Synapse em nome de um aplicativo do Azure AD, as seguintes configurações são necessárias:
+
+1. Atribuir a identidade do servidor
+    - Para um novo servidor lógico do Azure SQL, execute o seguinte comando do PowerShell:
+    
+    ```powershell
+    New-AzSqlServer -ResourceGroupName <resource group> -Location <Location name> -ServerName <Server name> -ServerVersion "12.0" -SqlAdministratorCredentials (Get-Credential) -AssignIdentity
+    ```
+
+    Para obter mais informações, consulte o comando [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) .
+
+    - Para servidores lógicos do SQL Azure existentes, execute o seguinte comando:
+    
+    ```powershell
+    Set-AzSqlServer -ResourceGroupName <resource group> -ServerName <Server name> -AssignIdentity
+    ```
+
+    Para obter mais informações, consulte o comando [set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) .
+
+    - Para verificar se a identidade do servidor está atribuída ao servidor, execute o comando Get-AzSqlServer.
+
+    > [!NOTE]
+    > A identidade do servidor também pode ser atribuída usando comandos da CLI. Para obter mais informações, consulte [AZ SQL Server CREATE](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) and [AZ SQL Server Update](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update).
+
+2. Conceda permissão de [**leitores de diretório**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) do Azure ad à identidade do servidor criada ou atribuída ao servidor.
+    - Para conceder essa permissão, siga a descrição usada para o SQL Instância Gerenciada que está disponível no seguinte artigo: [provisionar administrador do Azure AD (SQL instância gerenciada)](authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-managed-instance)
+    - O usuário do Azure AD que está concedendo essa permissão deve fazer parte do **administrador global** do Azure ad ou da função de **administrador de funções privilegiadas** .
+
+> [!IMPORTANT]
+> As etapas 1 e 2 devem ser executadas na ordem acima. Primeiro, crie ou atribua a identidade do servidor, depois de conceder a permissão [**leitores de diretório**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) . Omitir uma dessas etapas ou ambas causará um erro de execução durante a criação de um objeto do Azure AD no Azure SQL em nome de um aplicativo do Azure AD. Para obter instruções passo a passo para criar um usuário do Azure AD em nome de um aplicativo do Azure AD, consulte [tutorial: criar usuários do Azure ad usando aplicativos do Azure ad](authentication-aad-service-principal-tutorial.md).
+
+## <a name="troubleshooting-and-limitations-for-public-preview"></a>Solução de problemas e limitações para visualização pública
+
+- Ao criar objetos do Azure AD no Azure SQL em nome de um aplicativo do Azure AD sem habilitar a identidade do servidor e conceder permissão aos **leitores de diretório** , a operação falhará com os seguintes erros possíveis. O exemplo de erro abaixo é para uma execução de comando do PowerShell para criar um usuário do banco de dados SQL `myapp` no artigo [tutorial: criar usuários do Azure ad usando aplicativos do Azure ad](authentication-aad-service-principal-tutorial.md).
+    - `Exception calling "ExecuteNonQuery" with "0" argument(s): "'myapp' is not a valid login or you do not have permission. Cannot find the user 'myapp', because it does not exist, or you do not have permission."`
+    - `Exception calling "ExecuteNonQuery" with "0" argument(s): "Principal 'myapp' could not be resolved.`
+    - `User or server identity does not have permission to read from Azure Active Directory.`
+      - Para o erro acima, siga as etapas para [atribuir uma identidade ao servidor lógico do SQL do Azure](authentication-aad-service-principal-tutorial.md#assign-an-identity-to-the-azure-sql-logical-server) e [atribuir permissão de leitores de diretório à identidade do servidor lógico do SQL](authentication-aad-service-principal-tutorial.md#assign-directory-readers-permission-to-the-sql-logical-server-identity).
+    > [!NOTE]
+    > As mensagens de erro indicadas acima serão alteradas antes do recurso GA para identificar claramente o requisito de configuração ausente para o suporte a aplicativos do Azure AD.
+- A configuração do aplicativo Azure AD como um administrador do Azure AD para SQL Instância Gerenciada só tem suporte usando o comando da CLI e o comando do PowerShell com [AZ. SQL 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) ou superior. Para obter mais informações, consulte os comandos [AZ SQL mi ad-admin Create](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin?view=azure-cli-latest#az-sql-mi-ad-admin-create) e [set-AzSqlInstanceActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) . 
+    - Se você quiser usar o portal do Azure para SQL Instância Gerenciada para definir o administrador do Azure AD, uma possível solução alternativa é criar um grupo do Azure AD. Em seguida, adicione a entidade de serviço (aplicativo do Azure AD) a esse grupo e defina esse grupo como um administrador do Azure AD para o SQL Instância Gerenciada.
+    - Definir a entidade de serviço (aplicativo do Azure AD) como um administrador do Azure AD para o banco de dados SQL e o Azure Synapse tem suporte usando os comandos portal do Azure, [PowerShell](authentication-aad-configure.md?tabs=azure-powershell#powershell-for-sql-database-and-azure-synapse)e [CLI](authentication-aad-configure.md?tabs=azure-cli#powershell-for-sql-database-and-azure-synapse) .
+- O uso de um aplicativo do Azure AD com a entidade de serviço de outro locatário do Azure AD falhará ao acessar o banco de dados SQL ou o SQL Instância Gerenciada criado em um locatário diferente. Uma entidade de serviço atribuída a esse aplicativo deve ser do mesmo locatário que o servidor lógico do SQL ou Instância Gerenciada.
+- [AZ. SQL 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) module ou superior é necessário ao usar o PowerShell para configurar um aplicativo individual do Azure ad como administrador do Azure ad para o SQL do Azure. Verifique se você está atualizado para o módulo mais recente.
+
+## <a name="next-steps"></a>Próximas etapas
+
+> [!div class="nextstepaction"]
+> [Tutorial: criar usuários do Azure AD usando aplicativos do Azure AD](authentication-aad-service-principal-tutorial.md)
+
+

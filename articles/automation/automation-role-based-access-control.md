@@ -1,17 +1,17 @@
 ---
 title: Gerenciar permissões de função e segurança na Automação do Azure
-description: Este artigo mostra como usar o RBAC (controle de acesso baseado em função), que habilita o gerenciamento de acesso para recursos do Azure.
+description: Este artigo descreve como usar o RBAC (controle de acesso baseado em função), que habilita o gerenciamento de acesso para recursos do Azure.
 keywords: rbac de automação, controle de acesso baseado em função, rbac azure
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 05/17/2018
+ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9e997f80ceee54a1454128c1308032fefa603f5d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: a970122c5f034e6215d2e829657c9eec99f14371
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186139"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279875"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gerenciar permissões e segurança de funções
 
@@ -69,7 +69,12 @@ Um Leitor pode exibir todos os recursos em uma conta de Automação, mas não po
 
 ### <a name="automation-operator"></a>Operador de automação
 
-Um Operador de Automação é capaz de criar e gerenciar trabalhos e ler nomes de runbook e propriedades para todos os runbooks em uma conta de Automação.  Observação: Se você quiser controlar o acesso do operador a runbooks individuais, não defina essa função e, em vez disso, use as funções "Operador do Trabalho de Automação" e "Operador de Runbook de Automação" combinadas. A tabela a seguir mostra as permissões concedidas para a função:
+Um Operador de Automação é capaz de criar e gerenciar trabalhos e ler nomes de runbook e propriedades para todos os runbooks em uma conta de Automação.
+
+>[!NOTE]
+>Se você quiser controlar o acesso do operador a runbooks individuais, não defina essa função. Em vez disso, use as funções operador de **trabalho de automação** e operador de **runbook de automação** em combinação.
+
+A tabela a seguir mostra as permissões concedidas para a função:
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
@@ -96,7 +101,9 @@ Um Operador de Automação é capaz de criar e gerenciar trabalhos e ler nomes d
 
 ### <a name="automation-job-operator"></a>Operador do Trabalho de Automação
 
-Uma função Operador do Trabalho de Automação é concedida no escopo da conta de Automação. Isso permite que as permissões do operador criem e gerenciem trabalhos para todos os runbooks na conta. A tabela a seguir mostra as permissões concedidas para a função:
+Uma função Operador do Trabalho de Automação é concedida no escopo da conta de Automação. Isso permite que as permissões do operador criem e gerenciem trabalhos para todos os runbooks na conta. Se a função operador de trabalho receber permissões de leitura no grupo de recursos que contém a conta de automação, os membros da função terão a capacidade de iniciar runbooks. No entanto, eles não têm a capacidade de criá-los, editá-los ou excluí-los.
+
+A tabela a seguir mostra as permissões concedidas para a função:
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
@@ -114,7 +121,7 @@ Uma função Operador do Trabalho de Automação é concedida no escopo da conta
 
 ### <a name="automation-runbook-operator"></a>Operador de Runbook de Automação
 
-Uma função Operador de Runbook de Automação é concedida no escopo do Runbook. Um Operador de Runbook de Automação pode exibir o nome e as propriedades do runbook.  Essa função combinada com a função 'Operador de Trabalho de Automação' permite que o operador também crie e gerencie trabalhos para o runbook. A tabela a seguir mostra as permissões concedidas para a função:
+Uma função Operador de Runbook de Automação é concedida no escopo do Runbook. Um Operador de Runbook de Automação pode exibir o nome e as propriedades do runbook.Essa função combinada com a função **operador de trabalho de automação** permite que o operador também crie e gerencie trabalhos para o runbook. A tabela a seguir mostra as permissões concedidas para a função:
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
@@ -290,6 +297,7 @@ A seção a seguir mostra como configurar o RBAC em sua conta de Automação por
    ![Listar usuários](media/automation-role-based-access-control/automation-05-list-users.png)
 
    Você também pode atribuir uma função ao usuário por meio da página Funções.
+
 4. Clique em **Funções** na página Controle de acesso (IAM) para abrir a página Funções. Você pode exibir o nome da função e o número de usuários e grupos atribuídos à função.
 
     ![Atribuir função na página de usuários](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
@@ -353,7 +361,7 @@ ObjectType         : User
 ```
 
 Use [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) para atribuir o acesso de usuários, grupos e aplicativos a um escopo específico.
-    
+
 **Exemplo:** Use o comando a seguir para atribuir a função "Operador de Automação" para um usuário no escopo da Conta de Automação.
 
 ```azurepowershell-interactive

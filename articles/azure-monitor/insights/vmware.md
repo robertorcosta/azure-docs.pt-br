@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: bda1acde914aa068fe3a87d307a29583f87af34f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b9d27e602062ff2638d8eea23fe64497fd66512d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091174"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322900"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Monitoramento do VMware (preterido) solução no Azure Monitor
 
@@ -27,7 +27,7 @@ A solução usa a funcionalidade de syslog nativo do host ESXi para enviar dados
 ## <a name="install-and-configure-the-solution"></a>Instale e configure a solução
 Use as informações a seguir para instalar e configurar a solução.
 
-* Adicionar a solução de monitoramento do VMware à sua assinatura usando o processo descrito em [instalar uma solução de monitoramento](../insights/solutions.md#install-a-monitoring-solution).
+* Adicionar a solução de monitoramento do VMware à sua assinatura usando o processo descrito em [instalar uma solução de monitoramento](./solutions.md#install-a-monitoring-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Hosts VMware ESXi com suporte
 Host vSphere ESXi 5.5, 6.0 e 6.5
@@ -66,7 +66,7 @@ Crie um sistema operacional do Linux VM para receber todos os dados syslog de ho
 
 1. No portal do Azure, execute uma consulta de log para `VMware_CL` . Quando Azure Monitor coleta os dados do syslog, ele retém o formato syslog. No portal, alguns campos específicos são capturados, como *Hostname* e *ProcessName*.  
 
-    ![tipo](./media/vmware/type.png)  
+    ![type](./media/vmware/type.png)  
 
     Se seus resultados da pesquisa de log de exibição forem semelhantes àqueles da imagem acima, você estará pronto para usar o painel de solução de Monitoramento do VMWare.  
 
@@ -81,7 +81,7 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 
 A tabela a seguir mostram exemplos de campos de dados coletados pela solução de Monitoramento de VMware:
 
-| nome do campo | description |
+| nome do campo | descrição |
 | --- | --- |
 | Device_s |dispositivos de armazenamento do VMware |
 | ESXIFailure_s |tipos de falha |
@@ -200,3 +200,4 @@ Pode haver vários motivos:
 * Usar [consultas de log](../log-query/log-query-overview.md) no Log Analytics para exibir dados detalhados de hosts do VMware.
 * [Criar seus próprios painéis](../learn/tutorial-logs-dashboards.md) mostrando os dados de host do VMware.
 * [Criar alertas](../platform/alerts-overview.md) quando ocorrem eventos específicos de host do VMware.
+

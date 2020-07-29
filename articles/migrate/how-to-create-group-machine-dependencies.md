@@ -3,12 +3,12 @@ title: Configurar a análise de dependência baseada em agente na avaliação do
 description: Este artigo descreve como configurar a análise de dependência baseada em agente na avaliação do servidor de migrações para Azure.
 ms.topic: how-to
 ms.date: 6/09/2020
-ms.openlocfilehash: 1a656ec734ff098dd5835f653010c7f298c13b38
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 50061bead9b00ade0defba45691ea8a7c84625dd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109987"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321200"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurar a visualização de dependência
 
@@ -31,7 +31,7 @@ Este artigo descreve como configurar a análise de dependência sem agente em mi
     - Você pode anexar um espaço de trabalho somente após a configuração do dispositivo de migrações para Azure e a descoberta de máquinas no projeto de migrações para Azure.
     - Verifique se você tem um espaço de trabalho na assinatura que contém o projeto de migrações para Azure.
     - O espaço de trabalho deve residir nas regiões leste dos EUA, sudeste da Ásia ou oeste da Europa. Os espaços de trabalho em outras regiões não podem ser associados a um projeto.
-    - O espaço de trabalho deve estar em uma região em que o [Mapa do Serviço é compatível](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).
+    - O espaço de trabalho deve estar em uma região em que o [Mapa do Serviço é compatível](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
     - Você pode associar um espaço de trabalho Log Analytics novo ou existente a um projeto de migrações para Azure.
     - Você anexa o espaço de trabalho na primeira vez em que configura a visualização de dependência para um computador. Não é possível modificar o espaço de trabalho de um projeto de Migrações para Azure depois que ele foi adicionado.
     - No Log Analytics, o espaço de trabalho associado às Migrações para Azure é marcado com a chave do Projeto de Migração e o nome do projeto.

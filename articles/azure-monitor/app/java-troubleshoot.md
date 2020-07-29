@@ -3,11 +3,12 @@ title: Solucionar problemas do Application Insights em um projeto Web Java
 description: 'Guia de solução de problemas: monitoramento em tempo real aplicativos Java com o Application Insights.'
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: ecc9a298d122919138683b48527574a1ff3e5edc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74b4bc009158d826955f851f22458e9570a58e7c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484791"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324141"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Solução de problemas e perguntas e respostas para o Application Insights para Java
 Dúvidas ou problemas com o [Azure Application Insights em Java][java]? Aqui estão algumas dicas.
@@ -23,7 +24,7 @@ Dúvidas ou problemas com o [Azure Application Insights em Java][java]? Aqui est
 * Espere um minuto e clique em Atualizar. Os gráficos são atualizados periodicamente, mas você também pode atualizá-los manualmente. O intervalo de atualização depende do intervalo de tempo do gráfico.
 * Verifique se você tem uma chave de instrumentação definida no arquivo ApplicationInsights.xml (na pasta de recursos em seu projeto) ou configurada como variável Ambiente.
 * Verifique se não há um nó `<DisableTelemetry>true</DisableTelemetry>` no arquivo xml.
-* Em seu firewall, talvez você precise abrir as portas TCP 80 e 443 para o tráfego de saída de dc.services.visualstudio.com. Consulte a [lista completa de exceções do firewall](../../azure-monitor/app/ip-addresses.md)
+* Em seu firewall, talvez você precise abrir as portas TCP 80 e 443 para o tráfego de saída de dc.services.visualstudio.com. Consulte a [lista completa de exceções do firewall](./ip-addresses.md)
 * No painel inicial do Microsoft Azure, veja o mapa de status de serviço. Se houver indicações de alerta, espere até que elas tenham voltado a OK; então, feche e abra novamente a folha do Application Insights de seu aplicativo.
 * [Ative o registro em log](#debug-data-from-the-sdk) adicionando um `<SDKLogger />` elemento sob o nó raiz no arquivo de ApplicationInsights.xml (na pasta recursos em seu projeto) e verifique se há entradas precedidas com ia: info/Warn/erro para quaisquer logs suspeitos. 
 * Certifique-se de que o arquivo ApplicationInsights.xml correto foi carregado com êxito pelo SDK do Java, examinando as mensagens de saída do console para uma instrução "Arquivo de configuração foi descoberto com êxito".
@@ -37,7 +38,7 @@ Dúvidas ou problemas com o [Azure Application Insights em Java][java]? Aqui est
 * Você está analisando o recurso AI correto? Corresponda a iKey do seu aplicativo para o recurso em que você está esperando telemetria. Eles devem ser iguais.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>Não vejo todos os dados que eu esperava
-* Abra a página Uso e custos estimados e verifique se a [amostragem](../../azure-monitor/app/sampling.md) está funcionando. (100% de transmissão significa que a amostragem não está em operação.) O serviço de Application Insights pode ser definido para aceitar apenas uma fração da telemetria que chega do seu aplicativo. Isso o ajuda a se manter dentro de sua cota mensal de telemetria.
+* Abra a página Uso e custos estimados e verifique se a [amostragem](./sampling.md) está funcionando. (100% de transmissão significa que a amostragem não está em operação.) O serviço de Application Insights pode ser definido para aceitar apenas uma fração da telemetria que chega do seu aplicativo. Isso o ajuda a se manter dentro de sua cota mensal de telemetria.
 * Você está com a amostragem do SDK ativada? Se sim, os dados seriam amostrados na taxa especificada para todos os tipos aplicáveis.
 * Você está executando uma versão mais antiga do SDK do Java? Começando com a versão 2.0.1, apresentamos mecanismo de tolerância para tratar intermitentes de rede e falhas de back-end, bem como a persistência de dados em unidades locais.
 * Está tendo limitação devido à excessiva Telemetria? Se você ativar o log de informações, você verá um log de mensagem "O aplicativo está limitado". Nosso limite atual é a telemetria de 32 k itens/segundo.
@@ -192,11 +193,11 @@ O Application Insights usa `org.apache.http`. Isso é realocado no jars do núcl
 
 <!--Link references-->
 
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[data]: ../../azure-monitor/app/data-retention-privacy.md
+[availability]: ./monitor-web-app-availability.md
+[data]: ./data-retention-privacy.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[platforms]: ../../azure-monitor/app/platforms.md
-[track]: ../../azure-monitor/app/api-custom-events-metrics.md
+[platforms]: ./platforms.md
+[track]: ./api-custom-events-metrics.md
 [usage]: javascript.md
 

@@ -4,16 +4,16 @@ description: Monitore seu aplicativo Web em tempo real usando métrica personali
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: e554595a7a88e1455f7426636dc69db99a7d3e94
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 4b84088c1213801e61a4c669bccb1a983c999310
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166477"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321931"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorar e diagnosticar com latência de um segundo
 
-Monitore seu aplicativo Web em produção em tempo real usando Live Metrics Stream do [Application insights](../../azure-monitor/app/app-insights-overview.md). Selecione e filtre os contadores de desempenho e as métricas para observar em tempo real, sem qualquer perturbação para o serviço. Inspecione os rastreamentos de pilha de exceções e solicitações de amostra com falha. Junto com o [criador de perfil](../../azure-monitor/app/profiler.md) e o depurador de [instantâneos](../../azure-monitor/app/snapshot-debugger.md), Live Metrics Stream fornece uma ferramenta de diagnóstico poderosa e não invasiva para seu site ativo.
+Monitore seu aplicativo Web em produção em tempo real usando Live Metrics Stream do [Application insights](./app-insights-overview.md). Selecione e filtre os contadores de desempenho e as métricas para observar em tempo real, sem qualquer perturbação para o serviço. Inspecione os rastreamentos de pilha de exceções e solicitações de amostra com falha. Junto com o [criador de perfil](./profiler.md) e o depurador de [instantâneos](./snapshot-debugger.md), Live Metrics Stream fornece uma ferramenta de diagnóstico poderosa e não invasiva para seu site ativo.
 
 Com o Live Metrics Stream, você pode:
 
@@ -31,7 +31,7 @@ Atualmente, há suporte para métricas em tempo real para aplicativos ASP.NET, A
 
 ## <a name="get-started"></a>Introdução
 
-1. [Instale Application insights](../../azure-monitor/azure-monitor-app-hub.yml) em seu aplicativo.
+1. [Instale Application insights](../azure-monitor-app-hub.yml) em seu aplicativo.
 2. Além dos pacotes padrão do Application Insights, [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) é necessário para habilitar o Live Metrics Stream.
 3. **Atualização para a última versão** do pacote do Application Insights. No Visual Studio, clique com o botão direito do mouse em seu projeto e escolha **gerenciar pacotes NuGet**. Abra a guia **Atualizações** e selecione todos os pacotes Microsoft.ApplicationInsights.*.
 
@@ -43,17 +43,17 @@ Atualmente, há suporte para métricas em tempo real para aplicativos ASP.NET, A
 
 ### <a name="no-data-check-your-server-firewall"></a>Não há dados? Verificar o firewall de servidor
 
-Verifique se as [portas de saída para o Live Metrics Stream](../../azure-monitor/app/ip-addresses.md#outgoing-ports) estão abertas no firewall dos servidores.
+Verifique se as [portas de saída para o Live Metrics Stream](./ip-addresses.md#outgoing-ports) estão abertas no firewall dos servidores.
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>Como o Live Metrics Stream difere do Metrics Explorer e Analytics?
 
 | |Live Stream | Metrics Explorer e Analytics |
 |---|---|---|
 |**Latência**|Dados exibidos em um segundo|Agregado ao longo de minutos|
-|**Nenhuma retenção**|Os dados persistem enquanto estão no gráfico e depois são descartados|[Dados retidos por 90 dias](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
+|**Nenhuma retenção**|Os dados persistem enquanto estão no gráfico e depois são descartados|[Dados retidos por 90 dias](./data-retention-privacy.md#how-long-is-the-data-kept)|
 |**Sob demanda**|Os dados só são transmitidos enquanto o painel de métricas ao vivo está aberto |Os dados são enviados sempre que o SDK está instalado e habilitado|
-|**Gratuito**|Não há nenhum custo para dados do Live Stream|Sujeito a [preços](../../azure-monitor/app/pricing.md)
-|**Amostragem**|Todas as métricas e os contadores selecionados são transmitidos. Há amostras de falhas e rastreamentos de pilha. TelemetryProcessors não são aplicados.|Os eventos podem ter [amostras](../../azure-monitor/app/api-filtering-sampling.md)|
+|**Gratuito**|Não há nenhum custo para dados do Live Stream|Sujeito a [preços](./pricing.md)
+|**Amostragem**|Todas as métricas e os contadores selecionados são transmitidos. Há amostras de falhas e rastreamentos de pilha. TelemetryProcessors não são aplicados.|Os eventos podem ter [amostras](./api-filtering-sampling.md)|
 |**Canal de controle**|Os sinais de controle de filtro são enviados ao SDK. Recomendamos que você proteja este canal.|A comunicação é de uma maneira para o portal|
 
 ## <a name="select-and-filter-your-metrics"></a>Selecionar e filtrar suas métricas
@@ -64,7 +64,7 @@ Você pode monitorar o KPI personalizado em tempo real aplicando filtros arbitr�
 
 ![Taxa de solicitação de filtro](./media/live-stream/filter-request.png)
 
-Você pode monitorar um valor diferente da Contagem. As opções dependem do tipo de fluxo, que poderia ser qualquer Application Insights Telemetry: solicitações, dependências, exceções, rastreamentos, eventos ou métricas. Ela pode ser sua própria [medida personalizada](../../azure-monitor/app/api-custom-events-metrics.md#properties):
+Você pode monitorar um valor diferente da Contagem. As opções dependem do tipo de fluxo, que poderia ser qualquer Application Insights Telemetry: solicitações, dependências, exceções, rastreamentos, eventos ou métricas. Ela pode ser sua própria [medida personalizada](./api-custom-events-metrics.md#properties):
 
 ![Construtor de consultas na taxa de solicitação com métrica personalizada](./media/live-stream/query-builder-request.png)
 
@@ -206,10 +206,11 @@ Por padrão, as métricas ao vivo são desabilitadas no SDK do Node.js. Para hab
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-Não há dados? Se seu aplicativo estiver em uma rede protegida: Live Metrics Stream usa endereços IP diferentes dos outros Application Insights telemetria. Certifique-se de que [esses endereços IP](../../azure-monitor/app/ip-addresses.md) estejam abertos em seu firewall.
+Não há dados? Se seu aplicativo estiver em uma rede protegida: Live Metrics Stream usa endereços IP diferentes dos outros Application Insights telemetria. Certifique-se de que [esses endereços IP](./ip-addresses.md) estejam abertos em seu firewall.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Monitorando o uso com o Application Insights](../../azure-monitor/app/usage-overview.md)
-* [Usando a Pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
-* [Profiler](../../azure-monitor/app/profiler.md)
-* [Depurador instantâneo](../../azure-monitor/app/snapshot-debugger.md)
+* [Monitorando o uso com o Application Insights](./usage-overview.md)
+* [Usando a Pesquisa de diagnóstico](./diagnostic-search.md)
+* [Profiler](./profiler.md)
+* [Depurador instantâneo](./snapshot-debugger.md)
+

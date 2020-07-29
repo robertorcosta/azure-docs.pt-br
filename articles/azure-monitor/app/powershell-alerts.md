@@ -3,20 +3,20 @@ title: Usar o PowerShell para configurar alertas no Application Insights | Micro
 description: Automatize a configuração do Application Insights para receber emails sobre alterações de métricas.
 ms.topic: conceptual
 ms.date: 07/23/2016
-ms.openlocfilehash: 00212aa8783a6bfc8e46d325a882781e33b7de51
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 74d477b6660c0f7ec2ee32b34169bb85886936e5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117165"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322458"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Usar o PowerShell para configurar alertas no Application Insights
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Você pode automatizar a configuração de [alertas](../../azure-monitor/platform/alerts-log.md) no [Application Insights](../../azure-monitor/app/app-insights-overview.md).
+Você pode automatizar a configuração de [alertas](../platform/alerts-log.md) no [Application Insights](./app-insights-overview.md).
 
-Além disso, você pode [definir webhooks para automatizar sua resposta a um alerta](../../azure-monitor/platform/alerts-webhooks.md).
+Além disso, você pode [definir webhooks para automatizar sua resposta a um alerta](../platform/alerts-webhooks.md).
 
 > [!NOTE]
 > Se você quiser criar alertas e recursos ao mesmo tempo, considere [usar um modelo do Azure Resource Manager](powershell.md).
@@ -82,7 +82,7 @@ Add-AzMetricAlertRule -Name "slow responses" `
 ```
 
 ## <a name="example-2"></a>Exemplo 2
-Tenho um aplicativo em que uso o [TrackMetric()](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) para relatar uma métrica chamada "salesPerHour". Envie um email para meus colegas se "salesPerHour" cair abaixo de 100, em média no prazo de 24 horas.
+Tenho um aplicativo em que uso o [TrackMetric()](./api-custom-events-metrics.md#trackmetric) para relatar uma métrica chamada "salesPerHour". Envie um email para meus colegas se "salesPerHour" cair abaixo de 100, em média no prazo de 24 horas.
 
 ```azurepowershell
 Add-AzMetricAlertRule -Name "poor sales" `
@@ -98,7 +98,7 @@ Add-AzMetricAlertRule -Name "poor sales" `
   -RuleType Metric
 ```
 
-A mesma regra pode ser usada para a métrica relatada usando o [parâmetro de medida](../../azure-monitor/app/api-custom-events-metrics.md#properties) de outra chamada de controle, como TrackEvent ou trackPageView.
+A mesma regra pode ser usada para a métrica relatada usando o [parâmetro de medida](./api-custom-events-metrics.md#properties) de outra chamada de controle, como TrackEvent ou trackPageView.
 
 ## <a name="metric-names"></a>Nomes de métrica
 | Nome da métrica | Nome da tela | Descrição |
@@ -124,22 +124,23 @@ A mesma regra pode ser usada para a métrica relatada usando o [parâmetro de me
 | `request.rate` |Taxa de solicitação |Taxa de todas as solicitações para o aplicativo por segundo. |
 | `requestFailed.count` |Solicitações falhas |Contagem de solicitações HTTP que resultaram em um código de resposta >= 400 |
 | `view.count` |Visualizações de página |Contagem de solicitações de usuário  cliente para uma página da Web. O tráfego sintético é filtrado. |
-| {o nome de métrica personalizada} |{O nome da métrica} |O valor de métrica relatado pelo [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) ou o [parâmetro de medidas de uma chamada de controle](../../azure-monitor/app/api-custom-events-metrics.md#properties). |
+| {o nome de métrica personalizada} |{O nome da métrica} |O valor de métrica relatado pelo [TrackMetric](./api-custom-events-metrics.md#trackmetric) ou o [parâmetro de medidas de uma chamada de controle](./api-custom-events-metrics.md#properties). |
 
 As métricas são enviadas por diferentes módulos de telemetria:
 
 | Grupo de métricas | Módulo de coletor |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>exibição |[JavaScript do navegador](../../azure-monitor/app/javascript.md) |
-| performanceCounter |[Desempenho](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
-| remoteDependencyFailed |[Dependência](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
-| request,<br/>requestFailed |[Solicitação do servidor](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>exibição |[JavaScript do navegador](./javascript.md) |
+| performanceCounter |[Desempenho](./configuration-with-applicationinsights-config.md) |
+| remoteDependencyFailed |[Dependência](./configuration-with-applicationinsights-config.md) |
+| request,<br/>requestFailed |[Solicitação do servidor](./configuration-with-applicationinsights-config.md) |
 
 ## <a name="webhooks"></a>Webhooks
-Você pode [automatizar sua resposta a um alerta](../../azure-monitor/platform/alerts-webhooks.md). O Azure ligará para um endereço web de sua escolha quando um alerta for gerado.
+Você pode [automatizar sua resposta a um alerta](../platform/alerts-webhooks.md). O Azure ligará para um endereço web de sua escolha quando um alerta for gerado.
 
 ## <a name="see-also"></a>Confira também
 * [Script para configurar o Application Insights](./create-new-resource.md#creating-a-resource-automatically)
 * [Criar recursos de teste da Web e do Application Insights por meio de modelos](powershell.md)
 * [Automatizar o acoplamento do Diagnóstico do Microsoft Azure ao Application Insights](powershell-azure-diagnostics.md)
-* [Automatizar sua resposta a um alerta](../../azure-monitor/platform/alerts-webhooks.md)
+* [automatizar a resposta a um alerta](../platform/alerts-webhooks.md)
+

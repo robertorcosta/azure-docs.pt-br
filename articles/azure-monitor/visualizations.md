@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 4c5290d9f5ec47969ae43e5986d31484927a0ac5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 195e606a66b1b49821fc1b46381fdc551f142a6a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081348"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325518"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizando dados do Monitor do Azure
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados de log e métrica armazenados no Azure Monitor.
@@ -19,7 +19,7 @@ Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados
 Visualizações como tabelas e gráficos podem ajudá-lo a analisar seus dados de monitoramento para detalhar problemas e identificar padrões. Dependendo da ferramenta que você usa, você também pode ter a opção de compartilhar visualizações com outros usuários dentro e fora de sua organização.
 
 ## <a name="workbooks"></a>Pastas de trabalho
-[As pastas de trabalho](../azure-monitor/platform/workbooks-overview.md) são documentos interativos que fornecem informações detalhadas sobre seus dados, investigação e colaboração dentro da equipe. Exemplos específicos em que as pastas de trabalho são úteis são guias de solução de problemas e postmortem de incidentes.
+[As pastas de trabalho](./platform/workbooks-overview.md) são documentos interativos que fornecem informações detalhadas sobre seus dados, investigação e colaboração dentro da equipe. Exemplos específicos em que as pastas de trabalho são úteis são guias de solução de problemas e postmortem de incidentes.
 
 ![Pasta de trabalho](media/visualizations/workbook.png)
 
@@ -141,7 +141,7 @@ As [exibições no Azure Monitor](platform/view-designer.md) permitem que você 
 - Aprenda sobre os [dados coletados pelo Azure Monitor](platform/data-platform.md).
 - Saiba mais sobre os [painéis do Azure](../azure-portal/azure-portal-dashboards.md).
 - Saiba mais sobre [modos de exibição no Azure Monitor](platform/view-designer.md).
-- Saiba mais sobre [Pastas de trabalho](../azure-monitor/platform/workbooks-overview.md).
-- Saiba mais sobre [importar dados de log no Power BI](../azure-monitor/platform/powerbi.md).
-- Saiba mais sobre o [plug-in de fonte de dados do Azure Monitor do Grafana](../azure-monitor/platform/grafana-plugin.md).
+- Saiba mais sobre [Pastas de trabalho](./platform/workbooks-overview.md).
+- Saiba mais sobre [importar dados de log no Power BI](./platform/powerbi.md).
+- Saiba mais sobre o [plug-in de fonte de dados do Azure Monitor do Grafana](./platform/grafana-plugin.md).
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: e88d51e014244892fc3ac9e2cca242dacdfd9997
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0c090238192b49af00856f6fcd002e95d154d2c0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516168"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321846"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Alertas do Azure Monitor e da Integridade do Serviço usam grupos de ações para notificar usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário. Você pode configurar até 2 mil grupos de ação em uma assinatura.
@@ -26,7 +26,7 @@ Cada ação é composta das seguintes propriedades:
 * **Tipo de ação**: A ação executada. Exemplos incluem o envio de um email de chamada, SMS, voz; ou disparando vários tipos de ações automatizadas. Veja os tipos mais adiante neste artigo.
 * **Detalhes**: os detalhes correspondentes que variam de acordo com o *tipo de ação*.
 
-Para saber mais sobre como usar modelos do Azure Resource Manager para configurar grupos de ação, veja [Modelos do Resource Manager de grupos de ações](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+Para saber mais sobre como usar modelos do Azure Resource Manager para configurar grupos de ação, veja [Modelos do Resource Manager de grupos de ações](./action-groups-create-resource-manager-template.md).
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>Como criar um grupo de ações usando o portal do Azure
 
@@ -86,12 +86,12 @@ Os emails serão enviados dos endereços de email a seguir. Certifique-se de que
 - azureemail-noreply@microsoft.com
 - alerts-noreply@mail.windowsazure.com
 
-É possível ter um número limitado de ações de email em um grupo de ações. Confira o artigo [informações de limitação da taxa](./../../azure-monitor/platform/alerts-rate-limiting.md).
+É possível ter um número limitado de ações de email em um grupo de ações. Confira o artigo [informações de limitação da taxa](./alerts-rate-limiting.md).
 
 ### <a name="email-azure-resource-manager-role"></a>Email para a Função do Azure Resource Manager
 Envie o email aos membros da função de assinatura. O email será enviado somente aos membros do **usuário do Azure AD** da função. O email não será enviado aos grupos ou às entidades de serviço do Azure AD.
 
-É possível ter um número limitado de ações de email em um grupo de ações. Confira o artigo [informações de limitação da taxa](./../../azure-monitor/platform/alerts-rate-limiting.md).
+É possível ter um número limitado de ações de email em um grupo de ações. Confira o artigo [informações de limitação da taxa](./alerts-rate-limiting.md).
 
 ### <a name="function"></a>Função
 Chama um ponto de extremidade de gatilho HTTP existente no [Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
@@ -99,7 +99,7 @@ Chama um ponto de extremidade de gatilho HTTP existente no [Azure Functions](../
 É possível ter um número limitado de ações de função em um grupo de ações.
 
 ### <a name="itsm"></a>ITSM
-Ação de ITSM exige uma Conexão de ITSM. Saiba como criar uma [Conexão de ITSM](../../azure-monitor/platform/itsmc-overview.md).
+Ação de ITSM exige uma Conexão de ITSM. Saiba como criar uma [Conexão de ITSM](./itsmc-overview.md).
 
 É possível ter um número limitado de ações de ITSM em um grupo de ações. 
 
@@ -109,8 +109,8 @@ Ação de ITSM exige uma Conexão de ITSM. Saiba como criar uma [Conexão de ITS
 ### <a name="secure-webhook"></a>Webhook Seguro
 A ação de webhook dos grupos de ações permite que você aproveite o Azure Active Directory para proteger a conexão entre o grupo de ações e a API Web protegida (ponto de extremidade do webhook). O fluxo de trabalho geral para aproveitar essa funcionalidade é descrito abaixo. Para obter uma visão geral dos aplicativos do Azure AD e das entidades de serviço, confira a [Visão geral da plataforma de identidade da Microsoft (v2.0)](../../active-directory/develop/v2-overview.md).
 
-1. Crie um aplicativo do Azure AD para sua API Web protegida. Consulte [API Web protegida: registro de aplicativo](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration).
-    - Configure sua API protegida para ser [chamada por um aplicativo daemon](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#if-your-web-api-is-called-by-a-daemon-app).
+1. Crie um aplicativo do Azure AD para sua API Web protegida. Consulte [API Web protegida: registro de aplicativo](../../active-directory/develop/scenario-protected-web-api-app-registration.md).
+    - Configure sua API protegida para ser [chamada por um aplicativo daemon](../../active-directory/develop/scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
     
 2. Habilite grupos de ações para usar seu aplicativo Azure AD.
 
@@ -196,7 +196,7 @@ Write-Host $myApp.AppRoles
 ```
 
 ### <a name="sms"></a>sms
-Confira as [informações de limitação de taxa](./../../azure-monitor/platform/alerts-rate-limiting.md) e o [comportamento de alerta do SMS](../../azure-monitor/platform/alerts-sms-behavior.md) para obter informações adicionais importantes. 
+Confira as [informações de limitação de taxa](./alerts-rate-limiting.md) e o [comportamento de alerta do SMS](./alerts-sms-behavior.md) para obter informações adicionais importantes. 
 
 É possível ter um número limitado de ações de SMS em um grupo de ações.
 
@@ -207,7 +207,7 @@ Os preços de países/regiões com suporte são listados na [página de preços 
   
 
 ### <a name="voice"></a>Voz
-Confira o artigo sobre [informações de limitação de taxa](./../../azure-monitor/platform/alerts-rate-limiting.md) para comportamento adicional importante.
+Confira o artigo sobre [informações de limitação de taxa](./alerts-rate-limiting.md) para comportamento adicional importante.
 
 É possível ter um número limitado de ações de voz em um grupo de ações.
 
@@ -248,9 +248,10 @@ Para receber atualizações sobre as alterações para esses endereços IP, é r
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre o [comportamento de alertas por SMS](../../azure-monitor/platform/alerts-sms-behavior.md).  
-* Tenha uma [compreensão do esquema de webhook de alerta do log de atividades](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
-* Saiba mais sobre [conector ITSM](../../azure-monitor/platform/itsmc-overview.md).
-* Saiba mais sobre a [limitação de taxa](../../azure-monitor/platform/alerts-rate-limiting.md) para alertas.
-* Obtenha uma [visão geral dos alertas do log de atividades](../../azure-monitor/platform/alerts-overview.md) e saiba como receber alertas.  
+* Saiba mais sobre o [comportamento de alertas por SMS](./alerts-sms-behavior.md).  
+* Tenha uma [compreensão do esquema de webhook de alerta do log de atividades](./activity-log-alerts-webhook.md).  
+* Saiba mais sobre [conector ITSM](./itsmc-overview.md).
+* Saiba mais sobre a [limitação de taxa](./alerts-rate-limiting.md) para alertas.
+* Obtenha uma [visão geral dos alertas do log de atividades](./alerts-overview.md) e saiba como receber alertas.  
 * Saiba como [configurar alertas sempre que uma notificação de integridade do serviço é postada](../../service-health/alerts-activity-log-service-notifications-portal.md).
+

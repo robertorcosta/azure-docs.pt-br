@@ -3,12 +3,12 @@ title: Automatizar processos do insights Aplicativo Azure usando aplicativos ló
 description: Saiba como você pode automatizar rapidamente os processos repetíveis adicionando o conector do Application Insights ao aplicativo lógico.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: 76a199023ef37fbda27be59fdf70f6ca5d8481bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d023d774c130a9db513fbcf9452b05fa030a967a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079614"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323189"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatize os processos do Application Insights usando os Aplicativos Lógicos
 
@@ -130,9 +130,10 @@ Quando o aplicativo lógico for executado, os destinatários especificados na li
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre como criar [consultas do Analytics](../../azure-monitor/log-query/get-started-queries.md).
+- Saiba mais sobre como criar [consultas do Analytics](../log-query/get-started-queries.md).
 - Saiba mais sobre o [Aplicativos Lógicos](../../logic-apps/logic-apps-overview.md).
 
 
 
 <!--Link references-->
+

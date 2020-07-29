@@ -574,6 +574,9 @@
           href: role-based-access-control.md
         - href: cosmos-db-advanced-threat-protection.md
           name: Proteção avançada contra ameaças
+        - name: Controles de segurança do Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Linha de base de segurança
           href: security-baseline.md
     - name: Preparação corporativa
@@ -988,7 +991,7 @@
           href: how-to-manage-indexing-policy.md
         - name: Definir chaves exclusivas
           href: how-to-define-unique-keys.md
-    - name: Desempenho e solução de problemas
+    - name: Desempenho
       items:
         - name: Consulta
           items:
@@ -996,28 +999,20 @@
               href: profile-sql-api-query.md
             - name: Desempenho de consulta de ajuste
               href: sql-api-query-metrics.md
-            - name: Solucionar problemas de desempenho de consulta
-              href: troubleshoot-query-performance.md
         - name: .NET
           items:
             - name: Dicas de desempenho para o SDK v3 do .NET
               href: performance-tips-dotnet-sdk-v3-sql.md
             - name: Dicas de desempenho para o SDK v2 do .NET
               href: performance-tips.md
-            - name: Solucionar problemas de SDK do .NET
-              href: troubleshoot-dot-net-sdk.md
         - name: Java
           items:
             - name: Dicas de desempenho para o SDK do Java v4
               href: performance-tips-java-sdk-v4-sql.md
-            - name: Solucionar problemas do SDK do Java v4
-              href: troubleshoot-java-sdk-v4-sql.md
             - name: SDK do Java Assíncrono v2
               href: performance-tips-async-java.md
             - name: SDK do Java Síncrono v2
               href: performance-tips-java.md
-            - name: Solução de problemas – SDK do Java Assíncrono v2
-              href: troubleshoot-java-async-sdk.md
         - name: Teste de desempenho - aplicativo de exemplo
           href: performance-testing.md
         - name: Gravações e leituras econômicas
@@ -1026,6 +1021,36 @@
       items:
         - name: Migrar para o SDK do Java V4
           href: migrate-java-v4-sdk.md
+    - name: Solução de problemas
+      items:
+        - name: Erros comuns
+          items:
+            - name: Solucionar problemas de desempenho de consulta
+              href: troubleshoot-query-performance.md
+            - name: Solucionar problemas de tempo limite de solicitação de serviço
+              href: troubleshoot-request-timeout.md
+            - name: Solucionar problemas de taxa de solicitação alta demais
+              href: troubleshoot-request-rate-too-large.md
+            - name: Solução de problemas não encontrada
+              href: troubleshoot-not-found.md
+            - name: Solução de problemas não autorizada
+              href: troubleshoot-unauthorized.md
+        - name: .NET
+          items:
+            - name: Solução de problemas gerais do SDK do .NET
+              href: troubleshoot-dot-net-sdk.md
+            - name: Solucionar problemas de cabeçalho de solicitação muito grande
+              href: troubleshoot-dot-net-sdk-request-header-too-large.md
+            - name: Solucionar problemas de tempo limite de solicitação
+              href: troubleshoot-dot-net-sdk-request-timeout.md
+            - name: Serviço de solução de problemas indisponível
+              href: troubleshoot-service-unavailable.md
+        - name: .Java
+          items:
+            - name: Solucionar problemas do SDK do Java v4
+              href: troubleshoot-java-sdk-v4-sql.md
+            - name: Solução de problemas – SDK do Java Assíncrono v2
+              href: troubleshoot-java-async-sdk.md
     - name: Feed de alterações
       items:
         - name: Logs de Gatilho do Azure Cosmos DB

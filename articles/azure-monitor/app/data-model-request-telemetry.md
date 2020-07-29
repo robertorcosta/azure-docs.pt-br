@@ -4,15 +4,16 @@ description: Modelo de dados do Application Insights para telemetria de solicita
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 57cc9c95137facaaf2ddf5bb212121f88e150f5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a352f4ce3528d395599a91b53031c74b0873152
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807648"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320554"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria de solicitações: modelo de dados do Application Insights
 
-Um item de telemetria de solicitação (em [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representa a sequência lógica de execução acionada por uma solicitação externa a seu aplicativo. Toda execução de solicitação é identificada por um `ID` e `url` exclusivos que contêm todos os parâmetros de execução. Você pode agrupar solicitações por `name` lógico e definir a `source` dessa solicitação. A execução de código pode resultar em `success` ou `fail` e tem um determinado `duration`. Execuções com êxito e falha podem ser agrupadas ainda mais pelo `resultCode`. Hora de início para a telemetria de solicitação definida no nível de envelope.
+Um item de telemetria de solicitação (em [Application Insights](./app-insights-overview.md)) representa a sequência lógica de execução acionada por uma solicitação externa a seu aplicativo. Toda execução de solicitação é identificada por um `ID` e `url` exclusivos que contêm todos os parâmetros de execução. Você pode agrupar solicitações por `name` lógico e definir a `source` dessa solicitação. A execução de código pode resultar em `success` ou `fail` e tem um determinado `duration`. Execuções com êxito e falha podem ser agrupadas ainda mais pelo `resultCode`. Hora de início para a telemetria de solicitação definida no nível de envelope.
 
 A solicitação de telemetria dá suporte ao modelo de extensibilidade padrão usando `properties` e `measurements` personalizadas.
 
@@ -26,7 +27,7 @@ Comprimento máximo: 1.024 caracteres
 
 ## <a name="id"></a>ID
 
-Identificador de uma instância de chamada de solicitação. Usada para a correlação entre a solicitação e outros itens de telemetria. A ID deve ser globalmente exclusiva. Para obter mais informações, consulte a página de [correlação](../../azure-monitor/app/correlation.md).
+Identificador de uma instância de chamada de solicitação. Usada para a correlação entre a solicitação e outros itens de telemetria. A ID deve ser globalmente exclusiva. Para obter mais informações, consulte a página de [correlação](./correlation.md).
 
 Comprimento máximo: 128 caracteres
 
@@ -36,9 +37,9 @@ URL de solicitação com todos os parâmetros de cadeia de consulta.
 
 Comprimento máximo: 2.048 caracteres
 
-## <a name="source"></a>Origem
+## <a name="source"></a>Fonte
 
-A origem da solicitação. Os exemplos são a chave de instrumentação do chamador ou o endereço IP do chamador. Para obter mais informações, consulte a página de [correlação](../../azure-monitor/app/correlation.md).
+A origem da solicitação. Os exemplos são a chave de instrumentação do chamador ou o endereço IP do chamador. Para obter mais informações, consulte a página de [correlação](./correlation.md).
 
 Comprimento máximo: 1.024 caracteres
 
@@ -52,7 +53,7 @@ Resultado de uma execução de solicitação. Código de status HTTP para solici
 
 Comprimento máximo: 1.024 caracteres
 
-## <a name="success"></a>Êxito
+## <a name="success"></a>Sucesso
 
 Indicação de chamada bem-sucedida ou malsucedida. Esse campo é obrigatório. Quando não definido explicitamente como `false`, uma solicitação é considerada bem-sucedida. Defina esse valor como `false` se a operação for interrompida por exceção ou tiver retornado um código de resultado do erro.
 
@@ -72,7 +73,8 @@ Você pode ler mais sobre código de status e código de resultados de solicita�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Escrever uma telemetria de solicitação personalizada](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
+- [Escrever uma telemetria de solicitação personalizada](./api-custom-events-metrics.md#trackrequest)
 - Consulte [modelo de dados](data-model.md) para modelo de dados e tipos do Application Insights.
-- Saiba como [configurar o aplicativo ASP.NET Core](../../azure-monitor/app/asp-net.md) com o Application Insights.
-- Confira as [plataformas](../../azure-monitor/app/platforms.md) com suporte do Application Insights.
+- Saiba como [configurar o aplicativo ASP.NET Core](./asp-net.md) com o Application Insights.
+- Confira as [plataformas](./platforms.md) com suporte do Application Insights.
+
