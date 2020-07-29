@@ -4,15 +4,15 @@ description: A API do Go Live inicia o processo de listagem de ofertas em tempo 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 5c5448a853447a0eacc8d974a5b00d5d1e8f4be2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d612b796f85c9eaab1600c55cde7e79acb49f352
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535936"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292931"
 ---
 # <a name="go-live"></a>Go Live
 
@@ -58,7 +58,7 @@ Essa API inicia o processo de envio de um aplicativo para produção. Essa opera
 
 |  **Nome**             |      **Valor**                                                            |
 |  --------             |      ----------                                                           |
-| Localização    |  O caminho relativo para recuperar o status da operação            |
+| Location    |  O caminho relativo para recuperar o status da operação            |
 |  |  |
 
 ### <a name="response-status-codes"></a>Códigos de status de resposta

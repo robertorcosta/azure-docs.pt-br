@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: cd6ea6d4967e024ddf88fb9572d5efae8b7a7815
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 48080bb4d1e24f7f98d3dfe1fd63b65ba46df35e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495322"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289894"
 ---
 ### <a name="property-limits"></a>Limites de propriedade
 
@@ -33,7 +33,7 @@ Há suporte para no máximo duas origens de evento por instância.
 * Saiba como [Adicionar uma origem do hub de eventos](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 * Configurar [uma origem do Hub IOT](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
 
-Por padrão, os [ambientes Gen2 dão suporte a tarifas de entrada](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-throughput-limitations) de até **1 megabyte por segundo (MB/s) por ambiente**. Os clientes podem dimensionar seus ambientes de até **16 MB/s** de taxa de transferência, se necessário. Também há um limite por partição de **0,5 MB/s**.
+Por padrão, os [ambientes Gen2 dão suporte a tarifas de entrada](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingress-throughput-limits) de até **1 megabyte por segundo (MB/s) por ambiente**. Os clientes podem dimensionar seus ambientes de até **16 MB/s** de taxa de transferência, se necessário. Também há um limite por partição de **0,5 MB/s**.
 
 ### <a name="api-limits"></a>Limites de API
 

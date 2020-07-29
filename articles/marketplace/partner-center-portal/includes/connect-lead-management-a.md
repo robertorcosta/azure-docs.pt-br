@@ -7,12 +7,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 06/01/2020
 ms.custom: include file
-ms.openlocfilehash: 38f97f8f3397eb1737c2414f5bbbccf99503711e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: f07be72c556640ae1e0de52e961eeedb790a734c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121870"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317698"
 ---
 Conecte-se com os clientes diretamente, listando sua oferta nos Marketplaces e vinculando seu sistema de CRM (gerenciamento de relacionamento com o cliente) para que você possa receber informações de contato do cliente imediatamente depois que um cliente expressar o interesse ou implantar seu produto.
 

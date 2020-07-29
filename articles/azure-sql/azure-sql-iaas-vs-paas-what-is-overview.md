@@ -12,13 +12,13 @@ keywords: SQL Server nuvem, SQL Server na nuvem, banco de dados PaaS, nuvem SQL 
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/27/2020
-ms.openlocfilehash: 7a4f26b11911caaa7bce40b77570331b492ceb9d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 07/27/2020
+ms.openlocfilehash: ff8dd9d10bf5970a5a96080beb51e2c111d481e3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080169"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280844"
 ---
 # <a name="what-is-azure-sql"></a>O que é o SQL Azure? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -110,7 +110,7 @@ Em geral, o banco de dados SQL e o SQL Instância Gerenciada podem aumentar dras
 | Banco de Dados SQL do Azure | Instância Gerenciada do Azure SQL | SQL Server na VM do Azure |
 | :--- | :--- | :--- |
 |É compatível com a maioria dos recursos locais no nível do banco de dados. Recursos do SQL Server mais comumente usados estão disponíveis.<br/>Disponibilidade garantida de 99,995%.<br/>Backups internos, aplicação de patch, recuperação.<br/>Última versão estável do Mecanismo de Banco de Dados do Microsoft SQL Server.<br/>Capacidade de atribuir recursos necessários (CPU/armazenamento) para bancos de dados individuais.<br/>Inteligência avançada interna e segurança.<br/>Alteração online de recursos (CPU/armazenamento).| É compatível com quase todos os recursos locais no nível da instância e no nível do banco de dados. Alta compatibilidade com o SQL Server.<br/>99,99% de disponibilidade garantida.<br/>Backups internos, aplicação de patch, recuperação.<br/>Última versão estável do Mecanismo de Banco de Dados do Microsoft SQL Server.<br/>Fácil migração do SQL Server local.<br/>Endereço IP privado na rede virtual do Azure.<br/>Inteligência avançada interna e segurança.<br/>Alteração online de recursos (CPU/armazenamento).| Você tem controle total sobre o mecanismo do SQL Server. É compatível com todos os recursos locais.<br/>Até 99,99% de disponibilidade.<br/>Paridade completa com a versão correspondente do SQL Server no local.<br/>Versão de Mecanismo de Banco de Dados fixa e conhecida.<br/>Fácil migração do SQL Server local.<br/>Endereço IP privado na rede virtual do Azure.<br/>Você tem a capacidade de implantar aplicativos ou serviços no host onde SQL Server é colocado.|
-|A migração de SQL Server pode ser desafiadora.<br/>Alguns recursos do SQL Server não estão disponíveis.<br/>Não há tempo de manutenção exato garantido (mas quase transparente).<br/>A compatibilidade com a versão do SQL Server pode ser obtida usando apenas os níveis de compatibilidade do banco de dados.<br/>Não é possível atribuir o endereço IP privado (você pode limitar o acesso usando regras de firewall).|Ainda há um número mínimo de recursos do SQL Server que não estão disponíveis.<br/>Não há tempo de manutenção exato garantido (mas quase transparente).<br/>A compatibilidade com a versão do SQL Server pode ser obtida usando apenas os níveis de compatibilidade do banco de dados.|Você precisa gerenciar seus backups e patches.<br>Você precisa implementar sua própria solução de alta disponibilidade.<br/>Há um tempo de inatividade durante a alteração de recursos (CPU/armazenamento)|
+|A migração de SQL Server pode ser desafiadora.<br/>Alguns recursos do SQL Server não estão disponíveis.<br/>Não há tempo de manutenção exato garantido (mas quase transparente).<br/>A compatibilidade com a versão do SQL Server pode ser obtida usando apenas os níveis de compatibilidade do banco de dados.<br/>Suporte ao endereço IP privado com o [link privado do Azure](database/private-endpoint-overview.md).|Ainda há um número mínimo de recursos do SQL Server que não estão disponíveis.<br/>Não há tempo de manutenção exato garantido (mas quase transparente).<br/>A compatibilidade com a versão do SQL Server pode ser obtida usando apenas os níveis de compatibilidade do banco de dados.|Você precisa gerenciar seus backups e patches.<br>Você precisa implementar sua própria solução de alta disponibilidade.<br/>Há um tempo de inatividade durante a alteração de recursos (CPU/armazenamento)|
 | Bancos de dados de até 100 TB. | Até 8 TB. | SQL Server instâncias com até 256 TB de armazenamento. A instância pode suportar quantos bancos de dados forem necessários. |
 | O aplicativo local pode acessar os dados no Azure SQL Database. | [Implementação de rede virtual nativa](managed-instance/vnet-existing-add-subnet.md) e conectividade com seu ambiente local usando o gateway de VPN ou a rota expressa do Azure. | Com as máquinas virtuais do SQL, você pode ter aplicativos que são executados parcialmente na nuvem e parcialmente locais. Por exemplo, você pode estender sua rede local e o Domínio do Active Directory para a nuvem por meio da [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md). Para obter mais informações sobre soluções de nuvem híbrida, veja [Estendendo soluções de dados locais para a nuvem](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud). |
 

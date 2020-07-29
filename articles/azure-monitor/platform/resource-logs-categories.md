@@ -4,21 +4,21 @@ description: Referência de Azure Monitor entender os serviços com suporte e o 
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
-ms.openlocfilehash: ceca6b0a230de6d3eeab47e60d90767b33b5ac59
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 81f79b81c03e7996d7f6d45b002d8160740c3c14
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515386"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318293"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorias com suporte para logs de recursos do Azure
 
 > [!NOTE]
 > Os logs de recursos eram anteriormente conhecidos como logs de diagnóstico. O nome foi alterado em outubro de 2019, pois os tipos de logs coletados por Azure Monitor foram deslocados para incluir mais do que apenas o recurso do Azure.
 
-[Azure monitor logs de recursos](../../azure-monitor/platform/platform-logs-overview.md) são logs emitidos pelos serviços do Azure que descrevem a operação desses serviços ou recursos. Todos os logs de recursos disponíveis por meio de Azure Monitor compartilham um esquema comum de nível superior, com flexibilidade para cada serviço para emitir propriedades exclusivas para seus próprios eventos.
+[Azure monitor logs de recursos](./platform-logs-overview.md) são logs emitidos pelos serviços do Azure que descrevem a operação desses serviços ou recursos. Todos os logs de recursos disponíveis por meio de Azure Monitor compartilham um esquema comum de nível superior, com flexibilidade para cada serviço para emitir propriedades exclusivas para seus próprios eventos.
 
-Uma combinação do tipo de recurso (disponível na propriedade `resourceId`) e da `category` identifica exclusivamente um esquema. Há um esquema comum para todos os logs de recursos com campos específicos de serviço, então adicionados para diferentes categorias de log. Para obter mais informações, consulte [esquema específico de serviço e comum para logs de recursos do Azure](resource-logs-categories.md)
+Uma combinação do tipo de recurso (disponível na propriedade `resourceId`) e da `category` identifica exclusivamente um esquema. Há um esquema comum para todos os logs de recursos com campos específicos de serviço, então adicionados para diferentes categorias de log. Para obter mais informações, consulte [esquema específico de serviço e comum para logs de recursos do Azure]()
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorias de log com suporte por tipo de recurso
 
@@ -711,7 +711,8 @@ Se ainda houver algo ausente, você poderá abrir um comentário do GitHub na pa
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba mais sobre os logs de recursos](../../azure-monitor/platform/platform-logs-overview.md)
+* [Saiba mais sobre os logs de recursos](./platform-logs-overview.md)
 * [Transmitir logs de recurso de recurso para **hubs de eventos**](./resource-logs.md#send-to-azure-event-hubs)
 * [Alterar as configurações de diagnóstico do log de recursos usando a API REST do Azure Monitor](/rest/api/monitor/diagnosticsettings)
 * [Analisar logs do Armazenamento do Azure com o Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
+

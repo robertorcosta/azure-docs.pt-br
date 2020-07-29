@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 7d8998b450613e097230d7692a8ad1990830993b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 64c461c5d3e1bb34f480e5173621f8753eadbbd8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539322"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318310"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Diretrizes para dados pessoais armazenados no Log Analytics e no Application Insights
 
@@ -48,7 +48,7 @@ O Log Analytics é um armazenamento flexível que, enquanto prescreve um esquema
     ```
   Lembre-se de procurar não apenas nomes de usuários legíveis, mas também GUIDs que podem ser rastreados diretamente para um usuário em particular!
 * *IDs de dispositivo*: Como as IDs de usuário, as IDs de dispositivo às vezes são consideradas "particulares". Use a mesma abordagem listada acima para IDs de usuário para identificar tabelas nas quais isso possa ser uma preocupação. 
-* *Dados personalizados*: O Log Analytics permite a coleta em uma variedade de métodos: logs personalizados e campos personalizados, a [API do Coletor de Dados HTTP](../../azure-monitor/platform/data-collector-api.md) e dados personalizados coletados como parte dos logs de eventos do sistema. Todos são suscetíveis a conter dados privados e devem ser examinados para verificar se esses dados existem.
+* *Dados personalizados*: O Log Analytics permite a coleta em uma variedade de métodos: logs personalizados e campos personalizados, a [API do Coletor de Dados HTTP](./data-collector-api.md) e dados personalizados coletados como parte dos logs de eventos do sistema. Todos são suscetíveis a conter dados privados e devem ser examinados para verificar se esses dados existem.
 * *Dados capturados pela solução*: Como o mecanismo da solução é aberto, recomendamos examinar todas as tabelas geradas pelas soluções para garantir a conformidade.
 
 ### <a name="application-data"></a>Dados do aplicativo
@@ -124,5 +124,6 @@ Depois que a função do Azure Resource Manager for atribuída, dois novos camin
 >  Embora a grande maioria das operações de limpeza possa ser concluída muito mais rapidamente do que o SLA, devido a seu grande impacto na plataforma de dados usada pelo Application Insights,  **o SLA formal para a conclusão das operações de limpeza é definido como 30 dias**.
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para saber mais sobre como os dados do Log Analytcs são coletados, processados e protegidos, veja [Segurança de dados do Log Analytics](../../azure-monitor/platform/data-security.md).
-- Para saber mais sobre como os dados do Application Insights são coletados, processados e protegidos, confira [Segurança de dados do Application Insights](../../azure-monitor/app/data-retention-privacy.md).
+- Para saber mais sobre como os dados do Log Analytcs são coletados, processados e protegidos, veja [Segurança de dados do Log Analytics](./data-security.md).
+- Para saber mais sobre como os dados do Application Insights são coletados, processados e protegidos, confira [Segurança de dados do Application Insights](../app/data-retention-privacy.md).
+

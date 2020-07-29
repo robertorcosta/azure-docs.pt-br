@@ -4,12 +4,13 @@ description: Entenda como desenvolver funções usando JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: c0e5dd7e1869accd309656b69bd2a07d21b1a3ec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 636df121ea5b09a421ae7bedaf9e30cbbd1966f5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082963"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280861"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -132,7 +133,7 @@ As entradas são divididas em duas categorias no Azure Functions: uma é a entra
    };
    ```
 
-### <a name="outputs"></a>Saídas
+### <a name="outputs"></a>outputs
 As saídas (ligações de `direction === "out"`) podem ser gravadas por uma função de várias maneiras. Em todos os casos, a propriedade `name` da ligação, conforme definido em * function.json *, corresponde ao nome do membro do objeto gravado na sua função. 
 
 Você pode atribuir dados a associações de saída de uma das seguintes maneiras (não Combine esses métodos):
@@ -346,7 +347,7 @@ HTTP e gatilhos de webhook e associações de saída HTTP usam objetos de solici
 
 O objeto `context.req` (solicitação) tem as seguintes propriedades:
 
-| Propriedade      | Descrição                                                    |
+| Propriedade      | DESCRIÇÃO                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Um objeto que contém o corpo da solicitação.               |
 | _conector_     | Um objeto que contém os cabeçalhos da solicitação.                   |
@@ -361,7 +362,7 @@ O objeto `context.req` (solicitação) tem as seguintes propriedades:
 
 O objeto `context.res` (resposta) tem as seguintes propriedades:
 
-| Propriedade  | Descrição                                               |
+| Propriedade  | DESCRIÇÃO                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | Um objeto que contém o corpo da resposta.         |
 | _conector_ | Um objeto que contém os cabeçalhos da resposta.             |

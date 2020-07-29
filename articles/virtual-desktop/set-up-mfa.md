@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 47b1a3a44c494560dde9ffdab004ea576f434ffe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8a8f5cb792f524354754b4368c0b68d5f9d40699
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091293"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291380"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Habilitar a Autenticação Multifator do Azure para a Área de Trabalho Virtual do Windows
 
 >[!IMPORTANT]
-> Se você estiver visitando esta página da documentação do outono 2019, certifique-se de [retornar à documentação do outono 2019](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) quando tiver terminado.
+> Se você estiver visitando esta página na documentação da área de trabalho virtual do Windows (clássico), certifique-se de [retornar à documentação da área de trabalho virtual do Windows (clássica)](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) quando tiver terminado.
 
 O cliente do Windows para área de trabalho virtual do Windows é uma excelente opção para integrar a área de trabalho virtual do Windows com seu computador local. No entanto, quando você configura sua conta da área de trabalho virtual do Windows no cliente do Windows, há certas medidas que você precisará tomar para manter seus usuários seguros.
 
@@ -50,10 +50,10 @@ Veja como criar uma política de acesso condicional que requer autenticação mu
 7. Selecione **Concluído**.
 8. Em **aplicativos de nuvem ou ações**  >  **incluem**, selecione **selecionar aplicativos**.
 9. Selecione um dos seguintes grupos de aplicativos com base em qual versão da área de trabalho virtual do Windows você está usando.
-   - Se você estiver usando a versão 2019 do outono, escolha estes dois aplicativos:
+   - Se você estiver usando a área de trabalho virtual do Windows (clássico), escolha estes dois aplicativos:
        - **Área de trabalho virtual do Windows** (ID do aplicativo 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
        - **Cliente de área de trabalho virtual do Windows** (ID do aplicativo fa4345a4-A730-4230-84a8-7d9651b86739)
-   - Se você estiver usando a versão 2020 do Spring, escolha esses dois aplicativos:
+   - Se você estiver usando a área de trabalho virtual do Windows, escolha esses dois aplicativos:
        -  **Área de trabalho virtual do Windows** (ID do aplicativo 9cdead84-A844-4324-93f2-b2e6bb768d07)
        -  **Cliente de área de trabalho virtual do Windows** (ID do aplicativo a85cf173-4192-42F8-81fa-777a763e6e2c)
 

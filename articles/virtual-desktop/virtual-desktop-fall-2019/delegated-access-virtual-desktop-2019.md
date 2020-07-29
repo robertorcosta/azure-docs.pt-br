@@ -1,6 +1,6 @@
 ---
-title: Acesso delegado na área de trabalho virtual do Windows Outono de 2019 – Azure
-description: Como delegar recursos administrativos em uma implantação de área de trabalho virtual do Windows, incluindo exemplos.
+title: Acesso delegado na área de trabalho virtual do Windows (clássico)-Azure
+description: Como delegar recursos administrativos em uma implantação de área de trabalho virtual (clássica) do Windows, incluindo exemplos.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91be20de49f549f3530e6c817906f1abf8f106b6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fbb8c6e100a9f72c20bcfaba7049b6724ee458b2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527550"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292533"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop-fall-2019"></a>Acesso delegado na área de trabalho virtual do Windows Outono de 2019
+# <a name="delegated-access-in-windows-virtual-desktop-classic"></a>Acesso delegado na área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../delegated-access-virtual-desktop.md).
+>Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../delegated-access-virtual-desktop.md).
 
 A área de trabalho virtual do Windows tem um modelo de acesso delegado que permite definir a quantidade de acesso que um usuário específico tem permissão para ter atribuindo a eles uma função. Uma atribuição de função tem três componentes: entidade de segurança, definição de função e escopo. O modelo de acesso delegado da área de trabalho virtual do Windows baseia-se no modelo RBAC do Azure. Para saber mais sobre atribuições de função específicas e seus componentes, consulte [a visão geral do controle de acesso baseado em função do Azure](../../role-based-access-control/built-in-roles.md).
 

@@ -4,12 +4,12 @@ description: Saiba mais sobre os parceiros do Azure Monitor e como você pode ac
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: f40d38d182e1a8c233b15f711fd557a5d72e8f30
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 994dfe0d7e252fd2aea489c363e76f0956715048
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077322"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318327"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -268,7 +268,7 @@ O Turbonomic oferece automação de carga de trabalho para nuvens híbridas otim
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Saiba mais sobre o Azure Monitor](../../azure-monitor/overview.md)
+- [Saiba mais sobre o Azure Monitor](../overview.md)
 - [Acessar métricas usando a API REST](rest-api-walkthrough.md)
 - [Transmitir o Log de Atividades para um serviço que não seja da Microsoft](./activity-log.md#legacy-collection-methods)
 - [Transmitir logs de recursos para um serviço que não seja da Microsoft](./resource-logs.md#send-to-azure-event-hubs)
@@ -281,13 +281,13 @@ O Turbonomic oferece automação de carga de trabalho para nuvens híbridas otim
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Introdução ao Botmetric."
 [circonus-doc]: https://docs.circonus.com/circonus/agents/cloud-agent/azure/ 
-[cloudhealth-doc]: https://www.cloudhealthtech.com/azure
+[cloudhealth-doc]: https://www.cloudhealthtech.com/products/azure-management
 [cloudmonix-doc]: https://cloudmonix.com/features/azure-management/ "Introdução ao CloudMonix."
 [datadog-doc]: https://docs.datadoghq.com/integrations/azure/ "Documentação do Datadog."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Documentação do Dynatrace."
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Documentação Elástico."
 [grafana-doc]: ./grafana-plugin.md "Integração do Azure Monitor Grafana."
-[influxdata-doc]: ./../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md "Azure Monitor integração de Telegraf de dados de influxo."
+[influxdata-doc]: ./collect-custom-metrics-linux-telegraf.md "Azure Monitor integração de Telegraf de dados de influxo."
 [logicmonitor-doc]: https://www.logicmonitor.com/lp/azure-monitoring/ "Documentação do Logic Monitor."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Documentação do Moogsoft."
 [newrelic-doc]: https://newrelic.com/azure "Documentação do NewRelic."
@@ -302,3 +302,4 @@ O Turbonomic oferece automação de carga de trabalho para nuvens híbridas otim
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Documentação do Splunk."
 [sumologic-doc]: https://www.sumologic.com/azure "Documentação da SumoLogic"
 [turbonomic-doc]: https://turbonomic.com/ "Introdução ao Turbonomic."
+

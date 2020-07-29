@@ -10,26 +10,36 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 2ea850acf0ef581ea66733b0293ba044c87bb3a0
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362135"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289423"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Criar um assistente de voz usando comandos personalizados
 
 Neste guia de início rápido, você cria e testa um aplicativo básico de comandos personalizados usando o Speech Studio. Você também poderá acessar esse aplicativo de um aplicativo cliente do Windows. Os **comandos personalizados** facilitam a criação de aplicativos avançados de comando de voz otimizados para experiências de interação de voz primeiro. Ele fornece uma experiência de criação unificada, um modelo de hospedagem automático e complexidade relativamente menor, ajudando você a se concentrar na criação da melhor solução para seus cenários de comando de voz.
 
+## <a name="region-availability"></a>Disponibilidade de região
+Neste momento, os comandos personalizados dão suporte a assinaturas de fala criadas nessas regiões:
+* Oeste dos EUA
+* Oeste dos EUA 2
+* East US
+* Leste dos EUA 2
+* Norte da Europa
+* Europa Ocidental
+* Centro-Oeste dos EUA
+* Índia Central
+* Leste da Ásia
+* Sudeste Asiático
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Crie um recurso de fala do Azure em uma região que dê suporte a comandos personalizados.<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Crie um recurso de fala do Azure em uma região que dê suporte a comandos personalizados.<span class="docon docon-navigate-external x-hidden-focus"></span></a> Consulte a seção **disponibilidade de região** acima para obter a lista de regiões com suporte.
 > * Baixe o arquivo JSON de exemplo do [Smart Room Lite](https://aka.ms/speech/cc-quickstart) .
 > * Baixe a versão mais recente do [cliente do assistente do Windows Voice](https://aka.ms/speech/va-samples-wvac).
-
-> [!NOTE]
-> Neste momento, os comandos personalizados dão suporte apenas a assinaturas de fala nas regiões westus, westus2 e northeurope.
 
 ## <a name="go-to-the-speech-studio-for-custom-commands"></a>Ir para o Speech Studio para comandos personalizados
 
@@ -93,7 +103,7 @@ Antes de poder acessar esse aplicativo de fora do Speech Studio, você precisa p
 
 1. Selecione **configurações** no painel esquerdo e selecione **recursos do Luis** no painel central.
 1. Selecione um recurso de previsão ou crie um selecionando **criar novo recurso**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
     
     > [!div class="mx-imgBorder"]
     > ![Definir recursos do LUIS](media/custom-commands/set-luis-resources.png)

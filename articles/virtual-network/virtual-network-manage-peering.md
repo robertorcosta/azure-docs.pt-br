@@ -1,6 +1,6 @@
 ---
 title: Criar, alterar ou excluir um emparelhamento de rede virtual do Azure | Microsoft Docs
-description: Saiba como criar, alterar ou excluir um emparelhamento de rede virtual.
+description: Criar, alterar ou excluir um emparelhamento de rede virtual. Com o emparelhamento de rede virtual, você conecta redes virtuais na mesma região e entre regiões.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: d38b164e95b1791971f88f62e7eccfee8a59bd71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb59d30079c830ad7d6f3dbd5fb8d48e6cd06c67
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711095"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291874"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou excluir um emparelhamento da rede virtual
 
@@ -85,7 +86,7 @@ Antes de alterar um emparelhamento, familiarize-se com os requisitos e restriç�
 3. Em **CONFIGURAÇÕES**, selecione **Emparelhamentos**.
 4. Selecione o emparelhamento que você deseja exibir ou alterar as configurações.
 5. Altere a configuração apropriada. Leia sobre as opções para cada configuração na [etapa 5](#add-peering) de criar um emparelhamento.
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 **Comandos**
 

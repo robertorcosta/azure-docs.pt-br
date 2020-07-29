@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 218ec6a5beab32729e106a7397d58ebaa2a30123
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: adc0d63a51535b27b42abbe0115ff25594eb2b4f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086918"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292479"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Perguntas frequentes sobre o Windows 10 Enterprise de várias sessões
 
@@ -102,6 +102,6 @@ Para desabilitar o aplicativo da loja:
 
 Para saber mais sobre a área de trabalho virtual do Windows e a várias sessões do Windows 10 Enterprise:
 
-- Leia nossa [documentação da versão prévia da área de trabalho virtual do Windows](overview.md)
+- Leia nossa [documentação da área de trabalho virtual do Windows](overview.md)
 - Visite nossa [área de trabalho virtual do Windows TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)
 - Configurar sua implantação de área de trabalho virtual do Windows com os [tutoriais de área de trabalho virtual do Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)

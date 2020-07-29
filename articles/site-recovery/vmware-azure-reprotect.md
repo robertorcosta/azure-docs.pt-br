@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
-ms.openlocfilehash: 976888f57269cc9fe6107a38e30d78c73eb5c124
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8a78ed25be80cbf083467209f764109a26782278
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037841"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292784"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Proteja Novamente do Azure para o local
 
@@ -33,7 +33,7 @@ Depois de [failover](site-recovery-failover.md) de máquinas virtuais do VMware 
     - Se você estiver usando a edição gratuita ESXi 5,5 ou a edição gratuita do vSphere 6 hypervisor. Atualize para uma versão diferente.
     - Se você tiver um servidor físico do Windows Server 2008 R2 SP1.
     - As VMs do VMware não podem fazer failback para o Hyper-V.
-    - VMs que [foram migradas](migrate-overview.md#what-do-we-mean-by-migration).
+    - VMs que foram migradas.
     - Uma VM que foi movida para outro grupo de recursos.
     - Uma VM do Azure de réplica que foi excluída.
     - Uma VM do Azure de réplica que não está protegida (replicando para o site local).

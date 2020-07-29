@@ -5,26 +5,29 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: dd75ad4ed1024292868f113e474fe8b8b73679b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/24/2020
+ms.openlocfilehash: e1c60542ec16ca19d26a77c1b9fb9676cf875e3d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75445123"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318259"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Otimizar o custo de consulta no Azure Cosmos DB
 
-O Azure Cosmos DB oferece um conjunto avançado de operações de banco de dados, incluindo consultas relacionais e hierárquicas que operam nos itens dentro de um contêiner. O custo associado a cada uma dessas operações varia com base na CPU, E/S e memória necessárias para concluir a operação. Em vez de pensar em e gerenciar recursos de hardware, você pode pensar em uma RU (unidade de solicitação) como uma medida única para os recursos necessários realizarem várias operações de bancos de dados a fim de atender a uma solicitação. Este artigo descreve como avaliar os encargos de unidade de solicitação para uma consulta e otimizar a consulta em termos de desempenho e custo. 
+O Azure Cosmos DB oferece um conjunto avançado de operações de banco de dados, incluindo consultas relacionais e hierárquicas que operam nos itens dentro de um contêiner. O custo associado a cada uma dessas operações varia com base na CPU, E/S e memória necessárias para concluir a operação. Em vez de pensar em e gerenciar recursos de hardware, você pode pensar em uma RU (unidade de solicitação) como uma medida única para os recursos necessários realizarem várias operações de bancos de dados a fim de atender a uma solicitação. Este artigo descreve como avaliar os encargos de unidade de solicitação para uma consulta e otimizar a consulta em termos de desempenho e custo.
 
-As consultas no Azure Cosmos DB são normalmente classificadas da mais rápida/eficiente para a menos rápida/eficiente em termos de taxa de transferência da seguinte maneira:  
+As leituras em Azure Cosmos DB normalmente são ordenadas da mais rápida/mais eficiente para mais lenta/menos eficiente em termos de taxa de transferência da seguinte maneira:  
 
-* Operação GET em uma chave de item e uma chave de partição únicas.
+* Leituras de ponto (pesquisa de chave/valor em uma única ID de item e chave de partição).
 
 * Consulta com uma cláusula de filtro em uma chave de partição única.
 
 * Consulta sem uma cláusula de filtro de igualdade ou intervalo em qualquer propriedade.
 
 * Consulta sem filtros.
+
+Como as pesquisas de chave/valor na ID do item são o tipo mais eficiente de leitura, você deve verificar se a ID do item tem um valor significativo.
 
 Consultas que leem dados de uma ou mais partições incorrem em latência mais altas e consomem mais unidades de solicitação. Como cada partição tem indexação automática para todas as propriedades, a consulta pode ser atendida com eficiência no índice. Você pode fazer consultas que usam várias partições mais rapidamente usando as opções de paralelismo. Para saber mais sobre particionamento e chaves de partição, consulte [Particionamento no Azure Cosmos DB](partitioning-overview.md).
 
@@ -35,7 +38,7 @@ Depois que você tiver alguns dados armazenados em seus contêineres do Azure Co
 Você também pode obter o custo de consultas programaticamente usando os SDKs. Para medir a sobrecarga de operações como criar, atualizar ou excluir, inspecione o cabeçalho `x-ms-request-charge` ao usar a API REST. Se você estiver usando o .NET ou o SDK do Java, a `RequestCharge` propriedade será a propriedade equivalente para obter o encargo da solicitação e essa propriedade estará presente dentro de ResourceResponse ou FeedResponse.
 
 ```csharp
-// Measure the performance (request units) of writes 
+// Measure the performance (request units) of writes
 ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument); 
 
 Console.WriteLine("Insert of an item consumed {0} request units", response.RequestCharge); 

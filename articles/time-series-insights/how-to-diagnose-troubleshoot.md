@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: fcd73a5bb6de162fc258d93398b7d00044429588
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d9a4f7aa270aa4ed2b02e61da984e14379a241a9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87096101"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289925"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnosticar e solucionar problemas de um ambiente de Azure Time Series Insights Gen2
 
@@ -121,7 +121,7 @@ Se a propriedade timestamp não for especificada explicitamente, o Hub IoT do ev
 
 ## <a name="problem-all-my-instances-in-the-gen2-explorer-lack-a-parent"></a>Problema: todas as minhas instâncias no Gen2 Explorer não têm um pai
 
-Esse problema pode ocorrer se o seu ambiente não tiver uma hierarquia de modelo de série temporal definida. Para obter mais informações, leia sobre como [trabalhar com modelos de série temporal](./time-series-insights-update-how-to-tsm.md).
+Esse problema pode ocorrer se o seu ambiente não tiver uma hierarquia de modelo de série temporal definida. Para obter mais informações, leia sobre como [trabalhar com modelos de série temporal](/azure/time-series-insights/time-series-insights-overview).
 
   [![As instâncias não pais exibirão um aviso.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
@@ -135,7 +135,7 @@ Esse problema pode ocorrer se você não estiver usando a versão mais recente d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia sobre como [trabalhar com modelos de série temporal](./time-series-insights-update-how-to-tsm.md).
+- Leia sobre como [trabalhar com modelos de série temporal](/azure/time-series-insights/time-series-insights-overview).
 
 - Saiba mais sobre [as formas JSON com suporte](./how-to-shape-query-json.md).
 

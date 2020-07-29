@@ -4,15 +4,15 @@ description: Este artigo descreve as etapas de alto nível para publicar um apli
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
-ms.author: mingshen
+author: navits09
+ms.author: navits
 ms.date: 04/02/2020
-ms.openlocfilehash: 9bf02fe6552b47070d4f79c4c497830ac2bfad84
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f3699892471a1535cda5fc182a4c9121fd3c250c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121768"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317596"
 ---
 # <a name="power-bi-app-creation-overview"></a>Visão geral da criação de aplicativos Power BI
 
@@ -68,7 +68,7 @@ Você só pode compilar um aplicativo Power BI dentro do ambiente de [Power bi](
 
 Depois que o aplicativo for criado e testado no Power BI, salve o endereço Web de instalação do aplicativo, pois você precisará dele para [criar uma oferta de aplicativo Power bi](create-power-bi-app-offer.md).
 
-### <a name="business-requirements"></a>Requisitos de negócios
+### <a name="business-requirements"></a>Requisitos empresariais
 
 Os requisitos de negócios incluem o procedimento, o contratual e as obrigações legais. Você deve:
 

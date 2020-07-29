@@ -1,6 +1,5 @@
 ---
-title: Como baixar dados de blocos de anotações (versão prévia)
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clássico): como baixar dados de notebooks (visualização) – Azure'
 description: Como baixar dados de notebooks (visualização) em ML Studio (clássico).
 ms.service: machine-learning
 ms.subservice: studio
@@ -8,14 +7,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 04/15/2020
-ms.openlocfilehash: 8a1de4ceb42ac86d8f945ec973eaa52d6ddec736
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc12204c5eabf857fd1143e71df9b2b505d88a23
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82208458"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318650"
 ---
 # <a name="download-notebookspreview-data"></a>Baixar dados de blocos de anotações (versão prévia)
+
+**aplica-se a:** ![ Não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) 
 
 O recurso notebooks (versão prévia) foi removido em *abril de 13 2020*. A remoção dos arquivos de bloco de anotações (visualização) e de bloco de anotações do usuário está sendo distribuída no momento para regiões do Azure em todo o mundo.
 

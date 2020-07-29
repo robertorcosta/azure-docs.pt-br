@@ -3,12 +3,12 @@ title: Application Insights para serviços de nuvem do Azure | Microsoft Docs
 description: Monitorar suas funções da Web e de trabalho com eficiência com o Application Insights
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: bf75bb145a3b0d7c861d3c92af972b39de11bcdf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2adcdcdc36fdd41b1f871acbea386beb1d7a9451
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075423"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318429"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para serviços de nuvem do Azure
 O [Application Insights][start] pode monitorar os [aplicativos de serviço de nuvem do Azure](https://azure.microsoft.com/services/cloud-services/) para analisar a disponibilidade, o desempenho, as falhas e o uso combinando os dados de SDKs do Application Insights com os dados do [Diagnóstico do Azure](../platform/diagnostics-extension-overview.md) a partir de seus serviços de nuvem. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
@@ -31,9 +31,9 @@ Esta opção prepara o aplicativo em runtime, oferecendo a você toda a telemetr
 
 Se esta opção for tudo o que você precisa, então você terminou. 
 
-Suas próximas etapas estão [exibindo métricas do seu aplicativo](../../azure-monitor/platform/metrics-charts.md), [consultando seus dados com a análise](../log-query/log-query-overview.md). 
+Suas próximas etapas estão [exibindo métricas do seu aplicativo](../platform/metrics-charts.md), [consultando seus dados com a análise](../log-query/log-query-overview.md). 
 
-Para monitorar o desempenho no navegador, talvez você queira configurar os [testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) e [adicionar código às suas páginas da Web](../../azure-monitor/app/javascript.md).
+Para monitorar o desempenho no navegador, talvez você queira configurar os [testes de disponibilidade](./monitor-web-app-availability.md) e [adicionar código às suas páginas da Web](./javascript.md).
 
 As seções a seguir apresentam estas opções adicionais:
 
@@ -51,9 +51,9 @@ A telemetria de seu aplicativo é armazenada, analisada e exibida em um recurso 
 Cada recurso pertence somente a um grupo de recursos. Os grupos de recursos são usados para gerenciar custos, conceder acesso a membros da equipe e implantar atualizações em uma única transação coordenada. Por exemplo, você pode [escrever um script para implantar](../../azure-resource-manager/templates/deploy-powershell.md) um serviço de nuvem do Azure e seu Application insights monitorar recursos em uma única operação.
 
 ### <a name="resources-for-components"></a>Recursos para componentes
-É recomendável criar um recurso separado para cada componente do seu aplicativo. Ou seja, criar um recurso para cada função Web e função de trabalho. Você pode analisar cada componente separadamente, mas cria um [dashboard](../../azure-monitor/app/overview-dashboard.md) que reúne os principais gráficos de todos os componentes para poder compará-los e monitorá-los juntos em uma única exibição. 
+É recomendável criar um recurso separado para cada componente do seu aplicativo. Ou seja, criar um recurso para cada função Web e função de trabalho. Você pode analisar cada componente separadamente, mas cria um [dashboard](./overview-dashboard.md) que reúne os principais gráficos de todos os componentes para poder compará-los e monitorá-los juntos em uma única exibição. 
 
-Uma abordagem alternativa é enviar a telemetria de mais de uma função para o mesmo recurso, mas [adicionar uma propriedade de dimensão para cada item de telemetria](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) que identifique sua função de origem. Nessa abordagem, os gráficos de métrica, como de exceções, normalmente apresentam uma agregação das contagens de diversas funções, mas é possível segmentar o gráfico pelo identificador de função, conforme necessário. Também é possível filtrar as pesquisas pela mesma dimensão. Essa alternativa facilita um pouco a visualização de tudo ao mesmo tempo, mas também pode causar uma certa confusão entre as funções.
+Uma abordagem alternativa é enviar a telemetria de mais de uma função para o mesmo recurso, mas [adicionar uma propriedade de dimensão para cada item de telemetria](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) que identifique sua função de origem. Nessa abordagem, os gráficos de métrica, como de exceções, normalmente apresentam uma agregação das contagens de diversas funções, mas é possível segmentar o gráfico pelo identificador de função, conforme necessário. Também é possível filtrar as pesquisas pela mesma dimensão. Essa alternativa facilita um pouco a visualização de tudo ao mesmo tempo, mas também pode causar uma certa confusão entre as funções.
 
 A telemetria do navegador geralmente é incluída no mesmo recurso que sua função Web do lado servidor.
 
@@ -68,7 +68,7 @@ Para enviar a telemetria para os recursos apropriados, você pode configurar o S
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>Criar um recurso do Application Insights para cada função
 
-Se você decidiu criar um recurso separado para cada função (e talvez um conjunto separado para cada configuração de build), é mais fácil criar todos eles no portal do Application Insights. Se você cria muitos recursos, pode [automatizar o processo](../../azure-monitor/app/powershell.md).
+Se você decidiu criar um recurso separado para cada função (e talvez um conjunto separado para cada configuração de build), é mais fácil criar todos eles no portal do Application Insights. Se você cria muitos recursos, pode [automatizar o processo](./powershell.md).
 
 1. No [portal do Azure][portal], selecione **Novo** > **Serviços do desenvolvedor** > **Application Insights**.  
 
@@ -92,7 +92,7 @@ Se você tiver optado por usar um recurso Application Insights separado para cad
 
 Essa ação faz com que as suas chaves de instrumentação do Application Insights sejam inseridas nos arquivos chamados *ServiceConfiguration.\*.cscfg*. Veja o [código de exemplo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
 
-Se desejar variar o nível de informações de diagnóstico enviadas ao Application Insights, faça isso [editando os arquivos *.cscfg* diretamente](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+Se desejar variar o nível de informações de diagnóstico enviadas ao Application Insights, faça isso [editando os arquivos *.cscfg* diretamente](../platform/diagnostics-extension-to-application-insights.md).
 
 ## <a name="install-the-sdk-in-each-project"></a><a name="sdk"></a>Instalar o SDK em cada projeto
 Com essa opção, você pode adicionar telemetria personalizada de negócios em qualquer função. A opção fornece uma análise mais próxima de como seu aplicativo é usado e do desempenho dele.
@@ -165,7 +165,7 @@ Esta etapa só será necessária se você quiser capturar consultas SQL completa
 
 1. Abra os recursos criados do Application Insights.
 
-   Os pontos de dados individuais são exibidos na [Pesquisa][diagnostic], e os dados agregados são exibidos no [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md).
+   Os pontos de dados individuais são exibidos na [Pesquisa][diagnostic], e os dados agregados são exibidos no [Metrics Explorer](../platform/metrics-charts.md).
 
 1. Adicione mais telemetria (consulte as próximas seções) e, em seguida, publique seu aplicativo para obter comentários em tempo real sobre o diagnóstico e o uso. 
 
@@ -184,11 +184,11 @@ Para saber mais, consulte a [Solução de problemas][qna].
 * Os logs de eventos do Windows são mostrados como eventos de rastreamentos e personalizados.
 * Logs do aplicativo, logs de ETW e todos os logs de infraestrutura de diagnóstico são exibidos como rastreamentos.
 
-Para exibir os contadores de desempenho e as contagens de eventos, abra o [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) e adicione o seguinte gráfico:
+Para exibir os contadores de desempenho e as contagens de eventos, abra o [Metrics Explorer](../platform/metrics-charts.md) e adicione o seguinte gráfico:
 
 ![Dados de Diagnóstico do Azure](./media/cloudservices/23-wad.png)
 
-Para pesquisar nos vários logs de rastreamento enviados pelo Diagnóstico do Azure, use a [Pesquisa](../../azure-monitor/app/diagnostic-search.md) ou uma [consulta do Analytics](../../azure-monitor/log-query/get-started-portal.md). Por exemplo, imagine que você tem uma exceção sem tratamento que causou a falha e a reciclagem de uma função. Essa informação será mostrada no canal do Aplicativo do Log de Eventos do Windows. É possível usar a Pesquisa para exibir o erro do Log de Eventos do Windows e obter o rastreamento de pilha completo da exceção. Isso lhe ajudará a encontrar a causa raiz do problema.
+Para pesquisar nos vários logs de rastreamento enviados pelo Diagnóstico do Azure, use a [Pesquisa](./diagnostic-search.md) ou uma [consulta do Analytics](../log-query/get-started-portal.md). Por exemplo, imagine que você tem uma exceção sem tratamento que causou a falha e a reciclagem de uma função. Essa informação será mostrada no canal do Aplicativo do Log de Eventos do Windows. É possível usar a Pesquisa para exibir o erro do Log de Eventos do Windows e obter o rastreamento de pilha completo da exceção. Isso lhe ajudará a encontrar a causa raiz do problema.
 
 ![Pesquisa no Diagnóstico do Azure](./media/cloudservices/25-wad.png)
 
@@ -205,7 +205,7 @@ Consulte as duas funções de trabalho de exemplo instrumentadas para solicitaç
 * [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)
 
 ## <a name="exceptions"></a>Exceções
-Para saber mais sobre como coletar exceções sem tratamento de vários tipos de aplicativo Web, consulte o artigo [Monitorar exceções no Application Insights](../../azure-monitor/app/asp-net-exceptions.md).
+Para saber mais sobre como coletar exceções sem tratamento de vários tipos de aplicativo Web, consulte o artigo [Monitorar exceções no Application Insights](./asp-net-exceptions.md).
 
 A função web de exemplo tem controladores MVC5 e API Web 2. As exceções sem tratamento das duas são capturadas com os seguintes manipuladores:
 
@@ -255,11 +255,11 @@ Para obter a telemetria baseada em navegador, como contagens de exibição de p�
 Para certificar-se de que seu aplicativo permaneça operante e responsivo, [configure os testes da Web][availability].
 
 ## <a name="display-everything-together"></a>Exibir tudo juntos
-Para obter uma visão geral do seu sistema, é possível exibir os gráficos de monitoramento da chave em um [dashboard](../../azure-monitor/app/overview-dashboard.md). Por exemplo, você pode fixar as contagens de solicitação e de falha de cada função. 
+Para obter uma visão geral do seu sistema, é possível exibir os gráficos de monitoramento da chave em um [dashboard](./overview-dashboard.md). Por exemplo, você pode fixar as contagens de solicitação e de falha de cada função. 
 
 Se seu sistema usa outros serviços do Azure, como o Stream Analytics, inclua os gráficos de monitoramento deles também. 
 
-Caso tenha um aplicativo cliente móvel, use o [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Crie consultas no [Analytics](../log-query/log-query-overview.md) para exibir a contagem de eventos e fixe-os ao painel.
+Caso tenha um aplicativo cliente móvel, use o [App Center](../learn/mobile-center-quickstart.md). Crie consultas no [Analytics](../log-query/log-query-overview.md) para exibir a contagem de eventos e fixe-os ao painel.
 
 ## <a name="example"></a>Exemplo
 [O exemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitora um serviço que tem uma função web e duas funções de trabalho.
@@ -272,18 +272,19 @@ Você compilou para .NET 4.6? O .NET 4.6 não tem suporte automático nas funç�
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Configurar o envio dos Diagnósticos do Azure ao Application Insights](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Criar automaticamente recursos do Application Insights](../../azure-monitor/app/powershell.md)
-* [Automatizar o Diagnóstico do Azure](../../azure-monitor/app/powershell-azure-diagnostics.md)
+* [Configurar o envio dos Diagnósticos do Azure ao Application Insights](../platform/diagnostics-extension-to-application-insights.md)
+* [Criar automaticamente recursos do Application Insights](./powershell.md)
+* [Automatizar o Diagnóstico do Azure](./powershell-azure-diagnostics.md)
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[azure]: ../../azure-monitor/app/app-insights-overview.md
-[client]: ../../azure-monitor/app/javascript.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
+[api]: ./api-custom-events-metrics.md
+[availability]: ./monitor-web-app-availability.md
+[azure]: ./app-insights-overview.md
+[client]: ./javascript.md
+[diagnostic]: ./diagnostic-search.md
+[netlogs]: ./asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
 [qna]: ../faq.md
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[redfield]: ./monitor-performance-live-website-now.md
+[start]: ./app-insights-overview.md
+

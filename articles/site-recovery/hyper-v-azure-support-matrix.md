@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 465b0ca3fdc5dd96b03ec7ab53bf453c4cdc083d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 268d8f3b43809e02476757cfe36b1ee52d4eaef1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086159"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317477"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V locais para o Azure
 
@@ -30,15 +30,13 @@ Hyper-V sem Virtual Machine Manager | Você pode executar a recuperação de des
 
 ## <a name="on-premises-servers"></a>Servidores locais
 
-**Servidor** | **Requirements** | **Detalhes**
+**Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Hyper-V (executando sem Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 com atualizações mais recentes (incluindo a instalação do Server Core desses sistemas operacionais, exceto o Windows Server 2019) | Se você já tiver configurado o Windows Server 2012 R2 com/ou o SCVMM 2012 R2 com o Azure Site Recovery e pretender atualizar o sistema operacional, siga as diretrizes na [documentação](upgrade-2012R2-to-2016.md).
+Hyper-V (executando sem Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 com atualizações mais recentes (incluindo a instalação do Server Core desses sistemas operacionais) | Se você já tiver configurado o Windows Server 2012 R2 com/ou o SCVMM 2012 R2 com o Azure Site Recovery e pretender atualizar o sistema operacional, siga as diretrizes na [documentação](upgrade-2012R2-to-2016.md).
 Hyper-V (executando sem Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 (incluindo a instalação do Server Core desses sistemas operacionais, exceto Virtual Machine Manager 2019) | Se Virtual Machine Manager for usado, os hosts do Windows Server 2019 deverão ser gerenciados em Virtual Machine Manager 2019. Da mesma forma, os hosts do Windows Server 2016 devem ser gerenciados no Virtual Machine Manager 2016.
 
 > [!NOTE]
->
-> - Verifique se .NET Framework 4.6.2 ou superior está presente no servidor local.
-> - O failover e o failback para o local alternativo ou o local original, executando com ou sem Virtual Machine Manager, não tem suporte para a versão principal do Windows Server 2019 Server Core.
+> Verifique se .NET Framework 4.6.2 ou superior está presente no servidor local.
 
 ## <a name="replicated-vms"></a>VMs replicadas
 
@@ -55,8 +53,8 @@ Sistema operacional convidado | Qualquer SO convidado [com suporte para Azure](.
 
 **Ação** | **Detalhes**
 --- | ---
-Redimensionar o disco na VM replicada do Hyper-V | Sem suporte. Desabilite a replicação, faça a alteração e reabilite a replicação para a VM.
-Adicionar disco na VM replicada do Hyper-V | Sem suporte. Desabilite a replicação, faça a alteração e reabilite a replicação para a VM.
+Redimensionar o disco na VM replicada do Hyper-V | Não há suporte. Desabilite a replicação, faça a alteração e reabilite a replicação para a VM.
+Adicionar disco na VM replicada do Hyper-V | Não há suporte. Desabilite a replicação, faça a alteração e reabilite a replicação para a VM.
 
 ## <a name="hyper-v-network-configuration"></a>Configuração de rede Hyper-V
 
@@ -159,7 +157,7 @@ Discos gerenciados | Sim, para failover.<br/><br/> O failback de discos gerencia
 
 VMs locais que são replicados para o Azure devem atender aos requisitos de VM do Azure resumidos nesta tabela.
 
-**Componente** | **Requirements** | **Detalhes**
+**Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
 Sistema operacional convidado | O Site Recovery é compatível com todos os sistemas operacionais que têm [suporte do Azure](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10)).  | A verificação de pré-requisitos falha quando não há suporte para ela.
 Arquitetura do sistema operacional convidado | 32 bits (Windows Server 2008)/64-bit | A verificação de pré-requisitos falha quando não há suporte para ela.

@@ -4,15 +4,15 @@ description: Transferir dados com o AzCopy e o armazenamento de arquivos.
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a836f4ce40f4d2e0871f99122d25bb6c6f346d05
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7123a90505e5068422d76f22042deac46e721218
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527873"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292712"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferir dados com o AzCopy e o Armazenamento de Arquivos 
 
@@ -53,8 +53,8 @@ Esta seção contém os seguintes exemplos:
 > |---|---|
 > |Copie listas de controle de acesso (ACLs) junto com os arquivos.|**--preserve-SMB-permissões** = \[ verdadeiro \| falso\]|
 > |Copie informações de propriedade SMB junto com os arquivos.|**--preserve-SMB-info** = \[ verdadeiro \| falso\]|
-> |Carregar arquivos como BLOBs de acréscimo ou BLOBs de página.|**--tipo** = \[ de BLOB BlockBlob \| PageBlob \| AppendBlob\]|
-> |Carregue para uma camada de acesso específica (como a camada de arquivo morto).|**--bloco-blob-camada** = \[ Nenhum \| \| arquivo frio \| quente\]|
+> |Carregue arquivos como blobs de acréscimo ou blobs de páginas.|**--tipo** = \[ de BLOB BlockBlob \| PageBlob \| AppendBlob\]|
+> |Carregue para uma camada de acesso específica (como a camada de arquivo).|**--bloco-blob-camada** = \[ Nenhum \| \| arquivo frio \| quente\]|
 > 
 > Para obter uma lista completa, consulte [Opções](storage-ref-azcopy-copy.md#options).
 
@@ -101,7 +101,7 @@ Você pode carregar o conteúdo de um diretório sem copiar o próprio diretóri
 
 ### <a name="upload-specific-files"></a>Carregar arquivos específicos
 
-Você pode especificar nomes de arquivo completos ou usar nomes parciais com caracteres curinga (*).
+Você pode carregar arquivos específicos usando nomes de arquivo completos, nomes parciais com caracteres curinga (*) ou usando datas e horas.
 
 #### <a name="specify-multiple-complete-file-names"></a>Especificar vários nomes de arquivo completos
 
@@ -128,6 +128,17 @@ Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-pattern
 Você também pode excluir arquivos usando a `--exclude-pattern` opção. Para saber mais, consulte [azcopy Copy](storage-ref-azcopy-copy.md) Reference docs.
 
 As `--include-pattern` `--exclude-pattern` Opções e aplicam-se somente a nomes de filename e não ao caminho.  Se você quiser copiar todos os arquivos de texto que existem em uma árvore de diretório, use a `–recursive` opção para obter a árvore de diretórios inteira e, em seguida, use o `–include-pattern` e especifique `*.txt` para obter todos os arquivos de texto.
+
+#### <a name="upload-files-that-were-modified-after-a-date-and-time"></a>Carregar arquivos que foram modificados após uma data e hora 
+
+Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-after` opção. Especifique uma data e hora no formato ISO 8601 (por exemplo: `2020-08-19T15:04:00Z` ). 
+
+|    |     |
+|--------|-----------|
+| **Sintaxe** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name><SAS-token>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **Exemplo** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-after '2020-08-19T15:04:00Z'` |
+
+Para referência detalhada, consulte os documentos de referência de [cópia do azcopy](storage-ref-azcopy-copy.md) .
 
 ## <a name="download-files"></a>Baixar arquivos
 
@@ -185,7 +196,7 @@ Você pode baixar o conteúdo de um diretório sem copiar o próprio diretório 
 
 ### <a name="download-specific-files"></a>Baixar arquivos específicos
 
-Você pode especificar nomes de arquivo completos ou usar nomes parciais com caracteres curinga (*).
+Você pode baixar arquivos específicos usando nomes de arquivo completos, nomes parciais com caracteres curinga (*) ou usando datas e horas.
 
 #### <a name="specify-multiple-complete-file-names"></a>Especificar vários nomes de arquivo completos
 
@@ -212,6 +223,18 @@ Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-pattern
 Você também pode excluir arquivos usando a `--exclude-pattern` opção. Para saber mais, consulte [azcopy Copy](storage-ref-azcopy-copy.md) Reference docs.
 
 As `--include-pattern` `--exclude-pattern` Opções e aplicam-se somente a nomes de filename e não ao caminho.  Se você quiser copiar todos os arquivos de texto que existem em uma árvore de diretório, use a `–recursive` opção para obter a árvore de diretórios inteira e, em seguida, use o `–include-pattern` e especifique `*.txt` para obter todos os arquivos de texto.
+
+#### <a name="download-files-that-were-modified-after-a-date-and-time"></a>Baixar arquivos que foram modificados após uma data e hora 
+
+Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-after` opção. Especifique uma data e hora no formato ISO-8601 (por exemplo: `2020-08-19T15:04:00Z` ). 
+
+|    |     |
+|--------|-----------|
+| **Sintaxe** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name>/*<SAS-token>' '<local-directory-path>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **Exemplo** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/*?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory' --include-after '2020-08-19T15:04:00Z'` |
+
+
+Para referência detalhada, consulte os documentos de referência de [cópia do azcopy](storage-ref-azcopy-copy.md) .
 
 ## <a name="copy-files-between-storage-accounts"></a>Copiar arquivos entre as contas de armazenamento
 
