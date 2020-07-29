@@ -3,16 +3,16 @@ title: Verificar o status de criptografia para Linux – Azure Disk Encryption
 description: Este artigo fornece instruções sobre como verificar o status de criptografia dos níveis da plataforma e do SO.
 author: kailashmsft
 ms.service: security
-ms.topic: how-to
+ms.topic: article
 ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: 58bb3f38938414f25551d0df47a50b6a8f386acc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e2916a71f167c415f6bf1dde8ff82a38b0e0557c
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283326"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873994"
 ---
 # <a name="verify-encryption-status-for-linux"></a>Verificar o status da criptografia para Linux 
 
@@ -280,7 +280,7 @@ az storage account list --query [].[id] -o tsv
 ```
 As IDs da conta de armazenamento são listadas no seguinte formato:
 
-/subscriptions/ \<subscription id> /ResourceGroups/ \<resource group name> /Providers/Microsoft.Storage/storageAccounts/\<storage account name>
+/subscriptions/\<ID da assinatura>/resourceGroups/\<nome do grupo de recursos>/providers/Microsoft.Storage/storageAccounts/\<nome da conta de armazenamento>
 
 Selecione a ID apropriada e armazene-a em uma variável:
 ```bash

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 450f04c7de68bf6db282577fbc8e841f1f3c93fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7b431cee3b8e5fc168dec2766442d6f6b9869d1e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284397"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "74900365"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidade do dispositivo e virtualização de área de trabalho
 
@@ -41,7 +41,7 @@ Este artigo abordará as diretrizes da Microsoft para os administradores sobre s
 
 Antes de configurar as identidades de dispositivo no Azure AD para seu ambiente de VDI, familiarize-se com os cenários com suporte. A tabela a seguir ilustra quais cenários de provisionamento têm suporte. O provisionamento neste contexto implica que um administrador pode configurar identidades de dispositivo em escala sem a necessidade de qualquer interação do usuário final.
 
-| Tipo de identidade do dispositivo | Infraestrutura da identidade | Dispositivos Windows | Versão da plataforma VDI | Com suporte |
+| Tipo de identidade do dispositivo | Infraestrutura de identidade | Dispositivos Windows | Versão da plataforma VDI | Com suporte |
 | --- | --- | --- | --- | --- |
 | Adicionado ao Azure AD híbrido | Federado | Windows atual * * * e Windows de nível inferior * * * * | Persistente | Sim |
 |   |   | Atual do Windows | Não persistente | Não |
@@ -51,11 +51,11 @@ Antes de configurar as identidades de dispositivo no Azure AD para seu ambiente 
 |   |   | Nível inferior do Windows | Não persistente | Sim |
 | Adicionado ao Azure AD | Federado | Atual do Windows | Persistente | Não |
 |   |   |   | Não persistente | Não |
-|   | Gerenciados | Atual do Windows | Persistente | Não |
+|   | Gerenciada | Atual do Windows | Persistente | Não |
 |   |   |   | Não persistente | Não |
-| Azure AD registrado | Federado | Atual do Windows | Persistente | Não Aplicável |
+| Azure AD registrado | Federado | Atual do Windows | Persistente | Não |
 |   |   |   | Não persistente | Não |
-|   | Gerenciados | Atual do Windows | Persistente | Não Aplicável |
+|   | Gerenciada | Atual do Windows | Persistente | Não |
 |   |   |   | Não persistente | Não |
 
 \*Um ambiente de infraestrutura de identidade **federada** representa um ambiente com um provedor de identidade, como AD FS ou outros IDP de terceiros.

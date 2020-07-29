@@ -1,5 +1,6 @@
 ---
-title: 'ML Studio (clássico): criar & implantar módulos R personalizados – Azure'
+title: Criar & implantar módulos R personalizados
+titleSuffix: ML Studio (classic) - Azure
 description: Saiba como criar e implantar módulos R personalizados em ML Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 4b4251a426d33c0a3b8cc7584d2bf6375dcd0f79
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 389290b01848d598ada9ca49bee932a764854088
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287251"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957317"
 ---
-# <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Definir módulos R personalizados para Machine Learning Studio (clássico)
-
-**aplica-se a:** ![ Não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) 
+# <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Definir módulos R personalizados para Azure Machine Learning Studio (clássico)
 
 Este tópico descreve como criar e implantar um R Studio personalizado (clássico). Ele explica o que são módulos R personalizados e arquivos que são usados para defini-los. Ilustra como criar os arquivos que definem um módulo e como registrar o módulo para implantação em um workspace de Machine Learning. Os elementos e atributos usados na definição de módulo personalizado, em seguida, são descritos mais detalhadamente. Também é discutido como usar a funcionalidades e arquivos auxiliares, bem como diversas saídas. 
 
@@ -305,11 +304,11 @@ Um parâmetro de módulo é definido usando o elemento filho **Arg** da seção 
     * Numérica
     * Booliano
     * Categóricos
-    * Cadeia de caracteres
+    * String
     * Rotular
     * Recurso
     * Pontuação
-    * Todos
+    * Tudo
   * **padrão** – seleções padrão válidas para o seletor de coluna incluem: 
     
     * Nenhum
@@ -332,7 +331,7 @@ Um parâmetro de módulo é definido usando o elemento filho **Arg** da seção 
     * AllLabel
     * AllFeature
     * AllScore
-    * Todos
+    * Tudo
 
 **Suspensa**: uma lista (suspensa) enumerada especifica pelo usuário. Os itens de lista suspensa são especificados dentro do elemento **Propriedades** usando um elemento de **Item**. A **ID** de cada **Item** deve ser exclusiva e uma variável R válida. O valor do **nome** de um **Item** serve como o texto que você vê e o valor que é passado para a função R.
 

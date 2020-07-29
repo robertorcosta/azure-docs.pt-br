@@ -1,7 +1,7 @@
 ---
 title: Rede virtual dos serviços do Azure
 titlesuffix: Azure Virtual Network
-description: Saiba como implantar serviços dedicados do Azure em uma rede virtual e saiba mais sobre os recursos que essas implantações fornecem.
+description: Saiba mais sobre os benefícios da implantação de recursos em uma rede virtual. Recursos em redes virtuais podem se comunicar entre si e com recursos locais, sem que o tráfego atravesse a Internet.
 services: virtual-network
 documentationcenter: na
 author: mohnader
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/06/2020
 ms.author: kumud
-ms.openlocfilehash: 442059f4ff3502b99bf4aa93d581c39331e4f7d8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cb63f99e93d4324e3f2addde7eadf18ac15f3d2d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287693"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463341"
 ---
 # <a name="deploy-dedicated-azure-services-into-virtual-networks"></a>Implantar serviços dedicados do Azure em redes virtuais
 

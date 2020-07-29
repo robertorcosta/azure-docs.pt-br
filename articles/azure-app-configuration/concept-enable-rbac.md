@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: d417fa4d6b444f4932338059e2ad499c12d6273e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: c2812219e689cb42fd871f85300239a10ab0da0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371831"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84116716"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autorizar o acesso à Configuração de Aplicativos do Azure usando o Azure Active Directory
 Além de usar o HMAC (Message Authentication Code baseado em hash), a configuração do Azure App dá suporte ao uso do Azure Active Directory (AD do Azure) para autorizar solicitações às instâncias de configuração do aplicativo.  O Azure AD permite usar o RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança.  Uma entidade de segurança pode ser um usuário, uma [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) ou uma [entidade de serviço de aplicativo](../active-directory/develop/app-objects-and-service-principals.md).  Para saber mais sobre as funções e atribuições de função, confira [Noções básicas sobre funções diferentes](../role-based-access-control/overview.md).
@@ -23,15 +23,15 @@ As solicitações feitas por uma entidade de segurança para acessar um recurso 
 
 A etapa de autenticação requer que uma solicitação do aplicativo contenha um token de acesso OAuth 2.0 no runtime.  Se um aplicativo estiver em execução em uma entidade do Azure, como um aplicativo Azure Functions, um aplicativo Web do Azure ou uma VM do Azure, ele pode usar uma identidade gerenciada para acessar os recursos.  Para saber como autenticar solicitações feitas por uma identidade gerenciada para a Configuração de Aplicativos do Azure, confira [Autenticar o acesso aos recursos da Configuração de Aplicativos do Azure com o Azure Active Directory e as identidades gerenciadas para Recursos do Azure](howto-integrate-azure-managed-service-identity.md).
 
-A etapa de autorização requer que uma ou mais funções RBAC sejam atribuídas à entidade de segurança. A Configuração de Aplicativos do Azure fornece as funções RBAC que abrangem os conjuntos de permissões para os recursos da Configuração de Aplicativos. As funções atribuídas a uma entidade de segurança determinam as permissões fornecidas à entidade. Para obter mais informações sobre as funções RBAC, consulte [funções internas do Azure para Azure app configuração](#azure-built-in-roles-for-azure-app-configuration). 
+A etapa de autorização requer que uma ou mais funções RBAC sejam atribuídas à entidade de segurança. A Configuração de Aplicativos do Azure fornece as funções RBAC que abrangem os conjuntos de permissões para os recursos da Configuração de Aplicativos. As funções atribuídas a uma entidade de segurança determinam as permissões fornecidas à entidade. Para obter mais informações sobre as funções RBAC, confira [Funções RBAC internas da Configuração de Aplicativos do Azure](#built-in-rbac-roles-for-azure-app-configuration). 
 
 ## <a name="assign-rbac-roles-for-access-rights"></a>Atribuir funções RBAC para direitos de acesso
 Azure Active Directory (Azure AD) autoriza os direitos de acesso aos recursos protegidos por meio do [controle de acesso baseado em função (RBAC)](../role-based-access-control/overview.md).
 
 Quando uma função RBAC é atribuída a uma entidade de segurança do Azure AD, o Azure concede acesso a esses recursos para essa entidade de segurança. O acesso é definido para o recurso de Configuração de Aplicativos. Uma entidade de segurança do Azure AD pode ser um usuário ou uma entidade de serviço de aplicativo ou uma [identidade gerenciada para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="azure-built-in-roles-for-azure-app-configuration"></a>Funções internas do Azure para Azure App configuração
-O Azure fornece as seguintes funções internas do Azure para autorizar o acesso aos dados de configuração do aplicativo usando o Azure AD e o OAuth:
+## <a name="built-in-rbac-roles-for-azure-app-configuration"></a>Funções RBAC internas da Configuração de Aplicativos do Azure
+O Azure fornece as seguintes funções RBAC internas para autorizar o acesso aos dados da Configuração de Aplicativos usando o Azure AD e o OAuth:
 
 - **Proprietário de Dados da Configuração de Aplicativos**: Use essa função para conceder acesso de leitura/gravação/exclusão aos dados da Configuração de Aplicativos. Isso não concede acesso ao recurso de Configuração de Aplicativos.
 - **Leitor de Dados da Configuração de Aplicativos**: Use essa função para conceder acesso de leitura aos dados da Configuração de Aplicativos. Isso não concede acesso ao recurso de Configuração de Aplicativos.

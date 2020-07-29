@@ -3,15 +3,15 @@ title: Implantar VMs do Linux em hosts dedicados usando a CLI
 description: Implantar VMs em hosts dedicados usando a CLI do Azure.
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: how-to
+ms.topic: article
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: 9435764d99476584680734817d55086f47e8216b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: dc772368de1a0f7d8a7d4f44b47ecafda70f0a70
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373616"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714841"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Implantar VMs em hosts dedicados usando a CLI do Azure
  
