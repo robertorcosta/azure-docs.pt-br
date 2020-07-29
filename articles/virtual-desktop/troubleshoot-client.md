@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0efff05f84bf02908dfc8b966b80539d309f491d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f91e68ec2bd4b0b5400ee3e8e380d91ea6f31f36
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059132"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291318"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Solucionar problemas do cliente do Área de Trabalho Remota
 
@@ -64,7 +64,7 @@ Se seu navegador começar a funcionar ou parar de trabalhar enquanto você estiv
 
 Primeiro, verifique a conta de Azure Active Directory que você está usando. Se você já tiver entrado com uma conta de Azure Active Directory diferente daquela que deseja usar para a área de trabalho virtual do Windows, deverá assinar ou usar uma janela de navegador privada.
 
-Se você estiver usando a versão de área de 2019 trabalho virtual do Windows, use o link do cliente Web neste [artigo](./virtual-desktop-fall-2019/connect-web-2019.md) para se conectar aos seus recursos.
+Se você estiver usando a área de trabalho virtual do Windows (clássico), use o link do cliente Web neste [artigo](./virtual-desktop-fall-2019/connect-web-2019.md) para se conectar aos seus recursos.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>O cliente Web para de responder ou desconexões
 

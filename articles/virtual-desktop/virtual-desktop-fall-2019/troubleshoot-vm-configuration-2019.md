@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas do 2019 host de sessão de área de trabalho virtual do Windows
-description: Como resolver problemas quando estiver configurando máquinas virtuais do host de sessão de área de trabalho virtual do Windows.
+title: Solucionar problemas de host de sessão da área de trabalho virtual do Windows (clássico)-Azure
+description: Como resolver problemas quando estiver configurando máquinas virtuais do host de sessão do Windows Virtual Desktop (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b2f4a288ab83ca9f20434c55a180c2d9b30be5d4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0155c9cf6b5d9df8a6a8831896093c4c6b074cd6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527652"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291248"
 ---
-# <a name="troubleshoot-session-host-virtual-machine-configuration"></a>Solucionar problemas de configuração de máquina virtual do host de sessão
+# <a name="windows-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Configuração de máquina virtual do host de sessão da área de trabalho virtual (clássica) do Windows
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../troubleshoot-vm-configuration.md).
+>Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../troubleshoot-vm-configuration.md).
 
 Use este artigo para solucionar problemas que você está tendo ao configurar as VMs (máquinas virtuais) do host de sessão de área de trabalho virtual do Windows.
 

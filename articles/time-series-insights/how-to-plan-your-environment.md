@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: a0a17f28f2a87ae42b552bfa07732b8b8232ef5e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76e49393b1d26e6db85146a204911ba164d3ffc0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530900"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289890"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planejar seu ambiente de Azure Time Series Insights Gen2
 
@@ -78,7 +78,7 @@ Quando deixado em branco, o Tempo de Enfileiramento do Evento de uma origem do e
 
 Agora você pode configurar o modelo de série temporal do ambiente de Azure Time Series Insights. O novo modelo facilita localizar e analisar dados IoT. Permite a preservação, a manutenção e o enriquecimento dos dados de série temporal e ajuda a preparar conjuntos de dados prontos para consumo. O modelo usa IDs de série temporal, que mapeiam para uma instância que associa o recurso exclusivo com variáveis, conhecidas como tipos e hierarquias. Leia sobre a visão geral do [modelo de série temporal](./concepts-model-overview.md) para saber mais.
 
-O modelo é dinâmico, portanto, pode ser criado a qualquer momento. Para começar rapidamente, crie e carregue-o antes de enviar dados por push para Azure Time Series Insights. Para criar seu modelo, leia [usar o modelo de série temporal](./time-series-insights-update-how-to-tsm.md).
+O modelo é dinâmico, portanto, pode ser criado a qualquer momento. Para começar rapidamente, crie e carregue-o antes de enviar dados por push para Azure Time Series Insights. Para criar seu modelo, leia [usar o modelo de série temporal](/azure/time-series-insights/concepts-model-overview).
 
 Para muitos clientes, o modelo de série temporal mapeia um modelo existente do ativo ou sistema ERP já em vigor. Se você não tiver um modelo existente, uma experiência de usuário predefinida será [fornecida](https://github.com/Microsoft/tsiclient) para começar rapidamente. Para prever como um modelo poderá ajudar você, exiba o [exemplo de ambiente de demonstração](https://insights.timeseries.azure.com/preview/demo).
 

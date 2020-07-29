@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d53818c91d32bc7435d1328c2ae73a8eb3172cd4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: af70b1746b2ac847d964975aaf1b2186aa89be01
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029783"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292728"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Usar chaves gerenciadas pelo cliente com Azure Key Vault para gerenciar a criptografia de armazenamento do Azure
 
@@ -70,7 +70,7 @@ Para habilitar chaves gerenciadas pelo cliente em uma conta de armazenamento, vo
 
 A criptografia de armazenamento do Azure dá suporte às chaves RSA e RSA-HSM de tamanhos 2048, 3072 e 4096. Para obter mais informações sobre chaves, consulte **Key Vault chaves** em [sobre Azure Key Vault chaves, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
-O uso de Azure Key Vault tem custos associados. Para obter mais informações, consulte [preços de Key Vault](/pricing/details/key-vault/).
+O uso de Azure Key Vault tem custos associados. Para obter mais informações, consulte [preços de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="rotate-customer-managed-keys"></a>Girar chaves gerenciadas pelo cliente
 

@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: fbcec1ace45927561c56449cd8ca0c8d3306b3bd
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 8408025478e2776423b0d1f10cc70828e408f87e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986276"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290098"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizar o acesso ao banco de dados SQL, SQL Instância Gerenciada e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -110,7 +110,7 @@ Você pode criar contas para usuários não administradores usando um dos dois m
   Crie um logon do SQL no banco de dados mestre. Depois crie uma conta de usuário em cada banco de dados ao qual o usuário precisa acessar e associe a conta de usuário a esse logon. Essa abordagem é preferida quando o usuário deve acessar vários bancos de dados e se você quiser manter as senhas sincronizadas. No entanto, essa abordagem tem complexidades quando usadas com replicação geográfica, já que o logon deve ser criado no servidor primário e no(s) servidor(es) secundário(s). Para obter mais informações, consulte [Configurar e gerenciar a segurança do Banco de Dados SQL do Azure para restauração geográfica ou failover ](active-geo-replication-security-configure.md).
 - **Criar uma conta de usuário**
 
-  Crie uma conta de usuário no banco de dados para a qual um usuário precisa de acesso (também chamado de [usuário independente](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
+  Crie uma conta de usuário no banco de dados para a qual um usuário precisa de acesso (também chamado de [usuário independente](/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
 
   - Com o banco de dados SQL, você sempre pode criar esse tipo de conta de usuário.
   - Com o SQL Instância Gerenciada com suporte a [entidades de segurança de servidor do Azure ad](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities), você pode criar contas de usuário para autenticar para o SQL instância gerenciada sem exigir que os usuários do banco de dados sejam criados como um usuário de banco de dados independente.

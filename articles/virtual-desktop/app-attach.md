@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76edc88f127d7e52514ab72539f7212ac982b5e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f8e20f97ae19a33674631e4dee18901d54462b3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204464"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291507"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar anexação de aplicativo MSIX
 
@@ -29,7 +29,7 @@ Este tópico explicará como configurar a anexação do aplicativo MSIX em um am
 Antes de começar, veja o que você precisa para configurar a anexação do aplicativo MSIX:
 
 - Acesso ao portal do Windows Insider para obter a versão do Windows 10 com suporte para as APIs de anexação do aplicativo MSIX.
-- Uma implantação funcional da Área de Trabalho Virtual do Windows. Para saber como implantar a versão 2019 da área de trabalho virtual do Windows, confira [criar um locatário na área de trabalho virtual do Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Para saber como implantar a versão de Spring 2020 do Windows Virtual Desktop, consulte [criar um pool de hosts com o portal do Azure](./create-host-pools-azure-marketplace.md).
+- Uma implantação funcional da Área de Trabalho Virtual do Windows. Para saber como implantar a área de trabalho virtual do Windows (clássica), consulte [criar um locatário na área de trabalho virtual do Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Para saber como implantar a área de trabalho virtual do Windows com a integração do Azure Resource Manager, confira [criar um pool de hosts com o portal do Azure](./create-host-pools-azure-marketplace.md).
 - A ferramenta de empacotamento MSIX.
 - Um compartilhamento de rede em sua implantação de área de trabalho virtual do Windows onde o pacote MSIX será armazenado.
 

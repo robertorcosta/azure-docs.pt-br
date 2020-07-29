@@ -7,12 +7,12 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 108a7940084e99348dc8fdfa0143d5c6855599df
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 554079ddec3332ced2817d18ea55ce1260d68817
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87096031"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291616"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Telemetria, propriedade e cargas de comando
 
@@ -30,6 +30,9 @@ O artigo não descreve todos os tipos possíveis de telemetria, propriedade e ca
 
 Cada exemplo mostra um trecho de código do modelo de funcionalidade do dispositivo (DCM) que define o tipo e as cargas JSON de exemplo para ilustrar como o dispositivo deve interagir com o aplicativo IoT Central.
 
+> [!NOTE]
+> IoT Central aceita qualquer JSON válido, mas só pode ser usado para visualizações se ele corresponder a uma definição no DCM. Você pode exportar dados que não correspondem a uma definição, consulte [exportar dados de IOT para destinos no Azure](howto-export-data.md).
+
 O arquivo JSON que define o DCM usa o [DTDL (digital Mydefinition Language) v1](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/dtdlv1.md). Essa especificação inclui a definição do `@id` formato de propriedade.
 
 Para código de dispositivo de exemplo que mostra algumas dessas cargas em uso, consulte [criar e conectar um aplicativo cliente ao seu aplicativo do azure IOT central (Node.js)](tutorial-connect-device-nodejs.md) e [criar e conectar um aplicativo cliente aos seus tutoriais do Python (aplicativo do Azure IOT central)](tutorial-connect-device-python.md) .
@@ -43,9 +46,8 @@ IoT Central permite exibir os dados brutos que um dispositivo envia para um apli
 1. Selecione a guia **dados brutos** :
 
     :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Exibição de dados brutos":::
-    
-    Nessa exibição, você pode selecionar as colunas a serem exibidas e definir um intervalo de tempo para exibição. A coluna **dados não modelados** mostra dados do dispositivo que não correspondem a nenhuma definição de propriedade ou telemetria no modelo de dispositivo.
 
+    Nessa exibição, você pode selecionar as colunas a serem exibidas e definir um intervalo de tempo para exibição. A coluna **dados não modelados** mostra dados do dispositivo que não correspondem a nenhuma definição de propriedade ou telemetria no modelo de dispositivo.
 
 ## <a name="telemetry"></a>Telemetria
 

@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: f4bca70fbec5cf847a6bb5c0b97ed3496d6c2f8c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 988d1efd348fe8e85dd33fbe35cc8dc9362c081b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039997"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290607"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introdução ao conector do Banco de Dados Oracle
 
@@ -122,10 +122,11 @@ Veja os gatilhos e ações definidos no swagger e também os limites nos [detalh
 
 ## <a name="get-some-help"></a>Obtenha ajuda
 
-A [página de perguntas e respostas da Microsoft sobre Aplicativos Lógicos do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html) é um ótimo lugar para fazer perguntas, responder a dúvidas e saber o que os outros usuários dos Aplicativos Lógicos estão fazendo. 
+A [página de perguntas e respostas da Microsoft sobre Aplicativos Lógicos do Azure](/answers/topics/azure-logic-apps.html) é um ótimo lugar para fazer perguntas, responder a dúvidas e saber o que os outros usuários dos Aplicativos Lógicos estão fazendo. 
 
 Você pode ajudar a melhorar os Aplicativos Lógicos e os conectores vitando e enviando suas ideias em [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Crie um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) e explore os conectores disponíveis nos Aplicativos Lógicos em nossa [Lista de APIs](apis-list.md).
+

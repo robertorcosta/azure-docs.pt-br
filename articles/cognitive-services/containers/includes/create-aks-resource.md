@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: d01245a76c5210a1843307b543f98d4f1d59d2cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e7f5b6f3685a94b5497784360f8f12b22fb95012
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877791"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298797"
 ---
 ## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Criar um recurso de cluster do serviço kubernetes do Azure
 
@@ -25,15 +25,15 @@ ms.locfileid: "80877791"
     |Configuração|Valor|
     |--|--|
     |Subscription|Selecione a assinatura apropriada.|
-    |Resource group|Selecione um grupo de recursos disponível.|
+    |Grupo de recursos|Selecione um grupo de recursos disponível.|
     |Nome do cluster kubernetes|Insira um nome (em minúsculas).|
-    |Região|Selecione um local próximo.|
+    |Região|Selecione uma localização próxima.|
     |Versão do Kubernetes|Qualquer que seja o valor marcado como **(padrão)**.|
     |Prefixo do nome DNS|Criado automaticamente, mas você pode substituir.|
     |Tamanho do nó|Standard DS2 v2:<br>`2 vCPUs`, `7 GB`|
     |Contagem de nós|Deixe o controle deslizante no valor padrão.|
 
-1. Na guia **escala** , deixe **nós virtuais** e **conjuntos de dimensionamento de VM** definidos com seus valores padrão.
+1. Na guia **pools de nós** , deixe os **nós virtuais** e **conjuntos de dimensionamento de VM** definidos com seus valores padrão.
 1. Na guia **autenticação** , deixe a **entidade de serviço** e **habilite o RBAC** definido com seus valores padrão.
 1. Na guia **rede** , insira as seguintes seleções:
 
@@ -42,7 +42,7 @@ ms.locfileid: "80877791"
     |Roteamento de aplicativo HTTP|Não|
     |Configuração de rede|Basic|
 
-1. Na guia **monitoramento** , verifique se habilitar o **monitoramento de contêiner** está definido como **Sim**e deixe **log Analytics espaço de trabalho** como o valor padrão.
+1. Na guia **integrações** , verifique se o **monitoramento do contêiner** está definido como **habilitado**e deixe **log Analytics espaço de trabalho** como o valor padrão.
 1. Na guia **marcas** , deixe os pares nome/valor em branco por enquanto.
 1. Selecione **revisar e criar**.
 1. Depois que a validação for aprovada, selecione **criar**.

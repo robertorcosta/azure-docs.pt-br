@@ -4,12 +4,12 @@ description: Perguntas frequentes sobre Service Fabric, incluindo recursos, caso
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 056ff2475e0ae8c78887e24e07a3e33f12d7df88
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1655a8ed03b1f678cc5dba0a165e0bcca1d2517a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258943"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292850"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Perguntas frequentes sobre o Service Fabric
 
@@ -36,7 +36,7 @@ Se você está interessado nesse cenário, é recomendável entrar em contato po
 
 Veja a seguir alguns itens que você deve levar em consideração: 
 
-1. Atualmente, o recurso de cluster do Service Fabric no Azure é regional, assim como os conjuntos de dimensionamento de máquinas virtuais nos quais o cluster se baseia. Isso significa que, em caso de falha regional, você pode perder a capacidade de gerenciar o cluster por meio do Azure Resource Manager ou do Portal do Azure. Isso pode acontecer mesmo que o cluster permaneça em execução e que você possa interagir diretamente com ele. Além disso, atualmente o Azure não possibilita ter uma única rede virtual que possa ser usada em várias regiões. Isso significa que um cluster de várias regiões do Azure requer [Endereços IP Públicos para cada VM nos Conjuntos de Dimensionamento de VMs](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) ou [Gateways de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md). Essas opções de rede têm impactos diferentes sobre os custos, o desempenho e, até certo ponto, o design do aplicativo, de modo que análise e planejamento cuidadosos são necessários antes de manter um ambiente desse tipo.
+1. Atualmente, o recurso de cluster do Service Fabric no Azure é regional, assim como os conjuntos de dimensionamento de máquinas virtuais nos quais o cluster se baseia. Isso significa que, em caso de falha regional, você pode perder a capacidade de gerenciar o cluster por meio do Azure Resource Manager ou do Portal do Azure. Isso pode acontecer mesmo que o cluster permaneça em execução e que você possa interagir diretamente com ele. Além disso, atualmente o Azure não possibilita ter uma única rede virtual que possa ser usada em várias regiões. Isso significa que um cluster de várias regiões no Azure requer um [endereços IP públicos para cada VM nos conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) ou [gateways de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md). Essas opções de rede têm impactos diferentes sobre os custos, o desempenho e, até certo ponto, o design do aplicativo, de modo que análise e planejamento cuidadosos são necessários antes de manter um ambiente desse tipo.
 2. A manutenção, o gerenciamento e o monitoramento dessas máquinas podem ficar complicados, especialmente quando distribuídas em _tipos_ de ambientes, como entre provedores de nuvem diferentes ou entre recursos locais e o Azure. É necessário ter cuidado para garantir que as atualizações, o monitoramento, o gerenciamento e o diagnóstico sejam compreendidos para o cluster e para os aplicativos antes de executar cargas de trabalho de produção em um ambiente desse tipo. Se você já tiver experiência solucionando esses problemas no Azure ou em seus próprios datacenters, é provável que as mesmas soluções possam ser aplicadas ao compilar ou executar seu cluster do Service Fabric. 
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Os nós do Service Fabric recebem as atualizações do sistema operacional automaticamente?
@@ -59,7 +59,7 @@ Atualmente, há outros problemas com conjuntos de dimensionamento de máquinas v
 
 O tamanho mínimo com suporte para um cluster do Service Fabric que execute cargas de trabalho de produção é de cinco nós. Para cenários de desenvolvimento, damos suporte a um nó (otimizado para experiência de desenvolvimento rápido no Visual Studio) e cinco clusters de nó.
 
-Exigimos um cluster de produção para ter pelo menos cinco nós devido aos três motivos a seguir:
+Exigimos que um cluster de produção tenha pelo menos cinco nós devido aos três motivos a seguir:
 1. Mesmo quando nenhum serviço de usuário estiver em execução, um cluster do Service Fabric executa um conjunto de serviços com sistema de estado, incluindo o serviço de nomes e o serviço de gerenciador de failover. Esses serviços do sistema são essenciais para o cluster permanecer operacional.
 2. Sempre colocamos uma réplica de um serviço por nó, de modo que o tamanho do cluster é o limite superior para o número de réplicas que um serviço (na verdade, uma partição) pode ter.
 3. Como uma atualização de cluster desligará pelo menos um nó, queremos ter um buffer de pelo menos um nó; portanto, queremos que um cluster de produção tenha pelo menos dois nós *além* do mínimo necessário. O mínimo necessário é o tamanho do quorum de um serviço de sistema, conforme explicado abaixo.  
@@ -122,11 +122,11 @@ Não. Não há suporte para VMs de baixa prioridade.
 | FabricRM.exe |
 | FileStoreService.exe |
  
-### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Como meu aplicativo pode autenticar obter segredos no cofre de chaves?
-A seguir, os meios para o seu aplicativo obter credenciais para autenticação no KeyVault:
+### <a name="how-can-my-application-authenticate-to-key-vault-to-get-secrets"></a>Como meu aplicativo pode se autenticar para Key Vault para obter segredos?
+Veja a seguir os meios para que seu aplicativo obtenha credenciais para autenticação no Key Vault:
 
-A. Durante o trabalho de criação / empacotamento de aplicativos, você pode inserir um certificado no pacote de dados do aplicativo SF e usá-lo para autenticar no KeyVault.
-B. Para hosts habilitados para MSI do conjunto de dimensionamento de máquinas virtuais, você pode desenvolver um SetupEntryPoint simples do PowerShell para seu aplicativo de it para obter [um token de acesso do ponto de extremidade do MSI](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)e, em seguida, [recuperar seus segredos do keyvault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+a. Durante o trabalho de criação/empacotamento de aplicativos, você pode efetuar pull de um certificado no pacote de dados do seu aplicativo de it e usá-lo para autenticar no Key Vault.
+B. Para hosts habilitados para MSI do conjunto de dimensionamento de máquinas virtuais, você pode desenvolver um SetupEntryPoint simples do PowerShell para seu aplicativo de it para obter [um token de acesso do ponto de extremidade do MSI](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)e, em seguida, [recuperar seus segredos de Key Vault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Design do aplicativo
 
@@ -155,7 +155,7 @@ Como exemplo, suponha que você tenha uma coleção confiável em um serviço co
 
 Tendo em mente que cada objeto deve ser armazenado três vezes (uma primária e duas réplicas), você teria memória suficiente para cerca de 35 milhões de objetos na sua coleção ao operar com capacidade total. No entanto, recomendamos ser resiliente à perda simultânea de um domínio de falha e um domínio de atualização, que representa aproximadamente 1/3 da capacidade e reduziria o número a aproximadamente 23 milhões.
 
-Observe que esse cálculo também pressupõe que:
+Esse cálculo também pressupõe:
 
 - A distribuição de dados entre as partições é aproximadamente uniforme ou que você está relatando métricas de carga para o Gerenciador de Recursos de Cluster. Por padrão, o Service Fabric executa balanceamento de carga com base na contagem de réplicas. No exemplo anterior, isso colocaria 10 réplicas primárias e 20 réplicas secundárias em cada nó no cluster. Isso funciona bem para cargas distribuídas uniformemente entre as partições. Se a carga não for uniforme, você deverá relatá-la para que o Resource Manager possa empacotar réplicas menores juntas e permitir que as réplicas maiores consumam mais memória em um nó individual.
 
@@ -167,6 +167,12 @@ Observe que esse cálculo também pressupõe que:
 
 Assim como acontece com os serviços confiáveis, a quantidade de dados que você pode armazenar em um serviço de ator é limitada apenas pelo espaço em disco total e a memória disponível entre os nós no cluster. No entanto, os atores individuais são mais eficazes quando são usados para encapsular uma pequena quantidade de estado e a lógica comercial associada. Como regra geral, um ator individual deve ter um estado que seja medido em quilobytes.
 
+
+### <a name="where-does-azure-service-fabric-resource-provider-store-customer-data"></a>Onde o provedor de recursos do Azure Service Fabric armazena dados do cliente?
+
+O provedor de recursos Service Fabric do Azure não move nem armazena os dados do cliente fora da região em que ele está implantado.
+
+
 ## <a name="other-questions"></a>Outras perguntas
 
 ### <a name="how-does-service-fabric-relate-to-containers"></a>Como o Service Fabric se relaciona com os contêineres?
@@ -177,7 +183,7 @@ Os contêineres oferecem uma maneira simples de empacotar serviços e suas depen
 
 Temos partes de código aberto do Service Fabric ([estrutura de serviços confiáveis](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [estrutura de atores confiáveis](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [bibliotecas de integração do ASP.NET Core](https://github.com/Azure/service-fabric-aspnetcore), [Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer) e [CLI do Service Fabric](https://github.com/Azure/service-fabric-cli)) no GitHub e aceitamos contribuições da comunidade para esses projetos. 
 
-Nós [anunciamos recentemente](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) que estamos planejando tornar o código-fonte aberto do runtime do Service Fabric. No momento, estamos com o [repositório do Service Fabric](https://github.com/Microsoft/service-fabric/) no GitHub com build do Linux e ferramentas de teste, o que significa que você pode clonar o repositório, criar o Service Fabric para Linux, executar testes básicos, indicar problemas e enviar solicitações de pull. Estamos trabalhando duro para migrar o ambiente de build do Windows junto com um ambiente completo de CI.
+Nós [anunciamos recentemente](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) que estamos planejando tornar o código-fonte aberto do runtime do Service Fabric. Neste ponto, temos o [Service Fabric repositório](https://github.com/Microsoft/service-fabric/) no GitHub com ferramentas de teste e compilação do Linux, o que significa que você pode clonar o repositório, criar Service Fabric para Linux, executar testes básicos, abrir problemas e enviar solicitações de pull. Estamos trabalhando duro para migrar o ambiente de build do Windows junto com um ambiente completo de CI.
 
 Siga o [Blog do Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) para obter mais detalhes à medida que eles forem anunciados.
 

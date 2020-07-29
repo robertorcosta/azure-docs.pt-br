@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 9d6b912229b1365dd7bd8d466af18d1e81b5aa8e
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: f6c47d4cbfe6311333d95b07c0553afa2b3bb15c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132150"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287732"
 ---
 # <a name="deploy-a-configuration-server"></a>Implante um servidor de configuração
 
@@ -42,7 +42,7 @@ Você deve ter um usuário com uma das seguintes permissões definidas no Azure 
     - Verifique se a função de desenvolvedor de aplicativo está atribuída ao usuário. Caso contrário, use um usuário com essa permissão ou entre em contato com um [administrador para habilitar a permissão](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md#assign-roles).
     
 2. Se a função de desenvolvedor de aplicativo não puder ser atribuída, verifique se o sinalizador **usuários podem registrar aplicativos** está definido como **true** para que o usuário crie uma identidade. Para habilitar essas permissões:
-    - Entre no Portal do Azure.
+    - Entre no portal do Azure.
     - Vá para **Azure Active Directory**  >  **configurações do usuário**.
     - Em **registros de aplicativo**, **os usuários podem registrar aplicativos**, selecione **Sim**.
 
@@ -66,7 +66,7 @@ Você deve ter um usuário com uma das seguintes permissões definidas no Azure 
 
 ## <a name="import-the-template-in-vmware"></a>Importar o modelo para a VMware
 
-1. Entre no VMware vCenter Server ou no host vSphere ESXi, usando o VMware vSphere Client.
+1. Entre no VMware vCenter Server ou no host vSphere ESXi usando o cliente VMware vSphere.
 2. No menu **arquivo** , selecione **implantar modelo OVF** para iniciar o assistente para **implantar modelo de OVF** .
 
      ![Implantar modelo OVF](./media/vmware-azure-deploy-configuration-server/vcenter-wizard.png)
@@ -98,7 +98,7 @@ Se você deseja adicionar mais uma NIC ao servidor de configuração, adicione-o
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Registre o servidor de configuração com os serviços do Azure Site Recovery
 
-1. No console do cliente VMWare vSphere Client, ative a VM.
+1. No console do cliente do VMware vSphere, ative a VM.
 2. A VM será inicializada com uma experiência de instalação do Windows Server 2016. Aceite o contrato de licença e insira uma senha de administrador.
 3. Após a conclusão da instalação, entre na VM como administrador.
 4. Na primeira vez que você entrar, em alguns segundos a ferramenta de configuração do Azure Site Recovery será iniciada.

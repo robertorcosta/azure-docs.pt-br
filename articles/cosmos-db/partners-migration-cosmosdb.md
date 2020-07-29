@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: ad5ed2b45a182c1f33f33ca1f6d4e3212c61b6a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4507b3f3338dccbf51f7342081997549e62f13fe
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791724"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290085"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Parceiros de desenvolvimento de aplicativo e de migração do NoSQL do Azure Cosmos DB
 
@@ -19,14 +19,13 @@ Da migração do NoSQL ao desenvolvimento de aplicativo, é possível escolher e
 
 ## <a name="systems-integrator-partners"></a>Parceiros de Integrador de Sistemas
 
-|**Partner (parceiro)**  |**Funcionalidades e experiência**  |**Países/regiões com suporte**  |
+|**Parceiro**  |**Funcionalidades e experiência**  |**Países/regiões com suporte**  |
 |---------|---------|---------|
 |[Striim](https://www.striim.com/)    |  Movimentação de dados contínua, em tempo real, migração de dados|   EUA   |
 | [10thMagnitude](https://www.10thmagnitude.com/) | IoT, varejo (inventário), análise operacional (Spark), arquitetura sem servidor, desenvolvimento de aplicativos | EUA |
 |[Altoros Development LLC](https://www.altoros.com/)  |  IoT, varejo de personalização (inventário), arquitetura sem servidor migração do NoSQL, desenvolvimento de aplicativos|   EUA |
 |[Avanade](https://www.avanade.com/) | IoT, varejo (inventário), arquitetura sem servidor, desenvolvimento de aplicativos | Áustria, Alemanha, Suíça, Itália, Noruega, Espanha, Reino Unido, Canadá |
 |[Accenture](https://www.accenture.com/) | IoT, varejo (inventário), arquitetura sem servidor, desenvolvimento de aplicativos |Global|
-|[Bluemetal](https://www.bluemetal.com/)     |  IoT, varejo de personalização (inventário), análise operacional para Enterprise & SMC, anotação de imagem de ia, controle de ativos, migração de NoSQL, desenvolvimento de aplicativos     |    América do Norte, Ásia-Pacífico     |
 |[Capax Global LLC](https://www.capaxglobal.com/) | IoT, personalização, varejo (inventário), análise operacional (Spark), arquitetura sem servidor, desenvolvimento de aplicativos|    EUA     |  
 | [Capgemini](https://www.capgemini.com/) | Varejo (inventário), IoT, análise operacional (Spark), desenvolvimento de aplicativos | EUA, França, Reino Unido, Holanda, Finlândia  |
 | [Cognizant](https://www.cognizant.com/) | IoT, personalização, varejo (inventário), análise operacional (Spark), desenvolvimento de aplicativos |EUA, Canadá, Reino Unido, Dinamarca, Países Baixos, Suíça, Austrália, Japão |
@@ -35,7 +34,7 @@ Da migração do NoSQL ao desenvolvimento de aplicativo, é possível escolher e
 | [Lambda3 Informatics](https://www.lambda3.com.br/) | Personalização em tempo real, inventário de varejo, desenvolvimento de aplicativos | Brasil|
 |[Neal Analytics](https://www.nealanalytics.com/)    |     Personalização, varejo (inventário), análise operacional (Spark), desenvolvimento de aplicativos  |    EUA     |  
 |[Pragmatic Works Software Inc](https://www.pragmaticworks.com/)    |   Migração do NoSQL      |   EUA      |
-| [Serviços de Ricoh digital](https://www.ricoh.com/) | IoT, personalização em tempo real, inventário de varejo, migração de NoSQL | Reino Unido  |
+| [Serviços de Ricoh digital](https://www.ricoh.com/) | IoT, personalização em tempo real, inventário de varejo, migração de NoSQL | REINO UNIDO  |
 |[SNP Technologies](https://www.snp.com/) | Migração do NoSQL| EUA |
 | [Solidsoft Reply](https://www.reply.com/solidsoft-reply/) | Migração do NoSQL | Croácia, Suécia, Dinamarca, Irlanda, Bulgária, Eslovênia, Chipre, Malta, Lituânia, República Tcheca, Islândia e Suíça e Liechtenstein|
 | [Spanish Point Technologies](https://www.spanishpoint.ie/) | Migração do NoSQL| Irlanda|
@@ -51,13 +50,12 @@ Da migração do NoSQL ao desenvolvimento de aplicativo, é possível escolher e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre outros parceiros da Microsoft, consulte o silte [Microsoft Partner](https://partner.microsoft.com/en-US/).
+Para saber mais sobre outros parceiros da Microsoft, consulte o silte [Microsoft Partner](https://partner.microsoft.com/).
 
 <!--Image references-->
 [2]: ./media/partners-migration-cosmosdb/striim_logo.png
 [3]: ./media/partners-migration-cosmosdb/altoros_logo.png
 [4]: ./media/partners-migration-cosmosdb/attunix_logo.png
-[5]: ./media/partners-migration-cosmosdb/bluemetal_logo.png
 [6]: ./media/partners-migration-cosmosdb/capaxglobal_logo.png
 [7]: ./media/partners-migration-cosmosdb/coeo_logo.png
 [8]: ./media/partners-migration-cosmosdb/infosys_logo.png

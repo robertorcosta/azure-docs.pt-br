@@ -4,16 +4,16 @@ description: Este artigo fornece instruções sobre como habilitar a criptografi
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: edc52198208aa86772704bde7637a2801688da59
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b2a8d552a2b9a1d6d3bb02bf02be95af031a5e4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036124"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291966"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários de Azure Disk Encryption em VMs Windows
 
@@ -140,6 +140,33 @@ A tabela a seguir lista os parâmetros de modelo do Resource Manager existentes 
 | resizeOSDisk | A partição do SO deve ser redimensionada para ocupar o VHD do SO completo antes de dividir o volume do sistema. |
 | local | Local de todos os recursos. |
 
+## <a name="enable-encryption-on-nvme-disks-for-lsv2-vms"></a>Habilitar a criptografia em discos de NVMe para VMs Lsv2
+
+Este cenário descreve a habilitação de Azure Disk Encryption em discos de NVMe para VMs da série Lsv2.  A série Lsv2 apresenta o armazenamento de NVMe local. Os discos do NVMe local são temporários e os dados serão perdidos nesses discos se você parar/desalocar sua VM (consulte: [Lsv2-Series](../lsv2-series.md)).
+
+Para habilitar a criptografia em discos do NVMe:
+
+1. Inicialize os discos do NVMe e crie volumes NTFS.
+1. Habilite a criptografia na VM com o parâmetro Volumetype definido como todos. Isso habilitará a criptografia para todos os discos de sistema operacional e de dados, incluindo volumes apoiados por discos de NVMe. Para obter informações, consulte [habilitar a criptografia em uma VM do Windows existente ou em execução](#enable-encryption-on-an-existing-or-running-windows-vm).
+
+A criptografia persistirá nos discos de NVMe nos seguintes cenários:
+- Reinicialização da VM
+- Refazer imagem do VMSS
+- Sistema operacional de permuta
+
+Os discos de NVMe não serão inicializados nos seguintes cenários:
+
+- Iniciar VM após desalocação
+- Recuperação de serviço
+- Backup
+
+Nesses cenários, os discos de NVMe precisam ser inicializados depois que a VM é iniciada. Para habilitar a criptografia nos discos do NVMe, execute o comando para habilitar Azure Disk Encryption novamente depois que os discos de NVMe forem inicializados.
+
+Além dos cenários listados na seção [cenários sem suporte](#unsupported-scenarios) , a criptografia de discos de NVMe não tem suporte para:
+
+- VMs criptografadas com Azure Disk Encryption com o AAD (versão anterior)
+- Discos de NVMe com espaços de armazenamento
+- Azure Site Recovery de SKUs com discos de NVMe (consulte [matriz de suporte para recuperação de desastre de VM do Azure entre regiões do Azure: máquinas replicadas-armazenamento](../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage)).
 
 ## <a name="new-iaas-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a> Novas VMs da IaaS criadas a partir de chaves de criptografia e VHD criptografado pelo cliente
 
@@ -236,7 +263,6 @@ Azure Disk Encryption não funciona para os seguintes cenários, recursos e tecn
 - Movendo VMs criptografadas para outra assinatura ou região.
 - Criar uma imagem ou um instantâneo de uma VM criptografada e usá-la para implantar VMs adicionais.
 - VMs Gen2 (consulte: [suporte para VMs de geração 2 no Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
-- VMs da série Lsv2 (consulte: [Lsv2-Series](../lsv2-series.md))
 - VMs da série M com discos Acelerador de Gravação.
 - Aplicando ADE a uma VM que tem um disco de dados criptografado com [criptografia do lado do servidor com chaves gerenciadas pelo cliente](disk-encryption.md) (SSE + CMK) ou aplicando SSE + CMK a um disco de dados em uma VM criptografada com Ade.
 - Migrando uma VM criptografada com ADE para [criptografia do lado do servidor com chaves gerenciadas pelo cliente](disk-encryption.md).

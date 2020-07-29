@@ -3,12 +3,12 @@ title: Gerenciar políticas de laboratório no Azure DevTest Labs| Microsoft Doc
 description: Aprenda a definir as políticas do laboratório, como os tamanhos das VMs, o número máximo de VMs por usuário e o desligamento automático.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 95d91cfc70d603187543e308d2b1355c549c88f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab2e2b1905a515d3a85339099f02d93d8e5c0424
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483390"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290415"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gerenciar todas as políticas de um laboratório no Azure DevTest Labs
 
@@ -29,7 +29,7 @@ A política para definir os tamanhos de VM permitidos ajuda a minimizar o desper
 
 1. Se você habilitar essa política, selecione um ou mais tamanhos de VM que podem ser criados no laboratório.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="set-virtual-machines-per-user"></a>Conjunto de máquinas virtuais por usuário
 A política para **Máquinas virtuais por usuário** permite especificar o número de VMs que podem ser criadas por um usuário individual. Se um usuário tentar criar ou reivindicar uma VM quando o limite do usuário for atingido, uma mensagem de erro indicará que a VM não pode ser criada/reivindicada. 
@@ -42,7 +42,7 @@ A política para **Máquinas virtuais por usuário** permite especificar o núme
 
 1. Selecione **Sim** para limitar o número de VMs que podem usar o SSD (disco de estado sólido). Se você não quiser limitar o número de VMs que podem usar o SSD, selecione **Não**. Se você selecionar **Sim**, insira um valor indicando o número de VMs que podem ser criadas usando o SSD. 
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="set-virtual-machines-per-lab"></a>Conjunto de máquinas virtuais por laboratório
 A política para **Máquinas virtuais por laboratório** permite especificar o número de VMs que podem ser criadas para o laboratório atual. Se um usuário tentar criar uma VM quando o limite de laboratório for atendido, uma mensagem de erro indicará que a VM não pode ser criada. 
@@ -55,7 +55,7 @@ A política para **Máquinas virtuais por laboratório** permite especificar o n
 
 1. Selecione **Sim** para limitar o número de VMs que podem usar o SSD (disco de estado sólido). Se você não quiser limitar o número de VMs que podem usar o SSD, selecione **Não**. Se você selecionar **Sim**, insira um valor indicando o número de VMs que podem ser criadas usando o SSD. 
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="set-auto-shutdown"></a>Desligamento automático de conjunto
 A política de desligamento automático ajuda a minimizar o desperdício no laboratório, permitindo que você especifique o tempo de desligamento das VMs deste laboratório.
@@ -70,9 +70,9 @@ A política de desligamento automático ajuda a minimizar o desperdício no labo
 
 1. Especifique **Sim** ou **Não** para a opção de enviar uma notificação 15 minutos antes do tempo de desligamento automático especificado. Se escolher **Sim**, insira um ponto de extremidade de URL de webhook ou endereço de email especificando onde você deseja que a notificação seja postada ou enviada. O usuário recebe uma notificação e recebe a opção de adiar o encerramento.
 
-   Para saber mais sobre os webhooks, veja [Criar um webhook ou uma função da API do Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+   Para saber mais sobre os webhooks, veja [Criar um webhook ou uma função da API do Azure](../azure-functions/functions-bindings-http-webhook.md). 
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Por padrão, uma vez habilitada, essa política se aplicará a todas as VMs do laboratório atual. Para remover essa configuração de uma VM específica, abra o painel de gerenciamento da VM e altere sua configuração **Auto shutdown**.
 
@@ -111,7 +111,7 @@ A diretiva de início automático permite especificar quando as VMs no laborató
 
 3. Se você habilitar esta política, especifique o horário de início agendado, o fuso horário e os dias da semana para os quais o horário se aplica. 
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 Quando habilitada, essa política não será aplicada automaticamente a quaisquer máquinas virtuais do laboratório atual. Para aplicar essa configuração a uma VM específica, abra o painel Gerenciamento da VM e altere sua configuração de **inicialização automática** .
 
@@ -129,4 +129,3 @@ Depois de definir e aplicar as várias configurações da política de VM em seu
 * [Criar imagem personalizada](devtest-lab-create-template.md) – durante a criação de uma VM, você especifica uma base, que pode ser uma imagem personalizada ou uma imagem do Marketplace. Este artigo ilustra como criar uma imagem personalizada de um arquivo VHD.
 * [Configurar imagens do Marketplace](devtest-lab-configure-marketplace-images.md) – O Azure DevTest Labs dá suporte à criação de VMs com base em imagens do Azure Marketplace. Este artigo ilustra como especificar quais imagens (caso haja alguma) do Azure Marketplace podem ser usadas durante a criação de VMs em um laboratório.
 * [Criar uma VM em um laboratório](devtest-lab-add-vm.md) – ilustra como criar uma VM de uma imagem base (personalizada ou do Marketplace) e como trabalhar com artefatos na VM.
-

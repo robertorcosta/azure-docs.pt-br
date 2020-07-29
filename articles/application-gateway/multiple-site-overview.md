@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 07/20/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: b3e6bc6d2dd5568dcc11a37c6ab44bd3b4089c66
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 23f76f18256ecadcbef59a498292222ea358008f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067942"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290990"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hospedagem de vários sites do Gateway de Aplicativo
 
@@ -40,12 +40,8 @@ Usando um caractere curinga no nome do host, você pode corresponder a vários n
 >[!NOTE]
 > Este recurso está em visualização e está disponível somente para Standard_v2 e WAF_v2 SKU do gateway de aplicativo. Para saber mais sobre visualizações, confira [termos de uso aqui](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-No [portal do Azure](create-multiple-sites-portal.md), você pode defini-las em caixas de texto separadas, conforme mostrado na captura de tela abaixo.
-
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-example.png" alt-text="Configuração de exemplo de ouvinte curinga":::
-
 >[!NOTE]
->Se você estiver criando um novo ouvinte multissite ou adicionando mais de um nome de host ao ouvinte multissite existente no portal do Azure, ele será adicionado por padrão ao `HostNames` parâmetro da configuração do ouvinte, o que adiciona mais funcionalidade ao `HostName` parâmetro existente na configuração.
+>No momento, esse recurso está disponível apenas por meio de [Azure PowerShell](tutorial-multiple-sites-powershell.md) e [CLI do Azure](tutorial-multiple-sites-cli.md). O suporte ao portal estará disponível em breve.
 
 No [Azure PowerShell](tutorial-multiple-sites-powershell.md), você deve usar `-HostNames` em vez de `-HostName` . Com os nomes de host, você pode mencionar até 5 nome de host como valores separados por vírgulas e usar caracteres curinga. Por exemplo, `-HostNames "*.contoso.com,*.fabrikam.com"`
 
@@ -77,7 +73,7 @@ No [CLI do Azure](tutorial-multiple-sites-cli.md), você deve usar `--host-names
 *   As propriedades "hostname" aceitam uma cadeia de caracteres como entrada, em que você pode mencionar que apenas um nome de domínio não curinga e "hostnames" usa uma matriz de cadeias de caracteres como entrada, em que você pode mencionar até 5 nomes de domínio curinga. Mas as duas propriedades não podem ser usadas de uma vez.
 *   Não é possível criar uma regra de [redirecionamento](redirect-overview.md) com um ouvinte de destino que usa caracteres curinga ou vários nomes de host.
 
-Consulte [criar vários sites usando portal do Azure](create-multiple-sites-portal.md) ou [usando o Azure PowerShell](tutorial-multiple-sites-powershell.md) ou [usando CLI do Azure](tutorial-multiple-sites-cli.md) para obter o guia passo a passo sobre como configurar nomes de host curinga em um ouvinte multissite.
+Consulte [criar vários sites usando Azure PowerShell](tutorial-multiple-sites-powershell.md) ou [usando CLI do Azure](tutorial-multiple-sites-cli.md) para obter o guia passo a passo sobre como configurar nomes de host curinga em um ouvinte multissite.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Cabeçalhos de host e SNI (Indicação de Nome de Servidor)
 
@@ -95,6 +91,9 @@ O Gateway de Aplicativo depende de cabeçalhos de host HTTP 1.1 para hospedar ma
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de aprender sobre a hospedagem de vários sites, vá para [criar vários sites usando portal do Azure](create-multiple-sites-portal.md) ou [usando Azure PowerShell](tutorial-multiple-sites-powershell.md) ou [usando CLI do Azure](tutorial-multiple-sites-cli.md) para obter o guia passo a passo sobre como criar um gateway de aplicativo para hospedar vários sites.
+Saiba como configurar a hospedagem de vários sites no gateway de aplicativo
+* [Usando o Portal do Azure](create-multiple-sites-portal.md)
+* [Usando o PowerShell do Azure](tutorial-multiple-sites-powershell.md) 
+* [Usando a CLI do Azure](tutorial-multiple-sites-cli.md)
 
 Você pode visitar [Modelo do Resource Manager usando a hospedagem de vários sites](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) para encontrar uma implantação baseada em modelo de ponta a ponta.
