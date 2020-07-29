@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 6ffc81f7fc5cf36ff4e9bada8f72cfef013afcbc
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 94ffe2852380d238e9829a8ab0cc69ebe82b74fe
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982769"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373497"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Habilitar o ajuste automático no portal do Azure para monitorar consultas e melhorar o desempenho da carga de trabalho
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -117,7 +117,7 @@ O ajuste automático está monitorando todas as ações que ele realiza no banco
 
 ## <a name="permissions"></a>Permissões
 
-Como o ajuste automático é um recurso do Azure, para usá-lo, será necessário usar as funções RBAC internas do Azure. Usar a autenticação do SQL somente não será suficiente para usar o recurso do portal do Azure.
+Como o ajuste automático é um recurso do Azure, para usá-lo, será necessário usar as funções internas do Azure. Usar a autenticação do SQL somente não será suficiente para usar o recurso do portal do Azure.
 
 Para usar o ajuste automático, a permissão mínima necessária para conceder ao usuário é a função [colaborador do banco de dados SQL](../../role-based-access-control/built-in-roles.md#sql-db-contributor) interna do Azure. Você também pode considerar o uso de funções de privilégio mais altas, como colaborador de SQL Server, SQL Instância Gerenciada colaborador, colaborador e proprietário.
 

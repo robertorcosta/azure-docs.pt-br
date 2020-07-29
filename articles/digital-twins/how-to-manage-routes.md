@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bc22cf5a21709ccacafe068a60541cc9990d1131
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8c9fbf7bc45ed2070570faf0d1dfdb15b5fd98ee
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132255"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373259"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure
 
@@ -149,7 +149,7 @@ Aqui estão os filtros de rota com suporte.
 
 | Nome do filtro | Descrição | Filtrar esquema | Valores com suporte | 
 | --- | --- | --- | --- |
-| Tipo | O [tipo de evento](./concepts-route-events.md#types-of-event-messages) que flui pela sua instância de cópia digital | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
+| Type | O [tipo de evento](./concepts-route-events.md#types-of-event-messages) que flui pela sua instância de cópia digital | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
 | Fonte | Nome da instância do gêmeos digital do Azure | `"filter" : "source = '<hostname>'"`|  **Para notificações**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Para telemetria**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
 | Assunto | Uma descrição do evento no contexto da origem do evento acima | `"filter": " subject = '<subject>'"` | **Para notificações**: o assunto é`<twinid>` <br> ou um formato de URI para entidades, que são identificadas exclusivamente por várias partes ou IDs:<br>`<twinid>/relationships/<relationshipid>`<br> **Para telemetria**: o assunto é o caminho do componente (se a telemetria for emitida de um componente de entrelaçamento), como `comp1.comp2` . Se a telemetria não for emitida de um componente, o campo assunto estará vazio. |
 | Esquema de dados | ID do modelo DTDL | `"filter": "dataschema = 'dtmi:example:com:floor4;2'"` | **Para telemetria**: o esquema de dados é a ID do modelo de a/ou o componente que emite a telemetria <br>**Para notificações**: não há suporte para o esquema de dados|
@@ -184,7 +184,7 @@ As métricas de roteamento, como contagem, latência e taxa de falha podem ser e
 
 Na página inicial do portal, pesquise sua instância do gêmeos digital do Azure para obter seus detalhes. Selecione a opção **métricas** no menu da instância do gêmeos digital do Azure para abrir a página de *métricas* .
 
-:::image type="content" source="media/how-to-manage-routes/metrics.png" alt-text="Página métricas de uma instância do gêmeos digital do Azure no portal do Azure":::
+:::image type="content" source="media/how-to-view-metrics/azure-digital-twins-metrics.png" alt-text="Captura de tela mostrando a página de métricas do Azure digital gêmeos":::
 
 A partir daqui, você pode exibir as métricas para sua instância e criar exibições personalizadas.
 

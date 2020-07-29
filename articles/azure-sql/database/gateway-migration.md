@@ -10,15 +10,15 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: e9bf1f06b1ec1f99da1ce653b4bc72f4638ba451
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 22bfab5b9f00a392054fa1aef6a93195180fd968
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084946"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373480"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migração de tráfego do banco de dados SQL do Azure para gateways mais recentes
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 À medida que a infraestrutura do Azure melhora, a Microsoft atualizará periodicamente o hardware para garantir que forneceremos a melhor experiência possível para o cliente. Nos próximos meses, planejamos adicionar gateways criados em gerações de hardware mais recentes, migrar o tráfego para eles e eventualmente descomissionar os gateways criados em um hardware mais antigo em algumas regiões.  
 
@@ -26,7 +26,20 @@ Os clientes serão notificados por email e na portal do Azure bem antes de qualq
 
 ## <a name="status-updates"></a>Atualizações de status
 
-# <a name="in-progress"></a>[Em Andamento](#tab/in-progress-ip)
+# <a name="in-progress"></a>[Em andamento](#tab/in-progress-ip)
+### <a name="september-2020"></a>Setembro de 2020
+
+Novos gateways do SQL estão sendo adicionados às seguintes regiões:
+
+- Europa Setentrional: 13.74.104.113 
+- DOS EUA 2 ocidental: 40.78.248.10 
+- Europa Ocidental: 52.236.184.163 
+- EUA Central do Sul: 20.45.121.1, 20.49.88.1 
+
+Os gateways SQL existentes começarão a aceitar o tráfego nas seguintes regiões:
+- Leste do Japão: 40.79.184.8, 40.79.192.5
+
+Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 1 de setembro de 2020. 
 
 ### <a name="august-2020"></a>Agosto de 2020
 
@@ -43,17 +56,17 @@ Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 10 de ag
 As seguintes migrações de gateway estão concluídas: 
 
 ### <a name="october-2019"></a>Outubro de 2019
-- Sul do Brasil
+- Brazil South
 - Oeste dos EUA
 - Europa Ocidental
-- Leste dos EUA
+- East US
 - Centro dos EUA
 - Sudeste da Ásia
 - Centro-Sul dos Estados Unidos
 - Norte da Europa
 - Centro-Norte dos EUA
 - Oeste do Japão
-- Leste do Japão
+- Japan East
 - Leste dos EUA 2
 - Leste da Ásia
 

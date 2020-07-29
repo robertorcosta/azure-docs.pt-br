@@ -3,12 +3,12 @@ title: Habilitar uma imagem licenciada em seu laboratório no Azure DevTest Labs
 description: Saiba como habilitar uma imagem licenciada no Azure DevTest Labs usando o Portal do Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6a4023a0107acf5aa4cabc2178d17f7be40301f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a043679e27580254c56fe118838dd355be5a58de
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481010"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286505"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Habilitar uma imagem licenciada em seu laboratório no Azure DevTest Labs
 
@@ -50,7 +50,7 @@ Habilite a implantação programática para uma imagem licenciada executando est
     ![Janela Configurar Implantação Programática](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
-   > As VMs de ciência de dados são imagens de Máquinas Virtuais do Azure pré-instaladas, configuradas e testadas com várias ferramentas populares normalmente usadas para análise de dados, aprendizado de máquina e treinamento de inteligência artificial. [Introdução à Máquina Virtual de Ciência de Dados do Azure para Linux e Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) fornece uma grande quantidade de informações sobre DSVMs.
+   > As VMs de ciência de dados são imagens de Máquinas Virtuais do Azure pré-instaladas, configuradas e testadas com várias ferramentas populares normalmente usadas para análise de dados, aprendizado de máquina e treinamento de inteligência artificial. [Introdução à Máquina Virtual de Ciência de Dados do Azure para Linux e Windows](../machine-learning/data-science-virtual-machine/overview.md) fornece uma grande quantidade de informações sobre DSVMs.
    >
    >
 
@@ -66,7 +66,7 @@ Habilite a implantação programática para uma imagem licenciada executando est
    >
 
 
-1. Selecione **Salvar**. 
+1. Clique em **Salvar**. 
 
     Na lista de imagens do marketplace, essa imagem agora mostra **Termos aceitos** e está disponível para os usuários criarem máquinas virtuais.
 
@@ -78,7 +78,7 @@ Habilite a implantação programática para uma imagem licenciada executando est
 
 ## <a name="related-blog-posts"></a>Postagens de blogs relacionadas
 
-- [Imagens personalizadas ou fórmulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Imagens personalizadas ou fórmulas?](./devtest-lab-faq.md#blog-post)
 - [Copiar imagens personalizadas entre Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Próximas etapas

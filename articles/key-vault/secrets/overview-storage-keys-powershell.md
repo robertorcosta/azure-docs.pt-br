@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 77cbd5a3c293b137f49a11263580ef45407c6c2b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3dea4c0f63b6c4e76c2289e6c3d930ea32cf2880
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090460"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373208"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gerenciar chaves de conta de armazenamento com Key Vault e Azure PowerShell
 
@@ -47,14 +47,14 @@ Key Vault é um aplicativo da Microsoft que é previamente registrado em todos o
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Público do Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Outro  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Outros  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia, primeiro você deve fazer o seguinte:
 
 - [Instale o módulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.6.0).
-- [Criar um cofre de chave](quick-create-powershell.md)
+- [Criar um cofre de chaves](quick-create-powershell.md)
 - [Criar uma conta de Armazenamento do Azure](../../storage/common/storage-account-create.md?tabs=azure-powershell). O nome da conta de armazenamento deve usar apenas letras minúsculas e números. O comprimento do nome deve ter entre 3 e 24 caracteres.
       
 
@@ -99,7 +99,7 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -St
 
 ### <a name="give-key-vault-access-to-your-storage-account"></a>Conceder Key Vault acesso à sua conta de armazenamento
 
-Antes que o Key Vault possa acessar e gerenciar suas chaves de conta de armazenamento, você deve autorizar o acesso a sua conta de armazenamento. O aplicativo do Key Vault requer permissões para *lista* e *regenerar* chaves para sua conta de armazenamento. Essas permissões são habilitadas por meio da função RBAC interna [Função do Serviço do Operador de Chaves da Conta de Armazenamento](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
+Antes que o Key Vault possa acessar e gerenciar suas chaves de conta de armazenamento, você deve autorizar o acesso a sua conta de armazenamento. O aplicativo do Key Vault requer permissões para *lista* e *regenerar* chaves para sua conta de armazenamento. Essas permissões são habilitadas por meio da [função de serviço do operador chave de conta de armazenamento](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role)de função interna do Azure. 
 
 Atribua essa função à entidade de serviço Key Vault, limitando o escopo à sua conta de armazenamento, usando o cmdlet Azure PowerShell [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment?view=azps-2.6.0) .
 

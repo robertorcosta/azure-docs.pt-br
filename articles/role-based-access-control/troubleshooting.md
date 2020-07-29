@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/01/2020
+ms.date: 07/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 8d6c9ab2bacf94b3a27bfd1de0189d8b89b5efaf
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: bf8fa174611c7173c957ded49ff9135f90cebc08
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129433"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287202"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solucionar problemas do RBAC do Azure
 
@@ -52,6 +52,22 @@ $ras.Count
 ## <a name="problems-with-azure-role-assignments"></a>Problemas com as atribuições de função do Azure
 
 - Se não for possível adicionar uma atribuição de função no portal do Azure no **controle de acesso (iam)** porque a opção **Adicionar**  >  **Adicionar atribuição de função** está desabilitada ou porque você recebe o erro de permissões "o cliente com a ID de objeto não tem autorização para executar a ação", verifique se você está conectado no momento com um usuário que recebe uma função que tem a `Microsoft.Authorization/roleAssignments/write` permissão como [proprietário](built-in-roles.md#owner) ou administrador de [acesso do usuário](built-in-roles.md#user-access-administrator) no escopo ao qual você está tentando atribuir a função.
+- Se você estiver usando uma entidade de serviço para atribuir funções, poderá obter o erro "privilégios insuficientes para concluir a operação". Por exemplo, digamos que você tenha uma entidade de serviço à qual tenha sido atribuída a função proprietário e tente criar a atribuição de função a seguir como a entidade de serviço usando CLI do Azure:
+
+    ```azurecli
+    az login --service-principal --username "SPNid" --password "password" --tenant "tenantid"
+    az role assignment create --assignee "userupn" --role "Contributor"  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
+    ```
+
+    Se você receber o erro "privilégios insuficientes para concluir a operação", é provável que CLI do Azure esteja tentando Pesquisar a identidade do destinatário no Azure AD e a entidade de serviço não possa ler o Azure AD por padrão.
+
+    Há duas maneiras de resolver esse erro potencialmente. A primeira maneira é atribuir a função [leitores de diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) à entidade de serviço para que possa ler dados no diretório. Você também pode conceder a [permissão Directory. Read. All](https://docs.microsoft.com/graph/permissions-reference) no Microsoft Graph.
+
+    A segunda maneira de resolver esse erro é criar a atribuição de função usando o `--assignee-object-id` parâmetro em vez de `--assignee` . Usando `--assignee-object-id` , CLI do Azure irá ignorar a pesquisa do Azure AD. Será necessário obter a ID de objeto do usuário, do grupo ou do aplicativo ao qual você deseja atribuir a função. Para obter mais informações, consulte [Adicionar ou remover atribuições de função do Azure usando CLI do Azure](role-assignments-cli.md#new-service-principal).
+
+    ```azurecli
+    az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
+    ```
 
 ## <a name="problems-with-custom-roles"></a>Problemas com funções personalizadas
 

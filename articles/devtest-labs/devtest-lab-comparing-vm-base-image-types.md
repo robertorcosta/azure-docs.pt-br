@@ -3,12 +3,12 @@ title: Comparando as imagens personalizadas e as fórmulas nos DevTest Labs | Mi
 description: Saiba mais sobre as diferenças entre imagens personalizadas e fórmulas como bases de VM para que você possa decidir qual é mais adequada para seu ambiente.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: dac820d0600745906e4b1aeef95806ed5679488a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df7a8e6209f8033eb5a29c65079e9c2f4cbbe544
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85484019"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287540"
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Comparando imagens personalizadas e fórmulas em Laboratórios de Desenvolvimento/Teste
 É possível usar tanto as [imagens personalizadas](devtest-lab-create-template.md) quanto as [fórmulas](devtest-lab-manage-formulas.md) como bases para as [novas VMs criadas](devtest-lab-add-vm.md). No entanto, a principal diferença entre fórmulas e imagens personalizadas é que uma imagem personalizada é simplesmente uma imagem baseada em um VHD, enquanto uma fórmula é uma imagem baseada em um VHD, *além de* definições pré-configuradas, como tamanho da VM, rede virtual, sub-rede e artefatos. Essas configurações pré-configuradas são definidas com valores padrão que podem ser substituídos no momento da criação da VM. Este artigo explica algumas das vantagens (prós) e desvantagens (contras) de usar imagens personalizadas versus usar fórmulas.
@@ -41,7 +41,7 @@ As fórmulas fornecem uma maneira dinâmica de criar VMs por meio das configura�
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-blog-posts"></a>Postagens de blogs relacionadas
-* [Imagens personalizadas ou fórmulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+* [Imagens personalizadas ou fórmulas?](./devtest-lab-faq.md#blog-post)
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Perguntas frequentes do DevTest Labs](devtest-lab-faq.md)

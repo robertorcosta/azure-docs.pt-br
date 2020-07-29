@@ -3,12 +3,12 @@ title: Versão Prévia – Conhecer o Azure Policy para Kubernetes
 description: Saiba como o Azure Policy usa o Rego e o Open Policy Agent para gerenciar clusters que executam o Kubernetes no Azure ou localmente. Esta é uma versão prévia do recurso.
 ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: a044ea33f1a7710c4bb97d30cf8f11d4de2838b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 461dd467ecda2764c6753ed6eeee0405f8420bbc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373617"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373752"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Entender o Azure Policy para clusters Kubernetes (versão prévia)
 
@@ -373,7 +373,7 @@ Como parte das propriedades _details.constraintTemplate_ e _details.constraint_ 
 
 ## <a name="assign-a-built-in-policy-definition"></a>Atribuir uma definição de política incorporada
 
-Para atribuir uma definição de política ao cluster do Kubernetes, você precisará receber as operações de atribuição de política RBAC (controle de acesso baseado em função) apropriadas. As funções RBAC internas **Colaborador de Política de Recurso** e **Proprietário** possuem essas operações. Para saber mais, confira [Permissões RBAC no Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
+Para atribuir uma definição de política ao cluster do Kubernetes, você precisará receber as operações de atribuição de política RBAC (controle de acesso baseado em função) apropriadas. O colaborador e o **proprietário** da **política de recursos** de funções internas do Azure têm essas operações. Para saber mais, confira [Permissões RBAC no Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
 Encontre as definições de política internas para gerenciar seu cluster por meio do portal do Azure com as seguintes etapas:
 

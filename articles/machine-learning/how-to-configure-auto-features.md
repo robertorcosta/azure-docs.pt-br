@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 950f258e7380d7fbd25e1a5fe2dd4673ba122c52
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b01d6c36b31ef4f03522d03ca327439cfa31be8d
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321574"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373735"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Personalização no Machine Learning automatizado
 
@@ -114,13 +114,13 @@ Verificador de integridade|Status|Condição&nbsp;para&nbsp;gatilho
 
 Você pode personalizar suas configurações de personalização para garantir que os dados e recursos usados para treinar seu modelo de ML resultem em previsões relevantes.
 
-Para personalizar o featurizations, especifique  `"featurization": FeaturizationConfig` em seu `AutoMLConfig` objeto. Se você estiver usando o Azure Machine Learning Studio para seu experimento, consulte o [artigo de instruções](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+Para personalizar o featurizations, especifique  `"featurization": FeaturizationConfig` em seu `AutoMLConfig` objeto. Se você estiver usando o Azure Machine Learning Studio para seu experimento, consulte o [artigo de instruções](how-to-use-automated-ml-for-ml-models.md#customize-featurization). Para personalizar o personalização para os tipos de tarefa previsão, consulte a [previsão de instruções](how-to-auto-train-forecast.md#customize-featurization).
 
 As personalizações com suporte incluem:
 
 |Personalização|Definição|
 |--|--|
-|**Atualização de finalidade de coluna**|Substituir o tipo de recurso da coluna especificada.|
+|**Atualização de finalidade de coluna**|Substituir o tipo de recurso detectado automaticamente para a coluna especificada.|
 |**Atualização de parâmetro do transformador** |Atualize os parâmetros para o transformador especificado. Atualmente dá suporte a *imputer* (média, mais frequente e mediana) e *HashOneHotEncoder*.|
 |**Remover colunas** |Especifica que as colunas a serem descartadas são destacados.|
 |**Bloquear transformadores**| Especifica os transformadores de bloqueio a serem usados no processo personalização.|

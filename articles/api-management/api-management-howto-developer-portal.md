@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 7d479f18e8764a69cdc81f99d723534e4895b0e4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f5f4df58a4b147ccb73c7d69f5307a8328803442
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025074"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373140"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Visão Geral do portal do desenvolvedor do Gerenciamento de API do Azure
 
@@ -105,7 +105,19 @@ Você pode acessar e gerenciar programaticamente o conteúdo do portal do desenv
 
 A API está documentada na [seção wiki do repositório do GitHub][2]. Ele pode ser usado para automatizar migrações de conteúdo do portal entre ambientes, por exemplo, de um ambiente de teste para o ambiente de produção. Você pode saber mais sobre esse processo [neste artigo de documentação](https://aka.ms/apimdocs/migrateportal) sobre o github.
 
+### <a name="how-do-i-move-from-the-managed-to-the-self-hosted-version"></a>Como fazer mudar do gerenciado para a versão hospedada internamente?
+
+Consulte o artigo detalhado na [seção wiki do repositório do portal do desenvolvedor no GitHub][2].
+
+### <a name="can-i-have-multiple-developer-portals-in-one-api-management-service"></a>Posso ter vários portais de desenvolvedor em um serviço de gerenciamento de API?
+
+Você pode ter um portal gerenciado e vários portais hospedados internamente. O conteúdo de todos os portais é armazenado no mesmo serviço de gerenciamento de API, portanto, será idêntico. Se você quiser diferenciar a aparência e a funcionalidade dos portais, poderá hospedá-los internamente com seus próprios widgets personalizados que personalizam dinamicamente as páginas no tempo de execução, por exemplo, com base na URL.
+
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>O portal dá suporte a modelos de Azure Resource Manager e/ou é compatível com o DevOps Resource Kit de gerenciamento de API?
+
+Não.
+
+### <a name="is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management"></a>O conteúdo do portal foi salvo com a funcionalidade de backup/restauração no gerenciamento de API?
 
 Não.
 
@@ -200,7 +212,7 @@ A falha de chamada também pode ser causada por um certificado TLS/SSL, que é a
 
 ### <a name="whats-the-browser-support-for-the-portal"></a>Qual é o suporte do navegador para o portal?
 
-| Navegador                     | Suportado       |
+| Navegador                     | Com suporte       |
 |-----------------------------|-----------------|
 | Apple Safari                | Sim<sup>1</sup> |
 | Google Chrome               | Sim<sup>1</sup> |

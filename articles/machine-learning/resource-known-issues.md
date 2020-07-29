@@ -8,15 +8,15 @@ ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
-ms.custom: contperfq4
+ms.topic: conceptual
+ms.custom: troubleshooting, contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: 56acddda2cf5ae2ef2a94353ec11c3ddf6990e1c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8f58fcef1a35494053803d98b43ce97fed7205e0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536106"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373684"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conhecidos e solução de problemas no Azure Machine Learning
 
@@ -173,7 +173,7 @@ Para obter mais informações sobre solução de problemas, consulte [próximas 
 
 * **Problemas ao criar AmlCompute**: há uma chance rara de que alguns usuários que criaram seu espaço de trabalho Azure Machine Learning do portal do Azure antes da versão GA talvez não possam criar AmlCompute nesse espaço de trabalho. Você pode gerar uma solicitação de suporte em relação ao serviço ou criar um novo espaço de trabalho por meio do portal ou do SDK para desbloquear-se imediatamente.
 
-## <a name="work-with-data"></a>Trabalhar usando dados
+## <a name="work-with-data"></a>Trabalhar com dados
 
 ### <a name="overloaded-azurefile-storage"></a>Armazenamento do Azurefile sobrecarregado
 
@@ -307,7 +307,7 @@ time.sleep(600)
 
 Execute estas ações para os seguintes erros:
 
-|Erro do  | Resolução  |
+|Erro  | Resolução  |
 |---------|---------|
 |Falha na criação da imagem ao implantar o serviço Web     |  Adicionar "pynacl = = 1.2.1" como uma dependência Pip ao arquivo Conda para configuração de imagem       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Altere a SKU para VMs usadas em sua implantação para uma que tenha mais memória. |
@@ -368,6 +368,12 @@ Se executar uma operação de gerenciamento em um destino de computação de um 
 ```
 
 Por exemplo, você receberá um erro se tentar criar ou anexar um destino de computação de um Pipeline de ML que é enviado para execução remota.
+
+## <a name="missing-user-interface-items-in-studio"></a>Itens de interface do usuário ausentes no estúdio
+
+O controle de acesso baseado em função do Azure pode ser usado para restringir ações que podem ser executadas com Azure Machine Learning. Essas restrições podem impedir que itens da interface do usuário sejam mostrados no Azure Machine Learning Studio. Por exemplo, se você receber uma função que não pode criar uma instância de computação, a opção para criar uma instância de computação não será exibida no estúdio.
+
+Para obter mais informações, consulte [gerenciar usuários e funções](how-to-assign-roles.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

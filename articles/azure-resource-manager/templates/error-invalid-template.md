@@ -3,12 +3,12 @@ title: Erros de modelo inválido
 description: Descreve como resolver erros de modelo inválido ao implantar modelos do Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: a3589f42f707240272a411a985adefd5e6c5539c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3e68d4634d0092d05222348ca0db0116422faec3
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118878"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373803"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Resolva erros de modelo inválido
 
@@ -130,7 +130,7 @@ Verifique uma segunda vez os valores permitidos no modelo e forneça um durante 
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>Solução 4 – Muitos grupos de recursos de destino
 
-Você pode observar esse erro em implantações anteriores porque estava limitado a cinco grupos de recursos de destino em uma única implantação. Em maio de 2020, esse limite foi aumentado para 800 grupos de recursos. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](cross-resource-group-deployment.md).
+Você pode observar esse erro em implantações anteriores porque estava limitado a cinco grupos de recursos de destino em uma única implantação. Em maio de 2020, esse limite foi aumentado para 800 grupos de recursos. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](cross-scope-deployment.md).
 
 <a id="circular-dependency"></a>
 

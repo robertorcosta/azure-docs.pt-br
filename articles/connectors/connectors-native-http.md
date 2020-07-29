@@ -7,11 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/09/2020
 tags: connectors
-ms.openlocfilehash: 23c6a555909d43f640fb5089fb60da8bac065886
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c7a0ddb80ba28548fc1821cc2063e500af0fa66
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609498"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286624"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chamar pontos de extremidade de serviço via HTTP ou HTTPS de Aplicativos Lógicos do Azure
 
@@ -161,7 +162,7 @@ Aqui está o mesmo exemplo que mostra a definição de JSON da ação HTTP na de
 
 ## <a name="asynchronous-request-response-behavior"></a>Comportamento assíncrono de solicitação-resposta
 
-Por padrão, todas as ações baseadas em HTTP nos aplicativos lógicos do Azure seguem o [padrão de operação assíncrona](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply)padrão. Esse padrão especifica que depois que uma ação HTTP chama ou envia uma solicitação para um ponto de extremidade, serviço, sistema ou API, o receptor retorna imediatamente uma resposta ["202 aceito"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) . Esse código confirma que o receptor aceitou a solicitação, mas não concluiu o processamento. A resposta pode incluir um `location` cabeçalho que especifica a URL e uma ID de atualização que o chamador pode usar para sondar ou verificar o status da solicitação assíncrona até que o receptor pare de processar e retorne uma resposta de êxito ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) ou outra resposta diferente de 202. No entanto, o chamador não precisa esperar que a solicitação conclua o processamento e possa continuar executando a próxima ação. Para obter mais informações, consulte [integração assíncrona de microserviço impõe autonomia de microserviço](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+Por padrão, todas as ações baseadas em HTTP nos aplicativos lógicos do Azure seguem o [padrão de operação assíncrona](/azure/architecture/patterns/async-request-reply)padrão. Esse padrão especifica que depois que uma ação HTTP chama ou envia uma solicitação para um ponto de extremidade, serviço, sistema ou API, o receptor retorna imediatamente uma resposta ["202 aceito"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) . Esse código confirma que o receptor aceitou a solicitação, mas não concluiu o processamento. A resposta pode incluir um `location` cabeçalho que especifica a URL e uma ID de atualização que o chamador pode usar para sondar ou verificar o status da solicitação assíncrona até que o receptor pare de processar e retorne uma resposta de êxito ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) ou outra resposta diferente de 202. No entanto, o chamador não precisa esperar que a solicitação conclua o processamento e possa continuar executando a próxima ação. Para obter mais informações, consulte [integração assíncrona de microserviço impõe autonomia de microserviço](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
 
 * No designer do aplicativo lógico, a ação HTTP, mas não o gatilho, tem uma configuração **padrão assíncrona** , que é habilitada por padrão. Essa configuração especifica que o chamador não aguarda o processamento ser concluído e possa passar para a próxima ação, mas continua verificando o status até que o processamento seja interrompido. Se desabilitada, essa configuração especifica que o chamador aguarda o processamento ser concluído antes de passar para a próxima ação.
 
@@ -252,11 +253,11 @@ Para obter mais informações sobre parâmetros de ação e gatilho, consulte es
 
 Aqui estão mais informações sobre as saídas de um gatilho ou ação HTTP, que retorna essas informações:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | DESCRIÇÃO |
 |----------|------|-------------|
 | `headers` | Objeto JSON | Os cabeçalhos da solicitação |
 | `body` | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
-| `status code` | Integer | O código de status da solicitação |
+| `status code` | Inteiro | O código de status da solicitação |
 |||
 
 | Código de status | Descrição |
@@ -273,3 +274,4 @@ Aqui estão mais informações sobre as saídas de um gatilho ou ação HTTP, qu
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)
+

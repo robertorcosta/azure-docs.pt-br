@@ -5,14 +5,15 @@ author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 09/19/2017
+ms.custom: devx-track-java
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 54f545c2d4f897f85ab3e5fd10d07666e93e4f41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1edc13888a42086cdcd3c3c7756491bd5f43241
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509669"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87314468"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Desenvolvimento para o Arquivos do Azure com Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -72,7 +73,7 @@ try {
 
 **CloudStorageAccount.parse** gera uma InvalidKeyException; portanto, você precisará colocá-lo dentro de um bloco try/catch.
 
-## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
+## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivo do Azure
 Todos os arquivos e diretórios do Arquivos do Azure residem em um contêiner chamado **Compartilhamento**. Sua conta de armazenamento pode a quantidade de compartilhamentos que a capacidade da conta permitir. Para obter acesso a um compartilhamento e seu conteúdo, é necessário usar um cliente de Arquivos do Azure.
 
 ```java
@@ -165,7 +166,7 @@ for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 }
 ```
 
-## <a name="upload-a-file"></a>Carregar um arquivo
+## <a name="upload-a-file"></a>Fazer upload de um arquivo
 Nesta seção, você aprenderá a carregar um arquivo do armazenamento local para o diretório raiz de um compartilhamento.
 
 A primeira etapa do carregamento de um arquivo é obter uma referência para o diretório onde ele deve residir. Para isso, você deve chamar o método **getRootDirectoryReference** do objeto de compartilhamento.

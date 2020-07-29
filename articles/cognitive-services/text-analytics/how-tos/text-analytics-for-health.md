@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: cbc950647dc2f7102f20766c22f434526ab66639
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dbd0699924268b38d69bc576a5886e8d31fa1208
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122243"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373463"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Como usar Análise de Texto para integridade (versão prévia)
 
@@ -23,7 +23,7 @@ ms.locfileid: "86122243"
 > O Análise de Texto for Health é uma funcionalidade de visualização fornecida "no estado em que se encontra" e "com todas as falhas". Dessa forma, o **análise de texto para integridade (versão prévia) não deve ser implementado ou implantado em nenhum uso de produção.** A Análise de Texto para a integridade não é pretendida ou disponibilizada para uso como um dispositivo médico, suporte clínico, ferramenta de diagnóstico ou outra tecnologia destinada a ser usada no diagnóstico, remediação, redução, tratamento ou prevenção de doenças ou outras condições, e nenhuma licença ou direito é concedido pela Microsoft para usar esse recurso para tais finalidades. Essa funcionalidade não foi projetada ou destinada a ser implementada ou implantada como um substituto para consultoria Médica profissional ou opinião de saúde, diagnóstico, tratamento ou julgamento clínico de um profissional de saúde, e não deve ser usada como tal. O cliente é exclusivamente responsável por qualquer uso de Análise de Texto para fins de integridade. A Microsoft não garante que Análise de Texto de saúde ou qualquer material fornecido em conexão com a capacidade seja suficiente para qualquer finalidade médica ou atenda aos requisitos de saúde ou médicos de qualquer pessoa. 
 
 
-O Azure Análise de Texto for Health é um serviço em contêineres que extrai e rotula informações médicas relevantes de textos não estruturados, como notas do médico, resumos de descarga, documentos clínicos e registros eletrônicos de saúde.  
+O Análise de Texto for Health é um serviço em contêineres que extrai e rotula informações médicas relevantes de textos não estruturados, como notas do médico, resumos de descarga, documentos clínicos e registros eletrônicos de saúde.  
 
 ## <a name="features"></a>Recursos
 
@@ -62,7 +62,7 @@ O significado do conteúdo médico é altamente afetado por modificadores como n
 
 ---
 
-Consulte as [categorias de entidade](../named-entity-types.md?tabs=health) retornadas por análise de texto para a área de saúde para obter uma lista completa de entidades com suporte.
+Consulte as [categorias de entidade](../named-entity-types.md?tabs=health) retornadas por análise de texto para integridade para obter uma lista completa de entidades com suporte.
 
 ## <a name="supported-languages"></a>Idiomas com suporte
 
@@ -80,8 +80,8 @@ Preencha e envie o [formulário de solicitação de contêineres de serviços co
 
 Há várias maneiras que você pode instalar e executar o contêiner. 
 
-1. Usar o [portal do Azure](text-analytics-how-to-install-containers.md?tabs=healthcare) para criar um recurso de análise de texto e usar o Docker para obter seu contêiner.
-2. Usando o PowerShell e [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) scripts abaixo para automatizar a configuração do contêiner de implantação de recursos.
+- Use o [portal do Azure](text-analytics-how-to-install-containers.md?tabs=healthcare) para criar um recurso de análise de texto e use o Docker para obter seu contêiner.
+- Use os scripts do PowerShell e do [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) a seguir para automatizar a configuração do contêiner de implantação de recursos.
 
 ### <a name="install-the-container-using-azure-web-app-for-containers"></a>Instalar o contêiner usando o Azure Aplicativo Web para Contêineres
 
@@ -223,7 +223,7 @@ Para obter mais informações, consulte a documentação do NGINX na [terminaç�
 
 
 ## <a name="example-api-request"></a>Solicitação de API de exemplo
-O contêiner fornece APIs de ponto de extremidade de previsão de consulta com base em REST.
+O contêiner fornece APIs de ponto de extremidade de previsão de consulta baseadas em REST.
 
 Use a solicitação de ondulação de exemplo abaixo para enviar uma consulta ao contêiner que você implantou, substituindo a `serverURL` variável pelo valor apropriado.
 

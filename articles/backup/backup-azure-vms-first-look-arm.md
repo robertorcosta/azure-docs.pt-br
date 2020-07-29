@@ -3,12 +3,12 @@ title: Fazer backup de uma VM do Azure usando as configurações da VM
 description: Neste artigo, saiba como fazer backup de uma VM do Azure singular ou de várias VMs do Azure com o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 580cb1ad5f611991212bc8cdb48c66339f14d8e8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 722c24ce87edc692156a86338521aa3b2f9c7562
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538880"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286692"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Fazer backup de uma VM do Azure usando as configurações da VM
 
@@ -24,7 +24,7 @@ Este artigo explica como fazer backup de VMs do Azure com o serviço de [Backup 
 
 ### <a name="azure-vm-agent-installation"></a>Instalação do agente de VM do Azure
 
-Para fazer backup de VMs do Azure, o Backup do Azure instala uma extensão no agente de VM em execução no computador. Se a VM tiver sido criada com base em uma imagem do marketplace do Azure, o agente estará em execução. Em alguns casos, por exemplo, se você cria uma VM personalizada ou migra um computador local, talvez seja necessário instalar o agente manualmente.
+Para fazer backup de VMs do Azure, o Backup do Azure instala uma extensão no agente de VM em execução no computador. Se sua VM tiver sido criada a partir de uma imagem do Azure Marketplace, o agente estará em execução. Em alguns casos, por exemplo, se você cria uma VM personalizada ou migra um computador local, talvez seja necessário instalar o agente manualmente.
 
 - Se você precisar instalar manualmente o agente de VM, siga as instruções para VMs do [Windows](../virtual-machines/extensions/agent-windows.md) ou [Linux](../virtual-machines/extensions/agent-linux.md).
 - Depois que o agente é instalado, quando você habilita o backup, o Backup do Azure instala a extensão de backup para o agente. Ele atualiza e aplica patches na extensão sem a intervenção do usuário.
@@ -39,15 +39,15 @@ Para fazer backup de VMs do Azure, o Backup do Azure instala uma extensão no ag
    - Se você já tem um cofre, clique em **Selecionar existente** e selecione um cofre.
    - Caso não tenha um cofre, clique em **Criar novo**. Especifique um nome para o cofre. Ele será criado no mesmo grupo de recursos e mesma região que a VM. Você não pode modificar essas configurações ao habilitar o backup diretamente nas configurações da VM.
 
-   ![Habilitar o Assistente de Backup](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
+        ![Habilitar o Assistente de Backup](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
-6. Em **Escolher política de backup**, faça o seguinte:
+6. Em **escolher política de backup**, siga um destes procedimentos:
 
    - Deixe a política padrão. Isso faz backup da VM uma vez por dia no horário especificado e retém os backups no cofre por 30 dias.
    - Selecione uma política de backup existente se você tiver uma.
    - Crie uma nova política e defina as configurações da política.  
 
-   ![Selecionar a política de backup](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
+       ![Selecionar a política de backup](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
 7. Clique em **habilitar backup**. Isso associa a política de backup com a VM.
 

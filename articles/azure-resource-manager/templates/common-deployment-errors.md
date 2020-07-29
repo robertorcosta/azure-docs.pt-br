@@ -4,12 +4,12 @@ description: Descreve como resolver erros comuns ao implantar recursos no Azure 
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 06/25/2020
-ms.openlocfilehash: 9914cf8267624cd05db860e7dd8eb8d8c5831f7e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 652e4ec3c7f0de982b973733d75d736949b97bcc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055657"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373990"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solução de erros comuns de implantação do Azure com o Azure Resource Manager
 
@@ -78,7 +78,7 @@ Se você estiver procurando informações sobre um código de erro e se essas in
 | SubnetsNotInSameVnet | Uma máquina virtual pode ter apenas uma rede virtual. Ao implantar várias NICs, certifique-se de que elas pertencem à mesma rede virtual. | [Várias NICs](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriptionNotRegistered | Ao implantar recursos de rede, o provedor de recursos Microsoft. Network é registrado automaticamente na assinatura. Às vezes, o registro automático não é concluído no tempo. Para evitar esse erro intermitente, registre o provedor de recursos Microsoft. Network antes da implantação. | [Resolver registro](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Remova as dependências desnecessárias. | [Resolver as dependências circulares](error-invalid-template.md#circular-dependency) |
-| TooManyTargetResourceGroups | Reduza o número de grupos de recursos para uma única implantação. | [Implantação entre grupos de recursos](cross-resource-group-deployment.md) |
+| TooManyTargetResourceGroups | Reduza o número de grupos de recursos para uma única implantação. | [Implantação entre escopos](cross-scope-deployment.md) |
 
 ## <a name="find-error-code"></a>Encontrar código do erro
 
@@ -89,7 +89,7 @@ Há dois tipos de erros que você pode receber:
 
 Erros de validação ocorrem em cenários que podem ser determinados antes da implantação. Eles incluem erros de sintaxe no modelo ou a tentativa de implantar recursos que excederão suas cotas de assinatura. Os erros de implantação surgem de condições que ocorrem durante o processo de implantação. Eles incluem a tentativa de acessar um recurso que está sendo implantado em paralelo.
 
-Ambos os tipos de erro retornam um código de erro que você pode usar para solucionar os problemas de implantação. Os dois tipos de erro aparecem no [log de atividades](../management/view-activity-logs.md). No entanto, os erros de validação não aparecem no seu histórico de implantações, porque a implantação nunca foi iniciada.
+Ambos os tipos de erro retornam um código de erro que você pode usar para solucionar os problemas de implantação. Os dois tipos de erros aparecem no [log de atividades](../management/view-activity-logs.md). No entanto, os erros de validação não aparecem no seu histórico de implantações, porque a implantação nunca foi iniciada.
 
 ### <a name="validation-errors"></a>Erros de validação
 

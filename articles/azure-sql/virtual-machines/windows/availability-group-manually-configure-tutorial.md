@@ -3,7 +3,7 @@ title: 'Tutorial: configurar um grupo de disponibilidade de Always On SQL Server
 description: Este tutorial mostra como criar um grupo de disponibilidade Always On do SQL Server em Máquinas Virtuais do Azure.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0b98838441325245b3f4322a32eb5e2376557313
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 22240c61b2341999528dcb477308990133042fa0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960734"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286853"
 ---
 # <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>Tutorial: configurar um grupo de disponibilidade SQL Server em máquinas virtuais do Azure manualmente
 
@@ -413,7 +414,7 @@ Para configurar o balanceador de carga, você precisará criar um pool de back-e
 
 1. Defina a investigação de integridade do ouvinte, conforme a seguir:
 
-   | Setting | Descrição | Exemplo
+   | Configuração | Descrição | Exemplo
    | --- | --- |---
    | **Nome** | Texto | SQLAlwaysOnEndPointProbe |
    | **Protocolo** | Escolher TCP | TCP |
@@ -429,7 +430,7 @@ Para configurar o balanceador de carga, você precisará criar um pool de back-e
 
 1. Defina as regras de balanceamento de carga do ouvinte, conforme a seguir.
 
-   | Setting | Descrição | Exemplo
+   | Configuração | Descrição | Exemplo
    | --- | --- |---
    | **Nome** | Texto | SQLAlwaysOnEndPointListener |
    | **Endereço IP de front-end** | Escolher um endereço |Use o endereço que você criou ao criar o balanceador de carga. |
@@ -457,7 +458,7 @@ O endereço IP do WSFC também precisa estar no balanceador de carga.
 
 1. Defina a investigação de integridade do endereço IP principal de cluster do WSFC, conforme a seguir:
 
-   | Setting | Descrição | Exemplo
+   | Configuração | Descrição | Exemplo
    | --- | --- |---
    | **Nome** | Texto | WSFCEndPointProbe |
    | **Protocolo** | Escolher TCP | TCP |

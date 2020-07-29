@@ -3,12 +3,12 @@ title: Dimensionar limites e cotas em seu laboratório no Azure DevTest Labs | M
 description: Este artigo descreve como você pode dimensionar seu laboratório no Azure DevTest Labs. Exiba suas cotas e limites de uso e solicite um aumento.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 9c999760a649d4df4b34221633491b8ece784f52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dacc699a6f4e7663d0f314acfc2212bd69d46d18
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477084"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287318"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Dimensionar cotas e limites no DevTest Labs
 Ao trabalhar em DevTest Labs, você observará que existem certos limites padrão a alguns recursos do Azure que podem afetar o serviço DevTest Labs. Esses limites são conhecidos como **cotas**.
@@ -20,7 +20,7 @@ Você pode usar cada recurso do Azure até atingir sua cota. Cada assinatura tem
 
 Por exemplo, cada assinatura tem uma cota padrão de 20 núcleos. Portanto, se você estiver criando VMs em seu laboratório com quatro núcleos cada, você poderá criar apenas cinco VMs.
 
-O item [Assinatura e Limites de Serviço do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) lista algumas das mais comuns cotas para recursos do Azure. Os recursos mais comumente usados em um laboratório e para os quais você pode encontrar cotas incluem núcleos de VM, endereços IP públicos, interface de rede, managed disks, atribuição de função RBAC e circuitos ExpressRoute.
+O item [Assinatura e Limites de Serviço do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) lista algumas das mais comuns cotas para recursos do Azure. Os recursos mais comumente usados em um laboratório e para os quais você pode encontrar cotas incluem núcleos de VM, endereços IP públicos, interface de rede, managed disks, atribuição de função RBAC e circuitos ExpressRoute.
 
 ## <a name="view-your-usage-and-quotas"></a>Exibir seu uso e cotas
 Estas etapas mostram como visualizar as cotas atuais em sua assinatura para recursos específicos do Azure e ver o percentual de cada cota usada.
@@ -37,7 +37,7 @@ Estas etapas mostram como visualizar as cotas atuais em sua assinatura para recu
    ![Cotas e uso](./media/devtest-lab-scale-lab/devtestlab-view-quotas-new.png)
 
 ## <a name="requesting-more-resources-in-your-subscription"></a>Solicitar mais recursos na sua assinatura
-Se você atingir um limite de cota, o limite padrão de um recurso em uma assinatura poderá ser aumentado até o limite máximo, conforme descrito em [Assinatura e limites de serviço do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+Se você atingir um limite de cota, o limite padrão de um recurso em uma assinatura poderá ser aumentado até o limite máximo, conforme descrito em [Assinatura e limites de serviço do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 Estas etapas mostram como solicitar um aumento de cota por meio do [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
