@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: ebbf83e1abe6140614a45bfa89570cdf19283f8f
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: caa73b5a86c5c245aefd18de9b60ec49616b3b84
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169628"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281541"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerenciar instantâneos por meio do Azure NetApp Files
 
@@ -46,6 +46,9 @@ Você pode criar instantâneos de volume sob demanda.
 ## <a name="manage-snapshot-policies"></a>Gerenciar políticas de instantâneo
 
 Você pode agendar para que os instantâneos de volume sejam feitos automaticamente usando políticas de instantâneo. Você também pode modificar uma política de instantâneo, conforme necessário, ou excluir uma política de instantâneo que não é mais necessária.  
+
+> [!IMPORTANT] 
+> O uso da funcionalidade de política de instantâneo requer a lista de permissões. Envie um email para anffeedback@microsoft.com com sua ID de assinatura para solicitar esse recurso.
 
 ### <a name="create-a-snapshot-policy"></a>Criar uma política de instantâneo 
 
@@ -77,7 +80,7 @@ Uma política de instantâneo permite que você especifique a frequência de cri
 
     ![Política de instantâneo mensal](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  Clique em **Save** (Salvar).  
+4.  Clique em **Salvar**.  
 
 Se você precisar criar políticas de instantâneo adicionais, repita a etapa 3.
 As políticas que você criou aparecem na página política de instantâneo.

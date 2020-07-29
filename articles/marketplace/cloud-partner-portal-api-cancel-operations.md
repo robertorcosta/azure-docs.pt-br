@@ -4,15 +4,15 @@ description: A API para cancelar uma operação atualmente em andamento na ofert
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: emuench
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 462ca525be9cf46c87acdf4025223a98afaf8e3b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 095d9cf68374ee81cafdb6e7a32df29a57d122cb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520367"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287926"
 ---
 # <a name="cancel-operation"></a>Cancelar operação
 
@@ -77,7 +77,7 @@ Essa API cancela uma operação atualmente em andamento na oferta. Use [Recupera
 
 |  **Nome**             |    **Valor**                       |
 |  ---------            |    ----------                      |
-| Localização    | O caminho relativo para recuperar o status da operação. |
+| Location    | O caminho relativo para recuperar o status da operação. |
 |  |  |
 
 ### <a name="response-status-codes"></a>Códigos de status de resposta

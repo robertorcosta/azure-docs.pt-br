@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f96bc753d14d53584aec6d9661e52adcd21ab764
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
-ms.translationtype: HT
+ms.openlocfilehash: 8313259d5375bb19e7caa08a01a658707453d133
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/24/2020
-ms.locfileid: "87136042"
+ms.locfileid: "87176995"
 ---
 ## <a name="supported-regions"></a>Regiões compatíveis
 
@@ -28,11 +28,11 @@ ms.locfileid: "87136042"
 
 1. Procure e selecione **conjuntos de criptografia de disco**.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-encryption-sets-search.png" alt-text="texto de exemplo":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-encryption-sets-search.png" alt-text="Captura de tela da portal do Azure principal, os conjuntos de criptografia de disco são realçados na barra de pesquisa.":::
 
 1. Selecione **+ Adicionar**.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-add-disk-encryption-set.png" alt-text="texto de exemplo":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-add-disk-encryption-set.png" alt-text="Captura de tela da folha do conjunto de criptografia de disco, + adicionar é realçada.":::
 
 1. Selecione uma das regiões com suporte.
 1. Para **tipo de criptografia**, selecione **criptografia dupla com chaves**gerenciadas por plataforma e gerenciadas pelo cliente.
@@ -42,19 +42,19 @@ ms.locfileid: "87136042"
 
 1. Preencha as informações restantes.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-create-disk-encryption-set-blade.png" alt-text="texto de exemplo":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-create-disk-encryption-set-blade.png" alt-text="A captura de tela da folha de criação do conjunto de criptografia de disco, as regiões e a criptografia dupla com chaves gerenciadas por plataforma e gerenciadas pelo cliente são realçadas.":::
 
 1. Selecione um Azure Key Vault e uma chave ou crie um novo, se necessário.
 
     > [!NOTE]
     > Se você criar uma instância de Key Vault, deverá habilitar a exclusão reversível e limpar a proteção. Essas configurações são obrigatórias ao usar um Key Vault para criptografar discos gerenciados e protegê-lo contra a perda de dados devido à exclusão acidental.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-select-key-vault.png" alt-text="texto de exemplo":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-select-key-vault.png" alt-text="Captura de tela da folha de criação de Key Vault.":::
 
 1. Selecione **Criar**.
 1. Navegue até o conjunto de criptografia de disco que você criou e selecione o erro que é exibido. Isso irá configurar o conjunto de criptografia de disco para funcionar.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-set-error.png" alt-text="texto de exemplo":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-set-error.png" alt-text="Captura de tela do erro de conjunto de criptografia de disco exibido; o texto de erro é: para associar um disco, uma imagem ou um instantâneo com esse conjunto de criptografia de disco, você deve conceder permissões ao cofre de chaves.":::
 
     Uma notificação deve aparecer e ter sucesso. Isso permitirá que você use o conjunto de criptografia de disco com o cofre de chaves.
     
@@ -66,6 +66,6 @@ ms.locfileid: "87136042"
 1. Selecione o conjunto de criptografia de disco.
 1. Selecione **Salvar**.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-enable-disk-blade.png" alt-text="texto de exemplo":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-enable-disk-blade.png" alt-text="Captura de tela da folha criptografia do disco gerenciado, o tipo de criptografia mencionado anteriormente é realçado.":::
 
 Agora você habilitou a criptografia dupla em repouso no disco gerenciado.

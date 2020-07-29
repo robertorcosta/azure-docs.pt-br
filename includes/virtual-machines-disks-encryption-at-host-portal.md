@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/07/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c5ea31217bd3088ec123281b36f8578b08ea25b2
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f0a706cc51027bc503da9ee3bc637216e9e52853
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/24/2020
-ms.locfileid: "87136055"
+ms.locfileid: "87171360"
 ---
 ## <a name="restrictions"></a>Restrições
 
@@ -50,12 +50,12 @@ Você deve implantar uma nova VM para habilitar a criptografia no host, ela não
 1. Crie uma nova máquina virtual, selecione uma região apropriada e um tamanho de VM com suporte.
 1. Preencha os outros valores na folha **básica** como desejar e, em seguida, vá para a folha **discos** .
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="texto de exemplo":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="Captura de tela da folha noções básicas de criação de máquina virtual, região e tamanho de V M são realçados.":::
 
 1. Na folha **discos** , selecione **Sim** para **criptografia no host**.
 1. Faça as seleções restantes como desejar.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="texto de exemplo":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Captura de tela da folha discos de criação de máquina virtual, a criptografia no host é realçada.":::
 
 1. Conclua o processo de implantação da VM, faça seleções que se ajustam ao seu ambiente.
 
