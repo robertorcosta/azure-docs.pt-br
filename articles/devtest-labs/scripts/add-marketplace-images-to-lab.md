@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: d2f5d6b6b9500ccd90630e8920c09340658fb76f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c221f86d721a14f82f75d1cd9c81e37bba32a60
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84893074"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282612"
 ---
 # <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>Use o PowerShell adiciona uma imagem de marketplace a um laboratório no Azure DevTest Labs
 
@@ -43,10 +43,10 @@ Este script usa os seguintes comandos:
 | Localizar-AzResource | Pesquisas recursos com base nos parâmetros especificados. |
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Obter recursos. |
 | [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifica um recurso. |
-| [New-AzResource](/powershell/module/az.resources/new-azresource) | Cria um recurso. |
+| [New-AzResource](/powershell/module/az.resources/new-azresource) | Criar um recurso. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/).
 
 Exemplos adicionais de script do PowerShell do Azure Lab Services podem ser encontrados em [Exemplos de PowerShell do Azure Lab Services](../samples-powershell.md).

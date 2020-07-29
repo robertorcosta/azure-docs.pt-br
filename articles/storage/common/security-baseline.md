@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cd7e7df5c789743cf6bd84c6150fd901490bdedd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e10843eab8ac2ccbda3d6876f51c88a598d7139
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751627"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371678"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Linha de base de segurança do Azure para armazenamento do Azure
 
@@ -240,7 +240,7 @@ Além disso, habilite a proteção avançada contra ameaças para sua conta de a
 
 - [Como alertar sobre dados de log do log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
 
-- [Log da análise do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Registro em log da Análise de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -428,7 +428,7 @@ Uma maneira eficaz de reduzir o risco de acesso à conta de usuário não suspei
 
 Crie configurações de diagnóstico para Azure Active Directory contas de usuário, enviando os logs de auditoria e os logs de entrada para um espaço de trabalho Log Analytics. Você pode configurar os alertas desejados no workspace do Log Analytics. Para monitorar falhas de autenticação em contas de armazenamento do Azure, você pode criar alertas para notificá-lo quando determinados limites tiverem sido atingidos para métricas de recursos de armazenamento. Além disso, use Azure Monitor para alertar sobre o acesso anônimo para contas de armazenamento usando a condição de autenticação anônima.
 
-- [Log da análise do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Registro em log da Análise de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 - [Como integrar os logs de atividades do Azure ao Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
@@ -534,7 +534,7 @@ Além disso, use políticas de ponto de extremidade de serviço de rede virtual 
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Usar o RBAC do Azure para controlar o acesso a recursos
 
-**Diretrizes**: o Azure Active Directory (Azure AD) autoriza os direitos de acesso a recursos protegidos por meio do controle de acesso baseado em função (RBAC). O armazenamento do Azure define um conjunto de funções RBAC internas que abrangem conjuntos comuns de permissões usadas para acessar dados de BLOB ou de fila. 
+**Diretrizes**: o Azure Active Directory (Azure AD) autoriza os direitos de acesso a recursos protegidos por meio do controle de acesso baseado em função (RBAC). O armazenamento do Azure define um conjunto de funções internas do Azure que abrangem conjuntos comuns de permissões usadas para acessar dados de BLOB ou de fila. 
 
 - [Como atribuir funções RBAC para a conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal)
 
@@ -574,7 +574,7 @@ Além disso, use políticas de ponto de extremidade de serviço de rede virtual 
 
 - [Como criar alertas para eventos do log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-- [Log da análise do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Registro em log da Análise de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 - [Como configurar alertas de métricas para contas de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
 

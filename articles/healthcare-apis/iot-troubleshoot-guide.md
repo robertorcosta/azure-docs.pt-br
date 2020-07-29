@@ -8,18 +8,18 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: e74e3475256858955a5ab0dc99e7b858548e2485
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eff1272318413da7855134b0a8a44dd0a0711a6c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87096067"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285570"
 ---
-# <a name="iot-connector-preview-troubleshooting-guide-and-how-to"></a>Guia de solução de problemas do conector IoT (versão prévia) e instruções
+# <a name="iot-connector-preview-troubleshooting-guide"></a>Guia de solução de problemas do conector IoT (versão prévia)
 
-Neste artigo, você aprenderá a solucionar problemas de mensagens de erro e condições comuns do conector IoT (versão prévia).
+Este artigo fornece etapas para solucionar problemas de mensagens e condições de erro do conector IoT comum (versão prévia).  
 
-Você também aprenderá a criar cópias do mapeamento de JSON do conector IoT (visualização).
+Você também aprenderá a criar cópias dos arquivos de mapeamento de JSON do conector IoT (visualização) para edição e arquivamento fora do portal do Azure.
 
 ## <a name="error-messages-and-fixes"></a>Mensagens de erro e correções
 
@@ -59,11 +59,11 @@ Você também aprenderá a criar cópias do mapeamento de JSON do conector IoT (
 > [!NOTE]
 > Esse processo também pode ser usado para copiar/salvar o conteúdo do JSON **"Configurar mapeamento de FHIR"** .
 
-4. Selecione o conteúdo do JSON e execute uma operação de cópia (por exemplo: selecione CTRL + c). 
+4. Selecione o conteúdo do JSON e faça uma operação de cópia (por exemplo: selecione CTRL + c). 
 
    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="Conector IoT" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
-5. Execute uma operação de colagem (por exemplo: selecione CTRL + v) em um novo arquivo dentro de um editor (por exemplo: Visual Studio Code, bloco de notas) e salve o arquivo com uma extensão *. JSON.
+5. Faça uma operação de colagem (por exemplo: selecione CTRL + v) em um novo arquivo dentro de um editor (por exemplo: Visual Studio Code, bloco de notas) e salve o arquivo com uma extensão *. JSON.
 
 > [!TIP]
 > Se você estiver abrindo um tíquete de [suporte técnico do Azure](https://azure.microsoft.com/support/create-ticket/) para o conector IOT, certifique-se de incluir cópias dos arquivos de mapeamento para ajudar com o processo de solução de problemas.

@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 675391a92c991f80faadf8b75abc79dcb4cd19d7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bee22391664250888816dc2b4bbb93622cab7942
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322951"
+ms.locfileid: "87335555"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - Cotas e limitação do Hub IoT
 
@@ -30,9 +30,9 @@ Cada Hub IoT é provisionado com um determinado número de unidades em uma camad
 
 A camada também determina os limites de limitação que o Hub IoT aplicam em todas as operações.
 
-### <a name="iot-plug-and-play"></a>IoT Plug and Play
+## <a name="iot-plug-and-play"></a>IoT Plug and Play
 
-Durante a visualização pública, os dispositivos IoT Plug and Play enviarão mensagens separadas por interface, o que pode aumentar o número de mensagens contadas em direção à sua cota de mensagens.
+Os dispositivos IoT Plug and Play enviam pelo menos uma mensagem de telemetria para cada interface, incluindo a raiz, o que pode aumentar o número de mensagens contadas em direção à sua cota de mensagens.
 
 ## <a name="operation-throttles"></a>Restrições de operação
 
