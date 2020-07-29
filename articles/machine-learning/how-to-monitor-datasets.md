@@ -5,17 +5,18 @@ description: Crie Azure Machine Learning monitores de conjuntos de dados (versã
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 06/25/2020
-ms.openlocfilehash: 7ee9d37b19d4796f826fbd9831f6e84a92a12e7c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 270e93302a90c458ccbdfdc4d2ced8f0d3c263af
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031177"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319670"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detectar descompasso de dados (versão prévia) em conjuntos
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -310,7 +311,7 @@ Para começar, navegue até a [portal do Azure](https://portal.azure.com) e sele
 
 Selecione logs (análise) em monitoramento no painel esquerdo:
 
-![Visão geral do Application Insights](./media/how-to-monitor-datasets/ai-overview.png)
+![Visão geral do Application insights](./media/how-to-monitor-datasets/ai-overview.png)
 
 As métricas do monitor de conjunto de um DataSet são armazenadas como `customMetrics` . Você pode escrever e executar uma consulta depois de configurar um monitor de conjunto de um DataSet para exibi-los:
 

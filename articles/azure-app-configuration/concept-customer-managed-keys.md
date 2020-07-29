@@ -6,18 +6,15 @@ ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 32c4fe3e542135201a7bf4a23aeff94a0e2f902e
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: bcafdbdfd07456a01d956b622d9c5e6ed4b0b6f2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023560"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371848"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Usar chaves gerenciadas pelo cliente para criptografar os dados de configuração do aplicativo
 Azure App configuração [criptografa informações confidenciais em repouso](../security/fundamentals/encryption-atrest.md). O uso de chaves gerenciadas pelo cliente fornece proteção de dados aprimorada, permitindo que você gerencie suas chaves de criptografia.  Quando a criptografia de chave gerenciada é usada, todas as informações confidenciais na configuração do aplicativo são criptografadas com uma chave de Azure Key Vault fornecida pelo usuário.  Isso fornece a capacidade de girar a chave de criptografia sob demanda.  Ele também fornece a capacidade de revogar o acesso de Azure App configuração a informações confidenciais revogando o acesso da instância de configuração de aplicativo à chave.
-
-> [!NOTE]
-> As chaves gerenciadas pelo cliente agora estão disponíveis para o público em geral em todas as regiões *, exceto* na Índia central. Na região da **Índia central** , Azure app configuração oferece o uso de chaves gerenciadas pelo cliente como uma visualização pública. As ofertas de visualização pública permitem que os clientes experimentem os novos recursos antes do lançamento oficial.  Os serviços e recursos de visualização pública não são destinados ao uso em produção.
 
 ## <a name="overview"></a>Visão geral 
 Azure App configuração criptografa informações confidenciais em repouso usando uma chave de criptografia AES de 256 bits fornecida pela Microsoft. Cada instância de configuração de aplicativo tem sua própria chave de criptografia gerenciada pelo serviço e usada para criptografar informações confidenciais. Informações confidenciais incluem os valores encontrados em pares chave-valor.  Quando a capacidade de chave gerenciada pelo cliente está habilitada, a configuração de aplicativo usa uma identidade gerenciada atribuída à instância de configuração de aplicativo para autenticar com Azure Active Directory. Em seguida, a identidade gerenciada chama Azure Key Vault e encapsula a chave de criptografia da instância de configuração do aplicativo. Em seguida, a chave de criptografia encapsulada é armazenada e a chave de criptografia desencapsulada é armazenada em cache na configuração do aplicativo por uma hora. A configuração do aplicativo atualiza a versão desencapsulada da chave de criptografia da instância de configuração de aplicativo por hora. Isso garante a disponibilidade em condições normais de operação. 
@@ -81,7 +78,7 @@ Para começar, você precisará de uma instância de configuração de Azure App
     az appconfig identity assign --name contoso-app-config --resource-group contoso-resource-group --identities [system]
     ```
     
-    A saída desse comando inclui a ID da entidade de segurança ("PrincipalId") e a ID do locatário ("tenandId") da identidade atribuída pelo sistema.  Isso será usado para conceder o acesso de identidade à chave gerenciada.
+    A saída desse comando inclui a ID da entidade de segurança ("PrincipalId") e a ID do locatário ("tenandId") da identidade atribuída pelo sistema.  Essas IDs serão usadas para conceder o acesso de identidade à chave gerenciada.
 
     ```json
     {

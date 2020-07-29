@@ -4,16 +4,16 @@ description: Configurar, otimizar e solucionar problemas do AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: acfe868f26d7509d1dd06554482b4fb3b29a5b22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e79f186688f3b6531ac24df4e3ae4201cf1903c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504348"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282425"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e solucionar problemas do AzCopy
 
@@ -28,7 +28,7 @@ AzCopy é um utilitário de linha de comando que você pode usar para copiar blo
 
 ## <a name="configure-proxy-settings"></a>Definir configurações de proxy
 
-Para definir as configurações de proxy para AzCopy, defina a `https_proxy` variável de ambiente. Se você executar o AzCopy no Windows, o AzCopy detectará automaticamente as configurações de proxy, de modo que você não precisa usar essa configuração no Windows. Se você optar por usar essa configuração no Windows, ela substituirá a detecção automática.
+Para definir as configurações de proxy para AzCopy, defina a `https_proxy` variável de ambiente. Se você executar o AzCopy no Windows, o AzCopy detectará automaticamente as configurações de proxy, de modo que você não precisará usar essa configuração no Windows. Se você optar por usar essa configuração no Windows, ela substituirá a detecção automática.
 
 | Sistema operacional | Comando  |
 |--------|-----------|
@@ -49,7 +49,7 @@ Se você estiver executando o AzCopy no Windows e quiser dizer que ele _não usa
 
 Em outros sistemas operacionais, basta deixar a variável de HTTPS_PROXY desdefinida se você quiser usar nenhum proxy.
 
-## <a name="optimize-performance"></a>Otimizar o desempenho
+## <a name="optimize-performance"></a>Otimizar desempenho
 
 Você pode obter o desempenho do benchmark e, em seguida, usar comandos e variáveis de ambiente para encontrar uma compensação ideal entre o consumo de recursos e o desempenho.
 
@@ -63,7 +63,7 @@ Esta seção ajuda você a executar essas tarefas de otimização:
 
 ### <a name="run-benchmark-tests"></a>Executar testes de benchmark
 
-Você pode executar um teste de benchmark de desempenho em contêineres de BLOB ou compartilhamentos de arquivos específicos para exibir estatísticas gerais de desempenho e para identificar afunilamentos de desempenho. 
+Você pode executar um teste de benchmark de desempenho em contêineres de BLOB ou compartilhamentos de arquivos específicos para exibir estatísticas gerais de desempenho e para identificar afunilamentos de desempenho. Você pode executar o teste carregando ou baixando dados de teste gerados. 
 
 Use o comando a seguir para executar um teste de benchmark de desempenho.
 
@@ -77,9 +77,7 @@ Use o comando a seguir para executar um teste de benchmark de desempenho.
 
 Esse comando executa um parâmetro de comparação de desempenho carregando dados de teste para um destino especificado. Os dados de teste são gerados na memória, carregados no destino e, em seguida, excluídos do destino após a conclusão do teste. Você pode especificar quantos arquivos serão gerados e qual tamanho você gostaria que eles estivéssemos usando parâmetros de comando opcionais.
 
-Para obter documentos de referência detalhados, consulte [benchmark azcopy](storage-ref-azcopy-bench.md).
-
-Para exibir as diretrizes de ajuda detalhadas para este comando, digite `azcopy benchmark -h` e pressione a tecla Enter.
+Se você preferir executar esse teste baixando dados, defina o `mode` parâmetro como `download` . Para obter documentos de referência detalhados, consulte [benchmark azcopy](storage-ref-azcopy-bench.md). 
 
 ### <a name="optimize-throughput"></a>Otimizar a taxa de transferência
 

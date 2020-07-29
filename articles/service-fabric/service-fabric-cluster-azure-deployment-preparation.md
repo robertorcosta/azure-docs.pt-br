@@ -3,12 +3,12 @@ title: Planejar uma implantação de Cluster Service Fabric do Azure
 description: Saiba mais sobre planejamento e preparação para uma implantação de cluster de Service Fabric de produção no Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 462548d7f32a015701ef12e9777e8d9b1b1350f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1064e59491b7144aafade24bd50131478fe025eb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610584"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281320"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planejar e preparar uma implantação de cluster
 
@@ -51,7 +51,7 @@ Um número mínimo de nós deve ser baseado no número de réplicas do aplicativ
 
 OS discos do sistema operacional efêmero não são um recurso Service Fabric específico, mas sim um recurso dos *conjuntos de dimensionamento de máquinas virtuais* do Azure que são mapeados para Service Fabric tipos de nó. Usá-los com Service Fabric requer o seguinte no modelo de Azure Resource Manager de cluster:
 
-1. Verifique se os tipos de nó especificam [tamanhos de VM do Azure com suporte](../virtual-machines/windows/ephemeral-os-disks.md) para discos do sistema operacional efêmero e se o tamanho da VM tem tamanho de cache suficiente para dar suporte ao tamanho do disco do sistema operacional (veja a *Observação* abaixo). Por exemplo:
+1. Verifique se os tipos de nó especificam [tamanhos de VM do Azure com suporte](../virtual-machines/ephemeral-os-disks.md) para discos do sistema operacional efêmero e se o tamanho da VM tem tamanho de cache suficiente para dar suporte ao tamanho do disco do sistema operacional (veja a *Observação* abaixo). Por exemplo:
 
     ```xml
     "vmNodeType1Size": {
@@ -97,7 +97,7 @@ OS discos do sistema operacional efêmero não são um recurso Service Fabric es
 > Para migrar, os usuários terão que [Adicionar](./virtual-machine-scale-set-scale-node-type-scale-out.md) um novo NodeType com discos efêmeros, mover as cargas de trabalho para o novo NodeType & [remover](./service-fabric-how-to-remove-node-type.md) o NodeType existente.
 >
 
-Para obter mais informações e opções de configuração adicionais, consulte [discos do sistema operacional efêmero para VMs do Azure](../virtual-machines/windows/ephemeral-os-disks.md) 
+Para obter mais informações e opções de configuração adicionais, consulte [discos do sistema operacional efêmero para VMs do Azure](../virtual-machines/ephemeral-os-disks.md) 
 
 
 ### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>Selecione os níveis de durabilidade e confiabilidade para o cluster

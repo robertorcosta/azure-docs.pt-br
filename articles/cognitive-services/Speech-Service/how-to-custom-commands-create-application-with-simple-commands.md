@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 6552d13ab68d8028cd95b18f2d0895d53bba462c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d166257dd28773d89a4f1fd56de3cb1a22242523
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090953"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284159"
 ---
 # <a name="create-application-with-simple-commands"></a>Criar aplicativo com comandos simples
 
@@ -95,6 +95,7 @@ Em seguida, o comando precisa ter uma regra de conclusão. Essa regra informa ao
 
 1. Selecione **salvar** para salvar a ação.
 1. De volta à seção **regras de conclusão** , selecione **salvar** para salvar todas as alterações. 
+
 
     > [!NOTE]
     > Não é necessário usar a regra de conclusão padrão que vem com o comando. Se necessário, você pode excluir a regra de conclusão padrão existente e adicionar sua própria regra.

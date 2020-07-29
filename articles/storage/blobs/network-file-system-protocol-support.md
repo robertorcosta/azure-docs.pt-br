@@ -9,12 +9,12 @@ ms.date: 07/21/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: b76e25b2961bf3fb268da6622cbfcce3a50a3396
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab8d262e4eac08ce21b7ad01402c3608d52a1aab
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87096111"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372885"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Suporte ao protocolo NFS (sistema de arquivos de rede) 3,0 no armazenamento de BLOBs do Azure (versão prévia)
 
@@ -87,10 +87,8 @@ Os recursos de armazenamento do Azure a seguir não têm suporte quando você ha
 
 - A capacidade de desabilitar o suporte a NFS 3,0 em uma conta de armazenamento (depois de habilitá-la)
 
-- Capacidade de gravar em BLOBs usando o NFS 3,0 e outras APIs REST ou SDKs. 
-
-  Se você quiser usar APIs REST ou SDKs para gravar em um blob, certifique-se de usar o NFS 3,0 somente para executar operações de leitura. caso contrário, os BLOBs podem se tornar corrompidos.
-
+- Capacidade de gravar em BLOBs usando APIs REST ou SDKs. 
+  
 ## <a name="nfs-30-features-not-yet-supported"></a>Recursos do NFS 3,0 ainda não suportados
 
 Os seguintes recursos do NFS 3,0 ainda não têm suporte com o Azure Data Lake Storage Gen2.

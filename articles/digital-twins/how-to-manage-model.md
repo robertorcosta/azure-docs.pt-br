@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: fec93169a8c49422c9e310cddc08ae3412b89166
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b8a53ae598130086a9009dbec891052e863cdf0f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132272"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281354"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerenciar modelos de gêmeos digitais do Azure
 
@@ -65,8 +65,11 @@ Esse modelo define um nome e uma ID exclusiva para a sala do paciente e propried
 
 Seguindo esse método, você pode ir para definir modelos para as regiões, zonas ou o próprio hospital do hospital.
 
-> [!TIP]
-> Há uma biblioteca do lado do cliente disponível para análise e validação de DTDL. Ele gera um modelo de objeto C# do conteúdo do DTDL, que pode ser usado em cenários de desenvolvimento controlados por modelos, como a geração de elementos da interface do usuário. Você também pode usar essa biblioteca para certificar-se de que seus modelos não têm erros de sintaxe antes de carregá-los. Para obter mais informações sobre essa biblioteca e o acesso a um exemplo criado para um validador DTDL, consulte [*como analisar e validar modelos*](how-to-use-parser.md).
+### <a name="validate-syntax"></a>Validar sintaxe
+
+Há uma biblioteca do lado do cliente disponível para análise e validação de DTDL. Ele gera um modelo de objeto C# do conteúdo do DTDL, que pode ser usado em cenários de desenvolvimento controlados por modelos, como a geração de elementos da interface do usuário. Você também pode usar essa biblioteca para certificar-se de que seus modelos não têm erros de sintaxe antes de carregá-los. 
+
+Para obter mais informações sobre essa biblioteca e o acesso a um exemplo criado para um validador DTDL, consulte [*como analisar e validar modelos*](how-to-use-parser.md).
 
 ## <a name="manage-models-with-apis"></a>Gerencie modelos com APIs.
 
@@ -82,7 +85,10 @@ As seções a seguir mostram como concluir diferentes operações de gerenciamen
 
 Depois que os modelos são criados, você pode carregá-los na instância do gêmeos digital do Azure.
 
-Aqui está um trecho de código que mostra como fazer isso:
+> [!TIP]
+> É recomendável validar seus modelos offline antes de carregá-los na instância do gêmeos digital do Azure. Você pode usar a [biblioteca do analisador do lado do cliente DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) e a [amostra do validador DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) descritas em [*instruções: analisar e validar modelos*](how-to-use-parser.md) para verificar seus modelos antes de carregá-los para o serviço.
+
+Quando estiver pronto para carregar um modelo, você poderá usar o seguinte trecho de código:
 
 ```csharp
 // 'client' is an instance of DigitalTwinsClient
@@ -126,10 +132,7 @@ Os arquivos de modelo podem conter mais de um único modelo. Nesse caso, os mode
 ]
 ```
  
-No carregamento, os arquivos de modelo são validados.
-
-> [!TIP] 
-> Observe que você também pode usar a [biblioteca do analisador do lado do cliente do DTDL](how-to-use-parser.md) para validar modelos no lado do cliente.
+No carregamento, os arquivos de modelo são validados pelo serviço.
 
 ### <a name="retrieve-models"></a>Recuperar modelos
 

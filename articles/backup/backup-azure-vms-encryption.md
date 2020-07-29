@@ -3,12 +3,12 @@ title: Fazer backup e restaurar VMs do Azure criptografadas
 description: Descreve como fazer backup e restaurar VMs do Azure criptografadas com o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 1689ff89f15248f6771ccdce525cc136221e5577
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 20310c6c51a2467e9389bc77dd9ada4848c69be4
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538897"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371746"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Fazer backup e restaurar a VM do Azure criptografada
 
@@ -47,7 +47,7 @@ Antes de começar, faça o seguinte:
 
 1. Verifique se você tem uma ou mais VMs do [Windows](../virtual-machines/linux/disk-encryption-overview.md) ou [Linux](../virtual-machines/linux/disk-encryption-overview.md) com o Ade habilitado.
 2. [Examinar a matriz de suporte para o](backup-support-matrix-iaas.md) backup de VM do Azure
-3. [Crie](backup-azure-arm-vms-prepare.md#create-a-vault) um cofre de backup dos serviços de recuperação se você não tiver um.
+3. [Crie](backup-create-rs-vault.md) um cofre de backup dos serviços de recuperação se você não tiver um.
 4. Se você habilitar a criptografia para VMs que já estão habilitadas para backup, bastará fornecer backup com permissões para acessar o Key Vault para que os backups possam continuar sem interrupções. [Saiba mais](#provide-permissions) sobre como atribuir essas permissões.
 
 Além disso, há algumas ações que talvez você precise realizar em algumas circunstâncias:
@@ -56,7 +56,7 @@ Além disso, há algumas ações que talvez você precise realizar em algumas ci
 
 ## <a name="configure-a-backup-policy"></a>Configurar uma política de backup
 
-1. Se você ainda não criou um cofre de backup dos serviços de recuperação, siga [estas instruções](backup-azure-arm-vms-prepare.md#create-a-vault)
+1. Se você ainda não criou um cofre de backup dos serviços de recuperação, siga [estas instruções](backup-create-rs-vault.md)
 2. Abra o cofre no portal e selecione **backup** na seção **introdução** .
 
     ![Folha Backup](./media/backup-azure-vms-encryption/select-backup.png)

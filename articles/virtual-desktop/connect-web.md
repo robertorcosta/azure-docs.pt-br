@@ -8,20 +8,17 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4bb54db8a18baa237f1c32c223b5f609638c7523
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3fdbd0ddb33785655cada2600acdecdced4aeb2f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080617"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283428"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Conectar-se à área de trabalho virtual do Windows com o cliente Web
 
 >[!IMPORTANT]
->Este conteúdo se aplica à atualização da Spring 2020 com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows na versão 2019, sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/connect-web-2019.md).
->
-> A atualização 2020 da Área de Trabalho Virtual do Windows está em versão prévia pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Esse conteúdo se aplica à área de trabalho virtual do Windows com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows (clássico) sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/connect-web-2019.md).
 
 O cliente Web permite acessar os recursos da Área de Trabalho Virtual do Windows em um navegador da Web sem o lento processo de instalação.
 
@@ -35,7 +32,7 @@ Por mais que qualquer navegador compatível com HTML5 funcione, oficialmente dam
 | Navegador           | SO com suporte                     | Observações               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
-| Internet Explorer | Windows                          |                     |
+| Internet Explorer | Windows                          | Versão 11 ou posterior |
 | Apple Safari      | macOS                            |                     |
 | Mozilla Firefox   | Windows, macOS, Linux            | Versão 55 ou posterior |
 | Google Chrome     | Windows, macOS, Linux, Chrome OS |                     |
@@ -45,7 +42,7 @@ Por mais que qualquer navegador compatível com HTML5 funcione, oficialmente dam
 Em um navegador, vá até a versão integrada do Azure Resource Manager do cliente Web da Área de Trabalho Virtual do Windows em <https://rdweb.wvd.microsoft.com/arm/webclient> e entre com sua conta de usuário.
 
 >[!NOTE]
->Se você estiver usando a versão Outono de 2019 da Área de Trabalho Virtual do Windows sem a integração do Azure Resource Manager, conecte-se aos seus recursos em <https://rdweb.wvd.microsoft.com/webclient>.
+>Se você estiver usando a área de trabalho virtual do Windows (clássica) sem integração Azure Resource Manager, conecte-se aos seus recursos em <https://rdweb.wvd.microsoft.com/webclient> vez disso.
 
 >[!NOTE]
 >Se já tiver entrado com uma conta do Azure Active Directory diferente da que deseja usar para a Área de Trabalho Virtual do Windows, você deverá sair ou usar uma janela de navegador privada.

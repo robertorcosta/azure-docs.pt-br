@@ -4,16 +4,16 @@ description: Este artigo fornece instruções sobre como habilitar as VMs Linux 
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7664cebbd12e075e9b9ea7ea75021b61569a80cf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7452a08125008e3d25ffb7d0eff59f55ca9be0b1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080277"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372647"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs Linux
 
@@ -409,7 +409,7 @@ O Azure Disk Encryption não funciona para os seguintes cenários, recursos e te
 - Kdump (kernel de despejo de memória).
 - Oracle ACFS (Sistema de Arquivos de Cluster do ASM).
 - VMs Gen2 (consulte: [Suporte para VMs de geração 2 no Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
-- VMs da série Lsv2 (consulte: [Lsv2-series](../lsv2-series.md)).
+- Os discos NVMe das VMs da série Lsv2 (consulte: [Lsv2-Series](../lsv2-series.md)).
 - Uma VM com "pontos de montagem aninhados"; ou seja, vários pontos de montagem em um só caminho (como "/1stmountpoint/data/2stmountpoint").
 - Uma VM com uma unidade de dados montada na parte superior de uma pasta do sistema operacional.
 - VMs da série M com discos Acelerador de Gravação.

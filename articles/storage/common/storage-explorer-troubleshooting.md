@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: a49e5fbe9eac689b630a0f3b443729faf29cdb0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 492f44353a9a43279afa4869640193f1baddd41c
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84974510"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372868"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
@@ -67,9 +67,9 @@ Se você quiser acessar contêineres ou filas de BLOB, poderá anexar a esses re
 
 Para outros tipos de recursos, atualmente não temos uma solução relacionada a RBAC. Como alternativa, você pode solicitar um URI de SAS para [anexar ao recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
-### <a name="recommended-built-in-rbac-roles"></a>Funções RBAC internas recomendadas
+### <a name="recommended-azure-built-in-roles"></a>Funções internas do Azure recomendadas
 
-Há várias funções RBAC internas que podem fornecer as permissões necessárias para usar Gerenciador de Armazenamento. Algumas dessas funções são:
+Há várias funções internas do Azure que podem fornecer as permissões necessárias para usar Gerenciador de Armazenamento. Algumas dessas funções são:
 - [Proprietário](/azure/role-based-access-control/built-in-roles#owner): gerencie tudo, incluindo o acesso aos recursos. **Observação**: essa função fornecerá acesso à chave.
 - [Colaborador](/azure/role-based-access-control/built-in-roles#contributor): gerenciar tudo, excluindo o acesso aos recursos. **Observação**: essa função fornecerá acesso à chave.
 - [Leitor](/azure/role-based-access-control/built-in-roles#reader): ler e listar recursos.
@@ -243,10 +243,10 @@ Se você receber essa mensagem de erro ao tentar adicionar uma conexão personal
 3. Dependendo do tipo de conexão com a qual você está tendo um problema, procure sua chave e copie seu valor em um editor de texto. O valor é uma matriz de seus nomes de conexão personalizados, como o seguinte:
     * Contas de armazenamento
         * `StorageExplorer_CustomConnections_Accounts_v1`
-    * Contêineres de blob
+    * Contêineres de blobs
         * `StorageExplorer_CustomConnections_Blobs_v1`
         * `StorageExplorer_CustomConnections_Blobs_v2`
-    * Compartilhamentos de arquivos
+    * Compartilhamentos de arquivo
         * `StorageExplorer_CustomConnections_Files_v1`
     * Filas
         * `StorageExplorer_CustomConnections_Queues_v1`

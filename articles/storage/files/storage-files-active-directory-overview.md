@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: cb57606259fe674519015fd2de741d6c1d08c5e9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 48441a48fe6f72e88e080967451d9904c3e586b2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127189"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372307"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Visão geral de opções de autenticação baseadas em identidades do Azure Files para acesso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -91,7 +91,7 @@ A autenticação baseada em identidade para arquivos do Azure oferece vários be
 -   **Fazer backup de ACLs do Windows (também conhecido como NTFS) junto com seus dados**  
     Você pode usar compartilhamentos de arquivos do Azure para fazer backup de seus compartilhamentos de arquivos locais existentes. Os arquivos do Azure preservam suas ACLs junto com seus dados quando você faz backup de um compartilhamento de arquivos para compartilhamentos de arquivos do Azure via SMB.
 
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="how-it-works"></a>Como isso funciona
 
 Os compartilhamentos de arquivos do Azure aproveitam o protocolo Kerberos para autenticação com AD DS local ou AD DS do Azure. Quando uma identidade associada a um usuário ou aplicativo em execução em um cliente tenta acessar dados em compartilhamentos de arquivos do Azure, a solicitação é enviada para o serviço de domínio, seja AD DS ou AD DS do Azure, para autenticar a identidade. Se a autenticação for bem-sucedida, ela retornará um token Kerberos. O cliente envia uma solicitação que inclui o token Kerberos e os compartilhamentos de arquivos do Azure usam esse token para autorizar a solicitação. Os compartilhamentos de arquivos do Azure recebem apenas o token Kerberos, não as credenciais de acesso.
 
@@ -123,7 +123,7 @@ Você pode habilitar a autenticação baseada em identidade com o Azure AD DS ou
 
 ### <a name="configure-share-level-permissions-for-azure-files"></a>Configurar permissões no nível de compartilhamento para Arquivos do Azure
 
-Quando o Azure AD DS ou a autenticação de AD DS local estiver habilitada, você poderá usar funções RBAC internas ou configurar funções personalizadas para identidades do Azure AD e atribuir direitos de acesso a quaisquer compartilhamentos de arquivos em suas contas de armazenamento. A permissão atribuída permite que a identidade concedida obtenha acesso somente ao compartilhamento, nada mais, nem mesmo o diretório raiz. Você ainda precisa configurar separadamente as permissões no nível do diretório ou do arquivo para compartilhamentos de arquivos do Azure.
+Quando o Azure AD DS ou a autenticação de AD DS local estiver habilitada, você poderá usar funções internas do Azure ou configurar funções personalizadas para identidades do Azure AD e atribuir direitos de acesso a qualquer compartilhamento de arquivos em suas contas de armazenamento. A permissão atribuída permite que a identidade concedida obtenha acesso somente ao compartilhamento, nada mais, nem mesmo o diretório raiz. Você ainda precisa configurar separadamente as permissões no nível do diretório ou do arquivo para compartilhamentos de arquivos do Azure.
 
 ### <a name="configure-directory-or-file-level-permissions-for-azure-files"></a>Configurar permissões no nível do diretório ou do arquivo para arquivos do Azure
 

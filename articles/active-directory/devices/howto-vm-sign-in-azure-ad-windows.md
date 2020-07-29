@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c9fbf2d86c2e066566bab11b1701909be64a37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 588e63e630caa4746b493d4530e301f72e5ccb5f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025839"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282935"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Entrar na máquina virtual do Windows no Azure usando a autenticação Azure Active Directory (versão prévia)
 
@@ -45,7 +45,7 @@ Há muitos benefícios em usar a autenticação do Azure AD para fazer logon em 
 
 No momento, há suporte para as seguintes distribuições do Windows durante a versão prévia deste recurso:
 
-- Datacenter do Windows Server 2019
+- Windows Server 2019 Datacenter
 - Windows 10 1809 e posterior
 
 > [!IMPORTANT]
@@ -208,9 +208,9 @@ Você pode impor políticas de acesso condicional, como a autenticação multifa
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Fazer logon usando as credenciais do Azure AD para uma VM do Windows
 
 > [!IMPORTANT]
-> A conexão remota com VMs Unidas ao Azure AD é permitida somente em computadores Windows 10 que são ingressados no Azure ad ou Azure AD híbrido ingressado no **mesmo** diretório que a VM. Além disso, para o RDP usando as credenciais do Azure AD, o usuário deve pertencer a uma das duas funções RBAC, logon de administrador de máquina virtual ou logon de usuário de máquina virtual. Neste momento, a bastiões do Azure não pode ser usada para fazer logon usando Azure Active Directory autenticação com a extensão AADLoginForWindows. Somente o RDP direto tem suporte.
+> A conexão remota com VMs Unidas ao Azure AD só é permitida a partir de computadores Windows 10 que estejam registrados no Azure AD (a compilação mínima necessária é 20H1) ou ingressado no Azure ad ou híbrido do AD LDS ingressado no **mesmo** diretório da VM. Além disso, para o RDP usando as credenciais do Azure AD, o usuário deve pertencer a uma das duas funções RBAC, logon de administrador de máquina virtual ou logon de usuário de máquina virtual. Se estiver usando um computador Windows 10 registrado no Azure AD, você deverá inserir as credenciais no formato AzureAD\UPN (por exemplo, AzureAD\john@contoso.com ). Neste momento, a bastiões do Azure não pode ser usada para fazer logon usando Azure Active Directory autenticação com a extensão AADLoginForWindows; somente o RDP direto tem suporte.
 
-Para fazer logon na sua máquina virtual do Windows Server 2019 usando o Azure AD: 
+Para fazer logon em sua máquina virtual do Windows Server 2019 usando o Azure AD: 
 
 1. Navegue até a página Visão geral da máquina virtual que foi habilitada com o logon do Azure AD.
 1. Selecione **conectar** para abrir a folha conectar-se à máquina virtual.
@@ -342,7 +342,7 @@ Se você vir a seguinte mensagem de erro ao iniciar uma conexão de área de tra
 Verifique se o computador Windows 10 que você está usando para iniciar a conexão de área de trabalho remota é um que seja ingressado no Azure AD ou que o Azure AD híbrido ingressou no mesmo diretório do Azure AD em que sua VM está unida. Para obter mais informações sobre a identidade do dispositivo, consulte o artigo [o que é uma identidade de dispositivo](/azure/active-directory/devices/overview).
 
 > [!NOTE]
-> O Windows 10 20H1 adicionará suporte para o computador registrado do Azure AD para iniciar a conexão de área de trabalho remota com sua VM. Junte-se ao programa Windows Insider para experimentar e explorar os novos recursos do Windows 10.
+> O Windows 10 Build 20H1 adicionou suporte para um PC registrado do Azure AD para iniciar a conexão RDP com sua VM. Ao usar um computador de registro do Azure AD (não ingressado no Azure ad ou ingressado no Azure AD híbrido) como o cliente RDP para iniciar conexões com sua VM, você deve inserir as credenciais no formato AzureAD\UPn (por exemplo, AzureAD\john@contoso.com ).
 
 Além disso, verifique se a extensão AADLoginForWindows não foi desinstalada após a conclusão da junção do Azure AD.
  

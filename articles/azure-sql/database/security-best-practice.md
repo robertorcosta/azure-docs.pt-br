@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 00369ae45a13414ce46f324e37afe24be24a48e0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 6a3a52c90187920be13628a6d2fa44159e1109d7
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132935"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371780"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Guia estratégico para tratar dos requisitos de segurança comuns com o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -324,7 +324,7 @@ Separação de tarefas, também chamada de diferenciação de direitos, descreve
 
 - Sempre certifique-se de ter uma trilha de auditoria para ações relacionadas à segurança.
 
-- Você pode recuperar a definição das funções RBAC internas para ver as permissões usadas e criar uma função personalizada com base em trechos e acumulações delas por meio do PowerShell.
+- Você pode recuperar a definição das funções internas do Azure para ver as permissões usadas e criar uma função personalizada com base em trechos e acumulações delas por meio do PowerShell.
 
 - Como qualquer membro da função de banco de dados db_owner pode alterar configurações de segurança como Transparent Data Encryption (TDE) ou alterar o SLO, essa associação deve ser concedida com cuidado. No entanto, há muitas tarefas que exigem privilégios de db_owner. Tarefa como alterar qualquer configuração de banco de dados, como alterar opções de BD. A auditoria desempenha um papel fundamental em qualquer solução.
 

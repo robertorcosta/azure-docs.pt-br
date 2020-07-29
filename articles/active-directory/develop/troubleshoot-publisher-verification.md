@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: dcdce6ee6683c5770f97f5f3dc20e1c9b409ead0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3069e3caf81d9bb2f809b21c88383c419e3b90b3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477032"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282969"
 ---
 # <a name="troubleshoot-publisher-verification-preview"></a>Solucionar problemas de verificação do editor (versão prévia)
 Se não conseguir concluir o processo ou estiver tendo um comportamento inesperado com a [verificação do editor (versão prévia)](publisher-verification-overview.md), você deverá começar fazendo o seguinte se estiver recebendo erros ou vendo um comportamento inesperado: 
@@ -37,7 +37,7 @@ Abaixo estão alguns problemas comuns que podem ocorrer durante o processo.
     1. Navegue até a [página de registro do MPN](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new)
     1. Entrar com uma conta de usuário no locatário principal do Azure AD da organização 
     1. Se já existir uma conta do MPN, ela será reconhecida e você será adicionado à conta 
-    1. Navegue até a [página de perfil do parceiro](https://partner.microsoft.com/en-us/pcv/accountsettings/connectedpartnerprofile) onde a ID do MPN e o contato principal da conta serão listados
+    1. Navegue até a [página de perfil do parceiro](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) onde a ID do MPN e o contato principal da conta serão listados
 
 - **Não sei quem é meu administrador global do Azure AD (também conhecido como administrador da empresa ou administrador de locatários), como posso encontrá-lo? E o administrador de aplicativos ou uma função de administrador diferente?**
     1. Entre no [Portal do Azure AD](https://aad.portal.azure.com) usando uma conta de usuário no locatário principal da sua organização
@@ -45,14 +45,14 @@ Abaixo estão alguns problemas comuns que podem ocorrer durante o processo.
     1. Clique em “Administrador global” ou na função de administrador desejada
     1. A lista de usuários atribuídos àquela função será exibida
 
-- **Não sei quem é ou quem são os administradores da minha conta do MPN** Vá para a [página de Gerenciamento de usuários do MPN](https://partner.microsoft.com/en-us/pcv/users) e filtre a lista de usuários para ver quais usuários estão nas diferentes funções de administrador.
+- **Não sei quem é ou quem são os administradores da minha conta do MPN** Vá para a [página de Gerenciamento de usuários do MPN](https://partner.microsoft.com/pcv/users) e filtre a lista de usuários para ver quais usuários estão nas diferentes funções de administrador.
 
 - **Estou recebendo um erro dizendo que minha ID do MPN é inválida ou que não tenho acesso a ela.**
-    1. Acesse o [perfil de parceiro](https://partner.microsoft.com/en-us/pcv/accountsettings/connectedpartnerprofile) e verifique se: 
+    1. Acesse o [perfil de parceiro](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) e verifique se: 
         - A ID do MPN está correta. 
         - Não há erros ou “ações pendentes” mostradas, e o status de verificação sob o perfil Negócio jurídico e as informações do Parceiro dizem “autorizado” ou “sucesso”.
-    1. Vá para a [página de Gerenciamento de locatários do MPN](https://partner.microsoft.com/en-us/dashboard/account/v3/tenantmanagement) e confirme se o locatário no qual o aplicativo está registrado e a conta de usuário que você está usando para entrar estão na lista de locatários associados.
-    1. Vá para a [página de Gerenciamento de usuários do MPN](https://partner.microsoft.com/en-us/pcv/users) e confirme se o usuário no qual você está entrando é um administrador global, administrador de MPN ou administrador de contas.
+    1. Vá para a [página de Gerenciamento de locatários do MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) e confirme se o locatário no qual o aplicativo está registrado e a conta de usuário que você está usando para entrar estão na lista de locatários associados.
+    1. Vá para a [página de Gerenciamento de usuários do MPN](https://partner.microsoft.com/pcv/users) e confirme se o usuário no qual você está entrando é um administrador global, administrador de MPN ou administrador de contas.
 
 - **Quando eu entro no portal do Azure AD, não vejo nenhum aplicativo registrado. Por quê?** 
     Os registros do aplicativo podem ter sido criados usando uma conta de usuário diferente ou em um locatário diferente. Verifique se você está conectado com a conta correta no locatário onde os registros do aplicativo foram criados.

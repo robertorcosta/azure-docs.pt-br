@@ -1,6 +1,6 @@
 ---
 title: Exemplos de Azure PowerShell – rede
-description: Exemplos do Azure PowerShell
+description: Saiba mais sobre exemplos de Azure PowerShell para rede, incluindo um exemplo para criar uma rede virtual para aplicativos de várias camadas.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/24/2017
 ms.author: gwallace
-ms.openlocfilehash: 98b72dbb9f3b62fd5985f6245e52293ec31fc682
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: aa3304cbabb183368f0e47415e64120854f43535
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232535"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282068"
 ---
 # <a name="azure-powershell-samples-for-networking"></a>Exemplos do Azure PowerShell para rede
 
 A tabela a seguir inclui links para scripts compilados usando Azure PowerShell.
 
-| script | Descrição |
+| Script | Descrição |
 |-|-|
 |**Conectividade entre os recursos do Azure**||
 | [Criar uma rede virtual para aplicativos de várias camadas](./scripts/virtual-network-powershell-sample-multi-tier-application.md?toc=%2fazure%2fnetworking%2ftoc.json) | Cria uma rede virtual com sub-redes de front-end e back-end. O tráfego para a sub-rede de front-end é limitado a HTTP, enquanto o tráfego para a sub-rede de back-end é limitado a SQL, porta 1433. |

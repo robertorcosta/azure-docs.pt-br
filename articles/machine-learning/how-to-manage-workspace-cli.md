@@ -5,16 +5,17 @@ description: Saiba como usar a CLI do Azure para criar um workspace do Azure Mac
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
 ms.date: 06/25/2020
-ms.openlocfilehash: 64963bfc28921d195d9ed0f96b2673a9c9e4aa2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 1cc280dc12fcb462e11a568910eef053e4bdac50
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392702"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319687"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um workspace para o Azure Machine Learning com a CLI do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +60,13 @@ az extension add -n azure-cli-ml
 O workspace do Azure Machine Learning se baseia nos seguintes serviços ou nas seguintes entidades do Azure:
 
 > [!IMPORTANT]
-> Se você não especificar um serviço existente do Azure, será criado um automaticamente durante a criação do workspace. Você sempre precisa especificar um grupo de recursos. Ao anexar sua própria conta de armazenamento, verifique se ela tem os recursos de blob do Azure e arquivo do Azure habilitados e se o namespace hierárquico (ADLS Gen 2) está desabilitado. Você sempre poderá anexar sua própria conta de armazenamento posteriormente depois que o espaço de trabalho for criado como repositórios de armazenamento.
+> Se você não especificar um serviço existente do Azure, será criado um automaticamente durante a criação do workspace. Você sempre precisa especificar um grupo de recursos. Ao anexar sua própria conta de armazenamento, verifique se ela atende aos seguintes critérios:
+>
+> * A conta de armazenamento _não_ é uma conta premium (Premium_LRS e Premium_GRS)
+> * O blob do Azure e os recursos de arquivo do Azure habilitados
+> * O namespace hierárquico (ADLS Gen 2) está desabilitado
+>
+> Esses requisitos são apenas para a conta de armazenamento _padrão_ usada pelo espaço de trabalho.
 
 | Serviço | Parâmetro usado para especificar uma instância existente |
 | ---- | ---- |
@@ -147,6 +154,9 @@ Para criar um workspace que usa os recursos existentes, você precisará fornece
     A resposta desse comando é semelhante ao seguinte texto e é a ID da sua conta de armazenamento:
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"`
+
+    > [!IMPORTANT]
+    > Se você quiser usar uma conta de armazenamento do Azure existente, ela não poderá ser uma conta Premium (Premium_LRS e Premium_GRS). Ele também não pode ter um namespace hierárquico (usado com Azure Data Lake Storage Gen2). Não há suporte para armazenamento Premium ou namespace hierárquico com a conta de armazenamento _padrão_ do espaço de trabalho. Você pode usar o armazenamento Premium ou o namespace hierárquico com contas _de armazenamento não padrão_ .
 
 + **Azure Application Insights**:
 

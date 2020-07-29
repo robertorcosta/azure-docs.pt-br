@@ -4,15 +4,15 @@ description: Saiba mais sobre o tráfego de rede do ASE e como definir os grupos
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 06/29/2020
+ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 10cb1149880c70d991dd5ab49acceab3283372a7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6fde04be99eaa61287b486eaefdcb92d66d88bc7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517846"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280912"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente do Serviço de Aplicativo #
 
@@ -158,13 +158,14 @@ As entradas necessárias em um NSG para que um ASE funcione, são permitir o tr�
 * da sub-rede do ASE para a sub-rede do ASE em todas as portas
 
 **Saída**
+* UDP para todos os IPs na porta 53
 * UDP para todos os IPs na porta 123
 * TCP para todos os IPs nas portas 80, 443
 * TCP para a marca do serviço IP AzureSQL nas portas 1433
 * TCP para todos os IPs na porta 12000
 * para a sub-rede do ASE em todas as portas
 
-Essas portas não incluem as portas que seus aplicativos exigem para uso bem-sucedido. Por exemplo, seu aplicativo pode precisar chamar um servidor MySQL na porta 3306 a porta DNS, a porta 53, não precisa ser adicionada, pois o tráfego para DNS não é afetado pelas regras NSG. Protocolo NTP (NTP) na porta 123 é o protocolo de sincronização de tempo usado pelo sistema operacional. Os pontos de extremidade do NTP não são específicos para os serviços de aplicativo, podem variar com o sistema operacional e não estão em uma lista bem definida de endereços. Para evitar problemas de sincronização de horário, você precisará permitir o tráfego UDP para todos os endereços na porta 123. O tráfego de saída TCP para porta 12000 é para a análise e o suporte do sistema. Os pontos de extremidade são dinâmicos e não estão em um conjunto bem definido de endereços.
+Essas portas não incluem as portas que seus aplicativos exigem para uso bem-sucedido. Por exemplo, seu aplicativo pode precisar chamar um servidor MySQL na porta 3306. Protocolo NTP (NTP) na porta 123 é o protocolo de sincronização de tempo usado pelo sistema operacional. Os pontos de extremidade do NTP não são específicos para os serviços de aplicativo, podem variar com o sistema operacional e não estão em uma lista bem definida de endereços. Para evitar problemas de sincronização de horário, você precisará permitir o tráfego UDP para todos os endereços na porta 123. O tráfego de saída TCP para porta 12000 é para a análise e o suporte do sistema. Os pontos de extremidade são dinâmicos e não estão em um conjunto bem definido de endereços.
 
 As portas de acesso normais do aplicativo são:
 
@@ -196,13 +197,13 @@ O túnel forçado é quando você define rotas na rede virtual para que o tráfe
 Quando você cria um ASE no portal, também criamos um conjunto de tabelas de rotas na sub-rede que é criada com o ASE.  Essas rotas simplesmente informam para enviar o tráfego de saída diretamente para a Internet.  
 Para criar as mesmas rotas manualmente, siga estas etapas:
 
-1. Acesse o portal do Azure. Selecione **rede**  >  **tabelas de rotas**.
+1. Vá para o portal do Azure. Selecione **rede**  >  **tabelas de rotas**.
 
 2. Crie uma nova tabela de rota na mesma região da sua VNet.
 
 3. Na interface do usuário da tabela de rotas, selecione **rotas**  >  **Adicionar**.
 
-4. Defina o **Tipo do próximo salto** como **Internet** e o **Prefixo de endereço** como **0.0.0.0/0**. Selecione **Salvar**.
+4. Defina o **Tipo do próximo salto** como **Internet** e o **Prefixo de endereço** como **0.0.0.0/0**. Clique em **Salvar**.
 
     Então você verá algo semelhante ao que se segue:
 
