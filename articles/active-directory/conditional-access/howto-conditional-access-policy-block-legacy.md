@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d6539a233fbb8038d82a8ea41da2c9e79745324
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 15e3c5ba72ff7b97e03cd7aa2b68eeffb2aa7882
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995183"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283003"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acesso Condicional: Bloquear a autenticação herdada
 
@@ -35,7 +36,7 @@ As etapas a seguir ajudarão a criar uma política de Acesso Condicional para o 
    1. Selecione **Concluído**.
 1. Em **Aplicativos ou ações de nuvem**, selecione **Todos os aplicativos de nuvem**.
    1. Selecione **Concluído**.
-1. Em **Condições** > **Aplicativos clientes (versão prévia)** , defina **Configurar** com **Sim**.
+1. Em **condições**  >  **aplicativos de cliente (versão prévia)**, em **selecionar os aplicativos cliente aos quais esta política será aplicada**:
    1. Marque apenas as caixas **Aplicativos móveis e clientes desktop** > **Outros clientes**.
    1. Selecione **Concluído**.
 1. Em **Controles de acesso** > **Conceder**, selecione **Bloquear acesso**.

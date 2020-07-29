@@ -8,14 +8,15 @@ ms.author: luquinta
 ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 07/09/2020
-ms.openlocfilehash: 2deb939745647636cc04ae124d1e843db0bef7f6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 5ec6af894f434f8d1f7df34b2ed0c2514ab88cc4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206502"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87306138"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gerenciar Azure Machine Learning recursos com a extensão de VS Code (versão prévia)
 
@@ -91,7 +92,7 @@ Para obter mais informações, consulte [armazenamentos](concept-data.md#datasto
     - *Inspecione as configurações somente leitura*.
     - *Modificar*. Altere o tipo de autenticação e as credenciais. Os tipos de autenticação com suporte incluem chave de conta e token SAS.
 
-## <a name="datasets"></a>Conjuntos de dados
+## <a name="datasets"></a>Conjunto de dados
 
 Atualmente, a extensão dá suporte aos seguintes tipos de conjunto de conjuntos:
 

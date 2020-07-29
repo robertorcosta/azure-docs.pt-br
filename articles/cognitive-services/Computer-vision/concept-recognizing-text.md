@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 6bc118145bec30085c2d9fbf726c40a20b312430
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 83e76cd96e09b0e136d2bfbe2e5863b289724bdd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207059"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284244"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR (reconhecimento óptico de caracteres)
 
@@ -24,7 +24,7 @@ A API da Pesquisa Visual Computacional da Microsoft inclui recursos de OCR (reco
 
 ## <a name="read-api"></a>API de leitura 
 
-A [API de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) do pesquisa Visual computacional é a tecnologia de OCR mais recente da Microsoft que extrai texto impresso (sete idiomas), texto manuscrito (somente em inglês), dígitos e símbolos de moeda de imagens e documentos PDF de várias páginas. Ele é otimizado para extrair texto de imagens de texto intenso e documentos em PDF com várias páginas com idiomas mistos. Ele dá suporte à detecção de texto impresso e manuscrito (somente em inglês) na mesma imagem ou documento. Consulte a lista completa de [idiomas com suporte para OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) .
+A [API de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) do pesquisa Visual computacional é a tecnologia de OCR mais recente da Microsoft que extrai o texto impresso em vários idiomas, texto manuscrito (somente em inglês), dígitos e símbolos de moeda de imagens e documentos em PDF com várias páginas. Ele é otimizado para extrair texto de imagens de texto intenso e documentos em PDF com várias páginas com idiomas mistos. Ele dá suporte à detecção de texto impresso e manuscrito (somente em inglês) na mesma imagem ou documento. Consulte a lista completa de [idiomas com suporte para OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) .
 
 ### <a name="how-ocr-works"></a>Como funciona o OCR
 
@@ -123,7 +123,7 @@ Agora, a operação de leitura dá suporte à extração de texto manuscrito exc
 
 ### <a name="printed-text-in-supported-languages"></a>Texto impresso em idiomas com suporte
 
-A API de leitura dá suporte à extração de texto impresso nos idiomas inglês, espanhol, alemão, francês, italiano, Português e holandês. Se seu cenário exigir suporte a mais idiomas, consulte a visão geral da API de OCR neste documento. Consulte a lista de todos os [idiomas com suporte OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
+A API Read 3,0 dá suporte à extração de texto impresso em idiomas inglês, espanhol, alemão, francês, italiano, Português e holandês. [Leia 3,1-Preview. 1 API pública Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) adiciona suporte para chinês simplificado. Se seu cenário exigir suporte a mais idiomas, consulte a visão geral da API de OCR neste documento. Consulte a lista de todos os [idiomas com suporte OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
 
 ![Uma imagem sendo girada e seu texto sendo lido e delimitado](./Images/supported-languages-example.png)
 
@@ -137,7 +137,7 @@ A API de leitura dá suporte a imagens e documentos com vários idiomas, comumen
 
 Assim como acontece com todos os serviços cognitivas, os desenvolvedores que usam o serviço de leitura devem estar cientes das políticas da Microsoft nos dados do cliente. Consulte a página serviços cognitivas na [central de confiabilidade da Microsoft](https://www.microsoft.com/en-us/trust-center/product-overview) para saber mais.
 
-### <a name="deploy-on-premises"></a>Implantar no local
+### <a name="containers-for-on-premise-deployment"></a>Contêineres para implantação local
 
 Ler também está disponível como um contêiner do Docker (versão prévia) para permitir que você implante os novos recursos de OCR em seu próprio ambiente. Os contêineres são ótimos para requisitos específicos de segurança e governança de dados. Consulte [como instalar e executar os contêineres de leitura.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
 
@@ -149,4 +149,5 @@ A [API de OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf9918
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre a [API REST de leitura 3,0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
+- Saiba mais sobre a [API REST de leitura 3,1-Preview. 1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) com suporte adicionado para chinês simplificado.
 - Siga o guia de início rápido [extrair texto](./QuickStarts/CSharp-hand-text.md) para implementar o OCR usando C#, Java, JavaScript ou Python juntamente com a API REST.

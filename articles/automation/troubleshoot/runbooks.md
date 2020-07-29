@@ -2,19 +2,16 @@
 title: Solucionar problemas de runbook da Automação do Azure
 description: Este artigo informa como solucionar problemas e resolver dúvidas com runbooks de Automação do Azure.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 01/24/2019
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: e0665a6aa55b998d54d076013a25e2efadaa2b06
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 9bf04ae6985ac2ce0e20bf70b3d7c003bbddca69
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187176"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337289"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Solucionar problemas de runbook
 
@@ -511,6 +508,24 @@ Se quiser usar mais de 500 minutos de processamento por mês, altere sua assinat
 1. Selecione **Configurações** e, em seguida, selecione **Preço**.
 1. Clique em **Habilitar** na parte inferior da página para atualizar sua conta para a camada Básica.
 
+## <a name="scenario-runbook-output-stream-greater-than-1-mb"></a><a name="output-stream-greater-1mb"></a>Cenário: fluxo de saída do runbook maior que 1 MB
+
+### <a name="issue"></a>Problema
+
+O runbook em execução na área restrita do Azure falha com o seguinte erro:
+
+```error
+The runbook job failed due to a job stream being larger than 1MB, this is the limit supported by an Azure Automation sandbox.
+```
+
+### <a name="cause"></a>Causa
+
+Esse erro ocorre porque o runbook tentou gravar muitos dados de exceção no fluxo de saída.
+
+### <a name="resolution"></a>Resolução
+
+Há um limite de 1 MB no fluxo de saída do trabalho. Verifique se seu runbook inclui chamadas para um executável ou subprocesso usando blocos `try` e `catch`. Se as operações lançarem uma exceção, faça com que o código grave a mensagem da exceção em uma variável de Automação. Essa técnica impede que a mensagem seja gravada no fluxo de saída do trabalho. Para Hybrid Runbook Worker trabalhos executados, o fluxo de saída truncado para 1 MB é exibido sem nenhuma mensagem de erro.
+
 ## <a name="scenario-runbook-job-start-attempted-three-times-but-fails-to-start-each-time"></a><a name="job-attempted-3-times"></a>Cenário: O início do trabalho de runbook foi tentado três vezes, mas todas as vezes o início falhou
 
 ### <a name="issue"></a>Problema
@@ -526,20 +541,22 @@ The job was tried three times but it failed
 Esse erro ocorre devido a um dos seguintes problemas:
 
 * **Limite de memória.** Um trabalho pode falhar se estiver usando mais de 400 MB de memória. Os limites documentados sobre a memória alocada em uma área restrita são encontrados em [Limites do serviço de automação](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). 
+
 * **Soquetes de rede.** As áreas restritas do Azure são limitadas a 1.000 soquetes de rede simultâneos. Para saber mais, confira [Limites do serviço de Automação](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
+
 * **Módulo incompatível.** As dependências de módulo podem não estar corretas. Nesse caso, o runbook normalmente retorna uma mensagem `Command not found` ou `Cannot bind parameter`.
+
 * **Sem autenticação com o Active Directory para área restrita.** Seu runbook tentou chamar um executável ou subprocesso que é executado em uma área restrita do Azure. Não há suporte para a configuração de runbooks para autenticar com o Azure Active Directory usando a ADAL (Biblioteca de Autenticação do Azure Active Directory).
-* **Muitos dados de exceção.** O runbook tentou gravar muitos dados de exceção no fluxo de saída.
 
 ### <a name="resolution"></a>Resolução
 
 * **Limite de memória, soquetes de rede.** Métodos sugeridos de trabalhar nos limites de memória são dividir a carga de trabalho entre vários runbooks, processar menos dados na memória, evitar a gravação de saída desnecessária de seus runbooks e considerar quantos pontos de verificação são gravados em seus runbooks de fluxo de trabalho do PowerShell. Use o método de limpeza, como `$myVar.clear`, para limpar variáveis e use `[GC]::Collect` para executar a coleta de lixo imediatamente. Essas ações reduzem o volume de memória do seu runbook durante o runtime.
+
 * **Módulo incompatível.** Atualize os módulos do Azure seguindo as etapas em [Como atualizar os módulos do Azure PowerShell na Automação do Azure](../automation-update-azure-modules.md).
+
 * **Sem autenticação com o Active Directory para área restrita.** Ao autenticar no Azure AD com um runbook, verifique se o módulo do Azure Active Directory está disponível na sua conta de Automação. Certifique-se de conceder à conta Executar Como as permissões necessárias para executar as tarefas que o runbook automatiza.
 
   Se o runbook não puder chamar um executável ou subprocesso em execução em uma área restrita do Azure, use o runbook em um [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Trabalhadores híbridos não têm os limites de memória e rede que as áreas restritas do Azure têm.
-
-* **Muitos dados de exceção.** Há um limite de 1 MB no fluxo de saída do trabalho. Verifique se seu runbook inclui chamadas para um executável ou subprocesso usando blocos `try` e `catch`. Se as operações lançarem uma exceção, faça com que o código grave a mensagem da exceção em uma variável de Automação. Essa técnica impede que a mensagem seja gravada no fluxo de saída do trabalho.
 
 ## <a name="scenario-powershell-job-fails-with-cannot-invoke-method-error-message"></a><a name="cannot-invoke-method"></a>Cenário: O trabalho do PowerShell falha com a mensagem de erro "Não é possível invocar o método"
 

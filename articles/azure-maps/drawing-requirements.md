@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 1ba9edba97ce89cede54287076e50eb587af10f3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4a57719ec9e7b22ed81ee6f07a568a993846de42
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242467"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374313"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos do pacote de desenho
 
@@ -210,11 +210,11 @@ O objeto `buildingLevels` contém uma matriz JSON de níveis de construções.
 
 | Propriedade  | Type | Necessária | Descrição |
 |-----------|------|----------|-------------|
-|levelName    |string    |true |    Nome do nível descritivo. Por exemplo:  1º andar, lobby, estacionamento azul, porão e assim por diante.|
+|levelName    |cadeia de caracteres    |true |    Nome do nível descritivo. Por exemplo:  1º andar, lobby, estacionamento azul, porão e assim por diante.|
 |ordinal | inteiro |    true | O ordinal é usado para determinar a ordem vertical dos níveis. Cada instalação deve ter um nível com o ordinal 0. |
 |heightAboveFacilityAnchor | numeric | false |    Altura do nível acima da âncora em metros. |
 | verticalExtent | numeric | false | A altura em metros do chão até o teto (espessura) do nível. |
-|nome do arquivo |    string |    true |    Caminho do sistema de arquivos do desenho do CAD para um nível da construção. Ele estar relacionado à raiz do arquivo zip da construção. |
+|nome do arquivo |    cadeia de caracteres |    true |    Caminho do sistema de arquivos do desenho do CAD para um nível da construção. Ele estar relacionado à raiz do arquivo zip da construção. |
 
 ### <a name="georeference"></a>georeference
 
@@ -242,7 +242,7 @@ O objeto `unitProperties` contém uma matriz JSON das propriedades da unidade.
 
 | Propriedade  | Type | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
-|unitName    |string    |true    |Nome da unidade a ser associada a esse registro `unitProperty`. Esse registro só é válido quando um rótulo correspondente a `unitName` for encontrado na(s) camada(s) `unitLabel`. |
+|unitName    |cadeia de caracteres    |true    |Nome da unidade a ser associada a esse registro `unitProperty`. Esse registro só é válido quando um rótulo correspondente a `unitName` for encontrado na(s) camada(s) `unitLabel`. |
 |categoryName|    string|    false    |Nome da categoria. Para obter uma lista completa das categorias, consulte [categorias](https://aka.ms/pa-indoor-spacecategories). |
 |navigableBy| Matriz de cadeias de caracteres |    false    |Indica os tipos de agentes de navegação que podem atravessar a unidade. Por exemplo, “pedestres”. Essa propriedade informará os recursos de wayfinding.  Os valores permitidos são `pedestrian`, `wheelchair`, `machine`, `bicycle`, `automobile`, `hiredAuto`, `bus`, `railcar`, `emergency`, `ferry`, `boat` e `disallowed`.|
 |routeThroughBehavior|    string|    false    |O comportamento da rota da unidade. Os valores permitidos são `disallowed`, `allowed` e `preferred`. O valor padrão é `allowed`.|
@@ -262,7 +262,7 @@ O objeto `zoneProperties` contém uma matriz JSON das propriedades da zona.
 
 | Propriedade  | Type | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
-|zoneName        |string    |true    |Nome da zona a ser associada ao registro `zoneProperty`. Esse registro só é válido quando um rótulo correspondente a `zoneName` for encontrado na camada `zoneLabel` da zona.  |
+|zoneName        |cadeia de caracteres    |true    |Nome da zona a ser associada ao registro `zoneProperty`. Esse registro só é válido quando um rótulo correspondente a `zoneName` for encontrado na camada `zoneLabel` da zona.  |
 |categoryName|    string|    false    |Nome da categoria. Para obter uma lista completa das categorias, consulte [categorias](https://aka.ms/pa-indoor-spacecategories). |
 |zoneNameAlt|    string|    false    |Nome alternativo da zona.  |
 |zoneNameSubtitle|    string |    false    |Subtítulo da zona. |
@@ -279,7 +279,7 @@ A seguir, há um arquivo de manifesto de amostra para o pacote de desenho de amo
     "version": "1.1", 
     "directoryInfo": { 
         "name": "Contoso Building", 
-        "streetAddresss": "Contoso Way", 
+        "streetAddress": "Contoso Way", 
         "unit": "1", 
         "locality": "Contoso eastside", 
         "postalCode": "98052", 

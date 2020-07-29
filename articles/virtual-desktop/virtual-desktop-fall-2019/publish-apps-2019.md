@@ -1,6 +1,6 @@
 ---
-title: Publicar aplicativos internos no Windows Virtual Desktop Outono 2019-Azure
-description: Como publicar aplicativos internos na área de trabalho virtual do Windows.
+title: Publicar aplicativos internos na área de trabalho virtual do Windows (clássico)-Azure
+description: Como publicar aplicativos internos na área de trabalho virtual do Windows (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e20d2ca8f2f0ef2b8c0290702a2b9e91cc22bb09
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5f204bc6d2595e7f18e59bae15ff35d49e1801e0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020366"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284924"
 ---
-# <a name="publish-built-in-apps-in-windows-virtual-desktop---fall-2019"></a>Publicar aplicativos internos na área de trabalho virtual do Windows-Outono de 2019
+# <a name="publish-built-in-apps-in-windows-virtual-desktop-classic"></a>Publicar aplicativos internos na área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../publish-apps.md).
+>Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../publish-apps.md).
 
 Este artigo lhe dirá como publicar aplicativos em seu ambiente de área de trabalho virtual do Windows.
 

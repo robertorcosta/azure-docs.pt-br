@@ -3,12 +3,12 @@ title: Funções de modelo – recursos
 description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 19f5b6c07010c82ba6675e6db031e663ef7c5cdd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 89241558164505573e098bdf580af6542c6095c5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044954"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372375"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recurso para modelos do ARM
 
@@ -326,7 +326,7 @@ Retorna informações sobre um provedor de recursos e seus tipos de recursos com
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Sim |string |Namespace do provedor |
+| providerNamespace |Sim |cadeia de caracteres |Namespace do provedor |
 | resourceType |Não |string |O tipo de recurso no namespace especificado. |
 
 ### <a name="return-value"></a>Valor retornado
@@ -401,7 +401,7 @@ Retorna um objeto que representa o estado de runtime de um recurso.
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceName ou resourceIdentifier |Sim |string |Nome ou identificador exclusivo de um recurso. Ao referenciar um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Ao fazer referência a um recurso implantado anteriormente ou quando o nome do recurso for ambíguo, forneça a ID do recurso. |
+| resourceName ou resourceIdentifier |Sim |cadeia de caracteres |Nome ou identificador exclusivo de um recurso. Ao referenciar um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Ao fazer referência a um recurso implantado anteriormente ou quando o nome do recurso for ambíguo, forneça a ID do recurso. |
 | apiVersion |Não |string |Versão da API do recurso especificado. **Esse parâmetro é exigido quando o recurso não estiver provisionado no mesmo modelo.** Normalmente, no formato **aaaa-mm-dd**. Para obter as versões de API válidas para seu recurso, confira [referência de modelo](/azure/templates/). |
 | 'Full' |Não |string |Valor que especifica se o objeto de recurso completo deve ser retornado. Se você não especificar `'Full'`, apenas o objeto de propriedades do recurso será retornado. O objeto completo inclui valores como a ID do recurso e o local. |
 
@@ -665,7 +665,7 @@ A propriedade **managedBy** é retornada somente para grupos de recursos que con
 
 ### <a name="remarks"></a>Comentários
 
-A função `resourceGroup()` não pode ser usada em um modelo que está [implantado no nível da assinatura](deploy-to-subscription.md). Ela só pode ser usada em modelos que são implantados em um grupo de recursos. Você pode usar a função `resourceGroup()` em um [modelo vinculado ou aninhado (com escopo interno)](linked-templates.md) que se destina a um grupo de recursos, mesmo quando o modelo pai é implantado na assinatura. Nesse cenário, o modelo vinculado ou aninhado é implantado no nível do grupo de recursos. Para obter mais informações sobre como direcionar um grupo de recursos em uma implantação em nível de assinatura, confira [implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](cross-resource-group-deployment.md).
+A função `resourceGroup()` não pode ser usada em um modelo que está [implantado no nível da assinatura](deploy-to-subscription.md). Ela só pode ser usada em modelos que são implantados em um grupo de recursos. Você pode usar a função `resourceGroup()` em um [modelo vinculado ou aninhado (com escopo interno)](linked-templates.md) que se destina a um grupo de recursos, mesmo quando o modelo pai é implantado na assinatura. Nesse cenário, o modelo vinculado ou aninhado é implantado no nível do grupo de recursos. Para obter mais informações sobre como direcionar um grupo de recursos em uma implantação em nível de assinatura, confira [implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](cross-scope-deployment.md).
 
 Um uso comum da função resourceGroup é criar recursos no mesmo local que o grupo de recursos. O exemplo a seguir usa o local do grupo de recursos para um valor de parâmetro padrão.
 
@@ -680,7 +680,7 @@ Um uso comum da função resourceGroup é criar recursos no mesmo local que o gr
 
 Você também pode usar a função resourceGroup para aplicar marcas do grupo de recursos a um recurso. Para obter mais informações, confira [Aplicar marcas do grupo de recursos](../management/tag-resources.md#apply-tags-from-resource-group).
 
-Ao usar modelos aninhados para implantar em vários grupos de recursos, você pode especificar o escopo para avaliar a função resourceGroup. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](cross-resource-group-deployment.md).
+Ao usar modelos aninhados para implantar em vários grupos de recursos, você pode especificar o escopo para avaliar a função resourceGroup. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](cross-scope-deployment.md).
 
 ### <a name="resource-group-example"></a>Exemplo de grupo de recursos
 
@@ -726,8 +726,8 @@ Retorna o identificador exclusivo de um recurso. Você pode usar essa função q
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Não |string (no formato GUID) |O valor padrão é a assinatura atual. Especifique esse valor quando você precisar recuperar um recurso em outra assinatura. Forneça esse valor apenas ao implantar no escopo de um grupo de recursos ou assinatura. |
 | resourceGroupName |Não |string |O valor padrão é o grupo de recursos atual. Especifique esse valor quando você precisar recuperar um recurso em outro grupo de recursos. Forneça esse valor apenas ao implantar no escopo de um grupo de recursos. |
-| resourceType |Sim |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
-| resourceName1 |Sim |string |Nome do recurso. |
+| resourceType |Sim |cadeia de caracteres |Tipo de recurso, incluindo o namespace do provedor de recursos. |
+| resourceName1 |Sim |cadeia de caracteres |Nome do recurso. |
 | resourceName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue adicionando nomes de recursos como parâmetros quando o tipo de recurso incluir mais segmentos.
@@ -862,7 +862,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
@@ -890,7 +890,7 @@ A função retorna o seguinte formato:
 
 ### <a name="remarks"></a>Comentários
 
-Ao usar modelos aninhados para implantar em várias assinaturas, você pode especificar o escopo para avaliar a função de assinatura. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](cross-resource-group-deployment.md).
+Ao usar modelos aninhados para implantar em várias assinaturas, você pode especificar o escopo para avaliar a função de assinatura. Para saber mais, consulte [Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](cross-scope-deployment.md).
 
 ### <a name="subscription-example"></a>Exemplo de assinatura
 
@@ -921,8 +921,8 @@ Retorna o identificador exclusivo de um recurso implantado no nível da assinatu
 | Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Não |string (no formato GUID) |O valor padrão é a assinatura atual. Especifique esse valor quando você precisar recuperar um recurso em outra assinatura. |
-| resourceType |Sim |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
-| resourceName1 |Sim |string |Nome do recurso. |
+| resourceType |Sim |cadeia de caracteres |Tipo de recurso, incluindo o namespace do provedor de recursos. |
+| resourceName1 |Sim |cadeia de caracteres |Nome do recurso. |
 | resourceName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue adicionando nomes de recursos como parâmetros quando o tipo de recurso incluir mais segmentos.
@@ -1002,8 +1002,8 @@ Retorna o identificador exclusivo de um recurso implantado no nível do locatár
 
 | Parâmetro | Obrigatório | Digite | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceType |Sim |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
-| resourceName1 |Sim |string |Nome do recurso. |
+| resourceType |Sim |cadeia de caracteres |Tipo de recurso, incluindo o namespace do provedor de recursos. |
+| resourceName1 |Sim |cadeia de caracteres |Nome do recurso. |
 | resourceName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue adicionando nomes de recursos como parâmetros quando o tipo de recurso incluir mais segmentos.

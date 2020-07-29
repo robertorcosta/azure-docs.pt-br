@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 727653314104ee1b2a27a1342de9824d8f303e23
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: de381b4200e2ec3381f452ac0ec32e61a055a6ec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539730"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326164"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitorar recursos do Azure com o Azure Monitor
 Quando você tem aplicativos e processos de negócios críticos que dependem de recursos do Azure, recomendamos monitorar a disponibilidade, o desempenho e a operação desses recursos. Este artigo descreve os dados de monitoramento gerados pelos recursos do Azure e como você pode usar os recursos do Azure Monitor para analisar e alertar sobre esses dados.
@@ -96,7 +96,7 @@ Muitos serviços incluirão dados de monitoramento na página de **Visão Geral*
 
 
 ### <a name="insights-and-solutions"></a>Insights e soluções 
-Alguns serviços fornecerão ferramentas além dos recursos padrão do Azure Monitor. [Insights](../insights/insights-overview.md) fornecem uma experiência de monitoramento personalizada criada na plataforma de dados Azure Monitor e nos recursos padrão. As [soluções](../insights/solutions.md) fornecem uma lógica de monitoramento predefinida com base em Logs de Azure Monitor. 
+Alguns serviços fornecerão ferramentas além dos recursos padrão do Azure Monitor. [Insights](./insights-overview.md) fornecem uma experiência de monitoramento personalizada criada na plataforma de dados Azure Monitor e nos recursos padrão. As [soluções](./solutions.md) fornecem uma lógica de monitoramento predefinida com base em Logs de Azure Monitor. 
 
 Se um serviço tiver um insight do Azure Monitor, você poderá acessá-lo de **Monitoramento** no menu de cada recurso. Acesse todas as informações e soluções no menu **Azure Monitor**.
 
@@ -164,3 +164,4 @@ Use **Alertas** no menu de um recurso para exibir alertas e gerenciar regras de 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Confira [Serviços, esquemas e categorias compatíveis com logs de recursos do Azure](../platform/resource-logs-schema.md) para ver detalhes dos logs de recursos de diferentes serviços do Azure.  
+

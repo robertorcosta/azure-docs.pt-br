@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: a66613406de66cf9478b90d4ad58c115a30fdf5d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 82d797189096994e02c77e9d342c00b13dfa187d
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224716"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337085"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conectar-se ao Azure IoT Central
 
@@ -213,13 +213,13 @@ Um dos principais recursos do IoT Central é a capacidade de associar modelos de
 
 Os trechos de código a seguir mostram o formato do conteúdo adicional que o dispositivo deve enviar durante a chamada de registro do DPS para que a associação automática funcione.
 
-Este é o formato para dispositivos que usam o SDK do dispositivo geralmente disponível sem suporte ao IoT Plug and Play:
+Este é o formato para dispositivos que usam o SDK do dispositivo geralmente disponível:
 
 ```javascript
     iotcModelId: '< this is the URN for the capability model>';
 ```
 
-Este é o formato para dispositivos que usam o SDK do dispositivo de visualização pública com suporte ao IoT Plug and Play:
+Este é o formato para dispositivos que usam o SDK do dispositivo de visualização pública:
 
 ```javascript
 '__iot:interfaces': {
@@ -280,8 +280,6 @@ A tabela a seguir resume como os recursos do dispositivo Azure IoT Central são 
 | Propriedade | Propriedades relatadas do dispositivo gêmeo |
 | Propriedade (gravável) | Propriedades desejadas e relatadas do dispositivo gêmeo |
 | Comando | Métodos diretos |
-
-Para saber mais sobre como usar os SDKs do dispositivo, consulte [conectar um dispositivo MXChip IOT devkit ao aplicativo de IOT central do Azure](howto-connect-devkit.md) para obter o código de exemplo.
 
 ### <a name="protocols"></a>Protocolos
 

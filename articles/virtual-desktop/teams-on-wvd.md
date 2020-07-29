@@ -5,20 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: baab0160247e17556f0928f12f26a5ecca767210
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f6185cbb871d63cfdf5a4c336944158593b63e4a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129297"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372834"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usar o Microsoft Teams na área de trabalho virtual do Windows
 
 >[!IMPORTANT]
->A otimização de mídia para o Microsoft Teams está atualmente em visualização pública. É recomendável avaliar a experiência do usuário das equipes otimizadas antes de implantar equipes para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
+>Não há suporte para a otimização de mídia para equipes em ambientes Microsoft 365 governamental.
 
 >[!NOTE]
 >A otimização de mídia para o Microsoft Teams está disponível somente para o cliente de desktop do Windows em computadores Windows 10. As otimizações de mídia exigem o cliente da área de trabalho do Windows versão 1.2.1026.0 ou posterior.
@@ -47,21 +47,27 @@ Para habilitar a otimização de mídia para equipes, defina a seguinte chave do
 1. No menu Iniciar, execute **regedit** como administrador. Navegue até **HKEY_LOCAL_MACHINE \software\microsoft\teams**.
 2. Crie o seguinte valor para a chave de equipes:
 
-| Nome             | Tipo   | Dados/valor  |
+| Nome             | Type   | Dados/valor  |
 |------------------|--------|-------------|
 | IsWVDEnvironment | DWORD  | 1           |
 
 ### <a name="install-the-teams-websocket-service"></a>Instalar o serviço WebSocket de equipes
 
-Instale o [serviço WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) em sua imagem de VM. Se você encontrar um erro de instalação, instale os [Microsoft Visual C++ redistribuíveis mais recentes](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e tente novamente.
+Instale o [serviço WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) mais recente em sua imagem de VM. Se você encontrar um erro de instalação, instale os [Microsoft Visual C++ redistribuíveis mais recentes](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e tente novamente.
 
 #### <a name="latest-websocket-service-versions"></a>Versões mais recentes do serviço WebSocket
 
-A tabela a seguir lista as versões atuais disponíveis para cada grupo de usuários:
+A tabela a seguir lista as versões mais recentes do serviço WebSocket:
 
-|Versão    |Data de liberação  |
-|-----------|--------------|
-|0.11.0     |05/29/2020    |
+|Versão        |Data de liberação  |
+|---------------|--------------|
+|1.0.2006.11001 |07/28/2020    |
+|0.11.0         |05/29/2020    |
+
+#### <a name="updates-for-version-10200611001"></a>Atualizações para a versão 1.0.2006.11001
+
+- Correção de um problema em que a minimização do aplicativo de equipes durante uma chamada ou reunião fez com que o vídeo de entrada fosse descartado.
+- Adicionado suporte para selecionar um monitor para compartilhar em sessões de área de trabalho de vários monitores.
 
 ### <a name="install-microsoft-teams"></a>Instalar o Microsoft Teams
 
@@ -117,7 +123,7 @@ Depois de instalar o serviço WebSocket e o aplicativo de área de trabalho das 
 
 3. Selecione sua imagem de perfil de usuário e, em seguida, selecione **configurações**.
 
-      Se as otimizações de mídia estiverem carregadas, os dispositivos de áudio e câmeras disponíveis localmente serão enumerados no menu do dispositivo. Se o menu Mostrar **áudio remoto**, saia do aplicativo de equipes e tente novamente. Se os dispositivos ainda não aparecerem no menu, volte para [instalar o Microsoft Teams](#install-microsoft-teams) e verifique se você concluiu o processo de instalação.
+      Se as otimizações de mídia estiverem carregadas, os dispositivos de áudio e câmeras disponíveis localmente serão enumerados no menu do dispositivo. Se o menu Mostrar **áudio remoto**, saia do aplicativo de equipes e tente novamente. Se os dispositivos ainda não aparecerem no menu, verifique as configurações de privacidade no seu computador local. Verifique se a opção em **configurações**  >  **Privacy**  >  **permissões do aplicativo** de privacidade a configuração **permitir que os aplicativos acessem seu microfone** está ativada. **On** Desconecte-se da sessão remota e reconecte-se e verifique novamente os dispositivos de áudio e vídeo. Para unir chamadas e reuniões com vídeo, você também deve conceder permissão para que os aplicativos acessem a câmera.
 
 ## <a name="known-issues-and-limitations"></a>Limitações e problemas conhecidos
 
@@ -133,9 +139,7 @@ O uso de equipes em um ambiente virtualizado é diferente do uso de equipes em u
 ### <a name="calls-and-meetings"></a>Chamadas e reuniões
 
 - O cliente do teams desktop em ambientes de área de trabalho virtual do Windows não dá suporte a eventos ao vivo. Por enquanto, é recomendável unir eventos ao vivo do [cliente Web Teams](https://teams.microsoft.com) em sua sessão remota em vez disso.
-- Minimizar o aplicativo de equipes durante uma chamada ou reunião pode fazer com que o feed de vídeo de entrada se desapareça quando você expandir o aplicativo.
 - Chamadas ou reuniões atualmente não dão suporte ao compartilhamento de aplicativos. As sessões de desktop dão suporte ao compartilhamento de desktop.
-- Quando o compartilhamento de área de trabalho em uma configuração de vários monitores, todos os monitores são compartilhados.
 - Não há suporte para dar controle e assumir controle no momento.
 - As equipes na área de trabalho virtual do Windows só dão suporte a uma entrada de vídeo de entrada por vez. Isso significa que sempre que alguém tentar compartilhar sua tela, a tela será exibida em vez da tela de líder da reunião.
 - Devido a limitações de WebRTC, a resolução de fluxo de vídeo de entrada e saída é limitada a 720p.

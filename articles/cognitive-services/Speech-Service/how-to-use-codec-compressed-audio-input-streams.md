@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: amishu
-zone_pivot_groups: programming-languages-set-twelve
-ms.openlocfilehash: 13cb35ffa650661da2855787279c4bdc37126ac9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+zone_pivot_groups: programming-languages-set-twenty-two
+ms.openlocfilehash: 14f87dff680fb72654d1d3e20fe2f0516f9709aa
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585005"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282716"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Usar a entrada de áudio compactada por codec com o SDK de fala
 
 A API de **fluxo de entrada de áudio compactada** do SDK do serviço de fala fornece uma maneira de transmitir áudio compactado para o serviço de fala usando um `PullStream` ou o `PushStream` .
 
-O áudio de entrada compactado de streaming tem suporte no momento para C#, C++, Java no Windows (não há suporte para aplicativos UWP) e Linux (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9, RHEL 7/8, CentOS 7/8). Também há suporte para Java no Android e no Objective-C na plataforma iOS.
+O áudio de entrada compactado de streaming tem suporte no momento para C#, C++, Java e Python no Windows (não há suporte para aplicativos UWP) e Linux (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9, RHEL 7/8, CentOS 7/8). Também há suporte para Java no Android.
 * O Speech SDK versão 1.10.0 ou posterior é necessário para o RHEL 8 e o CentOS 8
 * O Speech SDK versão 1.11.0 ou posterior é necessário para o para Windows.
 
@@ -42,8 +42,8 @@ O áudio de entrada compactado de streaming tem suporte no momento para C#, C++,
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/java/prerequisites.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-objectivec"
-[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/objectivec/prerequisites.md)]
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/prerequisites.md)]
 ::: zone-end
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Código de exemplo usando a entrada de áudio compactado por codec
@@ -60,8 +60,8 @@ O áudio de entrada compactado de streaming tem suporte no momento para C#, C++,
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/java/examples.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-objectivec"
-[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/objectivec/examples.md)]
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/examples.md)]
 ::: zone-end
 
 ## <a name="next-steps"></a>Próximas etapas

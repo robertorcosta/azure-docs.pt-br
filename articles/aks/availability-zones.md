@@ -5,11 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 06507c75d486717a77676154818f2032b7e8c807
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: feea8c3cba170244be2ca3ec7a11c36a3c39f700
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195558"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281218"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Criar um cluster do AKS (Serviço de Kubernetes do Azure) que usa zonas de disponibilidade
 
@@ -98,7 +99,7 @@ Primeiro, obtenha as credenciais do cluster do AKS usando o comando [az aks get-
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Em seguida, use o comando [kubectl describe][kubectl-describe] para listar os nós no cluster. Filtre o valor *failure-domain.beta.kubernetes.io/zone*, conforme mostrado no exemplo a seguir:
+Em seguida, use o comando [kubectl descrevem][kubectl-describe] para listar os nós no cluster e filtrar o valor de *Failure-Domain.beta.kubernetes.Io/Zone* . O exemplo a seguir é para um shell bash.
 
 ```console
 kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"
@@ -130,7 +131,7 @@ az aks scale \
     --node-count 5
 ```
 
-Quando a operação de escala for concluída após alguns minutos, o comando `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` deverá fornecer uma saída semelhante a este exemplo:
+Quando a operação de dimensionamento for concluída após alguns minutos, o comando `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` em um shell bash deverá fornecer uma saída semelhante a este exemplo:
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000
@@ -151,7 +152,7 @@ Agora temos dois nós adicionais nas zonas 1 e 2. Você pode implantar um aplica
 kubectl run nginx --image=nginx --replicas=3
 ```
 
-Exibindo os nós em que os pods estão em execução, você vê os pods em execução nos nós correspondentes a três zonas de disponibilidade diferentes. Por exemplo, com o comando `kubectl describe pod | grep -e "^Name:" -e "^Node:"` você obteria uma saída semelhante a esta:
+Exibindo os nós em que os pods estão em execução, você vê os pods em execução nos nós correspondentes a três zonas de disponibilidade diferentes. Por exemplo, com o comando `kubectl describe pod | grep -e "^Name:" -e "^Node:"` em um shell bash, você obterá uma saída semelhante a esta:
 
 ```console
 Name:         nginx-6db489d4b7-ktdwg

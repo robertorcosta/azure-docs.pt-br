@@ -6,17 +6,17 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 07/22/2019
 ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 4d33a47e0498c82dff967242cfbc12a89c94a3b5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dd2b88d923d0398dc42362242b94b978ccd24252
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327728"
+ms.locfileid: "87336711"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Criar e ler mensagens do Hub IoT
 
@@ -61,6 +61,8 @@ Para obter mais informações de como codificar e decodificar mensagens enviadas
 | iothub-connection-module-id |Uma ID definida pelo Hub IoT em mensagens do dispositivo para a nuvem. Contém a **moduleId** do dispositivo que enviou a mensagem. | Não | connectionModuleId |
 | iothub-connection-auth-generation-id |Uma ID definida pelo Hub IoT em mensagens do dispositivo para a nuvem. Contém a **connectionDeviceGenerationId** (de acordo com as [Propriedades de identidade de dispositivo](iot-hub-devguide-identity-registry.md#device-identity-properties)) do dispositivo que enviou a mensagem. | Não |connectionDeviceGenerationId |
 | iothub-connection-auth-method |Um método de autenticação definido pelo Hub IoT em mensagens do dispositivo para a nuvem. Essa propriedade contém informações sobre o método de autenticação usado para autenticar o dispositivo que envia a mensagem.| Não | connectionAuthMethod |
+| DT-DataSchema | Esse valor é definido pelo Hub IoT em mensagens do dispositivo para a nuvem. Ele contém a ID do modelo do dispositivo definida na conexão do dispositivo. Esse recurso está disponível como parte da [Visualização pública do IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md). | Não | N/D |
+| DT-assunto | O nome do componente que está enviando as mensagens do dispositivo para a nuvem. Esse recurso está disponível como parte da [Visualização pública do IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md). | Sim | N/D |
 
 ## <a name="system-properties-of-c2d-iot-hub-messages"></a>Propriedades de Sistema das mensagens **C2D** do Hub IoT
 
@@ -89,8 +91,9 @@ Os nomes das propriedades do sistema variam de acordo com o ponto de extremidade
 |contentType|content-type|contentType|ContentType|iothub-content-type|
 |contentEncoding|content-encoding|contentEncoding|ContentEncoding|iothub-content-encoding|
 |iothub-enqueuedtime|iothub-enqueuedtime|enqueuedTime| N/D |iothub-enqueuedtime|
-|iothub-interface-name|iothub-interface-name|interfaceName|Iothub-interface-name|iothub-interface-name|
 |CorrelationId|correlation-id|correlationId|CorrelationId|correlation-id|
+|DT-DataSchema|DT-DataSchema|DT-DataSchema|DT-DataSchema|DT-DataSchema|
+|DT-assunto|DT-assunto|DT-assunto|DT-assunto|DT-assunto|
 
 ## <a name="message-size"></a>Tamanho da mensagem
 

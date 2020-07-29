@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5d8d3ddffc52bd351b21351b53e8a1be5a674fe3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f5e1347850c038386d32b52378674ac20316e4c
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562860"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337204"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definir um novo tipo de dispositivo IoT em seu aplicativo do Azure IoT Central
 
 *Este artigo se aplica a construtores de solução e desenvolvedores de dispositivos.*
 
-Um modelo de dispositivo é um blueprint que define as características e os comportamentos de um tipo de dispositivo que conecta a um aplicativo do Azure IoT Central.
+Um modelo de dispositivo é um blueprint que define as características e os comportamentos de um tipo de dispositivo que se conecta a um aplicativo Azure IoT Central.
 
 Por exemplo, um construtor pode criar um modelo de dispositivo para um ventilador conectado que tenha as seguintes características:
 
@@ -36,9 +36,7 @@ Nesse modelo de dispositivo, um operador pode criar e conectar dispositivos de v
 > [!NOTE]
 > Somente construtores e administradores podem criar, editar e excluir modelos de dispositivo. Qualquer usuário pode criar dispositivos na página **Dispositivos** com base nos modelos de dispositivos existentes.
 
-O [IoT plug and Play (visualização)](../../iot-pnp/overview-iot-plug-and-play.md) permite que IOT central integre dispositivos, sem escrever nenhum código de dispositivo inserido. No núcleo do IoT Plug and Play (versão prévia) está um esquema de modelo de funcionalidade do dispositivo que descreve as funcionalidades do dispositivo. Em um aplicativo do IoT Central, os modelos de dispositivo usam esses modelos de funcionalidade do dispositivo do IoT Plug and Play (versão prévia).
-
-Como um criador, você tem várias opções para criar modelos de dispositivo:
+Em um aplicativo IoT Central, um modelo de dispositivo usa um modelo de capacidade de dispositivo para descrever os recursos de um dispositivo. Como um criador, você tem várias opções para criar modelos de dispositivo:
 
 - Crie o modelo de dispositivo no IoT Central e, em seguida, implemente o respectivo modelo de funcionalidade do dispositivo no código do dispositivo.
 - Importe um modelo de capacidade de dispositivo do [catálogo de dispositivos Certificado para IoT do Azure](https://aka.ms/iotdevcat). Então adicione todas as propriedades de nuvem, personalizações e painéis de que seu aplicativo do IoT Central precisa.
@@ -118,12 +116,12 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 
 | Campo | Descrição |
 | ----- | ----------- |
-| Nome de exibição | O nome de exibição do valor de telemetria usado em dashboards e formulários. |
+| Nome de Exibição | O nome de exibição do valor de telemetria usado em dashboards e formulários. |
 | Nome | O nome do campo na mensagem de telemetria. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo precisa ser alfanumérico. |
 | Tipo de Funcionalidade | Telemetria. |
 | Tipo Semântico | O tipo semântico da telemetria, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados telemétricos, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos semânticos de evento e estado. |
-| Severity | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**. |
+| Severidade | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**. |
 | Valores de Estado | Disponível apenas para o tipo de estado semântico. Defina os valores de estado possíveis, cada um dos quais com o nome de exibição, o nome, o tipo de enumeração e o valor. |
 | Unidade | Uma unidade para o valor de telemetria, como **mph**, **%** ou ** &deg; C**. |
 | Unidade de exibição | Uma unidade de exibição para uso em dashboards e formulários. |
@@ -138,13 +136,13 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 
 | Campo | Descrição |
 | ----- | ----------- |
-| Nome de exibição | O nome de exibição do valor da propriedade usado em dashboards e formulários. |
+| Nome de Exibição | O nome de exibição do valor da propriedade usado em dashboards e formulários. |
 | Nome | O nome da propriedade. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo precisa ser alfanumérico. |
 | Tipo de Funcionalidade | Propriedade. |
 | Tipo Semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados de propriedade, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos semânticos de evento e estado. |
 | Gravável | Se a propriedade não for gravável, o dispositivo poderá relatar valores de propriedade para o IoT Central. Se a propriedade for gravável, o dispositivo poderá relatar valores de propriedade para o IoT Central, e o IoT Central poderá enviar atualizações de propriedade para o dispositivo.
-| Severity | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**. |
+| Severidade | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**. |
 | Valores de Estado | Disponível apenas para o tipo de estado semântico. Defina os valores de estado possíveis, cada um dos quais com o nome de exibição, o nome, o tipo de enumeração e o valor. |
 | Unidade | Uma unidade para o valor da propriedade, como **mph**, **%** ou ** &deg; C**. |
 | Unidade de exibição | Uma unidade de exibição para uso em dashboards e formulários. |
@@ -159,7 +157,7 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 
 | Campo | Descrição |
 | ----- | ----------- |
-| Nome de exibição | O nome de exibição do comando usado em dashboards e formulários. |
+| Nome de Exibição | O nome de exibição do comando usado em dashboards e formulários. |
 | Nome | O nome do comando. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo precisa ser alfanumérico. |
 | Tipo de Funcionalidade | Comando. |
 | Comando | `SynchronousExecutionType`. |
@@ -174,7 +172,7 @@ Se você não tiver publicado a interface, poderá editar as funcionalidades def
 
 Exporte também a interface como um arquivo JSON caso deseje reutilizá-la em outro modelo de funcionalidade.
 
-## <a name="add-cloud-properties"></a>Adicionar propriedades da nuvem
+## <a name="add-cloud-properties"></a>Adicionar propriedades de nuvem
 
 Use propriedades de nuvem para armazenar informações sobre dispositivos no IoT Central. As propriedades de nuvem nunca são enviadas a um dispositivo. Por exemplo, você pode usar propriedades de nuvem para armazenar o nome do cliente que instalou o dispositivo ou a data do último serviço do dispositivo.
 
@@ -182,7 +180,7 @@ A seguinte tabela mostra as definições de configuração para uma propriedade 
 
 | Campo | Descrição |
 | ----- | ----------- |
-| Nome de exibição | O nome de exibição do valor da propriedade de nuvem usado em dashboards e formulários. |
+| Nome de Exibição | O nome de exibição do valor da propriedade de nuvem usado em dashboards e formulários. |
 | Nome | O nome da propriedade de nuvem. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
 | Tipo Semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados de propriedade de nuvem, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. |

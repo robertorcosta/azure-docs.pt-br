@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: d1440bf2b8af85b81355dbc43b695a85994e4b8d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d6c82b1070f76cedcd84b8cd8a0a7bb6f683110d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124129"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285315"
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança de gerenciamento de identidade do Azure
 
@@ -91,10 +91,10 @@ Saiba mais:
 
 O RBAC é um sistema de autorização baseado no Azure Resource Manager que fornece gerenciamento de acesso refinado aos recursos no Azure. RBAC permite granularmente controlar o nível de acesso que os usuários têm. Por exemplo, você pode limitar um usuário para somente gerenciar redes virtuais e outro usuário para gerenciar todos os recursos em um grupo de recursos. O Azure inclui várias funções internas que você pode usar. A seguir são listadas quatro funções internas fundamentais. As três primeiras se aplicam a todos os tipos de recursos.
 
-- [Proprietário](/azure/role-based-access-control/built-in-roles.md#owner) - Possui acesso total a todos os recursos, inclusive o direito de delegar acesso a outros usuários. 
-- [Colaborador](/azure/role-based-access-control/built-in-roles.md#contributor) – Pode criar e gerenciar todos os tipos de recursos do Azure, mas não pode permitir acesso a outras pessoas.
-- [Leitor](/azure/role-based-access-control/built-in-roles.md#reader) - Pode exibir os recursos existentes do Azure.
-- [Administrador de Acesso do Usuário](/azure/role-based-access-control/built-in-roles.md#administrator) - Permite gerenciar o acesso do usuário aos recursos do Azure.
+- [Proprietário](/azure/role-based-access-control/built-in-roles#owner) - Possui acesso total a todos os recursos, inclusive o direito de delegar acesso a outros usuários. 
+- [Colaborador](/azure/role-based-access-control/built-in-roles#contributor) – Pode criar e gerenciar todos os tipos de recursos do Azure, mas não pode permitir acesso a outras pessoas.
+- [Leitor](/azure/role-based-access-control/built-in-roles#reader) - Pode exibir os recursos existentes do Azure.
+- [Administrador de Acesso do Usuário](/azure/role-based-access-control/built-in-roles#user-access-administrator) - Permite gerenciar o acesso do usuário aos recursos do Azure.
 
 Saiba mais:
 

@@ -4,15 +4,15 @@ description: Descreve como a detecção de anomalias funciona, quando as notific
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
 ms.author: mingshen
+author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: becd15ceea41e40b35848f46f9657c501acf659a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: cb134c82f231eb8b6329b1acafb181032edd6936
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122023"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320078"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Serviço de detecção de anomalias para cobrança limitada
 
@@ -58,7 +58,7 @@ Se você confirmar que as anomalias detectadas são de uso normal, nenhuma açã
 
 ## <a name="when-and-how-to-get-support"></a>Quando e como obter suporte
 
-Se você enviou o uso incorreto à Microsoft e isso resultou em uma subcarga do cliente, a Microsoft não iniciará uma fatura para o cliente para uso informado ou pague você pelo uso. Você precisará ter a perda de receita devido a relatos informativos.
+Se você enviou o uso incorreto à Microsoft e isso resultou em uma subcarga do cliente, a Microsoft não iniciará uma fatura para o cliente para uso informado ou pague você pelo uso. Você precisará arcar com a perda de receita devido a erros no relatório de uso.
 
 Se um dos seguintes casos se aplicar, você poderá abrir um tíquete de suporte para solicitar reembolso ou ajuste de cobrança para seus clientes:
 

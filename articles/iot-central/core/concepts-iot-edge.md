@@ -7,13 +7,14 @@ ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 89d068fbd835a5b4f8886a2ed77691f94a701bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8660cb18f5e7ac5f3695eb15475570b107bf25c
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759096"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337068"
 ---
-# <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Conectar dispositivos Azure IoT Edge a um aplicativo de IoT Central do Azure
+# <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Conectar dispositivos Azure IoT Edge a um aplicativo do Azure IoT Central
 
 *Este artigo se aplica a construtores de solução e desenvolvedores de dispositivos.*
 
@@ -57,7 +58,7 @@ No Azure IoT Central, você pode importar um manifesto de implantação para cri
 
 ![Fluxograma do ciclo de vida do manifesto de implantação](./media/concepts-iot-edge/dmflow.png)
 
-Os modelos de Plug and Play IoT (versão prévia) modelam um dispositivo IoT Edge da seguinte maneira:
+O IoT Central modela um dispositivo IoT Edge da seguinte maneira:
 
 * Cada modelo de dispositivo IoT Edge tem um modelo de funcionalidade de dispositivo.
 * Para cada módulo personalizado listado no manifesto de implantação, um modelo de funcionalidade do módulo é gerado.

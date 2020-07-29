@@ -6,11 +6,12 @@ ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 6d072cd03fa0e5c8da4593d8633a268d3b5a50fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66d0e32e7dfdd5ab2abee5108ac8ce54c5222747
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84197060"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371814"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Sincronizar o repositório GitHub com a configuração do aplicativo
 
@@ -24,7 +25,7 @@ Um [fluxo de trabalho](https://help.github.com/articles/about-github-actions#wor
 A [documentação](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) do GitHub fornece uma visão detalhada dos fluxos de trabalho e ações do GitHub. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Habilitar GitHub Actions em seu repositório
-Para começar a usar essa ação do GitHub, vá para o repositório e selecione a guia **Ações**. Clique em **Novo fluxo de trabalho** e, em seguida, **Configurar um fluxo de trabalho por conta própria**. Por fim, pesquise "Sincronização de configuração de Aplicativos do Azure" no Marketplace.
+Para começar a usar essa ação do GitHub, vá para o repositório e selecione a guia **ações** . Selecione **novo fluxo de trabalho**e, em seguida, **Configure um fluxo de trabalho por conta própria**. Por fim, pesquise "Sincronização de configuração de Aplicativos do Azure" no Marketplace.
 > [!div class="mx-imgBorder"]
 > ![Selecione a guia Ação](media/find-github-action.png)
 

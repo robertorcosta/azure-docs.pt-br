@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 34b1ce42850fcefcc2b0d146e7f33d720fd8062d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a99499110951ccbc0458b5ce848930fed9205dad
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202532"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371986"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use a interface do usuário da Web local para administrar seu Data Box e Data Box Heavy
 
@@ -35,7 +35,7 @@ Este artigo inclui os seguintes tutoriais:
 
 Se você enfrentar problemas no dispositivo, crie um pacote de suporte com os logs do sistema. O Suporte da Microsoft usará esse pacote para solucionar o problema. Para gerar um pacote de suporte, execute as seguintes etapas:
 
-1. Na interface do usuário da Web local, acesse **Contatar Suporte** e clique em **Criar pacote de suporte**.
+1. Na interface do usuário da Web local, acesse **contatar o suporte** e selecione **criar pacote de suporte**.
 
     ![Criar pacote de suporte 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
@@ -43,14 +43,13 @@ Se você enfrentar problemas no dispositivo, crie um pacote de suporte com os lo
 
     ![Criar pacote de suporte 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. Após a conclusão da criação do pacote de suporte, clique em **Baixar Pacote de Suporte**. 
+3. Quando a criação do pacote de suporte for concluída, selecione **baixar pacote de suporte**.
 
     ![Criar pacote de suporte 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
 
 4. Procure e escolha o local de download. Abra a pasta para exibir o conteúdo.
 
     ![Criar pacote de suporte 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
-
 
 ## <a name="shut-down-or-restart-your-device"></a>Desligar ou reiniciar seu dispositivo
 
@@ -59,7 +58,7 @@ Você pode desligar ou reiniciar o dispositivo usando a interface do usuário da
 Para desligar o dispositivo, execute as etapas a seguir.
 
 1. Na interface do usuário da Web local, acesse **Desligar ou reiniciar**.
-2. Clique em **Desligar**.
+2. Selecione **Desligar**.
 
     ![Desligar o Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
@@ -72,11 +71,11 @@ Depois que o dispositivo for desligado, use o botão de energia no painel fronta
 Para reiniciar o Data Box, execute as seguintes etapas.
 
 1. Na interface do usuário da Web local, acesse **Desligar ou reiniciar**.
-2. Clique em **Reiniciar**.
+2. Selecione **Reiniciar**.
 
     ![Reiniciar o Data Box 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)
 
-3. Quando a confirmação for solicitada, clique em **OK** para continuar.
+3. Quando a confirmação for solicitada, selecione **OK** para continuar.
 
    O dispositivo será desligado e, em seguida, reiniciado.
 
@@ -90,9 +89,9 @@ Antes de começar, verifique se o dispositivo foi concluído **preparação para
 
     ![O dispositivo está pronto para envio](media/data-box-portal-admin/ready-to-ship.png)
 
-2. Clique em **Baixar lista de arquivos** para baixar a lista de arquivos copiados em seu Data Box.
+2. Selecione **baixar lista de arquivos** para baixar a lista de arquivos que foram copiados no seu data box.
 
-    ![Clique em Baixar lista de arquivos](media/data-box-portal-admin/download-list-of-files.png)
+    ![Selecione baixar lista de arquivos](media/data-box-portal-admin/download-list-of-files.png)
 
 3. No Explorador de Arquivos, você verá que a lista de arquivos separada é gerada dependendo do protocolo usado para se conectar ao dispositivo e do tipo de Armazenamento do Azure usado.
 
@@ -100,7 +99,7 @@ Antes de começar, verifique se o dispositivo foi concluído **preparação para
 
    A tabela a seguir mapeia os nomes de arquivo para o tipo de Armazenamento do Azure e o protocolo de conexão usado.
 
-    |Nome do Arquivo  |Tipo de Armazenamento do Azure  |Protocolo de conexão usado |
+    |Nome do arquivo  |Tipo de Armazenamento do Azure  |Protocolo de conexão usado |
     |---------|---------|---------|
     |databoxe2etest_BlockBlob.txt     |Blobs de bloco         |SMB/NFS         |
     |databoxe2etest_PageBlob.txt     |Blobs de páginas         |SMB/NFS         |
@@ -179,10 +178,51 @@ A computação de soma de verificação durante a preparação para envio é fei
     ![Desabilitar a soma de verificação](media/data-box-local-web-ui-admin/disable-checksum.png)
 
 2. **Desabilitar** a validação de soma de verificação
-3. Clique em **Aplicar**.
+3. Escolha **Aplicar**.
 
 > [!NOTE]
 > A opção de computação de soma de verificação de ignorar está disponível somente quando a Azure Data Box é desbloqueada. Você não verá essa opção quando o dispositivo estiver bloqueado.
 
-- Saiba como [gerenciar o data box e data Box Heavy por meio do portal do Azure](data-box-portal-admin.md).
+## <a name="enable-smb-signing"></a>Habilitar assinatura SMB
 
+A assinatura do protocolo SMB é um recurso pelo qual as comunicações que usam o SMB podem ser assinadas digitalmente no nível do pacote. Essa assinatura impede ataques que modificam pacotes SMB em trânsito.
+
+Para obter mais informações relacionadas à assinatura SMB, consulte [visão geral da assinatura do bloco de mensagens do servidor](https://support.microsoft.com/help/887429/overview-of-server-message-block-signing).
+
+Para habilitar a assinatura SMB em seu dispositivo do Azure:
+
+1. No canto superior direito da interface do usuário da Web local do seu dispositivo, selecione **configurações**.
+
+    ![Abra Configurações](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Habilitar** Assinatura SMB.
+
+    ![Habilitar assinatura SMB](media/data-box-local-web-ui-admin/data-box-smb-signing-1.png)
+
+3. Escolha **Aplicar**.
+4. Na interface do usuário da Web local, acesse **Desligar ou reiniciar**.
+5. Selecione **Reiniciar**.
+
+## <a name="enable-tls-11"></a>Habilitar TLS 1,1
+
+Por padrão, o Azure Data Box usa o protocolo TLS 1,2 para criptografia, pois é mais seguro do que o TSL 1,1. No entanto, se você ou seus clientes estiverem usando um navegador para acessar dados que não dão suporte a TLS 1,2, você poderá habilitar o TLS 1,1.
+
+Para obter mais informações relacionadas ao TLS, consulte [segurança do gateway do Azure data Box](../databox-online/data-box-gateway-security.md).
+
+Para habilitar o TLS 1,1 no dispositivo do Azure:
+
+1. No canto superior direito da interface do usuário da Web local do seu dispositivo, selecione **configurações**.
+
+    ![Abra Configurações](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Habilitar** TLS 1,1.
+
+    ![Habilitar TLS 1,1](media/data-box-local-web-ui-admin/data-box-tls-1-1.png)
+
+3. Escolha **Aplicar**.
+4. Na interface do usuário da Web local, acesse **Desligar ou reiniciar**.
+5. Selecione **Reiniciar**.
+
+## <a name="next-steps"></a>Próximas etapas
+
+- Saiba como [gerenciar o data box e data Box Heavy por meio do portal do Azure](data-box-portal-admin.md).

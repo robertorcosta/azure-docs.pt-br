@@ -1,6 +1,6 @@
 ---
-title: Ferramenta de gerenciamento de área de trabalho virtual do Windows-Azure
-description: Como solucionar problemas com a ferramenta de gerenciamento de área de trabalho virtual do Windows.
+title: Ferramenta de gerenciamento da área de trabalho virtual do Windows (clássica)-Azure
+description: Como solucionar problemas com a ferramenta de gerenciamento da área de trabalho virtual do Windows (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bb9206d2c2c15c036b0cf1184b79ed126966eb3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 442cdce2ebb6c1a3e38932411dfa2b081a44ef9f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82614792"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283360"
 ---
-# <a name="troubleshoot-the-windows-virtual-desktop-management-tool"></a>Solucionar problemas da ferramenta de gerenciamento da Área de Trabalho Virtual do Windows
+# <a name="troubleshoot-the-windows-virtual-desktop-classic-management-tool"></a>Solucionar problemas da ferramenta de gerenciamento da área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
+>Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows.
 
 Este artigo descreve problemas que podem ocorrer durante a implantação da ferramenta de gerenciamento de área de trabalho virtual do Windows e como corrigi-las.
 

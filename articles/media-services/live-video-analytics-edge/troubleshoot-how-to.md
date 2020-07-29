@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: 62163217862f586be7ed5c0a6000693f8e7fcdd6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ca41a403f789fd529ac65c21799d3d3e7f3becf6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043188"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285451"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Solucionar problemas de análise de vídeo ao vivo no IoT Edge
 
@@ -129,7 +129,7 @@ ModuleNotFoundError: No module named 'azure.mgmt.iothub.iot_hub_client'
     
 Para corrigir esse problema:
 
-1. Execute o seguinte comando:
+1. Execute o comando a seguir:
 
     ```
     az --version
@@ -265,6 +265,9 @@ O método de inicialização de assembly Microsoft.Media.LiveVideoAnalytics.Test
 ### <a name="collect-logs-for-submitting-a-support-ticket"></a>Coletar logs para enviar um tíquete de suporte
 
 Quando as etapas de solução de problemas autoguiadas não resolvem o problema, acesse o portal do Azure e [abra um tíquete de suporte](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+
+> [!WARNING]
+> Os logs podem conter informações de identificação pessoal (PII), como seu endereço IP. Todas as cópias locais dos logs serão excluídas assim que terminarmos de examiná-las e fechar o tíquete de suporte.  
 
 Para coletar os logs relevantes que devem ser adicionados ao tíquete, siga as instruções nas próximas seções. Você pode carregar os arquivos de log no painel de **detalhes** da solicitação de suporte.
 

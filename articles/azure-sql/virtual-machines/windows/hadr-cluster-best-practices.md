@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: d20ac5964ef70618d4d7dc2d4a7fe7d7d01284ce
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: de773bb2188f09822cae59ce42924a9a49f8087e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965448"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285621"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Práticas recomendadas de configuração de cluster (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,27 +42,26 @@ Tecnicamente, um cluster de três nós pode sobreviver a uma única perda de nó
 
 O recurso de quorum protege o cluster contra qualquer um desses problemas. 
 
-Para configurar o recurso de quorum com SQL Server em VMs do Azure, você pode usar esses tipos de testemunha: 
+A tabela a seguir lista as opções de quorum disponíveis na ordem recomendada para usar com uma VM do Azure, com a testemunha de disco sendo a opção preferida: 
 
 
 ||[Testemunha de disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Testemunha da nuvem](/windows-server/failover-clustering/deploy-cloud-witness)  |[Testemunha de compartilhamento de arquivos](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
-|**SO com suporte**| Tudo |Windows Server 2016 e posterior| Windows Server 2012 +|
-|**Versão SQL Server com suporte**|SQL Server 2019|SQL Server 2016 +|SQL Server 2016 +|
+|**SO com suporte**| Todos |Windows Server 2016 e posterior| Windows Server 2012 +|
+
 
 
 
 ### <a name="disk-witness"></a>Testemunha de disco
 
-Uma testemunha de disco é um pequeno disco clusterizado no grupo de armazenamento disponível do cluster. Esse disco é altamente disponível e pode fazer failover entre nós. Ele contém uma cópia do banco de dados do cluster, com um tamanho padrão que geralmente é menor que 1 GB. 
+Uma testemunha de disco é um pequeno disco clusterizado no grupo de armazenamento disponível do cluster. Esse disco é altamente disponível e pode fazer failover entre nós. Ele contém uma cópia do banco de dados do cluster, com um tamanho padrão que geralmente é menor que 1 GB. A testemunha de disco é a opção de quorum preferencial para uma VM do Azure, pois ela pode resolver a partição no problema de tempo, diferentemente da testemunha de nuvem e da testemunha de compartilhamento de arquivos. 
 
 Configure um disco compartilhado do Azure como a testemunha de disco. 
 
 Para começar, consulte [Configurar uma testemunha de disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Sistema operacional com suporte**: todos    
-**Versão do SQL com suporte**: SQL Server 2019   
+**Sistema operacional com suporte**: todos   
 
 
 ### <a name="cloud-witness"></a>Testemunha da nuvem
@@ -73,21 +72,18 @@ Para começar, consulte [Configurar uma testemunha de nuvem](/windows-server/fai
 
 
 **Sistema operacional com suporte**: Windows Server 2016 e posterior   
-**Versão do SQL com suporte**: SQL Server 2016 e posterior     
 
 
 ### <a name="file-share-witness"></a>Testemunha de compartilhamento de arquivos
 
 Uma testemunha de compartilhamento de arquivos é um compartilhamento de arquivos SMB que normalmente é configurado em um servidor de arquivos que executa o Windows Server. Ele mantém informações de clustering em um arquivo testemunha. log, mas não armazena uma cópia do banco de dados do cluster. No Azure, você pode configurar um compartilhamento de [arquivos do Azure](../../../storage/files/storage-how-to-create-file-share.md) para usar como a testemunha de compartilhamento de arquivos ou pode usar um compartilhamento de arquivos em uma máquina virtual separada.
 
-Se você for usar outro compartilhamento de arquivos do Azure, poderá montá-lo com o mesmo processo usado para [montar o compartilhamento de arquivos Premium](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
+Se você for usar um compartilhamento de arquivos do Azure, poderá montá-lo com o mesmo processo usado para [montar o compartilhamento de arquivos Premium](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
 
 Para começar, consulte [Configurar uma testemunha de compartilhamento de arquivos](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
 **Sistema operacional com suporte**: Windows Server 2012 e posterior   
-**Versão do SQL com suporte**: SQL Server 2016 e posterior   
-
 
 ## <a name="connectivity"></a>Conectividade
 

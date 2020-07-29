@@ -7,12 +7,12 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 7e90a4e9ec88e074ec7b30d78bc99cfa8bf39ba2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1eab1022e9b0f03597c108c3c927909aa9bb2712
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002345"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337102"
 ---
 # <a name="what-are-device-templates"></a>O que são modelos de dispositivo?
 
@@ -28,6 +28,9 @@ Um modelo de dispositivo inclui as seguintes seções:
 - _Propriedades de nuvem_. Essa parte do modelo de dispositivo permite que o desenvolvedor da solução especifique qualquer metadado de dispositivo a ser armazenado. As propriedades de nuvem nunca são sincronizadas com dispositivos e só existem no aplicativo. As propriedades de nuvem não afetam o código que um desenvolvedor de dispositivo grava para implementar o DCM.
 - _Personalizações_. Essa parte do modelo de dispositivo permite que o desenvolvedor da solução substitua algumas das definições no DCM. As personalizações serão úteis se o desenvolvedor da solução quiser refinar como o aplicativo lida com um valor, como alterar o nome de exibição de uma propriedade ou a cor usada para exibir um valor de telemetria. As personalizações não afetam o código que um desenvolvedor de dispositivo grava para implementar o DCM.
 - _Exibições_. Essa parte do modelo de dispositivo permite que o desenvolvedor da solução defina visualizações para exibir dados do dispositivo e formulários para gerenciar e controlar um dispositivo. As exibições usam o DCM, as propriedades de nuvem e as personalizações. As exibições não afetam o código que um desenvolvedor de dispositivo grava para implementar o DCM.
+
+> [!NOTE]
+> A [versão de atualização de visualização pública do IoT plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) destina-se a desenvolvedores de dispositivos e OEMs a começar a criar dispositivos que eles podem certificar para IOT plug and Play à frente do lançamento de GA.
 
 ## <a name="device-capability-models"></a>Modelos de funcionalidade do dispositivo
 

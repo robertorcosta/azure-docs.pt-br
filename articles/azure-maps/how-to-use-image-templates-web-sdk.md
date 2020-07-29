@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen
-ms.openlocfilehash: 12c407ecacdce6b9052ca70ef70a2ae87928b6c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: 2942ae25e3ac84ae6f91ebbba08581eb87bcd169
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064699"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285672"
 ---
 # <a name="how-to-use-image-templates"></a>Como usar modelos de imagem
 
@@ -122,7 +122,7 @@ Se seu aplicativo usar o mesmo ícone com ícones diferentes ou se você estiver
 | Nome | Tipo de retorno | Descrição | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Adiciona um modelo de imagem SVG personalizado ao namespace do Atlas. |
-|  `getImageTemplate(templateName: string, scale?: number)`| string | Recupera um modelo SVG por nome. |
+|  `getImageTemplate(templateName: string, scale?: number)`| cadeia de caracteres | Recupera um modelo SVG por nome. |
 | `getAllImageTemplateNames()` | string[] |  Recupera um modelo SVG por nome. |
 
 Os modelos de imagem SVG dão suporte aos seguintes valores de espaço reservado:

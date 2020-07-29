@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights pacotes NuGet
 description: Azure Monitor Application Insights listas de pacotes NuGet para ASP.NET, ASP.NET Core, Python
 ms.topic: reference
 ms.date: 10/16/2018
-ms.openlocfilehash: 91b48aee64a6b6942719f7f4abfb444b894c728e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27a3d89b4a64de159535d346641c21616833e21b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807155"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309946"
 ---
 # <a name="application-insights-nuget-packages"></a>Pacotes NuGet do Application Insights
 
@@ -79,7 +79,7 @@ Veja abaixo a lista atual de pacotes NuGet de versão estável para o Applicatio
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  Habilita a coleta de dados de runtime para aplicativos x64 | [Baixar Pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  Habilita a coleta de dados de runtime para aplicativos x86. | [Baixar Pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-Esses pacotes fazem parte da funcionalidade principal do monitoramento de runtime no [Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md). Você não precisa baixar esses pacotes diretamente. Basta usar o instalador do Status Monitor. Se você quiser entender mais sobre como esses pacotes funcionam nos bastidores, essa [postagem no blog](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/) de um de nossos desenvolvedores é um bom começo.
+Esses pacotes fazem parte da funcionalidade principal do monitoramento de runtime no [Status Monitor](./monitor-performance-live-website-now.md). Você não precisa baixar esses pacotes diretamente. Basta usar o instalador do Status Monitor. Se você quiser entender mais sobre como esses pacotes funcionam nos bastidores, essa [postagem no blog](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/) de um de nossos desenvolvedores é um bom começo.
 
 ## <a name="additional-packages"></a>Pacotes adicionais
 
@@ -90,6 +90,7 @@ Esses pacotes fazem parte da funcionalidade principal do monitoramento de runtim
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Monitore o [ASP.NET Core](../../azure-monitor/app/asp-net-core.md).
-- Crie o perfil de [aplicativos Web ASP.NET Core Azure Linux](../../azure-monitor/app/profiler-aspnetcore-linux.md).
-- Depure [instantâneos](../../azure-monitor/app/snapshot-debugger.md) do ASP.NET.
+- Monitore o [ASP.NET Core](./asp-net-core.md).
+- Crie o perfil de [aplicativos Web ASP.NET Core Azure Linux](./profiler-aspnetcore-linux.md).
+- Depure [instantâneos](./snapshot-debugger.md) do ASP.NET.
+

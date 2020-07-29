@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 34294bf29ec861d7bbb954ece7016de37769a332
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 7818ae36c785311466d2fb26ce45dcf50983145d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232688"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283479"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicativos seguros no Azure
 Neste artigo, apresentamos as atividades de segurança e os controles a serem considerados ao desenvolver aplicativos para a nuvem. Abordamos as perguntas e os conceitos de segurança a serem considerados durante as fases de implementação e verificação do ciclo de vida de desenvolvimento do [Microsoft SDL (Security Development Lifecycle)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx). O objetivo é ajudá-lo a definir atividades e serviços do Azure que você possa usar para desenvolver um aplicativo mais seguro.
@@ -62,7 +62,7 @@ Faça isso no servidor, não no lado do cliente (ou no servidor e no lado do cli
 
 ### <a name="verify-your-applications-outputs"></a>Verificar as saídas do aplicativo
 
-Qualquer saída que você apresente visualmente ou dentro de um documento sempre deve ser codificada e com escape. O [Escape](https://www.owasp.org/index.php/Injection_Theory#Escaping_.28aka_Output_Encoding.29), também conhecido como *codificação de saída*, é usado para garantir que os dados não confiáveis não sejam um veículo para um ataque de injeção. O escape, combinado com a validação de dados, oferece defesas em camadas para aumentar a segurança do sistema como um todo.
+Qualquer saída que você apresente visualmente ou dentro de um documento sempre deve ser codificada e com escape. O [Escape](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), também conhecido como *codificação de saída*, é usado para garantir que os dados não confiáveis não sejam um veículo para um ataque de injeção. O escape, combinado com a validação de dados, oferece defesas em camadas para aumentar a segurança do sistema como um todo.
 
 O escape faz com que tudo seja exibido como *saída.* O escape também permite que o intérprete saiba que os dados não devem ser executados, e isso impede o sucesso dos ataques. Essa é outra técnica de ataque comum chamada *XSS* (Script entre sites).
 

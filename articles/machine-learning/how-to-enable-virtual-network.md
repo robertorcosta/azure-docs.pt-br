@@ -5,18 +5,18 @@ description: Use uma Rede Virtual do Azure isolada com o Azure Machine Learning 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 07/07/2020
-ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: fa99a5c78fb533d17cb7f70b3545aa9ef6439b32
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.custom: how-to, contperfq4, tracking-python
+ms.openlocfilehash: 79db00216ffb54b8c71ef78cc745ec37c353f1cc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072619"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320163"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento de rede durante o treinamento & inferência com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -304,8 +304,8 @@ Se você não quiser usar as regras de saída padrão e quiser limitar o acesso 
 - Negue a conexão de Internet de saída usando as regras de NSG.
 
 - Para uma __instância de computação__ ou um __cluster de cálculo__, limite o tráfego de saída para os seguintes itens:
-   - Armazenamento do Azure, usando a __marca de serviço__ do __armazenamento__.
-   - Registro de contêiner do Azure, usando a __marca de serviço__ de __AzureContainerRegistry__.
+   - Armazenamento do Azure que usa a __Marca de serviço__ de __Storage.RegionName__. Em que `{RegionName}` é o nome de uma região do Azure.
+   - Registro de Contêiner do Azure, usando __Marca de serviço__ de __AzureContainerRegistry.RegionName__. Em que `{RegionName}` é o nome de uma região do Azure.
    - Azure Machine Learning, usando a __Marca de serviço__ de __AzureMachineLearning__
    - Azure Resource Manager, usando a __Marca de serviço__ de __AzureResourceManager__
    - Azure Active Directory, usando a __Marca de serviço__ de __AzureActiveDirectory__

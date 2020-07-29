@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 9a96db0e9a834dcddbb5f247953fa1bbf0dc39ce
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 294c93242a3fee5db14f5919ebb367aebcca3a80
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539696"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326181"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorar máquinas virtuais do Azure com o Azure Monitor
 Este artigo descreve como usar o Azure Monitor para coletar e analisar dados de monitoramento de máquinas virtuais do Azure para manter sua integridade. As máquinas virtuais podem ser monitoradas quanto à disponibilidade e ao desempenho com Azure Monitor como qualquer [outro recurso do Azure](monitor-azure-resource.md), mas são exclusivas de outros recursos, já que você também precisa monitorar o sistema operacional e as cargas de trabalho convidadas que são executadas nelas. 
@@ -134,7 +134,7 @@ Depois de configurar a coleta de dados de monitoramento para uma máquina virtua
 |:---|:---|
 | Visão geral | Exibe [métricas de plataforma](../platform/data-platform-metrics.md) para o host da máquina virtual. Clique em um grafo para trabalhar com esses dados no [Metrics Explorer](../platform/metrics-getting-started.md). |
 | Log de atividades | Entradas de [log de atividades](../platform/activity-log.md#view-the-activity-log) filtradas para a máquina virtual atual. |
-| Insights | Abre [Azure Monitor para VMs](../insights/vminsights-overview.md) com o mapa para a máquina virtual atual selecionada. |
+| Insights | Abre [Azure Monitor para VMs](./vminsights-overview.md) com o mapa para a máquina virtual atual selecionada. |
 | Alertas | Exibe os [alertas](../platform/alerts-overview.md) para o tamanho atual da máquina virtual.  |
 | Métricas | Abra o [Metrics Explorer](../platform/metrics-getting-started.md) com o escopo definido para a máquina virtual atual. |
 | Configurações de Diagnóstico | Habilite e configure a [extensão de diagnóstico](../platform/diagnostics-extension-overview.md) para a máquina virtual atual. |
@@ -242,3 +242,4 @@ Consulte [Conectar Operations Manager para Azure Monitor](../platform/om-agents.
 
 * [Saiba como analisar dados em logs de Azure Monitor usando consultas de log.](../log-query/get-started-queries.md)
 * [Saiba mais sobre alertas usando métricas e logs em Azure Monitor.](../platform/alerts-overview.md)
+

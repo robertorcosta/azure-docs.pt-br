@@ -3,19 +3,19 @@ title: Criptografar a origem do aplicativo em repouso
 description: Criptografe os dados do aplicativo no armazenamento do Azure e implante-os como um arquivo de pacote.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 6dfb56a5ef6b1ab3cfbd0762bf7816e37ce0aa39
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1dd0d11baa16a325a22a501d40e22e5bad6adb21
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081875"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282323"
 ---
 # <a name="encrypt-your-application-data-at-rest-using-customer-managed-keys"></a>Criptografar os dados do aplicativo em repouso usando chaves gerenciadas pelo cliente
 
 Criptografar os dados de aplicativo do aplicativo de funções em repouso requer uma conta de armazenamento do Azure e um Azure Key Vault. Esses serviços são usados quando você executa o aplicativo de um pacote de implantação.
 
   - O [armazenamento do Azure fornece criptografia em repouso](../storage/common/storage-service-encryption.md). Você pode usar as chaves fornecidas pelo sistema ou suas próprias chaves gerenciadas pelo cliente. É aí que os dados do aplicativo são armazenados quando não estão em execução em um aplicativo de funções no Azure.
-  - [Executando de um pacote de implantação] ((run-functions-from-deployment-package.md) é um recurso de implantação do serviço de aplicativo. Ele permite que você implante o conteúdo do site de uma conta de armazenamento do Azure usando uma URL de SAS (assinatura de acesso compartilhado).
+  - A [execução de um pacote de implantação](run-functions-from-deployment-package.md) é um recurso de implantação do serviço de aplicativo. Ele permite que você implante o conteúdo do site de uma conta de armazenamento do Azure usando uma URL de SAS (assinatura de acesso compartilhado).
   - [Referências de Key Vault](../app-service/app-service-key-vault-references.md) são um recurso de segurança do serviço de aplicativo. Ele permite que você importe segredos em tempo de execução como configurações de aplicativo. Use isso para criptografar a URL SAS da sua conta de armazenamento do Azure.
 
 ## <a name="set-up-encryption-at-rest"></a>Configurar a criptografia em repouso

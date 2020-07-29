@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 42924b4ac5493fc910079ca1f89a6195ccba55e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 16fba1f036299a84db8301dbc09c7f4884d985f3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007904"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305084"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Histórico e versões do esquema de configuração do WAD (Windows Diagnóstico do Azure Extension)
 Este artigo fornece o histórico de versões das versões de esquema do [diagnóstico do Azure Extension for Windows (wad)](diagnostics-extension-overview.md) fornecidas como parte do SDK do Microsoft Azure.  
@@ -47,7 +47,7 @@ Versões diferentes do Diagnóstico do Azure usam esquemas de configuração dif
 ### <a name="diagnostics-extension-111"></a>Extensão de diagnóstico 1.11
 Suporte adicionado para o coletor Azure Monitor. Esse coletor só é aplicável aos contadores de desempenho. Permite o envio de contadores de desempenho coletados em sua VM, VMSS ou serviço de nuvem para o Azure Monitor como métricas personalizadas. O coletor do Azure Monitor dá suporte a:
 * Recuperação de todos os contadores de desempenho enviados para o Azure Monitor por meio de [APIs de métrica do Azure Monitor.](/rest/api/monitor/metrics/list)
-* Alertas de todos os contadores de desempenho enviados para o Azure Monitor por meio da nova [experiência unificada de alertas](../../azure-monitor/platform/alerts-overview.md) no Azure Monitor
+* Alertas de todos os contadores de desempenho enviados para o Azure Monitor por meio da nova [experiência unificada de alertas](./alerts-overview.md) no Azure Monitor
 * Tratamento do operador curinga em contadores de desempenho como a dimensão de "Instância" na sua métrica. Por exemplo, se você tiver coletado o contador "LogicalDisk(\*)/DiskWrites/sec", será capaz de filtrar e dividir na dimensão "Instância" para gráfico ou alerta sobre as gravações de disco/s para cada disco lógico (C:, D: etc.)
 
 Definir o Azure Monitor como um novo coletor em sua configuração de extensão de diagnóstico
@@ -155,7 +155,7 @@ Tipo de armazenamento adicionado a PublicConfig. StorageType pode ser *Table*, *
 Adição da habilidade para rotear ao Hub de Eventos.
 
 ### <a name="diagnostics-extension-15"></a>Extensão do diagnóstico 1.5
-Adição do elemento de coleta e a capacidade de enviar dados de diagnósticos ao [Application Insights](../../azure-monitor/app/cloudservices.md), facilitando o diagnóstico de problemas em seu aplicativo, bem como no nível do sistema e da infraestrutura.
+Adição do elemento de coleta e a capacidade de enviar dados de diagnósticos ao [Application Insights](../app/cloudservices.md), facilitando o diagnóstico de problemas em seu aplicativo, bem como no nível do sistema e da infraestrutura.
 
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>SDK 2.6 do Azure e esquema de extensão 1.3
 Para projetos do Serviço de Nuvem no Visual Studio, as seguintes alterações foram feitas. (Essas alterações também se aplicam a versões mais recentes do SDK do Azure).
@@ -190,3 +190,4 @@ Se você estiver atualizando seu projeto do SDK do Azure 2.4 para o SDK do Azure
 * **Diagnóstico para aplicativos de serviço de nuvem só podem ser configurados no nível de função, não no nível de instância.**
 * **Sempre que você implanta seu aplicativo, a configuração de diagnóstico é atualizada** – isso pode causar problemas de paridade, se você altera a configuração de diagnóstico do Gerenciador de Servidores e, em seguida, reimplanta o aplicativo.
 * **No SDK do Azure 2.5 e posteriores, despejos de memória são configurados no arquivo de configuração de diagnóstico, não no código** – se você tiver despejos de memória configurados no código, precisará transferir manualmente a configuração de código para o arquivo de configuração, pois os despejos de memória não são transferidos durante a migração para o SDK do Azure 2.6.
+

@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: d1ed294412e44c79fc1eb8cbc01bf134f08a953f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.author: mingshen
+author: mingshen-ms
+ms.openlocfilehash: 07779769dae4c43148bbf4a8205feceea85ed363
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118929"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320044"
 ---
 # <a name="managed-application-metered-billing"></a>Cobrança limitada do aplicativo gerenciado 
 
@@ -109,21 +111,13 @@ O número máximo de dimensões que podem ser configuradas para uma única ofert
 
 ## <a name="get-support"></a>Obter suporte
 
-Se um dos casos a seguir se aplicar, você poderá abrir um tíquete de suporte.
+Se você tiver um dos seguintes problemas, poderá abrir um tíquete de suporte.
 
 * Problemas técnicos com a API do serviço de medição do Marketplace.
 * Um problema que precisa ser escalonado devido a um erro ou bug no seu lado (por exemplo, evento de uso incorreto).
 * Quaisquer outros problemas relacionados à cobrança limitada.
 
-Siga as etapas abaixo para enviar seu tíquete de suporte:
-
-1. Vá para a [página de suporte](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). Os primeiros menus suspensos são preenchidos automaticamente para você. Para obter suporte ao Marketplace, identifique a família de produtos como **serviços de nuvem e online**, o produto como **Publicador do Marketplace**. Não altere as seleções de menu suspenso preenchidas previamente.
-2. Em "selecionar a versão do produto", selecione **Gerenciamento de ofertas dinâmicas**.
-3. Em "Selecione uma categoria que melhor descreva o problema", escolha a **oferta de aplicativos do Azure**.
-4. Em "Selecione um problema que melhor descreva o problema", selecione **cobrança limitada**.
-5. Ao selecionar o botão **Avançar** , você será direcionado para a página **detalhes do problema** , onde poderá inserir mais detalhes sobre o problema.
-
-Para obter mais opções de suporte do Publicador, consulte [suporte para o programa comercial Marketplace no Partner Center](support.md).
+Siga a instrução em [suporte para o programa do Marketplace comercial no Partner Center](./support.md) para entender as opções de suporte do Publicador e abrir o tíquete de suporte com a Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 

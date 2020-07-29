@@ -1,6 +1,6 @@
 ---
-title: Log Analytics de diagnóstico de área de trabalho virtual do Windows (Outono 2019) – Azure
-description: Saiba como usar o log Analytics com o recurso de diagnóstico do Windows Virtual Desktop (Outono 2019 Release).
+title: Log Analytics de diagnóstico da área de trabalho virtual (clássica) do Windows – Azure
+description: Como usar o log Analytics com o recurso de diagnóstico da área de trabalho virtual do Windows (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c4c59268f63252813c7e08608d5d8ee499b11f53
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 500758839b426143650707d3d77d78e8a064533e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077615"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285060"
 ---
-# <a name="use-log-analytics-for-the-diagnostics-feature-fall-2019-release"></a>Usar Log Analytics para o recurso de diagnóstico (versão 2019 do outono)
+# <a name="use-log-analytics-for-the-diagnostics-feature-in-windows-virtual-desktop-classic"></a>Usar Log Analytics para o recurso de diagnóstico na área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../diagnostics-log-analytics.md).
+>Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../diagnostics-log-analytics.md).
 
 A Área de Trabalho Virtual do Windows oferece um recurso de diagnóstico que permite ao administrador identificar problemas por meio de uma única interface. Esse recurso registra as informações de diagnóstico sempre que alguém tiver atribuído a função de área de trabalho virtual do Windows usando o serviço. Cada log contém informações sobre qual função de área de trabalho virtual do Windows estava envolvida na atividade, todas as mensagens de erro que aparecem durante a sessão, informações de locatário e informações do usuário. O recurso de diagnóstico cria logs de atividade para ações administrativas e de usuário. Cada log de atividades cai em três categorias principais:
 
