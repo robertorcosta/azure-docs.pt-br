@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/07/2020
 ms.author: memildin
-ms.openlocfilehash: f12a137d4cf182837e2f2212923b97cb7dc5f34a
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: d1a11ac42a7fb280ba96229f0f67b9c45999b310
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057765"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285366"
 ---
 # <a name="reference-list-of-azure-domains-not-comprehensive"></a>Lista de referência de domínios do Azure (não abrangentes)
 
@@ -42,11 +42,11 @@ Esta página é uma lista parcial dos domínios do Azure em uso. Alguns deles s�
 |Serviços de gerenciamento do Azure|*. management.core.windows.net|
 |[Serviços de Mídia do Azure](https://azure.microsoft.com/services/media-services/)|*. origin.mediaservices.windows.net|
 |[Aplicativos móveis do Azure](https://azure.microsoft.com/services/app-service/mobile/)|*. azure-mobile.net|
-|[Armazenamento de filas do Azure](https://azure.microsoft.com/services/storage/queues/)|*.queue.core.windows.net|
+|[Armazenamento de Filas do Azure](https://azure.microsoft.com/services/storage/queues/)|*.queue.core.windows.net|
 |[Barramento de Serviço do Azure](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview)|*.servicebus.windows.net|
 |[Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/)|*.database.windows.net|
 |[Azure Stack borda](https://azure.microsoft.com/products/azure-stack/edge/) e [Azure IOT Edge](https://azure.microsoft.com/services/iot-edge/)|*.azureedge.net|
 |[Armazenamento de Tabelas do Azure](https://docs.microsoft.com/azure/storage/tables/table-storage-overview)|*.table.core.windows.net|
 |[Gerenciador de Tráfego do Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)|*. trafficmanager.net|
-|[Sites do Azure](https://azure.microsoft.com/resources/videos/playlists/websites/)|*.azurewebsites.net|
+|[Sites do Azure](https://azure.microsoft.com/resources/videos/home/)|*.azurewebsites.net|
 |[Codespaces do Visual Studio](https://visualstudio.microsoft.com/services/visual-studio-codespaces/)|*.visualstudio.com|

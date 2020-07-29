@@ -1,6 +1,6 @@
 ---
 title: Implantar uma ferramenta de gerenciamento com um modelo do Azure Resource Manager – Azure
-description: Como instalar uma ferramenta da interface do usuário com um modelo do Azure Resource Manager para gerenciar recursos da Área de Trabalho Virtual do Windows.
+description: Como instalar uma ferramenta de interface do usuário com um modelo Azure Resource Manager para gerenciar recursos da área de trabalho virtual do Windows (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3c3e93cf711d4dadfdc2354a297b0588fb637c80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf9fff614f638aec9519c11b2bb558cc77b94814
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514230"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284941"
 ---
-# <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Implantar uma ferramenta de gerenciamento com um modelo do Azure Resource Manager
+# <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Implantar uma ferramenta de gerenciamento de área de trabalho virtual do Windows (clássica) com um modelo de Azure Resource Manager
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
+>Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows.
 
 As instruções deste artigo lhe dirão como implantar a interface do usuário usando um modelo do Azure Resource Manager.
 

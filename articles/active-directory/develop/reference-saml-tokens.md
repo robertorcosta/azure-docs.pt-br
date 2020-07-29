@@ -2,7 +2,7 @@
 title: Tipos de declaração de & de token do Azure AD
 description: Um guia para compreender e avaliar as declarações em tokens SAML 2.0 e JSON Web Tokens (JWT) emitidos pelo AAD (Active Directory do Azure)
 documentationcenter: na
-author: rwike77
+author: kenwith
 services: active-directory
 manager: CelesteDG
 ms.service: active-directory
@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.date: 06/22/2018
-ms.author: ryanwi
-ms.reviewer: hirsin
+ms.author: kenwith
+ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: 27582bf7f06a659a26f67c455cb9e196a9996781
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59ba97ccc0bc4a1a273873d638ef3f519b91e530
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830325"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284431"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Referência de token SAML do Azure AD
 
