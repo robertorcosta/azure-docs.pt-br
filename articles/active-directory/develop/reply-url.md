@@ -4,18 +4,18 @@ description: Restrições e limitações de URLs de resposta/URIs de redireciona
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 07/17/2020
+ms.date: 06/29/2019
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 4fdeb0018e27a2557161b2ec1c4794d975403523
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b7aefc54a20e23ae969750532e7e3bc824f69c56
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311612"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725305"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Limitações e restrições de URL de resposta/URI de redirecionamento
 
@@ -41,34 +41,17 @@ A tabela a seguir mostra o número máximo de URIs de redirecionamento que você
 Você pode usar no máximo de 256 caracteres para cada URI de redirecionamento que adicionar a um registro de aplicativo.
 
 ## <a name="supported-schemes"></a>Esquemas compatíveis
-
 O modelo de aplicativo do Azure AD atualmente é compatível com esquemas HTTP e HTTPS para aplicativos que acessam contas corporativas ou de estudante da Microsoft no locatário do Azure Active Directory (Azure AD) de qualquer organização. Esse é o campo `signInAudience` no manifesto do aplicativo definido como *AzureADMyOrg* ou *AzureADMultipleOrgs*. Para os aplicativos que acessa, contas pessoais da Microsoft e contas corporativas e de estudante (ou seja, `signInAudience` definido como *AzureADandPersonalMicrosoftAccount*), somente o esquema HTTPS é permitido.
 
 > [!NOTE]
 > A nova experiência de [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) não permite que os desenvolvedores adicionem URIs com o esquema HTTP na interface do usuário. A adição de URIs HTTP em aplicativos que acessam contas corporativas ou de estudante é compatível apenas por meio do editor de manifesto de aplicativo. Futuramente, novos aplicativos não poderão usar esquemas HTTP no URI de redirecionamento. No entanto, aplicativos mais antigos que contenham esquemas HTTP em URIs de redirecionamento continuarão a funcionar. Os desenvolvedores devem usar esquemas HTTPS nos URIs de redirecionamento.
 
-## <a name="localhost-exceptions"></a>Exceções de localhost
-
-De acordo com as [seções RFC 8252 8,3](https://tools.ietf.org/html/rfc8252#section-8.3) e [7,3](https://tools.ietf.org/html/rfc8252#section-7.3), os URIs de redirecionamento "Loopback" ou "localhost" vêm com duas considerações especiais:
-
-1. `http`Os esquemas de URI são aceitáveis, pois o redirecionamento nunca deixa o dispositivo.  Isso significa que `http://127.0.0.1/myApp` é aceitável, bem como `https://127.0.0.1/myApp` . 
-1. Devido a intervalos de porta efêmeras geralmente necessários para aplicativos nativos, o componente de porta (por exemplo `:5001` , ou `:443` ) é ignorado para fins de correspondência de um URI de redirecionamento.  Como resultado, `http://127.0.0.1:5000/MyApp` e `http://127.0.0.1:1234/MyApp` ambas as correspondências, `http://127.0.0.1/MyApp` bem como`http://127.0.0.1:8080/MyApp`
-
-Do ponto de vista do desenvolvimento, isso significa algumas coisas:
-
-1. Não registre vários URIs de resposta onde apenas a porta difere.  O servidor de logon escolherá um arbitrariamente e usará o comportamento associado a esse URI de resposta (por exemplo, se for um `web` `native` `spa` redirecionamento, e-Type.
-1. Se você precisar registrar vários URIs de redirecionamento no localhost para testar fluxos diferentes durante o desenvolvimento, diferencie-os usando o componente de *caminho* do URI.  `http://127.0.0.1/MyWebApp`não corresponde `http://127.0.0.1/MyNativeApp` .  
-1. Por diretrizes da RFC, você não deve usar `localhost` o no URI de redirecionamento.  Em vez disso, use o endereço IP de loopback real- `127.0.0.1` . Isso impede que seu aplicativo seja interrompido por firewalls configurados incorretamente ou por interfaces de rede renomeadas.
-
->[!NOTE]
-> Neste momento, o loopback IPv6 ( `[::1]` ) não tem suporte no momento.  Isso será adicionado em uma data posterior.
-
 ## <a name="restrictions-using-a-wildcard-in-uris"></a>Restrições usando um curinga em URIs
 
-URIs com curinga, como `https://*.contoso.com`, são convenientes, mas devem ser evitados. O uso de curingas no URI de redirecionamento tem implicações de segurança. De acordo com a especificação OAuth 2.0 ([seção 3.1.2 do RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), um URI de ponto de extremidade de redirecionamento deve ser um URI absoluto.
+URIs com curinga, como `https://*.contoso.com`, são convenientes, mas devem ser evitados. O uso de curingas no URI de redirecionamento tem implicações de segurança. De acordo com a especificação OAuth 2.0 ([seção 3.1.2 do RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), um URI de ponto de extremidade de redirecionamento deve ser um URI absoluto. 
 
-O modelo de aplicativo do Azure AD não é compatível com URIs curinga em aplicativos configurados para acessar contas pessoais da Microsoft e contas corporativas ou de estudante. No entanto, atualmente, URIs com curinga são permitidos em aplicativos configurados para acessar contas corporativas ou de estudante no locatário do Azure AD de uma organização.
-
+O modelo de aplicativo do Azure AD não é compatível com URIs curinga em aplicativos configurados para acessar contas pessoais da Microsoft e contas corporativas ou de estudante. No entanto, atualmente, URIs com curinga são permitidos em aplicativos configurados para acessar contas corporativas ou de estudante no locatário do Azure AD de uma organização. 
+ 
 > [!NOTE]
 > A nova experiência de [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) não permite que os desenvolvedores adicionem URIs com curinga na interface do usuário. A adição de URIs com curinga em aplicativos que acessam contas corporativas ou de estudante é compatível apenas por meio do editor de manifesto de aplicativo. Futuramente, novos aplicativos não poderão usar curingas no URI de redirecionamento. No entanto, aplicativos mais antigos que contenham curingas em URIs de redirecionamento continuarão a funcionar.
 
@@ -76,7 +59,7 @@ Se o seu cenário exigir mais URIs de redirecionamento do que o limite máximo p
 
 ### <a name="use-a-state-parameter"></a>Usar um parâmetro de estado
 
-Se você tiver um número de subdomínios e se o seu cenário exigir que redirecione os usuários após a autenticação bem-sucedida para a mesma página em que eles foram iniciados, o uso de um parâmetro de estado pode ser útil.
+Se você tiver um número de subdomínios e se o seu cenário exigir que redirecione os usuários após a autenticação bem-sucedida para a mesma página em que eles foram iniciados, o uso de um parâmetro de estado pode ser útil. 
 
 Nesta abordagem:
 

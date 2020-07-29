@@ -4,15 +4,15 @@ description: Solucionar problemas de erros de conexão intermitente e problemas 
 author: v-miegge
 manager: barbkess
 ms.topic: troubleshooting
-ms.date: 07/24/2020
+ms.date: 03/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations
-ms.openlocfilehash: 4d337c9cff4b0d7dbfb18a7ba0cf213265286017
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 704c6b026ab656ce52b34e5ac70ba7e2087ccbcd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289154"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252433"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Solucionando problemas de erros de conexão de saída intermitente no serviço Azure App
 
@@ -37,8 +37,6 @@ Uma grande causa desses sintomas é que a instância do aplicativo não é capaz
 Quando aplicativos ou funções abrem rapidamente uma nova conexão, eles podem esgotar rapidamente a cota alocada das portas 128. Eles são bloqueados até que uma nova porta SNAT fique disponível, seja por meio da alocação dinâmica de portas SNAT adicionais ou pela reutilização de uma porta SNAT recuperada. Aplicativos ou funções que são bloqueadas devido a essa incapacidade de criar novas conexões começarão a apresentar um ou mais dos problemas descritos na seção **sintomas** deste artigo.
 
 ## <a name="avoiding-the-problem"></a>Evitando o problema
-
-Se o destino for um serviço do Azure que dá suporte a pontos de extremidade de serviço, você poderá evitar problemas de esgotamento de porta SNAT usando a [integração VNet](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) e os pontos de extremidade de serviço. Quando você usa a integração VNet e coloca pontos de extremidade de serviço na sub-rede de integração, o tráfego de saída do seu aplicativo para esses serviços não terá restrições de porta SNAT de saída.
 
 Evitar o problema de porta SNAT significa evitar a criação de novas conexões repetidamente para o mesmo host e porta.
 
