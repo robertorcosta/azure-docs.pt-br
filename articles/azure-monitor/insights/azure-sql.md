@@ -7,12 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: 7e5f7bd9ec3cc9a66adb8743ce2a56d8b2ead204
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c871f5fbbe63747c71e1f6ecf83a47c0cd30970e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041553"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318021"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorar o Banco de Dados SQL do Azure usando a Análise de SQL do Azure (Versão Prévia)
 
@@ -56,7 +56,7 @@ A tabela abaixo descreve as opções com suporte para duas versões do painel de
 
 ## <a name="configuration"></a>Configuração
 
-Use o processo descrito em [Adicionar soluções de Azure monitor da Galeria de soluções](../../azure-monitor/insights/solutions.md) para adicionar análise de SQL do Azure (versão prévia) ao seu espaço de trabalho do log Analytics.
+Use o processo descrito em [Adicionar soluções de Azure monitor da Galeria de soluções](./solutions.md) para adicionar análise de SQL do Azure (versão prévia) ao seu espaço de trabalho do log Analytics.
 
 ### <a name="configure-azure-sql-database-to-stream-diagnostics-telemetry"></a>Configurar o banco de dados SQL do Azure para transmitir a telemetria de diagnóstico
 
@@ -297,3 +297,4 @@ Embora Análise de SQL do Azure esteja livre para uso, o consumo de telemetria d
 - Use [consultas de log](../log-query/log-query-overview.md) em Azure monitor para exibir dados do Azure SQL detalhados.
 - [Criar seus próprios painéis](../learn/tutorial-logs-dashboards.md) mostrando os dados do Azure SQL.
 - [Criar alertas](../platform/alerts-overview.md) quando ocorrerem eventos específicos do Azure SQL.
+

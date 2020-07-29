@@ -3,16 +3,16 @@ title: Sobre o backup do compartilhamento de arquivos do Azure
 description: Saiba como fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 40cb9ca0bd34fd65ab1983af6384d617db26e996
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7441157d6346eefc256e9e7c29f9bb1fa5c13b79
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539084"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289528"
 ---
 # <a name="about-azure-file-share-backup"></a>Sobre o backup do compartilhamento de arquivos do Azure
 
-O backup de compartilhamento de arquivos do Azure é uma solução de backup nativa baseada em nuvem que protege seus dados na nuvem e elimina sobrecargas de manutenção adicionais envolvidas em soluções de backup locais. O serviço de backup do Azure integra-se perfeitamente à sincronização de arquivos do Azure e permite centralizar seus dados de compartilhamento de arquivos, bem como seus backups. Essa solução simples, confiável e segura permite que você configure a proteção para seus compartilhamentos de arquivos empresariais em algumas etapas simples com uma garantia de que você pode recuperar seus dados em caso de qualquer cenário de desastre.
+O backup de compartilhamento de arquivos do Azure é uma solução de backup nativa baseada em nuvem que protege seus dados na nuvem e elimina sobrecargas de manutenção adicionais envolvidas em soluções de backup locais. O serviço de backup do Azure integra-se perfeitamente ao Sincronização de Arquivos do Azure e permite centralizar seus dados de compartilhamento de arquivos, bem como seus backups. Essa solução simples, confiável e segura permite que você configure a proteção para seus compartilhamentos de arquivos empresariais em algumas etapas simples com uma garantia de que você pode recuperar seus dados em caso de qualquer cenário de desastre.
 
 ## <a name="key-benefits-of-azure-file-share-backup"></a>Principais benefícios do backup de compartilhamento de arquivos do Azure
 
@@ -42,9 +42,11 @@ O backup de compartilhamento de arquivos do Azure é uma solução de backup nat
     >[!NOTE]
     >Os dados de compartilhamento de arquivos não são transferidos para o serviço de backup, já que o serviço de backup cria e gerencia instantâneos que fazem parte de sua conta de armazenamento e os backups não são transferidos para o cofre.
 
-6. Você pode restaurar o conteúdo do compartilhamento de arquivos do Azure (arquivos individuais ou o compartilhamento completo) de instantâneos disponíveis no compartilhamento de arquivo de origem. Depois que a operação é disparada, a URL do instantâneo é recuperada do repositório de metadados e os dados são listados e transferidos do instantâneo de origem para o compartilhamento de arquivos de destino de sua escolha.
+6. Você pode restaurar o conteúdo do compartilhamento de arquivos do Azure (arquivos individuais ou o compartilhamento completo) de instantâneos disponíveis no compartilhamento de arquivo de origem. Depois que a operação é disparada, a URL do instantâneo é recuperada do repositório de metadados e os dados são listados e transferidos do instantâneo de origem para o compartilhamento de arquivos de destino de sua escolha. 
 
-7. Os dados de monitoramento do trabalho de backup e restauração são enviados por push para o serviço de monitoramento do backup do Azure. Isso permite que você monitore os backups de nuvem para seus compartilhamentos de arquivos em um único painel. Além disso, você também pode configurar alertas ou notificações por email quando a integridade do backup for afetada. Os emails são enviados por meio do serviço de email do Azure.
+7. Se você estiver usando Sincronização de Arquivos do Azure, o serviço de backup indicará para o serviço de Sincronização de Arquivos do Azure os caminhos dos arquivos que estão sendo restaurados, o que dispara um processo de detecção de alterações em segundo plano nesses arquivos. Todos os arquivos que foram alterados são sincronizados com o ponto de extremidade do servidor. Esse processo ocorre em paralelo com a restauração original para o compartilhamento de arquivos do Azure. 
+
+8. Os dados de monitoramento do trabalho de backup e restauração são enviados por push para o serviço de monitoramento do backup do Azure. Isso permite que você monitore os backups de nuvem para seus compartilhamentos de arquivos em um único painel. Além disso, você também pode configurar alertas ou notificações por email quando a integridade do backup for afetada. Os emails são enviados por meio do serviço de email do Azure.
 
 ## <a name="backup-costs"></a>Custos de backup
 

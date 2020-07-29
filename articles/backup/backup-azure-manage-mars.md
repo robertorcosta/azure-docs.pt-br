@@ -4,12 +4,12 @@ description: Saiba como gerenciar e monitorar backups de agente MARS (Serviços 
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 376e2d53165ab822f75e635b42106e1fe13282a9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 096f47ba4a3d8d490c9cfaf43f4dafec4faf10f9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054992"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317341"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerenciar backups de agente MARS (Serviços de Recuperação do Microsoft Azure) usando o serviço de backup do Azure
 
@@ -112,7 +112,7 @@ Há duas maneiras de interromper a proteção de arquivos e pastas backup:
 1. Em **Pausar backup agendado**, examine as informações e clique em **concluir**.
 
     ![Modificar ou parar um backup agendado.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. Em **Modificar processo de backup**, verifique se a pausa do backup de agenda está em status de êxito e clique em **fechar** para concluir.
+1. Em **Modificar o progresso do backup**, verifique se a pausa do backup de agenda está em status de êxito e clique em **fechar** para concluir.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Interromper a proteção e excluir dados de backup
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: e8ab6e2e62bdcb08754d011a6b576cb615371a09
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 965118345a003aface0373bda7496243bcab8429
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076456"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290166"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Criptografia de dados de servidor único do Banco de Dados do Azure para PostgreSQL com uma chave gerenciada pelo cliente
 
@@ -22,7 +22,7 @@ A criptografia de dados com chaves gerenciadas pelo cliente para o servidor úni
 O Key Vault é um sistema de gerenciamento de chaves externas baseado em nuvem. Ele é altamente disponível e fornece armazenamento seguro escalonável para chaves de criptografia RSA, opcionalmente apoiado por HSMs (módulos de segurança de hardware) validados pelo FIPS 140-2 Nível 2. Ele não permite acesso direto a uma chave armazenada, mas fornece serviços de criptografia e descriptografia para as entidades autorizadas. O Key Vault pode gerar a chave, importá-la ou [transferi-la de um dispositivo HSM local](../key-vault/key-Vault-hsm-protected-keys.md).
 
 > [!NOTE]
-> Esse recurso está disponível em todas as regiões do Azure nas quais o servidor único do Banco de Dados do Azure para PostgreSQL dá suporte aos tipos de preço "Uso Geral" e "Otimizado para Memória".
+> Esse recurso está disponível em todas as regiões do Azure nas quais o servidor único do Banco de Dados do Azure para PostgreSQL dá suporte aos tipos de preço "Uso Geral" e "Otimizado para Memória". Para obter outras limitações, consulte a seção [limitação](concepts-data-encryption-postgresql.md#limitations) .
 
 ## <a name="benefits"></a>Benefícios
 

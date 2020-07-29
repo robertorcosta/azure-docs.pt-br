@@ -2,16 +2,19 @@
 title: Notas de versão do Azure Application Insights | Microsoft Docs
 description: As atualizações mais recentes para SDKs do Application Insights.
 ms.topic: conceptual
-ms.date: 05/17/2017
-ms.openlocfilehash: fcd20e1d14cebb9a5f5cc8ff2f7ae3f16fa594cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: 59e10bff6d0e2246b130f97ce9b21cd9685bde30
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671504"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315471"
 ---
-# <a name="sdk-release-notes---application-insights"></a>Notas de versão do SDK ‒ Application Insights
-Aqui estão as notas de versão detalhadas e instruções de atualização para nossos SDKs:
+# <a name="release-notes---application-insights"></a>Notas de versão-Application Insights
 
+Esta página descreve onde encontrar notas de versão detalhadas sobre atualizações e correções de bugs para cada um dos SDKs de Application Insights.
+
+## <a name="sdk"></a>. 
 
 * SDKs do .NET
     - Para a versão 2,12 e mais recente: [SDKs do .net (incluindo ASP.net, ASP.NET Core e os adaptadores de log)](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
@@ -20,9 +23,25 @@ Aqui estão as notas de versão detalhadas e instruções de atualização para 
       - [SDK .NET](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
       - [Adaptadores de log do .NET](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/releases)
       - [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
-* [Java](https://github.com/Microsoft/ApplicationInsights-Java)
-* [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/commits/master)
-* [Outras plataformas](https://github.com/Microsoft/ApplicationInsights-Home)
+* [Java](https://github.com/Microsoft/ApplicationInsights-Java/releases)
+* [JavaScript](https://github.com/microsoft/ApplicationInsights-JS/releases)
+* [Exportador do Python Azure Monitor](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/CHANGELOG.md)
 
 Leia também nossos [blogs](https://azure.microsoft.com/blog/tag/application-insights/) e [atualizações de Serviço](https://azure.microsoft.com/updates/?service=application-insights) que resumem as principais melhorias no serviço Application Insights como um todo.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Comece a usar o monitoramento sem código do monitor com código:
+
+* [Aplicativos hospedados no IIS na VM do Azure e no conjunto de dimensionamento de máquinas virtuais do Azure](./azure-vm-vmss-apps.md)
+* [Servidor IIS](./monitor-performance-live-website-now.md)
+* [Aplicativos Web do Azure](./azure-web-apps.md)
+
+Introdução ao monitoramento baseado em código:
+
+* [ASP.NET](./asp-net.md)
+* [ASP.NET Core](./asp-net-core.md)
+* [Java](./java-get-started.md)
+* [Node.js](./nodejs.md)
+* [Python](./opencensus-python.md)
 

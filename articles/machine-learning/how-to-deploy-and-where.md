@@ -5,18 +5,18 @@ description: Saiba como e onde implantar seus modelos de Azure Machine Learning,
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2020
-ms.custom: seoapril2019, tracking-python
-ms.openlocfilehash: ee116d668b9c351ecf5b130a39e418a3da8fc053
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: f592e265cafc3e56dc0616e6eeb748c851084c32
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536378"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317868"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,6 +31,11 @@ O fluxo de trabalho é semelhante [, independentemente de onde você implanta](#
 1. Teste o modelo implantado, também chamado de serviço Web.
 
 Para obter mais informações sobre os conceitos envolvidos no fluxo de trabalho de implantação, consulte [gerenciar, implantar e monitorar modelos com Azure Machine Learning](concept-model-management-and-deployment.md).
+
+> [!IMPORTANT]
+> É altamente recomendável depurar localmente antes de implantar no serviço Web, para obter mais informações, consulte [depurar localmente](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
+>
+> Você também pode consultar a Azure Machine Learning- [implantar no bloco de anotações local](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -611,10 +616,10 @@ A tabela a seguir descreve os diferentes Estados de serviço:
 | Estado WebService | Descrição | Estado final?
 | ----- | ----- | ----- |
 | Transição | O serviço está em processo de implantação. | Não |
-| Não Íntegro | O serviço foi implantado, mas está inacessível no momento.  | Não |
+| Unhealthy | O serviço foi implantado, mas está inacessível no momento.  | Não |
 | Não agendável | O serviço não pode ser implantado no momento devido à falta de recursos. | Não |
-| Failed (Falha) | O serviço falhou ao ser implantado devido a um erro ou falha. | Sim |
-| Healthy | O serviço está íntegro e o ponto de extremidade está disponível. | Sim |
+| Com falha | O serviço falhou ao ser implantado devido a um erro ou falha. | Sim |
+| Íntegros | O serviço está íntegro e o ponto de extremidade está disponível. | Sim |
 
 ### <a name="compute-instance-web-service-devtest"></a><a id="notebookvm"></a>Serviço Web de instância de computação (desenvolvimento/teste)
 

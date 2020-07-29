@@ -3,12 +3,13 @@ title: Criar um aplicativo Java do Azure Service Fabric Reliable Actors no Linux
 description: Saiba como criar e implantar um aplicativo de reliable actors do Java Service Fabric em cinco minutos.
 ms.topic: conceptual
 ms.date: 06/18/2018
-ms.openlocfilehash: 4d09666bad7b4e03b8598191d99a9db717c277d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 28ddc4f0e47d853df6b026cf2495d710bebfa980
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82193557"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87368924"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Crie seu primeiro aplicativo Java de Reliable Actors do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -174,7 +175,7 @@ public static void main(String[] args) throws Exception {
 }
 ```
 
-## <a name="build-the-application"></a>Compilar o aplicativo
+## <a name="build-the-application"></a>Criar o aplicativo
 Os modelos Yeoman do Service Fabric incluem um script de compilação para [Gradle](https://gradle.org/), que pode ser usado para compilar o aplicativo no terminal.
 As dependências Java do Service Fabric são obtidas no Maven. Para criar e trabalhar nos aplicativos Java do Service Fabric, você precisa ter o JDK e o Gradle instalados. Se eles não estiverem instalados, consulte [Introdução ao Service Fabric no Linux](service-fabric-get-started-linux.md#set-up-java-development) para obter instruções sobre como instalar JDK e Gradle.
 

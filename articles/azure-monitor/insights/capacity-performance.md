@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: d52138f5b23a6a0ac8ff8c585e6aed0edd92eaf0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ee5aec2e483f41c73d57fc1d91427e5657bda3e7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499538"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317987"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Planejar a capacidade da máquina virtual do Hyper-V com a solução de Capacidade e Desempenho (preterida)
 
@@ -41,9 +41,9 @@ A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução
 
 | Fonte Conectada | Suporte | Descrição |
 |---|---|---|
-| [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Sim | A solução coleta informações de dados de desempenho e capacidade de agentes do Windows. |
-| [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não    | A solução não coleta informações de dados de desempenho e capacidade de agentes do Linux diretos.|
-| [Grupo de gerenciamento do SCOM](../../azure-monitor/platform/om-agents.md) | Sim |A solução coleta dados de desempenho e capacidade de agentes em um grupo de gerenciamento do SCOM conectado. Uma conexão direta do agente do SCOM ao Log Analytics não é necessária.|
+| [Agentes do Windows](../platform/agent-windows.md) | Sim | A solução coleta informações de dados de desempenho e capacidade de agentes do Windows. |
+| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não | A solução não coleta informações de dados de desempenho e capacidade de agentes do Linux diretos.|
+| [Grupo de gerenciamento do SCOM](../platform/om-agents.md) | Sim |A solução coleta dados de desempenho e capacidade de agentes em um grupo de gerenciamento do SCOM conectado. Uma conexão direta do agente do SCOM ao Log Analytics não é necessária.|
 | [Conta de armazenamento do Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) | Não | O armazenamento do Azure não inclui dados de desempenho, nem de capacidade.|
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -55,7 +55,7 @@ A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução
 
 Execute o seguinte procedimento para adicionar a solução de Capacidade e Desempenho ao seu workspace.
 
-- Adicione a solução Capacidade e Desempenho para seu espaço de trabalho do Log Analytics usando o processo descrito em [Soluções do Log Analytics a partir da Galeria de Soluções](../../azure-monitor/insights/solutions.md).
+- Adicione a solução Capacidade e Desempenho para seu espaço de trabalho do Log Analytics usando o processo descrito em [Soluções do Log Analytics a partir da Galeria de Soluções](./solutions.md).
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento
 
@@ -72,7 +72,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 Quando a solução de capacidade e desempenho é atualizada, o número da versão é alterado.
 
-Para obter mais informações sobre como os pacotes de gerenciamento da solução são atualizados, veja [Conectar o Operations Manager ao Log Analytics](../../azure-monitor/platform/om-agents.md).
+Para obter mais informações sobre como os pacotes de gerenciamento da solução são atualizados, veja [Conectar o Operations Manager ao Log Analytics](../platform/om-agents.md).
 
 ## <a name="using-the-solution"></a>Usando a solução
 
@@ -129,4 +129,5 @@ A tabela a seguir fornece as pesquisas de log de exemplo para dados de desempenh
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Use [pesquisas de log no Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para exibir dados detalhados de capacidade e desempenho.
+* Use [pesquisas de log no Log Analytics](../log-query/log-query-overview.md) para exibir dados detalhados de capacidade e desempenho.
+

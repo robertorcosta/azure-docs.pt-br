@@ -1,6 +1,5 @@
 ---
-title: Gerenciar serviços Web usando o Gerenciamento de API
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clássico): gerenciar serviços Web usando o gerenciamento de API-Azure'
 description: Um guia mostrando como gerenciar os serviços Web do AzureML usando o Gerenciamento de API. Gerencie seus pontos de extremidade da API REST definindo o acesso do usuário, a limitação de uso e o monitoramento por painel.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: c397c52b39cd8056122424a5bcf6736edcfdbaa5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: dcbf9ba00592a9f4e25f9355549629f7eeb9b92a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086799"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318480"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Gerenciar serviços Web do Azure Machine Learning Studio (clássico) usando o Gerenciamento de API
+
+**aplica-se a:** ![ Não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) 
+
 
 ## <a name="overview"></a>Visão geral
 Este guia mostra como começar rapidamente a usar o Gerenciamento de API para gerenciar os serviços Web do Azure Machine Learning Studio (clássico).
@@ -67,7 +69,7 @@ Para criar a API:
 4. Insira um **sufixo de URL da API Web". Isso se tornará a última parte da URL que os clientes usarão para enviar solicitações à instância de serviço (este exemplo usa "azureml-demo").
 5. Para o **esquema de URL da API Web**, selecione **HTTPS**.
 6. Para **Produtos**, selecione **Inicial**.
-7. Clique em **Save** (Salvar).
+7. Clique em **Salvar**.
 
 
 ## <a name="add-the-operations"></a>Adicionar as operações

@@ -8,26 +8,23 @@ ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1010f89057d83a11fb2e156f01509e909270b044
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4622e64b585d3d4795b11d29e7bffdf9991203c6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083565"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292543"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Visão geral de solução de problemas, comentários e suporte para área de trabalho virtual do Windows
 
 >[!IMPORTANT]
->Este conteúdo se aplica à atualização da Spring 2020 com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows na versão 2019, sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
->
-> A atualização 2020 da Área de Trabalho Virtual do Windows está em versão prévia pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Esse conteúdo se aplica à área de trabalho virtual do Windows com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows (clássico) sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
 
 Este artigo fornece uma visão geral dos problemas que você pode encontrar ao configurar um ambiente de área de trabalho virtual do Windows e fornece maneiras de resolver os problemas.
 
-## <a name="report-issues-during-public-preview"></a>Relatar problemas durante a visualização pública
+## <a name="report-issues"></a>Relatar problemas
 
-Para relatar problemas ou sugerir recursos durante a visualização pública da versão 2020 do Spring, visite a [comunidade técnica de área de trabalho virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). Você pode usar a comunidade de tecnologia para discutir as práticas recomendadas ou sugerir e votar em novos recursos. Ao relatar um problema relacionado à versão de visualização pública, certifique-se de rotular o tipo de problema como **atualização 2020 do Spring (versão prévia)**.
+Para relatar problemas ou sugerir recursos para a área de trabalho virtual do Windows com a integração Azure Resource Manager, visite a [comunidade técnica de área de trabalho virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). Você pode usar a comunidade de tecnologia para discutir as práticas recomendadas ou sugerir e votar em novos recursos.
 
 Quando você fizer uma postagem solicitando ajuda ou propor um novo recurso, certifique-se de descrever seu tópico com o máximo de detalhes possível. Informações detalhadas podem ajudar outros usuários a responder sua pergunta ou entender o recurso para o qual você está propondo um voto.
 

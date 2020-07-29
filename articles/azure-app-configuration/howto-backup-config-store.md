@@ -9,18 +9,18 @@ ms.devlang: csharp
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 6dd485adb71bf05be6499f2fc18572e8a28357d7
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0b057172c822f893e602d60f77a285f0867cf368
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209225"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367751"
 ---
 # <a name="backup-app-configuration-stores-automatically"></a>Armazenamento de configuração de aplicativo de backup automaticamente
 
 Neste artigo, você aprenderá a configurar um backup automático de valores de chave de um repositório de configuração de aplicativo primário para um repositório secundário. Ele aproveita a integração da grade de eventos do Azure com a configuração do aplicativo. Uma vez configurado, a configuração do aplicativo publicará eventos na grade de eventos para quaisquer alterações feitas nos valores de chave em um repositório de configuração. A grade de eventos dá suporte a uma variedade de serviços do Azure, dos quais os usuários podem assinar os eventos emitidos sempre que os valores de chave são criados, atualizados ou excluídos.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Neste tutorial, você usará uma fila de armazenamento do Azure para receber eventos da grade de eventos e usará um gatilho de temporizador de Azure Functions para processar eventos na fila de armazenamento em lotes. Quando disparado, com base nos eventos, a função buscará os valores mais recentes das chaves que foram alterados do repositório de configuração do aplicativo primário e atualizará o repositório secundário adequadamente. Essa configuração ajuda a combinar várias alterações que ocorrem em um curto período em uma operação de backup e evitar solicitações excessivas feitas em seus repositórios de configuração de aplicativo.
 
@@ -34,7 +34,7 @@ Neste tutorial, você criará um armazenamento secundário na `centralus` regiã
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura do Azure- [crie um gratuitamente](https://azure.microsoft.com/free/). Você também pode usar o Azure Cloud Shell.
+- Assinatura do Azure – [Crie uma gratuitamente](https://azure.microsoft.com/free/). Você também pode usar o Azure Cloud Shell.
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) com a carga de trabalho de desenvolvimento do Azure.
 - Baixe e instale o [SDK do .NET Core](https://dotnet.microsoft.com/download).
 - Versão mais recente do CLI do Azure (2.3.1 ou posterior). Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver usando CLI do Azure, você deverá primeiro entrar usando `az login` . Você também pode usar o Azure Cloud Shell.
@@ -244,7 +244,7 @@ Se você não vir a nova configuração em seu armazenamento secundário:
 - Você também pode configurar o monitoramento e os alertas para seu Azure Functions usando o [aplicativo Azure insights.](/azure/azure-functions/functions-monitoring?tabs=cmd) 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se planejar continuar trabalhando com essa Configuração de Aplicativos e essa assinatura de evento, não limpe os recursos criados neste artigo. Caso contrário, use os comandos a seguir para excluir os recursos criados por você neste artigo.
 
 ```azurecli-interactive

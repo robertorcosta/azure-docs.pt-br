@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 07/27/2020
 ms.author: aahi
-ms.openlocfilehash: 72b00d78d19ed0e963b4dad01b82033c659e1efd
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: b77d69248059a494d823afcd149382dd52b0e49d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84704702"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317120"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Criar um recurso de serviços cognitivas usando a CLI (interface de linha de comando) do Azure
 
@@ -88,14 +88,14 @@ Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja
 
 | Serviço                    | Tipo                      |
 |----------------------------|---------------------------|
-| Pesquisa Visual Computacional            | `ComputerVision`          |
+| Visual Computacional            | `ComputerVision`          |
 | Visão Personalizada-previsão | `CustomVision.Prediction` |
 | Visão Personalizada-treinamento   | `CustomVision.Training`   |
 | Face                       | `Face`                    |
 | Reconhecimento de Formulários            | `FormRecognizer`          |
 | Reconhecimento de Tinta Digital             | `InkRecognizer`           |
 
-### <a name="search"></a>Pesquisar
+### <a name="search"></a>Search
 
 | Serviço            | Tipo                  |
 |--------------------|-----------------------|
@@ -112,7 +112,7 @@ Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja
 | Serviços de Fala    | `SpeechServices`     |
 | Reconhecimento de fala | `SpeakerRecognition` |
 
-### <a name="language"></a>Idioma
+### <a name="language"></a>Linguagem
 
 | Serviço            | Tipo                |
 |--------------------|---------------------|
@@ -152,6 +152,8 @@ az cognitiveservices account create \
     --yes
 ```
 
+[!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
+
 ## <a name="get-the-keys-for-your-resource"></a>Obter as chaves para seu recurso
 
 Para fazer logon em sua instalação local da CLI (interface de linha de comando), use o comando [AZ login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) .
@@ -190,7 +192,7 @@ az cognitiveservices account list-usage \
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você quiser limpar e remover um recurso de serviços cognitivas, poderá excluí-lo ou o grupo de recursos. Excluir o grupo de recursos também exclui todos os outros recursos contidos no grupo.
+Se você quiser limpar e remover um recurso de serviços cognitivas, poderá excluí-lo ou o grupo de recursos. Excluir o grupo de recursos também exclui outros recursos contidos nele.
 
 Para remover o grupo de recursos e seus recursos associados, use o comando AZ Group Delete.
 
@@ -198,9 +200,9 @@ Para remover o grupo de recursos e seus recursos associados, use o comando AZ Gr
 az group delete --name cognitive-services-resource-group
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 * [Autenticar solicitações para os Serviços Cognitivos do Azure](authentication.md)
-* [O que são os serviços cognitivas do Azure?](Welcome.md)
-* [Suporte a idioma natural](language-support.md)
-* [Suporte a contêiner do Docker](cognitive-services-container-support.md)
+* [O que são os Serviços Cognitivos do Azure?](Welcome.md)
+* [Suporte para idioma natural](language-support.md)
+* [Suporte ao contêiner do Docker](cognitive-services-container-support.md)

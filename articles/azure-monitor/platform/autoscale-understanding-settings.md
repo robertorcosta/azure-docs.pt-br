@@ -4,12 +4,12 @@ description: Uma análise detalhada das configurações de dimensionamento autom
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 03019b35a85d8d511e3ada131eff890a60fd57f6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6d6b868f745803263339e6b27e2610aaca8f63fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539373"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317460"
 ---
 # <a name="understand-autoscale-settings"></a>Compreender configurações de Autoescala
 As configurações de Autoescala ajudam a garantir que você tenha a quantidade certa de recursos em execução para lidar com a carga flutuante do seu aplicativo. Você pode definir as configurações de Autoescala para serem disparadas com base em métricas que indicam carga ou desempenho ou para serem disparadas em uma data e hora agendadas. Este artigo analisa detalhadamente a anatomia de uma configuração de Autoescala. O artigo começa com o esquema e as propriedades de uma configuração e, em seguida, percorre os diferentes tipos de perfil que podem ser configurados. Por fim, o artigo aborda como o recurso de Autoescala no Azure decide qual o perfil a ser executado em um determinado momento.
@@ -106,7 +106,7 @@ Para ilustrar o esquema de configuração de Autoescala, a seguinte configuraç�
 | metricTrigger | timeAggregation | O método de agregação usado para agregar as métricas amostradas. Por exemplo, **TimeAggregation = “Average”** deve agregar as métricas amostradas obtendo a média. No caso anterior, é obtida a média das dez amostras de um minuto. |
 | regra | scaleAction | A ação a ser executada quando o metricTrigger da regra for acionado. |
 | scaleAction | direction | "Increase" para escalar horizontalmente ou "Decrease" para reduzir horizontalmente.|
-| scaleAction | value | Quanto aumentar ou diminuir a capacidade do recurso. |
+| scaleAction | valor | Quanto aumentar ou diminuir a capacidade do recurso. |
 | scaleAction | cooldown | O período de tempo a esperar após uma operação de dimensionamento antes de escalonar novamente. Por exemplo, se **cooldown = “PT10M”**, a Autoescala não tentará escalonar novamente nos próximos 10 minutos. O resfriamento deve permitir que as métricas se estabilizem após a adição ou a remoção de instâncias. |
 
 ## <a name="autoscale-profiles"></a>Perfis de dimensionamento automático
@@ -301,8 +301,9 @@ Por exemplo, digamos que há um conjunto de dimensionamento de máquinas virtuai
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a Autoescala consultando o seguinte:
 
-* [Visão geral do dimensionamento automático](../../azure-monitor/platform/autoscale-overview.md)
-* [Métricas comuns de dimensionamento automático do Azure Monitor](../../azure-monitor/platform/autoscale-common-metrics.md)
-* [Práticas recomendadas para dimensionamento automático do Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
-* [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook](../../azure-monitor/platform/autoscale-webhook-email.md)
+* [Visão geral do dimensionamento automático](./autoscale-overview.md)
+* [Métricas comuns de dimensionamento automático do Azure Monitor](./autoscale-common-metrics.md)
+* [Práticas recomendadas para dimensionamento automático do Azure Monitor](./autoscale-best-practices.md)
+* [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook](./autoscale-webhook-email.md)
 * [API REST do Dimensionamento Automático](/rest/api/monitor/autoscalesettings)
+

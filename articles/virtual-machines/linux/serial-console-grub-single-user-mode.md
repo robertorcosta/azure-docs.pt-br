@@ -4,16 +4,16 @@ description: Usando o Console Serial para grub em máquinas virtuais do Azure.
 services: virtual-machines-linux
 author: asinn826
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: d594f4d8019a7c23da79506cd702adbe9f25038d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: da7e558464c82db9d71132c4b1f53f9892d2d653
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028933"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292237"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usar o Console Serial para acessar GRUB e Modo de Usuário Único
 O GRUB é o GRand Unified Bootloader. Com o GRUB, você consegue modificar sua configuração de inicialização para inicializar no modo de usuário único, entre outras coisas.
@@ -120,7 +120,7 @@ Por padrão, as imagens do Ubuntu não mostram automaticamente a tela do GRUB. I
 1. Altere o valor `GRUB_TIMEOUT` para um valor diferente de zero
 1. Abra `/etc/default/grub` em um editor de texto da sua escolha
 1. Comente na linha `GRUB_HIDDEN_TIMEOUT=1`
-1. Executando `sudo update-grub`
+1. Execute `sudo update-grub`
 
 ### <a name="single-user-mode-in-ubuntu"></a>Modo de usuário único no Ubuntu
 O Ubuntu alternará para o modo de usuário único automaticamente se ele não conseguir inicializar normalmente. Para entrar manualmente no modo de usuário único, siga estas instruções:

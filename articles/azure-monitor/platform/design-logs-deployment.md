@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 939a2e67d6d2c215f7a575b6b9bd08660fc03b27
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3a6afd42c12a523523b45861b38b323fa680ecab
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008192"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317277"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Projetando a implantação de logs do Azure Monitor
 
@@ -47,12 +47,12 @@ Hoje, as organizações de ti são modeladas seguindo um híbrido centralizado, 
 
 Ao usar os Agentes do Log Analytics para coletar dados, você precisará entender o seguinte para planejar a implantação do agente:
 
-* Para coletar dados de agentes do Windows, você poderá [configurar cada agente para relatar a um ou mais espaços de trabalho](../../azure-monitor/platform/agent-windows.md), mesmo que estejam relatando a um grupo de gerenciamento do System Center Operations Manager. O agente do Windows pode relatar a até quatro espaços de trabalho.
+* Para coletar dados de agentes do Windows, você poderá [configurar cada agente para relatar a um ou mais espaços de trabalho](./agent-windows.md), mesmo que estejam relatando a um grupo de gerenciamento do System Center Operations Manager. O agente do Windows pode relatar a até quatro espaços de trabalho.
 * Não há suporte à hospedagem múltipla em um agente do Linux e ele somente pode relatar a um único espaço de trabalho.
 
 Se você estiver usando o System Center Operations Manager 2012 R2 ou posterior:
 
-* cada grupo de gerenciamento do Operations Manager pode ser [conectado a apenas um espaço de trabalho](../platform/om-agents.md). 
+* cada grupo de gerenciamento do Operations Manager pode ser [conectado a apenas um espaço de trabalho](./om-agents.md). 
 * Os computadores Linux que relatam a um grupo de gerenciamento devem ser configurados para relatar diretamente a um workspace do Log Analytics. Se os computadores Linux já estiverem se reportando diretamente a um espaço de trabalho e você quiser monitorá-los com o Operations Manager, siga estas etapas para [Relatar a um grupo de gerenciamento do Operations Manager](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
 * Você pode instalar o Agente do Windows do Log Analytics no computador Windows e fazer com que ele se reporte tanto ao Operations Manager integrado a um espaço de trabalho quanto a outro espaço de trabalho.
 
@@ -166,3 +166,4 @@ Ao planejar a migração para esse modelo, considere o seguinte:
 ## <a name="next-steps"></a>Próximas etapas
 
 Para implementar as permissões de segurança e os controles recomendados neste guia, examine [gerenciar o acesso aos logs](manage-access.md).
+

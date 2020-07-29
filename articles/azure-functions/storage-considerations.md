@@ -2,13 +2,13 @@
 title: Considerações de armazenamento do Azure Functions
 description: Saiba mais sobre os requisitos de armazenamento do Azure Functions e sobre a criptografia de dados armazenados.
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.openlocfilehash: 2efd583b319e3f3b1fa3db307ea4a3cf53710165
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: aefd9a35235a09d94973f383603349f6862bbdd9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079597"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318174"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerações de armazenamento do Azure Functions
 
@@ -18,12 +18,12 @@ O Azure Functions requer uma conta de armazenamento do Azure quando você cria u
 |Serviço de armazenamento  | Uso de funções  |
 |---------|---------|
 | [Armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md)     | Mantenha o estado de associações e as chaves de função.  <br/>Também usado pelos [hubs de tarefas no Durable Functions](durable/durable-functions-task-hubs.md). |
-| [Arquivos do Azure](../storage/files/storage-files-introduction.md)  | Compartilhamento de arquivos usado para armazenar e executar o código do aplicativo de funções em um [Plano de consumo](functions-scale.md#consumption-plan). |
+| [Arquivos do Azure](../storage/files/storage-files-introduction.md)  | Compartilhamento de arquivos usado para armazenar e executar o código do aplicativo de funções em um [plano de consumo](functions-scale.md#consumption-plan) e [plano Premium](functions-scale.md#premium-plan). |
 | [Armazenamento de Filas do Azure](../storage/queues/storage-queues-introduction.md)     | Usado pelos [hubs de tarefas no Durable Functions](durable/durable-functions-task-hubs.md).   |
 | [Armazenamento de Tabelas do Azure](../storage/tables/table-storage-overview.md)  |  Usado pelos [hubs de tarefas no Durable Functions](durable/durable-functions-task-hubs.md).       |
 
 > [!IMPORTANT]
-> Ao usar o plano de hospedagem de Consumo, o código da função e os arquivos de configuração da associação são armazenados no armazenamento de Arquivos do Azure na conta de armazenamento principal. Ao excluir a conta de armazenamento principal, esse conteúdo será excluído e não poderá ser recuperado.
+> Ao usar o plano de Hospedagem de consumo/Premium, seu código de função e os arquivos de configuração de associação são armazenados no armazenamento de arquivos do Azure na conta de armazenamento principal. Ao excluir a conta de armazenamento principal, esse conteúdo será excluído e não poderá ser recuperado.
 
 ## <a name="storage-account-requirements"></a>Requisitos da conta de armazenamento
 

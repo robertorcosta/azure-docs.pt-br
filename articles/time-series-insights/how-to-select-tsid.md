@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: 026b7dd0da393faef6bdce0e37a17ac54a382aaf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 94abdf8735fa487f46d423f17f7e1ff7bc853eb7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095750"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289871"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Práticas recomendadas para escolher uma ID do Time Series
 
@@ -75,8 +75,12 @@ Exemplo de evento bruto:
 ```
 
 Na portal do Azure, você pode inserir a chave composta da seguinte maneira:
-
+ 
 [![Configure a ID da Série Temporal para o ambiente.](media/v2-how-to-tsid/configure-environment-key.png)](media/v2-how-to-tsid/configure-environment-key.png#lightbox)
+
+  > [!NOTE]
+  > Em portal do Azure, não insira nomes separados por vírgulas de propriedades em um caixa emails, caso contrário, ele será tratado como um único nome de propriedade que contém vírgulas.
+  > Insira cada nome de propriedade em seu próprio caixa emails.
 
 ## <a name="next-steps"></a>Próximas etapas
 
