@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: e6f788689b4e817aae6dc84f66703f4f88b8d44a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 55a86eeee4f819955e3f8adfcc0f55f24d58bed0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027555"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420304"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard e Zonas de Disponibilidade
 
@@ -51,7 +51,7 @@ Um único endereço IP de front-end sobreviver A falhas de zona. O IP de front-e
 O endereço IP do front-end é servido simultaneamente por várias implantações de infraestrutura independentes em várias zonas de disponibilidade. Qualquer nova tentativa ou restabelecimento terá êxito em outras zonas não afetadas pela falha de zona. 
 
 <p align="center">
-  <img src="./media/az-zonal/zone-redundant-lb-1.svg" width="512" title="NAT de Rede Virtual">
+  <img src="./media/az-zonal/zone-redundant-lb-1.svg" alt="Figure depicts a zone-redundant standard load balancer directing traffic in three different zones to three different subnets in a zone redundant configuration." width="512" title="NAT de Rede Virtual">
 </p>
 
 *Figura: balanceador de carga com redundância de zona*
@@ -64,7 +64,7 @@ Além disso, há suporte para o uso de front-ends zonais diretamente para pontos
 
 
 <p align="center">
-  <img src="./media/az-zonal/zonal-lb-1.svg" width="512" title="NAT de Rede Virtual">
+  <img src="./media/az-zonal/zonal-lb-1.svg" alt="Figure depicts three zonal standard load balancers each directing traffic in a zone to three different subnets in a zonal configuration." width="512" title="NAT de Rede Virtual">
 </p>
 
 *Figura: balanceador de carga com redundância de zona*

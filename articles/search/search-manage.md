@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 76eee4b0b029714a75b57e5d44e097a36de3181f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 721848b996bc4887370b77404e3d571975815624
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371406"
+ms.locfileid: "87421885"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administração de serviço do Azure Pesquisa Cognitiva no portal do Azure
 
@@ -58,7 +58,7 @@ Em relação ao acesso ao ponto de extremidade, qualquer pessoa com acesso à UR
 
 Os direitos para os aparelhos de provisionamento de serviço são concedidos por meio de atribuições de função. O [RBAC (acesso baseado em função)](../role-based-access-control/overview.md) é um sistema de autorização criado em [Azure Resource Manager](../azure-resource-manager/management/overview.md) para o provisionamento de recursos do Azure. 
 
-No contexto do Azure Pesquisa Cognitiva, as [atribuições de função do RBAC](search-security-rbac.md) determinarão quem pode executar tarefas, independentemente de estarem usando o [portal](search-manage.md), o [PowerShell](search-manage-powershell.md)ou as [APIs REST de gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
+No contexto do Azure Pesquisa Cognitiva, as [atribuições de função do Azure](search-security-rbac.md) determinarão quem pode executar tarefas, independentemente de estarem usando o [portal](search-manage.md), o [PowerShell](search-manage-powershell.md)ou as [APIs REST de gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
 
 * Criar ou excluir um serviço
 * Dimensionar o serviço

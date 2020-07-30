@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 5a454d04701160492539f5c9caba57c9e617401e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dca320168805e9f7c8f6336b39c4f9394255f9b8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067482"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416308"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Otimizar consultas de log no Azure Monitor
 Os logs de Azure Monitor usam o [Data Explorer do Azure (ADX)](/azure/data-explorer/) para armazenar dados de log e executar consultas para analisar esses dados. Ele cria, gerencia e mantém os clusters ADX para você e os otimiza para sua carga de trabalho de análise de log. Quando você executa uma consulta, ela é otimizada e roteada para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Os logs de Azure Monitor e o Data Explorer do Azure usam muitos mecanismos de otimização de consulta automática. Embora as otimizações automáticas forneçam um aumento significativo, elas estão em alguns casos em que você pode melhorar drasticamente o desempenho da consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
@@ -98,14 +98,14 @@ Por exemplo, as consultas a seguir produzem exatamente o mesmo resultado, mas a 
 Heartbeat 
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
 | where IPRegion == "WestCoast"
-| summarize count() by Computer
+| summarize count(), make_set(IPRegion) by Computer
 ```
 ```Kusto
 //more efficient
 Heartbeat 
 | where RemoteIPLongitude  < -94
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| summarize count() by Computer
+| summarize count(), make_set(IPRegion) by Computer
 ```
 
 ### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>Usar comandos e dimensões de agregação efetivas em resumir e unir
@@ -433,7 +433,7 @@ Os comportamentos de consulta que podem reduzir o paralelismo incluem:
 - O uso de funções de serialização e de janela, como o [operador serializar](/azure/kusto/query/serializeoperator), [Next ()](/azure/kusto/query/nextfunction), [Ant ()](/azure/kusto/query/prevfunction)e as funções [Row](/azure/kusto/query/rowcumsumfunction) . As funções de série temporal e análise de usuário podem ser usadas em alguns desses casos. A serialização ineficiente também poderá ocorrer se os operadores a seguir forem usados não no final da consulta: [intervalo](/azure/kusto/query/rangeoperator), [classificação](/azure/kusto/query/sortoperator), [ordem](/azure/kusto/query/orderoperator), [superior](/azure/kusto/query/topoperator), [superior Hitters](/azure/kusto/query/tophittersoperator), [GetSchema](/azure/kusto/query/getschemaoperator).
 -    O uso da função de agregação [DContar ()](/azure/kusto/query/dcount-aggfunction) força o sistema a ter uma cópia central dos valores distintos. Quando a escala de dados é alta, considere usar os parâmetros opcionais da função DContar para reduzir a precisão.
 -    Em muitos casos, o operador de [junção](/azure/kusto/query/joinoperator?pivots=azuremonitor) reduz o paralelismo geral. Examine a junção em ordem aleatória como alternativa quando o desempenho é problemático.
--    Em consultas de escopo de recurso, as verificações de pré-instalação RBAC podem permanecer em situações em que há um número muito grande de atribuições de RBAC. Isso pode levar a verificações mais longas que resultaria em um paralelismo inferior. Por exemplo, uma consulta é executada em uma assinatura em que há milhares de recursos e cada recurso tem muitas atribuições de função no nível de recurso, não na assinatura ou no grupo de recursos.
+-    Em consultas de escopo de recurso, as verificações de pré-instalação RBAC podem permanecer em situações em que há um número muito grande de atribuições de função do Azure. Isso pode levar a verificações mais longas que resultaria em um paralelismo inferior. Por exemplo, uma consulta é executada em uma assinatura em que há milhares de recursos e cada recurso tem muitas atribuições de função no nível de recurso, não na assinatura ou no grupo de recursos.
 -    Se uma consulta estiver processando pequenas partes de dados, seu paralelismo será baixo, pois o sistema não o espalhará em muitos nós de computação.
 
 

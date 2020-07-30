@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: e0fd3a6bc62feeb3728fa88b4aad56c8713bce11
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 6dfa162de02174ac4a1a8251457249bd5ea4d766
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134921"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416325"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Hyper-V para o Azure
 
@@ -55,6 +55,23 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 
 ![Componentes](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
 
+## <a name="set-up-outbound-network-connectivity"></a>Configurar a conectividade de rede de saída
+
+Para que Site Recovery funcionem conforme o esperado, você precisa modificar a conectividade de rede de saída para permitir que seu ambiente seja replicado.
+
+> [!NOTE]
+> O Site Recovery não dá suporte ao uso de um proxy de autenticação para controlar a conectividade de rede.
+
+### <a name="outbound-connectivity-for-urls"></a>Conectividade de saída para URLs
+
+Caso esteja usando um proxy de firewall baseado em URL para controlar a conectividade de saída, permita acesso a estas URLs:
+
+| **Nome**                  | **Comercial**                               | **Governamental**                                 | **Descrição** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Permite que os dados sejam gravados da VM para a conta de armazenamento de cache da região de origem. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para as URLs do serviço Site Recovery. |
+| Replicação               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Permite que a VM se comunique com o serviço Site Recovery. |
+| Barramento de Serviço               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permite que a VM grave o monitoramento do Site Recovery e os dados de diagnóstico. |
 
 
 ## <a name="replication-process"></a>Processo de replicação

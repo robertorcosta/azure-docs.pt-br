@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 1c8acd2d8055359288608f7bd2e5f54f8c4f6cc3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 351307132e231f1fc6639333e6839848ac933337
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809186"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420899"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Logs do Azure Monitor para o Basic Load Balancer
 
@@ -39,8 +39,8 @@ Entre no [portal do Azure](https://portal.azure.com). Se você ainda não tiver 
 
 1. No portal, clique em **grupos de recursos**.
 2. Selecione **\<resource-group-name>** onde está o balanceador de carga.
-3. Selecione o balanceador de carga.
-4. Selecione **monitoramento**  >  **configurações de diagnóstico**.
+3. Selecione seu balanceador de carga.
+4. Selecione Configurações de diagnóstico do **log de atividades**  >  **Diagnostic settings**.
 5. No painel **configurações de diagnóstico** , em **configurações de diagnóstico**, selecione **+ Adicionar configuração de diagnóstico**.
 6. No painel criação de **configurações de diagnóstico** , insira **MyLBDiagnostics** no campo **nome** .
 7. Você tem três opções para as **configurações de diagnóstico**.  Você pode escolher um, dois ou todos os três e configurar cada um para seus requisitos:

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
 ms.date: 07/28/2020
-ms.openlocfilehash: a9ebc6b0cdbaa05c36383fa5126c2672fb19b69c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 675d4bdb0b8c0aa8e034d5a85dc027f642705fa9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370947"
+ms.locfileid: "87386173"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conectar-se a fontes de dados locais dos Aplicativos Lógicos do Azure
 
@@ -52,13 +52,13 @@ O aplicativo lógico do Azure dá suporte a operações de leitura e gravação 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Você já [instalou o gateway de dados local em um computador local](../logic-apps/logic-apps-gateway-install.md).
+* Você já [instalou o gateway de dados local em um computador local](../logic-apps/logic-apps-gateway-install.md). Essa instalação de gateway deve existir antes que você possa criar um recurso de gateway que se vincule a essa instalação.
 
-* Você tem a [mesma conta e assinatura do Azure](../logic-apps/logic-apps-gateway-install.md#requirements) que usou para a instalação do gateway. Essa conta do Azure deve pertencer somente a um único [locatário ou diretório do Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Você precisa da mesma conta e assinatura do Azure para criar o recurso de gateway no Azure porque apenas o administrador de gateway pode criar o recurso de gateway no Azure. Atualmente, não há suporte para entidades de serviço.
+* Você tem a [mesma conta e assinatura do Azure](../logic-apps/logic-apps-gateway-install.md#requirements) que usou para a instalação do gateway. Essa conta do Azure deve pertencer somente a um único [locatário ou diretório do Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Você precisa usar a mesma conta e assinatura do Azure para criar o recurso de gateway no Azure porque apenas o administrador de gateway pode criar o recurso de gateway no Azure. Atualmente, não há suporte para entidades de serviço.
 
-  * Ao criar um recurso de gateway no Azure, você seleciona uma instalação de gateway para usar com o recurso de gateway e somente esse recurso de gateway. Cada recurso de gateway pode vincular a apenas uma instalação de gateway, que pode ser vinculada a apenas uma conta do Azure e uma assinatura. Portanto, você não pode selecionar uma instalação de gateway que já esteja associada a outro recurso de gateway.
+  * Ao criar um recurso de gateway no Azure, você seleciona uma instalação de gateway para vincular com o recurso de gateway e somente esse recurso de gateway. Cada recurso de gateway pode vincular a apenas uma instalação de gateway. Você não pode selecionar uma instalação de gateway que já esteja associada a outro recurso de gateway.
   
-  * Seu aplicativo lógico e o recurso de gateway não precisam existir na mesma assinatura do Azure. Desde que você tenha acesso à assinatura, em gatilhos e ações que possam acessar fontes de dados locais, você pode selecionar entre diferentes assinaturas do Azure que estão associadas a um recurso de gateway diferente.
+  * Seu aplicativo lógico e o recurso de gateway não precisam existir na mesma assinatura do Azure. Desde que você tenha acesso à assinatura, em gatilhos e ações que possam acessar fontes de dados locais, você pode selecionar outras assinaturas do Azure que têm recursos de gateway.
 
 <a name="create-gateway-resource"></a>
 

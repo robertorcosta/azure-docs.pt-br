@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b510326b6683ae48b6521483118367f36e0dc58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 159a14b30113a251c6ac61c4c04a2a3c4d69d3e5
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85387007"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385204"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Conceder aos usuários B2B do Microsoft Azure AD acesso aos aplicativos locais
 
@@ -28,7 +28,7 @@ Se o aplicativo local usar a autenticação baseada em SAML, você poderá dispo
 
 Para isso, será necessário fazer o seguinte:
 
-- Integre o aplicativo SAML usando o modelo de aplicativo inexistente na galeria, conforme descrito em [Configurando logon único para aplicativos que não estão na galeria de aplicativos do Azure Active Directory](../manage-apps/configure-single-sign-on-non-gallery-applications.md). Certifique-se de anotar o que é utilizado para o valor da **URL de logon**.
+- Integre o aplicativo usando o SAML conforme descrito em [Configurar logon único baseado em SAML](../manage-apps/configure-saml-single-sign-on.md). Certifique-se de anotar o que é utilizado para o valor da **URL de logon**.
 -  Use o Proxy de Aplicativo do Azure Active Directory para publicar o aplicativo local com o **Azure Active Directory** configurado como a fonte de autenticação. Para obter instruções, consulte [Publicar aplicativos usando o Proxy de Aplicativo do Azure Active Directory](../manage-apps/application-proxy-publish-azure-portal.md). 
 
    Ao configurar a configuração **Internal Url**, use a URL de logon especificada no modelo de aplicativo inexistente na galeria. Dessa forma, os usuários podem acessar o aplicativo fora do limite da organização. O Proxy de Aplicativo realiza o logon único do SAML para o aplicativo local.

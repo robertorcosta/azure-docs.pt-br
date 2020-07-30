@@ -1,18 +1,18 @@
 ---
 title: Executar uma análise de recuperação de desastre do NHyper-V em um site secundário com Azure Site Recovery
 description: Saiba como executar uma simulação de recuperação de desastres de VMs do Hyper-V em nuvens do VMM para um datacenter local secundário usando o Azure Site Recovery.
-author: rajani-janaki-ram
-manager: rochakm
+author: sideeksh
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: rajanaki
-ms.openlocfilehash: 0b6055cdf930c93ba096a21ebc0b74c204540a79
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: sideeksh
+ms.openlocfilehash: 569af28f5773d843f49dd9c8143b45e308ae142e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076074"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420406"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Executar uma simulação de recuperação de desastres para as VMs do Hyper-V em um site secundário
 
@@ -45,7 +45,7 @@ Ao executar um failover de teste, você deverá selecionar as configurações de
 
 | **Opção** | **Detalhes** | |
 | --- | --- | --- |
-| **Nenhum** | A VM de teste é criada no host no qual está localizada a VM de réplica. Ela não é adicionada à nuvem e não está conectada a nenhuma rede.<br/><br/> Você pode conectar o computador a uma rede de VMs depois que ela for criada.| |
+| **Nenhuma** | A VM de teste é criada no host no qual está localizada a VM de réplica. Ela não é adicionada à nuvem e não está conectada a nenhuma rede.<br/><br/> Você pode conectar o computador a uma rede de VMs depois que ela for criada.| |
 | **Usar existente** | A VM de teste é criada no host no qual está localizada a VM de réplica. Não é adicionada à nuvem.<br/><br/>Crie uma rede VM isolada da rede de produção.<br/><br/>Se você estiver usando uma rede baseada em VLAN, recomendamos criar uma rede lógica separada (não usada em produção) no VMM para essa finalidade. Essa rede lógica é usada para criar redes VM para failovers de teste.<br/><br/>A rede lógica deve estar associada a, pelo menos, um dos adaptadores de rede de todos os servidores do Hyper-V que hospedam máquinas virtuais.<br/><br/>Para redes lógicas VLAN, os sites de rede adicionados à rede lógica devem ser isolados.<br/><br/>Se você está estiver usando uma rede lógica baseada na Virtualização de Rede do Windows, o Azure Site Recovery criará automaticamente redes de VM isoladas. | |
 | **Criar uma rede** | Uma rede de teste temporária é criada automaticamente com base na configuração especificada em **Rede Lógica** e seus sites de rede relacionados.<br/><br/> O failover verifica se as VMs são criadas.<br/><br/> Você deve usar esta opção se o plano de recuperação usa mais de uma rede de VMs.<br/><br/> Caso esteja usando redes da Virtualização de Rede do Windows, essa opção pode ser usada para criar automaticamente redes VM com as mesmas configurações (sub-redes e pools de endereços IP) na rede da máquina virtual de réplica. Essas redes VM são removidas automaticamente depois que o failover de teste é concluído.<br/><br/> A VM de teste é criada no host no qual existe a máquina virtual de réplica. Não é adicionada à nuvem.|
 

@@ -1,16 +1,16 @@
 ---
 title: Integração dos Hubs de Eventos do Azure com o Serviço de Link Privado do Azure
 description: Saiba como integrar os Hubs de Eventos do Azure com o Serviço de Link Privado do Azure
-ms.date: 06/23/2020
+ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: a07204615c4d81373d744e83862e6de14c7f8165
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 66753e51fd1e918e5659e219c5ebbe471705b3ee
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287953"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421087"
 ---
-# <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integração dos Hubs de Eventos do Azure com o Link Privado do Azure
+# <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Permitir acesso aos namespaces dos hubs de eventos do Azure por meio de pontos de extremidade privados 
 O Serviço de Link Privado do Azure permite acessar os Serviços do Azure (por exemplo, os Hubs de Eventos do Azure, o Armazenamento do Azure e o Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um **ponto de extremidade privado** em sua rede virtual.
 
 O ponto de extremidade privado é uma interface de rede que conecta você de forma privada e segura a um serviço com tecnologia do Link Privado do Azure. O ponto de extremidade privado usa um endereço IP privado de sua rede virtual, efetivamente colocando o serviço em sua rede virtual. Todo o tráfego para o serviço pode ser roteado por meio do ponto de extremidade privado; assim, nenhum gateway, nenhum dispositivo NAT, nenhuma conexão ExpressRoute ou VPN e nenhum endereço IP público é necessário. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você pode se conectar a uma instância de um recurso do Azure, fornecendo o nível mais alto de granularidade no controle de acesso.
@@ -42,7 +42,7 @@ Para integrar um namespace de Hubs de Eventos com o Link Privado do Azure, você
 
 - Um namespace dos Hubs de Eventos.
 - Uma rede virtual do Azure.
-- Uma sub-rede na rede virtual.
+- Uma sub-rede na rede virtual. Você pode usar a sub-rede **padrão** . 
 - Permissões de proprietário ou colaborador para o namespace e a rede virtual.
 
 Seu ponto de extremidade privado e a rede virtual devem estar na mesma região. Quando você selecionar uma região para o ponto de extremidade privado usando o portal, ele filtrará automaticamente apenas as redes virtuais que estiverem nessa região. O namespace pode estar em uma região diferente.
@@ -55,10 +55,15 @@ Se você já tem um namespace do Hubs de Eventos, crie uma conexão de link priv
 1. Entre no [portal do Azure](https://portal.azure.com). 
 2. Na barra de pesquisa, digite **hubs de eventos**.
 3. Selecione o **namespace** na lista à qual você deseja adicionar um ponto de extremidade privado.
-4. Selecione a guia **Rede** em **Configurações**.
+4. Selecione **rede** em **configurações** no menu à esquerda.
 
     > [!NOTE]
     > Você vê a guia **rede** somente para namespaces **padrão** ou **dedicados** . 
+
+    :::image type="content" source="./media/private-link-service/selected-networks-page.png" alt-text="Guia redes – opção redes selecionadas" lightbox="./media/private-link-service/selected-networks-page.png":::    
+
+    > [!NOTE]
+    > Por padrão, a opção **redes selecionadas** é selecionada. Se você não especificar uma regra de firewall IP ou adicionar uma rede virtual, o namespace poderá ser acessado via Internet pública. 
 1. Selecione a guia **Conexões de ponto de extremidade privado** na parte superior da página. 
 1. Selecione o botão **+ Ponto de Extremidade Privado**, na parte superior da página.
 

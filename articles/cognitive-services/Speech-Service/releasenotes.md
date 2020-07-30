@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 152907908f12a41679b3161e0c4b39348926399e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: f2aebee24c4de8a1bd92ad3db8e5d110184cbaee
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373786"
+ms.locfileid: "87415016"
 ---
 # <a name="speech-service-release-notes"></a>Notas de versão do Serviço de Fala
 
@@ -28,20 +28,20 @@ ms.locfileid: "87373786"
 - **C#**: suporte adicionado para transcrição de conversa assíncrona. Consulte a documentação [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-async-conversation-transcription).  
 - **JavaScript**: adicionado suporte a reconhecimento do locutor para o [navegador](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) e [node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
 - **JavaScript**: suporte adicionado para detecção automática de idioma/ID de idioma. Consulte a documentação [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-javascript).
-- **Objective-C**: suporte adicionado para conversa com vários dispositivos e transcrição de conversa. 
+- **Objective-C**: suporte adicionado para [conversa com vários dispositivos](https://docs.microsoft.com/azure/cognitive-services/speech-service/multi-device-conversation) e [transcrição de conversa](https://docs.microsoft.com/azure/cognitive-services/speech-service/conversation-transcription). 
 - **Python**: suporte de áudio compactado adicionado para Python no Windows e Linux. Consulte a documentação [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams). 
 
 **Correções de bug**
 - **Tudo**: Corrigido um problema que fazia com que o KeywordRecognizer não avançasse os fluxos após um reconhecimento.
 - **Todos**: Corrigido um problema que fazia com que o fluxo fosse obtido de um KeywordRecognitionResult para não conter a palavra-chave.
 - **Tudo**: Corrigido um problema em que o SendMessageAsync não envia realmente a mensagem pela conexão depois que os usuários terminam de esperar.
-- **Todos**: correção de uma falha em reconhecimento do locutor APIs quando os usuários iniciam vários VoiceProfileClient:: SpeakerRecEnrollProfileAsync e não aguardaram que eles sejam concluídos.
+- **Todos**: correção de uma falha em APIs reconhecimento do locutor quando os usuários chamam o método VoiceProfileClient:: SpeakerRecEnrollProfileAsync várias vezes e não aguardaram que as chamadas sejam concluídas.
 - **Todos**: habilitar o registro em log de arquivo fixo em classes VoiceProfileClient e SpeakerRecognizer.
 - **JavaScript**: Corrigido um [problema](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/74) com a limitação quando o navegador é minimizado.
 - **JavaScript**: Corrigido um [problema](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/78) com um vazamento de memória em fluxos.
 - **JavaScript**: cache adicionado para respostas de OCSP de NodeJS.
 - **Java**: Corrigido um problema que estava fazendo com que os campos BigInteger sempre retornassem 0.
-- **Ios**: corrigido e [problema](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) com aplicativos baseados em SDK de fala de publicação na iOS App Store.
+- **Ios**: Corrigido um [problema](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) com a publicação de aplicativos baseados no SDK da fala na iOS App Store.
 
 **Amostras**
 - **C++**: foi adicionado um código de exemplo para reconhecimento do locutor [aqui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console/samples/speaker_recognition_samples.cpp).

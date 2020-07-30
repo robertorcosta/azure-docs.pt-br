@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 818528ae193209e23424998421ebe2fb0c2b24b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35aa75fcbd579c3e2c587b370b0926393b4e58c1
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83199385"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383759"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Perguntas frequentes sobre os relatórios do Azure Active Directory
 
@@ -66,7 +66,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 ---
 
 
-## <a name="activity-logs"></a>Logs de atividade
+## <a name="activity-logs"></a>Logs de atividades
 
 
 **P: O que é a retenção de dados para logs de atividade (de entradas e de auditoria) no Portal do Azure?** 
@@ -125,7 +125,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 ---
 
-## <a name="conditional-access"></a>Acesso Condicional
+## <a name="conditional-access"></a>Acesso condicional
 
 **P: quais são as novidades com esse recurso?**
 
@@ -145,7 +145,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 * **Não aplicado**: isso significa que não havia nenhuma política de autoridade de certificação com o usuário e o aplicativo no escopo. 
 * **Sucesso**: isso significa que havia uma política de autoridade de certificação com o usuário e o aplicativo no escopo e as políticas da autoridade de certificação foram atendidas com êxito. 
-* **Falha**: isso significa que havia uma política de autoridade de certificação com o usuário e o aplicativo no escopo e as políticas da autoridade de certificação não foram atendidas. 
+* **Falha**: a entrada satisfez a condição de usuário e aplicativo de pelo menos uma política de acesso condicional e os controles de concessão não são atendidos ou definidos para bloquear o acesso.
     
 **P: quais são os valores possíveis para o resultado da política de acesso condicional?**
 

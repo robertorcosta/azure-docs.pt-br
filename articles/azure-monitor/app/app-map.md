@@ -3,14 +3,13 @@ title: Mapa de aplicativos no Azure Application Insights | Microsoft Docs
 description: Monitorar topologias complexas de aplicativos com o mapa do aplicativo
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.custom: devx-track-javascript
 ms.reviewer: sdash
-ms.openlocfilehash: 7e4035e382aaa3f8b5d2327054a50a5360c60bfa
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b99998a7b1bcb2348a1a73696661de7cf8b44b85
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367003"
+ms.locfileid: "87421290"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa do aplicativo: aplicativos distribuídos por triagem
 
@@ -82,9 +81,12 @@ Para exibir alertas ativos e as regras subjacentes que fazem com que os alertas 
 
 ![Captura de tela da experiência de análise](media/app-map/alerts-view.png)
 
-## <a name="set-cloud-role-name"></a>Definir nome da função de nuvem
+## <a name="set-or-override-cloud-role-name"></a>Definir ou substituir o nome da função de nuvem
 
-O mapa do aplicativo usa a propriedade **nome da função de nuvem** para identificar os componentes no mapa. O SDK do Application Insights adiciona automaticamente a propriedade nome da função de nuvem à telemetria emitida pelos componentes. Por exemplo, o SDK adicionará um nome de site ou nome de função de serviço à propriedade de nome da função de nuvem. No entanto, há casos em que você talvez queira substituir o valor padrão. Para substituir o nome da função de nuvem e alterar o que é exibido no mapa do aplicativo:
+O mapa do aplicativo usa a propriedade **nome da função de nuvem** para identificar os componentes no mapa. Para definir ou substituir manualmente o nome da função de nuvem e alterar o que é exibido no mapa do aplicativo:
+
+> [!NOTE]
+> O SDK ou agente do Application Insights adiciona automaticamente a propriedade nome da função de nuvem à telemetria emitida pelos componentes em um ambiente de serviço Azure App.
 
 # <a name="netnetcore"></a>[.NET/. NetCore](#tab/net)
 
@@ -266,7 +268,7 @@ Se você estiver tendo dificuldades para obter o Mapa do aplicativo para trabalh
 
 3. Se você estiver usando Azure Functions com C#, atualize para o [Functions v2](../../azure-functions/functions-versions.md).
 
-4. Confirme se o [nome da função de nuvem](#set-cloud-role-name) está configurado corretamente.
+4. Confirme se o [nome da função de nuvem](#set-or-override-cloud-role-name) está configurado corretamente.
 
 5. Se estiver faltando uma dependência, verifique se ele está na lista de [dependências coletadas automaticamente](./auto-collect-dependencies.md). Se não, você ainda poderá acompanhá-lo manualmente com uma chamada [acompanhar dependência](./api-custom-events-metrics.md#trackdependency).
 
@@ -282,7 +284,7 @@ Para corrigir isso, você precisará alterar sua instrumentação para definir c
 
 * O tipo de dependência deve representar o tipo lógico de uma dependência. Por exemplo, HTTP, SQL ou BLOB do Azure são tipos de dependência típicos. Ele não deve conter IDs exclusivas.
 
-* A finalidade do nome da função de nuvem é descrita na [seção acima](#set-cloud-role-name).
+* A finalidade do nome da função de nuvem é descrita na [seção acima](#set-or-override-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Comentários do Portal
 

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 879138d882913b8ab43c5689ff72a40e6987c104
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7d1cd032f6042f57a096c5c8e7624f66a4b01355
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223033"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419590"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Examinar eventos de auditoria de segurança em Azure Active Directory Domain Services usando pastas de trabalho Azure Monitor
 
@@ -75,7 +75,7 @@ Para acessar o modelo de pasta de trabalho para o relatório de visão geral de 
 
 1. A parte inferior do relatório de visão geral de segurança abaixo do gráfico, em seguida, divide o tipo de atividade selecionado. Você pode filtrar por nomes de logon envolvidos no lado direito, conforme mostrado no seguinte exemplo de relatório:
 
-    [![](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png "Details of account lockouts in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
+    [![Detalhes de bloqueios de conta em pastas de trabalho do Azure Monitor.](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png)](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
 
 ## <a name="use-the-account-activity-report-workbook"></a>Usar a pasta de trabalho de relatório de atividade da conta
 
@@ -93,7 +93,7 @@ Para acessar o modelo de pasta de trabalho para o relatório de atividade da con
 
     Você pode filtrar por **nome de usuário da conta**, como *Felix*, conforme mostrado no seguinte relatório de exemplo:
 
-    [![](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png "Account activity report in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
+    [![Relatório de atividade da conta em pastas de trabalho do Azure Monitor.](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png)](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
 
     A área abaixo do gráfico mostra eventos de entrada individuais juntamente com informações como o resultado da atividade e a estação de trabalho de origem. Essas informações podem ajudar a determinar fontes repetidas de eventos de entrada que podem causar bloqueios de conta ou indicar um ataque potencial.
 

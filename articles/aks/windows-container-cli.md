@@ -4,12 +4,12 @@ description: Saiba como criar rapidamente um cluster kubernetes, implantar um ap
 services: container-service
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 5baa4f807002cc39428eb46e5a86cf59bd022cb2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ff7fc00c8de5b4d577770c140d356d7f9da1b7e7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015622"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421222"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Criar um contêiner do Windows Server em um cluster do AKS (serviço kubernetes do Azure) usando o CLI do Azure
 
@@ -94,8 +94,7 @@ az aks create \
 ```
 
 > [!NOTE]
-> Se você receber um erro de validação de senha, tente criar seu grupo de recursos em outra região.
-> Em seguida, tente criar o cluster com o novo grupo de recursos.
+> Se você receber um erro de validação de senha, verifique se o parâmetro *Windows-admin-password* atende aos [requisitos de senha do Windows Server][windows-server-password]. Se sua senha atender aos requisitos, tente criar seu grupo de recursos em outra região. Em seguida, tente criar o cluster com o novo grupo de recursos.
 
 Após alguns minutos, o comando será concluído e retornará informações no formato JSON sobre o cluster. Ocasionalmente, o cluster pode levar mais de alguns minutos para ser provisionado. Aguarde até dez minutos nesses casos.
 

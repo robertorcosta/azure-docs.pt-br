@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 1cb9600393fe50226da1efcef550cbb8b26f7f14
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c6b8f9d7f99d49f65a45d0e09623ef2f0e1217f2
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321578"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387057"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Regenerar chaves de acesso da conta de armazenamento
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Saiba como alterar as chaves de acesso para contas de armazenamento do Azure usa
 Para fins de segurança, talvez seja necessário alterar as chaves de acesso de uma conta de armazenamento do Azure. Quando você regenera a chave de acesso, Azure Machine Learning deve ser atualizado para usar a nova chave. Azure Machine Learning pode estar usando a conta de armazenamento para o armazenamento de modelo e como um repositório de armazenamento.
 
 > [!IMPORTANT]
-> As credenciais que acompanham os repositórios de armazenamento são salvas em seu Azure Key Vault associado ao espaço de trabalho. Se você tiver a [exclusão reversível](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) habilitada para seu Key Vault, certifique-se de seguir este artigo para atualizar as credenciais. Cancelar o registro do repositório de armazenamento e registrá-lo novamente com o mesmo nome falhará.
+> As credenciais que acompanham os repositórios de armazenamento são salvas em seu Azure Key Vault associado ao espaço de trabalho. Se você tiver a [exclusão reversível](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) habilitada para seu Key Vault, certifique-se de seguir este artigo para atualizar as credenciais. Cancelar o registro do repositório de armazenamento e registrá-lo novamente com o mesmo nome falhará.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -4,12 +4,13 @@ description: Usar a solução do consórcio de prova de autoridade do Ethereum p
 ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: d75b5348c49728d2a796257fa4000f6c3a36831d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f0b7d056d37ffb11945a5c50e2705b5d74402007
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124917"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386105"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Implantar o modelo de solução do consórcio de prova de autoridade Ethereum no Azure
 
@@ -28,9 +29,9 @@ Antes de escolher usar o modelo de solução do consórcio de prova de autoridad
 
 Opção | Modelo de serviço | Caso de uso comum
 -------|---------------|-----------------
-Modelos de Solução | IaaS | Os modelos de solução são Azure Resource Manager modelos que você pode usar para provisionar uma topologia de rede blockchain totalmente configurada. Os modelos implantam e configuram Microsoft Azure serviços de computação, rede e armazenamento para um determinado tipo de rede blockchain. Os modelos de solução são fornecidos sem um contrato de nível de serviço. Use a [página da Microsoft Q&uma pergunta](/answers/topics/azure-blockchain-workbench.html) para obter suporte.
-[Azure Blockchain Service](../service/overview.md) | PaaS | O Azure Blockchain Service Preview simplifica a formação, o gerenciamento e a governança de redes do consórcio Blockchain. Use o serviço Blockchain do Azure para soluções que exigem PaaS, gerenciamento de consórcio ou privacidade de contrato e transação.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS e PaaS | A versão prévia do Azure Blockchain Workbench é uma coleção de serviços e recursos do Azure desenvolvidos para ajudar você a criar e implantar aplicativos de blockchain para compartilhar processos empresariais e dados com outras organizações. Use o Azure Blockchain Workbench para o protótipo de uma solução Blockchain ou uma prova de conceito de aplicativo Blockchain. O Azure Blockchain Workbench é fornecido sem um Contrato de Nível de Serviço. Use a [página da Microsoft Q&uma pergunta](/answers/topics/azure-blockchain-workbench.html) para obter suporte.
+Modelos de Solução | IaaS | Os modelos de solução são Azure Resource Manager modelos que você pode usar para provisionar uma topologia de rede blockchain totalmente configurada. Os modelos implantam e configuram Microsoft Azure serviços de computação, rede e armazenamento para um determinado tipo de rede blockchain. Os modelos de solução são fornecidos sem um contrato de nível de serviço. Use a [Página de P e R da Microsoft](/answers/topics/azure-blockchain-workbench.html) para obter suporte.
+[Serviço do Azure Blockchain](../service/overview.md) | PaaS | O Azure Blockchain Service Preview simplifica a formação, o gerenciamento e a governança de redes do consórcio Blockchain. Use o serviço Blockchain do Azure para soluções que exigem PaaS, gerenciamento de consórcio ou privacidade de contrato e transação.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS e PaaS | A versão prévia do Azure Blockchain Workbench é uma coleção de serviços e recursos do Azure desenvolvidos para ajudar você a criar e implantar aplicativos de blockchain para compartilhar processos empresariais e dados com outras organizações. Use o Azure Blockchain Workbench para o protótipo de uma solução Blockchain ou uma prova de conceito de aplicativo Blockchain. O Azure Blockchain Workbench é fornecido sem um Contrato de Nível de Serviço. Use a [Página de P e R da Microsoft](/answers/topics/azure-blockchain-workbench.html) para obter suporte.
 
 ## <a name="solution-architecture"></a>Arquitetura da solução
 
@@ -97,7 +98,7 @@ Nome de usuário da VM | Nome de usuário de administrador de cada VM implantada
 Tipo de autenticação | O método para autenticar para a máquina virtual. | Senha
 Senha | A senha para a conta de administrador para cada uma das máquinas virtuais implantadas. Todas as VMs têm inicialmente a mesma senha. Você pode alterar a senha após o provisionamento. | 12 a 72 caracteres 
 Subscription | A assinatura para a qual deseja implantar a rede consortium |
-Grupo de Recursos| O grupo de recursos para o qual implantar a rede do consórcio. | myResourceGroup
+Grupo de recursos| O grupo de recursos para o qual implantar a rede do consórcio. | myResourceGroup
 Location | A região do Azure para o grupo de recursos. | Oeste dos EUA 2
 
 Selecione **OK**.
@@ -167,7 +168,7 @@ Parâmetro | Descrição | Valor de exemplo
 ----------|-------------|--------------
 Monitoramento | Opção para habilitar o monitoramento | Habilitar
 Conectar-se a logs de Azure Monitor existentes | Opção para criar uma nova instância de logs de Azure Monitor ou ingressar em uma instância existente | Create new
-Location | A região em que a nova instância é implantada | East US
+Location | A região em que a nova instância é implantada | Leste dos EUA
 ID do espaço de trabalho do log Analytics existente (conectar a logs de Azure Monitor existentes = ingressar existente)|ID do espaço de trabalho da instância existente de logs de Azure Monitor||NA
 Chave primária do log Analytics existente (conectar a logs de Azure Monitor existentes = ingressar existente)|A chave primária usada para se conectar à instância existente de logs de Azure Monitor||NA
 

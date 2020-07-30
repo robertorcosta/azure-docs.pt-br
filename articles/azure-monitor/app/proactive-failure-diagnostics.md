@@ -4,12 +4,12 @@ description: Alerta para alterações incomuns na taxa de solicitações com fal
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 30bb95c4c47c02fe6b3d31d6e6763656aa96fdec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a093d5d6bdb96aa6f0a8a92fea48835971aebe16
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87315930"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420202"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detecção Inteligente - anomalias de falha
 O [Application Insights](./app-insights-overview.md) alertará você automaticamente, quase em tempo real, se seu aplicativo Web experimentar um aumento anormal de solicitações com falha. Ele detecta um aumento excepcional na taxa de solicitações de HTTP ou chamadas de dependência são relatadas como falha. Nas solicitações, as solicitações com falha geralmente têm códigos de resposta de 400 ou superior. Para ajudar você na triagem e no diagnóstico do problema, uma análise das características das falhas e dados relacionados do aplicativo são fornecidos nos detalhes do alerta. Também há links para portal do Application Insights, onde você pode obter um diagnóstico mais detalhado. O recurso não precisa de qualquer configuração, pois usa algoritmos de aprendizado de máquina para prever a taxa normal de falhas.
@@ -20,7 +20,7 @@ Após a configuração do [Application Insights para seu projeto](./app-insights
 
 Veja a seguir um exemplo de alerta:
 
-[![](./media/proactive-failure-diagnostics/013.png "Sample smart detection alert showing cluster analysis around failure")](./media/proactive-failure-diagnostics/013.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/013.png" alt-text="Alerta de detecção inteligente de exemplo mostrando a análise de cluster em relação a falhas." lightbox="./media/proactive-failure-diagnostics/013.png":::
 
 Os detalhes do alerta informarão:
 
@@ -72,11 +72,11 @@ Essa regra de alerta é criada com um [grupo de ações](../platform/action-grou
 
 Abra a página Alertas. As regras de alerta de anomalias de falha são incluídas com todos os alertas que você definiu manualmente e é possível ver se está em estado de alerta no momento.
 
-[![](./media/proactive-failure-diagnostics/021.png "On the Application Insights resource page, click 'Alerts' tile, then 'Manage alert rules'")](./media/proactive-failure-diagnostics/021.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="Na página Application Insights recurso, clique no bloco alertas e, em seguida, gerenciar regras de alerta." lightbox="./media/proactive-failure-diagnostics/021.png":::
 
 Clique no alerta para configurá-lo.
 
-[![](./media/proactive-failure-diagnostics/032.png "Rule configuration screen")](./media/proactive-failure-diagnostics/032.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Tela de configuração da regra." lightbox="./media/proactive-failure-diagnostics/032.png":::
 
 Você pode desabilitar ou excluir uma regra de alerta de anomalias de falha, mas não pode criar outra no mesmo recurso do Application Insights.
 
@@ -298,7 +298,7 @@ Você também pode abrir o [portal do Azure](https://portal.azure.com), navegar 
 
 Clicar em “Diagnosticar falhas” ajudará você a obter mais detalhes e a resolver o problema.
 
-[![](./media/proactive-failure-diagnostics/051.png "Diagnostic search")](./media/proactive-failure-diagnostics/051.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Pesquisa de diagnóstico." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
 
 Você pode decidir a urgência do problema com base na porcentagem de solicitações e no número de usuários afetados. No exemplo anterior, a taxa de falha de 78,5% é comparada a uma taxa normal de 2,2% e indica que está acontecendo alguma coisa errada. Por outro lado, somente 46 usuários foram afetados. Se fosse seu aplicativo, você poderia avaliar a gravidade.
 
@@ -306,13 +306,13 @@ Em muitos casos, você poderá diagnosticar o problema rapidamente pelo nome da 
 
 Neste exemplo, houve uma exceção do banco de dados SQL devido ao limite de solicitação ser atingido.
 
-[![](./media/proactive-failure-diagnostics/052.png "Failed request details")](./media/proactive-failure-diagnostics/052.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Detalhes da solicitação com falha." lightbox="./media/proactive-failure-diagnostics/052.png":::
 
 ## <a name="review-recent-alerts"></a>Exame dos alertas recentes
 
 Clique em **Alertas** na página de recursos do Application Insights para obter os alertas acionados mais recentes:
 
-[![](./media/proactive-failure-diagnostics/070.png "Alerts summary")](./media/proactive-failure-diagnostics/070.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Resumo de alertas." lightbox="./media/proactive-failure-diagnostics/070.png":::
 
 ## <a name="whats-the-difference-"></a>Qual é a diferença...
 A Detecção Inteligente de anomalias de falha complementa outros recursos distintos, mas parecidos, do Application Insights.

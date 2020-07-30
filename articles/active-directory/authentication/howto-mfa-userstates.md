@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 860616cbea598e40494155e250254b3c607c1173
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2bd688a9e488c1206b0c8531698b061f650e2afe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027488"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417923"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Habilitar a Autenticação Multifator individual do Azure para proteção de acesso
 
@@ -55,7 +55,7 @@ Use as etapas a seguir para acessar a página do portal do Azure onde você pode
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
 1. Pesquise e selecione *Azure Active Directory* e, em seguida, selecione **Usuários** > **Todos os usuários**.
-1. Selecione **Autenticação Multifator**. Role para a direita para ver esta opção de menu. Selecione a captura de tela de exemplo abaixo para ver toda a janela do portal do Azure e a localização do menu: [![](media/howto-mfa-userstates/selectmfa-cropped.png "Selecionar a Autenticação Multifator na janela Usuários no Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+1. Selecione **Autenticação Multifator**. Role para a direita para ver esta opção de menu. Selecione a captura de tela de exemplo abaixo para ver a janela portal do Azure completa e o local do menu: [ ![ selecione autenticação multifator na janela usuários no Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Uma nova página abre e exibe o estado do usuário, conforme mostrado no exemplo a seguir.
    ![Captura de tela que mostra informações do estado do usuário de exemplo para a Autenticação Multifator do Azure](./media/howto-mfa-userstates/userstate1.png)
 

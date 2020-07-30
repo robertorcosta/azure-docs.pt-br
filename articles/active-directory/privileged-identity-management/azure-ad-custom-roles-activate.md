@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f389bfe19eb6dde5416d8cba0b67d964e69bc860
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 398db465a6cc383f8869c549761afc0947e7ed03
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743160"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421154"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Ativar uma função personalizada do Azure AD no PIM (Privileged Identity Management)
 
@@ -30,7 +30,7 @@ O Privileged Identity Management no Azure AD (Active Directory) agora dá suport
 > [!NOTE]
 > As funções personalizadas do Azure AD não são integradas às funções de diretório internas durante a versão prévia. Depois que a funcionalidade estiver em disponibilidade geral, o gerenciamento de função ocorrerá na experiência de funções internas. Se você vir a seguinte faixa, essas funções deverão ser gerenciadas [na experiência de funções internas](pim-how-to-activate-role.md) e este artigo não se aplicará:
 >
-> [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
+> :::image type="content" source="media/pim-how-to-add-role-to-user/pim-new-version.png" alt-text="Selecione Privileged Identity Management no Azure AD." lightbox="media/pim-how-to-add-role-to-user/pim-new-version.png":::
 
 ## <a name="activate-a-role"></a>Ativar uma função
 
@@ -44,7 +44,7 @@ Quando precisar ativar uma função personalizada do Azure AD, solicite a ativa�
    ![Confira a lista de atribuições de função personalizadas do Azure AD elegíveis](./media/azure-ad-custom-roles-activate/view-preview-roles.png)
 
 > [!Note] 
->  Antes de atribuir uma função, você deve criar/configurar uma função. Para obter mais informações sobre como configurar funções personalizadas do AAD, consulte [aqui] (https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-custom-roles-configure)
+> Antes de atribuir uma função, você deve criar/configurar uma função. Para obter mais informações sobre como configurar funções personalizadas do AAD, consulte [Configurar funções personalizadas do Azure AD no Privileged Identity Management](azure-ad-custom-roles-configure.md).
 
 1. Na página **funções personalizadas do Azure AD (versão prévia)**, localize a atribuição de que você precisa.
 1. Selecione **Ativar sua função** para abrir a página **Ativar**.

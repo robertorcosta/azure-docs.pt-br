@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0339d9d47752c194eeda96cd2df4859d6b97518b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9d4f293f3835e26def97aa2f52dd0c42d9137c7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338276"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421715"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gerenciar contas de acesso de emergência no Microsoft Azure Active Directory
 
@@ -56,7 +56,7 @@ No entanto, pelo menos uma de suas contas de acesso de emergência não deve ter
 
 ### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>Exclua pelo menos uma conta de políticas de Acesso Condicional
 
-Durante uma emergência, não é desejável uma política para bloquear o acesso para corrigir um problema. Ao menos uma conta de acesso de emergência deve ser excluída de todas as políticas de Acesso Condicionais. Se tiver habilitado uma [política de linha de base](../conditional-access/baseline-protection.md), exclua as contas de acesso de emergência.
+Durante uma emergência, não é desejável uma política para bloquear o acesso para corrigir um problema. Ao menos uma conta de acesso de emergência deve ser excluída de todas as políticas de Acesso Condicionais.
 
 ## <a name="federation-guidance"></a>Diretrizes de federação
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 07/29/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 42356ec4277c8441b4833560f431740e9e2f56c8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 945d6ac15c3cb0b3f98ebb14e6b859b8f356b944
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311340"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419828"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidade da Microsoft e fluxo de código de autorização do OAuth 2.0
 
@@ -187,9 +187,9 @@ Uma resposta de token bem-sucedida será assim:
 | `access_token`  | O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, como uma API Web.  |
 | `token_type`    | Indica o valor do tipo de token. O único tipo que oferece suporte ao AD do Azure é Portador |
 | `expires_in`    | Por quanto tempo o token de acesso é válido (em segundos). |
-| `scope`         | Os escopos para os quais o access_token é válido. |
+| `scope`         | Os escopos para os quais o access_token é válido. Opcional-isso não é padrão e, se omitido, o token será para os escopos solicitados no segmento inicial do fluxo. |
 | `refresh_token` | Um token de atualização do OAuth 2.0. O aplicativo pode usar esse token para adquirir tokens de acesso adicionais depois que o token de acesso atual expira. Os Refresh_tokens têm longa duração e podem ser usados para reter acesso a recursos por períodos estendidos. Para saber mais sobre como atualizar um token de acesso, consulte a [seção abaixo](#refresh-the-access-token). <br> **Observação:** Somente fornecido se o escopo `offline_access` for solicitado. |
-| `id_token`      | Um JWT (Token Web JSON). O aplicativo pode decodificar os segmentos desse token para solicitar informações sobre o usuário que fez login. O aplicativo pode armazenar em cache os valores e exibi-los, mas não deve depender deles para qualquer autorização ou limites de segurança. Para obter mais informações sobre id_tokens, veja a [`id_token reference`](id-tokens.md). <br> **Observação:** Somente fornecido se o escopo `openid` for solicitado. |
+| `id_token`      | Um JWT (Token Web JSON). O aplicativo pode decodificar os segmentos desse token para solicitar informações sobre o usuário que fez login. O aplicativo pode armazenar em cache os valores e exibi-los, e clientes confidenciais podem usar isso para autorização. Para obter mais informações sobre id_tokens, veja a [`id_token reference`](id-tokens.md). <br> **Observação:** Somente fornecido se o escopo `openid` for solicitado. |
 
 ### <a name="error-response"></a>Resposta de erro
 
@@ -227,8 +227,9 @@ As respostas de erro serão parecidas com esta:
 | `invalid_client` | Falha na autenticação de cliente.  | As credenciais do cliente não são válidas. Para corrigi-las, o administrador do aplicativo atualiza as credenciais.   |
 | `unsupported_grant_type` | O servidor de autorização não dá suporte ao tipo de concessão de autorização. | Altere o tipo de concessão na solicitação. Esse tipo de erro deve ocorrer somente durante o desenvolvimento e ser detectado durante os testes iniciais. |
 | `invalid_resource` | O recurso de destino é inválido porque não existe, o Azure Active Directory não consegue encontrá-lo ou ele não está configurado corretamente. | Isso indica que o recurso, se ele existe, não foi configurado no locatário. O aplicativo pode solicitar que o usuário instale o aplicativo e o adicione ao Azure AD.  |
-| `interaction_required` | A solicitação requer interação do usuário. Por exemplo, é necessária uma etapa de autenticação adicional. | Repita a solicitação com o mesmo recurso.  |
-| `temporarily_unavailable` | O servidor está temporariamente muito ocupado para tratar da solicitação. | Tente novamente a solicitação. O aplicativo cliente pode explicar para o usuário que sua resposta está atrasada devido a uma condição temporária. |
+| `interaction_required` | Não padrão, pois a especificação OIDC chama isso somente no `/authorize` ponto de extremidade. A solicitação requer interação do usuário. Por exemplo, é necessária uma etapa de autenticação adicional. | Repita a `/authorize` solicitação com os mesmos escopos. |
+| `temporarily_unavailable` | O servidor está temporariamente muito ocupado para tratar da solicitação. | Repita a solicitação após um pequeno atraso. O aplicativo cliente pode explicar para o usuário que sua resposta está atrasada devido a uma condição temporária. |
+|`consent_required` | A solicitação requer consentimento do usuário. Esse erro não é padrão, pois geralmente é retornado apenas no `/authorize` ponto de extremidade por especificações de OIDC. Retornado quando um `scope` parâmetro foi usado no fluxo de resgate de código que o aplicativo cliente não tem permissão para solicitar.  | O cliente deve enviar o usuário de volta para o `/authorize` ponto de extremidade com o escopo correto para disparar o consentimento. |
 
 > [!NOTE]
 > Aplicativos de página única podem receber um erro `invalid_request` indicando que o resgate de token entre origens é permitido somente para o tipo de cliente “Aplicativo de Página Única”.  Isso indica que o URI de redirecionamento usado para solicitar o token não foi marcado como um URI de redirecionamento `spa`.  Revise as [etapas de registro do aplicativo](#redirect-uri-setup-required-for-single-page-apps) para saber como habilitar esse fluxo.
@@ -278,7 +279,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro     | Type           | Description        |
 |---------------|----------------|--------------------|
-| `tenant`        | exigido     | O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário. Para obter mais detalhes, consulte [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints).   |
+| `tenant`        | obrigatório     | O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário. Para obter mais detalhes, consulte [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints).   |
 | `client_id`     | exigido    | A **ID do Aplicativo (cliente)** que a experiência [Portal do Azure - Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribui ao seu aplicativo. |
 | `grant_type`    | exigido    | Deve ser `refresh_token` para essa ramificação do código de autorização. |
 | `scope`         | obrigatório    | Uma lista de escopos separados por espaços. Os escopos solicitados nessa ramificação devem ser equivalentes aos escopos solicitados na ramificação de solicitação authorization_code original, ou um subconjunto desses escopos. Se os escopos especificados nessa solicitação incluírem vários servidores de recursos, o ponto de extremidade da plataforma de identidade da Microsoft retornará um token para o recurso especificado no primeiro escopo. Para obter uma explicação mais detalhada de escopos, confira [permissões, consentimento e escopos](v2-permissions-and-consent.md). |

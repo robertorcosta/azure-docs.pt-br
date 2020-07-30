@@ -6,25 +6,28 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: d85fe36bb948ae9a0c81fa25f87450c7f5fe93b7
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 5db756b60330cdac4e43e13bfe29d9397f87af50
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337255"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421647"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-preview"></a>Cache do Azure para Redis com o link privado do Azure (versão prévia)
 O ponto de extremidade privado do Azure é uma interface de rede que conecta você de forma privada e segura ao cache do Azure para Redis da plataforma Azure link privado. 
 
 Neste artigo, você aprenderá a criar um cache do Azure, uma rede virtual do Azure e um ponto de extremidade privado usando o portal do Azure.  
 
+> [!IMPORTANT]
+> Essa visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de uso suplementares para visualizações de Microsoft Azure.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 
+> 
+
 ## <a name="prerequisites"></a>Pré-requisitos
 * Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
 
 > [!NOTE]
-  > Este recurso está atualmente em visualização- [Fale conosco](mailto:azurecache@microsoft.com) se você estiver interessado.
-  >
-
+> Este recurso está atualmente em visualização- [Fale conosco](mailto:azurecache@microsoft.com) se você estiver interessado.
+>
 
 ## <a name="create-a-cache"></a>Criar um cache
 1. Para criar um cache, entre no [portal do Azure](https://portal.azure.com) e selecione **Criar um recurso**. 
@@ -122,7 +125,7 @@ Nesta seção, você criará um ponto de extremidade privado e o conectará ao c
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Clique na lista suspensa e selecione sua assinatura. |
-    | Grupo de recursos | Menu suspenso e selecione um grupo de recursos. |
+    | Resource group | Menu suspenso e selecione um grupo de recursos. |
     | **DETALHES DA INSTÂNCIA** |  |
     | Nome |Insira um nome para seu ponto de extremidade particular.  |
     | Região |Clique na lista suspensa e selecione uma localização. |

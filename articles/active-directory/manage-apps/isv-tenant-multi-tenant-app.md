@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a0b63c130d7d1e72bd3320e40213ae3cb1069a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 264d4afb50904be17624f8801b7b79fe4b232030
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763237"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386802"
 ---
 # <a name="create-an-azure-tenant-for-a-multi-tenant-application"></a>Criar um locatário do Azure para um aplicativo multilocatário  
 
@@ -37,7 +37,7 @@ Você pode criar sua assinatura do Azure e o Azure Active Directory gratuitament
 
    a. **Para aplicativos OIDC ou Oath**, [Registre seu aplicativo](../develop/quickstart-register-app.md) como um aplicativo multilocatário. Selecione a opção contas em qualquer diretório organizacional e contas pessoais da Microsoft em tipos de conta com suporte
 
-   b. **Para aplicativos baseados em SAML e WS-baseded**, você [configura aplicativos de logon único baseados em SAML](configure-single-sign-on-non-gallery-applications.md) usando um modelo SAML genérico no Azure AD.
+   b. **Para aplicativos baseados em SAML e WS-baseded**, você [configura aplicativos de logon único baseados em SAML](configure-saml-single-sign-on.md) usando um modelo SAML genérico no Azure AD.
 
 Você também pode [converter um aplicativo de locatário único para multilocatário,](../develop/howto-convert-app-to-be-multi-tenant.md) se necessário.
 

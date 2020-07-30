@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 588e63e630caa4746b493d4530e301f72e5ccb5f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b3dcb3a74e9341981af7e6eddb4be7454aaf429b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282935"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419777"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Entrar na máquina virtual do Windows no Azure usando a autenticação Azure Active Directory (versão prévia)
 
@@ -45,7 +45,7 @@ Há muitos benefícios em usar a autenticação do Azure AD para fazer logon em 
 
 No momento, há suporte para as seguintes distribuições do Windows durante a versão prévia deste recurso:
 
-- Windows Server 2019 Datacenter
+- Windows Server 2019 Datacenter
 - Windows 10 1809 e posterior
 
 > [!IMPORTANT]
@@ -69,7 +69,7 @@ Para habilitar a autenticação do Azure AD para suas VMs do Windows no Azure, v
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Habilitando o logon do Azure AD no para VM do Windows no Azure
 
-Para usar o logon do Azure AD no para VM do Windows no Azure, você precisa primeiro habilitar a opção de logon do Azure AD para sua VM do Windows e, em seguida, você precisa configurar as atribuições de função do RBAC para usuários que estão autorizados a fazer logon na VM.
+Para usar o logon do Azure AD no para VM do Windows no Azure, você precisa primeiro habilitar a opção de logon do Azure AD para sua VM do Windows e, em seguida, você precisa configurar as atribuições de função do Azure para usuários que estão autorizados a fazer logon na VM.
 Há várias maneiras pelas quais você pode habilitar o logon do Azure AD para sua VM do Windows:
 
 - Usando a experiência de portal do Azure ao criar uma VM do Windows

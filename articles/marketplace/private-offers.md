@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: aea093cbbb59824973c351f6df23113e1b51ab69
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7e93772a77ac1edb88c8e1a56c8db216c6e9fbd3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319857"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420100"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Ofertas privadas no Microsoft Commercial Marketplace
 
@@ -43,6 +43,9 @@ Os planos privados são componentes de uma oferta e só são visíveis e comprá
 
 Para *novas ofertas que incluem apenas planos privados*, os editores podem criar suas ofertas como qualquer outra oferta e, em seguida, marcar os planos como particulares. As ofertas que têm apenas planos privados não poderão ser descobertos ou acessíveis por meio do Microsoft Commercial Marketplace ou do [portal do Azure](https://azure.microsoft.com/features/azure-portal/) por clientes que não estão associados à oferta.
 
+>[!NOTE]
+>Uma oferta que contém apenas planos privados não será visível no Azure Marketplace ou no AppSource público.
+
 ## <a name="targeting-customers-with-private-offers"></a>Direcionando clientes com ofertas privadas
 
 Para ofertas privadas novas e existentes, os editores podem segmentar clientes usando identificadores de assinatura. Os Publicadores que usam uma máquina virtual ou Aplicativo Azure oferta podem restringir a disponibilidade de um plano privado para uma ID de assinatura individual do Azure ou carregar um CSV de até 20.000 IDs de assinatura do Azure. Ao usar uma oferta privada de aplicativo SaaS, os editores podem associar uma ID de locatário para restringir a disponibilidade de um plano privado, usando a abordagem de carregamento manual ou CSV.
@@ -61,6 +64,7 @@ Ofertas particulares também aparecerão nos resultados da pesquisa. Basta procu
 
 >[!Note]
 >Ofertas privadas não são suportadas com assinaturas estabelecidas por meio de um revendedor do programa CSP (provedor de soluções na nuvem).
+
 
 <!---
 ## Next steps

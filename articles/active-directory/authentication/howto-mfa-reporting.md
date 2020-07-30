@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9bf76729c3b5844918659283a65eeb347c4237d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c8584ca84efc889afebe6758e254bda845912316
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83639807"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418229"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Use o relatório de entradas para examinar os eventos da Autenticação Multifator do Azure
 
@@ -44,7 +44,7 @@ Para exibir o relatório de atividade de entrada no [portal do Azure](https://po
 
     A guia *Detalhes de Autenticação* ou *Acesso Condicional* dos detalhes do evento mostra o código de status ou qual política acionou o prompt de MFA.
 
-    [![](media/howto-mfa-reporting/sign-in-report-cropped.png "Screenshot of example Azure Active Directory sign-ins report in the Azure portal")](media/howto-mfa-reporting/sign-in-report.png#lightbox)
+    [![Captura de tela do exemplo de relatório de entradas do Azure Active Directory no portal do Azure](media/howto-mfa-reporting/sign-in-report-cropped.png)](media/howto-mfa-reporting/sign-in-report.png#lightbox)
 
 Se disponível, a autenticação será mostrada, como mensagem de texto, notificação do aplicativo Microsoft Authenticator ou chamada telefônica.
 
@@ -145,8 +145,8 @@ A tabela a seguir pode ajudar a solucionar problemas de eventos usando a versão
 | FAILED_INVALID_EXTENSION | Ramal Inválido | O ramal contém caracteres inválidos.  Apenas dígitos, vírgulas, * e # são permitidos.  O prefixo @ também pode ser usado. |
 | FAILED_FRAUD_CODE_ENTERED | Código de Fraude Inserido | O usuário escolheu relatar uma fraude durante a chamada, fazendo com que a autenticação fosse negada e o número de telefone, bloqueado.| 
 | FAILED_SERVER_ERROR | Não é Possível Fazer Chamada | O serviço de Autenticação Multifator não pôde fazer a chamada. |
-| FAILED_SMS_NOT_SENT | Não foi possível enviar uma mensagem de texto | Não foi possível enviar a mensagem de texto.  A autenticação foi negada. |
-| FAILED_SMS_OTP_INCORRECT | OTP da mensagem de texto incorreta | O usuário inseriu uma senha de uso único (OTP) incorreta na mensagem de texto recebida.  A autenticação foi negada. |
+| FAILED_SMS_NOT_SENT | Não foi possível enviar uma mensagem de texto | Não foi possível enviar a mensagem de texto. A autenticação foi negada. |
+| FAILED_SMS_OTP_INCORRECT | OTP da mensagem de texto incorreta | O usuário inseriu uma senha de uso único (OTP) incorreta na mensagem de texto recebida. A autenticação foi negada. |
 | FAILED_SMS_OTP_PIN_INCORRECT | OTP + PIN da mensagem de texto incorretos | O usuário inseriu uma senha de uso único (OTP) incorreta e/ou um PIN de usuário incorreto.  A autenticação foi negada. |
 | FAILED_SMS_MAX_OTP_RETRY_REACHED | Excedidas as Tentativas Máximas de OTP de Mensagem de Texto | O usuário excedeu o número máximo de tentativas de senha de uso único (OTP). |
 | FAILED_PHONE_APP_DENIED | Aplicativos móveis negados | O usuário negou a autenticação no aplicativo móvel ao pressionar o botão Negar. |

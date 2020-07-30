@@ -1,6 +1,6 @@
 ---
 title: Criar, alterar ou excluir um emparelhamento de rede virtual do Azure | Microsoft Docs
-description: Saiba como criar, alterar ou excluir um emparelhamento de rede virtual.
+description: Criar, alterar ou excluir um emparelhamento de rede virtual. Com o emparelhamento de rede virtual, você conecta redes virtuais na mesma região e entre regiões.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: d38b164e95b1791971f88f62e7eccfee8a59bd71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f94c3e643e372d96a6e9d100773ccd8929e4c8b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711095"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416495"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou excluir um emparelhamento da rede virtual
 
@@ -86,7 +86,7 @@ Antes de alterar um emparelhamento, familiarize-se com os requisitos e restriç�
 3. Em **CONFIGURAÇÕES**, selecione **Emparelhamentos**.
 4. Selecione o emparelhamento que você deseja exibir ou alterar as configurações.
 5. Altere a configuração apropriada. Leia sobre as opções para cada configuração na [etapa 5](#add-peering) de criar um emparelhamento.
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 **Comandos**
 
@@ -118,7 +118,7 @@ Se você deseja que as redes virtuais se comuniquem, às vezes, mas não sempre,
 - Ao criar um emparelhamento global, as redes virtuais emparelhadas podem existir em qualquer região da nuvem pública do Azure ou regiões de nuvem da China ou regiões de nuvem do governo. Você não pode emparelhar entre nuvens. Por exemplo, uma VNet na nuvem pública do Azure não pode ser emparelhada com uma VNet na nuvem do Azure na China.
 - Os recursos em uma rede virtual não podem se comunicar com o endereço IP de front-end de um balanceador de carga interno básico em uma rede virtual emparelhada globalmente. O suporte para o balanceador de carga básico só existe dentro da mesma região. O suporte para o Standard Load Balancer existe tanto para o Emparelhamento VNet quanto para o Emparelhamento VNet Global. Os serviços que usam um balanceador de carga básico que não funcionará em emparelhamento VNet global são documentados [aqui.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 - Você pode usar gateways remotos ou permitir o trânsito de gateway em redes virtuais emparelhadas globalmente e em redes virtuais emparelhadas localmente.
-- As redes virtuais podem estar na mesma assinatura ou em assinaturas diferentes. Ao usar redes virtuais em diferentes assinaturas, ambas as assinaturas podem ser associadas ao mesmo locatário ou a um locatário diferente do Azure Active Directory. Se você ainda não tiver um locatário do AD, poderá [criar um](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). O suporte para emparelhamento em redes virtuais de assinaturas associadas a diferentes locatários do Azure Active Directory não está disponível no Portal. Você pode usar CLI, PowerShell ou modelos.
+- As redes virtuais podem estar na mesma assinatura ou em assinaturas diferentes. Ao usar redes virtuais em diferentes assinaturas, ambas as assinaturas podem ser associadas ao mesmo locatário ou a um locatário diferente do Azure Active Directory. Se você ainda não tiver um locatário do AD, poderá [criar um](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant).
 - As redes virtuais que você emparelhar devem ter espaços de endereço IP não sobrepostos.
 - Você não pode adicionar ou excluir intervalos de endereços do espaço de endereço de uma rede virtual após ela ser emparelhada com outra rede virtual. Para adicionar ou remover intervalos de endereço, exclua o emparelhamento, adicione ou remova os intervalos de endereço e, em seguida, recrie o emparelhamento. Para adicionar ou remover intervalos de endereços de redes virtuais, consulte [Gerenciar redes virtuais](manage-virtual-network.md).
 - Você pode emparelhar duas redes virtuais implantadas por meio do Resource Manager ou uma rede virtual implantado por meio do Resource Manager com uma rede virtual implantada por meio do modelo de implantação clássico. Não é possível emparelhar duas redes virtuais criadas por meio do modelo de implantação clássico. Se você não estiver familiarizado com os modelos de implantação do Azure, leia o artigo [Entender os modelos de implantação do Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Você pode usar um [Gateway de VPN](../vpn-gateway/design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para conectar duas redes virtuais criadas usando o modelo de implantação clássico.

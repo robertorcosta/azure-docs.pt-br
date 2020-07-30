@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 5d0808b93d0c9c7b49d1fd394d2b776c008bc594
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: e5daf318088cb71b6a1819db71e3c597a9fa94db
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135851"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421443"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Azure para o Azure
 
@@ -62,7 +62,7 @@ Você pode gerenciar recursos de destino da seguinte maneira:
 
 Quando você habilita a replicação de VM do Azure, por padrão, o Site Recovery cria uma política de replicação com as configurações padrão resumidas na tabela.
 
-**Configuração de política** | **Detalhes** | **Padrão**
+**Configuração de política** | **Detalhes** | **Default**
 --- | --- | ---
 **Retenção do ponto de recuperação** | Especifica por quanto tempo o Site Recovery mantém os pontos de recuperação | 24 horas
 **Frequência de instantâneos consistentes com aplicativo** | A frequência com que o Site Recovery tira um instantâneo consistente com aplicativo. | A cada quatro horas
@@ -128,14 +128,14 @@ Quando você habilita a replicação para uma VM do Azure, ocorre o seguinte:
 
 Se o acesso de saída para as VMs for controlado com URLs, permita estas URLs.
 
-| **URL** | **Detalhes** |
-| ------- | ----------- |
-| *.blob.core.windows.net | Permite que os dados sejam gravados da VM para a conta de armazenamento de cache da região de origem. |
-| login.microsoftonline.com | Fornece autorização e autenticação para as URLs do serviço Site Recovery. |
-| *.hypervrecoverymanager.windowsazure.com | Permite que a VM se comunique com o serviço Site Recovery. |
-| *.servicebus.windows.net | Permite que a VM grave o monitoramento do Site Recovery e os dados de diagnóstico. |
-| *.vault.azure.net | Permite o acesso para habilitar a replicação para máquinas virtuais habilitadas para ADE por meio do portal
-| *. automation.ext.azure.com | Permite habilitar a atualização automática do agente de mobilidade para um item replicado por meio do portal
+| **Nome**                  | **Comercial**                               | **Governamental**                                 | **Descrição** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | Permite que os dados sejam gravados da VM para a conta de armazenamento de cache da região de origem. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para as URLs do serviço Site Recovery. |
+| Replicação               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`     | Permite que a VM se comunique com o serviço Site Recovery. |
+| Barramento de Serviço               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permite que a VM grave o monitoramento do Site Recovery e os dados de diagnóstico. |
+| Key Vault                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Permite o acesso para habilitar a replicação para máquinas virtuais habilitadas para ADE por meio do portal |
+| Automação do Azure          | `*.automation.ext.azure.com`               | `*.azure-automation.us`                      | Permite habilitar a atualização automática do agente de mobilidade para um item replicado por meio do portal |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 

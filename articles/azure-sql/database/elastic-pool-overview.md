@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
-ms.date: 04/09/2020
-ms.openlocfilehash: 5a246288eb3c4063a85935c20abec5c86467d340
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/28/2020
+ms.openlocfilehash: 33f87bf6f030adb48f2c4f8eb45027c1b298d812
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042366"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419709"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados no Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,16 +35,16 @@ Os pools elásticos resolvem esse problema, garantindo que os bancos de dados re
 > [!IMPORTANT]
 > Não há cobrança por banco de dados para pools elásticos. Você é cobrado por cada hora de existência de um pool no vCores ou eDTU mais elevado, independentemente do uso ou se o pool estava ativo por menos de uma hora.
 
-Os pools elásticos permitem que o desenvolvedor compre recursos para um pool compartilhado por vários bancos de dados para acomodar períodos imprevisíveis de uso por bancos de dados individuais. Você pode configurar recursos para o pool com base no [Modelo de compra baseado em DTU](service-tiers-dtu.md) ou o [Modelo de compra baseado em vCore](service-tiers-vcore.md). O requisito de recurso para um pool é determinado pela utilização agregada dos bancos de dados. A quantidade de recursos disponíveis para o pool é controlada pelo orçamento do desenvolvedor. O desenvolvedor simplesmente adiciona bancos de dados ao pool, define os recursos mínimo e máximo para os bancos de dados (DTUs ou vCores mínimo e máximo, dependendo da opção de modelo de recurso) e define os recursos do pool com base no orçamento. Um desenvolvedor pode usar pools para aumentar seu serviço com perfeição desde uma startup lean até uma empresa madura em escala cada vez maior.
+Os pools elásticos permitem que o desenvolvedor compre recursos para um pool compartilhado por vários bancos de dados para acomodar períodos imprevisíveis de uso por bancos de dados individuais. Você pode configurar recursos para o pool com base no [Modelo de compra baseado em DTU](service-tiers-dtu.md) ou o [Modelo de compra baseado em vCore](service-tiers-vcore.md). O requisito de recurso para um pool é determinado pela utilização agregada dos bancos de dados. A quantidade de recursos disponíveis para o pool é controlada pelo orçamento do desenvolvedor. O desenvolvedor simplesmente adiciona bancos de dados ao pool, opcionalmente, define os recursos mínimos e máximos para os bancos de dados (DTUs mínima e máxima ou mínimo ou máximo de vCores dependendo de sua escolha de modelo de origem) e, em seguida, define os recursos do pool com base em seu orçamento. Um desenvolvedor pode usar pools para aumentar seu serviço com perfeição desde uma startup lean até uma empresa madura em escala cada vez maior.
 
-Dentro do pool, os bancos de dados individuais recebem a flexibilidade para dimensionar automaticamente no conjunto de parâmetros. Sob carga pesada, um banco de dados pode consumir mais recursos para atender à demanda. Bancos de dados sob cargas leves consomem menos e bancos de dados sem carga não consomem recursos. O provisionamento de recursos para o pool inteiro em vez do bancos de dados único simplifica as tarefas de gerenciamento. Além disso, há um orçamento previsível para o pool. Recursos adicionais podem ser adicionados a um pool existente sem tempo de inatividade do banco de dados, exceto que os bancos de dados podem precisar ser movidos para fornecer os recursos de computação adicionais para a nova reserva eDTU. Da mesma forma, se recursos adicionais não forem mais necessários, eles poderão ser removidos de um pool existente a qualquer momento. E você pode adicionar ou subtrair bancos de dados para o pool. Se um banco de dados é previsível por estar subutilizando recursos, mova-o.
+Dentro do pool, os bancos de dados individuais recebem a flexibilidade para dimensionar automaticamente no conjunto de parâmetros. Sob carga pesada, um banco de dados pode consumir mais recursos para atender à demanda. Bancos de dados sob cargas leves consomem menos e bancos de dados sem carga não consomem recursos. O provisionamento de recursos para o pool inteiro em vez do bancos de dados único simplifica as tarefas de gerenciamento. Além disso, há um orçamento previsível para o pool. Recursos adicionais podem ser adicionados a um pool existente com tempo de inatividade mínimo. Da mesma forma, se recursos adicionais não forem mais necessários, eles poderão ser removidos de um pool existente a qualquer momento. E você pode adicionar ou Remover bancos de dados do pool. Se um banco de dados é previsível por estar subutilizando recursos, mova-o.
 
 > [!NOTE]
 > Ao mover os bancos de dados para dentro ou para fora de um conjunto elástico, não há tempo de inatividade, exceto por um breve período de tempo (na ordem de segundos) no final da operação, quando as conexões com o banco de dados são descartadas.
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Quando um pool elástico do Banco de Dados SQL deve ser considerado
 
-Pools também são indicados para um grande número de bancos de dados com padrões de utilização específicos. Para um determinado banco de dados, esse padrão é caracterizado por baixa utilização média com picos de utilização relativamente pouco frequentes.
+Pools também são indicados para um grande número de bancos de dados com padrões de utilização específicos. Para um determinado banco de dados, esse padrão é caracterizado por baixa utilização média com picos de utilização relativamente pouco frequentes. Por outro lado, vários bancos de dados com utilização de média de alta persistente não devem ser colocados no mesmo pool elástico.
 
 Quanto mais bancos de dados você conseguir adicionar a um pool, maior será a sua economia. Dependendo do padrão de utilização do aplicativo, é possível ver economias com apenas dois bancos de dados S3.
 
@@ -82,16 +82,13 @@ As seguintes regras básicas relacionadas à contagem de banco de dados e à uti
 
 Se a quantidade agregada de recursos para bancos de dados individuais for maior que 1,5x de recursos necessários para o pool, será mais econômico usar um pool elástico.
 
-***Exemplo de modelo de compra baseado em DTU***<br>
-Pelo menos dois bancos de dados S3 ou 15 bancos de dados S0 são necessários para que um pool de 100 eDTUs seja mais econômico do que o uso de tamanhos da computação para bancos de dados individuais.
+***Exemplo de modelo de compra baseado em DTU*** Pelo menos dois bancos de dados S3 ou, pelo menos, 15 bancos de dados S0 são necessários para que um pool de eDTU de 100 seja mais econômico do que usar tamanhos de computação para bancos de dados individuais.
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Número máximo de banco de dados em pico simultaneamente
 
 Ao compartilhar recursos, nem todos os bancos de dados em um pool podem usar recursos simultaneamente até o limite disponível para bancos de dados individuais. Quanto menos bancos de dados em pico simultaneamente, menores serão os recursos do conjunto e mais econômico será o pool. Em geral, não mais que 2/3 (ou 67%) dos bancos de dados no pool devem atingir simultaneamente o limite de recursos.
 
-***Exemplo de modelo de compra baseado em DTU***
-
- para reduzir os custos de três bancos de dados S3 em um pool com 200 eDTUs, no máximo dois desses bancos de dados podem atingir simultaneamente o pico em sua utilização. Caso contrário, se mais de dois desses quatro bancos de dados S3 entrarem em pico simultaneamente, o pool precisará ser dimensionado para mais de 200 eDTUs. Se o pool for redimensionado para mais de 200 eDTUs, mais bancos de dados S3 precisarão ser adicionados ao pool para manter os custos menores do que os tamanhos da computação para bancos de dados individuais.
+***Exemplo de modelo de compra baseado em DTU*** Para reduzir os custos de três bancos de dados S3 em um pool de eDTU de 200, no máximo dois desses bancos de dados podem ser simultaneamente picos em sua utilização. Caso contrário, se mais de dois desses quatro bancos de dados S3 entrarem em pico simultaneamente, o pool precisará ser dimensionado para mais de 200 eDTUs. Se o pool for redimensionado para mais de 200 eDTUs, mais bancos de dados S3 precisarão ser adicionados ao pool para manter os custos menores do que os tamanhos da computação para bancos de dados individuais.
 
 Observação Este exemplo não considera a utilização de outros bancos de dados no pool. Se todos os bancos de dados tiverem uma certa utilização em um determinado momento, menos de 2/3 (ou 67%) dos bancos de dados pode atingir o pico simultaneamente.
 
@@ -99,13 +96,13 @@ Observação Este exemplo não considera a utilização de outros bancos de dado
 
 Uma grande diferença entre o máximo e média de utilização de um banco de dados indica longos períodos de baixa utilização e curtos períodos de alta utilização. Esse padrão de utilização é ideal para compartilhar recursos entre bancos de dados. Um banco de dados deve ser considerado para um pool quando seu pico de utilização for aproximadamente 1,5 vez maior que sua utilização média.
 
-**Exemplo de modelo de compra baseado em DTU**: um banco de dados S3 que atinge picos de 100 DTUs e em média usa 67 DTUs ou menos é um bom candidato para compartilhar eDTUs em um pool. Outra opção de bom candidato para um pool elástico seria um banco de dados S1 com pico de 20 DTUs e média de uso de 13 DTUs ou menos.
+***Exemplo de modelo de compra baseado em DTU*** Um banco de dados S3 que atinge picos de 100 DTUs e em média usa 67 DTUs ou menos é um bom candidato para compartilhar eDTUs em um pool. Outra opção de bom candidato para um pool elástico seria um banco de dados S1 com pico de 20 DTUs e média de uso de 13 DTUs ou menos.
 
 ## <a name="how-do-i-choose-the-correct-pool-size"></a>Como fazer para escolher o tamanho de pool correto
 
 O melhor tamanho para um pool depende dos recursos agregados necessários para todos os bancos de dados no pool. Isso inclui determinar o seguinte:
 
-- O máximo de recursos utilizados por todos os bancos de dados no pool (seja o máximo de DTUs ou de vCores, dependendo da escolha do modelo de recursos).
+- Máximo de recursos utilizados por todos os bancos de dados no pool (o máximo de DTUs ou máximo de vCores, dependendo da sua escolha de modelo de compra).
 - Bytes de armazenamento máximo utilizados por todos os bancos de dados no pool.
 
 Para as camadas de serviço e limites disponíveis para cada modelo de recurso, consulte o [modelo de compra baseado em DTU](service-tiers-dtu.md) ou o [modelo de compra baseado em vCore](service-tiers-vcore.md).
@@ -114,11 +111,13 @@ As etapas a seguir podem ajudá-lo a estimar se um pool é mais econômico do qu
 
 1. Faça estimativa de eDTUs ou vCores necessários para o pool, conforme a seguir:
 
-   Para o modelo de compra baseado em DTU: MAX(<*Número total de BDs* X *utilização média de DTU por BD* >,<br>  
-   <*Número de bancos de dados em pico simultaneamente* X *Utilização de DTU em pico por banco de dados*)
+Para modelos de compra baseados em DTU:
 
-   Para o modelo de compra baseado em vCore: MAX(<*Número total de DBs* X *utilização média de vCore por BD* >,<br>  
-   <*Número de BDs em pico simultaneamente* X *Utilização máxima de vCore por BD*)
+MAX (<*número total de banco de bancos* X *utilização média de dtu por bd*>, <*número de bancos de los de pico simultâneos* x *utilização de DTU de pico por BD*)
+
+Para o modelo de compra baseado em vCore:
+
+MAX (<*número total de bancos de* *BD X utilização média de VCORE por banco* de>, <*número de bancos de los de pico simultâneos* x utilização de *vcore de pico por BD*)
 
 2. Estime o espaço de armazenamento necessário para o pool adicionando o número de bytes necessários para todos os bancos de dados no pool. Determine o tamanho do pool em eDTU que fornece essa quantidade de armazenamento.
 3. Para o modelo de compra baseado em DTU, obtenha as maiores estimativas de eDTU da Etapa 1 e Etapa 2. Para o modelo de compra baseado em vCore, obtenha a estimativa de vCore da Etapa 1.

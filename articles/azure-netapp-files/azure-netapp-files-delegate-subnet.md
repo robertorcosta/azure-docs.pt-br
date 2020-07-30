@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/04/2020
+ms.date: 07/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 713a72b0a406d2038d56dc6fcc41e169d02c54eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14c97fdea57fa50faf8b73275ec406ea36fbf552
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483611"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420389"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegar uma sub-rede ao Azure NetApp Files 
 
 É necessário delegar uma sub-rede para Azure NetApp Files.   Quando você cria um volume, é necessário especificar a sub-rede delegada.
 
 ## <a name="considerations"></a>Considerações
-* O assistente para criar uma nova sub-rede usa como padrão uma máscara de rede /24, que possibilita 251 endereços IP disponíveis. Usar uma máscara de rede /28, que possibilita 16 endereços IP utilizáveis, é suficiente para o serviço.
+* O assistente para criar uma nova sub-rede usa como padrão uma máscara de rede /24, que possibilita 251 endereços IP disponíveis. Usar uma máscara de rede/28, que fornece por 11 endereços IP utilizáveis, é suficiente para o serviço.
 * Em cada VNet (Rede virtual do Azure), apenas uma sub-rede pode ser delegada para o Azure NetApp Files.   
    O Azure permite que você crie várias sub-redes delegadas em uma VNet.  No entanto, qualquer tentativa de criar um novo volume falhará se você usar mais de uma sub-rede delegada.  
    Você pode ter apenas uma única sub-rede delegada em uma VNet. Uma conta do NetApp pode implantar volumes em vários VNets, cada um com sua própria sub-rede delegada.  

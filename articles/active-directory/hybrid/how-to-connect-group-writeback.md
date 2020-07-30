@@ -11,12 +11,12 @@ ms.date: 06/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7992563bdfb318867e963ed4f371998bafbbbcdb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8c8fb54261f51d74f02b7b79c27f7a2043426686
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019906"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385136"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Write-back de grupo de Azure AD Connect
 
@@ -40,7 +40,7 @@ Para habilitar o Write-back de grupo, use as seguintes etapas:
 6. Na **página write-back**, selecione uma UO (unidade organizacional) Active Directory para armazenar objetos que são sincronizados do Office 365 para sua organização local e, em seguida, clique em **Avançar**.
 7. Na página **pronto** para configurar, clique em **Configurar**.
 8. Quando o assistente for concluído, clique em **sair** na página configuração concluída.
-9. Abra o Windows PowerShell no servidor de Azure Active Directory Connect e execute os comandos a seguir.
+9. Abra o Windows PowerShell como administrador no servidor de Azure Active Directory Connect e execute os comandos a seguir.
 
 ```Powershell
 $AzureADConnectSWritebackAccountDN =  <MSOL_ account DN>

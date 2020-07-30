@@ -3,12 +3,12 @@ title: Perguntas sobre descoberta, avaliação e análise de dependência em mig
 description: Obtenha respostas para perguntas comuns sobre descoberta, avaliação e análise de dependência em migrações para Azure.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 7b26d4442f9a84375205e7778ae037b565f53438
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e2aa0f5c2dae33cd995b30d84e7406da9b501e8f
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118827"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385714"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência-perguntas comuns
 
@@ -35,21 +35,21 @@ Você pode descobrir até 10.000 VMs VMware, até 5.000 VMs Hyper-V e até 1000 
 
 - Use as avaliações da **AVS (solução do Azure VMware)** quando desejar avaliar suas [VMs VMware](how-to-set-up-appliance-vmware.md) locais para migração para a [solução VMware do Azure (AVS)](../azure-vmware/introduction.md) usando esse tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
-- Você pode usar um grupo comum com máquinas VMware somente para executar os dois tipos de avaliações. Observe que, se você estiver executando avaliações de AVS no Azure migrar pela primeira vez, é aconselhável criar um novo grupo de máquinas VMware.
+- Você pode usar um grupo comum com computadores VMware somente para executar os dois tipos de avaliações. Se você estiver executando avaliações da AVS nas Migrações para Azure pela primeira vez, recomendamos criar um novo grupo de computadores VMware.
 
 ## <a name="i-cant-see-some-groups-when-i-am-creating-an-azure-vmware-solution-avs-assessment"></a>Não consigo ver alguns grupos ao criar uma avaliação da AVS (solução do Azure VMware)
 
-- A avaliação da AVS pode ser feita em grupos que têm apenas máquinas VMware. Remova qualquer máquina não VMware do grupo se você pretende executar uma avaliação de AVS.
-- Se você estiver executando avaliações de AVS no Azure migrar pela primeira vez, é aconselhável criar um novo grupo de máquinas VMware.
+- A avaliação da AVS pode ser feita em grupos que têm apenas computadores VMware. Remova os computadores não VMware do grupo se você pretende executar uma avaliação da AVS.
+- Se você estiver executando avaliações da AVS nas Migrações para Azure pela primeira vez, recomendamos criar um novo grupo de computadores VMware.
 
 ## <a name="how-do-i-select-ftt-raid-level-in-avs-assessment"></a>Como fazer selecionar o nível FTT-RAID na avaliação da AVS?
 
-O mecanismo de armazenamento usado na AVS é a vSAN. as políticas de armazenamento vSAN definem os requisitos de armazenamento para suas máquinas virtuais. Essas políticas garantem o nível de serviço necessário para suas VMs, pois elas determinam como o armazenamento é alocado para a VM. Essas são as combinações disponíveis do FTT-RAID: 
+O mecanismo de armazenamento usado na AVS é a vSAN. As políticas de armazenamento vSAN definem os requisitos de armazenamento para suas máquinas virtuais. Essas políticas garantem o nível de serviço necessário para suas VMs, pois determinam como o armazenamento é alocado para a VM. Essas são as combinações disponíveis do FTT-RAID: 
 
-**Falhas a tolerar (FTT)** | **Configuração de RAID** | **Hosts mínimos necessários** | **Consideração de dimensionamento**
+**Falhas a tolerar (FTT)** | **Configuração RAID** | **Hosts mínimos necessários** | **Consideração de dimensionamento**
 --- | --- | --- | --- 
 1 | RAID-1 (espelhamento) | 3 | Uma VM de 100 GB consumiria 200 GB.
-1 | RAID-5 (codificação de eliminação) | 4 | Uma VM de 100 GB consumiria 133.33 GB
+1 | RAID-5 (codificação de eliminação) | 4 | Uma VM de 100 GB consumiria 133,33 GB
 2 | RAID-1 (espelhamento) | 5 | Uma VM de 100 GB consumiria 300 GB.
 2 | RAID-6 (codificação de eliminação) | 6 | Uma VM de 100 GB consumiria 150 GB.
 3 | RAID-1 (espelhamento) | 7 | Uma VM de 100 GB consumiria 400 GB.
@@ -113,7 +113,7 @@ As avaliações de VM do Azure baseadas em importação são avaliações criada
 
 ## <a name="why-is-the-suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Por que a ferramenta de migração sugerida na avaliação de AVS baseada em importação foi marcada como desconhecida?
 
-Para computadores importados por meio de um arquivo CSV, a ferramenta de migração padrão em uma avaliação de AVS é desconhecida. No entanto, para máquinas VMware, é recomendável usar a solução de HCX (extensão de nuvem híbrida) do VMWare. [Saiba mais](../azure-vmware/hybrid-cloud-extension-installation.md).
+Para computadores importados por meio de um arquivo CSV, a ferramenta de migração padrão em uma avaliação de AVS é desconhecida. No entanto, para máquinas VMware, é recomendável usar a solução de HCX (extensão de nuvem híbrida) do VMware. [Saiba mais](../azure-vmware/hybrid-cloud-extension-installation.md).
 
 
 ## <a name="what-is-dependency-visualization"></a>O que é a visualização de dependência?
@@ -133,7 +133,7 @@ Suporte | Essa opção está atualmente em visualização e só está disponíve
 Agente | Não é necessário instalar agentes em computadores que você deseja verificar. | Agentes a serem instalados em cada computador local que você deseja analisar: o [MMA (Microsoft Monitoring Agent)](../azure-monitor/platform/agent-windows.md)e o [Dependency Agent](../azure-monitor/platform/agents-overview.md#dependency-agent). 
 Pré-requisitos | [Examine](concepts-dependency-visualization.md#agentless-analysis) os pré-requisitos e os requisitos de implantação. | [Examine](concepts-dependency-visualization.md#agent-based-analysis) os pré-requisitos e os requisitos de implantação.
 Log Analytics | Não necessário. | As Migrações para Azure usam a solução [Mapa do Serviço](../azure-monitor/insights/service-map.md) nos [logs do Azure Monitor](../azure-monitor/log-query/log-query-overview.md) para visualização de dependência. [Saiba mais](concepts-dependency-visualization.md#agent-based-analysis).
-Como funciona | Captura dados de conexão TCP em computadores habilitados para visualização de dependência. Após a descoberta, ele coleta dados em intervalos de cinco minutos. | Mapa do Serviço agentes instalados em um computador coletam dados sobre processos TCP e conexões de entrada/saída para cada processo.
+Como isso funciona | Captura dados de conexão TCP em computadores habilitados para visualização de dependência. Após a descoberta, ele coleta dados em intervalos de cinco minutos. | Mapa do Serviço agentes instalados em um computador coletam dados sobre processos TCP e conexões de entrada/saída para cada processo.
 Dados | Nome do servidor do computador de origem, processo, nome do aplicativo.<br/><br/> Nome do servidor do computador de destino, processo, nome do aplicativo e porta. | Nome do servidor do computador de origem, processo, nome do aplicativo.<br/><br/> Nome do servidor do computador de destino, processo, nome do aplicativo e porta.<br/><br/> Número de conexões, latência e informações de transferência de dados são coletadas e disponibilizadas para consultas de Log Analytics. 
 Visualização | O mapa de dependências de um único servidor pode ser exibido durante uma duração de uma hora a 30 dias. | Mapa de dependências de um único servidor.<br/><br/> O mapa pode ser exibido somente em uma hora.<br/><br/> Mapa de dependências de um grupo de servidores.<br/><br/> Adicionar e remover servidores de um grupo da exibição de mapa.
 Exportação de dados | Os últimos 30 dias de dados podem ser baixados em um formato CSV. | Os dados podem ser consultados com Log Analytics.

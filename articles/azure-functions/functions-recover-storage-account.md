@@ -1,16 +1,14 @@
 ---
 title: 'Erro de solução de problemas: Azure Functions Runtime está inacessível'
 description: Saiba como solucionar o problema de uma conta de armazenamento inválida.
-author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
-ms.author: alkarche
-ms.openlocfilehash: d84e1269fecf3bd85538415b5790c22aaf6eb01e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c46ca214ab6c0798fdc39ead575fb2873b8c51c8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085105"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385850"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Erro de solução de problemas: "Azure Functions Runtime está inacessível"
 
@@ -44,7 +42,7 @@ Na etapa anterior, se você não encontrar uma cadeia de conexão da conta de ar
 
 Para obter mais informações, consulte [referência de configurações de aplicativo para Azure Functions](./functions-app-settings.md).
 
-### <a name="guidance"></a>Diretrizes
+### <a name="guidance"></a>Orientação
 
 * Não marque "configuração de slot" para qualquer uma dessas configurações. Se você trocar os slots de implantação, o aplicativo de funções será interrompido.
 * Não modifique essas configurações como parte das implantações automatizadas.
