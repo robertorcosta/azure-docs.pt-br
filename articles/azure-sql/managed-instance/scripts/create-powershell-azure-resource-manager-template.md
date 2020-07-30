@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: f4c4c63e6461dd3aa3cabe86b871434814fb400e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 8ac742c42a32e8b864c4be71e786c292ceb1514d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84708528"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073377"
 ---
 # <a name="use-powershell-with-an-azure-resource-manager-template-to-create-a-managed-instance"></a>Use o PowerShell com um modelo do Azure Resource Manager para criar uma instância gerenciada
 
@@ -138,6 +138,6 @@ Após o script ser concluído, a instância gerenciada poderá ser acessada de t
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/).
 
 Exemplos adicionais de scripts do PowerShell para a Instância Gerenciada de SQL do Azure podem ser encontrados nos [Scripts de PowerShell da Instância Gerenciada de SQL do Azure](../../database/powershell-script-content-guide.md).

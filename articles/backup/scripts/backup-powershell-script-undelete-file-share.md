@@ -3,12 +3,12 @@ title: Script do PowerShell – Restaurar um compartilhamento de arquivo excluí
 description: Saiba como usar um script do Azure PowerShell para restaurar um compartilhamento de arquivo excluído acidentalmente.
 ms.topic: sample
 ms.date: 02/02/2020
-ms.openlocfilehash: 199cb4720c2efe03d47fd06ea0cf41eae29d06fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d3a3ad3c2904b98f7a3350d3672b51f3a1e9415e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513227"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007625"
 ---
 # <a name="powershell-script-to-undelete-an-accidentally-deleted-file-share"></a>Script do PowerShell para restaurar um compartilhamento de arquivo excluído acidentalmente
 
@@ -154,7 +154,7 @@ Restore-DeletedFileShare $sa.Context $FileShareName $DeletedShareVersion
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. Instale os últimos módulos do Az Azure PowerShell por meio [deste link](//powershell/azure/install-az-ps) antes de executar o script.
+1. Instale os últimos módulos do Az Azure PowerShell por meio [deste link](/powershell/azure/install-az-ps) antes de executar o script.
 2. Mantenha os detalhes a seguir em um lugar de fácil acesso, pois você precisará passá-los como valores para diferentes parâmetros do script:
 
     * **-SubscriptionId**: ID da assinatura em que o compartilhamento de arquivo está presente.

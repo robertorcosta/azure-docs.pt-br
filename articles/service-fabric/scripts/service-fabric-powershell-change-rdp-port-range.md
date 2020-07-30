@@ -10,12 +10,12 @@ ms.workload: multiple
 ms.topic: sample
 ms.date: 03/19/2018
 ms.custom: sfrev
-ms.openlocfilehash: b3d922cb5a7cdf34e63731ab32f21c94d7b6bca0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5cc72423d7e901f82cdf7e40f5de72bd54e9cec1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76025009"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076170"
 ---
 # <a name="update-the-rdp-port-range-values"></a>Atualizar os valores de intervalo da porta RDP
 
@@ -23,7 +23,7 @@ Esse exemplo de script altera os valores de intervalo de porta do RDP nas VMs do
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/overview).
+Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/).
 
 ## <a name="sample-script"></a>Exemplo de script
 
@@ -40,6 +40,6 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/).
 
 Mais exemplos do Azure PowerShell para o Azure Service Fabric podem ser encontrados nos [exemplos do Azure PowerShell](../service-fabric-powershell-samples.md).

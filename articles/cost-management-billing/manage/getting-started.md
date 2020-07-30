@@ -5,15 +5,15 @@ author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 04/10/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: b1986a4cb59e0f276ba59eb99acfb459b48615d8
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 1b63b0316b8314e4c5107ddd3f1d22c1d59cbb08
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262070"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281796"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evite cobranças inesperadas com o gerenciamento de custo e a cobrança do Azure
 
@@ -216,14 +216,14 @@ Vendo os detalhes da fatura, é possível identificar o serviço que tem custos 
 Um único recurso pode acumular encargos entre vários produtos e serviços do Azure. Veja a página [Preço do Azure por produto](https://azure.microsoft.com/pricing/#product-pricing) para saber mais sobre o preço de cada serviço do Azure. Por exemplo, uma única VM (máquina virtual) criada no Azure pode ter os medidores a seguir criados para rastrear o uso. Cada um pode ter um preço diferente.
 
 - Calcular horas
-- Horas de endereço IP
-- Transferência de dados em
-- Transferência de dados
-- Disco gerenciado padrão
-- Operações de disco gerenciado padrão
-- Disco IO padrão
-- Leitura de blob padrão do bloco IO
-- Escrita de Blob Padrão de Bloqueio de E/S
+- Horas de Endereço IP
+- Transferência de Dados de Entrada
+- Transferência de Dados de Saída
+- Disco Gerenciado Standard
+- Operações do Disco Gerenciado Standard
+- Disco de E/S Padrão
+- E/S Padrão – Leitura de Blob de Blocos
+- E/S Padrão – Gravação de Blob de Blocos
 - Bloqueio de blobs padrão IO-Block
 
 Quando a VM é criada, cada medidor começa a emitir registros de uso. O uso e o preço do medidor são rastreados no sistema de medição do Azure. Você pode ver os medidores que foram usados para calcular sua fatura no arquivo CSV de uso.

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/06/2020
+ms.date: 07/20/2020
 ms.author: aahi
 ms.custom: tracking-python
-ms.openlocfilehash: feababd3d6f6845142a13ccb3b2b31b78315704b
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 99c22edac7acefe3ec34ff40e892a7071b932ada
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027936"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013803"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Uso da API REST do Python para chamar o Serviço Cognitivo de Análise de Texto 
 <a name="HOLTop"></a>
@@ -298,7 +298,7 @@ pprint(key_phrases)
 Para identificar entidades conhecidas (pessoas, lugares e coisas) em documentos de texto, acrescente `/text/analytics/v3.0/entities/recognition/general` ao ponto de extremidade de base de Análise de Texto para formar a URL de detecção de idioma. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
     
 ```python
-entities_url = endpoint + "/text/analytics/v3.0/entities/recognition/general/recognition/general"
+entities_url = endpoint + "/text/analytics/v3.0/entities/recognition/general"
 ```
 
 Crie uma coleção de documentos, como nos exemplos anteriores. 

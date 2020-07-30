@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cac918f369a10a8084cdc7d0c66d5c0c4c400cc2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f098b866eee6fd8555cafcec0f64a0a5f261f9e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81458532"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079971"
 ---
 # <a name="restart-vms"></a>Reiniciar VMs
 
@@ -86,15 +86,15 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, uma máqu
 
 | Comando | Observações |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Cria as máquinas virtuais.  |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm) | Usado com `--query` para garantir que as VMs sejam provisionadas antes de reiniciá-las e, em seguida, para obter as IDs das VMs para reiniciá-las. |
-| [az resource list](https://docs.microsoft.com/cli/azure/vm) | Usado com `--query` para obter as IDs das VMs usando a marcação. |
-| [az vm restart](https://docs.microsoft.com/cli/azure/vm) | Reinicia as VMs. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az vm create](/cli/azure/vm/availability-set) | Cria as máquinas virtuais.  |
+| [az vm list](/cli/azure/vm) | Usado com `--query` para garantir que as VMs sejam provisionadas antes de reiniciá-las e, em seguida, para obter as IDs das VMs para reiniciá-las. |
+| [az resource list](/cli/azure/vm) | Usado com `--query` para obter as IDs das VMs usando a marcação. |
+| [az vm restart](/cli/azure/vm) | Reinicia as VMs. |
+| [az group delete](/cli/azure/vm/extension) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
 Os exemplos de script da CLI de máquina virtual adicionais podem ser encontrados na [documentação da VM Linux do Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -3,23 +3,20 @@ title: 'Início Rápido: Biblioteca do armazenamento de Blobs do Azure v12 – .
 description: Neste início rápido, você aprenderá a usar a biblioteca de clientes do Armazenamento de Blobs do Azure versão 12 para .NET para criar um contêiner e um blob no Armazenamento de blobs (objeto). Em seguida, você aprenderá como baixar o blob para seu computador local e como listar todos os blobs em um contêiner.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/05/2019
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 5cfb0430bc94d347afd75bc01170a71a7ad53565
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: d142206a9640ce53ea7463a2c68c5d1c8f64c354
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711860"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287189"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Início Rápido: Biblioteca de clientes do Armazenamento do Blob v12 para .NET
 
 Introdução à biblioteca de clientes do Armazenamento de Blobs do Azure v12 para .NET. O Armazenamento de Blobs do Azure é uma solução de armazenamento de objetos da Microsoft para a nuvem. Siga as etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O Armazenamento de Blobs é otimizado para armazenar grandes quantidades de dados não estruturados.
-
-> [!NOTE]
-> Para começar a usar a versão anterior do SDK, confira [Início Rápido: Biblioteca de clientes do Armazenamento de Blobs do Azure para .NET](storage-quickstart-blobs-dotnet-legacy.md).
 
 Use a biblioteca de clientes do Armazenamento de Blobs do Azure v12 para .NET para:
 
@@ -29,7 +26,12 @@ Use a biblioteca de clientes do Armazenamento de Blobs do Azure v12 para .NET pa
 * Baixar o blob em seu computador local
 * Excluir um contêiner
 
-[Documentação de referência da API](/dotnet/api/azure.storage.blobs) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Exemplos](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+Recursos adicionais:
+
+* [Documentação de referência da API](/dotnet/api/azure.storage.blobs)
+* [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
+* [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
+* [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -134,7 +136,7 @@ Esses snippets de código de exemplo mostram como executar o seguinte com a bibl
 * [Baixar blobs](#download-blobs)
 * [Excluir um contêiner](#delete-a-container)
 
-### <a name="get-the-connection-string"></a>Obtenha a cadeia de conexão
+### <a name="get-the-connection-string"></a>Obter a cadeia de conexão
 
 O código a seguir recupera a cadeia de conexão da conta de armazenamento a partir da variável de ambiente criada na seção [Configurar a cadeia de conexão do armazenamento](#configure-your-storage-connection-string).
 

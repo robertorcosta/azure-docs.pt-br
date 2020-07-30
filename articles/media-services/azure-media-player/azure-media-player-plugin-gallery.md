@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 4d3d522de84ebd019fd432f5c4e5d89ac5ef8bcf
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 6d592064729bbdd64e485e0bd0373b2d471597e0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263730"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282476"
 ---
 # <a name="azure-media-player-plugin-gallery"></a>Galeria de Plug-ins do Player de Mídia do Azure #
 
@@ -20,7 +20,7 @@ ms.locfileid: "84263730"
 | Nome do plug-in                         | URL da demonstração                    | Código-fonte                | Descrição    |
 |-------------------------------------|-----------------------------|----------------------------|----------------|
 | Recursos Adicionais                 | | | |
-| **Novo!** AMP360Video                | [Demonstração](http://www.babylonjs.com/demos/amp360video/)                        | [GitHub](https://github.com/BabylonJS/Extensions/tree/master/Amp360Video)                     | O plug-in permite visualizar vídeo em 360 graus em Amp em seu desktop ou em dispositivos incompatíveis com VR. A documentação completa está disponível [aqui](https://doc\.babylonjs\.com/extensions/amp360video): |
+| **Novo!** AMP360Video                | [Demonstração](http://www.babylonjs.com/demos/amp360video/)                        | [GitHub](https://github.com/BabylonJS/Extensions/tree/master/Amp360Video)                     | O plug-in permite visualizar vídeo em 360 graus em Amp em seu desktop ou em dispositivos incompatíveis com VR. A documentação completa está disponível [aqui](https://doc.babylonjs.com/extensions/amp360video): |
 |  Sprite Tip                         | [Demonstração](http://www.skymedia.tv/asset/sprite)                        | [GitHub](https://github.com/RickShahid/SpriteTip)                    | Plug-in AMP (Player de Mídia do Azure) para renderização de linha do tempo de sprites de uma imagem de miniatura gerada por MES (Media Encoder Standard) dos AMS (Serviços de Mídia do Azure). |
 | Sobreposição de Diagnóstico                 | [Demonstração](https://openidconnectweb.azurewebsites.net/Diagnoverlay.html)                        | [GitHub](https://github.com/willzhan/diagnoverlay)                     | Este plug-in exibe: Todos os parâmetros principais, estatísticas de vídeo, todos os eventos no ciclo de vida da reprodução de vídeo e, se protegido, as informações de proteção de DRM, como a ID de chave e as URLs de aquisição de licença.                                                                                                                                                                      |
 | Taxa de quadros e calculadora de código de tempo | Nenhuma demonstração disponível | [GitHub](https://github.com/mconverti/media-services-javascript-azure-media-player-framerate-timecode-calculator-plugin)                     | Esse plug-in calcula a taxa de quadros de vídeo com base nas caixas `tfhd`/`trun` de MP4 do primeiro fragmento de vídeo MPEG-DASH, analisa o valor de escala de tempo do manifesto do cliente MPEG-DASH e também fornece uma forma de gerar o código de tempo para um determinado período absoluto do Player (bem como fornece o tempo absoluto do player, desde que o código de tempo seja fornecido) |

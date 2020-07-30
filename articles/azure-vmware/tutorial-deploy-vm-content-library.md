@@ -2,13 +2,13 @@
 title: 'Tutorial: Criar uma biblioteca de conteúdo para implantar VMs na AVS (Solução VMware no Azure)'
 description: Neste tutorial da AVS (Solução VMware no Azure), você criará uma biblioteca de conteúdo para implantar uma VM em uma nuvem privada da AVS.
 ms.topic: tutorial
-ms.date: 07/10/2020
-ms.openlocfilehash: bdea4304baa92fadc4d6c3d0060f99cf37af5f77
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/16/2020
+ms.openlocfilehash: d5f0f26293af9eb146cfb4b2f3adf47fe8cce94f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259409"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079376"
 ---
 # <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution-avs"></a>Tutorial: Criar uma biblioteca de conteúdo para implantar VMs na AVS (Solução VMware no Azure)
 

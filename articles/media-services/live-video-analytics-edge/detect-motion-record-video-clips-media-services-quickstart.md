@@ -3,12 +3,12 @@ title: Detectar movimento, gravar vídeo nos Serviços de Mídia do Azure
 description: Este guia de início rápido mostra como usar a Análise de Vídeo ao vivo no IoT Edge para detectar o movimento em uma transmissão de vídeo ao vivo e gravar clipes de vídeo nos Serviços de Mídia do Azure.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 0a81bebe7333266e1b70f97f8c712fccf392a464
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 24bf958c7a6af25d64d8c2884b9fa259c67e39c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817313"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074410"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Início Rápido: Detectar movimento e gravar vídeo em Serviços de Mídia
 
@@ -655,7 +655,7 @@ A instância do grafo que você criou e ativou acima usa o nó do processador de
 
 Observe as propriedades a seguir nas mensagens acima
 
-* Cada mensagem contém uma seção “body” e uma seção “applicationproperties”. Para entender o que essas seções representam, leia o artigo [Criar e ler mensagem do Hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+* Cada mensagem contém uma seção “body” e uma seção “applicationproperties”. Para entender o que essas seções representam, leia o artigo [Criar e ler mensagem do Hub IoT](../../iot-hub/iot-hub-devguide-messages-construct.md).
 * A primeira mensagem é um Evento de diagnóstico, MediaSessionEstablished, informando que o nó de Origem RTSP (assunto) foi capaz de estabelecer conexão com o simulador RTSP e começar a receber um feed ao vivo (simulado).
 * O "assunto" em applicationProperties faz referência ao nó na topologia do grafo da qual a mensagem foi gerada. Nesse caso, a mensagem é originada do nó de origem RTSP.
 * "eventType" em applicationProperties indica que se trata de um evento de diagnóstico.

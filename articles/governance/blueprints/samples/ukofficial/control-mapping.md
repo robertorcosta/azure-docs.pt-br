@@ -1,14 +1,14 @@
 ---
 title: Controles da amostra de blueprint do UK OFFICIAL e do UK NHS
 description: Mapeamento de controle das amostras de blueprint do UK OFFICIAL e do UK NHS. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
-ms.date: 05/08/2020
+ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 88f9606df5c3dcbca6ade05be918e3500a6ba64c
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 360c6bc2e1f207ca2d4470ffe62a81f524ce2a73
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005608"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078992"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mapeamento de controle das amostras de blueprint do UK OFFICIAL e do UK NHS
 
@@ -27,6 +27,9 @@ O blueprint ajuda você a garantir que a transferência de informações com os 
 - A transferência segura para contas de armazenamento deve ser habilitada
 - Mostrar os resultados da auditoria dos servidores Web do Windows que não estão usando protocolos de comunicação segura
 - Implantar pré-requisitos para auditar os servidores Web do Windows que não estão usando protocolos de comunicação segura
+- Aplicativo Web deve ser acessível somente por HTTPS
+- O aplicativo de funções deve ser acessível apenas por HTTPS
+- O aplicativo de API só deve estar acessível via HTTPS
 
 ## <a name="23-data-at-rest-protection"></a>2.3 Proteção de dados em repouso
 
@@ -107,27 +110,27 @@ Esse blueprint também atribui definições do Azure Policy para auditar as cont
 
 Esse blueprint também atribui uma definição do Azure Policy que audita as permissões de arquivo de senha da VM do Linux para alertar se elas estão definidas incorretamente. Esse design permite que você tome uma ação corretiva para garantir que os autenticadores não sejam comprometidos.
 
-- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
+- Mostrar os resultados da auditoria das VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
 
 Esse blueprint ajuda você a impor senhas fortes por meio da atribuição de definições do Azure Policy que auditam VMs do Windows que não impõem a força mínima e outros requisitos de senha. O reconhecimento de VMs que estejam violando a política de força da senha ajuda você a tomar ações corretivas para garantir que as senhas de todas as contas de usuário da VM estejam em conformidade com a política.
 
-- \[Versão Prévia\]: Implantar pré-requisitos para auditar as VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- \[Versão Prévia\]: Implantar pré-requisitos para auditar as VMs do Windows que não têm uma duração máxima da senha de 70 dias
-- \[Versão Prévia\]: Implantar pré-requisitos para auditar as VMs do Windows que não têm uma duração mínima da senha de 1 dia
-- \[Versão Prévia\]: Implantar pré-requisitos para auditar as VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
-- \[Versão Prévia\]: Implantar pré-requisitos para auditar as VMs do Windows que permitem reutilizar as 24 senhas anteriores
-- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que não têm uma duração máxima da senha de 70 dias
-- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que não têm uma duração mínima da senha de 1 dia
-- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
-- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que permitir reutilizar as 24 senhas anteriores
+- Implantar pré-requisitos para auditar as VMs do Windows que não têm a configuração de complexidade de senha habilitada
+- Implantar pré-requisitos para auditar as VMs do Windows que não têm uma duração máxima da senha de 70 dias
+- Implantar pré-requisitos para auditar as VMs do Windows que não têm uma duração mínima da senha de 1 dia
+- Implantar pré-requisitos para auditar as VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
+- Implantar pré-requisitos para auditar as VMs do Windows que permitem reutilizar as 24 senhas anteriores
+- Mostrar os resultados da auditoria das VMs do Windows que não têm a configuração de complexidade de senha habilitada
+- Mostrar os resultados da auditoria das VMs do Windows que não têm uma duração máxima da senha de 70 dias
+- Mostrar os resultados da auditoria das VMs do Windows que não têm uma duração mínima da senha de 1 dia
+- Mostrar os resultados da auditoria das VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
+- Mostrar os resultados da auditoria das VMs do Windows que permitir reutilizar as 24 senhas anteriores
 
 Esse blueprint também ajuda você a controlar o acesso aos recursos do Azure por meio da atribuição de definições do Azure Policy. Essas políticas auditam o uso de tipos de recursos e configurações que podem permitir um acesso mais permissivo aos recursos. Entender os recursos que estão violando essas políticas pode ajudar você a tomar ações corretivas para garantir que o acesso aos recursos do Azure seja restrito a usuários autorizados.
 
-- \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Linux que têm contas sem senhas
-- \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Linux que permitem conexões remotas em contas sem senhas
-- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Linux que têm contas sem senhas
-- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Linux que permitem conexões remotas em contas sem senhas
+- Implantar requisitos para auditar as VMs do Linux que têm contas sem senhas
+- Implantar requisitos para auditar as VMs do Linux que permitem conexões remotas em contas sem senhas
+- Mostrar os resultados da auditoria das VMs do Linux que têm contas sem senhas
+- Mostrar os resultados da auditoria das VMs do Linux que permitem conexões remotas em contas sem senhas
 - As contas de armazenamento devem ser migradas para os novos recursos do Azure Resource Manager
 - As máquinas virtuais devem ser migradas para os novos recursos do Azure Resource Manager
 - Auditar VMs que não usam discos gerenciados
@@ -145,36 +148,6 @@ Além de usar mais de 25 políticas para o gerenciamento seguro de usuários apr
 - A depuração remota deve ser desativada para o aplicativo de funções
 - Depuração remota deve ser desativada para o aplicativo da Web
 - A depuração remota deve ser desligada para o aplicativo de API
-- Aplicativo Web deve ser acessível somente por HTTPS
-- O aplicativo de funções deve ser acessível apenas por HTTPS
-- O aplicativo de API só deve estar acessível via HTTPS
-
-## <a name="12-secure-service-administration"></a>12 Administração segura do serviço
-
-O Azure implementa o RBAC (controle de acesso baseado em função) para ajudar você a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode examinar quem tem acesso aos recursos do Azure e suas permissões. Esse blueprint ajuda você a restringir e controlar os direitos de acesso privilegiado por meio da atribuição de cinco definições do [Azure Policy](../../../policy/overview.md) para auditar contas externas com proprietário e/ou permissões de gravação e contas com proprietário e/ou permissões de gravação que não têm a autenticação multifator habilitada.
-
-Sistemas usados para a administração de um serviço de nuvem têm acesso altamente privilegiado ao serviço. Um comprometimento teria um impacto significativo, incluindo os meios para ignorar os controles de segurança e roubar ou manipular grandes volumes de dados. Os métodos usados pelos administradores do provedor de serviços para gerenciar o serviço operacional devem ser projetados para atenuar qualquer risco de exploração que possa prejudicar a segurança do serviço. Se esse princípio não for implementado, um invasor poderá ter meios de ignorar os controles de segurança e roubar ou manipular grandes volumes de dados.
-
-- O MFA deve ser habilitado em contas com permissões de proprietário em sua assinatura
-- A MFA deve ser habilitada nas contas com permissões de gravação na sua assinatura
-- As contas externas com permissões de proprietário devem ser removidas de sua assinatura
-- As contas externas com permissões de gravação devem ser removidas de sua assinatura
-
-Este blueprint atribui definições do Azure Policy para auditar o uso da autenticação do Azure Active Directory para servidores SQL e o Service Fabric. O uso da autenticação do Azure Active Directory permite o gerenciamento simplificado de permissões e o gerenciamento centralizado de identidades dos usuários de banco de dados e de outros serviços da Microsoft.
-
-- Um administrador do Azure Active Directory deve ser provisionado para servidores SQL
-- Os clusters do Service Fabric só devem usar o Azure Active Directory para autenticação de cliente
-
-Esse blueprint também atribui definições do Azure Policy para auditar as contas que devem ser priorizadas para revisão, incluindo contas preteridas e contas externas com permissões elevadas. Quando necessário, as contas podem ser impedidas de entrar (ou removidas), o que remove imediatamente os direitos de acesso aos recursos do Azure. Esse blueprint atribui duas definições do Azure Policy para auditar contas preteridas que devem ser consideradas para remoção.
-
-- As contas preteridas devem ser removidas de sua assinatura
-- As contas preteridas com permissões de proprietário devem ser removidas de sua assinatura
-- As contas externas com permissões de proprietário devem ser removidas de sua assinatura
-- As contas externas com permissões de gravação devem ser removidas de sua assinatura
-
-Esse blueprint também atribui uma definição do Azure Policy que audita as permissões de arquivo de senha da VM do Linux para alertar se elas estão definidas incorretamente. Esse design permite que você tome uma ação corretiva para garantir que os autenticadores não sejam comprometidos.
-
-- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
 
 ## <a name="13-audit-information-for-users"></a>13 Informações de auditoria para usuários
 
