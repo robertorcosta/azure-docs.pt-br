@@ -8,18 +8,18 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: c17cfcd2e55b98be9d86a73f6388d921336f993b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e17a7ffeb9d9f58e3acfdf4569554637baaaa4c9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80057673"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004906"
 ---
 # <a name="back-up-a-web-app-using-powershell"></a>Fazer backup de um aplicativo Web usando o PowerShell
 
 Este script de exemplo cria um aplicativo Web no Serviço de Aplicativo com seus recursos relacionados e então cria um backup único para ele. 
 
-Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzAccount` para criar uma conexão com o Azure. 
+Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/) e, em seguida, execute `Connect-AzAccount` para criar uma conexão com o Azure. 
 
 ## <a name="sample-script"></a>Exemplo de script
 
@@ -52,6 +52,6 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/).
 
 Exemplos adicionais do Azure PowerShell para Aplicativos Web do Serviço de Aplicativo do Azure podem ser encontrados nos [exemplos do Azure PowerShell](../samples-powershell.md).

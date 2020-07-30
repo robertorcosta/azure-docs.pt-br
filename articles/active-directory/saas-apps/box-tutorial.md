@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35f8172d418cb9926ba0be2de945ff559fba14cf
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 54964759d9afbacd0e410b713336cdd8d5b2c6c6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583098"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018206"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Box
 
@@ -38,6 +38,9 @@ Para começar, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 * Assinatura habilitada para SSO (logon único) do Box.
+
+> [!NOTE]
+> Essa integração também está disponível para uso do ambiente de Nuvem do Governo dos EUA do Azure AD. Encontre esse aplicativo na Galeria de Aplicativos de Nuvem do Governo dos EUA do Azure AD e configure-o da mesma forma que na nuvem pública.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 

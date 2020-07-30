@@ -10,18 +10,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2020
 ms.author: sharadag
-ms.openlocfilehash: 61ce63b15d2126a25b444e97acc8a3ea3964296b
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 47db565288d1bfe1f98c58536e726eb7ec55d0a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985806"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084629"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Modelo de implantação do Azure Resource Manager para o Front Door
 
 A tabela a seguir inclui links para modelos dos modelos de implantação do Azure Resource Manager para o Azure Front Door. 
 
-| | |
+| Modelo | Descrição |
 | ---| ---|
 | [Criar um Front Door básico](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-basic)| Cria uma configuração básica de Front Door com um único back-end. |
 | [Criar um Front Door com vários back-ends e pools de back-end e roteamento com base em URL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-multiple-backends)| Cria um Front Door com balanceamento de carga configurado para vários back-ends em um pool de back-end e também entre pools de back-end com base no caminho da URL. |

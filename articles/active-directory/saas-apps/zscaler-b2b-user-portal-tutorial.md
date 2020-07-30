@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c28af94c92fa56d5217aee91053521d2c12b0aef
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: fda294bccb3c73c0d26184f03860f4dd1277b940
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80669052"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016217"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-b2b-user-portal"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Portal do Usuário do Zscaler B2B
 
@@ -38,6 +38,9 @@ Para começar, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 * Uma assinatura do Portal do Usuário do Zscaler B2B habilitada para SSO (logon único).
+
+> [!NOTE]
+> Essa integração também está disponível para uso do ambiente de Nuvem do Governo dos EUA do Azure AD. Encontre esse aplicativo na Galeria de Aplicativos de Nuvem do Governo dos EUA do Azure AD e configure-o da mesma forma que na nuvem pública.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 

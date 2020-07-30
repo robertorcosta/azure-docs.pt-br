@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0a1538f640bb4722eca1d4f3a80125837593bab
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 07607d6695d1010e5a704ed05608e9ea2587a64b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67085708"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016149"
 ---
 # <a name="tutorial-integrate-zscaler-private-access-zpa-with-azure-active-directory"></a>Tutorial: Integração do ZPA (Zscaler Private Access) ao Azure AD (Azure Active Directory)
 
@@ -39,6 +39,9 @@ Para começar, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 * Assinatura habilitada para logon único (SSO) do ZPA (Zscaler Private Access).
+
+> [!NOTE]
+> Essa integração também está disponível para uso do ambiente de Nuvem do Governo dos EUA do Azure AD. Encontre esse aplicativo na Galeria de Aplicativos de Nuvem do Governo dos EUA do Azure AD e configure-o da mesma forma que na nuvem pública.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 

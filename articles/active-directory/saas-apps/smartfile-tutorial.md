@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a7ff36fbfee3917478b11329f3591b5ce8d076
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7297b79dfd376edaa5407dee68b85ccc69c8b860
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73161128"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016538"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartfile"></a>Tutorial: Integração do Azure Active Directory ao SmartFile
 
@@ -41,6 +41,9 @@ Para configurar a integração do Azure AD ao SmartFile, você precisará dos se
 
 * Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
 * Assinatura habilitada para logon único do SmartFile
+
+> [!NOTE]
+> Essa integração também está disponível para uso do ambiente de Nuvem do Governo dos EUA do Azure AD. Encontre esse aplicativo na Galeria de Aplicativos de Nuvem do Governo dos EUA do Azure AD e configure-o da mesma forma que na nuvem pública.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 

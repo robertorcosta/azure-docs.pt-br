@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 229df5d2f5186ad7cec08952f2a44790f9220dfe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c896e617346c9bab598044cedfc475b471466cd0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100304"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998843"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Criar e gerenciar as VMs do Windows com o Azure PowerShell
 
@@ -34,7 +34,7 @@ Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior di
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos com o comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup).
+Crie um grupo de recursos com o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve criar um grupo de recursos antes de criar uma máquina virtual. No exemplo a seguir, um grupo de recursos chamado *myResourceGroupVM* é criado na região *EastUS*:
 
@@ -50,13 +50,13 @@ O grupo de recursos é especificado ao criar ou modificar uma VM, que pode ser v
 
 Há várias opções disponíveis ao criar uma VM, como a imagem do sistema operacional, a configuração de rede e as credenciais administrativas. Este exemplo cria uma VM, denominada *myVM*, que executa a versão padrão do Windows Server 2016 Datacenter.
 
-Defina o nome de usuário e a senha necessários para a conta de administrador na VM com [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6):
+Defina o nome de usuário e a senha necessários para a conta de administrador na VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Crie a VM com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
+Crie a VM com [New-AzVM](/powershell/module/az.compute/new-azvm).
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -93,13 +93,13 @@ Na janela **Segurança do Windows**, selecione **Mais opções** e **Usar uma co
 
 O Azure Marketplace inclui muitas imagens que podem ser usadas para criar uma nova VM. Nas etapas anteriores, uma VM foi criada usando a imagem do Windows Server 2016 Datacenter. Nesta etapa, o módulo do PowerShell é usado para pesquisar no marketplace por outras imagens do Windows, que também pode ser usado como base para novas VMs. Este processo consiste em localizar o publicador, a oferta, o SKU e, opcionalmente, um número de versão para [identificar](cli-ps-findimage.md#terminology) a imagem.
 
-Use o comando [Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) para retornar uma lista de editores de imagem:
+Use o comando [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) para retornar uma lista de editores de imagem:
 
 ```azurepowershell-interactive
 Get-AzVMImagePublisher -Location "EastUS"
 ```
 
-Use o comando [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) para retornar uma lista de ofertas de imagem. Com este comando, a lista retornada é filtrada no editor especificado chamado `MicrosoftWindowsServer`:
+Use o comando [Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer) para retornar uma lista de ofertas de imagem. Com este comando, a lista retornada é filtrada no editor especificado chamado `MicrosoftWindowsServer`:
 
 ```azurepowershell-interactive
 Get-AzVMImageOffer `
@@ -117,7 +117,7 @@ WindowsServer     MicrosoftWindowsServer EastUS
 WindowsServer-HUB MicrosoftWindowsServer EastUS
 ```
 
-O comando [Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) filtrará o nome do editor e da oferta para retornar uma lista com nomes de imagem.
+O comando [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) filtrará o nome do editor e da oferta para retornar uma lista com nomes de imagem.
 
 ```azurepowershell-interactive
 Get-AzVMImageSku `
@@ -175,16 +175,16 @@ A tabela a seguir categoriza tamanhos em casos de uso.
 
 | Type                     | Tamanhos comuns           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Propósito geral](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU/memória equilibrados. Ideal para desenvolvimento/teste e para aplicativos de pequeno a médio porte e soluções de dados.  |
-| [Computação otimizada](sizes-compute.md)   | Fsv2          | Relação de CPU/memória alta. Boa para aplicativos de tráfego médio, dispositivos de rede e processos em lote.        |
-| [Memória otimizada](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Relação de memória/núcleo alta. Ótima para banco de dados relacionais, caches médios a grandes e análises na memória.                 |
-| [Armazenamento otimizado](sizes-storage.md)      | Lsv2, Ls              | Alta taxa de transferência de disco e de E/S. Ideal para Big Data, SQL e bancos de dados NoSQL.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | VMs especializadas, destinadas para renderização gráfica e edição de vídeo pesadas.       |
-| [Alto desempenho](sizes-hpc.md) | H        | Nossas VMs de CPU mais potentes com adaptadores de rede de alto rendimento (RDMA) opcionais. |
+| [Propósito geral](../sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU/memória equilibrados. Ideal para desenvolvimento/teste e para aplicativos de pequeno a médio porte e soluções de dados.  |
+| [Computação otimizada](../sizes-compute.md)   | Fsv2          | Relação de CPU/memória alta. Boa para aplicativos de tráfego médio, dispositivos de rede e processos em lote.        |
+| [Memória otimizada](../sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Relação de memória/núcleo alta. Ótima para banco de dados relacionais, caches médios a grandes e análises na memória.                 |
+| [Armazenamento otimizado](../sizes-storage.md)      | Lsv2, Ls              | Alta taxa de transferência de disco e de E/S. Ideal para Big Data, SQL e bancos de dados NoSQL.                                                         |
+| [GPU](../sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | VMs especializadas, destinadas para renderização gráfica e edição de vídeo pesadas.       |
+| [Alto desempenho](../sizes-hpc.md) | H        | Nossas VMs de CPU mais potentes com adaptadores de rede de alto rendimento (RDMA) opcionais. |
 
 ### <a name="find-available-vm-sizes"></a>Encontrar tamanhos de VM disponíveis
 
-Para ver uma lista de tamanhos de VM disponíveis em uma região específica, use o comando [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize).
+Para ver uma lista de tamanhos de VM disponíveis em uma região específica, use o comando [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize).
 
 ```azurepowershell-interactive
 Get-AzVMSize -Location "EastUS"
@@ -194,7 +194,7 @@ Get-AzVMSize -Location "EastUS"
 
 Após a implantação de uma VM, ela pode ser redimensionada para aumentar ou diminuir a alocação de recursos.
 
-Antes de redimensionar uma VM, verifique se o tamanho desejado está disponível no cluster da VM atual. O comando [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) retorna uma lista de tamanhos.
+Antes de redimensionar uma VM, verifique se o tamanho desejado está disponível no cluster da VM atual. O comando [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize) retorna uma lista de tamanhos.
 
 ```azurepowershell-interactive
 Get-AzVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
@@ -245,7 +245,7 @@ Uma VM do Azure pode ter um dentre vários estados de energia.
 | - | O estado de energia da VM é desconhecido. |
 
 
-Para obter o estado de uma VM específica, use o comando [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Especifique nomes válidos para uma VM e um grupo de recursos.
+Para obter o estado de uma VM específica, use o comando [Get-AzVM](/powershell/module/az.compute/get-azvm). Especifique nomes válidos para uma VM e um grupo de recursos.
 
 ```azurepowershell-interactive
 Get-AzVM `
@@ -268,7 +268,7 @@ Durante o ciclo de vida de uma VM, é possível que você queira executar tarefa
 
 ### <a name="stop-a-vm"></a>Parar uma VM
 
-Interrompa e desaloque uma VM com [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm):
+Interrompa e desaloque uma VM com [Stop-AzVM](/powershell/module/az.compute/stop-azvm):
 
 ```azurepowershell-interactive
 Stop-AzVM `

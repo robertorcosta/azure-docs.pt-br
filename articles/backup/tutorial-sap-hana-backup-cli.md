@@ -3,18 +3,18 @@ title: 'Tutorial: backup do BD SAP HANA no Azure usando a CLI'
 description: Neste tutorial, saiba como fazer backup de bancos de dados SAP HANA executados em uma VM do Azure em um cofre dos Serviços de Recuperação do Backup do Azure usando a CLI do Azure.
 ms.topic: tutorial
 ms.date: 12/4/2019
-ms.openlocfilehash: 7d1c52a846b837d47aa40c8f6a68010a8e7f1137
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 30e1f9fbda16841bbabf1407ef1f3d6ef658ecf9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747284"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003433"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: backup de bancos de dados SAP HANA em uma VM do Azure usando a CLI do Azure
 
-A CLI do Azure é usada para criar e gerenciar recursos do Azure por meio da linha de comando ou por meio de scripts. Esta documentação fornece detalhes de como fazer backup de um banco de dados SAP HANA e como disparar backups sob demanda e tudo isso com o uso da CLI do Azure. Você também pode executar essas etapas usando o [portal do Azure](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database).
+A CLI do Azure é usada para criar e gerenciar recursos do Azure por meio da linha de comando ou por meio de scripts. Esta documentação fornece detalhes de como fazer backup de um banco de dados SAP HANA e como disparar backups sob demanda e tudo isso com o uso da CLI do Azure. Você também pode executar essas etapas usando o [portal do Azure](./backup-azure-sap-hana-database.md).
 
-Este documento pressupõe que você já tem um banco de dados SAP HANA instalado em uma VM do Azure. (Você também pode [criar uma VM usando a CLI do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli)). Ao final deste tutorial, você poderá:
+Este documento pressupõe que você já tem um banco de dados SAP HANA instalado em uma VM do Azure. (Você também pode [criar uma VM usando a CLI do Azure](../virtual-machines/linux/quick-create-cli.md)). Ao final deste tutorial, você poderá:
 
 > [!div class="checklist"]
 >
@@ -23,17 +23,17 @@ Este documento pressupõe que você já tem um banco de dados SAP HANA instalado
 > * Habilitar o backup em um banco de dados SAP HANA
 > * Disparar um backup sob demanda
 
-Confira os [cenários atualmente compatíveis](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support) com SAP HANA.
+Confira os [cenários atualmente compatíveis](./sap-hana-backup-support-matrix.md#scenario-support) com SAP HANA.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Para instalar e usar a CLI localmente, você deve executar a CLI do Azure versão xx.xxx.x ou posterior. Para encontrar a versão da CLI, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Para instalar e usar a CLI localmente, você deve executar a CLI do Azure versão xx.xxx.x ou posterior. Para encontrar a versão da CLI, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
 Um cofre dos Serviços de Recuperação é um contêiner lógico que armazena os dados de backup para cada recurso protegido, como VMs do Azure ou cargas de trabalho em execução em VMs do Azure, como bancos de dados SQL ou HANA. Quando o trabalho de backup para um recurso protegido é executado, ele cria um ponto de recuperação no cofre dos Serviços de Recuperação. Você pode usar um desses pontos de recuperação para restaurar dados para um determinado ponto no tempo.
 
-Crie um cofre dos Serviços de Recuperação com [az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault#az-backup-vault-create). Especifique o mesmo grupo de recursos e o local da VM que você deseja proteger. Saiba como criar uma VM usando a CLI do Azure com este [início rápido de VM](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli).
+Crie um cofre dos Serviços de Recuperação com [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create). Especifique o mesmo grupo de recursos e o local da VM que você deseja proteger. Saiba como criar uma VM usando a CLI do Azure com este [início rápido de VM](../virtual-machines/linux/quick-create-cli.md).
 
 Para este tutorial, usaremos o seguinte:
 
@@ -49,7 +49,7 @@ az backup vault create --resource-group saphanaResourceGroup \
     --location westus2
 ```
 
-Por padrão, o cofre dos Serviços de Recuperação é definido para o armazenamento com redundância geográfica. O armazenamento com redundância geográfica garante que os dados de backup são replicados para uma região secundária do Azure que centenas de quilômetros de distância da região primária. Se a configuração de redundância de armazenamento precisar ser modificada, use o cmdlet [az backup vault backup-properties set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set).
+Por padrão, o cofre dos Serviços de Recuperação é definido para o armazenamento com redundância geográfica. O armazenamento com redundância geográfica garante que os dados de backup são replicados para uma região secundária do Azure que centenas de quilômetros de distância da região primária. Se a configuração de redundância de armazenamento precisar ser modificada, use o cmdlet [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set).
 
 ```azurecli
 az backup vault backup-properties set \
@@ -58,7 +58,7 @@ az backup vault backup-properties set \
     --backup-storage-redundancy "LocallyRedundant/GeoRedundant"
 ```
 
-Para ver se o cofre foi criado com êxito, use o cmdlet [az backup vault list](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-list). Você verá a seguinte resposta:
+Para ver se o cofre foi criado com êxito, use o cmdlet [az backup vault list](/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-list). Você verá a seguinte resposta:
 
 ```output
 Location   Name             ResourceGroup
@@ -68,9 +68,9 @@ westus2    saphanaVault     saphanaResourceGroup
 
 ## <a name="register-and-protect-the-sap-hana-instance"></a>Registrar e proteger a instância do SAP HANA
 
-Para que a instância do SAP HANA (a VM com SAP HANA instalado) seja descoberta pelos serviços do Azure, um [script de pré-registro](https://aka.ms/scriptforpermsonhana) deve ser executado no computador SAP HANA. Atenda a todos os [pré-requisitos](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#prerequisites) antes de executar o script. Para saber mais sobre o que o script faz, confira a seção [O que o script de pré-registro faz](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
+Para que a instância do SAP HANA (a VM com SAP HANA instalado) seja descoberta pelos serviços do Azure, um [script de pré-registro](https://aka.ms/scriptforpermsonhana) deve ser executado no computador SAP HANA. Atenda a todos os [pré-requisitos](./tutorial-backup-sap-hana-db.md#prerequisites) antes de executar o script. Para saber mais sobre o que o script faz, confira a seção [O que o script de pré-registro faz](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
 
-Depois que o script é executado, a instância do SAP HANA pode ser registrada com o cofre dos serviços de recuperação que criamos anteriormente. Para registrar a instância, use o cmdlet [az backup container register](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-register). *VMResourceId* é a ID de recurso da VM que você criou para instalar o SAP HANA.
+Depois que o script é executado, a instância do SAP HANA pode ser registrada com o cofre dos serviços de recuperação que criamos anteriormente. Para registrar a instância, use o cmdlet [az backup container register](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-register). *VMResourceId* é a ID de recurso da VM que você criou para instalar o SAP HANA.
 
 ```azurecli-interactive
 az backup container register --resource-group saphanaResourceGroup \
@@ -86,7 +86,7 @@ az backup container register --resource-group saphanaResourceGroup \
 
 O registro da instância do SAP HANA descobre automaticamente todos os seus bancos de dados atuais. No entanto, para descobrir novos bancos de dados que possam ser adicionados no futuro, consulte a seção [Descobrindo novos bancos de dados adicionados à instância registrada do SAP HANA](tutorial-sap-hana-manage-cli.md#protect-new-databases-added-to-an-sap-hana-instance).
 
-Para verificar se a instância do SAP HANA foi registrada com êxito no cofre, use o cmdlet [az backup container list](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list). Você verá a seguinte resposta:
+Para verificar se a instância do SAP HANA foi registrada com êxito no cofre, use o cmdlet [az backup container list](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list). Você verá a seguinte resposta:
 
 ```output
 Name                                                    Friendly Name    Resource Group        Type           Registration Status
@@ -99,7 +99,7 @@ VMAppContainer;Compute;saphanaResourceGroup;saphanaVM   saphanaVM        saphana
 
 ## <a name="enable-backup-on-sap-hana-database"></a>Habilitar backup no banco de dados SAP HANA
 
-O cmdlet [az backup protectable-item list](https://docs.microsoft.com/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-list) lista todos os bancos de dados descobertos na instância do SAP HANA que você registrou na etapa anterior.
+O cmdlet [az backup protectable-item list](/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-list) lista todos os bancos de dados descobertos na instância do SAP HANA que você registrou na etapa anterior.
 
 ```azurecli-interactive
 az backup protectable-item list --resource-group saphanaResourceGroup \
@@ -120,7 +120,7 @@ saphanadatabase;hxe;hxe        SAPHanaDatabase          HXE           hxehost   
 
 Como você pode ver na saída acima, o SID do sistema SAP HANA é HXE. Neste tutorial, configuraremos o backup para o banco de dados *saphanadatabase;hxe;hxe* que reside no servidor *hxehost*.
 
-Para proteger e configurar o backup em um banco de dados, um de cada vez, usamos o cmdlet [az backup protection enable-for-azurewl](https://docs.microsoft.com/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-enable-for-azurewl). Forneça o nome da política que você deseja usar. Para criar uma política usando a CLI, use o cmdlet [az backup policy create](https://docs.microsoft.com//cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-create). Para este tutorial, vamos usar a política *sapahanaPolicy*.
+Para proteger e configurar o backup em um banco de dados, um de cada vez, usamos o cmdlet [az backup protection enable-for-azurewl](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-enable-for-azurewl). Forneça o nome da política que você deseja usar. Para criar uma política usando a CLI, use o cmdlet [az backup policy create](/cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-create). Para este tutorial, vamos usar a política *sapahanaPolicy*.
 
 ```azurecli-interactive
 az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
@@ -132,7 +132,7 @@ az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
     --output table
 ```
 
-Você pode verificar se a configuração de backup acima está concluída usando o cmdlet [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list). A saída será exibida da seguinte maneira:
+Você pode verificar se a configuração de backup acima está concluída usando o cmdlet [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list). A saída será exibida da seguinte maneira:
 
 ```output
 Name                                  Operation         Status     Item Name   Start Time UTC
@@ -140,7 +140,7 @@ Name                                  Operation         Status     Item Name   S
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2019-12-03T03:09:210831+00:00  
 ```
 
-O cmdlet [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) lista todos os trabalhos de backup (agendados ou sob demanda) que foram executados ou estão atualmente em execução no banco de dados protegido, além de outras operações como registrar, configurar backup, excluir dados de backup etc.
+O cmdlet [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) lista todos os trabalhos de backup (agendados ou sob demanda) que foram executados ou estão atualmente em execução no banco de dados protegido, além de outras operações como registrar, configurar backup, excluir dados de backup etc.
 
 >[!NOTE]
 >O Backup do Azure não é ajustado automaticamente para alterações do horário de verão ao fazer backup de um banco de dados SAP HANA em execução em uma VM do Azure.
@@ -149,7 +149,7 @@ O cmdlet [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?vi
 
 ## <a name="trigger-an-on-demand-backup"></a>Disparar um backup sob demanda
 
-Enquanto a seção acima detalha como configurar um backup agendado, esta seção fala sobre o disparo de um backup sob demanda. Para fazer isso, usamos o cmdlet [az backup protection backup-now](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-backup-now).
+Enquanto a seção acima detalha como configurar um backup agendado, esta seção fala sobre o disparo de um backup sob demanda. Para fazer isso, usamos o cmdlet [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now).
 
 >[!NOTE]
 > A política de retenção de um backup sob demanda é determinada pela política de retenção subjacente do banco de dados.
@@ -172,7 +172,7 @@ Name                                  ResourceGroup
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  saphanaResourceGroup
 ```
 
-A resposta fornecerá o nome do trabalho. Esse nome de trabalho pode ser usado para acompanhar o status do trabalho usando o cmdlet [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show).
+A resposta fornecerá o nome do trabalho. Esse nome de trabalho pode ser usado para acompanhar o status do trabalho usando o cmdlet [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show).
 
 >[!NOTE]
 >Além do agendamento de um backup completo ou diferencial, eles também podem ser disparados manualmente. Os backups de log são automaticamente disparados e gerenciados pelo SAP HANA internamente.
@@ -183,4 +183,4 @@ A resposta fornecerá o nome do trabalho. Esse nome de trabalho pode ser usado p
 
 * Para saber como restaurar um banco de dados SAP HANA em uma VM do Azure usando a CLI, prossiga para o tutorial: [Restaurar um banco de dados SAP HANA na VM do Azure usando a CLI](tutorial-sap-hana-restore-cli.md)
 
-* Para saber como fazer backup de um banco de dados SAP HANA em execução na VM do Azure usando o portal do Azure, consulte [Fazer backup de um banco de dados SAP HANA em VMs do Azure](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database)
+* Para saber como fazer backup de um banco de dados SAP HANA em execução na VM do Azure usando o portal do Azure, consulte [Fazer backup de um banco de dados SAP HANA em VMs do Azure](./backup-azure-sap-hana-database.md)

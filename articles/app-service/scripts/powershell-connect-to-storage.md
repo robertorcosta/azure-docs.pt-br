@@ -6,18 +6,18 @@ ms.assetid: e4831bdc-2068-4883-9474-0b34c2e3e255
 ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
-ms.openlocfilehash: d1c8951445c0be6a3d4b9c4763d719fc7d79d2d5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2377c8536fa307f670e28f5ff3cf04f03b88325e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74685326"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083303"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account"></a>Conectar um aplicativo do Serviço de Aplicativo a uma conta de armazenamento
 
 Neste cenário, você aprenderá a criar uma conta de Armazenamento do Azure e um aplicativo do Serviço de Aplicativo. Em seguida, você vinculará a conta de armazenamento ao aplicativo usando as configurações de aplicativo.
 
-Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzAccount` para criar uma conexão com o Azure.
+Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/) e, em seguida, execute `Connect-AzAccount` para criar uma conexão com o Azure.
 
 ## <a name="sample-script"></a>Exemplo de script
 
@@ -48,6 +48,6 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/).
 
 Encontre amostras adicionais do Azure PowerShell para o Serviço de Aplicativo do Azure nas [amostras do Azure PowerShell](../samples-powershell.md).

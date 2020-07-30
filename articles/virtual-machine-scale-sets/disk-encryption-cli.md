@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: fd8b88e55f487032f76aa379018f09c144842d60
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: fa86773f52c05818f4abea2b7a8b5347e1778274
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200306"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046316"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Criptografar os discos de sistema operacional e de dados anexados em um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 
@@ -32,7 +32,7 @@ Antes de criar uma máquina virtual, crie um grupo de recursos com o [az group c
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss). O exemplo a seguir cria um conjunto de dimensionamento chamado *myScaleSet* que está definido para atualizar automaticamente à medida que alterações são aplicadas e gera chaves SSH caso elas não existam em *~/.ssh/id_rsa*. Um disco de dados de 32Gb é anexado a cada instância VM e a [extensão de Script personalizado](../virtual-machines/linux/extensions-customscript.md) do Azure é usada para preparar os discos de dados com [az vmss extension set](/cli/azure/vmss/extension):
+Crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss). O exemplo a seguir cria um conjunto de dimensionamento chamado *myScaleSet* que está definido para atualizar automaticamente à medida que alterações são aplicadas e gera chaves SSH caso elas não existam em *~/.ssh/id_rsa*. Um disco de dados de 32Gb é anexado a cada instância VM e a [extensão de Script personalizado](../virtual-machines/extensions/custom-script-linux.md) do Azure é usada para preparar os discos de dados com [az vmss extension set](/cli/azure/vmss/extension):
 
 ```azurecli-interactive
 # Create a scale set with attached data disk

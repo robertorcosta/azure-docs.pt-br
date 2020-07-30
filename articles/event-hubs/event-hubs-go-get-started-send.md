@@ -3,12 +3,12 @@ title: 'Início Rápido: Enviar e receber eventos usando Go – Hubs de Eventos 
 description: 'Início Rápido: Este artigo fornece instruções passo a passo para a criação de um aplicativo Go que envia eventos dos Hubs de Eventos do Azure.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 18b139db32e806ac2bdbf440a9dfa8a10ab1ecf3
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 59cd0d757108e7579ce389d216b0ee4d569e12fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85320345"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002447"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Início Rápido: Enviar ou receber eventos dos Hubs de Eventos usando o Go
 Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos pelos dispositivos e software distribuídos. Os dados enviados para um Hub de Eventos podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Para obter uma visão detalhada dos Hubs de Eventos, confira [Visão geral de Hubs de Eventos](event-hubs-about.md) e [Recursos de Hubs de Eventos](event-hubs-features.md).
@@ -126,7 +126,7 @@ Parabéns! Agora você enviou mensagens para um hub de eventos.
 
 ### <a name="create-a-storage-account-and-container"></a>Criar uma conta e um contêiner de armazenamento
 
-Afirme como as concessões em partições e pontos de verificação no evento fluxo são compartilhados entre os destinatários usando um contêiner de Armazenamento do Microsoft Azure. Você pode criar uma conta de armazenamento e um contêiner com o SDK Go, mas você também pode criar um seguindo as instruções em [Sobre Contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md).
+Afirme como as concessões em partições e pontos de verificação no evento fluxo são compartilhados entre os destinatários usando um contêiner de Armazenamento do Microsoft Azure. Você pode criar uma conta de armazenamento e um contêiner com o SDK Go, mas você também pode criar um seguindo as instruções em [Sobre Contas de armazenamento do Azure](../storage/common/storage-account-create.md).
 
 Exemplos para a criação de artefatos de armazenamento com o SDK Go estão disponíveis na [repositório de exemplos do Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage) e na amostra correspondente a este tutorial.
 

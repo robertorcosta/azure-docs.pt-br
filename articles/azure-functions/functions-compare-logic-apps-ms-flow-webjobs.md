@@ -4,12 +4,12 @@ description: 'Compare os serviços em nuvem da Microsoft otimizados para tarefas
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 9d7531fac9610b357adb37d28f5d5e90a7e4b108
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 1e6d1462a4f94db424081ea1567e5926806d3e81
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169860"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082997"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Escolha os serviços de integração e automação corretos no Azure
 
@@ -38,8 +38,8 @@ A seguinte tabela ajuda você a determinar a melhor opção para uma integraçã
 | --- | --- | --- |
 | **Usuários** |Funcionários do escritório, usuários de negócios, administradores do SharePoint |Integradores profissionais e desenvolvedores, profissionais de TI |
 | **Cenários** |Autoatendimento |Integrações avançadas |
-| **Ferramenta de design** |Aplicativo do navegador e móvel, somente interface do usuário |No navegador e no [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [Exibição de código](../logic-apps/logic-apps-author-definitions.md) disponível |
-| **ALM (Gerenciamento do Ciclo de Vida do Aplicativo)** |Design e teste em ambientes de não produção; promoção para produção quando pronto |Azure DevOps: controle do código-fonte, teste, suporte, automação e capacidade de gerenciamento no [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
+| **Ferramenta de design** |Aplicativo do navegador e móvel, somente interface do usuário |No navegador e no [Visual Studio](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), [Exibição de código](../logic-apps/logic-apps-author-definitions.md) disponível |
+| **ALM (Gerenciamento do Ciclo de Vida do Aplicativo)** |Design e teste em ambientes de não produção; promoção para produção quando pronto |Azure DevOps: controle do código-fonte, teste, suporte, automação e capacidade de gerenciamento no [Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) |
 | **Experiência de administrador** |Gerenciar ambientes do Power Automate e políticas de DLP (prevenção contra perda de dados), acompanhamento do licenciamento: [Centro de administração](https://admin.flow.microsoft.com) |Gerenciar grupos de recursos, conexões, gerenciamento de acesso e log: [Azure portal](https://portal.azure.com) |
 | **Segurança** |Logs de auditoria de Segurança e Conformidade do Office 365, DLP e [criptografia em repouso](https://wikipedia.org/wiki/Data_at_rest#Encryption) para dados confidenciais |Garantia de segurança do Azure: [Segurança do Azure](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/) e [logs de auditoria](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
@@ -56,8 +56,8 @@ Você pode misturar e fazer a correspondência de serviços quando você compila
 | **Desenvolvimento** | Primeiro o código (obrigatória) | Primeiro o designer (declarativa) |
 | **Conectividade** | [Vários tipos de associação integradas](functions-triggers-bindings.md#supported-bindings), escrever código para associações personalizadas | [Grande coleção de conectores](../connectors/apis-list.md), [Enterprise Integration Pack para cenários de B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [criar conectores personalizados](../logic-apps/custom-connector-overview.md) |
 | **Ações** | Cada atividade é uma função do Azure. Escrever código para funções de atividade |[Grande coleção de ações predefinidas](../logic-apps/logic-apps-workflow-actions-triggers.md)|
-| **Monitoring** | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Logs do Azure Monitor](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
-| **Gerenciamento** | [API REST](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [API REST](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
+| **Monitoring** | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Logs do Azure Monitor](../logic-apps/monitor-logic-apps.md)|
+| **Gerenciamento** | [API REST](durable/durable-functions-http-api.md), [Visual Studio](/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [API REST](/rest/api/logic/), [PowerShell](/powershell/module/az.logicapp), [Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md) |
 | **Contexto de execução** | Pode ser executado [localmente](functions-runtime-overview.md) ou na nuvem | É executado somente na nuvem|
 
 <a name="function"></a>

@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 04/05/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 222b45e455f42264a5324f138c55b822d9d8e7a1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 7c820f0cbf2e5d7b68451263315766895839716b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698616"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011185"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais de zona única com o PowerShell
 Esse script cria conjunto de dimensionamento de máquinas virtuais executando o Windows Server 2016 em uma Zona de disponibilidade única. Após a execução do script, é possível acessar a máquina virtual por RDP.
@@ -47,5 +47,5 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos e todos os recursos contidos nele. |
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/).
 

@@ -3,24 +3,19 @@ title: Noções básicas sobre o uso de máquina virtual do Azure
 description: Noções básicas dos detalhes de uso da máquina virtual
 services: virtual-machines
 documentationcenter: ''
-author: mmccrory
-manager: gwallace
-editor: ''
-tags: azure-virtual-machine
-ms.assetid: ''
+author: mimckitt
+ms.author: mimckitt
 ms.service: virtual-machines-linux
-ms.devlang: ''
 ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
-ms.author: memccror
-ms.openlocfilehash: 9abb6948a91545439b429316dc2b71c14a1792d2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 07/28/2020
+ms.openlocfilehash: 30d665cc1d573ec47681599f2bde6a40864796c9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284822"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387703"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Noções básicas sobre o uso de máquina virtual do Azure
 Ao analisar os dados de uso do Azure, podem ser obtidas informações poderosas sobre o consumo - insights que podem permitir um melhor gerenciamento e alocação de custos em toda a sua organização. Este documento fornece um aprofundamento em seus detalhes de consumo de Computação do Azure. Para obter mais detalhes sobre o uso geral do Azure, navegue até [Entendendo sua fatura](../../cost-management-billing/understand/review-individual-bill.md).
@@ -29,87 +24,86 @@ Ao analisar os dados de uso do Azure, podem ser obtidas informações poderosas 
 Para começar, [faça o download dos seus detalhes de uso](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). A tabela a seguir fornece os valores de definição e exemplo de uso para Máquinas Virtuais implantadas através do Azure Resource Manager. Este documento não contém informações detalhadas para VMs implantadas através do nosso modelo clássico.
 
 
-| Campos             | Significado                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Valores de exemplo                                                                                                                                                                                                                                                                                                                                                   |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Data de Uso         | A data na qual o recurso foi usado.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |  “11/23/2017”                                                                                                                                                                                                                                                                                                                                                     |
-| ID de medidor           | Identifica o serviço de nível superior ao qual esse uso pertence.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | “Máquinas Virtuais”                                                                                                                                                                                                                                                                                                                                               |
-| Subcategoria de medidor | O identificador de medidor cobrado. <ul><li>Para o uso de Hora de Computação, há um medidor para cada Tamanho da VM + SO (Windows, Não Windows) + Região.</li><li>Para o uso do software Premium, há um medidor para cada tipo de software. A maioria das imagens de software Premium tem medidores diferentes para cada tamanho de núcleo. Para obter mais informações, visite a [Página de Preços de Computação.](https://azure.microsoft.com/pricing/details/virtual-machines/)</li></ul>                                                                                                                                                                                                                                                                                                                                         | “2005544f-659d-49c9-9094-8e0aea1be3a5”                                                                                                                                                                                                                                                                                                                           |
-| Nome do medidor         | Isto é específico para cada serviço no Azure. Para o cálculo, é sempre "Horas de Computação".                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | “Horas de Computação”                                                                                                                                                                                                                                                                                                                                                  |
-| Região do medidor       | Identifica o local do datacenter para determinados serviços que são cobrados com base no local do datacenter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |  “Leste do Japão”                                                                                                                                                                                                                                                                                                                                                       |
-| Unidade               | Identifica a unidade em que o serviço é cobrado. Recursos de computação são cobrados por hora.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | “Horas”                                                                                                                                                                                                                                                                                                                                                          |
-| Consumido           | A quantidade do recurso que foi consumida naquele dia. Para Computação, contamos por cada minuto que a VM correu por uma hora determinada (até 6 decimais de precisão).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |    “1”, “0.5”                                                                                                                                                                                                                                                                                                                                                    |
-| Local do recurso  | Identifica o datacenter onde o recurso está sendo executado.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | “Leste do Japão”                                                                                                                                                                                                                                                                                                                                                        |
-| Serviço consumido   | O serviço da plataforma do Azure que você usou.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | "Microsoft.Compute"                                                                                                                                                                                                                                                                                                                                              |
-| Grupo de recursos     | O grupo de recursos no qual o recurso implantado está sendo executado. Para obter mais informações, consulte [Visão geral do Azure Resource Manager.]()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    "MyRG"                                                                                                                                                                                                                                                                                                                                                        |
-| ID da instância        | O identificador do recurso. O identificador contém o nome especificado para o recurso quando ele foi criado. Para as VMs, a ID da Instância conterá o SubscriptionId, ResourceGroupName e VMName (ou o nome do conjunto de dimensionamento para o uso do conjunto de dimensionamento).                                                                                                                                                                                                                                                                                                                                                                                                                    | "/assinaturas/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1”<br><br>ou<br><br>"/assinaturas/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1”                                                                                           |
-| Marcas               | Marca atribuída ao recurso. Use marcas para agrupar registros de cobrança. Saiba como [marcar suas Máquinas Virtuais.](tag.md) Isso está disponível somente para VMs do Gerenciador de Recursos.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | "{"myDepartment":"RD","myUser":"myName"}"                                                                                                                                                                                                                                                                                                                        |
-| Informações adicionais    | Metadados específicos ao serviço. Para as VMs, nós preenchemos os seguintes dados no campo de informações adicionais: <ul><li>Tipo de Imagem - especifica a imagem que foi executada. Localize a lista completa de cadeias de caracteres suportadas abaixo em Tipos de Imagem.</li><li>Tipo de Serviço: o tamanho que você implantou.</li><li>VMName: nome da sua VM. Este campo é preenchido apenas para VMs de conjunto de dimensionamento. Se for necessário o Nome da VM para VMs de conjunto de dimensionamento, será possível localizá-lo na cadeia de caracteres da ID da Instância acima.</li><li>UsageType: especifica o tipo de uso que isso representa.<ul><li>ComputeHR é o uso de Hora de Computação para a VM subjacente, como Standard_D1_v2.</li><li>ComputeHR_SW é a carga de software Premium se a VM estiver utilizando o software Premium, como o Microsoft R Server.</li></ul></li></ul>    | Máquinas Virtuais {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}<br><br>Conjuntos de dimensionamento de Máquinas Virtuais {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}<br><br>Software Premium {"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"} |
+| Campos | Significado | Valores de exemplo | 
+|---|---|---|
+| Data de Uso | A data em que o recurso foi usado | `11/23/2017` |
+| ID de Medidor | Identifica o serviço de nível superior ao qual esse uso pertence| `Virtual Machines`|
+| Subcategoria de medidor | O identificador de medidor cobrado. <br><br> Para o uso de Hora de Computação, há um medidor para cada Tamanho da VM + SO (Windows, Não Windows) + Região. <br><br> Para o uso do software Premium, há um medidor para cada tipo de software. A maioria das imagens de software Premium tem medidores diferentes para cada tamanho de núcleo. Para obter mais informações, visite a [página de preços de computação](https://azure.microsoft.com/pricing/details/virtual-machines/)</li></ul>| `2005544f-659d-49c9-9094-8e0aea1be3a5`|
+| Nome do medidor| Isto é específico para cada serviço no Azure. Para o cálculo, é sempre "Horas de Computação".| `Compute Hours`|
+| Região do medidor| Identifica o local do datacenter para determinados serviços que são cobrados com base no local do datacenter.|  `JA East`|
+| Unidade| Identifica a unidade em que o serviço é cobrado. Recursos de computação são cobrados por hora.| `Hours`|
+| Consumido| A quantidade do recurso que foi consumida naquele dia. Para Computação, contamos por cada minuto que a VM correu por uma hora determinada (até 6 decimais de precisão).| `1, 0.5`|
+| Local do recurso  | Identifica o datacenter onde o recurso está sendo executado.| `JA East`|
+| Serviço consumido | O serviço da plataforma do Azure que você usou.| `Microsoft.Compute`|
+| Grupo de recursos | O grupo de recursos no qual o recurso implantado está sendo executado. Para obter mais informações, consulte [Visão geral do Azure Resource Manager.](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)|`MyRG`|
+| ID da instância | O identificador do recurso. O identificador contém o nome especificado para o recurso quando ele foi criado. Para as VMs, a ID da Instância conterá o SubscriptionId, ResourceGroupName e VMName (ou o nome do conjunto de dimensionamento para o uso do conjunto de dimensionamento).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>ou<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
+| Marcas| Marca atribuída ao recurso. Use marcas para agrupar registros de cobrança. Saiba como [marcar suas Máquinas Virtuais.](tag.md) Isso está disponível somente para VMs do Gerenciador de Recursos.| `{"myDepartment":"RD","myUser":"myName"}`|
+| Informações adicionais | Metadados específicos ao serviço. Para as VMs, nós preenchemos os seguintes dados no campo de informações adicionais: <br><br> Tipo de Imagem - especifica a imagem que foi executada. Localize a lista completa de cadeias de caracteres suportadas abaixo em Tipos de Imagem.<br><br> Tipo de Serviço: o tamanho que você implantou.<br><br> VMName: nome da sua VM. Este campo é preenchido apenas para VMs de conjunto de dimensionamento. Se for necessário o Nome da VM para VMs de conjunto de dimensionamento, será possível localizá-lo na cadeia de caracteres da ID da Instância acima.<br><br> UsageType: especifica o tipo de uso que isso representa.<br><br> ComputeHR é o uso de Hora de Computação para a VM subjacente, como Standard_D1_v2.<br><br> ComputeHR_SW é a carga de software Premium se a VM estiver utilizando o software Premium, como o Microsoft R Server. | Máquinas Virtuais<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Conjuntos de Dimensionamento de Máquinas Virtuais<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Software Premium<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
 
 ## <a name="image-type"></a>Tipo de Imagem
 Para algumas imagens na galeria do Azure, o tipo de imagem é preenchido no campo Informações Adicionais. Isso permite aos usuários entender e rastrear o que implantaram em sua Máquina Virtual. Os seguintes valores são preenchidos nesse campo com base na imagem que você implementou:
-  - BitRock 
-  - Canônico 
-  - FreeBSD 
-  - Abrir Lógico 
-  - Oracle 
-  - SLES para SAP 
-  - Versão prévia do SQL Server 14 no Windows Server 2012 R2 Preview 
-  - SUSE
-  - SUSE Premium
-  - Dispositivo de Nuvem StorSimple 
-  - Red Hat
-  - Red Hat para aplicativos de negócios SAP     
-  - Red Hat para SAP HANA 
-  - Windows Client BYOL 
-  - Windows Server BYOL 
-  - Versão prévia do Windows Server 
+- BitRock 
+- FreeBSD canônico 
+- Abrir Lógico 
+- Oracle 
+- SLES para SAP 
+- Versão prévia do SQL Server 14 no Windows Server 2012 R2 Preview 
+- SUSE
+- SUSE Premium
+- Dispositivo de Nuvem StorSimple 
+- Red Hat
+- Red Hat para aplicativos de negócios SAP     
+- Red Hat para SAP HANA 
+- Windows Client BYOL 
+- Windows Server BYOL 
+- Versão prévia do Windows Server 
 
 ## <a name="service-type"></a>Tipo de Serviço
-O campo de tipo de serviço no campo Informações Adicionais corresponde ao tamanho exato da VM implantada. VMs de armazenamento Premium (baseadas em SSD) e VMs de armazenamento não Premium (baseadas em HDD) possuem o mesmo preço. Se você implantar um tamanho baseado em SSD, como Standard\_DS2\_v2, você visualizará o tamanho não SSD (‘Standard\_D2\_v2 VM’) na coluna Subcategoria do Medidor e o Tamanho SSD (‘Standard\_DS2\_v2’) no campo Informações Adicionais.
+O campo de tipo de serviço no campo Informações Adicionais corresponde ao tamanho exato da VM implantada. VMs de armazenamento Premium (baseadas em SSD) e VMs de armazenamento não Premium (baseadas em HDD) possuem o mesmo preço. Se você implantar um tamanho baseado em SSD, como \_ o Standard DS2 \_ v2, verá o tamanho não SSD ( `Standard\_D2\_v2 VM` ) na coluna de subcategoria do medidor e o tamanho do SSD ( `Standard\_DS2\_v2` ) no campo informações adicionais.
 
 ## <a name="region-names"></a>Nomes de região
 O nome da região preenchido no campo Local do Recurso nos detalhes de uso varia do nome de região utilizado no Azure Resource Manager. Aqui está um mapeamento entre os valores de região:
 
-|    **Nome da região do Gerenciador de Recursos**       |    **Local do recurso em Detalhes de uso**    |
-|--------------------------|------------------------------------------|
-|    australiaeast         |    Leste da Austrália                               |
-|    australiasoutheast    |    Sudeste da Austrália                          |
-|    brazilsouth           |    Sul do Brasil                              |
-|    Canadá Central         |    CA Central                            |
-|    CanadaEast            |    Leste do Canadá                               |
-|    CentralIndia          |    Índia Central                            |
-|    centralus             |    Centro dos EUA                            |
-|    chinaeast             |    Leste da China                            |
-|    chinanorth            |    Norte da China                           |
-|    eastasia              |    Leste da Ásia                             |
-|    eastus                |    Leste dos EUA                               |
-|    eastus2               |    Leste dos EUA 2                             |
-|    GermanyCentral        |    Alemanha Central                            |
-|    GermanyNortheast      |    Nordeste da Alemanha                          |
-|    japaneast             |    Leste do Japão                               |
-|    japanwest             |    Oeste do Japão                               |
-|    KoreaCentral          |    Coreia Central                            |
-|    KoreaSouth            |    Sul da Coreia                              |
-|    northcentralus        |    Centro-Norte dos EUA                      |
-|    northeurope           |    Norte da Europa                          |
-|    southcentralus        |    Centro-Sul dos Estados Unidos                      |
-|    southeastasia         |    Sudeste Asiático                        |
-|    SouthIndia            |    Sul da Índia                              |
-|    UKNorth               |    Norte do Reino Unido                              |
-|    uksouth               |    Sul do Reino Unido                              |
-|    UKSouth2              |    Sul do Reino Unido 2                            |
-|    ukwest                |    Oeste do Reino Unido                               |
-|    USDoDCentral          |    DoD Central dos EUA                        |
-|    USDoDEast             |    DoD do Leste dos EUA                           |
-|    USGovArizona          |    Gov. dos EUA – Arizona                         |
-|    usgoviowa             |    USGov Iowa                            |
-|    USGovTexas            |    Gov. dos EUA – Texas                           |
-|    usgovvirginia         |    USGov Virginia                        |
-|    westcentralus         |    Centro-Oeste dos EUA                       |
-|    westeurope            |    Europa Ocidental                           |
-|    WestIndia             |    Oeste da Índia                               |
-|    westus                |    Oeste dos EUA                               |
-|    westus2               |    Oeste dos EUA 2                             |
+| **Nome da região do Gerenciador de Recursos** | **Local do recurso em Detalhes de uso** |
+|---|---|
+| australiaeast |Leste da Austrália|
+| australiasoutheast | Sudeste da Austrália|
+| brazilsouth | Sul do Brasil|
+| Canadá Central | CA Central|
+| CanadaEast | Leste do Canadá|
+| CentralIndia | Índia Central|
+| centralus | Centro dos EUA|
+| chinaeast | Leste da China|
+| chinanorth | Norte da China|
+| eastasia | Leste da Ásia|
+| eastus | Leste dos EUA|
+| eastus2 | Leste dos EUA 2|
+| GermanyCentral | Alemanha Central|
+| GermanyNortheast | Nordeste da Alemanha|
+| japaneast | Leste do Japão|
+| japanwest | Oeste do Japão|
+| KoreaCentral | Coreia Central|
+| KoreaSouth | Sul da Coreia|
+| northcentralus | Centro-Norte dos EUA|
+| northeurope | Norte da Europa|
+| southcentralus | Centro-Sul dos Estados Unidos|
+| southeastasia | Sudeste Asiático|
+| SouthIndia | Sul da Índia|
+| UKNorth | Norte do Reino Unido|
+| uksouth | Sul do Reino Unido|
+| UKSouth2 | Sul do Reino Unido 2|
+| ukwest | Oeste do Reino Unido|
+| USDoDCentral | DoD Central dos EUA|
+| USDoDEast | DoD do Leste dos EUA|
+| USGovArizona | Gov. dos EUA – Arizona|
+| usgoviowa | USGov Iowa|
+| USGovTexas | Gov. dos EUA – Texas|
+| usgovvirginia | USGov Virginia|
+| westcentralus | Centro-Oeste dos EUA|
+| westeurope | Europa Ocidental|
+| WestIndia | Oeste da Índia|
+| westus | Oeste dos EUA|
+| westus2 | Oeste dos EUA 2|
 
 
 ## <a name="virtual-machine-usage-faq"></a>Perguntas Frequentes sobre Máquina Virtual

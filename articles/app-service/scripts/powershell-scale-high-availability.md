@@ -6,18 +6,18 @@ ms.assetid: 470f0129-1efe-462c-a029-5c66e04158a8
 ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
-ms.openlocfilehash: 6ffcf22b640d6393ed48d803f6f52bac5334d4b7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 244ba5e78723429580f1aa7a5fd326045ba19499
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74684339"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083201"
 ---
 # <a name="scale-a-web-app-worldwide-with-a-high-availability-architecture"></a>Escalar um aplicativo Web em todo o mundo com uma arquitetura de alta disponibilidade
 
 Nesse cenário, você criará um grupo de recursos, dois planos de serviço de aplicativo, dois aplicativos web, um perfil do Gerenciador de tráfego e dois pontos de extremidade de Gerenciador de tráfego. Depois que o exercício for concluído, você terá uma alta disponibilidade a arquitetura que permite que fornece disponibilidade global do seu aplicativo Web com base na menor latência de rede.
 
-Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzAccount` para criar uma conexão com o Azure.
+Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/) e, em seguida, execute `Connect-AzAccount` para criar uma conexão com o Azure.
 
 ## <a name="sample-script"></a>Exemplo de script
 
@@ -47,6 +47,6 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/).
 
 Exemplos adicionais do Azure PowerShell para Aplicativos Web do Serviço de Aplicativo do Azure podem ser encontrados nos [exemplos do Azure PowerShell](../samples-powershell.md).

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: 4f34b3e7567a65dca45fd29b4e8aa9b78a6ced76
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: f43db986f70e64e55225465223b7e324450541a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126980"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084329"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs-version-300-preview1"></a>Tutorial: Enviar notificações por push para aplicativos iOS usando os Hubs de Notificação do Microsoft Azure (versão 3.0.0 versão prévia 1)
 
@@ -352,7 +352,7 @@ Para obter mais informações, consulte os seguintes artigos:
 - [Gerenciamento de registros](notification-hubs-push-notification-registration-management.md)
 - [Como trabalhar com marcas](notification-hubs-tags-segment-push-message.md)
 - [Como trabalhar com modelos personalizados](notification-hubs-templates-cross-platform-push-messages.md)
-- [Controle de acesso do Barramento de Serviço com assinaturas de acesso compartilhado](/azure/service-bus-messaging/service-bus-sas)
+- [Controle de acesso do Barramento de Serviço com assinaturas de acesso compartilhado](../service-bus-messaging/service-bus-sas.md)
 - [Gerar tokens SAS programaticamente](/rest/api/eventhub/generate-sas-token)
 - [Segurança da Apple: criptografia comum](https://developer.apple.com/security/)
 - [Hora da época do UNIX](https://en.wikipedia.org/wiki/Unix_time)

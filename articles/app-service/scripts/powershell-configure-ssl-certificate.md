@@ -7,18 +7,18 @@ ms.assetid: 23e83b74-614a-49a0-bc08-7542120eeec5
 ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 5116585b701717a82b757cae70f938c321a1f7d1
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: c0e68627691732e6cbcd08b423199164a69193d4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81532469"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083337"
 ---
 # <a name="bind-a-custom-tlsssl-certificate-to-a-web-app-using-powershell"></a>Associar um certificado TLS/SSL personalizado a um aplicativo Web usando o PowerShell
 
 Este exemplo de script cria um aplicativo Web no Serviço de Aplicativo com seus recursos relacionados e associa o certificado TLS/SSL de um nome de domínio personalizado a ele. 
 
-Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzAccount` para criar uma conexão com o Azure. Além disso, verifique se:
+Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/) e, em seguida, execute `Connect-AzAccount` para criar uma conexão com o Azure. Além disso, verifique se:
 
 - Uma conexão com o Azure foi criado usando o comando `az login`.
 - Você tem acesso à página de configuração do DNS do registrador de seu domínio.
@@ -53,6 +53,6 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/).
 
 Exemplos adicionais do Azure PowerShell para Aplicativos Web do Serviço de Aplicativo do Azure podem ser encontrados nos [exemplos do Azure PowerShell](../samples-powershell.md).

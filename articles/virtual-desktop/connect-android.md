@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 40a907cdeb4934b4518fb6b1923d69a004f14d8d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1d0aebffa5f3d27a77928c2a1c7461384bf99ce8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291483"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387873"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-android-client"></a>Conectar-se à área de trabalho virtual do Windows com o cliente Android
 
@@ -21,9 +21,6 @@ ms.locfileid: "87291483"
 
 >[!IMPORTANT]
 >Esse conteúdo se aplica à área de trabalho virtual do Windows com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows (clássico) sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/connect-android-2019.md).
-
->[!NOTE]
-> A capacidade de acessar recursos da área de trabalho virtual do Windows a partir do cliente Android está disponível no momento na versão prévia.
 
 Você pode acessar os recursos da área de trabalho virtual do Windows em seu dispositivo Android com nosso cliente baixável. Você também pode usar o cliente Android em dispositivos Chromebook que dão suporte ao Google Play Store. Este guia lhe dirá como configurar o cliente Android.
 

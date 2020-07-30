@@ -1,6 +1,6 @@
 ---
 title: Proteger um serviço vinculado
-description: Saiba como provisionar e proteger um serviço vinculado com vnet gerenciada
+description: Saiba como provisionar e proteger um serviço vinculado com VNet gerenciada
 services: synapse-analytics
 author: acomet
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c7cf8ec7297b3c0ef855936becc3c06a5120a38
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1ce127dbfd9984b3fb18e518701cbbd3a87f5988
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496070"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387227"
 ---
-# <a name="securing-a-linked-service-with-private-links"></a>Protegendo um serviço vinculado com links privados 
+# <a name="secure-a-linked-service-with-private-links"></a>Proteger um serviço vinculado com links privados 
 
 Neste artigo, você aprenderá a proteger um serviço vinculado no Synapse com um ponto de extremidade privado.
 
@@ -35,25 +35,25 @@ No Azure Synapse Analytics, um serviço vinculado é onde você define as inform
 1. Em **Conexões externas**, selecione **Serviços vinculados**.
 1. Para adicionar um serviço vinculado, clique em **Novo**.
 1. Selecione a peça do Azure Data Lake Storage Gen2 na lista e clique em **Continuar**.
-1. Certifique-se de habilitar a **criação interativa**. Pode levar cerca de 1 minuto para ser habilitado. 
+1. Lembre-se de habilitar **Criação Interativa**. Pode levar cerca de um minuto para habilitar essa opção. 
 1. Insira as credenciais de autenticação. A chave de conta, a entidade de serviço e a identidade gerenciada são tipos de autenticação atualmente suportados. Clique em testar conexão para verificar se suas credenciais estão corretas.
 1. Selecione **testar conexão**, ele deve falhar porque a conta de armazenamento não permite o acesso a ela sem a criação e a aprovação de um ponto de extremidade privado. Na mensagem de erro, você deve ver um link para criar um **ponto de extremidade privado** que você pode seguir para ir para a próxima parte. Se você seguir esse link, ignore a próxima parte.
 1. Selecione **Criar** quando terminar.
 
 ## <a name="create-a-managed-private-endpoint"></a>Criar um ponto de extremidade privado gerenciado
 
-Caso você não tenha clicado no hiperlink ao testar a conexão acima, siga o caminho a seguir. Agora você precisa criar um ponto de extremidade privado gerenciado que será conectado ao serviço vinculado criado acima.
+Caso você não tenha clicado no hiperlink ao testar a conexão acima, siga o caminho a seguir. Agora você precisará criar um ponto de extremidade privado gerenciado que será conectado ao serviço vinculado criado acima.
 
 1. Vá para a guia **gerenciar** .
 1. Vá para a seção **redes virtuais gerenciadas** .
 1. Selecione **+ novo** em ponto de extremidade privado gerenciado.
 1. Selecione o bloco Azure Data Lake Storage Gen2 na lista e selecione **continuar**.
-1. Insira o nome da conta de armazenamento que você criou acima.
+1. Insira o nome da conta de armazenamento criada acima.
 1. Escolha **Criar**
-1. Você deve ver depois de aguardar alguns segundos que o link privado criado precisa de uma aprovação.
+1. Depois de aguardar alguns segundos, você verá que o link privado criado precisa de uma aprovação.
 
-## <a name="approval-of-a-private-link"></a>Aprovação de um link privado
-1. Selecione o ponto de extremidade privado que você criou acima. Você pode ver um hiperlink que permitirá aprovar o ponto de extremidade privado no nível da conta de armazenamento. *Uma alternativa é ir diretamente para a conta de armazenamento portal do Azure e ir para a folha **conexões de ponto de extremidade privado** .*
+## <a name="private-link-approval"></a>Aprovação de link particular
+1. Selecione o ponto de extremidade privado criado acima. Você pode ver um hiperlink que permitirá aprovar o ponto de extremidade privado no nível da conta de armazenamento. *Uma alternativa é ir diretamente para a conta de armazenamento portal do Azure e ir para a folha **conexões de ponto de extremidade privado** .*
 1. Marque o ponto de extremidade privado que você criou no estúdio e selecione **aprovar**.
 1. Adicione uma descrição e clique em **Sim**
 1. Volte para o Synapse Studio na seção **redes virtuais gerenciadas** da guia **gerenciar** .

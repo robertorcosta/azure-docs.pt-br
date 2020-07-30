@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 07/02/2019
-ms.openlocfilehash: b3d5d003db89a11a013c3236a3afbe03ffe68557
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f88496a6c474194089f20e128b2b92ec61e8559
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76271011"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083422"
 ---
 # <a name="high-performance-computing-on-h-series-vms"></a>Computação de alto desempenho em VMs da série H
 
@@ -39,7 +39,7 @@ Confira [Habilitar InfiniBand](enable-infiniband.md) para saber mais sobre como 
 
 ## <a name="get-started"></a>Introdução
 
-Primeiro, decida qual VM da série H você pretende usar. Para obter detalhes sobre VMs otimizadas para HPC, confira [Visão geral da série HB](hb-series-overview.md) e [Visão geral da série HC](hc-series-overview.md). Para obter especificações, confira [Tamanhos de VM de computação de alto desempenho](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc).
+Primeiro, decida qual VM da série H você pretende usar. Para obter detalhes sobre VMs otimizadas para HPC, confira [Visão geral da série HB](hb-series-overview.md) e [Visão geral da série HC](hc-series-overview.md). Para obter especificações, confira [Tamanhos de VM de computação de alto desempenho](../../sizes-hpc.md).
 
 Depois de ter selecionado e criado uma VM para seu aplicativo, você precisará configurá-lo habilitando InfiniBand. Para saber como habilitar InfiniBand em VMs do Linux e do Windows, confira [Habilitar InfiniBand](enable-infiniband.md).
 
@@ -51,4 +51,4 @@ Depois de escolher sua série de VM, configurar Infiniband e MPI, você está pr
 
 - Examine a [Visão geral da série HB](hb-series-overview.md) e a [Visão geral da série HC](hc-series-overview.md) para saber mais sobre as principais diferenças e especificações.
 
-- Para um nível mais alto, a exibição da arquitetura de cargas de trabalho HPC em execução, confira [HPC (computação de alto desempenho) no Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
+- Para um nível mais alto, a exibição da arquitetura de cargas de trabalho HPC em execução, confira [HPC (computação de alto desempenho) no Azure](/azure/architecture/topics/high-performance-computing/).

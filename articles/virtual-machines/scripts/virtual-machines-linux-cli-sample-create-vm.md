@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 85b5b867c9c9d640e35717e1e14470e9c54efc0b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2dd59d7ebde87ead1d91bb0ac8d28f5d53964bd1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460385"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010420"
 ---
 # <a name="create-a-fully-configured-virtual-machine"></a>Criar uma máquina virtual totalmente configurada
 
@@ -48,17 +48,17 @@ Este script usa os comandos a seguir para criar um grupo de recursos, uma máqui
 
 | Comando | Observações |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Cria uma sub-rede e uma rede virtual do Azure. |
-| [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) | Cria um endereço IP público com um endereço IP estático e um nome DNS associado. |
-| [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg) | Cria um grupo de segurança de rede (NSG), que é um limite de segurança entre a Internet e a máquina virtual. |
-| [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Cria uma regra NSG para permitir o tráfego de entrada. Neste exemplo, a porta 22 é aberta para o tráfego SSH. |
-| [az network nic create](https://docs.microsoft.com/cli/azure/network/nic) | Cria uma placa de rede virtual e a anexa à rede virtual, à sub-rede e ao NSG. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Cria a máquina virtual e a conecta a placa de rede, a rede virtual, a sub-rede e o NSG. Este comando também especifica a imagem de máquina virtual a ser usada e as credenciais administrativas.  |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az network vnet create](/cli/azure/network/vnet) | Cria uma sub-rede e uma rede virtual do Azure. |
+| [az network public-ip create](/cli/azure/network/public-ip) | Cria um endereço IP público com um endereço IP estático e um nome DNS associado. |
+| [az network nsg create](/cli/azure/network/nsg) | Cria um grupo de segurança de rede (NSG), que é um limite de segurança entre a Internet e a máquina virtual. |
+| [az network nsg rule create](/cli/azure/network/nsg/rule) | Cria uma regra NSG para permitir o tráfego de entrada. Neste exemplo, a porta 22 é aberta para o tráfego SSH. |
+| [az network nic create](/cli/azure/network/nic) | Cria uma placa de rede virtual e a anexa à rede virtual, à sub-rede e ao NSG. |
+| [az vm create](/cli/azure/vm) | Cria a máquina virtual e a conecta a placa de rede, a rede virtual, a sub-rede e o NSG. Este comando também especifica a imagem de máquina virtual a ser usada e as credenciais administrativas.  |
+| [az group delete](/cli/azure/vm/extension) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
 Os exemplos de script da CLI de máquina virtual adicionais podem ser encontrados na [documentação da VM Linux do Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

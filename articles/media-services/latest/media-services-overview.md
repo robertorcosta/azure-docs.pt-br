@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: bd3890757377525cf9c178866a2a2fbc0791b9de
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d5f54d65fcfd8a124b30a785697d53ad120fbf9c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79461003"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000918"
 ---
 # <a name="azure-media-services-v3-overview"></a>Visão geral dos Serviços de Mídia do Azure v3
 
@@ -31,7 +31,7 @@ Os Serviços de Mídia do Azure são uma plataforma baseada em nuvem que permite
 Os SDKs dos Serviços de Mídia v3 são baseados na [Especificação de OpenAPI dos Serviços de Mídia v3 (Swagger)](https://aka.ms/ams-v3-rest-sdk).
 
 > [!NOTE]
-> No momento, você pode usar o [portal do Azure](https://portal.azure.com/) para: gerenciar os [Eventos ao vivo](live-events-outputs-concept.md) dos Serviços de Mídia v3, exibir (não gerenciar) [Ativos](assets-concept.md) do v3 e [obter informações sobre como acessar APIs](access-api-portal.md). Para todas as outras tarefas de gerenciamento (por exemplo, [Transformações e Trabalhos](transforms-jobs-concept.md) e [Proteção de conteúdo](content-protection-overview.md)), use a [API REST](https://docs.microsoft.com/rest/api/media/), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.
+> No momento, você pode usar o [portal do Azure](https://portal.azure.com/) para: gerenciar os [Eventos ao vivo](live-events-outputs-concept.md) dos Serviços de Mídia v3, exibir (não gerenciar) [Ativos](assets-concept.md) do v3 e [obter informações sobre como acessar APIs](./access-api-howto.md). Para todas as outras tarefas de gerenciamento (por exemplo, [Transformações e Trabalhos](transforms-jobs-concept.md) e [Proteção de conteúdo](content-protection-overview.md)), use a [API REST](/rest/api/media/), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -53,8 +53,8 @@ Os Serviços de Mídia permitem criar diversos fluxos de trabalho de mídia na n
 * Analise o conteúdo do áudio ou vídeo gravado. Por exemplo, para alcançar maior satisfação dos clientes, as organizações podem extrair a conversão de fala em texto e criar índices de pesquisa e painéis. Em seguida, elas podem extrair dados inteligentes sobre reclamações comuns, fontes de reclamações e outros dados relevantes.
 * Crie um serviço de assinatura de vídeo e transmita conteúdo protegido por DRM quando um cliente (por exemplo, um estúdio de cinema) precisar restringir o acesso e uso de um trabalho protegido por direitos autorais.
 * Forneça conteúdo offline para reprodução em aviões, trens e automóveis. Talvez um cliente precise baixar o conteúdo no telefone ou tablet para reprodução quando ele estiver desconectado da rede.
-* Implemente uma plataforma de vídeo educacional de E-Learning com os Serviços de Mídia do Microsoft Azure e a [API de Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/?pivot=products&panel=ai) para fazer a conversão de fala em texto de legenda, traduzir para vários idiomas, e muito mais.
-* Use os Serviços de Mídia do Azure junto com a [API de Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/?pivot=products&panel=ai) para adicionar subtítulos e legendas a vídeos para abranger um público mais amplo (por exemplo, pessoas com deficiência auditiva ou que desejam acompanhar a leitura em um idioma diferente).
+* Implemente uma plataforma de vídeo educacional de E-Learning com os Serviços de Mídia do Microsoft Azure e a [API de Serviços Cognitivos do Azure](../../index.yml?pivot=products&panel=ai) para fazer a conversão de fala em texto de legenda, traduzir para vários idiomas, e muito mais.
+* Use os Serviços de Mídia do Azure junto com a [API de Serviços Cognitivos do Azure](../../index.yml?pivot=products&panel=ai) para adicionar subtítulos e legendas a vídeos para abranger um público mais amplo (por exemplo, pessoas com deficiência auditiva ou que desejam acompanhar a leitura em um idioma diferente).
 * Habilite a CDN do Azure para conseguir um dimensionamento grande para lidar melhor com altas cargas instantâneas (por exemplo, o início de um evento de lançamento de produto).
 
 ## <a name="how-can-i-get-started-with-v3"></a>Como posso começar a v3? 
@@ -88,14 +88,14 @@ Os tutoriais mostram os procedimentos baseados em cenário para algumas das prin
 
 ### <a name="samples"></a>Exemplos
 
-Use [este navegador de exemplo](https://docs.microsoft.com/samples/browse/?products=azure-media-services) para procurar exemplos de código dos Serviços de Mídia do Azure.
+Use [este navegador de exemplo](/samples/browse/?products=azure-media-services) para procurar exemplos de código dos Serviços de Mídia do Azure.
 
 ### <a name="how-to-guides"></a>Guias de instruções
 
 Os guias de instruções contêm exemplos de código que demonstram como concluir uma tarefa. Você encontrará vários exemplos nesta seção. Veja algumas opções:
 
-* [Criar uma conta – CLI](create-account-cli-how-to.md)
-* [Acessar as APIs – CLI](access-api-cli-how-to.md)
+* [Criar uma conta – CLI](./create-account-howto.md)
+* [Acessar as APIs – CLI](./access-api-howto.md)
 * [Codificar com HTTPS como entrada de trabalho – .NET](job-input-from-http-how-to.md)  
 * [Monitorar eventos – Portal](monitor-events-portal-how-to.md)
 * [Criptografar dinamicamente com vários DRM – .NET](protect-with-drm.md) 
