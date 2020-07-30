@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c6db9ed92161e968b36c75b8bee5a847137c072
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: ba0c44953a33e6ccd0bbe406159e9636411695ca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631877"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017085"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SSO do SAML para o JIRA da Microsoft
 
@@ -57,6 +57,9 @@ Para começar, você precisará dos seguintes itens:
 
 * Não use o ambiente de produção, a menos que seja necessário.
 * Assinatura do SSO do SAML para o JIRA da Microsoft habilitada para SSO (logon único).
+
+> [!NOTE]
+> Essa integração também está disponível para uso do ambiente de Nuvem do Governo dos EUA do Azure AD. Encontre esse aplicativo na Galeria de Aplicativos de Nuvem do Governo dos EUA do Azure AD e configure-o da mesma forma que na nuvem pública.
 
 ## <a name="supported-versions-of-jira"></a>Versões com suporte do JIRA
 

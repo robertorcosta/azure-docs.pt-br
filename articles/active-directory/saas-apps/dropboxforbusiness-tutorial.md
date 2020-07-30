@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c596a1477c773717e0a6170d8931aeaf40594f5
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 67d684b85948a0d153d334a26f6860b4c13ed26c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85479956"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017798"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>Tutorial: Integrar o Dropbox Business ao Azure Active Directory
 
@@ -38,6 +38,9 @@ Para começar, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma avaliação gratuita de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 * Assinatura habilitada para logon único (SSO) do Dropbox Business.
+
+> [!NOTE]
+> Essa integração também está disponível para uso do ambiente de Nuvem do Governo dos EUA do Azure AD. Encontre esse aplicativo na Galeria de Aplicativos de Nuvem do Governo dos EUA do Azure AD e configure-o da mesma forma que na nuvem pública.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 

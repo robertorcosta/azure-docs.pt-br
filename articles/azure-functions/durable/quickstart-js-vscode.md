@@ -5,12 +5,13 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 4ac33a01f574f537d64c706842c7d867f387c804
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 7614cec43fd9b2f294a04ed266cb0614f6cde872
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194460"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291826"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Criar sua primeira função durável em JavaScript
 
@@ -185,7 +186,7 @@ Após verificar se a função foi executada corretamente no computador local, é
 
 ## <a name="test-your-function-in-azure"></a>Testar sua função no Azure
 
-1. Copie a URL do gatilho de HTTP do painel **Saída**. A URL que chama a função disparada por HTTP deve estar neste formato: `http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator`
+1. Copie a URL do gatilho de HTTP do painel **Saída**. A URL que chama a função disparada por HTTP deve estar neste formato: `http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 
 2. Cole essa nova URL para a solicitação HTTP na barra de endereços do navegador. Ao usar o aplicativo publicado, você deve obter a mesma resposta de status como antes.
 

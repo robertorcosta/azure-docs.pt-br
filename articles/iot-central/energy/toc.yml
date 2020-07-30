@@ -22,8 +22,6 @@
   items:
     - name: Conectar dispositivos
       items:
-        - name: Preparar e conectar um MXChip IoT DevKit
-          href: ../core/howto-connect-devkit.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Preparar e conectar um Rigado Cascade 500
           href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Monitorar a conectividade do dispositivo usando a CLI do Azure
@@ -105,9 +103,9 @@
     - name: SDKs do Azure IoT
       items:
         - name: SDKs do Serviço de IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: SDKs do dispositivo IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Solicitações de dados do cliente
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
     - name: Navegadores com suporte

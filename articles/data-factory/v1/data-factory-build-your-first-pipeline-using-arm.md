@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: e6a14cbb758426203a46ac508fe8e4bfdf3090cf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4bbcd107459b860b08cdcbb53e2f09a9cd35bb5e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82203889"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007462"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar seu primeiro Azure data factory usando o modelo do Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ O pipeline deste tutorial tem uma atividade: **Atividade do Hive no HDInsight**.
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Leia o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de **pré-requisito** .
-* Siga as instruções do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalar a última versão do Azure PowerShell no computador.
+* Siga as instruções do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/) para instalar a última versão do Azure PowerShell no computador.
 * Veja [Criando modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para saber mais sobre os modelos do Azure Resource Manager. 
 
 ## <a name="in-this-tutorial"></a>Neste tutorial

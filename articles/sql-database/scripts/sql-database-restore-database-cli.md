@@ -11,12 +11,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: c33191097afc54189df1099a2d13f606e1516e54
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a03dd719dfeebfaf76a3f33748715d8c31df8ff5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022617"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070838"
 ---
 # <a name="use-cli-to-restore-a-single-database-in-azure-sql-database-to-an-earlier-point-in-time"></a>Usar a CLI para restaurar um banco de dados individual no Banco de Dados SQL do Azure para um ponto anterior no tempo
 
@@ -52,7 +52,7 @@ az group delete --name $resource
 
 Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
-| | |
+| Comando | Descrição |
 |---|---|
 | [az sql db restore](/cli/azure/sql/db#az-sql-db-restore) | Comando de restauração de banco de dados. |
 
