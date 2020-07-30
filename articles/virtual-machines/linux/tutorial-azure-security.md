@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9b70474a985cde1cd6d7d98e84f7f228fde7a812
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 6711075ba3a58e526733c3a18cab03084edc067e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460096"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080090"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Tutorial: Usar a Central de Segurança do Azure para monitorar máquinas virtuais do Linux
 
@@ -57,7 +57,7 @@ O agente de coleta de dados da Central de segurança é instalado em todas as VM
 
 ## <a name="set-up-a-security-policy"></a>Configurar uma política de segurança
 
-Políticas de segurança são usadas para definir os itens para os quais a Central de segurança coleta dados e faz recomendações. Você pode aplicar diferentes políticas de segurança a diferentes conjuntos de recursos do Azure. Embora, por padrão, os recursos do Azure são avaliados em relação a todos os itens de política, você pode desativar itens individuais de política para todos os recursos do Azure ou para um grupo de recursos. Para obter informações detalhadas sobre as políticas de segurança da Central de Segurança, consulte [Definir políticas de segurança na Central de Segurança do Azure](../../security-center/security-center-policies.md). 
+Políticas de segurança são usadas para definir os itens para os quais a Central de segurança coleta dados e faz recomendações. Você pode aplicar diferentes políticas de segurança a diferentes conjuntos de recursos do Azure. Embora, por padrão, os recursos do Azure são avaliados em relação a todos os itens de política, você pode desativar itens individuais de política para todos os recursos do Azure ou para um grupo de recursos. Para obter informações detalhadas sobre as políticas de segurança da Central de Segurança, consulte [Definir políticas de segurança na Central de Segurança do Azure](../../security-center/tutorial-security-policy.md). 
 
 Para configurar uma política de segurança para uma assinatura inteira:
 
@@ -134,4 +134,3 @@ Avance para o próximo tutorial para saber mais sobre como criar um pipeline de 
 
 > [!div class="nextstepaction"]
 > [Criar uma infra-estrutura de CI/CD com Jenkins, GitHub e Docker](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
-

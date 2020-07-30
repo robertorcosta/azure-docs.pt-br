@@ -13,12 +13,12 @@ ms.date: 05/27/2020
 ms.author: dbradish
 ms.reviewer: sethm
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 3014a66c633a4293de8cd6eb325e962366c103b9
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d32bae48348e482e0e175760a416097ffbc17a1c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85208256"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080940"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Início Rápido: Criar um hub de notificação do Azure usando a CLI do Azure
 
@@ -95,7 +95,7 @@ Os Hubs de Notificação exigem a versão 2.0.67 ou posterior da CLI do Azure. E
    az notification-hub namespace create --resource-group spnhubrg --name spnhubns  --location eastus --sku Free
    ```
 
-   Se o `--name` fornecido ao comando `az notification-hub namespace create` não estiver disponível ou não atender às [regras de nomenclatura e restrições para os recursos do Azure](/azure/azure-resource-manager/management/resource-name-rules), a CLI do Azure responderá com a seguinte saída no console:
+   Se o `--name` fornecido ao comando `az notification-hub namespace create` não estiver disponível ou não atender às [regras de nomenclatura e restrições para os recursos do Azure](../azure-resource-manager/management/resource-name-rules.md), a CLI do Azure responderá com a seguinte saída no console:
 
    ```output
    #the name is not available
@@ -148,7 +148,7 @@ Os Hubs de Notificação exigem a versão 2.0.67 ou posterior da CLI do Azure. E
 
 1. Listar políticas de acesso para um hub de notificação.
 
-   Os Hubs de Notificação do Azure usam [segurança de assinatura de acesso compartilhado](/azure/notification-hubs/notification-hubs-push-notification-security) por meio do uso de políticas de acesso.  Duas políticas são criadas automaticamente quando você cria um hub de notificação.  As cadeias de conexão dessas políticas são necessárias para configurar as notificações por push.  O comando [az  notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) fornece uma lista de nomes de política e seus respectivos grupos de recursos.
+   Os Hubs de Notificação do Azure usam [segurança de assinatura de acesso compartilhado](./notification-hubs-push-notification-security.md) por meio do uso de políticas de acesso.  Duas políticas são criadas automaticamente quando você cria um hub de notificação.  As cadeias de conexão dessas políticas são necessárias para configurar as notificações por push.  O comando [az  notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) fornece uma lista de nomes de política e seus respectivos grupos de recursos.
 
    ```azurecli
    az notification-hub authorization-rule list --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --output table
@@ -167,7 +167,7 @@ Os Hubs de Notificação exigem a versão 2.0.67 ou posterior da CLI do Azure. E
 
 3. Listar as chaves e as cadeias de conexão para uma política de acesso do hub de notificação
 
-   Há dois conjuntos de chaves e cadeias de conexão para cada política de acesso.  Você precisará delas mais tarde para [configurar um hub de notificação](/azure/notification-hubs/configure-notification-hub-portal-pns-settings).  Para listar as chaves e as cadeias de conexão para uma política de acesso do hub de notificação, use o comando [az notification-hub authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys).
+   Há dois conjuntos de chaves e cadeias de conexão para cada política de acesso.  Você precisará delas mais tarde para [configurar um hub de notificação](./configure-notification-hub-portal-pns-settings.md).  Para listar as chaves e as cadeias de conexão para uma política de acesso do hub de notificação, use o comando [az notification-hub authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys).
 
    ```azurecli
    #query the keys and connection strings for DefaultListenSharedAccessSignature

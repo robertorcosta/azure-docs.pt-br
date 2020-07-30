@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.openlocfilehash: 5e654fe5d31a225a855da8477e073ceeb1a68634
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: aff9bf83795043e0176d7a3f155844c8dbe0281a
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767243"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337459"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Início Rápido: Criar um trabalho do Azure Stream Analytics usando o Visual Studio
 
@@ -42,9 +42,9 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados, q
    
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
-   |Subscription  | \<Sua assinatura\> |  Selecione a assinatura do Azure que você deseja usar. |
+   |Subscription  | \<Your subscription\> |  Selecione a assinatura do Azure que deseja usar. |
    |Resource group   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e insira um novo nome de grupo de recursos para a conta. |
-   |Região  |  \<Selecione a região mais próxima de seus usuários\> | Selecione uma localização geográfica na qual você possa hospedar o Hub IoT. Use a localização mais próxima dos usuários. |
+   |Região  |  \<Select the region that is closest to your users\> | Selecione uma localização geográfica na qual você possa hospedar o Hub IoT. Use a localização mais próxima dos usuários. |
    |Nome do Hub IoT  | MyASAIoTHub  |   Selecione um nome para o Hub IoT.   |
 
    ![Crie um Hub IoT](./media/stream-analytics-quick-create-vs/create-iot-hub.png)
@@ -116,7 +116,7 @@ Observe os elementos que são incluídos em um projeto do Azure Stream Analytics
    |Tipo de Fonte   |  Fluxo de dados |  Escolha a fonte de entrada apropriada: Fluxo de Dados ou Dados de Referência.   |
    |Fonte  |  Hub IoT |  Escolha a fonte de entrada apropriada.   |
    |Recurso  | Escolha fonte de dados da conta atual | Escolha entre inserir os dados manualmente ou selecione uma conta existente.   |
-   |Subscription  |  \<Sua assinatura\>   | Selecione a assinatura do Azure que tem o Hub IoT criado.   |
+   |Subscription  |  \<Your subscription\>   | Selecione a assinatura do Azure que tem o Hub IoT criado.   |
    |Hub IoT  |  MyASAIoTHub   |  Escolha ou insira o nome do Hub IoT. Os nomes do Hub IoT são detectados automaticamente se eles são criados na mesma assinatura.   |
    
 3. Deixe as outras opções com os valores padrão e selecione **Salvar** para salvar as configurações.  
@@ -134,7 +134,7 @@ Observe os elementos que são incluídos em um projeto do Azure Stream Analytics
    |Alias de saída  |  Saída   |  Insira um nome para identificar a saída do trabalho.   |
    |Coletor   |  Armazenamento de Blobs |  Escolha o coletor apropriado.    |
    |Recurso  |  Forneça as configurações da fonte de dados manualmente |  Escolha entre inserir os dados manualmente ou selecione uma conta existente.   |
-   |Subscription  |  \<Sua assinatura\>   | Selecione a assinatura do Azure que tem a conta de armazenamento criada. A conta de armazenamento pode estar na mesma assinatura ou em uma diferente. Este exemplo pressupõe que você criou a conta de armazenamento na mesma assinatura.   |
+   |Subscription  |  \<Your subscription\>   | Selecione a assinatura do Azure que tem a conta de armazenamento criada. A conta de armazenamento pode estar na mesma assinatura ou em uma diferente. Este exemplo pressupõe que você criou a conta de armazenamento na mesma assinatura.   |
    |Conta de Armazenamento  |  asaquickstartstorage   |  Escolha ou insira o nome da conta de armazenamento. Os nomes das contas de armazenamento são detectados automaticamente quando elas são criadas na mesma assinatura.   |
    |Contêiner  |  container1   |  Selecione o contêiner existente que você criou em sua conta de armazenamento.   |
    |Padrão de caminho  |  output   |  Digite o nome do caminho de arquivo a ser criado dentro do contêiner.   |
@@ -151,8 +151,8 @@ Observe os elementos que são incluídos em um projeto do Azure Stream Analytics
 
    ```sql
    SELECT *
-   INTO BlobOutput
-   FROM IoTHubInput
+   INTO Output
+   FROM Input
    HAVING Temperature > 27
    ```
 

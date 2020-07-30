@@ -4,16 +4,16 @@ description: 'Tutorial: Este tutorial mostra como capturar dados do hub de event
 services: event-hubs
 ms.date: 06/23/2020
 ms.topic: tutorial
-ms.openlocfilehash: b5f38c1a5b60dc8c8f0d9e8710c5dbc95434fe78
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 8d45681b53aa2dd8df8c2288fecdde1b45fb7bd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322493"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039490"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Tutorial: Migrar dados dos Hubs de Eventos capturados para um SQL Data Warehouse usando a Grade de Eventos e o Azure Functions
 
-A [captura](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) dos Hubs de Eventos é a maneira mais fácil de enviar dados transmitidos nos Hubs de Eventos automaticamente para um Armazenamento de Blobs do Azure ou para um Azure Data Lake Store. Posteriormente, você pode processar e enviar os dados para outros destinos de armazenamento de sua escolha, como o SQL Data Warehouse ou o Cosmos DB. Neste tutorial, você aprenderá a capturar dados do hub de eventos em um SQL data warehouse usando uma função do Azure disparada por uma [grade de eventos](https://docs.microsoft.com/azure/event-grid/overview).
+A [captura](./event-hubs-capture-overview.md) dos Hubs de Eventos é a maneira mais fácil de enviar dados transmitidos nos Hubs de Eventos automaticamente para um Armazenamento de Blobs do Azure ou para um Azure Data Lake Store. Posteriormente, você pode processar e enviar os dados para outros destinos de armazenamento de sua escolha, como o SQL Data Warehouse ou o Cosmos DB. Neste tutorial, você aprenderá a capturar dados do hub de eventos em um SQL data warehouse usando uma função do Azure disparada por uma [grade de eventos](../event-grid/overview.md).
 
 ![Visual Studio](./media/store-captured-data-data-warehouse/EventGridIntegrationOverview.PNG)
 
@@ -178,7 +178,4 @@ Depois de alguns minutos, consulte a tabela no SQL data warehouse. Observe que o
 ## <a name="next-steps"></a>Próximas etapas 
 Você pode usar as ferramentas de visualização de dados avançada com o data warehouse para obter insights acionáveis.
 
-Este artigo mostra como usar o [Power BI com o SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-integrate-power-bi)
-
-
-
+Este artigo mostra como usar o [Power BI com o SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-integrate-power-bi)
