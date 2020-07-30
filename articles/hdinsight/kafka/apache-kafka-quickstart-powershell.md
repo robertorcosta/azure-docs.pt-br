@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: d14d8f38ff8a2bed01584d5c5fec56d254cede05
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 57f9338841b599e10c8a1d7eec8fd4f371ceecb9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73494743"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081008"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Início Rápido: Criar um cluster do Apache Kafka no Azure HDInsight usando o PowerShell
 
@@ -31,7 +31,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-* O [Módulo Az](https://docs.microsoft.com/powershell/azure/overview) do PowerShell instalado.
+* O [Módulo Az](https://docs.microsoft.com/powershell/azure/) do PowerShell instalado.
 
 * Um cliente SSH. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

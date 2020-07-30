@@ -3,23 +3,20 @@ title: 'Início Rápido: Biblioteca do armazenamento de Filas do Azure v12: .NET
 description: Saiba como usar a biblioteca .NET de Filas do Azure v12 para criar uma fila e adicionar mensagens a ela. Em seguida, você aprenderá a ler e excluir mensagens da fila. Você também aprenderá a excluir uma fila.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/22/2019
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: c69aa91596ff203445aa4fa3ccd59001ffe16649
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5931311368a6389386adb689a505feeeed03b29c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78197480"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289187"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Início Rápido: Biblioteca de clientes do armazenamento de Filas do Azure v12 para .NET
 
 Introdução à biblioteca de clientes do armazenamento de Filas do Azure versão 12 para .NET. O armazenamento de Filas do Azure é um serviço usado para armazenar grandes quantidades de mensagens para recuperação e processamento posteriores. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas.
-
-> [!NOTE]
-> Para começar a usar a versão anterior do SDK, confira [Início Rápido: Usar o SDK do Armazenamento do Azure v11 para .NET para gerenciar uma fila](storage-quickstart-queues-dotnet-legacy.md).
 
 Use a biblioteca de clientes do armazenamento de Filas do Azure v12 para .NET para:
 
@@ -31,7 +28,12 @@ Use a biblioteca de clientes do armazenamento de Filas do Azure v12 para .NET pa
 * Excluir mensagens de uma fila
 * Excluir uma fila
 
-[Documentação de referência da API](/dotnet/api/azure.storage.queues) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) | [Exemplos](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+Recursos adicionais:
+
+* [Documentação de referência da API](/dotnet/api/azure.storage.queues)
+* [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
+* [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
+* [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

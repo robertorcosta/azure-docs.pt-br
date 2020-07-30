@@ -3,12 +3,12 @@ title: Hubs de Eventos do Azure – processar eventos do Apache Kafka
 description: 'Tutorial: Este artigo mostra como processar eventos do Kafka que são ingeridos por meio de hubs de eventos, usando Azure Stream Analytics'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 8fbc1ae326cc75603f5a86361e4bc79ecc461fd6
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 6dfca5b476dff1ee3367b5365c15869c8cff819b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85313276"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074913"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Processar Apache Kafka para eventos dos Hubs de Eventos usando o Stream Analytics 
 Este artigo mostra como transmitir dados para os Hubs de Eventos e processá-los com o Azure Stream Analytics. Este artigo apresenta as seguintes etapas: 
@@ -129,7 +129,7 @@ A consulta no trabalho do Stream Analytics passa pelos dados sem executar quaisq
  
 
 ### <a name="define-a-query"></a>Definir uma consulta
-Depois configurar um trabalho do Stream Analytics para ler um fluxo de dados de entrada, a próxima etapa é criar uma transformação que analisa os dados em tempo real. Defina a consulta de transformação usando a [Linguagem de consulta do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Neste passo a passo, você define uma consulta que passa pelos dados sem executar nenhuma transformação.
+Depois configurar um trabalho do Stream Analytics para ler um fluxo de dados de entrada, a próxima etapa é criar uma transformação que analisa os dados em tempo real. Defina a consulta de transformação usando a [Linguagem de consulta do Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference). Neste passo a passo, você define uma consulta que passa pelos dados sem executar nenhuma transformação.
 
 1. Selecione **Consulta**.
 2. Na janela de consulta, substitua `[YourOutputAlias]` pelo alias de saída criado anteriormente.

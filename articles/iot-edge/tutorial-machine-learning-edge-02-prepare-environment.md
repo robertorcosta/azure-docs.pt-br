@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 42c776d4d6c3973e7c222c9c9adf3e5105f6c84f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 22628af5b3e62edfc96699ad051b6a00cf9c1429
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79296788"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078940"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Configurar um ambiente para aprendizado de máquina no IoT Edge
 
@@ -38,7 +38,7 @@ A VM de desenvolvimento será configurada com:
 * [SDK do .NET Core](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0)
+* [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/?view=azps-1.1.0)
 * [Extensões do VS Code](https://marketplace.visualstudio.com/search?target=VSCode)
   * [Ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
   * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)

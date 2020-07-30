@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: b6ad060939af0d79f93e15672af45e0224c1ca5c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 5b8ca2f578881b3e8bd557fa5aaac618bcab1599
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84708541"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073448"
 ---
 # <a name="use-powershell-to-add-a-managed-instance-to-a-failover-group"></a>Usar o PowerShell para adicionar uma instância gerenciada a um grupo de failover 
 
@@ -76,6 +76,6 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/).
 
 Exemplos adicionais de scripts do PowerShell para a Instância Gerenciada SQL podem ser encontrados nos [Scripts de PowerShell da Instância Gerenciada de SQL do Azure](../../database/powershell-script-content-guide.md).

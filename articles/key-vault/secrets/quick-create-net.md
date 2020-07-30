@@ -7,12 +7,12 @@ ms.date: 03/12/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 57832060fee9010f21eeb77723cf6058f169a4ee
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: a0e27927c91c8b8ed1cfca410e08a5eb90117f58
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125525"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076714"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>Início Rápido: biblioteca de clientes do Azure Key Vault para .NET (SDK v4)
 
@@ -32,7 +32,7 @@ O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usa
 
 * Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * O [SDK do .NET Core 3.1 ou posterior](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview)
+* [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/)
 
 Este início rápido pressupõe que você esteja executando `dotnet`, a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) e comandos do Windows em um terminal do Windows (como o [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), o [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6) ou o [Azure Cloud Shell](https://shell.azure.com/)).
 
@@ -76,113 +76,19 @@ dotnet add package Azure.Identity
 
 ### <a name="create-a-resource-group-and-key-vault"></a>Criar um grupo de recursos e um cofre de chaves
 
-Este início rápido usa um Azure Key Vault pré-criado. Você pode criar um cofre de chaves seguindo as etapas no [Início rápido da CLI do Azure](quick-create-cli.md), no [Início rápido do Azure PowerShell](quick-create-powershell.md) ou no [Início rápido do portal do Azure](quick-create-portal.md). Como alternativa, você pode simplesmente executar os comandos da CLI do Azure abaixo.
-
-> [!Important]
-> Cada cofre de chaves deve ter um nome exclusivo. Substitua <seu-nome-de cofre-de-chaves-exclusivo> pelo nome do seu cofre de chaves nos exemplos a seguir.
-
-```azurecli
-az group create --name "myResourceGroup" -l "EastUS"
-
-az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
-```
-
-```azurepowershell
-New-AzResourceGroup -Name myResourceGroup -Location EastUS
-
-New-AzKeyVault -Name <your-unique-keyvault-name> -ResourceGroupName myResourceGroup -Location EastUS
-```
+[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
 ### <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
-A maneira mais simples de autenticar um aplicativo .NET baseado em nuvem é com uma identidade gerenciada; confira [Usar uma identidade gerenciada do Serviço de Aplicativo para acessar o Azure Key Vault](../general/managed-identity.md) para obter detalhes. 
-
-Para simplificar, no entanto, este início rápido cria um aplicativo de console do .NET, que requer o uso de uma entidade de serviço e uma política de controle de acesso. Sua entidade de serviço requer um nome exclusivo no formato "http://&lt;my-unique-service-principal-name&gt;".
-
-Crie uma entidade de serviço usando o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) da CLI do Azure:
-
-```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
-```
-
-Essa operação retornará uma série de pares de chave/valor. 
-
-```console
-{
-  "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
-  "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
-  "subscriptionId": "443e30da-feca-47c4-b68f-1636b75e16b3",
-  "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
-  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-  "resourceManagerEndpointUrl": "https://management.azure.com/",
-  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-  "galleryEndpointUrl": "https://gallery.azure.com/",
-  "managementEndpointUrl": "https://management.core.windows.net/"
-}
-```
-
-Crie uma entidade de serviço usando o comando [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) do Azure PowerShell:
-
-```azurepowershell
-# Create a new service principal
-$spn = New-AzADServicePrincipal -DisplayName "http://&lt;my-unique-service-principal-name&gt;"
-
-# Get the tenant ID and subscription ID of the service principal
-$tenantId = (Get-AzContext).Tenant.Id
-$subscriptionId = (Get-AzContext).Subscription.Id
-
-# Get the client ID
-$clientId = $spn.ApplicationId
-
-# Get the client Secret
-$bstr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($spn.Secret)
-$clientSecret = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
-```
-
-Para obter mais detalhes sobre a entidade de serviço com o Azure PowerShell, veja [Criar uma entidade de serviço do Azure com o Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
-
-Anote o clientId, clientSecret e tenantid, pois os usaremos nas próximas etapas.
-
+[!INCLUDE [Create a service principal](../../../includes/key-vault-sp-creation.md)]
 
 #### <a name="give-the-service-principal-access-to-your-key-vault"></a>Fornecer acesso à entidade de serviço ao seu cofre de chaves
 
-Crie uma política de acesso para o cofre de chaves que concede permissão à entidade de serviço passando a clientId para o comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy). Conceda à entidade de serviço permissões para obter, listar e definir chaves e segredos.
-
-```azurecli
-az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions list get set delete purge
-```
-
-```azurepowershell
-Set-AzKeyVaultAccessPolicy -VaultName <your-unique-keyvault-name> -ServicePrincipalName <clientId-of-your-service-principal> -PermissionsToSecrets list,get,set,delete,purge
-```
+[!INCLUDE [Give the service principal access to your key vault](../../../includes/key-vault-sp-kv-access.md)]
 
 #### <a name="set-environmental-variables"></a>Definir variáveis de ambiente
 
-O método DefaultAzureCredential em nosso aplicativo depende de três variáveis ambientais: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET` e `AZURE_TENANT_ID`. Use definir essas variáveis para os valores clientId, clientSecret e tenantId anotados na etapa acima [Criar uma entidade de serviço](#create-a-service-principal).
-
-Você também precisará salvar o nome do cofre de chaves como uma variável de ambiente chamada `KEY_VAULT_NAME`;
-
-```console
-setx AZURE_CLIENT_ID <your-clientID>
-
-setx AZURE_CLIENT_SECRET <your-clientSecret>
-
-setx AZURE_TENANT_ID <your-tenantId>
-
-setx KEY_VAULT_NAME <your-key-vault-name>
-````
-
-Sempre que chamar `setx`, você deverá receber uma resposta de "ÊXITO: o valor especificado foi salvo. "
-
-```shell
-AZURE_CLIENT_ID=<your-clientID>
-
-AZURE_CLIENT_SECRET=<your-clientSecret>
-
-AZURE_TENANT_ID=<your-tenantId>
-
-KEY_VAULT_NAME=<your-key-vault-name>
-```
+[!INCLUDE [Set environmental variables](../../../includes/key-vault-set-environmental-variables.md)]
 
 ## <a name="object-model"></a>Modelo de objeto
 

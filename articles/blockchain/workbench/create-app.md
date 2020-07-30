@@ -4,12 +4,12 @@ description: Tutorial sobre como criar um aplicativo de blockchain na versão pr
 ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
-ms.openlocfilehash: 33a9e9c10c07d0808626353a7edfd505e0f60bc9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7be79757f506ea9fb854a248e77f0ff4f1b74f47
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74324816"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073107"
 ---
 # <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Tutorial: Criar um aplicativo de blockchain no Azure Blockchain Workbench
 
@@ -329,7 +329,7 @@ Para adicionar um aplicativo de blockchain ao Blockchain Workbench, você pode c
 A implantação do aplicativo blockchain leva alguns minutos. Quando a implantação for concluída, o novo aplicativo é exibido em **Aplicativos**. 
 
 > [!NOTE]
-> Você também pode criar aplicativos blockchain usando o [API REST do Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench).
+> Você também pode criar aplicativos blockchain usando o [API REST do Azure Blockchain Workbench](/rest/api/azure-blockchain-workbench).
 
 ## <a name="add-blockchain-application-members"></a>Adicionar membros do aplicativo blockchain
 
