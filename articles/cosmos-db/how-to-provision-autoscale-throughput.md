@@ -5,21 +5,22 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/10/2020
-ms.openlocfilehash: 59feabce099087edb011df471561229bfa88a289
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/29/2020
+ms.openlocfilehash: e8dadbad309a146500db342f55bee9339fde6172
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85118722"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430980"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Provisionar taxa de transferência de dimensionamento automático em um banco de dados ou contêiner no Azure Cosmos DB
 
-Este artigo explica como provisionar taxa de transferência de dimensionamento automático em um banco de dados ou contêiner (coleção, grafo ou tabela) no Azure Cosmos DB. Você pode habilitar o dimensionamento automático em um único contêiner ou provisionar taxa de transferência de dimensionamento automático em um banco de dados e compartilhá-la entre todos os contêineres no banco de dados. 
+Este artigo explica como provisionar taxa de transferência de dimensionamento automático em um banco de dados ou contêiner (coleção, grafo ou tabela) no Azure Cosmos DB. Você pode habilitar o dimensionamento automático em um único contêiner ou provisionar taxa de transferência de dimensionamento automático em um banco de dados e compartilhá-la entre todos os contêineres no banco de dados.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
 ### <a name="create-new-database-or-container-with-autoscale"></a>Criar novo banco de dados ou contêiner com dimensionamento automático
+
 1. Entre no [Portal do Azure](https://portal.azure.com) ou no [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 
 1. Vá até sua conta do Azure Cosmos DB e abra a guia **Data Explorer**.
@@ -51,12 +52,14 @@ Para provisionar o dimensionamento automático no banco de dados de taxa de tran
 > Quando você habilita o dimensionamento automático em um banco de dados ou contêiner existente, o valor inicial para o máximo de RU/s é determinado pelo sistema com base nas suas configurações e armazenamento de taxa de transferência provisionada manual atual. Após a operação ser concluída, você poderá alterar o máximo de RU/s, se necessário. [Saiba mais.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
 
 ## <a name="azure-cosmos-db-net-v3-sdk-for-sql-api"></a>SDK do .NET V3 do Azure Cosmos DB para a API do SQL
+
 Use a [versão 3.9 ou superior](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) do SDK do .NET do Azure Cosmos DB para a API do SQL para gerenciar recursos de dimensionamento automático. 
 
 > [!IMPORTANT]
 > É possível usar o SDK do .NET para criar novos recursos de dimensionamento automático. O SDK não suporta a migração entre o dimensionamento automático e a taxa de transferência padrão (manual). No momento, o cenário de migração é suportado apenas no portal do Azure. 
 
 ### <a name="create-database-with-shared-throughput"></a>Criar banco de dados com taxa de transferência compartilhada
+
 ```csharp
 // Create instance of CosmosClient
 CosmosClient cosmosClient = new CosmosClient(Endpoint, PrimaryKey);
@@ -69,6 +72,7 @@ database = await cosmosClient.CreateDatabaseAsync(DatabaseName, throughputProper
 ```
 
 ### <a name="create-container-with-dedicated-throughput"></a>Criar contêiner com taxa de transferência dedicada
+
 ```csharp
 // Get reference to database that container will be created in
 Database database = await cosmosClient.GetDatabase("DatabaseName");
@@ -82,6 +86,7 @@ container = await database.CreateContainerAsync(autoscaleContainerProperties, au
 ```
 
 ### <a name="read-the-current-throughput-rus"></a>Ler a taxa de transferência atual (RU/s)
+
 ```csharp
 // Get a reference to the resource
 Container container = cosmosClient.GetDatabase("DatabaseName").GetContainer("ContainerName");
@@ -97,16 +102,18 @@ int? currentThroughput = autoscaleContainerThroughput.Throughput;
 ```
 
 ### <a name="change-the-autoscale-max-throughput-rus"></a>Alterar a taxa de transferência máxima do dimensionamento automático (RU/s)
+
 ```csharp
 // Change the autoscale max throughput (RU/s)
 await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThroughput(newAutoscaleMaxThroughput));
 ```
 
 ## <a name="azure-cosmos-db-java-v4-sdk-for-sql-api"></a>SDK do Java V4 do Azure Cosmos DB para a API do SQL
-Você pode usar a [versão 4.0 ou superior](https://mvnrepository.com/artifact/com.azure/azure-cosmos) do SDK do Java do Azure Cosmos DB para a API do SQL para gerenciar recursos de dimensionamento automático. 
+
+Você pode usar a [versão 4.0 ou superior](https://mvnrepository.com/artifact/com.azure/azure-cosmos) do SDK do Java do Azure Cosmos DB para a API do SQL para gerenciar recursos de dimensionamento automático.
 
 > [!IMPORTANT]
-> Você pode usar o SDK do Java para criar novos recursos de dimensionamento automático. O SDK não suporta a migração entre o dimensionamento automático e a taxa de transferência padrão (manual). No momento, o cenário de migração é suportado apenas no portal do Azure. 
+> Você pode usar o SDK do Java para criar novos recursos de dimensionamento automático. O SDK não suporta a migração entre o dimensionamento automático e a taxa de transferência padrão (manual). No momento, o cenário de migração é suportado apenas no portal do Azure.
 
 ### <a name="create-database-with-shared-throughput"></a>Criar banco de dados com taxa de transferência compartilhada
 
@@ -233,18 +240,26 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newAutoscaleMaxThroughput));
 ```
 
---- 
+---
 
-## <a name="cassandra-api"></a>API Cassandra 
-Veja este artigo sobre [como usar os comandos CQL](manage-scale-cassandra.md#use-autoscale) para habilitar o dimensionamento automático.
+## <a name="cassandra-api"></a>API Cassandra
 
-## <a name="azure-cosmos-db-api-for-mongodb"></a>API do Azure Cosmos DB para MongoDB 
-Veja este artigo sobre [como usar os comandos da extensão MongoDB](mongodb-custom-commands.md) para habilitar o dimensionamento automático.
+Azure Cosmos DB contas para API do Cassandra podem ser provisionadas para dimensionamento automático usando [comandos CQL](manage-scale-cassandra.md#use-autoscale), [CLI do Azure](cli-samples.md)ou [modelos Azure Resource Manager](resource-manager-samples.md).
+
+## <a name="azure-cosmos-db-api-for-mongodb"></a>API do Azure Cosmos DB para MongoDB
+
+Contas de Azure Cosmos DB para a API do MongoDB podem ser provisionadas para dimensionamento automático usando [comandos de extensão do MongoDB](mongodb-custom-commands.md), [CLI do Azure](cli-samples.md)ou [modelos de Azure Resource Manager](resource-manager-samples.md).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
-Você pode usar um modelo do Resource Manager para provisionar taxa de transferência de dimensionamento automático em um banco de dados ou contêiner para qualquer API. Veja este [artigo](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput) para obter uma amostra.
+
+Azure Resource Manager modelos podem ser usados para provisionar a taxa de transferência de dimensionamento automático em recursos de banco de dados ou de contêiner para todas as APIs de Azure Cosmos DB Consulte [Azure Resource Manager modelos para Azure Cosmos DB](resource-manager-samples.md) para obter exemplos.
+
+## <a name="azure-cli"></a>CLI do Azure
+
+CLI do Azure pode ser usado para provisionar a taxa de transferência de autoescala em um banco de dados ou recursos de nível de contêiner para todas as APIs de Azure Cosmos DB Para obter exemplos, consulte [exemplos de CLI do Azure para Azure Cosmos DB](cli-samples.md).
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * Saiba mais sobre as [benefícios da taxa de transferência provisionada com o dimensionamento automático](provision-throughput-autoscale.md#benefits-of-autoscale).
 * Saiba como [escolher entre taxa de transferência manual e de dimensionamento automático](how-to-choose-offer.md).
 * Examine as [Perguntas frequentes sobre dimensionamento automático](autoscale-faq.md).

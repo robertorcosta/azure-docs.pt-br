@@ -9,16 +9,16 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: d24449f942a8c0da6774ebb2aa85f94a3088b36c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: aa11d17aaba28819c4c5ecfb259eea2d8d12ce7d
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324940"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431879"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Readaptação e implantação de um serviço Web clássico do Studio (clássico)
 
-**aplica-se a:** ![ Não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) 
+**aplica-se a:** ![ Sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ sem](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 Treinar novamente os modelos de machine learning é uma forma de fazer com que eles permaneçam precisos e baseados nos dados mais relevantes disponíveis. Este artigo mostrará como readaptar um serviço Web clássico do Studio (clássico). Para obter um guia sobre como treinar novamente um novo serviço Web de estúdio (clássico), [Veja este artigo de instruções.](retrain-machine-learning-model.md)

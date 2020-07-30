@@ -3,14 +3,14 @@ title: Configuração de regras de firewall IP para o Barramento de Serviço do 
 description: Como usar Regras de Firewall para permitir conexões de endereços IP específicos para o Barramento de Serviço do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: a5ae491f82e73c5364788dff8b531e81d17ebb68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 378f8a6331c18b2c99e3e08e83021878f7384c2b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341438"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418501"
 ---
-# <a name="configure-ip-firewall-rules-for-azure-service-bus"></a>Configuração de regras de firewall IP para o Barramento de Serviço do Azure
+# <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Permitir acesso ao namespace do barramento de serviço do Azure de intervalos ou endereços IP específicos
 Por padrão, os namespaces de Barramento de Serviço são acessíveis pela Internet, desde que a solicitação acompanhe uma autenticação e uma autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Esse recurso é útil em cenários nos quais o Barramento de Serviço do Azure deve ser acessível apenas através determinados sites conhecidos. As regras de firewall permitem que você configure regras para aceitar o tráfego originado de endereços IPv4 específicos. Por exemplo, se usar o Barramento de Serviço com o [Azure ExpressRoute][express-route], crie uma **regra de firewall** para permitir o tráfego apenas de seus endereços IP da infraestrutura local ou de endereços de um gateway da NAT corporativo. 
@@ -39,10 +39,19 @@ As regras de firewall de IP são aplicadas no nível de namespace do Barramento 
 Esta seção mostra como usar o portal do Azure para criar regras de firewall de IP para um namespace do Barramento de Serviço. 
 
 1. Navegue até o **namespace do Barramento de Serviço** no [portal do Azure](https://portal.azure.com).
-2. No menu à esquerda, selecione a opção **Rede**. Por padrão, a opção **Todas as redes** está selecionada. O namespace do Barramento de Serviço aceita conexões de qualquer endereço IP. Essa configuração padrão é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
+2. No menu à esquerda, selecione a opção **rede** em **configurações**.  
+
+    > [!NOTE]
+    > Você vê a guia **rede** somente para namespaces **Premium** .  
+    
+    Por padrão, a opção **redes selecionadas** é selecionada. Se você não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nessa página, o namespace poderá ser acessado pela Internet pública (usando a chave de acesso).
+
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Página de rede-padrão" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
+    
+    Se você selecionar a opção **todas as redes** , o namespace do barramento de serviço aceitará conexões de qualquer endereço IP. Essa configuração padrão é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
 
     ![Firewall – opção "Todas as redes" selecionada](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
-1. Selecione a opção **Redes selecionadas** na parte superior da página. Na seção **Firewall**, siga estas etapas:
+1. Para permitir o acesso apenas do endereço IP especificado, selecione a opção **redes selecionadas** se ela ainda não estiver selecionada. Na seção **Firewall**, siga estas etapas:
     1. Selecione a opção **Adicionar o endereço IP do cliente** para permitir ao IP do cliente atual acesso ao namespace. 
     2. Para **intervalo de endereços**, insira um endereço IPv4 específico ou um intervalo de endereços IPv4 na notação CIDR. 
     3. Especifique se você deseja **permitir que serviços confiáveis da Microsoft ignorem esse firewall**. 
@@ -52,6 +61,9 @@ Esta seção mostra como usar o portal do Azure para criar regras de firewall de
 
         ![Firewall – opção "Todas as redes" selecionada](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
 3. Selecione **Salvar** na barra de ferramentas para salvar as configurações. Aguarde alguns minutos para que a confirmação seja exibida nas notificações do portal.
+
+    > [!NOTE]
+    > Para restringir o acesso a redes virtuais específicas, consulte [permitir o acesso de redes específicas](service-bus-service-endpoints.md).
 
 ## <a name="use-resource-manager-template"></a>Usar modelo do Resource Manager
 Esta seção tem um modelo do Azure Resource Manager de exemplo que cria uma rede virtual e uma regra de firewall.

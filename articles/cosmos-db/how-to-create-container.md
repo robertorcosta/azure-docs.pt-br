@@ -1,21 +1,21 @@
 ---
 title: Criar um contêiner no Azure Cosmos DB
-description: Saiba como criar um contêiner em Azure Cosmos DB usando portal do Azure, .net, Java, Python, Node.js e outros SDKs.
+description: Saiba como criar um contêiner em Azure Cosmos DB usando portal do Azure, .NET, Java, Python, Node.js e outros SDKs.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/24/2020
+ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: 22c51497a9c9a331f1337134fbaf7c781b9c8ba7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 761789b36e85b16f0b4482cef12645e673c73be7
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390883"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429701"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Criar um contêiner do Azure Cosmos
 
-Este artigo explica as diferentes maneiras de criar um contêiner do Azure Cosmos (coleção, tabela ou grafo). Para esse fim, você pode usar o portal do Azure, a CLI do Azure ou SDKs compatíveis. Este artigo demonstra como criar um contêiner, especificar a chave de partição e a taxa de transferência de provisionamento.
+Este artigo explica as diferentes maneiras de criar um contêiner Cosmos do Azure (coleção, tabela ou grafo) usando portal do Azure, CLI do Azure, PowerShell ou SDKs com suporte. Este artigo demonstra como criar um contêiner, especificar a chave de partição e a taxa de transferência de provisionamento.
 
 > [!NOTE]
 > Ao criar contêineres, não crie dois contêineres com o mesmo nome, mas com maiúsculas e minúsculas diferentes. Isso porque algumas partes da plataforma Azure não diferenciam maiúsculas de minúsculas, o que pode resultar em confusão/colisão de telemetria e ações em contêineres com tais nomes.
@@ -111,7 +111,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner do Azure Cosmo
 
 Os links a seguir mostram como criar recursos de contêiner para Azure Cosmos DB usando CLI do Azure.
 
-Para obter uma lista de todos os exemplos de CLI do Azure em todas as APIs de Azure Cosmos DB, consulte [API do SQL](cli-samples.md), [API do Cassandra](cli-samples-cassandra.md), [API do MongoDB](cli-samples-mongodb.md), [API do Gremlin](cli-samples-gremlin.md)e [API de tabela](cli-samples-table.md)
+Para obter uma lista de todos os exemplos de CLI do Azure em todas as APIs de Azure Cosmos DB, consulte [CLI do Azure amostras para Azure Cosmos DB](cli-samples.md).
 
 * [Criar um contêiner com CLI do Azure](manage-with-cli.md#create-a-container)
 * [Criar uma coleção para Azure Cosmos DB para a API do MongoDB com CLI do Azure](./scripts/cli/mongodb/create.md)
@@ -123,7 +123,7 @@ Para obter uma lista de todos os exemplos de CLI do Azure em todas as APIs de Az
 
 Os links a seguir mostram como criar recursos de contêiner para Azure Cosmos DB usando o PowerShell.
 
-Para obter uma lista de todos os exemplos de CLI do Azure em todas as APIs de Azure Cosmos DB, consulte [API do SQL](powershell-samples-sql.md), [API do Cassandra](powershell-samples-cassandra.md), [API do MongoDB](powershell-samples-mongodb.md), [API do Gremlin](powershell-samples-gremlin.md)e [API de tabela](powershell-samples-table.md)
+Para obter uma lista de todos os exemplos do PowerShell em todas as APIs de Azure Cosmos DB, consulte [API do SQL](powershell-samples-sql.md), [API do Cassandra](powershell-samples-cassandra.md), [API do MongoDB](powershell-samples-mongodb.md), [API do Gremlin](powershell-samples-gremlin.md)e [API de tabela](powershell-samples-table.md)
 
 * [Criar um contêiner com o PowerShell](manage-with-powershell.md#create-container)
 * [Criar uma coleção para o Azure Cosmos DB para a API do MongoDB com o PowerShell](./scripts/powershell/mongodb/ps-mongodb-create.md)

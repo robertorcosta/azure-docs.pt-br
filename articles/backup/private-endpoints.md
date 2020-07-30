@@ -3,12 +3,12 @@ title: Pontos de extremidade privados
 description: Entenda o processo de criação de pontos de extremidade privados para o backup do Azure e os cenários em que o uso de pontos de extremidade privados ajuda a manter a segurança de seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: e9c8f142e9781946f572f6f3a744d8bc2736a3de
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9a50a655af02bc2bfa188225209024cfbaa82a7c
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503754"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432864"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos de extremidade privados para o backup do Azure
 
@@ -21,7 +21,7 @@ Este artigo o ajudará a entender o processo de criação de pontos de extremida
 - Pontos de extremidade privados só podem ser criados para novos cofres de serviços de recuperação (que não têm nenhum item registrado no cofre). Portanto, os pontos de extremidade privados devem ser criados antes de tentar proteger os itens para o cofre.
 - Uma rede virtual pode conter pontos de extremidade privados para vários cofres de serviços de recuperação. Além disso, um cofre dos serviços de recuperação pode ter pontos de extremidade privados para ele em várias redes virtuais. No entanto, o número máximo de pontos de extremidade privados que podem ser criados para um cofre é 12.
 - Depois que um ponto de extremidade privado for criado para um cofre, o cofre será bloqueado. Ele não poderá ser acessado (para backups e restaurações) de redes que contêm um ponto de extremidade privado para o cofre. Se todos os pontos de extremidade privados para o cofre forem removidos, o cofre poderá ser acessado de todas as redes.
-- Uma conexão de ponto de extremidade privada para backup usa um total de 11 IPs privados em sua sub-rede. Esse número pode ser maior (até 15) para determinadas regiões do Azure. Portanto, sugerimos que você tenha IPs privados suficientes disponíveis ao tentar criar pontos de extremidade privados para backup.
+- Uma conexão de ponto de extremidade privada para backup usa um total de 11 IPs privados em sua sub-rede. Esse número pode ser maior (até 25) para determinadas regiões do Azure. Portanto, sugerimos que você tenha IPs privados suficientes disponíveis ao tentar criar pontos de extremidade privados para backup.
 - Embora um cofre dos serviços de recuperação seja usado pelo (ambos) backup e Azure Site Recovery do Azure, este artigo aborda o uso de pontos de extremidade privados somente para o backup do Azure.
 - No momento, o Azure Active Directory não dá suporte a pontos de extremidade privados. Portanto, os IPs e FQDNs necessários para Azure Active Directory trabalhar em uma região precisarão ter acesso de saída da rede protegida ao executar o backup de bancos de dados em VMs do Azure e fazer backup usando o agente MARS. Você também pode usar marcas NSG e marcas de firewall do Azure para permitir o acesso ao Azure AD, conforme aplicável.
 - As redes virtuais com políticas de rede não têm suporte para pontos de extremidade privados. Você precisará desabilitar as políticas de rede antes de continuar.
@@ -546,25 +546,25 @@ Zona DNS para o serviço Fila ( `privatelink.queue.core.windows.net` ):
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 Q. Posso criar um ponto de extremidade privado para um cofre de backup existente?<br>
-a. Não, os pontos de extremidade privados só podem ser criados para novos cofres de backup. Portanto, o cofre não deve ter nenhum item protegido. Na verdade, nenhuma tentativa de proteger itens para o cofre pode ser feita antes da criação de pontos de extremidade privados.
+A. Não, os pontos de extremidade privados só podem ser criados para novos cofres de backup. Portanto, o cofre não deve ter nenhum item protegido. Na verdade, nenhuma tentativa de proteger itens para o cofre pode ser feita antes da criação de pontos de extremidade privados.
 
 Q. Tentei proteger um item ao meu cofre, mas ele falhou e o cofre ainda não contém itens protegidos. Posso criar pontos de extremidade privados para este cofre?<br>
-a. Não, o cofre não deve ter nenhuma tentativa de proteger nenhum item para ele no passado.
+A. Não, o cofre não deve ter nenhuma tentativa de proteger nenhum item para ele no passado.
 
 Q. Tenho um cofre que está usando pontos de extremidade privados para backup e restauração. Posso adicionar ou remover pontos de extremidade particulares para este cofre, mesmo se eu tiver itens de backup protegidos?<br>
 a. Sim. Se você já tiver criado pontos de extremidade privados para um cofre e itens de backup protegidos, será possível adicionar ou remover pontos de extremidade privados posteriormente, conforme necessário.
 
 Q. O ponto de extremidade privado para o backup do Azure também pode ser usado para Azure Site Recovery?<br>
-a. Não, o ponto de extremidade privado para backup só pode ser usado para o backup do Azure. Você precisará criar um novo ponto de extremidade privado para Azure Site Recovery, se ele tiver suporte do serviço.
+A. Não, o ponto de extremidade privado para backup só pode ser usado para o backup do Azure. Você precisará criar um novo ponto de extremidade privado para Azure Site Recovery, se ele tiver suporte do serviço.
 
 Q. Eu perdi uma das etapas neste artigo e passei para proteger minha fonte de dados. Ainda posso usar pontos de extremidade privados?<br>
-a. Não seguir as etapas no artigo e continuar a proteger os itens pode levar o cofre a não conseguir usar pontos de extremidade privados. Portanto, é recomendável que você consulte esta lista de verificação antes de continuar a proteger os itens.
+A. Não seguir as etapas no artigo e continuar a proteger os itens pode levar o cofre a não conseguir usar pontos de extremidade privados. Portanto, é recomendável que você consulte esta lista de verificação antes de continuar a proteger os itens.
 
 Q. Posso usar meu próprio servidor DNS em vez de usar a zona DNS privada do Azure ou uma zona DNS privada integrada?<br>
-a. Sim, você pode usar seus próprios servidores DNS. No entanto, verifique se todos os registros DNS necessários foram adicionados conforme sugerido nesta seção.
+A. Sim, você pode usar seus próprios servidores DNS. No entanto, verifique se todos os registros DNS necessários foram adicionados conforme sugerido nesta seção.
 
 Q. É necessário executar qualquer etapa adicional no meu servidor depois de seguir o processo neste artigo?<br>
-a. Depois de seguir o processo detalhado neste artigo, você não precisa fazer mais trabalho para usar pontos de extremidade privados para backup e restauração.
+A. Depois de seguir o processo detalhado neste artigo, você não precisa fazer mais trabalho para usar pontos de extremidade privados para backup e restauração.
 
 ## <a name="next-steps"></a>Próximas etapas
 

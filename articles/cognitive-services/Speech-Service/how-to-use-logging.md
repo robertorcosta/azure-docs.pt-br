@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: 707a0f801a739a7a91cee19635e609305cd8f021
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 21f4494bedd824cef373a391c5635e35ec2600d0
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74805783"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406870"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Habilitar o registro em log no SDK de fala
 
@@ -26,7 +27,7 @@ O registro em log no arquivo é um recurso opcional para o SDK de fala. Durante 
 
 ## <a name="sample"></a>Amostra
 
-O nome do arquivo de log é especificado em um objeto de configuração. Considerando o `SpeechConfig` como um exemplo e supondo que você criou uma instância chamada `config`:
+O nome do arquivo de log é especificado em um objeto de configuração. Considerando o `SpeechConfig` como um exemplo e supondo que você criou uma instância chamada `config` :
 
 ```csharp
 config.SetProperty(PropertyId.Speech_LogFilename, "LogfilePathAndName");
@@ -51,13 +52,13 @@ config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName
 Você pode criar um reconhecedor a partir do objeto de configuração. Isso habilitará o registro em log para todos os reconhecedores.
 
 > [!NOTE]
-> Se você criar um `SpeechSynthesizer` do objeto de configuração, ele não habilitará o registro em log. No entanto, se o `SpeechSynthesizer`registro em log estiver habilitado, você também receberá diagnósticos do.
+> Se você criar um `SpeechSynthesizer` do objeto de configuração, ele não habilitará o registro em log. No entanto, se o registro em log estiver habilitado, você também receberá diagnósticos do `SpeechSynthesizer` .
 
 ## <a name="create-a-log-file-on-different-platforms"></a>Criar um arquivo de log em diferentes plataformas
 
 Para Windows ou Linux, o arquivo de log pode estar em qualquer caminho para o qual o usuário tenha permissão de gravação. As permissões de gravação para locais do sistema de arquivos em outros sistemas operacionais podem ser limitadas ou restritas por padrão.
 
-### <a name="universal-windows-platform-uwp"></a>UWP (Plataforma Universal do Windows)
+### <a name="universal-windows-platform-uwp"></a>Plataforma Universal do Windows (UWP)
 
 Os aplicativos UWP precisam ser colocados nos arquivos de log em um dos locais de dados do aplicativo (local, móvel ou temporário). Um arquivo de log pode ser criado na pasta do aplicativo local:
 
@@ -79,7 +80,7 @@ File logFile = new File(dir, "logfile.txt");
 config.setProperty(PropertyId.Speech_LogFilename, logFile.getAbsolutePath());
 ```
 
-O código acima salvará um arquivo de log no armazenamento externo na raiz de um diretório específico do aplicativo. Um usuário pode acessar o arquivo com o Gerenciador de arquivos (geralmente `Android/data/ApplicationName/logfile.txt`em). O arquivo será excluído quando o aplicativo for desinstalado.
+O código acima salvará um arquivo de log no armazenamento externo na raiz de um diretório específico do aplicativo. Um usuário pode acessar o arquivo com o Gerenciador de arquivos (geralmente em `Android/data/ApplicationName/logfile.txt` ). O arquivo será excluído quando o aplicativo for desinstalado.
 
 Você também precisa solicitar `WRITE_EXTERNAL_STORAGE` permissão no arquivo de manifesto:
 
@@ -118,4 +119,4 @@ Mais sobre o sistema de arquivos do iOS está disponível [aqui](https://develop
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Explorar nossas amostras no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar nossos exemplos no GitHub](https://aka.ms/csspeech/samples)

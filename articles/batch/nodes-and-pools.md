@@ -3,12 +3,12 @@ title: Nós e pools no Lote do Azure
 description: Saiba mais sobre nós e pools de computação e como eles são usados em um fluxo de trabalho do Lote do Azure do ponto de vista de desenvolvimento.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 5707d834a7d99e147a81ee2b39952863a63ed695
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 16a5309711b9c8633da9ba473c1b55bc2e54c334
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144930"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385748"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nós e pools no Lote do Azure
 
@@ -119,7 +119,7 @@ Para obter mais informações, confira [Escolha um tamanho de VM para nós de co
 
 Para as cargas de trabalho dinâmicas, aplique uma fórmula de dimensionamento automático em um pool. O serviço de Lote avaliará periodicamente a fórmula e ajustará dinamicamente o número de nós dentro do pool de acordo com a carga de trabalho e o uso de recursos atuais do cenário de computação. Isso permite reduzir o custo geral de execução do aplicativo usando apenas os recursos necessários e liberando os que você não precisa.
 
-Você habilita o dimensionamento automático escrevendo uma [fórmula de dimensionamento automático](batch-automatic-scaling.md#automatic-scaling-formulas) e associando-a a um pool. O serviço de Lote usa a fórmula para determinar o número de nós no pool de destino para o próximo intervalo de dimensionamento (um intervalo que você pode configurar). Você pode especificar as configurações de dimensionamento automático para um pool ao criá-lo ou habilitar o dimensionamento mais tarde em um pool. Você também pode atualizar as configurações de dimensionamento em um pool com dimensionamento habilitado.
+Você habilita o dimensionamento automático escrevendo uma [fórmula de dimensionamento automático](batch-automatic-scaling.md#autoscale-formulas) e associando-a a um pool. O serviço de Lote usa a fórmula para determinar o número de nós no pool de destino para o próximo intervalo de dimensionamento (um intervalo que você pode configurar). Você pode especificar as configurações de dimensionamento automático para um pool ao criá-lo ou habilitar o dimensionamento mais tarde em um pool. Você também pode atualizar as configurações de dimensionamento em um pool com dimensionamento habilitado.
 
 Por exemplo, talvez um trabalho exija que você envie um grande número de tarefas a serem executadas. Você pode atribuir uma fórmula de dimensionamento ao pool que ajusta o número de nós nele com base no número atual de tarefas enfileiradas e a taxa de conclusão das tarefas no trabalho. Periodicamente, o serviço de Lote avalia a fórmula e redimensiona o pool com base na carga de trabalho e em outras configurações da fórmula. O serviço adiciona nós conforme necessário quando há um grande número de tarefas em fila e remove os nós quando não existem tarefas em execução ou fila.
 

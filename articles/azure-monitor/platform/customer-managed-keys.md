@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: 3835046e50180e1d1091f5083f276c7c1ad56612
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: eec056cbe246f129fb78e15faa0027846c271181
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117367"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382943"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave do Azure Monitor gerenciada pelo cliente 
 
@@ -187,8 +187,8 @@ Crie ou use um Azure Key Vault que você já tem para gerar ou importe uma chave
 
 Essas configurações podem ser atualizadas por meio da CLI e do PowerShell:
 
-- [Exclusão Reversível](../../key-vault/general/overview-soft-delete.md)
-- A [proteção contra limpeza](../../key-vault/general/overview-soft-delete.md#purge-protection) protege contra a exclusão forçada do segredo/cofre mesmo após a exclusão temporária
+- [Exclusão Reversível](../../key-vault/general/soft-delete-overview.md)
+- A [proteção contra limpeza](../../key-vault/general/soft-delete-overview.md#purge-protection) protege contra a exclusão forçada do segredo/cofre mesmo após a exclusão temporária
 
 ### <a name="create-cluster-resource"></a>Criar recurso de *cluster*
 
@@ -706,8 +706,8 @@ Após a configuração, qualquer consulta de alerta nova será salva no armazena
 - A criptografia CMK se aplica a dados recentemente incluídos após a configuração do CMK.  Os dados que foram ingeridos antes da configuração de CMK, permanecem criptografados com a chave da Microsoft.  Você pode consultar dados ingeridos antes e depois da configuração do CMK sem problemas.
 
 - O Azure Key Vault deve ser configurado como recuperável. Essas propriedades não são habilitadas por padrão e devem ser configuradas usando a CLI ou o PowerShell:<br>
-  - [Exclusão Reversível](../../key-vault/general/overview-soft-delete.md)
-  - A [proteção de limpeza](../../key-vault/general/overview-soft-delete.md#purge-protection) deve ser ativada para proteção contra a exclusão forçada do segredo/cofre mesmo após a exclusão reversível.
+  - [Exclusão Reversível](../../key-vault/general/soft-delete-overview.md)
+  - A [proteção de limpeza](../../key-vault/general/soft-delete-overview.md#purge-protection) deve ser ativada para proteção contra a exclusão forçada do segredo/cofre mesmo após a exclusão reversível.
 
 - A movimentação de recursos de *cluster* para outro grupo de recursos ou assinatura não tem suporte no momento.
 
@@ -763,7 +763,7 @@ Após a configuração, qualquer consulta de alerta nova será salva no armazena
   -  400--o cluster está em estado de exclusão. A operação assíncrona está em andamento. O cluster deve concluir sua operação antes que qualquer operação de atualização seja executada.
   -  400--keyvaultproperties não está vazio, mas tem um formato inválido. Consulte [atualização do identificador de chave](#update-cluster-resource-with-key-identifier-details).
   -  400--falha ao validar a chave no Key Vault. Pode ser devido à falta de permissões ou quando a chave não existe. Verifique se você [definiu a política de acesso e chave](#grant-key-vault-permissions) no Key Vault.
-  -  400--a chave não é recuperável. Key Vault deve ser definido como exclusão reversível e proteção de limpeza. Consulte a [documentação do Key Vault](../../key-vault/general/overview-soft-delete.md)
+  -  400--a chave não é recuperável. Key Vault deve ser definido como exclusão reversível e proteção de limpeza. Consulte a [documentação do Key Vault](../../key-vault/general/soft-delete-overview.md)
   -  400--a operação não pode ser executada agora. Aguarde a conclusão da operação assíncrona e tente novamente.
   -  400--o cluster está em estado de exclusão. Aguarde a conclusão da operação assíncrona e tente novamente.
 

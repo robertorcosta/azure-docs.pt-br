@@ -1,6 +1,5 @@
 ---
-title: Implantar um serviço Web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clássico): implantar um serviço Web-Azure'
 description: Como converter um teste de treinamento em um experimento de previsão, prepará-lo para implantação e implantá-lo como um serviço Web Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 3fcf4e180233c6ceaa552b3505462639569ed974
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8195d310de708e48b27b5a2d81023d02792be1d3
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696381"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429472"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Implantar um serviço Web Azure Machine Learning Studio (clássico)
+
+**aplica-se a:** ![ Sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ sem](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+
 
 Azure Machine Learning Studio (clássico) permite que você crie e teste uma solução analítica preditiva. Em seguida, é possível implantar a solução como um serviço Web.
 
@@ -40,7 +42,7 @@ Em um ponto de exibição de alto nível, implante seu modelo em três etapas:
 
 Para treinar um modelo de análise preditiva, você usa Azure Machine Learning Studio (clássico) para criar um teste de treinamento no qual você inclui vários módulos para carregar dados de treinamento, preparar os dados conforme necessário, aplicar algoritmos de aprendizado de máquina e avaliar os resultados. Você pode iterar em um teste e testar algoritmos de aprendizado de máquina diferentes para comparar e avaliar os resultados.
 
-O processo de criar e gerenciar testes de treinamento é abordado mais detalhadamente em outro ponto. Para obter mais informações, confira estes tópicos:
+O processo de criar e gerenciar testes de treinamento é abordado mais detalhadamente em outro ponto. Para obter mais informações, consulte estes artigos:
 
 * [Criar um experimento simples no Azure Machine Learning Studio (clássico)](create-experiment.md)
 * [Desenvolver uma solução preditiva com Azure Machine Learning Studio (clássico)](tutorial-part1-credit-risk.md)

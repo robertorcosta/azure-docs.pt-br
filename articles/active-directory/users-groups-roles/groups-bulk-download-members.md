@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65a6a622a0d3fac7b28cc699d860068f12b780fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9abfe79989dbefe79a001e4638c7318bd99d54a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728598"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421698"
 ---
 # <a name="bulk-download-members-of-a-group-in-azure-active-directory"></a>Fazer download de membros em massa de um grupo no Azure Active Directory
 
@@ -37,7 +37,7 @@ Usando o portal do Azure Active Directory (AD do Azure), você pode fazer o down
 
 É possível ver o status de todas as suas solicitações em massa pendentes na página **Resultados da operação em massa**.
 
-[![](media/groups-bulk-download-members/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-download-members/bulk-center.png#lightbox)
+[![Verifique o status na página resultados de operações em massa.](media/groups-bulk-download-members/bulk-center.png)](media/groups-bulk-download-members/bulk-center.png#lightbox)
 
 ## <a name="bulk-download-service-limits"></a>Limites do serviço de download em massa
 

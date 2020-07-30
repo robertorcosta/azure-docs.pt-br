@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 7c52e8dfa3cda40cc663b5d7f27b67c7d2ad0b60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9e50cdb16ee6acbdb903681984dcfbd7bfe170fa
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078658"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386122"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para os Aplicativos Lógicos do Azure
 
@@ -28,21 +28,20 @@ Este artigo mostra como baixar, instalar e configurar o gateway de dados local p
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta e uma assinatura do Azure. Se você não tiver uma conta do Azure com uma assinatura, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma conta e uma assinatura do Azure. Se você não tiver uma conta do Azure com uma assinatura, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-  * Sua conta do Azure deve pertencer a um único [locatário ou diretório do Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Você deve usar a mesma conta do Azure para instalar e administrar o gateway no computador local.
-
-  * Durante a instalação do gateway, você entra com sua conta do Azure, que vincula a instalação do gateway apenas à sua conta do Azure. Posteriormente, no portal do Azure, você deve usar a mesma conta do Azure e o locatário do Azure Active Directory ao criar um recurso de gateway do Azure que registra e declara a instalação do seu gateway. Em Aplicativos Lógicos do Azure, gatilhos e ações locais usam o recurso de gateway para se conectar a fontes de dados locais.
+  * Sua conta do Azure precisa ser uma conta corporativa ou de estudante, que se parece com `username@contoso.com` . Você não pode usar contas do B2B (convidado) do Azure ou contas pessoais da Microsoft, como @hotmail.com ou @outlook.com.
 
     > [!NOTE]
-    > Você pode vincular apenas uma instalação de gateway a um recurso de gateway do Azure. Não é possível vincular a mesma instalação de gateway a várias contas do Azure ou recursos de gateway do Azure. No entanto, uma conta do Azure pode ser vinculada a várias instalações de gateway e recursos de gateway do Azure. Em um gatilho ou ação local, você pode selecionar uma das suas várias assinaturas do Azure e, em seguida, escolher um recurso de gateway associado.
+    > Se você se inscreveu para uma oferta do Office 365 e não informou seu email de trabalho, seu endereço deve se parecer com este: `username@domain.onmicrosoft.com`. Sua conta é armazenada em um locatário do Azure AD. Na maioria dos casos, o UPN (nome principal do usuário) da sua conta do Azure é o mesmo que seu endereço de email.
 
-  * Você precisa entrar com uma conta corporativa ou de estudante, também conhecida como uma conta de *organização*, como esta: `username@contoso.com`. Você não pode usar contas do B2B (convidado) do Azure ou contas pessoais da Microsoft, como @hotmail.com ou @outlook.com.
+    Para usar uma [assinatura padrão do Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) associada a um conta Microsoft, primeiro [crie um locatário do Azure ad](../active-directory/develop/quickstart-create-new-tenant.md) ou use o diretório padrão. Adicione um usuário com uma senha ao diretório e, em seguida, forneça o acesso a esse usuário à sua assinatura do Azure. Em seguida, você pode entrar durante a instalação do gateway com esse nome de usuário e senha.
 
-    > [!TIP]
-    > Se você se inscreveu para uma oferta do Office 365 e não informou seu email de trabalho, seu endereço deve se parecer com este: `username@domain.onmicrosoft.com`. Sua conta é armazenada em um locatário no Azure AD (Azure Active Directory). Na maioria dos casos, o UPN da sua conta do Azure Active Directory é igual ao seu endereço de email.
-    >
-    > Para usar uma [assinatura Standard do Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) vinculada a uma conta Microsoft, [crie um locatário no Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md) ou use o diretório padrão. Adicione um usuário com uma senha ao diretório e, em seguida, forneça o acesso a esse usuário à sua assinatura do Azure. Em seguida, você pode entrar durante a instalação do gateway com esse nome de usuário e senha.
+  * Sua conta do Azure deve pertencer somente a um único [locatário ou diretório do Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Você precisa usar a mesma conta do Azure para instalar e administrar o gateway no computador local.
+
+  * Ao instalar o gateway, você entra com sua conta do Azure, que vincula a instalação do seu gateway à sua conta do Azure e apenas essa conta. Não é possível vincular a mesma instalação de gateway em várias contas do Azure ou locatários do Azure AD.
+
+  * Posteriormente no portal do Azure, você precisa usar a mesma conta do Azure para criar um recurso de gateway do Azure que esteja vinculado à instalação do seu gateway. Você pode vincular apenas uma instalação de gateway a um recurso de gateway do Azure. No entanto, sua conta do Azure pode ser vinculada a diferentes instalações de gateway que estão associadas a um recurso de gateway do Azure. Seus aplicativos lógicos podem usar esse recurso de gateway em gatilhos e ações que podem acessar fontes de dados locais.
 
 * Aqui estão os requisitos para o computador local:
 

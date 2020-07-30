@@ -1,6 +1,5 @@
 ---
-title: Otimizar algoritmos
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clássico): otimizar algoritmos – Azure'
 description: Explica como escolher o conjunto de parâmetros ideal para um algoritmo no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 52853bb14b49d429100dabeffc46661289f55c84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5daa15dd01be3726ea1ff8e093d1fe94d1755122
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711197"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432931"
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Escolher parâmetros para otimizar os algoritmos no Azure Machine Learning Studio (clássico)
+# <a name="choose-parameters-to-optimize-your-algorithms-in-machine-learning-studio-classic"></a>Escolha os parâmetros para otimizar seus algoritmos no Machine Learning Studio (clássico)
+
+**aplica-se a:** ![ Sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ sem](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 Este tópico descreve como escolher o conjunto de hiperparâmetros corretos para um algoritmo no Azure Machine Learning Studio (clássico). A maioria dos algoritmos de Machine Learning tem parâmetros para serem definidos. Ao treinar um modelo, você precisa fornecer valores para esses parâmetros. A eficácia do modelo treinado depende dos parâmetros do modelo que você escolhe. O processo de localizar o melhor conjunto de parâmetros é conhecido como *seleção de modelo*.
 

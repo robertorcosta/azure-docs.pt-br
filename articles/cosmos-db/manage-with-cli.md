@@ -4,14 +4,14 @@ description: Use a CLI do Azure para gerenciar sua conta, banco de dados e cont�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/03/2020
+ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: 97b5118f74cbd098beea804c312ed08f1a152873
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ae29039702a6f73a33f73afc366532077aa4b71
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067168"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432835"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gerenciar Microsoft Azure Cosmos usando a CLI do Azure
 
@@ -19,7 +19,7 @@ O guia a seguir descreve os comandos comuns para automatizar o gerenciamento de 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando o CLI do Azure versão 2.9.1 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="azure-cosmos-accounts"></a>Contas do Azure Cosmos
 
@@ -308,6 +308,7 @@ az lock delete --ids $lockid
 As seguintes seções demonstram como gerenciar o contêiner do Azure Cosmos DB, incluindo:
 
 * [Criar um contêiner](#create-a-container)
+* [Criar um contêiner com dimensionamento automático](#create-a-container-with-autoscale)
 * [Criar um contêiner com TTL habilitado](#create-a-container-with-ttl)
 * [Criar um contêiner com a política de índice personalizada](#create-a-container-with-a-custom-index-policy)
 * [Alterar a taxa de transferência do contêiner](#change-container-throughput)
@@ -330,6 +331,25 @@ az cosmosdb sql container create \
     -a $accountName -g $resourceGroupName \
     -d $databaseName -n $containerName \
     -p $partitionKey --throughput $throughput
+```
+
+### <a name="create-a-container-with-autoscale"></a>Criar um contêiner com dimensionamento automático
+
+Crie um contêiner cosmos com a política de índice padrão, a chave de partição e a autoescala RU/s de 4000.
+
+```azurecli-interactive
+# Create a SQL API container
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+partitionKey='/myPartitionKey'
+maxThroughput=4000
+
+az cosmosdb sql container create \
+    -a $accountName -g $resourceGroupName \
+    -d $databaseName -n $containerName \
+    -p $partitionKey --max-throughput $maxThroughput
 ```
 
 ### <a name="create-a-container-with-ttl"></a>Criar um contêiner com TTL

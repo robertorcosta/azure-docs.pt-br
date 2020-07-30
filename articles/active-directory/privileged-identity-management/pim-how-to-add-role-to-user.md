@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 07/01/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cdea30e7b630b2fa62b004f98cb67fd1994f915
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a3370ea52c5bd189f929c0f81a0aa9b59cc77b97
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024139"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421375"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Atribuir funções do Azure AD no Privileged Identity Management
 
@@ -33,7 +33,7 @@ A partir de novembro de 2019, a parte das funções do Azure AD da Privileged Id
 1. Entre no [portal do Azure](https://portal.azure.com/) com um usuário que esteja na função de [administrador de função com privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 1. Abra **Azure ad Privileged Identity Management**. Se você tiver uma faixa na parte superior da página Visão geral, siga as instruções na **nova guia versão** deste artigo. Caso contrário, siga as instruções na guia **versão anterior** .
 
-  [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
+  [![Selecione Azure AD > Privileged Identity Management.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 # <a name="new-version"></a>[Nova versão](#tab/new)
 

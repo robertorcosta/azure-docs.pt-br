@@ -3,12 +3,12 @@ title: Suporte para migração do VMware nas migrações para Azure
 description: Saiba mais sobre o suporte para migração de VM do VMware nas migrações para Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 5b53ae811786b1712ccd833ff155c408010d4fa4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9de0609361e67d5251b25df798b61a4ab13e432c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022728"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387414"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração do VMware
 
@@ -59,22 +59,22 @@ A tabela resume os requisitos de migração sem agente para VMs VMware.
 **Tamanho do disco** | disco do sistema operacional de 2 TB; 8 TB para discos de dados.
 **Limites de disco** |  Até 60 discos por VM.
 **Discos/volumes criptografados** | VMs com discos/volumes criptografados não têm suporte para migração.
-**Cluster de disco compartilhado** | Sem suporte.
-**Discos independentes** | Sem suporte.
+**Cluster de disco compartilhado** | Não há suporte.
+**Discos independentes** | Não há suporte.
 **Discos de RDM/PassThrough** | Se as VMs tiverem discos RDM ou de passagem, esses discos não serão replicados para o Azure.
 **NFS** | Volumes NFS montados como volumes nas VMs não serão replicados.
 **destinos iSCSI** | Não há suporte para VMs com destinos iSCSI para migração sem agente.
-**E/s de vários caminhos** | Sem suporte.
-**VMotion de armazenamento** | Sem suporte. A replicação não funcionará se uma VM usar o Storage vMotion.
-**NICs agrupadas** | Sem suporte.
-**Protocolo** | Sem suporte.
+**E/s de vários caminhos** | Não há suporte.
+**VMotion de armazenamento** | Não há suporte. A replicação não funcionará se uma VM usar o Storage vMotion.
+**NICs agrupadas** | Não há suporte.
+**Protocolo** | Não há suporte.
 **Disco de destino** | As VMs só podem ser migradas para discos gerenciados (HDD padrão, SSD Premium) no Azure.
 **Replicação simultânea** | 300 VMs por vCenter Server. Se você tiver mais, migre-os em lotes de 300.
 
 
 ### <a name="appliance-requirements-agentless"></a>Requisitos de dispositivo (sem agente)
 
-A migração sem agente usa o [dispositivo de migrações para Azure](migrate-appliance.md). Você pode implantar o dispositivo como uma VM do VMWare usando um modelo OVA, importado para o vCenter Server, ou usando um [script do PowerShell](deploy-appliance-script.md).
+A migração sem agente usa o [dispositivo de migrações para Azure](migrate-appliance.md). Você pode implantar o dispositivo como uma VM VMware usando um modelo OVA, importado para vCenter Server ou usando um [script do PowerShell](deploy-appliance-script.md).
 
 - Saiba mais sobre os [requisitos de dispositivo](migrate-appliance.md#appliance---vmware) para VMware.
 - Saiba mais sobre as URLs do Azure que o dispositivo precisa acessar nas nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais](migrate-appliance.md#government-cloud-urls).
@@ -121,15 +121,15 @@ A tabela resume o suporte de VM do VMware para VMs VMware que você deseja migra
 **Tamanho do disco** | disco do sistema operacional de 2 TB; 8 TB para discos de dados.
 **Limites de disco** |  Até 63 discos por VM.
 **Discos/volumes criptografados** | VMs com discos/volumes criptografados não têm suporte para migração.
-**Cluster de disco compartilhado** | Sem suporte.
+**Cluster de disco compartilhado** | Não há suporte.
 **Discos independentes** | Com suporte.
 **Discos de passagem** | Com suporte.
 **NFS** | Volumes NFS montados como volumes nas VMs não serão replicados.
 **destinos iSCSI** | Não há suporte para VMs com destinos iSCSI para migração sem agente.
-**E/s de vários caminhos** | Sem suporte.
-**VMotion de armazenamento** | Suportado
-**NICs agrupadas** | Sem suporte.
-**Protocolo** | Sem suporte.
+**E/s de vários caminhos** | Não há suporte.
+**VMotion de armazenamento** | Com suporte
+**NICs agrupadas** | Não há suporte.
+**Protocolo** | Não há suporte.
 
 
 
@@ -155,7 +155,7 @@ Servidor de processo | O servidor de processo recebe dados de replicação, otim
 
 Todas as VMs locais replicadas para o Azure, com migração baseada em agente ou sem agente) devem atender aos requisitos de VM do Azure resumidos nesta tabela. 
 
-**Componente** | **Requirements** 
+**Componente** | **Requisitos** 
 --- | --- | ---
 Sistema operacional convidado | Verifica os sistemas operacionais de VM VMware com suporte para migração.<br/> Você pode migrar qualquer carga de trabalho em execução em um sistema operacional com suporte. 
 Arquitetura do sistema operacional convidado | 64 bits. 
@@ -164,9 +164,9 @@ Contagem do disco do sistema operacional | 1
 Contagem de disco de dados | 64 ou menos. 
 Tamanho do disco de dados | Até 8.095 GB
 Adaptadores de rede | Há suporte para vários adaptadores.
-VHD compartilhado | Sem suporte. 
-Disco FC | Sem suporte. 
-BitLocker | Sem suporte.<br/><br/> O BitLocker deve ser desabilitado antes da migração do computador.
+VHD compartilhado | Não há suporte. 
+Disco FC | Não há suporte. 
+BitLocker | Não há suporte.<br/><br/> O BitLocker deve ser desabilitado antes da migração do computador.
 Nome da VM | De 1 a 63 caracteres.<br/><br/> Restrito a letras, números e hifens.<br/><br/> O nome do computador precisa começar e terminar com uma letra ou um número. 
 Conectar após a migração-Windows | Para se conectar às VMs do Azure que executam o Windows após a migração:<br/><br/> -Antes da migração, habilite o RDP na VM local.<br/><br/> Certifique-se de que as regras TCP e UDP são adicionadas ao perfil **Público** e que o RDP é permitido no **Firewall do Windows** > **Aplicativos Permitidos** para todos os perfis.<br/><br/> Para acesso VPN site a site, habilite o RDP e permita que o RDP no **Firewall do Windows**tenha  ->  **aplicativos e recursos permitidos** para redes privadas e de **domínio** .<br/><br/> Além disso, verifique se a política de SAN do sistema operacional está definida como **OnlineAll**. [Saiba mais](prepare-for-migration.md).
 Conectar após a migração-Linux | Para se conectar às VMs do Azure após a migração usando SSH:<br/><br/> Antes da migração, no computador local, verifique se o serviço Secure Shell está definido como iniciar e se as regras de firewall permitem uma conexão SSH.<br/><br/> Após o failover, na VM do Azure, permita conexões de entrada para a porta SSH para as regras do grupo de segurança de rede na VM com failover e para a sub-rede do Azure à qual ela está conectada.<br/><br/> Além disso, adicione um endereço IP público para a VM.  

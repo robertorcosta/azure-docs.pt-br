@@ -7,16 +7,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 04/15/2020
-ms.openlocfilehash: cc12204c5eabf857fd1143e71df9b2b505d88a23
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4c900700fa1588cd341171a0176c19acc51129a4
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318650"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430962"
 ---
 # <a name="download-notebookspreview-data"></a>Baixar dados de blocos de anotações (versão prévia)
 
-**aplica-se a:** ![ Não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) 
+**aplica-se a:** ![ Sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ sem](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 O recurso notebooks (versão prévia) foi removido em *abril de 13 2020*. A remoção dos arquivos de bloco de anotações (visualização) e de bloco de anotações do usuário está sendo distribuída no momento para regiões do Azure em todo o mundo.
 

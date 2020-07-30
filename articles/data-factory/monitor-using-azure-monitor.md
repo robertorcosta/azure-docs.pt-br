@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: b7f58c13181c9ec966d548096ffc2756d5d333e3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: ac083f842bf10adcbb23e3e1c1157383e11f3af9
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124861"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432431"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Monitorar e alertar Data Factory usando Azure Monitor
 
@@ -111,8 +111,8 @@ Essa solução fornece um resumo da integridade geral do seu Data Factory, com o
 A instalação dessa solução cria um conjunto padrão de modos de exibição dentro da seção pastas de trabalho do espaço de trabalho Log Analytics escolhido. Como resultado, as seguintes métricas são habilitadas:
 
 * Execuções do ADF-1) execuções de pipeline por Data Factory
-* Execuções do ADF-2) execuções de atividade por fator de dados
-* Execuções do ADF-3) execuções de gatilho por fator de dados
+* Execuções do ADF-2) execuções de atividade por Data Factory
+* Execuções do ADF-3) execuções de gatilho por Data Factory
 * Erros do ADF-1) 10 principais erros de pipeline por Data Factory
 * Erros do ADF-2) primeiras 10 execuções de atividade por Data Factory
 * Erros do ADF-3) 10 principais erros de gatilho por Data Factory
@@ -199,7 +199,7 @@ Entre no portal do Azure e selecione **monitorar**  >  **alertas** para criar al
 
 ## <a name="set-up-diagnostic-logs-via-the-azure-monitor-rest-api"></a>Configurar logs de diagnóstico por meio da API REST do Azure Monitor
 
-### <a name="diagnostic-settings"></a>Configurações de diagnóstico
+### <a name="diagnostic-settings"></a>Configurações de Diagnóstico
 
 Use as configurações de diagnóstico para configurar os logs de diagnóstico para recursos que não são de computação. As configurações de um controle de recurso têm os seguintes recursos:
 
@@ -221,7 +221,7 @@ PUT
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-##### <a name="headers"></a>Cabeçalhos
+##### <a name="headers"></a>headers
 
 * Substitua `{api-version}` por `2016-09-01`.
 * Substitua `{resource-id}` pela ID do recurso para o qual você deseja editar as configurações de diagnóstico. Para obter mais informações, consulte [usando grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
@@ -341,7 +341,7 @@ GET
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-##### <a name="headers"></a>Cabeçalhos
+##### <a name="headers"></a>headers
 
 * Substitua `{api-version}` por `2016-09-01`.
 * Substitua `{resource-id}` pela ID do recurso para o qual você deseja editar as configurações de diagnóstico. Para obter mais informações, consulte [usando grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
@@ -451,7 +451,7 @@ Para obter mais informações, consulte [configurações de diagnóstico](https:
 |**pipelineRunId**| Cadeia de caracteres| A ID da execução do pipeline. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |**resourceId**| Cadeia de caracteres | A ID associada ao recurso de data Factory. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**category**| Cadeia de caracteres | A categoria dos logs de diagnóstico. Defina o valor da propriedade `ActivityRuns`. | `ActivityRuns` |
-|**nível**| Cadeia de caracteres | O nível dos logs de diagnóstico. Defina o valor da propriedade `Informational`. | `Informational` |
+|**geral**| Cadeia de caracteres | O nível dos logs de diagnóstico. Defina o valor da propriedade `Informational`. | `Informational` |
 |**operationName**| Cadeia de caracteres | O nome da atividade com seu status. Se a atividade for a pulsação inicial, o valor da propriedade será `MyActivity -` . Se a atividade for a pulsação final, o valor da propriedade será `MyActivity - Succeeded` . | `MyActivity - Succeeded` |
 |**pipelineName**| Cadeia de caracteres | O nome do pipeline. | `MyPipeline` |
 |**activityName**| Cadeia de caracteres | O nome da atividade. | `MyActivity` |
@@ -496,7 +496,7 @@ Para obter mais informações, consulte [configurações de diagnóstico](https:
 |**runId**| Cadeia de caracteres| A ID da execução do pipeline. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |**resourceId**| Cadeia de caracteres | A ID associada ao recurso de data Factory. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**category**| Cadeia de caracteres | A categoria dos logs de diagnóstico. Defina o valor da propriedade `PipelineRuns`. | `PipelineRuns` |
-|**nível**| Cadeia de caracteres | O nível dos logs de diagnóstico. Defina o valor da propriedade `Informational`. | `Informational` |
+|**geral**| Cadeia de caracteres | O nível dos logs de diagnóstico. Defina o valor da propriedade `Informational`. | `Informational` |
 |**operationName**| Cadeia de caracteres | O nome do pipeline junto com seu status. Depois que a execução do pipeline for concluída, o valor da propriedade será `Pipeline - Succeeded` . | `MyPipeline - Succeeded`. |
 |**pipelineName**| Cadeia de caracteres | O nome do pipeline. | `MyPipeline` |
 |**start**| Cadeia de caracteres | A hora de início da atividade é executada no formato UTC de TimeSpan. | `2017-06-26T20:55:29.5007959Z`. |
@@ -539,7 +539,7 @@ Para obter mais informações, consulte [configurações de diagnóstico](https:
 |**triggerId**| Cadeia de caracteres| A ID da execução do gatilho. | `08587023010602533858661257311` |
 |**resourceId**| Cadeia de caracteres | A ID associada ao recurso de data Factory. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**category**| Cadeia de caracteres | A categoria dos logs de diagnóstico. Defina o valor da propriedade `PipelineRuns`. | `PipelineRuns` |
-|**nível**| Cadeia de caracteres | O nível dos logs de diagnóstico. Defina o valor da propriedade `Informational`. | `Informational` |
+|**geral**| Cadeia de caracteres | O nível dos logs de diagnóstico. Defina o valor da propriedade `Informational`. | `Informational` |
 |**operationName**| Cadeia de caracteres | O nome do gatilho com seu status final, que indica se o gatilho foi acionado com êxito. Se a pulsação tiver sido bem-sucedida, o valor da propriedade será `MyTrigger - Succeeded` . | `MyTrigger - Succeeded` |
 |**triggerName**| Cadeia de caracteres | O nome do gatilho. | `MyTrigger` |
 |**triggerType**| Cadeia de caracteres | O tipo do gatilho. Os valores de propriedade possíveis são `Manual Trigger` e `Schedule Trigger` . | `ScheduleTrigger` |
@@ -576,7 +576,7 @@ Aqui estão os atributos de log das operações de início/parada/manutenção d
 | **correlationId**          | Cadeia de caracteres | A ID exclusiva para acompanhar uma operação específica             | `f13b159b-515f-4885-9dfa-a664e949f785Deprovision0059035558` |
 | **dataFactoryName**        | Cadeia de caracteres | O nome do ADF                                          | `MyADFv2` |
 | **integrationRuntimeName** | Cadeia de caracteres | O nome do seu IR do SSIS                                      | `MySSISIR` |
-| **nível**                  | Cadeia de caracteres | O nível dos logs de diagnóstico                                  | `Informational` |
+| **geral**                  | Cadeia de caracteres | O nível dos logs de diagnóstico                                  | `Informational` |
 | **resultType**             | Cadeia de caracteres | O resultado da operação de IR do SSIS                          | `Started/InProgress/Succeeded/Failed` |
 | **message**                | Cadeia de caracteres | A mensagem de saída da operação de IR do SSIS                  | `The stopping of your SSIS integration runtime has succeeded.` |
 | **resourceId**             | Cadeia de caracteres | A ID exclusiva do recurso do ADF                            | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -616,7 +616,7 @@ Aqui estão os atributos de log das condições relacionadas às mensagens de ev
 | **correlationId**          | Cadeia de caracteres | A ID exclusiva para acompanhar uma operação específica                    | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | Cadeia de caracteres | O nome do ADF                                                 | `MyADFv2` |
 | **integrationRuntimeName** | Cadeia de caracteres | O nome do seu IR do SSIS                                             | `MySSISIR` |
-| **nível**                  | Cadeia de caracteres | O nível dos logs de diagnóstico                                         | `Informational` |
+| **geral**                  | Cadeia de caracteres | O nível dos logs de diagnóstico                                         | `Informational` |
 | **operationId**            | Cadeia de caracteres | A ID exclusiva para acompanhar uma operação específica no SSISDB          | `1`(1 significa operações relacionadas a pacotes **não** armazenados no SSISDB/invocado via T-SQL) |
 | **contextDepth**           | Cadeia de caracteres | A profundidade do seu contexto de mensagem de evento                              | `0`(0 significa o contexto antes do início da execução do pacote, 1 significa o contexto quando ocorre um erro e aumenta à medida que o contexto está além do erro) |
 | **packagePath**            | Cadeia de caracteres | O caminho do objeto de pacote como sua fonte de contexto de mensagem de evento      | `\Package` |
@@ -666,7 +666,7 @@ Aqui estão os atributos de log das mensagens de evento que são geradas pelas e
 | **correlationId**          | Cadeia de caracteres | A ID exclusiva para acompanhar uma operação específica                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | Cadeia de caracteres | O nome do ADF                                               | `MyADFv2` |
 | **integrationRuntimeName** | Cadeia de caracteres | O nome do seu IR do SSIS                                           | `MySSISIR` |
-| **nível**                  | Cadeia de caracteres | O nível dos logs de diagnóstico                                       | `Informational` |
+| **geral**                  | Cadeia de caracteres | O nível dos logs de diagnóstico                                       | `Informational` |
 | **operationId**            | Cadeia de caracteres | A ID exclusiva para acompanhar uma operação específica no SSISDB        | `1`(1 significa operações relacionadas a pacotes **não** armazenados no SSISDB/invocado via T-SQL) |
 | **mensagemtime**            | Cadeia de caracteres | A hora em que a mensagem de evento é criada no formato UTC          | `2017-06-28T21:00:27.3534352Z` |
 | **messageType**            | Cadeia de caracteres | O tipo de sua mensagem de evento                                     | `70`(veja [mais tipos de mensagem](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
@@ -715,7 +715,7 @@ Aqui estão os atributos de log das estatísticas de executável que são gerado
 | **correlationId**          | Cadeia de caracteres | A ID exclusiva para acompanhar uma operação específica                | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | Cadeia de caracteres | O nome do ADF                                             | `MyADFv2` |
 | **integrationRuntimeName** | Cadeia de caracteres | O nome do seu IR do SSIS                                         | `MySSISIR` |
-| **nível**                  | Cadeia de caracteres | O nível dos logs de diagnóstico                                     | `Informational` |
+| **geral**                  | Cadeia de caracteres | O nível dos logs de diagnóstico                                     | `Informational` |
 | **executionId**            | Cadeia de caracteres | A ID exclusiva para acompanhar uma execução específica no SSISDB      | `1`(1 significa execuções relacionadas a pacotes **não** armazenados no SSISDB/invocado via T-SQL) |
 | **executionPath**          | Cadeia de caracteres | O caminho completo do pacote pai para o componente executado          | `\Transformation\Data Flow Task`(Esse caminho também captura iterações de componente) |
 | **startTime**              | Cadeia de caracteres | A hora em que o executável entra na fase de pré-execução no formato UTC  | `2017-06-28T21:00:27.3534352Z` |
@@ -760,7 +760,7 @@ Aqui estão os atributos de log das estatísticas de tempo de execução para co
 | **correlationId**          | Cadeia de caracteres | A ID exclusiva para acompanhar uma operação específica                   | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**        | Cadeia de caracteres | O nome do ADF                                                | `MyADFv2` |
 | **integrationRuntimeName** | Cadeia de caracteres | O nome do seu IR do SSIS                                            | `MySSISIR` |
-| **nível**                  | Cadeia de caracteres | O nível dos logs de diagnóstico                                        | `Informational` |
+| **geral**                  | Cadeia de caracteres | O nível dos logs de diagnóstico                                        | `Informational` |
 | **executionId**            | Cadeia de caracteres | A ID exclusiva para acompanhar uma execução específica no SSISDB         | `1`(1 significa execuções relacionadas a pacotes **não** armazenados no SSISDB/invocado via T-SQL) |
 | **packageName**            | Cadeia de caracteres | O nome do arquivo de pacote executado                              | `MyPackage.dtsx` |
 | **Tarefa**               | Cadeia de caracteres | O nome da tarefa de fluxo de dados executada                                 | `Data Flow Task` |
@@ -808,7 +808,7 @@ Aqui estão os atributos de log de movimentação de dados em cada segmento de p
 | **correlationId**            | Cadeia de caracteres | A ID exclusiva para acompanhar uma operação específica                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
 | **dataFactoryName**          | Cadeia de caracteres | O nome do ADF                                               | `MyADFv2` |
 | **integrationRuntimeName**   | Cadeia de caracteres | O nome do seu IR do SSIS                                           | `MySSISIR` |
-| **nível**                    | Cadeia de caracteres | O nível dos logs de diagnóstico                                       | `Informational` |
+| **geral**                    | Cadeia de caracteres | O nível dos logs de diagnóstico                                       | `Informational` |
 | **executionId**              | Cadeia de caracteres | A ID exclusiva para acompanhar uma execução específica no SSISDB        | `1`(1 significa execuções relacionadas a pacotes **não** armazenados no SSISDB/invocado via T-SQL) |
 | **packageName**              | Cadeia de caracteres | O nome do arquivo de pacote executado                             | `MyPackage.dtsx` |
 | **Tarefa**                 | Cadeia de caracteres | O nome da tarefa de fluxo de dados executada                                | `Data Flow Task` |
@@ -839,9 +839,9 @@ Log Analytics herda o esquema do monitor com as seguintes exceções:
     | $. Properties. Erro. mensagem | ErrorMessage | string |
     | $. Properties. Ao | Erro | Dinâmico |
     | $. Properties. Predecessores | Predecessores | Dinâmico |
-    | $. Properties. Parâmetro | Parâmetros | Dinâmico |
+    | $. Properties. Parâmetro | parâmetros | Dinâmico |
     | US $.properties.SystemParameters | SystemParameters | Dinâmico |
-    | $. Properties. Sinalizadores | Marcações | Dinâmico |
+    | $. Properties. Sinalizadores | Marcas | Dinâmico |
 
 ## <a name="monitor-ssis-operations-with-azure-monitor"></a>Monitorar operações do SSIS com o Azure Monitor
 

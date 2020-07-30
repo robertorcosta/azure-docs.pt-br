@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 9cb5b0b87b1d6adb8e0e5cda06049cfddba3d950
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 744b8e3ecf067e6f5986dde4fbf8abbe3a4c6224
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283530"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431991"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Criar vários pontos de extremidade de serviço Web de um experimento com ML Studio (clássico) e o PowerShell
 
-**aplica-se a:** ![ Não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) 
+**aplica-se a:** ![ Sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ sem](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 Este é um problema comum do aprendizado de máquina: você quer criar vários modelos que têm o mesmo fluxo de trabalho de treinamento e que usam o mesmo algoritmo. Mas quer que eles tenham conjuntos de dados de treinamento diferentes como entrada. Este artigo mostra como fazer isso em escala no Azure Machine Learning Studio (clássico) usando apenas um único experimento.
 

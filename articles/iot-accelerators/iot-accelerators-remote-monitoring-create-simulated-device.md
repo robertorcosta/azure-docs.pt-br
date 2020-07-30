@@ -8,13 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.custom: mqtt
-ms.openlocfilehash: d31e520dac1c7e2a13fbd9e24a0cd3167f69e904
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-javascript
+ms.openlocfilehash: c0aac897d85cd96d537238bc81cbc89d3626a07c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81682000"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422752"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Criar e testar um novo dispositivo simulado
 
@@ -33,7 +33,7 @@ No segundo cenário, a Contoso deseja testar um novo dispositivo de lâmpada int
 
 | Nome                     | Valores                      |
 | ------------------------ | --------------------------- |
-| Cor                    | White, Red, Blue            |
+| Color                    | White, Red, Blue            |
 | Brilho               | 0 a 100                    |
 | Vida útil restante estimada | Contagem regressiva de 10.000 horas |
 
@@ -493,7 +493,7 @@ Para configurar e executar a simulação:
 
 Para parar a simulação, selecione a solicitação **Parar a simulação** no Postman e clique em **Enviar**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Você pode parar de dois microsserviços em execução localmente em suas instâncias do Visual Studio Code (**Depurar > Parar Depuração**).
 

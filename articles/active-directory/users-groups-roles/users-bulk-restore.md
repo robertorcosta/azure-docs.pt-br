@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2800119f1a88172ea7c329fc53359bf1565a0705
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4fe5cacfec6ee85a5d61204ffce38c856b0d1baf
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731266"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423330"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Restaurar em massa usuários excluídos no Azure Active Directory
 
@@ -68,7 +68,7 @@ Se houver erros, você poderá baixar e exibir o arquivo de resultados na págin
 
 Você pode ver o status de todas as suas solicitações em massa pendentes na página **Resultados da operação em massa**.
 
-[![](media/users-bulk-restore/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-restore/bulk-center.png#lightbox)
+[![Verifique o status na página resultados de operações em massa.](media/users-bulk-restore/bulk-center.png)](media/users-bulk-restore/bulk-center.png#lightbox)
 
 Em seguida, você pode verificar para ver se os usuários restaurados existem na organização do Azure AD no portal do Azure ou usando o PowerShell.
 
