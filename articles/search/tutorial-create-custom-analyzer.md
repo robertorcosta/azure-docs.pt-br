@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/22/2020
-ms.openlocfilehash: 8d04099f2835102b8fdf63b26bd19b43b206cf6a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a9c2a5beae8a9206554dd6c432c1d8442b652696
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172248"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021878"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Tutorial: Criar um analisador personalizado para números de telefone
 
@@ -38,7 +38,7 @@ Os serviços e as ferramentas a seguir são necessários para este tutorial.
 
 ## <a name="download-files"></a>Baixar arquivos
 
-O código-fonte deste tutorial está na pasta [custom-analyzers](https://github.com/Azure-Samples/azure-search-postman-samples/custom-analyzers) no repositório do GitHub [Azure-Samples/azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples).
+O código-fonte deste tutorial está na pasta [custom-analyzers](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/custom-analyzers) no repositório do GitHub [Azure-Samples/azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples).
 
 ## <a name="1---create-azure-cognitive-search-service"></a>1 – Criar o serviço do Azure Cognitive Search
 
