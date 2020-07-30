@@ -5,12 +5,13 @@ author: KarlErickson
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
-ms.openlocfilehash: b6d7b2c60e777266b1cab578b8970c1fa1c6bc50
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-java
+ms.openlocfilehash: ef2b774195f522be3520850d2e6e7193e70dd4fb
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77425299"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372443"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Tutorial: Criar uma função em Java com um gatilho do Hub de Eventos e uma associação de saída do Azure Cosmos DB
 
@@ -445,9 +446,9 @@ az group delete --name $RESOURCE_GROUP
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a criar uma função do Azure que manipula eventos do Hub de Eventos e atualiza um Cosmos DB. Para obter mais informações, confira o [Guia do desenvolvedor de Java do Azure Functions](/azure/azure-functions/functions-reference-java). Para obter informações sobre as anotações usadas, confira a referência [com.microsoft.azure.functions.annotation](/java/api/com.microsoft.azure.functions.annotation).
+Neste tutorial, você aprendeu a criar uma função do Azure que manipula eventos do Hub de Eventos e atualiza um Cosmos DB. Para obter mais informações, confira o [Guia do desenvolvedor de Java do Azure Functions](./functions-reference-java.md). Para obter informações sobre as anotações usadas, confira a referência [com.microsoft.azure.functions.annotation](/java/api/com.microsoft.azure.functions.annotation).
 
-Este tutorial usou variáveis de ambiente e configurações de aplicativo para armazenar segredos, tais como cadeias de conexão. Para obter informações sobre como armazenar esses segredos no Azure Key Vault, confira [Usar referências do Key Vault para o Serviço de Aplicativo e o Azure Functions](/azure/app-service/app-service-key-vault-references).
+Este tutorial usou variáveis de ambiente e configurações de aplicativo para armazenar segredos, tais como cadeias de conexão. Para obter informações sobre como armazenar esses segredos no Azure Key Vault, confira [Usar referências do Key Vault para o Serviço de Aplicativo e o Azure Functions](../app-service/app-service-key-vault-references.md).
 
 Em seguida, aprenda como usar CI/CD do Azure Pipelines para implantação automatizada:
 

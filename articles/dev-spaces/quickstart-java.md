@@ -6,12 +6,13 @@ ms.topic: quickstart
 description: Este início rápido mostra como usar o Azure Dev Spaces e o Visual Studio Core para depurar e iterar rapidamente um aplicativo Java no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Java, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: ac7a1b37b565f3589b7c049a3c1ed2a84972ded0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-java
+ms.openlocfilehash: c0fd035a0341e5e92b2706d833b24d5e5b87e018
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80239744"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371559"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-java---azure-dev-spaces"></a>Início Rápido: Depurar e iterar com o Visual Studio Code e o JavaDepurar e iterar no Kubernetes com o Visual Studio Code e o Java no Kubernetes – Azure Dev Spaces
 
@@ -113,7 +114,7 @@ Selecione **Depurar** e, em seguida, **Parar Depuração** para interromper o de
 
 ## <a name="update-code"></a>Atualizar código
 
-Para implantar uma versão atualizada do serviço, atualize qualquer arquivo no projeto e execute **Iniciar Programa Java (AZDS)** novamente. Por exemplo: 
+Para implantar uma versão atualizada do serviço, atualize qualquer arquivo no projeto e execute **Iniciar Programa Java (AZDS)** novamente. Por exemplo:
 
 1. Se o aplicativo ainda estiver em execução, selecione **Depurar** e, em seguida, **Parar Depuração** para interrompê-lo.
 1. Atualize a [linha 19 em `src/main/java/com/ms/sample/webfrontend/Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) para:
@@ -141,7 +142,7 @@ Remova o ponto de interrupção colocando o cursor na linha 19 em *src/main/java
 
 ## <a name="update-code-from-visual-studio-code"></a>Atualizar o código no Visual Studio Code
 
-Enquanto o serviço estiver em execução no modo de depuração, atualize a linha 19 em *src/main/java/com/ms/sample/webfrontend/Application.java*. Por exemplo: 
+Enquanto o serviço estiver em execução no modo de depuração, atualize a linha 19 em *src/main/java/com/ms/sample/webfrontend/Application.java*. Por exemplo:
 ```java
 return "Hello from webfrontend in Azure while debugging!";
 ```

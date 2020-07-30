@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 271fd77e519ce9d78e2fa4e4837004a77cf73522
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 8b35b281f6a70d5485004dc61563271132734a87
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276049"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374143"
 ---
 # <a name="quickstart-use-synapse-studio-preview"></a>Início Rápido: Usar o Synapse Studio (versão prévia)
 
@@ -49,7 +49,7 @@ Você pode criar pastas e carregar arquivos usando os links na barra de ferramen
 ## <a name="query-files-on-storage-account"></a>Consultar arquivos na conta de armazenamento
 
 > [!IMPORTANT]
-> Você precisa ser um membro da função `Storage Blob Reader` no armazenamento subjacente para poder consultar os arquivos. Saiba como [atribuir as permissões RBAC **Leitor de Dados do Blob de Armazenamento** ou **Colaborador de Dados do Blob de Armazenamento** no Armazenamento do Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role).
+> Você precisa ser um membro da função `Storage Blob Reader` no armazenamento subjacente para poder consultar os arquivos. Saiba como [atribuir as permissões RBAC **Leitor de Dados do Blob de Armazenamento** ou **Colaborador de Dados do Blob de Armazenamento** no Armazenamento do Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-an-azure-built-in-role).
 
 1. Carregue alguns arquivos `PARQUET`.
 2. Selecione um ou mais arquivos e, em seguida, crie um script SQL ou um notebook Spark para ver o conteúdo dos arquivos. Se quiser criar um notebook, você precisará criar um [Pool do Apache Spark nos workspaces do Synapse](quickstart-create-apache-spark-pool-studio.md).
@@ -64,7 +64,7 @@ Você pode criar pastas e carregar arquivos usando os links na barra de ferramen
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Permitir que os usuários do Azure AD consultem arquivos [atribuindo as permissões RBAC **Leitor de Dados do Blob de Armazenamento** ou **Colaborador de Dados do Blob de Armazenamento** no Armazenamento do Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
+- Permitir que os usuários do Azure AD consultem arquivos [atribuindo as permissões RBAC **Leitor de Dados do Blob de Armazenamento** ou **Colaborador de Dados do Blob de Armazenamento** no Armazenamento do Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-an-azure-built-in-role)
 - [Consultar arquivos no Armazenamento do Azure usando o SQL sob demanda](sql/on-demand-workspace-overview.md)
 - [Como criar um pool do Apache Spark usando o portal do Azure](quickstart-create-apache-spark-pool-portal.md)
 - [Criar relatório do Power BI em arquivos armazenados no armazenamento do Azure](sql/tutorial-connect-power-bi-desktop.md)
