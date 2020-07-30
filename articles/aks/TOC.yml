@@ -52,8 +52,12 @@
     - name: Acesso e identidade
       href: concepts-identity.md
     - name: Segurança
-      href: concepts-security.md
-      items: null
+      items:
+        - name: Segurança para aplicativos e clusters
+          href: concepts-security.md
+        - name: Controles de segurança do Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
     - name: Rede
       href: concepts-network.md
     - name: Armazenamento

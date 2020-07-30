@@ -5,16 +5,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 4e54ca6452a219dedca56885bda28ed43991ad37
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7aef0e7e48bfd3f56bd1c3718b1a547bea66cbe8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248927"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054476"
 ---
 # <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Início Rápido: Fazer backup de uma máquina virtual no Azure com um modelo do ARM
 
-O [Backup do Azure](backup-overview.md) faz backup de aplicativos e computadores locais e VMs do Azure. Este artigo mostra como fazer backup de uma VM do Azure com o modelo do ARM (Azure Resource Manager) e o Azure PowerShell. Este início rápido concentra-se no processo de implantação de um modelo do ARM para criar um cofre dos Serviços de Recuperação. Para obter mais informações sobre como desenvolver modelos do ARM, confira a [documentação do Azure Resource Manager](/azure/azure-resource-manager/) e a [referência de modelo](/azure/templates/microsoft.recoveryservices/allversions).
+O [Backup do Azure](backup-overview.md) faz backup de aplicativos e computadores locais e VMs do Azure. Este artigo mostra como fazer backup de uma VM do Azure com o modelo do ARM (Azure Resource Manager) e o Azure PowerShell. Este início rápido concentra-se no processo de implantação de um modelo do ARM para criar um cofre dos Serviços de Recuperação. Para obter mais informações sobre como desenvolver modelos do ARM, confira a [documentação do Azure Resource Manager](../azure-resource-manager/index.yml) e a [referência de modelo](/azure/templates/microsoft.recoveryservices/allversions).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

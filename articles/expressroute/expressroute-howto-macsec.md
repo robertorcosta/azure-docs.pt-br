@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: a73a99d1e6200faf9feb227f562f5b77b0461f1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce2e4ca2cad0fc080d6a750b3f1682210a5b9b20
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737046"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387652"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Configurar o MACsec em portas diretas do ExpressRoute
 
@@ -47,7 +47,7 @@ Para iniciar a configuração, entre em sua conta do Azure e selecione a assinat
     $keyVault = New-AzKeyVault -Name "your_key_vault_name" -ResourceGroupName "your_resource_group" -Location "resource_location" -EnableSoftDelete 
     ```
 
-    Se você já tiver um cofre de chaves ou um grupo de recursos, poderá reutilizá-los. No entanto, é essencial que você habilite o recurso de [ **exclusão reversível** ](../key-vault/general/overview-soft-delete.md) em seu cofre de chaves existente. Se a exclusão reversível não estiver habilitada, você poderá usar os seguintes comandos para habilitá-la:
+    Se você já tiver um cofre de chaves ou um grupo de recursos, poderá reutilizá-los. No entanto, é essencial que você habilite o recurso de [ **exclusão reversível** ](../key-vault/general/soft-delete-overview.md) em seu cofre de chaves existente. Se a exclusão reversível não estiver habilitada, você poderá usar os seguintes comandos para habilitá-la:
 
     ```azurepowershell-interactive
     ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "your_existing_keyvault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
