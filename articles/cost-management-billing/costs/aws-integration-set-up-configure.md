@@ -3,16 +3,16 @@ title: Configurar a integração da AWS com o Gerenciamento de Custos do Azure
 description: Este artigo explica como preparar e configurar a integração do relatório de Custo e Uso da AWS com o Gerenciamento de Custos do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/02/2020
-ms.topic: conceptual
+ms.date: 07/24/2020
+ms.topic: how-to
 ms.service: cost-management-billing
 ms.reviewer: matrive
-ms.openlocfilehash: d3b1efabbf5f05c05ef939ee8713829fbd49f483
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 293fbe49572b8eacc95331de909ed5a2a00441b6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878979"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290851"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Preparar e configurar a integração do relatório de Custo e Uso da AWS
 

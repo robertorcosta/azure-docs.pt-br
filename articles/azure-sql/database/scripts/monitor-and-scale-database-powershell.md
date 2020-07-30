@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: d4f33a2601d9c19896c006af010a394f21fc8219
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 3c4695bb9dfeb9f0122d39dd335c9b733fe039b2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196848"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085031"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>Usar o PowerShell para monitorar e dimensionar um banco de dados individual no Banco de Dados SQL do Azure
 
@@ -63,6 +63,6 @@ Este script usa os comandos a seguir. Cada comando na tabela redireciona para a 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/).
 
 Exemplos de script do PowerShell adicionais podem ser encontrados em [Scripts do Azure PowerShell](../powershell-script-content-guide.md).

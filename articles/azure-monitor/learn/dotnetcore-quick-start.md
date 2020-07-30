@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: e066ef1910373734d9a6607500e45e8a9ccc80b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c9787a88cba051dcfaa58a188bf43fb03cafe70a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539747"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325161"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Começar a monitorar o aplicativo Web ASP.NET Core
 
@@ -30,7 +30,7 @@ Para concluir este guia de início rápido:
 - [Instalar o SDK 2.0 do .NET Core](https://dotnet.microsoft.com/download)
 - Você precisará de uma assinatura do Azure e de um aplicativo Web .NET Core existente.
 
-Se você não tiver um aplicativo Web ASP.NET Core, poderá usar nosso guia passo a passo para [criar um aplicativo ASP.NET Core e adicionar o Application Insights.](../../azure-monitor/app/asp-net-core.md)
+Se você não tiver um aplicativo Web ASP.NET Core, poderá usar nosso guia passo a passo para [criar um aplicativo ASP.NET Core e adicionar o Application Insights.](../app/asp-net-core.md)
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -96,7 +96,7 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
    ![Grafos de linha do tempo de Visão Geral de Integridade](./media/dotnetcore-quick-start/7kpidashboards.png)
 
-5. À esquerda, clique em **Métricas**. Use o Metrics Explorer para investigar a integridade e o uso do recurso. Você pode clicar em **Adicionar novo gráfico** para criar exibições personalizadas adicionais ou selecionar **Editar** para modificar a altura, paleta de cores, agrupamentos, métricas e tipos de gráfico existentes. Por exemplo, é possível fazer um gráfico que exiba o tempo médio de carregamento de página de um navegador selecionando "Tempo de carregamento de página do navegador" no menu suspenso de métricas e "Média" de agregação. Para saber mais sobre o Azure Metrics Explorer, acesse [Introdução ao Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+5. À esquerda, clique em **Métricas**. Use o Metrics Explorer para investigar a integridade e o uso do recurso. Você pode clicar em **Adicionar novo gráfico** para criar exibições personalizadas adicionais ou selecionar **Editar** para modificar a altura, paleta de cores, agrupamentos, métricas e tipos de gráfico existentes. Por exemplo, é possível fazer um gráfico que exiba o tempo médio de carregamento de página de um navegador selecionando "Tempo de carregamento de página do navegador" no menu suspenso de métricas e "Média" de agregação. Para saber mais sobre o Azure Metrics Explorer, acesse [Introdução ao Azure Metrics Explorer](../platform/metrics-getting-started.md).
 
      ![Guia Métricas: Gráfico de tempo médio de carregamento de página do navegador](./media/dotnetcore-quick-start/8metrics.png)
 
@@ -113,3 +113,4 @@ Quando você terminar de testar, poderá excluir o grupo de recursos e todos os 
 
 > [!div class="nextstepaction"]
 > [Localizar e diagnosticar exceções de tempo de execução](./tutorial-runtime-exceptions.md)
+

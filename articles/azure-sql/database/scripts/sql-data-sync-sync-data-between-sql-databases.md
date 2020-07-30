@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: af45e3ea33a1997b4a75d047cc5a2ec4edb3bf12
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4f24a061f94cc61cb915d088606a61ede3fb247f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196698"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084901"
 ---
 # <a name="use-powershell-to-sync-data-between-multiple-databases-in-azure-sql-database"></a>Usar o PowerShell para sincronizar dados entre vários bancos de dados no Banco de Dados SQL do Azure
 
@@ -289,7 +289,7 @@ Este script usa os comandos a seguir. Cada comando na tabela redireciona para a 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para saber mais sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/).
 
 Os exemplos de script do PowerShell do Banco de Dados SQL adicionais podem ser encontrados nos [scripts do PowerShell do Banco de Dados SQL do Azure](../powershell-script-content-guide.md).
 
